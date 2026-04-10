@@ -451,6 +451,13 @@ button {
   gap: 0.35rem;
 }
 
+.competition-card__summary {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
 .competition-card__entry {
   display: inline-flex;
   width: fit-content;

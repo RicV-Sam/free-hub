@@ -227,6 +227,13 @@ function renderCompetitionCard(competition) {
   const closingSoonBadge = shared.isClosingSoon(competition.closingDate)
     ? '<span class="badge badge--closing">&#x1F525; Closing Soon</span>'
     : "";
+  const brandMarkup = competition.brand
+    ? `<span>${escapeHtml(competition.brand)}</span>`
+    : "";
+  const summaryMarkup = competition.summary
+    ? `<p class="competition-card__summary">${escapeHtml(competition.summary)}</p>`
+    : "";
+  const hintText = competition.entrySteps || "Opens in new tab";
 
   return `<article class="competition-card">
               <div class="competition-card__media">
@@ -241,10 +248,12 @@ function renderCompetitionCard(competition) {
               <div class="competition-card__body">
                 <h2 class="competition-card__title">${escapeHtml(competition.title)}</h2>
                 <div class="competition-card__meta">
+                  ${brandMarkup}
                   <span>Closes ${escapeHtml(shared.formatDate(competition.closingDate))}</span>
                 </div>
+                ${summaryMarkup}
                 <p class="competition-card__entry">${escapeHtml(competition.entryType)}</p>
-                <span class="competition-card__hint">Opens in new tab</span>
+                <span class="competition-card__hint">${escapeHtml(hintText)}</span>
                 <a class="competition-card__internal-link" href="${escapeAttribute(internalPath)}">Competition page</a>
               </div>
               <a class="competition-card__overlay-link" href="${escapeAttribute(

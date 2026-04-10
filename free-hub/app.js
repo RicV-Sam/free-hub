@@ -170,7 +170,15 @@ function renderCategoryFilters() {
 function renderCompetitions() {
   const routeFilteredCompetitions = getRouteScopedCompetitions();
   const filteredCompetitions = routeFilteredCompetitions.filter((competition) => {
-    const searchableText = `${competition.title} ${competition.category}`.toLowerCase();
+    const searchableText = [
+      competition.title,
+      competition.category,
+      competition.brand || "",
+      competition.summary || "",
+      Array.isArray(competition.tags) ? competition.tags.join(" ") : "",
+    ]
+      .join(" ")
+      .toLowerCase();
     return searchableText.includes(state.searchQuery);
   });
 
@@ -257,9 +265,24 @@ function createCompetitionCard(competition) {
   const meta = document.createElement("div");
   meta.className = "competition-card__meta";
 
+  if (competition.brand) {
+    const brand = document.createElement("span");
+    brand.textContent = competition.brand;
+    meta.append(brand);
+  }
+
   const closingDate = document.createElement("span");
   closingDate.textContent = `Closes ${formatDate(competition.closingDate)}`;
   meta.append(closingDate);
+
+  if (competition.summary) {
+    const summary = document.createElement("p");
+    summary.className = "competition-card__summary";
+    summary.textContent = competition.summary;
+    body.append(title, meta, summary);
+  } else {
+    body.append(title, meta);
+  }
 
   const entryPill = document.createElement("p");
   entryPill.className = "competition-card__entry";
@@ -267,7 +290,7 @@ function createCompetitionCard(competition) {
 
   const externalHint = document.createElement("span");
   externalHint.className = "competition-card__hint";
-  externalHint.textContent = "Opens in new tab";
+  externalHint.textContent = competition.entrySteps || "Opens in new tab";
 
   const internalLink = document.createElement("a");
   internalLink.className = "competition-card__internal-link";
@@ -277,7 +300,7 @@ function createCompetitionCard(competition) {
     event.stopPropagation();
   });
 
-  body.append(title, meta, entryPill, externalHint, internalLink);
+  body.append(entryPill, externalHint, internalLink);
   article.append(media, body, overlayLink);
 
   return article;

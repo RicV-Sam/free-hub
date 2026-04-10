@@ -164,6 +164,10 @@
   }
 
   function buildCompetitionDescription(competition) {
+    if (competition.summary) {
+      return competition.summary;
+    }
+
     return `${competition.category} competition with ${competition.entryType.toLowerCase()} entry. Closes ${formatDate(
       competition.closingDate
     )}.`;
@@ -187,6 +191,10 @@
   }
 
   function isHighValueCompetition(competition) {
+    if (typeof competition.isHighValue === "boolean") {
+      return competition.isHighValue;
+    }
+
     const categoryPriority = ["Cash", "Cars", "Holidays"];
     const keywordPattern = /\b(cash|car|holiday|luxury|suv|bundle|escape|spa)\b/i;
     return categoryPriority.includes(competition.category) || keywordPattern.test(competition.title);
@@ -199,20 +207,32 @@
   }
 
   function getTagFilteredCompetitions(competitions, tag) {
-    switch (tag) {
-      case "free-entry":
-        return competitions;
-      case "ending-soon":
-        return competitions.filter((competition) =>
-          isClosingWithinDays(competition.closingDate, ENDING_SOON_TAG_DAYS)
-        );
-      case "high-value":
-        return competitions.filter((competition) => isHighValueCompetition(competition));
-      case "new":
-        return competitions.slice(0, 4);
-      default:
-        return competitions;
-    }
+    return competitions.filter((competition) => {
+      if (Array.isArray(competition.tags) && competition.tags.includes(tag)) {
+        return true;
+      }
+
+      if (tag === "ending-soon" && typeof competition.isEndingSoon === "boolean") {
+        return competition.isEndingSoon;
+      }
+
+      if (tag === "high-value" && typeof competition.isHighValue === "boolean") {
+        return competition.isHighValue;
+      }
+
+      switch (tag) {
+        case "free-entry":
+          return competition.entryType.toLowerCase().includes("free");
+        case "ending-soon":
+          return isClosingWithinDays(competition.closingDate, ENDING_SOON_TAG_DAYS);
+        case "high-value":
+          return isHighValueCompetition(competition);
+        case "new":
+          return false;
+        default:
+          return false;
+      }
+    });
   }
 
   function getCategoryRoute(category) {
