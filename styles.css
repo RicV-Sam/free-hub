@@ -78,7 +78,7 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 32px;
   box-shadow: var(--shadow);
-  padding: 1.6rem 1.25rem;
+  padding: 1.35rem 1.25rem;
   backdrop-filter: blur(10px);
 }
 
@@ -233,6 +233,12 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.competition-card:hover .competition-card__media img,
+.competition-card:focus-within .competition-card__media img {
+  transform: scale(1.05);
 }
 
 .competition-card__badges {
@@ -279,8 +285,8 @@ button {
 
 .competition-card__title {
   margin: 0;
-  font-size: 1.35rem;
-  font-weight: 800;
+  font-size: 1.5rem;
+  font-weight: 900;
   line-height: 1.25;
   letter-spacing: -0.02em;
 }
@@ -308,6 +314,12 @@ button {
   color: var(--accent);
   font-size: 0.95rem;
   font-weight: 800;
+}
+
+.competition-card__hint {
+  color: #6b7280;
+  font-size: 0.75rem;
+  font-weight: 600;
 }
 
 .state-card {

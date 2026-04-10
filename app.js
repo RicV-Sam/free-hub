@@ -156,16 +156,17 @@ function createCompetitionCard(competition) {
   const closingDate = document.createElement("span");
   closingDate.textContent = `Closes ${formatDate(competition.closingDate)}`;
 
-  const entryType = document.createElement("span");
-  entryType.textContent = competition.entryType;
-
-  meta.append(closingDate, entryType);
+  meta.append(closingDate);
 
   const entryPill = document.createElement("p");
   entryPill.className = "competition-card__entry";
   entryPill.textContent = competition.entryType;
 
-  body.append(title, meta, entryPill);
+  const externalHint = document.createElement("span");
+  externalHint.className = "competition-card__hint";
+  externalHint.textContent = "Opens in new tab";
+
+  body.append(title, meta, entryPill, externalHint);
   link.append(media, body);
   article.appendChild(link);
 
