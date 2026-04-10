@@ -1,0 +1,390 @@
+:root {
+  --bg: #f4f1ea;
+  --surface: #fffdf9;
+  --surface-strong: #ffffff;
+  --text: #1f2933;
+  --muted: #5c6b75;
+  --border: #d8e0e8;
+  --accent: #0f766e;
+  --accent-soft: #dbf4f0;
+  --highlight: #ef4444;
+  --highlight-soft: #fee2e2;
+  --shadow: 0 18px 45px rgba(31, 41, 51, 0.08);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 999px;
+  --max-width: 1180px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(15, 118, 110, 0.1), transparent 30%),
+    linear-gradient(180deg, #fcfaf6 0%, var(--bg) 100%);
+  color: var(--text);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(15, 118, 110, 0.28);
+  outline-offset: 3px;
+}
+
+.site-shell {
+  min-height: 100vh;
+}
+
+.hero,
+.main-content {
+  width: min(calc(100% - 2rem), var(--max-width));
+  margin: 0 auto;
+}
+
+.hero {
+  padding: 2rem 0 1.25rem;
+}
+
+.hero__copy {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 32px;
+  box-shadow: var(--shadow);
+  padding: 2rem 1.25rem;
+  backdrop-filter: blur(10px);
+}
+
+.eyebrow,
+.filters__label,
+.info-strip__label {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.3rem, 7vw, 4.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  max-width: 11ch;
+}
+
+.hero__text {
+  margin: 1rem 0 0;
+  max-width: 42rem;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.main-content {
+  display: grid;
+  gap: 1.25rem;
+  padding-bottom: 2.5rem;
+}
+
+.controls,
+.state-card,
+.info-strip,
+.ad-slot,
+.results-header {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.controls {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.search-field {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.search-field__label {
+  font-weight: 600;
+}
+
+.search-field input {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface-strong);
+  color: var(--text);
+}
+
+.filter-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.filter-chip {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-strong);
+  color: var(--text);
+  padding: 0.7rem 1rem;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.filter-chip:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+}
+
+.filter-chip.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.results-header {
+  padding: 1rem 1.1rem;
+}
+
+.results-header__summary {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.competition-section {
+  display: grid;
+  gap: 1rem;
+}
+
+.competition-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.competition-card {
+  display: grid;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid rgba(216, 224, 232, 0.85);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.competition-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(31, 41, 51, 0.12);
+}
+
+.competition-card__link {
+  display: grid;
+  color: inherit;
+  height: 100%;
+}
+
+.competition-card__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #dde7ed;
+}
+
+.competition-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.competition-card__badges {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.badge--category {
+  background: rgba(17, 24, 39, 0.82);
+  color: #fff;
+}
+
+.badge--closing {
+  background: var(--highlight-soft);
+  color: #991b1b;
+}
+
+.competition-card__body {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1rem;
+}
+
+.competition-card__title {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.35;
+}
+
+.competition-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.competition-card__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.competition-card__entry {
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.45rem 0.75rem;
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.state-card {
+  padding: 1.1rem;
+}
+
+.state-card--hidden {
+  display: none;
+}
+
+.state-card--error {
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+.state-card__title {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.state-card__text {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.ad-slot {
+  display: grid;
+  place-items: center;
+  min-height: 104px;
+  padding: 1rem;
+  border-style: dashed;
+  border-color: rgba(15, 118, 110, 0.22);
+}
+
+.ad-slot p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.ad-slot--compact {
+  min-height: 84px;
+}
+
+.info-strip {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.info-strip__text {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+@media (min-width: 700px) {
+  .hero {
+    padding-top: 2.5rem;
+  }
+
+  .hero__copy,
+  .controls,
+  .state-card,
+  .results-header,
+  .info-strip,
+  .ad-slot {
+    padding-left: 1.35rem;
+    padding-right: 1.35rem;
+  }
+
+  .competition-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .info-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .controls {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: end;
+  }
+
+  .competition-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

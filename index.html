@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>free-hub | Free Competitions & Offers</title>
+    <meta
+      name="description"
+      content="Browse free-entry competitions and offers with fast search, category filters, and a lightweight static experience."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="hero">
+        <div class="hero__copy">
+          <p class="eyebrow">free-hub</p>
+          <h1>Free-entry competitions in one clean, fast hub.</h1>
+          <p class="hero__text">
+            Discover cash, car, holiday, and lifestyle offers without the clutter.
+          </p>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="ad-slot" aria-label="Future advertisement placement">
+          <p>Future Ad Placement</p>
+        </section>
+
+        <section class="controls" aria-label="Competition filters">
+          <label class="search-field" for="searchInput">
+            <span class="search-field__label">Search competitions</span>
+            <input
+              id="searchInput"
+              type="search"
+              name="search"
+              placeholder="Search by title or category"
+              autocomplete="off"
+            />
+          </label>
+
+          <div class="filters">
+            <p class="filters__label">Categories</p>
+            <div id="categoryFilters" class="filter-list" role="group" aria-label="Categories"></div>
+          </div>
+        </section>
+
+        <section class="results-header" aria-live="polite">
+          <p id="resultsSummary" class="results-header__summary">Loading competitions...</p>
+        </section>
+
+        <section id="loadingState" class="state-card" aria-live="polite">
+          <p class="state-card__title">Loading competitions</p>
+          <p class="state-card__text">Pulling the latest competition list from the JSON feed.</p>
+        </section>
+
+        <section
+          id="errorState"
+          class="state-card state-card--hidden state-card--error"
+          aria-live="assertive"
+        >
+          <p class="state-card__title">Unable to load competitions</p>
+          <p class="state-card__text">Please refresh the page and try again.</p>
+        </section>
+
+        <section class="competition-section">
+          <div id="competitionsGrid" class="competition-grid" aria-live="polite"></div>
+
+          <div id="emptyState" class="state-card state-card--hidden" aria-live="polite">
+            <p class="state-card__title">No competitions match</p>
+            <p class="state-card__text">Try a different search term or clear the current category filter.</p>
+          </div>
+        </section>
+
+        <section class="ad-slot ad-slot--compact" aria-label="Future advertisement placement">
+          <p>Future Ad Placement</p>
+        </section>
+
+        <section class="info-strip" aria-label="About this page">
+          <div>
+            <p class="info-strip__label">Static POC</p>
+            <p class="info-strip__text">Browser-only frontend with JSON-powered content rendering.</p>
+          </div>
+          <div>
+            <p class="info-strip__label">Future-ready</p>
+            <p class="info-strip__text">Structure leaves room for ads, analytics, and backend integration later.</p>
+          </div>
+        </section>
+
+        <section class="ad-slot" aria-label="Future advertisement placement">
+          <p>Future Ad Placement</p>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>

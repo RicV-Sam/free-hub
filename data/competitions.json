@@ -1,0 +1,74 @@
+[
+  {
+    "id": "cash-drop-april",
+    "title": "Cash Drop Weekend Giveaway",
+    "image": "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=900&q=80",
+    "closingDate": "2026-04-12",
+    "category": "Cash",
+    "entryType": "Free Entry",
+    "url": "https://example.com/cash-drop-weekend"
+  },
+  {
+    "id": "city-car-bundle",
+    "title": "Win a City Car Plus Insurance",
+    "image": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80",
+    "closingDate": "2026-04-13",
+    "category": "Cars",
+    "entryType": "Free Entry",
+    "url": "https://example.com/city-car-bundle"
+  },
+  {
+    "id": "beach-escape-ibiza",
+    "title": "Ibiza Beach Escape for Two",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80",
+    "closingDate": "2026-04-28",
+    "category": "Holidays",
+    "entryType": "Free Entry",
+    "url": "https://example.com/ibiza-beach-escape"
+  },
+  {
+    "id": "tech-loft-home-upgrade",
+    "title": "Smart Home Upgrade Bundle",
+    "image": "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=80",
+    "closingDate": "2026-05-05",
+    "category": "Tech",
+    "entryType": "Free Entry",
+    "url": "https://example.com/smart-home-upgrade"
+  },
+  {
+    "id": "luxury-spa-break",
+    "title": "Luxury Spa Break in the Cotswolds",
+    "image": "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=80",
+    "closingDate": "2026-04-11",
+    "category": "Holidays",
+    "entryType": "Free Entry",
+    "url": "https://example.com/luxury-spa-break"
+  },
+  {
+    "id": "supermarket-voucher-stack",
+    "title": "Supermarket Voucher Stack",
+    "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80",
+    "closingDate": "2026-05-19",
+    "category": "Vouchers",
+    "entryType": "Free Entry",
+    "url": "https://example.com/supermarket-vouchers"
+  },
+  {
+    "id": "family-suv-draw",
+    "title": "Family SUV Summer Draw",
+    "image": "https://images.unsplash.com/photo-1494976688153-c6f5f7d4d2de?auto=format&fit=crop&w=900&q=80",
+    "closingDate": "2026-06-03",
+    "category": "Cars",
+    "entryType": "Free Entry",
+    "url": "https://example.com/family-suv-draw"
+  },
+  {
+    "id": "festival-cash-boost",
+    "title": "Festival Season Cash Boost",
+    "image": "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=900&q=80",
+    "closingDate": "2026-05-01",
+    "category": "Cash",
+    "entryType": "Free Entry",
+    "url": "https://example.com/festival-cash-boost"
+  }
+]
