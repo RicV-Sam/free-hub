@@ -10,9 +10,9 @@
   const CATEGORY_COPY = {
     cash: {
       category: "Cash",
-      title: "Free Cash Competitions UK | Win Money Online",
+      title: "Free Cash Competitions South Africa | Win Money Online",
       description:
-        "Browse free cash competitions in the UK and discover live giveaways you can enter online today.",
+        "Browse free cash competitions in South Africa and discover live giveaways you can enter online today.",
       heading: "Free Cash Competitions You Can Enter Today",
       intro:
         "Browse the latest free-entry cash competitions in South Africa and stand a chance to win real money prizes without paying to enter. From everyday giveaways to bigger seasonal draws, this page helps you spot legit opportunities quickly.",
@@ -21,9 +21,9 @@
     },
     cars: {
       category: "Cars",
-      title: "Free Car Competitions UK | Win Cars Online",
+      title: "Free Car Competitions South Africa | Win Cars Online",
       description:
-        "Browse free car competitions in the UK and find the latest online giveaways for vehicles and driving bundles.",
+        "Browse free car competitions in South Africa and find the latest online giveaways for vehicles and driving bundles.",
       heading: "Free Car Competitions You Can Enter Today",
       intro:
         "Explore free-entry car competitions in South Africa and find no-cost chances to win everything from compact cars to family SUVs. If you want bigger lifestyle prizes without buying a ticket, this page keeps the strongest options in one place.",
@@ -32,9 +32,9 @@
     },
     holidays: {
       category: "Holidays",
-      title: "Free Holiday Competitions UK | Win Trips Online",
+      title: "Free Holiday Competitions South Africa | Win Trips Online",
       description:
-        "Browse free holiday competitions in the UK and discover online travel giveaways for breaks, escapes, and getaways.",
+        "Browse free holiday competitions in South Africa and discover online travel giveaways for breaks, escapes, and getaways.",
       heading: "Free Holiday Competitions You Can Enter Today",
       intro:
         "Find free-entry holiday competitions in South Africa and discover no-cost chances to win local getaways, beach escapes, and travel prizes. It is a simple way to browse trip giveaways without wasting time on paid entries.",
@@ -43,9 +43,9 @@
     },
     tech: {
       category: "Tech",
-      title: "Free Tech Competitions UK | Win Gadgets Online",
+      title: "Free Tech Competitions South Africa | Win Gadgets Online",
       description:
-        "Browse free tech competitions in the UK and find online giveaways for gadgets, devices, and smart-home prizes.",
+        "Browse free tech competitions in South Africa and find online giveaways for gadgets, devices, and smart-home prizes.",
       heading: "Free Tech Competitions You Can Enter Today",
       intro:
         "Check the latest free-entry tech competitions in South Africa and enter for gadgets, smart devices, and electronics at no cost. Whether the prize is a bundle or a single standout device, this page helps you find current offers faster.",
@@ -54,9 +54,9 @@
     },
     vouchers: {
       category: "Vouchers",
-      title: "Free Voucher Competitions UK | Win Shopping Vouchers",
+      title: "Free Voucher Competitions South Africa | Win Shopping Vouchers",
       description:
-        "Browse free voucher competitions in the UK and discover online giveaways for shopping and supermarket vouchers.",
+        "Browse free voucher competitions in South Africa and discover online giveaways for shopping and supermarket vouchers.",
       heading: "Free Voucher Competitions You Can Enter Today",
       intro:
         "Browse free-entry voucher competitions in South Africa and enter for shopping credit, grocery rewards, and everyday savings without paying anything upfront. These no-cost competitions are useful if you want practical prizes that stretch further.",
@@ -65,19 +65,19 @@
     },
   };
   const DEFAULT_COPY = {
-    title: "Free Competitions UK | Win Cars, Cash & Holidays",
+    title: "Free Competitions South Africa | Win Cars, Cash & Holidays",
     description:
-      "Browse free competitions in the UK with live categories, search, and fast access to offers for cars, cash, holidays, tech, and vouchers.",
-    heading: "Latest Free Competitions in the UK",
+      "Browse free competitions in South Africa with live categories, search, and fast access to offers for cars, cash, holidays, tech, and vouchers.",
+    heading: "Latest Free Competitions in Mzansi",
     intro:
-      "Discover new free competitions for cars, cash, holidays, tech, and vouchers in one fast hub.",
+      "Discover new free competitions for cars, cash, holidays, tech, and vouchers across South Africa in one fast hub.",
     canonical: `${CANONICAL_ORIGIN}/`,
   };
   const TAG_COPY = {
     "free-entry": {
-      title: "Free Entry Competitions UK",
+      title: "Free Entry Competitions South Africa",
       description:
-        "Browse free entry competitions in the UK and discover giveaways you can enter online without paid tickets.",
+        "Browse free entry competitions in South Africa and discover giveaways you can enter online without paid tickets.",
       heading: "Free Entry Competitions You Can Enter Today",
       intro:
         "Browse free-entry competitions in South Africa and discover no-cost chances to win cash, vouchers, electronics, and more. This page is built for people who want legit competitions without paying for tickets or hidden extras.",
@@ -85,9 +85,9 @@
         "Free-entry competitions are popular across South Africa because they are accessible, quick to enter, and often backed by familiar consumer brands. We keep the focus on no-cost listings so you can browse practical opportunities without second-guessing the entry rules.",
     },
     "ending-soon": {
-      title: "Competitions Ending Soon UK",
+      title: "Competitions Ending Soon South Africa",
       description:
-        "Browse competitions ending soon in the UK and enter before the closing dates pass.",
+        "Browse competitions ending soon in South Africa and enter before the closing dates pass.",
       heading: "Competitions Ending Soon You Should Enter Today",
       intro:
         "Do not miss out on free-entry competitions in South Africa that are closing soon. These no-cost giveaways are nearing their deadlines, so this page helps you act quickly before the best opportunities disappear.",
@@ -95,9 +95,9 @@
         "South African competition listings move fast, especially when popular brands or bigger prizes are involved. This page brings together competitions with near-term closing dates so you can prioritise urgent entries first.",
     },
     "high-value": {
-      title: "High Value Competitions UK",
+      title: "High Value Competitions South Africa",
       description:
-        "Browse high value competitions in the UK featuring cash prizes, car giveaways, holidays, and premium offers.",
+        "Browse high value competitions in South Africa featuring cash prizes, car giveaways, holidays, and premium offers.",
       heading: "High Value Competitions You Can Enter Today",
       intro:
         "Explore high-value free-entry competitions in South Africa featuring bigger prizes like cash, cars, holidays, and electronics. If you are chasing standout rewards without paying to participate, this page is where the strongest draws come together.",
@@ -105,9 +105,9 @@
         "Large-prize competitions attract serious interest in South Africa, particularly when the reward feels life-changing or highly practical. This page helps you separate the most valuable no-cost opportunities from lighter everyday giveaways.",
     },
     new: {
-      title: "New Competitions UK",
+      title: "New Competitions South Africa",
       description:
-        "Browse new competitions in the UK and discover the latest active giveaways added to the hub.",
+        "Browse new competitions in South Africa and discover the latest active giveaways added to the hub.",
       heading: "New Competitions You Can Enter Today",
       intro:
         "See the newest free-entry competitions in South Africa and catch fresh no-cost giveaways before they become widely shared. This page highlights recently surfaced opportunities so you can get in early on current prize draws.",
