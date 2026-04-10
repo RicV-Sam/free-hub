@@ -11,7 +11,6 @@ const {
   sortCompetitions,
 } = window.FreeHubShared;
 
-const DATA_URL = new URL("./data/competitions.json", window.location.href);
 const INLINE_AD_INTERVAL = 6;
 const SPONSORED_OFFER_URL = "https://example.com/sponsored-offer";
 const STICKY_AD_URL = "https://example.com/mobile-sponsored-offer";
@@ -113,7 +112,7 @@ async function loadCompetitions() {
   showLoading();
 
   try {
-    const response = await fetch(DATA_URL, { cache: "no-store" });
+    const response = await fetch(getDataPath(), { cache: "no-store" });
 
     if (!response.ok) {
       throw new Error(`Request failed with status ${response.status}`);
@@ -461,4 +460,16 @@ function updatePopularSearchNavigation() {
 
 function getCurrentRoutePath() {
   return getRouteContext(window.location.pathname).path;
+}
+
+function getDataPath() {
+  if (isNestedRoutePath(window.location.pathname)) {
+    return "../../data/competitions.json";
+  }
+
+  return "data/competitions.json";
+}
+
+function isNestedRoutePath(pathname) {
+  return pathname.includes("/category/") || pathname.includes("/tag/");
 }
