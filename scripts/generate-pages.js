@@ -39,6 +39,7 @@ function main() {
 
 function renderPage(routeContext, competitions) {
   const pageCopy = shared.getPageCopy(routeContext);
+  const supportCopy = shared.getPageSupportCopy(routeContext);
   const structuredData = shared.buildStructuredData(competitions, routeContext);
   const ogImage = competitions[0]?.image || shared.DEFAULT_OG_IMAGE;
   const cardsMarkup = competitions
@@ -87,6 +88,8 @@ function renderPage(routeContext, competitions) {
       </header>
 
       <main class="main-content">
+        ${renderSupportSection(supportCopy)}
+
         <nav class="category-nav" aria-label="Competition categories">
           ${CATEGORY_LINKS.map((link) => renderNavLink(link, routeContext.path)).join("\n          ")}
         </nav>
@@ -151,6 +154,8 @@ function renderPage(routeContext, competitions) {
             <p class="state-card__text">Try a different search term or clear the current category filter.</p>
           </div>
         </section>
+
+        ${renderThinPageTips(competitions)}
 
         <section class="ad-slot ad-slot--compact" id="ad-middle" aria-label="Advertisement">
           <p class="ad-slot__label">Advertisement</p>
@@ -303,6 +308,30 @@ function renderInternalLinksSection(routeContext) {
               )
               .join("\n            ")}
           </div>
+        </section>`;
+}
+
+function renderSupportSection(supportCopy) {
+  if (!supportCopy) {
+    return "";
+  }
+
+  return `<section class="state-card" aria-label="Why this page matters">
+          <p class="state-card__title">Why This Page Matters</p>
+          <p class="state-card__text">${escapeHtml(supportCopy)}</p>
+        </section>`;
+}
+
+function renderThinPageTips(competitions) {
+  if (!shared.shouldShowThinPageTips(competitions)) {
+    return "";
+  }
+
+  return `<section class="state-card" aria-label="Winning tips">
+          <p class="state-card__title">Tips to improve your chances of winning</p>
+          <ul class="state-card__list">
+            ${shared.THIN_PAGE_TIPS.map((tip) => `<li>${escapeHtml(tip)}</li>`).join("\n            ")}
+          </ul>
         </section>`;
 }
 
