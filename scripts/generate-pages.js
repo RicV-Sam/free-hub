@@ -189,17 +189,17 @@ function renderPage(routeContext, competitions) {
           <div>
             <p class="site-footer__title">About</p>
             <p class="site-footer__text">
-              free-hub is a lightweight entertainment hub built to surface free competitions and offers in a fast, simple format.
+              We curate free competitions from verified listing sources and brand promotions so you can browse live offers in one place.
             </p>
           </div>
           <div>
             <p class="site-footer__title">Contact</p>
-            <p class="site-footer__text">Contact placeholder: hello@free-hub.example</p>
+            <p class="site-footer__text">Contact: hello@freehub.datacost.co.za</p>
           </div>
           <div>
             <p class="site-footer__title">Disclaimer</p>
             <p class="site-footer__text">
-              Some placements on this site may be sponsored. Sponsored content is labelled separately from competition listings.
+              No purchase is necessary for many promotions, but always check the promoter's terms and closing date before entering.
             </p>
           </div>
         </div>

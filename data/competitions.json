@@ -1,74 +1,92 @@
 [
   {
-    "id": "cash-drop-april",
-    "title": "Cash Drop Weekend Giveaway",
-    "image": "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=900&q=80",
-    "closingDate": "2026-04-12",
+    "id": "boxer-nedbank-greenbacks",
+    "title": "Boxer Nedbank Greenbacks Competition",
+    "image": "https://www.winsomething.co.za/storage/app/uploads/public/695/9fe/283/6959fe2832be5345559742.jpg",
+    "closingDate": "2026-06-30",
     "category": "Cash",
-    "entryType": "Free Entry",
-    "url": "https://example.com/cash-drop-weekend"
+    "entryType": "In-store Purchase",
+    "url": "https://www.winsomething.co.za/win/vouchers/64"
   },
   {
-    "id": "city-car-bundle",
-    "title": "Win a City Car Plus Insurance",
-    "image": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80",
-    "closingDate": "2026-04-13",
+    "id": "ram-couriers-vodacom-bulls",
+    "title": "RAM Couriers - Vodacom Bulls",
+    "image": "https://www.winsomething.co.za/storage/app/uploads/public/695/8ca/32c/6958ca32c2965348117585.png",
+    "closingDate": "2026-06-15",
     "category": "Cars",
-    "entryType": "Free Entry",
-    "url": "https://example.com/city-car-bundle"
+    "entryType": "Survey / Form",
+    "url": "https://www.winsomething.co.za/win/vehicles/49"
   },
   {
-    "id": "beach-escape-ibiza",
-    "title": "Ibiza Beach Escape for Two",
-    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80",
-    "closingDate": "2026-04-28",
-    "category": "Holidays",
-    "entryType": "Free Entry",
-    "url": "https://example.com/ibiza-beach-escape"
+    "id": "aquelle-mzansi-mango",
+    "title": "aQuellé Mzansi Mango Competition",
+    "image": "https://www.winsomething.co.za/storage/app/uploads/public/697/7cd/870/6977cd8709041811085740.jpg",
+    "closingDate": "2026-06-15",
+    "category": "Cars",
+    "entryType": "In-store Purchase",
+    "url": "https://www.winsomething.co.za/win/vehicles/100"
   },
   {
-    "id": "tech-loft-home-upgrade",
-    "title": "Smart Home Upgrade Bundle",
-    "image": "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=80",
-    "closingDate": "2026-05-05",
-    "category": "Tech",
-    "entryType": "Free Entry",
-    "url": "https://example.com/smart-home-upgrade"
-  },
-  {
-    "id": "luxury-spa-break",
-    "title": "Luxury Spa Break in the Cotswolds",
-    "image": "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=80",
-    "closingDate": "2026-04-11",
-    "category": "Holidays",
-    "entryType": "Free Entry",
-    "url": "https://example.com/luxury-spa-break"
-  },
-  {
-    "id": "supermarket-voucher-stack",
-    "title": "Supermarket Voucher Stack",
-    "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80",
-    "closingDate": "2026-05-19",
+    "id": "revlon-matric-dance-vouchers",
+    "title": "Revlon Fragrance Take Scentre Stage Matric Dance 2026 Competition",
+    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/a78/3fe/69aa783fea4d8767812682.jpg",
+    "closingDate": "2026-05-31",
     "category": "Vouchers",
-    "entryType": "Free Entry",
-    "url": "https://example.com/supermarket-vouchers"
+    "entryType": "In-store Purchase",
+    "url": "https://www.winsomething.co.za/win/goods/110"
   },
   {
-    "id": "family-suv-draw",
-    "title": "Family SUV Summer Draw",
-    "image": "https://images.unsplash.com/photo-1494976688153-c6f5f7d4d2de?auto=format&fit=crop&w=900&q=80",
-    "closingDate": "2026-06-03",
+    "id": "spar-win-a-car",
+    "title": "SPAR WIN A CAR",
+    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69d/209/fec/69d209fec0e89679269419.jpg",
+    "closingDate": "2026-05-10",
     "category": "Cars",
-    "entryType": "Free Entry",
-    "url": "https://example.com/family-suv-draw"
+    "entryType": "In-store Purchase",
+    "url": "https://www.winsomething.co.za/win/vehicles/117"
   },
   {
-    "id": "festival-cash-boost",
-    "title": "Festival Season Cash Boost",
-    "image": "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=900&q=80",
-    "closingDate": "2026-05-01",
+    "id": "cruise-nicely-this-easter",
+    "title": "Cruise Nicely this Easter!",
+    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69d/20c/cb1/69d20ccb13864518324858.jpg",
+    "closingDate": "2026-05-06",
+    "category": "Holidays",
+    "entryType": "In-store Purchase",
+    "url": "https://www.winsomething.co.za/win/travel/118"
+  },
+  {
+    "id": "nestle-nido-grow-with-love",
+    "title": "Nestle NIDO 3+ Grow with Love Campaign Competition",
+    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/a7c/7c1/69aa7c7c1a73e808200361.jpg",
+    "closingDate": "2026-04-30",
     "category": "Cash",
-    "entryType": "Free Entry",
-    "url": "https://example.com/festival-cash-boost"
+    "entryType": "In-store Purchase",
+    "url": "https://www.winsomething.co.za/win/vouchers/111"
+  },
+  {
+    "id": "gummy-vites-back-to-school",
+    "title": "Gummy Vites Back to School Competition",
+    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/a83/832/69aa83832bfb1871744706.jpg",
+    "closingDate": "2026-04-30",
+    "category": "Holidays",
+    "entryType": "In-store Purchase",
+    "url": "https://www.winsomething.co.za/win/travel/114"
+  },
+  {
+    "id": "bright-smiles-bright-future",
+    "title": "Bright Smiles, Bright Future Competition",
+    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/a75/abe/69aa75abef820482364103.jpg",
+    "closingDate": "2026-04-22",
+    "category": "Tech",
+    "entryType": "In-store Purchase",
+    "url": "https://www.winsomething.co.za/win/electronics/109"
+  },
+  {
+    "id": "sta-soft-luxury-getaway",
+    "title": "Sta Soft Clicks In Store Luxury Getaway Competition",
+    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/a73/69e/69aa7369e8eaf874903246.jpg",
+    "closingDate": "2026-04-22",
+    "category": "Holidays",
+    "entryType": "In-store Purchase",
+    "url": "https://www.winsomething.co.za/win/travel/108"
   }
 ]
