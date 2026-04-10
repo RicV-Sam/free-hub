@@ -104,10 +104,19 @@ function createCompetitionCard(competition) {
   const link = document.createElement("a");
   link.className = "competition-card__link";
   link.href = competition.url;
-  link.target = "_blank";
-  link.rel = "noreferrer noopener";
+  link.setAttribute("role", "link");
+  link.setAttribute("tabindex", "0");
   link.setAttribute("aria-label", `${competition.title} - open competition`);
-  link.addEventListener("click", () => trackCompetitionClick(competition));
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    openCompetition(competition);
+  });
+  link.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openCompetition(competition);
+    }
+  });
 
   const media = document.createElement("div");
   media.className = "competition-card__media";
@@ -128,7 +137,7 @@ function createCompetitionCard(competition) {
   if (isClosingSoon(competition.closingDate)) {
     const closingSoonBadge = document.createElement("span");
     closingSoonBadge.className = "badge badge--closing";
-    closingSoonBadge.textContent = "Closing Soon";
+    closingSoonBadge.textContent = "\u{1F525} Closing Soon";
     badges.appendChild(closingSoonBadge);
   }
 
@@ -164,11 +173,7 @@ function createCompetitionCard(competition) {
 }
 
 function updateResultsSummary(count) {
-  const total = state.competitions.length;
-  elements.resultsSummary.textContent =
-    count === total
-      ? `Showing all ${total} competitions`
-      : `Showing ${count} of ${total} competitions`;
+  elements.resultsSummary.textContent = `Showing ${count} competitions`;
 }
 
 function showLoading() {
@@ -217,11 +222,16 @@ function isClosingSoon(dateString) {
 }
 
 function trackCompetitionClick(competition) {
-  console.log("Competition click tracked", {
+  console.log({
+    event: "competition_click",
     id: competition.id,
     title: competition.title,
     category: competition.category,
-    url: competition.url,
     timestamp: new Date().toISOString(),
   });
+}
+
+function openCompetition(competition) {
+  trackCompetitionClick(competition);
+  window.open(competition.url, "_blank", "noopener,noreferrer");
 }

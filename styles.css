@@ -78,7 +78,7 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 32px;
   box-shadow: var(--shadow);
-  padding: 2rem 1.25rem;
+  padding: 1.6rem 1.25rem;
   backdrop-filter: blur(10px);
 }
 
@@ -95,18 +95,19 @@ button {
 
 .hero h1 {
   margin: 0;
-  font-size: clamp(2.3rem, 7vw, 4.8rem);
-  line-height: 0.95;
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1;
   letter-spacing: -0.04em;
-  max-width: 11ch;
+  max-width: 14ch;
 }
 
 .hero__text {
-  margin: 1rem 0 0;
-  max-width: 42rem;
+  margin: 0.8rem 0 0;
+  max-width: 36rem;
   color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  font-weight: 600;
 }
 
 .main-content {
@@ -183,8 +184,8 @@ button {
 
 .results-header__summary {
   margin: 0;
-  color: var(--muted);
-  font-weight: 600;
+  color: var(--text);
+  font-weight: 700;
 }
 
 .competition-section {
@@ -205,9 +206,11 @@ button {
   border: 1px solid rgba(216, 224, 232, 0.85);
   box-shadow: var(--shadow);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
 }
 
-.competition-card:hover {
+.competition-card:hover,
+.competition-card:focus-within {
   transform: translateY(-4px);
   box-shadow: 0 20px 48px rgba(31, 41, 51, 0.12);
 }
@@ -216,6 +219,7 @@ button {
   display: grid;
   color: inherit;
   height: 100%;
+  cursor: pointer;
 }
 
 .competition-card__media {
@@ -235,8 +239,11 @@ button {
   position: absolute;
   top: 0.9rem;
   left: 0.9rem;
+  right: 0.9rem;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: 0.45rem;
 }
 
@@ -258,20 +265,24 @@ button {
 }
 
 .badge--closing {
-  background: var(--highlight-soft);
-  color: #991b1b;
+  margin-left: auto;
+  background: linear-gradient(135deg, #dc2626, #f97316);
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(220, 38, 38, 0.28);
 }
 
 .competition-card__body {
   display: grid;
-  gap: 0.85rem;
-  padding: 1rem;
+  gap: 0.95rem;
+  padding: 1.1rem;
 }
 
 .competition-card__title {
   margin: 0;
-  font-size: 1.08rem;
-  line-height: 1.35;
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
 }
 
 .competition-card__meta {
@@ -279,7 +290,7 @@ button {
   flex-wrap: wrap;
   gap: 0.65rem;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.88rem;
 }
 
 .competition-card__meta span {
@@ -291,12 +302,12 @@ button {
 .competition-card__entry {
   display: inline-flex;
   width: fit-content;
-  padding: 0.45rem 0.75rem;
+  padding: 0.55rem 0.85rem;
   border-radius: var(--radius-sm);
   background: var(--accent-soft);
   color: var(--accent);
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-size: 0.95rem;
+  font-weight: 800;
 }
 
 .state-card {
