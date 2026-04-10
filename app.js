@@ -4,6 +4,52 @@ const INLINE_AD_INTERVAL = 6;
 const SPONSORED_OFFER_URL = "https://example.com/sponsored-offer";
 const STICKY_AD_URL = "https://example.com/mobile-sponsored-offer";
 const SITE_ORIGIN = "https://ricv-sam.github.io/free-hub";
+const BASE_PATH = "/free-hub";
+const HOME_ROUTE = `${BASE_PATH}/`;
+const CATEGORY_COPY = {
+  cash: {
+    category: "Cash",
+    title: "Free Cash Competitions UK | Win Money Online",
+    description: "Browse free cash competitions in the UK and discover live giveaways you can enter online today.",
+    heading: "Free Cash Competitions You Can Enter Today",
+    intro: "Explore free cash competitions and money giveaways with quick entry routes and regularly updated listings.",
+  },
+  cars: {
+    category: "Cars",
+    title: "Free Car Competitions UK | Win Cars Online",
+    description: "Browse free car competitions in the UK and find the latest online giveaways for vehicles and driving bundles.",
+    heading: "Free Car Competitions You Can Enter Today",
+    intro: "Discover free car competitions featuring city cars, SUVs, and transport bundles in one simple listing page.",
+  },
+  holidays: {
+    category: "Holidays",
+    title: "Free Holiday Competitions UK | Win Trips Online",
+    description: "Browse free holiday competitions in the UK and discover online travel giveaways for breaks, escapes, and getaways.",
+    heading: "Free Holiday Competitions You Can Enter Today",
+    intro: "Find free holiday competitions for beach escapes, spa breaks, and travel prizes without leaving the hub.",
+  },
+  tech: {
+    category: "Tech",
+    title: "Free Tech Competitions UK | Win Gadgets Online",
+    description: "Browse free tech competitions in the UK and find online giveaways for gadgets, devices, and smart-home prizes.",
+    heading: "Free Tech Competitions You Can Enter Today",
+    intro: "Explore free tech competitions with gadget bundles and smart-home prizes in a fast category landing page.",
+  },
+  vouchers: {
+    category: "Vouchers",
+    title: "Free Voucher Competitions UK | Win Shopping Vouchers",
+    description: "Browse free voucher competitions in the UK and discover online giveaways for shopping and supermarket vouchers.",
+    heading: "Free Voucher Competitions You Can Enter Today",
+    intro: "Browse free voucher competitions featuring shopping credit, supermarket rewards, and other everyday prize offers.",
+  },
+};
+const DEFAULT_COPY = {
+  title: "Free Competitions UK | Win Cars, Cash & Holidays",
+  description: "Browse free competitions in the UK with live categories, search, and fast access to offers for cars, cash, holidays, tech, and vouchers.",
+  heading: "Latest Free Competitions in the UK",
+  intro: "Discover new free competitions for cars, cash, holidays, tech, and vouchers in one fast hub.",
+  canonical: `${SITE_ORIGIN}/`,
+};
 const PAGE_AD_PLACEMENTS = [
   { id: "ad-top", placement: "top" },
   { id: "ad-middle", placement: "middle" },
@@ -14,11 +60,13 @@ const state = {
   competitions: [],
   searchQuery: "",
   activeCategory: "All",
+  routeCategory: null,
 };
 
 const elements = {
   searchInput: document.querySelector("#searchInput"),
   categoryFilters: document.querySelector("#categoryFilters"),
+  categoryNavLinks: Array.from(document.querySelectorAll(".category-nav__link")),
   resultsSummary: document.querySelector("#resultsSummary"),
   competitionsGrid: document.querySelector("#competitionsGrid"),
   loadingState: document.querySelector("#loadingState"),
@@ -27,6 +75,15 @@ const elements = {
   stickyAd: document.querySelector("#ad-sticky"),
   stickyAdClose: document.querySelector("#stickyAdClose"),
   stickyAdCta: document.querySelector("#stickyAdCta"),
+  pageTitle: document.querySelector("#pageTitle"),
+  pageIntro: document.querySelector("#pageIntro"),
+  metaDescription: document.querySelector('meta[name="description"]'),
+  canonical: document.querySelector('link[rel="canonical"]'),
+  ogTitle: document.querySelector('meta[property="og:title"]'),
+  ogDescription: document.querySelector('meta[property="og:description"]'),
+  ogUrl: document.querySelector('meta[property="og:url"]'),
+  twitterTitle: document.querySelector('meta[name="twitter:title"]'),
+  twitterDescription: document.querySelector('meta[name="twitter:description"]'),
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -100,7 +157,10 @@ async function loadCompetitions() {
       .slice()
       .sort((left, right) => new Date(left.closingDate) - new Date(right.closingDate));
 
-    injectStructuredData(state.competitions);
+    state.routeCategory = getRouteCategory();
+    state.activeCategory = state.routeCategory ? CATEGORY_COPY[state.routeCategory].category : "All";
+
+    updatePageChrome();
     renderCategoryFilters();
     renderCompetitions();
   } catch (error) {
@@ -121,6 +181,11 @@ function renderCategoryFilters() {
     button.textContent = category;
     button.setAttribute("aria-pressed", String(category === state.activeCategory));
     button.addEventListener("click", () => {
+      if (state.routeCategory) {
+        window.location.href = getCategoryRoute(category);
+        return;
+      }
+
       state.activeCategory = category;
       renderCategoryFilters();
       renderCompetitions();
@@ -128,16 +193,17 @@ function renderCategoryFilters() {
 
     elements.categoryFilters.appendChild(button);
   });
+
+  updateCategoryNavigation();
 }
 
 function renderCompetitions() {
-  const filteredCompetitions = state.competitions.filter((competition) => {
-    const matchesCategory =
-      state.activeCategory === "All" || competition.category === state.activeCategory;
+  const routeFilteredCompetitions = getRouteFilteredCompetitions();
+  const filteredCompetitions = routeFilteredCompetitions.filter((competition) => {
     const searchableText = `${competition.title} ${competition.category}`.toLowerCase();
     const matchesSearch = searchableText.includes(state.searchQuery);
 
-    return matchesCategory && matchesSearch;
+    return matchesSearch;
   });
 
   hideStatusStates();
@@ -160,6 +226,7 @@ function renderCompetitions() {
     elements.competitionsGrid.append(...cards);
   }
 
+  injectStructuredData(filteredCompetitions);
   updateResultsSummary(filteredCompetitions.length);
 }
 
@@ -393,7 +460,7 @@ function getCompetitionSlug(competition) {
 }
 
 function getCompetitionPath(competition) {
-  return `/free-hub/competition/${getCompetitionSlug(competition)}`;
+  return `${BASE_PATH}/competition/${getCompetitionSlug(competition)}`;
 }
 
 function getCompetitionAbsoluteUrl(competition) {
@@ -432,4 +499,78 @@ function injectStructuredData(competitions) {
   script.type = "application/ld+json";
   script.textContent = JSON.stringify(itemList);
   document.head.appendChild(script);
+}
+
+function getRouteCategory() {
+  const path = normalizePath(window.location.pathname);
+  const categoryMatch = path.match(/^\/free-hub\/category\/([a-z0-9-]+)$/);
+
+  if (!categoryMatch) {
+    return null;
+  }
+
+  const slug = categoryMatch[1];
+
+  return CATEGORY_COPY[slug] ? slug : null;
+}
+
+function normalizePath(pathname) {
+  const trimmed = pathname.endsWith("/") && pathname !== "/" ? pathname.slice(0, -1) : pathname;
+
+  if (trimmed === `${BASE_PATH}`) {
+    return HOME_ROUTE.slice(0, -1);
+  }
+
+  return trimmed;
+}
+
+function getRouteFilteredCompetitions() {
+  if (!state.routeCategory) {
+    return state.competitions;
+  }
+
+  const targetCategory = CATEGORY_COPY[state.routeCategory].category;
+  return state.competitions.filter((competition) => competition.category === targetCategory);
+}
+
+function updatePageChrome() {
+  const routeCopy = state.routeCategory ? CATEGORY_COPY[state.routeCategory] : null;
+  const pageTitle = routeCopy ? routeCopy.title : DEFAULT_COPY.title;
+  const pageDescription = routeCopy ? routeCopy.description : DEFAULT_COPY.description;
+  const pageHeading = routeCopy ? routeCopy.heading : DEFAULT_COPY.heading;
+  const pageIntro = routeCopy ? routeCopy.intro : DEFAULT_COPY.intro;
+  const canonical = routeCopy
+    ? `${SITE_ORIGIN}/category/${state.routeCategory}`
+    : DEFAULT_COPY.canonical;
+
+  document.title = pageTitle;
+  elements.pageTitle.textContent = pageHeading;
+  elements.pageIntro.textContent = pageIntro;
+  elements.metaDescription.setAttribute("content", pageDescription);
+  elements.canonical.setAttribute("href", canonical);
+  elements.ogTitle.setAttribute("content", pageTitle);
+  elements.ogDescription.setAttribute("content", pageDescription);
+  elements.ogUrl.setAttribute("content", canonical);
+  elements.twitterTitle.setAttribute("content", pageTitle);
+  elements.twitterDescription.setAttribute("content", pageDescription);
+}
+
+function updateCategoryNavigation() {
+  elements.categoryNavLinks.forEach((link) => {
+    const targetPath = normalizePath(new URL(link.href).pathname);
+    const currentPath = normalizePath(window.location.pathname);
+    link.classList.toggle("is-active", targetPath === currentPath);
+  });
+}
+
+function getCategoryRoute(category) {
+  if (category === "All") {
+    return `${BASE_PATH}/`;
+  }
+
+  const slug = Object.keys(CATEGORY_COPY).find(
+    (key) => CATEGORY_COPY[key].category === category
+  );
+
+  return slug ? `${BASE_PATH}/category/${slug}` : `${BASE_PATH}/`;
 }
