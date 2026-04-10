@@ -3,8 +3,11 @@ const path = require("path");
 const shared = require("../shared/page-data.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
+const MIRROR_DIR = path.join(ROOT_DIR, "free-hub");
 const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
 const RELATIVE_ASSET_PATH = "../../";
+const MIRROR_FILES = ["index.html", "404.html", "app.js", "styles.css", "robots.txt", "sitemap.xml"];
+const MIRROR_DIRECTORIES = ["data", "shared", "category", "tag"];
 const CATEGORY_LINKS = [
   { label: "All Competitions", href: "/free-hub/" },
   ...shared.CATEGORY_SLUGS.map((slug) => ({
@@ -35,6 +38,8 @@ function main() {
     fs.mkdirSync(outputDirectory, { recursive: true });
     fs.writeFileSync(path.join(outputDirectory, "index.html"), html);
   });
+
+  syncMirrorTree();
 }
 
 function renderPage(routeContext, competitions) {
@@ -354,6 +359,36 @@ function escapeAttribute(value) {
 
 function escapeScript(value) {
   return String(value).replace(/<\/script/gi, "<\\/script");
+}
+
+function syncMirrorTree() {
+  fs.rmSync(MIRROR_DIR, { recursive: true, force: true });
+  fs.mkdirSync(MIRROR_DIR, { recursive: true });
+
+  MIRROR_FILES.forEach((file) => {
+    copyIntoMirror(path.join(ROOT_DIR, file), path.join(MIRROR_DIR, file));
+  });
+
+  MIRROR_DIRECTORIES.forEach((directory) => {
+    copyIntoMirror(path.join(ROOT_DIR, directory), path.join(MIRROR_DIR, directory));
+  });
+}
+
+function copyIntoMirror(source, destination) {
+  const stats = fs.statSync(source);
+
+  if (stats.isDirectory()) {
+    fs.mkdirSync(destination, { recursive: true });
+
+    fs.readdirSync(source).forEach((entry) => {
+      copyIntoMirror(path.join(source, entry), path.join(destination, entry));
+    });
+
+    return;
+  }
+
+  fs.mkdirSync(path.dirname(destination), { recursive: true });
+  fs.copyFileSync(source, destination);
 }
 
 main();
