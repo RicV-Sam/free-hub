@@ -3,6 +3,7 @@ const CLOSING_SOON_DAYS = 3;
 const INLINE_AD_INTERVAL = 6;
 const SPONSORED_OFFER_URL = "https://example.com/sponsored-offer";
 const STICKY_AD_URL = "https://example.com/mobile-sponsored-offer";
+const SITE_ORIGIN = "https://ricv-sam.github.io/free-hub";
 const PAGE_AD_PLACEMENTS = [
   { id: "ad-top", placement: "top" },
   { id: "ad-middle", placement: "middle" },
@@ -99,6 +100,7 @@ async function loadCompetitions() {
       .slice()
       .sort((left, right) => new Date(left.closingDate) - new Date(right.closingDate));
 
+    injectStructuredData(state.competitions);
     renderCategoryFilters();
     renderCompetitions();
   } catch (error) {
@@ -164,23 +166,27 @@ function renderCompetitions() {
 function createCompetitionCard(competition) {
   const article = document.createElement("article");
   article.className = "competition-card";
+  const internalPath = getCompetitionPath(competition);
 
-  const link = document.createElement("a");
-  link.className = "competition-card__link";
-  link.href = competition.url;
-  link.setAttribute("role", "link");
-  link.setAttribute("tabindex", "0");
-  link.setAttribute("aria-label", `${competition.title} - open competition`);
-  link.addEventListener("click", (event) => {
+  const overlayLink = document.createElement("a");
+  overlayLink.className = "competition-card__overlay-link";
+  overlayLink.href = competition.url;
+  overlayLink.setAttribute("aria-label", `${competition.title} - open competition`);
+  overlayLink.addEventListener("click", (event) => {
     event.preventDefault();
     openCompetition(competition);
   });
-  link.addEventListener("keydown", (event) => {
+  overlayLink.addEventListener("keydown", (event) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
       openCompetition(competition);
     }
   });
+
+  const overlayText = document.createElement("span");
+  overlayText.className = "visually-hidden";
+  overlayText.textContent = `Open ${competition.title}`;
+  overlayLink.appendChild(overlayText);
 
   const media = document.createElement("div");
   media.className = "competition-card__media";
@@ -230,9 +236,16 @@ function createCompetitionCard(competition) {
   externalHint.className = "competition-card__hint";
   externalHint.textContent = "Opens in new tab";
 
-  body.append(title, meta, entryPill, externalHint);
-  link.append(media, body);
-  article.appendChild(link);
+  const internalLink = document.createElement("a");
+  internalLink.className = "competition-card__internal-link";
+  internalLink.href = internalPath;
+  internalLink.textContent = "Competition page";
+  internalLink.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+
+  body.append(title, meta, entryPill, externalHint, internalLink);
+  article.append(media, body, overlayLink);
 
   return article;
 }
@@ -366,4 +379,57 @@ function trackAdClick(placement) {
 function openSponsoredOffer(placement, url) {
   trackAdClick(placement);
   window.open(url, "_blank", "noopener,noreferrer");
+}
+
+function getCompetitionSlug(competition) {
+  if (competition.id) {
+    return competition.id;
+  }
+
+  return competition.title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+function getCompetitionPath(competition) {
+  return `/free-hub/competition/${getCompetitionSlug(competition)}`;
+}
+
+function getCompetitionAbsoluteUrl(competition) {
+  return `${SITE_ORIGIN}/competition/${getCompetitionSlug(competition)}`;
+}
+
+function buildCompetitionDescription(competition) {
+  return `${competition.category} competition with ${competition.entryType.toLowerCase()} entry. Closes ${formatDate(
+    competition.closingDate
+  )}.`;
+}
+
+function injectStructuredData(competitions) {
+  const existingScript = document.querySelector("#structured-data-itemlist");
+
+  if (existingScript) {
+    existingScript.remove();
+  }
+
+  const itemList = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "free-hub competitions",
+    itemListElement: competitions.map((competition, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: getCompetitionAbsoluteUrl(competition),
+      name: competition.title,
+      description: buildCompetitionDescription(competition),
+      image: competition.image || undefined,
+    })),
+  };
+
+  const script = document.createElement("script");
+  script.id = "structured-data-itemlist";
+  script.type = "application/ld+json";
+  script.textContent = JSON.stringify(itemList);
+  document.head.appendChild(script);
 }
