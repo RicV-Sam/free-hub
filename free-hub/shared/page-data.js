@@ -1,5 +1,6 @@
 (function (global) {
   const SITE_ORIGIN = "https://ricv-sam.github.io/free-hub";
+  const CANONICAL_ORIGIN = "https://freehub.datacost.co.za";
   const BASE_PATH = "/free-hub";
   const HOME_ROUTE = `${BASE_PATH}/`;
   const CLOSING_SOON_DAYS = 3;
@@ -70,7 +71,7 @@
     heading: "Latest Free Competitions in the UK",
     intro:
       "Discover new free competitions for cars, cash, holidays, tech, and vouchers in one fast hub.",
-    canonical: `${SITE_ORIGIN}/`,
+    canonical: `${CANONICAL_ORIGIN}/`,
   };
   const TAG_COPY = {
     "free-entry": {
@@ -262,7 +263,7 @@
         description: copy.description,
         heading: copy.heading,
         intro: copy.intro,
-        canonical: `${SITE_ORIGIN}/category/${routeContext.slug}/`,
+        canonical: `${CANONICAL_ORIGIN}/category/${routeContext.slug}/`,
       };
     }
 
@@ -273,7 +274,7 @@
         description: copy.description,
         heading: copy.heading,
         intro: copy.intro,
-        canonical: `${SITE_ORIGIN}/tag/${routeContext.slug}/`,
+        canonical: `${CANONICAL_ORIGIN}/tag/${routeContext.slug}/`,
       };
     }
 
@@ -337,6 +338,7 @@
   const api = {
     BASE_PATH,
     SITE_ORIGIN,
+    CANONICAL_ORIGIN,
     HOME_ROUTE,
     DEFAULT_OG_IMAGE,
     CATEGORY_COPY,
