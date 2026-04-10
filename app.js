@@ -1,6 +1,8 @@
 const DATA_URL = new URL("./data/competitions.json", window.location.href);
 const CLOSING_SOON_DAYS = 3;
 const INLINE_AD_INTERVAL = 6;
+const SPONSORED_OFFER_URL = "https://example.com/sponsored-offer";
+const STICKY_AD_URL = "https://example.com/mobile-sponsored-offer";
 const PAGE_AD_PLACEMENTS = [
   { id: "ad-top", placement: "top" },
   { id: "ad-middle", placement: "middle" },
@@ -23,6 +25,7 @@ const elements = {
   emptyState: document.querySelector("#emptyState"),
   stickyAd: document.querySelector("#ad-sticky"),
   stickyAdClose: document.querySelector("#stickyAdClose"),
+  stickyAdCta: document.querySelector("#stickyAdCta"),
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -67,20 +70,16 @@ function setupPageAds() {
 }
 
 function setupStickyAd() {
-  if (!elements.stickyAd || !elements.stickyAdClose) {
+  if (!elements.stickyAd || !elements.stickyAdClose || !elements.stickyAdCta) {
     return;
   }
 
-  elements.stickyAd.addEventListener("click", (event) => {
-    if (event.target === elements.stickyAdClose) {
-      return;
-    }
-
-    trackAdClick("sticky");
-  });
-
   elements.stickyAdClose.addEventListener("click", () => {
     elements.stickyAd.classList.add("ad-sticky--hidden");
+  });
+
+  elements.stickyAdCta.addEventListener("click", () => {
+    openSponsoredOffer("sticky", STICKY_AD_URL);
   });
 }
 
@@ -241,9 +240,6 @@ function createCompetitionCard(competition) {
 function createInlineAdCard(placement) {
   const article = document.createElement("article");
   article.className = "sponsored-card";
-  article.tabIndex = 0;
-  article.setAttribute("role", "button");
-  article.setAttribute("aria-label", "Sponsored placement");
 
   const label = document.createElement("p");
   label.className = "sponsored-card__label";
@@ -261,17 +257,16 @@ function createInlineAdCard(placement) {
   hint.className = "sponsored-card__hint";
   hint.textContent = "Reserved ad placement";
 
-  const handleInteraction = () => trackAdClick(placement);
-
-  article.addEventListener("click", handleInteraction);
-  article.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      handleInteraction();
-    }
+  const cta = document.createElement("button");
+  cta.type = "button";
+  cta.className = "sponsored-card__cta";
+  cta.textContent = "View Offer";
+  cta.setAttribute("aria-label", "View sponsored offer");
+  cta.addEventListener("click", () => {
+    openSponsoredOffer(placement, SPONSORED_OFFER_URL);
   });
 
-  article.append(label, title, text, hint);
+  article.append(label, title, text, hint, cta);
 
   return article;
 }
@@ -366,4 +361,9 @@ function trackAdClick(placement) {
     placement,
     timestamp: new Date().toISOString(),
   });
+}
+
+function openSponsoredOffer(placement, url) {
+  trackAdClick(placement);
+  window.open(url, "_blank", "noopener,noreferrer");
 }

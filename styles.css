@@ -427,6 +427,27 @@ button {
   font-weight: 700;
 }
 
+.sponsored-card__cta,
+.ad-sticky__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 2.75rem;
+  padding: 0.7rem 1rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.sponsored-card__cta {
+  margin-top: 1rem;
+}
+
 .info-strip {
   display: grid;
   gap: 1rem;
@@ -471,6 +492,10 @@ button {
   color: var(--text);
   font-size: 1.15rem;
   line-height: 1;
+}
+
+.ad-sticky__cta {
+  margin-top: 0.25rem;
 }
 
 @media (min-width: 700px) {
