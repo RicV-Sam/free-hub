@@ -50,6 +50,32 @@ const DEFAULT_COPY = {
   intro: "Discover new free competitions for cars, cash, holidays, tech, and vouchers in one fast hub.",
   canonical: `${SITE_ORIGIN}/`,
 };
+const TAG_COPY = {
+  "free-entry": {
+    title: "Free Entry Competitions UK",
+    description: "Browse free entry competitions in the UK and discover giveaways you can enter online without paid tickets.",
+    heading: "Free Entry Competitions You Can Enter Today",
+    intro: "Browse free entry competitions across cars, cash, holidays, tech, and vouchers in one lightweight hub.",
+  },
+  "ending-soon": {
+    title: "Competitions Ending Soon UK",
+    description: "Browse competitions ending soon in the UK and enter before the closing dates pass.",
+    heading: "Competitions Ending Soon You Should Enter Today",
+    intro: "Browse competitions ending soon and enter before they close.",
+  },
+  "high-value": {
+    title: "High Value Competitions UK",
+    description: "Browse high value competitions in the UK featuring cash prizes, car giveaways, holidays, and premium offers.",
+    heading: "High Value Competitions You Can Enter Today",
+    intro: "Explore high value competitions featuring stronger prize-led offers and premium giveaway categories.",
+  },
+  new: {
+    title: "New Competitions UK",
+    description: "Browse new competitions in the UK and discover the latest active giveaways added to the hub.",
+    heading: "New Competitions You Can Enter Today",
+    intro: "Discover the newest competitions in the hub based on the latest active opportunities and earliest upcoming closes.",
+  },
+};
 const PAGE_AD_PLACEMENTS = [
   { id: "ad-top", placement: "top" },
   { id: "ad-middle", placement: "middle" },
@@ -61,12 +87,14 @@ const state = {
   searchQuery: "",
   activeCategory: "All",
   routeCategory: null,
+  routeTag: null,
 };
 
 const elements = {
   searchInput: document.querySelector("#searchInput"),
   categoryFilters: document.querySelector("#categoryFilters"),
   categoryNavLinks: Array.from(document.querySelectorAll(".category-nav__link")),
+  popularSearchLinks: Array.from(document.querySelectorAll(".popular-searches__link")),
   resultsSummary: document.querySelector("#resultsSummary"),
   competitionsGrid: document.querySelector("#competitionsGrid"),
   loadingState: document.querySelector("#loadingState"),
@@ -158,6 +186,7 @@ async function loadCompetitions() {
       .sort((left, right) => new Date(left.closingDate) - new Date(right.closingDate));
 
     state.routeCategory = getRouteCategory();
+    state.routeTag = getRouteTag();
     state.activeCategory = state.routeCategory ? CATEGORY_COPY[state.routeCategory].category : "All";
 
     updatePageChrome();
@@ -181,7 +210,7 @@ function renderCategoryFilters() {
     button.textContent = category;
     button.setAttribute("aria-pressed", String(category === state.activeCategory));
     button.addEventListener("click", () => {
-      if (state.routeCategory) {
+      if (state.routeCategory || state.routeTag) {
         window.location.href = getCategoryRoute(category);
         return;
       }
@@ -195,10 +224,11 @@ function renderCategoryFilters() {
   });
 
   updateCategoryNavigation();
+  updatePopularSearchNavigation();
 }
 
 function renderCompetitions() {
-  const routeFilteredCompetitions = getRouteFilteredCompetitions();
+  const routeFilteredCompetitions = getRouteScopedCompetitions();
   const filteredCompetitions = routeFilteredCompetitions.filter((competition) => {
     const searchableText = `${competition.title} ${competition.category}`.toLowerCase();
     const matchesSearch = searchableText.includes(state.searchQuery);
@@ -514,6 +544,19 @@ function getRouteCategory() {
   return CATEGORY_COPY[slug] ? slug : null;
 }
 
+function getRouteTag() {
+  const path = normalizePath(window.location.pathname);
+  const tagMatch = path.match(/^\/free-hub\/tag\/([a-z0-9-]+)$/);
+
+  if (!tagMatch) {
+    return null;
+  }
+
+  const slug = tagMatch[1];
+
+  return TAG_COPY[slug] ? slug : null;
+}
+
 function normalizePath(pathname) {
   const trimmed = pathname.endsWith("/") && pathname !== "/" ? pathname.slice(0, -1) : pathname;
 
@@ -524,7 +567,11 @@ function normalizePath(pathname) {
   return trimmed;
 }
 
-function getRouteFilteredCompetitions() {
+function getRouteScopedCompetitions() {
+  if (state.routeTag) {
+    return getTagFilteredCompetitions(state.routeTag);
+  }
+
   if (!state.routeCategory) {
     return state.competitions;
   }
@@ -534,13 +581,19 @@ function getRouteFilteredCompetitions() {
 }
 
 function updatePageChrome() {
-  const routeCopy = state.routeCategory ? CATEGORY_COPY[state.routeCategory] : null;
+  const routeCopy = state.routeTag
+    ? TAG_COPY[state.routeTag]
+    : state.routeCategory
+      ? CATEGORY_COPY[state.routeCategory]
+      : null;
   const pageTitle = routeCopy ? routeCopy.title : DEFAULT_COPY.title;
   const pageDescription = routeCopy ? routeCopy.description : DEFAULT_COPY.description;
   const pageHeading = routeCopy ? routeCopy.heading : DEFAULT_COPY.heading;
   const pageIntro = routeCopy ? routeCopy.intro : DEFAULT_COPY.intro;
   const canonical = routeCopy
-    ? `${SITE_ORIGIN}/category/${state.routeCategory}`
+    ? state.routeTag
+      ? `${SITE_ORIGIN}/tag/${state.routeTag}`
+      : `${SITE_ORIGIN}/category/${state.routeCategory}`
     : DEFAULT_COPY.canonical;
 
   document.title = pageTitle;
@@ -563,6 +616,14 @@ function updateCategoryNavigation() {
   });
 }
 
+function updatePopularSearchNavigation() {
+  elements.popularSearchLinks.forEach((link) => {
+    const targetPath = normalizePath(new URL(link.href).pathname);
+    const currentPath = normalizePath(window.location.pathname);
+    link.classList.toggle("is-active", targetPath === currentPath);
+  });
+}
+
 function getCategoryRoute(category) {
   if (category === "All") {
     return `${BASE_PATH}/`;
@@ -573,4 +634,38 @@ function getCategoryRoute(category) {
   );
 
   return slug ? `${BASE_PATH}/category/${slug}` : `${BASE_PATH}/`;
+}
+
+function getTagFilteredCompetitions(tag) {
+  switch (tag) {
+    case "free-entry":
+      return state.competitions;
+    case "ending-soon":
+      return state.competitions.filter((competition) => isClosingWithinDays(competition.closingDate, 7));
+    case "high-value":
+      return state.competitions.filter((competition) => isHighValueCompetition(competition));
+    case "new":
+      return state.competitions.slice(0, 4);
+    default:
+      return state.competitions;
+  }
+}
+
+function isClosingWithinDays(dateString, days) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const closingDate = new Date(dateString);
+  closingDate.setHours(0, 0, 0, 0);
+
+  const diffInMs = closingDate.getTime() - today.getTime();
+  const diffInDays = Math.ceil(diffInMs / (1000 * 60 * 60 * 24));
+
+  return diffInDays >= 0 && diffInDays <= days;
+}
+
+function isHighValueCompetition(competition) {
+  const categoryPriority = ["Cash", "Cars", "Holidays"];
+  const keywordPattern = /\b(cash|car|holiday|luxury|suv|bundle|escape|spa)\b/i;
+  return categoryPriority.includes(competition.category) || keywordPattern.test(competition.title);
 }
