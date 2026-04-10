@@ -1,5 +1,11 @@
 const DATA_URL = new URL("./data/competitions.json", window.location.href);
 const CLOSING_SOON_DAYS = 3;
+const INLINE_AD_INTERVAL = 6;
+const PAGE_AD_PLACEMENTS = [
+  { id: "ad-top", placement: "top" },
+  { id: "ad-middle", placement: "middle" },
+  { id: "ad-bottom", placement: "bottom" },
+];
 
 const state = {
   competitions: [],
@@ -15,10 +21,14 @@ const elements = {
   loadingState: document.querySelector("#loadingState"),
   errorState: document.querySelector("#errorState"),
   emptyState: document.querySelector("#emptyState"),
+  stickyAd: document.querySelector("#ad-sticky"),
+  stickyAdClose: document.querySelector("#stickyAdClose"),
 };
 
 document.addEventListener("DOMContentLoaded", () => {
   bindEvents();
+  setupPageAds();
+  setupStickyAd();
   loadCompetitions();
 });
 
@@ -26,6 +36,51 @@ function bindEvents() {
   elements.searchInput.addEventListener("input", (event) => {
     state.searchQuery = event.target.value.trim().toLowerCase();
     renderCompetitions();
+  });
+}
+
+function setupPageAds() {
+  PAGE_AD_PLACEMENTS.forEach(({ id, placement }) => {
+    const element = document.querySelector(`#${id}`);
+
+    if (!element) {
+      return;
+    }
+
+    element.addEventListener("click", () => trackAdClick(placement));
+  });
+
+  const observer = new IntersectionObserver(handleAdVisibility, {
+    threshold: 0.35,
+  });
+
+  PAGE_AD_PLACEMENTS.forEach(({ id, placement }) => {
+    const element = document.querySelector(`#${id}`);
+
+    if (!element) {
+      return;
+    }
+
+    element.dataset.placement = placement;
+    observer.observe(element);
+  });
+}
+
+function setupStickyAd() {
+  if (!elements.stickyAd || !elements.stickyAdClose) {
+    return;
+  }
+
+  elements.stickyAd.addEventListener("click", (event) => {
+    if (event.target === elements.stickyAdClose) {
+      return;
+    }
+
+    trackAdClick("sticky");
+  });
+
+  elements.stickyAdClose.addEventListener("click", () => {
+    elements.stickyAd.classList.add("ad-sticky--hidden");
   });
 }
 
@@ -90,7 +145,17 @@ function renderCompetitions() {
   if (filteredCompetitions.length === 0) {
     elements.emptyState.classList.remove("state-card--hidden");
   } else {
-    const cards = filteredCompetitions.map(createCompetitionCard);
+    const cards = filteredCompetitions.flatMap((competition, index) => {
+      const items = [createCompetitionCard(competition)];
+
+      if ((index + 1) % INLINE_AD_INTERVAL === 0) {
+        const placement = `inline-${Math.floor((index + 1) / INLINE_AD_INTERVAL)}`;
+        items.push(createInlineAdCard(placement));
+      }
+
+      return items;
+    });
+
     elements.competitionsGrid.append(...cards);
   }
 
@@ -173,6 +238,44 @@ function createCompetitionCard(competition) {
   return article;
 }
 
+function createInlineAdCard(placement) {
+  const article = document.createElement("article");
+  article.className = "sponsored-card";
+  article.tabIndex = 0;
+  article.setAttribute("role", "button");
+  article.setAttribute("aria-label", "Sponsored placement");
+
+  const label = document.createElement("p");
+  label.className = "sponsored-card__label";
+  label.textContent = "Sponsored";
+
+  const title = document.createElement("h3");
+  title.className = "sponsored-card__title";
+  title.textContent = "Promote your offer here";
+
+  const text = document.createElement("p");
+  text.className = "sponsored-card__text";
+  text.textContent = "Inline monetisation slot designed to blend with the card grid without disrupting browsing.";
+
+  const hint = document.createElement("p");
+  hint.className = "sponsored-card__hint";
+  hint.textContent = "Reserved ad placement";
+
+  const handleInteraction = () => trackAdClick(placement);
+
+  article.addEventListener("click", handleInteraction);
+  article.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      handleInteraction();
+    }
+  });
+
+  article.append(label, title, text, hint);
+
+  return article;
+}
+
 function updateResultsSummary(count) {
   elements.resultsSummary.textContent = `Showing ${count} competitions`;
 }
@@ -235,4 +338,32 @@ function trackCompetitionClick(competition) {
 function openCompetition(competition) {
   trackCompetitionClick(competition);
   window.open(competition.url, "_blank", "noopener,noreferrer");
+}
+
+function handleAdVisibility(entries, observer) {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) {
+      return;
+    }
+
+    const placement = entry.target.dataset.placement;
+    trackAdView(placement);
+    observer.unobserve(entry.target);
+  });
+}
+
+function trackAdView(placement) {
+  console.log({
+    event: "ad_view",
+    placement,
+    timestamp: new Date().toISOString(),
+  });
+}
+
+function trackAdClick(placement) {
+  console.log({
+    event: "ad_click",
+    placement,
+    timestamp: new Date().toISOString(),
+  });
 }
