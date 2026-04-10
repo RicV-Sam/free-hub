@@ -89,7 +89,7 @@
         "Browse competitions ending soon in the UK and enter before the closing dates pass.",
       heading: "Competitions Ending Soon You Should Enter Today",
       intro:
-        "Don’t miss out on free-entry competitions in South Africa that are closing soon. These no-cost giveaways are nearing their deadlines, so this page helps you act quickly before the best opportunities disappear.",
+        "Do not miss out on free-entry competitions in South Africa that are closing soon. These no-cost giveaways are nearing their deadlines, so this page helps you act quickly before the best opportunities disappear.",
       support:
         "South African competition listings move fast, especially when popular brands or bigger prizes are involved. This page brings together competitions with near-term closing dates so you can prioritise urgent entries first.",
     },
