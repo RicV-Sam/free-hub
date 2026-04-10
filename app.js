@@ -532,7 +532,7 @@ function injectStructuredData(competitions) {
 }
 
 function getRouteCategory() {
-  const path = normalizePath(window.location.pathname);
+  const path = getCurrentRoutePath();
   const categoryMatch = path.match(/^\/free-hub\/category\/([a-z0-9-]+)$/);
 
   if (!categoryMatch) {
@@ -545,7 +545,7 @@ function getRouteCategory() {
 }
 
 function getRouteTag() {
-  const path = normalizePath(window.location.pathname);
+  const path = getCurrentRoutePath();
   const tagMatch = path.match(/^\/free-hub\/tag\/([a-z0-9-]+)$/);
 
   if (!tagMatch) {
@@ -611,7 +611,7 @@ function updatePageChrome() {
 function updateCategoryNavigation() {
   elements.categoryNavLinks.forEach((link) => {
     const targetPath = normalizePath(new URL(link.href).pathname);
-    const currentPath = normalizePath(window.location.pathname);
+    const currentPath = getCurrentRoutePath();
     link.classList.toggle("is-active", targetPath === currentPath);
   });
 }
@@ -619,7 +619,7 @@ function updateCategoryNavigation() {
 function updatePopularSearchNavigation() {
   elements.popularSearchLinks.forEach((link) => {
     const targetPath = normalizePath(new URL(link.href).pathname);
-    const currentPath = normalizePath(window.location.pathname);
+    const currentPath = getCurrentRoutePath();
     link.classList.toggle("is-active", targetPath === currentPath);
   });
 }
@@ -668,4 +668,18 @@ function isHighValueCompetition(competition) {
   const categoryPriority = ["Cash", "Cars", "Holidays"];
   const keywordPattern = /\b(cash|car|holiday|luxury|suv|bundle|escape|spa)\b/i;
   return categoryPriority.includes(competition.category) || keywordPattern.test(competition.title);
+}
+
+function getCurrentRoutePath() {
+  const hashPath = window.location.hash.replace(/^#/, "");
+
+  if (hashPath) {
+    const prefixedPath = hashPath.startsWith(BASE_PATH)
+      ? hashPath
+      : `${BASE_PATH}${hashPath.startsWith("/") ? "" : "/"}${hashPath}`;
+
+    return normalizePath(prefixedPath);
+  }
+
+  return normalizePath(window.location.pathname);
 }
