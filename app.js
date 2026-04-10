@@ -1,9 +1,6 @@
 const {
-  BASE_PATH,
   CATEGORY_COPY,
-  TAG_COPY,
   getCompetitionPath,
-  buildCompetitionDescription,
   buildStructuredData,
   filterCompetitionsByRoute,
   formatDate,
@@ -463,21 +460,5 @@ function updatePopularSearchNavigation() {
 }
 
 function getCurrentRoutePath() {
-  const normalizedPath = getRouteContext(window.location.pathname).path;
-
-  if (normalizedPath !== `${BASE_PATH}/`) {
-    return normalizedPath;
-  }
-
-  const hashPath = window.location.hash.replace(/^#/, "");
-
-  if (hashPath) {
-    const prefixedPath = hashPath.startsWith(BASE_PATH)
-      ? hashPath
-      : `${BASE_PATH}${hashPath.startsWith("/") ? "" : "/"}${hashPath}`;
-
-    return getRouteContext(prefixedPath).path;
-  }
-
-  return normalizedPath;
+  return getRouteContext(window.location.pathname).path;
 }

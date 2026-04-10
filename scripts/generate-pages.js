@@ -215,7 +215,7 @@ function renderPage(routeContext, competitions) {
 function renderCompetitionCard(competition) {
   const internalPath = shared.getCompetitionPath(competition);
   const closingSoonBadge = shared.isClosingSoon(competition.closingDate)
-    ? '<span class="badge badge--closing">🔥 Closing Soon</span>'
+    ? '<span class="badge badge--closing">&#x1F525; Closing Soon</span>'
     : "";
 
   return `<article class="competition-card">
