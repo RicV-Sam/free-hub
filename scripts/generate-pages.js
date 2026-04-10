@@ -98,6 +98,8 @@ function renderPage(routeContext, competitions) {
           </div>
         </section>
 
+        ${renderInternalLinksSection(routeContext)}
+
         <section class="ad-slot" id="ad-top" aria-label="Advertisement">
           <p class="ad-slot__label">Advertisement</p>
           <p class="ad-slot__copy">Top banner placeholder for future monetisation.</p>
@@ -265,6 +267,43 @@ function renderPopularLink(link, currentPath) {
   const isActive = currentPath === normalizeStaticPath(link.href);
   const className = isActive ? "popular-searches__link is-active" : "popular-searches__link";
   return `<a class="${className}" href="${escapeAttribute(link.href)}">${escapeHtml(link.label)}</a>`;
+}
+
+function renderInternalLinksSection(routeContext) {
+  const section =
+    routeContext.type === "category"
+      ? {
+          title: "Related Searches",
+          links: [
+            { label: "Ending soon competitions", href: "/free-hub/tag/ending-soon/" },
+            { label: "High value competitions", href: "/free-hub/tag/high-value/" },
+          ],
+        }
+      : routeContext.type === "tag"
+        ? {
+            title: "Explore Categories",
+            links: [
+              { label: "Cash competitions", href: "/free-hub/category/cash/" },
+              { label: "Car competitions", href: "/free-hub/category/cars/" },
+            ],
+          }
+        : null;
+
+  if (!section) {
+    return "";
+  }
+
+  return `<section class="internal-links" aria-label="${escapeAttribute(section.title)}">
+          <p class="internal-links__title">${escapeHtml(section.title)}</p>
+          <div class="internal-links__list">
+            ${section.links
+              .map(
+                (link) =>
+                  `<a class="internal-links__link" href="${escapeAttribute(link.href)}">${escapeHtml(link.label)}</a>`
+              )
+              .join("\n            ")}
+          </div>
+        </section>`;
 }
 
 function normalizeStaticPath(pathname) {

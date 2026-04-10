@@ -171,6 +171,43 @@ button {
   color: #fff;
 }
 
+.internal-links {
+  width: min(calc(100% - 2rem), var(--max-width));
+  margin: 0 auto;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.internal-links__title {
+  margin: 0 0 0.8rem;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.internal-links__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.internal-links__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: var(--radius-sm);
+  background: rgba(15, 118, 110, 0.08);
+  color: var(--accent);
+  font-weight: 700;
+}
+
 .hero {
   padding: 2rem 0 1.25rem;
 }
