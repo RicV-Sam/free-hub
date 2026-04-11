@@ -77,6 +77,9 @@ web_modules/
 # Next.js build output
 .next
 out
+# Unignore our redirect tracking pages
+!/out/
+!/free-hub/out/
 
 # Nuxt.js build / generate output
 .nuxt

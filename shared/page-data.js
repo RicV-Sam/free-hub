@@ -163,6 +163,10 @@
     return `${SITE_ORIGIN}/competition/${getCompetitionSlug(competition)}`;
   }
 
+  function getOutPath(competition) {
+    return `${BASE_PATH}/out/${getCompetitionSlug(competition)}`;
+  }
+
   function buildCompetitionDescription(competition) {
     if (competition.summary) {
       return competition.summary;
@@ -372,6 +376,7 @@
     getCompetitionSlug,
     getCompetitionPath,
     getCompetitionAbsoluteUrl,
+    getOutPath,
     buildCompetitionDescription,
     isClosingSoon,
     isClosingWithinDays,

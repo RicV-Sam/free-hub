@@ -7,7 +7,7 @@ const MIRROR_DIR = path.join(ROOT_DIR, "free-hub");
 const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
 const RELATIVE_ASSET_PATH = "../../";
 const MIRROR_FILES = ["index.html", "404.html", "app.js", "styles.css", "robots.txt", "sitemap.xml"];
-const MIRROR_DIRECTORIES = ["data", "shared", "category", "tag", "competition"];
+const MIRROR_DIRECTORIES = ["data", "shared", "category", "tag", "competition", "out"];
 const CATEGORY_LINKS = [
   { label: "All Competitions", href: "/free-hub/" },
   ...shared.CATEGORY_SLUGS.map((slug) => ({
@@ -41,6 +41,15 @@ function main() {
     const html = renderCompetitionPage(competition, competitions);
     const slug = shared.getCompetitionSlug(competition);
     const outputDirectory = path.join(ROOT_DIR, "competition", slug);
+
+    fs.mkdirSync(outputDirectory, { recursive: true });
+    fs.writeFileSync(path.join(outputDirectory, "index.html"), html);
+  });
+
+  competitions.forEach((competition) => {
+    const html = renderOutPage(competition);
+    const slug = shared.getCompetitionSlug(competition);
+    const outputDirectory = path.join(ROOT_DIR, "out", slug);
 
     fs.mkdirSync(outputDirectory, { recursive: true });
     fs.writeFileSync(path.join(outputDirectory, "index.html"), html);
@@ -792,9 +801,7 @@ function renderCompetitionPage(competition, allCompetitions) {
             ${entryStepsMarkup}
             <a
               class="competition-detail__cta"
-              href="${escapeAttribute(competition.url)}"
-              target="_blank"
-              rel="nofollow noopener"
+              href="${escapeAttribute(shared.getOutPath(competition) + "/")}"
             >
               Enter Competition
             </a>
@@ -854,6 +861,97 @@ function renderCompetitionPage(competition, allCompetitions) {
 
     <script src="${RELATIVE_ASSET_PATH}shared/page-data.js" defer></script>
     <script src="${RELATIVE_ASSET_PATH}app.js" defer></script>
+  </body>
+</html>
+`;
+}
+
+function renderOutPage(competition) {
+  const slug = shared.getCompetitionSlug(competition);
+  const externalUrl = competition.url;
+  const canonicalUrl = `${shared.CANONICAL_ORIGIN}/out/${slug}/`;
+
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting to ${escapeHtml(competition.title)} | Free Hub SA</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
+    <link rel="stylesheet" href="${RELATIVE_ASSET_PATH}styles.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-23P37R20FY');
+    </script>
+    <script>
+      (function () {
+        var SLUG = ${escapeScript(JSON.stringify(slug))};
+        var TARGET = ${escapeScript(JSON.stringify(externalUrl))};
+        gtag('event', 'outbound_click', {
+          event_label: SLUG,
+          event_category: 'outbound',
+          transport_type: 'beacon',
+        });
+        setTimeout(function () {
+          window.location.replace(TARGET);
+        }, 2000);
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="hero">
+        <div class="hero__copy">
+          <p class="eyebrow">free-hub</p>
+          <h1>Redirecting you now&hellip;</h1>
+          <p class="hero__text">Taking you to <strong>${escapeHtml(competition.title)}</strong>. If you are not redirected automatically, use the link below.</p>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="state-card" aria-label="Redirect notice">
+          <p class="state-card__title">You are being redirected</p>
+          <p class="state-card__text">
+            You will be taken to the official competition page in 2 seconds.
+          </p>
+          <a class="competition-detail__cta" href="${escapeAttribute(externalUrl)}" rel="nofollow noopener" target="_blank">
+            Click here if the redirect does not work
+          </a>
+        </section>
+
+        <section class="ad-slot" id="ad-top" aria-label="Advertisement">
+          <p class="ad-slot__label">Advertisement</p>
+          <p class="ad-slot__copy">Top banner placeholder for future monetisation.</p>
+        </section>
+
+        <section class="ad-slot ad-slot--compact" id="ad-middle" aria-label="Advertisement">
+          <p class="ad-slot__label">Advertisement</p>
+          <p class="ad-slot__copy">Mid-page placement designed for sponsored content or display inventory.</p>
+        </section>
+      </main>
+
+      <footer class="site-footer" aria-label="Site footer">
+        <div class="site-footer__grid">
+          <div>
+            <p class="site-footer__title">About</p>
+            <p class="site-footer__text">
+              We curate free competitions from verified listing sources and brand promotions so you can browse live offers in one place.
+            </p>
+          </div>
+          <div>
+            <p class="site-footer__title">Disclaimer</p>
+            <p class="site-footer__text">
+              No purchase is necessary for many promotions, but always check the promoter's terms and closing date before entering.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
 `;
