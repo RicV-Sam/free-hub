@@ -109,6 +109,10 @@ function setupStickyAd() {
 }
 
 async function loadCompetitions() {
+  if (!elements.competitionsGrid) {
+    return;
+  }
+
   showLoading();
 
   try {
@@ -212,22 +216,15 @@ function createCompetitionCard(competition) {
 
   const overlayLink = document.createElement("a");
   overlayLink.className = "competition-card__overlay-link";
-  overlayLink.href = competition.url;
-  overlayLink.setAttribute("aria-label", `${competition.title} - open competition`);
-  overlayLink.addEventListener("click", (event) => {
-    event.preventDefault();
-    openCompetition(competition);
-  });
-  overlayLink.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      openCompetition(competition);
-    }
+  overlayLink.href = getCompetitionPath(competition) + "/";
+  overlayLink.setAttribute("aria-label", `${competition.title} - view competition details`);
+  overlayLink.addEventListener("click", () => {
+    trackCompetitionClick(competition);
   });
 
   const overlayText = document.createElement("span");
   overlayText.className = "visually-hidden";
-  overlayText.textContent = `Open ${competition.title}`;
+  overlayText.textContent = `View details for ${competition.title}`;
   overlayLink.appendChild(overlayText);
 
   const media = document.createElement("div");
@@ -288,19 +285,11 @@ function createCompetitionCard(competition) {
   entryPill.className = "competition-card__entry";
   entryPill.textContent = competition.entryType;
 
-  const externalHint = document.createElement("span");
-  externalHint.className = "competition-card__hint";
-  externalHint.textContent = competition.entrySteps || "Opens in new tab";
+  const hint = document.createElement("span");
+  hint.className = "competition-card__hint";
+  hint.textContent = competition.entrySteps || "Click to view details";
 
-  const internalLink = document.createElement("a");
-  internalLink.className = "competition-card__internal-link";
-  internalLink.href = getCompetitionPath(competition);
-  internalLink.textContent = "Competition page";
-  internalLink.addEventListener("click", (event) => {
-    event.stopPropagation();
-  });
-
-  body.append(entryPill, externalHint, internalLink);
+  body.append(entryPill, hint);
   article.append(media, body, overlayLink);
 
   return article;
@@ -494,5 +483,5 @@ function getDataPath() {
 }
 
 function isNestedRoutePath(pathname) {
-  return pathname.includes("/category/") || pathname.includes("/tag/");
+  return pathname.includes("/category/") || pathname.includes("/tag/") || pathname.includes("/competition/");
 }
