@@ -68,9 +68,9 @@
     title: "Free Competitions South Africa | Win Cars, Cash & Holidays",
     description:
       "Browse free competitions in South Africa with live categories, search, and fast access to offers for cars, cash, holidays, tech, and vouchers.",
-    heading: "Latest Free Competitions in Mzansi",
+    heading: "Win Cars, Cash, Holidays and Vouchers in South Africa",
     intro:
-      "Discover new free competitions for cars, cash, holidays, tech, and vouchers across South Africa in one fast hub.",
+      "Browse free competitions from trusted brands. Updated regularly with new giveaways, prize draws and promotions.",
     canonical: `${CANONICAL_ORIGIN}/`,
   };
   const TAG_COPY = {

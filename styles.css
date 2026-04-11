@@ -721,6 +721,243 @@ button {
   margin-top: 0.25rem;
 }
 
+/* ── Hero CTA buttons ─────────────────────────────────────────────── */
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(15, 118, 110, 0.28);
+}
+
+.btn--primary:hover {
+  box-shadow: 0 12px 32px rgba(15, 118, 110, 0.4);
+}
+
+.btn--secondary {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid var(--accent);
+  color: var(--accent);
+}
+
+/* ── Trust chips ──────────────────────────────────────────────────── */
+
+.trust-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.trust-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-sm);
+  background: rgba(15, 118, 110, 0.1);
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.trust-chip::before {
+  content: "✓";
+  font-weight: 900;
+}
+
+/* ── Home sections ────────────────────────────────────────────────── */
+
+.home-section {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  padding: 1.1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.home-section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.home-section__title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.home-section__intro {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.home-section__link {
+  color: var(--accent);
+  font-size: 0.88rem;
+  font-weight: 700;
+  white-space: nowrap;
+  text-decoration: underline;
+}
+
+/* ── Featured competition cards ───────────────────────────────────── */
+
+.competition-card--featured .competition-card__media {
+  aspect-ratio: 16 / 9;
+}
+
+.competition-card--featured .competition-card__title {
+  font-size: 1.35rem;
+}
+
+/* ── Ending-soon horizontal scroll (mobile) ───────────────────────── */
+
+.competition-grid--scroll {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.35rem;
+}
+
+.competition-grid--scroll .competition-card {
+  flex: 0 0 78vw;
+  max-width: 320px;
+  scroll-snap-align: start;
+}
+
+/* ── Category shortcuts ───────────────────────────────────────────── */
+
+.category-shortcuts__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+}
+
+.category-shortcut {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  background: rgba(15, 118, 110, 0.07);
+  border: 1px solid rgba(15, 118, 110, 0.15);
+  color: var(--text);
+  text-decoration: none;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.category-shortcut:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.category-shortcut__name {
+  font-size: 0.98rem;
+  font-weight: 800;
+}
+
+.category-shortcut__count {
+  font-size: 0.76rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.category-shortcut:hover .category-shortcut__count {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ── Trust bullet list (Why use FreeHub) ──────────────────────────── */
+
+.home-trust-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.home-trust-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.home-trust-list li::before {
+  content: "✓";
+  color: var(--accent);
+  font-weight: 900;
+  flex-shrink: 0;
+  margin-top: 0.05em;
+}
+
+/* ── Final CTA block ──────────────────────────────────────────────── */
+
+.home-cta {
+  background: linear-gradient(135deg, rgba(15, 118, 110, 0.1), rgba(15, 118, 110, 0.03));
+  border: 1px solid rgba(15, 118, 110, 0.2);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 2rem 1.25rem;
+  display: grid;
+  gap: 1.25rem;
+  text-align: center;
+  justify-items: center;
+}
+
+.home-cta__title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  max-width: 26rem;
+}
+
+.home-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+/* ── Competition detail ───────────────────────────────────────────── */
+
 .competition-detail {
   background: rgba(255, 255, 255, 0.78);
   border: 1px solid rgba(255, 255, 255, 0.9);
@@ -814,6 +1051,32 @@ button {
     padding-bottom: 0;
   }
 
+  .competition-grid--scroll {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow-x: visible;
+    padding-bottom: 0;
+  }
+
+  .competition-grid--scroll .competition-card {
+    flex: unset;
+    max-width: none;
+  }
+
+  .category-shortcuts__grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .home-section {
+    padding-left: 1.35rem;
+    padding-right: 1.35rem;
+  }
+
+  .home-cta {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
   .popular-searches__links,
   .internal-links__list {
     display: flex;
@@ -864,6 +1127,10 @@ button {
   }
 
   .competition-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .competition-grid--scroll {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
