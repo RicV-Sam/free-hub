@@ -90,6 +90,14 @@ function renderPage(routeContext, competitions) {
       JSON.stringify(structuredData)
     )}</script>
     <link rel="stylesheet" href="${RELATIVE_ASSET_PATH}styles.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-23P37R20FY');
+    </script>
   </head>
   <body>
     <div class="site-shell">
@@ -412,6 +420,14 @@ function renderHomepage(competitions) {
     <meta name="twitter:image" content="${escapeAttribute(ogImage)}" />
     <script id="structured-data-itemlist" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
     <link rel="stylesheet" href="styles.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-23P37R20FY');
+    </script>
   </head>
   <body>
     <noscript>
@@ -718,6 +734,14 @@ function renderCompetitionPage(competition, allCompetitions) {
     <meta name="twitter:image" content="${escapeAttribute(ogImage)}" />
     <script id="structured-data-offer" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
     <link rel="stylesheet" href="${RELATIVE_ASSET_PATH}styles.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-23P37R20FY');
+    </script>
   </head>
   <body>
     <div class="site-shell">
