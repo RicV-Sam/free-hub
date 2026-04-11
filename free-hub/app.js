@@ -272,6 +272,13 @@ function createCompetitionCard(competition) {
   closingDate.textContent = `Closes ${formatDate(competition.closingDate)}`;
   meta.append(closingDate);
 
+  const daysLeft = Math.ceil((new Date(competition.closingDate) - new Date()) / (1000 * 60 * 60 * 24));
+  if (daysLeft >= 0 && daysLeft <= 30) {
+    const endsIn = document.createElement("span");
+    endsIn.textContent = daysLeft === 0 ? "Closes today" : `Ends in ${daysLeft} day${daysLeft === 1 ? "" : "s"}`;
+    meta.append(endsIn);
+  }
+
   if (competition.summary) {
     const summary = document.createElement("p");
     summary.className = "competition-card__summary";
