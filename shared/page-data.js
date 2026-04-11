@@ -334,6 +334,7 @@
 
   function getAllStaticRouteContexts() {
     return [
+      { type: 'home', slug: '' },
       ...CATEGORY_SLUGS.map((slug) => ({ type: "category", slug, path: `${BASE_PATH}/category/${slug}/` })),
       ...TAG_SLUGS.map((slug) => ({ type: "tag", slug, path: `${BASE_PATH}/tag/${slug}/` })),
     ];
