@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ricv-sam.github.io/free-hub/sitemap.xml
+Sitemap: https://freehub.datacost.co.za/sitemap.xml

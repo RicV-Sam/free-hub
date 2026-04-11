@@ -7,7 +7,7 @@ const MIRROR_DIR = path.join(ROOT_DIR, "free-hub");
 const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
 const RELATIVE_ASSET_PATH = "../../";
 const MIRROR_FILES = ["index.html", "404.html", "app.js", "styles.css", "robots.txt", "sitemap.xml"];
-const MIRROR_DIRECTORIES = ["data", "shared", "category", "tag"];
+const MIRROR_DIRECTORIES = ["data", "shared", "category", "tag", "competition"];
 const CATEGORY_LINKS = [
   { label: "All Competitions", href: "/free-hub/" },
   ...shared.CATEGORY_SLUGS.map((slug) => ({
@@ -29,15 +29,22 @@ function main() {
   routeContexts.forEach((routeContext) => {
     const filteredCompetitions = shared.filterCompetitionsByRoute(competitions, routeContext);
     const html = renderPage(routeContext, filteredCompetitions);
-    const outputDirectory = path.join(
-      ROOT_DIR,
-      routeContext.type,
-      routeContext.slug
-    );
+    const outputDirectory = path.join(ROOT_DIR, routeContext.type, routeContext.slug);
 
     fs.mkdirSync(outputDirectory, { recursive: true });
     fs.writeFileSync(path.join(outputDirectory, "index.html"), html);
   });
+
+  competitions.forEach((competition) => {
+    const html = renderCompetitionPage(competition, competitions);
+    const slug = shared.getCompetitionSlug(competition);
+    const outputDirectory = path.join(ROOT_DIR, "competition", slug);
+
+    fs.mkdirSync(outputDirectory, { recursive: true });
+    fs.writeFileSync(path.join(outputDirectory, "index.html"), html);
+  });
+
+  fs.writeFileSync(path.join(ROOT_DIR, "sitemap.xml"), generateSitemap(competitions));
 
   syncMirrorTree();
 }
@@ -254,12 +261,9 @@ function renderCompetitionCard(competition) {
                 ${summaryMarkup}
                 <p class="competition-card__entry">${escapeHtml(competition.entryType)}</p>
                 <span class="competition-card__hint">${escapeHtml(hintText)}</span>
-                <a class="competition-card__internal-link" href="${escapeAttribute(internalPath)}">Competition page</a>
               </div>
-              <a class="competition-card__overlay-link" href="${escapeAttribute(
-                competition.url
-              )}" aria-label="${escapeAttribute(competition.title)} - open competition">
-                <span class="visually-hidden">Open ${escapeHtml(competition.title)}</span>
+              <a class="competition-card__overlay-link" href="${escapeAttribute(internalPath)}/" aria-label="${escapeAttribute(competition.title)} - view competition details">
+                <span class="visually-hidden">View details for ${escapeHtml(competition.title)}</span>
               </a>
             </article>`;
 }
@@ -347,6 +351,257 @@ function renderThinPageTips(competitions) {
             ${shared.THIN_PAGE_TIPS.map((tip) => `<li>${escapeHtml(tip)}</li>`).join("\n            ")}
           </ul>
         </section>`;
+}
+
+function renderCompetitionPage(competition, allCompetitions) {
+  const slug = shared.getCompetitionSlug(competition);
+  const canonicalUrl = `${shared.CANONICAL_ORIGIN}/competition/${slug}/`;
+  const description = shared.buildCompetitionDescription(competition);
+  const formattedDate = shared.formatDate(competition.closingDate);
+  const ogImage = competition.image || shared.DEFAULT_OG_IMAGE;
+  const relatedCompetitions = getRelatedCompetitions(competition, allCompetitions);
+
+  const categorySlug = shared.CATEGORY_SLUGS.find(
+    (key) => shared.CATEGORY_COPY[key].category === competition.category
+  );
+  const categoryPath = categorySlug ? `/free-hub/category/${categorySlug}/` : "/free-hub/";
+
+  const closingSoonBadge = shared.isClosingSoon(competition.closingDate)
+    ? '<span class="badge badge--closing">&#x1F525; Closing Soon</span>'
+    : "";
+  const brandBadge = competition.brand
+    ? `<span class="badge badge--category">${escapeHtml(competition.brand)}</span>`
+    : "";
+  const entryStepsMarkup = competition.entrySteps
+    ? `<div class="competition-detail__steps">
+              <p><strong>How to Enter:</strong> ${escapeHtml(competition.entrySteps)}</p>
+            </div>`
+    : "";
+  const heroSubline = competition.brand ? `By ${competition.brand}` : competition.category;
+
+  const relatedCardsMarkup = relatedCompetitions.map((c) => renderCompetitionCard(c)).join("\n            ");
+  const relatedSection = relatedCardsMarkup
+    ? `<section class="competition-section" aria-label="Related Competitions">
+          <div class="internal-links">
+            <p class="internal-links__title">Related Competitions</p>
+          </div>
+          <div class="competition-grid">
+            ${relatedCardsMarkup}
+          </div>
+        </section>`
+    : "";
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Offer",
+    name: competition.title,
+    description,
+    url: canonicalUrl,
+    image: competition.image || undefined,
+    offeredBy: competition.brand ? { "@type": "Organization", name: competition.brand } : undefined,
+    availabilityEnds: competition.closingDate,
+  };
+
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${escapeHtml(competition.title)} | Free Hub SA</title>
+    <meta name="description" content="${escapeAttribute(description)}" />
+    <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="${escapeAttribute(competition.title)}" />
+    <meta property="og:description" content="${escapeAttribute(description)}" />
+    <meta property="og:url" content="${escapeAttribute(canonicalUrl)}" />
+    <meta property="og:image" content="${escapeAttribute(ogImage)}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${escapeAttribute(competition.title)}" />
+    <meta name="twitter:description" content="${escapeAttribute(description)}" />
+    <meta name="twitter:image" content="${escapeAttribute(ogImage)}" />
+    <script id="structured-data-offer" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
+    <link rel="stylesheet" href="${RELATIVE_ASSET_PATH}styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="hero">
+        <div class="hero__copy">
+          <p class="eyebrow">free-hub</p>
+          <h1 id="pageTitle">${escapeHtml(competition.title)}</h1>
+          <p class="hero__text">${escapeHtml(heroSubline)}</p>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <nav class="category-nav" aria-label="Competition categories">
+          ${CATEGORY_LINKS.map((link) => renderNavLink(link, "/free-hub/competition/")).join("\n          ")}
+        </nav>
+
+        <section class="popular-searches" aria-label="Popular searches">
+          <p class="popular-searches__title">Popular Searches</p>
+          <div class="popular-searches__links">
+            ${TAG_LINKS.map((link) => renderPopularLink(link, "/free-hub/competition/")).join("\n            ")}
+          </div>
+        </section>
+
+        ${renderCompetitionInternalLinks(competition.category, categoryPath)}
+
+        <section class="ad-slot" id="ad-top" aria-label="Advertisement">
+          <p class="ad-slot__label">Advertisement</p>
+          <p class="ad-slot__copy">Top banner placeholder for future monetisation.</p>
+        </section>
+
+        <article class="competition-detail" aria-label="${escapeAttribute(competition.title)}">
+          <div class="competition-detail__media">
+            <img src="${escapeAttribute(ogImage)}" alt="${escapeAttribute(competition.title)}" />
+          </div>
+          <div class="competition-detail__body">
+            <div class="competition-detail__meta">
+              <span class="badge badge--category">${escapeHtml(competition.category)}</span>
+              ${brandBadge}
+              ${closingSoonBadge}
+            </div>
+            <div class="competition-detail__info">
+              <p><strong>Closing Date:</strong> ${escapeHtml(formattedDate)}</p>
+              <p><strong>Entry Type:</strong> ${escapeHtml(competition.entryType)}</p>
+            </div>
+            <div class="competition-detail__summary">
+              <p>${escapeHtml(description)}</p>
+            </div>
+            ${entryStepsMarkup}
+            <a
+              class="competition-detail__cta"
+              href="${escapeAttribute(competition.url)}"
+              target="_blank"
+              rel="nofollow noopener"
+            >
+              Enter Competition
+            </a>
+          </div>
+        </article>
+
+        <section class="state-card" aria-label="About this listing">
+          <p class="state-card__title">About This Listing</p>
+          <p class="state-card__text">
+            We link directly to official brand competitions and promoter pages. No account or sign-up is required on our site. Always check the promoter's terms and closing date before entering.
+          </p>
+        </section>
+
+        <section class="ad-slot ad-slot--compact" id="ad-middle" aria-label="Advertisement">
+          <p class="ad-slot__label">Advertisement</p>
+          <p class="ad-slot__copy">Mid-page placement designed for sponsored content or display inventory.</p>
+        </section>
+
+        ${relatedSection}
+
+        <section class="ad-slot" id="ad-bottom" aria-label="Advertisement">
+          <p class="ad-slot__label">Advertisement</p>
+          <p class="ad-slot__copy">Bottom placement reserved for future ad network integration.</p>
+        </section>
+      </main>
+
+      <footer class="site-footer" aria-label="Site footer">
+        <div class="site-footer__grid">
+          <div>
+            <p class="site-footer__title">About</p>
+            <p class="site-footer__text">
+              We curate free competitions from verified listing sources and brand promotions so you can browse live offers in one place.
+            </p>
+          </div>
+          <div>
+            <p class="site-footer__title">Contact</p>
+            <p class="site-footer__text">Contact: hello@freehub.datacost.co.za</p>
+          </div>
+          <div>
+            <p class="site-footer__title">Disclaimer</p>
+            <p class="site-footer__text">
+              No purchase is necessary for many promotions, but always check the promoter's terms and closing date before entering.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <aside class="ad-sticky" id="ad-sticky" aria-label="Advertisement">
+      <button class="ad-sticky__close" id="stickyAdClose" type="button" aria-label="Close advertisement">
+        &times;
+      </button>
+      <p class="ad-slot__label">Advertisement</p>
+      <p class="ad-slot__copy">Sticky mobile placement for high-visibility monetisation.</p>
+      <button class="ad-sticky__cta" id="stickyAdCta" type="button">View Offer</button>
+    </aside>
+
+    <script src="${RELATIVE_ASSET_PATH}shared/page-data.js" defer></script>
+    <script src="${RELATIVE_ASSET_PATH}app.js" defer></script>
+  </body>
+</html>
+`;
+}
+
+function renderCompetitionInternalLinks(category, categoryPath) {
+  const links = [
+    { label: `All ${category} competitions`, href: categoryPath },
+    { label: "Ending soon competitions", href: "/free-hub/tag/ending-soon/" },
+    { label: "High value competitions", href: "/free-hub/tag/high-value/" },
+  ];
+
+  return `<section class="internal-links" aria-label="Explore More">
+          <p class="internal-links__title">Explore More</p>
+          <div class="internal-links__list">
+            ${links
+              .map(
+                (link) =>
+                  `<a class="internal-links__link" href="${escapeAttribute(link.href)}">${escapeHtml(link.label)}</a>`
+              )
+              .join("\n            ")}
+          </div>
+        </section>`;
+}
+
+function getRelatedCompetitions(competition, allCompetitions) {
+  const currentSlug = shared.getCompetitionSlug(competition);
+  const competitionTagSet = new Set(competition.tags || []);
+
+  const scored = allCompetitions
+    .filter((c) => shared.getCompetitionSlug(c) !== currentSlug)
+    .map((c) => {
+      let score = 0;
+      if (c.category === competition.category) score += 2;
+      (c.tags || []).forEach((tag) => {
+        if (competitionTagSet.has(tag)) score += 1;
+      });
+      return { competition: c, score };
+    })
+    .filter((item) => item.score > 0)
+    .sort((a, b) => b.score - a.score);
+
+  return scored.slice(0, 5).map((item) => item.competition);
+}
+
+function generateSitemap(competitions) {
+  const today = new Date().toISOString().split("T")[0];
+  const origin = shared.CANONICAL_ORIGIN;
+
+  const staticEntries = [
+    `  <url>\n    <loc>${origin}/</loc>\n  </url>`,
+    ...shared.CATEGORY_SLUGS.map(
+      (slug) => `  <url>\n    <loc>${origin}/category/${slug}/</loc>\n  </url>`
+    ),
+    ...shared.TAG_SLUGS.map(
+      (slug) => `  <url>\n    <loc>${origin}/tag/${slug}/</loc>\n  </url>`
+    ),
+  ];
+
+  const competitionEntries = competitions.map((competition) => {
+    const slug = shared.getCompetitionSlug(competition);
+    return `  <url>\n    <loc>${origin}/competition/${slug}/</loc>\n    <lastmod>${today}</lastmod>\n  </url>`;
+  });
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${[...staticEntries, ...competitionEntries].join("\n")}
+</urlset>
+`;
 }
 
 function normalizeStaticPath(pathname) {
