@@ -21,9 +21,26 @@ const TAG_LINKS = [
   { label: "High Value", href: "/free-hub/tag/high-value/" },
   { label: "New", href: "/free-hub/tag/new/" },
 ];
+// Canonical-domain links used on competition detail pages (no /free-hub/ prefix)
+const CANONICAL_CATEGORY_LINKS = [
+  { label: "All Competitions", href: "/" },
+  ...shared.CATEGORY_SLUGS.map((slug) => ({
+    label: shared.CATEGORY_COPY[slug].category,
+    href: `/category/${slug}/`,
+  })),
+];
+const CANONICAL_TAG_LINKS = [
+  { label: "Free Entry", href: "/tag/free-entry/" },
+  { label: "Ending Soon", href: "/tag/ending-soon/" },
+  { label: "High Value", href: "/tag/high-value/" },
+  { label: "New", href: "/tag/new/" },
+];
 
 function main() {
-  const competitions = shared.sortCompetitions(JSON.parse(fs.readFileSync(DATA_PATH, "utf8")));
+  const rawCompetitions = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
+  const competitions = shared.sortCompetitions(
+    rawCompetitions.filter((entry, index) => validateCompetition(entry, index))
+  );
   const routeContexts = shared.getAllStaticRouteContexts();
 
   fs.writeFileSync(path.join(ROOT_DIR, "index.html"), renderHomepage(competitions));
@@ -686,7 +703,9 @@ function renderCompetitionPage(competition, allCompetitions) {
   const categorySlug = shared.CATEGORY_SLUGS.find(
     (key) => shared.CATEGORY_COPY[key].category === competition.category
   );
-  const categoryPath = categorySlug ? `/free-hub/category/${categorySlug}/` : "/free-hub/";
+  const categoryPath = categorySlug ? `/category/${categorySlug}/` : "/";
+  const expired = isExpired(competition.closingDate);
+  const year = new Date(competition.closingDate).getFullYear();
 
   const closingSoonBadge = shared.isClosingSoon(competition.closingDate)
     ? '<span class="badge badge--closing">&#x1F525; Closing Soon</span>'
@@ -694,11 +713,7 @@ function renderCompetitionPage(competition, allCompetitions) {
   const brandBadge = competition.brand
     ? `<span class="badge badge--category">${escapeHtml(competition.brand)}</span>`
     : "";
-  const entryStepsMarkup = competition.entrySteps
-    ? `<div class="competition-detail__steps">
-              <p><strong>How to Enter:</strong> ${escapeHtml(competition.entrySteps)}</p>
-            </div>`
-    : "";
+  const entryStepsMarkup = buildHowToEnterSteps(competition);
   const heroSubline = competition.brand ? `By ${competition.brand}` : competition.category;
 
   const relatedCardsMarkup = relatedCompetitions.map((c) => renderCompetitionCard(c)).join("\n            ");
@@ -724,14 +739,27 @@ function renderCompetitionPage(competition, allCompetitions) {
     availabilityEnds: competition.closingDate,
   };
 
+  const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${shared.CANONICAL_ORIGIN}/` },
+      ...(categorySlug
+        ? [{ "@type": "ListItem", position: 2, name: competition.category, item: `${shared.CANONICAL_ORIGIN}/category/${categorySlug}/` }]
+        : []),
+      { "@type": "ListItem", position: categorySlug ? 3 : 2, name: competition.title },
+    ],
+  };
+
   return `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>${escapeHtml(competition.title)} | Free Hub SA</title>
+    <title>${escapeHtml(competition.title)} – Enter Now | Free Competitions South Africa</title>
     <meta name="description" content="${escapeAttribute(description)}" />
-    <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
+    <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />${expired ? `
+    <meta name="robots" content="noindex" />` : ""}
     <meta property="og:type" content="website" />
     <meta property="og:title" content="${escapeAttribute(competition.title)}" />
     <meta property="og:description" content="${escapeAttribute(description)}" />
@@ -742,6 +770,7 @@ function renderCompetitionPage(competition, allCompetitions) {
     <meta name="twitter:description" content="${escapeAttribute(description)}" />
     <meta name="twitter:image" content="${escapeAttribute(ogImage)}" />
     <script id="structured-data-offer" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
+    <script id="structured-data-breadcrumb" type="application/ld+json">${escapeScript(JSON.stringify(breadcrumbData))}</script>
     <link rel="stylesheet" href="${RELATIVE_ASSET_PATH}styles.css" />
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
@@ -757,22 +786,27 @@ function renderCompetitionPage(competition, allCompetitions) {
       <header class="hero">
         <div class="hero__copy">
           <p class="eyebrow">free-hub</p>
-          <h1 id="pageTitle">${escapeHtml(competition.title)}</h1>
+          <h1 id="pageTitle">${escapeHtml(competition.title)} Competition ${year}</h1>
           <p class="hero__text">${escapeHtml(heroSubline)}</p>
         </div>
       </header>
 
       <main class="main-content">
         <nav class="category-nav" aria-label="Competition categories">
-          ${CATEGORY_LINKS.map((link) => renderNavLink(link, "/free-hub/competition/")).join("\n          ")}
+          ${CANONICAL_CATEGORY_LINKS.map((link) => renderNavLink(link, "/competition/")).join("\n          ")}
         </nav>
 
         <section class="popular-searches" aria-label="Popular searches">
           <p class="popular-searches__title">Popular Searches</p>
           <div class="popular-searches__links">
-            ${TAG_LINKS.map((link) => renderPopularLink(link, "/free-hub/competition/")).join("\n            ")}
+            ${CANONICAL_TAG_LINKS.map((link) => renderPopularLink(link, "/competition/")).join("\n            ")}
           </div>
         </section>
+
+        ${expired ? `<section class="state-card state-card--error" aria-label="Competition closed">
+          <p class="state-card__title">This competition has closed</p>
+          <p class="state-card__text">The closing date was ${escapeHtml(formattedDate)}. Browse related competitions below.</p>
+        </section>` : ""}
 
         ${renderCompetitionInternalLinks(competition.category, categoryPath)}
 
@@ -802,8 +836,19 @@ function renderCompetitionPage(competition, allCompetitions) {
             <a
               class="competition-detail__cta"
               href="${escapeAttribute(shared.getOutPath(competition) + "/")}"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Enter Competition
+            </a>
+            <a
+              class="competition-detail__whatsapp"
+              href="https://wa.me/?text=${encodeURIComponent(`Enter the ${competition.title} competition – ${canonicalUrl}`)}"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Share on WhatsApp"
+            >
+              Share on WhatsApp
             </a>
           </div>
         </article>
@@ -821,6 +866,13 @@ function renderCompetitionPage(competition, allCompetitions) {
         </section>
 
         ${relatedSection}
+
+        ${competition.brand ? `<section class="internal-links" aria-label="More from ${escapeAttribute(competition.brand)}">
+          <p class="internal-links__title">More from ${escapeHtml(competition.brand)}</p>
+          <div class="internal-links__list">
+            <a class="internal-links__link" href="${escapeAttribute(categoryPath)}">Browse ${escapeHtml(competition.category)} competitions</a>
+          </div>
+        </section>` : ""}
 
         <section class="ad-slot" id="ad-bottom" aria-label="Advertisement">
           <p class="ad-slot__label">Advertisement</p>
@@ -960,8 +1012,8 @@ function renderOutPage(competition) {
 function renderCompetitionInternalLinks(category, categoryPath) {
   const links = [
     { label: `All ${category} competitions`, href: categoryPath },
-    { label: "Ending soon competitions", href: "/free-hub/tag/ending-soon/" },
-    { label: "High value competitions", href: "/free-hub/tag/high-value/" },
+    { label: "Ending soon competitions", href: "/tag/ending-soon/" },
+    { label: "High value competitions", href: "/tag/high-value/" },
   ];
 
   return `<section class="internal-links" aria-label="Explore More">
@@ -995,6 +1047,83 @@ function getRelatedCompetitions(competition, allCompetitions) {
     .sort((a, b) => b.score - a.score);
 
   return scored.slice(0, 5).map((item) => item.competition);
+}
+
+const REQUIRED_FIELDS = ["id", "title", "brand", "category", "closingDate", "url"];
+
+function validateCompetition(entry, index) {
+  const missing = REQUIRED_FIELDS.filter(
+    (field) => !entry[field] || String(entry[field]).trim() === ""
+  );
+  if (missing.length > 0) {
+    console.warn(`[SKIP] Entry at index ${index} missing required fields: ${missing.join(", ")}`);
+    return false;
+  }
+  return true;
+}
+
+function isExpired(dateString) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const closing = new Date(dateString);
+  closing.setHours(0, 0, 0, 0);
+  return closing < today;
+}
+
+function buildHowToEnterSteps(competition) {
+  const type = (competition.entryType || "").toLowerCase();
+  let steps;
+
+  if (type.includes("sms")) {
+    steps = [
+      "Buy a qualifying product from the participating retailer.",
+      "SMS the required keyword and your details to the competition number.",
+      "Keep your receipt as proof of purchase.",
+      "Winners are drawn at random and contacted directly.",
+    ];
+  } else if (type.includes("app")) {
+    steps = [
+      `Download or open the ${competition.brand || "brand"} app.`,
+      "Navigate to the competition or promotions section.",
+      "Follow the in-app entry instructions.",
+      "Submit your entry before the closing date.",
+    ];
+  } else if (type.includes("in-store") || type.includes("purchase")) {
+    steps = [
+      `Purchase a qualifying product at a participating ${competition.brand || "brand"} store.`,
+      "Collect your receipt or any on-pack promotional material.",
+      "Follow the in-store or on-pack entry instructions.",
+      "Submit your entry before the closing date.",
+    ];
+  } else if (type.includes("survey") || type.includes("form")) {
+    steps = [
+      "Visit the official competition page using the link below.",
+      "Complete the entry form with your details.",
+      "Submit the form before the closing date.",
+      "Check your email — winners are notified directly.",
+    ];
+  } else if (type.includes("social")) {
+    steps = [
+      "Follow the brand on their official social media account.",
+      "Like or share the competition post as instructed.",
+      "Tag any required friends in the comments.",
+      "Winners are selected and announced on the brand's social page.",
+    ];
+  } else {
+    steps = [
+      "Visit the official competition page using the link below.",
+      "Read the entry requirements and terms carefully.",
+      "Complete and submit your entry.",
+      "Winners are notified by the promoter — check back for results.",
+    ];
+  }
+
+  return `<div class="competition-detail__steps">
+              <p class="competition-detail__steps-title"><strong>How to Enter</strong></p>
+              <ol class="competition-detail__steps-list">
+                ${steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("\n                ")}
+              </ol>
+            </div>`;
 }
 
 function generateSitemap(competitions) {
