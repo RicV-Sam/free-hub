@@ -758,6 +758,9 @@ function renderCompetitionPage(competition, allCompetitions) {
   const description = shared.buildCompetitionDescription(competition);
   const formattedDate = shared.formatDate(competition.closingDate);
   const ogImage = competition.image || shared.DEFAULT_OG_IMAGE;
+  if (!competition.image) {
+    console.warn(`[generate-pages] Missing image for competition: "${competition.title}" (slug: ${slug})`);
+  }
   const relatedCompetitions = getRelatedCompetitions(competition, allCompetitions);
 
   const categorySlug = shared.CATEGORY_SLUGS.find(
@@ -843,7 +846,7 @@ function renderCompetitionPage(competition, allCompetitions) {
   </head>
   <body>
     <div class="site-shell">
-      <header class="hero">
+      <header class="hero" style="background-image: url('${escapeAttribute(ogImage)}');">
         <div class="hero__copy">
           <p class="eyebrow">free-hub</p>
           <h1 id="pageTitle">${escapeHtml(competition.title)} Competition ${year}</h1>
