@@ -211,6 +211,9 @@ button {
 
 .hero {
   padding: 1rem 0 0.85rem;
+  background-color: #0f172a;
+  background-size: cover;
+  background-position: center;
 }
 
 .hero__copy {
