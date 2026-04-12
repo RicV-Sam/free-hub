@@ -279,9 +279,11 @@ function renderCompetitionCard(competition, featured = false) {
   const hintText = competition.entrySteps || "Opens in new tab";
   const cardClass = `competition-card${featured ? " competition-card--featured" : ""}`;
 
+  const cardImageUrl = competition.image || shared.DEFAULT_OG_IMAGE;
+
   return `<article class="${cardClass}">
               <div class="competition-card__media">
-                <img src="${escapeAttribute(competition.image)}" alt="${escapeAttribute(
+                <img src="${escapeAttribute(cardImageUrl)}" alt="${escapeAttribute(
     competition.title
   )}" loading="lazy" />
                 <div class="competition-card__badges">
@@ -692,6 +694,64 @@ function getEndingSoonCompetitions(competitions, n) {
     .slice(0, n);
 }
 
+function buildHowToEnterSteps(competition) {
+  const type = (competition.entryType || "").toLowerCase();
+  const brand = competition.brand || "the brand";
+  const date = shared.formatDate(competition.closingDate);
+  const purchaseRequired = Array.isArray(competition.tags) && competition.tags.includes("purchase-required");
+
+  if (type.includes("app")) {
+    return [
+      `Download or open the ${brand} app on your smartphone.`,
+      "Log in or create your account if you don't have one.",
+      `Navigate to the competition or promotions section and find this offer.`,
+      purchaseRequired
+        ? "Make the qualifying purchase or complete the required action to unlock your entry."
+        : "Tap the entry tile and follow the in-app prompts to submit your entry.",
+      "Confirm your entry has been submitted successfully.",
+      `Competition closes ${date}. Winners will be notified via the app or email.`,
+    ];
+  }
+
+  if (type.includes("sms")) {
+    return [
+      purchaseRequired
+        ? `Purchase the qualifying product(s) from a participating ${brand} store.`
+        : "Obtain your entry reference as per the competition terms.",
+      "Keep your till slip or entry reference number safe.",
+      "Compose an SMS with the required keyword and/or reference number as instructed.",
+      "Send your SMS to the competition shortcode displayed in-store or on promotional material.",
+      "Standard SMS rates apply. You will receive a confirmation SMS if your entry is valid.",
+      `Entries close ${date}.`,
+    ];
+  }
+
+  if (type.includes("in-store")) {
+    return [
+      `Visit a participating ${brand} store near you.`,
+      purchaseRequired
+        ? "Make the qualifying purchase as specified in the competition terms."
+        : "Pick up an entry form at the customer service desk or till point.",
+      "Complete the entry form with your details and, if required, attach your till slip.",
+      "Drop your entry into the competition box in-store or hand it to a cashier.",
+      "Keep a copy of your till slip as proof of your entry.",
+      `Competition closes ${date}.`,
+    ];
+  }
+
+  // Default: Online
+  return [
+    `Visit the official ${brand} competition page using the link below.`,
+    "Complete the online entry form with your personal details.",
+    purchaseRequired
+      ? "Ensure you have made the qualifying purchase and have your proof of purchase ready."
+      : "No purchase is necessary to enter — simply fill in and submit the form.",
+    "Submit your entry before the closing date.",
+    "Check your email for an entry confirmation.",
+    `Competition closes ${date}.`,
+  ];
+}
+
 function renderCompetitionPage(competition, allCompetitions) {
   const slug = shared.getCompetitionSlug(competition);
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/competition/${slug}/`;
@@ -832,6 +892,7 @@ function renderCompetitionPage(competition, allCompetitions) {
             <div class="competition-detail__summary">
               <p>${escapeHtml(description)}</p>
             </div>
+            ${tagsMarkup}
             ${entryStepsMarkup}
             <a
               class="competition-detail__cta"
