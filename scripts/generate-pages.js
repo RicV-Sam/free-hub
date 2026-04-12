@@ -881,7 +881,7 @@ function renderCompetitionPage(competition, allCompetitions) {
 
         <article class="competition-detail" aria-label="${escapeAttribute(competition.title)}">
           <div class="competition-detail__media">
-            <img src="${escapeAttribute(ogImage)}" alt="${escapeAttribute(competition.title)}" />
+            <img src="${escapeAttribute(ogImage)}" alt="${escapeAttribute(competition.title)}" onerror="this.onerror=null;this.src='${escapeAttribute(shared.DEFAULT_OG_IMAGE)}'" />
           </div>
           <div class="competition-detail__body">
             <div class="competition-detail__meta">

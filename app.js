@@ -1,5 +1,6 @@
 const {
   CATEGORY_COPY,
+  DEFAULT_OG_IMAGE,
   getCompetitionPath,
   buildStructuredData,
   filterCompetitionsByRoute,
@@ -231,9 +232,10 @@ function createCompetitionCard(competition) {
   media.className = "competition-card__media";
 
   const image = document.createElement("img");
-  image.src = competition.image;
+  image.src = competition.image || DEFAULT_OG_IMAGE;
   image.alt = competition.title;
   image.loading = "lazy";
+  image.onerror = () => { image.src = DEFAULT_OG_IMAGE; image.onerror = null; };
 
   const badges = document.createElement("div");
   badges.className = "competition-card__badges";
