@@ -222,6 +222,51 @@ button {
   backdrop-filter: blur(10px);
 }
 
+/* Competition hero — image background variant */
+.hero--competition {
+  padding: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: #0f172a;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  padding: 2.5rem 0.95rem 1.6rem;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.hero--competition .eyebrow {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.hero--competition h1 {
+  color: #fff;
+}
+
+.hero--competition .hero__text {
+  color: rgba(255, 255, 255, 0.85);
+}
+
 .eyebrow,
 .filters__label,
 .info-strip__label {
@@ -1093,7 +1138,12 @@ button {
     padding-top: 2.5rem;
   }
 
+  .hero--competition {
+    padding-top: 0;
+  }
+
   .hero__copy,
+  .hero__content,
   .controls,
   .state-card,
   .results-header,

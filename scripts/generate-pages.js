@@ -758,6 +758,9 @@ function renderCompetitionPage(competition, allCompetitions) {
   const description = shared.buildCompetitionDescription(competition);
   const formattedDate = shared.formatDate(competition.closingDate);
   const ogImage = competition.image || shared.DEFAULT_OG_IMAGE;
+  if (!competition.image) {
+    console.warn(`[generate-pages] Competition "${competition.title}" (slug: ${slug}) has no image — hero will use fallback background.`);
+  }
   const relatedCompetitions = getRelatedCompetitions(competition, allCompetitions);
 
   const categorySlug = shared.CATEGORY_SLUGS.find(
@@ -843,8 +846,9 @@ function renderCompetitionPage(competition, allCompetitions) {
   </head>
   <body>
     <div class="site-shell">
-      <header class="hero">
-        <div class="hero__copy">
+      <header class="hero hero--competition"${competition.image ? ` style="background-image: url('${escapeAttribute(competition.image)}')"` : ''}>
+        <div class="hero__overlay" aria-hidden="true"></div>
+        <div class="hero__content">
           <p class="eyebrow">free-hub</p>
           <h1 id="pageTitle">${escapeHtml(competition.title)} Competition ${year}</h1>
           <p class="hero__text">${escapeHtml(heroSubline)}</p>
