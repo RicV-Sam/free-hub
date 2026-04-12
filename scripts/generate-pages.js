@@ -777,6 +777,11 @@ function renderCompetitionPage(competition, allCompetitions) {
     ? `<span class="badge badge--category">${escapeHtml(competition.brand)}</span>`
     : "";
   const entryStepsMarkup = buildHowToEnterSteps(competition);
+  const tagsMarkup = (competition.tags || []).length > 0
+    ? `<div class="competition-detail__tags">
+              ${competition.tags.map(tag => `<span class="badge badge--tag">${escapeHtml(tag)}</span>`).join(' ')}
+            </div>`
+    : "";
   const heroSubline = competition.brand ? `By ${competition.brand}` : competition.category;
 
   const relatedCardsMarkup = relatedCompetitions.map((c) => renderCompetitionCard(c)).join("\n            ");
