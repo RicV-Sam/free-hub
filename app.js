@@ -114,6 +114,10 @@ async function loadCompetitions() {
     return;
   }
 
+  if (state.routeContext.type === "competition") {
+    return;
+  }
+
   showLoading();
 
   try {

@@ -276,6 +276,16 @@
       };
     }
 
+    const competitionMatch = path.match(/^\/competition\/([a-z0-9-]+)$/);
+
+    if (competitionMatch) {
+      return {
+        type: "competition",
+        slug: competitionMatch[1],
+        path: `${BASE_PATH}/competition/${competitionMatch[1]}/`,
+      };
+    }
+
     return { type: "home", slug: null, path: `${BASE_PATH}/` };
   }
 
