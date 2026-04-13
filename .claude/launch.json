@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Static Server (Node)",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", ".", "-p", "3000"],
+      "port": 3000
+    },
+    {
+      "name": "Static Server (Python)",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8080"],
+      "port": 8080
+    },
+    {
+      "name": "Generate Pages",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["scripts/generate-pages.js"],
+      "port": null
+    }
+  ]
+}
