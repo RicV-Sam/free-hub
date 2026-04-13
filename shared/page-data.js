@@ -1,7 +1,7 @@
 (function (global) {
   const SITE_ORIGIN = "https://ricv-sam.github.io/free-hub";
   const CANONICAL_ORIGIN = "https://freehub.datacost.co.za";
-  const BASE_PATH = "/free-hub";
+  const BASE_PATH = "";
   const HOME_ROUTE = `${BASE_PATH}/`;
   const CLOSING_SOON_DAYS = 3;
   const ENDING_SOON_TAG_DAYS = 7;
@@ -256,7 +256,7 @@
       return { type: "home", slug: null, path: `${BASE_PATH}/` };
     }
 
-    const categoryMatch = path.match(/^\/free-hub\/category\/([a-z0-9-]+)$/);
+    const categoryMatch = path.match(/^\/category\/([a-z0-9-]+)$/);
 
     if (categoryMatch && CATEGORY_COPY[categoryMatch[1]]) {
       return {
@@ -266,7 +266,7 @@
       };
     }
 
-    const tagMatch = path.match(/^\/free-hub\/tag\/([a-z0-9-]+)$/);
+    const tagMatch = path.match(/^\/tag\/([a-z0-9-]+)$/);
 
     if (tagMatch && TAG_COPY[tagMatch[1]]) {
       return {
