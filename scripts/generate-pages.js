@@ -103,6 +103,7 @@ function renderPage(routeContext, competitions) {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('set', { page_type: '${routeContext.type}' });
       gtag('config', 'G-23P37R20FY');
     </script>
   </head>
@@ -435,6 +436,7 @@ function renderHomepage(competitions) {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('set', { page_type: 'home' });
       gtag('config', 'G-23P37R20FY');
     </script>
   </head>
@@ -830,6 +832,7 @@ function renderCompetitionPage(competition, allCompetitions) {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('set', { page_type: 'competition', competition_slug: ${escapeScript(JSON.stringify(slug))}, competition_category: ${escapeScript(JSON.stringify(competition.category))} });
       gtag('config', 'G-23P37R20FY');
     </script>
   </head>
@@ -1004,15 +1007,19 @@ function renderOutPage(competition) {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('set', { page_type: 'outbound', competition_slug: ${escapeScript(JSON.stringify(slug))}, competition_category: ${escapeScript(JSON.stringify(competition.category))} });
       gtag('config', 'G-23P37R20FY');
     </script>
     <script>
       (function () {
         var SLUG = ${escapeScript(JSON.stringify(slug))};
+        var TITLE = ${escapeScript(JSON.stringify(competition.title))};
+        var CATEGORY = ${escapeScript(JSON.stringify(competition.category))};
         var TARGET = ${escapeScript(JSON.stringify(externalUrl))};
         gtag('event', 'outbound_click', {
-          event_label: SLUG,
-          event_category: 'outbound',
+          competition_slug: SLUG,
+          competition_title: TITLE,
+          competition_category: CATEGORY,
           transport_type: 'beacon',
         });
         setTimeout(function () {
