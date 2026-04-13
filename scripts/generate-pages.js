@@ -16,7 +16,6 @@ const TAG_LINKS = [
   { label: "Free Entry", href: "/tag/free-entry/" },
   { label: "Ending Soon", href: "/tag/ending-soon/" },
   { label: "High Value", href: "/tag/high-value/" },
-  { label: "New", href: "/tag/new/" },
 ];
 
 function main() {
@@ -375,7 +374,7 @@ function renderThinPageTips(competitions) {
 }
 
 function renderHomepage(competitions) {
-  const homeRouteContext = { type: "home", slug: null, path: `${shared.BASE_PATH}/` };
+  const homeRouteContext = { type: "home", slug: null, path: "/" };
   const structuredData = shared.buildStructuredData(competitions, homeRouteContext);
   const ogImage = competitions[0]?.image || shared.DEFAULT_OG_IMAGE;
   const featured = getFeaturedCompetitions(competitions, 3);
@@ -394,7 +393,7 @@ function renderHomepage(competitions) {
     .slice(0, 6)
     .map((c) => {
       const slug = shared.getCompetitionSlug(c);
-      return `          <li><a href="${escapeAttribute(`${shared.BASE_PATH}/competition/${slug}/`)}">${escapeHtml(c.title)}</a></li>`;
+      return `          <li><a href="${escapeAttribute(`/competition/${slug}/`)}">${escapeHtml(c.title)}</a></li>`;
     })
     .join("\n");
 
@@ -482,7 +481,6 @@ ${noscriptLinks}
             <a class="popular-searches__link" href="/tag/free-entry/">Free Entry</a>
             <a class="popular-searches__link" href="/tag/ending-soon/">Ending Soon</a>
             <a class="popular-searches__link" href="/tag/high-value/">High Value</a>
-            <a class="popular-searches__link" href="/tag/new/">New</a>
           </div>
         </section>
 
@@ -591,7 +589,7 @@ ${noscriptLinks}
           <h2 class="home-cta__title">Don't miss the latest free competitions in South Africa</h2>
           <div class="home-cta__actions">
             <a class="btn btn--primary" href="#all-competitions">Browse All Competitions</a>
-            <a class="btn btn--secondary" href="/tag/new/">View New Competitions</a>
+            <a class="btn btn--secondary" href="/tag/free-entry/">View Free Entry Competitions</a>
           </div>
         </section>
       </main>
