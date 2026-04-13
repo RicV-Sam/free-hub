@@ -184,6 +184,85 @@
     return isClosingWithinDays(dateString, CLOSING_SOON_DAYS);
   }
 
+  function getDaysUntilClosing(dateString) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const closingDate = new Date(dateString);
+    closingDate.setHours(0, 0, 0, 0);
+
+    return Math.ceil((closingDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+  }
+
+  function getUrgencyLabel(dateString) {
+    const daysLeft = getDaysUntilClosing(dateString);
+
+    if (daysLeft < 0) {
+      return "Closed";
+    }
+
+    if (daysLeft === 0) {
+      return "Ends today";
+    }
+
+    if (daysLeft === 1) {
+      return "Ends in 1 day";
+    }
+
+    return `Ends in ${daysLeft} days`;
+  }
+
+  function getEntryMethodLabel(entryType) {
+    const normalized = String(entryType || "").toLowerCase();
+
+    if (normalized.includes("app")) return "App";
+    if (normalized.includes("sms")) return "SMS";
+    if (normalized.includes("in-store")) return "In-store";
+    if (normalized.includes("social")) return "Social";
+    if (normalized.includes("survey") || normalized.includes("form")) return "Online";
+    if (normalized.includes("free")) return "Online";
+    if (normalized.includes("online")) return "Online";
+
+    return entryType || "Online";
+  }
+
+  function getPrizeCue(competition) {
+    const titleAndSummary = [competition.title, competition.summary || ""].join(" ");
+    const amountMatch = titleAndSummary.match(/\bR\s?\d{1,3}(?:[,\s]?\d{3})*(?:\.\d+)?\b/);
+
+    if (amountMatch) {
+      return amountMatch[0].replace(/\s+/g, " ").trim();
+    }
+
+    const lower = titleAndSummary.toLowerCase();
+
+    if (/\b(iphone|ipad|samsung|macbook|laptop|tv|tech|gadget|xbox|gopro|airpods|dashcam|power bank)\b/.test(lower)) {
+      return "Tech prize";
+    }
+
+    if (/\b(cash|cashback|money)\b/.test(lower)) {
+      return "Cash prize";
+    }
+
+    if (/\b(mauritius|zanzibar|holiday|getaway|trip|cruise|escape|safari)\b/.test(lower)) {
+      return "Holiday prize";
+    }
+
+    if (/\b(voucher|gift card|shopping)\b/.test(lower)) {
+      return "Voucher prize";
+    }
+
+    if (/\b(car|toyota|hyundai|starlet|suv|swift|corolla|hilux)\b/.test(lower)) {
+      return "Car prize";
+    }
+
+    if (competition.isHighValue) {
+      return "High-value prize";
+    }
+
+    return "Verified prize";
+  }
+
   function isHighValueCompetition(competition) {
     if (typeof competition.isHighValue === "boolean") {
       return competition.isHighValue;
@@ -378,6 +457,10 @@
     buildCompetitionDescription,
     isClosingSoon,
     isClosingWithinDays,
+    getDaysUntilClosing,
+    getUrgencyLabel,
+    getEntryMethodLabel,
+    getPrizeCue,
     isHighValueCompetition,
     sortCompetitions,
     getTagFilteredCompetitions,

@@ -7,6 +7,9 @@ const {
   filterCompetitionsByRoute,
   formatDate,
   getCategoryRoute,
+  getEntryMethodLabel,
+  getPrizeCue,
+  getUrgencyLabel,
   getPageCopy,
   getRouteContext,
   isClosingSoon,
@@ -232,14 +235,14 @@ function createCompetitionCard(competition) {
   const overlayLink = document.createElement("a");
   overlayLink.className = "competition-card__overlay-link";
   overlayLink.href = getCompetitionPath(competition) + "/";
-  overlayLink.setAttribute("aria-label", `${competition.title} - view competition details`);
+  overlayLink.setAttribute("aria-label", `${competition.title} - enter now`);
   overlayLink.addEventListener("click", () => {
     trackCompetitionClick(competition);
   });
 
   const overlayText = document.createElement("span");
   overlayText.className = "visually-hidden";
-  overlayText.textContent = `View details for ${competition.title}`;
+  overlayText.textContent = `Enter ${competition.title} now`;
   overlayLink.appendChild(overlayText);
 
   const media = document.createElement("div");
@@ -262,7 +265,7 @@ function createCompetitionCard(competition) {
   if (isClosingSoon(competition.closingDate)) {
     const closingSoonBadge = document.createElement("span");
     closingSoonBadge.className = "badge badge--closing";
-    closingSoonBadge.textContent = "\u{1F525} Closing Soon";
+    closingSoonBadge.textContent = "Ending Soon";
     badges.appendChild(closingSoonBadge);
   }
 
@@ -275,44 +278,67 @@ function createCompetitionCard(competition) {
   title.className = "competition-card__title";
   title.textContent = competition.title;
 
+  const brand = document.createElement("p");
+  brand.className = "competition-card__brand";
+  brand.textContent = competition.brand || "Official promotion";
+
+  const signals = document.createElement("div");
+  signals.className = "competition-card__signals";
+
+  const valueSignal = document.createElement("span");
+  valueSignal.className = "competition-card__signal competition-card__signal--value";
+  valueSignal.textContent = getPrizeCue(competition);
+
+  const urgencySignal = document.createElement("span");
+  urgencySignal.className = "competition-card__signal competition-card__signal--urgency";
+  urgencySignal.textContent = getUrgencyLabel(competition.closingDate);
+
+  signals.append(valueSignal, urgencySignal);
+
   const meta = document.createElement("div");
   meta.className = "competition-card__meta";
-
-  if (competition.brand) {
-    const brand = document.createElement("span");
-    brand.textContent = competition.brand;
-    meta.append(brand);
-  }
 
   const closingDate = document.createElement("span");
   closingDate.textContent = `Closes ${formatDate(competition.closingDate)}`;
   meta.append(closingDate);
 
-  const daysLeft = Math.ceil((new Date(competition.closingDate) - new Date()) / (1000 * 60 * 60 * 24));
-  if (daysLeft >= 0 && daysLeft <= 30) {
-    const endsIn = document.createElement("span");
-    endsIn.textContent = daysLeft === 0 ? "Closes today" : `Ends in ${daysLeft} day${daysLeft === 1 ? "" : "s"}`;
-    meta.append(endsIn);
-  }
+  const entryMethod = document.createElement("span");
+  entryMethod.textContent = getEntryMethodLabel(competition.entryType);
+  meta.append(entryMethod);
 
   if (competition.summary) {
     const summary = document.createElement("p");
     summary.className = "competition-card__summary";
     summary.textContent = competition.summary;
-    body.append(title, meta, summary);
+    body.append(title, brand, signals, summary, meta);
   } else {
-    body.append(title, meta);
+    body.append(title, brand, signals, meta);
   }
 
-  const entryPill = document.createElement("p");
+  const footer = document.createElement("div");
+  footer.className = "competition-card__footer";
+
+  const tags = document.createElement("div");
+  tags.className = "competition-card__tags";
+
+  const entryPill = document.createElement("span");
   entryPill.className = "competition-card__entry";
-  entryPill.textContent = competition.entryType;
+  entryPill.textContent = getEntryMethodLabel(competition.entryType);
+  tags.append(entryPill);
 
-  const hint = document.createElement("span");
-  hint.className = "competition-card__hint";
-  hint.textContent = competition.entrySteps || "Click to view details";
+  if (Array.isArray(competition.tags) && competition.tags.includes("free-entry")) {
+    const freeEntry = document.createElement("span");
+    freeEntry.className = "badge badge--soft";
+    freeEntry.textContent = "Free Entry";
+    tags.append(freeEntry);
+  }
 
-  body.append(entryPill, hint);
+  const cta = document.createElement("span");
+  cta.className = "competition-card__cta";
+  cta.textContent = "Enter Now";
+
+  footer.append(tags, cta);
+  body.append(footer);
   article.append(media, body, overlayLink);
 
   return article;
@@ -324,25 +350,25 @@ function createInlineAdCard(placement) {
 
   const label = document.createElement("p");
   label.className = "sponsored-card__label";
-  label.textContent = "Sponsored";
+  label.textContent = "Recommended Opportunities";
 
   const title = document.createElement("h3");
   title.className = "sponsored-card__title";
-  title.textContent = "Promote your offer here";
+  title.textContent = "Featured offers can live here without interrupting browsing";
 
   const text = document.createElement("p");
   text.className = "sponsored-card__text";
   text.textContent =
-    "Inline monetisation slot designed to blend with the card grid without disrupting browsing.";
+    "This in-feed slot is ready for promoted competitions, affiliate offers, or partner placements that match the page style.";
 
   const hint = document.createElement("p");
   hint.className = "sponsored-card__hint";
-  hint.textContent = "Reserved ad placement";
+  hint.textContent = "Monetisation-ready placement";
 
   const cta = document.createElement("button");
   cta.type = "button";
   cta.className = "sponsored-card__cta";
-  cta.textContent = "View Offer";
+  cta.textContent = "View Featured Offer";
   cta.setAttribute("aria-label", "View sponsored offer");
   cta.addEventListener("click", () => {
     openSponsoredOffer(placement, SPONSORED_OFFER_URL);

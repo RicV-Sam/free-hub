@@ -249,18 +249,23 @@ function renderPage(routeContext, competitions) {
 function renderCompetitionCard(competition, featured = false) {
   const internalPath = shared.getCompetitionPath(competition);
   const closingSoonBadge = shared.isClosingSoon(competition.closingDate)
-    ? '<span class="badge badge--closing">&#x1F525; Closing Soon</span>'
+    ? '<span class="badge badge--closing">Ending Soon</span>'
     : "";
-  const brandMarkup = competition.brand
-    ? `<span>${escapeHtml(competition.brand)}</span>`
-    : "";
+  const freeEntryBadge =
+    Array.isArray(competition.tags) && competition.tags.includes("free-entry")
+      ? '<span class="badge badge--soft">Free Entry</span>'
+      : "";
   const summaryMarkup = competition.summary
     ? `<p class="competition-card__summary">${escapeHtml(competition.summary)}</p>`
     : "";
-  const hintText = competition.entrySteps || "Opens in new tab";
   const cardClass = `competition-card${featured ? " competition-card--featured" : ""}`;
-
   const cardImageUrl = competition.image || shared.DEFAULT_OG_IMAGE;
+  const urgencyLabel = shared.getUrgencyLabel(competition.closingDate);
+  const entryMethodLabel = shared.getEntryMethodLabel(competition.entryType);
+  const prizeCue = shared.getPrizeCue(competition);
+  const brand = competition.brand || "Official promotion";
+  const featuredEyebrow = featured ? '<p class="competition-card__eyebrow">Featured pick</p>' : "";
+  const ctaClass = featured ? "competition-card__cta competition-card__cta--featured" : "competition-card__cta";
 
   return `<article class="${cardClass}">
               <div class="competition-card__media">
@@ -273,30 +278,41 @@ function renderCompetitionCard(competition, featured = false) {
                 </div>
               </div>
               <div class="competition-card__body">
+                ${featuredEyebrow}
                 <h2 class="competition-card__title">${escapeHtml(competition.title)}</h2>
-                <div class="competition-card__meta">
-                  ${brandMarkup}
-                  <span>Closes ${escapeHtml(shared.formatDate(competition.closingDate))}</span>
+                <p class="competition-card__brand">${escapeHtml(brand)}</p>
+                <div class="competition-card__signals">
+                  <span class="competition-card__signal competition-card__signal--value">${escapeHtml(prizeCue)}</span>
+                  <span class="competition-card__signal competition-card__signal--urgency">${escapeHtml(urgencyLabel)}</span>
                 </div>
                 ${summaryMarkup}
-                <p class="competition-card__entry">${escapeHtml(competition.entryType)}</p>
-                <span class="competition-card__hint">${escapeHtml(hintText)}</span>
+                <div class="competition-card__meta">
+                  <span>Closes ${escapeHtml(shared.formatDate(competition.closingDate))}</span>
+                  <span>${escapeHtml(entryMethodLabel)}</span>
+                </div>
+                <div class="competition-card__footer">
+                  <div class="competition-card__tags">
+                    <span class="competition-card__entry">${escapeHtml(entryMethodLabel)}</span>
+                    ${freeEntryBadge}
+                  </div>
+                  <span class="${ctaClass}">Enter Now</span>
+                </div>
               </div>
-              <a class="competition-card__overlay-link" href="${escapeAttribute(internalPath)}/" aria-label="${escapeAttribute(competition.title)} - view competition details">
-                <span class="visually-hidden">View details for ${escapeHtml(competition.title)}</span>
+              <a class="competition-card__overlay-link" href="${escapeAttribute(internalPath)}/" aria-label="${escapeAttribute(competition.title)} - enter now">
+                <span class="visually-hidden">Enter ${escapeHtml(competition.title)} now</span>
               </a>
             </article>`;
 }
 
 function renderInlineAdCard() {
   return `<article class="sponsored-card">
-              <p class="sponsored-card__label">Sponsored</p>
-              <h3 class="sponsored-card__title">Promote your offer here</h3>
+              <p class="sponsored-card__label">Recommended Opportunities</p>
+              <h3 class="sponsored-card__title">Featured offers can live here without interrupting browsing</h3>
               <p class="sponsored-card__text">
-                Inline monetisation slot designed to blend with the card grid without disrupting browsing.
+                This in-feed slot is ready for promoted competitions, affiliate offers, or partner placements that match the page style.
               </p>
-              <p class="sponsored-card__hint">Reserved ad placement</p>
-              <button class="sponsored-card__cta" type="button">View Offer</button>
+              <p class="sponsored-card__hint">Monetisation-ready placement</p>
+              <button class="sponsored-card__cta" type="button">View Featured Offer</button>
             </article>`;
 }
 
@@ -377,17 +393,8 @@ function renderHomepage(competitions) {
   const homeRouteContext = { type: "home", slug: null, path: "/" };
   const structuredData = shared.buildStructuredData(competitions, homeRouteContext);
   const ogImage = competitions[0]?.image || shared.DEFAULT_OG_IMAGE;
-  const featured = getFeaturedCompetitions(competitions, 3);
-  const endingSoon = getEndingSoonCompetitions(competitions, 6);
-
-  const categoryCounts = {};
-  shared.CATEGORY_SLUGS.forEach((slug) => {
-    const cat = shared.CATEGORY_COPY[slug].category;
-    categoryCounts[slug] = competitions.filter((c) => c.category === cat).length;
-  });
-
+  const featured = getFeaturedCompetitions(competitions, 4);
   const featuredCardsMarkup = featured.map((c) => renderCompetitionCard(c, true)).join("\n            ");
-  const endingSoonCardsMarkup = endingSoon.map((c) => renderCompetitionCard(c)).join("\n            ");
 
   const noscriptLinks = competitions
     .slice(0, 6)
@@ -397,18 +404,24 @@ function renderHomepage(competitions) {
     })
     .join("\n");
 
-  const categoryShortcutsMarkup = shared.CATEGORY_SLUGS.map((slug) => {
-    const count = categoryCounts[slug];
-    const label = shared.CATEGORY_COPY[slug].category;
-    return `<a class="category-shortcut" href="${escapeAttribute(`/category/${slug}/`)}">
-              <span class="category-shortcut__name">${escapeHtml(label)}</span>
-              <span class="category-shortcut__count">${count} competition${count !== 1 ? "s" : ""}</span>
-            </a>`;
-  }).join("\n            ");
+  const categoryNavMarkup = [
+    `<a class="category-nav__link is-active" href="/">All Competitions</a>`,
+    `<a class="category-nav__link" href="/tag/free-entry/">Free Entry</a>`,
+    `<a class="category-nav__link" href="/tag/ending-soon/">Ending Soon</a>`,
+    `<a class="category-nav__link" href="/tag/high-value/">High Value</a>`,
+    ...shared.CATEGORY_SLUGS.map(
+      (slug) =>
+        `<a class="category-nav__link" href="${escapeAttribute(`/category/${slug}/`)}">${escapeHtml(
+          shared.CATEGORY_COPY[slug].category
+        )}</a>`
+    ),
+  ].join("\n          ");
 
-  const categoryNavMarkup = shared.CATEGORY_SLUGS.map((slug) =>
-    `<a class="category-nav__link" href="${escapeAttribute(`/category/${slug}/`)}">${escapeHtml(shared.CATEGORY_COPY[slug].category)}</a>`
-  ).join("\n          ");
+  const homepageSeoCopy = `FreeHub helps you discover competitions in South Africa without wading through scattered social posts, outdated promo pages, or low-trust listing sites. Whether you want to win cars, cash, holidays, vouchers, or the latest tech, the homepage is designed to surface the most exciting opportunities quickly. You can browse featured competitions, jump into free-entry giveaways, or prioritise promotions that are ending soon so you do not miss valuable prizes.
+
+Many South African competitions are tied to official brand promotions, retail campaigns, app offers, and seasonal giveaways. FreeHub makes those easier to compare by showing the entry method, closing date, and prize cues in one clean view. That means less hesitation and fewer wasted clicks before you decide which competition is worth your time.
+
+If you are looking for free entry competitions in South Africa, practical voucher giveaways, high-value cash promotions, or travel prizes worth entering this week, FreeHub is built to help you move faster. Browse today, check the official rules on each competition page, and come back regularly for fresh opportunities.`;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -452,66 +465,64 @@ ${noscriptLinks}
 
     <div class="site-shell">
       <header class="hero hero--home">
-        <div class="hero__copy">
-          <p class="eyebrow">free-hub</p>
-          <h1 id="pageTitle">Win Cars, Cash, Holidays and Vouchers in South Africa</h1>
-          <p class="hero__text" id="pageIntro">Browse free competitions from trusted brands. Updated regularly with new giveaways, prize draws and promotions.</p>
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="#all-competitions">Browse Competitions</a>
-            <a class="btn btn--secondary" href="/tag/ending-soon/">View Ending Soon</a>
+        <div class="hero__layout">
+          <div class="hero__copy">
+            <p class="eyebrow">South Africa's competition hub</p>
+            <h1 id="pageTitle">Win Cars, Cash &amp; Holidays in South Africa</h1>
+            <p class="hero__text" id="pageIntro">Browse the latest verified competitions, free-entry giveaways, and high-value prizes.</p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#all-competitions">Browse Competitions</a>
+              <a class="btn btn--secondary" href="/tag/free-entry/">Free Entry Only</a>
+            </div>
+            <div class="trust-row" aria-label="Trust signals">
+              <span class="trust-row__item">100+ Competitions</span>
+              <span class="trust-row__item">Updated Regularly</span>
+              <span class="trust-row__item">Official Brand Promotions</span>
+            </div>
           </div>
-          <div class="trust-chips">
-            <span class="trust-chip">Verified competitions</span>
-            <span class="trust-chip">Direct links to official brands</span>
-            <span class="trust-chip">Free to enter</span>
-            <span class="trust-chip">No sign-up required on our site</span>
+          <div class="hero-panel" aria-label="Why browse FreeHub">
+            <p class="hero-panel__eyebrow">Why people click through</p>
+            <h2 class="hero-panel__title">Fast paths to the prizes people care about most</h2>
+            <ul class="hero-panel__list">
+              <li>Featured picks for cars, cash, holidays, and standout rewards</li>
+              <li>Clear entry methods before you open the full competition page</li>
+              <li>Urgency cues for offers that are closing soon</li>
+            </ul>
           </div>
         </div>
       </header>
 
       <main class="main-content">
         <nav class="category-nav" aria-label="Competition categories">
-          <a class="category-nav__link is-active" href="/">All Competitions</a>
           ${categoryNavMarkup}
         </nav>
 
         <section class="popular-searches" aria-label="Popular searches">
-          <p class="popular-searches__title">Popular Searches</p>
+          <p class="popular-searches__title">Quick Paths</p>
           <div class="popular-searches__links">
-            <a class="popular-searches__link" href="/tag/free-entry/">Free Entry</a>
-            <a class="popular-searches__link" href="/tag/ending-soon/">Ending Soon</a>
-            <a class="popular-searches__link" href="/tag/high-value/">High Value</a>
+            <a class="popular-searches__link" href="/tag/free-entry/">Free entry giveaways</a>
+            <a class="popular-searches__link" href="/tag/ending-soon/">Closing soon this week</a>
+            <a class="popular-searches__link" href="/tag/high-value/">High-value competitions</a>
           </div>
         </section>
 
-        <section class="home-section" aria-label="Featured Competitions">
-          <h2 class="home-section__title">Featured Competitions</h2>
-          <div class="competition-grid">
+        <section class="home-section home-section--featured" aria-label="Featured competitions">
+          <div class="home-section__header">
+            <div>
+              <p class="section-kicker">Featured This Week</p>
+              <h2 class="home-section__title">Standout competitions worth opening first</h2>
+            </div>
+            <a class="home-section__link" href="/tag/high-value/">See high-value picks</a>
+          </div>
+          <p class="home-section__intro">A premium shortlist of aspirational prizes with strong value, trusted brands, and enough urgency to act now.</p>
+          <div class="competition-grid competition-grid--featured">
             ${featuredCardsMarkup}
           </div>
         </section>
 
-        <section class="home-section" aria-label="Ending Soon">
-          <div class="home-section__header">
-            <h2 class="home-section__title">Ending Soon</h2>
-            <a class="home-section__link" href="/tag/ending-soon/">View all</a>
-          </div>
-          <p class="home-section__intro">Enter these before they close</p>
-          <div class="competition-grid competition-grid--scroll">
-            ${endingSoonCardsMarkup}
-          </div>
-        </section>
-
-        <section class="home-section" aria-label="Browse by Category">
-          <h2 class="home-section__title">Browse by Category</h2>
-          <div class="category-shortcuts__grid">
-            ${categoryShortcutsMarkup}
-          </div>
-        </section>
-
         <section class="ad-slot" id="ad-top" aria-label="Advertisement">
-          <p class="ad-slot__label">Advertisement</p>
-          <p class="ad-slot__copy">Top banner placeholder for future monetisation.</p>
+          <p class="ad-slot__label">Featured Offers</p>
+          <p class="ad-slot__copy">A premium placement reserved for promoted competitions, brand campaigns, or affiliate-style opportunities that fit the page naturally.</p>
         </section>
 
         <section class="controls" aria-label="Competition filters">
@@ -560,36 +571,74 @@ ${noscriptLinks}
         </section>
 
         <section class="ad-slot ad-slot--compact" id="ad-middle" aria-label="Advertisement">
-          <p class="ad-slot__label">Advertisement</p>
-          <p class="ad-slot__copy">Mid-page placement designed for sponsored content or display inventory.</p>
+          <p class="ad-slot__label">Recommended Opportunities</p>
+          <p class="ad-slot__copy">Use this mid-page section later for promoted competitions, native cards, or partner offers without breaking the browsing flow.</p>
         </section>
 
-        <section class="home-section" aria-label="Why use FreeHub">
-          <h2 class="home-section__title">Why use FreeHub?</h2>
-          <p class="home-section__intro">FreeHub helps you discover free competitions from official South African brands and promotions. We do not ask you to sign up on our site to enter. We simply help you find verified opportunities faster.</p>
-          <ul class="home-trust-list">
-            <li>Verified competition listings</li>
-            <li>Direct links to official brand promotions</li>
-            <li>Free to browse</li>
-            <li>Updated regularly</li>
-          </ul>
-        </section>
-
-        <section class="home-section" aria-label="How FreeHub Works">
+        <section class="home-section home-section--steps" aria-label="How FreeHub Works">
           <h2 class="home-section__title">How FreeHub Works</h2>
-          <p class="home-section__intro">Browse competitions, open the full details, and then visit the official brand page to enter. Always check the official terms, entry rules, and closing dates before submitting your entry.</p>
+          <p class="home-section__intro">FreeHub is built to help you move from browsing to entering with less hesitation and more confidence.</p>
+          <div class="steps-grid">
+            <article class="step-card">
+              <span class="step-card__number">1</span>
+              <h3 class="step-card__title">Browse competitions</h3>
+              <p class="step-card__text">Start with featured picks, free entry offers, or categories like cars, cash, holidays, tech, and vouchers.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-card__number">2</span>
+              <h3 class="step-card__title">Open the competition page</h3>
+              <p class="step-card__text">Each listing gives you the key details first so you can decide quickly which competitions are worth the click.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-card__number">3</span>
+              <h3 class="step-card__title">Follow the official entry method</h3>
+              <p class="step-card__text">We point you to the promoter's page so you can follow the real entry instructions, terms, and closing dates.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-card__number">4</span>
+              <h3 class="step-card__title">Check back for new prizes</h3>
+              <p class="step-card__text">Fresh competitions appear regularly, so returning visitors always have something new to explore.</p>
+            </article>
+          </div>
+          <div class="trust-note">
+            <p class="trust-note__title">Trust note</p>
+            <p class="trust-note__text">We link to official brand promotions and we do not require sign-up on our site to browse the listings.</p>
+          </div>
+        </section>
+
+        <section class="newsletter-block" aria-label="Competition alerts">
+          <div>
+            <p class="section-kicker">Alerts</p>
+            <h2 class="newsletter-block__title">Get the latest competitions in your inbox</h2>
+            <p class="newsletter-block__text">A lightweight alert block ready for email integration later. Use it for weekly roundups, high-value prizes, or ending-soon reminders.</p>
+          </div>
+          <form class="newsletter-form" action="#" method="post" novalidate>
+            <label class="visually-hidden" for="newsletterEmail">Email address</label>
+            <input id="newsletterEmail" name="email" type="email" placeholder="Enter your email address" />
+            <button type="button">Notify Me</button>
+          </form>
+          <p class="newsletter-block__hint">Integration-ready placeholder only. No backend wiring has been added yet.</p>
         </section>
 
         <section class="ad-slot" id="ad-bottom" aria-label="Advertisement">
-          <p class="ad-slot__label">Advertisement</p>
-          <p class="ad-slot__copy">Bottom placement reserved for future ad network integration.</p>
+          <p class="ad-slot__label">Partner Placement</p>
+          <p class="ad-slot__copy">Bottom-of-page space ready for sponsorships, house offers, or a larger editorial-style native unit.</p>
+        </section>
+
+        <section class="seo-copy-block" aria-label="About competitions in South Africa">
+          <h2 class="seo-copy-block__title">Competitions in South Africa, all in one place</h2>
+          <div class="seo-copy-block__content">
+            <p>${escapeHtml(homepageSeoCopy.split("\n\n")[0])}</p>
+            <p>${escapeHtml(homepageSeoCopy.split("\n\n")[1])}</p>
+            <p>${escapeHtml(homepageSeoCopy.split("\n\n")[2])}</p>
+          </div>
         </section>
 
         <section class="home-cta" aria-label="Find more competitions">
-          <h2 class="home-cta__title">Don't miss the latest free competitions in South Africa</h2>
+          <h2 class="home-cta__title">Browse more prizes before the best ones disappear</h2>
           <div class="home-cta__actions">
-            <a class="btn btn--primary" href="#all-competitions">Browse All Competitions</a>
-            <a class="btn btn--secondary" href="/tag/free-entry/">View Free Entry Competitions</a>
+            <a class="btn btn--primary" href="#all-competitions">Browse Competitions</a>
+            <a class="btn btn--secondary" href="/tag/ending-soon/">See Ending Soon</a>
           </div>
         </section>
       </main>
