@@ -764,6 +764,9 @@ function renderCompetitionPage(competition, allCompetitions) {
             </div>`
     : "";
   const heroSubline = competition.brand ? `By ${competition.brand}` : competition.category;
+  const closingSoon = shared.isClosingSoon(competition.closingDate);
+  const purchaseRequired = Array.isArray(competition.tags) && competition.tags.includes("purchase-required");
+  const outPath = shared.getOutPath(competition) + "/";
 
   const relatedCardsMarkup = relatedCompetitions.map((c) => renderCompetitionCard(c)).join("\n            ");
   const relatedSection = relatedCardsMarkup
@@ -838,6 +841,8 @@ function renderCompetitionPage(competition, allCompetitions) {
           <p class="eyebrow">free-hub</p>
           <h1 id="pageTitle">${escapeHtml(competition.title)} Competition ${year}</h1>
           <p class="hero__text">${escapeHtml(heroSubline)}</p>
+          <p class="hero__closing${closingSoon && !expired ? " hero__closing--urgent" : ""}">${expired ? "Closed" : "Closes"} ${escapeHtml(formattedDate)}${closingSoon && !expired ? " · Ending soon" : ""}</p>
+          ${!expired ? `<a class="hero__cta" href="${escapeAttribute(outPath)}" target="_blank" rel="noopener noreferrer">Enter Competition</a>` : ""}
         </div>
       </header>
 
@@ -876,17 +881,22 @@ function renderCompetitionPage(competition, allCompetitions) {
               ${closingSoonBadge}
             </div>
             <div class="competition-detail__info">
-              <p><strong>Closing Date:</strong> ${escapeHtml(formattedDate)}</p>
-              <p><strong>Entry Type:</strong> ${escapeHtml(competition.entryType)}</p>
+              <p${closingSoon && !expired ? ` class="competition-detail__info--urgent"` : ""}><strong>Closes:</strong> ${escapeHtml(formattedDate)}${closingSoon && !expired ? " · ending soon" : ""}</p>
+              <p><strong>Entry:</strong> ${escapeHtml(competition.entryType)}</p>
             </div>
             <div class="competition-detail__summary">
               <p>${escapeHtml(description)}</p>
             </div>
             ${tagsMarkup}
             ${entryStepsMarkup}
+            <div class="trust-chips">
+              <span class="trust-chip">Official promotion</span>
+              <span class="trust-chip">No sign-up on this site</span>
+              ${!purchaseRequired ? '<span class="trust-chip">Free to enter</span>' : ""}
+            </div>
             <a
               class="competition-detail__cta"
-              href="${escapeAttribute(shared.getOutPath(competition) + "/")}"
+              href="${escapeAttribute(outPath)}"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -910,6 +920,11 @@ function renderCompetitionPage(competition, allCompetitions) {
             We link directly to official brand competitions and promoter pages. No account or sign-up is required on our site. Always check the promoter's terms and closing date before entering.
           </p>
         </section>
+
+        ${!expired ? `<section class="competition-cta-repeat" aria-label="Enter this competition">
+          <p>Ready to enter? Head to the official competition page.</p>
+          <a class="competition-detail__cta" href="${escapeAttribute(outPath)}" target="_blank" rel="noopener noreferrer">Enter Competition</a>
+        </section>` : ""}
 
         <section class="ad-slot ad-slot--compact" id="ad-middle" aria-label="Advertisement">
           <p class="ad-slot__label">Advertisement</p>
