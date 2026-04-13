@@ -4,7 +4,7 @@ const shared = require("../shared/page-data.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
-const RELATIVE_ASSET_PATH = "../../";
+const RELATIVE_ASSET_PATH = "/";
 const CATEGORY_LINKS = [
   { label: "All Competitions", href: "/" },
   ...shared.CATEGORY_SLUGS.map((slug) => ({
@@ -428,7 +428,7 @@ function renderHomepage(competitions) {
     <meta name="twitter:description" content="Browse free competitions in South Africa with live categories, search, and fast access to offers for cars, cash, holidays, tech, and vouchers." />
     <meta name="twitter:image" content="${escapeAttribute(ogImage)}" />
     <script id="structured-data-itemlist" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/styles.css" />
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
     <script>
@@ -625,8 +625,8 @@ ${noscriptLinks}
       <button class="ad-sticky__cta" id="stickyAdCta" type="button">View Offer</button>
     </aside>
 
-    <script src="shared/page-data.js" defer></script>
-    <script src="app.js" defer></script>
+    <script src="/shared/page-data.js" defer></script>
+    <script src="/app.js" defer></script>
   </body>
 </html>
 `;
