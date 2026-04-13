@@ -9,31 +9,16 @@ const RELATIVE_ASSET_PATH = "../../";
 const MIRROR_FILES = ["index.html", "404.html", "app.js", "styles.css", "robots.txt", "sitemap.xml"];
 const MIRROR_DIRECTORIES = ["data", "shared", "category", "tag", "competition", "out"];
 const CATEGORY_LINKS = [
-  { label: "All Competitions", href: "/free-hub/" },
-  ...shared.CATEGORY_SLUGS.map((slug) => ({
-    label: shared.CATEGORY_COPY[slug].category,
-    href: `/free-hub/category/${slug}/`,
-  })),
-];
-const TAG_LINKS = [
-  { label: "Free Entry", href: "/free-hub/tag/free-entry/" },
-  { label: "Ending Soon", href: "/free-hub/tag/ending-soon/" },
-  { label: "High Value", href: "/free-hub/tag/high-value/" },
-  { label: "New", href: "/free-hub/tag/new/" },
-];
-// Canonical-domain links used on competition detail pages (no /free-hub/ prefix)
-const CANONICAL_CATEGORY_LINKS = [
   { label: "All Competitions", href: "/" },
   ...shared.CATEGORY_SLUGS.map((slug) => ({
     label: shared.CATEGORY_COPY[slug].category,
     href: `/category/${slug}/`,
   })),
 ];
-const CANONICAL_TAG_LINKS = [
+const TAG_LINKS = [
   { label: "Free Entry", href: "/tag/free-entry/" },
   { label: "Ending Soon", href: "/tag/ending-soon/" },
   { label: "High Value", href: "/tag/high-value/" },
-  { label: "New", href: "/tag/new/" },
 ];
 
 function main() {
@@ -337,16 +322,16 @@ function renderInternalLinksSection(routeContext) {
       ? {
           title: "Related Searches",
           links: [
-            { label: "Ending soon competitions", href: "/free-hub/tag/ending-soon/" },
-            { label: "High value competitions", href: "/free-hub/tag/high-value/" },
+            { label: "Ending soon competitions", href: "/tag/ending-soon/" },
+            { label: "High value competitions", href: "/tag/high-value/" },
           ],
         }
       : routeContext.type === "tag"
         ? {
             title: "Explore Categories",
             links: [
-              { label: "Cash competitions", href: "/free-hub/category/cash/" },
-              { label: "Car competitions", href: "/free-hub/category/cars/" },
+              { label: "Cash competitions", href: "/category/cash/" },
+              { label: "Car competitions", href: "/category/cars/" },
             ],
           }
         : null;
@@ -393,7 +378,7 @@ function renderThinPageTips(competitions) {
 }
 
 function renderHomepage(competitions) {
-  const homeRouteContext = { type: "home", slug: null, path: `${shared.BASE_PATH}/` };
+  const homeRouteContext = { type: "home", slug: null, path: "/" };
   const structuredData = shared.buildStructuredData(competitions, homeRouteContext);
   const ogImage = competitions[0]?.image || shared.DEFAULT_OG_IMAGE;
   const featured = getFeaturedCompetitions(competitions, 3);
@@ -412,21 +397,21 @@ function renderHomepage(competitions) {
     .slice(0, 6)
     .map((c) => {
       const slug = shared.getCompetitionSlug(c);
-      return `          <li><a href="${escapeAttribute(`${shared.BASE_PATH}/competition/${slug}/`)}">${escapeHtml(c.title)}</a></li>`;
+      return `          <li><a href="${escapeAttribute(`/competition/${slug}/`)}">${escapeHtml(c.title)}</a></li>`;
     })
     .join("\n");
 
   const categoryShortcutsMarkup = shared.CATEGORY_SLUGS.map((slug) => {
     const count = categoryCounts[slug];
     const label = shared.CATEGORY_COPY[slug].category;
-    return `<a class="category-shortcut" href="${escapeAttribute(`/free-hub/category/${slug}/`)}">
+    return `<a class="category-shortcut" href="${escapeAttribute(`/category/${slug}/`)}">
               <span class="category-shortcut__name">${escapeHtml(label)}</span>
               <span class="category-shortcut__count">${count} competition${count !== 1 ? "s" : ""}</span>
             </a>`;
   }).join("\n            ");
 
   const categoryNavMarkup = shared.CATEGORY_SLUGS.map((slug) =>
-    `<a class="category-nav__link" href="${escapeAttribute(`/free-hub/category/${slug}/`)}">${escapeHtml(shared.CATEGORY_COPY[slug].category)}</a>`
+    `<a class="category-nav__link" href="${escapeAttribute(`/category/${slug}/`)}">${escapeHtml(shared.CATEGORY_COPY[slug].category)}</a>`
   ).join("\n          ");
 
   return `<!DOCTYPE html>
@@ -476,7 +461,7 @@ ${noscriptLinks}
           <p class="hero__text" id="pageIntro">Browse free competitions from trusted brands. Updated regularly with new giveaways, prize draws and promotions.</p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="#all-competitions">Browse Competitions</a>
-            <a class="btn btn--secondary" href="/free-hub/tag/ending-soon/">View Ending Soon</a>
+            <a class="btn btn--secondary" href="/tag/ending-soon/">View Ending Soon</a>
           </div>
           <div class="trust-chips">
             <span class="trust-chip">Verified competitions</span>
@@ -489,17 +474,16 @@ ${noscriptLinks}
 
       <main class="main-content">
         <nav class="category-nav" aria-label="Competition categories">
-          <a class="category-nav__link is-active" href="/free-hub/">All Competitions</a>
+          <a class="category-nav__link is-active" href="/">All Competitions</a>
           ${categoryNavMarkup}
         </nav>
 
         <section class="popular-searches" aria-label="Popular searches">
           <p class="popular-searches__title">Popular Searches</p>
           <div class="popular-searches__links">
-            <a class="popular-searches__link" href="/free-hub/tag/free-entry/">Free Entry</a>
-            <a class="popular-searches__link" href="/free-hub/tag/ending-soon/">Ending Soon</a>
-            <a class="popular-searches__link" href="/free-hub/tag/high-value/">High Value</a>
-            <a class="popular-searches__link" href="/free-hub/tag/new/">New</a>
+            <a class="popular-searches__link" href="/tag/free-entry/">Free Entry</a>
+            <a class="popular-searches__link" href="/tag/ending-soon/">Ending Soon</a>
+            <a class="popular-searches__link" href="/tag/high-value/">High Value</a>
           </div>
         </section>
 
@@ -513,7 +497,7 @@ ${noscriptLinks}
         <section class="home-section" aria-label="Ending Soon">
           <div class="home-section__header">
             <h2 class="home-section__title">Ending Soon</h2>
-            <a class="home-section__link" href="/free-hub/tag/ending-soon/">View all</a>
+            <a class="home-section__link" href="/tag/ending-soon/">View all</a>
           </div>
           <p class="home-section__intro">Enter these before they close</p>
           <div class="competition-grid competition-grid--scroll">
@@ -608,7 +592,7 @@ ${noscriptLinks}
           <h2 class="home-cta__title">Don't miss the latest free competitions in South Africa</h2>
           <div class="home-cta__actions">
             <a class="btn btn--primary" href="#all-competitions">Browse All Competitions</a>
-            <a class="btn btn--secondary" href="/free-hub/tag/new/">View New Competitions</a>
+            <a class="btn btn--secondary" href="/tag/free-entry/">View Free Entry Competitions</a>
           </div>
         </section>
       </main>
@@ -862,13 +846,13 @@ function renderCompetitionPage(competition, allCompetitions) {
 
       <main class="main-content">
         <nav class="category-nav" aria-label="Competition categories">
-          ${CANONICAL_CATEGORY_LINKS.map((link) => renderNavLink(link, "/competition/")).join("\n          ")}
+          ${CATEGORY_LINKS.map((link) => renderNavLink(link, "/competition/")).join("\n          ")}
         </nav>
 
         <section class="popular-searches" aria-label="Popular searches">
           <p class="popular-searches__title">Popular Searches</p>
           <div class="popular-searches__links">
-            ${CANONICAL_TAG_LINKS.map((link) => renderPopularLink(link, "/competition/")).join("\n            ")}
+            ${TAG_LINKS.map((link) => renderPopularLink(link, "/competition/")).join("\n            ")}
           </div>
         </section>
 

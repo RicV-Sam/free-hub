@@ -56,11 +56,14 @@ document.addEventListener("DOMContentLoaded", () => {
   bindEvents();
   setupPageAds();
   setupStickyAd();
-  loadCompetitions();
+
+  if (state.routeContext.type === "home") {
+    loadCompetitions();
+  }
 });
 
 function bindEvents() {
-  if (elements.searchInput) {
+  if (elements.searchInput && state.routeContext.type === "home") {
     elements.searchInput.addEventListener("input", (event) => {
       state.searchQuery = event.target.value.trim().toLowerCase();
       renderCompetitions();

@@ -1,8 +1,8 @@
 (function (global) {
-  const SITE_ORIGIN = "https://ricv-sam.github.io/free-hub";
-  const CANONICAL_ORIGIN = "https://freehub.datacost.co.za";
-  const BASE_PATH = "/free-hub";
-  const HOME_ROUTE = `${BASE_PATH}/`;
+  const SITE_ORIGIN = "https://freehub.datacost.co.za";
+  const CANONICAL_ORIGIN = SITE_ORIGIN;
+  const BASE_PATH = "";
+  const HOME_ROUTE = "/";
   const CLOSING_SOON_DAYS = 3;
   const ENDING_SOON_TAG_DAYS = 7;
   const DEFAULT_OG_IMAGE =
@@ -104,16 +104,6 @@
       support:
         "Large-prize competitions attract serious interest in South Africa, particularly when the reward feels life-changing or highly practical. This page helps you separate the most valuable no-cost opportunities from lighter everyday giveaways.",
     },
-    new: {
-      title: "New Competitions South Africa",
-      description:
-        "Browse new competitions in South Africa and discover the latest active giveaways added to the hub.",
-      heading: "New Competitions You Can Enter Today",
-      intro:
-        "See the newest free-entry competitions in South Africa and catch fresh no-cost giveaways before they become widely shared. This page highlights recently surfaced opportunities so you can get in early on current prize draws.",
-      support:
-        "Many South African entrants look for the latest competitions first because newer listings can offer a better window before interest builds. This page keeps recent free-entry opportunities easy to scan while they are still fresh.",
-    },
   };
   const THIN_PAGE_TIPS = [
     "Enter daily competitions regularly to build more chances over time.",
@@ -127,8 +117,8 @@
   function normalizePath(pathname) {
     const trimmed = pathname.endsWith("/") && pathname !== "/" ? pathname.slice(0, -1) : pathname;
 
-    if (trimmed === BASE_PATH) {
-      return HOME_ROUTE.slice(0, -1);
+    if (!trimmed || trimmed === BASE_PATH) {
+      return HOME_ROUTE;
     }
 
     return trimmed;
@@ -156,15 +146,15 @@
   }
 
   function getCompetitionPath(competition) {
-    return `${BASE_PATH}/competition/${getCompetitionSlug(competition)}`;
+    return `/competition/${getCompetitionSlug(competition)}`;
   }
 
   function getCompetitionAbsoluteUrl(competition) {
-    return `${SITE_ORIGIN}/competition/${getCompetitionSlug(competition)}`;
+    return `${SITE_ORIGIN}${getCompetitionPath(competition)}`;
   }
 
   function getOutPath(competition) {
-    return `${BASE_PATH}/out/${getCompetitionSlug(competition)}`;
+    return `/out/${getCompetitionSlug(competition)}`;
   }
 
   function buildCompetitionDescription(competition) {
@@ -231,8 +221,6 @@
           return isClosingWithinDays(competition.closingDate, ENDING_SOON_TAG_DAYS);
         case "high-value":
           return isHighValueCompetition(competition);
-        case "new":
-          return false;
         default:
           return false;
       }
@@ -241,42 +229,52 @@
 
   function getCategoryRoute(category) {
     if (category === "All") {
-      return `${BASE_PATH}/`;
+      return HOME_ROUTE;
     }
 
     const slug = CATEGORY_SLUGS.find((key) => CATEGORY_COPY[key].category === category);
 
-    return slug ? `${BASE_PATH}/category/${slug}` : `${BASE_PATH}/`;
+    return slug ? `/category/${slug}` : HOME_ROUTE;
   }
 
   function getRouteContext(pathname) {
     const path = normalizePath(pathname);
 
-    if (path === HOME_ROUTE.slice(0, -1) || path === "/") {
-      return { type: "home", slug: null, path: `${BASE_PATH}/` };
+    if (path === HOME_ROUTE) {
+      return { type: "home", slug: null, path: HOME_ROUTE };
     }
 
-    const categoryMatch = path.match(/^\/free-hub\/category\/([a-z0-9-]+)$/);
+    const categoryMatch = path.match(/^\/category\/([a-z0-9-]+)$/);
 
     if (categoryMatch && CATEGORY_COPY[categoryMatch[1]]) {
       return {
         type: "category",
         slug: categoryMatch[1],
-        path: `${BASE_PATH}/category/${categoryMatch[1]}/`,
+        path: `/category/${categoryMatch[1]}/`,
       };
     }
 
-    const tagMatch = path.match(/^\/free-hub\/tag\/([a-z0-9-]+)$/);
+    const tagMatch = path.match(/^\/tag\/([a-z0-9-]+)$/);
 
     if (tagMatch && TAG_COPY[tagMatch[1]]) {
       return {
         type: "tag",
         slug: tagMatch[1],
-        path: `${BASE_PATH}/tag/${tagMatch[1]}/`,
+        path: `/tag/${tagMatch[1]}/`,
       };
     }
 
-    return { type: "home", slug: null, path: `${BASE_PATH}/` };
+    const competitionMatch = path.match(/^\/competition\/([a-z0-9-]+)$/);
+
+    if (competitionMatch) {
+      return {
+        type: "competition",
+        slug: competitionMatch[1],
+        path: `/competition/${competitionMatch[1]}/`,
+      };
+    }
+
+    return { type: "unknown", slug: null, path };
   }
 
   function getPageCopy(routeContext) {
@@ -338,9 +336,9 @@
 
   function getAllStaticRouteContexts() {
     return [
-      { type: 'home', slug: '' },
-      ...CATEGORY_SLUGS.map((slug) => ({ type: "category", slug, path: `${BASE_PATH}/category/${slug}/` })),
-      ...TAG_SLUGS.map((slug) => ({ type: "tag", slug, path: `${BASE_PATH}/tag/${slug}/` })),
+      { type: "home", slug: "", path: HOME_ROUTE },
+      ...CATEGORY_SLUGS.map((slug) => ({ type: "category", slug, path: `/category/${slug}/` })),
+      ...TAG_SLUGS.map((slug) => ({ type: "tag", slug, path: `/tag/${slug}/` })),
     ];
   }
 
