@@ -316,6 +316,59 @@ function renderInlineAdCard() {
             </article>`;
 }
 
+function renderHeroSpotlight(competition) {
+  if (!competition) {
+    return "";
+  }
+
+  const title = competition.title;
+  const urgency = shared.getUrgencyLabel(competition.closingDate);
+  const prizeCue = shared.getPrizeCue(competition);
+  const entryPath = `${shared.getCompetitionPath(competition)}/`;
+  const cardImageUrl = competition.image || shared.DEFAULT_OG_IMAGE;
+
+  return `<a class="hero-spotlight" href="${escapeAttribute(entryPath)}" aria-label="${escapeAttribute(
+    title
+  )} - enter now">
+            <div class="hero-spotlight__media">
+              <img src="${escapeAttribute(cardImageUrl)}" alt="${escapeAttribute(title)}" loading="lazy" />
+            </div>
+            <div class="hero-spotlight__body">
+              <p class="hero-spotlight__eyebrow">Featured prize</p>
+              <h2 class="hero-spotlight__title">${escapeHtml(title)}</h2>
+              <div class="hero-spotlight__meta">
+                <span>${escapeHtml(prizeCue)}</span>
+                <span>${escapeHtml(urgency)}</span>
+              </div>
+              <span class="hero-spotlight__cta">Enter Now</span>
+            </div>
+          </a>`;
+}
+
+function getHeroSpotlightCompetition(competitions) {
+  const priorityCategories = ["Cars", "Cash", "Holidays"];
+
+  return competitions
+    .filter((competition) => !competition.closingDate || shared.getDaysUntilClosing(competition.closingDate) >= 0)
+    .slice()
+    .sort((left, right) => {
+      const leftCategoryScore = priorityCategories.includes(left.category)
+        ? priorityCategories.length - priorityCategories.indexOf(left.category)
+        : 0;
+      const rightCategoryScore = priorityCategories.includes(right.category)
+        ? priorityCategories.length - priorityCategories.indexOf(right.category)
+        : 0;
+      const leftScore = (left.isHighValue ? 10 : 0) + leftCategoryScore;
+      const rightScore = (right.isHighValue ? 10 : 0) + rightCategoryScore;
+
+      if (rightScore !== leftScore) {
+        return rightScore - leftScore;
+      }
+
+      return new Date(left.closingDate) - new Date(right.closingDate);
+    })[0];
+}
+
 function renderNavLink(link, currentPath) {
   const isActive = currentPath === normalizeStaticPath(link.href);
   const className = isActive ? "category-nav__link is-active" : "category-nav__link";
@@ -395,6 +448,7 @@ function renderHomepage(competitions) {
   const ogImage = competitions[0]?.image || shared.DEFAULT_OG_IMAGE;
   const featured = getFeaturedCompetitions(competitions, 4);
   const featuredCardsMarkup = featured.map((c) => renderCompetitionCard(c, true)).join("\n            ");
+  const heroSpotlightMarkup = renderHeroSpotlight(getHeroSpotlightCompetition(competitions));
 
   const noscriptLinks = competitions
     .slice(0, 6)
@@ -405,7 +459,7 @@ function renderHomepage(competitions) {
     .join("\n");
 
   const categoryNavMarkup = [
-    `<a class="category-nav__link is-active" href="/">All Competitions</a>`,
+    `<a class="category-nav__link is-active" href="/">All</a>`,
     `<a class="category-nav__link" href="/tag/free-entry/">Free Entry</a>`,
     `<a class="category-nav__link" href="/tag/ending-soon/">Ending Soon</a>`,
     `<a class="category-nav__link" href="/tag/high-value/">High Value</a>`,
@@ -467,28 +521,20 @@ ${noscriptLinks}
       <header class="hero hero--home">
         <div class="hero__layout">
           <div class="hero__copy">
-            <p class="eyebrow">South Africa's competition hub</p>
-            <h1 id="pageTitle">Win Cars, Cash &amp; Holidays in South Africa</h1>
-            <p class="hero__text" id="pageIntro">Browse the latest verified competitions, free-entry giveaways, and high-value prizes.</p>
+            <p class="eyebrow">FREEHUB</p>
+            <h1 id="pageTitle">Win Cars, Cash &amp; Holidays &mdash; Free in South Africa</h1>
+            <p class="hero__text" id="pageIntro">Verified competitions from trusted brands. Updated regularly.</p>
             <div class="hero__actions">
-              <a class="btn btn--primary" href="#all-competitions">Browse Competitions</a>
-              <a class="btn btn--secondary" href="/tag/free-entry/">Free Entry Only</a>
+              <a class="btn btn--primary" href="#all-competitions">Browse All</a>
+              <a class="btn btn--secondary" href="/tag/ending-soon/">Ending Soon</a>
             </div>
             <div class="trust-row" aria-label="Trust signals">
-              <span class="trust-row__item">100+ Competitions</span>
-              <span class="trust-row__item">Updated Regularly</span>
-              <span class="trust-row__item">Official Brand Promotions</span>
+              <span class="trust-row__item">Verified</span>
+              <span class="trust-row__item">No sign-up needed</span>
+              <span class="trust-row__item">100% free to enter</span>
             </div>
           </div>
-          <div class="hero-panel" aria-label="Why browse FreeHub">
-            <p class="hero-panel__eyebrow">Why people click through</p>
-            <h2 class="hero-panel__title">Fast paths to the prizes people care about most</h2>
-            <ul class="hero-panel__list">
-              <li>Featured picks for cars, cash, holidays, and standout rewards</li>
-              <li>Clear entry methods before you open the full competition page</li>
-              <li>Urgency cues for offers that are closing soon</li>
-            </ul>
-          </div>
+          ${heroSpotlightMarkup}
         </div>
       </header>
 
@@ -500,9 +546,9 @@ ${noscriptLinks}
         <section class="popular-searches" aria-label="Popular searches">
           <p class="popular-searches__title">Quick Paths</p>
           <div class="popular-searches__links">
-            <a class="popular-searches__link" href="/tag/free-entry/">Free entry giveaways</a>
-            <a class="popular-searches__link" href="/tag/ending-soon/">Closing soon this week</a>
-            <a class="popular-searches__link" href="/tag/high-value/">High-value competitions</a>
+            <a class="popular-searches__link" href="/tag/free-entry/">Free entry</a>
+            <a class="popular-searches__link" href="/tag/ending-soon/">Ending soon</a>
+            <a class="popular-searches__link" href="/tag/high-value/">High value</a>
           </div>
         </section>
 
@@ -637,8 +683,8 @@ ${noscriptLinks}
         <section class="home-cta" aria-label="Find more competitions">
           <h2 class="home-cta__title">Browse more prizes before the best ones disappear</h2>
           <div class="home-cta__actions">
-            <a class="btn btn--primary" href="#all-competitions">Browse Competitions</a>
-            <a class="btn btn--secondary" href="/tag/ending-soon/">See Ending Soon</a>
+            <a class="btn btn--primary" href="#all-competitions">Browse All</a>
+            <a class="btn btn--secondary" href="/tag/ending-soon/">Ending Soon</a>
           </div>
         </section>
       </main>

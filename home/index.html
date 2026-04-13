@@ -29,11 +29,36 @@
   </head>
   <body>
     <div class="site-shell">
-      <header class="hero">
-        <div class="hero__copy">
-          <p class="eyebrow">free-hub</p>
-          <h1 id="pageTitle">Win Cars, Cash, Holidays and Vouchers in South Africa</h1>
-          <p class="hero__text" id="pageIntro">Browse free competitions from trusted brands. Updated regularly with new giveaways, prize draws and promotions.</p>
+      <header class="hero hero--home">
+        <div class="hero__layout">
+          <div class="hero__copy">
+            <p class="eyebrow">FREEHUB</p>
+            <h1 id="pageTitle">Win Cars, Cash &amp; Holidays &mdash; Free in South Africa</h1>
+            <p class="hero__text" id="pageIntro">Verified competitions from trusted brands. Updated regularly.</p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#all-competitions">Browse All</a>
+              <a class="btn btn--secondary" href="/tag/ending-soon/">Ending Soon</a>
+            </div>
+            <div class="trust-row" aria-label="Trust signals">
+              <span class="trust-row__item">Verified</span>
+              <span class="trust-row__item">No sign-up needed</span>
+              <span class="trust-row__item">100% free to enter</span>
+            </div>
+          </div>
+          <a class="hero-spotlight" href="/competition/sta-soft-luxury-getaway/" aria-label="Sta Soft Clicks In Store Luxury Getaway Competition - enter now">
+            <div class="hero-spotlight__media">
+              <img src="https://www.winsomething.co.za/storage/app/uploads/public/69a/a73/69e/69aa7369e8eaf874903246.jpg" alt="Sta Soft Clicks In Store Luxury Getaway Competition" loading="lazy" />
+            </div>
+            <div class="hero-spotlight__body">
+              <p class="hero-spotlight__eyebrow">Featured prize</p>
+              <h2 class="hero-spotlight__title">Sta Soft Clicks In Store Luxury Getaway Competition</h2>
+              <div class="hero-spotlight__meta">
+                <span>Holiday prize</span>
+                <span>Ends in 9 days</span>
+              </div>
+              <span class="hero-spotlight__cta">Enter Now</span>
+            </div>
+          </a>
         </div>
       </header>
 
@@ -41,7 +66,10 @@
         
 
         <nav class="category-nav" aria-label="Competition categories">
-          <a class="category-nav__link is-active" href="/">All Competitions</a>
+          <a class="category-nav__link is-active" href="/">All</a>
+          <a class="category-nav__link" href="/tag/free-entry/">Free Entry</a>
+          <a class="category-nav__link" href="/tag/ending-soon/">Ending Soon</a>
+          <a class="category-nav__link" href="/tag/high-value/">High Value</a>
           <a class="category-nav__link" href="/category/cash/">Cash</a>
           <a class="category-nav__link" href="/category/cars/">Cars</a>
           <a class="category-nav__link" href="/category/holidays/">Holidays</a>
@@ -50,11 +78,11 @@
         </nav>
 
         <section class="popular-searches" aria-label="Popular searches">
-          <p class="popular-searches__title">Popular Searches</p>
+          <p class="popular-searches__title">Quick Paths</p>
           <div class="popular-searches__links">
-            <a class="popular-searches__link" href="/tag/free-entry/">Free Entry</a>
-            <a class="popular-searches__link" href="/tag/ending-soon/">Ending Soon</a>
-            <a class="popular-searches__link" href="/tag/high-value/">High Value</a>
+            <a class="popular-searches__link" href="/tag/free-entry/">Free entry</a>
+            <a class="popular-searches__link" href="/tag/ending-soon/">Ending soon</a>
+            <a class="popular-searches__link" href="/tag/high-value/">High value</a>
           </div>
         </section>
 
@@ -101,7 +129,7 @@
           <p class="state-card__text">Please refresh the page and try again.</p>
         </section>
 
-        <section class="competition-section">
+        <section class="competition-section" id="all-competitions">
           <div id="competitionsGrid" class="competition-grid" aria-live="polite">
             <article class="competition-card">
               <div class="competition-card__media">
