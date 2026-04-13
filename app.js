@@ -2,6 +2,7 @@ const {
   CATEGORY_COPY,
   DEFAULT_OG_IMAGE,
   getCompetitionPath,
+  getCompetitionSlug,
   buildStructuredData,
   filterCompetitionsByRoute,
   formatDate,
@@ -66,6 +67,12 @@ function bindEvents() {
       renderCompetitions();
     });
   }
+
+  document.querySelectorAll(".competition-detail__cta").forEach((cta) => {
+    cta.addEventListener("click", () => {
+      trackCtaClick();
+    });
+  });
 }
 
 function setupPageAds() {
@@ -377,12 +384,11 @@ function hideStatusStates() {
 }
 
 function trackCompetitionClick(competition) {
-  console.log({
-    event: "competition_click",
-    id: competition.id,
-    title: competition.title,
-    category: competition.category,
-    timestamp: new Date().toISOString(),
+  if (typeof gtag !== "function") return;
+  gtag("event", "competition_click", {
+    competition_slug: getCompetitionSlug(competition),
+    competition_title: competition.title,
+    competition_category: competition.category,
   });
 }
 
@@ -404,18 +410,19 @@ function handleAdVisibility(entries, observer) {
 }
 
 function trackAdView(placement) {
-  console.log({
-    event: "ad_view",
-    placement,
-    timestamp: new Date().toISOString(),
-  });
+  if (typeof gtag !== "function") return;
+  gtag("event", "ad_view", { placement });
 }
 
 function trackAdClick(placement) {
-  console.log({
-    event: "ad_click",
-    placement,
-    timestamp: new Date().toISOString(),
+  if (typeof gtag !== "function") return;
+  gtag("event", "ad_click", { placement });
+}
+
+function trackCtaClick() {
+  if (typeof gtag !== "function") return;
+  gtag("event", "cta_click", {
+    page_type: state.routeContext.type,
   });
 }
 
