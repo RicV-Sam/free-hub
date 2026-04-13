@@ -3,11 +3,8 @@ const path = require("path");
 const shared = require("../shared/page-data.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
-const MIRROR_DIR = path.join(ROOT_DIR, "free-hub");
 const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
-const RELATIVE_ASSET_PATH = "../../";
-const MIRROR_FILES = ["index.html", "404.html", "app.js", "styles.css", "robots.txt", "sitemap.xml"];
-const MIRROR_DIRECTORIES = ["data", "shared", "category", "tag", "competition", "out"];
+const RELATIVE_ASSET_PATH = "/";
 const CATEGORY_LINKS = [
   { label: "All Competitions", href: "/" },
   ...shared.CATEGORY_SLUGS.map((slug) => ({
@@ -58,8 +55,6 @@ function main() {
   });
 
   fs.writeFileSync(path.join(ROOT_DIR, "sitemap.xml"), generateSitemap(competitions));
-
-  syncMirrorTree();
 }
 
 function renderPage(routeContext, competitions) {
@@ -107,6 +102,7 @@ function renderPage(routeContext, competitions) {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('set', { page_type: '${routeContext.type}' });
       gtag('config', 'G-23P37R20FY');
     </script>
   </head>
@@ -432,13 +428,14 @@ function renderHomepage(competitions) {
     <meta name="twitter:description" content="Browse free competitions in South Africa with live categories, search, and fast access to offers for cars, cash, holidays, tech, and vouchers." />
     <meta name="twitter:image" content="${escapeAttribute(ogImage)}" />
     <script id="structured-data-itemlist" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/styles.css" />
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('set', { page_type: 'home' });
       gtag('config', 'G-23P37R20FY');
     </script>
   </head>
@@ -628,8 +625,8 @@ ${noscriptLinks}
       <button class="ad-sticky__cta" id="stickyAdCta" type="button">View Offer</button>
     </aside>
 
-    <script src="shared/page-data.js" defer></script>
-    <script src="app.js" defer></script>
+    <script src="/shared/page-data.js" defer></script>
+    <script src="/app.js" defer></script>
   </body>
 </html>
 `;
@@ -767,6 +764,9 @@ function renderCompetitionPage(competition, allCompetitions) {
             </div>`
     : "";
   const heroSubline = competition.brand ? `By ${competition.brand}` : competition.category;
+  const closingSoon = shared.isClosingSoon(competition.closingDate);
+  const purchaseRequired = Array.isArray(competition.tags) && competition.tags.includes("purchase-required");
+  const outPath = shared.getOutPath(competition) + "/";
 
   const relatedCardsMarkup = relatedCompetitions.map((c) => renderCompetitionCard(c)).join("\n            ");
   const relatedSection = relatedCardsMarkup
@@ -830,6 +830,7 @@ function renderCompetitionPage(competition, allCompetitions) {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('set', { page_type: 'competition', competition_slug: ${escapeScript(JSON.stringify(slug))}, competition_category: ${escapeScript(JSON.stringify(competition.category))} });
       gtag('config', 'G-23P37R20FY');
     </script>
   </head>
@@ -841,6 +842,8 @@ function renderCompetitionPage(competition, allCompetitions) {
           <p class="eyebrow">free-hub</p>
           <h1 id="pageTitle">${escapeHtml(competition.title)} Competition ${year}</h1>
           <p class="hero__text">${escapeHtml(heroSubline)}</p>
+          <p class="hero__closing${closingSoon && !expired ? " hero__closing--urgent" : ""}">${expired ? "Closed" : "Closes"} ${escapeHtml(formattedDate)}${closingSoon && !expired ? " · Ending soon" : ""}</p>
+          ${!expired ? `<a class="hero__cta" href="${escapeAttribute(outPath)}" target="_blank" rel="noopener noreferrer">Enter Competition</a>` : ""}
         </div>
       </header>
 
@@ -879,17 +882,22 @@ function renderCompetitionPage(competition, allCompetitions) {
               ${closingSoonBadge}
             </div>
             <div class="competition-detail__info">
-              <p><strong>Closing Date:</strong> ${escapeHtml(formattedDate)}</p>
-              <p><strong>Entry Type:</strong> ${escapeHtml(competition.entryType)}</p>
+              <p${closingSoon && !expired ? ` class="competition-detail__info--urgent"` : ""}><strong>Closes:</strong> ${escapeHtml(formattedDate)}${closingSoon && !expired ? " · ending soon" : ""}</p>
+              <p><strong>Entry:</strong> ${escapeHtml(competition.entryType)}</p>
             </div>
             <div class="competition-detail__summary">
               <p>${escapeHtml(description)}</p>
             </div>
             ${tagsMarkup}
             ${entryStepsMarkup}
+            <div class="trust-chips">
+              <span class="trust-chip">Official promotion</span>
+              <span class="trust-chip">No sign-up on this site</span>
+              ${!purchaseRequired ? '<span class="trust-chip">Free to enter</span>' : ""}
+            </div>
             <a
               class="competition-detail__cta"
-              href="${escapeAttribute(shared.getOutPath(competition) + "/")}"
+              href="${escapeAttribute(outPath)}"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -913,6 +921,11 @@ function renderCompetitionPage(competition, allCompetitions) {
             We link directly to official brand competitions and promoter pages. No account or sign-up is required on our site. Always check the promoter's terms and closing date before entering.
           </p>
         </section>
+
+        ${!expired ? `<section class="competition-cta-repeat" aria-label="Enter this competition">
+          <p>Ready to enter? Head to the official competition page.</p>
+          <a class="competition-detail__cta" href="${escapeAttribute(outPath)}" target="_blank" rel="noopener noreferrer">Enter Competition</a>
+        </section>` : ""}
 
         <section class="ad-slot ad-slot--compact" id="ad-middle" aria-label="Advertisement">
           <p class="ad-slot__label">Advertisement</p>
@@ -992,15 +1005,19 @@ function renderOutPage(competition) {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('set', { page_type: 'outbound', competition_slug: ${escapeScript(JSON.stringify(slug))}, competition_category: ${escapeScript(JSON.stringify(competition.category))} });
       gtag('config', 'G-23P37R20FY');
     </script>
     <script>
       (function () {
         var SLUG = ${escapeScript(JSON.stringify(slug))};
+        var TITLE = ${escapeScript(JSON.stringify(competition.title))};
+        var CATEGORY = ${escapeScript(JSON.stringify(competition.category))};
         var TARGET = ${escapeScript(JSON.stringify(externalUrl))};
         gtag('event', 'outbound_click', {
-          event_label: SLUG,
-          event_category: 'outbound',
+          competition_slug: SLUG,
+          competition_title: TITLE,
+          competition_category: CATEGORY,
           transport_type: 'beacon',
         });
         setTimeout(function () {
@@ -1225,36 +1242,6 @@ function escapeAttribute(value) {
 
 function escapeScript(value) {
   return String(value).replace(/<\/script/gi, "<\\/script");
-}
-
-function syncMirrorTree() {
-  fs.rmSync(MIRROR_DIR, { recursive: true, force: true });
-  fs.mkdirSync(MIRROR_DIR, { recursive: true });
-
-  MIRROR_FILES.forEach((file) => {
-    copyIntoMirror(path.join(ROOT_DIR, file), path.join(MIRROR_DIR, file));
-  });
-
-  MIRROR_DIRECTORIES.forEach((directory) => {
-    copyIntoMirror(path.join(ROOT_DIR, directory), path.join(MIRROR_DIR, directory));
-  });
-}
-
-function copyIntoMirror(source, destination) {
-  const stats = fs.statSync(source);
-
-  if (stats.isDirectory()) {
-    fs.mkdirSync(destination, { recursive: true });
-
-    fs.readdirSync(source).forEach((entry) => {
-      copyIntoMirror(path.join(source, entry), path.join(destination, entry));
-    });
-
-    return;
-  }
-
-  fs.mkdirSync(path.dirname(destination), { recursive: true });
-  fs.copyFileSync(source, destination);
 }
 
 main();

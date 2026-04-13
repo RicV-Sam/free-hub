@@ -409,7 +409,7 @@ button {
 .competition-card__overlay-link {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 3;
   cursor: pointer;
 }
 
@@ -1056,7 +1056,7 @@ button {
   padding: 0.85rem;
   border-radius: var(--radius-md);
   background: var(--accent-soft);
-  color: var(--muted);
+  color: var(--text);
   font-size: 0.92rem;
   line-height: 1.6;
 }
@@ -1092,6 +1092,85 @@ button {
     padding-left: 2rem;
     padding-right: 2rem;
   }
+}
+
+/* ── Competition detail: closing date urgency ────────────────────────── */
+
+.competition-detail__info--urgent {
+  color: #dc2626;
+  font-weight: 700;
+}
+
+/* ── Competition detail: trust chips ────────────────────────────────── */
+
+.competition-detail__body .trust-chips {
+  margin-top: 0;
+}
+
+/* ── Competition detail: entry steps readability ────────────────────── */
+
+.competition-detail__steps-list {
+  margin: 0.4rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.competition-detail__steps-list li + li {
+  margin-top: 0.35rem;
+}
+
+/* ── Competition detail: repeat CTA section ─────────────────────────── */
+
+.competition-cta-repeat {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1.1rem;
+  background: var(--accent-soft);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.competition-cta-repeat p {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.competition-cta-repeat .competition-detail__cta {
+  width: auto;
+  margin: 0 auto;
+}
+
+/* ── Hero competition: closing date + CTA ───────────────────────────── */
+
+.hero__closing {
+  margin: 0.45rem 0 0.9rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero__closing--urgent {
+  color: #fcd34d;
+}
+
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--accent);
+  font-size: 1rem;
+  font-weight: 800;
+  text-decoration: none;
+  width: fit-content;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.hero__cta:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-1px);
 }
 
 @media (min-width: 700px) {
