@@ -248,13 +248,11 @@ function renderPage(routeContext, competitions) {
 
 function renderCompetitionCard(competition, featured = false) {
   const internalPath = shared.getCompetitionPath(competition);
-  const closingSoonBadge = shared.isClosingSoon(competition.closingDate)
-    ? '<span class="badge badge--closing">Ending Soon</span>'
-    : "";
-  const freeEntryBadge =
-    Array.isArray(competition.tags) && competition.tags.includes("free-entry")
-      ? '<span class="badge badge--soft">Free Entry</span>'
-      : "";
+  const urgencyBadge = `<span class="badge badge--closing">${escapeHtml(
+    shared.getUrgencyBadgeLabel(competition.closingDate)
+  )}</span>`;
+  const hotBadge = shared.shouldShowHotBadge(competition) ? '<span class="badge badge--hot">HOT</span>' : "";
+  const costBadge = `<span class="badge badge--soft">${escapeHtml(shared.getEntryCostLabel(competition))}</span>`;
   const summaryMarkup = competition.summary
     ? `<p class="competition-card__summary">${escapeHtml(competition.summary)}</p>`
     : "";
@@ -263,6 +261,7 @@ function renderCompetitionCard(competition, featured = false) {
   const urgencyLabel = shared.getUrgencyLabel(competition.closingDate);
   const entryMethodLabel = shared.getEntryMethodLabel(competition.entryType);
   const prizeCue = shared.getPrizeCue(competition);
+  const headline = shared.getCardHeadline(competition);
   const brand = competition.brand || "Official promotion";
   const featuredEyebrow = featured ? '<p class="competition-card__eyebrow">Featured pick</p>' : "";
   const ctaClass = featured ? "competition-card__cta competition-card__cta--featured" : "competition-card__cta";
@@ -273,13 +272,16 @@ function renderCompetitionCard(competition, featured = false) {
     competition.title
   )}" loading="lazy" />
                 <div class="competition-card__badges">
-                  <span class="badge badge--category">${escapeHtml(competition.category)}</span>
-                  ${closingSoonBadge}
+                  <div class="competition-card__badge-stack">
+                    <span class="badge badge--category">${escapeHtml(competition.category)}</span>
+                    ${hotBadge}
+                  </div>
+                  ${urgencyBadge}
                 </div>
               </div>
               <div class="competition-card__body">
                 ${featuredEyebrow}
-                <h2 class="competition-card__title">${escapeHtml(competition.title)}</h2>
+                <h2 class="competition-card__title">${escapeHtml(headline)}</h2>
                 <p class="competition-card__brand">${escapeHtml(brand)}</p>
                 <div class="competition-card__signals">
                   <span class="competition-card__signal competition-card__signal--value">${escapeHtml(prizeCue)}</span>
@@ -287,16 +289,16 @@ function renderCompetitionCard(competition, featured = false) {
                 </div>
                 ${summaryMarkup}
                 <div class="competition-card__meta">
-                  <span>Closes ${escapeHtml(shared.formatDate(competition.closingDate))}</span>
                   <span>${escapeHtml(entryMethodLabel)}</span>
+                  <span>${escapeHtml(shared.formatDate(competition.closingDate))}</span>
                 </div>
                 <div class="competition-card__footer">
                   <div class="competition-card__tags">
                     <span class="competition-card__entry">${escapeHtml(entryMethodLabel)}</span>
-                    ${freeEntryBadge}
+                    ${costBadge}
                   </div>
-                  <span class="${ctaClass}">Enter Now</span>
                 </div>
+                <span class="${ctaClass}">Enter Now &rarr;</span>
               </div>
               <a class="competition-card__overlay-link" href="${escapeAttribute(internalPath)}/" aria-label="${escapeAttribute(competition.title)} - enter now">
                 <span class="visually-hidden">Enter ${escapeHtml(competition.title)} now</span>

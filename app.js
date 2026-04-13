@@ -8,11 +8,15 @@ const {
   formatDate,
   getCategoryRoute,
   getEntryMethodLabel,
+  getEntryCostLabel,
+  getCardHeadline,
   getPrizeCue,
   getUrgencyLabel,
+  getUrgencyBadgeLabel,
   getPageCopy,
   getRouteContext,
   isClosingSoon,
+  shouldShowHotBadge,
   sortCompetitions,
 } = window.FreeHubShared;
 
@@ -257,18 +261,26 @@ function createCompetitionCard(competition) {
   const badges = document.createElement("div");
   badges.className = "competition-card__badges";
 
+  const badgeStack = document.createElement("div");
+  badgeStack.className = "competition-card__badge-stack";
+
   const categoryBadge = document.createElement("span");
   categoryBadge.className = "badge badge--category";
   categoryBadge.textContent = competition.category;
-  badges.appendChild(categoryBadge);
+  badgeStack.appendChild(categoryBadge);
 
-  if (isClosingSoon(competition.closingDate)) {
-    const closingSoonBadge = document.createElement("span");
-    closingSoonBadge.className = "badge badge--closing";
-    closingSoonBadge.textContent = "Ending Soon";
-    badges.appendChild(closingSoonBadge);
+  if (shouldShowHotBadge(competition)) {
+    const hotBadge = document.createElement("span");
+    hotBadge.className = "badge badge--hot";
+    hotBadge.textContent = "HOT";
+    badgeStack.appendChild(hotBadge);
   }
 
+  const urgencyBadge = document.createElement("span");
+  urgencyBadge.className = "badge badge--closing";
+  urgencyBadge.textContent = getUrgencyBadgeLabel(competition.closingDate);
+
+  badges.append(badgeStack, urgencyBadge);
   media.append(image, badges);
 
   const body = document.createElement("div");
@@ -276,7 +288,7 @@ function createCompetitionCard(competition) {
 
   const title = document.createElement("h2");
   title.className = "competition-card__title";
-  title.textContent = competition.title;
+  title.textContent = getCardHeadline(competition);
 
   const brand = document.createElement("p");
   brand.className = "competition-card__brand";
@@ -299,12 +311,11 @@ function createCompetitionCard(competition) {
   meta.className = "competition-card__meta";
 
   const closingDate = document.createElement("span");
-  closingDate.textContent = `Closes ${formatDate(competition.closingDate)}`;
-  meta.append(closingDate);
+  closingDate.textContent = formatDate(competition.closingDate);
 
   const entryMethod = document.createElement("span");
   entryMethod.textContent = getEntryMethodLabel(competition.entryType);
-  meta.append(entryMethod);
+  meta.append(entryMethod, closingDate);
 
   if (competition.summary) {
     const summary = document.createElement("p");
@@ -326,19 +337,17 @@ function createCompetitionCard(competition) {
   entryPill.textContent = getEntryMethodLabel(competition.entryType);
   tags.append(entryPill);
 
-  if (Array.isArray(competition.tags) && competition.tags.includes("free-entry")) {
-    const freeEntry = document.createElement("span");
-    freeEntry.className = "badge badge--soft";
-    freeEntry.textContent = "Free Entry";
-    tags.append(freeEntry);
-  }
+  const entryCost = document.createElement("span");
+  entryCost.className = "badge badge--soft";
+  entryCost.textContent = getEntryCostLabel(competition);
+  tags.append(entryCost);
 
   const cta = document.createElement("span");
   cta.className = "competition-card__cta";
-  cta.textContent = "Enter Now";
+  cta.textContent = "Enter Now →";
 
-  footer.append(tags, cta);
-  body.append(footer);
+  footer.append(tags);
+  body.append(footer, cta);
   article.append(media, body, overlayLink);
 
   return article;

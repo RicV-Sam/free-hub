@@ -212,6 +212,24 @@
     return `Ends in ${daysLeft} days`;
   }
 
+  function getUrgencyBadgeLabel(dateString) {
+    const daysLeft = getDaysUntilClosing(dateString);
+
+    if (daysLeft < 0) {
+      return "Closed";
+    }
+
+    if (daysLeft === 0) {
+      return "Last day";
+    }
+
+    if (daysLeft === 1) {
+      return "Ends in 1 day";
+    }
+
+    return `Ends in ${daysLeft} days`;
+  }
+
   function getEntryMethodLabel(entryType) {
     const normalized = String(entryType || "").toLowerCase();
 
@@ -261,6 +279,116 @@
     }
 
     return "Verified prize";
+  }
+
+  function getPrimaryPrizeText(competition) {
+    const text = [competition.title, competition.summary || ""].join(" ");
+    const amountMatch = text.match(/\bR\s?\d{1,3}(?:[,\s]?\d{3})*(?:\.\d+)?\b/);
+
+    if (amountMatch) {
+      return amountMatch[0].replace(/\s+/g, " ").trim();
+    }
+
+    const phrasePatterns = [
+      /\b(Toyota [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
+      /\b(Hyundai [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
+      /\b(Suzuki [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
+      /\b(Volkswagen [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
+      /\b(BMW [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
+      /\b(Mercedes-Benz [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
+      /\b(Kia [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
+      /\b(Nissan [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
+      /\b(Ford [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
+      /\b(Mauritius Holiday)\b/i,
+      /\b(Zanzibar (?:Holiday|Getaway))\b/i,
+      /\b(Victoria Falls (?:trip|getaway))\b/i,
+      /\b(Drakensberg (?:stay|escape|getaway))\b/i,
+      /\b(Cape Town (?:weekend|getaway|escape))\b/i,
+      /\b(Kruger (?:safari|escape|getaway))\b/i,
+      /\b(Sun City (?:holiday|break|getaway))\b/i,
+      /\b(iPhone ?\d+)\b/i,
+      /\b(Samsung Galaxy [A-Z0-9+ ]+)\b/i,
+      /\b(MacBook Air)\b/i,
+      /\b(iPad Air?)\b/i,
+      /\b(Xbox Series X)\b/i,
+      /\b(GoPro HERO)\b/i,
+    ];
+
+    for (const pattern of phrasePatterns) {
+      const match = text.match(pattern);
+
+      if (match) {
+        return match[1].trim();
+      }
+    }
+
+    switch (competition.category) {
+      case "Cash":
+        return "Cash prize";
+      case "Cars":
+        return "Car prize";
+      case "Holidays":
+        return "Holiday";
+      case "Vouchers":
+        return "Shopping vouchers";
+      case "Tech":
+        return "Tech prize";
+      default:
+        return "Prize";
+    }
+  }
+
+  function getCardHeadline(competition) {
+    const prizeText = getPrimaryPrizeText(competition);
+
+    if (/^R\s?\d/i.test(prizeText)) {
+      return `Win ${prizeText} Cash`;
+    }
+
+    if (/\b(Car prize|Holiday|Holiday prize|Cash prize|Voucher prize|Shopping vouchers|Tech prize|Prize)\b/i.test(prizeText)) {
+      switch (competition.category) {
+        case "Cash":
+          return "Win Cash Prizes";
+        case "Cars":
+          return "Win a Car";
+        case "Holidays":
+          return "Win a Holiday";
+        case "Vouchers":
+          return "Win Shopping Vouchers";
+        case "Tech":
+          return "Win Tech Prizes";
+        default:
+          return `Win ${prizeText}`;
+      }
+    }
+
+    if (/vouchers?/i.test(prizeText)) {
+      return `Win ${prizeText}`;
+    }
+
+    if (/holiday|getaway|escape|trip|safari/i.test(prizeText)) {
+      return `Win a ${prizeText}`;
+    }
+
+    if (/car|toyota|hyundai|suzuki|volkswagen|bmw|mercedes|kia|nissan|ford/i.test(prizeText)) {
+      return `Win a ${prizeText}`;
+    }
+
+    return `Win ${prizeText}`;
+  }
+
+  function getEntryCostLabel(competition) {
+    const tags = Array.isArray(competition.tags) ? competition.tags : [];
+
+    if (tags.includes("purchase-required")) {
+      return "Purchase required";
+    }
+
+    return "Free entry";
+  }
+
+  function shouldShowHotBadge(competition) {
+    return isClosingSoon(competition.closingDate) || isHighValueCompetition(competition);
   }
 
   function isHighValueCompetition(competition) {
@@ -459,8 +587,13 @@
     isClosingWithinDays,
     getDaysUntilClosing,
     getUrgencyLabel,
+    getUrgencyBadgeLabel,
     getEntryMethodLabel,
     getPrizeCue,
+    getPrimaryPrizeText,
+    getCardHeadline,
+    getEntryCostLabel,
+    shouldShowHotBadge,
     isHighValueCompetition,
     sortCompetitions,
     getTagFilteredCompetitions,

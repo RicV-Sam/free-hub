@@ -439,10 +439,15 @@ button {
   left: 0.9rem;
   right: 0.9rem;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
   gap: 0.45rem;
+}
+
+.competition-card__badge-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }
 
 .badge {
@@ -469,6 +474,11 @@ button {
   box-shadow: 0 10px 25px rgba(220, 38, 38, 0.28);
 }
 
+.badge--hot {
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+  color: #fff;
+}
+
 .competition-card__body {
   position: relative;
   z-index: 2;
@@ -479,9 +489,9 @@ button {
 
 .competition-card__title {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 1.18rem;
   font-weight: 900;
-  line-height: 1.2;
+  line-height: 1.15;
   letter-spacing: -0.02em;
 }
 
@@ -502,8 +512,12 @@ button {
 .competition-card__summary {
   margin: 0;
   color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.55;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .competition-card__entry {
@@ -1547,7 +1561,7 @@ button {
 .competition-card__footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 0.55rem;
 }
 
@@ -1573,12 +1587,13 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 38px;
-  padding: 0.58rem 0.82rem;
+  width: 100%;
+  min-height: 44px;
+  padding: 0.72rem 0.9rem;
   border-radius: 999px;
   background: #0f766e;
   color: #fff;
-  font-size: 0.8rem;
+  font-size: 0.86rem;
   font-weight: 800;
   white-space: nowrap;
   box-shadow: 0 10px 22px rgba(15, 118, 110, 0.2);
@@ -1602,7 +1617,7 @@ button {
 }
 
 .competition-card--featured .competition-card__title {
-  font-size: 1.15rem;
+  font-size: 1.08rem;
 }
 
 .sponsored-card {
