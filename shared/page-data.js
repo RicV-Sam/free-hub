@@ -1,5 +1,5 @@
 (function (global) {
-  const SITE_ORIGIN = "https://freehub.datacost.co.za";
+  const SITE_ORIGIN = "https://freehub.co.za";
   const CANONICAL_ORIGIN = SITE_ORIGIN;
   const BASE_PATH = "";
   const HOME_ROUTE = "/";

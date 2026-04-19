@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://freehub.datacost.co.za/sitemap.xml
+Sitemap: https://freehub.co.za/sitemap.xml

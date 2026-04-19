@@ -218,7 +218,7 @@ function renderPage(routeContext, competitions) {
           </div>
           <div>
             <p class="site-footer__title">Contact</p>
-            <p class="site-footer__text">Contact: hello@freehub.datacost.co.za</p>
+            <p class="site-footer__text">Contact: hello@freehub.co.za</p>
           </div>
           <div>
             <p class="site-footer__title">Disclaimer</p>
@@ -486,11 +486,11 @@ If you are looking for free entry competitions in South Africa, practical vouche
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Free Competitions South Africa | Win Cars, Cash &amp; Holidays</title>
     <meta name="description" content="Browse free competitions in South Africa with live categories, search, and fast access to offers for cars, cash, holidays, tech, and vouchers." />
-    <link rel="canonical" href="https://freehub.datacost.co.za/" />
+    <link rel="canonical" href="${escapeAttribute(shared.CANONICAL_ORIGIN)}/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Free Competitions South Africa | Win Cars, Cash &amp; Holidays" />
     <meta property="og:description" content="Browse free competitions in South Africa with live categories, search, and fast access to offers for cars, cash, holidays, tech, and vouchers." />
-    <meta property="og:url" content="https://freehub.datacost.co.za/" />
+    <meta property="og:url" content="${escapeAttribute(shared.CANONICAL_ORIGIN)}/" />
     <meta property="og:image" content="${escapeAttribute(ogImage)}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Free Competitions South Africa | Win Cars, Cash &amp; Holidays" />
@@ -701,7 +701,7 @@ ${noscriptLinks}
           </div>
           <div>
             <p class="site-footer__title">Contact</p>
-            <p class="site-footer__text">Contact: hello@freehub.datacost.co.za</p>
+            <p class="site-footer__text">Contact: hello@freehub.co.za</p>
           </div>
           <div>
             <p class="site-footer__title">Disclaimer</p>
@@ -1054,7 +1054,7 @@ function renderCompetitionPage(competition, allCompetitions) {
           </div>
           <div>
             <p class="site-footer__title">Contact</p>
-            <p class="site-footer__text">Contact: hello@freehub.datacost.co.za</p>
+            <p class="site-footer__text">Contact: hello@freehub.co.za</p>
           </div>
           <div>
             <p class="site-footer__title">Disclaimer</p>
