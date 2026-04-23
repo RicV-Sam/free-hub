@@ -20,9 +20,10 @@ const TAG_LINKS = [
 
 function main() {
   const rawCompetitions = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
-  const competitions = shared.sortCompetitions(
+  const allCompetitions = shared.sortCompetitions(
     rawCompetitions.filter((entry, index) => validateCompetition(entry, index))
   );
+  const competitions = allCompetitions.filter((competition) => !isExpired(competition.closingDate));
   const routeContexts = shared.getAllStaticRouteContexts();
 
   fs.writeFileSync(path.join(ROOT_DIR, "index.html"), renderHomepage(competitions));
@@ -36,7 +37,7 @@ function main() {
     fs.writeFileSync(path.join(outputDirectory, "index.html"), html);
   });
 
-  competitions.forEach((competition) => {
+  allCompetitions.forEach((competition) => {
     const html = renderCompetitionPage(competition, competitions);
     const slug = shared.getCompetitionSlug(competition);
     const outputDirectory = path.join(ROOT_DIR, "competition", slug);
@@ -45,7 +46,7 @@ function main() {
     fs.writeFileSync(path.join(outputDirectory, "index.html"), html);
   });
 
-  competitions.forEach((competition) => {
+  allCompetitions.forEach((competition) => {
     const html = renderOutPage(competition);
     const slug = shared.getCompetitionSlug(competition);
     const outputDirectory = path.join(ROOT_DIR, "out", slug);
@@ -82,6 +83,7 @@ function renderPage(routeContext, competitions) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${escapeHtml(pageCopy.title)}</title>
     <meta name="description" content="${escapeAttribute(pageCopy.description)}" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="${escapeAttribute(pageCopy.canonical)}" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="${escapeAttribute(pageCopy.title)}" />
@@ -486,6 +488,7 @@ If you are looking for free entry competitions in South Africa, practical vouche
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Free Competitions South Africa | Win Cars, Cash &amp; Holidays</title>
     <meta name="description" content="Browse free competitions in South Africa with live categories, search, and fast access to offers for cars, cash, holidays, tech, and vouchers." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="${escapeAttribute(shared.CANONICAL_ORIGIN)}/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Free Competitions South Africa | Win Cars, Cash &amp; Holidays" />
@@ -833,6 +836,7 @@ function buildHowToEnterSteps(competition) {
 function renderCompetitionPage(competition, allCompetitions) {
   const slug = shared.getCompetitionSlug(competition);
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/competition/${slug}/`;
+  const officialUrl = competition.url;
   const description = shared.buildCompetitionDescription(competition);
   const formattedDate = shared.formatDate(competition.closingDate);
   const ogImage = competition.image || shared.DEFAULT_OG_IMAGE;
@@ -847,6 +851,13 @@ function renderCompetitionPage(competition, allCompetitions) {
   const categoryPath = categorySlug ? `/category/${categorySlug}/` : "/";
   const expired = isExpired(competition.closingDate);
   const year = new Date(competition.closingDate).getFullYear();
+  const heroTitle = /\bcompetition\b/i.test(competition.title)
+    ? `${competition.title} ${year}`
+    : `${competition.title} Competition ${year}`;
+  const robotsDirective = expired
+    ? "noindex, follow"
+    : "index, follow, max-image-preview:large";
+  const officialSource = getSafeHostname(officialUrl);
 
   const closingSoonBadge = shared.isClosingSoon(competition.closingDate)
     ? '<span class="badge badge--closing">&#x1F525; Closing Soon</span>'
@@ -899,6 +910,23 @@ function renderCompetitionPage(competition, allCompetitions) {
       { "@type": "ListItem", position: categorySlug ? 3 : 2, name: competition.title },
     ],
   };
+  const webPageData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: competition.title,
+    description,
+    url: canonicalUrl,
+    inLanguage: "en-ZA",
+    isPartOf: {
+      "@type": "WebSite",
+      name: "FreeHub",
+      url: `${shared.CANONICAL_ORIGIN}/`,
+    },
+    about: {
+      "@type": "Thing",
+      name: `${competition.category} competition`,
+    },
+  };
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -907,8 +935,8 @@ function renderCompetitionPage(competition, allCompetitions) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${escapeHtml(competition.title)} – Enter Now | Free Competitions South Africa</title>
     <meta name="description" content="${escapeAttribute(description)}" />
-    <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />${expired ? `
-    <meta name="robots" content="noindex" />` : ""}
+    <meta name="robots" content="${robotsDirective}" />
+    <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="${escapeAttribute(competition.title)}" />
     <meta property="og:description" content="${escapeAttribute(description)}" />
@@ -918,6 +946,7 @@ function renderCompetitionPage(competition, allCompetitions) {
     <meta name="twitter:title" content="${escapeAttribute(competition.title)}" />
     <meta name="twitter:description" content="${escapeAttribute(description)}" />
     <meta name="twitter:image" content="${escapeAttribute(ogImage)}" />
+    <script id="structured-data-webpage" type="application/ld+json">${escapeScript(JSON.stringify(webPageData))}</script>
     <script id="structured-data-offer" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
     <script id="structured-data-breadcrumb" type="application/ld+json">${escapeScript(JSON.stringify(breadcrumbData))}</script>
     <link rel="stylesheet" href="${RELATIVE_ASSET_PATH}styles.css" />
@@ -937,7 +966,7 @@ function renderCompetitionPage(competition, allCompetitions) {
         <div class="hero__overlay" aria-hidden="true"></div>
         <div class="hero__content">
           <p class="eyebrow">free-hub</p>
-          <h1 id="pageTitle">${escapeHtml(competition.title)} Competition ${year}</h1>
+          <h1 id="pageTitle">${escapeHtml(heroTitle)}</h1>
           <p class="hero__text">${escapeHtml(heroSubline)}</p>
           <p class="hero__closing${closingSoon && !expired ? " hero__closing--urgent" : ""}">${expired ? "Closed" : "Closes"} ${escapeHtml(formattedDate)}${closingSoon && !expired ? " · Ending soon" : ""}</p>
           ${!expired ? `<a class="hero__cta" href="${escapeAttribute(outPath)}" target="_blank" rel="noopener noreferrer">Enter Competition</a>` : ""}
@@ -981,6 +1010,7 @@ function renderCompetitionPage(competition, allCompetitions) {
             <div class="competition-detail__info">
               <p${closingSoon && !expired ? ` class="competition-detail__info--urgent"` : ""}><strong>Closes:</strong> ${escapeHtml(formattedDate)}${closingSoon && !expired ? " · ending soon" : ""}</p>
               <p><strong>Entry:</strong> ${escapeHtml(competition.entryType)}</p>
+              <p><strong>Source:</strong> ${escapeHtml(officialSource)}</p>
             </div>
             <div class="competition-detail__summary">
               <p>${escapeHtml(description)}</p>
@@ -1308,16 +1338,26 @@ function generateSitemap(competitions) {
     ),
   ];
 
-  const competitionEntries = competitions.map((competition) => {
+  const competitionEntries = competitions
+    .filter((competition) => !isExpired(competition.closingDate))
+    .map((competition) => {
     const slug = shared.getCompetitionSlug(competition);
     return `  <url>\n    <loc>${origin}/competition/${slug}/</loc>\n    <lastmod>${today}</lastmod>\n  </url>`;
-  });
+    });
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${[...staticEntries, ...competitionEntries].join("\n")}
 </urlset>
 `;
+}
+
+function getSafeHostname(url) {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch (_error) {
+    return "official promoter site";
+  }
 }
 
 function normalizeStaticPath(pathname) {

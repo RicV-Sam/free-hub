@@ -150,7 +150,7 @@
   }
 
   function getCompetitionAbsoluteUrl(competition) {
-    return `${SITE_ORIGIN}${getCompetitionPath(competition)}`;
+    return `${SITE_ORIGIN}${getCompetitionPath(competition)}/`;
   }
 
   function getOutPath(competition) {
