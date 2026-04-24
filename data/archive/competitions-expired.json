@@ -1,0 +1,89 @@
+[
+  {
+    "id": "bright-smiles-bright-future",
+    "title": "Bright Smiles, Bright Future Competition",
+    "brand": "Clicks",
+    "summary": "This Clicks-linked electronics promotion is centered on iPads, making it a solid tech prize for shoppers who want a recognisable brand reward. It also brings some urgency because the closing date is one of the nearer ones in the dataset.",
+    "entrySteps": "Open the official promotion listing, read the participation rules, and submit your qualifying entry before it closes.",
+    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/a75/abe/69aa75abef820482364103.jpg",
+    "closingDate": "2026-04-22",
+    "category": "Tech",
+    "entryType": "In-store Purchase",
+    "tags": [
+      "tech",
+      "free-entry",
+      "ending-soon",
+      "high-value",
+      "new"
+    ],
+    "isHighValue": true,
+    "isEndingSoon": true,
+    "url": "https://www.winsomething.co.za/win/electronics/109",
+    "archivedAt": "2026-04-24",
+    "archiveReason": "expired"
+  },
+  {
+    "id": "sta-soft-luxury-getaway",
+    "title": "Sta Soft Clicks In Store Luxury Getaway Competition",
+    "brand": "Sta Soft",
+    "summary": "Sta Soft is running a luxury getaway competition tied to Clicks, which gives the holidays section a premium but still accessible prize. It is a strong example of a retail promo that feels aspirational without being too niche.",
+    "entrySteps": "Visit the competition page, confirm the qualifying purchase path, and complete the official entry steps before the cutoff.",
+    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/a73/69e/69aa7369e8eaf874903246.jpg",
+    "closingDate": "2026-04-22",
+    "category": "Holidays",
+    "entryType": "In-store Purchase",
+    "tags": [
+      "holidays",
+      "free-entry",
+      "ending-soon",
+      "high-value",
+      "new"
+    ],
+    "isHighValue": true,
+    "isEndingSoon": true,
+    "url": "https://www.winsomething.co.za/win/travel/108",
+    "archivedAt": "2026-04-24",
+    "archiveReason": "expired"
+  },
+  {
+    "id": "spar-winter-warmers-escape",
+    "title": "SPAR Winter Warmers Escape",
+    "brand": "SPAR",
+    "category": "Holidays",
+    "entryType": "In-store",
+    "closingDate": "2026-04-20",
+    "url": "https://www.spar.co.za/competitions/spar-winter-warmers-escape-2026",
+    "summary": "Buy any 2 participating winter staples in-store and swipe your SPAR Rewards card to be entered. Stand a chance to win a 3-night Drakensberg stay for four, plus a R5,000 fuel voucher to get you there.",
+    "tags": [
+      "in-store-entry",
+      "travel",
+      "high-value",
+      "purchase-required",
+      "weekly-draw",
+      "ending-soon"
+    ],
+    "archivedAt": "2026-04-24",
+    "archiveReason": "expired"
+  },
+  {
+    "id": "sixty60-weekly-basket-giveaway",
+    "title": "Sixty60 Weekly Basket Giveaway",
+    "brand": "Checkers Sixty60",
+    "category": "Vouchers",
+    "entryType": "App",
+    "closingDate": "2026-04-23",
+    "url": "https://www.checkers.co.za/Sixty60/campaigns/sixty60-weekly-basket-giveaway-2026",
+    "summary": "Place a Checkers Sixty60 delivery order during the campaign period and opt in in-app to enter. Weekly winners score a R5,000 Checkers voucher to stock up on favourites—delivered to your door.",
+    "tags": [
+      "app-entry",
+      "app-only",
+      "vouchers",
+      "everyday-prizes",
+      "purchase-required",
+      "weekly-draw",
+      "ending-soon"
+    ],
+    "archivedAt": "2026-04-24",
+    "archiveReason": "expired"
+  }
+]

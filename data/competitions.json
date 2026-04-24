@@ -9,7 +9,11 @@
     "closingDate": "2026-06-30",
     "category": "Cash",
     "entryType": "In-store Purchase",
-    "tags": ["cash", "free-entry", "high-value"],
+    "tags": [
+      "cash",
+      "free-entry",
+      "high-value"
+    ],
     "isHighValue": true,
     "isEndingSoon": false,
     "url": "https://www.winsomething.co.za/win/vouchers/64"
@@ -24,7 +28,12 @@
     "closingDate": "2026-06-15",
     "category": "Cars",
     "entryType": "Survey / Form",
-    "tags": ["cars", "free-entry", "high-value", "vodacom"],
+    "tags": [
+      "cars",
+      "free-entry",
+      "high-value",
+      "vodacom"
+    ],
     "isHighValue": true,
     "isEndingSoon": false,
     "url": "https://www.winsomething.co.za/win/vehicles/49"
@@ -39,7 +48,12 @@
     "closingDate": "2026-06-15",
     "category": "Cars",
     "entryType": "In-store Purchase",
-    "tags": ["cars", "free-entry", "high-value", "new"],
+    "tags": [
+      "cars",
+      "free-entry",
+      "high-value",
+      "new"
+    ],
     "isHighValue": true,
     "isEndingSoon": false,
     "url": "https://www.winsomething.co.za/win/vehicles/100"
@@ -54,7 +68,11 @@
     "closingDate": "2026-05-31",
     "category": "Vouchers",
     "entryType": "In-store Purchase",
-    "tags": ["vouchers", "free-entry", "new"],
+    "tags": [
+      "vouchers",
+      "free-entry",
+      "new"
+    ],
     "isHighValue": false,
     "isEndingSoon": false,
     "url": "https://www.winsomething.co.za/win/goods/110"
@@ -69,7 +87,12 @@
     "closingDate": "2026-05-10",
     "category": "Cars",
     "entryType": "In-store Purchase",
-    "tags": ["cars", "free-entry", "high-value", "new"],
+    "tags": [
+      "cars",
+      "free-entry",
+      "high-value",
+      "new"
+    ],
     "isHighValue": true,
     "isEndingSoon": false,
     "url": "https://www.winsomething.co.za/win/vehicles/117"
@@ -84,7 +107,12 @@
     "closingDate": "2026-05-06",
     "category": "Holidays",
     "entryType": "In-store Purchase",
-    "tags": ["holidays", "free-entry", "high-value", "new"],
+    "tags": [
+      "holidays",
+      "free-entry",
+      "high-value",
+      "new"
+    ],
     "isHighValue": true,
     "isEndingSoon": false,
     "url": "https://www.winsomething.co.za/win/travel/118"
@@ -99,7 +127,12 @@
     "closingDate": "2026-04-30",
     "category": "Cash",
     "entryType": "In-store Purchase",
-    "tags": ["cash", "free-entry", "ending-soon", "new"],
+    "tags": [
+      "cash",
+      "free-entry",
+      "ending-soon",
+      "new"
+    ],
     "isHighValue": false,
     "isEndingSoon": true,
     "url": "https://www.winsomething.co.za/win/vouchers/111"
@@ -114,40 +147,15 @@
     "closingDate": "2026-04-30",
     "category": "Holidays",
     "entryType": "In-store Purchase",
-    "tags": ["holidays", "free-entry", "ending-soon", "new"],
+    "tags": [
+      "holidays",
+      "free-entry",
+      "ending-soon",
+      "new"
+    ],
     "isHighValue": false,
     "isEndingSoon": true,
     "url": "https://www.winsomething.co.za/win/travel/114"
-  },
-  {
-    "id": "bright-smiles-bright-future",
-    "title": "Bright Smiles, Bright Future Competition",
-    "brand": "Clicks",
-    "summary": "This Clicks-linked electronics promotion is centered on iPads, making it a solid tech prize for shoppers who want a recognisable brand reward. It also brings some urgency because the closing date is one of the nearer ones in the dataset.",
-    "entrySteps": "Open the official promotion listing, read the participation rules, and submit your qualifying entry before it closes.",
-    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/a75/abe/69aa75abef820482364103.jpg",
-    "closingDate": "2026-04-22",
-    "category": "Tech",
-    "entryType": "In-store Purchase",
-    "tags": ["tech", "free-entry", "ending-soon", "high-value", "new"],
-    "isHighValue": true,
-    "isEndingSoon": true,
-    "url": "https://www.winsomething.co.za/win/electronics/109"
-  },
-  {
-    "id": "sta-soft-luxury-getaway",
-    "title": "Sta Soft Clicks In Store Luxury Getaway Competition",
-    "brand": "Sta Soft",
-    "summary": "Sta Soft is running a luxury getaway competition tied to Clicks, which gives the holidays section a premium but still accessible prize. It is a strong example of a retail promo that feels aspirational without being too niche.",
-    "entrySteps": "Visit the competition page, confirm the qualifying purchase path, and complete the official entry steps before the cutoff.",
-    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/a73/69e/69aa7369e8eaf874903246.jpg",
-    "closingDate": "2026-04-22",
-    "category": "Holidays",
-    "entryType": "In-store Purchase",
-    "tags": ["holidays", "free-entry", "ending-soon", "high-value", "new"],
-    "isHighValue": true,
-    "isEndingSoon": true,
-    "url": "https://www.winsomething.co.za/win/travel/108"
   },
   {
     "id": "tag-a-parent-checkers-voucher",
@@ -159,7 +167,11 @@
     "closingDate": "2026-05-31",
     "category": "Vouchers",
     "entryType": "Social Media Share",
-    "tags": ["vouchers", "free-entry", "new"],
+    "tags": [
+      "vouchers",
+      "free-entry",
+      "new"
+    ],
     "isHighValue": false,
     "isEndingSoon": false,
     "url": "https://www.winsomething.co.za/win/vouchers/80"
@@ -174,7 +186,11 @@
     "closingDate": "2026-05-10",
     "category": "Tech",
     "entryType": "Free Entry",
-    "tags": ["tech", "free-entry", "new"],
+    "tags": [
+      "tech",
+      "free-entry",
+      "new"
+    ],
     "isHighValue": false,
     "isEndingSoon": false,
     "url": "https://www.game.co.za/"
@@ -189,7 +205,12 @@
     "closingDate": "2026-04-27",
     "category": "Vouchers",
     "entryType": "Free Entry",
-    "tags": ["vouchers", "free-entry", "ending-soon", "new"],
+    "tags": [
+      "vouchers",
+      "free-entry",
+      "ending-soon",
+      "new"
+    ],
     "isHighValue": false,
     "isEndingSoon": true,
     "url": "https://www.pnp.co.za/"
@@ -204,7 +225,11 @@
     "closingDate": "2026-05-20",
     "category": "Cash",
     "entryType": "Free Entry",
-    "tags": ["cash", "free-entry", "new"],
+    "tags": [
+      "cash",
+      "free-entry",
+      "new"
+    ],
     "isHighValue": false,
     "isEndingSoon": false,
     "url": "https://www.makro.co.za/"
@@ -219,7 +244,12 @@
     "closingDate": "2026-05-24",
     "category": "Cars",
     "entryType": "In-store Purchase",
-    "tags": ["cars", "free-entry", "high-value", "new"],
+    "tags": [
+      "cars",
+      "free-entry",
+      "high-value",
+      "new"
+    ],
     "isHighValue": true,
     "isEndingSoon": false,
     "url": "https://www.winsomething.co.za/win/vehicles/105"
@@ -234,7 +264,13 @@
     "closingDate": "2026-05-01",
     "category": "Tech",
     "entryType": "Free Entry",
-    "tags": ["tech", "free-entry", "ending-soon", "new", "mtn"],
+    "tags": [
+      "tech",
+      "free-entry",
+      "ending-soon",
+      "new",
+      "mtn"
+    ],
     "isHighValue": false,
     "isEndingSoon": true,
     "url": "https://www.mtn.co.za/"
@@ -249,7 +285,13 @@
     "closingDate": "2026-05-03",
     "category": "Tech",
     "entryType": "Free Entry",
-    "tags": ["tech", "free-entry", "ending-soon", "new", "vodacom"],
+    "tags": [
+      "tech",
+      "free-entry",
+      "ending-soon",
+      "new",
+      "vodacom"
+    ],
     "isHighValue": false,
     "isEndingSoon": true,
     "url": "https://www.vodacom.co.za/"
@@ -264,7 +306,11 @@
     "closingDate": "2026-05-25",
     "category": "Holidays",
     "entryType": "Free Entry",
-    "tags": ["holidays", "free-entry", "new"],
+    "tags": [
+      "holidays",
+      "free-entry",
+      "new"
+    ],
     "isHighValue": false,
     "isEndingSoon": false,
     "url": "https://www.travelstart.co.za/"
@@ -279,7 +325,12 @@
     "closingDate": "2026-06-01",
     "category": "Holidays",
     "entryType": "Free Entry",
-    "tags": ["holidays", "free-entry", "high-value", "new"],
+    "tags": [
+      "holidays",
+      "free-entry",
+      "high-value",
+      "new"
+    ],
     "isHighValue": true,
     "isEndingSoon": false,
     "url": "https://www.suninternational.com/"
@@ -294,32 +345,14 @@
     "closingDate": "2026-05-18",
     "category": "Cash",
     "entryType": "Free Entry",
-    "tags": ["cash", "free-entry", "new"],
+    "tags": [
+      "cash",
+      "free-entry",
+      "new"
+    ],
     "isHighValue": false,
     "isEndingSoon": false,
     "url": "https://www.jacarandafm.com/competitions/"
-  },
-  {
-    "id": "spar-winter-warmers-escape",
-    "title": "SPAR Winter Warmers Escape",
-    "brand": "SPAR",
-    "category": "Holidays",
-    "entryType": "In-store",
-    "closingDate": "2026-04-20",
-    "url": "https://www.spar.co.za/competitions/spar-winter-warmers-escape-2026",
-    "summary": "Buy any 2 participating winter staples in-store and swipe your SPAR Rewards card to be entered. Stand a chance to win a 3-night Drakensberg stay for four, plus a R5,000 fuel voucher to get you there.",
-    "tags": ["in-store-entry", "travel", "high-value", "purchase-required", "weekly-draw", "ending-soon"]
-  },
-  {
-    "id": "sixty60-weekly-basket-giveaway",
-    "title": "Sixty60 Weekly Basket Giveaway",
-    "brand": "Checkers Sixty60",
-    "category": "Vouchers",
-    "entryType": "App",
-    "closingDate": "2026-04-23",
-    "url": "https://www.checkers.co.za/Sixty60/campaigns/sixty60-weekly-basket-giveaway-2026",
-    "summary": "Place a Checkers Sixty60 delivery order during the campaign period and opt in in-app to enter. Weekly winners score a R5,000 Checkers voucher to stock up on favourites—delivered to your door.",
-    "tags": ["app-entry", "app-only", "vouchers", "everyday-prizes", "purchase-required", "weekly-draw", "ending-soon"]
   },
   {
     "id": "woolworths-mydifference-cash-boost",
@@ -330,7 +363,14 @@
     "closingDate": "2026-04-26",
     "url": "https://mtd.woolworths.co.za/mydifference-cash-boost-2026",
     "summary": "Join or log in to MyDifference, complete the featured impact action, and submit your entry online. One grand-prize winner takes home R250,000 in cash, with smaller weekly cash prizes up for grabs.",
-    "tags": ["online-entry", "cash", "high-value", "free-entry", "weekly-draw", "ending-soon"]
+    "tags": [
+      "online-entry",
+      "cash",
+      "high-value",
+      "free-entry",
+      "weekly-draw",
+      "ending-soon"
+    ]
   },
   {
     "id": "pick-n-pay-smart-shopper-tech-treats",
@@ -341,7 +381,15 @@
     "closingDate": "2026-04-29",
     "url": "https://www.picknpay.co.za/campaigns/smartshopper-tech-treats-2026",
     "summary": "Scan your Smart Shopper card in-app on qualifying shops and tap the promo tile to enter. Win one of 10 Samsung Galaxy S25 smartphones, plus daily grocery tech deals for Smart Shopper members.",
-    "tags": ["app-entry", "app-only", "electronics", "high-value", "purchase-required", "weekly-draw", "ending-soon"]
+    "tags": [
+      "app-entry",
+      "app-only",
+      "electronics",
+      "high-value",
+      "purchase-required",
+      "weekly-draw",
+      "ending-soon"
+    ]
   },
   {
     "id": "shoprite-drive-away-in-a-toyota-starlet",
@@ -352,7 +400,14 @@
     "closingDate": "2026-05-02",
     "url": "https://www.shoprite.co.za/campaigns/drive-away-toyota-starlet-2026",
     "summary": "Spend R350 or more on participating products at Shoprite and keep your till slip. SMS your receipt number to the competition shortcode to stand a chance to drive away in a Toyota Starlet, including licensing and registration.",
-    "tags": ["sms-entry", "standard-rates", "cars", "high-value", "purchase-required", "ending-soon"]
+    "tags": [
+      "sms-entry",
+      "standard-rates",
+      "cars",
+      "high-value",
+      "purchase-required",
+      "ending-soon"
+    ]
   },
   {
     "id": "clicks-summer-sun-escape",
@@ -363,7 +418,15 @@
     "closingDate": "2026-05-05",
     "url": "https://clicks.co.za/competitions/view/summer-sun-escape-2026",
     "summary": "Shop any 2 participating sun-care items and keep your till slip. SMS your ClubCard number and receipt number to enter the draw for a 6-night Mauritius getaway for two, plus Clicks voucher prizes.",
-    "tags": ["sms-entry", "standard-rates", "travel", "high-value", "purchase-required", "weekly-draw", "ending-soon"]
+    "tags": [
+      "sms-entry",
+      "standard-rates",
+      "travel",
+      "high-value",
+      "purchase-required",
+      "weekly-draw",
+      "ending-soon"
+    ]
   },
   {
     "id": "dis-chem-wellness-cash-dash",
@@ -374,7 +437,15 @@
     "closingDate": "2026-05-09",
     "url": "https://www.dischem.co.za/wellness-cash-dash-2026-competition",
     "summary": "Buy participating wellness products at Dis-Chem and SMS your receipt number to enter. Stand a chance to win R150,000 cash towards your health goals, with weekly R5,000 cash prizes.",
-    "tags": ["sms-entry", "standard-rates", "cash", "high-value", "purchase-required", "weekly-draw", "ending-soon"]
+    "tags": [
+      "sms-entry",
+      "standard-rates",
+      "cash",
+      "high-value",
+      "purchase-required",
+      "weekly-draw",
+      "ending-soon"
+    ]
   },
   {
     "id": "mr-price-wardrobe-refresh-vouchers",
@@ -385,7 +456,14 @@
     "closingDate": "2026-05-12",
     "url": "https://www.mrp.com/competitions/wardrobe-refresh-vouchers-2026",
     "summary": "Shop on the Mr Price app and opt in to the competition tile to submit your entry. You could win a R20,000 Mr Price voucher, plus weekly R1,000 vouchers to keep your wardrobe moving.",
-    "tags": ["app-entry", "app-only", "vouchers", "high-value", "purchase-required", "weekly-draw"]
+    "tags": [
+      "app-entry",
+      "app-only",
+      "vouchers",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "game-home-theatre-mega-upgrade",
@@ -396,7 +474,13 @@
     "closingDate": "2026-05-15",
     "url": "https://www.game.co.za/cp/home-theatre-mega-upgrade-2026",
     "summary": "Spend any amount using your Game myStore Card in-store and you'll automatically qualify for entry. Win a 65-inch 4K TV plus soundbar bundle, with additional gadget spot prizes every week.",
-    "tags": ["in-store-entry", "electronics", "high-value", "purchase-required", "weekly-draw"]
+    "tags": [
+      "in-store-entry",
+      "electronics",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "makro-rewards-zanzibar-getaway",
@@ -407,7 +491,13 @@
     "closingDate": "2026-05-18",
     "url": "https://www.makro.co.za/pages/makro-rewards-zanzibar-getaway-2026",
     "summary": "This holiday giveaway is ideal if you want to win a holiday in South Africa linked campaigns. Shop selected travel essentials at Makro, keep your receipt, and SMS your Makro Rewards number to enter for a 7-night Zanzibar getaway for two.",
-    "tags": ["sms-entry", "standard-rates", "travel", "high-value", "purchase-required"]
+    "tags": [
+      "sms-entry",
+      "standard-rates",
+      "travel",
+      "high-value",
+      "purchase-required"
+    ]
   },
   {
     "id": "takealot-work-from-home-bundle",
@@ -418,7 +508,12 @@
     "closingDate": "2026-05-22",
     "url": "https://www.takealot.com/competitions/work-from-home-bundle-competition-2026-tcs",
     "summary": "Build a public wishlist on Takealot and submit it via the competition page to enter. One winner scores an office-ready bundle with a laptop, monitor, router and UPS to keep you powered and productive.",
-    "tags": ["online-entry", "electronics", "high-value", "free-entry"]
+    "tags": [
+      "online-entry",
+      "electronics",
+      "high-value",
+      "free-entry"
+    ]
   },
   {
     "id": "superbalist-winter-layer-up-voucher",
@@ -429,7 +524,12 @@
     "closingDate": "2026-05-25",
     "url": "https://superbalist.com/competitions/winter-layer-up-voucher-2026",
     "summary": "Shop your favourite winter drops and enter online for a chance to win. The winner receives a R10,000 Superbalist voucher to spend on jackets, shoes and all the extras.",
-    "tags": ["online-entry", "vouchers", "high-value", "purchase-required"]
+    "tags": [
+      "online-entry",
+      "vouchers",
+      "high-value",
+      "purchase-required"
+    ]
   },
   {
     "id": "mtn-momo-cash-sprint",
@@ -440,7 +540,14 @@
     "closingDate": "2026-05-29",
     "url": "https://www.mtn.co.za/home/terms-and-conditions/content/momo-cash-sprint-2026",
     "summary": "Use MTN MoMo to pay or send money during the promo period and you'll be entered automatically. Stand a chance to win a R300,000 cash grand prize, plus smaller instant cash rewards for qualifying transactions.",
-    "tags": ["app-entry", "app-only", "cash", "high-value", "purchase-required", "instant-win"]
+    "tags": [
+      "app-entry",
+      "app-only",
+      "cash",
+      "high-value",
+      "purchase-required",
+      "instant-win"
+    ]
   },
   {
     "id": "vodacom-recharge-win-galaxy-s25",
@@ -451,7 +558,14 @@
     "closingDate": "2026-06-01",
     "url": "https://www.vodacom.co.za/vodacom/terms/competition/recharge-and-win-galaxy-s25-2026",
     "summary": "Recharge as usual, then SMS your recharge confirmation/pin to the competition shortcode to enter. Win a Samsung Galaxy S25 with a 12-month data boost for the ultimate upgrade.",
-    "tags": ["sms-entry", "standard-rates", "electronics", "high-value", "purchase-required", "weekly-draw"]
+    "tags": [
+      "sms-entry",
+      "standard-rates",
+      "electronics",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "telkom-upgrade-to-win-voucher-drop",
@@ -462,7 +576,12 @@
     "closingDate": "2026-06-04",
     "url": "https://group.telkom.co.za/documents/regulatory/terms-and-conditions/Telkom-Upgrade-to-Win-Voucher-2026.pdf",
     "summary": "Upgrade or take up a qualifying Telkom mobile or fibre package and complete the online entry form. Stand a chance to win a R25,000 Telkom Online Shop voucher to spend on devices, accessories or upgrades.",
-    "tags": ["online-entry", "vouchers", "high-value", "purchase-required"]
+    "tags": [
+      "online-entry",
+      "vouchers",
+      "high-value",
+      "purchase-required"
+    ]
   },
   {
     "id": "cell-c-recharge-r50k-cash",
@@ -473,7 +592,14 @@
     "closingDate": "2026-06-07",
     "url": "https://www.cellc.co.za/cellc/static-content/PDF/CellC_Recharge_R50k_Cash_Competition_TCs_2026.pdf",
     "summary": "Recharge as usual, then SMS the keyword and your voucher PIN to the competition shortcode. You could win R50,000 cash, plus bonus data prizes for weekly winners.",
-    "tags": ["sms-entry", "standard-rates", "cash", "everyday-prizes", "purchase-required", "weekly-draw"]
+    "tags": [
+      "sms-entry",
+      "standard-rates",
+      "cash",
+      "everyday-prizes",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "fnb-ebucks-kruger-safari-giveaway",
@@ -484,7 +610,13 @@
     "closingDate": "2026-06-11",
     "url": "https://www.fnb.co.za/about-fnb/legal-matters/promo-terms/eBucks-Kruger-Safari-Getaway-2026.pdf",
     "summary": "Activate the offer in the FNB App and earn entries when you swipe your qualifying card at participating partners. The grand prize is a 5-night Kruger safari for two with flights, transfers and daily game drives included.",
-    "tags": ["app-entry", "app-only", "travel", "high-value", "purchase-required"]
+    "tags": [
+      "app-entry",
+      "app-only",
+      "travel",
+      "high-value",
+      "purchase-required"
+    ]
   },
   {
     "id": "standard-bank-save-win-r200k",
@@ -495,7 +627,13 @@
     "closingDate": "2026-06-14",
     "url": "https://www.standardbank.co.za/static_file/South%20Africa/PDF/Campaigns%20Ts%20and%20Cs/Save_and_Win_R200k_2026.pdf",
     "summary": "Open or top up a qualifying savings or investment product and opt in via the online promo form. Stand a chance to win R200,000 cash, with additional monthly cash prizes for active savers.",
-    "tags": ["online-entry", "cash", "high-value", "purchase-required", "weekly-draw"]
+    "tags": [
+      "online-entry",
+      "cash",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "absa-rewards-weekend-away",
@@ -506,7 +644,13 @@
     "closingDate": "2026-06-17",
     "url": "https://www.absa.co.za/offers/absa-rewards-weekend-away-2026/",
     "summary": "Swipe your Absa card, check your Rewards in-app, and opt in to confirm your entry. Win a 3-night Cape Town weekend for two, including flights, hotel and a dining voucher.",
-    "tags": ["app-entry", "app-only", "travel", "high-value", "purchase-required"]
+    "tags": [
+      "app-entry",
+      "app-only",
+      "travel",
+      "high-value",
+      "purchase-required"
+    ]
   },
   {
     "id": "capitec-pay-daymaker-cash-draw",
@@ -517,7 +661,14 @@
     "closingDate": "2026-06-20",
     "url": "https://www.capitecbank.co.za/competitions-and-conditions/capitec-pay-daymaker-cash-draw-2026/",
     "summary": "Pay using Capitec Pay in the Capitec app to earn automatic entries during the campaign window. Stand a chance to win R100,000 paid into your Capitec account, plus weekly cash prizes for everyday spenders.",
-    "tags": ["app-entry", "app-only", "cash", "high-value", "purchase-required", "weekly-draw"]
+    "tags": [
+      "app-entry",
+      "app-only",
+      "cash",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "avo-by-nedbank-shopping-voucher-giveaway",
@@ -528,7 +679,12 @@
     "closingDate": "2026-06-23",
     "url": "https://personal.nedbank.co.za/legal/terms-and-conditions/avo-shopping-voucher-giveaway-2026.html",
     "summary": "Shop on Avo by Nedbank and submit your entry online with your qualifying order reference. Win one of 20 R5,000 shopping vouchers to spend on tech, home and lifestyle essentials.",
-    "tags": ["online-entry", "vouchers", "high-value", "purchase-required"]
+    "tags": [
+      "online-entry",
+      "vouchers",
+      "high-value",
+      "purchase-required"
+    ]
   },
   {
     "id": "discovery-vitality-local-getaway-challenge",
@@ -539,7 +695,13 @@
     "closingDate": "2026-06-26",
     "url": "https://www.discovery.co.za/assets/template-resources/terms-and-conditions/vitality/vitality-local-getaway-challenge-2026.pdf",
     "summary": "Complete the featured Vitality activity challenge in-app to unlock your entry. The grand prize is a 2-night luxury stay for two at Sun City, with flights and transfers included.",
-    "tags": ["app-entry", "app-only", "travel", "high-value", "free-entry"]
+    "tags": [
+      "app-entry",
+      "app-only",
+      "travel",
+      "high-value",
+      "free-entry"
+    ]
   },
   {
     "id": "discovery-bank-tap-to-win-cashback",
@@ -550,7 +712,14 @@
     "closingDate": "2026-06-29",
     "url": "https://www.discovery.co.za/assets/discoverycoza/bank/legal/discovery-bank-tap-to-win-cashback-2026.pdf",
     "summary": "Make qualifying tap-and-go purchases using your Discovery Bank card added to a digital wallet. Stand a chance to win a R250,000 cashback grand prize, with weekly cashback rewards for active spenders.",
-    "tags": ["app-entry", "app-only", "cash", "high-value", "purchase-required", "weekly-draw"]
+    "tags": [
+      "app-entry",
+      "app-only",
+      "cash",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "old-mutual-rewards-refer-win",
@@ -561,7 +730,13 @@
     "closingDate": "2026-07-03",
     "url": "https://www.oldmutual.co.za/om-docs/old-mutual-rewards-refer-and-win-2026.pdf",
     "summary": "Refer a friend to join Old Mutual Rewards and make sure they complete their profile to activate your entry. One winner takes home R150,000 cash, with smaller cash prizes awarded monthly.",
-    "tags": ["online-entry", "cash", "high-value", "free-entry", "weekly-draw"]
+    "tags": [
+      "online-entry",
+      "cash",
+      "high-value",
+      "free-entry",
+      "weekly-draw"
+    ]
   },
   {
     "id": "sanlam-plan-win-mauritius",
@@ -572,7 +747,12 @@
     "closingDate": "2026-07-06",
     "url": "https://www.sanlam.co.za/campaigns/plan-and-win-mauritius-2026/",
     "summary": "Want to win a holiday in South Africa style promotions? Get a qualifying online quote and submit your details to enter this holiday giveaway draw for a 7-night Mauritius trip for two, including flights and accommodation.",
-    "tags": ["online-entry", "travel", "high-value", "free-entry"]
+    "tags": [
+      "online-entry",
+      "travel",
+      "high-value",
+      "free-entry"
+    ]
   },
   {
     "id": "investec-spend-win-takealot-vouchers",
@@ -583,7 +763,13 @@
     "closingDate": "2026-07-09",
     "url": "https://www.investec.com/en_za/legal/SA/investec-spend-and-win-takealot-vouchers-2026.html",
     "summary": "Spend on your Investec card during the promotional period and opt in on the competition page. Stand a chance to win one of 25 Takealot vouchers worth R2,000 each for smart, flexible shopping.",
-    "tags": ["online-entry", "vouchers", "everyday-prizes", "purchase-required", "weekly-draw"]
+    "tags": [
+      "online-entry",
+      "vouchers",
+      "everyday-prizes",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "engen-1app-fuel-up-win-a-toyota-hilux",
@@ -594,7 +780,14 @@
     "closingDate": "2026-07-12",
     "url": "https://www.engen.co.za/promotions/fuel-up-win-toyota-hilux-2026",
     "summary": "Pay for fuel using the Engen 1App and hit the weekly spend threshold to qualify. The grand prize is a Toyota Hilux Double Cab, plus monthly fuel vouchers for runners-up.",
-    "tags": ["app-entry", "app-only", "cars", "high-value", "purchase-required", "weekly-draw"]
+    "tags": [
+      "app-entry",
+      "app-only",
+      "cars",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "shell-v-rewards-mozambique-escape",
@@ -605,7 +798,13 @@
     "closingDate": "2026-07-16",
     "url": "https://www.shell.co.za/motorists/offers-and-competitions/vplusrewards-mozambique-escape-2026.html",
     "summary": "Swipe your V+Rewards card and enter through the V+Rewards app during the campaign period. Stand a chance to win a 4-night Mozambique beach break for two, including flights and accommodation.",
-    "tags": ["app-entry", "app-only", "travel", "high-value", "purchase-required"]
+    "tags": [
+      "app-entry",
+      "app-only",
+      "travel",
+      "high-value",
+      "purchase-required"
+    ]
   },
   {
     "id": "kfc-app-cash-crunch",
@@ -616,7 +815,14 @@
     "closingDate": "2026-07-19",
     "url": "https://order.kfc.co.za/campaigns/kfc-app-cash-crunch-2026",
     "summary": "Order through the KFC app and collect at least two qualifying orders to unlock your entry. One lucky fan wins R50,000 cash, with weekly meal voucher spot-prizes for app users.",
-    "tags": ["app-entry", "app-only", "cash", "everyday-prizes", "purchase-required", "weekly-draw"]
+    "tags": [
+      "app-entry",
+      "app-only",
+      "cash",
+      "everyday-prizes",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "talk-to-nandos-monthly-voucher-draw",
@@ -627,7 +833,13 @@
     "closingDate": "2026-07-22",
     "url": "https://www.nandos.co.za/explore/talk-nandos-win-2026",
     "summary": "Enjoy Nando's in-store, then use your till slip to complete the Talk to Nando's survey to enter. Each month, five winners score a R1,000 Nando's voucher to spice up their next visit.",
-    "tags": ["in-store-entry", "vouchers", "everyday-prizes", "purchase-required", "weekly-draw"]
+    "tags": [
+      "in-store-entry",
+      "vouchers",
+      "everyday-prizes",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "castle-lager-rugby-away-day",
@@ -638,7 +850,12 @@
     "closingDate": "2026-07-25",
     "url": "https://www.castlelager.co.za/competitions/rugby-away-day-2026",
     "summary": "Enter online by completing the quick form and telling Castle Lager who you're backing this season. Win a rugby away-day package for two, including match tickets, flights and 2 nights' accommodation.",
-    "tags": ["online-entry", "travel", "high-value", "free-entry"]
+    "tags": [
+      "online-entry",
+      "travel",
+      "high-value",
+      "free-entry"
+    ]
   },
   {
     "id": "castle-lite-ultimate-home-viewing",
@@ -649,7 +866,12 @@
     "closingDate": "2026-07-29",
     "url": "https://www.castlelite.co.za/competitions/ultimate-home-viewing-2026",
     "summary": "Register, log in, and enter online for a chance to upgrade your viewing setup. The prize includes a 65-inch smart TV, a premium soundbar and a Castle Lite cooler box for game day.",
-    "tags": ["online-entry", "electronics", "high-value", "free-entry"]
+    "tags": [
+      "online-entry",
+      "electronics",
+      "high-value",
+      "free-entry"
+    ]
   },
   {
     "id": "south-africa-tourism-mzansi-moments-photo-challenge",
@@ -660,7 +882,12 @@
     "closingDate": "2026-08-01",
     "url": "https://www.southafrica.net/za/en/travel/page/mzansi-moments-photo-challenge-2026",
     "summary": "Upload your best South African travel moment and submit your entry online. The grand prize is a 10-night self-drive Garden Route holiday for two, including accommodation and activity vouchers.",
-    "tags": ["online-entry", "travel", "high-value", "free-entry"]
+    "tags": [
+      "online-entry",
+      "travel",
+      "high-value",
+      "free-entry"
+    ]
   },
   {
     "id": "saa-voyager-fly-win-mauritius",
@@ -671,7 +898,12 @@
     "closingDate": "2026-08-04",
     "url": "https://voyager.flysaa.com/win-flights-to-mauritius-terms-and-conditions-2026",
     "summary": "Book and fly on qualifying SAA routes with your Voyager number captured to enter automatically. Stand a chance to win return economy flights for two to Mauritius, plus 5 nights' accommodation.",
-    "tags": ["online-entry", "travel", "high-value", "purchase-required"]
+    "tags": [
+      "online-entry",
+      "travel",
+      "high-value",
+      "purchase-required"
+    ]
   },
   {
     "id": "travelstart-long-weekend-lucky-draw",
@@ -682,7 +914,12 @@
     "closingDate": "2026-08-07",
     "url": "https://www.travelstart.co.za/lp/long-weekend-lucky-draw-2026",
     "summary": "Enter online by completing the short quiz and subscribing to Travelstart deals. Win a R30,000 flight-and-hotel voucher to use on your next local or regional long weekend.",
-    "tags": ["online-entry", "travel", "high-value", "free-entry"]
+    "tags": [
+      "online-entry",
+      "travel",
+      "high-value",
+      "free-entry"
+    ]
   },
   {
     "id": "toyota-corolla-cross-test-drive-win",
@@ -693,7 +930,12 @@
     "closingDate": "2026-08-10",
     "url": "https://www.toyota.co.za/connect/toyota-corolla-cross-test-drive-win-2026",
     "summary": "Book a test drive online at a participating Toyota dealer and complete the follow-up form. One winner drives away in a Toyota Corolla Cross, with licensing, registration and delivery included.",
-    "tags": ["online-entry", "cars", "high-value", "free-entry"]
+    "tags": [
+      "online-entry",
+      "cars",
+      "high-value",
+      "free-entry"
+    ]
   },
   {
     "id": "volkswagen-easydrive-upgrade-to-win",
@@ -704,7 +946,12 @@
     "closingDate": "2026-08-13",
     "url": "https://www.vw.co.za/en/owners-services/easydrive-upgrade-to-win-2026.html",
     "summary": "Upgrade your EasyDrive plan and register your details online to qualify. Stand a chance to win a Volkswagen Polo Vivo, plus service-plan prizes for selected winners.",
-    "tags": ["online-entry", "cars", "high-value", "purchase-required"]
+    "tags": [
+      "online-entry",
+      "cars",
+      "high-value",
+      "purchase-required"
+    ]
   },
   {
     "id": "bmw-xdrive-experience-weekend-giveaway",
@@ -715,7 +962,12 @@
     "closingDate": "2026-08-16",
     "url": "https://www.bmw.co.za/en/topics/offers-and-services/events/bmw-xdrive-experience-weekend-giveaway-2026.html",
     "summary": "Looking through current car competitions and free car competitions South Africa users search for? Submit your entry online for this BMW giveaway and stand a chance to win a driving experience day plus a weekend xDrive loan car.",
-    "tags": ["online-entry", "cars", "high-value", "free-entry"]
+    "tags": [
+      "online-entry",
+      "cars",
+      "high-value",
+      "free-entry"
+    ]
   },
   {
     "id": "mercedes-benz-amg-track-day-giveaway",
@@ -726,7 +978,12 @@
     "closingDate": "2026-08-20",
     "url": "https://www.mercedes-benz.co.za/passengercars/owners/offers/amg-track-day-giveaway-2026.html",
     "summary": "Register online and book a qualifying Mercedes-Benz test drive to be entered. The prize is an AMG track-day experience for two, including coaching and hospitality on the day.",
-    "tags": ["online-entry", "cars", "high-value", "purchase-required"]
+    "tags": [
+      "online-entry",
+      "cars",
+      "high-value",
+      "purchase-required"
+    ]
   },
   {
     "id": "hyundai-grand-i10-test-drive-win",
@@ -737,7 +994,12 @@
     "closingDate": "2026-08-23",
     "url": "https://www.hyundai.co.za/competitions/grand-i10-test-drive-win-2026",
     "summary": "Test drive a qualifying Hyundai model and complete the online entry form at your dealership. One winner takes home a Hyundai Grand i10, with additional fuel and accessory prizes up for grabs.",
-    "tags": ["online-entry", "cars", "high-value", "purchase-required"]
+    "tags": [
+      "online-entry",
+      "cars",
+      "high-value",
+      "purchase-required"
+    ]
   },
   {
     "id": "kia-sonet-smart-drive-giveaway",
@@ -748,7 +1010,12 @@
     "closingDate": "2026-08-26",
     "url": "https://www.kia.co.za/competitions/sonet-smart-drive-giveaway-2026",
     "summary": "Book a test drive online and attend at a participating Kia dealership to qualify. Stand a chance to win a Kia Sonet, plus weekend-away and fuel prizes for finalists.",
-    "tags": ["online-entry", "cars", "high-value", "purchase-required"]
+    "tags": [
+      "online-entry",
+      "cars",
+      "high-value",
+      "purchase-required"
+    ]
   },
   {
     "id": "nissan-magnite-adventure-giveaway",
@@ -759,7 +1026,13 @@
     "closingDate": "2026-08-29",
     "url": "https://www.nissan.co.za/termsandconditions/magnite-adventure-giveaway-2026.html",
     "summary": "Complete the short online survey and opt in to communications to enter. One South African winner drives away in a Nissan Magnite, with hiking and camping gear prizes along the way.",
-    "tags": ["online-entry", "cars", "high-value", "free-entry", "weekly-draw"]
+    "tags": [
+      "online-entry",
+      "cars",
+      "high-value",
+      "free-entry",
+      "weekly-draw"
+    ]
   },
   {
     "id": "ford-ranger-weekend-warrior-giveaway",
@@ -770,7 +1043,12 @@
     "closingDate": "2026-09-01",
     "url": "https://www.ford.co.za/ranger-weekend-warrior-terms-conditions/",
     "summary": "Enter online and share your best weekend-warrior plan to stand a chance to win. The winner gets a Ford Ranger weekend experience with a travel voucher and an accessories hamper.",
-    "tags": ["online-entry", "cars", "high-value", "free-entry"]
+    "tags": [
+      "online-entry",
+      "cars",
+      "high-value",
+      "free-entry"
+    ]
   },
   {
     "id": "isuzu-d-max-open-day-win",
@@ -781,7 +1059,12 @@
     "closingDate": "2026-09-05",
     "url": "https://www.isuzu.co.za/campaigns/d-max-open-day-win-2026",
     "summary": "Visit a participating ISUZU dealer open day and complete the in-store entry card to qualify. Stand a chance to win an ISUZU D-MAX, with outdoor kit giveaways for selected winners.",
-    "tags": ["in-store-entry", "cars", "high-value", "free-entry"]
+    "tags": [
+      "in-store-entry",
+      "cars",
+      "high-value",
+      "free-entry"
+    ]
   },
   {
     "id": "shoprite-money-market-payday-cash-drop",
@@ -792,7 +1075,13 @@
     "closingDate": "2026-09-08",
     "url": "https://www.shoprite.co.za/campaigns/money-market-payday-cash-drop-2026",
     "summary": "Open or top up a Shoprite Money Market account in-store during the competition period. Each qualifying deposit is an entry to win R100,000 cash, plus weekly R10,000 cash prizes.",
-    "tags": ["in-store-entry", "cash", "high-value", "purchase-required", "weekly-draw"]
+    "tags": [
+      "in-store-entry",
+      "cash",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "checkers-xtra-savings-swipe-win",
@@ -803,7 +1092,13 @@
     "closingDate": "2026-09-11",
     "url": "https://www.checkers.co.za/campaigns/xtrasavings-swipe-win-2026",
     "summary": "Swipe your Xtra Savings card on qualifying purchases at Checkers to enter automatically. Win one of 50 vouchers worth R5,000 each to spend on groceries, braai essentials and more.",
-    "tags": ["in-store-entry", "vouchers", "high-value", "purchase-required", "weekly-draw"]
+    "tags": [
+      "in-store-entry",
+      "vouchers",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "woolworths-tech-for-good-giveaway",
@@ -814,7 +1109,13 @@
     "closingDate": "2026-09-14",
     "url": "https://mtd.woolworths.co.za/tech-for-good-giveaway-2026",
     "summary": "Complete the featured MyDifference action and submit your entry online to qualify. Prizes include iPhone 16 devices and Woolworths gift cards, rewarding small actions that add up.",
-    "tags": ["online-entry", "electronics", "high-value", "free-entry", "weekly-draw"]
+    "tags": [
+      "online-entry",
+      "electronics",
+      "high-value",
+      "free-entry",
+      "weekly-draw"
+    ]
   },
   {
     "id": "pick-n-pay-family-break-at-sun-city",
@@ -825,7 +1126,12 @@
     "closingDate": "2026-09-17",
     "url": "https://www.picknpay.co.za/campaigns/family-break-sun-city-2026",
     "summary": "Buy participating family favourites in-store and upload your till slip to enter. Win a 3-night Sun City holiday for four, including breakfast and activity vouchers.",
-    "tags": ["in-store-entry", "travel", "high-value", "purchase-required"]
+    "tags": [
+      "in-store-entry",
+      "travel",
+      "high-value",
+      "purchase-required"
+    ]
   },
   {
     "id": "clicks-clubcard-scan-win",
@@ -836,7 +1142,14 @@
     "closingDate": "2026-09-21",
     "url": "https://clicks.co.za/competitions/view/clubcard-scan-win-2026",
     "summary": "Scan your ClubCard in the Clicks app on qualifying purchases to be entered. Stand a chance to win a R2,000 Clicks voucher, with weekly beauty hampers for additional winners.",
-    "tags": ["app-entry", "app-only", "vouchers", "everyday-prizes", "purchase-required", "weekly-draw"]
+    "tags": [
+      "app-entry",
+      "app-only",
+      "vouchers",
+      "everyday-prizes",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "dis-chem-winter-wellness-tech-bundle",
@@ -847,7 +1160,12 @@
     "closingDate": "2026-09-24",
     "url": "https://www.dischem.co.za/winter-wellness-tech-bundle-2026-competition",
     "summary": "Shop participating wellness ranges in-store and enter with your receipt details. Win a premium tech bundle with an iPad Air and AirPods Pro to keep you moving, tracking and connected.",
-    "tags": ["in-store-entry", "electronics", "high-value", "purchase-required"]
+    "tags": [
+      "in-store-entry",
+      "electronics",
+      "high-value",
+      "purchase-required"
+    ]
   },
   {
     "id": "mr-price-home-room-refresh-voucher",
@@ -858,7 +1176,13 @@
     "closingDate": "2026-09-27",
     "url": "https://www.mrp.com/competitions/mrphome-room-refresh-voucher-2026",
     "summary": "Spend R500 or more at Mr Price Home and enter using your till slip reference. One winner scores a R10,000 Mr Price Home voucher, with weekly décor vouchers up for grabs.",
-    "tags": ["in-store-entry", "vouchers", "high-value", "purchase-required", "weekly-draw"]
+    "tags": [
+      "in-store-entry",
+      "vouchers",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "truworths-truroyalty-style-voucher-draw",
@@ -869,7 +1193,13 @@
     "closingDate": "2026-10-01",
     "url": "https://www.truworths.co.za/competitions/truroyalty-style-voucher-draw-2026",
     "summary": "Join TRUROYALTY and opt in via the Truworths app to enter. Stand a chance to win a R15,000 Truworths gift voucher to spend on seasonal looks and essentials.",
-    "tags": ["app-entry", "app-only", "vouchers", "high-value", "free-entry"]
+    "tags": [
+      "app-entry",
+      "app-only",
+      "vouchers",
+      "high-value",
+      "free-entry"
+    ]
   },
   {
     "id": "foschini-tech-fashion-upgrade",
@@ -880,7 +1210,13 @@
     "closingDate": "2026-10-04",
     "url": "https://bash.com/foschini/competitions/tech-and-fashion-upgrade-2026",
     "summary": "Shop Foschini on the Bash app and enter via the competition tile. Win a MacBook Air plus a R5,000 Foschini voucher—perfect for work, content, and going out.",
-    "tags": ["app-entry", "app-only", "electronics", "high-value", "purchase-required"]
+    "tags": [
+      "app-entry",
+      "app-only",
+      "electronics",
+      "high-value",
+      "purchase-required"
+    ]
   },
   {
     "id": "edgars-monthly-voucher-winners",
@@ -891,7 +1227,14 @@
     "closingDate": "2026-10-07",
     "url": "https://www.edgars.co.za/pages/monthly-voucher-winners-2026",
     "summary": "Create or log in to your Edgars account and shop in-store or online during the campaign period. SMS your Edgars account number and receipt reference to stand a chance to win R5,000 Edgars vouchers each month.",
-    "tags": ["sms-entry", "standard-rates", "vouchers", "high-value", "purchase-required", "weekly-draw"]
+    "tags": [
+      "sms-entry",
+      "standard-rates",
+      "vouchers",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "takealot-victoria-falls-getaway",
@@ -902,7 +1245,12 @@
     "closingDate": "2026-10-10",
     "url": "https://www.takealot.com/competitions/win-a-victoria-falls-getaway-2026-tcs",
     "summary": "Enter online by building your travel wishlist and submitting it through the competition page. The grand prize is a 4-night Victoria Falls trip for two, including flights and accommodation.",
-    "tags": ["online-entry", "travel", "high-value", "free-entry"]
+    "tags": [
+      "online-entry",
+      "travel",
+      "high-value",
+      "free-entry"
+    ]
   },
   {
     "id": "superbalist-apple-backpack-tech-bundle",
@@ -913,7 +1261,12 @@
     "closingDate": "2026-10-13",
     "url": "https://superbalist.com/competitions/apple-backpack-tech-bundle-2026",
     "summary": "Enter online and tell Superbalist how you'd style your everyday carry. Win an iPad Air, AirPods Pro, and a premium backpack—ready for work, campus or travel.",
-    "tags": ["online-entry", "electronics", "high-value", "free-entry"]
+    "tags": [
+      "online-entry",
+      "electronics",
+      "high-value",
+      "free-entry"
+    ]
   },
   {
     "id": "game-win-your-cart-back",
@@ -924,7 +1277,14 @@
     "closingDate": "2026-10-16",
     "url": "https://www.game.co.za/cp/win-your-cart-back-2026",
     "summary": "Shop at Game, then SMS your receipt number to the shortcode shown in-store to enter. One winner each week wins back their shop as a Game voucher, up to R20,000.",
-    "tags": ["sms-entry", "standard-rates", "vouchers", "high-value", "purchase-required", "weekly-draw"]
+    "tags": [
+      "sms-entry",
+      "standard-rates",
+      "vouchers",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "makro-level-up-gaming-bundle",
@@ -935,7 +1295,12 @@
     "closingDate": "2026-10-20",
     "url": "https://www.makro.co.za/pages/level-up-gaming-bundle-2026",
     "summary": "Buy any qualifying gaming accessory in-store and scan your Makro Rewards card to enter. Win an Xbox Series X bundle with a 55-inch 4K TV and extra controllers for the full setup.",
-    "tags": ["in-store-entry", "electronics", "high-value", "purchase-required"]
+    "tags": [
+      "in-store-entry",
+      "electronics",
+      "high-value",
+      "purchase-required"
+    ]
   },
   {
     "id": "mtn-app-travel-treat",
@@ -946,7 +1311,13 @@
     "closingDate": "2026-10-23",
     "url": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn-app-travel-treat-2026",
     "summary": "Complete the in-app challenge and opt in to enter the draw. Win a 3-night Cape Town winter escape for two, including flights and a curated experiences voucher.",
-    "tags": ["app-entry", "app-only", "travel", "high-value", "free-entry"]
+    "tags": [
+      "app-entry",
+      "app-only",
+      "travel",
+      "high-value",
+      "free-entry"
+    ]
   },
   {
     "id": "vodapay-cashback-challenge",
@@ -957,7 +1328,13 @@
     "closingDate": "2026-10-26",
     "url": "https://www.vodacom.co.za/vodacom/terms/competition/vodapay-cashback-challenge-2026",
     "summary": "Pay bills or shop using VodaPay during the promo period to qualify for entry. Stand a chance to win a R150,000 cash prize paid into your wallet, plus weekly cashback rewards.",
-    "tags": ["online-entry", "cash", "high-value", "purchase-required", "weekly-draw"]
+    "tags": [
+      "online-entry",
+      "cash",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "telkom-fibre-tech-upgrades",
@@ -968,7 +1345,13 @@
     "closingDate": "2026-10-29",
     "url": "https://group.telkom.co.za/documents/regulatory/terms-and-conditions/Telkom-Fibre-Tech-Upgrades-2026.pdf",
     "summary": "Sign up or upgrade to a qualifying Telkom Fibre plan and submit the online entry form. Winners take home tech upgrades like tablets, smart TVs, and connectivity bundles.",
-    "tags": ["online-entry", "electronics", "high-value", "purchase-required", "weekly-draw"]
+    "tags": [
+      "online-entry",
+      "electronics",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "cell-c-takealot-voucher-giveaway",
@@ -979,7 +1362,13 @@
     "closingDate": "2026-11-02",
     "url": "https://www.cellc.co.za/cellc/static-content/PDF/CellC_Takealot_Voucher_Giveaway_TCs_2026.pdf",
     "summary": "If you search for Takealot competitions and voucher giveaway offers, this one is worth checking. Recharge on Cell C, SMS your voucher PIN, and stand a chance to win one of 50 Takealot vouchers worth R5,000 each.",
-    "tags": ["sms-entry", "standard-rates", "vouchers", "high-value", "purchase-required"]
+    "tags": [
+      "sms-entry",
+      "standard-rates",
+      "vouchers",
+      "high-value",
+      "purchase-required"
+    ]
   },
   {
     "id": "fnb-pay-to-win-grand-cash-prize",
@@ -990,7 +1379,14 @@
     "closingDate": "2026-11-05",
     "url": "https://www.fnb.co.za/about-fnb/legal-matters/promo-terms/fnb-pay-to-win-2026.pdf",
     "summary": "Pay with your FNB card using Scan to Pay or tap-to-pay via the FNB App to earn entries. Stand a chance to win a R250,000 cash grand prize, plus weekly cash prizes for everyday payments.",
-    "tags": ["app-entry", "app-only", "cash", "high-value", "purchase-required", "weekly-draw"]
+    "tags": [
+      "app-entry",
+      "app-only",
+      "cash",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "standard-bank-mastercard-zanzibar-getaway",
@@ -1001,7 +1397,12 @@
     "closingDate": "2026-11-08",
     "url": "https://www.standardbank.co.za/static_file/South%20Africa/PDF/Campaigns%20Ts%20and%20Cs/mastercard-zanzibar-getaway-2026.pdf",
     "summary": "Spend on your qualifying Mastercard and register online to enter. Win a 7-night Zanzibar trip for two, including flights, accommodation and selected excursions.",
-    "tags": ["online-entry", "travel", "high-value", "purchase-required"]
+    "tags": [
+      "online-entry",
+      "travel",
+      "high-value",
+      "purchase-required"
+    ]
   },
   {
     "id": "absa-rewards-cash-back-draw",
@@ -1012,7 +1413,13 @@
     "closingDate": "2026-11-11",
     "url": "https://www.absa.co.za/offers/absa-rewards-cash-back-draw-2026/",
     "summary": "Make qualifying card purchases and register online using your Absa Rewards profile. One winner takes home R100,000 cash back, with smaller cash-back prizes awarded weekly.",
-    "tags": ["online-entry", "cash", "high-value", "purchase-required", "weekly-draw"]
+    "tags": [
+      "online-entry",
+      "cash",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "capitec-live-better-voucher-rewards",
@@ -1023,7 +1430,14 @@
     "closingDate": "2026-11-15",
     "url": "https://www.capitecbank.co.za/competitions-and-conditions/live-better-voucher-rewards-2026/",
     "summary": "Complete the Live Better in-app challenge and opt in to enter. Win vouchers worth up to R10,000 to spend on everyday essentials, plus weekly spot prizes for participants.",
-    "tags": ["app-entry", "app-only", "vouchers", "high-value", "free-entry", "weekly-draw"]
+    "tags": [
+      "app-entry",
+      "app-only",
+      "vouchers",
+      "high-value",
+      "free-entry",
+      "weekly-draw"
+    ]
   },
   {
     "id": "nedbank-greenbacks-holiday-giveaway",
@@ -1034,7 +1448,12 @@
     "closingDate": "2026-11-18",
     "url": "https://personal.nedbank.co.za/legal/terms-and-conditions/greenbacks-holiday-giveaway-2026.html",
     "summary": "Opt in online and earn entries by spending on your Nedbank card during the competition period. The grand prize is a 3-night Drakensberg escape for two, including a travel voucher for activities.",
-    "tags": ["online-entry", "travel", "high-value", "purchase-required"]
+    "tags": [
+      "online-entry",
+      "travel",
+      "high-value",
+      "purchase-required"
+    ]
   },
   {
     "id": "discovery-vitality-move-for-cash",
@@ -1045,7 +1464,14 @@
     "closingDate": "2026-11-21",
     "url": "https://www.discovery.co.za/assets/template-resources/terms-and-conditions/vitality/vitality-move-for-cash-2026.pdf",
     "summary": "Hit your weekly activity goals in the Vitality app to unlock entries automatically. Stand a chance to win R100,000 cash, with weekly cash prizes for members who keep moving.",
-    "tags": ["app-entry", "app-only", "cash", "high-value", "free-entry", "weekly-draw"]
+    "tags": [
+      "app-entry",
+      "app-only",
+      "cash",
+      "high-value",
+      "free-entry",
+      "weekly-draw"
+    ]
   },
   {
     "id": "old-mutual-rewards-update-win-vouchers",
@@ -1056,7 +1482,13 @@
     "closingDate": "2026-11-24",
     "url": "https://www.oldmutual.co.za/om-docs/old-mutual-rewards-update-and-win-2026.pdf",
     "summary": "Update your Old Mutual Rewards profile online and confirm your communication preferences. Monthly winners receive R2,500 in vouchers, with extra rewards for members who complete all profile steps.",
-    "tags": ["online-entry", "vouchers", "everyday-prizes", "free-entry", "weekly-draw"]
+    "tags": [
+      "online-entry",
+      "vouchers",
+      "everyday-prizes",
+      "free-entry",
+      "weekly-draw"
+    ]
   },
   {
     "id": "sanlam-money-smart-cash-prize",
@@ -1067,7 +1499,13 @@
     "closingDate": "2026-11-28",
     "url": "https://www.sanlam.co.za/campaigns/money-smart-cash-prize-2026/",
     "summary": "Complete the online Money Smart quiz and submit your details to enter. Stand a chance to win R100,000 cash, plus weekly cash rewards for participants who finish the full quiz series.",
-    "tags": ["online-entry", "cash", "high-value", "free-entry", "weekly-draw"]
+    "tags": [
+      "online-entry",
+      "cash",
+      "high-value",
+      "free-entry",
+      "weekly-draw"
+    ]
   },
   {
     "id": "investec-winelands-escape-competition",
@@ -1078,7 +1516,12 @@
     "closingDate": "2026-12-01",
     "url": "https://www.investec.com/en_za/legal/SA/investec-winelands-escape-competition-2026.html",
     "summary": "Opt in online and spend on your Investec card during the competition period to earn entries. Win a 2-night Cape Winelands stay for two with tastings, transfers and a dining experience included.",
-    "tags": ["online-entry", "travel", "high-value", "purchase-required"]
+    "tags": [
+      "online-entry",
+      "travel",
+      "high-value",
+      "purchase-required"
+    ]
   },
   {
     "id": "engen-1app-cash-back-draw",
@@ -1089,7 +1532,14 @@
     "closingDate": "2026-12-05",
     "url": "https://www.engen.co.za/promotions/1app-cashback-draw-2026",
     "summary": "Pay for fuel via Engen 1App and collect stamps toward your automatic entry. Stand a chance to win R75,000 cash back, plus weekly fuel vouchers for active app users.",
-    "tags": ["app-entry", "app-only", "cash", "high-value", "purchase-required", "weekly-draw"]
+    "tags": [
+      "app-entry",
+      "app-only",
+      "cash",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "shell-v-rewards-gear-up-with-gopro",
@@ -1100,7 +1550,14 @@
     "closingDate": "2026-12-08",
     "url": "https://www.shell.co.za/motorists/offers-and-competitions/vplusrewards-gear-up-with-gopro-2026.html",
     "summary": "Swipe your V+Rewards card when you fill up and enter via the V+Rewards app. Win one of 20 GoPro HERO cameras, plus bonus fuel rewards for selected participants.",
-    "tags": ["app-entry", "app-only", "electronics", "high-value", "purchase-required", "weekly-draw"]
+    "tags": [
+      "app-entry",
+      "app-only",
+      "electronics",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "kfc-rewards-voucher-drop",
@@ -1111,7 +1568,14 @@
     "closingDate": "2026-12-11",
     "url": "https://order.kfc.co.za/campaigns/kfc-rewards-voucher-drop-2026",
     "summary": "Collect stamps by ordering through the KFC app, then tap the promo tile to enter. Win digital KFC vouchers worth up to R5,000, plus weekly meal deals for app regulars.",
-    "tags": ["app-entry", "app-only", "vouchers", "high-value", "purchase-required", "weekly-draw"]
+    "tags": [
+      "app-entry",
+      "app-only",
+      "vouchers",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ]
   },
   {
     "id": "nandos-peri-peri-road-trip",
@@ -1122,7 +1586,13 @@
     "closingDate": "2026-12-14",
     "url": "https://images.nandos.co.za/s3fs-public/peri-peri-roadtrip-competition-rules-2026.pdf",
     "summary": "Buy in-store, then SMS your till slip number to enter the draw. The prize is a 4-night Garden Route road trip for two, including accommodation and a R5,000 fuel card.",
-    "tags": ["sms-entry", "standard-rates", "travel", "high-value", "purchase-required"]
+    "tags": [
+      "sms-entry",
+      "standard-rates",
+      "travel",
+      "high-value",
+      "purchase-required"
+    ]
   },
   {
     "id": "castle-lager-braai-cash-giveaway",
@@ -1133,7 +1603,13 @@
     "closingDate": "2026-12-18",
     "url": "https://www.castlelager.co.za/competitions/braai-cash-giveaway-2026",
     "summary": "Enter online and share your best braai moment to qualify. One winner walks away with R200,000 cash, plus weekly braai-kit spot prizes to keep the fire going.",
-    "tags": ["online-entry", "cash", "high-value", "free-entry", "weekly-draw"]
+    "tags": [
+      "online-entry",
+      "cash",
+      "high-value",
+      "free-entry",
+      "weekly-draw"
+    ]
   },
   {
     "id": "sab-festival-vip-weekend",
@@ -1144,7 +1620,12 @@
     "closingDate": "2026-12-21",
     "url": "https://www.sab.co.za/sites/g/files/seuoyk1916/files/2026-08/sab-festival-vip-weekend-competition-rules.pdf",
     "summary": "Enter online via the official competition page and confirm you're over 18 to participate. Win a VIP festival weekend for two in Cape Town, including tickets, accommodation and transfers.",
-    "tags": ["online-entry", "travel", "high-value", "free-entry"]
+    "tags": [
+      "online-entry",
+      "travel",
+      "high-value",
+      "free-entry"
+    ]
   },
   {
     "id": "toyota-roadtrip-tech-pack-giveaway",
@@ -1155,7 +1636,12 @@
     "closingDate": "2026-12-24",
     "url": "https://www.toyota.co.za/connect/article/roadtrip-tech-pack-giveaway-2026",
     "summary": "Enter online and tell Toyota where you'd take your next road trip. Win a roadtrip tech pack with a dashcam, power bank, and navigation-ready accessories for safer travels.",
-    "tags": ["online-entry", "electronics", "everyday-prizes", "free-entry"]
+    "tags": [
+      "online-entry",
+      "electronics",
+      "everyday-prizes",
+      "free-entry"
+    ]
   },
   {
     "id": "travelstart-fare-finder-cash-back",
@@ -1166,7 +1652,13 @@
     "closingDate": "2026-12-27",
     "url": "https://www.travelstart.co.za/lp/fare-finder-cashback-2026",
     "summary": "Use the Fare Finder tool and enter online with your best deal—no purchase required to participate. Stand a chance to win R100,000 cash, with smaller cash prizes for weekly featured destinations.",
-    "tags": ["online-entry", "cash", "high-value", "free-entry", "weekly-draw"]
+    "tags": [
+      "online-entry",
+      "cash",
+      "high-value",
+      "free-entry",
+      "weekly-draw"
+    ]
   },
   {
     "id": "sixty60-getaway-giveaway",
@@ -1177,6 +1669,12 @@
     "closingDate": "2026-12-31",
     "url": "https://www.checkers.co.za/Sixty60/campaigns/sixty60-getaway-giveaway-2026",
     "summary": "This local getaway competition is a strong holiday giveaway option: order on Sixty60, hit the qualifying basket value, and unlock your in-app entry to win a 3-night Cape Town trip for two with flights and hotel.",
-    "tags": ["app-entry", "app-only", "travel", "high-value", "purchase-required"]
+    "tags": [
+      "app-entry",
+      "app-only",
+      "travel",
+      "high-value",
+      "purchase-required"
+    ]
   }
 ]

@@ -23,6 +23,8 @@ function main() {
   const allCompetitions = shared.sortCompetitions(
     rawCompetitions.filter((entry, index) => validateCompetition(entry, index))
   );
+  const validSlugs = new Set(allCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
+  removeStaleCompetitionDirectories(validSlugs);
   const competitions = allCompetitions.filter((competition) => !isExpired(competition.closingDate));
   const routeContexts = shared.getAllStaticRouteContexts();
 
@@ -1436,6 +1438,28 @@ function getSafeHostname(url) {
   } catch (_error) {
     return "official promoter site";
   }
+}
+
+function removeStaleCompetitionDirectories(validSlugs) {
+  const managedDirectories = [path.join(ROOT_DIR, "competition"), path.join(ROOT_DIR, "out")];
+
+  managedDirectories.forEach((managedDirectory) => {
+    if (!fs.existsSync(managedDirectory)) {
+      return;
+    }
+
+    fs.readdirSync(managedDirectory, { withFileTypes: true })
+      .filter((entry) => entry.isDirectory())
+      .forEach((entry) => {
+        if (validSlugs.has(entry.name)) {
+          return;
+        }
+
+        const stalePath = path.join(managedDirectory, entry.name);
+        fs.rmSync(stalePath, { recursive: true, force: true });
+        console.log(`[generate-pages] Removed stale directory: ${stalePath}`);
+      });
+  });
 }
 
 function runStaticSeoChecks() {
