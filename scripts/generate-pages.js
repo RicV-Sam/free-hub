@@ -56,6 +56,7 @@ function main() {
   });
 
   fs.writeFileSync(path.join(ROOT_DIR, "sitemap.xml"), generateSitemap(competitions));
+  runStaticSeoChecks();
 }
 
 function renderPage(routeContext, competitions) {
@@ -132,7 +133,7 @@ function renderPage(routeContext, competitions) {
           </div>
         </section>
 
-        ${renderInternalLinksSection(routeContext)}
+        ${renderInternalLinksSection(routeContext, competitions)}
 
         <section class="ad-slot" id="ad-top" aria-label="Advertisement">
           <p class="ad-slot__label">Advertisement</p>
@@ -385,16 +386,10 @@ function renderPopularLink(link, currentPath) {
   return `<a class="${className}" href="${escapeAttribute(link.href)}">${escapeHtml(link.label)}</a>`;
 }
 
-function renderInternalLinksSection(routeContext) {
+function renderInternalLinksSection(routeContext, competitions) {
   const section =
     routeContext.type === "category"
-      ? {
-          title: "Related Searches",
-          links: [
-            { label: "Ending soon competitions", href: "/tag/ending-soon/" },
-            { label: "High value competitions", href: "/tag/high-value/" },
-          ],
-        }
+      ? getCategoryInternalLinks(routeContext.slug, competitions)
       : routeContext.type === "tag"
         ? {
             title: "Explore Categories",
@@ -420,6 +415,79 @@ function renderInternalLinksSection(routeContext) {
               .join("\n            ")}
           </div>
         </section>`;
+}
+
+function getCategoryInternalLinks(slug, competitions) {
+  const firstCategoryCompetition = competitions[0]
+    ? `${shared.getCompetitionPath(competitions[0])}/`
+    : `/category/${slug}/`;
+  const byIdPath = (id) => {
+    const target = competitions.find((competition) => shared.getCompetitionSlug(competition) === id);
+    return target ? `${shared.getCompetitionPath(target)}/` : firstCategoryCompetition;
+  };
+
+  if (slug === "cars") {
+    return {
+      title: "Car Competition Searches",
+      links: [
+        { label: "Current car competitions in South Africa", href: "/category/cars/" },
+        { label: "Free car competitions South Africa", href: "/tag/free-entry/" },
+        { label: "Win a car competition free entry", href: byIdPath("spar-win-a-car") },
+      ],
+    };
+  }
+
+  if (slug === "holidays") {
+    return {
+      title: "Holiday Competition Searches",
+      links: [
+        { label: "Win a holiday South Africa", href: byIdPath("sanlam-plan-win-mauritius") },
+        { label: "Holiday giveaway competitions", href: byIdPath("makro-rewards-zanzibar-getaway") },
+        { label: "Local getaway competition ideas", href: byIdPath("sixty60-getaway-giveaway") },
+      ],
+    };
+  }
+
+  if (slug === "tech") {
+    return {
+      title: "Tech Giveaway Searches",
+      links: [
+        { label: "Gadget giveaway competitions", href: byIdPath("game-store-gadget-giveaway") },
+        { label: "Smartphone competition entries", href: byIdPath("vodacom-recharge-win-galaxy-s25") },
+        { label: "Tech giveaways South Africa", href: "/category/tech/" },
+      ],
+    };
+  }
+
+  if (slug === "cash") {
+    return {
+      title: "Cash Competition Searches",
+      links: [
+        { label: "Cash competitions South Africa", href: "/category/cash/" },
+        { label: "Win cash online South Africa", href: byIdPath("fnb-pay-to-win-grand-cash-prize") },
+        { label: "Ending soon cash giveaways", href: "/tag/ending-soon/" },
+      ],
+    };
+  }
+
+  if (slug === "vouchers") {
+    return {
+      title: "Voucher Competition Searches",
+      links: [
+        { label: "Voucher giveaway competitions", href: "/category/vouchers/" },
+        { label: "Takealot competitions and vouchers", href: byIdPath("cell-c-takealot-voucher-giveaway") },
+        { label: "Voucher competitions South Africa", href: "/tag/free-entry/" },
+      ],
+    };
+  }
+
+  return {
+    title: "Related Searches",
+    links: [
+      { label: "Ending soon competitions", href: "/tag/ending-soon/" },
+      { label: "High value competitions", href: "/tag/high-value/" },
+    ],
+  };
 }
 
 function renderSupportSection(supportCopy) {
@@ -474,6 +542,14 @@ function renderHomepage(competitions) {
         )}</a>`
     ),
   ].join("\n          ");
+  const homeIntentLinksMarkup = `<section class="internal-links" aria-label="Popular competition searches">
+          <p class="internal-links__title">Popular Competition Searches</p>
+          <div class="internal-links__list">
+            <a class="internal-links__link" href="/category/cars/">Current car competitions in South Africa</a>
+            <a class="internal-links__link" href="/category/holidays/">Win a holiday South Africa</a>
+            <a class="internal-links__link" href="/category/tech/">Gadget giveaway and smartphone competition ideas</a>
+          </div>
+        </section>`;
 
   const homepageSeoCopy = `FreeHub helps you discover competitions in South Africa without wading through scattered social posts, outdated promo pages, or low-trust listing sites. Whether you want to win cars, cash, holidays, vouchers, or the latest tech, the homepage is designed to surface the most exciting opportunities quickly. You can browse featured competitions, jump into free-entry giveaways, or prioritise promotions that are ending soon so you do not miss valuable prizes.
 
@@ -486,18 +562,18 @@ If you are looking for free entry competitions in South Africa, practical vouche
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Competitions South Africa | Win Cars, Cash &amp; Holidays</title>
-    <meta name="description" content="Browse free competitions in South Africa with live categories, search, and fast access to offers for cars, cash, holidays, tech, and vouchers." />
+    <title>Free Competitions South Africa | Current Car, Holiday &amp; Cash Giveaways</title>
+    <meta name="description" content="Browse free competitions South Africa users search for, including current car competitions, holiday giveaways, cash prizes, tech offers, and vouchers." />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="${escapeAttribute(shared.CANONICAL_ORIGIN)}/" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Free Competitions South Africa | Win Cars, Cash &amp; Holidays" />
-    <meta property="og:description" content="Browse free competitions in South Africa with live categories, search, and fast access to offers for cars, cash, holidays, tech, and vouchers." />
+    <meta property="og:title" content="Free Competitions South Africa | Current Car, Holiday &amp; Cash Giveaways" />
+    <meta property="og:description" content="Browse free competitions South Africa users search for, including current car competitions, holiday giveaways, cash prizes, tech offers, and vouchers." />
     <meta property="og:url" content="${escapeAttribute(shared.CANONICAL_ORIGIN)}/" />
     <meta property="og:image" content="${escapeAttribute(ogImage)}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Free Competitions South Africa | Win Cars, Cash &amp; Holidays" />
-    <meta name="twitter:description" content="Browse free competitions in South Africa with live categories, search, and fast access to offers for cars, cash, holidays, tech, and vouchers." />
+    <meta name="twitter:title" content="Free Competitions South Africa | Current Car, Holiday &amp; Cash Giveaways" />
+    <meta name="twitter:description" content="Browse free competitions South Africa users search for, including current car competitions, holiday giveaways, cash prizes, tech offers, and vouchers." />
     <meta name="twitter:image" content="${escapeAttribute(ogImage)}" />
     <script id="structured-data-itemlist" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
     <link rel="stylesheet" href="/styles.css" />
@@ -527,8 +603,8 @@ ${noscriptLinks}
         <div class="hero__layout">
           <div class="hero__copy">
             <p class="eyebrow">FREEHUB</p>
-            <h1 id="pageTitle">Win Cars, Cash &amp; Holidays &mdash; Free in South Africa</h1>
-            <p class="hero__text" id="pageIntro">Verified competitions from trusted brands. Updated regularly.</p>
+            <h1 id="pageTitle">Free Competitions South Africa: Cars, Holidays, Cash, Tech &amp; Vouchers</h1>
+            <p class="hero__text" id="pageIntro">Find current car competitions, holiday giveaways, cash prizes, and voucher offers from trusted brands in one place.</p>
             <div class="hero__actions">
               <a class="btn btn--primary" href="#all-competitions">Browse All</a>
               <a class="btn btn--secondary" href="/tag/ending-soon/">Ending Soon</a>
@@ -556,6 +632,8 @@ ${noscriptLinks}
             <a class="popular-searches__link" href="/tag/high-value/">High value</a>
           </div>
         </section>
+
+        ${homeIntentLinksMarkup}
 
         <section class="home-section home-section--featured" aria-label="Featured competitions">
           <div class="home-section__header">
@@ -1358,6 +1436,76 @@ function getSafeHostname(url) {
   } catch (_error) {
     return "official promoter site";
   }
+}
+
+function runStaticSeoChecks() {
+  const errors = [];
+  const sitemapPath = path.join(ROOT_DIR, "sitemap.xml");
+  const sitemap = fs.readFileSync(sitemapPath, "utf8");
+  const locMatches = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1].trim());
+
+  if (locMatches.some((url) => url.includes("/out/"))) {
+    errors.push("Sitemap contains /out/ URLs, which must stay non-indexable.");
+  }
+
+  locMatches.forEach((url) => {
+    const pathname = new URL(url).pathname;
+    if (pathname !== "/" && !pathname.endsWith("/")) {
+      errors.push(`Sitemap URL missing trailing slash (likely redirect): ${url}`);
+    }
+
+    const filePath =
+      pathname === "/"
+        ? path.join(ROOT_DIR, "index.html")
+        : path.join(ROOT_DIR, pathname.replace(/^\//, ""), "index.html");
+
+    if (!fs.existsSync(filePath)) {
+      errors.push(`Sitemap URL points to missing file: ${url}`);
+      return;
+    }
+
+    const html = fs.readFileSync(filePath, "utf8");
+    const canonicalMatch = html.match(/<link rel="canonical" href="([^"]+)"/i);
+    if (!canonicalMatch) {
+      errors.push(`Missing canonical tag in: ${filePath}`);
+      return;
+    }
+
+    if (canonicalMatch[1] !== url) {
+      errors.push(`Canonical mismatch for ${url}. Found: ${canonicalMatch[1]}`);
+    }
+  });
+
+  const htmlFiles = [
+    path.join(ROOT_DIR, "index.html"),
+    ...getNestedIndexFiles(path.join(ROOT_DIR, "category")),
+    ...getNestedIndexFiles(path.join(ROOT_DIR, "tag")),
+    ...getNestedIndexFiles(path.join(ROOT_DIR, "competition")),
+  ];
+
+  htmlFiles.forEach((filePath) => {
+    const html = fs.readFileSync(filePath, "utf8");
+    const badStructuredDataUrl = html.match(/"url":"https:\/\/freehub\.co\.za\/competition\/[^"]*[^\/]"/);
+    if (badStructuredDataUrl) {
+      errors.push(`Structured data competition URL missing trailing slash in: ${filePath}`);
+    }
+  });
+
+  if (errors.length > 0) {
+    throw new Error(`[SEO checks failed]\n${errors.map((error) => `- ${error}`).join("\n")}`);
+  }
+}
+
+function getNestedIndexFiles(directory) {
+  if (!fs.existsSync(directory)) {
+    return [];
+  }
+
+  return fs
+    .readdirSync(directory, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => path.join(directory, entry.name, "index.html"))
+    .filter((filePath) => fs.existsSync(filePath));
 }
 
 function normalizeStaticPath(pathname) {

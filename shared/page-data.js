@@ -21,36 +21,36 @@
     },
     cars: {
       category: "Cars",
-      title: "Free Car Competitions South Africa | Win Cars Online",
+      title: "Free Car Competitions South Africa | Current Car Competitions",
       description:
-        "Browse free car competitions in South Africa and find the latest online giveaways for vehicles and driving bundles.",
-      heading: "Free Car Competitions You Can Enter Today",
+        "Browse current car competitions in South Africa, including free car competitions and test-drive giveaways you can enter today.",
+      heading: "Current Free Car Competitions in South Africa",
       intro:
-        "Explore free-entry car competitions in South Africa and find no-cost chances to win everything from compact cars to family SUVs. If you want bigger lifestyle prizes without buying a ticket, this page keeps the strongest options in one place.",
+        "Looking for current car competitions in South Africa? Explore free car competitions, win-a-car promotions, and test-drive entries in one place so you can enter faster and miss fewer closing dates.",
       support:
-        "Vehicle giveaways attract a lot of attention in South Africa, especially when trusted brands or retail partners are involved. We highlight free-to-enter car competitions so you can compare current opportunities without digging through clutter.",
+        "Vehicle giveaways attract a lot of attention in South Africa, especially when trusted brands or retail partners are involved. We highlight free-to-enter car competitions and current car competitions so you can compare opportunities without digging through clutter.",
     },
     holidays: {
       category: "Holidays",
-      title: "Free Holiday Competitions South Africa | Win Trips Online",
+      title: "Win a Holiday South Africa | Holiday Giveaway Competitions",
       description:
-        "Browse free holiday competitions in South Africa and discover online travel giveaways for breaks, escapes, and getaways.",
-      heading: "Free Holiday Competitions You Can Enter Today",
+        "Browse holiday giveaway competitions and win-a-holiday South Africa opportunities, including local getaway competitions and travel prizes.",
+      heading: "Win a Holiday in South Africa",
       intro:
-        "Find free-entry holiday competitions in South Africa and discover no-cost chances to win local getaways, beach escapes, and travel prizes. It is a simple way to browse trip giveaways without wasting time on paid entries.",
+        "Find holiday giveaway listings, local getaway competitions, and free-entry travel prizes. If you want to win a holiday in South Africa, this page helps you compare active offers quickly.",
       support:
-        "Travel competitions are popular with South African audiences because they combine accessible entry with high perceived value. This page filters the noise and keeps the focus on free holiday opportunities worth checking today.",
+        "Travel competitions are popular with South African audiences because they combine accessible entry with high perceived value. This page filters the noise and keeps the focus on holiday giveaway opportunities worth checking today.",
     },
     tech: {
       category: "Tech",
-      title: "Free Tech Competitions South Africa | Win Gadgets Online",
+      title: "Tech Giveaways South Africa | Gadget & Smartphone Competitions",
       description:
-        "Browse free tech competitions in South Africa and find online giveaways for gadgets, devices, and smart-home prizes.",
-      heading: "Free Tech Competitions You Can Enter Today",
+        "Browse tech giveaways in South Africa, including gadget giveaway and smartphone competition opportunities you can enter online.",
+      heading: "Tech Giveaways and Smartphone Competitions",
       intro:
-        "Check the latest free-entry tech competitions in South Africa and enter for gadgets, smart devices, and electronics at no cost. Whether the prize is a bundle or a single standout device, this page helps you find current offers faster.",
+        "Check the latest gadget giveaway and smartphone competition listings in South Africa. From electronics bundles to flagship devices, this page keeps active tech giveaways in one place.",
       support:
-        "Electronics giveaways consistently perform well in South Africa, especially when mobile, streaming, or home tech brands are attached. This page focuses on verified free-entry tech competitions so you can browse active options without extra friction.",
+        "Electronics giveaways consistently perform well in South Africa, especially when mobile, streaming, or home tech brands are attached. This page focuses on verified tech giveaways so you can browse active options without extra friction.",
     },
     vouchers: {
       category: "Vouchers",
@@ -65,12 +65,12 @@
     },
   };
   const DEFAULT_COPY = {
-    title: "Free Competitions South Africa | Win Cars, Cash & Holidays",
+    title: "Free Competitions South Africa | Current Car, Holiday & Cash Giveaways",
     description:
-      "Browse free competitions in South Africa with live categories, search, and fast access to offers for cars, cash, holidays, tech, and vouchers.",
+      "Browse free competitions South Africa users are searching for, including current car competitions, holiday giveaways, cash prizes, tech offers, and vouchers.",
     heading: "Win Cars, Cash, Holidays and Vouchers in South Africa",
     intro:
-      "Browse free competitions from trusted brands. Updated regularly with new giveaways, prize draws and promotions.",
+      "Browse free competitions in South Africa from trusted brands, including current car competitions, holiday giveaways, cash prizes, and voucher offers.",
     canonical: `${CANONICAL_ORIGIN}/`,
   };
   const TAG_COPY = {
