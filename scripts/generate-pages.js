@@ -61,11 +61,76 @@ function main() {
   runStaticSeoChecks();
 }
 
+const CATEGORY_FALLBACK_STYLES = {
+  Cash: { start: "#0f766e", end: "#14b8a6", accent: "#99f6e4" },
+  Cars: { start: "#1d4ed8", end: "#60a5fa", accent: "#dbeafe" },
+  Holidays: { start: "#c2410c", end: "#fb923c", accent: "#ffedd5" },
+  Tech: { start: "#4338ca", end: "#818cf8", accent: "#e0e7ff" },
+  Vouchers: { start: "#be123c", end: "#fb7185", accent: "#ffe4e6" },
+};
+
+function getCompetitionImageUrl(competition) {
+  return competition.image || buildBrandFallbackImage(competition);
+}
+
+function buildBrandFallbackImage(competition) {
+  const brand = (competition.brand || "Official promotion").trim();
+  const category = competition.category || "Competition";
+  const styles = CATEGORY_FALLBACK_STYLES[category] || {
+    start: "#1f2937",
+    end: "#4b5563",
+    accent: "#f3f4f6",
+  };
+  const brandLines = splitBrandLines(brand);
+  const categoryLabel = category.toUpperCase();
+  const brandInitial = brand.replace(/[^A-Za-z0-9]/g, "").charAt(0).toUpperCase() || "F";
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="${escapeXml(
+    `${brand} ${category} competition`
+  )}">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="${styles.start}" />
+      <stop offset="100%" stop-color="${styles.end}" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="970" cy="145" r="170" fill="${styles.accent}" fill-opacity="0.12" />
+  <circle cx="1080" cy="520" r="190" fill="${styles.accent}" fill-opacity="0.14" />
+  <rect x="72" y="72" width="160" height="160" rx="32" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.26)" />
+  <text x="152" y="176" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="88" font-weight="700" fill="#ffffff">${escapeXml(
+    brandInitial
+  )}</text>
+  <text x="72" y="312" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="6" fill="rgba(255,255,255,0.76)">${escapeXml(
+    categoryLabel
+  )}</text>
+  <text x="72" y="408" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700" fill="#ffffff">${escapeXml(
+    brandLines[0]
+  )}</text>
+  <text x="72" y="492" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700" fill="#ffffff">${escapeXml(
+    brandLines[1]
+  )}</text>
+  <text x="72" y="562" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="rgba(255,255,255,0.9)">FreeHub competition listing</text>
+</svg>`;
+
+  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+}
+
+function splitBrandLines(brand) {
+  const words = brand.split(/\s+/).filter(Boolean);
+
+  if (words.length <= 2) {
+    return [brand, ""];
+  }
+
+  const midpoint = Math.ceil(words.length / 2);
+  return [words.slice(0, midpoint).join(" "), words.slice(midpoint).join(" ")];
+}
+
 function renderPage(routeContext, competitions) {
   const pageCopy = shared.getPageCopy(routeContext);
   const supportCopy = shared.getPageSupportCopy(routeContext);
   const structuredData = shared.buildStructuredData(competitions, routeContext);
-  const ogImage = competitions[0]?.image || shared.DEFAULT_OG_IMAGE;
+  const ogImage = competitions[0] ? getCompetitionImageUrl(competitions[0]) : shared.DEFAULT_OG_IMAGE;
   const cardsMarkup = competitions
     .flatMap((competition, index) => {
       const items = [renderCompetitionCard(competition)];
@@ -250,7 +315,7 @@ function renderCompetitionCard(competition, featured = false) {
     ? `<p class="competition-card__summary">${escapeHtml(competition.summary)}</p>`
     : "";
   const cardClass = `competition-card${featured ? " competition-card--featured" : ""}`;
-  const cardImageUrl = competition.image || shared.DEFAULT_OG_IMAGE;
+  const cardImageUrl = getCompetitionImageUrl(competition);
   const urgencyLabel = shared.getUrgencyLabel(competition.closingDate);
   const entryMethodLabel = shared.getEntryMethodLabel(competition.entryType);
   const prizeCue = shared.getPrizeCue(competition);
@@ -324,7 +389,7 @@ function renderHeroSpotlight(competition) {
   const urgency = shared.getUrgencyLabel(competition.closingDate);
   const prizeCue = shared.getPrizeCue(competition);
   const entryPath = `${shared.getCompetitionPath(competition)}/`;
-  const cardImageUrl = competition.image || shared.DEFAULT_OG_IMAGE;
+  const cardImageUrl = getCompetitionImageUrl(competition);
 
   return `<a class="hero-spotlight" href="${escapeAttribute(entryPath)}" aria-label="${escapeAttribute(
     title
@@ -511,7 +576,7 @@ function renderThinPageTips(competitions) {
 function renderHomepage(competitions) {
   const homeRouteContext = { type: "home", slug: null, path: "/" };
   const structuredData = shared.buildStructuredData(competitions, homeRouteContext);
-  const ogImage = competitions[0]?.image || shared.DEFAULT_OG_IMAGE;
+  const ogImage = competitions[0] ? getCompetitionImageUrl(competitions[0]) : shared.DEFAULT_OG_IMAGE;
   const featured = getFeaturedCompetitions(competitions, 4);
   const featuredCardsMarkup = featured.map((c) => renderCompetitionCard(c, true)).join("\n            ");
   const heroSpotlightMarkup = renderHeroSpotlight(getHeroSpotlightCompetition(competitions));
@@ -888,7 +953,7 @@ function renderCompetitionPage(competition, allCompetitions) {
   const officialUrl = competition.url;
   const description = shared.buildCompetitionDescription(competition);
   const formattedDate = shared.formatDate(competition.closingDate);
-  const ogImage = competition.image || shared.DEFAULT_OG_IMAGE;
+  const ogImage = getCompetitionImageUrl(competition);
   if (!competition.image) {
     console.warn(`[generate-pages] Competition "${competition.title}" (slug: ${slug}) has no image — hero will use fallback background.`);
   }
@@ -1042,7 +1107,7 @@ function renderCompetitionPage(competition, allCompetitions) {
 
         <article class="competition-detail" aria-label="${escapeAttribute(competition.title)}">
           <div class="competition-detail__media">
-            <img src="${escapeAttribute(ogImage)}" alt="${escapeAttribute(competition.title)}" onerror="this.onerror=null;this.src='${escapeAttribute(shared.DEFAULT_OG_IMAGE)}'" />
+            <img src="${escapeAttribute(ogImage)}" alt="${escapeAttribute(competition.title)}" onerror="this.onerror=null;this.src='${escapeAttribute(buildBrandFallbackImage(competition))}'" />
           </div>
           <div class="competition-detail__body">
             <div class="competition-detail__meta">
@@ -1497,6 +1562,15 @@ function escapeAttribute(value) {
 
 function escapeScript(value) {
   return String(value).replace(/<\/script/gi, "<\\/script");
+}
+
+function escapeXml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
 }
 
 main();
