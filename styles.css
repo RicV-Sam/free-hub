@@ -630,6 +630,12 @@ button {
   min-height: 72px;
 }
 
+.ad-slot--reserved,
+.sponsored-card--reserved,
+.ad-sticky--reserved {
+  display: none;
+}
+
 .sponsored-card {
   display: grid;
   min-height: 100%;
@@ -1326,7 +1332,7 @@ button {
 }
 
 .hero--home h1 {
-  max-width: 12ch;
+  max-width: 17ch;
   color: #f8fafc;
   font-size: clamp(2rem, 8.2vw, 5rem);
   line-height: 0.98;
@@ -1631,6 +1637,12 @@ button {
 
 .hero--home + .main-content .category-nav {
   margin-top: -0.4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.hero--home + .main-content .home-section--featured {
+  margin-top: -0.25rem;
   position: relative;
   z-index: 2;
 }

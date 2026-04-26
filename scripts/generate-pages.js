@@ -137,10 +137,7 @@ function renderPage(routeContext, competitions) {
 
         ${renderInternalLinksSection(routeContext, competitions)}
 
-        <section class="ad-slot" id="ad-top" aria-label="Advertisement">
-          <p class="ad-slot__label">Advertisement</p>
-          <p class="ad-slot__copy">Top banner placeholder for future monetisation.</p>
-        </section>
+        ${renderAdZone("ad-top", "top")}
 
         <section class="controls" aria-label="Competition filters">
           <label class="search-field" for="searchInput">
@@ -191,26 +188,20 @@ function renderPage(routeContext, competitions) {
 
         ${renderThinPageTips(competitions)}
 
-        <section class="ad-slot ad-slot--compact" id="ad-middle" aria-label="Advertisement">
-          <p class="ad-slot__label">Advertisement</p>
-          <p class="ad-slot__copy">Mid-page placement designed for sponsored content or display inventory.</p>
-        </section>
+        ${renderAdZone("ad-middle", "middle", true)}
 
         <section class="info-strip" aria-label="About this page">
           <div>
-            <p class="info-strip__label">Static POC</p>
-            <p class="info-strip__text">Browser-only frontend with JSON-powered content rendering.</p>
+            <p class="info-strip__label">Verified listings</p>
+            <p class="info-strip__text">We organise live South African competitions and link through to official promoter pages.</p>
           </div>
           <div>
-            <p class="info-strip__label">Future-ready</p>
-            <p class="info-strip__text">Structure leaves room for ads, analytics, and backend integration later.</p>
+            <p class="info-strip__label">No FreeHub sign-up</p>
+            <p class="info-strip__text">Open a listing, review the details, then follow the official entry method when it suits you.</p>
           </div>
         </section>
 
-        <section class="ad-slot" id="ad-bottom" aria-label="Advertisement">
-          <p class="ad-slot__label">Advertisement</p>
-          <p class="ad-slot__copy">Bottom placement reserved for future ad network integration.</p>
-        </section>
+        ${renderAdZone("ad-bottom", "bottom")}
       </main>
 
       <footer class="site-footer" aria-label="Site footer">
@@ -235,14 +226,7 @@ function renderPage(routeContext, competitions) {
       </footer>
     </div>
 
-    <aside class="ad-sticky" id="ad-sticky" aria-label="Advertisement">
-      <button class="ad-sticky__close" id="stickyAdClose" type="button" aria-label="Close advertisement">
-        &times;
-      </button>
-      <p class="ad-slot__label">Advertisement</p>
-      <p class="ad-slot__copy">Sticky mobile placement for high-visibility monetisation.</p>
-      <button class="ad-sticky__cta" id="stickyAdCta" type="button">View Offer</button>
-    </aside>
+    <aside class="ad-sticky ad-sticky--reserved" id="ad-sticky" aria-hidden="true"></aside>
 
     <script src="${RELATIVE_ASSET_PATH}shared/page-data.js" defer></script>
     <script src="${RELATIVE_ASSET_PATH}app.js" defer></script>
@@ -258,6 +242,10 @@ function renderCompetitionCard(competition, featured = false) {
   )}</span>`;
   const hotBadge = shared.shouldShowHotBadge(competition) ? '<span class="badge badge--hot">HOT</span>' : "";
   const costBadge = `<span class="badge badge--soft">${escapeHtml(shared.getEntryCostLabel(competition))}</span>`;
+  const tagBadges = shared
+    .getCardTagLabels(competition)
+    .map((label) => `<span class="badge badge--soft">${escapeHtml(label)}</span>`)
+    .join("\n                    ");
   const summaryMarkup = competition.summary
     ? `<p class="competition-card__summary">${escapeHtml(competition.summary)}</p>`
     : "";
@@ -271,7 +259,11 @@ function renderCompetitionCard(competition, featured = false) {
   const featuredEyebrow = featured ? '<p class="competition-card__eyebrow">Featured pick</p>' : "";
   const ctaClass = featured ? "competition-card__cta competition-card__cta--featured" : "competition-card__cta";
 
-  return `<article class="${cardClass}">
+  return `<article class="${cardClass}" data-competition-slug="${escapeAttribute(
+    shared.getCompetitionSlug(competition)
+  )}" data-competition-title="${escapeAttribute(competition.title)}" data-competition-category="${escapeAttribute(
+    competition.category
+  )}">
               <div class="competition-card__media">
                 <img src="${escapeAttribute(cardImageUrl)}" alt="${escapeAttribute(
     competition.title
@@ -300,27 +292,27 @@ function renderCompetitionCard(competition, featured = false) {
                 <div class="competition-card__footer">
                   <div class="competition-card__tags">
                     <span class="competition-card__entry">${escapeHtml(entryMethodLabel)}</span>
-                    ${costBadge}
+                    ${tagBadges || costBadge}
                   </div>
                 </div>
-                <span class="${ctaClass}">Enter Now &rarr;</span>
+                <span class="${ctaClass}">View Details</span>
               </div>
-              <a class="competition-card__overlay-link" href="${escapeAttribute(internalPath)}/" aria-label="${escapeAttribute(competition.title)} - enter now">
-                <span class="visually-hidden">Enter ${escapeHtml(competition.title)} now</span>
+              <a class="competition-card__overlay-link" href="${escapeAttribute(internalPath)}/" aria-label="${escapeAttribute(competition.title)} - view details">
+                <span class="visually-hidden">View details for ${escapeHtml(competition.title)}</span>
               </a>
             </article>`;
 }
 
-function renderInlineAdCard() {
-  return `<article class="sponsored-card">
-              <p class="sponsored-card__label">Recommended Opportunities</p>
-              <h3 class="sponsored-card__title">Featured offers can live here without interrupting browsing</h3>
-              <p class="sponsored-card__text">
-                This in-feed slot is ready for promoted competitions, affiliate offers, or partner placements that match the page style.
-              </p>
-              <p class="sponsored-card__hint">Monetisation-ready placement</p>
-              <button class="sponsored-card__cta" type="button">View Featured Offer</button>
-            </article>`;
+function renderInlineAdCard(placement = "inline") {
+  return `<article class="sponsored-card sponsored-card--reserved" data-placement="${escapeAttribute(placement)}" aria-hidden="true"></article>`;
+}
+
+function renderAdZone(id, placement, compact = false) {
+  const className = compact ? "ad-slot ad-slot--compact ad-slot--reserved" : "ad-slot ad-slot--reserved";
+
+  return `<section class="${className}" id="${escapeAttribute(id)}" data-placement="${escapeAttribute(
+    placement
+  )}" aria-label="Sponsored placement"></section>`;
 }
 
 function renderHeroSpotlight(competition) {
@@ -336,7 +328,7 @@ function renderHeroSpotlight(competition) {
 
   return `<a class="hero-spotlight" href="${escapeAttribute(entryPath)}" aria-label="${escapeAttribute(
     title
-  )} - enter now">
+  )} - view details">
             <div class="hero-spotlight__media">
               <img src="${escapeAttribute(cardImageUrl)}" alt="${escapeAttribute(title)}" loading="lazy" />
             </div>
@@ -347,13 +339,13 @@ function renderHeroSpotlight(competition) {
                 <span>${escapeHtml(prizeCue)}</span>
                 <span>${escapeHtml(urgency)}</span>
               </div>
-              <span class="hero-spotlight__cta">Enter Now</span>
+              <span class="hero-spotlight__cta">View Details</span>
             </div>
           </a>`;
 }
 
 function getHeroSpotlightCompetition(competitions) {
-  const priorityCategories = ["Cars", "Cash", "Holidays"];
+  const priorityCategories = ["Vouchers", "Cash", "Cars", "Holidays"];
 
   return competitions
     .filter((competition) => !competition.closingDate || shared.getDaysUntilClosing(competition.closingDate) >= 0)
@@ -552,6 +544,19 @@ function renderHomepage(competitions) {
             <a class="internal-links__link" href="/category/tech/">Gadget giveaway and smartphone competition ideas</a>
           </div>
         </section>`;
+  const featuredSectionMarkup = `<section class="home-section home-section--featured" aria-label="Featured competitions">
+          <div class="home-section__header">
+            <div>
+              <p class="section-kicker">Featured Today</p>
+              <h2 class="home-section__title">Open these live competitions first</h2>
+            </div>
+            <a class="home-section__link" href="/tag/high-value/">High-value picks</a>
+          </div>
+          <p class="home-section__intro">A quick shortlist prioritising high-value, voucher, cash, free-entry, and ending-soon signals.</p>
+          <div class="competition-grid competition-grid--featured">
+            ${featuredCardsMarkup}
+          </div>
+        </section>`;
 
   const homepageSeoCopy = `FreeHub helps you discover competitions in South Africa without wading through scattered social posts, outdated promo pages, or low-trust listing sites. Whether you want to win cars, cash, holidays, vouchers, or the latest tech, the homepage is designed to surface the most exciting opportunities quickly. You can browse featured competitions, jump into free-entry giveaways, or prioritise promotions that are ending soon so you do not miss valuable prizes.
 
@@ -605,16 +610,16 @@ ${noscriptLinks}
         <div class="hero__layout">
           <div class="hero__copy">
             <p class="eyebrow">FREEHUB</p>
-            <h1 id="pageTitle">Free Competitions South Africa: Cars, Holidays, Cash, Tech &amp; Vouchers</h1>
-            <p class="hero__text" id="pageIntro">Find current car competitions, holiday giveaways, cash prizes, and voucher offers from trusted brands in one place.</p>
+            <h1 id="pageTitle">Today&apos;s Live Competitions in South Africa</h1>
+            <p class="hero__text" id="pageIntro">FreeHub lists vouchers, prizes, cash giveaways and competitions from trusted South African brands so you can find offers worth opening today.</p>
             <div class="hero__actions">
-              <a class="btn btn--primary" href="#all-competitions">Browse All</a>
+              <a class="btn btn--primary" href="#all-competitions">Browse Today&apos;s Competitions</a>
               <a class="btn btn--secondary" href="/tag/ending-soon/">Ending Soon</a>
             </div>
             <div class="trust-row" aria-label="Trust signals">
-              <span class="trust-row__item">Verified</span>
-              <span class="trust-row__item">No sign-up needed</span>
-              <span class="trust-row__item">100% free to enter</span>
+              <span class="trust-row__item">Verified listings</span>
+              <span class="trust-row__item">Official brand links</span>
+              <span class="trust-row__item">No FreeHub sign-up</span>
             </div>
           </div>
           ${heroSpotlightMarkup}
@@ -622,6 +627,10 @@ ${noscriptLinks}
       </header>
 
       <main class="main-content">
+        ${featuredSectionMarkup}
+
+        ${renderAdZone("ad-top", "after-featured")}
+
         <nav class="category-nav" aria-label="Competition categories">
           ${categoryNavMarkup}
         </nav>
@@ -636,25 +645,6 @@ ${noscriptLinks}
         </section>
 
         ${homeIntentLinksMarkup}
-
-        <section class="home-section home-section--featured" aria-label="Featured competitions">
-          <div class="home-section__header">
-            <div>
-              <p class="section-kicker">Featured This Week</p>
-              <h2 class="home-section__title">Standout competitions worth opening first</h2>
-            </div>
-            <a class="home-section__link" href="/tag/high-value/">See high-value picks</a>
-          </div>
-          <p class="home-section__intro">A premium shortlist of aspirational prizes with strong value, trusted brands, and enough urgency to act now.</p>
-          <div class="competition-grid competition-grid--featured">
-            ${featuredCardsMarkup}
-          </div>
-        </section>
-
-        <section class="ad-slot" id="ad-top" aria-label="Advertisement">
-          <p class="ad-slot__label">Featured Offers</p>
-          <p class="ad-slot__copy">A premium placement reserved for promoted competitions, brand campaigns, or affiliate-style opportunities that fit the page naturally.</p>
-        </section>
 
         <section class="controls" aria-label="Competition filters">
           <label class="search-field" for="searchInput">
@@ -701,10 +691,7 @@ ${noscriptLinks}
           </div>
         </section>
 
-        <section class="ad-slot ad-slot--compact" id="ad-middle" aria-label="Advertisement">
-          <p class="ad-slot__label">Recommended Opportunities</p>
-          <p class="ad-slot__copy">Use this mid-page section later for promoted competitions, native cards, or partner offers without breaking the browsing flow.</p>
-        </section>
+        ${renderAdZone("ad-middle", "after-results", true)}
 
         <section class="home-section home-section--steps" aria-label="How FreeHub Works">
           <h2 class="home-section__title">How FreeHub Works</h2>
@@ -737,24 +724,7 @@ ${noscriptLinks}
           </div>
         </section>
 
-        <section class="newsletter-block" aria-label="Competition alerts">
-          <div>
-            <p class="section-kicker">Alerts</p>
-            <h2 class="newsletter-block__title">Get the latest competitions in your inbox</h2>
-            <p class="newsletter-block__text">A lightweight alert block ready for email integration later. Use it for weekly roundups, high-value prizes, or ending-soon reminders.</p>
-          </div>
-          <form class="newsletter-form" action="#" method="post" novalidate>
-            <label class="visually-hidden" for="newsletterEmail">Email address</label>
-            <input id="newsletterEmail" name="email" type="email" placeholder="Enter your email address" />
-            <button type="button">Notify Me</button>
-          </form>
-          <p class="newsletter-block__hint">Integration-ready placeholder only. No backend wiring has been added yet.</p>
-        </section>
-
-        <section class="ad-slot" id="ad-bottom" aria-label="Advertisement">
-          <p class="ad-slot__label">Partner Placement</p>
-          <p class="ad-slot__copy">Bottom-of-page space ready for sponsorships, house offers, or a larger editorial-style native unit.</p>
-        </section>
+        ${renderAdZone("ad-bottom", "bottom")}
 
         <section class="seo-copy-block" aria-label="About competitions in South Africa">
           <h2 class="seo-copy-block__title">Competitions in South Africa, all in one place</h2>
@@ -768,7 +738,7 @@ ${noscriptLinks}
         <section class="home-cta" aria-label="Find more competitions">
           <h2 class="home-cta__title">Browse more prizes before the best ones disappear</h2>
           <div class="home-cta__actions">
-            <a class="btn btn--primary" href="#all-competitions">Browse All</a>
+            <a class="btn btn--primary" href="#all-competitions">Browse Today&apos;s Competitions</a>
             <a class="btn btn--secondary" href="/tag/ending-soon/">Ending Soon</a>
           </div>
         </section>
@@ -796,14 +766,7 @@ ${noscriptLinks}
       </footer>
     </div>
 
-    <aside class="ad-sticky" id="ad-sticky" aria-label="Advertisement">
-      <button class="ad-sticky__close" id="stickyAdClose" type="button" aria-label="Close advertisement">
-        &times;
-      </button>
-      <p class="ad-slot__label">Advertisement</p>
-      <p class="ad-slot__copy">Sticky mobile placement for high-visibility monetisation.</p>
-      <button class="ad-sticky__cta" id="stickyAdCta" type="button">View Offer</button>
-    </aside>
+    <aside class="ad-sticky ad-sticky--reserved" id="ad-sticky" aria-hidden="true"></aside>
 
     <script src="/shared/page-data.js" defer></script>
     <script src="/app.js" defer></script>
@@ -813,11 +776,17 @@ ${noscriptLinks}
 }
 
 function getFeaturedCompetitions(competitions, n) {
-  const PRIORITY_CATEGORIES = ["Cars", "Cash", "Holidays"];
+  const PRIORITY_CATEGORIES = ["Vouchers", "Cash", "Cars", "Holidays", "Tech"];
 
   const scored = competitions.map((c) => ({
     competition: c,
-    score: (c.isHighValue ? 10 : 0) + (PRIORITY_CATEGORIES.includes(c.category) ? 5 : 0),
+    score:
+      (c.isHighValue ? 10 : 0) +
+      (PRIORITY_CATEGORIES.includes(c.category) ? PRIORITY_CATEGORIES.length - PRIORITY_CATEGORIES.indexOf(c.category) : 0) +
+      (Array.isArray(c.tags) && c.tags.includes("free-entry") ? 3 : 0) +
+      (Array.isArray(c.tags) && c.tags.includes("high-value") ? 4 : 0) +
+      (Array.isArray(c.tags) && c.tags.includes("ending-soon") ? 5 : 0) +
+      (shared.isClosingWithinDays(c.closingDate, 7) ? 5 : 0),
   }));
 
   scored.sort((a, b) => {
@@ -930,10 +899,7 @@ function renderCompetitionPage(competition, allCompetitions) {
   );
   const categoryPath = categorySlug ? `/category/${categorySlug}/` : "/";
   const expired = isExpired(competition.closingDate);
-  const year = new Date(competition.closingDate).getFullYear();
-  const heroTitle = /\bcompetition\b/i.test(competition.title)
-    ? `${competition.title} ${year}`
-    : `${competition.title} Competition ${year}`;
+  const heroTitle = competition.title;
   const robotsDirective = expired
     ? "noindex, follow"
     : "index, follow, max-image-preview:large";
@@ -1072,10 +1038,7 @@ function renderCompetitionPage(competition, allCompetitions) {
 
         ${renderCompetitionInternalLinks(competition.category, categoryPath)}
 
-        <section class="ad-slot" id="ad-top" aria-label="Advertisement">
-          <p class="ad-slot__label">Advertisement</p>
-          <p class="ad-slot__copy">Top banner placeholder for future monetisation.</p>
-        </section>
+        ${renderAdZone("ad-top", "detail-top")}
 
         <article class="competition-detail" aria-label="${escapeAttribute(competition.title)}">
           <div class="competition-detail__media">
@@ -1088,6 +1051,7 @@ function renderCompetitionPage(competition, allCompetitions) {
               ${closingSoonBadge}
             </div>
             <div class="competition-detail__info">
+              <p><strong>Brand:</strong> ${escapeHtml(competition.brand || "Official promotion")}</p>
               <p${closingSoon && !expired ? ` class="competition-detail__info--urgent"` : ""}><strong>Closes:</strong> ${escapeHtml(formattedDate)}${closingSoon && !expired ? " · ending soon" : ""}</p>
               <p><strong>Entry:</strong> ${escapeHtml(competition.entryType)}</p>
               <p><strong>Source:</strong> ${escapeHtml(officialSource)}</p>
@@ -1098,9 +1062,9 @@ function renderCompetitionPage(competition, allCompetitions) {
             ${tagsMarkup}
             ${entryStepsMarkup}
             <div class="trust-chips">
-              <span class="trust-chip">Official promotion</span>
-              <span class="trust-chip">No sign-up on this site</span>
-              ${!purchaseRequired ? '<span class="trust-chip">Free to enter</span>' : ""}
+              <span class="trust-chip">Verified listing</span>
+              <span class="trust-chip">We link to official brand promotions</span>
+              <span class="trust-chip">No sign-up required on FreeHub</span>
             </div>
             <a
               class="competition-detail__cta"
@@ -1134,12 +1098,11 @@ function renderCompetitionPage(competition, allCompetitions) {
           <a class="competition-detail__cta" href="${escapeAttribute(outPath)}" target="_blank" rel="noopener noreferrer">Enter Competition</a>
         </section>` : ""}
 
-        <section class="ad-slot ad-slot--compact" id="ad-middle" aria-label="Advertisement">
-          <p class="ad-slot__label">Advertisement</p>
-          <p class="ad-slot__copy">Mid-page placement designed for sponsored content or display inventory.</p>
-        </section>
+        ${renderAdZone("ad-middle", "detail-inside", true)}
 
         ${relatedSection}
+
+        ${renderAdZone("ad-bottom", "after-related")}
 
         ${competition.brand ? `<section class="internal-links" aria-label="More from ${escapeAttribute(competition.brand)}">
           <p class="internal-links__title">More from ${escapeHtml(competition.brand)}</p>
@@ -1148,10 +1111,6 @@ function renderCompetitionPage(competition, allCompetitions) {
           </div>
         </section>` : ""}
 
-        <section class="ad-slot" id="ad-bottom" aria-label="Advertisement">
-          <p class="ad-slot__label">Advertisement</p>
-          <p class="ad-slot__copy">Bottom placement reserved for future ad network integration.</p>
-        </section>
       </main>
 
       <footer class="site-footer" aria-label="Site footer">
@@ -1176,14 +1135,7 @@ function renderCompetitionPage(competition, allCompetitions) {
       </footer>
     </div>
 
-    <aside class="ad-sticky" id="ad-sticky" aria-label="Advertisement">
-      <button class="ad-sticky__close" id="stickyAdClose" type="button" aria-label="Close advertisement">
-        &times;
-      </button>
-      <p class="ad-slot__label">Advertisement</p>
-      <p class="ad-slot__copy">Sticky mobile placement for high-visibility monetisation.</p>
-      <button class="ad-sticky__cta" id="stickyAdCta" type="button">View Offer</button>
-    </aside>
+    <aside class="ad-sticky ad-sticky--reserved" id="ad-sticky" aria-hidden="true"></aside>
 
     <script src="${RELATIVE_ASSET_PATH}shared/page-data.js" defer></script>
     <script src="${RELATIVE_ASSET_PATH}app.js" defer></script>
@@ -1254,15 +1206,9 @@ function renderOutPage(competition) {
           </a>
         </section>
 
-        <section class="ad-slot" id="ad-top" aria-label="Advertisement">
-          <p class="ad-slot__label">Advertisement</p>
-          <p class="ad-slot__copy">Top banner placeholder for future monetisation.</p>
-        </section>
+        ${renderAdZone("ad-top", "outbound-top")}
 
-        <section class="ad-slot ad-slot--compact" id="ad-middle" aria-label="Advertisement">
-          <p class="ad-slot__label">Advertisement</p>
-          <p class="ad-slot__copy">Mid-page placement designed for sponsored content or display inventory.</p>
-        </section>
+        ${renderAdZone("ad-middle", "outbound-middle", true)}
       </main>
 
       <footer class="site-footer" aria-label="Site footer">

@@ -10,6 +10,7 @@ const {
   getEntryMethodLabel,
   getEntryCostLabel,
   getCardHeadline,
+  getCardTagLabels,
   getPrizeCue,
   getUrgencyLabel,
   getUrgencyBadgeLabel,
@@ -62,8 +63,13 @@ const elements = {
 
 document.addEventListener("DOMContentLoaded", () => {
   bindEvents();
+  setupEngagementTracking();
   setupPageAds();
   setupStickyAd();
+
+  if (state.routeContext.type === "competition") {
+    trackDetailPageView();
+  }
 
   if (state.routeContext.type === "home") {
     loadCompetitions();
@@ -78,9 +84,31 @@ function bindEvents() {
     });
   }
 
+  document.addEventListener("click", (event) => {
+    const cardLink = event.target.closest(".competition-card__overlay-link");
+
+    if (!cardLink) {
+      return;
+    }
+
+    trackCompetitionCardElement(cardLink);
+  });
+
   document.querySelectorAll(".competition-detail__cta").forEach((cta) => {
     cta.addEventListener("click", () => {
-      trackCtaClick();
+      trackEnterCompetitionClick(cta);
+    });
+  });
+
+  document.querySelectorAll(".hero__cta").forEach((cta) => {
+    cta.addEventListener("click", () => {
+      trackEnterCompetitionClick(cta);
+    });
+  });
+
+  [...elements.categoryNavLinks, ...elements.popularSearchLinks].forEach((link) => {
+    link.addEventListener("click", () => {
+      trackCategoryFilterClick(link.textContent.trim(), link.getAttribute("href") || "");
     });
   });
 }
@@ -176,6 +204,8 @@ function renderCategoryFilters() {
     button.textContent = category;
     button.setAttribute("aria-pressed", String(category === state.activeCategory));
     button.addEventListener("click", () => {
+      trackCategoryFilterClick(category, getCategoryRoute(category));
+
       if (state.routeContext.type !== "home") {
         window.location.href = getCategoryRoute(category);
         return;
@@ -235,18 +265,17 @@ function renderCompetitions() {
 function createCompetitionCard(competition) {
   const article = document.createElement("article");
   article.className = "competition-card";
+  article.dataset.competitionSlug = getCompetitionSlug(competition);
+  article.dataset.competitionTitle = competition.title;
+  article.dataset.competitionCategory = competition.category;
 
   const overlayLink = document.createElement("a");
   overlayLink.className = "competition-card__overlay-link";
   overlayLink.href = getCompetitionPath(competition) + "/";
-  overlayLink.setAttribute("aria-label", `${competition.title} - enter now`);
-  overlayLink.addEventListener("click", () => {
-    trackCompetitionClick(competition);
-  });
-
+  overlayLink.setAttribute("aria-label", `${competition.title} - view details`);
   const overlayText = document.createElement("span");
   overlayText.className = "visually-hidden";
-  overlayText.textContent = `Enter ${competition.title} now`;
+  overlayText.textContent = `View details for ${competition.title}`;
   overlayLink.appendChild(overlayText);
 
   const media = document.createElement("div");
@@ -332,19 +361,17 @@ function createCompetitionCard(competition) {
   const tags = document.createElement("div");
   tags.className = "competition-card__tags";
 
-  const entryPill = document.createElement("span");
-  entryPill.className = "competition-card__entry";
-  entryPill.textContent = getEntryMethodLabel(competition.entryType);
-  tags.append(entryPill);
-
-  const entryCost = document.createElement("span");
-  entryCost.className = "badge badge--soft";
-  entryCost.textContent = getEntryCostLabel(competition);
-  tags.append(entryCost);
+  getCardTagLabels(competition).forEach((label) => {
+    const tag = document.createElement("span");
+    tag.className =
+      label === getEntryMethodLabel(competition.entryType) ? "competition-card__entry" : "badge badge--soft";
+    tag.textContent = label;
+    tags.append(tag);
+  });
 
   const cta = document.createElement("span");
   cta.className = "competition-card__cta";
-  cta.textContent = "Enter Now →";
+  cta.textContent = "View Details";
 
   footer.append(tags);
   body.append(footer, cta);
@@ -355,35 +382,9 @@ function createCompetitionCard(competition) {
 
 function createInlineAdCard(placement) {
   const article = document.createElement("article");
-  article.className = "sponsored-card";
-
-  const label = document.createElement("p");
-  label.className = "sponsored-card__label";
-  label.textContent = "Recommended Opportunities";
-
-  const title = document.createElement("h3");
-  title.className = "sponsored-card__title";
-  title.textContent = "Featured offers can live here without interrupting browsing";
-
-  const text = document.createElement("p");
-  text.className = "sponsored-card__text";
-  text.textContent =
-    "This in-feed slot is ready for promoted competitions, affiliate offers, or partner placements that match the page style.";
-
-  const hint = document.createElement("p");
-  hint.className = "sponsored-card__hint";
-  hint.textContent = "Monetisation-ready placement";
-
-  const cta = document.createElement("button");
-  cta.type = "button";
-  cta.className = "sponsored-card__cta";
-  cta.textContent = "View Featured Offer";
-  cta.setAttribute("aria-label", "View sponsored offer");
-  cta.addEventListener("click", () => {
-    openSponsoredOffer(placement, SPONSORED_OFFER_URL);
-  });
-
-  article.append(label, title, text, hint, cta);
+  article.className = "sponsored-card sponsored-card--reserved";
+  article.dataset.placement = placement;
+  article.setAttribute("aria-hidden", "true");
 
   return article;
 }
@@ -422,11 +423,22 @@ function hideStatusStates() {
 }
 
 function trackCompetitionClick(competition) {
-  if (typeof gtag !== "function") return;
-  gtag("event", "competition_click", {
+  sendGaEvent("competition_card_click", {
     competition_slug: getCompetitionSlug(competition),
     competition_title: competition.title,
     competition_category: competition.category,
+  });
+}
+
+function trackCompetitionCardElement(link) {
+  const card = link.closest(".competition-card");
+  const href = link.getAttribute("href") || "";
+
+  sendGaEvent("competition_card_click", {
+    competition_slug: card?.dataset.competitionSlug || href.split("/").filter(Boolean).pop(),
+    competition_title: card?.dataset.competitionTitle || link.getAttribute("aria-label") || "",
+    competition_category: card?.dataset.competitionCategory || "",
+    destination_path: href,
   });
 }
 
@@ -448,20 +460,77 @@ function handleAdVisibility(entries, observer) {
 }
 
 function trackAdView(placement) {
-  if (typeof gtag !== "function") return;
-  gtag("event", "ad_view", { placement });
+  sendGaEvent("ad_view", { placement });
 }
 
 function trackAdClick(placement) {
-  if (typeof gtag !== "function") return;
-  gtag("event", "ad_click", { placement });
+  sendGaEvent("ad_click", { placement });
 }
 
-function trackCtaClick() {
-  if (typeof gtag !== "function") return;
-  gtag("event", "cta_click", {
-    page_type: state.routeContext.type,
+function trackDetailPageView() {
+  sendGaEvent("detail_page_view", {
+    competition_slug: getCurrentCompetitionSlug(),
   });
+}
+
+function trackEnterCompetitionClick(link) {
+  const href = link.getAttribute("href") || "";
+
+  if (!href.includes("/out/")) {
+    return;
+  }
+
+  sendGaEvent("enter_competition_click", {
+    page_type: state.routeContext.type,
+    competition_slug: getCurrentCompetitionSlug(),
+    destination_path: href,
+    transport_type: "beacon",
+  });
+}
+
+function trackCategoryFilterClick(label, href) {
+  sendGaEvent("category_filter_click", {
+    filter_label: label,
+    destination_path: href,
+  });
+}
+
+function setupEngagementTracking() {
+  let scrolled50 = false;
+
+  window.addEventListener("scroll", () => {
+    if (scrolled50) {
+      return;
+    }
+
+    const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+    if (scrollableHeight <= 0) {
+      return;
+    }
+
+    if (window.scrollY / scrollableHeight >= 0.5) {
+      scrolled50 = true;
+      sendGaEvent("scroll_50", {
+        page_type: state.routeContext.type,
+      });
+    }
+  }, { passive: true });
+
+  window.setTimeout(() => {
+    sendGaEvent("time_on_site_30s", {
+      page_type: state.routeContext.type,
+    });
+  }, 30000);
+}
+
+function getCurrentCompetitionSlug() {
+  return state.routeContext.type === "competition" ? state.routeContext.slug : undefined;
+}
+
+function sendGaEvent(name, params) {
+  if (typeof gtag !== "function") return;
+  gtag("event", name, params);
 }
 
 function openSponsoredOffer(placement, url) {

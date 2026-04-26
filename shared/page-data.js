@@ -68,9 +68,9 @@
     title: "Free Competitions South Africa | Current Car, Holiday & Cash Giveaways",
     description:
       "Browse free competitions South Africa users are searching for, including current car competitions, holiday giveaways, cash prizes, tech offers, and vouchers.",
-    heading: "Win Cars, Cash, Holidays and Vouchers in South Africa",
+    heading: "Today's Live Competitions in South Africa",
     intro:
-      "Browse free competitions in South Africa from trusted brands, including current car competitions, holiday giveaways, cash prizes, and voucher offers.",
+      "FreeHub lists vouchers, prizes, cash giveaways and competitions from trusted South African brands so you can find offers worth opening today.",
     canonical: `${CANONICAL_ORIGIN}/`,
   };
   const TAG_COPY = {
@@ -387,6 +387,36 @@
     return "Free entry";
   }
 
+  function getCardTagLabels(competition) {
+    const tags = Array.isArray(competition.tags) ? competition.tags : [];
+    const labels = new Set();
+    const entryMethod = getEntryMethodLabel(competition.entryType);
+
+    labels.add(getEntryCostLabel(competition));
+
+    if (isHighValueCompetition(competition) || tags.includes("high-value")) {
+      labels.add("High Value");
+    }
+
+    if (isClosingWithinDays(competition.closingDate, ENDING_SOON_TAG_DAYS) || tags.includes("ending-soon")) {
+      labels.add("Ending Soon");
+    }
+
+    if (entryMethod === "App" || tags.includes("app")) {
+      labels.add("App");
+    }
+
+    if (entryMethod === "SMS" || tags.includes("sms")) {
+      labels.add("SMS");
+    }
+
+    if (tags.includes("purchase-required") || String(competition.entryType || "").toLowerCase().includes("purchase")) {
+      labels.add("Purchase Required");
+    }
+
+    return Array.from(labels).slice(0, 5);
+  }
+
   function shouldShowHotBadge(competition) {
     return isClosingSoon(competition.closingDate) || isHighValueCompetition(competition);
   }
@@ -593,6 +623,7 @@
     getPrimaryPrizeText,
     getCardHeadline,
     getEntryCostLabel,
+    getCardTagLabels,
     shouldShowHotBadge,
     isHighValueCompetition,
     sortCompetitions,
