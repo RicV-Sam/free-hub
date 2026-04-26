@@ -20,13 +20,15 @@ const TAG_LINKS = [
 
 function main() {
   const rawCompetitions = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
-  const allCompetitions = shared.sortCompetitions(
+  const validCompetitions = shared.sortCompetitions(
     rawCompetitions.filter((entry, index) => validateCompetition(entry, index))
   );
+  const allCompetitions = shared.getPublishedCompetitions(validCompetitions);
   const validSlugs = new Set(allCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
   removeStaleCompetitionDirectories(validSlugs);
   const competitions = allCompetitions.filter((competition) => !isExpired(competition.closingDate));
-  const routeContexts = shared.getAllStaticRouteContexts();
+  const routeContexts = getGeneratedRouteContexts(competitions);
+  removeStaleTagDirectories(routeContexts);
 
   fs.writeFileSync(path.join(ROOT_DIR, "index.html"), renderHomepage(competitions));
 
@@ -57,8 +59,21 @@ function main() {
     fs.writeFileSync(path.join(outputDirectory, "index.html"), html);
   });
 
-  fs.writeFileSync(path.join(ROOT_DIR, "sitemap.xml"), generateSitemap(competitions));
+  fs.writeFileSync(path.join(ROOT_DIR, "sitemap.xml"), generateSitemap(competitions, routeContexts));
   runStaticSeoChecks();
+}
+
+function getGeneratedRouteContexts(competitions) {
+  const categoryRouteContexts = shared.CATEGORY_SLUGS.map((slug) => ({
+    type: "category",
+    slug,
+    path: `/category/${slug}/`,
+  }));
+  const activeTagRouteContexts = shared.TAG_SLUGS
+    .filter((slug) => shared.getTagFilteredCompetitions(competitions, slug).length > 0)
+    .map((slug) => ({ type: "tag", slug, path: `/tag/${slug}/` }));
+
+  return [{ type: "home", slug: "", path: "/" }, ...categoryRouteContexts, ...activeTagRouteContexts];
 }
 
 const CATEGORY_FALLBACK_STYLES = {
@@ -489,9 +504,9 @@ function getCategoryInternalLinks(slug, competitions) {
     return {
       title: "Car Competition Searches",
       links: [
-        { label: "Current car competitions in South Africa", href: "/category/cars/" },
-        { label: "Free car competitions South Africa", href: "/tag/free-entry/" },
-        { label: "Win a car competition free entry", href: byIdPath("spar-win-a-car") },
+        { label: "Win a car competitions South Africa", href: "/tag/win-a-car/" },
+        { label: "Purchase-required car competitions", href: "/tag/purchase-required/" },
+        { label: "Toyota Vitz competitions", href: "/tag/toyota/" },
       ],
     };
   }
@@ -893,7 +908,8 @@ function buildHowToEnterSteps(competition) {
   const type = (competition.entryType || "").toLowerCase();
   const brand = competition.brand || "the brand";
   const date = shared.formatDate(competition.closingDate);
-  const purchaseRequired = Array.isArray(competition.tags) && competition.tags.includes("purchase-required");
+  const tags = Array.isArray(competition.tags) ? competition.tags : [];
+  const purchaseRequired = competition.purchaseRequired === true || tags.includes("purchase-required");
 
   if (type.includes("app")) {
     return [
@@ -984,8 +1000,8 @@ function renderCompetitionPage(competition, allCompetitions) {
     : "";
   const heroSubline = competition.brand ? `By ${competition.brand}` : competition.category;
   const closingSoon = shared.isClosingSoon(competition.closingDate);
-  const purchaseRequired = Array.isArray(competition.tags) && competition.tags.includes("purchase-required");
   const outPath = shared.getOutPath(competition) + "/";
+  const detailFactsMarkup = renderCompetitionDetailFacts(competition, formattedDate, officialSource, closingSoon, expired);
 
   const relatedCardsMarkup = relatedCompetitions.map((c) => renderCompetitionCard(c)).join("\n            ");
   const relatedSection = relatedCardsMarkup
@@ -1115,12 +1131,7 @@ function renderCompetitionPage(competition, allCompetitions) {
               ${brandBadge}
               ${closingSoonBadge}
             </div>
-            <div class="competition-detail__info">
-              <p><strong>Brand:</strong> ${escapeHtml(competition.brand || "Official promotion")}</p>
-              <p${closingSoon && !expired ? ` class="competition-detail__info--urgent"` : ""}><strong>Closes:</strong> ${escapeHtml(formattedDate)}${closingSoon && !expired ? " · ending soon" : ""}</p>
-              <p><strong>Entry:</strong> ${escapeHtml(competition.entryType)}</p>
-              <p><strong>Source:</strong> ${escapeHtml(officialSource)}</p>
-            </div>
+            ${detailFactsMarkup}
             <div class="competition-detail__summary">
               <p>${escapeHtml(description)}</p>
             </div>
@@ -1338,6 +1349,58 @@ function getRelatedCompetitions(competition, allCompetitions) {
   return scored.slice(0, 5).map((item) => item.competition);
 }
 
+function renderCompetitionDetailFacts(competition, formattedDate, officialSource, closingSoon, expired) {
+  const facts = [
+    { label: "Brand", value: competition.brand || "Official promotion" },
+    {
+      label: "Closes",
+      value: `${formattedDate}${closingSoon && !expired ? " · ending soon" : ""}`,
+      urgent: closingSoon && !expired,
+    },
+    { label: "Entry", value: competition.entryType },
+    { label: "Entry fee", value: competition.entryFeeLabel },
+    {
+      label: "Purchase required",
+      value:
+        typeof competition.purchaseRequired === "boolean"
+          ? competition.purchaseRequired
+            ? "Yes"
+            : "No"
+          : "",
+    },
+    { label: "Minimum spend", value: competition.minimumSpend },
+    { label: "Product required", value: competition.requiredProduct },
+    { label: "Entry channel", value: competition.entryChannel },
+    { label: "Driver's licence", value: formatDriverLicenceRequirement(competition.driverLicenceRequired) },
+    { label: "Region", value: competition.region },
+    { label: "Source", value: officialSource },
+  ].filter((fact) => fact.value !== undefined && fact.value !== null && String(fact.value).trim() !== "");
+
+  return `<div class="competition-detail__info">
+              ${facts
+                .map(
+                  (fact) =>
+                    `<p${fact.urgent ? ` class="competition-detail__info--urgent"` : ""}><strong>${escapeHtml(
+                      fact.label
+                    )}:</strong> ${escapeHtml(fact.value)}</p>`
+                )
+                .join("\n              ")}
+            </div>`;
+}
+
+function formatDriverLicenceRequirement(value) {
+  switch (value) {
+    case "yes":
+      return "Yes";
+    case "no":
+      return "No";
+    case "winner-or-nominated-driver":
+      return "Winner or nominated driver";
+    default:
+      return value || "";
+  }
+}
+
 const REQUIRED_FIELDS = ["id", "title", "brand", "category", "closingDate", "url"];
 
 function validateCompetition(entry, index) {
@@ -1360,6 +1423,14 @@ function isExpired(dateString) {
 }
 
 function buildHowToEnterSteps(competition) {
+  if (Array.isArray(competition.entrySteps) && competition.entrySteps.length > 0) {
+    return renderHowToEnterList(competition.entrySteps);
+  }
+
+  if (typeof competition.entrySteps === "string" && competition.entrySteps.trim()) {
+    return renderHowToEnterList([competition.entrySteps.trim()]);
+  }
+
   const type = (competition.entryType || "").toLowerCase();
   let steps;
 
@@ -1407,6 +1478,10 @@ function buildHowToEnterSteps(competition) {
     ];
   }
 
+  return renderHowToEnterList(steps);
+}
+
+function renderHowToEnterList(steps) {
   return `<div class="competition-detail__steps">
               <p class="competition-detail__steps-title"><strong>How to Enter</strong></p>
               <ol class="competition-detail__steps-list">
@@ -1415,19 +1490,14 @@ function buildHowToEnterSteps(competition) {
             </div>`;
 }
 
-function generateSitemap(competitions) {
+function generateSitemap(competitions, routeContexts) {
   const today = new Date().toISOString().split("T")[0];
   const origin = shared.CANONICAL_ORIGIN;
 
-  const staticEntries = [
-    `  <url>\n    <loc>${origin}/</loc>\n  </url>`,
-    ...shared.CATEGORY_SLUGS.map(
-      (slug) => `  <url>\n    <loc>${origin}/category/${slug}/</loc>\n  </url>`
-    ),
-    ...shared.TAG_SLUGS.map(
-      (slug) => `  <url>\n    <loc>${origin}/tag/${slug}/</loc>\n  </url>`
-    ),
-  ];
+  const staticEntries = routeContexts.map((routeContext) => {
+    const loc = routeContext.path === "/" ? `${origin}/` : `${origin}${routeContext.path}`;
+    return `  <url>\n    <loc>${loc}</loc>\n  </url>`;
+  });
 
   const competitionEntries = competitions
     .filter((competition) => !isExpired(competition.closingDate))
@@ -1469,8 +1539,31 @@ function removeStaleCompetitionDirectories(validSlugs) {
         const stalePath = path.join(managedDirectory, entry.name);
         fs.rmSync(stalePath, { recursive: true, force: true });
         console.log(`[generate-pages] Removed stale directory: ${stalePath}`);
-      });
+    });
   });
+}
+
+function removeStaleTagDirectories(routeContexts) {
+  const validTagSlugs = new Set(
+    routeContexts.filter((routeContext) => routeContext.type === "tag").map((routeContext) => routeContext.slug)
+  );
+  const tagDirectory = path.join(ROOT_DIR, "tag");
+
+  if (!fs.existsSync(tagDirectory)) {
+    return;
+  }
+
+  fs.readdirSync(tagDirectory, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .forEach((entry) => {
+      if (validTagSlugs.has(entry.name)) {
+        return;
+      }
+
+      const stalePath = path.join(tagDirectory, entry.name);
+      fs.rmSync(stalePath, { recursive: true, force: true });
+      console.log(`[generate-pages] Removed stale tag directory: ${stalePath}`);
+    });
 }
 
 function runStaticSeoChecks() {

@@ -68,6 +68,10 @@ function classifyCompetitions(competitions, today) {
   return { expired, active, closingSoon };
 }
 
+function isPublishedCompetition(competition) {
+  return competition.verificationStatus === "published";
+}
+
 function archiveExpiredCompetitions(expired, todayIso) {
   if (expired.length === 0) {
     return;
@@ -98,12 +102,13 @@ function saveActiveCompetitions(active) {
   fs.writeFileSync(DATA_PATH, `${JSON.stringify(active, null, 2)}\n`);
 }
 
-function printSummary({ total, expired, active, closingSoon, keywordCoverage, options, todayIso }) {
+function printSummary({ total, held, expired, active, closingSoon, keywordCoverage, options, todayIso }) {
   console.log("=== Competition Maintenance Report ===");
   console.log(`Date: ${todayIso}`);
   console.log(`Mode: ${options.archiveExpired ? "archive-expired" : "dry-run"}`);
   console.log(`Total competitions: ${total}`);
-  console.log(`Active competitions: ${active.length}`);
+  console.log(`Published competitions: ${active.length}`);
+  console.log(`Held for verification: ${held.length}`);
   console.log(`Expired competitions: ${expired.length}`);
   console.log(`Closing in next 14 days: ${closingSoon.length}`);
 
@@ -145,15 +150,23 @@ function printSummary({ total, expired, active, closingSoon, keywordCoverage, op
 
 function scanKeywordCoverage(activeCompetitions) {
   const text = activeCompetitions
-    .map((competition) => `${competition.title} ${competition.summary || ""}`.toLowerCase())
+    .map((competition) =>
+      [
+        competition.title,
+        competition.summary || "",
+        competition.entryType || "",
+        competition.entryFeeLabel || "",
+        competition.requiredProduct || "",
+        competition.entryChannel || "",
+        ...(competition.tags || []),
+      ]
+        .join(" ")
+        .toLowerCase()
+    )
     .join("\n");
 
   const clusters = {
-    cars: [
-      "free car competitions south africa",
-      "current car competitions",
-      "win a car competition free entry",
-    ],
+    cars: ["win-a-car", "purchase-required", "toyota", "suzuki", "hyundai", "isuzu"],
     holidays: ["win a holiday south africa", "holiday giveaway", "local getaway competition"],
     cash: ["cash competitions south africa", "win cash online south africa"],
     vouchers: ["voucher giveaway", "voucher competitions south africa", "takealot competitions"],
@@ -179,16 +192,18 @@ function main() {
   const todayIso = formatDateLocal(today);
 
   const competitions = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
-  const { expired, active, closingSoon } = classifyCompetitions(competitions, today);
+  const held = competitions.filter((competition) => !isPublishedCompetition(competition));
+  const { expired, active, closingSoon } = classifyCompetitions(competitions.filter(isPublishedCompetition), today);
   const keywordCoverage = scanKeywordCoverage(active);
 
   if (options.archiveExpired) {
     archiveExpiredCompetitions(expired, todayIso);
-    saveActiveCompetitions(active);
+    saveActiveCompetitions([...active, ...held]);
   }
 
   printSummary({
     total: competitions.length,
+    held,
     expired,
     active,
     closingSoon,

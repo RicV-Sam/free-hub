@@ -21,14 +21,14 @@
     },
     cars: {
       category: "Cars",
-      title: "Free Car Competitions South Africa | Current Car Competitions",
+      title: "Win a Car Competitions in South Africa | Current Car Giveaways",
       description:
-        "Browse current car competitions in South Africa, including free car competitions and test-drive giveaways you can enter today.",
-      heading: "Current Free Car Competitions in South Africa",
+        "Browse verified win-a-car competitions in South Africa, including Toyota, Suzuki, Hyundai, Isuzu and Chery giveaways.",
+      heading: "Win a Car Competitions in South Africa",
       intro:
-        "Looking for current car competitions in South Africa? Explore free car competitions, win-a-car promotions, and test-drive entries in one place so you can enter faster and miss fewer closing dates.",
+        "Browse current South African car competitions, including Toyota, Suzuki, Hyundai, Isuzu and Chery giveaways. Some competitions have no separate entry fee, while others require a product purchase, store spend, match ticket or paid raffle ticket.",
       support:
-        "Vehicle giveaways attract a lot of attention in South Africa, especially when trusted brands or retail partners are involved. We highlight free-to-enter car competitions and current car competitions so you can compare opportunities without digging through clutter.",
+        "Vehicle giveaways attract a lot of attention in South Africa, especially when trusted brands or retail partners are involved. We keep the entry cost, purchase requirement and official source visible so you can compare car competitions without guessing what is required.",
     },
     holidays: {
       category: "Holidays",
@@ -103,6 +103,136 @@
         "Explore high-value free-entry competitions in South Africa featuring bigger prizes like cash, cars, holidays, and electronics. If you are chasing standout rewards without paying to participate, this page is where the strongest draws come together.",
       support:
         "Large-prize competitions attract serious interest in South Africa, particularly when the reward feels life-changing or highly practical. This page helps you separate the most valuable no-cost opportunities from lighter everyday giveaways.",
+    },
+    "win-a-car": {
+      title: "Win a Car Competitions South Africa",
+      description:
+        "Browse verified South African win-a-car competitions with official source links, closing dates and entry requirements.",
+      heading: "Win a Car Competitions",
+      intro:
+        "Find current South African car giveaways with clear closing dates, entry channels, cost labels and promoter sources.",
+      support:
+        "Car competitions can involve free online forms, loyalty-card entries, store purchases, till slips, WhatsApp, USSD or paid tickets. We separate those requirements so the route to enter is clear.",
+    },
+    "purchase-required": {
+      title: "Purchase Required Competitions South Africa",
+      description:
+        "Browse competitions that require a qualifying product purchase, store spend or till slip before entry.",
+      heading: "Purchase Required Competitions",
+      intro:
+        "These competitions require a qualifying purchase or store spend before you can enter. Check the product, receipt and closing-date rules before taking part.",
+      support:
+        "A purchase-required competition is not the same as a simple free-entry draw. We label these listings separately so the cost and proof-of-purchase requirement are visible.",
+    },
+    "paid-entry": {
+      title: "Paid Entry Competitions South Africa",
+      description:
+        "Browse South African competitions that require a paid ticket, raffle entry or similar paid participation.",
+      heading: "Paid Entry Competitions",
+      intro:
+        "These competitions require a paid ticket or raffle-style entry. Review the official terms before buying an entry.",
+      support:
+        "Paid-entry competitions can still be legitimate, but they need clearer cost labelling than free or purchase-linked promotions.",
+    },
+    "online-entry": {
+      title: "Online Entry Competitions South Africa",
+      description:
+        "Browse competitions you can enter through online forms, quizzes or promoter websites.",
+      heading: "Online Entry Competitions",
+      intro:
+        "Find competitions with online forms, quizzes or website-based entry mechanics.",
+      support:
+        "Online-entry listings can be quick to enter, but the official source and eligibility rules still matter.",
+    },
+    "in-store-entry": {
+      title: "In-store Entry Competitions South Africa",
+      description:
+        "Browse in-store competitions using till slips, loyalty cards, entry boxes or participating retailers.",
+      heading: "In-store Entry Competitions",
+      intro:
+        "Find competitions that require an in-store action such as swiping a rewards card, keeping a till slip or using an entry box.",
+      support:
+        "In-store competitions often depend on participating branches, qualifying products and proof of purchase.",
+    },
+    "ussd-entry": {
+      title: "USSD Competitions South Africa",
+      description:
+        "Browse South African competitions that support USSD entry from a mobile phone.",
+      heading: "USSD Competitions",
+      intro:
+        "Find competitions that let you enter by dialling a USSD code from your phone.",
+      support:
+        "USSD competitions may have network or session charges, so always check the promoter's official terms.",
+    },
+    "whatsapp-entry": {
+      title: "WhatsApp Competitions South Africa",
+      description:
+        "Browse competitions that support WhatsApp entry through official promoter numbers.",
+      heading: "WhatsApp Competitions",
+      intro:
+        "Find competitions that let you submit an entry through WhatsApp prompts or official promoter numbers.",
+      support:
+        "WhatsApp entry can be convenient, but users should only use the number listed by the official promoter.",
+    },
+    toyota: {
+      title: "Toyota Competitions South Africa",
+      description:
+        "Browse verified South African competitions with Toyota vehicle prizes.",
+      heading: "Toyota Competitions",
+      intro:
+        "Find current South African competitions featuring Toyota vehicle prizes.",
+      support:
+        "Toyota prize pages are useful when several active campaigns use Toyota Vitz or Corolla Cross vehicles.",
+    },
+    suzuki: {
+      title: "Suzuki Competitions South Africa",
+      description:
+        "Browse verified South African competitions with Suzuki vehicle prizes.",
+      heading: "Suzuki Competitions",
+      intro:
+        "Find current South African competitions featuring Suzuki Swift prizes.",
+      support:
+        "Suzuki Swift giveaways often appear in product-purchase promotions, so we make the purchase and entry channel clear.",
+    },
+    hyundai: {
+      title: "Hyundai Competitions South Africa",
+      description:
+        "Browse verified South African competitions with Hyundai vehicle prizes.",
+      heading: "Hyundai Competitions",
+      intro:
+        "Find current South African competitions featuring Hyundai vehicle prizes.",
+      support:
+        "Hyundai car promotions can draw heavy interest, especially where national retailers are involved.",
+    },
+    isuzu: {
+      title: "Isuzu Competitions South Africa",
+      description:
+        "Browse verified South African competitions with Isuzu vehicle prizes.",
+      heading: "Isuzu Competitions",
+      intro:
+        "Find current South African competitions featuring Isuzu vehicle prizes.",
+      support:
+        "Isuzu vehicle prizes may require a valid driver's licence or nominated-driver details before handover.",
+    },
+    chery: {
+      title: "Chery Competitions South Africa",
+      description:
+        "Browse verified South African competitions with Chery vehicle prizes.",
+      heading: "Chery Competitions",
+      intro:
+        "Find current South African competitions featuring Chery vehicle prizes.",
+      support:
+        "Chery prize listings are only published when the closing date and official terms are clear.",
+    },
+    regional: {
+      title: "Regional Competitions South Africa",
+      description:
+        "Browse competitions limited to specific South African regions, stores or participating branches.",
+      heading: "Regional Competitions",
+      intro:
+        "Find competitions limited to specific stores, cities, provinces or participating branches.",
+      support:
+        "Regional competitions can be useful for local search, but users need branch and eligibility details before entering.",
     },
   };
   const THIN_PAGE_TIPS = [
@@ -308,6 +438,10 @@
 
     if (normalized.includes("app")) return "App";
     if (normalized.includes("sms")) return "SMS";
+    if (normalized.includes("ussd")) return "USSD";
+    if (normalized.includes("whatsapp")) return "WhatsApp";
+    if (normalized.includes("qr")) return "QR";
+    if (normalized.includes("ticket")) return "Ticket";
     if (normalized.includes("in-store")) return "In-store";
     if (normalized.includes("social")) return "Social";
     if (normalized.includes("survey") || normalized.includes("form")) return "Online";
@@ -343,7 +477,7 @@
       return "Voucher prize";
     }
 
-    if (/\b(car|toyota|hyundai|starlet|suv|swift|corolla|hilux)\b/.test(lower)) {
+    if (/\b(car|toyota|hyundai|starlet|suv|swift|corolla|hilux|vitz|exter|isuzu|chery)\b/.test(lower)) {
       return "Car prize";
     }
 
@@ -372,6 +506,8 @@
       /\b(Kia [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
       /\b(Nissan [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
       /\b(Ford [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
+      /\b(Isuzu [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
+      /\b(Chery [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
       /\b(Mauritius Holiday)\b/i,
       /\b(Zanzibar (?:Holiday|Getaway))\b/i,
       /\b(Victoria Falls (?:trip|getaway))\b/i,
@@ -452,8 +588,18 @@
 
   function getEntryCostLabel(competition) {
     const tags = Array.isArray(competition.tags) ? competition.tags : [];
+    const entryFeeLabel = String(competition.entryFeeLabel || "").toLowerCase();
 
-    if (tags.includes("purchase-required")) {
+    if (
+      tags.includes("paid-entry") ||
+      entryFeeLabel.includes("paid") ||
+      entryFeeLabel.includes("ticket") ||
+      /^r\s?[1-9]/i.test(entryFeeLabel)
+    ) {
+      return "Paid entry";
+    }
+
+    if (competition.purchaseRequired === true || tags.includes("purchase-required")) {
       return "Purchase required";
     }
 
@@ -483,11 +629,27 @@
       labels.add("SMS");
     }
 
-    if (tags.includes("purchase-required") || String(competition.entryType || "").toLowerCase().includes("purchase")) {
-      labels.add("Purchase Required");
+    if (entryMethod === "USSD" || tags.includes("ussd-entry")) {
+      labels.add("USSD");
+    }
+
+    if (entryMethod === "WhatsApp" || tags.includes("whatsapp-entry")) {
+      labels.add("WhatsApp");
+    }
+
+    if (tags.includes("purchase-required") || competition.purchaseRequired === true) {
+      labels.add("Purchase required");
     }
 
     return Array.from(labels).slice(0, 5);
+  }
+
+  function isPublishedCompetition(competition) {
+    return competition && competition.verificationStatus === "published";
+  }
+
+  function getPublishedCompetitions(competitions) {
+    return competitions.filter(isPublishedCompetition);
   }
 
   function shouldShowHotBadge(competition) {
@@ -511,7 +673,7 @@
   }
 
   function getTagFilteredCompetitions(competitions, tag) {
-    return competitions.filter((competition) => {
+    return getPublishedCompetitions(competitions).filter((competition) => {
       if (Array.isArray(competition.tags) && competition.tags.includes(tag)) {
         return true;
       }
@@ -526,7 +688,15 @@
 
       switch (tag) {
         case "free-entry":
-          return competition.entryType.toLowerCase().includes("free");
+          return (
+            competition.entryType.toLowerCase().includes("free") &&
+            competition.purchaseRequired !== true &&
+            !String(competition.entryFeeLabel || "").match(/^r\s?\d/i)
+          );
+        case "purchase-required":
+          return competition.purchaseRequired === true;
+        case "paid-entry":
+          return getEntryCostLabel(competition) === "Paid entry";
         case "ending-soon":
           return isClosingWithinDays(competition.closingDate, ENDING_SOON_TAG_DAYS);
         case "high-value":
@@ -614,16 +784,18 @@
   }
 
   function filterCompetitionsByRoute(competitions, routeContext) {
+    const publishedCompetitions = getPublishedCompetitions(competitions);
+
     if (routeContext.type === "category") {
       const targetCategory = CATEGORY_COPY[routeContext.slug].category;
-      return competitions.filter((competition) => competition.category === targetCategory);
+      return publishedCompetitions.filter((competition) => competition.category === targetCategory);
     }
 
     if (routeContext.type === "tag") {
-      return getTagFilteredCompetitions(competitions, routeContext.slug);
+      return getTagFilteredCompetitions(publishedCompetitions, routeContext.slug);
     }
 
-    return competitions;
+    return publishedCompetitions;
   }
 
   function buildStructuredData(competitions, routeContext) {
@@ -698,6 +870,8 @@
     getCardHeadline,
     getEntryCostLabel,
     getCardTagLabels,
+    isPublishedCompetition,
+    getPublishedCompetitions,
     shouldShowHotBadge,
     isHighValueCompetition,
     sortCompetitions,

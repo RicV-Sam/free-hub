@@ -1,199 +1,320 @@
 [
   {
-    "id": "boxer-nedbank-greenbacks",
-    "title": "Boxer Nedbank Greenbacks Competition",
-    "brand": "Boxer Superstores",
-    "summary": "Boxer shoppers can enter for monthly Nedbank Greenbacks prizes through this live retail promotion. It is a practical cash-style reward for everyday spending rather than a one-off jackpot.",
-    "entrySteps": "Open the competition page, check the Boxer purchase rules, and follow the promoter's entry instructions.",
-    "image": "https://www.winsomething.co.za/storage/app/uploads/public/695/9fe/283/6959fe2832be5345559742.jpg",
-    "closingDate": "2026-06-30",
-    "category": "Cash",
-    "entryType": "In-store Purchase",
+    "id": "hinds-pick-n-pay-suzuki-swift",
+    "title": "Hinds Pick n Pay Smart Shopper Competition - Win a Suzuki Swift",
+    "brand": "Hinds Spices / Pick n Pay",
+    "summary": "Buy qualifying Hinds or Southern products at Pick n Pay and swipe Smart Shopper, or buy online with Smart Shopper linked before checkout, for a chance to win 1 of 2 Suzuki Swift 1.2 GL 5MT cars.",
+    "entrySteps": [
+      "Buy qualifying Hinds Spices, Southern Coating or Southern Grill products at Pick n Pay before 23:59 on 4 May 2026.",
+      "Swipe your Smart Shopper card in store, or link Smart Shopper to your Pick n Pay online or asap profile before checkout.",
+      "Keep your proof of purchase for verification if you are drawn as a potential winner.",
+      "Make sure your Smart Shopper profile is registered and opted in for communication."
+    ],
+    "closingDate": "2026-05-04",
+    "category": "Cars",
+    "entryType": "Smart Shopper / Online Grocery",
     "tags": [
-      "cash",
-      "free-entry",
+      "cars",
+      "win-a-car",
+      "suzuki",
+      "purchase-required",
+      "in-store-entry",
+      "online-entry",
+      "high-value",
+      "ending-soon"
+    ],
+    "isHighValue": true,
+    "isEndingSoon": true,
+    "url": "https://hindsspices.co.za/competitions/",
+    "verificationStatus": "published",
+    "entryFeeLabel": "No separate entry fee",
+    "purchaseRequired": true,
+    "requiredProduct": "Qualifying Hinds or Southern products",
+    "entryChannel": "Smart Shopper card, Pick n Pay online or Pick n Pay asap",
+    "driverLicenceRequired": "yes",
+    "region": "National"
+  },
+  {
+    "id": "hinds-checkstar-suzuki-swift",
+    "title": "Hinds Checkstar Competition - Win a Suzuki Swift",
+    "brand": "Hinds Spices / Checkstar",
+    "summary": "Buy qualifying Hinds or Southern products at participating Checkstar stores for a chance to win a Suzuki Swift 1.2 GL 5MT. Write your details on the till slip and drop it into the in-store entry box.",
+    "entrySteps": [
+      "Buy a qualifying Hinds Spices, Southern Coating or Southern Grill product at a participating Checkstar store.",
+      "Write your name, surname and mobile number on the back of the till slip.",
+      "Drop the till slip into the competition entry box provided in store.",
+      "Enter before the competition closes at 23:59 on 4 May 2026."
+    ],
+    "closingDate": "2026-05-04",
+    "category": "Cars",
+    "entryType": "In-store Till Slip",
+    "tags": [
+      "cars",
+      "win-a-car",
+      "suzuki",
+      "purchase-required",
+      "in-store-entry",
+      "high-value",
+      "regional",
+      "ending-soon"
+    ],
+    "isHighValue": true,
+    "isEndingSoon": true,
+    "url": "https://hindsspices.co.za/competitions/",
+    "verificationStatus": "published",
+    "entryFeeLabel": "No separate entry fee",
+    "purchaseRequired": true,
+    "requiredProduct": "Qualifying Hinds or Southern products",
+    "entryChannel": "Till slip entry box",
+    "region": "Participating Checkstar stores in KZN"
+  },
+  {
+    "id": "spar-win-a-car",
+    "title": "SPAR Win a Car - Win 1 of 50 Hyundai EXTER Cars",
+    "brand": "SPAR",
+    "summary": "SPAR Rewards shoppers can win 1 of 50 fiery red Hyundai EXTER cars by buying participating products and swiping a SPAR Rewards card. The campaign is promoted across SPAR, TOPS at SPAR, SPAR2U, SPAR Express and SaveMor.",
+    "entrySteps": [
+      "Buy any participating SPAR Win a Car product during the campaign period.",
+      "Swipe your SPAR Rewards card when you purchase the qualifying product.",
+      "Check the official SPAR page for participating products across SPAR, TOPS at SPAR, SPAR2U, SPAR Express and SaveMor.",
+      "Enter before the competition closes on 10 May 2026."
+    ],
+    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69d/209/fec/69d209fec0e89679269419.jpg",
+    "closingDate": "2026-05-10",
+    "category": "Cars",
+    "entryType": "SPAR Rewards Card",
+    "tags": [
+      "cars",
+      "win-a-car",
+      "hyundai",
+      "purchase-required",
+      "in-store-entry",
       "high-value"
     ],
     "isHighValue": true,
     "isEndingSoon": false,
-    "url": "https://www.winsomething.co.za/win/vouchers/64"
+    "url": "https://www.spar.co.za/winacar",
+    "verificationStatus": "published",
+    "entryFeeLabel": "No separate entry fee",
+    "purchaseRequired": true,
+    "requiredProduct": "Participating SPAR Win a Car products",
+    "entryChannel": "SPAR Rewards card swipe",
+    "region": "National"
+  },
+  {
+    "id": "hinds-shoprite-checkers-win-a-car",
+    "title": "Hinds Shoprite and Checkers Competition - Win 1 of 6 Cars",
+    "brand": "Hinds Spices / Shoprite / Checkers",
+    "summary": "Buy a qualifying Hinds product at Shoprite, Checkers, Checkers Hyper or through Checkers Sixty60 for a chance to win 1 of 6 vehicles valued at about R211,500 each. Entrants must use or link Xtra Savings and keep their receipt or Sixty60 invoice.",
+    "entrySteps": [
+      "Buy a qualifying Hinds product at Shoprite, Checkers, Checkers Hyper or via Checkers Sixty60.",
+      "Swipe your Xtra Savings card in store or make sure Xtra Savings is linked before checking out online.",
+      "Keep your till slip or Sixty60 invoice as proof of purchase.",
+      "Enter before the competition closes at 23:59 on 10 May 2026."
+    ],
+    "closingDate": "2026-05-10",
+    "category": "Cars",
+    "entryType": "Xtra Savings / Sixty60",
+    "tags": [
+      "cars",
+      "win-a-car",
+      "purchase-required",
+      "in-store-entry",
+      "online-entry",
+      "high-value"
+    ],
+    "isHighValue": true,
+    "isEndingSoon": false,
+    "url": "https://hindsspices.co.za/competitions/",
+    "verificationStatus": "published",
+    "entryFeeLabel": "No separate entry fee",
+    "purchaseRequired": true,
+    "requiredProduct": "Qualifying Hinds products",
+    "entryChannel": "Xtra Savings card or linked Checkers Sixty60 profile",
+    "region": "National"
+  },
+  {
+    "id": "ok-furniture-big-brands-toyota-vitz",
+    "title": "OK Furniture Big Brands Competition - Win a Toyota Vitz",
+    "brand": "OK Furniture / OK Power Express",
+    "summary": "Buy participating Big Brands items from OK Furniture or OK Power Express for a chance to win 1 of 16 Toyota Vitz 1.0 MT cars. Cash-and-carry shoppers enter by scanning the QR code, with one entry allowed per invoice.",
+    "entrySteps": [
+      "Buy participating Big Brands items from OK Furniture or OK Power Express during the campaign period.",
+      "Keep your invoice as proof of purchase.",
+      "If you are a cash-and-carry shopper, scan the competition QR code and submit the required invoice details.",
+      "Submit only one entry per invoice before the competition closes on 24 May 2026."
+    ],
+    "closingDate": "2026-05-24",
+    "category": "Cars",
+    "entryType": "In-store / QR",
+    "tags": [
+      "cars",
+      "win-a-car",
+      "toyota",
+      "purchase-required",
+      "in-store-entry",
+      "high-value"
+    ],
+    "isHighValue": true,
+    "isEndingSoon": false,
+    "url": "https://www.okfurniture.co.za/big-brands-competition-2026-terms-and-conditions",
+    "verificationStatus": "published",
+    "entryFeeLabel": "No separate entry fee",
+    "purchaseRequired": true,
+    "requiredProduct": "Participating Big Brands items from OK Furniture or OK Power Express",
+    "entryChannel": "In-store purchase and QR entry",
+    "region": "National"
+  },
+  {
+    "id": "comrades-toyota-corolla-cross",
+    "title": "Comrades Toyota Win-a-Car Competition - Win a Corolla Cross",
+    "brand": "Comrades Marathon / Toyota",
+    "summary": "Buy a R50 ticket for the 2026 Comrades Toyota Win-a-Car competition and stand a chance to win a Toyota Corolla Cross. The draw takes place on Comrades race day, with entries after 14:00 on 14 June 2026 disqualified.",
+    "entrySteps": [
+      "Open the official Comrades Toyota Win-a-Car page and follow the Purchase Tickets link.",
+      "Buy a R50 competition ticket through the official ticketing flow.",
+      "Keep your ticket confirmation for your records.",
+      "Make sure your entry is completed before 14:00 on 14 June 2026."
+    ],
+    "closingDate": "2026-06-14",
+    "category": "Cars",
+    "entryType": "Online Ticket / Charity Raffle",
+    "tags": [
+      "cars",
+      "win-a-car",
+      "toyota",
+      "paid-entry",
+      "online-entry",
+      "high-value"
+    ],
+    "isHighValue": true,
+    "isEndingSoon": false,
+    "url": "https://www.comrades.com/charities/win-a-car",
+    "verificationStatus": "published",
+    "entryFeeLabel": "R50 ticket",
+    "purchaseRequired": false,
+    "entryChannel": "Online ticket purchase",
+    "region": "South African residents only"
   },
   {
     "id": "ram-couriers-vodacom-bulls",
-    "title": "RAM Couriers - Vodacom Bulls",
-    "brand": "Vodacom Bulls",
-    "summary": "This promo pairs a vehicle giveaway with an extra cash prize, making it one of the stronger mixed-value draws in the current lineup. It is tied to the Vodacom Bulls brand partnership and uses a form-based entry route.",
-    "entrySteps": "Open the listing, complete the entry form, and follow the official campaign terms before submitting.",
+    "title": "RAM Couriers / Vodacom Bulls Isuzu X-Rider Competition",
+    "brand": "RAM Couriers / Vodacom Bulls",
+    "summary": "Answer the official SuperSport competition question for a chance to win the Isuzu X-Rider grand prize. The promotion also includes R5,000 cash prizes linked to Vodacom Bulls URC matches, with DStv Rewards entries included in the draw pool.",
+    "entrySteps": [
+      "Open the official SuperSport RAM Couriers / Vodacom Bulls competition page.",
+      "Answer the competition question and complete the online entry details.",
+      "Read and accept the competition terms before submitting your entry.",
+      "Keep in mind that the Isuzu X-Rider winner must have a valid driver's licence and will be contacted by the promoter."
+    ],
     "image": "https://www.winsomething.co.za/storage/app/uploads/public/695/8ca/32c/6958ca32c2965348117585.png",
     "closingDate": "2026-06-15",
     "category": "Cars",
-    "entryType": "Survey / Form",
+    "entryType": "Online Quiz",
     "tags": [
       "cars",
-      "free-entry",
-      "high-value",
-      "vodacom"
+      "win-a-car",
+      "isuzu",
+      "online-entry",
+      "high-value"
     ],
     "isHighValue": true,
     "isEndingSoon": false,
-    "url": "https://www.winsomething.co.za/win/vehicles/49"
+    "url": "https://beta.supersport.com/competitions/3494",
+    "verificationStatus": "published",
+    "entryFeeLabel": "R0 online entry; DStv Rewards route may require account access",
+    "purchaseRequired": false,
+    "entryChannel": "Online quiz / DStv Rewards",
+    "driverLicenceRequired": "yes",
+    "region": "South Africa"
   },
   {
     "id": "aquelle-mzansi-mango",
-    "title": "aQuellé Mzansi Mango Competition",
-    "brand": "aQuellé",
-    "summary": "aQuellé is running a vehicle-led promotion with a Suzuki Swift as the headline prize. It is a strong lifestyle draw for people looking for mainstream brand campaigns with a clear closing date.",
-    "entrySteps": "Visit the promo page, confirm the qualifying purchase steps, and submit your entry using the official campaign mechanics.",
+    "title": "aQuelle Mzansi Mango Competition - Win a Suzuki Swift",
+    "brand": "aQuelle",
+    "summary": "Buy aQuelle Mzansi Mango and use the unique under-cap code to enter for 1 of 2 Suzuki Swift 1.2 CVT cars valued at about R270,000 each. Entries are supported through USSD, QR code and WhatsApp mechanics.",
+    "entrySteps": [
+      "Buy a new limited-edition aQuelle Mzansi Mango drink during the competition period.",
+      "Find the unique code under the bottle cap and keep your till slip for verification.",
+      "Enter by dialling the official USSD code, scanning the on-pack QR code, or sending MANGO to the official WhatsApp number.",
+      "Follow the prompts and submit the under-cap code before 23:59 on 15 June 2026."
+    ],
     "image": "https://www.winsomething.co.za/storage/app/uploads/public/697/7cd/870/6977cd8709041811085740.jpg",
     "closingDate": "2026-06-15",
     "category": "Cars",
-    "entryType": "In-store Purchase",
+    "entryType": "USSD / WhatsApp / QR",
     "tags": [
       "cars",
-      "free-entry",
-      "high-value",
-      "new"
+      "win-a-car",
+      "suzuki",
+      "purchase-required",
+      "ussd-entry",
+      "whatsapp-entry",
+      "high-value"
     ],
     "isHighValue": true,
     "isEndingSoon": false,
-    "url": "https://www.winsomething.co.za/win/vehicles/100"
+    "url": "https://aquelle.co.za/wp-content/uploads/2026/01/aQuelle-Mzansi-Mango-Competition-TCs-Nov-2025.pdf",
+    "verificationStatus": "published",
+    "entryFeeLabel": "No separate entry fee",
+    "purchaseRequired": true,
+    "requiredProduct": "aQuelle Mzansi Mango with an under-cap code",
+    "entryChannel": "USSD, QR code or WhatsApp",
+    "driverLicenceRequired": "winner-or-nominated-driver",
+    "region": "National"
   },
   {
-    "id": "revlon-matric-dance-vouchers",
-    "title": "Revlon Fragrance Take Scentre Stage Matric Dance 2026 Competition",
-    "brand": "Revlon",
-    "summary": "Revlon is promoting a beauty-focused prize bundle built around matric dance prep vouchers. It is a useful retail giveaway for shoppers looking for style and self-care rewards rather than big-ticket items.",
-    "entrySteps": "Open the offer page, read the qualifying purchase instructions, and enter through the official Revlon promo flow.",
-    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/a78/3fe/69aa783fea4d8767812682.jpg",
-    "closingDate": "2026-05-31",
-    "category": "Vouchers",
-    "entryType": "In-store Purchase",
-    "tags": [
-      "vouchers",
-      "free-entry",
-      "new"
+    "id": "looters-warehouse-toyota-vitz",
+    "title": "Looters Warehouse Competition - Win a Toyota Vitz",
+    "brand": "Looters Warehouse",
+    "summary": "Spend R350 or more in a single transaction at a participating Looters store for a chance to win a white 2026 Toyota Vitz 1.0 valued at about R180,000. Four store finalists are drawn before the grand final in Cape Town.",
+    "entrySteps": [
+      "Spend R350 or more in one transaction at a participating Looters store between 3 April and 30 June 2026.",
+      "Write your full name, surname and contact number on the back of your till slip.",
+      "Drop the till slip into the official competition entry box inside the same store.",
+      "Keep your proof of purchase and be available for finalist verification if drawn."
     ],
-    "isHighValue": false,
-    "isEndingSoon": false,
-    "url": "https://www.winsomething.co.za/win/goods/110"
-  },
-  {
-    "id": "spar-win-a-car",
-    "title": "SPAR WIN A CAR",
-    "brand": "SPAR",
-    "summary": "SPAR's current car campaign is one of the biggest mainstream retail draws available, with multiple Hyundai vehicles on offer. It is exactly the kind of high-visibility promo that gives the cars category real depth.",
-    "entrySteps": "Open the SPAR-linked competition page, check the qualifying spend or product rules, and enter before the closing date.",
-    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69d/209/fec/69d209fec0e89679269419.jpg",
-    "closingDate": "2026-05-10",
+    "closingDate": "2026-06-30",
     "category": "Cars",
-    "entryType": "In-store Purchase",
+    "entryType": "In-store Till Slip",
     "tags": [
       "cars",
-      "free-entry",
+      "win-a-car",
+      "toyota",
+      "purchase-required",
+      "in-store-entry",
       "high-value",
-      "new"
+      "regional"
     ],
     "isHighValue": true,
     "isEndingSoon": false,
-    "url": "https://www.winsomething.co.za/win/vehicles/117"
+    "url": "https://looters.co.za/win-a-car/",
+    "verificationStatus": "published",
+    "entryFeeLabel": "No separate entry fee",
+    "purchaseRequired": true,
+    "minimumSpend": "R350 in one transaction",
+    "entryChannel": "Till slip entry box",
+    "driverLicenceRequired": "yes",
+    "region": "Retreat, Somerset West, Durban North and Ballito stores"
   },
   {
-    "id": "cruise-nicely-this-easter",
-    "title": "Cruise Nicely this Easter!",
-    "brand": "MSC Cruises",
-    "summary": "This travel promotion offers a cruise prize instead of a simple voucher, which makes it one of the stronger holiday-style entries on the hub. It is a clear fit for users chasing experience-led rewards.",
-    "entrySteps": "Open the campaign page, review the purchase or entry requirements, and complete the steps listed by the promoter.",
-    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69d/20c/cb1/69d20ccb13864518324858.jpg",
-    "closingDate": "2026-05-06",
-    "category": "Holidays",
-    "entryType": "In-store Purchase",
-    "tags": [
-      "holidays",
-      "free-entry",
-      "high-value",
-      "new"
-    ],
-    "isHighValue": true,
-    "isEndingSoon": false,
-    "url": "https://www.winsomething.co.za/win/travel/118"
-  },
-  {
-    "id": "nestle-nido-grow-with-love",
-    "title": "Nestle NIDO 3+ Grow with Love Campaign Competition",
-    "brand": "Nestlé NIDO",
-    "summary": "Nestlé's NIDO campaign is built around Clicks cashback, making it useful for shoppers who prefer practical rewards they can actually use. It is a good example of a retail-linked prize that still feels low-friction to enter.",
-    "entrySteps": "Visit the competition page, confirm the qualifying purchase details, and follow the brand's listed entry process.",
-    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/a7c/7c1/69aa7c7c1a73e808200361.jpg",
-    "closingDate": "2026-04-30",
+    "id": "woolworths-mydifference-cash-boost",
+    "title": "Woolworths MyDifference Cash Boost",
+    "brand": "Woolworths",
     "category": "Cash",
-    "entryType": "In-store Purchase",
+    "entryType": "Online",
+    "closingDate": "2026-04-26",
+    "url": "https://mtd.woolworths.co.za/mydifference-cash-boost-2026",
+    "summary": "Join or log in to MyDifference, complete the featured impact action, and submit your entry online. One grand-prize winner takes home R250,000 in cash, with smaller weekly cash prizes up for grabs.",
     "tags": [
+      "online-entry",
       "cash",
+      "high-value",
       "free-entry",
-      "ending-soon",
-      "new"
+      "weekly-draw",
+      "ending-soon"
     ],
-    "isHighValue": false,
-    "isEndingSoon": true,
-    "url": "https://www.winsomething.co.za/win/vouchers/111"
-  },
-  {
-    "id": "gummy-vites-back-to-school",
-    "title": "Gummy Vites Back to School Competition",
-    "brand": "Gummy Vites",
-    "summary": "Gummy Vites is offering a family travel voucher, which gives the holidays section another practical local getaway option. It is a useful mid-range travel prize rather than an ultra-luxury destination draw.",
-    "entrySteps": "Open the listing, review the promo mechanics, and complete the required store or brand entry steps.",
-    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/a83/832/69aa83832bfb1871744706.jpg",
-    "closingDate": "2026-04-30",
-    "category": "Holidays",
-    "entryType": "In-store Purchase",
-    "tags": [
-      "holidays",
-      "free-entry",
-      "ending-soon",
-      "new"
-    ],
-    "isHighValue": false,
-    "isEndingSoon": true,
-    "url": "https://www.winsomething.co.za/win/travel/114"
-  },
-  {
-    "id": "tag-a-parent-checkers-voucher",
-    "title": "Tag a Parent - Win Checkers Voucher",
-    "brand": "Checkers",
-    "summary": "This Checkers-linked voucher giveaway is a practical, family-oriented prize aimed at everyday essentials rather than luxury rewards. It adds a recognisable national retail brand to the vouchers mix.",
-    "entrySteps": "Open the listing, check the social or promo entry instructions, and follow the brand's participation steps.",
-    "image": "https://www.winsomething.co.za/storage/app/uploads/public/695/f7e/357/695f7e357a4c6224439883.jpg",
-    "closingDate": "2026-05-31",
-    "category": "Vouchers",
-    "entryType": "Social Media Share",
-    "tags": [
-      "vouchers",
-      "free-entry",
-      "new"
-    ],
-    "isHighValue": false,
-    "isEndingSoon": false,
-    "url": "https://www.winsomething.co.za/win/vouchers/80"
-  },
-  {
-    "id": "game-store-gadget-giveaway",
-    "title": "Win Tech Gadgets from Game",
-    "brand": "Game",
-    "summary": "Game regularly uses its retail hub and marketing channels for gadget-led campaigns, making this a useful tech catch-all entry point. It broadens the electronics coverage beyond the current supermarket-style promos.",
-    "entrySteps": "Open the Game site, head to the latest competitions or promo area, and enter through the active campaign page.",
-    "image": "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=900&q=80",
-    "closingDate": "2026-05-10",
-    "category": "Tech",
-    "entryType": "Free Entry",
-    "tags": [
-      "tech",
-      "free-entry",
-      "new"
-    ],
-    "isHighValue": false,
-    "isEndingSoon": false,
-    "url": "https://www.game.co.za/"
+    "verificationStatus": "published"
   },
   {
     "id": "picknpay-voucher",
@@ -213,46 +334,70 @@
     ],
     "isHighValue": false,
     "isEndingSoon": true,
-    "url": "https://www.pnp.co.za/"
+    "url": "https://www.pnp.co.za/",
+    "verificationStatus": "published"
   },
   {
-    "id": "makro-cash-draw",
-    "title": "Makro Cash Prize Draw",
-    "brand": "Makro",
-    "summary": "Makro's brand reach makes it a credible anchor for a cash-led promotion hub entry. It adds another mainstream retailer to the money category and helps balance the site away from only niche listings.",
-    "entrySteps": "Open the Makro site, find the active promotion or competition page, and complete the listed entry requirements.",
-    "image": "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=900&q=80",
-    "closingDate": "2026-05-20",
+    "id": "pick-n-pay-smart-shopper-tech-treats",
+    "title": "Pick n Pay Smart Shopper Tech Treats",
+    "brand": "Pick n Pay",
+    "category": "Tech",
+    "entryType": "App",
+    "closingDate": "2026-04-29",
+    "url": "https://www.picknpay.co.za/campaigns/smartshopper-tech-treats-2026",
+    "summary": "Scan your Smart Shopper card in-app on qualifying shops and tap the promo tile to enter. Win one of 10 Samsung Galaxy S25 smartphones, plus daily grocery tech deals for Smart Shopper members.",
+    "tags": [
+      "app-entry",
+      "app-only",
+      "electronics",
+      "high-value",
+      "purchase-required",
+      "weekly-draw",
+      "ending-soon"
+    ],
+    "verificationStatus": "published"
+  },
+  {
+    "id": "nestle-nido-grow-with-love",
+    "title": "Nestle NIDO 3+ Grow with Love Campaign Competition",
+    "brand": "Nestlé NIDO",
+    "summary": "Nestlé's NIDO campaign is built around Clicks cashback, making it useful for shoppers who prefer practical rewards they can actually use. It is a good example of a retail-linked prize that still feels low-friction to enter.",
+    "entrySteps": "Visit the competition page, confirm the qualifying purchase details, and follow the brand's listed entry process.",
+    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/a7c/7c1/69aa7c7c1a73e808200361.jpg",
+    "closingDate": "2026-04-30",
     "category": "Cash",
-    "entryType": "Free Entry",
+    "entryType": "In-store Purchase",
     "tags": [
       "cash",
       "free-entry",
+      "ending-soon",
       "new"
     ],
     "isHighValue": false,
-    "isEndingSoon": false,
-    "url": "https://www.makro.co.za/"
+    "isEndingSoon": true,
+    "url": "https://www.winsomething.co.za/win/vouchers/111",
+    "verificationStatus": "published"
   },
   {
-    "id": "dstv-toyota-starlets",
-    "title": "DStv Win 1 of 4 Toyota Starlets Competition",
-    "brand": "DStv",
-    "summary": "DStv's Toyota Starlets competition adds a strong entertainment-brand angle to the car category. It feels more premium than a generic prize draw because the reward is both tangible and nationally recognisable.",
-    "entrySteps": "Open the competition listing, confirm the qualifying DStv promotion details, and enter using the official instructions.",
-    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/922/e83/69a922e83447f980689301.jpg",
-    "closingDate": "2026-05-24",
-    "category": "Cars",
+    "id": "gummy-vites-back-to-school",
+    "title": "Gummy Vites Back to School Competition",
+    "brand": "Gummy Vites",
+    "summary": "Gummy Vites is offering a family travel voucher, which gives the holidays section another practical local getaway option. It is a useful mid-range travel prize rather than an ultra-luxury destination draw.",
+    "entrySteps": "Open the listing, review the promo mechanics, and complete the required store or brand entry steps.",
+    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/a83/832/69aa83832bfb1871744706.jpg",
+    "closingDate": "2026-04-30",
+    "category": "Holidays",
     "entryType": "In-store Purchase",
     "tags": [
-      "cars",
+      "holidays",
       "free-entry",
-      "high-value",
+      "ending-soon",
       "new"
     ],
-    "isHighValue": true,
-    "isEndingSoon": false,
-    "url": "https://www.winsomething.co.za/win/vehicles/105"
+    "isHighValue": false,
+    "isEndingSoon": true,
+    "url": "https://www.winsomething.co.za/win/travel/114",
+    "verificationStatus": "published"
   },
   {
     "id": "mtn-promo-giveaway",
@@ -273,7 +418,28 @@
     ],
     "isHighValue": false,
     "isEndingSoon": true,
-    "url": "https://www.mtn.co.za/"
+    "url": "https://www.mtn.co.za/",
+    "verificationStatus": "published"
+  },
+  {
+    "id": "shoprite-drive-away-in-a-toyota-starlet",
+    "title": "Shoprite Drive Away in a Toyota Starlet",
+    "brand": "Shoprite",
+    "category": "Cars",
+    "entryType": "SMS",
+    "closingDate": "2026-05-02",
+    "url": "https://www.shoprite.co.za/campaigns/drive-away-toyota-starlet-2026",
+    "summary": "Spend R350 or more on participating products at Shoprite and keep your till slip. SMS your receipt number to the competition shortcode to stand a chance to drive away in a Toyota Starlet, including licensing and registration.",
+    "tags": [
+      "sms-entry",
+      "standard-rates",
+      "cars",
+      "high-value",
+      "purchase-required",
+      "ending-soon"
+    ],
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Not included in the verified official-source car research set for this refresh."
   },
   {
     "id": "vodacom-rewards",
@@ -294,7 +460,222 @@
     ],
     "isHighValue": false,
     "isEndingSoon": true,
-    "url": "https://www.vodacom.co.za/"
+    "url": "https://www.vodacom.co.za/",
+    "verificationStatus": "published"
+  },
+  {
+    "id": "clicks-summer-sun-escape",
+    "title": "Clicks Summer Sun Escape",
+    "brand": "Clicks",
+    "category": "Holidays",
+    "entryType": "SMS",
+    "closingDate": "2026-05-05",
+    "url": "https://clicks.co.za/competitions/view/summer-sun-escape-2026",
+    "summary": "Shop any 2 participating sun-care items and keep your till slip. SMS your ClubCard number and receipt number to enter the draw for a 6-night Mauritius getaway for two, plus Clicks voucher prizes.",
+    "tags": [
+      "sms-entry",
+      "standard-rates",
+      "travel",
+      "high-value",
+      "purchase-required",
+      "weekly-draw",
+      "ending-soon"
+    ],
+    "verificationStatus": "published"
+  },
+  {
+    "id": "cruise-nicely-this-easter",
+    "title": "Cruise Nicely this Easter!",
+    "brand": "MSC Cruises",
+    "summary": "This travel promotion offers a cruise prize instead of a simple voucher, which makes it one of the stronger holiday-style entries on the hub. It is a clear fit for users chasing experience-led rewards.",
+    "entrySteps": "Open the campaign page, review the purchase or entry requirements, and complete the steps listed by the promoter.",
+    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69d/20c/cb1/69d20ccb13864518324858.jpg",
+    "closingDate": "2026-05-06",
+    "category": "Holidays",
+    "entryType": "In-store Purchase",
+    "tags": [
+      "holidays",
+      "free-entry",
+      "high-value",
+      "new"
+    ],
+    "isHighValue": true,
+    "isEndingSoon": false,
+    "url": "https://www.winsomething.co.za/win/travel/118",
+    "verificationStatus": "published"
+  },
+  {
+    "id": "dis-chem-wellness-cash-dash",
+    "title": "Dis-Chem Wellness Cash Dash",
+    "brand": "Dis-Chem",
+    "category": "Cash",
+    "entryType": "SMS",
+    "closingDate": "2026-05-09",
+    "url": "https://www.dischem.co.za/wellness-cash-dash-2026-competition",
+    "summary": "Buy participating wellness products at Dis-Chem and SMS your receipt number to enter. Stand a chance to win R150,000 cash towards your health goals, with weekly R5,000 cash prizes.",
+    "tags": [
+      "sms-entry",
+      "standard-rates",
+      "cash",
+      "high-value",
+      "purchase-required",
+      "weekly-draw",
+      "ending-soon"
+    ],
+    "verificationStatus": "published"
+  },
+  {
+    "id": "game-store-gadget-giveaway",
+    "title": "Win Tech Gadgets from Game",
+    "brand": "Game",
+    "summary": "Game regularly uses its retail hub and marketing channels for gadget-led campaigns, making this a useful tech catch-all entry point. It broadens the electronics coverage beyond the current supermarket-style promos.",
+    "entrySteps": "Open the Game site, head to the latest competitions or promo area, and enter through the active campaign page.",
+    "image": "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=900&q=80",
+    "closingDate": "2026-05-10",
+    "category": "Tech",
+    "entryType": "Free Entry",
+    "tags": [
+      "tech",
+      "free-entry",
+      "new"
+    ],
+    "isHighValue": false,
+    "isEndingSoon": false,
+    "url": "https://www.game.co.za/",
+    "verificationStatus": "published"
+  },
+  {
+    "id": "mr-price-wardrobe-refresh-vouchers",
+    "title": "Mr Price Wardrobe Refresh Vouchers",
+    "brand": "Mr Price",
+    "category": "Vouchers",
+    "entryType": "App",
+    "closingDate": "2026-05-12",
+    "url": "https://www.mrp.com/competitions/wardrobe-refresh-vouchers-2026",
+    "summary": "Shop on the Mr Price app and opt in to the competition tile to submit your entry. You could win a R20,000 Mr Price voucher, plus weekly R1,000 vouchers to keep your wardrobe moving.",
+    "tags": [
+      "app-entry",
+      "app-only",
+      "vouchers",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ],
+    "verificationStatus": "published"
+  },
+  {
+    "id": "game-home-theatre-mega-upgrade",
+    "title": "Game Home Theatre Mega Upgrade",
+    "brand": "Game",
+    "category": "Tech",
+    "entryType": "In-store",
+    "closingDate": "2026-05-15",
+    "url": "https://www.game.co.za/cp/home-theatre-mega-upgrade-2026",
+    "summary": "Spend any amount using your Game myStore Card in-store and you'll automatically qualify for entry. Win a 65-inch 4K TV plus soundbar bundle, with additional gadget spot prizes every week.",
+    "tags": [
+      "in-store-entry",
+      "electronics",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ],
+    "verificationStatus": "published"
+  },
+  {
+    "id": "jacaranda-fm-competitions",
+    "title": "Jacaranda FM Competitions Hub",
+    "brand": "Jacaranda FM",
+    "summary": "Jacaranda FM's competitions hub is a real source of listener giveaways, sponsored promos, and station-led prize opportunities. It adds media-driven discovery to the dataset rather than relying only on retail promos.",
+    "entrySteps": "Open the Jacaranda FM competitions page, choose an active giveaway, and follow the station's entry instructions.",
+    "image": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=900&q=80",
+    "closingDate": "2026-05-18",
+    "category": "Cash",
+    "entryType": "Free Entry",
+    "tags": [
+      "cash",
+      "free-entry",
+      "new"
+    ],
+    "isHighValue": false,
+    "isEndingSoon": false,
+    "url": "https://www.jacarandafm.com/competitions/",
+    "verificationStatus": "published"
+  },
+  {
+    "id": "makro-rewards-zanzibar-getaway",
+    "title": "Makro Rewards Zanzibar Getaway",
+    "brand": "Makro",
+    "category": "Holidays",
+    "entryType": "SMS",
+    "closingDate": "2026-05-18",
+    "url": "https://www.makro.co.za/pages/makro-rewards-zanzibar-getaway-2026",
+    "summary": "This holiday giveaway is ideal if you want to win a holiday in South Africa linked campaigns. Shop selected travel essentials at Makro, keep your receipt, and SMS your Makro Rewards number to enter for a 7-night Zanzibar getaway for two.",
+    "tags": [
+      "sms-entry",
+      "standard-rates",
+      "travel",
+      "high-value",
+      "purchase-required"
+    ],
+    "verificationStatus": "published"
+  },
+  {
+    "id": "makro-cash-draw",
+    "title": "Makro Cash Prize Draw",
+    "brand": "Makro",
+    "summary": "Makro's brand reach makes it a credible anchor for a cash-led promotion hub entry. It adds another mainstream retailer to the money category and helps balance the site away from only niche listings.",
+    "entrySteps": "Open the Makro site, find the active promotion or competition page, and complete the listed entry requirements.",
+    "image": "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=900&q=80",
+    "closingDate": "2026-05-20",
+    "category": "Cash",
+    "entryType": "Free Entry",
+    "tags": [
+      "cash",
+      "free-entry",
+      "new"
+    ],
+    "isHighValue": false,
+    "isEndingSoon": false,
+    "url": "https://www.makro.co.za/",
+    "verificationStatus": "published"
+  },
+  {
+    "id": "takealot-work-from-home-bundle",
+    "title": "Takealot Work-From-Home Bundle",
+    "brand": "Takealot",
+    "category": "Tech",
+    "entryType": "Online",
+    "closingDate": "2026-05-22",
+    "url": "https://www.takealot.com/competitions/work-from-home-bundle-competition-2026-tcs",
+    "summary": "Build a public wishlist on Takealot and submit it via the competition page to enter. One winner scores an office-ready bundle with a laptop, monitor, router and UPS to keep you powered and productive.",
+    "tags": [
+      "online-entry",
+      "electronics",
+      "high-value",
+      "free-entry"
+    ],
+    "verificationStatus": "published"
+  },
+  {
+    "id": "dstv-toyota-starlets",
+    "title": "DStv Win 1 of 4 Toyota Starlets Competition",
+    "brand": "DStv",
+    "summary": "DStv's Toyota Starlets competition adds a strong entertainment-brand angle to the car category. It feels more premium than a generic prize draw because the reward is both tangible and nationally recognisable.",
+    "entrySteps": "Open the competition listing, confirm the qualifying DStv promotion details, and enter using the official instructions.",
+    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/922/e83/69a922e83447f980689301.jpg",
+    "closingDate": "2026-05-24",
+    "category": "Cars",
+    "entryType": "In-store Purchase",
+    "tags": [
+      "cars",
+      "high-value",
+      "new"
+    ],
+    "isHighValue": true,
+    "isEndingSoon": false,
+    "url": "https://www.winsomething.co.za/win/vehicles/105",
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Date conflict in research; likely expired and not safe to publish."
   },
   {
     "id": "travelstart-local-holiday",
@@ -313,7 +694,84 @@
     ],
     "isHighValue": false,
     "isEndingSoon": false,
-    "url": "https://www.travelstart.co.za/"
+    "url": "https://www.travelstart.co.za/",
+    "verificationStatus": "published"
+  },
+  {
+    "id": "superbalist-winter-layer-up-voucher",
+    "title": "Superbalist Winter Layer-Up Voucher",
+    "brand": "Superbalist",
+    "category": "Vouchers",
+    "entryType": "Online",
+    "closingDate": "2026-05-25",
+    "url": "https://superbalist.com/competitions/winter-layer-up-voucher-2026",
+    "summary": "Shop your favourite winter drops and enter online for a chance to win. The winner receives a R10,000 Superbalist voucher to spend on jackets, shoes and all the extras.",
+    "tags": [
+      "online-entry",
+      "vouchers",
+      "high-value",
+      "purchase-required"
+    ],
+    "verificationStatus": "published"
+  },
+  {
+    "id": "mtn-momo-cash-sprint",
+    "title": "MTN MoMo Cash Sprint",
+    "brand": "MTN",
+    "category": "Cash",
+    "entryType": "App",
+    "closingDate": "2026-05-29",
+    "url": "https://www.mtn.co.za/home/terms-and-conditions/content/momo-cash-sprint-2026",
+    "summary": "Use MTN MoMo to pay or send money during the promo period and you'll be entered automatically. Stand a chance to win a R300,000 cash grand prize, plus smaller instant cash rewards for qualifying transactions.",
+    "tags": [
+      "app-entry",
+      "app-only",
+      "cash",
+      "high-value",
+      "purchase-required",
+      "instant-win"
+    ],
+    "verificationStatus": "published"
+  },
+  {
+    "id": "revlon-matric-dance-vouchers",
+    "title": "Revlon Fragrance Take Scentre Stage Matric Dance 2026 Competition",
+    "brand": "Revlon",
+    "summary": "Revlon is promoting a beauty-focused prize bundle built around matric dance prep vouchers. It is a useful retail giveaway for shoppers looking for style and self-care rewards rather than big-ticket items.",
+    "entrySteps": "Open the offer page, read the qualifying purchase instructions, and enter through the official Revlon promo flow.",
+    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/a78/3fe/69aa783fea4d8767812682.jpg",
+    "closingDate": "2026-05-31",
+    "category": "Vouchers",
+    "entryType": "In-store Purchase",
+    "tags": [
+      "vouchers",
+      "free-entry",
+      "new"
+    ],
+    "isHighValue": false,
+    "isEndingSoon": false,
+    "url": "https://www.winsomething.co.za/win/goods/110",
+    "verificationStatus": "published"
+  },
+  {
+    "id": "tag-a-parent-checkers-voucher",
+    "title": "Tag a Parent - Win Checkers Voucher",
+    "brand": "Checkers",
+    "summary": "This Checkers-linked voucher giveaway is a practical, family-oriented prize aimed at everyday essentials rather than luxury rewards. It adds a recognisable national retail brand to the vouchers mix.",
+    "entrySteps": "Open the listing, check the social or promo entry instructions, and follow the brand's participation steps.",
+    "image": "https://www.winsomething.co.za/storage/app/uploads/public/695/f7e/357/695f7e357a4c6224439883.jpg",
+    "closingDate": "2026-05-31",
+    "category": "Vouchers",
+    "entryType": "Social Media Share",
+    "tags": [
+      "vouchers",
+      "free-entry",
+      "new"
+    ],
+    "isHighValue": false,
+    "isEndingSoon": false,
+    "url": "https://www.winsomething.co.za/win/vouchers/80",
+    "verificationStatus": "published"
   },
   {
     "id": "sun-international-resort-giveaway",
@@ -333,221 +791,8 @@
     ],
     "isHighValue": true,
     "isEndingSoon": false,
-    "url": "https://www.suninternational.com/"
-  },
-  {
-    "id": "jacaranda-fm-competitions",
-    "title": "Jacaranda FM Competitions Hub",
-    "brand": "Jacaranda FM",
-    "summary": "Jacaranda FM's competitions hub is a real source of listener giveaways, sponsored promos, and station-led prize opportunities. It adds media-driven discovery to the dataset rather than relying only on retail promos.",
-    "entrySteps": "Open the Jacaranda FM competitions page, choose an active giveaway, and follow the station's entry instructions.",
-    "image": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=900&q=80",
-    "closingDate": "2026-05-18",
-    "category": "Cash",
-    "entryType": "Free Entry",
-    "tags": [
-      "cash",
-      "free-entry",
-      "new"
-    ],
-    "isHighValue": false,
-    "isEndingSoon": false,
-    "url": "https://www.jacarandafm.com/competitions/"
-  },
-  {
-    "id": "woolworths-mydifference-cash-boost",
-    "title": "Woolworths MyDifference Cash Boost",
-    "brand": "Woolworths",
-    "category": "Cash",
-    "entryType": "Online",
-    "closingDate": "2026-04-26",
-    "url": "https://mtd.woolworths.co.za/mydifference-cash-boost-2026",
-    "summary": "Join or log in to MyDifference, complete the featured impact action, and submit your entry online. One grand-prize winner takes home R250,000 in cash, with smaller weekly cash prizes up for grabs.",
-    "tags": [
-      "online-entry",
-      "cash",
-      "high-value",
-      "free-entry",
-      "weekly-draw",
-      "ending-soon"
-    ]
-  },
-  {
-    "id": "pick-n-pay-smart-shopper-tech-treats",
-    "title": "Pick n Pay Smart Shopper Tech Treats",
-    "brand": "Pick n Pay",
-    "category": "Tech",
-    "entryType": "App",
-    "closingDate": "2026-04-29",
-    "url": "https://www.picknpay.co.za/campaigns/smartshopper-tech-treats-2026",
-    "summary": "Scan your Smart Shopper card in-app on qualifying shops and tap the promo tile to enter. Win one of 10 Samsung Galaxy S25 smartphones, plus daily grocery tech deals for Smart Shopper members.",
-    "tags": [
-      "app-entry",
-      "app-only",
-      "electronics",
-      "high-value",
-      "purchase-required",
-      "weekly-draw",
-      "ending-soon"
-    ]
-  },
-  {
-    "id": "shoprite-drive-away-in-a-toyota-starlet",
-    "title": "Shoprite Drive Away in a Toyota Starlet",
-    "brand": "Shoprite",
-    "category": "Cars",
-    "entryType": "SMS",
-    "closingDate": "2026-05-02",
-    "url": "https://www.shoprite.co.za/campaigns/drive-away-toyota-starlet-2026",
-    "summary": "Spend R350 or more on participating products at Shoprite and keep your till slip. SMS your receipt number to the competition shortcode to stand a chance to drive away in a Toyota Starlet, including licensing and registration.",
-    "tags": [
-      "sms-entry",
-      "standard-rates",
-      "cars",
-      "high-value",
-      "purchase-required",
-      "ending-soon"
-    ]
-  },
-  {
-    "id": "clicks-summer-sun-escape",
-    "title": "Clicks Summer Sun Escape",
-    "brand": "Clicks",
-    "category": "Holidays",
-    "entryType": "SMS",
-    "closingDate": "2026-05-05",
-    "url": "https://clicks.co.za/competitions/view/summer-sun-escape-2026",
-    "summary": "Shop any 2 participating sun-care items and keep your till slip. SMS your ClubCard number and receipt number to enter the draw for a 6-night Mauritius getaway for two, plus Clicks voucher prizes.",
-    "tags": [
-      "sms-entry",
-      "standard-rates",
-      "travel",
-      "high-value",
-      "purchase-required",
-      "weekly-draw",
-      "ending-soon"
-    ]
-  },
-  {
-    "id": "dis-chem-wellness-cash-dash",
-    "title": "Dis-Chem Wellness Cash Dash",
-    "brand": "Dis-Chem",
-    "category": "Cash",
-    "entryType": "SMS",
-    "closingDate": "2026-05-09",
-    "url": "https://www.dischem.co.za/wellness-cash-dash-2026-competition",
-    "summary": "Buy participating wellness products at Dis-Chem and SMS your receipt number to enter. Stand a chance to win R150,000 cash towards your health goals, with weekly R5,000 cash prizes.",
-    "tags": [
-      "sms-entry",
-      "standard-rates",
-      "cash",
-      "high-value",
-      "purchase-required",
-      "weekly-draw",
-      "ending-soon"
-    ]
-  },
-  {
-    "id": "mr-price-wardrobe-refresh-vouchers",
-    "title": "Mr Price Wardrobe Refresh Vouchers",
-    "brand": "Mr Price",
-    "category": "Vouchers",
-    "entryType": "App",
-    "closingDate": "2026-05-12",
-    "url": "https://www.mrp.com/competitions/wardrobe-refresh-vouchers-2026",
-    "summary": "Shop on the Mr Price app and opt in to the competition tile to submit your entry. You could win a R20,000 Mr Price voucher, plus weekly R1,000 vouchers to keep your wardrobe moving.",
-    "tags": [
-      "app-entry",
-      "app-only",
-      "vouchers",
-      "high-value",
-      "purchase-required",
-      "weekly-draw"
-    ]
-  },
-  {
-    "id": "game-home-theatre-mega-upgrade",
-    "title": "Game Home Theatre Mega Upgrade",
-    "brand": "Game",
-    "category": "Tech",
-    "entryType": "In-store",
-    "closingDate": "2026-05-15",
-    "url": "https://www.game.co.za/cp/home-theatre-mega-upgrade-2026",
-    "summary": "Spend any amount using your Game myStore Card in-store and you'll automatically qualify for entry. Win a 65-inch 4K TV plus soundbar bundle, with additional gadget spot prizes every week.",
-    "tags": [
-      "in-store-entry",
-      "electronics",
-      "high-value",
-      "purchase-required",
-      "weekly-draw"
-    ]
-  },
-  {
-    "id": "makro-rewards-zanzibar-getaway",
-    "title": "Makro Rewards Zanzibar Getaway",
-    "brand": "Makro",
-    "category": "Holidays",
-    "entryType": "SMS",
-    "closingDate": "2026-05-18",
-    "url": "https://www.makro.co.za/pages/makro-rewards-zanzibar-getaway-2026",
-    "summary": "This holiday giveaway is ideal if you want to win a holiday in South Africa linked campaigns. Shop selected travel essentials at Makro, keep your receipt, and SMS your Makro Rewards number to enter for a 7-night Zanzibar getaway for two.",
-    "tags": [
-      "sms-entry",
-      "standard-rates",
-      "travel",
-      "high-value",
-      "purchase-required"
-    ]
-  },
-  {
-    "id": "takealot-work-from-home-bundle",
-    "title": "Takealot Work-From-Home Bundle",
-    "brand": "Takealot",
-    "category": "Tech",
-    "entryType": "Online",
-    "closingDate": "2026-05-22",
-    "url": "https://www.takealot.com/competitions/work-from-home-bundle-competition-2026-tcs",
-    "summary": "Build a public wishlist on Takealot and submit it via the competition page to enter. One winner scores an office-ready bundle with a laptop, monitor, router and UPS to keep you powered and productive.",
-    "tags": [
-      "online-entry",
-      "electronics",
-      "high-value",
-      "free-entry"
-    ]
-  },
-  {
-    "id": "superbalist-winter-layer-up-voucher",
-    "title": "Superbalist Winter Layer-Up Voucher",
-    "brand": "Superbalist",
-    "category": "Vouchers",
-    "entryType": "Online",
-    "closingDate": "2026-05-25",
-    "url": "https://superbalist.com/competitions/winter-layer-up-voucher-2026",
-    "summary": "Shop your favourite winter drops and enter online for a chance to win. The winner receives a R10,000 Superbalist voucher to spend on jackets, shoes and all the extras.",
-    "tags": [
-      "online-entry",
-      "vouchers",
-      "high-value",
-      "purchase-required"
-    ]
-  },
-  {
-    "id": "mtn-momo-cash-sprint",
-    "title": "MTN MoMo Cash Sprint",
-    "brand": "MTN",
-    "category": "Cash",
-    "entryType": "App",
-    "closingDate": "2026-05-29",
-    "url": "https://www.mtn.co.za/home/terms-and-conditions/content/momo-cash-sprint-2026",
-    "summary": "Use MTN MoMo to pay or send money during the promo period and you'll be entered automatically. Stand a chance to win a R300,000 cash grand prize, plus smaller instant cash rewards for qualifying transactions.",
-    "tags": [
-      "app-entry",
-      "app-only",
-      "cash",
-      "high-value",
-      "purchase-required",
-      "instant-win"
-    ]
+    "url": "https://www.suninternational.com/",
+    "verificationStatus": "published"
   },
   {
     "id": "vodacom-recharge-win-galaxy-s25",
@@ -565,7 +810,8 @@
       "high-value",
       "purchase-required",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "telkom-upgrade-to-win-voucher-drop",
@@ -581,7 +827,8 @@
       "vouchers",
       "high-value",
       "purchase-required"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "cell-c-recharge-r50k-cash",
@@ -599,7 +846,8 @@
       "everyday-prizes",
       "purchase-required",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "fnb-ebucks-kruger-safari-giveaway",
@@ -616,7 +864,8 @@
       "travel",
       "high-value",
       "purchase-required"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "standard-bank-save-win-r200k",
@@ -633,7 +882,8 @@
       "high-value",
       "purchase-required",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "absa-rewards-weekend-away",
@@ -650,7 +900,8 @@
       "travel",
       "high-value",
       "purchase-required"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "capitec-pay-daymaker-cash-draw",
@@ -668,7 +919,8 @@
       "high-value",
       "purchase-required",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "avo-by-nedbank-shopping-voucher-giveaway",
@@ -684,7 +936,8 @@
       "vouchers",
       "high-value",
       "purchase-required"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "discovery-vitality-local-getaway-challenge",
@@ -701,7 +954,8 @@
       "travel",
       "high-value",
       "free-entry"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "discovery-bank-tap-to-win-cashback",
@@ -719,7 +973,28 @@
       "high-value",
       "purchase-required",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
+  },
+  {
+    "id": "boxer-nedbank-greenbacks",
+    "title": "Boxer Nedbank Greenbacks Competition",
+    "brand": "Boxer Superstores",
+    "summary": "Boxer shoppers can enter for monthly Nedbank Greenbacks prizes through this live retail promotion. It is a practical cash-style reward for everyday spending rather than a one-off jackpot.",
+    "entrySteps": "Open the competition page, check the Boxer purchase rules, and follow the promoter's entry instructions.",
+    "image": "https://www.winsomething.co.za/storage/app/uploads/public/695/9fe/283/6959fe2832be5345559742.jpg",
+    "closingDate": "2026-06-30",
+    "category": "Cash",
+    "entryType": "In-store Purchase",
+    "tags": [
+      "cash",
+      "free-entry",
+      "high-value"
+    ],
+    "isHighValue": true,
+    "isEndingSoon": false,
+    "url": "https://www.winsomething.co.za/win/vouchers/64",
+    "verificationStatus": "published"
   },
   {
     "id": "old-mutual-rewards-refer-win",
@@ -736,7 +1011,8 @@
       "high-value",
       "free-entry",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "sanlam-plan-win-mauritius",
@@ -752,7 +1028,8 @@
       "travel",
       "high-value",
       "free-entry"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "investec-spend-win-takealot-vouchers",
@@ -769,7 +1046,8 @@
       "everyday-prizes",
       "purchase-required",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "engen-1app-fuel-up-win-a-toyota-hilux",
@@ -787,7 +1065,9 @@
       "high-value",
       "purchase-required",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Could not verify as current in this pass."
   },
   {
     "id": "shell-v-rewards-mozambique-escape",
@@ -804,7 +1084,8 @@
       "travel",
       "high-value",
       "purchase-required"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "kfc-app-cash-crunch",
@@ -822,7 +1103,8 @@
       "everyday-prizes",
       "purchase-required",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "talk-to-nandos-monthly-voucher-draw",
@@ -839,7 +1121,8 @@
       "everyday-prizes",
       "purchase-required",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "castle-lager-rugby-away-day",
@@ -855,7 +1138,8 @@
       "travel",
       "high-value",
       "free-entry"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "castle-lite-ultimate-home-viewing",
@@ -871,7 +1155,8 @@
       "electronics",
       "high-value",
       "free-entry"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "south-africa-tourism-mzansi-moments-photo-challenge",
@@ -887,7 +1172,8 @@
       "travel",
       "high-value",
       "free-entry"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "saa-voyager-fly-win-mauritius",
@@ -903,7 +1189,8 @@
       "travel",
       "high-value",
       "purchase-required"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "travelstart-long-weekend-lucky-draw",
@@ -919,7 +1206,8 @@
       "travel",
       "high-value",
       "free-entry"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "toyota-corolla-cross-test-drive-win",
@@ -933,9 +1221,10 @@
     "tags": [
       "online-entry",
       "cars",
-      "high-value",
-      "free-entry"
-    ]
+      "high-value"
+    ],
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Could not verify as current in this pass."
   },
   {
     "id": "volkswagen-easydrive-upgrade-to-win",
@@ -951,7 +1240,9 @@
       "cars",
       "high-value",
       "purchase-required"
-    ]
+    ],
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Needs official prize verification."
   },
   {
     "id": "bmw-xdrive-experience-weekend-giveaway",
@@ -965,9 +1256,10 @@
     "tags": [
       "online-entry",
       "cars",
-      "high-value",
-      "free-entry"
-    ]
+      "high-value"
+    ],
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Experience prize, not verified as car ownership."
   },
   {
     "id": "mercedes-benz-amg-track-day-giveaway",
@@ -983,7 +1275,9 @@
       "cars",
       "high-value",
       "purchase-required"
-    ]
+    ],
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Experience prize, not verified as car ownership."
   },
   {
     "id": "hyundai-grand-i10-test-drive-win",
@@ -999,7 +1293,9 @@
       "cars",
       "high-value",
       "purchase-required"
-    ]
+    ],
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Could be confused with expired Hyundai activity; needs official verification."
   },
   {
     "id": "kia-sonet-smart-drive-giveaway",
@@ -1015,7 +1311,9 @@
       "cars",
       "high-value",
       "purchase-required"
-    ]
+    ],
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Could not verify as current in this pass."
   },
   {
     "id": "nissan-magnite-adventure-giveaway",
@@ -1030,9 +1328,10 @@
       "online-entry",
       "cars",
       "high-value",
-      "free-entry",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Could not verify as current in this pass."
   },
   {
     "id": "ford-ranger-weekend-warrior-giveaway",
@@ -1046,9 +1345,10 @@
     "tags": [
       "online-entry",
       "cars",
-      "high-value",
-      "free-entry"
-    ]
+      "high-value"
+    ],
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Experience prize, not verified as car ownership."
   },
   {
     "id": "isuzu-d-max-open-day-win",
@@ -1062,9 +1362,10 @@
     "tags": [
       "in-store-entry",
       "cars",
-      "high-value",
-      "free-entry"
-    ]
+      "high-value"
+    ],
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Experience/test-drive style listing; not verified as current car ownership prize."
   },
   {
     "id": "shoprite-money-market-payday-cash-drop",
@@ -1081,7 +1382,8 @@
       "high-value",
       "purchase-required",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "checkers-xtra-savings-swipe-win",
@@ -1098,7 +1400,8 @@
       "high-value",
       "purchase-required",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "woolworths-tech-for-good-giveaway",
@@ -1115,7 +1418,8 @@
       "high-value",
       "free-entry",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "pick-n-pay-family-break-at-sun-city",
@@ -1131,7 +1435,8 @@
       "travel",
       "high-value",
       "purchase-required"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "clicks-clubcard-scan-win",
@@ -1149,7 +1454,8 @@
       "everyday-prizes",
       "purchase-required",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "dis-chem-winter-wellness-tech-bundle",
@@ -1165,7 +1471,8 @@
       "electronics",
       "high-value",
       "purchase-required"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "mr-price-home-room-refresh-voucher",
@@ -1182,7 +1489,8 @@
       "high-value",
       "purchase-required",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "truworths-truroyalty-style-voucher-draw",
@@ -1199,7 +1507,8 @@
       "vouchers",
       "high-value",
       "free-entry"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "foschini-tech-fashion-upgrade",
@@ -1216,7 +1525,8 @@
       "electronics",
       "high-value",
       "purchase-required"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "edgars-monthly-voucher-winners",
@@ -1234,7 +1544,8 @@
       "high-value",
       "purchase-required",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "takealot-victoria-falls-getaway",
@@ -1250,7 +1561,8 @@
       "travel",
       "high-value",
       "free-entry"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "superbalist-apple-backpack-tech-bundle",
@@ -1266,7 +1578,8 @@
       "electronics",
       "high-value",
       "free-entry"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "game-win-your-cart-back",
@@ -1284,7 +1597,8 @@
       "high-value",
       "purchase-required",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "makro-level-up-gaming-bundle",
@@ -1300,7 +1614,8 @@
       "electronics",
       "high-value",
       "purchase-required"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "mtn-app-travel-treat",
@@ -1317,7 +1632,8 @@
       "travel",
       "high-value",
       "free-entry"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "vodapay-cashback-challenge",
@@ -1334,7 +1650,8 @@
       "high-value",
       "purchase-required",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "telkom-fibre-tech-upgrades",
@@ -1351,7 +1668,8 @@
       "high-value",
       "purchase-required",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "cell-c-takealot-voucher-giveaway",
@@ -1368,7 +1686,8 @@
       "vouchers",
       "high-value",
       "purchase-required"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "fnb-pay-to-win-grand-cash-prize",
@@ -1386,7 +1705,8 @@
       "high-value",
       "purchase-required",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "standard-bank-mastercard-zanzibar-getaway",
@@ -1402,7 +1722,8 @@
       "travel",
       "high-value",
       "purchase-required"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "absa-rewards-cash-back-draw",
@@ -1419,7 +1740,8 @@
       "high-value",
       "purchase-required",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "capitec-live-better-voucher-rewards",
@@ -1437,7 +1759,8 @@
       "high-value",
       "free-entry",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "nedbank-greenbacks-holiday-giveaway",
@@ -1453,7 +1776,8 @@
       "travel",
       "high-value",
       "purchase-required"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "discovery-vitality-move-for-cash",
@@ -1471,7 +1795,8 @@
       "high-value",
       "free-entry",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "old-mutual-rewards-update-win-vouchers",
@@ -1488,7 +1813,8 @@
       "everyday-prizes",
       "free-entry",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "sanlam-money-smart-cash-prize",
@@ -1505,7 +1831,8 @@
       "high-value",
       "free-entry",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "investec-winelands-escape-competition",
@@ -1521,7 +1848,8 @@
       "travel",
       "high-value",
       "purchase-required"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "engen-1app-cash-back-draw",
@@ -1539,7 +1867,8 @@
       "high-value",
       "purchase-required",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "shell-v-rewards-gear-up-with-gopro",
@@ -1557,7 +1886,8 @@
       "high-value",
       "purchase-required",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "kfc-rewards-voucher-drop",
@@ -1575,7 +1905,8 @@
       "high-value",
       "purchase-required",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "nandos-peri-peri-road-trip",
@@ -1592,7 +1923,8 @@
       "travel",
       "high-value",
       "purchase-required"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "castle-lager-braai-cash-giveaway",
@@ -1609,7 +1941,8 @@
       "high-value",
       "free-entry",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "sab-festival-vip-weekend",
@@ -1625,7 +1958,8 @@
       "travel",
       "high-value",
       "free-entry"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "toyota-roadtrip-tech-pack-giveaway",
@@ -1641,7 +1975,8 @@
       "electronics",
       "everyday-prizes",
       "free-entry"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "travelstart-fare-finder-cash-back",
@@ -1658,7 +1993,8 @@
       "high-value",
       "free-entry",
       "weekly-draw"
-    ]
+    ],
+    "verificationStatus": "published"
   },
   {
     "id": "sixty60-getaway-giveaway",
@@ -1675,6 +2011,7 @@
       "travel",
       "high-value",
       "purchase-required"
-    ]
+    ],
+    "verificationStatus": "published"
   }
 ]
