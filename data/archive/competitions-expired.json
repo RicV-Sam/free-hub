@@ -85,5 +85,26 @@
     ],
     "archivedAt": "2026-04-24",
     "archiveReason": "expired"
+  },
+  {
+    "id": "woolworths-mydifference-cash-boost",
+    "title": "Woolworths MyDifference Cash Boost",
+    "brand": "Woolworths",
+    "category": "Cash",
+    "entryType": "Online",
+    "closingDate": "2026-04-26",
+    "url": "https://mtd.woolworths.co.za/mydifference-cash-boost-2026",
+    "summary": "Join or log in to MyDifference, complete the featured impact action, and submit your entry online. One grand-prize winner takes home R250,000 in cash, with smaller weekly cash prizes up for grabs.",
+    "tags": [
+      "online-entry",
+      "cash",
+      "high-value",
+      "free-entry",
+      "weekly-draw",
+      "ending-soon"
+    ],
+    "verificationStatus": "published",
+    "archivedAt": "2026-04-27",
+    "archiveReason": "expired"
   }
 ]
