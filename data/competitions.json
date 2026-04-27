@@ -1994,5 +1994,174 @@
     ],
     "verificationStatus": "needs-verification",
     "verificationNote": "Experience/test-drive style listing; not verified as current car ownership prize."
+  },
+  {
+    "id": "standard-bank-credit-card-spend-back-april",
+    "title": "Standard Bank Credit Card 100% Spend Challenge",
+    "brand": "Standard Bank",
+    "category": "Cash",
+    "entryType": "Card Spend",
+    "closingDate": "2026-04-30",
+    "url": "https://www.standardbank.co.za/static_file/South%20Africa/PDF/Campaigns%20Ts%20and%20Cs/SBSA_Credit_Card_100_Spend_Challenge_Win_Your_Spend_Back_April_terms_and_conditions.pdf",
+    "summary": "Use your qualifying Standard Bank credit card for eligible daily spend to stand a chance to win cashback equal to that day's total spend, capped at R5,000.",
+    "entrySteps": [
+      "Use a qualifying Standard Bank credit card during the competition period.",
+      "Make eligible card purchases during the day, excluding cash and transfer transactions.",
+      "Make sure you have a Standard Bank transactional account and received the related competition communication.",
+      "Each eligible day counts as one entry, with up to 11 entries in total before 30 April 2026."
+    ],
+    "tags": [
+      "cash",
+      "banking",
+      "purchase-required",
+      "high-intent",
+      "ending-soon"
+    ],
+    "verificationStatus": "published",
+    "entryFeeLabel": "No separate entry fee",
+    "purchaseRequired": true,
+    "entryChannel": "Qualifying Standard Bank credit card spend",
+    "region": "South Africa"
+  },
+  {
+    "id": "nedbank-we-love-nedbank-cash",
+    "title": "We Love Nedbank Competition",
+    "brand": "Nedbank",
+    "category": "Cash",
+    "entryType": "Social Media",
+    "closingDate": "2026-04-30",
+    "url": "https://personal.nedbank.co.za/legal/terms-and-conditions/we-love-nedbank-t-and-c.html",
+    "summary": "Answer the Nedbank social media question and include 'WeNedbank' in your reply to stand a chance to win 1 of 15 cash prizes worth R1,000 each.",
+    "entrySteps": [
+      "Visit Nedbank's Facebook or X competition post during the campaign period.",
+      "Answer the question posted on the social media page.",
+      "Include 'WeNedbank' in your reply.",
+      "Submit your reply before 23:59 on 30 April 2026."
+    ],
+    "tags": [
+      "cash",
+      "social-entry",
+      "banking",
+      "ending-soon"
+    ],
+    "verificationStatus": "published",
+    "entryFeeLabel": "Free entry",
+    "purchaseRequired": false,
+    "entryChannel": "Facebook or X reply",
+    "region": "South Africa"
+  },
+  {
+    "id": "clicks-sorbet-voucher-2026",
+    "title": "Clicks ClubCard Sorbet Voucher Competition",
+    "brand": "Clicks",
+    "category": "Vouchers",
+    "entryType": "ClubCard",
+    "closingDate": "2026-06-01",
+    "url": "https://clicks.co.za/clubcard/competitions/clubcard-magazine-april-may-issue-of-2026-sorbet-voucher-competition",
+    "summary": "ClubCard members can enter the April/May 2026 ClubCard magazine competition for a chance to win a Sorbet voucher worth R2,000.",
+    "entrySteps": [
+      "Open the Clicks ClubCard competition page for the April/May 2026 magazine issue.",
+      "Follow the entry instructions shown on the official competition page.",
+      "Make sure you enter as a ClubCard member.",
+      "Submit your entry before 1 June 2026."
+    ],
+    "tags": [
+      "vouchers",
+      "clubcard",
+      "retail",
+      "ending-soon"
+    ],
+    "verificationStatus": "published",
+    "entryFeeLabel": "Free entry",
+    "purchaseRequired": false,
+    "entryChannel": "Clicks ClubCard competition page",
+    "region": "South Africa"
+  },
+  {
+    "id": "vodacom-spend-and-recharge-tfg-vouchers",
+    "title": "Vodacom Spend and Recharge - Win TFG Vouchers",
+    "brand": "Vodacom / TFG",
+    "category": "Vouchers",
+    "entryType": "In-store Purchase",
+    "closingDate": "2026-07-15",
+    "url": "https://www.vodacom.co.za/vodacom/terms/competition/accessory-spend-voucher",
+    "summary": "Buy a new Vodacom device and prepaid SIM at a participating TFG store, RICA and activate the SIM, then recharge with at least R29 on the day to stand a chance to win 1 of 4 R10,000 TFG vouchers.",
+    "entrySteps": [
+      "Buy a new Vodacom device and prepaid SIM card at a participating TFG store.",
+      "RICA and activate the new Vodacom prepaid SIM.",
+      "Recharge the new number with at least R29 on the same day.",
+      "Each additional airtime recharge or bundle purchase after the first qualifying recharge gives you another entry before 15 July 2026."
+    ],
+    "tags": [
+      "vouchers",
+      "telecom",
+      "purchase-required",
+      "in-store-entry",
+      "high-value"
+    ],
+    "verificationStatus": "published",
+    "entryFeeLabel": "No separate entry fee",
+    "purchaseRequired": true,
+    "minimumSpend": "R29 airtime recharge after device and SIM purchase",
+    "requiredProduct": "New Vodacom device and prepaid SIM from a participating TFG store",
+    "entryChannel": "Participating TFG store purchase and recharge",
+    "region": "South Africa"
+  },
+  {
+    "id": "cell-c-comrades-cash-promo",
+    "title": "Cell C Comrades Promotion - Win Your Share of R500,000 Cash",
+    "brand": "Cell C",
+    "category": "Cash",
+    "entryType": "App / USSD / Contract Purchase",
+    "closingDate": "2026-06-30",
+    "url": "https://www.cellc.co.za/cellc/comrades",
+    "summary": "Buy qualifying MyConnecta prepaid deals, sign up or upgrade on eligible Elevate contracts, or top up qualifying contract bolt-ons to earn entries for Cell C's R500,000 cash promotion.",
+    "entrySteps": [
+      "Buy a qualifying MyConnecta personalised deal in the app, via *141#, or through the listed prepaid flow.",
+      "Alternatively sign up or upgrade on an Elevate 3+ contract, or buy a qualifying bolt-on on an eligible contract.",
+      "Keep recharging or buying qualifying offers to increase your number of entries.",
+      "Complete your qualifying entry actions before the promotion closes."
+    ],
+    "tags": [
+      "cash",
+      "telecom",
+      "purchase-required",
+      "app-entry",
+      "high-value"
+    ],
+    "verificationStatus": "published",
+    "entryFeeLabel": "No separate entry fee",
+    "purchaseRequired": true,
+    "requiredProduct": "Qualifying Cell C MyConnecta deals, Elevate contracts, or bolt-ons",
+    "entryChannel": "Cell C app, *141#, or qualifying contract purchase",
+    "region": "South Africa"
+  },
+  {
+    "id": "fnb-lovefnb-social-media-competition",
+    "title": "FNB #LOVEFNB Social Media Competition",
+    "brand": "FNB",
+    "category": "Vouchers",
+    "entryType": "Social Media",
+    "closingDate": "2026-06-30",
+    "url": "https://www.fnb.co.za/about-fnb/legal-matters/promo-terms/Love-Fnb-Social-Media-Competition-Rules.pdf",
+    "summary": "Follow and engage with @FNBsa on social media for a chance to win from a prize pool of vouchers and eWallet prizes valued at R1.2 million, with selected campaign prizes also including devices, jerseys and tickets.",
+    "entrySteps": [
+      "Follow @FNBsa on FNB's supported social media accounts.",
+      "Engage with the qualifying competition posts during the campaign period.",
+      "Comply with the qualifying criteria stated for each post or campaign mechanic.",
+      "Enter before 23:59 on 30 June 2026."
+    ],
+    "tags": [
+      "vouchers",
+      "cash",
+      "tech",
+      "social-entry",
+      "high-value"
+    ],
+    "verificationStatus": "published",
+    "entryFeeLabel": "Free entry",
+    "purchaseRequired": false,
+    "entryChannel": "FNB social media accounts",
+    "region": "South Africa"
   }
 ]
