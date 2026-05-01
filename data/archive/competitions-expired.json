@@ -106,5 +106,155 @@
     "verificationStatus": "published",
     "archivedAt": "2026-04-27",
     "archiveReason": "expired"
+  },
+  {
+    "id": "picknpay-voucher",
+    "title": "Pick n Pay Voucher Giveaway",
+    "brand": "Pick n Pay",
+    "summary": "Pick n Pay is a natural fit for the vouchers category because shoppers know the value is immediately usable. This entry gives the hub another recognisable grocery-led reward option.",
+    "entrySteps": "Open the Pick n Pay site, look for the current competitions or promotions section, and follow the active giveaway instructions.",
+    "image": "https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?auto=format&fit=crop&w=900&q=80",
+    "closingDate": "2026-04-27",
+    "category": "Vouchers",
+    "entryType": "Free Entry",
+    "tags": [
+      "vouchers",
+      "free-entry",
+      "ending-soon",
+      "new"
+    ],
+    "isHighValue": false,
+    "isEndingSoon": true,
+    "url": "https://www.pnp.co.za/",
+    "verificationStatus": "published",
+    "archivedAt": "2026-04-28",
+    "archiveReason": "expired"
+  },
+  {
+    "id": "pick-n-pay-smart-shopper-tech-treats",
+    "title": "Pick n Pay Smart Shopper Tech Treats",
+    "brand": "Pick n Pay",
+    "category": "Tech",
+    "entryType": "App",
+    "closingDate": "2026-04-29",
+    "url": "https://www.picknpay.co.za/campaigns/smartshopper-tech-treats-2026",
+    "summary": "Scan your Smart Shopper card in-app on qualifying shops and tap the promo tile to enter. Win one of 10 Samsung Galaxy S25 smartphones, plus daily grocery tech deals for Smart Shopper members.",
+    "tags": [
+      "app-entry",
+      "app-only",
+      "electronics",
+      "high-value",
+      "purchase-required",
+      "weekly-draw",
+      "ending-soon"
+    ],
+    "verificationStatus": "published",
+    "archivedAt": "2026-04-30",
+    "archiveReason": "expired"
+  },
+  {
+    "id": "nestle-nido-grow-with-love",
+    "title": "Nestle NIDO 3+ Grow with Love Campaign Competition",
+    "brand": "Nestlé NIDO",
+    "summary": "Nestlé's NIDO campaign is built around Clicks cashback, making it useful for shoppers who prefer practical rewards they can actually use. It is a good example of a retail-linked prize that still feels low-friction to enter.",
+    "entrySteps": "Visit the competition page, confirm the qualifying purchase details, and follow the brand's listed entry process.",
+    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/a7c/7c1/69aa7c7c1a73e808200361.jpg",
+    "closingDate": "2026-04-30",
+    "category": "Cash",
+    "entryType": "In-store Purchase",
+    "tags": [
+      "cash",
+      "free-entry",
+      "ending-soon",
+      "new"
+    ],
+    "isHighValue": false,
+    "isEndingSoon": true,
+    "url": "https://www.winsomething.co.za/win/vouchers/111",
+    "verificationStatus": "published",
+    "archivedAt": "2026-05-01",
+    "archiveReason": "expired"
+  },
+  {
+    "id": "gummy-vites-back-to-school",
+    "title": "Gummy Vites Back to School Competition",
+    "brand": "Gummy Vites",
+    "summary": "Gummy Vites is offering a family travel voucher, which gives the holidays section another practical local getaway option. It is a useful mid-range travel prize rather than an ultra-luxury destination draw.",
+    "entrySteps": "Open the listing, review the promo mechanics, and complete the required store or brand entry steps.",
+    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/a83/832/69aa83832bfb1871744706.jpg",
+    "closingDate": "2026-04-30",
+    "category": "Holidays",
+    "entryType": "In-store Purchase",
+    "tags": [
+      "holidays",
+      "free-entry",
+      "ending-soon",
+      "new"
+    ],
+    "isHighValue": false,
+    "isEndingSoon": true,
+    "url": "https://www.winsomething.co.za/win/travel/114",
+    "verificationStatus": "published",
+    "archivedAt": "2026-05-01",
+    "archiveReason": "expired"
+  },
+  {
+    "id": "standard-bank-credit-card-spend-back-april",
+    "title": "Standard Bank Credit Card 100% Spend Challenge",
+    "brand": "Standard Bank",
+    "category": "Cash",
+    "entryType": "Card Spend",
+    "closingDate": "2026-04-30",
+    "url": "https://www.standardbank.co.za/static_file/South%20Africa/PDF/Campaigns%20Ts%20and%20Cs/SBSA_Credit_Card_100_Spend_Challenge_Win_Your_Spend_Back_April_terms_and_conditions.pdf",
+    "summary": "Use your qualifying Standard Bank credit card for eligible daily spend to stand a chance to win cashback equal to that day's total spend, capped at R5,000.",
+    "entrySteps": [
+      "Use a qualifying Standard Bank credit card during the competition period.",
+      "Make eligible card purchases during the day, excluding cash and transfer transactions.",
+      "Make sure you have a Standard Bank transactional account and received the related competition communication.",
+      "Each eligible day counts as one entry, with up to 11 entries in total before 30 April 2026."
+    ],
+    "tags": [
+      "cash",
+      "banking",
+      "purchase-required",
+      "high-intent",
+      "ending-soon"
+    ],
+    "verificationStatus": "published",
+    "entryFeeLabel": "No separate entry fee",
+    "purchaseRequired": true,
+    "entryChannel": "Qualifying Standard Bank credit card spend",
+    "region": "South Africa",
+    "archivedAt": "2026-05-01",
+    "archiveReason": "expired"
+  },
+  {
+    "id": "nedbank-we-love-nedbank-cash",
+    "title": "We Love Nedbank Competition",
+    "brand": "Nedbank",
+    "category": "Cash",
+    "entryType": "Social Media",
+    "closingDate": "2026-04-30",
+    "url": "https://personal.nedbank.co.za/legal/terms-and-conditions/we-love-nedbank-t-and-c.html",
+    "summary": "Answer the Nedbank social media question and include 'WeNedbank' in your reply to stand a chance to win 1 of 15 cash prizes worth R1,000 each.",
+    "entrySteps": [
+      "Visit Nedbank's Facebook or X competition post during the campaign period.",
+      "Answer the question posted on the social media page.",
+      "Include 'WeNedbank' in your reply.",
+      "Submit your reply before 23:59 on 30 April 2026."
+    ],
+    "tags": [
+      "cash",
+      "social-entry",
+      "banking",
+      "ending-soon"
+    ],
+    "verificationStatus": "published",
+    "entryFeeLabel": "Free entry",
+    "purchaseRequired": false,
+    "entryChannel": "Facebook or X reply",
+    "region": "South Africa",
+    "archivedAt": "2026-05-01",
+    "archiveReason": "expired"
   }
 ]

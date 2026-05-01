@@ -88,6 +88,15 @@ function getCompetitionImageUrl(competition) {
   return competition.image || buildBrandFallbackImage(competition);
 }
 
+function getMetadataImageUrl(competition) {
+  return competition && competition.image ? competition.image : shared.DEFAULT_OG_IMAGE;
+}
+
+function getCollectionMetadataImageUrl(competitions) {
+  const firstCompetitionWithImage = competitions.find((competition) => competition.image);
+  return getMetadataImageUrl(firstCompetitionWithImage);
+}
+
 function buildBrandFallbackImage(competition) {
   const brand = (competition.brand || "Official promotion").trim();
   const category = competition.category || "Competition";
@@ -145,7 +154,7 @@ function renderPage(routeContext, competitions) {
   const pageCopy = shared.getPageCopy(routeContext);
   const supportCopy = shared.getPageSupportCopy(routeContext);
   const structuredData = shared.buildStructuredData(competitions, routeContext);
-  const ogImage = competitions[0] ? getCompetitionImageUrl(competitions[0]) : shared.DEFAULT_OG_IMAGE;
+  const ogImage = getCollectionMetadataImageUrl(competitions);
   const cardsMarkup = competitions
     .flatMap((competition, index) => {
       const items = [renderCompetitionCard(competition)];
@@ -591,7 +600,7 @@ function renderThinPageTips(competitions) {
 function renderHomepage(competitions) {
   const homeRouteContext = { type: "home", slug: null, path: "/" };
   const structuredData = shared.buildStructuredData(competitions, homeRouteContext);
-  const ogImage = competitions[0] ? getCompetitionImageUrl(competitions[0]) : shared.DEFAULT_OG_IMAGE;
+  const ogImage = getCollectionMetadataImageUrl(competitions);
   const featured = getFeaturedCompetitions(competitions, 4);
   const featuredCardsMarkup = featured.map((c) => renderCompetitionCard(c, true)).join("\n            ");
   const heroSpotlightMarkup = renderHeroSpotlight(getHeroSpotlightCompetition(competitions));
@@ -969,7 +978,8 @@ function renderCompetitionPage(competition, allCompetitions) {
   const officialUrl = competition.url;
   const description = shared.buildCompetitionDescription(competition);
   const formattedDate = shared.formatDate(competition.closingDate);
-  const ogImage = getCompetitionImageUrl(competition);
+  const heroImage = getCompetitionImageUrl(competition);
+  const ogImage = getMetadataImageUrl(competition);
   if (!competition.image) {
     console.warn(`[generate-pages] Competition "${competition.title}" (slug: ${slug}) has no image — hero will use fallback background.`);
   }
@@ -1021,7 +1031,7 @@ function renderCompetitionPage(competition, allCompetitions) {
     name: competition.title,
     description,
     url: canonicalUrl,
-    image: competition.image || undefined,
+    image: getMetadataImageUrl(competition),
     offeredBy: competition.brand ? { "@type": "Organization", name: competition.brand } : undefined,
     availabilityEnds: competition.closingDate,
   };
@@ -1123,7 +1133,7 @@ function renderCompetitionPage(competition, allCompetitions) {
 
         <article class="competition-detail" aria-label="${escapeAttribute(competition.title)}">
           <div class="competition-detail__media">
-            <img src="${escapeAttribute(ogImage)}" alt="${escapeAttribute(competition.title)}" onerror="this.onerror=null;this.src='${escapeAttribute(buildBrandFallbackImage(competition))}'" />
+            <img src="${escapeAttribute(heroImage)}" alt="${escapeAttribute(competition.title)}" onerror="this.onerror=null;this.src='${escapeAttribute(buildBrandFallbackImage(competition))}'" />
           </div>
           <div class="competition-detail__body">
             <div class="competition-detail__meta">
@@ -1617,6 +1627,15 @@ function runStaticSeoChecks() {
     if (badStructuredDataUrl) {
       errors.push(`Structured data competition URL missing trailing slash in: ${filePath}`);
     }
+
+    const internalHrefRegex = /href="(\/(?:competition|category|tag)\/[^"]+)"/g;
+    const internalHrefMatches = [...html.matchAll(internalHrefRegex)];
+    internalHrefMatches.forEach((match) => {
+      const href = match[1];
+      if (!href.endsWith("/")) {
+        errors.push(`Internal href missing trailing slash in ${filePath}: ${href}`);
+      }
+    });
   });
 
   if (errors.length > 0) {
