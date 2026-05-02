@@ -19,6 +19,14 @@ const TAG_LINKS = [
   { label: "Ending Soon", href: "/tag/ending-soon/" },
   { label: "High Value", href: "/tag/high-value/" },
 ];
+const HUB_LINKS = [
+  { label: "All competitions", href: "/competitions/" },
+  { label: "Win a car", href: "/win-a-car/" },
+  { label: "Free competitions", href: "/free-competitions/" },
+  { label: "Ending soon", href: "/competitions-ending-soon/" },
+  { label: "Purchase required", href: "/purchase-required-competitions/" },
+  { label: "Paid entry", href: "/paid-entry-competitions/" },
+];
 const TRUST_PAGE_DEFINITIONS = [
   {
     slug: "about",
@@ -251,7 +259,7 @@ function main() {
   routeContexts.filter((routeContext) => routeContext.type !== "home").forEach((routeContext) => {
     const filteredCompetitions = shared.filterCompetitionsByRoute(competitions, routeContext);
     const html = renderPage(routeContext, filteredCompetitions);
-    const outputDirectory = path.join(ROOT_DIR, routeContext.type, routeContext.slug);
+    const outputDirectory = path.join(ROOT_DIR, routeContext.path.replace(/^\//, "").replace(/\/$/, ""));
 
     fs.mkdirSync(outputDirectory, { recursive: true });
     fs.writeFileSync(path.join(outputDirectory, "index.html"), html);
@@ -295,8 +303,13 @@ function getGeneratedRouteContexts(competitions) {
   const activeTagRouteContexts = shared.TAG_SLUGS
     .filter((slug) => shared.getTagFilteredCompetitions(competitions, slug).length > 0)
     .map((slug) => ({ type: "tag", slug, path: `/tag/${slug}/` }));
+  const hubRouteContexts = shared.HUB_SLUGS.map((slug) => ({
+    type: "hub",
+    slug,
+    path: `/${slug}/`,
+  }));
 
-  return [{ type: "home", slug: "", path: "/" }, ...categoryRouteContexts, ...activeTagRouteContexts];
+  return [{ type: "home", slug: "", path: "/" }, ...categoryRouteContexts, ...activeTagRouteContexts, ...hubRouteContexts];
 }
 
 function renderSiteFooter() {
@@ -315,6 +328,17 @@ function renderSiteFooter() {
               <a href="/how-to-enter-competitions-safely/">Enter safely</a>
               <a href="/legit-competitions-south-africa/">Legit competition guide</a>
               <a href="/report-a-competition/">Report a competition</a>
+            </nav>
+          </div>
+          <div>
+            <p class="site-footer__title">Explore Competitions</p>
+            <nav class="site-footer__links" aria-label="Explore competition hubs">
+              <a href="/competitions/">All competitions</a>
+              <a href="/win-a-car/">Win a car</a>
+              <a href="/free-competitions/">Free competitions</a>
+              <a href="/competitions-ending-soon/">Ending soon</a>
+              <a href="/purchase-required-competitions/">Purchase required</a>
+              <a href="/paid-entry-competitions/">Paid entry</a>
             </nav>
           </div>
           <div>
@@ -419,6 +443,43 @@ function renderPage(routeContext, competitions) {
   const supportCopy = shared.getPageSupportCopy(routeContext);
   const structuredData = shared.buildStructuredData(competitions, routeContext);
   const ogImage = getCollectionMetadataImageUrl(competitions);
+  const collectionPageStructuredData =
+    routeContext.type === "hub"
+      ? {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: pageCopy.heading,
+          description: pageCopy.description,
+          url: pageCopy.canonical,
+          inLanguage: "en-ZA",
+          isPartOf: {
+            "@type": "WebSite",
+            name: "Freehub",
+            url: `${shared.CANONICAL_ORIGIN}/`,
+          },
+        }
+      : null;
+  const breadcrumbData =
+    routeContext.type === "hub"
+      ? {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: `${shared.CANONICAL_ORIGIN}/` },
+            { "@type": "ListItem", position: 2, name: pageCopy.heading, item: pageCopy.canonical },
+          ],
+        }
+      : null;
+  const collectionPageScript = collectionPageStructuredData
+    ? `<script id="structured-data-collectionpage" type="application/ld+json">${escapeScript(
+        JSON.stringify(collectionPageStructuredData)
+      )}</script>`
+    : "";
+  const breadcrumbScript = breadcrumbData
+    ? `<script id="structured-data-breadcrumb" type="application/ld+json">${escapeScript(
+        JSON.stringify(breadcrumbData)
+      )}</script>`
+    : "";
   const cardsMarkup = competitions
     .flatMap((competition, index) => {
       const items = [renderCompetitionCard(competition)];
@@ -450,6 +511,8 @@ function renderPage(routeContext, competitions) {
     <meta name="twitter:title" content="${escapeAttribute(pageCopy.title)}" />
     <meta name="twitter:description" content="${escapeAttribute(pageCopy.description)}" />
     <meta name="twitter:image" content="${escapeAttribute(ogImage)}" />
+    ${collectionPageScript}
+    ${breadcrumbScript}
     <script id="structured-data-itemlist" type="application/ld+json">${escapeScript(
       JSON.stringify(structuredData)
     )}</script>
@@ -461,7 +524,7 @@ function renderPage(routeContext, competitions) {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('set', { page_type: '${routeContext.type}' });
+      gtag('set', { page_type: '${routeContext.type === "hub" ? "hub" : routeContext.type}'${routeContext.type === "hub" ? `, hub_slug: '${routeContext.slug}'` : ""} });
       gtag('config', 'G-23P37R20FY');
     </script>
   </head>
@@ -490,6 +553,7 @@ function renderPage(routeContext, competitions) {
         </section>
 
         ${renderInternalLinksSection(routeContext, competitions)}
+        ${renderHubSupportLinks(routeContext, competitions)}
 
         ${renderAdZone("ad-top", "top")}
 
@@ -707,6 +771,8 @@ function renderInternalLinksSection(routeContext, competitions) {
   const section =
     routeContext.type === "category"
       ? getCategoryInternalLinks(routeContext.slug, competitions)
+      : routeContext.type === "hub"
+        ? getHubInternalLinks(routeContext.slug)
       : routeContext.type === "tag"
         ? {
             title: "Explore Categories",
@@ -734,6 +800,80 @@ function renderInternalLinksSection(routeContext, competitions) {
         </section>`;
 }
 
+function renderHubSupportLinks(routeContext, competitions) {
+  if (routeContext.type !== "hub") {
+    return "";
+  }
+
+  if (competitions.length >= 3) {
+    return "";
+  }
+
+  const section = getHubInternalLinks(routeContext.slug);
+
+  return `<section class="state-card" aria-label="More competition paths">
+          <p class="state-card__title">More ways to browse live competitions</p>
+          <p class="state-card__text">There are currently fewer matches on this hub, so use these related pages to find active competitions.</p>
+          <div class="internal-links__list">
+            ${section.links
+              .slice(0, 4)
+              .map(
+                (link) =>
+                  `<a class="internal-links__link" href="${escapeAttribute(link.href)}">${escapeHtml(link.label)}</a>`
+              )
+              .join("\n            ")}
+          </div>
+        </section>`;
+}
+
+function getHubInternalLinks(slug) {
+  const linksBySlug = {
+    competitions: [
+      { label: "Win a car competitions", href: "/win-a-car/" },
+      { label: "Free competitions", href: "/free-competitions/" },
+      { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
+      { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
+      { label: "How we verify listings", href: "/how-we-verify-competitions/" },
+      { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
+    ],
+    "win-a-car": [
+      { label: "Cars category", href: "/category/cars/" },
+      { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
+      { label: "Paid entry competitions", href: "/paid-entry-competitions/" },
+      { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
+      { label: "Legit competitions guide", href: "/legit-competitions-south-africa/" },
+    ],
+    "free-competitions": [
+      { label: "All competitions", href: "/competitions/" },
+      { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
+      { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
+      { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
+    ],
+    "competitions-ending-soon": [
+      { label: "All competitions", href: "/competitions/" },
+      { label: "Free competitions", href: "/free-competitions/" },
+      { label: "Win a car competitions", href: "/win-a-car/" },
+      { label: "How we verify listings", href: "/how-we-verify-competitions/" },
+    ],
+    "purchase-required-competitions": [
+      { label: "Free competitions", href: "/free-competitions/" },
+      { label: "Win a car competitions", href: "/win-a-car/" },
+      { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
+      { label: "Legit competitions guide", href: "/legit-competitions-south-africa/" },
+    ],
+    "paid-entry-competitions": [
+      { label: "Free competitions", href: "/free-competitions/" },
+      { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
+      { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
+    ],
+  };
+
+  return {
+    title: "Related Competition Hubs",
+    links: linksBySlug[slug] || HUB_LINKS,
+  };
+}
+
 function getCategoryInternalLinks(slug, competitions) {
   const firstCategoryCompetition = competitions[0]
     ? `${shared.getCompetitionPath(competitions[0])}/`
@@ -747,9 +887,10 @@ function getCategoryInternalLinks(slug, competitions) {
     return {
       title: "Car Competition Searches",
       links: [
-        { label: "Win a car competitions South Africa", href: "/tag/win-a-car/" },
-        { label: "Purchase-required car competitions", href: "/tag/purchase-required/" },
-        { label: "Toyota Vitz competitions", href: "/tag/toyota/" },
+        { label: "Win a car competitions South Africa", href: "/win-a-car/" },
+        { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
+        { label: "Free competitions", href: "/free-competitions/" },
+        { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
       ],
     };
   }
@@ -760,7 +901,8 @@ function getCategoryInternalLinks(slug, competitions) {
       links: [
         { label: "Win a holiday South Africa", href: byIdPath("sanlam-plan-win-mauritius") },
         { label: "Holiday giveaway competitions", href: byIdPath("makro-rewards-zanzibar-getaway") },
-        { label: "Local getaway competition ideas", href: byIdPath("sixty60-getaway-giveaway") },
+        { label: "Free competitions", href: "/free-competitions/" },
+        { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
       ],
     };
   }
@@ -771,7 +913,8 @@ function getCategoryInternalLinks(slug, competitions) {
       links: [
         { label: "Gadget giveaway competitions", href: byIdPath("game-store-gadget-giveaway") },
         { label: "Smartphone competition entries", href: byIdPath("vodacom-recharge-win-galaxy-s25") },
-        { label: "Tech giveaways South Africa", href: "/category/tech/" },
+        { label: "Free competitions", href: "/free-competitions/" },
+        { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
       ],
     };
   }
@@ -782,7 +925,8 @@ function getCategoryInternalLinks(slug, competitions) {
       links: [
         { label: "Cash competitions South Africa", href: "/category/cash/" },
         { label: "Win cash online South Africa", href: byIdPath("fnb-pay-to-win-grand-cash-prize") },
-        { label: "Ending soon cash giveaways", href: "/tag/ending-soon/" },
+        { label: "Free competitions", href: "/free-competitions/" },
+        { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
       ],
     };
   }
@@ -793,7 +937,8 @@ function getCategoryInternalLinks(slug, competitions) {
       links: [
         { label: "Voucher giveaway competitions", href: "/category/vouchers/" },
         { label: "Takealot competitions and vouchers", href: byIdPath("cell-c-takealot-voucher-giveaway") },
-        { label: "Voucher competitions South Africa", href: "/tag/free-entry/" },
+        { label: "Free competitions", href: "/free-competitions/" },
+        { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
       ],
     };
   }
@@ -801,8 +946,9 @@ function getCategoryInternalLinks(slug, competitions) {
   return {
     title: "Related Searches",
     links: [
-      { label: "Ending soon competitions", href: "/tag/ending-soon/" },
-      { label: "High value competitions", href: "/tag/high-value/" },
+      { label: "All competitions", href: "/competitions/" },
+      { label: "Free competitions", href: "/free-competitions/" },
+      { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
     ],
   };
 }
@@ -859,12 +1005,15 @@ function renderHomepage(competitions) {
         )}</a>`
     ),
   ].join("\n          ");
-  const homeIntentLinksMarkup = `<section class="internal-links" aria-label="Popular competition searches">
-          <p class="internal-links__title">Popular Competition Searches</p>
+  const homeIntentLinksMarkup = `<section class="internal-links" aria-label="Explore competition hubs">
+          <p class="internal-links__title">Explore Competition Hubs</p>
           <div class="internal-links__list">
-            <a class="internal-links__link" href="/category/cars/">Current car competitions in South Africa</a>
-            <a class="internal-links__link" href="/category/holidays/">Win a holiday South Africa</a>
-            <a class="internal-links__link" href="/category/tech/">Gadget giveaway and smartphone competition ideas</a>
+            <a class="internal-links__link" href="/competitions/">All live competitions</a>
+            <a class="internal-links__link" href="/win-a-car/">Win a car competitions</a>
+            <a class="internal-links__link" href="/free-competitions/">Free competitions</a>
+            <a class="internal-links__link" href="/competitions-ending-soon/">Competitions ending soon</a>
+            <a class="internal-links__link" href="/purchase-required-competitions/">Purchase required competitions</a>
+            <a class="internal-links__link" href="/paid-entry-competitions/">Paid entry competitions</a>
           </div>
         </section>`;
   const featuredSectionMarkup = `<section class="home-section home-section--featured" aria-label="Featured competitions">
@@ -962,9 +1111,11 @@ ${noscriptLinks}
         <section class="popular-searches" aria-label="Popular searches">
           <p class="popular-searches__title">Quick Paths</p>
           <div class="popular-searches__links">
-            <a class="popular-searches__link" href="/tag/free-entry/">Free entry</a>
-            <a class="popular-searches__link" href="/tag/ending-soon/">Ending soon</a>
-            <a class="popular-searches__link" href="/tag/high-value/">High value</a>
+            <a class="popular-searches__link" href="/competitions/">All competitions</a>
+            <a class="popular-searches__link" href="/win-a-car/">Win a car</a>
+            <a class="popular-searches__link" href="/free-competitions/">Free competitions</a>
+            <a class="popular-searches__link" href="/competitions-ending-soon/">Ending soon</a>
+            <a class="popular-searches__link" href="/purchase-required-competitions/">Purchase required</a>
           </div>
         </section>
 
@@ -1539,7 +1690,7 @@ function renderCompetitionPage(competition, allCompetitions) {
           <p class="state-card__text">The closing date was ${escapeHtml(formattedDate)}. Browse related competitions below.</p>
         </section>` : ""}
 
-        ${renderCompetitionInternalLinks(competition.category, categoryPath)}
+        ${renderCompetitionInternalLinks(competition, categoryPath)}
 
         ${renderAdZone("ad-top", "detail-top")}
 
@@ -1913,12 +2064,24 @@ function renderOutPage(competition) {
 `;
 }
 
-function renderCompetitionInternalLinks(category, categoryPath) {
-  const links = [
-    { label: `All ${category} competitions`, href: categoryPath },
-    { label: "Ending soon competitions", href: "/tag/ending-soon/" },
-    { label: "High value competitions", href: "/tag/high-value/" },
-  ];
+function renderCompetitionInternalLinks(competition, categoryPath) {
+  const links = [{ label: `All ${competition.category} competitions`, href: categoryPath }];
+  const entryCostType = String(competition.entryCostType || "").toLowerCase();
+
+  if (competition.category === "Cars" || String(competition.prizeType || "").toLowerCase() === "car") {
+    links.push({ label: "Win a car competitions", href: "/win-a-car/" });
+  }
+
+  if (competition.purchaseRequired === true || entryCostType === "purchase-required") {
+    links.push({ label: "Purchase required competitions", href: "/purchase-required-competitions/" });
+  } else if (entryCostType === "paid-entry" || Number(competition.entryFeeAmount) > 0) {
+    links.push({ label: "Paid entry competitions", href: "/paid-entry-competitions/" });
+  } else if (entryCostType === "free-entry") {
+    links.push({ label: "Free competitions", href: "/free-competitions/" });
+  }
+
+  links.push({ label: "How to enter competitions safely", href: "/how-to-enter-competitions-safely/" });
+  links.push({ label: "Competitions ending soon", href: "/competitions-ending-soon/" });
 
   return `<section class="internal-links" aria-label="Explore More">
           <p class="internal-links__title">Explore More</p>
@@ -2408,6 +2571,7 @@ function runStaticSeoChecks() {
     ...getNestedIndexFiles(path.join(ROOT_DIR, "category")),
     ...getNestedIndexFiles(path.join(ROOT_DIR, "tag")),
     ...getNestedIndexFiles(path.join(ROOT_DIR, "competition")),
+    ...shared.HUB_SLUGS.map((slug) => path.join(ROOT_DIR, slug, "index.html")),
     ...TRUST_PAGE_DEFINITIONS.map((page) => path.join(ROOT_DIR, page.slug, "index.html")),
   ];
 

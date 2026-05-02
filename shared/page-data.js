@@ -235,6 +235,68 @@
         "Regional competitions can be useful for local search, but users need branch and eligibility details before entering.",
     },
   };
+  const HUB_COPY = {
+    competitions: {
+      title: "Competitions South Africa – Live Giveaways & Prize Draws | Freehub",
+      description:
+        "Browse live South African competitions, giveaways and prize draws. Find car, cash, voucher, tech and holiday competitions with clear entry rules and official source links.",
+      heading: "Live Competitions in South Africa",
+      intro:
+        "Freehub lists live competitions from South African brands and promoters so you can compare prizes, closing dates, entry costs and official source links before you click through.",
+      support:
+        "Freehub does not run these competitions or collect entries. Always confirm the latest terms and deadlines on the official promoter page before entering.",
+    },
+    "win-a-car": {
+      title: "Win a Car in South Africa – Live Car Competitions | Freehub",
+      description:
+        "Find live win-a-car competitions in South Africa. Compare car prizes, entry costs, purchase requirements, closing dates and official promoter links.",
+      heading: "Win a Car Competitions in South Africa",
+      intro:
+        "Browse current South African car competitions. Some are free-entry, some need a qualifying purchase, and others use paid tickets. Compare the entry cost and source details before entering.",
+      support:
+        "Check official terms, driver’s licence requirements, qualifying purchase rules and closing dates on the promoter page. Freehub lists the competition and links you to the promoter.",
+    },
+    "free-competitions": {
+      title: "Free Competitions South Africa – No Purchase Entry Giveaways | Freehub",
+      description:
+        "Browse free-entry competitions in South Africa. Find giveaways that do not require a purchase or paid ticket, with official source links and closing dates.",
+      heading: "Free Competitions in South Africa",
+      intro:
+        "This page is for strict free-entry listings only: no required product purchase and no paid ticket. Use it to find no-purchase giveaways with clear source links and deadlines.",
+      support:
+        "Free-entry means no required spend and no paid entry ticket. Some offers may still require online access or account steps on the promoter page.",
+    },
+    "competitions-ending-soon": {
+      title: "Competitions Ending Soon in South Africa | Freehub",
+      description:
+        "Find South African competitions closing soon. Browse live giveaways by closing date and enter through official promoter pages before deadlines pass.",
+      heading: "Competitions Ending Soon in South Africa",
+      intro:
+        "These active listings are approaching their closing dates. Prioritise entries with the nearest deadlines first and confirm the latest closing time on the official source page.",
+      support:
+        "Competition deadlines can change. Always check the promoter’s current deadline and terms before entering.",
+    },
+    "purchase-required-competitions": {
+      title: "Purchase Required Competitions South Africa | Freehub",
+      description:
+        "Browse South African competitions that require a qualifying purchase, receipt, rewards card or minimum spend. Check entry rules and official source links before entering.",
+      heading: "Purchase Required Competitions in South Africa",
+      intro:
+        "These competitions require a qualifying purchase, receipt, loyalty-card action, code or minimum spend before entry. Review the requirements before taking part.",
+      support:
+        "Purchase-required competitions are not free-entry listings. Check qualifying products, participating stores, minimum spend and promoter terms before entering.",
+    },
+    "paid-entry-competitions": {
+      title: "Paid Entry Competitions South Africa | Freehub",
+      description:
+        "Browse South African competitions that require a paid ticket or paid entry. Check the cost, official promoter and terms before entering.",
+      heading: "Paid Entry Competitions in South Africa",
+      intro:
+        "These listings require a paid ticket or paid entry flow. Compare the prize, fee and source details before paying.",
+      support:
+        "Only pay through the official promoter or official ticketing route. Freehub does not process payments or sell entries.",
+    },
+  };
   const THIN_PAGE_TIPS = [
     "Enter daily competitions regularly to build more chances over time.",
     "Focus on lower-profile competitions where fewer people are likely to enter.",
@@ -243,6 +305,7 @@
   ];
   const CATEGORY_SLUGS = Object.keys(CATEGORY_COPY);
   const TAG_SLUGS = Object.keys(TAG_COPY);
+  const HUB_SLUGS = Object.keys(HUB_COPY);
   const CATEGORY_FALLBACK_STYLES = {
     Cash: { start: "#0f766e", end: "#14b8a6", accent: "#99f6e4" },
     Cars: { start: "#1d4ed8", end: "#60a5fa", accent: "#dbeafe" },
@@ -747,6 +810,16 @@
       };
     }
 
+    const hubMatch = path.match(/^\/([a-z0-9-]+)$/);
+
+    if (hubMatch && HUB_COPY[hubMatch[1]]) {
+      return {
+        type: "hub",
+        slug: hubMatch[1],
+        path: `/${hubMatch[1]}/`,
+      };
+    }
+
     const competitionMatch = path.match(/^\/competition\/([a-z0-9-]+)$/);
 
     if (competitionMatch) {
@@ -783,6 +856,17 @@
       };
     }
 
+    if (routeContext.type === "hub") {
+      const copy = HUB_COPY[routeContext.slug];
+      return {
+        title: copy.title,
+        description: copy.description,
+        heading: copy.heading,
+        intro: copy.intro,
+        canonical: `${CANONICAL_ORIGIN}/${routeContext.slug}/`,
+      };
+    }
+
     return DEFAULT_COPY;
   }
 
@@ -798,7 +882,102 @@
       return getTagFilteredCompetitions(publishedCompetitions, routeContext.slug);
     }
 
+    if (routeContext.type === "hub") {
+      return getHubFilteredCompetitions(publishedCompetitions, routeContext.slug);
+    }
+
     return publishedCompetitions;
+  }
+
+  function getHubFilteredCompetitions(competitions, slug) {
+    const publishedCompetitions = getPublishedCompetitions(competitions);
+    const sortedCompetitions = sortCompetitions(publishedCompetitions);
+
+    if (slug === "competitions") {
+      return sortedCompetitions;
+    }
+
+    if (slug === "win-a-car") {
+      return sortedCompetitions.filter((competition) => {
+        const tags = Array.isArray(competition.tags) ? competition.tags : [];
+        return (
+          competition.category === "Cars" ||
+          tags.includes("win-a-car") ||
+          normalizePrizeType(competition.prizeType) === "car"
+        );
+      });
+    }
+
+    if (slug === "free-competitions") {
+      return sortedCompetitions.filter(isStrictFreeEntryCompetition);
+    }
+
+    if (slug === "competitions-ending-soon") {
+      return sortedCompetitions.filter((competition) => {
+        const tags = Array.isArray(competition.tags) ? competition.tags : [];
+        return (
+          isClosingWithinDays(competition.closingDate, ENDING_SOON_TAG_DAYS) ||
+          competition.isEndingSoon === true ||
+          tags.includes("ending-soon")
+        );
+      });
+    }
+
+    if (slug === "purchase-required-competitions") {
+      return sortedCompetitions.filter((competition) => {
+        const tags = Array.isArray(competition.tags) ? competition.tags : [];
+        return (
+          competition.purchaseRequired === true ||
+          normalizeEntryCostType(competition.entryCostType) === "purchase-required" ||
+          tags.includes("purchase-required")
+        );
+      });
+    }
+
+    if (slug === "paid-entry-competitions") {
+      return sortedCompetitions.filter((competition) => {
+        const tags = Array.isArray(competition.tags) ? competition.tags : [];
+        return (
+          normalizeEntryCostType(competition.entryCostType) === "paid-entry" ||
+          tags.includes("paid-entry") ||
+          Number(competition.entryFeeAmount) > 0
+        );
+      });
+    }
+
+    return sortedCompetitions;
+  }
+
+  function isStrictFreeEntryCompetition(competition) {
+    const tags = Array.isArray(competition.tags) ? competition.tags : [];
+    const entryCostType = normalizeEntryCostType(competition.entryCostType);
+    const entryContext = [competition.entryType, competition.entryChannel, tags.join(" ")].join(" ").toLowerCase();
+
+    if (competition.purchaseRequired === true) {
+      return false;
+    }
+
+    if (entryCostType !== "free-entry") {
+      return false;
+    }
+
+    if (tags.includes("purchase-required") || tags.includes("paid-entry")) {
+      return false;
+    }
+
+    if (Number(competition.entryFeeAmount) > 0) {
+      return false;
+    }
+
+    if (/sms|ussd/.test(entryContext)) {
+      return false;
+    }
+
+    return getEntryCostLabel(competition) === "Free entry";
+  }
+
+  function normalizeEntryCostType(entryCostType) {
+    return String(entryCostType || "").trim().toLowerCase();
   }
 
   function buildStructuredData(competitions, routeContext) {
@@ -824,6 +1003,7 @@
       { type: "home", slug: "", path: HOME_ROUTE },
       ...CATEGORY_SLUGS.map((slug) => ({ type: "category", slug, path: `/category/${slug}/` })),
       ...TAG_SLUGS.map((slug) => ({ type: "tag", slug, path: `/tag/${slug}/` })),
+      ...HUB_SLUGS.map((slug) => ({ type: "hub", slug, path: `/${slug}/` })),
     ];
   }
 
@@ -834,6 +1014,10 @@
 
     if (routeContext.type === "tag") {
       return TAG_COPY[routeContext.slug].support;
+    }
+
+    if (routeContext.type === "hub") {
+      return HUB_COPY[routeContext.slug].support;
     }
 
     return "";
@@ -853,8 +1037,10 @@
     CATEGORY_COPY,
     DEFAULT_COPY,
     TAG_COPY,
+    HUB_COPY,
     CATEGORY_SLUGS,
     TAG_SLUGS,
+    HUB_SLUGS,
     normalizePath,
     formatDate,
     getCompetitionSlug,
@@ -880,6 +1066,7 @@
     isHighValueCompetition,
     sortCompetitions,
     getTagFilteredCompetitions,
+    getHubFilteredCompetitions,
     getCategoryRoute,
     getRouteContext,
     getPageCopy,
