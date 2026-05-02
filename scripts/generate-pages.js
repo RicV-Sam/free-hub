@@ -5,6 +5,8 @@ const shared = require("../shared/page-data.js");
 const ROOT_DIR = path.resolve(__dirname, "..");
 const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
 const RELATIVE_ASSET_PATH = "/";
+const ADSENSE_SCRIPT =
+  '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6084410613829318" crossorigin="anonymous"></script>';
 const CATEGORY_LINKS = [
   { label: "All Competitions", href: "/" },
   ...shared.CATEGORY_SLUGS.map((slug) => ({
@@ -190,6 +192,7 @@ function renderPage(routeContext, competitions) {
       JSON.stringify(structuredData)
     )}</script>
     <link rel="stylesheet" href="${RELATIVE_ASSET_PATH}styles.css" />
+    ${ADSENSE_SCRIPT}
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
     <script>
@@ -673,6 +676,7 @@ If you are looking for free entry competitions in South Africa, practical vouche
     <meta name="twitter:image" content="${escapeAttribute(ogImage)}" />
     <script id="structured-data-itemlist" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
     <link rel="stylesheet" href="/styles.css" />
+    ${ADSENSE_SCRIPT}
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
     <script>
@@ -1087,6 +1091,7 @@ function renderCompetitionPage(competition, allCompetitions) {
     <script id="structured-data-offer" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
     <script id="structured-data-breadcrumb" type="application/ld+json">${escapeScript(JSON.stringify(breadcrumbData))}</script>
     <link rel="stylesheet" href="${RELATIVE_ASSET_PATH}styles.css" />
+    ${ADSENSE_SCRIPT}
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
     <script>
@@ -1244,6 +1249,7 @@ function renderOutPage(competition) {
     <meta name="robots" content="noindex, nofollow" />
     <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
     <link rel="stylesheet" href="${RELATIVE_ASSET_PATH}styles.css" />
+    ${ADSENSE_SCRIPT}
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
     <script>
