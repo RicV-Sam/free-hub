@@ -19,6 +19,217 @@ const TAG_LINKS = [
   { label: "Ending Soon", href: "/tag/ending-soon/" },
   { label: "High Value", href: "/tag/high-value/" },
 ];
+const TRUST_PAGE_DEFINITIONS = [
+  {
+    slug: "about",
+    title: "About Freehub | South African Competition Discovery",
+    description:
+      "Learn what Freehub does, how it helps South Africans discover competitions, and why every listing points users to the official promoter.",
+    heading: "About Freehub",
+    intro:
+      "Freehub is a South African competition discovery site. We help people find live competitions, giveaways, prize draws and brand promotions, then point them to the official promoter to enter.",
+    sections: [
+      {
+        heading: "What Freehub does",
+        paragraphs: [
+          "Freehub organises competition information so users can compare closing dates, entry methods, purchase requirements and source links before clicking through.",
+          "We list competitions from South African brands, retailers, media companies and official promotion pages where the listing has enough information to be useful.",
+        ],
+      },
+      {
+        heading: "What Freehub does not do",
+        paragraphs: [
+          "Freehub does not run the competitions listed on this site, choose winners, collect entries for promoters or guarantee that a promoter will accept an entry.",
+          "Competition details can change on official promoter pages, so users should always read the promoter's current terms before entering.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "contact",
+    title: "Contact Freehub | Report Competition Issues",
+    description:
+      "Contact Freehub about broken links, expired competitions, suspicious listings, corrections, or brand removal requests.",
+    heading: "Contact Freehub",
+    intro:
+      "Use this page to contact Freehub about listing corrections, broken links, expired competitions, suspicious promotions or brand-related requests.",
+    sections: [
+      {
+        heading: "Email",
+        paragraphs: [
+          "Send listing corrections and general messages to hello@freehub.co.za.",
+          "Include the competition title, the Freehub page URL and the official source URL if your message is about a specific listing.",
+        ],
+      },
+      {
+        heading: "Before you enter",
+        paragraphs: [
+          "Freehub does not accept competition entries by email. To enter a competition, open the listing and follow the official promoter link.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "privacy-policy",
+    title: "Privacy Policy | Freehub",
+    description:
+      "Read Freehub's privacy policy, including basic analytics, cookies, outbound links and competition entry responsibility.",
+    heading: "Privacy Policy",
+    intro:
+      "This privacy policy explains how Freehub handles basic site usage information. Freehub is a listing site and does not collect competition entries for promoters.",
+    sections: [
+      {
+        heading: "Information Freehub may process",
+        paragraphs: [
+          "Freehub may use analytics tools to understand page views, clicks, device types and broad usage patterns. This helps us improve pages and find broken journeys.",
+          "If you contact us by email, we receive the information you choose to send, such as your email address, message and any page URLs included.",
+        ],
+      },
+      {
+        heading: "Competition entries",
+        paragraphs: [
+          "Freehub does not collect or process entries for the competitions listed on the site. When you click through, the promoter's own privacy policy and terms apply.",
+          "Do not send identity numbers, banking details, passwords or competition entries to Freehub unless we have specifically requested information for a listing correction.",
+        ],
+      },
+      {
+        heading: "Cookies and analytics",
+        paragraphs: [
+          "The site may use cookies or similar technologies through analytics and measurement tools. These are used to understand site performance and user journeys.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "terms-of-use",
+    title: "Terms of Use | Freehub",
+    description:
+      "Read the Freehub terms of use for browsing competition listings, official promoter links, accuracy limits and user responsibility.",
+    heading: "Terms of Use",
+    intro:
+      "These terms explain how to use Freehub as a competition discovery site. By browsing Freehub, you understand that listings are informational and entries happen with the official promoter.",
+    sections: [
+      {
+        heading: "Listings are informational",
+        paragraphs: [
+          "Freehub aims to present useful competition information, but promoter pages, eligibility rules, entry methods and closing dates can change.",
+          "Before entering, check the official promoter page and any terms and conditions linked by the promoter.",
+        ],
+      },
+      {
+        heading: "Freehub is not the promoter",
+        paragraphs: [
+          "Freehub does not run the listed competitions, select winners, verify winner messages, collect entries or manage prize fulfilment.",
+          "Questions about entry acceptance, winner selection or prize delivery should be directed to the official promoter.",
+        ],
+      },
+      {
+        heading: "Sponsored or affiliate content",
+        paragraphs: [
+          "If Freehub adds sponsored placements or affiliate links in future, they should be labelled clearly. Competition cards and ads should not be presented in a way that confuses users.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "how-we-verify-competitions",
+    title: "How Freehub Checks Competition Listings",
+    description:
+      "Learn how Freehub reviews competition listings, official sources, dates and entry requirements before publishing.",
+    heading: "How We Check Competition Listings",
+    intro:
+      "Freehub uses a cautious listing process so users can see the source, entry route and basic requirements before they leave the site.",
+    sections: [
+      {
+        heading: "What we check",
+        paragraphs: [
+          "We look for an official promoter page, a credible brand or retailer source, a closing date, an entry method and enough entry information to help users decide whether to continue.",
+          "Listings marked for internal verification should not be published as public competition pages until they are safe to expose.",
+        ],
+      },
+      {
+        heading: "What verified means here",
+        paragraphs: [
+          "A verified listing means Freehub found enough source information to publish the listing. It does not mean Freehub runs the competition or guarantees the prize.",
+          "Promoters can update or remove campaigns, so users should still check the official page before entering.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "how-to-enter-competitions-safely",
+    title: "How to Enter Competitions Safely in South Africa",
+    description:
+      "Safety guidance for entering South African competitions, checking official sources, reading terms and avoiding suspicious requests.",
+    heading: "How to Enter Competitions Safely",
+    intro:
+      "Competitions can be useful and fun, but it is worth checking the basics before sharing information or spending money.",
+    sections: [
+      {
+        heading: "Before you enter",
+        paragraphs: [
+          "Check that the entry link goes to the official promoter or a trusted campaign partner. Read the terms, closing date, eligibility rules and entry costs.",
+          "If a purchase, till slip, rewards card, SMS, USSD session or paid ticket is required, make sure you understand the cost before entering.",
+        ],
+      },
+      {
+        heading: "Red flags",
+        paragraphs: [
+          "Be careful with messages that ask for banking passwords, card PINs, upfront release fees, remote access apps or unnecessary identity documents.",
+          "If a winner message looks suspicious, contact the promoter through the official website or verified social channel rather than replying directly.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "legit-competitions-south-africa",
+    title: "Legit Competitions in South Africa | Safety Guide",
+    description:
+      "A practical guide to spotting legitimate South African competitions and understanding Freehub's role as a listing site.",
+    heading: "Legit Competitions in South Africa",
+    intro:
+      "A legitimate competition should make it possible to identify the promoter, entry method, prize, closing date and important conditions before you enter.",
+    sections: [
+      {
+        heading: "What to look for",
+        paragraphs: [
+          "Look for a recognisable promoter, a clear source page, understandable entry rules, a closing date and transparent cost information.",
+          "Purchase-required competitions should explain the qualifying product, spend, receipt or loyalty-card requirement. Paid-entry competitions should make the ticket cost clear.",
+        ],
+      },
+      {
+        heading: "Freehub's role",
+        paragraphs: [
+          "Freehub helps users discover and compare competitions, but the promoter remains responsible for the competition, entry process, winner selection and prize fulfilment.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "report-a-competition",
+    title: "Report a Competition | Freehub",
+    description:
+      "Report a broken link, expired listing, suspicious competition, incorrect entry information or brand removal request to Freehub.",
+    heading: "Report a Competition",
+    intro:
+      "Help keep Freehub useful by reporting broken links, expired campaigns, suspicious listings, incorrect details or brand concerns.",
+    sections: [
+      {
+        heading: "What to send",
+        paragraphs: [
+          "Email hello@freehub.co.za with the Freehub page URL, the official source URL if available, and a short explanation of the issue.",
+          "Useful report types include expired listing, broken outbound link, wrong closing date, missing purchase requirement, suspicious promoter page or brand removal request.",
+        ],
+      },
+      {
+        heading: "What happens next",
+        paragraphs: [
+          "Freehub will review the report and may update, remove or hold the listing for verification. We cannot resolve promoter disputes or confirm winner messages on behalf of brands.",
+        ],
+      },
+    ],
+  },
+];
 
 function main() {
   const rawCompetitions = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
@@ -31,10 +242,12 @@ function main() {
   const competitions = allCompetitions.filter((competition) => !isExpired(competition.closingDate));
   const routeContexts = getGeneratedRouteContexts(competitions);
   removeStaleTagDirectories(routeContexts);
+  removeLegacyHomeDirectory();
 
   fs.writeFileSync(path.join(ROOT_DIR, "index.html"), renderHomepage(competitions));
+  fs.writeFileSync(path.join(ROOT_DIR, "404.html"), renderNotFoundPage());
 
-  routeContexts.forEach((routeContext) => {
+  routeContexts.filter((routeContext) => routeContext.type !== "home").forEach((routeContext) => {
     const filteredCompetitions = shared.filterCompetitionsByRoute(competitions, routeContext);
     const html = renderPage(routeContext, filteredCompetitions);
     const outputDirectory = path.join(ROOT_DIR, routeContext.type, routeContext.slug);
@@ -61,6 +274,13 @@ function main() {
     fs.writeFileSync(path.join(outputDirectory, "index.html"), html);
   });
 
+  TRUST_PAGE_DEFINITIONS.forEach((page) => {
+    const outputDirectory = path.join(ROOT_DIR, page.slug);
+
+    fs.mkdirSync(outputDirectory, { recursive: true });
+    fs.writeFileSync(path.join(outputDirectory, "index.html"), renderTrustPage(page));
+  });
+
   fs.writeFileSync(path.join(ROOT_DIR, "sitemap.xml"), generateSitemap(competitions, routeContexts));
   runStaticSeoChecks();
 }
@@ -76,6 +296,47 @@ function getGeneratedRouteContexts(competitions) {
     .map((slug) => ({ type: "tag", slug, path: `/tag/${slug}/` }));
 
   return [{ type: "home", slug: "", path: "/" }, ...categoryRouteContexts, ...activeTagRouteContexts];
+}
+
+function renderSiteFooter() {
+  return `<footer class="site-footer" aria-label="Site footer">
+        <div class="site-footer__grid">
+          <div>
+            <p class="site-footer__title">Freehub</p>
+            <p class="site-footer__text">
+              Freehub lists South African competitions and links users to official promoter pages. We do not run the competitions or collect entries.
+            </p>
+          </div>
+          <div>
+            <p class="site-footer__title">Trust &amp; Safety</p>
+            <nav class="site-footer__links" aria-label="Trust and safety links">
+              <a href="/how-we-verify-competitions/">How we check listings</a>
+              <a href="/how-to-enter-competitions-safely/">Enter safely</a>
+              <a href="/legit-competitions-south-africa/">Legit competition guide</a>
+              <a href="/report-a-competition/">Report a competition</a>
+            </nav>
+          </div>
+          <div>
+            <p class="site-footer__title">Site</p>
+            <nav class="site-footer__links" aria-label="Site links">
+              <a href="/about/">About</a>
+              <a href="/contact/">Contact</a>
+              <a href="/privacy-policy/">Privacy policy</a>
+              <a href="/terms-of-use/">Terms of use</a>
+            </nav>
+          </div>
+        </div>
+      </footer>`;
+}
+
+function renderStatusPlaceholders() {
+  return `<section id="loadingState" class="state-card state-card--hidden" aria-live="polite"></section>
+
+        <section
+          id="errorState"
+          class="state-card state-card--hidden state-card--error"
+          aria-live="assertive"
+        ></section>`;
 }
 
 const CATEGORY_FALLBACK_STYLES = {
@@ -253,19 +514,7 @@ function renderPage(routeContext, competitions) {
           <p id="resultsSummary" class="results-header__summary">${escapeHtml(resultsSummary)}</p>
         </section>
 
-        <section id="loadingState" class="state-card state-card--hidden" aria-live="polite">
-          <p class="state-card__title">Loading competitions</p>
-          <p class="state-card__text">Pulling the latest competition list from the JSON feed.</p>
-        </section>
-
-        <section
-          id="errorState"
-          class="state-card state-card--hidden state-card--error"
-          aria-live="assertive"
-        >
-          <p class="state-card__title">Unable to load competitions</p>
-          <p class="state-card__text">Please refresh the page and try again.</p>
-        </section>
+        ${renderStatusPlaceholders()}
 
         <section class="competition-section">
           <div id="competitionsGrid" class="competition-grid" aria-live="polite">
@@ -296,26 +545,7 @@ function renderPage(routeContext, competitions) {
         ${renderAdZone("ad-bottom", "bottom")}
       </main>
 
-      <footer class="site-footer" aria-label="Site footer">
-        <div class="site-footer__grid">
-          <div>
-            <p class="site-footer__title">About</p>
-            <p class="site-footer__text">
-              We curate free competitions from verified listing sources and brand promotions so you can browse live offers in one place.
-            </p>
-          </div>
-          <div>
-            <p class="site-footer__title">Contact</p>
-            <p class="site-footer__text">Contact: hello@freehub.co.za</p>
-          </div>
-          <div>
-            <p class="site-footer__title">Disclaimer</p>
-            <p class="site-footer__text">
-              No purchase is necessary for many promotions, but always check the promoter's terms and closing date before entering.
-            </p>
-          </div>
-        </div>
-      </footer>
+      ${renderSiteFooter()}
     </div>
 
     <aside class="ad-sticky ad-sticky--reserved" id="ad-sticky" aria-hidden="true"></aside>
@@ -758,22 +988,10 @@ ${noscriptLinks}
         </section>
 
         <section class="results-header" aria-live="polite">
-          <p id="resultsSummary" class="results-header__summary">Loading competitions...</p>
+          <p id="resultsSummary" class="results-header__summary">Showing featured competitions</p>
         </section>
 
-        <section id="loadingState" class="state-card" aria-live="polite">
-          <p class="state-card__title">Loading competitions</p>
-          <p class="state-card__text">Pulling the latest competition list from the JSON feed.</p>
-        </section>
-
-        <section
-          id="errorState"
-          class="state-card state-card--hidden state-card--error"
-          aria-live="assertive"
-        >
-          <p class="state-card__title">Unable to load competitions</p>
-          <p class="state-card__text">Please refresh the page and try again.</p>
-        </section>
+        ${renderStatusPlaceholders()}
 
         <section class="competition-section" id="all-competitions">
           <div id="competitionsGrid" class="competition-grid" aria-live="polite"></div>
@@ -837,29 +1055,193 @@ ${noscriptLinks}
         </section>
       </main>
 
-      <footer class="site-footer" aria-label="Site footer">
-        <div class="site-footer__grid">
-          <div>
-            <p class="site-footer__title">About</p>
-            <p class="site-footer__text">
-              We curate free competitions from verified listing sources and brand promotions so you can browse live offers in one place.
-            </p>
-          </div>
-          <div>
-            <p class="site-footer__title">Contact</p>
-            <p class="site-footer__text">Contact: hello@freehub.co.za</p>
-          </div>
-          <div>
-            <p class="site-footer__title">Disclaimer</p>
-            <p class="site-footer__text">
-              No purchase is necessary for many promotions, but always check the promoter's terms and closing date before entering.
-            </p>
-          </div>
-        </div>
-      </footer>
+      ${renderSiteFooter()}
     </div>
 
     <aside class="ad-sticky ad-sticky--reserved" id="ad-sticky" aria-hidden="true"></aside>
+
+    <script src="/shared/page-data.js" defer></script>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
+`;
+}
+
+function renderTrustPage(page) {
+  const canonicalUrl = `${shared.CANONICAL_ORIGIN}/${page.slug}/`;
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: page.heading,
+    description: page.description,
+    url: canonicalUrl,
+    inLanguage: "en-ZA",
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Freehub",
+      url: `${shared.CANONICAL_ORIGIN}/`,
+    },
+  };
+  const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${shared.CANONICAL_ORIGIN}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: page.heading,
+        item: canonicalUrl,
+      },
+    ],
+  };
+
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${escapeHtml(page.title)}</title>
+    <meta name="description" content="${escapeAttribute(page.description)}" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="${escapeAttribute(page.title)}" />
+    <meta property="og:description" content="${escapeAttribute(page.description)}" />
+    <meta property="og:url" content="${escapeAttribute(canonicalUrl)}" />
+    <meta property="og:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${escapeAttribute(page.title)}" />
+    <meta name="twitter:description" content="${escapeAttribute(page.description)}" />
+    <meta name="twitter:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
+    <script id="structured-data-webpage" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
+    <script id="structured-data-breadcrumb" type="application/ld+json">${escapeScript(JSON.stringify(breadcrumbData))}</script>
+    <link rel="stylesheet" href="/styles.css" />
+    ${ADSENSE_SCRIPT}
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('set', { page_type: 'trust', trust_page: ${escapeScript(JSON.stringify(page.slug))} });
+      gtag('config', 'G-23P37R20FY');
+    </script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="hero">
+        <div class="hero__copy">
+          <p class="eyebrow">FREEHUB</p>
+          <h1>${escapeHtml(page.heading)}</h1>
+          <p class="hero__text">${escapeHtml(page.intro)}</p>
+        </div>
+      </header>
+
+      <main class="main-content trust-page">
+        <nav class="category-nav" aria-label="Competition categories">
+          ${CATEGORY_LINKS.map((link) => renderNavLink(link, `/${page.slug}/`)).join("\n          ")}
+        </nav>
+
+        <section class="trust-page__content" aria-label="${escapeAttribute(page.heading)}">
+          ${page.sections
+            .map(
+              (section) => `<article class="trust-page__section">
+            <h2>${escapeHtml(section.heading)}</h2>
+            ${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("\n            ")}
+          </article>`
+            )
+            .join("\n          ")}
+        </section>
+
+        <section class="internal-links" aria-label="Useful Freehub pages">
+          <p class="internal-links__title">Useful Freehub Pages</p>
+          <div class="internal-links__list">
+            <a class="internal-links__link" href="/">Browse competitions</a>
+            <a class="internal-links__link" href="/category/cars/">Car competitions</a>
+            <a class="internal-links__link" href="/tag/free-entry/">Free entry listings</a>
+            <a class="internal-links__link" href="/report-a-competition/">Report a competition</a>
+          </div>
+        </section>
+      </main>
+
+      ${renderSiteFooter()}
+    </div>
+  </body>
+</html>
+`;
+}
+
+function renderNotFoundPage() {
+  const canonicalUrl = `${shared.CANONICAL_ORIGIN}/`;
+
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Not Found | Freehub</title>
+    <meta name="description" content="This Freehub page could not be found. Browse live South African competitions, categories, safety guidance and contact options." />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Page Not Found | Freehub" />
+    <meta property="og:description" content="This Freehub page could not be found. Browse live South African competitions, categories, safety guidance and contact options." />
+    <meta property="og:url" content="${escapeAttribute(canonicalUrl)}" />
+    <meta property="og:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Page Not Found | Freehub" />
+    <meta name="twitter:description" content="This Freehub page could not be found. Browse live South African competitions, categories, safety guidance and contact options." />
+    <meta name="twitter:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
+    <link rel="stylesheet" href="/styles.css" />
+    ${ADSENSE_SCRIPT}
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('set', { page_type: '404' });
+      gtag('config', 'G-23P37R20FY');
+    </script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="hero">
+        <div class="hero__copy">
+          <p class="eyebrow">FREEHUB</p>
+          <h1>Page not found</h1>
+          <p class="hero__text">The page you opened is not available. You can return to live competitions, browse a category, or report a broken link.</p>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="internal-links" aria-label="Helpful links">
+          <p class="internal-links__title">Keep Browsing</p>
+          <div class="internal-links__list">
+            <a class="internal-links__link" href="/">All competitions</a>
+            <a class="internal-links__link" href="/category/cars/">Car competitions</a>
+            <a class="internal-links__link" href="/category/cash/">Cash competitions</a>
+            <a class="internal-links__link" href="/category/vouchers/">Voucher competitions</a>
+            <a class="internal-links__link" href="/tag/free-entry/">Free entry listings</a>
+            <a class="internal-links__link" href="/tag/ending-soon/">Ending soon listings</a>
+          </div>
+        </section>
+
+        <section class="state-card" aria-label="Report this page">
+          <p class="state-card__title">Found a broken link?</p>
+          <p class="state-card__text">If a Freehub link sent you here, please report it so the listing can be checked.</p>
+          <a class="internal-links__link" href="/report-a-competition/">Report a competition or broken link</a>
+        </section>
+      </main>
+
+      ${renderSiteFooter()}
+    </div>
 
     <script src="/shared/page-data.js" defer></script>
     <script src="/app.js" defer></script>
@@ -1204,26 +1586,7 @@ function renderCompetitionPage(competition, allCompetitions) {
 
       </main>
 
-      <footer class="site-footer" aria-label="Site footer">
-        <div class="site-footer__grid">
-          <div>
-            <p class="site-footer__title">About</p>
-            <p class="site-footer__text">
-              We curate free competitions from verified listing sources and brand promotions so you can browse live offers in one place.
-            </p>
-          </div>
-          <div>
-            <p class="site-footer__title">Contact</p>
-            <p class="site-footer__text">Contact: hello@freehub.co.za</p>
-          </div>
-          <div>
-            <p class="site-footer__title">Disclaimer</p>
-            <p class="site-footer__text">
-              No purchase is necessary for many promotions, but always check the promoter's terms and closing date before entering.
-            </p>
-          </div>
-        </div>
-      </footer>
+      ${renderSiteFooter()}
     </div>
 
     <aside class="ad-sticky ad-sticky--reserved" id="ad-sticky" aria-hidden="true"></aside>
@@ -1303,22 +1666,7 @@ function renderOutPage(competition) {
         ${renderAdZone("ad-middle", "outbound-middle", true)}
       </main>
 
-      <footer class="site-footer" aria-label="Site footer">
-        <div class="site-footer__grid">
-          <div>
-            <p class="site-footer__title">About</p>
-            <p class="site-footer__text">
-              We curate free competitions from verified listing sources and brand promotions so you can browse live offers in one place.
-            </p>
-          </div>
-          <div>
-            <p class="site-footer__title">Disclaimer</p>
-            <p class="site-footer__text">
-              No purchase is necessary for many promotions, but always check the promoter's terms and closing date before entering.
-            </p>
-          </div>
-        </div>
-      </footer>
+      ${renderSiteFooter()}
     </div>
   </body>
 </html>
@@ -1514,6 +1862,9 @@ function generateSitemap(competitions, routeContexts) {
     const loc = routeContext.path === "/" ? `${origin}/` : `${origin}${routeContext.path}`;
     return `  <url>\n    <loc>${loc}</loc>\n  </url>`;
   });
+  const trustPageEntries = TRUST_PAGE_DEFINITIONS.map((page) => {
+    return `  <url>\n    <loc>${origin}/${page.slug}/</loc>\n  </url>`;
+  });
 
   const competitionEntries = competitions
     .filter((competition) => !isExpired(competition.closingDate))
@@ -1524,7 +1875,7 @@ function generateSitemap(competitions, routeContexts) {
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${[...staticEntries, ...competitionEntries].join("\n")}
+${[...staticEntries, ...trustPageEntries, ...competitionEntries].join("\n")}
 </urlset>
 `;
 }
@@ -1582,6 +1933,17 @@ function removeStaleTagDirectories(routeContexts) {
     });
 }
 
+function removeLegacyHomeDirectory() {
+  const legacyHomeDirectory = path.join(ROOT_DIR, "home");
+
+  if (!fs.existsSync(legacyHomeDirectory)) {
+    return;
+  }
+
+  fs.rmSync(legacyHomeDirectory, { recursive: true, force: true });
+  console.log(`[generate-pages] Removed stale directory: ${legacyHomeDirectory}`);
+}
+
 function runStaticSeoChecks() {
   const errors = [];
   const sitemapPath = path.join(ROOT_DIR, "sitemap.xml");
@@ -1625,6 +1987,7 @@ function runStaticSeoChecks() {
     ...getNestedIndexFiles(path.join(ROOT_DIR, "category")),
     ...getNestedIndexFiles(path.join(ROOT_DIR, "tag")),
     ...getNestedIndexFiles(path.join(ROOT_DIR, "competition")),
+    ...TRUST_PAGE_DEFINITIONS.map((page) => path.join(ROOT_DIR, page.slug, "index.html")),
   ];
 
   htmlFiles.forEach((filePath) => {

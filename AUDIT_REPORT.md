@@ -7,7 +7,7 @@ FreeHub is a South Africa-focused competition aggregation site built on a lightw
 
 ### Critical (Blocking)
 - **Broken Detail Pages:** A `ReferenceError` in `scripts/generate-pages.js` prevented the generation of all `/competition/*` routes. *Fixed in Phase 1.*
-- **Domain Fragmentation:** The site was split between `ricv-sam.github.io/free-hub/` and `freehub.datacost.co.za`, diluting SEO authority and breaking relative paths. *Fixed in Phase 1.*
+- **Domain Fragmentation:** The site previously had staging and custom-domain fragmentation, diluting SEO authority and breaking relative paths. *Fixed in Phase 1.*
 
 ### High (SEO & UX)
 - **Redundant Client-Side Rendering:** `app.js` fetches `competitions.json` and re-renders the list even though the HTML is pre-rendered. This causes a "flicker" and increases data usage.

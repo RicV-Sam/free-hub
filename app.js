@@ -400,6 +400,14 @@ function updateResultsSummary(count) {
 function showLoading() {
   const hasPrerenderedContent = elements.competitionsGrid.children.length > 0;
 
+  if (!hasPrerenderedContent) {
+    setStateCardContent(
+      elements.loadingState,
+      "Loading competitions",
+      "Pulling the latest competition list from the JSON feed."
+    );
+  }
+
   elements.loadingState.classList.toggle("state-card--hidden", hasPrerenderedContent);
   elements.errorState.classList.add("state-card--hidden");
   elements.emptyState.classList.add("state-card--hidden");
@@ -412,12 +420,33 @@ function showLoading() {
 
 function showError() {
   elements.loadingState.classList.add("state-card--hidden");
+  setStateCardContent(
+    elements.errorState,
+    "Unable to load competitions",
+    "Please refresh the page and try again."
+  );
   elements.errorState.classList.remove("state-card--hidden");
   elements.emptyState.classList.add("state-card--hidden");
 
   if (elements.competitionsGrid.children.length === 0) {
     elements.resultsSummary.textContent = "Competitions unavailable";
   }
+}
+
+function setStateCardContent(element, title, text) {
+  if (!element || element.children.length > 0) {
+    return;
+  }
+
+  const titleElement = document.createElement("p");
+  titleElement.className = "state-card__title";
+  titleElement.textContent = title;
+
+  const textElement = document.createElement("p");
+  textElement.className = "state-card__text";
+  textElement.textContent = text;
+
+  element.append(titleElement, textElement);
 }
 
 function hideStatusStates() {
