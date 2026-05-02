@@ -515,8 +515,14 @@ function trackEnterCompetitionClick(link) {
 
   sendGaEvent("enter_competition_click", {
     page_type: state.routeContext.type,
-    competition_slug: getCurrentCompetitionSlug(),
-    destination_path: href,
+    competition_slug: link.dataset.competitionSlug || getCurrentCompetitionSlug(),
+    competition_title: link.dataset.competitionTitle || undefined,
+    brand: link.dataset.brand || undefined,
+    category: link.dataset.category || undefined,
+    entry_cost_type: link.dataset.entryCostType || undefined,
+    entry_method: link.dataset.entryMethod || undefined,
+    source_domain: link.dataset.sourceDomain || undefined,
+    destination_path: link.dataset.destinationPath || href,
     transport_type: "beacon",
   });
 }

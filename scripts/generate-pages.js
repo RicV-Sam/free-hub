@@ -1362,7 +1362,6 @@ function buildHowToEnterSteps(competition) {
 function renderCompetitionPage(competition, allCompetitions) {
   const slug = shared.getCompetitionSlug(competition);
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/competition/${slug}/`;
-  const officialUrl = competition.url;
   const description = shared.buildCompetitionDescription(competition);
   const formattedDate = shared.formatDate(competition.closingDate);
   const heroImage = getCompetitionImageUrl(competition);
@@ -1381,7 +1380,9 @@ function renderCompetitionPage(competition, allCompetitions) {
   const robotsDirective = expired
     ? "noindex, follow"
     : "index, follow, max-image-preview:large";
-  const officialSource = getSafeHostname(officialUrl);
+  const officialSourceUrl = getOfficialSourceUrl(competition);
+  const officialSource = getOfficialSourceDomain(competition);
+  const lastChecked = formatOptionalDate(competition.lastChecked);
 
   const closingSoonBadge = shared.isClosingSoon(competition.closingDate)
     ? '<span class="badge badge--closing">&#x1F525; Closing Soon</span>'
@@ -1398,7 +1399,22 @@ function renderCompetitionPage(competition, allCompetitions) {
   const heroSubline = competition.brand ? `By ${competition.brand}` : competition.category;
   const closingSoon = shared.isClosingSoon(competition.closingDate);
   const outPath = shared.getOutPath(competition) + "/";
-  const detailFactsMarkup = renderCompetitionDetailFacts(competition, formattedDate, officialSource, closingSoon, expired);
+  const ctaLabel = getDetailCtaLabel(competition);
+  const ctaAttributes = renderDetailCtaDataAttributes(competition, outPath, officialSource);
+  const detailFactsMarkup = renderCompetitionDetailFacts(
+    competition,
+    formattedDate,
+    officialSource,
+    officialSourceUrl,
+    closingSoon,
+    expired
+  );
+  const breadcrumbMarkup = renderCompetitionBreadcrumb(competition, categorySlug, categoryPath);
+  const trustStripMarkup = renderCompetitionTrustStrip(competition, officialSource, lastChecked);
+  const beforeYouEnterMarkup = renderBeforeYouEnterBlock(competition);
+  const sourceBlockMarkup = renderCompetitionSourceBlock(competition, officialSource, officialSourceUrl, lastChecked);
+  const faqItems = buildCompetitionFaqItems(competition, officialSource, ctaLabel);
+  const faqMarkup = renderCompetitionFaq(faqItems);
 
   const relatedCardsMarkup = relatedCompetitions.map((c) => renderCompetitionCard(c)).join("\n            ");
   const relatedSection = relatedCardsMarkup
@@ -1411,17 +1427,6 @@ function renderCompetitionPage(competition, allCompetitions) {
           </div>
         </section>`
     : "";
-
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Offer",
-    name: competition.title,
-    description,
-    url: canonicalUrl,
-    image: getMetadataImageUrl(competition),
-    offeredBy: competition.brand ? { "@type": "Organization", name: competition.brand } : undefined,
-    availabilityEnds: competition.closingDate,
-  };
 
   const breadcrumbData = {
     "@context": "https://schema.org",
@@ -1451,6 +1456,23 @@ function renderCompetitionPage(competition, allCompetitions) {
       name: `${competition.category} competition`,
     },
   };
+  const faqStructuredData = faqItems.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqItems.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
+      }
+    : null;
+  const faqStructuredDataScript = faqStructuredData
+    ? `<script id="structured-data-faq" type="application/ld+json">${escapeScript(JSON.stringify(faqStructuredData))}</script>`
+    : "";
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -1471,8 +1493,8 @@ function renderCompetitionPage(competition, allCompetitions) {
     <meta name="twitter:description" content="${escapeAttribute(description)}" />
     <meta name="twitter:image" content="${escapeAttribute(ogImage)}" />
     <script id="structured-data-webpage" type="application/ld+json">${escapeScript(JSON.stringify(webPageData))}</script>
-    <script id="structured-data-offer" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
     <script id="structured-data-breadcrumb" type="application/ld+json">${escapeScript(JSON.stringify(breadcrumbData))}</script>
+    ${faqStructuredDataScript}
     <link rel="stylesheet" href="${RELATIVE_ASSET_PATH}styles.css" />
     ${ADSENSE_SCRIPT}
     <!-- Google tag (gtag.js) -->
@@ -1494,11 +1516,13 @@ function renderCompetitionPage(competition, allCompetitions) {
           <h1 id="pageTitle">${escapeHtml(heroTitle)}</h1>
           <p class="hero__text">${escapeHtml(heroSubline)}</p>
           <p class="hero__closing${closingSoon && !expired ? " hero__closing--urgent" : ""}">${expired ? "Closed" : "Closes"} ${escapeHtml(formattedDate)}${closingSoon && !expired ? " · Ending soon" : ""}</p>
-          ${!expired ? `<a class="hero__cta" href="${escapeAttribute(outPath)}" target="_blank" rel="noopener noreferrer">Enter Competition</a>` : ""}
+          ${!expired ? `<a class="hero__cta" href="${escapeAttribute(outPath)}" target="_blank" rel="noopener noreferrer" ${ctaAttributes}>${escapeHtml(ctaLabel)}</a>` : ""}
         </div>
       </header>
 
       <main class="main-content">
+        ${breadcrumbMarkup}
+
         <nav class="category-nav" aria-label="Competition categories">
           ${CATEGORY_LINKS.map((link) => renderNavLink(link, "/competition/")).join("\n          ")}
         </nav>
@@ -1529,12 +1553,14 @@ function renderCompetitionPage(competition, allCompetitions) {
               ${brandBadge}
               ${closingSoonBadge}
             </div>
+            ${trustStripMarkup}
             ${detailFactsMarkup}
             <div class="competition-detail__summary">
               <p>${escapeHtml(description)}</p>
             </div>
             ${tagsMarkup}
             ${entryStepsMarkup}
+            ${beforeYouEnterMarkup}
             <div class="trust-chips">
               <span class="trust-chip">Verified listing</span>
               <span class="trust-chip">We link to official brand promotions</span>
@@ -1545,9 +1571,13 @@ function renderCompetitionPage(competition, allCompetitions) {
               href="${escapeAttribute(outPath)}"
               target="_blank"
               rel="noopener noreferrer"
+              ${ctaAttributes}
             >
-              Enter Competition
+              ${escapeHtml(ctaLabel)}
             </a>
+            <p class="competition-detail__cta-note">You will leave Freehub and go to the official promoter page. Freehub does not run this competition or collect your entry.</p>
+            ${sourceBlockMarkup}
+            ${faqMarkup}
             <a
               class="competition-detail__whatsapp"
               href="https://wa.me/?text=${encodeURIComponent(`Enter the ${competition.title} competition – ${canonicalUrl}`)}"
@@ -1569,7 +1599,8 @@ function renderCompetitionPage(competition, allCompetitions) {
 
         ${!expired ? `<section class="competition-cta-repeat" aria-label="Enter this competition">
           <p>Ready to enter? Head to the official competition page.</p>
-          <a class="competition-detail__cta" href="${escapeAttribute(outPath)}" target="_blank" rel="noopener noreferrer">Enter Competition</a>
+          <a class="competition-detail__cta" href="${escapeAttribute(outPath)}" target="_blank" rel="noopener noreferrer" ${ctaAttributes}>${escapeHtml(ctaLabel)}</a>
+          <p class="competition-detail__cta-note">You will leave Freehub and go to the official promoter page.</p>
         </section>` : ""}
 
         ${renderAdZone("ad-middle", "detail-inside", true)}
@@ -1599,9 +1630,211 @@ function renderCompetitionPage(competition, allCompetitions) {
 `;
 }
 
+function renderCompetitionBreadcrumb(competition, categorySlug, categoryPath) {
+  const categoryLink = categorySlug
+    ? `<a href="${escapeAttribute(categoryPath)}">${escapeHtml(competition.category)}</a>`
+    : `<span>${escapeHtml(competition.category)}</span>`;
+
+  return `<nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span aria-hidden="true">/</span>
+          ${categoryLink}
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">${escapeHtml(competition.title)}</span>
+        </nav>`;
+}
+
+function renderCompetitionTrustStrip(competition, officialSource, lastChecked) {
+  const items = [];
+
+  if (competition.verificationStatus === "published") {
+    items.push("Verified listing");
+  }
+
+  if (lastChecked) {
+    items.push(`Last checked: ${lastChecked}`);
+  }
+
+  if (officialSource) {
+    items.push(`Official source: ${officialSource}`);
+  }
+
+  if (items.length === 0) {
+    return "";
+  }
+
+  return `<div class="detail-trust-strip" aria-label="Listing trust details">
+              ${items.map((item) => `<span>${escapeHtml(item)}</span>`).join("\n              ")}
+            </div>`;
+}
+
+function renderBeforeYouEnterBlock(competition) {
+  const costLabel = shared.getEntryCostLabel(competition);
+  const entryCostType = String(competition.entryCostType || "").toLowerCase();
+  const entryChannel = String(competition.entryChannel || competition.entryType || "").toLowerCase();
+  const items = [
+    "Read the official promoter terms before entering.",
+    "Make sure the page you enter on belongs to the official promoter.",
+    "Freehub lists this competition but does not run it or collect your entry.",
+  ];
+
+  if (competition.purchaseRequired === true || entryCostType === "purchase-required") {
+    items.push("Keep your receipt or proof of purchase.");
+    if (competition.requiredProduct) {
+      items.push("Check the qualifying products and participating stores.");
+    }
+    if (competition.minimumSpend || competition.minimumSpendAmount) {
+      items.push("Confirm the minimum spend before buying.");
+    }
+  }
+
+  if (costLabel === "Paid entry") {
+    items.push("Check the ticket price and official payment flow.");
+    items.push("Only buy through the official promoter or ticketing page.");
+  }
+
+  if (/sms|ussd|whatsapp/.test(entryChannel)) {
+    items.push("Use only the official number or code shown by the promoter.");
+    items.push("Standard network or data rates may apply.");
+  }
+
+  if (competition.category === "Cars" || competition.driverLicenceRequired) {
+    items.push("Check whether a valid driver's licence or nominated driver is required.");
+  }
+
+  return `<section class="detail-checklist" aria-label="Before you enter">
+              <p class="detail-section-title">Before you enter</p>
+              <ul>
+                ${items.slice(0, 7).map((item) => `<li>${escapeHtml(item)}</li>`).join("\n                ")}
+              </ul>
+            </section>`;
+}
+
+function renderCompetitionSourceBlock(competition, officialSource, officialSourceUrl, lastChecked) {
+  const termsMarkup = competition.termsUrl
+    ? `<p><strong>Terms and conditions:</strong> <a href="${escapeAttribute(competition.termsUrl)}" rel="nofollow noopener" target="_blank">View official terms</a></p>`
+    : "<p><strong>Terms and conditions:</strong> Check the official promoter page for full terms.</p>";
+
+  return `<section class="detail-source" aria-label="Official source and terms">
+              <p class="detail-section-title">Source and terms</p>
+              <p><strong>Official source:</strong> <a href="${escapeAttribute(officialSourceUrl)}" rel="nofollow noopener" target="_blank">${escapeHtml(officialSource)}</a></p>
+              ${termsMarkup}
+              ${lastChecked ? `<p><strong>Last checked:</strong> ${escapeHtml(lastChecked)}</p>` : ""}
+              <p><strong>Report an issue:</strong> <a href="/report-a-competition/">Tell Freehub about a broken, expired or suspicious listing</a></p>
+            </section>`;
+}
+
+function buildCompetitionFaqItems(competition, officialSource, ctaLabel) {
+  const items = [];
+  const costLabel = shared.getEntryCostLabel(competition);
+
+  if (competition.entryCostType || typeof competition.purchaseRequired === "boolean" || competition.entryFeeLabel) {
+    items.push({
+      question: "Is this competition free to enter?",
+      answer: buildFreeEntryAnswer(competition, costLabel),
+    });
+  }
+
+  if (typeof competition.purchaseRequired === "boolean" || competition.requiredProduct || competition.minimumSpend) {
+    items.push({
+      question: "Do I need to buy something to enter?",
+      answer: buildPurchaseRequirementAnswer(competition),
+    });
+  }
+
+  if (officialSource) {
+    items.push({
+      question: "Where do I enter?",
+      answer: `${ctaLabel} through Freehub's tracked outbound page, then complete your entry on ${officialSource}.`,
+    });
+  }
+
+  if (competition.category === "Cars" || competition.driverLicenceRequired) {
+    items.push({
+      question: "Do I need a driver's licence?",
+      answer: buildDriverLicenceAnswer(competition),
+    });
+  }
+
+  items.push({
+    question: "Is this competition run by Freehub?",
+    answer: "No. Freehub lists the competition and links to the official promoter. Freehub does not run the competition or collect your entry.",
+  });
+
+  return items.slice(0, 5);
+}
+
+function buildFreeEntryAnswer(competition, costLabel) {
+  if (competition.purchaseRequired === true) {
+    return "No. This listing requires a qualifying purchase before entry. There may be no separate entry fee, but it is not a free-entry competition.";
+  }
+
+  if (costLabel === "Paid entry") {
+    return `No. This listing uses paid entry${competition.entryFeeLabel ? ` (${competition.entryFeeLabel})` : ""}.`;
+  }
+
+  if (costLabel === "SMS/data rates may apply") {
+    return "There may be no purchase requirement shown, but SMS, USSD or data rates may apply. Check the promoter's terms before entering.";
+  }
+
+  if (costLabel === "App required") {
+    return "Entry appears to require the official app. Check the app and promoter terms for any costs or account requirements.";
+  }
+
+  if (costLabel === "Free entry") {
+    return "This listing is marked as free entry based on the available Freehub data. Always confirm the latest terms on the official promoter page.";
+  }
+
+  return "The entry cost is unclear from the available data. Check the official promoter page before entering.";
+}
+
+function buildPurchaseRequirementAnswer(competition) {
+  if (competition.purchaseRequired === true) {
+    const parts = ["Yes. This competition requires a qualifying purchase"];
+    if (competition.requiredProduct) {
+      parts.push(` involving ${competition.requiredProduct}`);
+    }
+    if (competition.minimumSpend) {
+      parts.push(` with ${competition.minimumSpend}`);
+    }
+    return `${parts.join("")}. Keep your proof of purchase for verification.`;
+  }
+
+  return "The available Freehub data does not show a purchase requirement for this listing. Check the official promoter page before entering.";
+}
+
+function buildDriverLicenceAnswer(competition) {
+  const requirement = formatDriverLicenceRequirement(competition.driverLicenceRequired);
+
+  if (requirement) {
+    return `The current listing shows: ${requirement}. Check the official terms for the promoter's exact licence or nominated-driver rules.`;
+  }
+
+  return "Freehub does not currently have a specific driver's licence requirement for this car competition. Check the official terms before entering.";
+}
+
+function renderCompetitionFaq(items) {
+  if (items.length === 0) {
+    return "";
+  }
+
+  return `<section class="detail-faq" aria-label="Competition questions">
+              <p class="detail-section-title">Quick questions</p>
+              ${items
+                .map(
+                  (item) => `<details>
+                    <summary>${escapeHtml(item.question)}</summary>
+                    <p>${escapeHtml(item.answer)}</p>
+                  </details>`
+                )
+                .join("\n              ")}
+            </section>`;
+}
+
 function renderOutPage(competition) {
   const slug = shared.getCompetitionSlug(competition);
-  const externalUrl = competition.url;
+  const externalUrl = getOfficialSourceUrl(competition);
+  const sourceDomain = getOfficialSourceDomain(competition);
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/out/${slug}/`;
 
   return `<!DOCTYPE html>
@@ -1629,10 +1862,14 @@ function renderOutPage(competition) {
         var TITLE = ${escapeScript(JSON.stringify(competition.title))};
         var CATEGORY = ${escapeScript(JSON.stringify(competition.category))};
         var TARGET = ${escapeScript(JSON.stringify(externalUrl))};
+        var SOURCE_DOMAIN = ${escapeScript(JSON.stringify(sourceDomain))};
         gtag('event', 'outbound_click', {
           competition_slug: SLUG,
           competition_title: TITLE,
           competition_category: CATEGORY,
+          source_domain: SOURCE_DOMAIN,
+          destination_url: TARGET,
+          page_type: 'out',
           transport_type: 'beacon',
         });
         setTimeout(function () {
@@ -1646,20 +1883,22 @@ function renderOutPage(competition) {
       <header class="hero">
         <div class="hero__copy">
           <p class="eyebrow">free-hub</p>
-          <h1>Redirecting you now&hellip;</h1>
-          <p class="hero__text">Taking you to <strong>${escapeHtml(competition.title)}</strong>. If you are not redirected automatically, use the link below.</p>
+          <h1>You are leaving Freehub</h1>
+          <p class="hero__text">Taking you to <strong>${escapeHtml(sourceDomain)}</strong> for <strong>${escapeHtml(competition.title)}</strong>. If you are not redirected automatically, use the link below.</p>
         </div>
       </header>
 
       <main class="main-content">
-        <section class="state-card" aria-label="Redirect notice">
-          <p class="state-card__title">You are being redirected</p>
+        <section class="state-card outbound-notice" aria-label="Redirect notice">
+          <p class="state-card__title">Continue to the official promoter</p>
           <p class="state-card__text">
-            You will be taken to the official competition page in 2 seconds.
+            You will be taken to ${escapeHtml(sourceDomain)} in 2 seconds. Freehub does not run this competition or collect your entry.
           </p>
+          <p class="state-card__text">Always check the promoter's terms before entering.</p>
           <a class="competition-detail__cta" href="${escapeAttribute(externalUrl)}" rel="nofollow noopener" target="_blank">
-            Click here if the redirect does not work
+            Continue to official promoter page
           </a>
+          <p class="competition-detail__cta-note">If the redirect does not work, use the button above as the manual fallback link.</p>
         </section>
 
         ${renderAdZone("ad-top", "outbound-top")}
@@ -1714,18 +1953,18 @@ function getRelatedCompetitions(competition, allCompetitions) {
   return scored.slice(0, 5).map((item) => item.competition);
 }
 
-function renderCompetitionDetailFacts(competition, formattedDate, officialSource, closingSoon, expired) {
+function renderCompetitionDetailFacts(competition, formattedDate, officialSource, officialSourceUrl, closingSoon, expired) {
   const facts = [
     { label: "Prize", value: competition.prizeName || shared.getPrizeCue(competition) },
     { label: "Prize value", value: formatPrizeValue(competition) },
     { label: "Number of prizes", value: competition.numberOfPrizes },
     { label: "Brand", value: competition.brand || "Official promotion" },
+    { label: "Category", value: competition.category },
     {
-      label: "Closes",
+      label: "Closing date",
       value: `${formattedDate}${closingSoon && !expired ? " · ending soon" : ""}`,
       urgent: closingSoon && !expired,
     },
-    { label: "Entry", value: competition.entryType },
     { label: "Entry cost", value: shared.getEntryCostLabel(competition) },
     { label: "Entry fee", value: competition.entryFeeLabel },
     {
@@ -1740,9 +1979,23 @@ function renderCompetitionDetailFacts(competition, formattedDate, officialSource
     { label: "Minimum spend", value: competition.minimumSpend },
     { label: "Product required", value: competition.requiredProduct },
     { label: "Entry channel", value: competition.entryChannel },
-    { label: "Driver's licence", value: formatDriverLicenceRequirement(competition.driverLicenceRequired) },
+    { label: "Eligibility", value: competition.eligibility },
+    { label: "Driver's licence requirement", value: formatDriverLicenceRequirement(competition.driverLicenceRequired) },
     { label: "Region", value: competition.region },
-    { label: "Source", value: officialSource },
+    {
+      label: "Official terms",
+      value: competition.termsUrl ? "View terms" : "",
+      html: competition.termsUrl
+        ? `<a href="${escapeAttribute(competition.termsUrl)}" rel="nofollow noopener" target="_blank">View terms</a>`
+        : "",
+    },
+    {
+      label: "Official source",
+      value: officialSource,
+      html: officialSourceUrl
+        ? `<a href="${escapeAttribute(officialSourceUrl)}" rel="nofollow noopener" target="_blank">${escapeHtml(officialSource)}</a>`
+        : escapeHtml(officialSource),
+    },
   ].filter((fact) => fact.value !== undefined && fact.value !== null && String(fact.value).trim() !== "");
 
   return `<div class="competition-detail__info">
@@ -1751,7 +2004,7 @@ function renderCompetitionDetailFacts(competition, formattedDate, officialSource
                   (fact) =>
                     `<p${fact.urgent ? ` class="competition-detail__info--urgent"` : ""}><strong>${escapeHtml(
                       fact.label
-                    )}:</strong> ${escapeHtml(fact.value)}</p>`
+                    )}:</strong> ${fact.html || escapeHtml(fact.value)}</p>`
                 )
                 .join("\n              ")}
             </div>`;
@@ -1976,6 +2229,84 @@ function getSafeHostname(url) {
   } catch (_error) {
     return "official promoter site";
   }
+}
+
+function getOfficialSourceUrl(competition) {
+  return competition.sourceUrl || competition.url;
+}
+
+function getOfficialSourceDomain(competition) {
+  if (competition.sourceDomain) {
+    return String(competition.sourceDomain).replace(/^www\./, "");
+  }
+
+  return getSafeHostname(getOfficialSourceUrl(competition));
+}
+
+function formatOptionalDate(dateString) {
+  if (!dateString) {
+    return "";
+  }
+
+  return shared.formatDate(dateString);
+}
+
+function getDetailCtaLabel(competition) {
+  const entryCostType = String(competition.entryCostType || "").toLowerCase();
+  const entryText = [competition.entryType, competition.entryChannel, ...(competition.tags || [])].join(" ").toLowerCase();
+
+  if (entryCostType === "paid-entry" || shared.getEntryCostLabel(competition) === "Paid entry") {
+    return "Buy ticket on official page";
+  }
+
+  if (entryText.includes("whatsapp")) {
+    return "Enter via official WhatsApp";
+  }
+
+  if (entryText.includes("ussd")) {
+    return "Enter using official USSD code";
+  }
+
+  if (entryCostType === "app-required" || /\bapp\b/.test(entryText)) {
+    return "Enter in the official app";
+  }
+
+  if (isSimpleBrandName(competition.brand)) {
+    return `Enter on ${competition.brand}${getPossessiveSuffix(competition.brand)} site`;
+  }
+
+  return "View official entry page";
+}
+
+function isSimpleBrandName(brand) {
+  if (!brand) {
+    return false;
+  }
+
+  const trimmed = String(brand).trim();
+  return trimmed.length <= 24 && /^[A-Za-z0-9 .'-]+$/.test(trimmed) && !/[\/&()+]/.test(trimmed);
+}
+
+function getPossessiveSuffix(value) {
+  return /s$/i.test(String(value).trim()) ? "'" : "'s";
+}
+
+function renderDetailCtaDataAttributes(competition, outPath, sourceDomain) {
+  const attributes = {
+    "data-competition-slug": shared.getCompetitionSlug(competition),
+    "data-competition-title": competition.title,
+    "data-brand": competition.brand || "",
+    "data-category": competition.category || "",
+    "data-entry-cost-type": competition.entryCostType || shared.getEntryCostLabel(competition),
+    "data-entry-method": competition.entryChannel || competition.entryType || "",
+    "data-source-domain": sourceDomain || "",
+    "data-destination-path": outPath,
+  };
+
+  return Object.entries(attributes)
+    .filter(([, value]) => value !== undefined && value !== null && String(value).trim() !== "")
+    .map(([name, value]) => `${name}="${escapeAttribute(value)}"`)
+    .join(" ");
 }
 
 function removeStaleCompetitionDirectories(validSlugs) {

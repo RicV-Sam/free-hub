@@ -1072,6 +1072,25 @@ button {
 
 /* ── Competition detail ───────────────────────────────────────────── */
 
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.breadcrumb a {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
 .competition-detail {
   background: rgba(255, 255, 255, 0.78);
   border: 1px solid rgba(255, 255, 255, 0.9);
@@ -1100,13 +1119,26 @@ button {
 }
 
 .competition-detail__info {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   color: var(--muted);
   font-size: 0.92rem;
-  line-height: 1.65;
+  line-height: 1.45;
 }
 
 .competition-detail__info p {
+  min-height: 100%;
   margin: 0;
+  padding: 0.75rem;
+  border: 1px solid rgba(15, 118, 110, 0.14);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.competition-detail__info a {
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .competition-detail__summary {
@@ -1152,6 +1184,14 @@ button {
   transform: translateY(-1px);
 }
 
+.competition-detail__cta-note {
+  max-width: 46rem;
+  margin: -0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
 @media (min-width: 700px) {
   .competition-detail__cta {
     width: auto;
@@ -1165,6 +1205,102 @@ button {
 .competition-detail__info--urgent {
   color: #dc2626;
   font-weight: 700;
+}
+
+.detail-trust-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  align-items: center;
+}
+
+.detail-trust-strip span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: 999px;
+  background: rgba(236, 253, 245, 0.88);
+  color: #0f766e;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.detail-checklist,
+.detail-source,
+.detail-faq {
+  padding: 0.95rem;
+  border: 1px solid rgba(15, 118, 110, 0.14);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.detail-section-title {
+  margin: 0 0 0.55rem;
+  color: var(--text);
+  font-weight: 900;
+}
+
+.detail-checklist ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--text);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.detail-checklist li + li {
+  margin-top: 0.35rem;
+}
+
+.detail-source {
+  display: grid;
+  gap: 0.4rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.detail-source p {
+  margin: 0;
+}
+
+.detail-source a,
+.detail-faq a {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.detail-faq {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.detail-faq details {
+  padding: 0.7rem 0;
+  border-top: 1px solid rgba(15, 118, 110, 0.13);
+}
+
+.detail-faq details:first-of-type {
+  border-top: 0;
+}
+
+.detail-faq summary {
+  cursor: pointer;
+  color: var(--text);
+  font-weight: 800;
+}
+
+.detail-faq p {
+  margin: 0.45rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.outbound-notice {
+  text-align: center;
 }
 
 /* ── Competition detail: trust chips ────────────────────────────────── */
