@@ -452,158 +452,169 @@
   }
 
   function getPrizeCue(competition) {
-    const titleAndSummary = [competition.title, competition.summary || ""].join(" ");
-    const amountMatch = titleAndSummary.match(/\bR\s?\d{1,3}(?:[,\s]?\d{3})*(?:\.\d+)?\b/);
+    const prizeType = normalizePrizeType(competition.prizeType);
+    const prizeName = getPrizeName(competition);
+    const prizeValue = formatRandAmount(competition.prizeValueAmount);
 
-    if (amountMatch) {
-      return amountMatch[0].replace(/\s+/g, " ").trim();
+    if (prizeType === "cash" && prizeValue) {
+      return `${prizeValue} cash`;
     }
 
-    const lower = titleAndSummary.toLowerCase();
-
-    if (/\b(iphone|ipad|samsung|macbook|laptop|tv|tech|gadget|xbox|gopro|airpods|dashcam|power bank)\b/.test(lower)) {
-      return "Tech prize";
+    if (prizeType === "voucher" && prizeValue) {
+      return `${prizeValue} voucher`;
     }
 
-    if (/\b(cash|cashback|money)\b/.test(lower)) {
-      return "Cash prize";
+    if (prizeName) {
+      return prizeName;
     }
 
-    if (/\b(mauritius|zanzibar|holiday|getaway|trip|cruise|escape|safari)\b/.test(lower)) {
-      return "Holiday prize";
+    switch (prizeType) {
+      case "car":
+        return "Car prize";
+      case "cash":
+        return "Cash prize";
+      case "voucher":
+        return "Voucher prize";
+      case "holiday":
+        return "Holiday prize";
+      case "tech":
+        return "Tech prize";
+      case "retail":
+        return "Retail prize";
+      case "food-drink":
+        return "Food and drink prize";
+      case "experience":
+        return "Experience prize";
+      default:
+        return competition.isHighValue ? "High-value prize" : "Verified prize";
     }
-
-    if (/\b(voucher|gift card|shopping)\b/.test(lower)) {
-      return "Voucher prize";
-    }
-
-    if (/\b(car|toyota|hyundai|starlet|suv|swift|corolla|hilux|vitz|exter|isuzu|chery)\b/.test(lower)) {
-      return "Car prize";
-    }
-
-    if (competition.isHighValue) {
-      return "High-value prize";
-    }
-
-    return "Verified prize";
   }
 
   function getPrimaryPrizeText(competition) {
-    const text = [competition.title, competition.summary || ""].join(" ");
-    const amountMatch = text.match(/\bR\s?\d{1,3}(?:[,\s]?\d{3})*(?:\.\d+)?\b/);
-
-    if (amountMatch) {
-      return amountMatch[0].replace(/\s+/g, " ").trim();
-    }
-
-    const phrasePatterns = [
-      /\b(Toyota [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
-      /\b(Hyundai [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
-      /\b(Suzuki [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
-      /\b(Volkswagen [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
-      /\b(BMW [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
-      /\b(Mercedes-Benz [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
-      /\b(Kia [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
-      /\b(Nissan [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
-      /\b(Ford [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
-      /\b(Isuzu [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
-      /\b(Chery [A-Z][A-Za-z0-9+\- ]{1,24})\b/,
-      /\b(Mauritius Holiday)\b/i,
-      /\b(Zanzibar (?:Holiday|Getaway))\b/i,
-      /\b(Victoria Falls (?:trip|getaway))\b/i,
-      /\b(Drakensberg (?:stay|escape|getaway))\b/i,
-      /\b(Cape Town (?:weekend|getaway|escape))\b/i,
-      /\b(Kruger (?:safari|escape|getaway))\b/i,
-      /\b(Sun City (?:holiday|break|getaway))\b/i,
-      /\b(iPhone ?\d+)\b/i,
-      /\b(Samsung Galaxy [A-Z0-9+ ]+)\b/i,
-      /\b(MacBook Air)\b/i,
-      /\b(iPad Air?)\b/i,
-      /\b(Xbox Series X)\b/i,
-      /\b(GoPro HERO)\b/i,
-    ];
-
-    for (const pattern of phrasePatterns) {
-      const match = text.match(pattern);
-
-      if (match) {
-        return match[1].trim();
-      }
-    }
-
-    switch (competition.category) {
-      case "Cash":
-        return "Cash prize";
-      case "Cars":
-        return "Car prize";
-      case "Holidays":
-        return "Holiday";
-      case "Vouchers":
-        return "Shopping vouchers";
-      case "Tech":
-        return "Tech prize";
-      default:
-        return "Prize";
-    }
+    return getPrizeName(competition) || getPrizeCue(competition);
   }
 
   function getCardHeadline(competition) {
-    const prizeText = getPrimaryPrizeText(competition);
+    const prizeName = getPrizeName(competition);
+    const prizeType = normalizePrizeType(competition.prizeType);
+    const prizeValue = formatRandAmount(competition.prizeValueAmount);
 
-    if (/^R\s?\d/i.test(prizeText)) {
-      return `Win ${prizeText} Cash`;
+    if (prizeName) {
+      return buildWinHeadline(prizeName, prizeType);
     }
 
-    if (/\b(Car prize|Holiday|Holiday prize|Cash prize|Voucher prize|Shopping vouchers|Tech prize|Prize)\b/i.test(prizeText)) {
-      switch (competition.category) {
-        case "Cash":
-          return "Win Cash Prizes";
-        case "Cars":
-          return "Win a Car";
-        case "Holidays":
-          return "Win a Holiday";
-        case "Vouchers":
-          return "Win Shopping Vouchers";
-        case "Tech":
-          return "Win Tech Prizes";
-        default:
-          return `Win ${prizeText}`;
-      }
+    if (prizeType === "cash" && prizeValue) {
+      return `Win ${prizeValue} Cash`;
     }
 
-    if (/vouchers?/i.test(prizeText)) {
-      return `Win ${prizeText}`;
+    if (prizeType === "voucher" && prizeValue) {
+      return `Win ${prizeValue} in Vouchers`;
     }
 
-    if (/holiday|getaway|escape|trip|safari/i.test(prizeText)) {
-      return `Win a ${prizeText}`;
+    switch (prizeType) {
+      case "car":
+        return "Win a Car";
+      case "cash":
+        return "Win Cash Prizes";
+      case "voucher":
+        return "Win Shopping Vouchers";
+      case "holiday":
+        return "Win a Holiday";
+      case "tech":
+        return "Win Tech Prizes";
+      case "retail":
+        return "Win Retail Prizes";
+      case "food-drink":
+        return "Win Food and Drink Prizes";
+      case "experience":
+        return "Win an Experience";
+      default:
+        return "View Competition Details";
     }
-
-    if (/car|toyota|hyundai|suzuki|volkswagen|bmw|mercedes|kia|nissan|ford/i.test(prizeText)) {
-      return `Win a ${prizeText}`;
-    }
-
-    return `Win ${prizeText}`;
   }
 
   function getEntryCostLabel(competition) {
     const tags = Array.isArray(competition.tags) ? competition.tags : [];
+    const entryCostType = String(competition.entryCostType || "").toLowerCase();
     const entryFeeLabel = String(competition.entryFeeLabel || "").toLowerCase();
+    const entryFeeAmount = Number(competition.entryFeeAmount);
+
+    if (competition.purchaseRequired === true || entryCostType === "purchase-required") {
+      return "Purchase required";
+    }
+
+    if (entryCostType === "paid-entry" || tags.includes("paid-entry") || entryFeeAmount > 0) {
+      return "Paid entry";
+    }
+
+    if (entryCostType === "sms-rate" || tags.includes("standard-rates") || tags.includes("sms-entry")) {
+      return "SMS/data rates may apply";
+    }
+
+    if (entryCostType === "app-required") {
+      return "App required";
+    }
+
+    if (entryCostType === "unknown") {
+      return "Entry requirements unclear";
+    }
 
     if (
-      tags.includes("paid-entry") ||
-      entryFeeLabel.includes("paid") ||
       entryFeeLabel.includes("ticket") ||
+      entryFeeLabel.includes("paid") ||
       /^r\s?[1-9]/i.test(entryFeeLabel)
     ) {
       return "Paid entry";
     }
 
-    if (competition.purchaseRequired === true || tags.includes("purchase-required")) {
-      return "Purchase required";
+    return "Free entry";
+  }
+
+  function getPrizeName(competition) {
+    return String(competition.prizeName || "").trim();
+  }
+
+  function normalizePrizeType(prizeType) {
+    return String(prizeType || "").trim().toLowerCase();
+  }
+
+  function formatRandAmount(amount) {
+    if (amount === undefined || amount === null || amount === "") {
+      return "";
     }
 
-    return "Free entry";
+    const numericAmount = Number(amount);
+
+    if (!Number.isFinite(numericAmount)) {
+      return "";
+    }
+
+    return `R${new Intl.NumberFormat("en-ZA", { maximumFractionDigits: 0 }).format(numericAmount)}`;
+  }
+
+  function buildWinHeadline(prizeName, prizeType) {
+    if (/^win\b/i.test(prizeName)) {
+      return prizeName;
+    }
+
+    if (/^(?:1|one|\d+)\s+of\b/i.test(prizeName)) {
+      return `Win ${prizeName}`;
+    }
+
+    if (/^(shopping\s+)?vouchers?\b/i.test(prizeName)) {
+      return `Win ${prizeName}`;
+    }
+
+    if (prizeType === "car" && !/^(a|an)\b/i.test(prizeName)) {
+      const article = /^[aeiou]/i.test(prizeName) ? "an" : "a";
+      return `Win ${article} ${prizeName}`;
+    }
+
+    if (prizeType === "holiday" && !/^(a|an)\b/i.test(prizeName)) {
+      return `Win a ${prizeName}`;
+    }
+
+    return `Win ${prizeName}`;
   }
 
   function getCardTagLabels(competition) {
@@ -674,10 +685,6 @@
 
   function getTagFilteredCompetitions(competitions, tag) {
     return getPublishedCompetitions(competitions).filter((competition) => {
-      if (Array.isArray(competition.tags) && competition.tags.includes(tag)) {
-        return true;
-      }
-
       if (tag === "ending-soon" && typeof competition.isEndingSoon === "boolean") {
         return competition.isEndingSoon;
       }
@@ -688,11 +695,7 @@
 
       switch (tag) {
         case "free-entry":
-          return (
-            competition.entryType.toLowerCase().includes("free") &&
-            competition.purchaseRequired !== true &&
-            !String(competition.entryFeeLabel || "").match(/^r\s?\d/i)
-          );
+          return getEntryCostLabel(competition) === "Free entry";
         case "purchase-required":
           return competition.purchaseRequired === true;
         case "paid-entry":
@@ -702,7 +705,7 @@
         case "high-value":
           return isHighValueCompetition(competition);
         default:
-          return false;
+          return Array.isArray(competition.tags) && competition.tags.includes(tag);
       }
     });
   }
@@ -869,6 +872,7 @@
     getPrimaryPrizeText,
     getCardHeadline,
     getEntryCostLabel,
+    formatRandAmount,
     getCardTagLabels,
     isPublishedCompetition,
     getPublishedCompetitions,

@@ -236,6 +236,7 @@ function main() {
   const validCompetitions = shared.sortCompetitions(
     rawCompetitions.filter((entry, index) => validateCompetition(entry, index))
   );
+  runDataSafetyChecks(validCompetitions);
   const allCompetitions = shared.getPublishedCompetitions(validCompetitions);
   const validSlugs = new Set(allCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
   removeStaleCompetitionDirectories(validSlugs);
@@ -1715,6 +1716,9 @@ function getRelatedCompetitions(competition, allCompetitions) {
 
 function renderCompetitionDetailFacts(competition, formattedDate, officialSource, closingSoon, expired) {
   const facts = [
+    { label: "Prize", value: competition.prizeName || shared.getPrizeCue(competition) },
+    { label: "Prize value", value: formatPrizeValue(competition) },
+    { label: "Number of prizes", value: competition.numberOfPrizes },
     { label: "Brand", value: competition.brand || "Official promotion" },
     {
       label: "Closes",
@@ -1722,6 +1726,7 @@ function renderCompetitionDetailFacts(competition, formattedDate, officialSource
       urgent: closingSoon && !expired,
     },
     { label: "Entry", value: competition.entryType },
+    { label: "Entry cost", value: shared.getEntryCostLabel(competition) },
     { label: "Entry fee", value: competition.entryFeeLabel },
     {
       label: "Purchase required",
@@ -1752,6 +1757,18 @@ function renderCompetitionDetailFacts(competition, formattedDate, officialSource
             </div>`;
 }
 
+function formatPrizeValue(competition) {
+  const value = shared.formatRandAmount(competition.prizeValueAmount);
+
+  if (!value) {
+    return "";
+  }
+
+  return competition.prizeValueCurrency && competition.prizeValueCurrency !== "ZAR"
+    ? `${value} ${competition.prizeValueCurrency}`
+    : value;
+}
+
 function formatDriverLicenceRequirement(value) {
   switch (value) {
     case "yes":
@@ -1776,6 +1793,79 @@ function validateCompetition(entry, index) {
     return false;
   }
   return true;
+}
+
+function runDataSafetyChecks(competitions) {
+  const errors = [];
+  const warnings = [];
+  const seenSlugs = new Map();
+
+  competitions.forEach((competition) => {
+    const slug = shared.getCompetitionSlug(competition);
+    const label = `${competition.title} (${slug})`;
+    const tags = Array.isArray(competition.tags) ? competition.tags : [];
+    const prizeType = String(competition.prizeType || "").toLowerCase();
+    const headline = shared.getCardHeadline(competition);
+    const costLabel = shared.getEntryCostLabel(competition);
+
+    if (seenSlugs.has(slug)) {
+      errors.push(`Duplicate competition slug "${slug}" for "${seenSlugs.get(slug)}" and "${competition.title}".`);
+    } else {
+      seenSlugs.set(slug, competition.title);
+    }
+
+    if (competition.verificationStatus !== "published") {
+      return;
+    }
+
+    if (/\bCash\b/i.test(headline) && prizeType !== "cash") {
+      errors.push(`Misleading card headline for ${label}: "${headline}" but prizeType is "${prizeType || "missing"}".`);
+    }
+
+    if (competition.purchaseRequired === true && costLabel === "Free entry") {
+      errors.push(`Purchase-required listing shows Free entry cost label: ${label}.`);
+    }
+
+    if (
+      competition.entryFeeAmount &&
+      competition.prizeValueAmount &&
+      Number(competition.entryFeeAmount) === Number(competition.prizeValueAmount) &&
+      prizeType !== "cash"
+    ) {
+      errors.push(`Entry fee amount may be used as prize value for ${label}.`);
+    }
+
+    if (
+      competition.minimumSpendAmount &&
+      competition.prizeValueAmount &&
+      Number(competition.minimumSpendAmount) === Number(competition.prizeValueAmount) &&
+      prizeType !== "cash"
+    ) {
+      errors.push(`Minimum spend amount may be used as prize value for ${label}.`);
+    }
+
+    if (tags.includes("paid-entry") && !competition.entryFeeLabel && !competition.entryFeeAmount) {
+      warnings.push(`Paid-entry tag has no entryFeeLabel or entryFeeAmount: ${label}.`);
+    }
+
+    if (tags.includes("purchase-required") && competition.purchaseRequired !== true) {
+      warnings.push(`purchase-required tag is present but purchaseRequired is not true: ${label}.`);
+    }
+
+    if ((competition.isHighValue || tags.includes("high-value")) && !competition.prizeType) {
+      warnings.push(`Published high-value listing is missing prizeType: ${label}.`);
+    }
+
+    if (competition.category === "Cars" && !competition.prizeName) {
+      warnings.push(`Published car listing is missing prizeName: ${label}.`);
+    }
+  });
+
+  warnings.forEach((warning) => console.warn(`[WARN] ${warning}`));
+
+  if (errors.length > 0) {
+    throw new Error(`[Data safety checks failed]\n${errors.map((error) => `- ${error}`).join("\n")}`);
+  }
 }
 
 function isExpired(dateString) {
