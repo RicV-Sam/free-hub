@@ -297,6 +297,98 @@
         "Only pay through the official promoter or official ticketing route. Freehub does not process payments or sell entries.",
     },
   };
+  const BRAND_PAGE_MIN_COMPETITIONS = 3;
+  const BRAND_INDEX_COPY = {
+    title: "Competition Brands South Africa | Freehub",
+    description:
+      "Browse South African competition brands with enough active listings on Freehub. Find current giveaways by brand, closing date and official source link.",
+    heading: "Competition Brands in South Africa",
+    intro:
+      "Use this brand index to find South African competition promoters with multiple active listings on Freehub.",
+    support:
+      "Freehub lists brand competition pages only when there are enough active published listings to make the page useful. Always check the official promoter page before entering.",
+    canonical: `${CANONICAL_ORIGIN}/brands/`,
+  };
+  const APPROVED_BRAND_PAGES = {
+    "cell-c": {
+      brand: "Cell C",
+      title: "Cell C Competitions South Africa | Freehub",
+      description:
+        "Browse active Cell C competitions in South Africa. Compare prizes, closing dates, entry costs and official source links before entering.",
+      heading: "Cell C Competitions",
+      intro:
+        "Find active Cell C competitions listed on Freehub, including telecom, voucher and cash-style promotions where enough entry information is available.",
+      support:
+        "Use the official Cell C source link on each listing to confirm current entry rules, costs and closing dates.",
+    },
+    clicks: {
+      brand: "Clicks",
+      title: "Clicks Competitions South Africa | Freehub",
+      description:
+        "Browse active Clicks competitions in South Africa with clear entry requirements, closing dates and official source links.",
+      heading: "Clicks Competitions",
+      intro:
+        "Find current Clicks competitions and ClubCard-style promotions listed on Freehub.",
+      support:
+        "Clicks promotions can involve products, ClubCard details or app actions, so confirm the official terms before entering.",
+    },
+    fnb: {
+      brand: "FNB",
+      title: "FNB Competitions South Africa | Freehub",
+      description:
+        "Browse active FNB competitions in South Africa. Check entry rules, closing dates and official source links before entering.",
+      heading: "FNB Competitions",
+      intro:
+        "Find active FNB competitions and rewards-linked promotions listed on Freehub.",
+      support:
+        "Bank and rewards promotions can include qualifying account or payment requirements, so read the official FNB terms before entering.",
+    },
+    game: {
+      brand: "Game",
+      title: "Game Competitions South Africa | Freehub",
+      description:
+        "Browse active Game competitions in South Africa, including tech, retail and voucher promotions with official source links.",
+      heading: "Game Competitions",
+      intro:
+        "Find current Game competitions and retail giveaways listed on Freehub.",
+      support:
+        "Retail competitions may require a purchase, receipt or loyalty action. Check the official Game source before entering.",
+    },
+    makro: {
+      brand: "Makro",
+      title: "Makro Competitions South Africa | Freehub",
+      description:
+        "Browse active Makro competitions in South Africa with prizes, entry requirements, closing dates and official source links.",
+      heading: "Makro Competitions",
+      intro:
+        "Find current Makro competitions, rewards promotions and retail giveaways listed on Freehub.",
+      support:
+        "Makro promotions can involve qualifying products or rewards details, so confirm the official terms before entering.",
+    },
+    travelstart: {
+      brand: "Travelstart",
+      title: "Travelstart Competitions South Africa | Freehub",
+      description:
+        "Browse active Travelstart competitions in South Africa, including travel giveaways and holiday-style prize draws.",
+      heading: "Travelstart Competitions",
+      intro:
+        "Find current Travelstart competitions and travel prize opportunities listed on Freehub.",
+      support:
+        "Travel competitions can include booking, eligibility or date restrictions. Check the official promoter page before entering.",
+    },
+    vodacom: {
+      brand: "Vodacom",
+      title: "Vodacom Competitions South Africa | Freehub",
+      description:
+        "Browse active Vodacom competitions in South Africa. Compare telecom prizes, entry requirements, closing dates and official source links.",
+      heading: "Vodacom Competitions",
+      intro:
+        "Find active Vodacom competitions and recharge or rewards-linked promotions listed on Freehub.",
+      support:
+        "Telecom competitions can involve recharge, app, SMS or rewards mechanics, so confirm the official Vodacom terms before entering.",
+    },
+  };
+  const BRAND_PAGE_SLUGS = Object.keys(APPROVED_BRAND_PAGES);
   const THIN_PAGE_TIPS = [
     "Enter daily competitions regularly to build more chances over time.",
     "Focus on lower-profile competitions where fewer people are likely to enter.",
@@ -820,6 +912,20 @@
       };
     }
 
+    if (path === "/brands") {
+      return { type: "brand-index", slug: "brands", path: "/brands/" };
+    }
+
+    const brandMatch = path.match(/^\/brand\/([a-z0-9-]+)$/);
+
+    if (brandMatch && APPROVED_BRAND_PAGES[brandMatch[1]]) {
+      return {
+        type: "brand",
+        slug: brandMatch[1],
+        path: `/brand/${brandMatch[1]}/`,
+      };
+    }
+
     const competitionMatch = path.match(/^\/competition\/([a-z0-9-]+)$/);
 
     if (competitionMatch) {
@@ -867,6 +973,21 @@
       };
     }
 
+    if (routeContext.type === "brand-index") {
+      return BRAND_INDEX_COPY;
+    }
+
+    if (routeContext.type === "brand") {
+      const copy = APPROVED_BRAND_PAGES[routeContext.slug];
+      return {
+        title: copy.title,
+        description: copy.description,
+        heading: copy.heading,
+        intro: copy.intro,
+        canonical: `${CANONICAL_ORIGIN}/brand/${routeContext.slug}/`,
+      };
+    }
+
     return DEFAULT_COPY;
   }
 
@@ -884,6 +1005,10 @@
 
     if (routeContext.type === "hub") {
       return getHubFilteredCompetitions(publishedCompetitions, routeContext.slug);
+    }
+
+    if (routeContext.type === "brand") {
+      return getBrandFilteredCompetitions(publishedCompetitions, routeContext.slug);
     }
 
     return publishedCompetitions;
@@ -980,6 +1105,46 @@
     return String(entryCostType || "").trim().toLowerCase();
   }
 
+  function getBrandFilteredCompetitions(competitions, slug) {
+    const brandPage = APPROVED_BRAND_PAGES[slug];
+
+    if (!brandPage) {
+      return [];
+    }
+
+    const targetBrand = brandPage.brand.toLowerCase();
+    return sortCompetitions(getPublishedCompetitions(competitions)).filter(
+      (competition) => String(competition.brand || "").trim().toLowerCase() === targetBrand
+    );
+  }
+
+  function getGeneratedBrandPageDefinitions(competitions) {
+    return BRAND_PAGE_SLUGS.map((slug) => {
+      const definition = APPROVED_BRAND_PAGES[slug];
+      const filteredCompetitions = getBrandFilteredCompetitions(competitions, slug);
+      return {
+        ...definition,
+        slug,
+        path: `/brand/${slug}/`,
+        canonical: `${CANONICAL_ORIGIN}/brand/${slug}/`,
+        competitionCount: filteredCompetitions.length,
+      };
+    }).filter((definition) => definition.competitionCount >= BRAND_PAGE_MIN_COMPETITIONS);
+  }
+
+  function getGeneratedBrandSlugs(competitions) {
+    return getGeneratedBrandPageDefinitions(competitions).map((definition) => definition.slug);
+  }
+
+  function getBrandSlugForCompetition(competition, generatedBrandSlugs = BRAND_PAGE_SLUGS) {
+    const brandName = String(competition.brand || "").trim().toLowerCase();
+
+    return generatedBrandSlugs.find((slug) => {
+      const definition = APPROVED_BRAND_PAGES[slug];
+      return definition && definition.brand.toLowerCase() === brandName;
+    });
+  }
+
   function buildStructuredData(competitions, routeContext) {
     const pageCopy = getPageCopy(routeContext);
 
@@ -1004,6 +1169,7 @@
       ...CATEGORY_SLUGS.map((slug) => ({ type: "category", slug, path: `/category/${slug}/` })),
       ...TAG_SLUGS.map((slug) => ({ type: "tag", slug, path: `/tag/${slug}/` })),
       ...HUB_SLUGS.map((slug) => ({ type: "hub", slug, path: `/${slug}/` })),
+      { type: "brand-index", slug: "brands", path: "/brands/" },
     ];
   }
 
@@ -1018,6 +1184,14 @@
 
     if (routeContext.type === "hub") {
       return HUB_COPY[routeContext.slug].support;
+    }
+
+    if (routeContext.type === "brand-index") {
+      return BRAND_INDEX_COPY.support;
+    }
+
+    if (routeContext.type === "brand") {
+      return APPROVED_BRAND_PAGES[routeContext.slug].support;
     }
 
     return "";
@@ -1038,9 +1212,13 @@
     DEFAULT_COPY,
     TAG_COPY,
     HUB_COPY,
+    BRAND_INDEX_COPY,
+    APPROVED_BRAND_PAGES,
+    BRAND_PAGE_MIN_COMPETITIONS,
     CATEGORY_SLUGS,
     TAG_SLUGS,
     HUB_SLUGS,
+    BRAND_PAGE_SLUGS,
     normalizePath,
     formatDate,
     getCompetitionSlug,
@@ -1067,6 +1245,10 @@
     sortCompetitions,
     getTagFilteredCompetitions,
     getHubFilteredCompetitions,
+    getBrandFilteredCompetitions,
+    getGeneratedBrandPageDefinitions,
+    getGeneratedBrandSlugs,
+    getBrandSlugForCompetition,
     getCategoryRoute,
     getRouteContext,
     getPageCopy,

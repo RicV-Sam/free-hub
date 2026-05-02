@@ -249,8 +249,11 @@ function main() {
   const validSlugs = new Set(allCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
   removeStaleCompetitionDirectories(validSlugs);
   const competitions = allCompetitions.filter((competition) => !isExpired(competition.closingDate));
-  const routeContexts = getGeneratedRouteContexts(competitions);
+  const generatedBrandPages = shared.getGeneratedBrandPageDefinitions(competitions);
+  const generatedBrandSlugs = generatedBrandPages.map((brandPage) => brandPage.slug);
+  const routeContexts = getGeneratedRouteContexts(competitions, generatedBrandPages);
   removeStaleTagDirectories(routeContexts);
+  removeStaleBrandDirectories(generatedBrandPages);
   removeLegacyHomeDirectory();
 
   fs.writeFileSync(path.join(ROOT_DIR, "index.html"), renderHomepage(competitions));
@@ -258,7 +261,10 @@ function main() {
 
   routeContexts.filter((routeContext) => routeContext.type !== "home").forEach((routeContext) => {
     const filteredCompetitions = shared.filterCompetitionsByRoute(competitions, routeContext);
-    const html = renderPage(routeContext, filteredCompetitions);
+    const html =
+      routeContext.type === "brand-index"
+        ? renderBrandIndexPage(generatedBrandPages)
+        : renderPage(routeContext, filteredCompetitions);
     const outputDirectory = path.join(ROOT_DIR, routeContext.path.replace(/^\//, "").replace(/\/$/, ""));
 
     fs.mkdirSync(outputDirectory, { recursive: true });
@@ -266,7 +272,7 @@ function main() {
   });
 
   allCompetitions.forEach((competition) => {
-    const html = renderCompetitionPage(competition, competitions);
+    const html = renderCompetitionPage(competition, competitions, generatedBrandSlugs);
     const slug = shared.getCompetitionSlug(competition);
     const outputDirectory = path.join(ROOT_DIR, "competition", slug);
 
@@ -294,7 +300,7 @@ function main() {
   runStaticSeoChecks();
 }
 
-function getGeneratedRouteContexts(competitions) {
+function getGeneratedRouteContexts(competitions, generatedBrandPages = []) {
   const categoryRouteContexts = shared.CATEGORY_SLUGS.map((slug) => ({
     type: "category",
     slug,
@@ -308,8 +314,20 @@ function getGeneratedRouteContexts(competitions) {
     slug,
     path: `/${slug}/`,
   }));
+  const brandRouteContexts = generatedBrandPages.map((brandPage) => ({
+    type: "brand",
+    slug: brandPage.slug,
+    path: brandPage.path,
+  }));
 
-  return [{ type: "home", slug: "", path: "/" }, ...categoryRouteContexts, ...activeTagRouteContexts, ...hubRouteContexts];
+  return [
+    { type: "home", slug: "", path: "/" },
+    ...categoryRouteContexts,
+    ...activeTagRouteContexts,
+    ...hubRouteContexts,
+    { type: "brand-index", slug: "brands", path: "/brands/" },
+    ...brandRouteContexts,
+  ];
 }
 
 function renderSiteFooter() {
@@ -339,6 +357,7 @@ function renderSiteFooter() {
               <a href="/competitions-ending-soon/">Ending soon</a>
               <a href="/purchase-required-competitions/">Purchase required</a>
               <a href="/paid-entry-competitions/">Paid entry</a>
+              <a href="/brands/">Browse by brand</a>
             </nav>
           </div>
           <div>
@@ -443,8 +462,9 @@ function renderPage(routeContext, competitions) {
   const supportCopy = shared.getPageSupportCopy(routeContext);
   const structuredData = shared.buildStructuredData(competitions, routeContext);
   const ogImage = getCollectionMetadataImageUrl(competitions);
+  const isCollectionPage = routeContext.type === "hub" || routeContext.type === "brand";
   const collectionPageStructuredData =
-    routeContext.type === "hub"
+    isCollectionPage
       ? {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
@@ -460,7 +480,7 @@ function renderPage(routeContext, competitions) {
         }
       : null;
   const breadcrumbData =
-    routeContext.type === "hub"
+    isCollectionPage
       ? {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
@@ -524,7 +544,7 @@ function renderPage(routeContext, competitions) {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('set', { page_type: '${routeContext.type === "hub" ? "hub" : routeContext.type}'${routeContext.type === "hub" ? `, hub_slug: '${routeContext.slug}'` : ""} });
+      gtag('set', { page_type: '${routeContext.type}'${routeContext.type === "hub" ? `, hub_slug: '${routeContext.slug}'` : ""}${routeContext.type === "brand" ? `, brand_slug: '${routeContext.slug}'` : ""} });
       gtag('config', 'G-23P37R20FY');
     </script>
   </head>
@@ -539,6 +559,8 @@ function renderPage(routeContext, competitions) {
       </header>
 
       <main class="main-content">
+        ${routeContext.type === "brand" ? renderCollectionBreadcrumb(pageCopy.heading) : ""}
+
         ${renderSupportSection(supportCopy)}
 
         <nav class="category-nav" aria-label="Competition categories">
@@ -620,6 +642,141 @@ function renderPage(routeContext, competitions) {
   </body>
 </html>
 `;
+}
+
+function renderBrandIndexPage(brandPages) {
+  const pageCopy = shared.BRAND_INDEX_COPY;
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: pageCopy.heading,
+    itemListElement: brandPages.map((brandPage, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `${shared.CANONICAL_ORIGIN}${brandPage.path}`,
+      name: `${brandPage.brand} competitions`,
+      description: brandPage.description,
+    })),
+  };
+  const collectionPageStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: pageCopy.heading,
+    description: pageCopy.description,
+    url: pageCopy.canonical,
+    inLanguage: "en-ZA",
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Freehub",
+      url: `${shared.CANONICAL_ORIGIN}/`,
+    },
+  };
+  const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${shared.CANONICAL_ORIGIN}/` },
+      { "@type": "ListItem", position: 2, name: pageCopy.heading, item: pageCopy.canonical },
+    ],
+  };
+  const brandLinksMarkup = brandPages
+    .map(
+      (brandPage) =>
+        `<a class="internal-links__link" href="${escapeAttribute(brandPage.path)}" data-brand-page-slug="${escapeAttribute(
+          brandPage.slug
+        )}">${escapeHtml(brandPage.brand)} competitions (${brandPage.competitionCount})</a>`
+    )
+    .join("\n            ");
+
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${escapeHtml(pageCopy.title)}</title>
+    <meta name="description" content="${escapeAttribute(pageCopy.description)}" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="${escapeAttribute(pageCopy.canonical)}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="${escapeAttribute(pageCopy.title)}" />
+    <meta property="og:description" content="${escapeAttribute(pageCopy.description)}" />
+    <meta property="og:url" content="${escapeAttribute(pageCopy.canonical)}" />
+    <meta property="og:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${escapeAttribute(pageCopy.title)}" />
+    <meta name="twitter:description" content="${escapeAttribute(pageCopy.description)}" />
+    <meta name="twitter:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
+    <script id="structured-data-collectionpage" type="application/ld+json">${escapeScript(
+      JSON.stringify(collectionPageStructuredData)
+    )}</script>
+    <script id="structured-data-breadcrumb" type="application/ld+json">${escapeScript(
+      JSON.stringify(breadcrumbData)
+    )}</script>
+    <script id="structured-data-itemlist" type="application/ld+json">${escapeScript(
+      JSON.stringify(structuredData)
+    )}</script>
+    <link rel="stylesheet" href="${RELATIVE_ASSET_PATH}styles.css" />
+    ${ADSENSE_SCRIPT}
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('set', { page_type: 'brand-index' });
+      gtag('config', 'G-23P37R20FY');
+    </script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="hero">
+        <div class="hero__copy">
+          <p class="eyebrow">free-hub</p>
+          <h1 id="pageTitle">${escapeHtml(pageCopy.heading)}</h1>
+          <p class="hero__text" id="pageIntro">${escapeHtml(pageCopy.intro)}</p>
+        </div>
+      </header>
+
+      <main class="main-content">
+        ${renderCollectionBreadcrumb(pageCopy.heading)}
+        ${renderSupportSection(pageCopy.support)}
+
+        <section class="internal-links" aria-label="Generated brand pages">
+          <p class="internal-links__title">Brands with active competition pages</p>
+          <div class="internal-links__list">
+            ${brandLinksMarkup}
+          </div>
+        </section>
+
+        <section class="state-card" aria-label="About brand pages">
+          <p class="state-card__title">Why these brands appear</p>
+          <p class="state-card__text">Freehub only creates brand pages when there are at least ${shared.BRAND_PAGE_MIN_COMPETITIONS} active published competitions for that brand. This keeps brand pages useful and avoids thin listings.</p>
+        </section>
+
+        <section class="internal-links" aria-label="Related competition browsing">
+          <p class="internal-links__title">More ways to browse</p>
+          <div class="internal-links__list">
+            <a class="internal-links__link" href="/competitions/">All competitions</a>
+            <a class="internal-links__link" href="/competitions-ending-soon/">Competitions ending soon</a>
+            <a class="internal-links__link" href="/how-we-verify-competitions/">How we verify listings</a>
+            <a class="internal-links__link" href="/how-to-enter-competitions-safely/">How to enter safely</a>
+          </div>
+        </section>
+      </main>
+
+      ${renderSiteFooter()}
+    </div>
+  </body>
+</html>
+`;
+}
+
+function renderCollectionBreadcrumb(currentLabel) {
+  return `<nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">${escapeHtml(currentLabel)}</span>
+        </nav>`;
 }
 
 function renderCompetitionCard(competition, featured = false) {
@@ -773,6 +930,8 @@ function renderInternalLinksSection(routeContext, competitions) {
       ? getCategoryInternalLinks(routeContext.slug, competitions)
       : routeContext.type === "hub"
         ? getHubInternalLinks(routeContext.slug)
+      : routeContext.type === "brand"
+        ? getBrandInternalLinks(routeContext.slug)
       : routeContext.type === "tag"
         ? {
             title: "Explore Categories",
@@ -829,6 +988,7 @@ function renderHubSupportLinks(routeContext, competitions) {
 function getHubInternalLinks(slug) {
   const linksBySlug = {
     competitions: [
+      { label: "Browse competition brands", href: "/brands/" },
       { label: "Win a car competitions", href: "/win-a-car/" },
       { label: "Free competitions", href: "/free-competitions/" },
       { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
@@ -837,6 +997,7 @@ function getHubInternalLinks(slug) {
       { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
     ],
     "win-a-car": [
+      { label: "Browse competition brands", href: "/brands/" },
       { label: "Cars category", href: "/category/cars/" },
       { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
       { label: "Paid entry competitions", href: "/paid-entry-competitions/" },
@@ -844,24 +1005,28 @@ function getHubInternalLinks(slug) {
       { label: "Legit competitions guide", href: "/legit-competitions-south-africa/" },
     ],
     "free-competitions": [
+      { label: "Browse competition brands", href: "/brands/" },
       { label: "All competitions", href: "/competitions/" },
       { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
       { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
       { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
     ],
     "competitions-ending-soon": [
+      { label: "Browse competition brands", href: "/brands/" },
       { label: "All competitions", href: "/competitions/" },
       { label: "Free competitions", href: "/free-competitions/" },
       { label: "Win a car competitions", href: "/win-a-car/" },
       { label: "How we verify listings", href: "/how-we-verify-competitions/" },
     ],
     "purchase-required-competitions": [
+      { label: "Browse competition brands", href: "/brands/" },
       { label: "Free competitions", href: "/free-competitions/" },
       { label: "Win a car competitions", href: "/win-a-car/" },
       { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
       { label: "Legit competitions guide", href: "/legit-competitions-south-africa/" },
     ],
     "paid-entry-competitions": [
+      { label: "Browse competition brands", href: "/brands/" },
       { label: "Free competitions", href: "/free-competitions/" },
       { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
       { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
@@ -871,6 +1036,22 @@ function getHubInternalLinks(slug) {
   return {
     title: "Related Competition Hubs",
     links: linksBySlug[slug] || HUB_LINKS,
+  };
+}
+
+function getBrandInternalLinks(slug) {
+  const brandPage = shared.APPROVED_BRAND_PAGES[slug];
+  const brandLabel = brandPage ? brandPage.brand : "this brand";
+
+  return {
+    title: `More ${brandLabel} Discovery`,
+    links: [
+      { label: "All competition brands", href: "/brands/" },
+      { label: "All competitions", href: "/competitions/" },
+      { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
+      { label: "How we verify listings", href: "/how-we-verify-competitions/" },
+      { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
+    ],
   };
 }
 
@@ -1510,7 +1691,7 @@ function buildHowToEnterSteps(competition) {
   ];
 }
 
-function renderCompetitionPage(competition, allCompetitions) {
+function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs = []) {
   const slug = shared.getCompetitionSlug(competition);
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/competition/${slug}/`;
   const description = shared.buildCompetitionDescription(competition);
@@ -1690,7 +1871,7 @@ function renderCompetitionPage(competition, allCompetitions) {
           <p class="state-card__text">The closing date was ${escapeHtml(formattedDate)}. Browse related competitions below.</p>
         </section>` : ""}
 
-        ${renderCompetitionInternalLinks(competition, categoryPath)}
+        ${renderCompetitionInternalLinks(competition, categoryPath, generatedBrandSlugs)}
 
         ${renderAdZone("ad-top", "detail-top")}
 
@@ -2064,9 +2245,14 @@ function renderOutPage(competition) {
 `;
 }
 
-function renderCompetitionInternalLinks(competition, categoryPath) {
+function renderCompetitionInternalLinks(competition, categoryPath, generatedBrandSlugs = []) {
   const links = [{ label: `All ${competition.category} competitions`, href: categoryPath }];
   const entryCostType = String(competition.entryCostType || "").toLowerCase();
+  const brandSlug = shared.getBrandSlugForCompetition(competition, generatedBrandSlugs);
+
+  if (brandSlug) {
+    links.push({ label: `More ${competition.brand} competitions`, href: `/brand/${brandSlug}/` });
+  }
 
   if (competition.category === "Cars" || String(competition.prizeType || "").toLowerCase() === "car") {
     links.push({ label: "Win a car competitions", href: "/win-a-car/" });
@@ -2517,6 +2703,27 @@ function removeStaleTagDirectories(routeContexts) {
     });
 }
 
+function removeStaleBrandDirectories(generatedBrandPages) {
+  const validBrandSlugs = new Set(generatedBrandPages.map((brandPage) => brandPage.slug));
+  const brandDirectory = path.join(ROOT_DIR, "brand");
+
+  if (!fs.existsSync(brandDirectory)) {
+    return;
+  }
+
+  fs.readdirSync(brandDirectory, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .forEach((entry) => {
+      if (validBrandSlugs.has(entry.name)) {
+        return;
+      }
+
+      const stalePath = path.join(brandDirectory, entry.name);
+      fs.rmSync(stalePath, { recursive: true, force: true });
+      console.log(`[generate-pages] Removed stale brand directory: ${stalePath}`);
+    });
+}
+
 function removeLegacyHomeDirectory() {
   const legacyHomeDirectory = path.join(ROOT_DIR, "home");
 
@@ -2572,6 +2779,8 @@ function runStaticSeoChecks() {
     ...getNestedIndexFiles(path.join(ROOT_DIR, "tag")),
     ...getNestedIndexFiles(path.join(ROOT_DIR, "competition")),
     ...shared.HUB_SLUGS.map((slug) => path.join(ROOT_DIR, slug, "index.html")),
+    path.join(ROOT_DIR, "brands", "index.html"),
+    ...getNestedIndexFiles(path.join(ROOT_DIR, "brand")),
     ...TRUST_PAGE_DEFINITIONS.map((page) => path.join(ROOT_DIR, page.slug, "index.html")),
   ];
 
@@ -2582,7 +2791,7 @@ function runStaticSeoChecks() {
       errors.push(`Structured data competition URL missing trailing slash in: ${filePath}`);
     }
 
-    const internalHrefRegex = /href="(\/(?:competition|category|tag)\/[^"]+)"/g;
+    const internalHrefRegex = /href="(\/(?:competition|category|tag|brand|brands)\/[^"]*)"/g;
     const internalHrefMatches = [...html.matchAll(internalHrefRegex)];
     internalHrefMatches.forEach((match) => {
       const href = match[1];
