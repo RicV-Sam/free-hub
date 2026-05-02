@@ -383,28 +383,6 @@
     "region": "Retreat, Somerset West, Durban North and Ballito stores"
   },
   {
-    "id": "mtn-promo-giveaway",
-    "title": "MTN Promo Giveaway",
-    "brand": "MTN",
-    "summary": "MTN frequently uses promo hubs and rewards mechanics for device and network-related giveaways, so this entry adds telecom relevance to the tech section. It also supports the South African positioning with a familiar mobile brand.",
-    "entrySteps": "Open the MTN promotions area, select the active giveaway, and follow the official competition instructions.",
-    "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80",
-    "closingDate": "2026-05-01",
-    "category": "Tech",
-    "entryType": "Free Entry",
-    "tags": [
-      "tech",
-      "free-entry",
-      "ending-soon",
-      "new",
-      "mtn"
-    ],
-    "isHighValue": false,
-    "isEndingSoon": true,
-    "url": "https://www.mtn.co.za/",
-    "verificationStatus": "published"
-  },
-  {
     "id": "vodacom-rewards",
     "title": "Vodacom Rewards Competition",
     "brand": "Vodacom",
