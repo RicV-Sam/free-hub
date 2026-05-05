@@ -841,7 +841,7 @@ function renderCompetitionCard(competition, featured = false) {
                 </div>
                 <span class="${ctaClass}">View Details</span>
               </div>
-              <a class="competition-card__overlay-link" href="${escapeAttribute(internalPath)}/" aria-label="${escapeAttribute(competition.title)} - view details">
+              <a class="competition-card__overlay-link" href="${escapeAttribute(internalPath)}" aria-label="${escapeAttribute(competition.title)} - view details">
                 <span class="visually-hidden">View details for ${escapeHtml(competition.title)}</span>
               </a>
             </article>`;
@@ -867,7 +867,7 @@ function renderHeroSpotlight(competition) {
   const title = competition.title;
   const urgency = shared.getUrgencyLabel(competition.closingDate);
   const prizeCue = shared.getPrizeCue(competition);
-  const entryPath = `${shared.getCompetitionPath(competition)}/`;
+  const entryPath = shared.getCompetitionPath(competition);
   const cardImageUrl = getCompetitionImageUrl(competition);
 
   return `<a class="hero-spotlight" href="${escapeAttribute(entryPath)}" aria-label="${escapeAttribute(
@@ -1057,11 +1057,11 @@ function getBrandInternalLinks(slug) {
 
 function getCategoryInternalLinks(slug, competitions) {
   const firstCategoryCompetition = competitions[0]
-    ? `${shared.getCompetitionPath(competitions[0])}/`
+    ? shared.getCompetitionPath(competitions[0])
     : `/category/${slug}/`;
   const byIdPath = (id) => {
     const target = competitions.find((competition) => shared.getCompetitionSlug(competition) === id);
-    return target ? `${shared.getCompetitionPath(target)}/` : firstCategoryCompetition;
+    return target ? shared.getCompetitionPath(target) : firstCategoryCompetition;
   };
 
   if (slug === "cars") {

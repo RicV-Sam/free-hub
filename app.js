@@ -272,7 +272,7 @@ function createCompetitionCard(competition) {
 
   const overlayLink = document.createElement("a");
   overlayLink.className = "competition-card__overlay-link";
-  overlayLink.href = getCompetitionPath(competition) + "/";
+  overlayLink.href = getCompetitionPath(competition);
   overlayLink.setAttribute("aria-label", `${competition.title} - view details`);
   const overlayText = document.createElement("span");
   overlayText.className = "visually-hidden";

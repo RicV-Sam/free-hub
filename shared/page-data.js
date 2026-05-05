@@ -438,11 +438,11 @@
   }
 
   function getCompetitionPath(competition) {
-    return `/competition/${getCompetitionSlug(competition)}`;
+    return `/competition/${getCompetitionSlug(competition)}/`;
   }
 
   function getCompetitionAbsoluteUrl(competition) {
-    return `${SITE_ORIGIN}${getCompetitionPath(competition)}/`;
+    return `${SITE_ORIGIN}${getCompetitionPath(competition)}`;
   }
 
   function getCompetitionImageUrl(competition) {
