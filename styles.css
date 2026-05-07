@@ -1513,6 +1513,26 @@ button {
   letter-spacing: 0.16em;
 }
 
+.hero__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero__brand .eyebrow {
+  margin: 0;
+}
+
+.hero__brand-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18);
+  background: #ffffff;
+}
+
 .hero--home h1 {
   max-width: 17ch;
   color: #f8fafc;

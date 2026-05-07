@@ -1226,6 +1226,8 @@ If you are looking for free entry competitions in South Africa, practical vouche
     <meta name="description" content="Browse free competitions South Africa users search for, including current car competitions, holiday giveaways, cash prizes, tech offers, and vouchers." />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="${escapeAttribute(shared.CANONICAL_ORIGIN)}/" />
+    <link rel="icon" type="image/png" href="/FH%20logo.png" />
+    <link rel="apple-touch-icon" href="/FH%20logo.png" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Free Competitions South Africa | Current Car, Holiday &amp; Cash Giveaways" />
     <meta property="og:description" content="Browse free competitions South Africa users search for, including current car competitions, holiday giveaways, cash prizes, tech offers, and vouchers." />
@@ -1263,7 +1265,10 @@ ${noscriptLinks}
       <header class="hero hero--home">
         <div class="hero__layout">
           <div class="hero__copy">
-            <p class="eyebrow">FREEHUB</p>
+            <div class="hero__brand" aria-label="FreeHub brand">
+              <img class="hero__brand-logo" src="/FH%20logo.png" alt="FreeHub logo" width="40" height="40" loading="eager" decoding="async" />
+              <p class="eyebrow">FREEHUB</p>
+            </div>
             <h1 id="pageTitle">Today&apos;s Live Competitions in South Africa</h1>
             <p class="hero__text" id="pageIntro">FreeHub lists vouchers, prizes, cash giveaways and competitions from trusted South African brands so you can find offers worth opening today.</p>
             <div class="hero__actions">
