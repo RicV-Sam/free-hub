@@ -296,47 +296,6 @@
     "region": "Retreat, Somerset West, Durban North and Ballito stores"
   },
   {
-    "id": "clicks-summer-sun-escape",
-    "title": "Clicks Summer Sun Escape",
-    "brand": "Clicks",
-    "category": "Holidays",
-    "entryType": "SMS",
-    "closingDate": "2026-05-05",
-    "url": "https://clicks.co.za/competitions/view/summer-sun-escape-2026",
-    "summary": "Shop any 2 participating sun-care items and keep your till slip. SMS your ClubCard number and receipt number to enter the draw for a 6-night Mauritius getaway for two, plus Clicks voucher prizes.",
-    "tags": [
-      "sms-entry",
-      "standard-rates",
-      "travel",
-      "high-value",
-      "purchase-required",
-      "weekly-draw",
-      "ending-soon"
-    ],
-    "verificationStatus": "published"
-  },
-  {
-    "id": "cruise-nicely-this-easter",
-    "title": "Cruise Nicely this Easter!",
-    "brand": "MSC Cruises",
-    "summary": "This travel promotion offers a cruise prize instead of a simple voucher, which makes it one of the stronger holiday-style entries on the hub. It is a clear fit for users chasing experience-led rewards.",
-    "entrySteps": "Open the campaign page, review the purchase or entry requirements, and complete the steps listed by the promoter.",
-    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69d/20c/cb1/69d20ccb13864518324858.jpg",
-    "closingDate": "2026-05-06",
-    "category": "Holidays",
-    "entryType": "In-store Purchase",
-    "tags": [
-      "holidays",
-      "free-entry",
-      "high-value",
-      "new"
-    ],
-    "isHighValue": true,
-    "isEndingSoon": false,
-    "url": "https://www.winsomething.co.za/win/travel/118",
-    "verificationStatus": "published"
-  },
-  {
     "id": "dis-chem-wellness-cash-dash",
     "title": "Dis-Chem Wellness Cash Dash",
     "brand": "Dis-Chem",
