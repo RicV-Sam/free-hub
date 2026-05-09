@@ -313,7 +313,9 @@
       "weekly-draw",
       "ending-soon"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "cash"
   },
   {
     "id": "dis-chem-vaseline-cera-glow-beauty-hamper",
@@ -380,7 +382,9 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "voucher"
   },
   {
     "id": "game-home-theatre-mega-upgrade",
@@ -398,7 +402,9 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "tech"
   },
   {
     "id": "jacaranda-fm-competitions",
@@ -436,7 +442,9 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "holiday"
   },
   {
     "id": "makro-cash-draw",
@@ -473,7 +481,8 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "prizeType": "tech"
   },
   {
     "id": "travelstart-local-holiday",
@@ -510,7 +519,9 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "voucher"
   },
   {
     "id": "mtn-momo-cash-sprint",
@@ -529,7 +540,9 @@
       "purchase-required",
       "instant-win"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "cash"
   },
   {
     "id": "revlon-matric-dance-vouchers",
@@ -590,7 +603,8 @@
     "isHighValue": true,
     "isEndingSoon": false,
     "url": "https://www.suninternational.com/",
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "prizeType": "holiday"
   },
   {
     "id": "vodacom-recharge-win-galaxy-s25",
@@ -609,7 +623,9 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "tech"
   },
   {
     "id": "telkom-upgrade-to-win-voucher-drop",
@@ -626,7 +642,9 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "voucher"
   },
   {
     "id": "cell-c-recharge-r50k-cash",
@@ -645,7 +663,8 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true
   },
   {
     "id": "fnb-ebucks-kruger-safari-giveaway",
@@ -663,7 +682,9 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "holiday"
   },
   {
     "id": "standard-bank-save-win-r200k",
@@ -681,7 +702,9 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "cash"
   },
   {
     "id": "absa-rewards-weekend-away",
@@ -699,7 +722,9 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "holiday"
   },
   {
     "id": "capitec-pay-daymaker-cash-draw",
@@ -718,7 +743,9 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "cash"
   },
   {
     "id": "avo-by-nedbank-shopping-voucher-giveaway",
@@ -735,7 +762,9 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "voucher"
   },
   {
     "id": "discovery-vitality-local-getaway-challenge",
@@ -753,7 +782,8 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "prizeType": "holiday"
   },
   {
     "id": "discovery-bank-tap-to-win-cashback",
@@ -772,7 +802,9 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "cash"
   },
   {
     "id": "boxer-nedbank-greenbacks",
@@ -792,7 +824,8 @@
     "isHighValue": true,
     "isEndingSoon": false,
     "url": "https://www.winsomething.co.za/win/vouchers/64",
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "prizeType": "cash"
   },
   {
     "id": "old-mutual-rewards-refer-win",
@@ -810,7 +843,8 @@
       "free-entry",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "prizeType": "cash"
   },
   {
     "id": "sanlam-plan-win-mauritius",
@@ -827,7 +861,8 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "prizeType": "holiday"
   },
   {
     "id": "investec-spend-win-takealot-vouchers",
@@ -845,7 +880,8 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true
   },
   {
     "id": "shell-v-rewards-mozambique-escape",
@@ -863,7 +899,9 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "holiday"
   },
   {
     "id": "kfc-app-cash-crunch",
@@ -882,7 +920,8 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true
   },
   {
     "id": "talk-to-nandos-monthly-voucher-draw",
@@ -900,7 +939,8 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true
   },
   {
     "id": "castle-lager-rugby-away-day",
@@ -917,7 +957,8 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "prizeType": "holiday"
   },
   {
     "id": "castle-lite-ultimate-home-viewing",
@@ -934,7 +975,8 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "prizeType": "tech"
   },
   {
     "id": "south-africa-tourism-mzansi-moments-photo-challenge",
@@ -951,7 +993,8 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "prizeType": "holiday"
   },
   {
     "id": "saa-voyager-fly-win-mauritius",
@@ -968,7 +1011,9 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "holiday"
   },
   {
     "id": "travelstart-long-weekend-lucky-draw",
@@ -985,7 +1030,8 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "prizeType": "holiday"
   },
   {
     "id": "shoprite-money-market-payday-cash-drop",
@@ -1003,7 +1049,9 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "cash"
   },
   {
     "id": "checkers-xtra-savings-swipe-win",
@@ -1021,7 +1069,9 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "voucher"
   },
   {
     "id": "woolworths-tech-for-good-giveaway",
@@ -1039,7 +1089,8 @@
       "free-entry",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "prizeType": "tech"
   },
   {
     "id": "pick-n-pay-family-break-at-sun-city",
@@ -1056,7 +1107,9 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "holiday"
   },
   {
     "id": "clicks-clubcard-scan-win",
@@ -1075,7 +1128,8 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true
   },
   {
     "id": "dis-chem-winter-wellness-tech-bundle",
@@ -1092,7 +1146,9 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "tech"
   },
   {
     "id": "mr-price-home-room-refresh-voucher",
@@ -1110,7 +1166,9 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "voucher"
   },
   {
     "id": "truworths-truroyalty-style-voucher-draw",
@@ -1128,7 +1186,8 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "prizeType": "voucher"
   },
   {
     "id": "foschini-tech-fashion-upgrade",
@@ -1146,7 +1205,9 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "tech"
   },
   {
     "id": "edgars-monthly-voucher-winners",
@@ -1165,7 +1226,9 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "voucher"
   },
   {
     "id": "takealot-victoria-falls-getaway",
@@ -1182,7 +1245,8 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "prizeType": "holiday"
   },
   {
     "id": "superbalist-apple-backpack-tech-bundle",
@@ -1199,7 +1263,8 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "prizeType": "tech"
   },
   {
     "id": "game-win-your-cart-back",
@@ -1218,7 +1283,9 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "voucher"
   },
   {
     "id": "makro-level-up-gaming-bundle",
@@ -1235,7 +1302,9 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "tech"
   },
   {
     "id": "mtn-app-travel-treat",
@@ -1253,7 +1322,8 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "prizeType": "holiday"
   },
   {
     "id": "vodapay-cashback-challenge",
@@ -1271,7 +1341,9 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "cash"
   },
   {
     "id": "telkom-fibre-tech-upgrades",
@@ -1289,7 +1361,9 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "tech"
   },
   {
     "id": "cell-c-takealot-voucher-giveaway",
@@ -1307,7 +1381,9 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "voucher"
   },
   {
     "id": "fnb-pay-to-win-grand-cash-prize",
@@ -1326,7 +1402,9 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "cash"
   },
   {
     "id": "standard-bank-mastercard-zanzibar-getaway",
@@ -1343,7 +1421,9 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "holiday"
   },
   {
     "id": "absa-rewards-cash-back-draw",
@@ -1361,7 +1441,9 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "cash"
   },
   {
     "id": "capitec-live-better-voucher-rewards",
@@ -1380,7 +1462,8 @@
       "free-entry",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "prizeType": "voucher"
   },
   {
     "id": "nedbank-greenbacks-holiday-giveaway",
@@ -1397,7 +1480,9 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "holiday"
   },
   {
     "id": "discovery-vitality-move-for-cash",
@@ -1416,7 +1501,8 @@
       "free-entry",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "prizeType": "cash"
   },
   {
     "id": "old-mutual-rewards-update-win-vouchers",
@@ -1452,7 +1538,8 @@
       "free-entry",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "prizeType": "cash"
   },
   {
     "id": "investec-winelands-escape-competition",
@@ -1469,7 +1556,9 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "holiday"
   },
   {
     "id": "engen-1app-cash-back-draw",
@@ -1488,7 +1577,9 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "cash"
   },
   {
     "id": "shell-v-rewards-gear-up-with-gopro",
@@ -1507,7 +1598,9 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "tech"
   },
   {
     "id": "kfc-rewards-voucher-drop",
@@ -1526,7 +1619,9 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "voucher"
   },
   {
     "id": "nandos-peri-peri-road-trip",
@@ -1544,7 +1639,9 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "holiday"
   },
   {
     "id": "castle-lager-braai-cash-giveaway",
@@ -1562,7 +1659,8 @@
       "free-entry",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "prizeType": "cash"
   },
   {
     "id": "sab-festival-vip-weekend",
@@ -1579,7 +1677,8 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "prizeType": "holiday"
   },
   {
     "id": "toyota-roadtrip-tech-pack-giveaway",
@@ -1614,7 +1713,8 @@
       "free-entry",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "prizeType": "cash"
   },
   {
     "id": "sixty60-getaway-giveaway",
@@ -1632,7 +1732,9 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "holiday"
   },
   {
     "id": "clicks-sorbet-voucher-2026",
@@ -1689,7 +1791,8 @@
     "minimumSpend": "R29 airtime recharge after device and SIM purchase",
     "requiredProduct": "New Vodacom device and prepaid SIM from a participating TFG store",
     "entryChannel": "Participating TFG store purchase and recharge",
-    "region": "South Africa"
+    "region": "South Africa",
+    "prizeType": "voucher"
   },
   {
     "id": "cell-c-comrades-cash-promo",
@@ -1718,7 +1821,8 @@
     "purchaseRequired": true,
     "requiredProduct": "Qualifying Cell C MyConnecta deals, Elevate contracts, or bolt-ons",
     "entryChannel": "Cell C app, *141#, or qualifying contract purchase",
-    "region": "South Africa"
+    "region": "South Africa",
+    "prizeType": "cash"
   },
   {
     "id": "fnb-lovefnb-social-media-competition",
@@ -1746,7 +1850,8 @@
     "entryFeeLabel": "Free entry",
     "purchaseRequired": false,
     "entryChannel": "FNB social media accounts",
-    "region": "South Africa"
+    "region": "South Africa",
+    "prizeType": "cash"
   },
   {
     "id": "shoprite-drive-away-in-a-toyota-starlet",
