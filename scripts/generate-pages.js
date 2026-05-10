@@ -7,6 +7,7 @@ const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
 const RELATIVE_ASSET_PATH = "/";
 const ADSENSE_SCRIPT =
   '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6084410613829318" crossorigin="anonymous"></script>';
+const WHATSAPP_CHANNEL_URL = "https://whatsapp.com/channel/0029Vb7mS1VE50UlOc2yOe2H";
 const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date());
 const CATEGORY_LINKS = [
   { label: "All Competitions", href: "/" },
@@ -655,6 +656,7 @@ function renderSiteFooter() {
               <a href="/competitions-ending-soon/">Ending soon</a>
               <a href="/purchase-required-competitions/">Purchase required</a>
               <a href="/paid-entry-competitions/">Paid entry</a>
+              <a href="${escapeAttribute(WHATSAPP_CHANNEL_URL)}" target="_blank" rel="noopener noreferrer">WhatsApp channel</a>
               <a href="/brands/">Browse by brand</a>
             </nav>
           </div>
@@ -1371,6 +1373,7 @@ function renderPage(routeContext, competitions) {
         ${renderInternalLinksSection(routeContext, competitions)}
         ${renderHubSupportLinks(routeContext, competitions)}
         ${renderDeadlineBuckets(routeContext, competitions)}
+        ${renderWhatsAppChannelCta(routeContext)}
 
         ${renderAdZone("ad-top", "top")}
 
@@ -1960,6 +1963,23 @@ function renderSupportSection(supportCopy) {
         </section>`;
 }
 
+function renderWhatsAppChannelCta(routeContext = null) {
+  const showOnCollection =
+    routeContext && (routeContext.type === "hub" || routeContext.type === "category");
+
+  if (routeContext && !showOnCollection) {
+    return "";
+  }
+
+  return `<section class="state-card whatsapp-channel-cta" aria-label="WhatsApp competition updates">
+          <p class="state-card__title">Get competition alerts on WhatsApp</p>
+          <p class="state-card__text">Follow the South Africa Competitions WhatsApp Channel for new listings, closing-soon reminders and prize updates.</p>
+          <a class="btn btn--primary whatsapp-channel-cta__button" href="${escapeAttribute(
+            WHATSAPP_CHANNEL_URL
+          )}" target="_blank" rel="noopener noreferrer">Follow on WhatsApp</a>
+        </section>`;
+}
+
 function renderThinPageTips(competitions) {
   if (!shared.shouldShowThinPageTips(competitions)) {
     return "";
@@ -2123,6 +2143,7 @@ ${noscriptLinks}
         </section>
 
         ${homeIntentLinksMarkup}
+        ${renderWhatsAppChannelCta()}
 
         <section class="controls" aria-label="Competition filters">
           <label class="search-field" for="searchInput">
@@ -2206,6 +2227,9 @@ ${noscriptLinks}
           <div class="home-cta__actions">
             <a class="btn btn--primary" href="#all-competitions">Browse Today&apos;s Competitions</a>
             <a class="btn btn--secondary" href="/tag/ending-soon/">Ending Soon</a>
+            <a class="btn btn--secondary" href="${escapeAttribute(
+              WHATSAPP_CHANNEL_URL
+            )}" target="_blank" rel="noopener noreferrer">Follow on WhatsApp</a>
           </div>
         </section>
       </main>

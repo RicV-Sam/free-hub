@@ -635,6 +635,18 @@ button {
   gap: 0.45rem;
 }
 
+.whatsapp-channel-cta {
+  border-color: rgba(18, 140, 126, 0.22);
+  background:
+    linear-gradient(135deg, rgba(37, 211, 102, 0.12), rgba(255, 255, 255, 0.86)),
+    rgba(255, 255, 255, 0.82);
+}
+
+.whatsapp-channel-cta__button {
+  width: fit-content;
+  margin-top: 0.15rem;
+}
+
 .ad-slot {
   display: grid;
   gap: 0.5rem;
