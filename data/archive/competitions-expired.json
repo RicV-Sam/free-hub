@@ -440,5 +440,29 @@
     "verificationStatus": "published",
     "archivedAt": "2026-05-07",
     "archiveReason": "expired"
+  },
+  {
+    "id": "dis-chem-wellness-cash-dash",
+    "title": "Dis-Chem Wellness Cash Dash",
+    "brand": "Dis-Chem",
+    "category": "Cash",
+    "entryType": "SMS",
+    "closingDate": "2026-05-09",
+    "url": "https://www.dischem.co.za/wellness-cash-dash-2026-competition",
+    "summary": "Buy participating wellness products at Dis-Chem and SMS your receipt number to enter. Stand a chance to win R150,000 cash towards your health goals, with weekly R5,000 cash prizes.",
+    "tags": [
+      "sms-entry",
+      "standard-rates",
+      "cash",
+      "high-value",
+      "purchase-required",
+      "weekly-draw",
+      "ending-soon"
+    ],
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "cash",
+    "archivedAt": "2026-05-10",
+    "archiveReason": "expired"
   }
 ]
