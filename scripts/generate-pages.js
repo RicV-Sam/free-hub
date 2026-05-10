@@ -222,6 +222,9 @@ const TRUST_PAGE_DEFINITIONS = [
     heading: "Competition Closing Date Checklist",
     intro:
       "A competition can still be live but close quickly, so it helps to check the deadline details before you spend time entering.",
+    article: true,
+    datePublished: "2026-05-10",
+    dateModified: "2026-05-10",
     sections: [
       {
         heading: "Check the closing details",
@@ -260,6 +263,9 @@ const TRUST_PAGE_DEFINITIONS = [
     heading: "Competition Entry Cost Labels Explained",
     intro:
       "South African competitions use different entry mechanics. These labels help you see the likely cost or action before opening the official promoter page.",
+    article: true,
+    datePublished: "2026-05-10",
+    dateModified: "2026-05-10",
     sections: [
       {
         heading: "Free entry, purchase required and paid entry",
@@ -287,6 +293,211 @@ const TRUST_PAGE_DEFINITIONS = [
       { label: "Free competitions", href: "/free-competitions/" },
       { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
       { label: "Paid entry competitions", href: "/paid-entry-competitions/" },
+      { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
+    ],
+  },
+  {
+    slug: "till-slip-competitions-south-africa",
+    title: "Till Slip Competitions South Africa | Freehub",
+    description:
+      "Learn how till slip competitions work in South Africa, what proof of purchase to keep, and which current listings may require receipts.",
+    heading: "Till Slip Competitions in South Africa",
+    intro:
+      "Many South African retail competitions need a till slip, invoice or receipt before your entry can be accepted or verified.",
+    article: true,
+    datePublished: "2026-05-10",
+    dateModified: "2026-05-10",
+    sections: [
+      {
+        heading: "How till slip competitions work",
+        paragraphs: [
+          "A till slip competition usually asks you to buy a qualifying product or spend a minimum amount at a participating store.",
+          "The receipt may contain a reference number, prove that you bought the right product, or confirm that your loyalty card was used before the closing date.",
+        ],
+      },
+      {
+        heading: "What to keep",
+        paragraphs: [
+          "Keep the original till slip, online invoice or app receipt until winners are announced and prizes are awarded.",
+          "Check the promoter's terms for product names, pack sizes, participating retailers, minimum spend and whether a copy or photo of the slip is acceptable.",
+        ],
+      },
+      {
+        heading: "Before you enter",
+        paragraphs: [
+          "Make sure the receipt date falls inside the competition period and that the official entry route belongs to the promoter.",
+          "Freehub does not collect receipts or validate entries. Always submit proof of purchase only through the official promoter process.",
+        ],
+      },
+    ],
+    links: [
+      { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
+      { label: "Entry cost labels explained", href: "/competition-entry-cost-labels/" },
+      { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
+      { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
+    ],
+  },
+  {
+    slug: "whatsapp-competitions-south-africa",
+    title: "WhatsApp Competitions South Africa | Freehub",
+    description:
+      "Understand WhatsApp competition entries in South Africa, including official numbers, prompts, costs, privacy checks and safe entry habits.",
+    heading: "WhatsApp Competitions in South Africa",
+    intro:
+      "WhatsApp competitions can be quick to enter, but it is important to use the official promoter number and check the full terms first.",
+    article: true,
+    datePublished: "2026-05-10",
+    dateModified: "2026-05-10",
+    sections: [
+      {
+        heading: "Use the official number",
+        paragraphs: [
+          "Only message the WhatsApp number shown on the promoter's official website, pack, receipt, verified social post or terms page.",
+          "Avoid numbers copied into comment threads unless you can match them back to the official promoter source.",
+        ],
+      },
+      {
+        heading: "Watch the prompts",
+        paragraphs: [
+          "The promoter may ask for a keyword, product code, till slip reference, name, phone number or consent to terms.",
+          "Read each prompt before sending personal information, and stop if the flow asks for banking passwords, card PINs or remote access apps.",
+        ],
+      },
+      {
+        heading: "Costs and privacy",
+        paragraphs: [
+          "WhatsApp entry may use data, require an account or depend on a purchase-linked code. Check the cost label and promoter privacy terms.",
+          "Freehub links to promoter sources but does not operate any WhatsApp competition entry line.",
+        ],
+      },
+    ],
+    links: [
+      { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
+      { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
+      { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
+      { label: "Report a suspicious listing", href: "/report-a-competition/" },
+    ],
+  },
+  {
+    slug: "app-competitions-south-africa",
+    title: "App Competitions South Africa | Freehub",
+    description:
+      "Learn how app competitions work in South Africa, including official app checks, account requirements, purchase rules and safer entry tips.",
+    heading: "App Competitions in South Africa",
+    intro:
+      "Some competitions require an official retailer, bank, telecom or promoter app before you can enter.",
+    article: true,
+    datePublished: "2026-05-10",
+    dateModified: "2026-05-10",
+    sections: [
+      {
+        heading: "Confirm the official app",
+        paragraphs: [
+          "Install apps from the Apple App Store, Google Play Store or a link from the promoter's official website.",
+          "Do not install APK files or unofficial app links sent by unknown accounts pretending to be competition promoters.",
+        ],
+      },
+      {
+        heading: "Check the entry requirement",
+        paragraphs: [
+          "App competitions may require an account, loyalty profile, purchase, recharge, payment, scan, opt-in or in-app form.",
+          "Read the terms before entering so you know whether the competition is free entry, purchase required or linked to a paid action.",
+        ],
+      },
+      {
+        heading: "Keep your account safe",
+        paragraphs: [
+          "Never share one-time PINs, app passwords, card PINs or remote access permissions with anyone claiming you have won.",
+          "If a winner message arrives, verify it through the app or the promoter's official support channel.",
+        ],
+      },
+    ],
+    links: [
+      { label: "Free competitions", href: "/free-competitions/" },
+      { label: "Entry cost labels explained", href: "/competition-entry-cost-labels/" },
+      { label: "Fake winner message guide", href: "/fake-competition-winner-messages/" },
+      { label: "Tech competitions", href: "/category/tech/" },
+    ],
+  },
+  {
+    slug: "fake-competition-winner-messages",
+    title: "Fake Competition Winner Messages South Africa | Freehub",
+    description:
+      "Learn how to spot fake competition winner messages, suspicious prize claims, upfront-fee scams and unsafe requests in South Africa.",
+    heading: "How to Spot Fake Competition Winner Messages",
+    intro:
+      "A real competition win should be verifiable through the promoter's official channels and should not require unsafe payments or sensitive passwords.",
+    article: true,
+    datePublished: "2026-05-10",
+    dateModified: "2026-05-10",
+    sections: [
+      {
+        heading: "Common warning signs",
+        paragraphs: [
+          "Be careful with messages that ask for banking passwords, card PINs, remote access apps, release fees, courier fees or urgent payment before a prize can be delivered.",
+          "Poor spelling is not the only red flag. Some fake messages copy real brand names and use convincing logos or screenshots.",
+        ],
+      },
+      {
+        heading: "How to verify a prize claim",
+        paragraphs: [
+          "Check the competition terms for winner contact rules, then contact the promoter through its official website, app or verified social profile.",
+          "Do not reply directly with sensitive information until you have confirmed that the message came from the real promoter or agency.",
+        ],
+      },
+      {
+        heading: "What Freehub can do",
+        paragraphs: [
+          "Freehub can review and update listing information, but it does not choose winners or confirm private prize claims on behalf of promoters.",
+          "If a Freehub listing appears suspicious or outdated, report it so the page can be checked.",
+        ],
+      },
+    ],
+    links: [
+      { label: "Report a competition", href: "/report-a-competition/" },
+      { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
+      { label: "Legit competitions guide", href: "/legit-competitions-south-africa/" },
+      { label: "All competitions", href: "/competitions/" },
+    ],
+  },
+  {
+    slug: "purchase-required-competitions-explained",
+    title: "Purchase Required Competitions Explained | Freehub",
+    description:
+      "Learn what purchase required competitions mean in South Africa, including qualifying products, minimum spend, loyalty cards and proof of purchase.",
+    heading: "Purchase Required Competitions Explained",
+    intro:
+      "Purchase required competitions are not the same as free-entry giveaways, because you need to complete a qualifying purchase or store action first.",
+    article: true,
+    datePublished: "2026-05-10",
+    dateModified: "2026-05-10",
+    sections: [
+      {
+        heading: "What purchase required means",
+        paragraphs: [
+          "A purchase required competition may ask you to buy a specific product, spend a minimum amount, swipe a loyalty card, recharge, scan a code or keep a receipt.",
+          "The purchase must usually happen inside the campaign period and through a participating store, website, app or merchant.",
+        ],
+      },
+      {
+        heading: "What to check first",
+        paragraphs: [
+          "Check the official terms for qualifying products, excluded stores, minimum spend, receipt rules, entry limits and closing date.",
+          "If the listing also uses WhatsApp, USSD, SMS or an app, check whether data or network rates may apply.",
+        ],
+      },
+      {
+        heading: "Freehub's cost labels",
+        paragraphs: [
+          "Freehub labels purchase required competitions separately so users can see the likely cost before opening the promoter page.",
+          "The promoter's current terms remain the source of truth, so always confirm the latest rules before buying anything to enter.",
+        ],
+      },
+    ],
+    links: [
+      { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
+      { label: "Till slip competitions", href: "/till-slip-competitions-south-africa/" },
+      { label: "Entry cost labels", href: "/competition-entry-cost-labels/" },
       { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
     ],
   },
@@ -374,6 +585,7 @@ function main() {
   });
 
   fs.writeFileSync(path.join(ROOT_DIR, "sitemap.xml"), generateSitemap(competitions, routeContexts));
+  fs.writeFileSync(path.join(ROOT_DIR, "robots.txt"), renderRobotsTxt());
   runStaticSeoChecks();
 }
 
@@ -424,6 +636,11 @@ function renderSiteFooter() {
               <a href="/legit-competitions-south-africa/">Legit competition guide</a>
               <a href="/competition-closing-date-checklist/">Closing date checklist</a>
               <a href="/competition-entry-cost-labels/">Entry cost labels</a>
+              <a href="/till-slip-competitions-south-africa/">Till slip competitions</a>
+              <a href="/whatsapp-competitions-south-africa/">WhatsApp competitions</a>
+              <a href="/app-competitions-south-africa/">App competitions</a>
+              <a href="/fake-competition-winner-messages/">Fake winner messages</a>
+              <a href="/purchase-required-competitions-explained/">Purchase required guide</a>
               <a href="/report-a-competition/">Report a competition</a>
             </nav>
           </div>
@@ -1234,6 +1451,8 @@ function getHubInternalLinks(slug) {
     ],
     "purchase-required-competitions": [
       { label: "Browse competition brands", href: "/brands/" },
+      { label: "Purchase required guide", href: "/purchase-required-competitions-explained/" },
+      { label: "Till slip competitions", href: "/till-slip-competitions-south-africa/" },
       { label: "Free competitions", href: "/free-competitions/" },
       { label: "Win a car competitions", href: "/win-a-car/" },
       { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
@@ -1622,6 +1841,35 @@ ${noscriptLinks}
 function renderTrustPage(page) {
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/${page.slug}/`;
   const usefulLinks = getTrustPageUsefulLinks(page);
+  const articleData = page.article
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: page.heading,
+        description: page.description,
+        image: shared.DEFAULT_OG_IMAGE,
+        datePublished: page.datePublished || BUILD_DATE_ISO,
+        dateModified: page.dateModified || BUILD_DATE_ISO,
+        author: {
+          "@type": "Organization",
+          name: "Freehub",
+          url: `${shared.CANONICAL_ORIGIN}/`,
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "Freehub",
+          url: `${shared.CANONICAL_ORIGIN}/`,
+          logo: {
+            "@type": "ImageObject",
+            url: `${shared.CANONICAL_ORIGIN}/FH%20logo.png`,
+          },
+        },
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": canonicalUrl,
+        },
+      }
+    : null;
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -1674,6 +1922,7 @@ function renderTrustPage(page) {
     <meta name="twitter:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
     <script id="structured-data-webpage" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
     <script id="structured-data-breadcrumb" type="application/ld+json">${escapeScript(JSON.stringify(breadcrumbData))}</script>
+    ${articleData ? `<script id="structured-data-article" type="application/ld+json">${escapeScript(JSON.stringify(articleData))}</script>` : ""}
     <link rel="stylesheet" href="/styles.css" />
     ${ADSENSE_SCRIPT}
     <!-- Google tag (gtag.js) -->
@@ -2780,28 +3029,102 @@ function renderHowToEnterList(steps) {
 }
 
 function generateSitemap(competitions, routeContexts) {
-  const today = new Date().toISOString().split("T")[0];
   const origin = shared.CANONICAL_ORIGIN;
 
   const staticEntries = routeContexts.map((routeContext) => {
     const loc = routeContext.path === "/" ? `${origin}/` : `${origin}${routeContext.path}`;
-    return `  <url>\n    <loc>${loc}</loc>\n  </url>`;
+    return renderSitemapUrl({
+      loc,
+      lastmod: getRouteLastmod(routeContext, competitions),
+    });
   });
   const trustPageEntries = TRUST_PAGE_DEFINITIONS.map((page) => {
-    return `  <url>\n    <loc>${origin}/${page.slug}/</loc>\n  </url>`;
+    return renderSitemapUrl({
+      loc: `${origin}/${page.slug}/`,
+      lastmod: page.dateModified || BUILD_DATE_ISO,
+    });
   });
 
   const competitionEntries = competitions
     .filter((competition) => !isExpired(competition.closingDate))
     .map((competition) => {
-    const slug = shared.getCompetitionSlug(competition);
-    return `  <url>\n    <loc>${origin}/competition/${slug}/</loc>\n    <lastmod>${today}</lastmod>\n  </url>`;
+      const slug = shared.getCompetitionSlug(competition);
+      return renderSitemapUrl({
+        loc: `${origin}/competition/${slug}/`,
+        lastmod: getCompetitionLastmod(competition),
+        images: getSitemapImagesForCompetition(competition),
+      });
     });
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${[...staticEntries, ...trustPageEntries, ...competitionEntries].join("\n")}
 </urlset>
+`;
+}
+
+function renderSitemapUrl({ loc, lastmod, images = [] }) {
+  const imageMarkup = images
+    .map((imageUrl) => `\n    <image:image>\n      <image:loc>${escapeXml(imageUrl)}</image:loc>\n    </image:image>`)
+    .join("");
+  const lastmodMarkup = lastmod ? `\n    <lastmod>${escapeXml(lastmod)}</lastmod>` : "";
+
+  return `  <url>\n    <loc>${escapeXml(loc)}</loc>${lastmodMarkup}${imageMarkup}\n  </url>`;
+}
+
+function getRouteLastmod(routeContext, competitions) {
+  if (routeContext.type === "brand-index") {
+    return getCompetitionListLastmod(competitions) || BUILD_DATE_ISO;
+  }
+
+  const filteredCompetitions = shared.filterCompetitionsByRoute(competitions, routeContext);
+  return getCompetitionListLastmod(filteredCompetitions) || BUILD_DATE_ISO;
+}
+
+function getCompetitionListLastmod(competitions) {
+  const dates = competitions
+    .map(getCompetitionLastmod)
+    .filter(Boolean)
+    .sort();
+
+  return dates.length > 0 ? dates[dates.length - 1] : "";
+}
+
+function getCompetitionLastmod(competition) {
+  return normalizeIsoDateString(competition.lastChecked) || BUILD_DATE_ISO;
+}
+
+function normalizeIsoDateString(value) {
+  const rawValue = String(value || "").trim();
+
+  if (!rawValue) {
+    return "";
+  }
+
+  const parsed = new Date(rawValue);
+
+  if (Number.isNaN(parsed.getTime())) {
+    return "";
+  }
+
+  return parsed.toISOString().slice(0, 10);
+}
+
+function getSitemapImagesForCompetition(competition) {
+  const imageUrl = competition.image || "";
+
+  if (!/^https?:\/\//i.test(imageUrl)) {
+    return [];
+  }
+
+  return [imageUrl];
+}
+
+function renderRobotsTxt() {
+  return `User-agent: *
+Allow: /
+
+Sitemap: ${shared.CANONICAL_ORIGIN}/sitemap.xml
 `;
 }
 
