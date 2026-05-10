@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const shared = require("../shared/page-data.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
@@ -132,7 +133,7 @@ function printSummary({ total, held, expired, active, closingSoon, keywordCovera
       });
   }
 
-  console.log("\nKeyword cluster coverage (active data scan):");
+  console.log("\nKeyword cluster coverage (active data + public SEO copy scan):");
   Object.entries(keywordCoverage).forEach(([cluster, details]) => {
     console.log(`- ${cluster}: ${details.hits}/${details.total} terms present`);
     if (details.missing.length > 0) {
@@ -149,21 +150,12 @@ function printSummary({ total, held, expired, active, closingSoon, keywordCovera
 }
 
 function scanKeywordCoverage(activeCompetitions) {
-  const text = activeCompetitions
-    .map((competition) =>
-      [
-        competition.title,
-        competition.summary || "",
-        competition.entryType || "",
-        competition.entryFeeLabel || "",
-        competition.requiredProduct || "",
-        competition.entryChannel || "",
-        ...(competition.tags || []),
-      ]
-        .join(" ")
-        .toLowerCase()
-    )
-    .join("\n");
+  const text = [
+    buildActiveCompetitionSearchText(activeCompetitions),
+    buildPublicSeoSearchText(),
+  ]
+    .join("\n")
+    .toLowerCase();
 
   const clusters = {
     cars: ["win-a-car", "purchase-required", "toyota", "suzuki", "hyundai", "isuzu"],
@@ -184,6 +176,46 @@ function scanKeywordCoverage(activeCompetitions) {
   });
 
   return coverage;
+}
+
+function buildActiveCompetitionSearchText(activeCompetitions) {
+  return activeCompetitions
+    .map((competition) =>
+      [
+        competition.title,
+        competition.summary || "",
+        competition.entryType || "",
+        competition.entryFeeLabel || "",
+        competition.requiredProduct || "",
+        competition.entryChannel || "",
+        ...(competition.tags || []),
+      ].join(" ")
+    )
+    .join("\n");
+}
+
+function buildPublicSeoSearchText() {
+  const copyBlocks = [
+    shared.DEFAULT_COPY,
+    ...Object.values(shared.CATEGORY_COPY),
+    ...Object.values(shared.TAG_COPY),
+    ...Object.values(shared.HUB_COPY),
+    shared.BRAND_INDEX_COPY,
+    ...Object.values(shared.APPROVED_BRAND_PAGES),
+  ];
+
+  return copyBlocks
+    .map((copy) =>
+      [
+        copy.category || "",
+        copy.title || "",
+        copy.description || "",
+        copy.heading || "",
+        copy.intro || "",
+        copy.support || "",
+      ].join(" ")
+    )
+    .join("\n");
 }
 
 function main() {

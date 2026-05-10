@@ -10,9 +10,9 @@
   const CATEGORY_COPY = {
     cash: {
       category: "Cash",
-      title: "Free Cash Competitions South Africa | Win Money Online",
+      title: "Cash Competitions South Africa | Win Cash Online South Africa",
       description:
-        "Browse free cash competitions in South Africa and discover live giveaways you can enter online today.",
+        "Browse cash competitions in South Africa and discover live prize draws, money giveaways and online cash offers with official source links.",
       heading: "Free Cash Competitions You Can Enter Today",
       intro:
         "Browse the latest free-entry cash competitions in South Africa and stand a chance to win real money prizes without paying to enter. From everyday giveaways to bigger seasonal draws, this page helps you spot legit opportunities quickly.",

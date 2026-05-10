@@ -22,5 +22,8 @@ POC / MVP
   - `node scripts/competition-maintenance.js`
 - Archive expired competitions and remove them from active list:
   - `node scripts/competition-maintenance.js --archive-expired`
+- Discover official image candidates for published competitions without images:
+  - `node scripts/find-competition-images.js`
+  - `node scripts/find-competition-images.js --apply`
 - Regenerate static pages after updates:
   - `node scripts/generate-pages.js`
