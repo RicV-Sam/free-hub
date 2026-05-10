@@ -21,14 +21,14 @@
     },
     cars: {
       category: "Cars",
-      title: "Win a Car Competitions in South Africa | Current Car Giveaways",
+      title: "Win a Car Competitions South Africa | Current Car Giveaways",
       description:
-        "Browse verified win-a-car competitions in South Africa, including Toyota, Suzuki, Hyundai, Isuzu and Chery giveaways.",
+        "Browse current win-a-car competitions in South Africa with clear closing dates, entry costs, purchase requirements and official source links.",
       heading: "Win a Car Competitions in South Africa",
       intro:
-        "Browse current South African car competitions, including Toyota, Suzuki, Hyundai, Isuzu and Chery giveaways. Some competitions have no separate entry fee, while others require a product purchase, store spend, match ticket or paid raffle ticket.",
+        "Browse current South African car competitions, including Toyota, Suzuki, Hyundai, Isuzu, Chery and other vehicle giveaways. Compare closing dates, entry costs, purchase requirements and official promoter links before you enter.",
       support:
-        "Vehicle giveaways attract a lot of attention in South Africa, especially when trusted brands or retail partners are involved. We keep the entry cost, purchase requirement and official source visible so you can compare car competitions without guessing what is required.",
+        "Vehicle giveaways attract a lot of attention in South Africa, especially when trusted brands, retailers or product partners are involved. Check whether you need a purchase, till slip, rewards card, driver's licence or paid ticket before following the official source link.",
     },
     holidays: {
       category: "Holidays",
@@ -275,6 +275,16 @@
         "Browse current South African competitions that are closing soon, sorted by the nearest closing date first. Open each listing to check the entry cost, promoter details and official source before entering.",
       support:
         "Competition deadlines can change. Always check the promoter's current deadline and terms before entering through the official source link.",
+    },
+    "new-competitions-south-africa": {
+      title: "New Competitions South Africa | Latest Giveaways This Week",
+      description:
+        "Browse recently checked South African competitions and latest giveaways, including car, cash, voucher, tech and holiday prize draws with official entry links.",
+      heading: "New Competitions in South Africa",
+      intro:
+        "Browse recently checked and newly surfaced South African competitions, sorted so the freshest Freehub updates appear first. Use this page when you want the latest car, cash, voucher, tech and holiday giveaways before they become crowded.",
+      support:
+        "New competition pages are useful for discovery, but Freehub still treats the official promoter page as the source of truth. Check the current terms, entry method and closing date before entering.",
     },
     "purchase-required-competitions": {
       title: "Purchase Required Competitions South Africa | Freehub",
@@ -1054,6 +1064,16 @@
       });
     }
 
+    if (slug === "new-competitions-south-africa") {
+      const recentlyCheckedCompetitions = sortedCompetitions
+        .filter((competition) => getLastCheckedAgeDays(competition.lastChecked) <= 7)
+        .sort(compareRecentCompetitionUpdates);
+
+      return recentlyCheckedCompetitions.length >= 6
+        ? recentlyCheckedCompetitions
+        : sortedCompetitions.slice().sort(compareRecentCompetitionUpdates).slice(0, 24);
+    }
+
     if (slug === "purchase-required-competitions") {
       return sortedCompetitions.filter((competition) => {
         const tags = Array.isArray(competition.tags) ? competition.tags : [];
@@ -1109,6 +1129,38 @@
 
   function normalizeEntryCostType(entryCostType) {
     return String(entryCostType || "").trim().toLowerCase();
+  }
+
+  function getLastCheckedAgeDays(dateString) {
+    const rawDate = String(dateString || "").trim();
+
+    if (!rawDate) {
+      return Number.POSITIVE_INFINITY;
+    }
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const checkedDate = new Date(rawDate);
+
+    if (Number.isNaN(checkedDate.getTime())) {
+      return Number.POSITIVE_INFINITY;
+    }
+
+    checkedDate.setHours(0, 0, 0, 0);
+
+    return Math.floor((today.getTime() - checkedDate.getTime()) / (1000 * 60 * 60 * 24));
+  }
+
+  function compareRecentCompetitionUpdates(left, right) {
+    const leftChecked = new Date(left.lastChecked || 0).getTime() || 0;
+    const rightChecked = new Date(right.lastChecked || 0).getTime() || 0;
+
+    if (rightChecked !== leftChecked) {
+      return rightChecked - leftChecked;
+    }
+
+    return new Date(left.closingDate) - new Date(right.closingDate);
   }
 
   function getBrandFilteredCompetitions(competitions, slug) {

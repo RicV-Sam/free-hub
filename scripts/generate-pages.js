@@ -22,6 +22,7 @@ const TAG_LINKS = [
 ];
 const HUB_LINKS = [
   { label: "All competitions", href: "/competitions/" },
+  { label: "New competitions", href: "/new-competitions-south-africa/" },
   { label: "Win a car", href: "/win-a-car/" },
   { label: "Free competitions", href: "/free-competitions/" },
   { label: "Ending soon", href: "/competitions-ending-soon/" },
@@ -648,6 +649,7 @@ function renderSiteFooter() {
             <p class="site-footer__title">Explore Competitions</p>
             <nav class="site-footer__links" aria-label="Explore competition hubs">
               <a href="/competitions/">All competitions</a>
+              <a href="/new-competitions-south-africa/">New competitions</a>
               <a href="/win-a-car/">Win a car</a>
               <a href="/free-competitions/">Free competitions</a>
               <a href="/competitions-ending-soon/">Ending soon</a>
@@ -807,47 +809,398 @@ function renderEndingSoonEditorial(routeContext) {
         </section>`;
 }
 
-function getHubFaqItems(routeContext) {
+function renderDeadlineBuckets(routeContext, competitions) {
   if (!isEndingSoonHub(routeContext)) {
-    return [];
-  }
-
-  return [
-    {
-      question: "Are these competitions free to enter?",
-      answer:
-        "Not always. Some competitions are free entry, while others require a purchase, paid entry, an account, an app or a till slip. Check the cost label on Freehub and confirm the full terms on the official promoter page.",
-    },
-    {
-      question: "How often is this page updated?",
-      answer:
-        "Freehub updates competition listings regularly and regenerates this page during site updates. The updated date near the top shows when the page was last built.",
-    },
-    {
-      question: "Does Freehub run these competitions?",
-      answer:
-        "No. Freehub is a competition discovery site. The promoter runs the competition, accepts entries, chooses winners and handles prize fulfilment.",
-    },
-    {
-      question: "What should I check before entering?",
-      answer:
-        "Check the closing date and time, eligibility rules, entry cost, purchase or till slip requirements, official terms, privacy requirements and the promoter's real entry link.",
-    },
-    {
-      question: "What happens when a competition expires?",
-      answer:
-        "Expired competitions are removed from live competition hub pages and should no longer appear as current opportunities. Maintenance may archive or mark listings as closed depending on the data state.",
-    },
-  ];
-}
-
-function renderHubFaq(routeContext, items) {
-  if (!isEndingSoonHub(routeContext) || items.length === 0) {
     return "";
   }
 
-  return `<section class="detail-faq detail-faq--hub" aria-label="Ending soon competition questions">
-          <p class="detail-section-title">Competitions ending soon FAQ</p>
+  const bucketDefinitions = [
+    {
+      title: "Closing today",
+      description: "Last-day competitions to check first.",
+      filter: (competition) => getBuildDaysUntilClosing(competition.closingDate) === 0,
+    },
+    {
+      title: "Closing tomorrow",
+      description: "Near-deadline competitions with one more day to review.",
+      filter: (competition) => getBuildDaysUntilClosing(competition.closingDate) === 1,
+    },
+    {
+      title: "Closing this weekend",
+      description: "Weekend deadlines can be easy to miss.",
+      filter: (competition) => {
+        const daysUntilClosing = getBuildDaysUntilClosing(competition.closingDate);
+        return daysUntilClosing >= 0 && daysUntilClosing <= 7 && isWeekendDate(competition.closingDate);
+      },
+    },
+    {
+      title: "Closing in the next 7 days",
+      description: "A quick scan of competitions with the most urgent deadlines.",
+      filter: (competition) => {
+        const daysUntilClosing = getBuildDaysUntilClosing(competition.closingDate);
+        return daysUntilClosing >= 0 && daysUntilClosing <= 7;
+      },
+    },
+  ];
+
+  const bucketMarkup = bucketDefinitions
+    .map((bucket) => {
+      const matches = competitions.filter(bucket.filter).slice(0, 5);
+
+      if (matches.length === 0) {
+        return "";
+      }
+
+      return `<div class="deadline-buckets__group">
+              <p class="deadline-buckets__heading">${escapeHtml(bucket.title)}</p>
+              <p class="deadline-buckets__text">${escapeHtml(bucket.description)}</p>
+              <div class="internal-links__list">
+                ${matches
+                  .map(
+                    (competition) =>
+                      `<a class="internal-links__link" href="${escapeAttribute(shared.getCompetitionPath(competition))}">${escapeHtml(
+                        shared.getCardHeadline(competition)
+                      )}</a>`
+                  )
+                  .join("\n                ")}
+              </div>
+            </div>`;
+    })
+    .filter(Boolean)
+    .join("\n            ");
+
+  if (!bucketMarkup) {
+    return "";
+  }
+
+  return `<section class="internal-links deadline-buckets" aria-label="Competitions by closing window">
+          <p class="internal-links__title">Quick Deadline Paths</p>
+          <div class="deadline-buckets__grid">
+            ${bucketMarkup}
+          </div>
+        </section>`;
+}
+
+function renderCategoryEditorial(routeContext, competitions) {
+  if (routeContext.type !== "category") {
+    return "";
+  }
+
+  const editorial = getCategoryEditorial(routeContext.slug, competitions);
+
+  if (!editorial) {
+    return "";
+  }
+
+  return `<section class="seo-copy-block seo-copy-block--category" aria-label="${escapeAttribute(editorial.ariaLabel)}">
+          <h2 class="seo-copy-block__title">${escapeHtml(editorial.title)}</h2>
+          <div class="seo-copy-block__content hub-editorial">
+            ${editorial.sections
+              .map(
+                (section) => `<section class="hub-editorial__section">
+              <h3>${escapeHtml(section.heading)}</h3>
+              ${section.paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("\n              ")}
+            </section>`
+              )
+              .join("\n            ")}
+          </div>
+        </section>`;
+}
+
+function getCategoryEditorial(slug, competitions) {
+  const categoryName = shared.CATEGORY_COPY[slug] ? shared.CATEGORY_COPY[slug].category : "Competition";
+  const liveCount = competitions.length;
+  const liveCopy = liveCount === 1 ? "1 live listing" : `${liveCount} live listings`;
+  const editorials = {
+    cars: {
+      ariaLabel: "Guide to car competitions in South Africa",
+      title: "How to choose a car competition in South Africa",
+      sections: [
+        {
+          heading: "Why car competitions get so much search demand",
+          paragraphs: [
+            `Car giveaways are high-value, practical prizes, so they attract heavy interest from South African searchers. This page currently groups ${escapeHtml(liveCopy)} with visible closing dates, source links and entry-cost labels.`,
+            `If you only want vehicle listings, compare this category with the dedicated <a href="/win-a-car/">win-a-car competitions</a> hub and the <a href="/competitions-ending-soon/">ending-soon competitions</a> page.`,
+          ],
+        },
+        {
+          heading: "What to check before entering",
+          paragraphs: [
+            "Read the promoter terms for the exact vehicle model, prize value, draw date, qualifying product, store list, rewards-card rule, licence requirement and handover conditions.",
+            `If a campaign needs proof of purchase, keep the receipt and use the <a href="/till-slip-competitions-south-africa/">till slip competitions guide</a> before entering.`,
+          ],
+        },
+        {
+          heading: "Freehub's role",
+          paragraphs: [
+            "Freehub does not run the car competitions or choose winners. We help you compare the listings and then send you to the official promoter source.",
+          ],
+        },
+      ],
+    },
+    cash: {
+      ariaLabel: "Guide to cash competitions in South Africa",
+      title: "How to compare cash competitions",
+      sections: [
+        {
+          heading: "Look for source clarity",
+          paragraphs: [
+            `Cash prizes can be useful, but they need careful checking. This page currently groups ${escapeHtml(liveCopy)} with official source links, cost labels and closing dates.`,
+            `For safer entry habits, read the <a href="/fake-competition-winner-messages/">fake winner message guide</a> before responding to any prize claim.`,
+          ],
+        },
+        {
+          heading: "Before sharing details",
+          paragraphs: [
+            "Never share banking passwords, card PINs, one-time PINs or remote-access permissions to claim a cash prize. Verify winner contact through the promoter's official channels.",
+          ],
+        },
+      ],
+    },
+    holidays: {
+      ariaLabel: "Guide to holiday competitions in South Africa",
+      title: "How to check holiday giveaway details",
+      sections: [
+        {
+          heading: "Travel prizes need extra checks",
+          paragraphs: [
+            `Holiday giveaways can include local stays, flights, experiences or travel vouchers. This page currently groups ${escapeHtml(liveCopy)} so you can compare deadlines and source links quickly.`,
+            "Check whether flights, transfers, meals, spending money, visas, passports, taxes, blackout dates or companion rules are included before entering.",
+          ],
+        },
+      ],
+    },
+    tech: {
+      ariaLabel: "Guide to tech competitions in South Africa",
+      title: "How to choose tech giveaways",
+      sections: [
+        {
+          heading: "Check the entry route",
+          paragraphs: [
+            `Tech competitions can involve app entries, account actions, recharge mechanics, online forms or purchase-linked entries. This page currently groups ${escapeHtml(liveCopy)} with cost labels and official links.`,
+            `If an app is required, use the <a href="/app-competitions-south-africa/">app competitions guide</a> to check that you are using the official promoter app.`,
+          ],
+        },
+      ],
+    },
+    vouchers: {
+      ariaLabel: "Guide to voucher competitions in South Africa",
+      title: "How to compare voucher competitions",
+      sections: [
+        {
+          heading: "Practical prizes still need clear terms",
+          paragraphs: [
+            `Voucher competitions can be quick to enter and useful for everyday spending. This page currently groups ${escapeHtml(liveCopy)} across shopping, grocery, online-store and rewards-style offers.`,
+            "Check the voucher expiry date, spend exclusions, participating stores, delivery method and whether the promoter needs an account or proof of purchase.",
+          ],
+        },
+      ],
+    },
+  };
+
+  return (
+    editorials[slug] || {
+      ariaLabel: `Guide to ${categoryName.toLowerCase()} competitions`,
+      title: `How to compare ${categoryName.toLowerCase()} competitions`,
+      sections: [
+        {
+          heading: "Check the basics first",
+          paragraphs: [
+            `This page currently groups ${escapeHtml(liveCopy)} with closing dates, entry methods and official source links where available.`,
+          ],
+        },
+      ],
+    }
+  );
+}
+
+function getBuildDaysUntilClosing(dateString) {
+  const today = new Date(`${BUILD_DATE_ISO}T00:00:00`);
+  const closingDate = new Date(dateString);
+
+  if (Number.isNaN(closingDate.getTime())) {
+    return Number.POSITIVE_INFINITY;
+  }
+
+  closingDate.setHours(0, 0, 0, 0);
+
+  return Math.ceil((closingDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+}
+
+function isWeekendDate(dateString) {
+  const date = new Date(dateString);
+
+  if (Number.isNaN(date.getTime())) {
+    return false;
+  }
+
+  const day = date.getDay();
+  return day === 0 || day === 6;
+}
+
+function getCollectionFaqItems(routeContext) {
+  if (isEndingSoonHub(routeContext)) {
+    return [
+      {
+        question: "Are these competitions free to enter?",
+        answer:
+          "Not always. Some competitions are free entry, while others require a purchase, paid entry, an account, an app or a till slip. Check the cost label on Freehub and confirm the full terms on the official promoter page.",
+      },
+      {
+        question: "How often is this page updated?",
+        answer:
+          "Freehub updates competition listings regularly and regenerates this page during site updates. The updated date near the top shows when the page was last built.",
+      },
+      {
+        question: "Does Freehub run these competitions?",
+        answer:
+          "No. Freehub is a competition discovery site. The promoter runs the competition, accepts entries, chooses winners and handles prize fulfilment.",
+      },
+      {
+        question: "What should I check before entering?",
+        answer:
+          "Check the closing date and time, eligibility rules, entry cost, purchase or till slip requirements, official terms, privacy requirements and the promoter's real entry link.",
+      },
+      {
+        question: "What happens when a competition expires?",
+        answer:
+          "Expired competitions are removed from live competition hub pages and should no longer appear as current opportunities. Maintenance may archive or mark listings as closed depending on the data state.",
+      },
+    ];
+  }
+
+  if (routeContext.type === "hub" && routeContext.slug === "new-competitions-south-africa") {
+    return [
+      {
+        question: "Are these all brand-new competitions?",
+        answer:
+          "This page highlights competitions that were recently checked or newly surfaced on Freehub. Always open the listing and official source to confirm the current entry period.",
+      },
+      {
+        question: "How are new competitions sorted?",
+        answer:
+          "Freehub prioritises recently checked listings first, then uses closing dates to keep urgent opportunities visible.",
+      },
+      {
+        question: "Can a new competition also be ending soon?",
+        answer:
+          "Yes. A competition can be newly checked and still close soon, especially when a promoter publishes a short campaign or Freehub discovers it close to the deadline.",
+      },
+      {
+        question: "Does Freehub run these competitions?",
+        answer:
+          "No. Freehub lists competitions and links to official promoter pages. The promoter manages entries, winner selection and prize fulfilment.",
+      },
+    ];
+  }
+
+  if (routeContext.type !== "category") {
+    return [];
+  }
+
+  const faqByCategory = {
+    cars: [
+      {
+        question: "Are car competitions in South Africa free to enter?",
+        answer:
+          "Some car competitions are free entry, but many require a product purchase, till slip, rewards card, app action or paid ticket. Check the cost label and official terms before entering.",
+      },
+      {
+        question: "What should I check before entering a win-a-car competition?",
+        answer:
+          "Check the closing date, promoter name, vehicle model, entry method, purchase rules, driver's licence requirements, delivery or registration conditions and the official source link.",
+      },
+      {
+        question: "Why do some car competitions need a till slip?",
+        answer:
+          "Retail car giveaways often use a till slip, invoice or rewards card swipe as proof that you bought a qualifying product during the campaign period.",
+      },
+      {
+        question: "Does Freehub choose the winners?",
+        answer:
+          "No. Freehub does not run car competitions, accept entries or choose winners. Enter through the official promoter page linked from each listing.",
+      },
+    ],
+    cash: [
+      {
+        question: "Are cash competitions safe to enter?",
+        answer:
+          "A cash competition is safer when the promoter is identifiable, the terms are clear and the entry link is official. Never share banking passwords or card PINs to claim a prize.",
+      },
+      {
+        question: "Do cash giveaways require payment?",
+        answer:
+          "Some are free entry, while others require a purchase, account action, transaction or paid ticket. Check the cost label and promoter terms first.",
+      },
+      {
+        question: "How does Freehub list cash competitions?",
+        answer:
+          "Freehub lists published cash competitions with a closing date, entry method and official source link where enough information is available.",
+      },
+    ],
+    holidays: [
+      {
+        question: "What should I check before entering a holiday competition?",
+        answer:
+          "Check travel dates, departure city, passport or visa needs, blackout periods, spending money, transfers, taxes and whether the prize is transferable.",
+      },
+      {
+        question: "Are holiday giveaways free to enter?",
+        answer:
+          "Some holiday giveaways are free entry, while others require a booking, purchase, app action or account. Freehub labels the likely cost route where available.",
+      },
+      {
+        question: "Who handles the holiday prize?",
+        answer:
+          "The promoter or its agency handles winner contact and prize fulfilment. Freehub only links to the official competition source.",
+      },
+    ],
+    tech: [
+      {
+        question: "What counts as a tech giveaway?",
+        answer:
+          "Tech giveaways can include smartphones, laptops, gaming bundles, home theatre prizes, data, airtime, devices and electronics vouchers.",
+      },
+      {
+        question: "Do tech competitions need an app or account?",
+        answer:
+          "Some tech competitions use an app, account, recharge, loyalty profile or purchase. Check the entry method and official terms before sharing details.",
+      },
+      {
+        question: "How can I avoid fake tech prize messages?",
+        answer:
+          "Verify winner messages through the promoter's official website, app or support channel. Do not share one-time PINs, passwords or card PINs.",
+      },
+    ],
+    vouchers: [
+      {
+        question: "What voucher prizes appear on Freehub?",
+        answer:
+          "Voucher competitions can include grocery, shopping, fashion, restaurant, travel, fuel, airtime and online-store vouchers.",
+      },
+      {
+        question: "Are voucher competitions free to enter?",
+        answer:
+          "Many voucher competitions are free entry, but some require a purchase, loyalty card, app action or receipt. Check the listing label and official terms.",
+      },
+      {
+        question: "What happens after a voucher competition closes?",
+        answer:
+          "Expired voucher competitions are removed from live hub pages, and users should browse current listings instead of trying to enter closed offers.",
+      },
+    ],
+  };
+
+  return faqByCategory[routeContext.slug] || [];
+}
+
+function renderCollectionFaq(routeContext, items) {
+  if (items.length === 0) {
+    return "";
+  }
+
+  return `<section class="detail-faq detail-faq--hub" aria-label="${escapeAttribute(getCollectionFaqTitle(routeContext))}">
+          <p class="detail-section-title">${escapeHtml(getCollectionFaqTitle(routeContext))}</p>
           ${items
             .map(
               (item) => `<details>
@@ -859,12 +1212,28 @@ function renderHubFaq(routeContext, items) {
         </section>`;
 }
 
+function getCollectionFaqTitle(routeContext) {
+  if (isEndingSoonHub(routeContext)) {
+    return "Competitions ending soon FAQ";
+  }
+
+  if (routeContext.type === "hub" && routeContext.slug === "new-competitions-south-africa") {
+    return "New competitions FAQ";
+  }
+
+  if (routeContext.type === "category") {
+    return `${shared.CATEGORY_COPY[routeContext.slug].category} competitions FAQ`;
+  }
+
+  return "Competition FAQ";
+}
+
 function renderPage(routeContext, competitions) {
   const pageCopy = shared.getPageCopy(routeContext);
   const supportCopy = shared.getPageSupportCopy(routeContext);
   const structuredData = shared.buildStructuredData(competitions, routeContext);
   const ogImage = getCollectionMetadataImageUrl(competitions);
-  const isCollectionPage = routeContext.type === "hub" || routeContext.type === "brand";
+  const isCollectionPage = ["category", "tag", "hub", "brand"].includes(routeContext.type);
   const collectionPageStructuredData =
     isCollectionPage
       ? {
@@ -902,13 +1271,13 @@ function renderPage(routeContext, competitions) {
         JSON.stringify(breadcrumbData)
       )}</script>`
     : "";
-  const hubFaqItems = getHubFaqItems(routeContext);
-  const hubFaqStructuredData =
-    hubFaqItems.length > 0
+  const collectionFaqItems = getCollectionFaqItems(routeContext);
+  const collectionFaqStructuredData =
+    collectionFaqItems.length > 0
       ? {
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          mainEntity: hubFaqItems.map((item) => ({
+          mainEntity: collectionFaqItems.map((item) => ({
             "@type": "Question",
             name: item.question,
             acceptedAnswer: {
@@ -918,9 +1287,9 @@ function renderPage(routeContext, competitions) {
           })),
         }
       : null;
-  const hubFaqScript = hubFaqStructuredData
+  const collectionFaqScript = collectionFaqStructuredData
     ? `<script id="structured-data-faq" type="application/ld+json">${escapeScript(
-        JSON.stringify(hubFaqStructuredData)
+        JSON.stringify(collectionFaqStructuredData)
       )}</script>`
     : "";
   const cardsMarkup = competitions
@@ -956,7 +1325,7 @@ function renderPage(routeContext, competitions) {
     <meta name="twitter:image" content="${escapeAttribute(ogImage)}" />
     ${collectionPageScript}
     ${breadcrumbScript}
-    ${hubFaqScript}
+    ${collectionFaqScript}
     <script id="structured-data-itemlist" type="application/ld+json">${escapeScript(
       JSON.stringify(structuredData)
     )}</script>
@@ -984,7 +1353,7 @@ function renderPage(routeContext, competitions) {
       </header>
 
       <main class="main-content">
-        ${routeContext.type === "brand" ? renderCollectionBreadcrumb(pageCopy.heading) : ""}
+        ${isCollectionPage ? renderCollectionBreadcrumb(pageCopy.heading) : ""}
 
         ${renderSupportSection(supportCopy)}
 
@@ -1001,6 +1370,7 @@ function renderPage(routeContext, competitions) {
 
         ${renderInternalLinksSection(routeContext, competitions)}
         ${renderHubSupportLinks(routeContext, competitions)}
+        ${renderDeadlineBuckets(routeContext, competitions)}
 
         ${renderAdZone("ad-top", "top")}
 
@@ -1039,8 +1409,9 @@ function renderPage(routeContext, competitions) {
           </div>
         </section>
 
+        ${renderCategoryEditorial(routeContext, competitions)}
         ${renderEndingSoonEditorial(routeContext)}
-        ${renderHubFaq(routeContext, hubFaqItems)}
+        ${renderCollectionFaq(routeContext, collectionFaqItems)}
 
         ${renderThinPageTips(competitions)}
 
@@ -1417,6 +1788,7 @@ function getHubInternalLinks(slug) {
   const linksBySlug = {
     competitions: [
       { label: "Browse competition brands", href: "/brands/" },
+      { label: "New competitions", href: "/new-competitions-south-africa/" },
       { label: "Win a car competitions", href: "/win-a-car/" },
       { label: "Free competitions", href: "/free-competitions/" },
       { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
@@ -1441,12 +1813,22 @@ function getHubInternalLinks(slug) {
     ],
     "competitions-ending-soon": [
       { label: "All competitions", href: "/competitions/" },
+      { label: "New competitions", href: "/new-competitions-south-africa/" },
       { label: "Free competitions", href: "/free-competitions/" },
       { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
       { label: "Car competitions", href: "/category/cars/" },
       { label: "Cash competitions", href: "/category/cash/" },
       { label: "Voucher competitions", href: "/category/vouchers/" },
       { label: "Holiday competitions", href: "/category/holidays/" },
+      { label: "Tech competitions", href: "/category/tech/" },
+    ],
+    "new-competitions-south-africa": [
+      { label: "All competitions", href: "/competitions/" },
+      { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
+      { label: "Free competitions", href: "/free-competitions/" },
+      { label: "Win a car competitions", href: "/win-a-car/" },
+      { label: "Cash competitions", href: "/category/cash/" },
+      { label: "Voucher competitions", href: "/category/vouchers/" },
       { label: "Tech competitions", href: "/category/tech/" },
     ],
     "purchase-required-competitions": [
@@ -1623,6 +2005,7 @@ function renderHomepage(competitions) {
           <p class="internal-links__title">Explore Competition Hubs</p>
           <div class="internal-links__list">
             <a class="internal-links__link" href="/competitions/">All live competitions</a>
+            <a class="internal-links__link" href="/new-competitions-south-africa/">New competitions this week</a>
             <a class="internal-links__link" href="/win-a-car/">Win a car competitions</a>
             <a class="internal-links__link" href="/free-competitions/">Free competitions</a>
             <a class="internal-links__link" href="/competitions-ending-soon/">Competitions ending soon</a>
@@ -1731,6 +2114,7 @@ ${noscriptLinks}
           <p class="popular-searches__title">Quick Paths</p>
           <div class="popular-searches__links">
             <a class="popular-searches__link" href="/competitions/">All competitions</a>
+            <a class="popular-searches__link" href="/new-competitions-south-africa/">New competitions</a>
             <a class="popular-searches__link" href="/win-a-car/">Win a car</a>
             <a class="popular-searches__link" href="/free-competitions/">Free competitions</a>
             <a class="popular-searches__link" href="/competitions-ending-soon/">Ending soon</a>
