@@ -1584,10 +1584,11 @@ button {
 }
 
 .hero__brand-logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  object-fit: cover;
+  width: clamp(150px, 42vw, 220px);
+  height: auto;
+  max-height: 48px;
+  border-radius: 8px;
+  object-fit: contain;
   box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18);
   background: #ffffff;
 }

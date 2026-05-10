@@ -2102,8 +2102,7 @@ ${noscriptLinks}
         <div class="hero__layout">
           <div class="hero__copy">
             <div class="hero__brand" aria-label="FreeHub brand">
-              <img class="hero__brand-logo" src="/FH%20logo.png" alt="FreeHub logo" width="40" height="40" loading="eager" decoding="async" />
-              <p class="eyebrow">FREEHUB</p>
+              <img class="hero__brand-logo" src="/FH%20logo.png" alt="FreeHub logo" width="200" height="40" loading="eager" decoding="async" />
             </div>
             <h1 id="pageTitle">Today&apos;s Live Competitions in South Africa</h1>
             <p class="hero__text" id="pageIntro">FreeHub lists vouchers, prizes, cash giveaways and competitions from trusted South African brands so you can find offers worth opening today.</p>
