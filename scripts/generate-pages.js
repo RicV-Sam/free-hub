@@ -215,6 +215,82 @@ const TRUST_PAGE_DEFINITIONS = [
     ],
   },
   {
+    slug: "competition-closing-date-checklist",
+    title: "Competition Closing Date Checklist South Africa | Freehub",
+    description:
+      "Use this checklist to confirm South African competition closing dates, times, eligibility, costs and official source links before entering.",
+    heading: "Competition Closing Date Checklist",
+    intro:
+      "A competition can still be live but close quickly, so it helps to check the deadline details before you spend time entering.",
+    sections: [
+      {
+        heading: "Check the closing details",
+        paragraphs: [
+          "Look for the closing date, closing time and timezone in the promoter's terms. Some campaigns close at midnight, while others close during business hours or after a live event.",
+          "If Freehub shows a competition as ending soon, treat it as a prompt to verify the latest deadline on the official source before entering.",
+        ],
+      },
+      {
+        heading: "Check eligibility before rushing",
+        paragraphs: [
+          "Confirm age limits, region limits, account requirements, purchase rules and whether a till slip or proof of purchase is needed.",
+          "For car, cash, voucher, holiday and tech prizes, also check winner contact rules so you know how the promoter will reach legitimate winners.",
+        ],
+      },
+      {
+        heading: "Use official links only",
+        paragraphs: [
+          "Do not rely on copied forms, comment threads or screenshots when the deadline is close. Open the official promoter link and follow the current entry instructions there.",
+          "Freehub does not accept entries or choose winners; it points users to promoter pages where entries actually happen.",
+        ],
+      },
+    ],
+    links: [
+      { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
+      { label: "All current competitions", href: "/competitions/" },
+      { label: "Free competitions", href: "/free-competitions/" },
+      { label: "Report an expired competition", href: "/report-a-competition/" },
+    ],
+  },
+  {
+    slug: "competition-entry-cost-labels",
+    title: "Competition Entry Cost Labels Explained | Freehub",
+    description:
+      "Understand Freehub labels such as free entry, purchase required, paid entry, account required, app required and till slip required.",
+    heading: "Competition Entry Cost Labels Explained",
+    intro:
+      "South African competitions use different entry mechanics. These labels help you see the likely cost or action before opening the official promoter page.",
+    sections: [
+      {
+        heading: "Free entry, purchase required and paid entry",
+        paragraphs: [
+          "Free entry means the listing does not show a required product purchase or paid ticket. You may still need internet access, an account or the promoter's entry form.",
+          "Purchase required means you may need to buy a qualifying product, meet a minimum spend, swipe a loyalty card or keep proof of purchase. Paid entry means a ticket, raffle entry or similar paid flow appears to be required.",
+        ],
+      },
+      {
+        heading: "Account, app and till slip requirements",
+        paragraphs: [
+          "Account required means the promoter may ask you to sign in or use a loyalty, retailer or platform account before entry.",
+          "App required means the promoter routes entries through its official app. Till slip required means you should keep your receipt because it may be needed for entry, validation or claiming a prize.",
+        ],
+      },
+      {
+        heading: "Always check the promoter terms",
+        paragraphs: [
+          "Cost labels are a browsing aid, not a replacement for the promoter's terms. Confirm the latest entry cost, qualifying products, closing date and eligibility rules on the official source.",
+          "Freehub does not process payments, sell tickets or collect competition entries.",
+        ],
+      },
+    ],
+    links: [
+      { label: "Free competitions", href: "/free-competitions/" },
+      { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
+      { label: "Paid entry competitions", href: "/paid-entry-competitions/" },
+      { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
+    ],
+  },
+  {
     slug: "report-a-competition",
     title: "Report a Competition | Freehub",
     description:
@@ -346,6 +422,8 @@ function renderSiteFooter() {
               <a href="/how-we-verify-competitions/">How we check listings</a>
               <a href="/how-to-enter-competitions-safely/">Enter safely</a>
               <a href="/legit-competitions-south-africa/">Legit competition guide</a>
+              <a href="/competition-closing-date-checklist/">Closing date checklist</a>
+              <a href="/competition-entry-cost-labels/">Entry cost labels</a>
               <a href="/report-a-competition/">Report a competition</a>
             </nav>
           </div>
@@ -489,6 +567,7 @@ function renderEndingSoonEditorial(routeContext) {
                 <li>Confirm the closing date, closing time and timezone on the official promoter page.</li>
                 <li>Check eligibility, age limits, regional limits, purchase rules and how winners are contacted.</li>
                 <li>Use the official promoter link from each Freehub listing instead of unofficial social comments or copied forms.</li>
+                <li>Use the <a href="/competition-closing-date-checklist/">competition closing date checklist</a> when a deadline is close.</li>
               </ul>
             </section>
             <section class="hub-editorial__section">
@@ -501,6 +580,7 @@ function renderEndingSoonEditorial(routeContext) {
                 <li><strong>App required:</strong> entry is completed through the promoter's official app or app-linked flow.</li>
                 <li><strong>Till slip required:</strong> keep the receipt because it may be needed for entry validation or prize claims.</li>
               </ul>
+              <p>For a fuller breakdown, read the <a href="/competition-entry-cost-labels/">competition entry cost labels guide</a>.</p>
             </section>
             <section class="hub-editorial__section">
               <h3>Freehub's role</h3>
@@ -1541,6 +1621,7 @@ ${noscriptLinks}
 
 function renderTrustPage(page) {
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/${page.slug}/`;
+  const usefulLinks = getTrustPageUsefulLinks(page);
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -1634,10 +1715,12 @@ function renderTrustPage(page) {
         <section class="internal-links" aria-label="Useful Freehub pages">
           <p class="internal-links__title">Useful Freehub Pages</p>
           <div class="internal-links__list">
-            <a class="internal-links__link" href="/">Browse competitions</a>
-            <a class="internal-links__link" href="/category/cars/">Car competitions</a>
-            <a class="internal-links__link" href="/tag/free-entry/">Free entry listings</a>
-            <a class="internal-links__link" href="/report-a-competition/">Report a competition</a>
+            ${usefulLinks
+              .map(
+                (link) =>
+                  `<a class="internal-links__link" href="${escapeAttribute(link.href)}">${escapeHtml(link.label)}</a>`
+              )
+              .join("\n            ")}
           </div>
         </section>
       </main>
@@ -1647,6 +1730,20 @@ function renderTrustPage(page) {
   </body>
 </html>
 `;
+}
+
+function getTrustPageUsefulLinks(page) {
+  if (Array.isArray(page.links) && page.links.length > 0) {
+    return page.links;
+  }
+
+  return [
+    { label: "Browse competitions", href: "/" },
+    { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
+    { label: "Car competitions", href: "/category/cars/" },
+    { label: "Free entry listings", href: "/tag/free-entry/" },
+    { label: "Report a competition", href: "/report-a-competition/" },
+  ];
 }
 
 function renderNotFoundPage() {
@@ -1837,9 +1934,6 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   const formattedDate = shared.formatDate(competition.closingDate);
   const heroImage = getCompetitionImageUrl(competition);
   const ogImage = getMetadataImageUrl(competition);
-  if (!competition.image) {
-    console.warn(`[generate-pages] Competition "${competition.title}" (slug: ${slug}) has no image — hero will use fallback background.`);
-  }
   const relatedCompetitions = getRelatedCompetitions(competition, allCompetitions);
 
   const categorySlug = shared.CATEGORY_SLUGS.find(
@@ -1980,7 +2074,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   </head>
   <body>
     <div class="site-shell">
-      <header class="hero hero--competition"${competition.image ? ` style="background-image: url('${escapeAttribute(competition.image)}')"` : ''}>
+      <header class="hero hero--competition" style="background-image: url('${escapeAttribute(heroImage)}')">
         <div class="hero__overlay" aria-hidden="true"></div>
         <div class="hero__content">
           <p class="eyebrow">free-hub</p>
