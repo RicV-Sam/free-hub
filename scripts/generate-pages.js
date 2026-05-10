@@ -7,6 +7,7 @@ const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
 const RELATIVE_ASSET_PATH = "/";
 const ADSENSE_SCRIPT =
   '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6084410613829318" crossorigin="anonymous"></script>';
+const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date());
 const CATEGORY_LINKS = [
   { label: "All Competitions", href: "/" },
   ...shared.CATEGORY_SLUGS.map((slug) => ({
@@ -457,6 +458,110 @@ function splitBrandLines(brand) {
   return [words.slice(0, midpoint).join(" "), words.slice(midpoint).join(" ")];
 }
 
+function isEndingSoonHub(routeContext) {
+  return routeContext.type === "hub" && routeContext.slug === "competitions-ending-soon";
+}
+
+function renderHubUpdatedNotice(routeContext) {
+  if (!isEndingSoonHub(routeContext)) {
+    return "";
+  }
+
+  return `<p class="hero__updated">Updated ${escapeHtml(shared.formatDate(BUILD_DATE_ISO))}</p>`;
+}
+
+function renderEndingSoonEditorial(routeContext) {
+  if (!isEndingSoonHub(routeContext)) {
+    return "";
+  }
+
+  return `<section class="seo-copy-block seo-copy-block--hub" aria-label="Guide to competitions ending soon">
+          <h2 class="seo-copy-block__title">How to use competitions ending this week</h2>
+          <div class="seo-copy-block__content hub-editorial">
+            <section class="hub-editorial__section">
+              <h3>Why ending-soon competitions are worth checking</h3>
+              <p>Competitions close quickly, and some South African promoters only keep entry forms open until a specific date or time. This page helps you prioritise current competitions with the nearest deadlines before browsing the wider <a href="/competitions/">competitions</a> hub.</p>
+              <p>If you want a narrower starting point, compare <a href="/free-competitions/">free competitions</a>, <a href="/purchase-required-competitions/">purchase required competitions</a>, or category pages for <a href="/category/cars/">cars</a>, <a href="/category/cash/">cash</a>, <a href="/category/vouchers/">vouchers</a>, <a href="/category/holidays/">holidays</a> and <a href="/category/tech/">tech</a>.</p>
+            </section>
+            <section class="hub-editorial__section">
+              <h3>What to check before entering</h3>
+              <ul class="hub-editorial__list">
+                <li>Confirm the closing date, closing time and timezone on the official promoter page.</li>
+                <li>Check eligibility, age limits, regional limits, purchase rules and how winners are contacted.</li>
+                <li>Use the official promoter link from each Freehub listing instead of unofficial social comments or copied forms.</li>
+              </ul>
+            </section>
+            <section class="hub-editorial__section">
+              <h3>Cost labels explained</h3>
+              <ul class="hub-editorial__list">
+                <li><strong>Free entry:</strong> no required product purchase or paid ticket is shown in the listing.</li>
+                <li><strong>Purchase required:</strong> you may need a qualifying product, minimum spend, receipt or proof of purchase.</li>
+                <li><strong>Paid entry:</strong> the promotion appears to require a paid ticket, raffle entry or similar paid participation.</li>
+                <li><strong>Account required:</strong> you may need a promoter, retailer, loyalty or platform account before entry.</li>
+                <li><strong>App required:</strong> entry is completed through the promoter's official app or app-linked flow.</li>
+                <li><strong>Till slip required:</strong> keep the receipt because it may be needed for entry validation or prize claims.</li>
+              </ul>
+            </section>
+            <section class="hub-editorial__section">
+              <h3>Freehub's role</h3>
+              <p>Freehub does not run these competitions, choose winners, collect entries or process payments. We list useful competition information and send you to the official promoter source so you can read the current terms and enter there.</p>
+            </section>
+          </div>
+        </section>`;
+}
+
+function getHubFaqItems(routeContext) {
+  if (!isEndingSoonHub(routeContext)) {
+    return [];
+  }
+
+  return [
+    {
+      question: "Are these competitions free to enter?",
+      answer:
+        "Not always. Some competitions are free entry, while others require a purchase, paid entry, an account, an app or a till slip. Check the cost label on Freehub and confirm the full terms on the official promoter page.",
+    },
+    {
+      question: "How often is this page updated?",
+      answer:
+        "Freehub updates competition listings regularly and regenerates this page during site updates. The updated date near the top shows when the page was last built.",
+    },
+    {
+      question: "Does Freehub run these competitions?",
+      answer:
+        "No. Freehub is a competition discovery site. The promoter runs the competition, accepts entries, chooses winners and handles prize fulfilment.",
+    },
+    {
+      question: "What should I check before entering?",
+      answer:
+        "Check the closing date and time, eligibility rules, entry cost, purchase or till slip requirements, official terms, privacy requirements and the promoter's real entry link.",
+    },
+    {
+      question: "What happens when a competition expires?",
+      answer:
+        "Expired competitions are removed from live competition hub pages and should no longer appear as current opportunities. Maintenance may archive or mark listings as closed depending on the data state.",
+    },
+  ];
+}
+
+function renderHubFaq(routeContext, items) {
+  if (!isEndingSoonHub(routeContext) || items.length === 0) {
+    return "";
+  }
+
+  return `<section class="detail-faq detail-faq--hub" aria-label="Ending soon competition questions">
+          <p class="detail-section-title">Competitions ending soon FAQ</p>
+          ${items
+            .map(
+              (item) => `<details>
+            <summary>${escapeHtml(item.question)}</summary>
+            <p>${escapeHtml(item.answer)}</p>
+          </details>`
+            )
+            .join("\n          ")}
+        </section>`;
+}
+
 function renderPage(routeContext, competitions) {
   const pageCopy = shared.getPageCopy(routeContext);
   const supportCopy = shared.getPageSupportCopy(routeContext);
@@ -500,6 +605,27 @@ function renderPage(routeContext, competitions) {
         JSON.stringify(breadcrumbData)
       )}</script>`
     : "";
+  const hubFaqItems = getHubFaqItems(routeContext);
+  const hubFaqStructuredData =
+    hubFaqItems.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: hubFaqItems.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: item.answer,
+            },
+          })),
+        }
+      : null;
+  const hubFaqScript = hubFaqStructuredData
+    ? `<script id="structured-data-faq" type="application/ld+json">${escapeScript(
+        JSON.stringify(hubFaqStructuredData)
+      )}</script>`
+    : "";
   const cardsMarkup = competitions
     .flatMap((competition, index) => {
       const items = [renderCompetitionCard(competition)];
@@ -533,6 +659,7 @@ function renderPage(routeContext, competitions) {
     <meta name="twitter:image" content="${escapeAttribute(ogImage)}" />
     ${collectionPageScript}
     ${breadcrumbScript}
+    ${hubFaqScript}
     <script id="structured-data-itemlist" type="application/ld+json">${escapeScript(
       JSON.stringify(structuredData)
     )}</script>
@@ -555,6 +682,7 @@ function renderPage(routeContext, competitions) {
           <p class="eyebrow">free-hub</p>
           <h1 id="pageTitle">${escapeHtml(pageCopy.heading)}</h1>
           <p class="hero__text" id="pageIntro">${escapeHtml(pageCopy.intro)}</p>
+          ${renderHubUpdatedNotice(routeContext)}
         </div>
       </header>
 
@@ -613,6 +741,9 @@ function renderPage(routeContext, competitions) {
             <p class="state-card__text">Try a different search term or clear the current category filter.</p>
           </div>
         </section>
+
+        ${renderEndingSoonEditorial(routeContext)}
+        ${renderHubFaq(routeContext, hubFaqItems)}
 
         ${renderThinPageTips(competitions)}
 
@@ -1012,11 +1143,14 @@ function getHubInternalLinks(slug) {
       { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
     ],
     "competitions-ending-soon": [
-      { label: "Browse competition brands", href: "/brands/" },
       { label: "All competitions", href: "/competitions/" },
       { label: "Free competitions", href: "/free-competitions/" },
-      { label: "Win a car competitions", href: "/win-a-car/" },
-      { label: "How we verify listings", href: "/how-we-verify-competitions/" },
+      { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
+      { label: "Car competitions", href: "/category/cars/" },
+      { label: "Cash competitions", href: "/category/cash/" },
+      { label: "Voucher competitions", href: "/category/vouchers/" },
+      { label: "Holiday competitions", href: "/category/holidays/" },
+      { label: "Tech competitions", href: "/category/tech/" },
     ],
     "purchase-required-competitions": [
       { label: "Browse competition brands", href: "/brands/" },
@@ -2603,6 +2737,12 @@ function formatOptionalDate(dateString) {
   }
 
   return shared.formatDate(dateString);
+}
+
+function getLocalIsoDate(date) {
+  const localDate = new Date(date);
+  localDate.setMinutes(localDate.getMinutes() - localDate.getTimezoneOffset());
+  return localDate.toISOString().slice(0, 10);
 }
 
 function getDetailCtaLabel(competition) {

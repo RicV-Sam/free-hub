@@ -267,14 +267,14 @@
         "Free-entry means no required spend and no paid entry ticket. Some offers may still require online access or account steps on the promoter page.",
     },
     "competitions-ending-soon": {
-      title: "Competitions Ending Soon in South Africa | Freehub",
+      title: "Competitions Ending This Week in South Africa | Freehub",
       description:
-        "Find South African competitions closing soon. Browse live giveaways by closing date and enter through official promoter pages before deadlines pass.",
-      heading: "Competitions Ending Soon in South Africa",
+        "Find South African competitions ending soon, including car, cash, voucher, airtime, holiday and ticket giveaways. Updated regularly with official entry links.",
+      heading: "Competitions Ending This Week in South Africa",
       intro:
-        "These active listings are approaching their closing dates. Prioritise entries with the nearest deadlines first and confirm the latest closing time on the official source page.",
+        "Browse current South African competitions that are closing soon, sorted by the nearest closing date first. Open each listing to check the entry cost, promoter details and official source before entering.",
       support:
-        "Competition deadlines can change. Always check the promoter’s current deadline and terms before entering.",
+        "Competition deadlines can change. Always check the promoter's current deadline and terms before entering through the official source link.",
     },
     "purchase-required-competitions": {
       title: "Purchase Required Competitions South Africa | Freehub",
@@ -1040,6 +1040,12 @@
     if (slug === "competitions-ending-soon") {
       return sortedCompetitions.filter((competition) => {
         const tags = Array.isArray(competition.tags) ? competition.tags : [];
+        const daysUntilClosing = getDaysUntilClosing(competition.closingDate);
+
+        if (!Number.isFinite(daysUntilClosing) || daysUntilClosing < 0) {
+          return false;
+        }
+
         return (
           isClosingWithinDays(competition.closingDate, ENDING_SOON_TAG_DAYS) ||
           competition.isEndingSoon === true ||
