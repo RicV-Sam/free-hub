@@ -283,11 +283,11 @@ function createCompetitionCard(competition) {
   media.className = "competition-card__media";
 
   const image = document.createElement("img");
-  image.src = getCompetitionImageUrl(competition);
+  image.src = getCompetitionImageUrl(competition, state.competitions);
   image.alt = competition.title;
   image.loading = "lazy";
   image.onerror = () => {
-    image.src = getCompetitionImageUrl(competition);
+    image.src = getCompetitionImageUrl(competition, state.competitions);
     image.onerror = null;
   };
 

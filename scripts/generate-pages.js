@@ -31,6 +31,7 @@ const HUB_LINKS = [
   { label: "Purchase required", href: "/purchase-required-competitions/" },
   { label: "Paid entry", href: "/paid-entry-competitions/" },
 ];
+let brandImageLookup = new Map();
 const TRUST_PAGE_DEFINITIONS = [
   {
     slug: "about",
@@ -545,6 +546,7 @@ function main() {
     ...archivedCompetitions,
   ];
   const allCompetitions = mergeCompetitionsBySlug([...publishedCompetitions, ...legacyCompetitions]);
+  brandImageLookup = buildBrandImageLookup(allCompetitions);
   const validSlugs = new Set(allCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
   removeStaleCompetitionDirectories(validSlugs);
   const competitions = publishedCompetitions.filter((competition) => !isExpired(competition.closingDate));
@@ -724,11 +726,16 @@ const CATEGORY_FALLBACK_STYLES = {
 };
 
 function getCompetitionImageUrl(competition) {
-  return competition.image || shared.DEFAULT_OG_IMAGE;
+  if (competition && competition.image) {
+    return competition.image;
+  }
+
+  const brandImage = getBrandAssociatedImage(competition);
+  return brandImage || shared.DEFAULT_OG_IMAGE;
 }
 
 function getMetadataImageUrl(competition) {
-  return competition && competition.image ? competition.image : shared.DEFAULT_OG_IMAGE;
+  return getCompetitionImageUrl(competition);
 }
 
 function getCollectionMetadataImageUrl(competitions) {
@@ -787,6 +794,54 @@ function splitBrandLines(brand) {
 
   const midpoint = Math.ceil(words.length / 2);
   return [words.slice(0, midpoint).join(" "), words.slice(midpoint).join(" ")];
+}
+
+function buildBrandImageLookup(competitions) {
+  const lookup = new Map();
+
+  competitions.forEach((competition) => {
+    if (!competition || !competition.image) {
+      return;
+    }
+
+    const sourceDomainKey = normalizeImageLookupKey(competition.sourceDomain);
+    const brandKey = normalizeImageLookupKey(competition.brand);
+
+    if (sourceDomainKey && !lookup.has(sourceDomainKey)) {
+      lookup.set(sourceDomainKey, competition.image);
+    }
+
+    if (brandKey && !lookup.has(brandKey)) {
+      lookup.set(brandKey, competition.image);
+    }
+  });
+
+  return lookup;
+}
+
+function getBrandAssociatedImage(competition) {
+  if (!competition) {
+    return "";
+  }
+
+  const sourceDomainKey = normalizeImageLookupKey(competition.sourceDomain);
+  if (sourceDomainKey && brandImageLookup.has(sourceDomainKey)) {
+    return brandImageLookup.get(sourceDomainKey);
+  }
+
+  const brandKey = normalizeImageLookupKey(competition.brand);
+  if (brandKey && brandImageLookup.has(brandKey)) {
+    return brandImageLookup.get(brandKey);
+  }
+
+  return "";
+}
+
+function normalizeImageLookupKey(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/^www\./, "");
 }
 
 function isEndingSoonHub(routeContext) {

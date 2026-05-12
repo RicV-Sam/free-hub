@@ -7,6 +7,7 @@
   const ENDING_SOON_TAG_DAYS = 7;
   const DEFAULT_OG_IMAGE =
     "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200&q=80";
+  const BRAND_IMAGE_LOOKUP_KEYS = ["sourceDomain", "brand"];
   const CATEGORY_COPY = {
     cash: {
       category: "Cash",
@@ -455,8 +456,54 @@
     return `${SITE_ORIGIN}${getCompetitionPath(competition)}`;
   }
 
-  function getCompetitionImageUrl(competition) {
-    return competition.image || DEFAULT_OG_IMAGE;
+  function getCompetitionImageUrl(competition, competitionPool = []) {
+    if (competition && competition.image) {
+      return competition.image;
+    }
+
+    const brandImage = getBrandAssociatedImage(competition, competitionPool);
+    if (brandImage) {
+      return brandImage;
+    }
+
+    return DEFAULT_OG_IMAGE;
+  }
+
+  function getBrandAssociatedImage(competition, competitionPool = []) {
+    const candidates = Array.isArray(competitionPool) ? competitionPool : [];
+    const keys = BRAND_IMAGE_LOOKUP_KEYS.map((field) =>
+      normalizeImageLookupKey(competition && competition[field])
+    ).filter(Boolean);
+
+    if (keys.length === 0 || candidates.length === 0) {
+      return "";
+    }
+
+    for (let i = 0; i < candidates.length; i += 1) {
+      const candidate = candidates[i];
+      if (!candidate || !candidate.image) {
+        continue;
+      }
+
+      for (let j = 0; j < keys.length; j += 1) {
+        const key = keys[j];
+        const sameSourceDomain = normalizeImageLookupKey(candidate.sourceDomain) === key;
+        const sameBrand = normalizeImageLookupKey(candidate.brand) === key;
+
+        if (sameSourceDomain || sameBrand) {
+          return candidate.image;
+        }
+      }
+    }
+
+    return "";
+  }
+
+  function normalizeImageLookupKey(value) {
+    return String(value || "")
+      .trim()
+      .toLowerCase()
+      .replace(/^www\./, "");
   }
 
   function buildBrandFallbackImage(competition) {
