@@ -456,7 +456,7 @@
   }
 
   function getCompetitionImageUrl(competition) {
-    return competition.image || buildBrandFallbackImage(competition);
+    return competition.image || DEFAULT_OG_IMAGE;
   }
 
   function buildBrandFallbackImage(competition) {

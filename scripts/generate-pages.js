@@ -4,6 +4,7 @@ const shared = require("../shared/page-data.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
+const ARCHIVE_DATA_PATH = path.join(ROOT_DIR, "data", "archive", "competitions-expired.json");
 const RELATIVE_ASSET_PATH = "/";
 const ADSENSE_SCRIPT =
   '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6084410613829318" crossorigin="anonymous"></script>';
@@ -531,14 +532,22 @@ const TRUST_PAGE_DEFINITIONS = [
 
 function main() {
   const rawCompetitions = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
+  const archivedCompetitions = fs.existsSync(ARCHIVE_DATA_PATH)
+    ? JSON.parse(fs.readFileSync(ARCHIVE_DATA_PATH, "utf8"))
+    : [];
   const validCompetitions = shared.sortCompetitions(
     rawCompetitions.filter((entry, index) => validateCompetition(entry, index))
   );
   runDataSafetyChecks(validCompetitions);
-  const allCompetitions = shared.getPublishedCompetitions(validCompetitions);
+  const publishedCompetitions = shared.getPublishedCompetitions(validCompetitions);
+  const legacyCompetitions = [
+    ...validCompetitions.filter((competition) => competition.verificationStatus !== "published"),
+    ...archivedCompetitions,
+  ];
+  const allCompetitions = mergeCompetitionsBySlug([...publishedCompetitions, ...legacyCompetitions]);
   const validSlugs = new Set(allCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
   removeStaleCompetitionDirectories(validSlugs);
-  const competitions = allCompetitions.filter((competition) => !isExpired(competition.closingDate));
+  const competitions = publishedCompetitions.filter((competition) => !isExpired(competition.closingDate));
   const generatedBrandPages = shared.getGeneratedBrandPageDefinitions(competitions);
   const generatedBrandSlugs = generatedBrandPages.map((brandPage) => brandPage.slug);
   const routeContexts = getGeneratedRouteContexts(competitions, generatedBrandPages);
@@ -562,7 +571,10 @@ function main() {
   });
 
   allCompetitions.forEach((competition) => {
-    const html = renderCompetitionPage(competition, competitions, generatedBrandSlugs);
+    const html =
+      competition.verificationStatus === "published"
+        ? renderCompetitionPage(competition, competitions, generatedBrandSlugs)
+        : renderLegacyCompetitionPage(competition);
     const slug = shared.getCompetitionSlug(competition);
     const outputDirectory = path.join(ROOT_DIR, "competition", slug);
 
@@ -589,6 +601,26 @@ function main() {
   fs.writeFileSync(path.join(ROOT_DIR, "sitemap.xml"), generateSitemap(competitions, routeContexts));
   fs.writeFileSync(path.join(ROOT_DIR, "robots.txt"), renderRobotsTxt());
   runStaticSeoChecks();
+}
+
+function mergeCompetitionsBySlug(competitions) {
+  const bySlug = new Map();
+
+  competitions.forEach((competition) => {
+    const slug = shared.getCompetitionSlug(competition);
+    const existing = bySlug.get(slug);
+
+    if (!existing) {
+      bySlug.set(slug, competition);
+      return;
+    }
+
+    if (existing.verificationStatus !== "published" && competition.verificationStatus === "published") {
+      bySlug.set(slug, competition);
+    }
+  });
+
+  return Array.from(bySlug.values());
 }
 
 function getGeneratedRouteContexts(competitions, generatedBrandPages = []) {
@@ -692,7 +724,7 @@ const CATEGORY_FALLBACK_STYLES = {
 };
 
 function getCompetitionImageUrl(competition) {
-  return competition.image || buildBrandFallbackImage(competition);
+  return competition.image || shared.DEFAULT_OG_IMAGE;
 }
 
 function getMetadataImageUrl(competition) {
@@ -2766,7 +2798,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
 
         <article class="competition-detail" aria-label="${escapeAttribute(competition.title)}">
           <div class="competition-detail__media">
-            <img src="${escapeAttribute(heroImage)}" alt="${escapeAttribute(competition.title)}" onerror="this.onerror=null;this.src='${escapeAttribute(buildBrandFallbackImage(competition))}'" />
+            <img src="${escapeAttribute(heroImage)}" alt="${escapeAttribute(competition.title)}" onerror="this.onerror=null;this.src='${escapeAttribute(shared.DEFAULT_OG_IMAGE)}'" />
           </div>
           <div class="competition-detail__body">
             <div class="competition-detail__meta">
@@ -3050,6 +3082,59 @@ function renderCompetitionFaq(items) {
                 )
                 .join("\n              ")}
             </section>`;
+}
+
+function renderLegacyCompetitionPage(competition) {
+  const slug = shared.getCompetitionSlug(competition);
+  const title = competition.title || "Competition details";
+  const sourceUrl = getOfficialSourceUrl(competition);
+  const sourceDomain = getOfficialSourceDomain(competition);
+  const canonicalUrl = `${shared.CANONICAL_ORIGIN}/competition/${slug}/`;
+  const archiveDate = formatOptionalDate(competition.archivedAt);
+  const closingDate = formatOptionalDate(competition.closingDate);
+
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${escapeHtml(title)} | Closed Competition | Freehub</title>
+    <meta name="description" content="This competition listing is no longer active on Freehub. Use the official source link to confirm current promoter information." />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
+    <link rel="stylesheet" href="${RELATIVE_ASSET_PATH}styles.css" />
+    ${ADSENSE_SCRIPT}
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="hero">
+        <div class="hero__copy">
+          <p class="eyebrow">free-hub</p>
+          <h1>${escapeHtml(title)}</h1>
+          <p class="hero__text">This listing is closed or no longer published on Freehub. Check the official promoter page for the latest campaign status.</p>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="state-card">
+          <p class="state-card__title">Competition not active on Freehub</p>
+          <p class="state-card__text">${closingDate ? `Original closing date: ${escapeHtml(closingDate)}. ` : ""}${
+            archiveDate ? `Archived on ${escapeHtml(archiveDate)}. ` : ""
+          }Details can change at source.</p>
+          <p class="state-card__text">
+            <a href="${escapeAttribute(sourceUrl)}" rel="nofollow noopener" target="_blank">Open ${escapeHtml(
+              sourceDomain
+            )}</a>
+          </p>
+          <p class="state-card__text">
+            <a href="/">Browse current live competitions</a>
+          </p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
+`;
 }
 
 function renderOutPage(competition) {
