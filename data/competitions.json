@@ -1,88 +1,5 @@
 [
   {
-    "id": "spar-win-a-car",
-    "title": "SPAR Win a Car - Win 1 of 50 Hyundai EXTER Cars",
-    "brand": "SPAR",
-    "summary": "SPAR Rewards shoppers can win 1 of 50 fiery red Hyundai EXTER cars by buying participating products and swiping a SPAR Rewards card. The campaign is promoted across SPAR, TOPS at SPAR, SPAR2U, SPAR Express and SaveMor.",
-    "entrySteps": [
-      "Buy any participating SPAR Win a Car product during the campaign period.",
-      "Swipe your SPAR Rewards card when you purchase the qualifying product.",
-      "Check the official SPAR page for participating products across SPAR, TOPS at SPAR, SPAR2U, SPAR Express and SaveMor.",
-      "Enter before the competition closes on 10 May 2026."
-    ],
-    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69d/209/fec/69d209fec0e89679269419.jpg",
-    "closingDate": "2026-05-10",
-    "category": "Cars",
-    "prizeName": "1 of 50 Hyundai EXTER Cars",
-    "prizeType": "car",
-    "prizeValueAmount": null,
-    "prizeValueCurrency": "ZAR",
-    "numberOfPrizes": "50",
-    "entryType": "SPAR Rewards Card",
-    "tags": [
-      "cars",
-      "win-a-car",
-      "hyundai",
-      "purchase-required",
-      "in-store-entry",
-      "high-value"
-    ],
-    "isHighValue": true,
-    "isEndingSoon": false,
-    "url": "https://www.spar.co.za/winacar",
-    "sourceUrl": "https://www.spar.co.za/winacar",
-    "sourceDomain": "spar.co.za",
-    "lastChecked": "2026-05-02",
-    "verificationStatus": "published",
-    "entryCostType": "purchase-required",
-    "entryFeeLabel": "No separate entry fee",
-    "purchaseRequired": true,
-    "requiredProduct": "Participating SPAR Win a Car products",
-    "entryChannel": "SPAR Rewards card swipe",
-    "region": "National"
-  },
-  {
-    "id": "hinds-shoprite-checkers-win-a-car",
-    "title": "Hinds Shoprite and Checkers Competition - Win 1 of 6 Cars",
-    "brand": "Hinds Spices / Shoprite / Checkers",
-    "summary": "Buy a qualifying Hinds product at Shoprite, Checkers, Checkers Hyper or through Checkers Sixty60 for a chance to win 1 of 6 vehicles valued at about R211,500 each. Entrants must use or link Xtra Savings and keep their receipt or Sixty60 invoice.",
-    "entrySteps": [
-      "Buy a qualifying Hinds product at Shoprite, Checkers, Checkers Hyper or via Checkers Sixty60.",
-      "Swipe your Xtra Savings card in store or make sure Xtra Savings is linked before checking out online.",
-      "Keep your till slip or Sixty60 invoice as proof of purchase.",
-      "Enter before the competition closes at 23:59 on 10 May 2026."
-    ],
-    "closingDate": "2026-05-10",
-    "category": "Cars",
-    "prizeName": "1 of 6 vehicles",
-    "prizeType": "car",
-    "prizeValueAmount": 211500,
-    "prizeValueCurrency": "ZAR",
-    "numberOfPrizes": "6",
-    "entryType": "Xtra Savings / Sixty60",
-    "tags": [
-      "cars",
-      "win-a-car",
-      "purchase-required",
-      "in-store-entry",
-      "online-entry",
-      "high-value"
-    ],
-    "isHighValue": true,
-    "isEndingSoon": false,
-    "url": "https://hindsspices.co.za/competitions/",
-    "sourceUrl": "https://hindsspices.co.za/competitions/",
-    "sourceDomain": "hindsspices.co.za",
-    "lastChecked": "2026-05-02",
-    "verificationStatus": "published",
-    "entryCostType": "purchase-required",
-    "entryFeeLabel": "No separate entry fee",
-    "purchaseRequired": true,
-    "requiredProduct": "Qualifying Hinds products",
-    "entryChannel": "Xtra Savings card or linked Checkers Sixty60 profile",
-    "region": "National"
-  },
-  {
     "id": "ok-furniture-big-brands-toyota-vitz",
     "title": "OK Furniture Big Brands Competition - Win a Toyota Vitz",
     "brand": "OK Furniture / OK Power Express",
@@ -321,26 +238,6 @@
     "prizeValueCurrency": "ZAR",
     "prizeType": "voucher",
     "termsUrl": "https://www.dischem.co.za/vaseline-cera-glow-may-2026-competition",
-    "verificationStatus": "published"
-  },
-  {
-    "id": "game-store-gadget-giveaway",
-    "title": "Win Tech Gadgets from Game",
-    "brand": "Game",
-    "summary": "Game regularly uses its retail hub and marketing channels for gadget-led campaigns, making this a useful tech catch-all entry point. It broadens the electronics coverage beyond the current supermarket-style promos.",
-    "entrySteps": "Open the Game site, head to the latest competitions or promo area, and enter through the active campaign page.",
-    "image": "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=900&q=80",
-    "closingDate": "2026-05-10",
-    "category": "Tech",
-    "entryType": "Free Entry",
-    "tags": [
-      "tech",
-      "free-entry",
-      "new"
-    ],
-    "isHighValue": false,
-    "isEndingSoon": false,
-    "url": "https://www.game.co.za/",
     "verificationStatus": "published"
   },
   {
@@ -1832,225 +1729,6 @@
     "prizeType": "cash"
   },
   {
-    "id": "shoprite-drive-away-in-a-toyota-starlet",
-    "title": "Shoprite Drive Away in a Toyota Starlet",
-    "brand": "Shoprite",
-    "category": "Cars",
-    "entryType": "SMS",
-    "closingDate": "2026-05-02",
-    "url": "https://www.shoprite.co.za/campaigns/drive-away-toyota-starlet-2026",
-    "summary": "Spend R350 or more on participating products at Shoprite and keep your till slip. SMS your receipt number to the competition shortcode to stand a chance to drive away in a Toyota Starlet, including licensing and registration.",
-    "tags": [
-      "sms-entry",
-      "standard-rates",
-      "cars",
-      "high-value",
-      "purchase-required",
-      "ending-soon"
-    ],
-    "verificationStatus": "needs-verification",
-    "verificationNote": "Not included in the verified official-source car research set for this refresh."
-  },
-  {
-    "id": "dstv-toyota-starlets",
-    "title": "DStv Win 1 of 4 Toyota Starlets Competition",
-    "brand": "DStv",
-    "summary": "DStv's Toyota Starlets competition adds a strong entertainment-brand angle to the car category. It feels more premium than a generic prize draw because the reward is both tangible and nationally recognisable.",
-    "entrySteps": "Open the competition listing, confirm the qualifying DStv promotion details, and enter using the official instructions.",
-    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/922/e83/69a922e83447f980689301.jpg",
-    "closingDate": "2026-05-24",
-    "category": "Cars",
-    "entryType": "In-store Purchase",
-    "tags": [
-      "cars",
-      "high-value",
-      "new"
-    ],
-    "isHighValue": true,
-    "isEndingSoon": false,
-    "url": "https://www.winsomething.co.za/win/vehicles/105",
-    "verificationStatus": "needs-verification",
-    "verificationNote": "Date conflict in research; likely expired and not safe to publish."
-  },
-  {
-    "id": "engen-1app-fuel-up-win-a-toyota-hilux",
-    "title": "Engen 1App Fuel Up & Win a Toyota Hilux",
-    "brand": "Engen",
-    "category": "Cars",
-    "entryType": "App",
-    "closingDate": "2026-07-12",
-    "url": "https://www.engen.co.za/promotions/fuel-up-win-toyota-hilux-2026",
-    "summary": "Pay for fuel using the Engen 1App and hit the weekly spend threshold to qualify. The grand prize is a Toyota Hilux Double Cab, plus monthly fuel vouchers for runners-up.",
-    "tags": [
-      "app-entry",
-      "app-only",
-      "cars",
-      "high-value",
-      "purchase-required",
-      "weekly-draw"
-    ],
-    "verificationStatus": "needs-verification",
-    "verificationNote": "Could not verify as current in this pass."
-  },
-  {
-    "id": "toyota-corolla-cross-test-drive-win",
-    "title": "Toyota Corolla Cross Test Drive & Win",
-    "brand": "Toyota SA",
-    "category": "Cars",
-    "entryType": "Online",
-    "closingDate": "2026-08-10",
-    "url": "https://www.toyota.co.za/connect/toyota-corolla-cross-test-drive-win-2026",
-    "summary": "Book a test drive online at a participating Toyota dealer and complete the follow-up form. One winner drives away in a Toyota Corolla Cross, with licensing, registration and delivery included.",
-    "tags": [
-      "online-entry",
-      "cars",
-      "high-value"
-    ],
-    "verificationStatus": "needs-verification",
-    "verificationNote": "Could not verify as current in this pass."
-  },
-  {
-    "id": "volkswagen-easydrive-upgrade-to-win",
-    "title": "Volkswagen EasyDrive Upgrade to Win",
-    "brand": "Volkswagen SA",
-    "category": "Cars",
-    "entryType": "Online",
-    "closingDate": "2026-08-13",
-    "url": "https://www.vw.co.za/en/owners-services/easydrive-upgrade-to-win-2026.html",
-    "summary": "Upgrade your EasyDrive plan and register your details online to qualify. Stand a chance to win a Volkswagen Polo Vivo, plus service-plan prizes for selected winners.",
-    "tags": [
-      "online-entry",
-      "cars",
-      "high-value",
-      "purchase-required"
-    ],
-    "verificationStatus": "needs-verification",
-    "verificationNote": "Needs official prize verification."
-  },
-  {
-    "id": "bmw-xdrive-experience-weekend-giveaway",
-    "title": "BMW xDrive Experience Weekend Giveaway",
-    "brand": "BMW SA",
-    "category": "Cars",
-    "entryType": "Online",
-    "closingDate": "2026-08-16",
-    "url": "https://www.bmw.co.za/en/topics/offers-and-services/events/bmw-xdrive-experience-weekend-giveaway-2026.html",
-    "summary": "Looking through current car competitions and free car competitions South Africa users search for? Submit your entry online for this BMW giveaway and stand a chance to win a driving experience day plus a weekend xDrive loan car.",
-    "tags": [
-      "online-entry",
-      "cars",
-      "high-value"
-    ],
-    "verificationStatus": "needs-verification",
-    "verificationNote": "Experience prize, not verified as car ownership."
-  },
-  {
-    "id": "mercedes-benz-amg-track-day-giveaway",
-    "title": "Mercedes-Benz AMG Track Day Giveaway",
-    "brand": "Mercedes-Benz SA",
-    "category": "Cars",
-    "entryType": "Online",
-    "closingDate": "2026-08-20",
-    "url": "https://www.mercedes-benz.co.za/passengercars/owners/offers/amg-track-day-giveaway-2026.html",
-    "summary": "Register online and book a qualifying Mercedes-Benz test drive to be entered. The prize is an AMG track-day experience for two, including coaching and hospitality on the day.",
-    "tags": [
-      "online-entry",
-      "cars",
-      "high-value",
-      "purchase-required"
-    ],
-    "verificationStatus": "needs-verification",
-    "verificationNote": "Experience prize, not verified as car ownership."
-  },
-  {
-    "id": "hyundai-grand-i10-test-drive-win",
-    "title": "Hyundai Grand i10 Test Drive & Win",
-    "brand": "Hyundai SA",
-    "category": "Cars",
-    "entryType": "Online",
-    "closingDate": "2026-08-23",
-    "url": "https://www.hyundai.co.za/competitions/grand-i10-test-drive-win-2026",
-    "summary": "Test drive a qualifying Hyundai model and complete the online entry form at your dealership. One winner takes home a Hyundai Grand i10, with additional fuel and accessory prizes up for grabs.",
-    "tags": [
-      "online-entry",
-      "cars",
-      "high-value",
-      "purchase-required"
-    ],
-    "verificationStatus": "needs-verification",
-    "verificationNote": "Could be confused with expired Hyundai activity; needs official verification."
-  },
-  {
-    "id": "kia-sonet-smart-drive-giveaway",
-    "title": "Kia Sonet Smart Drive Giveaway",
-    "brand": "Kia SA",
-    "category": "Cars",
-    "entryType": "Online",
-    "closingDate": "2026-08-26",
-    "url": "https://www.kia.co.za/competitions/sonet-smart-drive-giveaway-2026",
-    "summary": "Book a test drive online and attend at a participating Kia dealership to qualify. Stand a chance to win a Kia Sonet, plus weekend-away and fuel prizes for finalists.",
-    "tags": [
-      "online-entry",
-      "cars",
-      "high-value",
-      "purchase-required"
-    ],
-    "verificationStatus": "needs-verification",
-    "verificationNote": "Could not verify as current in this pass."
-  },
-  {
-    "id": "nissan-magnite-adventure-giveaway",
-    "title": "Nissan Magnite Adventure Giveaway",
-    "brand": "Nissan SA",
-    "category": "Cars",
-    "entryType": "Online",
-    "closingDate": "2026-08-29",
-    "url": "https://www.nissan.co.za/termsandconditions/magnite-adventure-giveaway-2026.html",
-    "summary": "Complete the short online survey and opt in to communications to enter. One South African winner drives away in a Nissan Magnite, with hiking and camping gear prizes along the way.",
-    "tags": [
-      "online-entry",
-      "cars",
-      "high-value",
-      "weekly-draw"
-    ],
-    "verificationStatus": "needs-verification",
-    "verificationNote": "Could not verify as current in this pass."
-  },
-  {
-    "id": "ford-ranger-weekend-warrior-giveaway",
-    "title": "Ford Ranger Weekend Warrior Giveaway",
-    "brand": "Ford SA",
-    "category": "Cars",
-    "entryType": "Online",
-    "closingDate": "2026-09-01",
-    "url": "https://www.ford.co.za/ranger-weekend-warrior-terms-conditions/",
-    "summary": "Enter online and share your best weekend-warrior plan to stand a chance to win. The winner gets a Ford Ranger weekend experience with a travel voucher and an accessories hamper.",
-    "tags": [
-      "online-entry",
-      "cars",
-      "high-value"
-    ],
-    "verificationStatus": "needs-verification",
-    "verificationNote": "Experience prize, not verified as car ownership."
-  },
-  {
-    "id": "isuzu-d-max-open-day-win",
-    "title": "ISUZU D-MAX Open Day Win",
-    "brand": "Isuzu SA",
-    "category": "Cars",
-    "entryType": "In-store",
-    "closingDate": "2026-09-05",
-    "url": "https://www.isuzu.co.za/campaigns/d-max-open-day-win-2026",
-    "summary": "Visit a participating ISUZU dealer open day and complete the in-store entry card to qualify. Stand a chance to win an ISUZU D-MAX, with outdoor kit giveaways for selected winners.",
-    "tags": [
-      "in-store-entry",
-      "cars",
-      "high-value"
-    ],
-    "verificationStatus": "needs-verification",
-    "verificationNote": "Experience/test-drive style listing; not verified as current car ownership prize."
-  },
-  {
     "id": "toyota-hilux-world-record-nampo",
     "title": "Toyota Hilux World Record Attempt Competition - Win a New Hilux",
     "brand": "Toyota South Africa / NAMPO",
@@ -2672,5 +2350,224 @@
     "entryChannel": "OM Bank card/account transactions and DebiCheck mandate",
     "eligibility": "South African citizens or permanent residents aged 18+ with qualifying Old Mutual products",
     "region": "South Africa"
+  },
+  {
+    "id": "shoprite-drive-away-in-a-toyota-starlet",
+    "title": "Shoprite Drive Away in a Toyota Starlet",
+    "brand": "Shoprite",
+    "category": "Cars",
+    "entryType": "SMS",
+    "closingDate": "2026-05-02",
+    "url": "https://www.shoprite.co.za/campaigns/drive-away-toyota-starlet-2026",
+    "summary": "Spend R350 or more on participating products at Shoprite and keep your till slip. SMS your receipt number to the competition shortcode to stand a chance to drive away in a Toyota Starlet, including licensing and registration.",
+    "tags": [
+      "sms-entry",
+      "standard-rates",
+      "cars",
+      "high-value",
+      "purchase-required",
+      "ending-soon"
+    ],
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Not included in the verified official-source car research set for this refresh."
+  },
+  {
+    "id": "dstv-toyota-starlets",
+    "title": "DStv Win 1 of 4 Toyota Starlets Competition",
+    "brand": "DStv",
+    "summary": "DStv's Toyota Starlets competition adds a strong entertainment-brand angle to the car category. It feels more premium than a generic prize draw because the reward is both tangible and nationally recognisable.",
+    "entrySteps": "Open the competition listing, confirm the qualifying DStv promotion details, and enter using the official instructions.",
+    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/922/e83/69a922e83447f980689301.jpg",
+    "closingDate": "2026-05-24",
+    "category": "Cars",
+    "entryType": "In-store Purchase",
+    "tags": [
+      "cars",
+      "high-value",
+      "new"
+    ],
+    "isHighValue": true,
+    "isEndingSoon": false,
+    "url": "https://www.winsomething.co.za/win/vehicles/105",
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Date conflict in research; likely expired and not safe to publish."
+  },
+  {
+    "id": "engen-1app-fuel-up-win-a-toyota-hilux",
+    "title": "Engen 1App Fuel Up & Win a Toyota Hilux",
+    "brand": "Engen",
+    "category": "Cars",
+    "entryType": "App",
+    "closingDate": "2026-07-12",
+    "url": "https://www.engen.co.za/promotions/fuel-up-win-toyota-hilux-2026",
+    "summary": "Pay for fuel using the Engen 1App and hit the weekly spend threshold to qualify. The grand prize is a Toyota Hilux Double Cab, plus monthly fuel vouchers for runners-up.",
+    "tags": [
+      "app-entry",
+      "app-only",
+      "cars",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ],
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Could not verify as current in this pass."
+  },
+  {
+    "id": "toyota-corolla-cross-test-drive-win",
+    "title": "Toyota Corolla Cross Test Drive & Win",
+    "brand": "Toyota SA",
+    "category": "Cars",
+    "entryType": "Online",
+    "closingDate": "2026-08-10",
+    "url": "https://www.toyota.co.za/connect/toyota-corolla-cross-test-drive-win-2026",
+    "summary": "Book a test drive online at a participating Toyota dealer and complete the follow-up form. One winner drives away in a Toyota Corolla Cross, with licensing, registration and delivery included.",
+    "tags": [
+      "online-entry",
+      "cars",
+      "high-value"
+    ],
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Could not verify as current in this pass."
+  },
+  {
+    "id": "volkswagen-easydrive-upgrade-to-win",
+    "title": "Volkswagen EasyDrive Upgrade to Win",
+    "brand": "Volkswagen SA",
+    "category": "Cars",
+    "entryType": "Online",
+    "closingDate": "2026-08-13",
+    "url": "https://www.vw.co.za/en/owners-services/easydrive-upgrade-to-win-2026.html",
+    "summary": "Upgrade your EasyDrive plan and register your details online to qualify. Stand a chance to win a Volkswagen Polo Vivo, plus service-plan prizes for selected winners.",
+    "tags": [
+      "online-entry",
+      "cars",
+      "high-value",
+      "purchase-required"
+    ],
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Needs official prize verification."
+  },
+  {
+    "id": "bmw-xdrive-experience-weekend-giveaway",
+    "title": "BMW xDrive Experience Weekend Giveaway",
+    "brand": "BMW SA",
+    "category": "Cars",
+    "entryType": "Online",
+    "closingDate": "2026-08-16",
+    "url": "https://www.bmw.co.za/en/topics/offers-and-services/events/bmw-xdrive-experience-weekend-giveaway-2026.html",
+    "summary": "Looking through current car competitions and free car competitions South Africa users search for? Submit your entry online for this BMW giveaway and stand a chance to win a driving experience day plus a weekend xDrive loan car.",
+    "tags": [
+      "online-entry",
+      "cars",
+      "high-value"
+    ],
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Experience prize, not verified as car ownership."
+  },
+  {
+    "id": "mercedes-benz-amg-track-day-giveaway",
+    "title": "Mercedes-Benz AMG Track Day Giveaway",
+    "brand": "Mercedes-Benz SA",
+    "category": "Cars",
+    "entryType": "Online",
+    "closingDate": "2026-08-20",
+    "url": "https://www.mercedes-benz.co.za/passengercars/owners/offers/amg-track-day-giveaway-2026.html",
+    "summary": "Register online and book a qualifying Mercedes-Benz test drive to be entered. The prize is an AMG track-day experience for two, including coaching and hospitality on the day.",
+    "tags": [
+      "online-entry",
+      "cars",
+      "high-value",
+      "purchase-required"
+    ],
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Experience prize, not verified as car ownership."
+  },
+  {
+    "id": "hyundai-grand-i10-test-drive-win",
+    "title": "Hyundai Grand i10 Test Drive & Win",
+    "brand": "Hyundai SA",
+    "category": "Cars",
+    "entryType": "Online",
+    "closingDate": "2026-08-23",
+    "url": "https://www.hyundai.co.za/competitions/grand-i10-test-drive-win-2026",
+    "summary": "Test drive a qualifying Hyundai model and complete the online entry form at your dealership. One winner takes home a Hyundai Grand i10, with additional fuel and accessory prizes up for grabs.",
+    "tags": [
+      "online-entry",
+      "cars",
+      "high-value",
+      "purchase-required"
+    ],
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Could be confused with expired Hyundai activity; needs official verification."
+  },
+  {
+    "id": "kia-sonet-smart-drive-giveaway",
+    "title": "Kia Sonet Smart Drive Giveaway",
+    "brand": "Kia SA",
+    "category": "Cars",
+    "entryType": "Online",
+    "closingDate": "2026-08-26",
+    "url": "https://www.kia.co.za/competitions/sonet-smart-drive-giveaway-2026",
+    "summary": "Book a test drive online and attend at a participating Kia dealership to qualify. Stand a chance to win a Kia Sonet, plus weekend-away and fuel prizes for finalists.",
+    "tags": [
+      "online-entry",
+      "cars",
+      "high-value",
+      "purchase-required"
+    ],
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Could not verify as current in this pass."
+  },
+  {
+    "id": "nissan-magnite-adventure-giveaway",
+    "title": "Nissan Magnite Adventure Giveaway",
+    "brand": "Nissan SA",
+    "category": "Cars",
+    "entryType": "Online",
+    "closingDate": "2026-08-29",
+    "url": "https://www.nissan.co.za/termsandconditions/magnite-adventure-giveaway-2026.html",
+    "summary": "Complete the short online survey and opt in to communications to enter. One South African winner drives away in a Nissan Magnite, with hiking and camping gear prizes along the way.",
+    "tags": [
+      "online-entry",
+      "cars",
+      "high-value",
+      "weekly-draw"
+    ],
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Could not verify as current in this pass."
+  },
+  {
+    "id": "ford-ranger-weekend-warrior-giveaway",
+    "title": "Ford Ranger Weekend Warrior Giveaway",
+    "brand": "Ford SA",
+    "category": "Cars",
+    "entryType": "Online",
+    "closingDate": "2026-09-01",
+    "url": "https://www.ford.co.za/ranger-weekend-warrior-terms-conditions/",
+    "summary": "Enter online and share your best weekend-warrior plan to stand a chance to win. The winner gets a Ford Ranger weekend experience with a travel voucher and an accessories hamper.",
+    "tags": [
+      "online-entry",
+      "cars",
+      "high-value"
+    ],
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Experience prize, not verified as car ownership."
+  },
+  {
+    "id": "isuzu-d-max-open-day-win",
+    "title": "ISUZU D-MAX Open Day Win",
+    "brand": "Isuzu SA",
+    "category": "Cars",
+    "entryType": "In-store",
+    "closingDate": "2026-09-05",
+    "url": "https://www.isuzu.co.za/campaigns/d-max-open-day-win-2026",
+    "summary": "Visit a participating ISUZU dealer open day and complete the in-store entry card to qualify. Stand a chance to win an ISUZU D-MAX, with outdoor kit giveaways for selected winners.",
+    "tags": [
+      "in-store-entry",
+      "cars",
+      "high-value"
+    ],
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Experience/test-drive style listing; not verified as current car ownership prize."
   }
 ]
