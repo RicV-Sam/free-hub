@@ -466,7 +466,7 @@
       return brandImage;
     }
 
-    return DEFAULT_OG_IMAGE;
+    return buildBrandFallbackImage(competition || {});
   }
 
   function getBrandAssociatedImage(competition, competitionPool = []) {

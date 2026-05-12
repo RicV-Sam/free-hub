@@ -731,11 +731,16 @@ function getCompetitionImageUrl(competition) {
   }
 
   const brandImage = getBrandAssociatedImage(competition);
-  return brandImage || shared.DEFAULT_OG_IMAGE;
+  return brandImage || buildBrandFallbackImage(competition || {});
 }
 
 function getMetadataImageUrl(competition) {
-  return getCompetitionImageUrl(competition);
+  if (competition && competition.image) {
+    return competition.image;
+  }
+
+  const brandImage = getBrandAssociatedImage(competition);
+  return brandImage || shared.DEFAULT_OG_IMAGE;
 }
 
 function getCollectionMetadataImageUrl(competitions) {
@@ -2853,7 +2858,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
 
         <article class="competition-detail" aria-label="${escapeAttribute(competition.title)}">
           <div class="competition-detail__media">
-            <img src="${escapeAttribute(heroImage)}" alt="${escapeAttribute(competition.title)}" onerror="this.onerror=null;this.src='${escapeAttribute(shared.DEFAULT_OG_IMAGE)}'" />
+            <img src="${escapeAttribute(heroImage)}" alt="${escapeAttribute(competition.title)}" onerror="this.onerror=null;this.src='${escapeAttribute(buildBrandFallbackImage(competition))}'" />
           </div>
           <div class="competition-detail__body">
             <div class="competition-detail__meta">
