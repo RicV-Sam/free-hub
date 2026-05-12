@@ -603,6 +603,7 @@ function main() {
   fs.writeFileSync(path.join(ROOT_DIR, "sitemap.xml"), generateSitemap(competitions, routeContexts));
   fs.writeFileSync(path.join(ROOT_DIR, "robots.txt"), renderRobotsTxt());
   runStaticSeoChecks();
+  runImageQualityChecks();
 }
 
 function mergeCompetitionsBySlug(competitions) {
@@ -3887,6 +3888,38 @@ function runStaticSeoChecks() {
 
   if (errors.length > 0) {
     throw new Error(`[SEO checks failed]\n${errors.map((error) => `- ${error}`).join("\n")}`);
+  }
+}
+
+function runImageQualityChecks() {
+  const errors = [];
+  const htmlFiles = [
+    path.join(ROOT_DIR, "index.html"),
+    ...getNestedIndexFiles(path.join(ROOT_DIR, "category")),
+    ...getNestedIndexFiles(path.join(ROOT_DIR, "tag")),
+    ...getNestedIndexFiles(path.join(ROOT_DIR, "competition")),
+    ...shared.HUB_SLUGS.map((slug) => path.join(ROOT_DIR, slug, "index.html")),
+    path.join(ROOT_DIR, "brands", "index.html"),
+    ...getNestedIndexFiles(path.join(ROOT_DIR, "brand")),
+  ];
+
+  const dataUriImageRegex = /<img[^>]+src="data:image\/svg\+xml/i;
+  const dataUriBgRegex = /background-image:\s*url\('data:image\/svg\+xml/i;
+
+  htmlFiles.forEach((filePath) => {
+    const html = fs.readFileSync(filePath, "utf8");
+
+    if (dataUriImageRegex.test(html)) {
+      errors.push(`Rendered SVG data URI image found in: ${filePath}`);
+    }
+
+    if (dataUriBgRegex.test(html)) {
+      errors.push(`Rendered SVG data URI background image found in: ${filePath}`);
+    }
+  });
+
+  if (errors.length > 0) {
+    throw new Error(`[Image QA checks failed]\n${errors.map((error) => `- ${error}`).join("\n")}`);
   }
 }
 
