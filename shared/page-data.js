@@ -7,6 +7,13 @@
   const ENDING_SOON_TAG_DAYS = 7;
   const DEFAULT_OG_IMAGE =
     "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200&q=80";
+  const CATEGORY_FALLBACK_IMAGES = {
+    Cars: "https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1600&q=80",
+    Cash: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=1600&q=80",
+    Holidays: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80",
+    Tech: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1600&q=80",
+    Vouchers: "https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=1600&q=80",
+  };
   const BRAND_IMAGE_LOOKUP_KEYS = ["sourceDomain", "brand"];
   const CATEGORY_COPY = {
     cash: {
@@ -507,45 +514,8 @@
   }
 
   function buildBrandFallbackImage(competition) {
-    const brand = String(competition.brand || "Official promotion").trim();
     const category = competition.category || "Competition";
-    const styles = CATEGORY_FALLBACK_STYLES[category] || {
-      start: "#1f2937",
-      end: "#4b5563",
-      accent: "#f3f4f6",
-    };
-    const brandLines = splitBrandLines(brand);
-    const categoryLabel = category.toUpperCase();
-    const brandInitial = brand.replace(/[^A-Za-z0-9]/g, "").charAt(0).toUpperCase() || "F";
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-label="${escapeXml(
-      `${brand} ${category} competition`
-    )}">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="${styles.start}" />
-      <stop offset="100%" stop-color="${styles.end}" />
-    </linearGradient>
-  </defs>
-  <rect width="1600" height="1000" fill="url(#bg)" />
-  <circle cx="1280" cy="180" r="230" fill="${styles.accent}" fill-opacity="0.12" />
-  <circle cx="1450" cy="820" r="260" fill="${styles.accent}" fill-opacity="0.14" />
-  <rect x="88" y="88" width="190" height="190" rx="38" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.26)" />
-  <text x="183" y="212" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="104" font-weight="700" fill="#ffffff">${escapeXml(
-      brandInitial
-    )}</text>
-  <text x="88" y="400" font-family="Arial, Helvetica, sans-serif" font-size="34" letter-spacing="7" fill="rgba(255,255,255,0.76)">${escapeXml(
-      categoryLabel
-    )}</text>
-  <text x="88" y="540" font-family="Arial, Helvetica, sans-serif" font-size="88" font-weight="700" fill="#ffffff">${escapeXml(
-      brandLines[0]
-    )}</text>
-  <text x="88" y="640" font-family="Arial, Helvetica, sans-serif" font-size="88" font-weight="700" fill="#ffffff">${escapeXml(
-      brandLines[1]
-    )}</text>
-  <text x="88" y="860" font-family="Arial, Helvetica, sans-serif" font-size="34" fill="rgba(255,255,255,0.9)">FreeHub competition listing</text>
-</svg>`;
-
-    return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+    return CATEGORY_FALLBACK_IMAGES[category] || DEFAULT_OG_IMAGE;
   }
 
   function splitBrandLines(brand) {
