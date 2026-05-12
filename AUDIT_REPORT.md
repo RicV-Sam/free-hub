@@ -1,5 +1,11 @@
 # FreeHub: Full Repository Audit & Strategy Report
 
+## Update Addendum (May 2026)
+- Legacy crawled competition URLs and `/out/*` routes are now preserved to avoid hard 404 regressions.
+- Hero/card image fallback flow has been updated to prefer competition and brand-associated imagery before fallback photos.
+- A build-time image QA guardrail now fails generation if rendered SVG data-URI hero/card images are reintroduced.
+- This report remains useful for roadmap context, but stack and implementation details below may be historical.
+
 ## 1. Executive Summary
 FreeHub is a South Africa-focused competition aggregation site built on a lightweight static architecture. The project demonstrates strong potential for high-volume SEO traffic due to its clean data source (100+ active competitions) and fast-loading static pages. However, the project was found in a "broken build" state where competition detail pages were not being generated due to code errors. This audit identifies critical fixes (already implemented) and provides a roadmap to transform FreeHub from a POC into a scalable monetisation engine.
 
