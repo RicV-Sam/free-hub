@@ -573,5 +573,28 @@
     "verificationStatus": "published",
     "archivedAt": "2026-05-12",
     "archiveReason": "expired"
+  },
+  {
+    "id": "mr-price-wardrobe-refresh-vouchers",
+    "title": "Mr Price Wardrobe Refresh Vouchers",
+    "brand": "Mr Price",
+    "category": "Vouchers",
+    "entryType": "App",
+    "closingDate": "2026-05-12",
+    "url": "https://www.mrp.com/competitions/wardrobe-refresh-vouchers-2026",
+    "summary": "Shop on the Mr Price app and opt in to the competition tile to submit your entry. You could win a R20,000 Mr Price voucher, plus weekly R1,000 vouchers to keep your wardrobe moving.",
+    "tags": [
+      "app-entry",
+      "app-only",
+      "vouchers",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ],
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "voucher",
+    "archivedAt": "2026-05-13",
+    "archiveReason": "expired"
   }
 ]
