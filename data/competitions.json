@@ -238,7 +238,8 @@
     "prizeValueCurrency": "ZAR",
     "prizeType": "voucher",
     "termsUrl": "https://www.dischem.co.za/vaseline-cera-glow-may-2026-competition",
-    "verificationStatus": "published"
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking."
   },
   {
     "id": "game-home-theatre-mega-upgrade",
@@ -296,9 +297,10 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "holiday"
+    "prizeType": "holiday",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "makro-cash-draw",
@@ -335,8 +337,9 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published",
-    "prizeType": "tech"
+    "verificationStatus": "needs-verification",
+    "prizeType": "tech",
+    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking."
   },
   {
     "id": "travelstart-local-holiday",
@@ -373,9 +376,10 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "voucher"
+    "prizeType": "voucher",
+    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking."
   },
   {
     "id": "mtn-momo-cash-sprint",
@@ -477,9 +481,10 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "tech"
+    "prizeType": "tech",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "telkom-upgrade-to-win-voucher-drop",
@@ -496,9 +501,10 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "voucher"
+    "prizeType": "voucher",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "cell-c-recharge-r50k-cash",
@@ -517,8 +523,9 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
-    "purchaseRequired": true
+    "verificationStatus": "needs-verification",
+    "purchaseRequired": true,
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "fnb-ebucks-kruger-safari-giveaway",
@@ -536,9 +543,10 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "holiday"
+    "prizeType": "holiday",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "standard-bank-save-win-r200k",
@@ -556,9 +564,10 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "cash"
+    "prizeType": "cash",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "absa-rewards-weekend-away",
@@ -576,9 +585,10 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "holiday"
+    "prizeType": "holiday",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "capitec-pay-daymaker-cash-draw",
@@ -597,9 +607,10 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "cash"
+    "prizeType": "cash",
+    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking."
   },
   {
     "id": "avo-by-nedbank-shopping-voucher-giveaway",
@@ -616,9 +627,10 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "voucher"
+    "prizeType": "voucher",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "discovery-vitality-local-getaway-challenge",
@@ -636,8 +648,9 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published",
-    "prizeType": "holiday"
+    "verificationStatus": "needs-verification",
+    "prizeType": "holiday",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "discovery-bank-tap-to-win-cashback",
@@ -656,9 +669,10 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "cash"
+    "prizeType": "cash",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "boxer-nedbank-greenbacks",
@@ -698,7 +712,8 @@
       "weekly-draw"
     ],
     "verificationStatus": "published",
-    "prizeType": "cash"
+    "prizeType": "cash",
+    "verificationNote": "Restored to published on 2026-05-14 after manual browser verification confirmed the Freehub outbound URL resolved to a valid competition flow."
   },
   {
     "id": "sanlam-plan-win-mauritius",
@@ -735,7 +750,8 @@
       "weekly-draw"
     ],
     "verificationStatus": "published",
-    "purchaseRequired": true
+    "purchaseRequired": true,
+    "verificationNote": "Restored to published on 2026-05-14 after manual browser verification confirmed the Freehub outbound URL resolved to a valid competition flow."
   },
   {
     "id": "shell-v-rewards-mozambique-escape",
@@ -753,9 +769,10 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "holiday"
+    "prizeType": "holiday",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "kfc-app-cash-crunch",
@@ -774,8 +791,9 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
-    "purchaseRequired": true
+    "verificationStatus": "needs-verification",
+    "purchaseRequired": true,
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "talk-to-nandos-monthly-voucher-draw",
@@ -793,8 +811,9 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
-    "purchaseRequired": true
+    "verificationStatus": "needs-verification",
+    "purchaseRequired": true,
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "castle-lager-rugby-away-day",
@@ -811,8 +830,9 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published",
-    "prizeType": "holiday"
+    "verificationStatus": "needs-verification",
+    "prizeType": "holiday",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "castle-lite-ultimate-home-viewing",
@@ -829,8 +849,9 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published",
-    "prizeType": "tech"
+    "verificationStatus": "needs-verification",
+    "prizeType": "tech",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "south-africa-tourism-mzansi-moments-photo-challenge",
@@ -865,9 +886,10 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "holiday"
+    "prizeType": "holiday",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "travelstart-long-weekend-lucky-draw",
@@ -884,8 +906,9 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published",
-    "prizeType": "holiday"
+    "verificationStatus": "needs-verification",
+    "prizeType": "holiday",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "shoprite-money-market-payday-cash-drop",
@@ -903,9 +926,10 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "cash"
+    "prizeType": "cash",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "checkers-xtra-savings-swipe-win",
@@ -923,9 +947,10 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "voucher"
+    "prizeType": "voucher",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "woolworths-tech-for-good-giveaway",
@@ -1000,9 +1025,10 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "tech"
+    "prizeType": "tech",
+    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking."
   },
   {
     "id": "mr-price-home-room-refresh-voucher",
@@ -1040,8 +1066,9 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published",
-    "prizeType": "voucher"
+    "verificationStatus": "needs-verification",
+    "prizeType": "voucher",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "foschini-tech-fashion-upgrade",
@@ -1059,9 +1086,10 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "tech"
+    "prizeType": "tech",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "edgars-monthly-voucher-winners",
@@ -1080,9 +1108,10 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "voucher"
+    "prizeType": "voucher",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "takealot-victoria-falls-getaway",
@@ -1099,8 +1128,9 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published",
-    "prizeType": "holiday"
+    "verificationStatus": "needs-verification",
+    "prizeType": "holiday",
+    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking."
   },
   {
     "id": "superbalist-apple-backpack-tech-bundle",
@@ -1117,8 +1147,9 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published",
-    "prizeType": "tech"
+    "verificationStatus": "needs-verification",
+    "prizeType": "tech",
+    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking."
   },
   {
     "id": "game-win-your-cart-back",
@@ -1156,9 +1187,10 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "tech"
+    "prizeType": "tech",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "mtn-app-travel-treat",
@@ -1195,9 +1227,10 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "cash"
+    "prizeType": "cash",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "telkom-fibre-tech-upgrades",
@@ -1215,9 +1248,10 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "tech"
+    "prizeType": "tech",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "cell-c-takealot-voucher-giveaway",
@@ -1235,9 +1269,10 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "voucher"
+    "prizeType": "voucher",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "fnb-pay-to-win-grand-cash-prize",
@@ -1256,9 +1291,10 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "cash"
+    "prizeType": "cash",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "standard-bank-mastercard-zanzibar-getaway",
@@ -1275,9 +1311,10 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "holiday"
+    "prizeType": "holiday",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "absa-rewards-cash-back-draw",
@@ -1295,9 +1332,10 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "cash"
+    "prizeType": "cash",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "capitec-live-better-voucher-rewards",
@@ -1316,8 +1354,9 @@
       "free-entry",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
-    "prizeType": "voucher"
+    "verificationStatus": "needs-verification",
+    "prizeType": "voucher",
+    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking."
   },
   {
     "id": "nedbank-greenbacks-holiday-giveaway",
@@ -1334,9 +1373,10 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "holiday"
+    "prizeType": "holiday",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "discovery-vitality-move-for-cash",
@@ -1355,8 +1395,9 @@
       "free-entry",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
-    "prizeType": "cash"
+    "verificationStatus": "needs-verification",
+    "prizeType": "cash",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "old-mutual-rewards-update-win-vouchers",
@@ -1374,7 +1415,8 @@
       "free-entry",
       "weekly-draw"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "needs-verification",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "sanlam-money-smart-cash-prize",
@@ -1410,9 +1452,10 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "holiday"
+    "prizeType": "holiday",
+    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking."
   },
   {
     "id": "engen-1app-cash-back-draw",
@@ -1452,9 +1495,10 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "tech"
+    "prizeType": "tech",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "kfc-rewards-voucher-drop",
@@ -1473,9 +1517,10 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "voucher"
+    "prizeType": "voucher",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "nandos-peri-peri-road-trip",
@@ -1493,9 +1538,10 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "holiday"
+    "prizeType": "holiday",
+    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking."
   },
   {
     "id": "castle-lager-braai-cash-giveaway",
@@ -1513,8 +1559,9 @@
       "free-entry",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
-    "prizeType": "cash"
+    "verificationStatus": "needs-verification",
+    "prizeType": "cash",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "sab-festival-vip-weekend",
@@ -1531,8 +1578,9 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published",
-    "prizeType": "holiday"
+    "verificationStatus": "needs-verification",
+    "prizeType": "holiday",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "toyota-roadtrip-tech-pack-giveaway",
@@ -1567,8 +1615,9 @@
       "free-entry",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
-    "prizeType": "cash"
+    "verificationStatus": "needs-verification",
+    "prizeType": "cash",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "sixty60-getaway-giveaway",
@@ -1586,9 +1635,10 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "prizeType": "holiday"
+    "prizeType": "holiday",
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
   },
   {
     "id": "clicks-sorbet-voucher-2026",
@@ -2275,7 +2325,7 @@
     "termsUrl": "https://secure.rewards.oldmutual.co.za/web/om/win-on-repeat-faqs",
     "sourceDomain": "oldmutual.co.za",
     "lastChecked": "2026-05-10",
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee; OM Bank account, qualifying product and R30+ transactions required",
     "purchaseRequired": true,
@@ -2284,7 +2334,8 @@
     "requiredProduct": "OM Bank account, Old Mutual Rewards membership and qualifying Old Mutual product",
     "entryChannel": "OM Bank card/account transactions and DebiCheck mandate",
     "eligibility": "South African citizens or permanent residents aged 18+ with qualifying Old Mutual products",
-    "region": "South Africa"
+    "region": "South Africa",
+    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking."
   },
   {
     "id": "shoprite-drive-away-in-a-toyota-starlet",
