@@ -541,13 +541,9 @@ function main() {
   );
   runDataSafetyChecks(validCompetitions);
   const publishedCompetitions = shared.getPublishedCompetitions(validCompetitions);
-  const legacyCompetitions = [
-    ...validCompetitions.filter((competition) => competition.verificationStatus !== "published"),
-    ...archivedCompetitions,
-  ];
-  const allCompetitions = mergeCompetitionsBySlug([...publishedCompetitions, ...legacyCompetitions]);
-  brandImageLookup = buildBrandImageLookup(allCompetitions);
-  const validSlugs = new Set(allCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
+  const publicPageCompetitions = mergeCompetitionsBySlug([...publishedCompetitions, ...archivedCompetitions]);
+  brandImageLookup = buildBrandImageLookup(publicPageCompetitions);
+  const validSlugs = new Set(publicPageCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
   removeStaleCompetitionDirectories(validSlugs);
   const competitions = publishedCompetitions.filter((competition) => !isExpired(competition.closingDate));
   const generatedBrandPages = shared.getGeneratedBrandPageDefinitions(competitions);
@@ -572,7 +568,7 @@ function main() {
     fs.writeFileSync(path.join(outputDirectory, "index.html"), html);
   });
 
-  allCompetitions.forEach((competition) => {
+  publicPageCompetitions.forEach((competition) => {
     const html =
       isActivePublishedCompetition(competition)
         ? renderCompetitionPage(competition, competitions, generatedBrandSlugs)
@@ -584,7 +580,7 @@ function main() {
     fs.writeFileSync(path.join(outputDirectory, "index.html"), html);
   });
 
-  allCompetitions.forEach((competition) => {
+  publicPageCompetitions.forEach((competition) => {
     const html = renderOutPage(competition);
     const slug = shared.getCompetitionSlug(competition);
     const outputDirectory = path.join(ROOT_DIR, "out", slug);

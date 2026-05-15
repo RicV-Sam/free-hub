@@ -1,0 +1,11 @@
+{
+  "name": "free-hub-static",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "generate": "node scripts/generate-pages.js",
+    "import:held-candidates": "node scripts/import-held-candidates.js",
+    "validate:held-candidates": "node scripts/validate-held-candidates.js",
+    "test": "node scripts/validate-held-candidates.js --allow-missing"
+  }
+}
