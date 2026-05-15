@@ -5,7 +5,6 @@
     "brand": "Clicks",
     "summary": "This Clicks-linked electronics promotion is centered on iPads, making it a solid tech prize for shoppers who want a recognisable brand reward. It also brings some urgency because the closing date is one of the nearer ones in the dataset.",
     "entrySteps": "Open the official promotion listing, read the participation rules, and submit your qualifying entry before it closes.",
-    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/a75/abe/69aa75abef820482364103.jpg",
     "closingDate": "2026-04-22",
     "category": "Tech",
     "entryType": "In-store Purchase",
@@ -18,9 +17,11 @@
     ],
     "isHighValue": true,
     "isEndingSoon": true,
-    "url": "https://www.winsomething.co.za/win/electronics/109",
+    "url": "https://clicks.co.za/clubcard/competitions/bright-smiles-bright-future-competition",
     "archivedAt": "2026-04-24",
-    "archiveReason": "expired"
+    "archiveReason": "expired",
+    "sourceUrl": "https://clicks.co.za/clubcard/competitions/bright-smiles-bright-future-competition",
+    "sourceDomain": "clicks.co.za"
   },
   {
     "id": "sta-soft-luxury-getaway",
@@ -28,7 +29,6 @@
     "brand": "Sta Soft",
     "summary": "Sta Soft is running a luxury getaway competition tied to Clicks, which gives the holidays section a premium but still accessible prize. It is a strong example of a retail promo that feels aspirational without being too niche.",
     "entrySteps": "Visit the competition page, confirm the qualifying purchase path, and complete the official entry steps before the cutoff.",
-    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/a73/69e/69aa7369e8eaf874903246.jpg",
     "closingDate": "2026-04-22",
     "category": "Holidays",
     "entryType": "In-store Purchase",
@@ -41,9 +41,11 @@
     ],
     "isHighValue": true,
     "isEndingSoon": true,
-    "url": "https://www.winsomething.co.za/win/travel/108",
+    "url": "https://clicks.co.za/clubcard/competitions/sta-soft-clicks-in-store-luxury-getaway-competition",
     "archivedAt": "2026-04-24",
-    "archiveReason": "expired"
+    "archiveReason": "expired",
+    "sourceUrl": "https://clicks.co.za/clubcard/competitions/sta-soft-clicks-in-store-luxury-getaway-competition",
+    "sourceDomain": "clicks.co.za"
   },
   {
     "id": "spar-winter-warmers-escape",
@@ -158,7 +160,6 @@
     "brand": "Nestlé NIDO",
     "summary": "Nestlé's NIDO campaign is built around Clicks cashback, making it useful for shoppers who prefer practical rewards they can actually use. It is a good example of a retail-linked prize that still feels low-friction to enter.",
     "entrySteps": "Visit the competition page, confirm the qualifying purchase details, and follow the brand's listed entry process.",
-    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/a7c/7c1/69aa7c7c1a73e808200361.jpg",
     "closingDate": "2026-04-30",
     "category": "Cash",
     "entryType": "In-store Purchase",
@@ -170,10 +171,13 @@
     ],
     "isHighValue": false,
     "isEndingSoon": true,
-    "url": "https://www.winsomething.co.za/win/vouchers/111",
+    "url": "https://clicks.co.za/clubcard/competitions/nestle-nido3-grow-with-love-campaign-competition",
     "verificationStatus": "published",
     "archivedAt": "2026-05-01",
-    "archiveReason": "expired"
+    "archiveReason": "expired",
+    "sourceUrl": "https://clicks.co.za/clubcard/competitions/nestle-nido3-grow-with-love-campaign-competition",
+    "termsUrl": "https://www.nestle-esar.com/nestle-nido-3-grow-love-campaign-2026",
+    "sourceDomain": "clicks.co.za"
   },
   {
     "id": "gummy-vites-back-to-school",
@@ -181,7 +185,6 @@
     "brand": "Gummy Vites",
     "summary": "Gummy Vites is offering a family travel voucher, which gives the holidays section another practical local getaway option. It is a useful mid-range travel prize rather than an ultra-luxury destination draw.",
     "entrySteps": "Open the listing, review the promo mechanics, and complete the required store or brand entry steps.",
-    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69a/a83/832/69aa83832bfb1871744706.jpg",
     "closingDate": "2026-04-30",
     "category": "Holidays",
     "entryType": "In-store Purchase",
@@ -193,10 +196,12 @@
     ],
     "isHighValue": false,
     "isEndingSoon": true,
-    "url": "https://www.winsomething.co.za/win/travel/114",
+    "url": "https://gummyvites.co.za/landing/back-to-school-competition-terms-and-conditions/",
     "verificationStatus": "published",
     "archivedAt": "2026-05-01",
-    "archiveReason": "expired"
+    "archiveReason": "expired",
+    "sourceUrl": "https://gummyvites.co.za/landing/back-to-school-competition-terms-and-conditions/",
+    "sourceDomain": "gummyvites.co.za"
   },
   {
     "id": "standard-bank-credit-card-spend-back-april",
@@ -424,7 +429,6 @@
     "brand": "MSC Cruises",
     "summary": "This travel promotion offers a cruise prize instead of a simple voucher, which makes it one of the stronger holiday-style entries on the hub. It is a clear fit for users chasing experience-led rewards.",
     "entrySteps": "Open the campaign page, review the purchase or entry requirements, and complete the steps listed by the promoter.",
-    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69d/20c/cb1/69d20ccb13864518324858.jpg",
     "closingDate": "2026-05-06",
     "category": "Holidays",
     "entryType": "In-store Purchase",
@@ -436,10 +440,12 @@
     ],
     "isHighValue": true,
     "isEndingSoon": false,
-    "url": "https://www.winsomething.co.za/win/travel/118",
+    "url": "https://sasolrewards.co.za/offers/MOF_501",
     "verificationStatus": "published",
     "archivedAt": "2026-05-07",
-    "archiveReason": "expired"
+    "archiveReason": "expired",
+    "sourceUrl": "https://sasolrewards.co.za/offers/MOF_501",
+    "sourceDomain": "sasolrewards.co.za"
   },
   {
     "id": "dis-chem-wellness-cash-dash",
@@ -476,7 +482,6 @@
       "Check the official SPAR page for participating products across SPAR, TOPS at SPAR, SPAR2U, SPAR Express and SaveMor.",
       "Enter before the competition closes on 10 May 2026."
     ],
-    "image": "https://www.winsomething.co.za/storage/app/uploads/public/69d/209/fec/69d209fec0e89679269419.jpg",
     "closingDate": "2026-05-10",
     "category": "Cars",
     "prizeName": "1 of 50 Hyundai EXTER Cars",

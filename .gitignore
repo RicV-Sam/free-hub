@@ -30,3 +30,7 @@ report-a-competition/
 # Verification artifacts
 verification/
 *.log
+
+# Private research notes and lead discovery
+.research/
+*.research.json

@@ -23,8 +23,8 @@ const {
 } = window.FreeHubShared;
 
 const INLINE_AD_INTERVAL = 6;
-const SPONSORED_OFFER_URL = "https://example.com/sponsored-offer";
-const STICKY_AD_URL = "https://example.com/mobile-sponsored-offer";
+const SPONSORED_OFFER_URL = "";
+const STICKY_AD_URL = "";
 const PAGE_AD_PLACEMENTS = [
   { id: "ad-top", placement: "top" },
   { id: "ad-middle", placement: "middle" },
@@ -151,6 +151,10 @@ function setupStickyAd() {
   });
 
   elements.stickyAdCta.addEventListener("click", () => {
+    if (!STICKY_AD_URL) {
+      return;
+    }
+
     openSponsoredOffer("sticky", STICKY_AD_URL);
   });
 }
