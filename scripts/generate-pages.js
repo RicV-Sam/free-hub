@@ -824,12 +824,49 @@ function isEndingSoonHub(routeContext) {
   return routeContext.type === "hub" && routeContext.slug === "competitions-ending-soon";
 }
 
+function isWinACarHub(routeContext) {
+  return routeContext.type === "hub" && routeContext.slug === "win-a-car";
+}
+
+function isFlagshipSeoHub(routeContext) {
+  return isEndingSoonHub(routeContext) || isWinACarHub(routeContext);
+}
+
 function renderHubUpdatedNotice(routeContext) {
-  if (!isEndingSoonHub(routeContext)) {
+  if (!isFlagshipSeoHub(routeContext)) {
     return "";
   }
 
-  return `<p class="hero__updated">Updated ${escapeHtml(shared.formatDate(BUILD_DATE_ISO))}</p>`;
+  return `<p class="hero__updated">Updated: ${escapeHtml(shared.formatDate(BUILD_DATE_ISO))}</p>`;
+}
+
+function renderHubIntroEditorial(routeContext) {
+  if (isEndingSoonHub(routeContext)) {
+    return `<section class="seo-copy-block seo-copy-block--intro" aria-label="About competitions ending this week">
+          <h2 class="seo-copy-block__title">Current competitions closing soon</h2>
+          <div class="seo-copy-block__content hub-editorial">
+            <section class="hub-editorial__section">
+              <p>This page is built for South African competitions with near deadlines. Listings are sorted by closing date so the most urgent opportunities appear first.</p>
+              <p>Freehub sources listing details from official promoter pages where available, including the entry route, closing date, prize type and any visible cost signal. Freehub does not run the competitions, collect entries, choose winners or process payments.</p>
+              <p>Some competitions may require purchases, receipts, app installs, paid tickets, accounts, loyalty cards or other qualifying actions. Use each Freehub card as a starting point, then confirm the full terms on the official promoter source before entering.</p>
+            </section>
+          </div>
+        </section>`;
+  }
+
+  if (isWinACarHub(routeContext)) {
+    return `<section class="seo-copy-block seo-copy-block--intro" aria-label="About win a car competitions">
+          <h2 class="seo-copy-block__title">Current vehicle giveaways in one place</h2>
+          <div class="seo-copy-block__content hub-editorial">
+            <section class="hub-editorial__section">
+              <p>This hub groups published South African car competitions, vehicle giveaways, SUV promotions, bakkie draws and luxury car prize campaigns where Freehub has enough source information to list them.</p>
+              <p>Freehub is not the promoter. We organise the listing details and link you to the official source so you can check the vehicle model, entry method, cost, draw rules and closing date before entering.</p>
+            </section>
+          </div>
+        </section>`;
+  }
+
+  return "";
 }
 
 function renderEndingSoonEditorial(routeContext) {
@@ -841,8 +878,9 @@ function renderEndingSoonEditorial(routeContext) {
           <h2 class="seo-copy-block__title">How to use competitions ending this week</h2>
           <div class="seo-copy-block__content hub-editorial">
             <section class="hub-editorial__section">
-              <h3>Why ending-soon competitions are worth checking</h3>
-              <p>Competitions close quickly, and some South African promoters only keep entry forms open until a specific date or time. This page helps you prioritise current competitions with the nearest deadlines before browsing the wider <a href="/competitions/">competitions</a> hub.</p>
+              <h3>Why ending-soon competitions matter</h3>
+              <p>Competition entry forms often close at a fixed date and time, and some promoters remove the form as soon as the deadline passes. Checking closing-soon listings first helps you avoid missing current competitions while they are still open.</p>
+              <p>This page keeps the focus on published, non-expired listings. For the full active index, browse the wider <a href="/competitions/">competitions</a> hub.</p>
               <p>If you want a narrower starting point, compare <a href="/free-competitions/">free competitions</a>, <a href="/purchase-required-competitions/">purchase required competitions</a>, or category pages for <a href="/category/cars/">cars</a>, <a href="/category/cash/">cash</a>, <a href="/category/vouchers/">vouchers</a>, <a href="/category/holidays/">holidays</a> and <a href="/category/tech/">tech</a>.</p>
             </section>
             <section class="hub-editorial__section">
@@ -855,20 +893,60 @@ function renderEndingSoonEditorial(routeContext) {
               </ul>
             </section>
             <section class="hub-editorial__section">
-              <h3>Cost labels explained</h3>
+              <h3>Understanding entry labels</h3>
               <ul class="hub-editorial__list">
                 <li><strong>Free entry:</strong> no required product purchase or paid ticket is shown in the listing.</li>
                 <li><strong>Purchase required:</strong> you may need a qualifying product, minimum spend, receipt or proof of purchase.</li>
                 <li><strong>Paid entry:</strong> the promotion appears to require a paid ticket, raffle entry or similar paid participation.</li>
-                <li><strong>Account required:</strong> you may need a promoter, retailer, loyalty or platform account before entry.</li>
                 <li><strong>App required:</strong> entry is completed through the promoter's official app or app-linked flow.</li>
                 <li><strong>Till slip required:</strong> keep the receipt because it may be needed for entry validation or prize claims.</li>
+                <li><strong>Account required:</strong> you may need a promoter, retailer, loyalty or platform account before entry.</li>
               </ul>
               <p>For a fuller breakdown, read the <a href="/competition-entry-cost-labels/">competition entry cost labels guide</a>.</p>
             </section>
             <section class="hub-editorial__section">
-              <h3>Freehub's role</h3>
-              <p>Freehub does not run these competitions, choose winners, collect entries or process payments. We list useful competition information and send you to the official promoter source so you can read the current terms and enter there.</p>
+              <h3>How Freehub verifies competitions</h3>
+              <p>Freehub checks that a listing has enough source information to publish, including a promoter source, closing date, prize cue and entry method where available. Listings that are unclear can be held for verification instead of appearing on public hub pages.</p>
+              <p>Verification does not mean Freehub runs the competition or guarantees the prize. The official promoter remains responsible for entries, winner selection and prize fulfilment. Read more about <a href="/how-we-verify-competitions/">how Freehub checks listings</a>.</p>
+            </section>
+          </div>
+        </section>`;
+}
+
+function renderWinACarEditorial(routeContext) {
+  if (!isWinACarHub(routeContext)) {
+    return "";
+  }
+
+  return `<section class="seo-copy-block seo-copy-block--hub" aria-label="Guide to win a car competitions">
+          <h2 class="seo-copy-block__title">How to compare car competitions</h2>
+          <div class="seo-copy-block__content hub-editorial hub-editorial--split">
+            <section class="hub-editorial__section">
+              <h3>Why car competitions are popular</h3>
+              <p>Vehicle giveaways attract strong interest because the prize is practical, high value and easy to understand. South African car competitions can include hatchbacks, SUVs, bakkies, luxury vehicles, fuel-linked prizes or cash alternatives.</p>
+            </section>
+            <section class="hub-editorial__section">
+              <h3>Free vs paid-entry car competitions</h3>
+              <p>Free-entry car competitions usually involve an online form, account action, loyalty-card step or brand promotion. Paid-entry competitions may use tickets, raffle-style entries or a paid campaign platform. Freehub labels the likely entry route, but the promoter terms are the source of truth.</p>
+              <p>Compare free listings with <a href="/free-competitions/">free competitions</a> or paid-ticket mechanics with <a href="/paid-entry-competitions/">paid entry competitions</a>.</p>
+            </section>
+            <section class="hub-editorial__section">
+              <h3>What to check before entering</h3>
+              <ul class="hub-editorial__list">
+                <li>The exact vehicle model, derivative, colour, year and whether a cash alternative is offered.</li>
+                <li>Whether you need a purchase, till slip, account, rewards card, app install, SMS, WhatsApp entry or paid ticket.</li>
+                <li>The closing date, draw date, winner notification method and how long the promoter gives winners to respond.</li>
+                <li>Whether you need a valid driver's licence, South African ID, proof of residence or a specific province or store purchase.</li>
+              </ul>
+            </section>
+            <section class="hub-editorial__section">
+              <h3>Common car competition mechanics in South Africa</h3>
+              <p>Promoters often use till-slip uploads, unique codes, loyalty-card swipes, finance applications, charity tickets, app tasks, social follows, online forms or in-store product purchases. If the route costs money, pay only through the official promoter or ticketing partner.</p>
+            </section>
+            <section class="hub-editorial__section">
+              <h3>Important promoter terms users should check</h3>
+              <p>Check registration, licensing, insurance, delivery, collection, taxes, transfer fees, roadworthy costs and prize substitution rules. Freehub lists competitions but does not operate them, so final entry and prize conditions always sit with the promoter.</p>
+              <p>You can also compare urgent vehicle listings on <a href="/competitions-ending-soon/">competitions ending soon</a>, or browse adjacent prize categories such as <a href="/category/cash/">cash competitions</a> and <a href="/category/vouchers/">voucher competitions</a>.</p>
             </section>
           </div>
         </section>`;
@@ -1134,6 +1212,36 @@ function getCollectionFaqItems(routeContext) {
     ];
   }
 
+  if (isWinACarHub(routeContext)) {
+    return [
+      {
+        question: "Are car competitions legitimate?",
+        answer:
+          "Some car competitions are legitimate brand promotions, but users should check the promoter name, official source, terms, closing date and winner process before entering. Freehub lists competitions but does not run them.",
+      },
+      {
+        question: "Are paid-entry competitions worth entering?",
+        answer:
+          "Paid-entry competitions carry a real cost, so compare the ticket price, odds information where available, draw process, promoter reputation and terms before paying. Only use the official promoter or ticketing route.",
+      },
+      {
+        question: "Can free competitions really give away vehicles?",
+        answer:
+          "Yes, free-entry or purchase-linked promotions can include vehicle prizes when run by brands, retailers, charities or campaign partners. Always confirm the vehicle details and entry rules on the official source.",
+      },
+      {
+        question: "How are winners selected?",
+        answer:
+          "Winner selection depends on the promoter terms. It may be a random draw, audited draw, judging process, ticket draw or qualifying-entry mechanic. Freehub does not select winners.",
+      },
+      {
+        question: "What taxes or costs may apply?",
+        answer:
+          "Promoter terms should explain whether registration, licensing, insurance, delivery, transfer fees, roadworthy checks, fuel, travel or taxes are included. Check these costs before entering.",
+      },
+    ];
+  }
+
   if (routeContext.type === "hub" && routeContext.slug === "new-competitions-south-africa") {
     return [
       {
@@ -1282,6 +1390,10 @@ function getCollectionFaqTitle(routeContext) {
     return "Competitions ending soon FAQ";
   }
 
+  if (isWinACarHub(routeContext)) {
+    return "Win a car competitions FAQ";
+  }
+
   if (routeContext.type === "hub" && routeContext.slug === "new-competitions-south-africa") {
     return "New competitions FAQ";
   }
@@ -1421,6 +1533,7 @@ function renderPage(routeContext, competitions) {
         ${isCollectionPage ? renderCollectionBreadcrumb(pageCopy.heading) : ""}
 
         ${renderSupportSection(supportCopy)}
+        ${renderHubIntroEditorial(routeContext)}
 
         <nav class="category-nav" aria-label="Competition categories">
           ${CATEGORY_LINKS.map((link) => renderNavLink(link, routeContext.path)).join("\n          ")}
@@ -1477,6 +1590,7 @@ function renderPage(routeContext, competitions) {
 
         ${renderCategoryEditorial(routeContext, competitions)}
         ${renderEndingSoonEditorial(routeContext)}
+        ${renderWinACarEditorial(routeContext)}
         ${renderCollectionFaq(routeContext, collectionFaqItems)}
 
         ${renderThinPageTips(competitions)}
@@ -1863,10 +1977,15 @@ function getHubInternalLinks(slug) {
       { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
     ],
     "win-a-car": [
+      { label: "All competitions", href: "/competitions/" },
+      { label: "Free competitions", href: "/free-competitions/" },
+      { label: "Paid entry competitions", href: "/paid-entry-competitions/" },
+      { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
+      { label: "Cash competitions", href: "/category/cash/" },
+      { label: "Voucher competitions", href: "/category/vouchers/" },
       { label: "Browse competition brands", href: "/brands/" },
       { label: "Cars category", href: "/category/cars/" },
       { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
-      { label: "Paid entry competitions", href: "/paid-entry-competitions/" },
       { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
       { label: "Legit competitions guide", href: "/legit-competitions-south-africa/" },
     ],
@@ -1913,9 +2032,13 @@ function getHubInternalLinks(slug) {
       { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
     ],
   };
+  const titlesBySlug = {
+    "win-a-car": "Car Competition Jump Links",
+    "competitions-ending-soon": "Competition Deadline Jump Links",
+  };
 
   return {
-    title: "Related Competition Hubs",
+    title: titlesBySlug[slug] || "Related Competition Hubs",
     links: linksBySlug[slug] || HUB_LINKS,
   };
 }

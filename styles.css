@@ -2052,6 +2052,10 @@ button {
   padding: 1.15rem;
 }
 
+.seo-copy-block--intro {
+  border-left: 4px solid rgba(15, 118, 110, 0.44);
+}
+
 .seo-copy-block__content {
   display: grid;
   gap: 0.85rem;
@@ -2095,6 +2099,16 @@ button {
 
 .hub-editorial__list strong {
   color: var(--text);
+}
+
+@media (min-width: 900px) {
+  .hub-editorial--split {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hub-editorial--split .hub-editorial__section:last-child {
+    grid-column: 1 / -1;
+  }
 }
 
 .ad-slot {

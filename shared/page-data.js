@@ -255,14 +255,14 @@
         "Freehub does not run these competitions or collect entries. Always confirm the latest terms and deadlines on the official promoter page before entering.",
     },
     "win-a-car": {
-      title: "Win a Car in South Africa – Live Car Competitions | Freehub",
+      title: "Win a Car Competitions in South Africa | Freehub",
       description:
-        "Find live win-a-car competitions in South Africa. Compare car prizes, entry costs, purchase requirements, closing dates and official promoter links.",
+        "Browse current South African car competitions, vehicle giveaways, SUV competitions, bakkie promotions and luxury car prize draws with official entry links.",
       heading: "Win a Car Competitions in South Africa",
       intro:
-        "Browse current South African car competitions. Some are free-entry, some need a qualifying purchase, and others use paid tickets. Compare the entry cost and source details before entering.",
+        "Browse published South African car competitions and vehicle giveaways with closing dates, entry labels and official promoter links. Freehub lists the opportunities so you can compare them before entering on the promoter site.",
       support:
-        "Check official terms, driver’s licence requirements, qualifying purchase rules and closing dates on the promoter page. Freehub lists the competition and links you to the promoter.",
+        "Freehub does not run car competitions, sell entries or choose winners. Check the official terms for the vehicle model, licence requirements, purchase rules, draw process and any costs before entering.",
     },
     "free-competitions": {
       title: "Free Competitions South Africa – No Purchase Entry Giveaways | Freehub",
@@ -280,9 +280,9 @@
         "Find South African competitions ending soon, including car, cash, voucher, airtime, holiday and ticket giveaways. Updated regularly with official entry links.",
       heading: "Competitions Ending This Week in South Africa",
       intro:
-        "Browse current South African competitions that are closing soon, sorted by the nearest closing date first. Open each listing to check the entry cost, promoter details and official source before entering.",
+        "Find published South African competitions closing in the next seven days, sorted by the nearest closing date first. Use this page to prioritise current car, cash, voucher, airtime, holiday, ticket and tech giveaways before deadlines pass.",
       support:
-        "Competition deadlines can change. Always check the promoter's current deadline and terms before entering through the official source link.",
+        "Freehub lists competition information from official promoter pages and sends you to the source to enter. We do not run these competitions; some entries may require a purchase, receipt, app, account, paid ticket or qualifying action.",
     },
     "new-competitions-south-africa": {
       title: "New Competitions South Africa | Latest Giveaways This Week",
@@ -845,6 +845,16 @@
     return competitions.filter(isPublishedCompetition);
   }
 
+  function isActiveCompetition(competition) {
+    const daysUntilClosing = getDaysUntilClosing(competition && competition.closingDate);
+
+    return Number.isFinite(daysUntilClosing) && daysUntilClosing >= 0;
+  }
+
+  function getPublishedActiveCompetitions(competitions) {
+    return getPublishedCompetitions(competitions).filter(isActiveCompetition);
+  }
+
   function shouldShowHotBadge(competition) {
     return isClosingSoon(competition.closingDate) || isHighValueCompetition(competition);
   }
@@ -1019,7 +1029,7 @@
   }
 
   function filterCompetitionsByRoute(competitions, routeContext) {
-    const publishedCompetitions = getPublishedCompetitions(competitions);
+    const publishedCompetitions = getPublishedActiveCompetitions(competitions);
 
     if (routeContext.type === "category") {
       const targetCategory = CATEGORY_COPY[routeContext.slug].category;
@@ -1042,7 +1052,7 @@
   }
 
   function getHubFilteredCompetitions(competitions, slug) {
-    const publishedCompetitions = getPublishedCompetitions(competitions);
+    const publishedCompetitions = getPublishedActiveCompetitions(competitions);
     const sortedCompetitions = sortCompetitions(publishedCompetitions);
 
     if (slug === "competitions") {
@@ -1050,14 +1060,7 @@
     }
 
     if (slug === "win-a-car") {
-      return sortedCompetitions.filter((competition) => {
-        const tags = Array.isArray(competition.tags) ? competition.tags : [];
-        return (
-          competition.category === "Cars" ||
-          tags.includes("win-a-car") ||
-          normalizePrizeType(competition.prizeType) === "car"
-        );
-      });
+      return sortedCompetitions.filter(isVehicleRelatedCompetition);
     }
 
     if (slug === "free-competitions") {
@@ -1066,18 +1069,13 @@
 
     if (slug === "competitions-ending-soon") {
       return sortedCompetitions.filter((competition) => {
-        const tags = Array.isArray(competition.tags) ? competition.tags : [];
         const daysUntilClosing = getDaysUntilClosing(competition.closingDate);
 
         if (!Number.isFinite(daysUntilClosing) || daysUntilClosing < 0) {
           return false;
         }
 
-        return (
-          isClosingWithinDays(competition.closingDate, ENDING_SOON_TAG_DAYS) ||
-          competition.isEndingSoon === true ||
-          tags.includes("ending-soon")
-        );
+        return daysUntilClosing <= ENDING_SOON_TAG_DAYS;
       });
     }
 
@@ -1114,6 +1112,30 @@
     }
 
     return sortedCompetitions;
+  }
+
+  function isVehicleRelatedCompetition(competition) {
+    const tags = Array.isArray(competition.tags) ? competition.tags : [];
+    const prizeType = normalizePrizeType(competition.prizeType);
+    const searchableText = [
+      competition.title,
+      competition.summary,
+      competition.prizeName,
+      competition.requiredProduct,
+      tags.join(" "),
+    ]
+      .join(" ")
+      .toLowerCase();
+
+    return (
+      competition.category === "Cars" ||
+      prizeType === "car" ||
+      tags.includes("win-a-car") ||
+      tags.includes("cars") ||
+      /\b(win a car|car competition|vehicle giveaway|vehicle prize|motor vehicle|suv competition|bakkie competition)\b/.test(
+        searchableText
+      )
+    );
   }
 
   function isStrictFreeEntryCompetition(competition) {
@@ -1315,6 +1337,9 @@
     getCardTagLabels,
     isPublishedCompetition,
     getPublishedCompetitions,
+    isActiveCompetition,
+    getPublishedActiveCompetitions,
+    isVehicleRelatedCompetition,
     shouldShowHotBadge,
     isHighValueCompetition,
     sortCompetitions,
