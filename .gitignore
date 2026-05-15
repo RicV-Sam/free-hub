@@ -31,6 +31,8 @@ report-a-competition/
 verification/
 *.log
 data/backups/
+storage/exports/
+*.backup.json
 
 # Private research notes and lead discovery
 .research/

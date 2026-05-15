@@ -5,6 +5,7 @@
   "scripts": {
     "generate": "node scripts/generate-pages.js",
     "import:held-candidates": "node scripts/import-held-candidates.js",
+    "export:held-review": "node scripts/export-held-review.js",
     "validate:held-candidates": "node scripts/validate-held-candidates.js",
     "test": "node scripts/validate-held-candidates.js --allow-missing"
   }
