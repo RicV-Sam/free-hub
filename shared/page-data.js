@@ -955,7 +955,7 @@
   }
 
   function getTagFilteredCompetitions(competitions, tag) {
-    return getPublishedCompetitions(competitions).filter((competition) => {
+    return getPublishedActiveCompetitions(competitions).filter((competition) => {
       if (tag === "ending-soon" && typeof competition.isEndingSoon === "boolean") {
         return competition.isEndingSoon;
       }
@@ -1289,7 +1289,7 @@
     }
 
     const targetBrand = brandPage.brand.toLowerCase();
-    return sortCompetitions(getPublishedCompetitions(competitions)).filter(
+    return sortCompetitions(getPublishedActiveCompetitions(competitions)).filter(
       (competition) => String(competition.brand || "").trim().toLowerCase() === targetBrand
     );
   }

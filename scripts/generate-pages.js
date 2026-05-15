@@ -574,7 +574,7 @@ function main() {
 
   allCompetitions.forEach((competition) => {
     const html =
-      competition.verificationStatus === "published"
+      isActivePublishedCompetition(competition)
         ? renderCompetitionPage(competition, competitions, generatedBrandSlugs)
         : renderLegacyCompetitionPage(competition);
     const slug = shared.getCompetitionSlug(competition);
@@ -624,6 +624,10 @@ function mergeCompetitionsBySlug(competitions) {
   });
 
   return Array.from(bySlug.values());
+}
+
+function isActivePublishedCompetition(competition) {
+  return competition && competition.verificationStatus === "published" && !isExpired(competition.closingDate);
 }
 
 function getGeneratedRouteContexts(competitions, generatedBrandPages = []) {
@@ -3784,6 +3788,27 @@ function renderLegacyCompetitionPage(competition) {
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/competition/${slug}/`;
   const archiveDate = formatOptionalDate(competition.archivedAt);
   const closingDate = formatOptionalDate(competition.closingDate);
+  const sourceLink = sourceUrl
+    ? {
+        label: `Reference source: ${sourceDomain}`,
+        href: sourceUrl,
+        className: "btn--secondary",
+        target: "_blank",
+        rel: "nofollow noopener",
+      }
+    : null;
+  const actions = [
+    { label: "Browse current competitions", href: "/competitions/", className: "btn--primary" },
+    ...(sourceLink ? [sourceLink] : []),
+  ];
+  const sourceReferenceMarkup = sourceUrl
+    ? `<p class="state-card__text">
+            Official source reference:
+            <a href="${escapeAttribute(sourceUrl)}" rel="nofollow noopener" target="_blank">${escapeHtml(
+              sourceDomain
+            )}</a>
+          </p>`
+    : "";
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -3802,29 +3827,22 @@ function renderLegacyCompetitionPage(competition) {
     <div class="site-shell">
       ${renderModernHero({
         className: "hero--utility hero--closed-listing",
-        eyebrow: "Closed listing",
+        eyebrow: "Inactive listing",
         heading: title,
-        intro: "This listing is closed or no longer published on Freehub. Check the official promoter page for the latest campaign status.",
-        actions: [
-          { label: "Current Competitions", href: "/competitions/", className: "btn--primary" },
-          { label: "Official Source", href: sourceUrl, className: "btn--secondary", target: "_blank", rel: "nofollow noopener" },
-        ],
-        trustItems: ["Archived status", "No active entry shown", "Source details can change"],
+        intro: "This listing is not active on Freehub. It is kept as a legacy reference, but it is not shown as a current competition or open entry.",
+        actions,
+        trustItems: ["Not active on Freehub", "No active entry shown", "Source details can change"],
       })}
 
       <main class="main-content">
         <section class="state-card">
-          <p class="state-card__title">Competition not active on Freehub</p>
+          <p class="state-card__title">This listing is not active on Freehub</p>
           <p class="state-card__text">${closingDate ? `Original closing date: ${escapeHtml(closingDate)}. ` : ""}${
             archiveDate ? `Archived on ${escapeHtml(archiveDate)}. ` : ""
-          }Details can change at source.</p>
+          }Do not treat this page as open for entry. Browse current competitions instead.</p>
+          ${sourceReferenceMarkup}
           <p class="state-card__text">
-            <a href="${escapeAttribute(sourceUrl)}" rel="nofollow noopener" target="_blank">Open ${escapeHtml(
-              sourceDomain
-            )}</a>
-          </p>
-          <p class="state-card__text">
-            <a href="/">Browse current live competitions</a>
+            <a href="/competitions/">Browse current competitions</a>
           </p>
         </section>
       </main>
@@ -3963,7 +3981,7 @@ function getRelatedCompetitions(competition, allCompetitions) {
   const competitionTagSet = new Set(competition.tags || []);
 
   const scored = allCompetitions
-    .filter((c) => shared.getCompetitionSlug(c) !== currentSlug)
+    .filter((c) => shared.getCompetitionSlug(c) !== currentSlug && isActivePublishedCompetition(c))
     .map((c) => {
       let score = 0;
       if (c.category === competition.category) score += 2;
