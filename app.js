@@ -246,6 +246,11 @@ function renderCompetitions() {
   elements.competitionsGrid.innerHTML = "";
 
   if (filteredCompetitions.length === 0) {
+    setStateCardContent(
+      elements.emptyState,
+      "No competitions match",
+      "Try a different search term or clear the current category filter."
+    );
     elements.emptyState.classList.remove("state-card--hidden");
   } else {
     const cards = filteredCompetitions.map((competition) => createCompetitionCard(competition));
@@ -427,7 +432,8 @@ function createCompetitionCard(competition) {
   const tags = document.createElement("div");
   tags.className = "competition-card__tags";
 
-  getCardTagLabels(competition).forEach((label) => {
+  const tagLabels = getCardTagLabels(competition);
+  tagLabels.forEach((label) => {
     const tag = document.createElement("span");
     tag.className =
       label === getEntryMethodLabel(competition.entryType) ? "competition-card__entry" : "badge badge--soft";
@@ -439,8 +445,12 @@ function createCompetitionCard(competition) {
   cta.className = "competition-card__cta";
   cta.textContent = "View Details";
 
-  footer.append(tags);
-  body.append(footer, cta);
+  if (tagLabels.length > 0) {
+    footer.append(tags);
+    body.appendChild(footer);
+  }
+
+  body.appendChild(cta);
   article.append(media, body, overlayLink);
 
   return article;

@@ -18,14 +18,14 @@
   const CATEGORY_COPY = {
     cash: {
       category: "Cash",
-      title: "Cash Competitions South Africa | Win Cash Online South Africa",
+      title: "Cash Competitions in South Africa | Freehub",
       description:
-        "Browse cash competitions in South Africa and discover live prize draws, money giveaways and online cash offers with official source links.",
-      heading: "Free Cash Competitions You Can Enter Today",
+        "Browse current cash competitions in South Africa with closing dates, entry cost labels, purchase requirements and official source links.",
+      heading: "Cash Competitions in South Africa",
       intro:
-        "Browse the latest free-entry cash competitions in South Africa and stand a chance to win real money prizes without paying to enter. From everyday giveaways to bigger seasonal draws, this page helps you spot legit opportunities quickly.",
+        "Browse current cash competitions in South Africa and compare prize cues, closing dates, entry methods and cost labels before you open the official promoter page.",
       support:
-        "Free competitions are a big part of the South African prize space, but many offers expire fast or bury the entry rules. This page keeps the focus on no-cost cash competitions so you can browse with more confidence.",
+        "Cash competitions can be free entry, purchase-required, account-linked or paid-entry promotions. If you searched for cash competitions South Africa or win cash online South Africa, check each Freehub label and confirm the official terms before entering.",
     },
     cars: {
       category: "Cars",
@@ -62,14 +62,14 @@
     },
     vouchers: {
       category: "Vouchers",
-      title: "Free Voucher Competitions South Africa | Win Shopping Vouchers",
+      title: "Voucher Competitions in South Africa | Freehub",
       description:
-        "Browse free voucher competitions in South Africa and discover online giveaways for shopping and supermarket vouchers.",
-      heading: "Free Voucher Competitions You Can Enter Today",
+        "Browse current voucher competitions in South Africa, including shopping, grocery, airtime and retail voucher giveaways with official source links.",
+      heading: "Voucher Competitions in South Africa",
       intro:
-        "Browse free-entry voucher competitions in South Africa and enter for shopping credit, grocery rewards, and everyday savings without paying anything upfront. These no-cost competitions are useful if you want practical prizes that stretch further.",
+        "Browse current voucher competitions in South Africa and compare practical prize offers, entry methods, purchase requirements and closing dates before entering with the official promoter.",
       support:
-        "Voucher giveaways are especially relevant in South Africa because they are easy to use and often linked to familiar brands. This page keeps the listings focused on genuine free-entry offers so you can move quickly when new prizes appear.",
+        "Voucher giveaways can be free-entry, purchase-linked, app-based or account-linked. If you searched for voucher competitions South Africa, voucher giveaway offers, or Takealot competitions, use Freehub's cost labels first and use /free-competitions/ when you only want no-purchase listings.",
     },
   };
   const DEFAULT_COPY = {
@@ -678,6 +678,7 @@
     const prizeType = normalizePrizeType(competition.prizeType);
     const prizeName = getPrizeName(competition);
     const prizeValue = formatRandAmount(competition.prizeValueAmount);
+    const brand = String(competition.brand || "").trim();
 
     if (prizeType === "cash" && prizeValue) {
       return `${prizeValue} cash`;
@@ -693,15 +694,15 @@
 
     switch (prizeType) {
       case "car":
-        return "Car prize";
+        return brand ? `${brand} vehicle reward` : "Vehicle reward";
       case "cash":
-        return "Cash prize";
+        return brand ? `${brand} cash reward` : "Cash reward";
       case "voucher":
-        return "Voucher prize";
+        return brand ? `${brand} voucher reward` : "Voucher reward";
       case "holiday":
-        return "Holiday prize";
+        return brand ? `${brand} getaway` : "Getaway";
       case "tech":
-        return "Tech prize";
+        return brand ? `${brand} tech reward` : "Tech reward";
       case "retail":
         return "Retail prize";
       case "food-drink":
@@ -709,7 +710,7 @@
       case "experience":
         return "Experience prize";
       default:
-        return competition.isHighValue ? "High-value prize" : "Verified prize";
+        return brand ? `${brand} competition` : "Competition reward";
     }
   }
 
@@ -738,13 +739,13 @@
       case "car":
         return "Win a Car";
       case "cash":
-        return "Win Cash Prizes";
+        return competition.brand ? `Win ${competition.brand} cash rewards` : "Win cash rewards";
       case "voucher":
-        return "Win Shopping Vouchers";
+        return competition.brand ? `Win ${competition.brand} vouchers` : "Win vouchers";
       case "holiday":
-        return "Win a Holiday";
+        return competition.brand ? `Win a ${competition.brand} getaway` : "Win a getaway";
       case "tech":
-        return "Win Tech Prizes";
+        return competition.brand ? `Win ${competition.brand} tech rewards` : "Win tech rewards";
       case "retail":
         return "Win Retail Prizes";
       case "food-drink":
@@ -752,7 +753,7 @@
       case "experience":
         return "Win an Experience";
       default:
-        return "View Competition Details";
+        return competition.title || "Competition details";
     }
   }
 
@@ -844,8 +845,11 @@
     const tags = Array.isArray(competition.tags) ? competition.tags : [];
     const labels = new Set();
     const entryMethod = getEntryMethodLabel(competition.entryType);
-
-    labels.add(getEntryCostLabel(competition));
+    const addChannelLabel = (label, condition) => {
+      if (condition && label !== entryMethod) {
+        labels.add(label);
+      }
+    };
 
     if (isHighValueCompetition(competition) || tags.includes("high-value")) {
       labels.add("High Value");
@@ -855,25 +859,10 @@
       labels.add("Ending Soon");
     }
 
-    if (entryMethod === "App" || tags.includes("app")) {
-      labels.add("App");
-    }
-
-    if (entryMethod === "SMS" || tags.includes("sms")) {
-      labels.add("SMS");
-    }
-
-    if (entryMethod === "USSD" || tags.includes("ussd-entry")) {
-      labels.add("USSD");
-    }
-
-    if (entryMethod === "WhatsApp" || tags.includes("whatsapp-entry")) {
-      labels.add("WhatsApp");
-    }
-
-    if (tags.includes("purchase-required") || competition.purchaseRequired === true) {
-      labels.add("Purchase required");
-    }
+    addChannelLabel("App", entryMethod === "App" || tags.includes("app") || tags.includes("app-entry"));
+    addChannelLabel("SMS", entryMethod === "SMS" || tags.includes("sms") || tags.includes("sms-entry"));
+    addChannelLabel("USSD", entryMethod === "USSD" || tags.includes("ussd-entry"));
+    addChannelLabel("WhatsApp", entryMethod === "WhatsApp" || tags.includes("whatsapp-entry"));
 
     return Array.from(labels).slice(0, 5);
   }
@@ -881,7 +870,6 @@
   function getCardStatusLabels(competition) {
     const labels = new Set(["Verified"]);
     const daysUntilClosing = getDaysUntilClosing(competition && competition.closingDate);
-    const costLabel = getEntryCostLabel(competition || {});
 
     if (Number.isFinite(daysUntilClosing)) {
       if (daysUntilClosing === 0) {
@@ -890,8 +878,6 @@
         labels.add("Closing soon");
       }
     }
-
-    labels.add(toTitleCaseLabel(costLabel));
 
     if (isRecentlyCheckedCompetition(competition)) {
       labels.add("New");

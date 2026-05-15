@@ -1755,10 +1755,7 @@ function renderPage(routeContext, competitions) {
             ${cardsMarkup}
           </div>
 
-          <div id="emptyState" class="state-card state-card--hidden" aria-live="polite">
-            <p class="state-card__title">No competitions match</p>
-            <p class="state-card__text">Try a different search term or clear the current category filter.</p>
-          </div>
+          <div id="emptyState" class="state-card state-card--hidden" aria-live="polite"></div>
         </section>
 
         ${renderCategoryEditorial(routeContext, competitions)}
@@ -1993,11 +1990,17 @@ function renderCompetitionCard(competition, featured = false) {
   const urgencyBadge = `<span class="badge badge--closing">${escapeHtml(
     shared.getUrgencyBadgeLabel(competition.closingDate)
   )}</span>`;
-  const costBadge = `<span class="badge badge--soft">${escapeHtml(shared.getEntryCostLabel(competition))}</span>`;
   const tagBadges = shared
     .getCardTagLabels(competition)
     .map((label) => `<span class="badge badge--soft">${escapeHtml(label)}</span>`)
     .join("\n                    ");
+  const footerMarkup = tagBadges
+    ? `<div class="competition-card__footer">
+                  <div class="competition-card__tags">
+                    ${tagBadges}
+                  </div>
+                </div>`
+    : "";
   const summaryMarkup = competition.summary
     ? `<p class="competition-card__summary">${escapeHtml(competition.summary)}</p>`
     : "";
@@ -2053,12 +2056,7 @@ function renderCompetitionCard(competition, featured = false) {
                   <span>Entry: ${escapeHtml(entryMethodLabel)}</span>
                   <span>Closes: ${escapeHtml(shared.formatDate(competition.closingDate))}</span>
                 </div>
-                <div class="competition-card__footer">
-                  <div class="competition-card__tags">
-                    <span class="competition-card__entry">${escapeHtml(entryMethodLabel)}</span>
-                    ${tagBadges || costBadge}
-                  </div>
-                </div>
+                ${footerMarkup}
                 <span class="${ctaClass}">View Details</span>
               </div>
               <a class="competition-card__overlay-link" href="${escapeAttribute(internalPath)}" aria-label="${escapeAttribute(competition.title)} - view details">
@@ -2795,10 +2793,7 @@ ${noscriptLinks}
         <section class="competition-section" id="all-competitions">
           <div id="competitionsGrid" class="competition-grid" aria-live="polite"></div>
 
-          <div id="emptyState" class="state-card state-card--hidden" aria-live="polite">
-            <p class="state-card__title">No competitions match</p>
-            <p class="state-card__text">Try a different search term or clear the current category filter.</p>
-          </div>
+          <div id="emptyState" class="state-card state-card--hidden" aria-live="polite"></div>
         </section>
 
         ${renderAdZone("ad-middle", "after-results", true)}

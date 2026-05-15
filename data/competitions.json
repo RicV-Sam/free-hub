@@ -220,6 +220,7 @@
     "closingDate": "2026-05-15",
     "url": "https://www.game.co.za/cp/home-theatre-mega-upgrade-2026",
     "summary": "Spend any amount using your Game myStore Card in-store and you'll automatically qualify for entry. Win a 65-inch 4K TV plus soundbar bundle, with additional gadget spot prizes every week.",
+    "prizeName": "65-inch 4K TV plus soundbar bundle",
     "tags": [
       "in-store-entry",
       "electronics",
@@ -269,7 +270,8 @@
     "isHighValue": false,
     "isEndingSoon": false,
     "url": "https://www.makro.co.za/",
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "prizeType": "cash"
   },
   {
     "id": "travelstart-local-holiday",
@@ -300,6 +302,7 @@
     "closingDate": "2026-05-29",
     "url": "https://www.mtn.co.za/home/terms-and-conditions/content/momo-cash-sprint-2026",
     "summary": "Use MTN MoMo to pay or send money during the promo period and you'll be entered automatically. Stand a chance to win a R300,000 cash grand prize, plus smaller instant cash rewards for qualifying transactions.",
+    "prizeName": "R300,000 cash grand prize plus instant cash rewards",
     "tags": [
       "app-entry",
       "app-only",
@@ -362,6 +365,7 @@
     "isEndingSoon": false,
     "url": "https://www.suninternational.com/",
     "verificationStatus": "published",
+    "prizeName": "Sun International resort getaway",
     "prizeType": "holiday"
   },
   {
@@ -437,7 +441,8 @@
     "entryType": "Online",
     "closingDate": "2026-07-06",
     "url": "https://www.sanlam.co.za/campaigns/plan-and-win-mauritius-2026/",
-    "summary": "Want to win a holiday in South Africa style promotions? Get a qualifying online quote and submit your details to enter this holiday giveaway draw for a 7-night Mauritius trip for two, including flights and accommodation.",
+    "summary": "Get a qualifying online quote and submit your details to enter Sanlam's holiday giveaway draw for a 7-night Mauritius trip for two, including flights and accommodation.",
+    "prizeName": "7-night Mauritius trip for two",
     "tags": [
       "online-entry",
       "travel",
@@ -477,6 +482,7 @@
     "closingDate": "2026-08-01",
     "url": "https://www.southafrica.net/za/en/travel/page/mzansi-moments-photo-challenge-2026",
     "summary": "Upload your best South African travel moment and submit your entry online. The grand prize is a 10-night self-drive Garden Route holiday for two, including accommodation and activity vouchers.",
+    "prizeName": "10-night Garden Route holiday for two",
     "tags": [
       "online-entry",
       "travel",
@@ -495,6 +501,7 @@
     "closingDate": "2026-09-14",
     "url": "https://mtd.woolworths.co.za/tech-for-good-giveaway-2026",
     "summary": "Complete the featured MyDifference action and submit your entry online to qualify. Prizes include iPhone 16 devices and Woolworths gift cards, rewarding small actions that add up.",
+    "prizeName": "iPhone 16 devices and Woolworths gift cards",
     "tags": [
       "online-entry",
       "electronics",
@@ -514,6 +521,7 @@
     "closingDate": "2026-09-17",
     "url": "https://www.picknpay.co.za/campaigns/family-break-sun-city-2026",
     "summary": "Buy participating family favourites in-store and upload your till slip to enter. Win a 3-night Sun City holiday for four, including breakfast and activity vouchers.",
+    "prizeName": "3-night Sun City holiday for four",
     "tags": [
       "in-store-entry",
       "travel",
@@ -533,6 +541,7 @@
     "closingDate": "2026-09-21",
     "url": "https://clicks.co.za/competitions/view/clubcard-scan-win-2026",
     "summary": "Scan your ClubCard in the Clicks app on qualifying purchases to be entered. Stand a chance to win a R2,000 Clicks voucher, with weekly beauty hampers for additional winners.",
+    "prizeName": "R2,000 Clicks voucher plus weekly beauty hampers",
     "tags": [
       "app-entry",
       "app-only",
@@ -542,7 +551,8 @@
       "weekly-draw"
     ],
     "verificationStatus": "published",
-    "purchaseRequired": true
+    "purchaseRequired": true,
+    "prizeType": "voucher"
   },
   {
     "id": "mr-price-home-room-refresh-voucher",
@@ -552,6 +562,7 @@
     "entryType": "In-store",
     "closingDate": "2026-09-27",
     "url": "https://www.mrp.com/competitions/mrphome-room-refresh-voucher-2026",
+    "prizeName": "R10,000 Mr Price Home voucher plus weekly decor vouchers",
     "summary": "Spend R500 or more at Mr Price Home and enter using your till slip reference. One winner scores a R10,000 Mr Price Home voucher, with weekly décor vouchers up for grabs.",
     "tags": [
       "in-store-entry",
@@ -573,6 +584,7 @@
     "closingDate": "2026-10-16",
     "url": "https://www.game.co.za/cp/win-your-cart-back-2026",
     "summary": "Shop at Game, then SMS your receipt number to the shortcode shown in-store to enter. One winner each week wins back their shop as a Game voucher, up to R20,000.",
+    "prizeName": "Game voucher up to R20,000",
     "tags": [
       "sms-entry",
       "standard-rates",
@@ -594,6 +606,7 @@
     "closingDate": "2026-10-23",
     "url": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn-app-travel-treat-2026",
     "summary": "Complete the in-app challenge and opt in to enter the draw. Win a 3-night Cape Town winter escape for two, including flights and a curated experiences voucher.",
+    "prizeName": "3-night Cape Town winter escape for two",
     "tags": [
       "app-entry",
       "app-only",
@@ -613,6 +626,7 @@
     "closingDate": "2026-11-28",
     "url": "https://www.sanlam.co.za/campaigns/money-smart-cash-prize-2026/",
     "summary": "Complete the online Money Smart quiz and submit your details to enter. Stand a chance to win R100,000 cash, plus weekly cash rewards for participants who finish the full quiz series.",
+    "prizeName": "R100,000 cash plus weekly cash rewards",
     "tags": [
       "online-entry",
       "cash",
@@ -632,6 +646,7 @@
     "closingDate": "2026-12-05",
     "url": "https://www.engen.co.za/promotions/1app-cashback-draw-2026",
     "summary": "Pay for fuel via Engen 1App and collect stamps toward your automatic entry. Stand a chance to win R75,000 cash back, plus weekly fuel vouchers for active app users.",
+    "prizeName": "R75,000 cash back plus weekly fuel vouchers",
     "tags": [
       "app-entry",
       "app-only",
@@ -653,13 +668,15 @@
     "closingDate": "2026-12-24",
     "url": "https://www.toyota.co.za/connect/article/roadtrip-tech-pack-giveaway-2026",
     "summary": "Enter online and tell Toyota where you'd take your next road trip. Win a roadtrip tech pack with a dashcam, power bank, and navigation-ready accessories for safer travels.",
+    "prizeName": "Roadtrip tech pack with dashcam, power bank and navigation accessories",
     "tags": [
       "online-entry",
       "electronics",
       "everyday-prizes",
       "free-entry"
     ],
-    "verificationStatus": "published"
+    "verificationStatus": "published",
+    "prizeType": "tech"
   },
   {
     "id": "clicks-sorbet-voucher-2026",
@@ -669,6 +686,7 @@
     "entryType": "ClubCard",
     "closingDate": "2026-06-01",
     "url": "https://clicks.co.za/clubcard/competitions/clubcard-magazine-april-may-issue-of-2026-sorbet-voucher-competition",
+    "prizeName": "R2,000 Sorbet voucher",
     "summary": "ClubCard members can enter the April/May 2026 ClubCard magazine competition for a chance to win a Sorbet voucher worth R2,000.",
     "entrySteps": [
       "Open the Clicks ClubCard competition page for the April/May 2026 magazine issue.",
@@ -686,7 +704,10 @@
     "entryFeeLabel": "Free entry",
     "purchaseRequired": false,
     "entryChannel": "Clicks ClubCard competition page",
-    "region": "South Africa"
+    "region": "South Africa",
+    "prizeType": "voucher",
+    "prizeValueAmount": 2000,
+    "prizeValueCurrency": "ZAR"
   },
   {
     "id": "vodacom-spend-and-recharge-tfg-vouchers",
@@ -696,6 +717,7 @@
     "entryType": "In-store Purchase",
     "closingDate": "2026-07-15",
     "url": "https://www.vodacom.co.za/vodacom/terms/competition/accessory-spend-voucher",
+    "prizeName": "1 of 4 R10,000 TFG vouchers",
     "summary": "Buy a new Vodacom device and prepaid SIM at a participating TFG store, RICA and activate the SIM, then recharge with at least R29 on the day to stand a chance to win 1 of 4 R10,000 TFG vouchers.",
     "entrySteps": [
       "Buy a new Vodacom device and prepaid SIM card at a participating TFG store.",
@@ -727,6 +749,7 @@
     "entryType": "App / USSD / Contract Purchase",
     "closingDate": "2026-06-30",
     "url": "https://www.cellc.co.za/cellc/comrades",
+    "prizeName": "a share of R500,000 cash",
     "summary": "Buy qualifying MyConnecta prepaid deals, sign up or upgrade on eligible Elevate contracts, or top up qualifying contract bolt-ons to earn entries for Cell C's R500,000 cash promotion.",
     "entrySteps": [
       "Buy a qualifying MyConnecta personalised deal in the app, via *141#, or through the listed prepaid flow.",
@@ -757,6 +780,7 @@
     "entryType": "Social Media",
     "closingDate": "2026-06-30",
     "url": "https://www.fnb.co.za/about-fnb/legal-matters/promo-terms/Love-Fnb-Social-Media-Competition-Rules.pdf",
+    "prizeName": "Vouchers and eWallet prizes valued at R1.2 million",
     "summary": "Follow and engage with @FNBsa on social media for a chance to win from a prize pool of vouchers and eWallet prizes valued at R1.2 million, with selected campaign prizes also including devices, jerseys and tickets.",
     "entrySteps": [
       "Follow @FNBsa on FNB's supported social media accounts.",
@@ -776,7 +800,7 @@
     "purchaseRequired": false,
     "entryChannel": "FNB social media accounts",
     "region": "South Africa",
-    "prizeType": "cash"
+    "prizeType": "voucher"
   },
   {
     "id": "red-bull-symphonic-be-the-maestro",
