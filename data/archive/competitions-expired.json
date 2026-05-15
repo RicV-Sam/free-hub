@@ -642,5 +642,45 @@
     "region": "NAMPO Park, Bothaville, Free State",
     "archivedAt": "2026-05-14",
     "archiveReason": "expired"
+  },
+  {
+    "id": "istore-find-and-win-gift-card",
+    "title": "iStore Find and Win Competition - Win R5,000 Gift Cards",
+    "brand": "iStore South Africa",
+    "summary": "Find the competition badge on the iStore website and submit the official entry form for a chance to win 1 of 4 R5,000 iStore gift cards.",
+    "entrySteps": [
+      "Visit the iStore promotions terms page and follow the Find and Win instructions.",
+      "Find the badge on the iStore website during the competition period.",
+      "Complete the official entry form with where you found the badge.",
+      "Submit before the competition closes on 14 May 2026."
+    ],
+    "closingDate": "2026-05-14",
+    "category": "Vouchers",
+    "prizeName": "R5,000 iStore gift card",
+    "prizeType": "voucher",
+    "prizeValueAmount": 5000,
+    "prizeValueCurrency": "ZAR",
+    "numberOfPrizes": "4",
+    "entryType": "Online Form",
+    "tags": [
+      "vouchers",
+      "istore",
+      "free-entry",
+      "online-entry",
+      "tech"
+    ],
+    "url": "https://www.istore.co.za/promotions-terms-and-conditions",
+    "sourceUrl": "https://www.istore.co.za/promotions-terms-and-conditions",
+    "termsUrl": "https://www.istore.co.za/promotions-terms-and-conditions",
+    "sourceDomain": "istore.co.za",
+    "lastChecked": "2026-05-10",
+    "verificationStatus": "published",
+    "entryCostType": "free-entry",
+    "entryFeeLabel": "R0 online entry",
+    "purchaseRequired": false,
+    "entryChannel": "iStore website entry form",
+    "region": "South Africa",
+    "archivedAt": "2026-05-15",
+    "archiveReason": "expired"
   }
 ]
