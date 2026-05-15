@@ -1947,7 +1947,12 @@ function getCompetitionVisualUrl(competition) {
     return competition.image;
   }
 
-  return getBrandAssociatedImage(competition);
+  const brandImage = getBrandAssociatedImage(competition);
+  if (brandImage) {
+    return brandImage;
+  }
+
+  return buildBrandFallbackImage(competition || {});
 }
 
 function getStatusClassName(label) {
@@ -3231,9 +3236,16 @@ function renderCompetitionDetailHero({
   ctaLabel,
   heroImage,
 }) {
+  const hasSpecificVisual = isSpecificCompetitionVisual(competition);
   const imageMarkup = heroImage
     ? `<img src="${escapeAttribute(heroImage)}" alt="${escapeAttribute(competition.title)}" loading="eager" onerror="this.remove()" />`
     : "";
+  const heroMediaClass = hasSpecificVisual
+    ? "competition-hero-card__media competition-hero-card__media--specific"
+    : "competition-hero-card__media";
+  const placeholderMarkup = hasSpecificVisual
+    ? ""
+    : renderCompetitionVisualPlaceholder(competition, "competition-hero-card__placeholder");
   const closingLabel = `${expired ? "Closed" : "Closes"} ${formattedDate}${closingSoon && !expired ? " - Ending soon" : ""}`;
   const actions = expired
     ? [{ label: "Browse Current Competitions", href: "/competitions/", className: "btn--primary" }]
@@ -3261,8 +3273,8 @@ function renderCompetitionDetailHero({
     actions,
     trustItems: ["Verified listing", "Official promoter link", "Freehub does not collect entries"],
     previewMarkup: `<aside class="competition-hero-card" aria-label="Competition summary">
-            <div class="competition-hero-card__media">
-              ${renderCompetitionVisualPlaceholder(competition, "competition-hero-card__placeholder")}
+            <div class="${heroMediaClass}">
+              ${placeholderMarkup}
               ${imageMarkup}
             </div>
             <div class="competition-hero-card__body">
@@ -3284,14 +3296,25 @@ function renderCompetitionDetailHero({
 }
 
 function renderCompetitionDetailMedia(competition, imageUrl) {
+  const hasSpecificVisual = isSpecificCompetitionVisual(competition);
   const imageMarkup = imageUrl
     ? `<img src="${escapeAttribute(imageUrl)}" alt="${escapeAttribute(competition.title)}" loading="lazy" onerror="this.remove()" />`
     : "";
+  const mediaClass = hasSpecificVisual
+    ? "competition-detail__media competition-detail__media--specific"
+    : "competition-detail__media";
+  const placeholderMarkup = hasSpecificVisual
+    ? ""
+    : renderCompetitionVisualPlaceholder(competition, "competition-detail__placeholder");
 
-  return `<div class="competition-detail__media">
-            ${renderCompetitionVisualPlaceholder(competition, "competition-detail__placeholder")}
+  return `<div class="${mediaClass}">
+            ${placeholderMarkup}
             ${imageMarkup}
           </div>`;
+}
+
+function isSpecificCompetitionVisual(competition) {
+  return Boolean(competition && (competition.image || getBrandAssociatedImage(competition)));
 }
 
 function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs = []) {
@@ -4015,12 +4038,30 @@ function renderCompetitionDetailFacts(competition, formattedDate, officialSource
               ${facts
                 .map(
                   (fact) =>
-                    `<p${fact.urgent ? ` class="competition-detail__info--urgent"` : ""}><strong>${escapeHtml(
+                    `<p class="${escapeAttribute(getDetailFactClassName(fact))}"><strong>${escapeHtml(
                       fact.label
                     )}:</strong> ${fact.html || escapeHtml(fact.value)}</p>`
                 )
                 .join("\n              ")}
             </div>`;
+}
+
+function getDetailFactClassName(fact) {
+  const normalizedLabel = String(fact.label || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+  const classes = ["competition-detail__fact"];
+
+  if (normalizedLabel) {
+    classes.push(`competition-detail__fact--${normalizedLabel}`);
+  }
+
+  if (fact.urgent) {
+    classes.push("competition-detail__info--urgent");
+  }
+
+  return classes.join(" ");
 }
 
 function formatPrizeValue(competition) {

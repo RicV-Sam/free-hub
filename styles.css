@@ -1152,8 +1152,9 @@ button {
 
 .competition-detail__media {
   position: relative;
-  min-height: 210px;
-  aspect-ratio: 16 / 9;
+  min-height: 180px;
+  max-height: 320px;
+  aspect-ratio: 21 / 7;
   overflow: hidden;
   background: #10243f;
 }
@@ -1165,6 +1166,17 @@ button {
   height: 100%;
   object-fit: cover;
   z-index: 1;
+}
+
+.competition-detail__media--specific {
+  min-height: 150px;
+  max-height: 240px;
+  aspect-ratio: 28 / 5;
+}
+
+.competition-detail__media--specific img {
+  object-fit: contain;
+  background: #10243f;
 }
 
 .competition-detail__body {
@@ -1182,24 +1194,49 @@ button {
 .competition-detail__info {
   display: grid;
   gap: 0.75rem;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
   color: var(--muted);
   font-size: 0.92rem;
   line-height: 1.45;
 }
 
-.competition-detail__info p {
-  min-height: 100%;
+.competition-detail__fact {
+  min-height: auto;
   margin: 0;
-  padding: 0.75rem;
-  border: 1px solid rgba(15, 118, 110, 0.14);
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.76);
+  padding: 0.85rem 0.95rem;
+  border: 1px solid rgba(15, 118, 110, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+  overflow-wrap: anywhere;
+}
+
+.competition-detail__fact--entry-fee,
+.competition-detail__fact--product-required,
+.competition-detail__fact--eligibility {
+  grid-column: span 2;
+}
+
+.competition-detail__fact strong {
+  color: var(--text);
 }
 
 .competition-detail__info a {
   color: var(--accent);
   font-weight: 700;
+}
+
+@media (max-width: 699px) {
+  .competition-detail__media {
+    aspect-ratio: 16 / 10;
+    max-height: none;
+  }
+
+  .competition-detail__fact--entry-fee,
+  .competition-detail__fact--product-required,
+  .competition-detail__fact--eligibility {
+    grid-column: auto;
+  }
 }
 
 .competition-detail__summary {
@@ -2552,6 +2589,15 @@ body {
   aspect-ratio: 16 / 10;
   overflow: hidden;
   background: rgba(15, 23, 42, 0.45);
+}
+
+.competition-hero-card__media--specific {
+  aspect-ratio: 16 / 6;
+  background: #10243f;
+}
+
+.competition-hero-card__media--specific img {
+  object-fit: contain;
 }
 
 .competition-hero-card__body {
