@@ -1320,8 +1320,15 @@ function getCategoryEditorial(slug, competitions) {
         {
           heading: "Practical prizes still need clear terms",
           paragraphs: [
-            `Voucher competitions can be quick to enter and useful for everyday spending. This page currently groups ${escapeHtml(liveCopy)} across shopping, grocery, online-store and rewards-style offers.`,
+            `Voucher competitions can be quick to enter and useful for everyday spending. This page currently groups ${escapeHtml(liveCopy)} across shopping voucher competitions, grocery voucher competitions, online shopping voucher competitions, retail voucher giveaways and rewards-style offers.`,
             "Check the voucher expiry date, spend exclusions, participating stores, delivery method and whether the promoter needs an account or proof of purchase.",
+          ],
+        },
+        {
+          heading: "Check the promoter source",
+          paragraphs: [
+            "Voucher prizes may be offered by retailers, brands, banks, radio stations or promoters. Freehub links to the official promoter source where entries must be completed.",
+            `Where an active partner campaign offers Takealot vouchers, Freehub describes the prize as a Takealot voucher prize and keeps the promoter separate. You can also compare <a href="/free-competitions/">free competitions</a>, <a href="/purchase-required-competitions/">purchase required competitions</a> and <a href="/competitions-ending-soon/">competitions ending soon</a>.`,
           ],
         },
       ],
@@ -1536,7 +1543,7 @@ function getCollectionFaqItems(routeContext) {
       {
         question: "What voucher prizes appear on Freehub?",
         answer:
-          "Voucher competitions can include grocery, shopping, fashion, restaurant, travel, fuel, airtime and online-store vouchers.",
+          "Voucher competitions can include grocery, shopping, fashion, restaurant, travel, fuel, airtime, online shopping and Takealot voucher prizes from source-checked partner campaigns.",
       },
       {
         question: "Are voucher competitions free to enter?",
@@ -2410,9 +2417,13 @@ function getCategoryInternalLinks(slug, competitions) {
       title: "Voucher Competition Searches",
       links: [
         { label: "Voucher giveaway competitions", href: "/category/vouchers/" },
-        { label: "Takealot competitions and vouchers", href: byIdPath("cell-c-takealot-voucher-giveaway") },
+        { label: "Takealot voucher prizes", href: byIdPath("debtbusters-money-stress-tracker-takealot-vouchers") },
+        { label: "All competitions", href: "/competitions/" },
         { label: "Free competitions", href: "/free-competitions/" },
+        { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
         { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
+        { label: "Cash competitions", href: "/category/cash/" },
+        { label: "Tech competitions", href: "/category/tech/" },
       ],
     };
   }

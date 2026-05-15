@@ -64,12 +64,12 @@
       category: "Vouchers",
       title: "Voucher Competitions in South Africa | Freehub",
       description:
-        "Browse current voucher competitions in South Africa, including shopping, grocery, airtime and retail voucher giveaways with official source links.",
+        "Browse current voucher competitions in South Africa, including shopping voucher competitions, grocery vouchers, online shopping vouchers and partner campaigns with Takealot voucher prizes.",
       heading: "Voucher Competitions in South Africa",
       intro:
-        "Browse current voucher competitions in South Africa and compare practical prize offers, entry methods, purchase requirements and closing dates before entering with the official promoter.",
+        "Browse current shopping voucher competitions, grocery voucher competitions, online shopping voucher competitions and retail voucher prize offers in South Africa before entering with the official promoter.",
       support:
-        "Voucher giveaways can be free-entry, purchase-linked, app-based or account-linked. If you searched for voucher competitions South Africa, voucher giveaway offers, or Takealot competitions, use Freehub's cost labels first and use /free-competitions/ when you only want no-purchase listings.",
+        "Voucher giveaways can be free-entry, purchase-linked, app-based or account-linked. If you searched for voucher competitions South Africa or Takealot competitions, compare the promoter, cost label and official source before entering. For Takealot voucher competitions, Freehub only surfaces active source-checked partner campaigns that offer Takealot vouchers as prizes.",
     },
   };
   const DEFAULT_COPY = {
