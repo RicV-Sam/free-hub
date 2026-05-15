@@ -832,61 +832,173 @@ function isFlagshipSeoHub(routeContext) {
   return isEndingSoonHub(routeContext) || isWinACarHub(routeContext);
 }
 
-function renderHubUpdatedNotice(routeContext) {
-  if (!isFlagshipSeoHub(routeContext)) {
-    return "";
-  }
-
+function renderUpdatedNotice() {
   return `<p class="hero__updated">Updated: ${escapeHtml(shared.formatDate(BUILD_DATE_ISO))}</p>`;
 }
 
-function renderCollectionHero(routeContext, pageCopy, competitions) {
-  if (!isFlagshipSeoHub(routeContext)) {
-    return `<header class="hero">
-        <div class="hero__copy">
-          <p class="eyebrow">free-hub</p>
-          <h1 id="pageTitle">${escapeHtml(pageCopy.heading)}</h1>
-          <p class="hero__text" id="pageIntro">${escapeHtml(pageCopy.intro)}</p>
-          ${renderHubUpdatedNotice(routeContext)}
-        </div>
-      </header>`;
+function renderHeroActions(actions = []) {
+  if (!Array.isArray(actions) || actions.length === 0) {
+    return "";
   }
 
-  const actions = getFlagshipHeroActions(routeContext);
-  const trustItems = getFlagshipTrustItems(routeContext);
-  const previewTitle = isWinACarHub(routeContext) ? "Vehicle Prize Watch" : "Closing Soon Watch";
-  const previewIntro = isWinACarHub(routeContext)
-    ? "Published car and vehicle prizes with official entry routes."
-    : "Nearest active deadlines from the current Freehub data.";
+  return `<div class="hero__actions">
+              ${actions
+                .map((action) => {
+                  const className = action.className || "btn--secondary";
+                  const target = action.target ? ` target="${escapeAttribute(action.target)}"` : "";
+                  const rel = action.rel ? ` rel="${escapeAttribute(action.rel)}"` : "";
+                  const extraAttributes = action.attributes ? ` ${action.attributes}` : "";
 
-  return `<header class="hero hero--collection hero--flagship hero--${escapeAttribute(routeContext.slug)}">
+                  return `<a class="btn ${escapeAttribute(className)}" href="${escapeAttribute(
+                    action.href
+                  )}"${target}${rel}${extraAttributes}>${escapeHtml(action.label)}</a>`;
+                })
+                .join("\n              ")}
+            </div>`;
+}
+
+function renderTrustRow(items = []) {
+  if (!Array.isArray(items) || items.length === 0) {
+    return "";
+  }
+
+  return `<div class="trust-row" aria-label="Trust signals">
+              ${items.map((item) => `<span class="trust-row__item">${escapeHtml(item)}</span>`).join("\n              ")}
+            </div>`;
+}
+
+function renderModernHero({
+  className = "",
+  eyebrow = "Freehub discovery",
+  heading,
+  intro,
+  headingId = "",
+  introId = "",
+  updatedMarkup = "",
+  actions = [],
+  trustItems = [],
+  previewMarkup = "",
+}) {
+  const headingAttribute = headingId ? ` id="${escapeAttribute(headingId)}"` : "";
+  const introAttribute = introId ? ` id="${escapeAttribute(introId)}"` : "";
+  const safeClassName = className ? ` ${className}` : "";
+  const updatedSection = updatedMarkup ? `\n            ${updatedMarkup}` : "";
+  const actionsMarkup = renderHeroActions(actions);
+  const actionsSection = actionsMarkup ? `\n            ${actionsMarkup}` : "";
+  const trustMarkup = renderTrustRow(trustItems);
+  const trustSection = trustMarkup ? `\n            ${trustMarkup}` : "";
+  const previewSection = previewMarkup ? `\n          ${previewMarkup}` : "";
+
+  return `<header class="hero hero--collection hero--modern${safeClassName}">
         <div class="hero__layout">
           <div class="hero__copy">
-            <p class="eyebrow">Freehub discovery</p>
-            <h1 id="pageTitle">${escapeHtml(pageCopy.heading)}</h1>
-            <p class="hero__text" id="pageIntro">${escapeHtml(pageCopy.intro)}</p>
-            ${renderHubUpdatedNotice(routeContext)}
-            <div class="hero__actions">
-              ${actions
-                .map(
-                  (action) =>
-                    `<a class="btn ${escapeAttribute(action.className)}" href="${escapeAttribute(action.href)}">${escapeHtml(
-                      action.label
-                    )}</a>`
-                )
-                .join("\n              ")}
-            </div>
-            <div class="trust-row" aria-label="Trust signals">
-              ${trustItems.map((item) => `<span class="trust-row__item">${escapeHtml(item)}</span>`).join("\n              ")}
-            </div>
-          </div>
-          ${renderHeroPreviewPanel(competitions, {
-            title: previewTitle,
-            intro: previewIntro,
-            className: "hero-preview-panel--collection",
-          })}
+            <p class="eyebrow">${escapeHtml(eyebrow)}</p>
+            <h1${headingAttribute}>${escapeHtml(heading)}</h1>
+            <p class="hero__text"${introAttribute}>${escapeHtml(intro)}</p>${updatedSection}${actionsSection}${trustSection}
+          </div>${previewSection}
         </div>
       </header>`;
+}
+
+function renderCollectionHero(routeContext, pageCopy, competitions) {
+  const flagship = isFlagshipSeoHub(routeContext);
+  const actions = flagship ? getFlagshipHeroActions(routeContext) : getCollectionHeroActions(routeContext);
+  const trustItems = flagship ? getFlagshipTrustItems(routeContext) : getCollectionTrustItems(routeContext);
+  const previewCopy = getCollectionPreviewCopy(routeContext, pageCopy);
+  const previewMarkup = renderHeroPreviewPanel(competitions, {
+    title: previewCopy.title,
+    intro: previewCopy.intro,
+    className: "hero-preview-panel--collection",
+  });
+  const className = [
+    flagship ? "hero--flagship" : "hero--standard",
+    previewMarkup ? "hero--with-preview" : "hero--no-preview",
+    routeContext.slug ? `hero--${routeContext.slug}` : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return renderModernHero({
+    className,
+    eyebrow: "Freehub discovery",
+    heading: pageCopy.heading,
+    intro: pageCopy.intro,
+    headingId: "pageTitle",
+    introId: "pageIntro",
+    updatedMarkup: renderUpdatedNotice(),
+    actions,
+    trustItems,
+    previewMarkup,
+  });
+}
+
+function getCollectionHeroActions(routeContext) {
+  const actions = [{ label: "View Listings", href: "#competitionsGrid", className: "btn--primary" }];
+
+  if (routeContext.type !== "hub" || routeContext.slug !== "competitions") {
+    actions.push({ label: "All Competitions", href: "/competitions/", className: "btn--secondary" });
+  }
+
+  if (routeContext.type === "category") {
+    actions.push({ label: "Ending Soon", href: "/competitions-ending-soon/", className: "btn--secondary" });
+  }
+
+  if (routeContext.type === "brand") {
+    actions.push({ label: "Browse Brands", href: "/brands/", className: "btn--secondary" });
+  }
+
+  return actions.slice(0, 3);
+}
+
+function getCollectionTrustItems(routeContext) {
+  if (routeContext.type === "brand") {
+    return ["Active brand page", "Official source links", "Freehub is not the promoter"];
+  }
+
+  if (routeContext.type === "category") {
+    return ["Published listings", "Official source links", "Freehub is not the promoter"];
+  }
+
+  if (routeContext.type === "tag") {
+    return ["Filtered active listings", "Official source links", "Freehub does not collect entries"];
+  }
+
+  return ["Published competitions", "Official source links", "Freehub is not the promoter"];
+}
+
+function getCollectionPreviewCopy(routeContext, pageCopy) {
+  if (isWinACarHub(routeContext)) {
+    return {
+      title: "Vehicle Prize Watch",
+      intro: "Published car and vehicle prizes with official entry routes.",
+    };
+  }
+
+  if (isEndingSoonHub(routeContext)) {
+    return {
+      title: "Closing Soon Watch",
+      intro: "Nearest active deadlines from the current Freehub data.",
+    };
+  }
+
+  if (routeContext.type === "category") {
+    return {
+      title: `${pageCopy.heading} Watch`,
+      intro: "Active listings from this category with prize, deadline and entry cues.",
+    };
+  }
+
+  if (routeContext.type === "brand") {
+    return {
+      title: "Brand Prize Watch",
+      intro: "Current published competitions from this brand or promoter.",
+    };
+  }
+
+  return {
+    title: "Prize Watch",
+    intro: "Active listings worth checking before you click through.",
+  };
 }
 
 function getFlagshipHeroActions(routeContext) {
@@ -1562,6 +1674,7 @@ function renderPage(routeContext, competitions) {
     <meta name="description" content="${escapeAttribute(pageCopy.description)}" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="${escapeAttribute(pageCopy.canonical)}" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="${escapeAttribute(pageCopy.title)}" />
     <meta property="og:description" content="${escapeAttribute(pageCopy.description)}" />
@@ -1740,6 +1853,7 @@ function renderBrandIndexPage(brandPages) {
     <meta name="description" content="${escapeAttribute(pageCopy.description)}" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="${escapeAttribute(pageCopy.canonical)}" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="${escapeAttribute(pageCopy.title)}" />
     <meta property="og:description" content="${escapeAttribute(pageCopy.description)}" />
@@ -1772,19 +1886,25 @@ function renderBrandIndexPage(brandPages) {
   </head>
   <body>
     <div class="site-shell">
-      <header class="hero">
-        <div class="hero__copy">
-          <p class="eyebrow">free-hub</p>
-          <h1 id="pageTitle">${escapeHtml(pageCopy.heading)}</h1>
-          <p class="hero__text" id="pageIntro">${escapeHtml(pageCopy.intro)}</p>
-        </div>
-      </header>
+      ${renderModernHero({
+        className: "hero--utility hero--brand-index",
+        eyebrow: "Freehub brands",
+        heading: pageCopy.heading,
+        intro: pageCopy.intro,
+        headingId: "pageTitle",
+        introId: "pageIntro",
+        actions: [
+          { label: "Browse Brands", href: "#brandPages", className: "btn--primary" },
+          { label: "All Competitions", href: "/competitions/", className: "btn--secondary" },
+        ],
+        trustItems: ["Active brand pages", "Official source links", "Thin pages avoided"],
+      })}
 
       <main class="main-content">
         ${renderCollectionBreadcrumb(pageCopy.heading)}
         ${renderSupportSection(pageCopy.support)}
 
-        <section class="internal-links" aria-label="Generated brand pages">
+        <section class="internal-links" id="brandPages" aria-label="Generated brand pages">
           <p class="internal-links__title">Brands with active competition pages</p>
           <div class="internal-links__list">
             ${brandLinksMarkup}
@@ -2606,6 +2726,7 @@ ${noscriptLinks}
             </div>
             <h1 id="pageTitle">Today&apos;s Live Competitions in South Africa</h1>
             <p class="hero__text" id="pageIntro">FreeHub lists vouchers, prizes, cash giveaways and competitions from trusted South African brands so you can find offers worth opening today.</p>
+            ${renderUpdatedNotice()}
             <div class="hero__actions">
               <a class="btn btn--primary" href="#all-competitions">Browse Today&apos;s Competitions</a>
               <a class="btn btn--secondary" href="/tag/ending-soon/">Ending Soon</a>
@@ -2613,7 +2734,7 @@ ${noscriptLinks}
             <div class="trust-row" aria-label="Trust signals">
               <span class="trust-row__item">Verified listings</span>
               <span class="trust-row__item">Official brand links</span>
-              <span class="trust-row__item">No FreeHub sign-up</span>
+              <span class="trust-row__item">Freehub is not the promoter</span>
             </div>
           </div>
           ${heroPreviewMarkup}
@@ -2823,6 +2944,7 @@ function renderTrustPage(page) {
     <meta name="description" content="${escapeAttribute(page.description)}" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="${escapeAttribute(page.title)}" />
     <meta property="og:description" content="${escapeAttribute(page.description)}" />
@@ -2849,13 +2971,17 @@ function renderTrustPage(page) {
   </head>
   <body>
     <div class="site-shell">
-      <header class="hero">
-        <div class="hero__copy">
-          <p class="eyebrow">FREEHUB</p>
-          <h1>${escapeHtml(page.heading)}</h1>
-          <p class="hero__text">${escapeHtml(page.intro)}</p>
-        </div>
-      </header>
+      ${renderModernHero({
+        className: "hero--utility hero--trust",
+        eyebrow: "Freehub trust",
+        heading: page.heading,
+        intro: page.intro,
+        actions: [
+          { label: "Browse Competitions", href: "/competitions/", className: "btn--primary" },
+          { label: "Safety Guide", href: "/how-to-enter-competitions-safely/", className: "btn--secondary" },
+        ],
+        trustItems: ["Freehub is not the promoter", "Official source links", "Safety-first browsing"],
+      })}
 
       <main class="main-content trust-page">
         <nav class="category-nav" aria-label="Competition categories">
@@ -2919,6 +3045,7 @@ function renderNotFoundPage() {
     <meta name="description" content="This Freehub page could not be found. Browse live South African competitions, categories, safety guidance and contact options." />
     <meta name="robots" content="noindex, follow" />
     <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Page Not Found | Freehub" />
     <meta property="og:description" content="This Freehub page could not be found. Browse live South African competitions, categories, safety guidance and contact options." />
@@ -2942,13 +3069,17 @@ function renderNotFoundPage() {
   </head>
   <body>
     <div class="site-shell">
-      <header class="hero">
-        <div class="hero__copy">
-          <p class="eyebrow">FREEHUB</p>
-          <h1>Page not found</h1>
-          <p class="hero__text">The page you opened is not available. You can return to live competitions, browse a category, or report a broken link.</p>
-        </div>
-      </header>
+      ${renderModernHero({
+        className: "hero--utility hero--not-found",
+        eyebrow: "Freehub",
+        heading: "Page not found",
+        intro: "The page you opened is not available. You can return to live competitions, browse a category, or report a broken link.",
+        actions: [
+          { label: "Browse Competitions", href: "/competitions/", className: "btn--primary" },
+          { label: "Report Link", href: "/report-a-competition/", className: "btn--secondary" },
+        ],
+        trustItems: ["Current listings remain active", "Helpful routes below", "Broken links can be reported"],
+      })}
 
       <main class="main-content">
         <section class="internal-links" aria-label="Helpful links">
@@ -3088,12 +3219,87 @@ function buildHowToEnterSteps(competition) {
   ];
 }
 
+function renderCompetitionDetailHero({
+  competition,
+  heroTitle,
+  heroSubline,
+  formattedDate,
+  closingSoon,
+  expired,
+  outPath,
+  ctaAttributes,
+  ctaLabel,
+  heroImage,
+}) {
+  const imageMarkup = heroImage
+    ? `<img src="${escapeAttribute(heroImage)}" alt="${escapeAttribute(competition.title)}" loading="eager" onerror="this.remove()" />`
+    : "";
+  const closingLabel = `${expired ? "Closed" : "Closes"} ${formattedDate}${closingSoon && !expired ? " - Ending soon" : ""}`;
+  const actions = expired
+    ? [{ label: "Browse Current Competitions", href: "/competitions/", className: "btn--primary" }]
+    : [
+        {
+          label: ctaLabel,
+          href: outPath,
+          className: "btn--primary",
+          target: "_blank",
+          rel: "noopener noreferrer",
+          attributes: ctaAttributes,
+        },
+        { label: "Browse More", href: "/competitions/", className: "btn--secondary" },
+      ];
+
+  return renderModernHero({
+    className: "hero--competition-modern",
+    eyebrow: "Competition listing",
+    heading: heroTitle,
+    intro: heroSubline,
+    headingId: "pageTitle",
+    updatedMarkup: `<p class="hero__closing${closingSoon && !expired ? " hero__closing--urgent" : ""}">${escapeHtml(
+      closingLabel
+    )}</p>`,
+    actions,
+    trustItems: ["Verified listing", "Official promoter link", "Freehub does not collect entries"],
+    previewMarkup: `<aside class="competition-hero-card" aria-label="Competition summary">
+            <div class="competition-hero-card__media">
+              ${renderCompetitionVisualPlaceholder(competition, "competition-hero-card__placeholder")}
+              ${imageMarkup}
+            </div>
+            <div class="competition-hero-card__body">
+              <div class="competition-hero-card__brand">
+                ${renderBrandMark(competition, "competition-hero-card__mark")}
+                <span>${escapeHtml(competition.brand || "Official promotion")}</span>
+              </div>
+              <div class="competition-hero-card__status-row">
+                ${renderCardStatusBadges(competition)}
+              </div>
+              <div class="competition-hero-card__facts">
+                <span>${escapeHtml(shared.getPrizeCue(competition))}</span>
+                <span>${escapeHtml(shared.getEntryCostLabel(competition))}</span>
+                <span>${escapeHtml(shared.getUrgencyLabel(competition.closingDate))}</span>
+              </div>
+            </div>
+          </aside>`,
+  });
+}
+
+function renderCompetitionDetailMedia(competition, imageUrl) {
+  const imageMarkup = imageUrl
+    ? `<img src="${escapeAttribute(imageUrl)}" alt="${escapeAttribute(competition.title)}" loading="lazy" onerror="this.remove()" />`
+    : "";
+
+  return `<div class="competition-detail__media">
+            ${renderCompetitionVisualPlaceholder(competition, "competition-detail__placeholder")}
+            ${imageMarkup}
+          </div>`;
+}
+
 function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs = []) {
   const slug = shared.getCompetitionSlug(competition);
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/competition/${slug}/`;
   const description = shared.buildCompetitionDescription(competition);
   const formattedDate = shared.formatDate(competition.closingDate);
-  const heroImage = getCompetitionImageUrl(competition);
+  const heroImage = getCompetitionVisualUrl(competition);
   const ogImage = getMetadataImageUrl(competition);
   const relatedCompetitions = getRelatedCompetitions(competition, allCompetitions);
 
@@ -3209,6 +3415,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
     <meta name="description" content="${escapeAttribute(description)}" />
     <meta name="robots" content="${robotsDirective}" />
     <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="${escapeAttribute(competition.title)}" />
     <meta property="og:description" content="${escapeAttribute(description)}" />
@@ -3235,16 +3442,18 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   </head>
   <body>
     <div class="site-shell">
-      <header class="hero hero--competition" style="background-image: url('${escapeAttribute(heroImage)}')">
-        <div class="hero__overlay" aria-hidden="true"></div>
-        <div class="hero__content">
-          <p class="eyebrow">free-hub</p>
-          <h1 id="pageTitle">${escapeHtml(heroTitle)}</h1>
-          <p class="hero__text">${escapeHtml(heroSubline)}</p>
-          <p class="hero__closing${closingSoon && !expired ? " hero__closing--urgent" : ""}">${expired ? "Closed" : "Closes"} ${escapeHtml(formattedDate)}${closingSoon && !expired ? " · Ending soon" : ""}</p>
-          ${!expired ? `<a class="hero__cta" href="${escapeAttribute(outPath)}" target="_blank" rel="noopener noreferrer" ${ctaAttributes}>${escapeHtml(ctaLabel)}</a>` : ""}
-        </div>
-      </header>
+      ${renderCompetitionDetailHero({
+        competition,
+        heroTitle,
+        heroSubline,
+        formattedDate,
+        closingSoon,
+        expired,
+        outPath,
+        ctaAttributes,
+        ctaLabel,
+        heroImage,
+      })}
 
       <main class="main-content">
         ${breadcrumbMarkup}
@@ -3270,9 +3479,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
         ${renderAdZone("ad-top", "detail-top")}
 
         <article class="competition-detail" aria-label="${escapeAttribute(competition.title)}">
-          <div class="competition-detail__media">
-            <img src="${escapeAttribute(heroImage)}" alt="${escapeAttribute(competition.title)}" onerror="this.onerror=null;this.src='${escapeAttribute(buildBrandFallbackImage(competition))}'" />
-          </div>
+          ${renderCompetitionDetailMedia(competition, heroImage)}
           <div class="competition-detail__body">
             <div class="competition-detail__meta">
               <span class="badge badge--category">${escapeHtml(competition.category)}</span>
@@ -3575,18 +3782,23 @@ function renderLegacyCompetitionPage(competition) {
     <meta name="description" content="This competition listing is no longer active on Freehub. Use the official source link to confirm current promoter information." />
     <meta name="robots" content="noindex, follow" />
     <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="${RELATIVE_ASSET_PATH}styles.css" />
     ${ADSENSE_SCRIPT}
   </head>
   <body>
     <div class="site-shell">
-      <header class="hero">
-        <div class="hero__copy">
-          <p class="eyebrow">free-hub</p>
-          <h1>${escapeHtml(title)}</h1>
-          <p class="hero__text">This listing is closed or no longer published on Freehub. Check the official promoter page for the latest campaign status.</p>
-        </div>
-      </header>
+      ${renderModernHero({
+        className: "hero--utility hero--closed-listing",
+        eyebrow: "Closed listing",
+        heading: title,
+        intro: "This listing is closed or no longer published on Freehub. Check the official promoter page for the latest campaign status.",
+        actions: [
+          { label: "Current Competitions", href: "/competitions/", className: "btn--primary" },
+          { label: "Official Source", href: sourceUrl, className: "btn--secondary", target: "_blank", rel: "nofollow noopener" },
+        ],
+        trustItems: ["Archived status", "No active entry shown", "Source details can change"],
+      })}
 
       <main class="main-content">
         <section class="state-card">
@@ -3624,6 +3836,7 @@ function renderOutPage(competition) {
     <title>Redirecting to ${escapeHtml(competition.title)} | Free Hub SA</title>
     <meta name="robots" content="noindex, nofollow" />
     <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="${RELATIVE_ASSET_PATH}styles.css" />
     ${ADSENSE_SCRIPT}
     <!-- Google tag (gtag.js) -->
@@ -3659,13 +3872,17 @@ function renderOutPage(competition) {
   </head>
   <body>
     <div class="site-shell">
-      <header class="hero">
-        <div class="hero__copy">
-          <p class="eyebrow">free-hub</p>
-          <h1>You are leaving Freehub</h1>
-          <p class="hero__text">Taking you to <strong>${escapeHtml(sourceDomain)}</strong> for <strong>${escapeHtml(competition.title)}</strong>. If you are not redirected automatically, use the link below.</p>
-        </div>
-      </header>
+      ${renderModernHero({
+        className: "hero--utility hero--outbound",
+        eyebrow: "Official source",
+        heading: "You are leaving Freehub",
+        intro: `Taking you to ${sourceDomain} for ${competition.title}. If you are not redirected automatically, use the link below.`,
+        actions: [
+          { label: "Continue", href: externalUrl, className: "btn--primary", target: "_blank", rel: "nofollow noopener" },
+          { label: "Back to Competitions", href: "/competitions/", className: "btn--secondary" },
+        ],
+        trustItems: ["External promoter page", "Terms apply at source", "Freehub does not collect entries"],
+      })}
 
       <main class="main-content">
         <section class="state-card outbound-notice" aria-label="Redirect notice">

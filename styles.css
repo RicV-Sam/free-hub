@@ -1150,10 +1150,21 @@ button {
   overflow: hidden;
 }
 
+.competition-detail__media {
+  position: relative;
+  min-height: 210px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #10243f;
+}
+
 .competition-detail__media img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  max-height: 380px;
+  height: 100%;
   object-fit: cover;
+  z-index: 1;
 }
 
 .competition-detail__body {
@@ -2249,7 +2260,7 @@ body {
 }
 
 .hero--home,
-.hero--collection.hero--flagship {
+.hero--collection.hero--modern {
   width: 100%;
   max-width: none;
   margin: 0;
@@ -2258,7 +2269,7 @@ body {
   background: linear-gradient(135deg, #0b172a 0%, #10243f 52%, #0d554f 100%);
 }
 
-.hero--collection.hero--flagship .hero__layout,
+.hero--collection.hero--modern .hero__layout,
 .hero--home .hero__layout {
   width: min(calc(100% - 2rem), var(--max-width));
   margin: 0 auto;
@@ -2267,7 +2278,7 @@ body {
   align-items: end;
 }
 
-.hero--collection.hero--flagship .hero__copy,
+.hero--collection.hero--modern .hero__copy,
 .hero--home .hero__copy {
   max-width: 43rem;
   padding: 0;
@@ -2277,23 +2288,28 @@ body {
   backdrop-filter: none;
 }
 
-.hero--collection.hero--flagship .eyebrow,
+.hero--collection.hero--modern .eyebrow,
 .hero--home .eyebrow {
   margin-bottom: 0.65rem;
   color: var(--gold);
   letter-spacing: 0.12em;
 }
 
-.hero--collection.hero--flagship h1,
-.hero--collection.hero--flagship .hero__text,
+.hero--collection.hero--modern h1,
+.hero--collection.hero--modern .hero__text,
 .hero--home h1,
 .hero--home .hero__text {
   color: #f8fafc;
 }
 
-.hero--collection.hero--flagship .hero__text,
+.hero--collection.hero--modern .hero__text,
 .hero--home .hero__text {
   color: rgba(248, 250, 252, 0.82);
+}
+
+.hero--collection.hero--utility .hero__copy,
+.hero--collection.hero--no-preview .hero__copy {
+  max-width: 56rem;
 }
 
 .hero__updated {
@@ -2399,7 +2415,8 @@ body {
 }
 
 .hero-preview-item__media img,
-.competition-card__media img {
+.competition-card__media img,
+.competition-hero-card__media img {
   position: absolute;
   inset: 0;
   z-index: 1;
@@ -2409,7 +2426,9 @@ body {
 }
 
 .hero-preview-item__placeholder,
-.competition-card__placeholder {
+.competition-card__placeholder,
+.competition-hero-card__placeholder,
+.competition-detail__placeholder {
   position: absolute;
   inset: 0;
   display: grid;
@@ -2422,13 +2441,17 @@ body {
 }
 
 .hero-preview-item__placeholder-initials,
-.competition-card__placeholder-initials {
+.competition-card__placeholder-initials,
+.competition-hero-card__placeholder-initials,
+.competition-detail__placeholder-initials {
   font-size: 1.15rem;
   font-weight: 900;
 }
 
 .hero-preview-item__placeholder-category,
-.competition-card__placeholder-category {
+.competition-card__placeholder-category,
+.competition-hero-card__placeholder-category,
+.competition-detail__placeholder-category {
   font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -2512,6 +2535,85 @@ body {
   color: rgba(248, 250, 252, 0.86);
   font-size: 0.7rem;
   font-weight: 800;
+}
+
+.competition-hero-card {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(10px);
+}
+
+.competition-hero-card__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.45);
+}
+
+.competition-hero-card__body {
+  display: grid;
+  gap: 0.7rem;
+  padding: 0.85rem;
+}
+
+.competition-hero-card__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+  color: rgba(248, 250, 252, 0.84);
+  font-size: 0.85rem;
+  font-weight: 900;
+}
+
+.competition-hero-card__brand span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.competition-hero-card__mark {
+  flex: 0 0 auto;
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 0.74rem;
+  font-weight: 900;
+}
+
+.competition-hero-card__mark--image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: inherit;
+  background: #fff;
+}
+
+.competition-hero-card__status-row,
+.competition-hero-card__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.competition-hero-card__facts span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0.28rem 0.58rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.13);
+  color: rgba(248, 250, 252, 0.88);
+  font-size: 0.72rem;
+  font-weight: 850;
 }
 
 .competition-grid {
@@ -2819,18 +2921,24 @@ body {
     font-size: 3.6rem;
   }
 
-  .hero--collection.hero--flagship,
+  .hero--collection.hero--modern,
   .hero--home {
     padding-top: 3.25rem;
     padding-bottom: 1.1rem;
   }
 
-  .hero--collection.hero--flagship .hero__layout,
+  .hero--collection.hero--modern .hero__layout,
   .hero--home .hero__layout {
     grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.82fr);
   }
 
-  .hero-preview-panel {
+  .hero--collection.hero--utility .hero__layout,
+  .hero--collection.hero--no-preview .hero__layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-preview-panel,
+  .competition-hero-card {
     justify-self: end;
     width: min(100%, 410px);
   }
