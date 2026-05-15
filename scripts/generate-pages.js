@@ -1026,12 +1026,12 @@ function getFlagshipTrustItems(routeContext) {
 function renderHubIntroEditorial(routeContext) {
   if (isEndingSoonHub(routeContext)) {
     return `<section class="seo-copy-block seo-copy-block--intro" aria-label="About competitions ending this week">
-          <h2 class="seo-copy-block__title">Current competitions closing soon</h2>
+          <h2 class="seo-copy-block__title">Current competitions ending this week</h2>
           <div class="seo-copy-block__content hub-editorial">
             <section class="hub-editorial__section">
               <p>This page is built for South African competitions with near deadlines. Listings are sorted by closing date so the most urgent opportunities appear first.</p>
               <p>Freehub sources listing details from official promoter pages where available, including the entry route, closing date, prize type and any visible cost signal. Freehub does not run the competitions, collect entries, choose winners or process payments.</p>
-              <p>Some competitions may require purchases, receipts, app installs, paid tickets, accounts, loyalty cards or other qualifying actions. Use each Freehub card as a starting point, then confirm the full terms on the official promoter source before entering.</p>
+              <p>Some competitions may require purchases, receipts, app installs, paid tickets, accounts, loyalty cards or other qualifying actions. Needs-verification and expired listings are kept out of this page, but you should still confirm the full terms on the official promoter source before entering.</p>
             </section>
           </div>
         </section>`;
@@ -1064,7 +1064,7 @@ function renderEndingSoonEditorial(routeContext) {
               <h3>Why ending-soon competitions matter</h3>
               <p>Competition entry forms often close at a fixed date and time, and some promoters remove the form as soon as the deadline passes. Checking closing-soon listings first helps you avoid missing current competitions while they are still open.</p>
               <p>This page keeps the focus on published, non-expired listings. For the full active index, browse the wider <a href="/competitions/">competitions</a> hub.</p>
-              <p>If you want a narrower starting point, compare <a href="/free-competitions/">free competitions</a>, <a href="/purchase-required-competitions/">purchase required competitions</a>, or category pages for <a href="/category/cars/">cars</a>, <a href="/category/cash/">cash</a>, <a href="/category/vouchers/">vouchers</a>, <a href="/category/holidays/">holidays</a> and <a href="/category/tech/">tech</a>.</p>
+              <p>If you want a narrower starting point, compare <a href="/free-competitions/">free competitions</a>, <a href="/purchase-required-competitions/">purchase required competitions</a>, <a href="/win-a-car/">win-a-car competitions</a>, or category pages for <a href="/category/cars/">cars</a>, <a href="/category/cash/">cash</a>, <a href="/category/vouchers/">vouchers</a>, <a href="/category/holidays/">holidays</a> and <a href="/category/tech/">tech</a>.</p>
             </section>
             <section class="hub-editorial__section">
               <h3>What to check before entering</h3>
@@ -2299,6 +2299,7 @@ function getHubInternalLinks(slug) {
       { label: "New competitions", href: "/new-competitions-south-africa/" },
       { label: "Free competitions", href: "/free-competitions/" },
       { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
+      { label: "Win a car competitions", href: "/win-a-car/" },
       { label: "Car competitions", href: "/category/cars/" },
       { label: "Cash competitions", href: "/category/cash/" },
       { label: "Voucher competitions", href: "/category/vouchers/" },
