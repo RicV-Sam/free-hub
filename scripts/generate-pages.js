@@ -840,6 +840,77 @@ function renderHubUpdatedNotice(routeContext) {
   return `<p class="hero__updated">Updated: ${escapeHtml(shared.formatDate(BUILD_DATE_ISO))}</p>`;
 }
 
+function renderCollectionHero(routeContext, pageCopy, competitions) {
+  if (!isFlagshipSeoHub(routeContext)) {
+    return `<header class="hero">
+        <div class="hero__copy">
+          <p class="eyebrow">free-hub</p>
+          <h1 id="pageTitle">${escapeHtml(pageCopy.heading)}</h1>
+          <p class="hero__text" id="pageIntro">${escapeHtml(pageCopy.intro)}</p>
+          ${renderHubUpdatedNotice(routeContext)}
+        </div>
+      </header>`;
+  }
+
+  const actions = getFlagshipHeroActions(routeContext);
+  const trustItems = getFlagshipTrustItems(routeContext);
+  const previewTitle = isWinACarHub(routeContext) ? "Vehicle Prize Watch" : "Closing Soon Watch";
+  const previewIntro = isWinACarHub(routeContext)
+    ? "Published car and vehicle prizes with official entry routes."
+    : "Nearest active deadlines from the current Freehub data.";
+
+  return `<header class="hero hero--collection hero--flagship hero--${escapeAttribute(routeContext.slug)}">
+        <div class="hero__layout">
+          <div class="hero__copy">
+            <p class="eyebrow">Freehub discovery</p>
+            <h1 id="pageTitle">${escapeHtml(pageCopy.heading)}</h1>
+            <p class="hero__text" id="pageIntro">${escapeHtml(pageCopy.intro)}</p>
+            ${renderHubUpdatedNotice(routeContext)}
+            <div class="hero__actions">
+              ${actions
+                .map(
+                  (action) =>
+                    `<a class="btn ${escapeAttribute(action.className)}" href="${escapeAttribute(action.href)}">${escapeHtml(
+                      action.label
+                    )}</a>`
+                )
+                .join("\n              ")}
+            </div>
+            <div class="trust-row" aria-label="Trust signals">
+              ${trustItems.map((item) => `<span class="trust-row__item">${escapeHtml(item)}</span>`).join("\n              ")}
+            </div>
+          </div>
+          ${renderHeroPreviewPanel(competitions, {
+            title: previewTitle,
+            intro: previewIntro,
+            className: "hero-preview-panel--collection",
+          })}
+        </div>
+      </header>`;
+}
+
+function getFlagshipHeroActions(routeContext) {
+  if (isWinACarHub(routeContext)) {
+    return [
+      { label: "View Car Competitions", href: "#competitionsGrid", className: "btn--primary" },
+      { label: "Free Entry Picks", href: "/free-competitions/", className: "btn--secondary" },
+    ];
+  }
+
+  return [
+    { label: "View Closing Soon", href: "#competitionsGrid", className: "btn--primary" },
+    { label: "All Competitions", href: "/competitions/", className: "btn--secondary" },
+  ];
+}
+
+function getFlagshipTrustItems(routeContext) {
+  if (isWinACarHub(routeContext)) {
+    return ["Published listings", "Vehicle prize focus", "Freehub is not the promoter"];
+  }
+
+  return ["Active listings only", "Sorted by closing date", "Official source links"];
+}
+
 function renderHubIntroEditorial(routeContext) {
   if (isEndingSoonHub(routeContext)) {
     return `<section class="seo-copy-block seo-copy-block--intro" aria-label="About competitions ending this week">
@@ -1520,14 +1591,7 @@ function renderPage(routeContext, competitions) {
   </head>
   <body>
     <div class="site-shell">
-      <header class="hero">
-        <div class="hero__copy">
-          <p class="eyebrow">free-hub</p>
-          <h1 id="pageTitle">${escapeHtml(pageCopy.heading)}</h1>
-          <p class="hero__text" id="pageIntro">${escapeHtml(pageCopy.intro)}</p>
-          ${renderHubUpdatedNotice(routeContext)}
-        </div>
-      </header>
+      ${renderCollectionHero(routeContext, pageCopy, competitions)}
 
       <main class="main-content">
         ${isCollectionPage ? renderCollectionBreadcrumb(pageCopy.heading) : ""}
@@ -1758,12 +1822,56 @@ function renderCollectionBreadcrumb(currentLabel) {
         </nav>`;
 }
 
+function getCompetitionVisualUrl(competition) {
+  if (competition && competition.image) {
+    return competition.image;
+  }
+
+  return getBrandAssociatedImage(competition);
+}
+
+function getStatusClassName(label) {
+  const normalized = String(label || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
+  return `competition-card__status competition-card__status--${normalized || "default"}`;
+}
+
+function renderBrandMark(competition, className = "brand-mark") {
+  const brand = competition.brand || "Freehub";
+  const logoUrl = shared.getCompetitionLogoUrl(competition);
+  const initials = shared.getBrandInitials(brand);
+
+  if (logoUrl) {
+    return `<span class="${className} ${className}--image"><img src="${escapeAttribute(
+      logoUrl
+    )}" alt="${escapeAttribute(`${brand} logo`)}" loading="lazy" /></span>`;
+  }
+
+  return `<span class="${className}" aria-hidden="true">${escapeHtml(initials)}</span>`;
+}
+
+function renderCompetitionVisualPlaceholder(competition, className = "competition-card__placeholder") {
+  return `<div class="${className}" aria-hidden="true">
+                  <span class="${className}-initials">${escapeHtml(shared.getBrandInitials(competition.brand))}</span>
+                  <span class="${className}-category">${escapeHtml(competition.category || "Prize")}</span>
+                </div>`;
+}
+
+function renderCardStatusBadges(competition) {
+  return shared
+    .getCardStatusLabels(competition)
+    .map((label) => `<span class="${getStatusClassName(label)}">${escapeHtml(label)}</span>`)
+    .join("\n                  ");
+}
+
 function renderCompetitionCard(competition, featured = false) {
   const internalPath = shared.getCompetitionPath(competition);
   const urgencyBadge = `<span class="badge badge--closing">${escapeHtml(
     shared.getUrgencyBadgeLabel(competition.closingDate)
   )}</span>`;
-  const hotBadge = shared.shouldShowHotBadge(competition) ? '<span class="badge badge--hot">HOT</span>' : "";
   const costBadge = `<span class="badge badge--soft">${escapeHtml(shared.getEntryCostLabel(competition))}</span>`;
   const tagBadges = shared
     .getCardTagLabels(competition)
@@ -1773,14 +1881,19 @@ function renderCompetitionCard(competition, featured = false) {
     ? `<p class="competition-card__summary">${escapeHtml(competition.summary)}</p>`
     : "";
   const cardClass = `competition-card${featured ? " competition-card--featured" : ""}`;
-  const cardImageUrl = getCompetitionImageUrl(competition);
+  const cardImageUrl = getCompetitionVisualUrl(competition);
   const urgencyLabel = shared.getUrgencyLabel(competition.closingDate);
   const entryMethodLabel = shared.getEntryMethodLabel(competition.entryType);
   const prizeCue = shared.getPrizeCue(competition);
   const headline = shared.getCardHeadline(competition);
   const brand = competition.brand || "Official promotion";
-  const featuredEyebrow = featured ? '<p class="competition-card__eyebrow">Featured pick</p>' : "";
+  const featuredEyebrow = featured ? '<p class="competition-card__eyebrow">Featured this week</p>' : "";
   const ctaClass = featured ? "competition-card__cta competition-card__cta--featured" : "competition-card__cta";
+  const imageMarkup = cardImageUrl
+    ? `<img src="${escapeAttribute(cardImageUrl)}" alt="${escapeAttribute(
+        competition.title
+      )}" loading="lazy" onerror="this.remove()" />`
+    : "";
 
   return `<article class="${cardClass}" data-competition-slug="${escapeAttribute(
     shared.getCompetitionSlug(competition)
@@ -1788,29 +1901,36 @@ function renderCompetitionCard(competition, featured = false) {
     competition.category
   )}">
               <div class="competition-card__media">
-                <img src="${escapeAttribute(cardImageUrl)}" alt="${escapeAttribute(
-    competition.title
-  )}" loading="lazy" />
+                ${renderCompetitionVisualPlaceholder(competition)}
+                ${imageMarkup}
                 <div class="competition-card__badges">
                   <div class="competition-card__badge-stack">
                     <span class="badge badge--category">${escapeHtml(competition.category)}</span>
-                    ${hotBadge}
+                    <span class="badge badge--verified">Verified</span>
                   </div>
                   ${urgencyBadge}
                 </div>
               </div>
               <div class="competition-card__body">
                 ${featuredEyebrow}
+                <div class="competition-card__brand-row">
+                  ${renderBrandMark(competition)}
+                  <p class="competition-card__brand">${escapeHtml(brand)}</p>
+                  <span class="competition-card__source">Official source</span>
+                </div>
+                <div class="competition-card__status-row">
+                  ${renderCardStatusBadges(competition)}
+                </div>
                 <h2 class="competition-card__title">${escapeHtml(headline)}</h2>
-                <p class="competition-card__brand">${escapeHtml(brand)}</p>
                 <div class="competition-card__signals">
                   <span class="competition-card__signal competition-card__signal--value">${escapeHtml(prizeCue)}</span>
                   <span class="competition-card__signal competition-card__signal--urgency">${escapeHtml(urgencyLabel)}</span>
+                  <span class="competition-card__signal competition-card__signal--cost">${escapeHtml(shared.getEntryCostLabel(competition))}</span>
                 </div>
                 ${summaryMarkup}
                 <div class="competition-card__meta">
-                  <span>${escapeHtml(entryMethodLabel)}</span>
-                  <span>${escapeHtml(shared.formatDate(competition.closingDate))}</span>
+                  <span>Entry: ${escapeHtml(entryMethodLabel)}</span>
+                  <span>Closes: ${escapeHtml(shared.formatDate(competition.closingDate))}</span>
                 </div>
                 <div class="competition-card__footer">
                   <div class="competition-card__tags">
@@ -1836,6 +1956,59 @@ function renderAdZone(id, placement, compact = false) {
   return `<section class="${className}" id="${escapeAttribute(id)}" data-placement="${escapeAttribute(
     placement
   )}" aria-label="Sponsored placement"></section>`;
+}
+
+function renderHeroPreviewPanel(competitions, options = {}) {
+  const previewCompetitions = competitions.slice(0, 3);
+
+  if (previewCompetitions.length === 0) {
+    return "";
+  }
+
+  const title = options.title || "Prize Watch";
+  const intro = options.intro || "A quick look at active competitions worth opening first.";
+  const className = options.className ? `hero-preview-panel ${options.className}` : "hero-preview-panel";
+
+  return `<aside class="${className}" aria-label="${escapeAttribute(title)}">
+            <div class="hero-preview-panel__header">
+              <p class="hero-preview-panel__kicker">Live now</p>
+              <h2 class="hero-preview-panel__title">${escapeHtml(title)}</h2>
+              <p class="hero-preview-panel__intro">${escapeHtml(intro)}</p>
+            </div>
+            <div class="hero-preview-list">
+              ${previewCompetitions.map((competition, index) => renderHeroPreviewItem(competition, index === 0)).join("\n              ")}
+            </div>
+          </aside>`;
+}
+
+function renderHeroPreviewItem(competition, featured = false) {
+  const title = shared.getCardHeadline(competition);
+  const href = shared.getCompetitionPath(competition);
+  const imageUrl = getCompetitionVisualUrl(competition);
+  const imageMarkup = imageUrl
+    ? `<img src="${escapeAttribute(imageUrl)}" alt="${escapeAttribute(competition.title)}" loading="lazy" onerror="this.remove()" />`
+    : "";
+  const className = featured ? "hero-preview-item hero-preview-item--featured" : "hero-preview-item";
+
+  return `<a class="${className}" href="${escapeAttribute(href)}" aria-label="${escapeAttribute(
+    competition.title
+  )} - view details">
+                <div class="hero-preview-item__media">
+                  ${renderCompetitionVisualPlaceholder(competition, "hero-preview-item__placeholder")}
+                  ${imageMarkup}
+                </div>
+                <div class="hero-preview-item__body">
+                  <div class="hero-preview-item__brand">
+                    ${renderBrandMark(competition, "hero-preview-item__mark")}
+                    <span>${escapeHtml(competition.brand || "Official promotion")}</span>
+                  </div>
+                  <h3 class="hero-preview-item__title">${escapeHtml(title)}</h3>
+                  <div class="hero-preview-item__meta">
+                    <span>${escapeHtml(shared.getPrizeCue(competition))}</span>
+                    <span>${escapeHtml(shared.getUrgencyLabel(competition.closingDate))}</span>
+                  </div>
+                </div>
+              </a>`;
 }
 
 function renderHeroSpotlight(competition) {
@@ -2179,13 +2352,122 @@ function renderThinPageTips(competitions) {
         </section>`;
 }
 
+function renderHomeDiscoverySection({ kicker, title, intro, href, linkLabel, competitions, featured = false }) {
+  if (!competitions || competitions.length === 0) {
+    return "";
+  }
+
+  const gridClass = featured
+    ? "competition-grid competition-grid--featured"
+    : "competition-grid competition-grid--scroll";
+
+  return `<section class="home-section home-section--discovery" aria-label="${escapeAttribute(title)}">
+          <div class="home-section__header">
+            <div>
+              <p class="section-kicker">${escapeHtml(kicker)}</p>
+              <h2 class="home-section__title">${escapeHtml(title)}</h2>
+            </div>
+            ${href ? `<a class="home-section__link" href="${escapeAttribute(href)}">${escapeHtml(linkLabel || "View more")}</a>` : ""}
+          </div>
+          <p class="home-section__intro">${escapeHtml(intro)}</p>
+          <div class="${gridClass}">
+            ${competitions.map((competition) => renderCompetitionCard(competition, featured)).join("\n            ")}
+          </div>
+        </section>`;
+}
+
+function getFreeEntryPicks(competitions, n) {
+  return competitions
+    .filter((competition) => shared.getEntryCostLabel(competition) === "Free entry")
+    .slice()
+    .sort((left, right) => {
+      const highValueDiff = Number(right.isHighValue === true) - Number(left.isHighValue === true);
+      if (highValueDiff !== 0) {
+        return highValueDiff;
+      }
+
+      return new Date(left.closingDate) - new Date(right.closingDate);
+    })
+    .slice(0, n);
+}
+
+function getTrendingCompetitions(competitions, n) {
+  return competitions
+    .filter((competition) => shared.isHighValueCompetition(competition) || shared.shouldShowHotBadge(competition))
+    .slice()
+    .sort((left, right) => {
+      const leftScore = (left.isHighValue ? 10 : 0) + (shared.isClosingWithinDays(left.closingDate, 7) ? 5 : 0);
+      const rightScore = (right.isHighValue ? 10 : 0) + (shared.isClosingWithinDays(right.closingDate, 7) ? 5 : 0);
+
+      if (rightScore !== leftScore) {
+        return rightScore - leftScore;
+      }
+
+      return new Date(left.closingDate) - new Date(right.closingDate);
+    })
+    .slice(0, n);
+}
+
+function getLatestAddedCompetitions(competitions, n) {
+  return competitions
+    .slice()
+    .sort((left, right) => {
+      const leftChecked = new Date(left.lastChecked || 0).getTime() || 0;
+      const rightChecked = new Date(right.lastChecked || 0).getTime() || 0;
+
+      if (rightChecked !== leftChecked) {
+        return rightChecked - leftChecked;
+      }
+
+      return new Date(left.closingDate) - new Date(right.closingDate);
+    })
+    .slice(0, n);
+}
+
+function renderHomeTrustSection() {
+  return `<section class="home-section home-section--trust" aria-label="Why trust Freehub">
+          <div class="home-section__header">
+            <div>
+              <p class="section-kicker">Why trust Freehub?</p>
+              <h2 class="home-section__title">Built for safer competition discovery</h2>
+            </div>
+            <a class="home-section__link" href="/how-we-verify-competitions/">How we check listings</a>
+          </div>
+          <div class="trust-grid">
+            <article class="trust-card">
+              <span class="trust-card__label">Official sources</span>
+              <h3>Promoter links stay visible</h3>
+              <p>Freehub sends users to official promoter pages or campaign partners instead of collecting entries on our own site.</p>
+            </article>
+            <article class="trust-card">
+              <span class="trust-card__label">Freshness</span>
+              <h3>Active listings first</h3>
+              <p>Hub pages use active published data, with closing dates and updated timestamps where the page is generated.</p>
+            </article>
+            <article class="trust-card">
+              <span class="trust-card__label">Transparency</span>
+              <h3>Costs and requirements are labelled</h3>
+              <p>Cards surface free entry, purchase, paid entry, app and receipt-style requirements before users click through.</p>
+            </article>
+          </div>
+        </section>`;
+}
+
 function renderHomepage(competitions) {
   const homeRouteContext = { type: "home", slug: null, path: "/" };
   const structuredData = shared.buildStructuredData(competitions, homeRouteContext);
   const ogImage = getCollectionMetadataImageUrl(competitions);
   const featured = getFeaturedCompetitions(competitions, 4);
   const featuredCardsMarkup = featured.map((c) => renderCompetitionCard(c, true)).join("\n            ");
-  const heroSpotlightMarkup = renderHeroSpotlight(getHeroSpotlightCompetition(competitions));
+  const closingSoon = getEndingSoonCompetitions(competitions, 4);
+  const freeEntryPicks = getFreeEntryPicks(competitions, 4);
+  const trending = getTrendingCompetitions(competitions, 4);
+  const latestAdded = getLatestAddedCompetitions(competitions, 4);
+  const heroPreviewMarkup = renderHeroPreviewPanel(featured, {
+    title: "Prize Watch",
+    intro: "A fast look at high-value and near-deadline competitions.",
+    className: "hero-preview-panel--home",
+  });
 
   const noscriptLinks = competitions
     .slice(0, 6)
@@ -2219,19 +2501,51 @@ function renderHomepage(competitions) {
             <a class="internal-links__link" href="/paid-entry-competitions/">Paid entry competitions</a>
           </div>
         </section>`;
-  const featuredSectionMarkup = `<section class="home-section home-section--featured" aria-label="Featured competitions">
+  const featuredSectionMarkup = `<section class="home-section home-section--featured" aria-label="Featured competitions this week">
           <div class="home-section__header">
             <div>
-              <p class="section-kicker">Featured Today</p>
-              <h2 class="home-section__title">Open these live competitions first</h2>
+              <p class="section-kicker">Featured This Week</p>
+              <h2 class="home-section__title">Curated competitions to open first</h2>
             </div>
             <a class="home-section__link" href="/tag/high-value/">High-value picks</a>
           </div>
-          <p class="home-section__intro">A quick shortlist prioritising high-value, voucher, cash, free-entry, and ending-soon signals.</p>
+          <p class="home-section__intro">A shortlist prioritising strong prizes, free-entry signals, useful everyday rewards and clear source information.</p>
           <div class="competition-grid competition-grid--featured">
             ${featuredCardsMarkup}
           </div>
         </section>`;
+  const closingSoonSectionMarkup = renderHomeDiscoverySection({
+    kicker: "Closing Soon",
+    title: "Last-chance competitions",
+    intro: "Sorted by deadline so mobile users can quickly spot competitions worth checking before they close.",
+    href: "/competitions-ending-soon/",
+    linkLabel: "View all ending soon",
+    competitions: closingSoon,
+  });
+  const freeEntrySectionMarkup = renderHomeDiscoverySection({
+    kicker: "Free Entry Picks",
+    title: "No-purchase competitions",
+    intro: "Published listings where the current Freehub data does not show a required product purchase or paid ticket.",
+    href: "/free-competitions/",
+    linkLabel: "View free competitions",
+    competitions: freeEntryPicks,
+  });
+  const trendingSectionMarkup = renderHomeDiscoverySection({
+    kicker: "Trending Competitions",
+    title: "High-value and urgent prize draws",
+    intro: "Competitions with high-value prizes, strong category demand or near-deadline urgency signals.",
+    href: "/tag/high-value/",
+    linkLabel: "View high-value picks",
+    competitions: trending,
+  });
+  const latestAddedSectionMarkup = renderHomeDiscoverySection({
+    kicker: "Latest Added",
+    title: "Recently checked competitions",
+    intro: "Freshly checked listings from the current data set, useful for repeat visitors looking for something new.",
+    href: "/new-competitions-south-africa/",
+    linkLabel: "View new competitions",
+    competitions: latestAdded,
+  });
 
   const homepageSeoCopy = `FreeHub helps you discover competitions in South Africa without wading through scattered social posts, outdated promo pages, or low-trust listing sites. Whether you want to win cars, cash, holidays, vouchers, or the latest tech, the homepage is designed to surface the most exciting opportunities quickly. You can browse featured competitions, jump into free-entry giveaways, or prioritise promotions that are ending soon so you do not miss valuable prizes.
 
@@ -2248,8 +2562,7 @@ If you are looking for free entry competitions in South Africa, practical vouche
     <meta name="description" content="Browse free competitions South Africa users search for, including current car competitions, holiday giveaways, cash prizes, tech offers, and vouchers." />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="${escapeAttribute(shared.CANONICAL_ORIGIN)}/" />
-    <link rel="icon" type="image/png" href="/FH%20logo.png" />
-    <link rel="apple-touch-icon" href="/FH%20logo.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Free Competitions South Africa | Current Car, Holiday &amp; Cash Giveaways" />
     <meta property="og:description" content="Browse free competitions South Africa users search for, including current car competitions, holiday giveaways, cash prizes, tech offers, and vouchers." />
@@ -2288,7 +2601,8 @@ ${noscriptLinks}
         <div class="hero__layout">
           <div class="hero__copy">
             <div class="hero__brand" aria-label="FreeHub brand">
-              <img class="hero__brand-logo" src="/FH%20logo.png" alt="FreeHub logo" width="200" height="40" loading="eager" decoding="async" />
+              <span class="hero__brand-mark" aria-hidden="true">FH</span>
+              <span class="hero__brand-name">Freehub</span>
             </div>
             <h1 id="pageTitle">Today&apos;s Live Competitions in South Africa</h1>
             <p class="hero__text" id="pageIntro">FreeHub lists vouchers, prizes, cash giveaways and competitions from trusted South African brands so you can find offers worth opening today.</p>
@@ -2302,12 +2616,17 @@ ${noscriptLinks}
               <span class="trust-row__item">No FreeHub sign-up</span>
             </div>
           </div>
-          ${heroSpotlightMarkup}
+          ${heroPreviewMarkup}
         </div>
       </header>
 
       <main class="main-content">
         ${featuredSectionMarkup}
+        ${closingSoonSectionMarkup}
+        ${freeEntrySectionMarkup}
+        ${trendingSectionMarkup}
+        ${latestAddedSectionMarkup}
+        ${renderHomeTrustSection()}
 
         ${renderAdZone("ad-top", "after-featured")}
 

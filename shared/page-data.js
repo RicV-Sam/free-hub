@@ -476,6 +476,42 @@
     return buildBrandFallbackImage(competition || {});
   }
 
+  function getCompetitionPrimaryImageUrl(competition, competitionPool = []) {
+    if (competition && competition.image) {
+      return competition.image;
+    }
+
+    return getBrandAssociatedImage(competition, competitionPool);
+  }
+
+  function getCompetitionLogoUrl(competition) {
+    return String(
+      (competition && (competition.logo || competition.brandLogo || competition.logoUrl || competition.brandLogoUrl)) || ""
+    ).trim();
+  }
+
+  function getBrandInitials(brand) {
+    const words = String(brand || "Freehub")
+      .trim()
+      .replace(/[^a-z0-9\s&-]/gi, "")
+      .split(/\s+/)
+      .filter(Boolean);
+
+    if (words.length === 0) {
+      return "FH";
+    }
+
+    if (words.length === 1) {
+      return words[0].slice(0, 2).toUpperCase();
+    }
+
+    return words
+      .slice(0, 2)
+      .map((word) => word.charAt(0))
+      .join("")
+      .toUpperCase();
+  }
+
   function getBrandAssociatedImage(competition, competitionPool = []) {
     const candidates = Array.isArray(competitionPool) ? competitionPool : [];
     const keys = BRAND_IMAGE_LOOKUP_KEYS.map((field) =>
@@ -835,6 +871,44 @@
     }
 
     return Array.from(labels).slice(0, 5);
+  }
+
+  function getCardStatusLabels(competition) {
+    const labels = new Set(["Verified"]);
+    const daysUntilClosing = getDaysUntilClosing(competition && competition.closingDate);
+    const costLabel = getEntryCostLabel(competition || {});
+
+    if (Number.isFinite(daysUntilClosing)) {
+      if (daysUntilClosing === 0) {
+        labels.add("Last chance");
+      } else if (daysUntilClosing <= 3) {
+        labels.add("Closing soon");
+      }
+    }
+
+    labels.add(toTitleCaseLabel(costLabel));
+
+    if (isRecentlyCheckedCompetition(competition)) {
+      labels.add("New");
+    }
+
+    if (isHighValueCompetition(competition || {})) {
+      labels.add("Trending");
+    }
+
+    return Array.from(labels).slice(0, 5);
+  }
+
+  function isRecentlyCheckedCompetition(competition) {
+    return getLastCheckedAgeDays(competition && competition.lastChecked) <= 7;
+  }
+
+  function toTitleCaseLabel(label) {
+    return String(label || "")
+      .split(/\s+/)
+      .filter(Boolean)
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
   }
 
   function isPublishedCompetition(competition) {
@@ -1305,6 +1379,9 @@
     HOME_ROUTE,
     DEFAULT_OG_IMAGE,
     getCompetitionImageUrl,
+    getCompetitionPrimaryImageUrl,
+    getCompetitionLogoUrl,
+    getBrandInitials,
     CATEGORY_COPY,
     DEFAULT_COPY,
     TAG_COPY,
@@ -1333,6 +1410,8 @@
     getPrimaryPrizeText,
     getCardHeadline,
     getEntryCostLabel,
+    getCardStatusLabels,
+    isRecentlyCheckedCompetition,
     formatRandAmount,
     getCardTagLabels,
     isPublishedCompetition,

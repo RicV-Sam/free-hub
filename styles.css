@@ -307,9 +307,9 @@ button {
 
 .hero h1 {
   margin: 0;
-  font-size: clamp(1.7rem, 8vw, 4rem);
+  font-size: 2rem;
   line-height: 1.05;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
   max-width: 14ch;
 }
 
@@ -530,7 +530,7 @@ button {
   font-size: 1.18rem;
   font-weight: 900;
   line-height: 1.15;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
 }
 
 .competition-card__meta {
@@ -977,7 +977,7 @@ button {
   margin: 0;
   font-size: 1.1rem;
   font-weight: 900;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
 }
 
 .home-section__intro {
@@ -1108,7 +1108,7 @@ button {
   margin: 0;
   font-size: 1.25rem;
   font-weight: 900;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   line-height: 1.25;
   max-width: 26rem;
 }
@@ -1593,10 +1593,29 @@ button {
   background: #ffffff;
 }
 
+.hero__brand-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #f2b632;
+  color: #132033;
+  font-size: 0.9rem;
+  font-weight: 950;
+}
+
+.hero__brand-name {
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
 .hero--home h1 {
   max-width: 17ch;
   color: #f8fafc;
-  font-size: clamp(2rem, 8.2vw, 5rem);
+  font-size: 2.35rem;
   line-height: 0.98;
 }
 
@@ -1684,7 +1703,7 @@ button {
   color: #f8fafc;
   font-size: 0.93rem;
   line-height: 1.2;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
 }
 
 .hero-spotlight__meta {
@@ -2013,7 +2032,7 @@ button {
   font-size: 1.35rem;
   font-weight: 900;
   line-height: 1.15;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }
 
 .newsletter-block__text,
@@ -2165,5 +2184,712 @@ button {
 
   .competition-card--featured .competition-card__title {
     font-size: 1.24rem;
+  }
+}
+
+/* Phase 1 UX modernization */
+:root {
+  --bg: #edf3f7;
+  --surface: #ffffff;
+  --surface-strong: #ffffff;
+  --text: #162132;
+  --muted: #566579;
+  --border: #d6e0ea;
+  --primary: #10243f;
+  --primary-strong: #0b172a;
+  --accent: #0f766e;
+  --accent-soft: #e3f6f3;
+  --gold: #d99a16;
+  --gold-soft: #fff3cf;
+  --highlight: #c2410c;
+  --highlight-soft: #ffedd5;
+  --shadow: 0 16px 38px rgba(15, 23, 42, 0.08);
+  --shadow-hover: 0 22px 52px rgba(15, 23, 42, 0.14);
+  --radius-lg: 18px;
+  --radius-md: 12px;
+}
+
+body {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(180deg, #f8fbfd 0%, #edf3f7 54%, #e7eef5 100%);
+}
+
+:focus-visible {
+  outline-color: rgba(217, 154, 22, 0.55);
+}
+
+.hero h1,
+.hero--home h1,
+.home-section__title,
+.competition-card__title,
+.seo-copy-block__title,
+.newsletter-block__title,
+.hero-preview-panel__title,
+.hero-preview-item__title {
+  letter-spacing: 0;
+}
+
+.hero h1 {
+  max-width: 18ch;
+  font-size: 2rem;
+  line-height: 1.04;
+}
+
+.hero--home h1 {
+  max-width: 18ch;
+  font-size: 2.1rem;
+  line-height: 1.02;
+}
+
+.hero__text {
+  max-width: 42rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.hero--home,
+.hero--collection.hero--flagship {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 1.45rem 0 0.75rem;
+  border-radius: 0 0 22px 22px;
+  background: linear-gradient(135deg, #0b172a 0%, #10243f 52%, #0d554f 100%);
+}
+
+.hero--collection.hero--flagship .hero__layout,
+.hero--home .hero__layout {
+  width: min(calc(100% - 2rem), var(--max-width));
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  align-items: end;
+}
+
+.hero--collection.hero--flagship .hero__copy,
+.hero--home .hero__copy {
+  max-width: 43rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.hero--collection.hero--flagship .eyebrow,
+.hero--home .eyebrow {
+  margin-bottom: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+}
+
+.hero--collection.hero--flagship h1,
+.hero--collection.hero--flagship .hero__text,
+.hero--home h1,
+.hero--home .hero__text {
+  color: #f8fafc;
+}
+
+.hero--collection.hero--flagship .hero__text,
+.hero--home .hero__text {
+  color: rgba(248, 250, 252, 0.82);
+}
+
+.hero__updated {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fef3c7;
+}
+
+.btn {
+  min-height: 48px;
+  border-radius: 999px;
+  box-shadow: none;
+}
+
+.btn--primary {
+  background: #f2b632;
+  color: #132033;
+  box-shadow: 0 12px 26px rgba(217, 154, 22, 0.24);
+}
+
+.btn--secondary {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #f8fafc;
+}
+
+.hero-preview-panel {
+  display: grid;
+  gap: 0.85rem;
+  padding: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(10px);
+}
+
+.hero-preview-panel__header {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.hero-preview-panel__kicker {
+  margin: 0;
+  color: #86efac;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hero-preview-panel__title {
+  margin: 0;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.hero-preview-panel__intro {
+  margin: 0;
+  color: rgba(248, 250, 252, 0.76);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  display: none;
+}
+
+.hero-preview-list {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.hero-preview-item {
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr);
+  gap: 0.7rem;
+  align-items: center;
+  min-height: 92px;
+  padding: 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hero-preview-item--featured {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.hero-preview-list .hero-preview-item:nth-child(n+3) {
+  display: none;
+}
+
+.hero-preview-list .hero-preview-item:nth-child(n+2) {
+  display: none;
+}
+
+.hero-preview-item__media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.45);
+}
+
+.hero-preview-item__media img,
+.competition-card__media img {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-preview-item__placeholder,
+.competition-card__placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  gap: 0.25rem;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #10243f 0%, #0f766e 100%);
+  color: #fff;
+  text-align: center;
+}
+
+.hero-preview-item__placeholder-initials,
+.competition-card__placeholder-initials {
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.hero-preview-item__placeholder-category,
+.competition-card__placeholder-category {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.82;
+}
+
+.hero-preview-item__body {
+  min-width: 0;
+  display: grid;
+  gap: 0.38rem;
+}
+
+.hero-preview-item__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.42rem;
+  min-width: 0;
+  color: rgba(248, 250, 252, 0.76);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.hero-preview-item__brand span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hero-preview-item__mark,
+.brand-mark {
+  flex: 0 0 auto;
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.74rem;
+  font-weight: 900;
+}
+
+.hero-preview-item__mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.brand-mark--image img,
+.hero-preview-item__mark--image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: inherit;
+  background: #fff;
+}
+
+.hero-preview-item__title {
+  margin: 0;
+  color: #fff;
+  font-size: 0.96rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.hero-preview-item__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.hero-preview-item__meta span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0.26rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(248, 250, 252, 0.86);
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.competition-grid {
+  gap: 0.9rem;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.competition-card {
+  min-width: 0;
+  border-color: rgba(214, 224, 234, 0.95);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.07);
+}
+
+.competition-card:hover,
+.competition-card:focus-within {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.competition-card__media {
+  aspect-ratio: 16 / 9;
+  background: #e5eef5;
+}
+
+.competition-card__badges {
+  z-index: 2;
+  top: 0.7rem;
+  left: 0.7rem;
+  right: 0.7rem;
+}
+
+.badge {
+  min-height: 28px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+}
+
+.badge--category {
+  background: rgba(16, 36, 63, 0.88);
+}
+
+.badge--verified {
+  background: rgba(15, 118, 110, 0.92);
+  color: #fff;
+}
+
+.badge--closing {
+  background: #fff7ed;
+  color: #9a3412;
+  box-shadow: 0 10px 20px rgba(154, 52, 18, 0.12);
+}
+
+.competition-card__body {
+  gap: 0.6rem;
+  padding: 0.86rem;
+}
+
+.competition-card__brand-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.55rem;
+  align-items: center;
+}
+
+.competition-card__brand {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  color: #475569;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.competition-card__source {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0.22rem 0.5rem;
+  border-radius: 999px;
+  background: #eef8f6;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.competition-card__status-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.38rem;
+}
+
+.competition-card__status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0.25rem 0.55rem;
+  border: 1px solid rgba(15, 118, 110, 0.1);
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #334155;
+  font-size: 0.69rem;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.competition-card__status--verified,
+.competition-card__status--free-entry {
+  background: #e8f7f4;
+  color: #0f766e;
+}
+
+.competition-card__status--closing-soon,
+.competition-card__status--last-chance {
+  background: #fff3cf;
+  color: #92400e;
+}
+
+.competition-card__status--trending {
+  background: #ffedd5;
+  color: #9a3412;
+}
+
+.competition-card__status--new {
+  background: #e0f2fe;
+  color: #075985;
+}
+
+.competition-card__title {
+  font-size: 1.08rem;
+  line-height: 1.22;
+}
+
+.competition-card__signals {
+  gap: 0.4rem;
+}
+
+.competition-card__signal {
+  min-height: 30px;
+  font-size: 0.7rem;
+}
+
+.competition-card__signal--cost {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.competition-card__summary {
+  -webkit-line-clamp: 2;
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.competition-card__meta {
+  gap: 0.45rem 0.7rem;
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
+.competition-card__entry,
+.badge--soft {
+  min-height: 30px;
+  font-size: 0.7rem;
+}
+
+.competition-card__cta {
+  min-height: 44px;
+  background: var(--primary);
+  box-shadow: none;
+}
+
+.competition-card__cta--featured {
+  background: var(--accent);
+}
+
+.home-section,
+.newsletter-block,
+.seo-copy-block,
+.ad-slot,
+.controls,
+.results-header,
+.state-card,
+.popular-searches,
+.internal-links {
+  min-width: 0;
+  border-color: rgba(214, 224, 234, 0.78);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+}
+
+.home-section {
+  padding: 1rem;
+}
+
+.home-section__header {
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.home-section__header > div,
+.home-section__intro,
+.competition-grid {
+  min-width: 0;
+}
+
+.home-section__link {
+  white-space: normal;
+}
+
+.home-section--featured {
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+}
+
+.home-section--discovery .competition-grid--scroll {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  overflow-x: visible;
+  padding-bottom: 0;
+}
+
+.home-section--discovery .competition-grid--scroll .competition-card {
+  flex: unset;
+  max-width: none;
+}
+
+.home-section--trust {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: linear-gradient(135deg, #0b172a 0%, #10243f 100%);
+}
+
+.home-section--trust .home-section__title,
+.home-section--trust .home-section__intro,
+.home-section--trust .section-kicker,
+.home-section--trust .home-section__link {
+  color: #f8fafc;
+}
+
+.trust-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.trust-card {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.trust-card__label {
+  color: #86efac;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.trust-card h3,
+.trust-card p {
+  margin: 0;
+}
+
+.trust-card h3 {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.trust-card p {
+  color: rgba(248, 250, 252, 0.76);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.category-nav,
+.filter-list {
+  flex-wrap: wrap;
+  overflow-x: visible;
+}
+
+.category-nav__link,
+.filter-chip {
+  flex: 0 1 auto;
+}
+
+.controls {
+  position: sticky;
+  top: 0.5rem;
+  z-index: 10;
+}
+
+@media (min-width: 700px) {
+  .hero h1 {
+    font-size: 2.75rem;
+  }
+
+  .hero--home h1 {
+    font-size: 3.6rem;
+  }
+
+  .hero--collection.hero--flagship,
+  .hero--home {
+    padding-top: 3.25rem;
+    padding-bottom: 1.1rem;
+  }
+
+  .hero--collection.hero--flagship .hero__layout,
+  .hero--home .hero__layout {
+    grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.82fr);
+  }
+
+  .hero-preview-panel {
+    justify-self: end;
+    width: min(100%, 410px);
+  }
+
+  .hero-preview-panel__intro {
+    display: block;
+  }
+
+  .hero-preview-list .hero-preview-item:nth-child(n+3) {
+    display: grid;
+  }
+
+  .hero-preview-list .hero-preview-item:nth-child(n+2) {
+    display: grid;
+  }
+
+  .category-nav,
+  .filter-list {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+
+  .controls {
+    position: static;
+  }
+
+  .competition-grid,
+  .home-section--discovery .competition-grid--scroll {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .trust-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero h1 {
+    font-size: 3.35rem;
+  }
+
+  .hero--home h1 {
+    font-size: 4.35rem;
+  }
+
+  .competition-grid,
+  .home-section--discovery .competition-grid--scroll {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .competition-grid--featured {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .competition-card__title {
+    font-size: 1.14rem;
+  }
+
+  .competition-card--featured .competition-card__title {
+    font-size: 1.18rem;
   }
 }

@@ -1,7 +1,8 @@
 const {
   CATEGORY_COPY,
-  DEFAULT_OG_IMAGE,
-  getCompetitionImageUrl,
+  getCompetitionPrimaryImageUrl,
+  getCompetitionLogoUrl,
+  getBrandInitials,
   getCompetitionPath,
   getCompetitionSlug,
   buildStructuredData,
@@ -12,13 +13,12 @@ const {
   getEntryCostLabel,
   getCardHeadline,
   getCardTagLabels,
+  getCardStatusLabels,
   getPrizeCue,
   getUrgencyLabel,
   getUrgencyBadgeLabel,
   getPageCopy,
   getRouteContext,
-  isClosingSoon,
-  shouldShowHotBadge,
   sortCompetitions,
 } = window.FreeHubShared;
 
@@ -263,6 +263,53 @@ function renderCompetitions() {
   updateResultsSummary(filteredCompetitions.length);
 }
 
+function getStatusClassName(label) {
+  const normalized = String(label || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
+  return `competition-card__status competition-card__status--${normalized || "default"}`;
+}
+
+function createBrandMark(competition, className = "brand-mark") {
+  const brand = competition.brand || "Freehub";
+  const logoUrl = getCompetitionLogoUrl(competition);
+  const mark = document.createElement("span");
+  mark.className = className;
+
+  if (logoUrl) {
+    mark.classList.add(`${className}--image`);
+    const logo = document.createElement("img");
+    logo.src = logoUrl;
+    logo.alt = `${brand} logo`;
+    logo.loading = "lazy";
+    mark.appendChild(logo);
+    return mark;
+  }
+
+  mark.setAttribute("aria-hidden", "true");
+  mark.textContent = getBrandInitials(brand);
+  return mark;
+}
+
+function createVisualPlaceholder(competition, className = "competition-card__placeholder") {
+  const placeholder = document.createElement("div");
+  placeholder.className = className;
+  placeholder.setAttribute("aria-hidden", "true");
+
+  const initials = document.createElement("span");
+  initials.className = `${className}-initials`;
+  initials.textContent = getBrandInitials(competition.brand);
+
+  const category = document.createElement("span");
+  category.className = `${className}-category`;
+  category.textContent = competition.category || "Prize";
+
+  placeholder.append(initials, category);
+  return placeholder;
+}
+
 function createCompetitionCard(competition) {
   const article = document.createElement("article");
   article.className = "competition-card";
@@ -281,15 +328,17 @@ function createCompetitionCard(competition) {
 
   const media = document.createElement("div");
   media.className = "competition-card__media";
+  media.appendChild(createVisualPlaceholder(competition));
 
-  const image = document.createElement("img");
-  image.src = getCompetitionImageUrl(competition, state.competitions);
-  image.alt = competition.title;
-  image.loading = "lazy";
-  image.onerror = () => {
-    image.src = getCompetitionImageUrl(competition, state.competitions);
-    image.onerror = null;
-  };
+  const imageUrl = getCompetitionPrimaryImageUrl(competition, state.competitions);
+  if (imageUrl) {
+    const image = document.createElement("img");
+    image.src = imageUrl;
+    image.alt = competition.title;
+    image.loading = "lazy";
+    image.onerror = () => image.remove();
+    media.appendChild(image);
+  }
 
   const badges = document.createElement("div");
   badges.className = "competition-card__badges";
@@ -302,30 +351,43 @@ function createCompetitionCard(competition) {
   categoryBadge.textContent = competition.category;
   badgeStack.appendChild(categoryBadge);
 
-  if (shouldShowHotBadge(competition)) {
-    const hotBadge = document.createElement("span");
-    hotBadge.className = "badge badge--hot";
-    hotBadge.textContent = "HOT";
-    badgeStack.appendChild(hotBadge);
-  }
+  const verifiedBadge = document.createElement("span");
+  verifiedBadge.className = "badge badge--verified";
+  verifiedBadge.textContent = "Verified";
+  badgeStack.appendChild(verifiedBadge);
 
   const urgencyBadge = document.createElement("span");
   urgencyBadge.className = "badge badge--closing";
   urgencyBadge.textContent = getUrgencyBadgeLabel(competition.closingDate);
 
   badges.append(badgeStack, urgencyBadge);
-  media.append(image, badges);
+  media.appendChild(badges);
 
   const body = document.createElement("div");
   body.className = "competition-card__body";
 
-  const title = document.createElement("h2");
-  title.className = "competition-card__title";
-  title.textContent = getCardHeadline(competition);
-
+  const brandRow = document.createElement("div");
+  brandRow.className = "competition-card__brand-row";
   const brand = document.createElement("p");
   brand.className = "competition-card__brand";
   brand.textContent = competition.brand || "Official promotion";
+  const source = document.createElement("span");
+  source.className = "competition-card__source";
+  source.textContent = "Official source";
+  brandRow.append(createBrandMark(competition), brand, source);
+
+  const statusRow = document.createElement("div");
+  statusRow.className = "competition-card__status-row";
+  getCardStatusLabels(competition).forEach((label) => {
+    const status = document.createElement("span");
+    status.className = getStatusClassName(label);
+    status.textContent = label;
+    statusRow.append(status);
+  });
+
+  const title = document.createElement("h2");
+  title.className = "competition-card__title";
+  title.textContent = getCardHeadline(competition);
 
   const signals = document.createElement("div");
   signals.className = "competition-card__signals";
@@ -338,26 +400,32 @@ function createCompetitionCard(competition) {
   urgencySignal.className = "competition-card__signal competition-card__signal--urgency";
   urgencySignal.textContent = getUrgencyLabel(competition.closingDate);
 
-  signals.append(valueSignal, urgencySignal);
+  const costSignal = document.createElement("span");
+  costSignal.className = "competition-card__signal competition-card__signal--cost";
+  costSignal.textContent = getEntryCostLabel(competition);
+
+  signals.append(valueSignal, urgencySignal, costSignal);
 
   const meta = document.createElement("div");
   meta.className = "competition-card__meta";
 
   const closingDate = document.createElement("span");
-  closingDate.textContent = formatDate(competition.closingDate);
+  closingDate.textContent = `Closes: ${formatDate(competition.closingDate)}`;
 
   const entryMethod = document.createElement("span");
-  entryMethod.textContent = getEntryMethodLabel(competition.entryType);
+  entryMethod.textContent = `Entry: ${getEntryMethodLabel(competition.entryType)}`;
   meta.append(entryMethod, closingDate);
+
+  body.append(brandRow, statusRow, title, signals);
 
   if (competition.summary) {
     const summary = document.createElement("p");
     summary.className = "competition-card__summary";
     summary.textContent = competition.summary;
-    body.append(title, brand, signals, summary, meta);
-  } else {
-    body.append(title, brand, signals, meta);
+    body.appendChild(summary);
   }
+
+  body.appendChild(meta);
 
   const footer = document.createElement("div");
   footer.className = "competition-card__footer";
