@@ -481,7 +481,12 @@
       return competition.image;
     }
 
-    return getBrandAssociatedImage(competition, competitionPool);
+    const brandImage = getBrandAssociatedImage(competition, competitionPool);
+    if (brandImage) {
+      return brandImage;
+    }
+
+    return buildBrandFallbackImage(competition || {});
   }
 
   function getCompetitionLogoUrl(competition) {
@@ -654,10 +659,10 @@
   function getEntryMethodLabel(entryType) {
     const normalized = String(entryType || "").toLowerCase();
 
-    if (normalized.includes("app")) return "App";
     if (normalized.includes("sms")) return "SMS";
     if (normalized.includes("ussd")) return "USSD";
     if (normalized.includes("whatsapp")) return "WhatsApp";
+    if (normalized.includes("app")) return "App";
     if (normalized.includes("qr")) return "QR";
     if (normalized.includes("ticket")) return "Ticket";
     if (normalized.includes("in-store")) return "In-store";

@@ -698,6 +698,10 @@ button {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.sponsored-card.sponsored-card--reserved {
+  display: none;
+}
+
 .sponsored-card:hover,
 .sponsored-card:focus-visible {
   transform: translateY(-4px);

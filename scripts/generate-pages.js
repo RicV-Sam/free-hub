@@ -1653,15 +1653,7 @@ function renderPage(routeContext, competitions) {
       )}</script>`
     : "";
   const cardsMarkup = competitions
-    .flatMap((competition, index) => {
-      const items = [renderCompetitionCard(competition)];
-
-      if ((index + 1) % 6 === 0) {
-        items.push(renderInlineAdCard());
-      }
-
-      return items;
-    })
+    .map((competition) => renderCompetitionCard(competition))
     .join("\n");
   const resultsSummary = `Showing ${competitions.length} competitions`;
 
@@ -2069,10 +2061,6 @@ function renderCompetitionCard(competition, featured = false) {
                 <span class="visually-hidden">View details for ${escapeHtml(competition.title)}</span>
               </a>
             </article>`;
-}
-
-function renderInlineAdCard(placement = "inline") {
-  return `<article class="sponsored-card sponsored-card--reserved" data-placement="${escapeAttribute(placement)}" aria-hidden="true"></article>`;
 }
 
 function renderAdZone(id, placement, compact = false) {

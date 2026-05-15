@@ -22,7 +22,6 @@ const {
   sortCompetitions,
 } = window.FreeHubShared;
 
-const INLINE_AD_INTERVAL = 6;
 const SPONSORED_OFFER_URL = "";
 const STICKY_AD_URL = "";
 const PAGE_AD_PLACEMENTS = [
@@ -249,16 +248,7 @@ function renderCompetitions() {
   if (filteredCompetitions.length === 0) {
     elements.emptyState.classList.remove("state-card--hidden");
   } else {
-    const cards = filteredCompetitions.flatMap((competition, index) => {
-      const items = [createCompetitionCard(competition)];
-
-      if ((index + 1) % INLINE_AD_INTERVAL === 0) {
-        const placement = `inline-${Math.floor((index + 1) / INLINE_AD_INTERVAL)}`;
-        items.push(createInlineAdCard(placement));
-      }
-
-      return items;
-    });
+    const cards = filteredCompetitions.map((competition) => createCompetitionCard(competition));
 
     elements.competitionsGrid.append(...cards);
   }
@@ -452,15 +442,6 @@ function createCompetitionCard(competition) {
   footer.append(tags);
   body.append(footer, cta);
   article.append(media, body, overlayLink);
-
-  return article;
-}
-
-function createInlineAdCard(placement) {
-  const article = document.createElement("article");
-  article.className = "sponsored-card sponsored-card--reserved";
-  article.dataset.placement = placement;
-  article.setAttribute("aria-hidden", "true");
 
   return article;
 }
