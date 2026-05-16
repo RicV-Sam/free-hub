@@ -1383,13 +1383,41 @@ function getCategoryEditorial(slug, competitions) {
     },
     tech: {
       ariaLabel: "Guide to tech competitions in South Africa",
-      title: "How to choose tech giveaways",
+      title: "How to compare tech competitions",
       sections: [
         {
-          heading: "Check the entry route",
+          heading: "What tech competitions are",
           paragraphs: [
-            `Tech competitions can involve app entries, account actions, recharge mechanics, online forms or purchase-linked entries. This page currently groups ${escapeHtml(liveCopy)} with cost labels and official links.`,
-            `If an app is required, use the <a href="/app-competitions-south-africa/">app competitions guide</a> to check that you are using the official promoter app.`,
+            `Tech competitions are prize draws, giveaways or promotions where the reward is technology-led, such as a device, electronics bundle, home entertainment prize or tech voucher. This page currently groups ${escapeHtml(liveCopy)} from the active published Freehub data with visible closing dates, entry labels and official promoter links.`,
+            "Common tech prizes include phones, smartphones, TVs, gaming consoles, laptops, tablets, gadgets, electronics vouchers, appliances where the prize is electronics-led, and home entertainment bundles where the active listing supports that prize type.",
+          ],
+        },
+        {
+          heading: "Free entry and purchase-required tech prizes",
+          paragraphs: [
+            "Not every tech competition is free. Some use a free online form, social entry or account action, while others require a qualifying purchase, till slip, recharge, rewards-card swipe, app task, USSD session, WhatsApp entry, paid ticket or minimum spend.",
+            `Use the label on each listing to separate free entry, purchase required, paid entry, account required, app required, rewards card required, till slip required, WhatsApp entry, USSD entry, online entry and in-store entry routes. You can also compare <a href="/free-competitions/">free competitions</a> and <a href="/purchase-required-competitions/">purchase required competitions</a> separately.`,
+          ],
+        },
+        {
+          heading: "Entry methods to check",
+          paragraphs: [
+            "Tech giveaways can use online forms, app flows, account dashboards, rewards-card profiles, WhatsApp prompts, USSD menus, till-slip uploads, in-store entries, social tasks or automatic qualifying-purchase entries. Check the official source before sharing personal details or installing an app.",
+            `If an app is required, use the <a href="/app-competitions-south-africa/">app competitions guide</a> to check that you are using the official promoter app. If a purchase or receipt is required, keep the original proof until the draw and claim process are complete.`,
+          ],
+        },
+        {
+          heading: "Official terms and prize details",
+          paragraphs: [
+            "Read the official terms for the exact model, colour, storage size, bundle contents, voucher value, delivery method, warranty position, draw date, winner-contact process and whether the promoter may substitute the prize.",
+            "Model details and substitution rules matter because a phone, TV, console or electronics bundle can vary widely by version, size, network status, accessories and availability.",
+          ],
+        },
+        {
+          heading: "Tech prize safety",
+          paragraphs: [
+            "Do not pay unofficial winner fees, delivery fees, release fees or admin fees to claim a gadget, phone, TV or electronics prize. Verify winner messages through the promoter's official website, app, social page or support channel before responding.",
+            `Freehub does not run tech competitions, collect entries, choose winners, supply prizes or manage prize delivery. We organise active published listings and link to official promoter sources; you can also browse <a href="/competitions/">all current competitions</a>, <a href="/competitions-ending-soon/">competitions ending soon</a>, <a href="/win-a-car/">win-a-car competitions</a>, <a href="/category/cash/">cash competitions</a>, <a href="/category/vouchers/">voucher competitions</a> and <a href="/category/holidays/">holiday competitions</a>.`,
           ],
         },
       ],
@@ -1665,19 +1693,29 @@ function getCollectionFaqItems(routeContext) {
     ],
     tech: [
       {
-        question: "What counts as a tech giveaway?",
+        question: "Are tech competitions free to enter?",
         answer:
-          "Tech giveaways can include smartphones, laptops, gaming bundles, home theatre prizes, data, airtime, devices and electronics vouchers.",
+          "Some tech competitions are free to enter, while others require a purchase, receipt, app, account, rewards card, WhatsApp entry, USSD entry, paid ticket or qualifying action. Check the Freehub label and the official promoter terms before entering.",
       },
       {
-        question: "Do tech competitions need an app or account?",
+        question: "What types of tech prizes can I win?",
         answer:
-          "Some tech competitions use an app, account, recharge, loyalty profile or purchase. Check the entry method and official terms before sharing details.",
+          "Tech prizes can include phones, smartphones, TVs, gaming consoles, laptops, tablets, gadgets, electronics vouchers, home entertainment bundles and tech-led appliances where the active listing supports that prize type.",
       },
       {
-        question: "How can I avoid fake tech prize messages?",
+        question: "Do I need to buy something to enter a tech competition?",
         answer:
-          "Verify winner messages through the promoter's official website, app or support channel. Do not share one-time PINs, passwords or card PINs.",
+          "Sometimes. Purchase-required tech competitions may need a qualifying product, minimum spend, till slip, rewards-card swipe, recharge or account action, while free-entry tech competitions should not require a purchase. The official terms are the source of truth.",
+      },
+      {
+        question: "How do I know if a gadget giveaway is legitimate?",
+        answer:
+          "Use official promoter links, check the closing date and terms, confirm the entry method, and verify winner messages through the promoter's official website, app, social page or support channel. Do not pay unofficial winner, delivery, release or admin fees.",
+      },
+      {
+        question: "Does Freehub run these tech competitions?",
+        answer:
+          "No. Freehub is a competition discovery site. The promoter runs the competition, accepts entries, chooses winners and supplies or fulfils tech prizes through its own official process.",
       },
     ],
     vouchers: [
@@ -2554,12 +2592,16 @@ function getCategoryInternalLinks(slug, competitions) {
 
   if (slug === "tech") {
     return {
-      title: "Tech Giveaway Searches",
+      title: "Tech Competition Searches",
       links: [
-        { label: "Gadget giveaway competitions", href: byIdPath("game-store-gadget-giveaway") },
-        { label: "Smartphone competition entries", href: byIdPath("vodacom-recharge-win-galaxy-s25") },
-        { label: "Free competitions", href: "/free-competitions/" },
+        { label: "All competitions", href: "/competitions/" },
         { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
+        { label: "Free competitions", href: "/free-competitions/" },
+        { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
+        { label: "Win a car competitions", href: "/win-a-car/" },
+        { label: "Cash competitions", href: "/category/cash/" },
+        { label: "Voucher competitions", href: "/category/vouchers/" },
+        { label: "Holiday competitions", href: "/category/holidays/" },
       ],
     };
   }

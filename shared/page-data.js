@@ -51,14 +51,14 @@
     },
     tech: {
       category: "Tech",
-      title: "Tech Giveaways South Africa | Gadget & Smartphone Competitions",
+      title: "Tech Competitions in South Africa | Win Phones, Gadgets & Electronics",
       description:
-        "Browse tech giveaways in South Africa, including gadget giveaway and smartphone competition opportunities you can enter online.",
-      heading: "Tech Giveaways and Smartphone Competitions",
+        "Find current South African tech competitions and electronics giveaways. Compare phone, TV, gadget and gaming prizes with closing dates, entry costs and official promoter links.",
+      heading: "Tech Competitions in South Africa",
       intro:
-        "Check the latest gadget giveaway and smartphone competition listings in South Africa. From electronics bundles to flagship devices, this page keeps active tech giveaways in one place.",
+        "This page lists current tech, gadget and electronics competitions in South Africa, including phone, TV, gaming console, electronics bundle, gadget and tech voucher prizes where the active listings support them. Some tech competitions are free to enter, while others may require a purchase, receipt, app, account, rewards card, WhatsApp entry, USSD entry or other qualifying action. Freehub does not run these competitions or collect entries; use the official promoter links to enter.",
       support:
-        "Electronics giveaways consistently perform well in South Africa, especially when mobile, streaming, or home tech brands are attached. This page focuses on verified tech giveaways so you can browse active options without extra friction.",
+        "Tech competitions can include phones and smartphones, TVs and home theatre prizes, gaming consoles, laptops, tablets, gadgets, electronics vouchers, tech-led appliances and app, account or rewards-based promotions. If you searched for tech competitions South Africa, win gadgets South Africa, gadget giveaway listings, win phones South Africa, win electronics South Africa, win TV competitions South Africa or current tech giveaways South Africa, compare the entry label, closing date and official terms before entering.",
     },
     vouchers: {
       category: "Vouchers",
