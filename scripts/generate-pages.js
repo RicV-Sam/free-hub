@@ -1039,11 +1039,11 @@ function renderHubIntroEditorial(routeContext) {
 
   if (isWinACarHub(routeContext)) {
     return `<section class="seo-copy-block seo-copy-block--intro" aria-label="About win a car competitions">
-          <h2 class="seo-copy-block__title">Current vehicle giveaways in one place</h2>
+          <h2 class="seo-copy-block__title">Current South African vehicle giveaways in one place</h2>
           <div class="seo-copy-block__content hub-editorial">
             <section class="hub-editorial__section">
-              <p>This hub groups published South African car competitions, vehicle giveaways, SUV promotions, bakkie draws and luxury car prize campaigns where Freehub has enough source information to list them.</p>
-              <p>Freehub is not the promoter. We organise the listing details and link you to the official source so you can check the vehicle model, entry method, cost, draw rules and closing date before entering.</p>
+              <p>This hub lists current South African car competitions, vehicle giveaways and win-a-car promotions from official promoter sources. Only active published listings are shown here, sorted by closing date so nearer deadlines are easier to spot.</p>
+              <p>Freehub is not the promoter and does not collect entries, sell tickets, choose winners or handle prize delivery. We organise the listing details and link you to the official promoter so you can check the vehicle model, entry method, cost, draw rules and closing date before entering.</p>
             </section>
           </div>
         </section>`;
@@ -1105,13 +1105,14 @@ function renderWinACarEditorial(routeContext) {
           <h2 class="seo-copy-block__title">How to compare car competitions</h2>
           <div class="seo-copy-block__content hub-editorial hub-editorial--split">
             <section class="hub-editorial__section">
-              <h3>Why car competitions are popular</h3>
+              <h3>How car competitions usually work</h3>
               <p>Vehicle giveaways attract strong interest because the prize is practical, high value and easy to understand. South African car competitions can include hatchbacks, SUVs, bakkies, luxury vehicles, fuel-linked prizes or cash alternatives.</p>
+              <p>Promoters often use online forms, till-slip uploads, unique codes, loyalty-card swipes, finance applications, charity tickets, app tasks, social entries, WhatsApp flows or in-store product purchases. The official terms explain which entries qualify.</p>
             </section>
             <section class="hub-editorial__section">
-              <h3>Free vs paid-entry car competitions</h3>
-              <p>Free-entry car competitions usually involve an online form, account action, loyalty-card step or brand promotion. Paid-entry competitions may use tickets, raffle-style entries or a paid campaign platform. Freehub labels the likely entry route, but the promoter terms are the source of truth.</p>
-              <p>Compare free listings with <a href="/free-competitions/">free competitions</a> or paid-ticket mechanics with <a href="/paid-entry-competitions/">paid entry competitions</a>.</p>
+              <h3>Free, purchase-required and paid-entry mechanics</h3>
+              <p>Free-entry car competitions usually involve an online form, account action, loyalty-card step or brand promotion. Purchase-required competitions may need a qualifying product, minimum spend, till slip, invoice or rewards-card swipe. Paid-entry competitions may use tickets, raffle-style entries or a paid campaign platform.</p>
+              <p>Compare free listings with <a href="/free-competitions/">free competitions</a>, purchase mechanics with <a href="/purchase-required-competitions/">purchase required competitions</a>, or ticket mechanics with <a href="/paid-entry-competitions/">paid entry competitions</a>.</p>
             </section>
             <section class="hub-editorial__section">
               <h3>What to check before entering</h3>
@@ -1120,16 +1121,18 @@ function renderWinACarEditorial(routeContext) {
                 <li>Whether you need a purchase, till slip, account, rewards card, app install, SMS, WhatsApp entry or paid ticket.</li>
                 <li>The closing date, draw date, winner notification method and how long the promoter gives winners to respond.</li>
                 <li>Whether you need a valid driver's licence, South African ID, proof of residence or a specific province or store purchase.</li>
+                <li>Whether registration, licensing, insurance, delivery, collection, transfer fees, roadworthy costs, fuel or taxes are included.</li>
               </ul>
             </section>
             <section class="hub-editorial__section">
-              <h3>Common car competition mechanics in South Africa</h3>
-              <p>Promoters often use till-slip uploads, unique codes, loyalty-card swipes, finance applications, charity tickets, app tasks, social follows, online forms or in-store product purchases. If the route costs money, pay only through the official promoter or ticketing partner.</p>
+              <h3>Keep proof and read the official terms</h3>
+              <p>If a car competition needs a purchase, keep the original till slip, invoice, code or app receipt until winners are announced and prizes are awarded. Promoters may reject entries if proof is missing, dated outside the campaign period or does not match the qualifying products.</p>
+              <p>Read the official terms before entering because car prizes often have extra eligibility rules, including South African residency, age limits, driver's licence requirements, insurance conditions or nominated-driver rules.</p>
             </section>
             <section class="hub-editorial__section">
-              <h3>Important promoter terms users should check</h3>
-              <p>Check registration, licensing, insurance, delivery, collection, taxes, transfer fees, roadworthy costs and prize substitution rules. Freehub lists competitions but does not operate them, so final entry and prize conditions always sit with the promoter.</p>
-              <p>You can also compare urgent vehicle listings on <a href="/competitions-ending-soon/">competitions ending soon</a>, or browse adjacent prize categories such as <a href="/category/cash/">cash competitions</a> and <a href="/category/vouchers/">voucher competitions</a>.</p>
+              <h3>Avoid unofficial winner fees</h3>
+              <p>Be careful with messages that ask for unofficial release fees, banking passwords, card PINs, remote access apps or payment to claim a car prize. If you receive a winner message, verify it through the promoter's official website or support channel before responding.</p>
+              <p>You can also compare urgent vehicle listings on <a href="/competitions-ending-soon/">competitions ending soon</a>, browse all <a href="/competitions/">current competitions</a>, or use related prize categories such as <a href="/category/cars/">cars</a>, <a href="/category/cash/">cash</a> and <a href="/category/vouchers/">vouchers</a>.</p>
             </section>
           </div>
         </section>`;
@@ -1405,29 +1408,29 @@ function getCollectionFaqItems(routeContext) {
   if (isWinACarHub(routeContext)) {
     return [
       {
-        question: "Are car competitions legitimate?",
+        question: "Are car competitions free to enter?",
         answer:
-          "Some car competitions are legitimate brand promotions, but users should check the promoter name, official source, terms, closing date and winner process before entering. Freehub lists competitions but does not run them.",
+          "Some car competitions are free to enter, but others require a qualifying purchase, loyalty-card action, app step, paid ticket or proof of purchase. Check the Freehub cost label and confirm the latest terms on the official promoter page.",
       },
       {
-        question: "Are paid-entry competitions worth entering?",
+        question: "Do I need to buy something to win a car?",
         answer:
-          "Paid-entry competitions carry a real cost, so compare the ticket price, odds information where available, draw process, promoter reputation and terms before paying. Only use the official promoter or ticketing route.",
+          "Not always. Some vehicle giveaways use free online forms, while purchase-required campaigns may need a specific product, minimum spend, till slip, invoice or rewards-card swipe. The promoter terms are the source of truth.",
       },
       {
-        question: "Can free competitions really give away vehicles?",
+        question: "Does Freehub run these car competitions?",
         answer:
-          "Yes, free-entry or purchase-linked promotions can include vehicle prizes when run by brands, retailers, charities or campaign partners. Always confirm the vehicle details and entry rules on the official source.",
+          "No. Freehub is a competition discovery site. The promoter runs the competition, accepts entries, chooses winners and handles prize fulfilment. Use the official promoter link on each listing to enter.",
       },
       {
-        question: "How are winners selected?",
+        question: "What should I check before entering a car competition?",
         answer:
-          "Winner selection depends on the promoter terms. It may be a random draw, audited draw, judging process, ticket draw or qualifying-entry mechanic. Freehub does not select winners.",
+          "Check the closing date, vehicle model, entry method, cost, purchase or paid-ticket requirement, eligibility rules, licence or insurance conditions, winner contact process and whether registration, delivery or transfer costs are included.",
       },
       {
-        question: "What taxes or costs may apply?",
+        question: "What happens when a car competition expires?",
         answer:
-          "Promoter terms should explain whether registration, licensing, insurance, delivery, transfer fees, roadworthy checks, fuel, travel or taxes are included. Check these costs before entering.",
+          "Expired car competitions are removed from active hub listings and should no longer appear as current opportunities. Freehub may archive or mark expired listings as inactive so users focus on live competitions.",
       },
     ];
   }

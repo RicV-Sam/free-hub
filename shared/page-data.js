@@ -257,12 +257,12 @@
     "win-a-car": {
       title: "Win a Car Competitions in South Africa | Freehub",
       description:
-        "Browse current South African car competitions, vehicle giveaways, SUV competitions, bakkie promotions and luxury car prize draws with official entry links.",
+        "Find current South African car competitions, vehicle giveaways and win-a-car promotions. Compare closing dates, entry costs and official promoter links.",
       heading: "Win a Car Competitions in South Africa",
       intro:
-        "Browse published South African car competitions and vehicle giveaways with closing dates, entry labels and official promoter links. Freehub lists the opportunities so you can compare them before entering on the promoter site.",
+        "Find current South African car and vehicle competitions from official promoter sources. Freehub does not run these competitions or collect entries; use each listing to compare the basics, then enter through the official promoter link.",
       support:
-        "Freehub does not run car competitions, sell entries or choose winners. Check the official terms for the vehicle model, licence requirements, purchase rules, draw process and any costs before entering.",
+        "Compare closing dates, entry costs, purchase requirements and official terms before entering. Car competitions may involve free online forms, qualifying purchases, paid tickets, till slips, licences, insurance or other handover conditions.",
     },
     "free-competitions": {
       title: "Free Competitions South Africa – No Purchase Entry Giveaways | Freehub",
@@ -903,7 +903,12 @@
   }
 
   function isPublishedCompetition(competition) {
-    return competition && competition.verificationStatus === "published";
+    return (
+      competition &&
+      competition.verificationStatus === "published" &&
+      competition.publicationStatus !== "held" &&
+      competition.doNotPublish !== true
+    );
   }
 
   function getPublishedCompetitions(competitions) {
