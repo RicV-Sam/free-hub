@@ -1378,17 +1378,37 @@ function getCategoryEditorial(slug, competitions) {
       title: "How to compare voucher competitions",
       sections: [
         {
-          heading: "Practical prizes still need clear terms",
+          heading: "What voucher competitions are",
           paragraphs: [
-            `Voucher competitions can be quick to enter and useful for everyday spending. This page currently groups ${escapeHtml(liveCopy)} across shopping voucher competitions, grocery voucher competitions, online shopping voucher competitions, retail voucher giveaways and rewards-style offers.`,
-            "Check the voucher expiry date, spend exclusions, participating stores, delivery method and whether the promoter needs an account or proof of purchase.",
+            `Voucher competitions are prize draws or giveaways where the reward is a voucher, gift card, credit, store spend or similar redeemable value. This page currently groups ${escapeHtml(liveCopy)} across shopping voucher competitions, grocery voucher competitions, online shopping voucher competitions, retail voucher giveaways, account-linked offers and rewards-style promotions.`,
+            "Common voucher prize types include retail vouchers, grocery vouchers, online shopping vouchers, beauty vouchers, food or restaurant vouchers, fuel vouchers and airtime or data vouchers where the active listing supports that prize type.",
           ],
         },
         {
-          heading: "Check the promoter source",
+          heading: "Free entry and purchase-required entries",
           paragraphs: [
-            "Voucher prizes may be offered by retailers, brands, banks, radio stations or promoters. Freehub links to the official promoter source where entries must be completed.",
-            `Where an active partner campaign offers Takealot vouchers, Freehub describes the prize as a Takealot voucher prize and keeps the promoter separate. You can also compare <a href="/free-competitions/">free competitions</a>, <a href="/purchase-required-competitions/">purchase required competitions</a> and <a href="/competitions-ending-soon/">competitions ending soon</a>.`,
+            "Voucher giveaways can be free entry, purchase required, paid entry, account required, app required, rewards card required, till slip required, WhatsApp entry, online entry or in-store entry. Check the label on each card before opening the promoter page.",
+            `If you only want no-cost routes, compare <a href="/free-competitions/">free competitions</a>. If a listing needs a qualifying product, receipt, rewards-card swipe or minimum spend, compare it with <a href="/purchase-required-competitions/">purchase required competitions</a>.`,
+          ],
+        },
+        {
+          heading: "What to check before entering",
+          paragraphs: [
+            "Read the official terms for the voucher value, expiry date, redemption rules, participating stores, exclusions, delivery method, draw date, winner-contact process and whether the voucher can be split, transferred or converted to cash.",
+            "Do not pay unofficial winner, courier, delivery, admin or release fees to claim a voucher prize. Verify prize messages through the promoter's official website, social page, app or support channel before sharing personal information.",
+          ],
+        },
+        {
+          heading: "Takealot voucher prizes",
+          paragraphs: [
+            "Where an active verified partner campaign offers Takealot vouchers, Freehub describes the prize as a Takealot voucher prize and keeps the promoter separate. Freehub does not describe partner promotions as Takealot-run campaigns unless the official source supports that claim.",
+            `For urgent options, also compare <a href="/competitions-ending-soon/">competitions ending soon</a>, <a href="/competitions/">all current competitions</a>, <a href="/win-a-car/">win-a-car competitions</a>, <a href="/category/cash/">cash competitions</a>, <a href="/category/tech/">tech competitions</a> and <a href="/category/holidays/">holiday competitions</a>.`,
+          ],
+        },
+        {
+          heading: "Freehub's role",
+          paragraphs: [
+            "Freehub does not run voucher competitions, collect entries, choose winners or manage voucher fulfilment. Each listing points you to the official promoter source, where the entry must be completed and the current terms apply.",
           ],
         },
       ],
@@ -1631,19 +1651,29 @@ function getCollectionFaqItems(routeContext) {
     ],
     vouchers: [
       {
-        question: "What voucher prizes appear on Freehub?",
-        answer:
-          "Voucher competitions can include grocery, shopping, fashion, restaurant, travel, fuel, airtime, online shopping and Takealot voucher prizes from source-checked partner campaigns.",
-      },
-      {
         question: "Are voucher competitions free to enter?",
         answer:
-          "Many voucher competitions are free entry, but some require a purchase, loyalty card, app action or receipt. Check the listing label and official terms.",
+          "Some voucher competitions are free to enter, while others require a purchase, paid entry, account, app, rewards card, till slip, WhatsApp message, online form or in-store action. Check the Freehub cost label and the official promoter terms before entering.",
       },
       {
-        question: "What happens after a voucher competition closes?",
+        question: "What types of vouchers can I win?",
         answer:
-          "Expired voucher competitions are removed from live hub pages, and users should browse current listings instead of trying to enter closed offers.",
+          "Voucher prizes can include shopping, grocery, retail, beauty, food, fuel, airtime, data, online shopping and partner campaign Takealot voucher prizes where the active source supports the listing.",
+      },
+      {
+        question: "Are Takealot voucher competitions listed on Freehub?",
+        answer:
+          "Freehub may list active verified partner campaigns offering Takealot voucher prizes. We do not describe partner promotions as Takealot-run campaigns unless an official source clearly supports that wording.",
+      },
+      {
+        question: "What should I check before entering a voucher competition?",
+        answer:
+          "Check the closing date, promoter, entry cost, purchase or account requirements, voucher value, expiry date, redemption rules, official terms and winner-contact process. Do not pay unofficial winner or delivery fees.",
+      },
+      {
+        question: "Does Freehub run these voucher competitions?",
+        answer:
+          "No. Freehub is a competition discovery site. The promoter runs the competition, accepts entries, chooses winners and handles voucher fulfilment through its own official process.",
       },
     ],
   };
@@ -2462,6 +2492,10 @@ function getCategoryInternalLinks(slug, competitions) {
     const target = competitions.find((competition) => shared.getCompetitionSlug(competition) === id);
     return target ? shared.getCompetitionPath(target) : firstCategoryCompetition;
   };
+  const byIdPathOrNull = (id) => {
+    const target = competitions.find((competition) => shared.getCompetitionSlug(competition) === id);
+    return target ? shared.getCompetitionPath(target) : null;
+  };
 
   if (slug === "cars") {
     return {
@@ -2512,17 +2546,24 @@ function getCategoryInternalLinks(slug, competitions) {
   }
 
   if (slug === "vouchers") {
+    const takealotVoucherPath = byIdPathOrNull("debtbusters-money-stress-tracker-takealot-vouchers");
+    const takealotVoucherLinks = takealotVoucherPath
+      ? [{ label: "Takealot voucher prizes", href: takealotVoucherPath }]
+      : [];
+
     return {
       title: "Voucher Competition Searches",
       links: [
         { label: "Voucher giveaway competitions", href: "/category/vouchers/" },
-        { label: "Takealot voucher prizes", href: byIdPath("debtbusters-money-stress-tracker-takealot-vouchers") },
+        ...takealotVoucherLinks,
         { label: "All competitions", href: "/competitions/" },
+        { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
         { label: "Free competitions", href: "/free-competitions/" },
         { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
-        { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
+        { label: "Win a car competitions", href: "/win-a-car/" },
         { label: "Cash competitions", href: "/category/cash/" },
         { label: "Tech competitions", href: "/category/tech/" },
+        { label: "Holiday competitions", href: "/category/holidays/" },
       ],
     };
   }

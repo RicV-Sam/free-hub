@@ -62,14 +62,14 @@
     },
     vouchers: {
       category: "Vouchers",
-      title: "Voucher Competitions in South Africa | Freehub",
+      title: "Voucher Competitions in South Africa | Shopping & Retail Giveaways",
       description:
-        "Browse current voucher competitions in South Africa, including shopping voucher competitions, grocery vouchers, online shopping vouchers and partner campaigns with Takealot voucher prizes.",
+        "Find current South African voucher competitions, including shopping, grocery, retail and Takealot voucher prizes. Compare closing dates, entry costs and official promoter links.",
       heading: "Voucher Competitions in South Africa",
       intro:
-        "Browse current shopping voucher competitions, grocery voucher competitions, online shopping voucher competitions and retail voucher prize offers in South Africa before entering with the official promoter.",
+        "This page lists current voucher-prize competitions in South Africa, including shopping vouchers, grocery vouchers, retail vouchers, online shopping vouchers and verified Takealot voucher prizes where supported. Some voucher competitions are free to enter, while others require a purchase, receipt, app, account, rewards card or qualifying action. Freehub does not run these competitions or collect entries; use the official promoter links to enter.",
       support:
-        "Voucher giveaways can be free-entry, purchase-linked, app-based or account-linked. If you searched for voucher competitions South Africa or Takealot competitions, compare the promoter, cost label and official source before entering. For Takealot voucher competitions, Freehub only surfaces active source-checked partner campaigns that offer Takealot vouchers as prizes.",
+        "Voucher giveaways can be free-entry, purchase-required, paid-entry, app-based, account-linked, rewards-card-linked, till-slip, WhatsApp, online or in-store promotions. If you searched for voucher competitions South Africa or Takealot competitions, compare the promoter, cost label and official source before entering; Freehub only uses Takealot wording for online shopping voucher prizes such as Takealot vouchers, where verified.",
     },
   };
   const DEFAULT_COPY = {
@@ -1103,7 +1103,7 @@
 
     if (routeContext.type === "category") {
       const targetCategory = CATEGORY_COPY[routeContext.slug].category;
-      return publishedCompetitions.filter((competition) => competition.category === targetCategory);
+      return sortCompetitions(publishedCompetitions.filter((competition) => competition.category === targetCategory));
     }
 
     if (routeContext.type === "tag") {
