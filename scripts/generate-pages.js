@@ -828,6 +828,10 @@ function isWinACarHub(routeContext) {
   return routeContext.type === "hub" && routeContext.slug === "win-a-car";
 }
 
+function isFreeCompetitionsHub(routeContext) {
+  return routeContext.type === "hub" && routeContext.slug === "free-competitions";
+}
+
 function isFlagshipSeoHub(routeContext) {
   return isEndingSoonHub(routeContext) || isWinACarHub(routeContext);
 }
@@ -1049,6 +1053,18 @@ function renderHubIntroEditorial(routeContext) {
         </section>`;
   }
 
+  if (isFreeCompetitionsHub(routeContext)) {
+    return `<section class="seo-copy-block seo-copy-block--intro" aria-label="About free competitions">
+          <h2 class="seo-copy-block__title">No-purchase competitions from official sources</h2>
+          <div class="seo-copy-block__content hub-editorial">
+            <section class="hub-editorial__section">
+              <p>This page is for current South African competitions and giveaways that do not require a product purchase, minimum spend or paid ticket to enter. Listings must pass Freehub's strict free-entry filter before appearing here.</p>
+              <p>Some free competitions still use an online form, WhatsApp message, social media action, radio entry, survey, quote request or account sign-in where the official terms allow it. Freehub does not run these competitions or collect entries; use the official promoter link on each listing to enter.</p>
+            </section>
+          </div>
+        </section>`;
+  }
+
   return "";
 }
 
@@ -1133,6 +1149,51 @@ function renderWinACarEditorial(routeContext) {
               <h3>Avoid unofficial winner fees</h3>
               <p>Be careful with messages that ask for unofficial release fees, banking passwords, card PINs, remote access apps or payment to claim a car prize. If you receive a winner message, verify it through the promoter's official website or support channel before responding.</p>
               <p>You can also compare urgent vehicle listings on <a href="/competitions-ending-soon/">competitions ending soon</a>, browse all <a href="/competitions/">current competitions</a>, or use related prize categories such as <a href="/category/cars/">cars</a>, <a href="/category/cash/">cash</a> and <a href="/category/vouchers/">vouchers</a>.</p>
+            </section>
+          </div>
+        </section>`;
+}
+
+function renderFreeCompetitionsEditorial(routeContext) {
+  if (!isFreeCompetitionsHub(routeContext)) {
+    return "";
+  }
+
+  return `<section class="seo-copy-block seo-copy-block--hub" aria-label="Guide to free competitions">
+          <h2 class="seo-copy-block__title">How to compare free competitions</h2>
+          <div class="seo-copy-block__content hub-editorial hub-editorial--split">
+            <section class="hub-editorial__section">
+              <h3>What free to enter means on Freehub</h3>
+              <p>Freehub treats a free competition as a listing where the available source information shows no required product purchase, paid ticket, minimum spend, till slip, subscription billing, SMS or USSD cost to enter.</p>
+              <p>If the cost route is unclear, the listing should not appear on this page. Browse the full <a href="/competitions/">competitions</a> hub when you want to compare every active published listing.</p>
+            </section>
+            <section class="hub-editorial__section">
+              <h3>Free entry vs purchase required</h3>
+              <p>A purchase-required competition can still be legitimate, but it belongs on a different page because users must buy something, keep proof of purchase, swipe a loyalty card or meet a spend threshold. Free-entry listings should not require those actions.</p>
+              <p>Compare purchase mechanics separately on <a href="/purchase-required-competitions/">purchase required competitions</a>, or scan urgent deadlines on <a href="/competitions-ending-soon/">competitions ending soon</a>.</p>
+            </section>
+            <section class="hub-editorial__section">
+              <h3>Common free-entry methods</h3>
+              <ul class="hub-editorial__list">
+                <li>Online forms on the promoter's official website.</li>
+                <li>WhatsApp prompts or social media actions where the official source confirms the route.</li>
+                <li>Radio entries, surveys, quote requests or skill entries that do not require a purchase.</li>
+                <li>App or account forms only where the entry is clearly free and not materially conditional or unclear.</li>
+              </ul>
+            </section>
+            <section class="hub-editorial__section">
+              <h3>What to check before entering</h3>
+              <ul class="hub-editorial__list">
+                <li>Confirm the promoter, prize, closing date, winner contact method and eligibility rules.</li>
+                <li>Check whether standard data, platform access, age, region, account or privacy terms apply.</li>
+                <li>Use the official promoter link rather than copied forms, comment threads or unofficial messages.</li>
+                <li>Read the official terms even when the listing is marked free entry.</li>
+              </ul>
+            </section>
+            <section class="hub-editorial__section">
+              <h3>Avoid unofficial winner fees</h3>
+              <p>A free competition should not require unofficial release fees, banking passwords, card PINs or remote access apps to claim a prize. Verify any winner message through the promoter's official website or support channel before responding.</p>
+              <p>Freehub does not collect entries, choose winners or manage prize fulfilment. You can also browse related prize categories such as <a href="/category/cash/">cash</a>, <a href="/category/vouchers/">vouchers</a>, <a href="/category/tech/">tech</a> and <a href="/category/holidays/">holidays</a>.</p>
             </section>
           </div>
         </section>`;
@@ -1435,6 +1496,36 @@ function getCollectionFaqItems(routeContext) {
     ];
   }
 
+  if (isFreeCompetitionsHub(routeContext)) {
+    return [
+      {
+        question: "Are these competitions really free to enter?",
+        answer:
+          "These listings pass Freehub's strict free-entry filter, which excludes purchase-required, paid-entry, paid-ticket, till-slip, SMS, USSD and unclear-cost competitions. Always confirm the latest terms on the official promoter page.",
+      },
+      {
+        question: "What does no purchase required mean?",
+        answer:
+          "No purchase required means the available source information does not show a required product purchase, minimum spend, receipt, invoice, loyalty-card purchase or paid ticket before entry.",
+      },
+      {
+        question: "Can a free competition still require a WhatsApp message or online form?",
+        answer:
+          "Yes. A competition can be free to enter and still use an official online form, WhatsApp prompt, social media action, radio entry, survey or similar no-purchase route.",
+      },
+      {
+        question: "Does Freehub run these competitions?",
+        answer:
+          "No. Freehub is a competition discovery site. The promoter runs the competition, accepts entries, chooses winners and handles prize fulfilment. Use the official promoter link on each listing to enter.",
+      },
+      {
+        question: "What should I check before entering a free competition?",
+        answer:
+          "Check the promoter name, closing date, prize, entry method, eligibility rules, privacy terms, winner contact process and whether any account, app, data or platform requirements apply.",
+      },
+    ];
+  }
+
   if (routeContext.type === "hub" && routeContext.slug === "new-competitions-south-africa") {
     return [
       {
@@ -1585,6 +1676,10 @@ function getCollectionFaqTitle(routeContext) {
 
   if (isWinACarHub(routeContext)) {
     return "Win a car competitions FAQ";
+  }
+
+  if (isFreeCompetitionsHub(routeContext)) {
+    return "Free competitions FAQ";
   }
 
   if (routeContext.type === "hub" && routeContext.slug === "new-competitions-south-africa") {
@@ -1767,6 +1862,7 @@ function renderPage(routeContext, competitions) {
         ${renderCategoryEditorial(routeContext, competitions)}
         ${renderEndingSoonEditorial(routeContext)}
         ${renderWinACarEditorial(routeContext)}
+        ${renderFreeCompetitionsEditorial(routeContext)}
         ${renderCollectionFaq(routeContext, collectionFaqItems)}
 
         ${renderThinPageTips(competitions)}
@@ -2284,11 +2380,15 @@ function getHubInternalLinks(slug) {
       { label: "Legit competitions guide", href: "/legit-competitions-south-africa/" },
     ],
     "free-competitions": [
-      { label: "Browse competition brands", href: "/brands/" },
       { label: "All competitions", href: "/competitions/" },
       { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
-      { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
+      { label: "Win a car competitions", href: "/win-a-car/" },
       { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
+      { label: "Cash competitions", href: "/category/cash/" },
+      { label: "Voucher competitions", href: "/category/vouchers/" },
+      { label: "Tech competitions", href: "/category/tech/" },
+      { label: "Holiday competitions", href: "/category/holidays/" },
+      { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
     ],
     "competitions-ending-soon": [
       { label: "All competitions", href: "/competitions/" },

@@ -265,14 +265,14 @@
         "Compare closing dates, entry costs, purchase requirements and official terms before entering. Car competitions may involve free online forms, qualifying purchases, paid tickets, till slips, licences, insurance or other handover conditions.",
     },
     "free-competitions": {
-      title: "Free Competitions South Africa – No Purchase Entry Giveaways | Freehub",
+      title: "Free Competitions in South Africa | No Purchase Required Giveaways",
       description:
-        "Browse free-entry competitions in South Africa. Find giveaways that do not require a purchase or paid ticket, with official source links and closing dates.",
+        "Find current free-to-enter South African competitions and giveaways with no purchase required. Compare prizes, closing dates, entry methods and official promoter links.",
       heading: "Free Competitions in South Africa",
       intro:
-        "This page is for strict free-entry listings only: no required product purchase and no paid ticket. Use it to find no-purchase giveaways with clear source links and deadlines.",
+        "This page is for South African competitions that do not require a purchase or paid ticket to enter. Some free competitions still use an online form, WhatsApp message, social action, radio entry or sign-in step where the official terms allow it.",
       support:
-        "Free-entry means no required spend and no paid entry ticket. Some offers may still require online access or account steps on the promoter page.",
+        "Freehub does not run these competitions or collect entries. Compare the prize, closing date, entry method and official promoter link, then enter through the promoter's own page or channel.",
     },
     "competitions-ending-soon": {
       title: "Competitions Ending This Week in South Africa | Freehub",
@@ -1211,7 +1211,29 @@
   function isStrictFreeEntryCompetition(competition) {
     const tags = Array.isArray(competition.tags) ? competition.tags : [];
     const entryCostType = normalizeEntryCostType(competition.entryCostType);
-    const entryContext = [competition.entryType, competition.entryChannel, tags.join(" ")].join(" ").toLowerCase();
+    const entryContext = [
+      competition.entryType,
+      competition.entryChannel,
+      competition.entryFeeLabel,
+      competition.requiredProduct,
+      tags.join(" "),
+    ]
+      .join(" ")
+      .toLowerCase();
+    const blockedTags = [
+      "purchase-required",
+      "paid-entry",
+      "till-slip",
+      "till-slip-required",
+      "spend-and-win",
+      "subscription",
+      "subscription-billing",
+      "sms-entry",
+      "ussd-entry",
+      "recharge-required",
+      "qualifying-products",
+      "loyalty-required",
+    ];
 
     if (competition.purchaseRequired === true) {
       return false;
@@ -1221,7 +1243,7 @@
       return false;
     }
 
-    if (tags.includes("purchase-required") || tags.includes("paid-entry")) {
+    if (blockedTags.some((tag) => tags.includes(tag))) {
       return false;
     }
 
@@ -1230,6 +1252,27 @@
     }
 
     if (/sms|ussd/.test(entryContext)) {
+      return false;
+    }
+
+    if (
+      /\b(buy|purchase|required purchase|paid ticket|ticket|till slip|receipt|invoice|minimum spend|spend and win|subscription|billing|recharge|qualifying product|swipe|rewards card|loyalty card)\b/.test(
+        entryContext
+      )
+    ) {
+      return false;
+    }
+
+    if (
+      (tags.includes("app") || tags.includes("app-required") || tags.includes("account-required")) &&
+      !(
+        tags.includes("online-entry") ||
+        tags.includes("social-entry") ||
+        tags.includes("whatsapp-entry") ||
+        tags.includes("radio") ||
+        tags.includes("free-entry")
+      )
+    ) {
       return false;
     }
 
