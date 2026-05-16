@@ -18,14 +18,14 @@
   const CATEGORY_COPY = {
     cash: {
       category: "Cash",
-      title: "Cash Competitions in South Africa | Freehub",
+      title: "Cash Competitions in South Africa | Win Money & Cash Prizes",
       description:
-        "Browse current cash competitions in South Africa with closing dates, entry cost labels, purchase requirements and official source links.",
+        "Find current South African cash competitions and money giveaways. Compare prizes, closing dates, entry costs and official promoter links before entering.",
       heading: "Cash Competitions in South Africa",
       intro:
-        "Browse current cash competitions in South Africa and compare prize cues, closing dates, entry methods and cost labels before you open the official promoter page.",
+        "This page lists current cash-prize competitions in South Africa, including money giveaways, cash draws, instant cash rewards and other published cash-category promotions. Some cash competitions are free to enter, while others may require a purchase, receipt, app, account, rewards card, WhatsApp entry, USSD entry or qualifying action. Freehub does not run these competitions or collect entries; use the official promoter links to enter.",
       support:
-        "Cash competitions can be free entry, purchase-required, account-linked or paid-entry promotions. If you searched for cash competitions South Africa or win cash online South Africa, check each Freehub label and confirm the official terms before entering.",
+        "Cash competitions can be free entry, purchase-required, paid-entry, account-required, app-required, rewards-card, till-slip, WhatsApp, USSD, online or in-store promotions. If you searched for cash competitions South Africa, win cash prizes South Africa, win cash online South Africa, money competitions South Africa or cash giveaways South Africa, compare the promoter, cost label, entry method and official terms before entering.",
     },
     cars: {
       category: "Cars",

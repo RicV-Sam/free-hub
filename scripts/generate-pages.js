@@ -1333,16 +1333,37 @@ function getCategoryEditorial(slug, competitions) {
       title: "How to compare cash competitions",
       sections: [
         {
-          heading: "Look for source clarity",
+          heading: "What cash competitions are",
           paragraphs: [
-            `Cash prizes can be useful, but they need careful checking. This page currently groups ${escapeHtml(liveCopy)} with official source links, cost labels and closing dates.`,
-            `For safer entry habits, read the <a href="/fake-competition-winner-messages/">fake winner message guide</a> before responding to any prize claim.`,
+            `Cash competitions are prize draws, giveaways or promotions where the reward is money, a cash voucher, an instant cash reward or a cash-style payout. This page currently groups ${escapeHtml(liveCopy)} from the active published Freehub data with visible closing dates, entry labels and official promoter links.`,
+            "Common cash prize formats include once-off cash prizes, weekly cash draws, instant cash rewards, grand-prize cash draws and campaign-linked money giveaways.",
           ],
         },
         {
-          heading: "Before sharing details",
+          heading: "Free entry and purchase-required cash prizes",
           paragraphs: [
-            "Never share banking passwords, card PINs, one-time PINs or remote-access permissions to claim a cash prize. Verify winner contact through the promoter's official channels.",
+            "Not every cash competition is free. Some use a free online form, social action or account flow, while others require a qualifying purchase, receipt, rewards-card swipe, app action, USSD session, WhatsApp entry, paid ticket or minimum spend.",
+            `Use the labels on each listing to separate free entry from purchase-required or paid-entry mechanics. You can also compare <a href="/free-competitions/">free competitions</a> and <a href="/purchase-required-competitions/">purchase required competitions</a> separately.`,
+          ],
+        },
+        {
+          heading: "Entry methods to check",
+          paragraphs: [
+            "Cash promotions can use WhatsApp, USSD, online forms, app flows, account dashboards, till-slip uploads, in-store entry boxes or automatic loyalty-card entries. Check whether the promoter requires an official app, account, rewards card, receipt or specific product before entering.",
+            "If a till slip or proof of purchase is required, keep the original receipt until the draw and prize-claim process are finished. Promoters may ask for it to verify that the purchase happened during the campaign period.",
+          ],
+        },
+        {
+          heading: "Official terms and cash prize safety",
+          paragraphs: [
+            "Read the official terms for the prize amount, draw date, tax or banking requirements, eligibility, winner-contact process, payment method and whether the cash prize can be substituted or split.",
+            `Do not pay unofficial winner fees, release fees, admin fees, courier fees or delivery fees to claim a cash prize. For safer entry habits, read the <a href="/fake-competition-winner-messages/">fake winner message guide</a> before responding to any prize claim.`,
+          ],
+        },
+        {
+          heading: "Freehub's role",
+          paragraphs: [
+            `Freehub does not run cash competitions, collect entries, choose winners, contact winners or pay prizes. We organise active published listings and link to official promoter sources; you can also browse <a href="/competitions/">all current competitions</a>, <a href="/competitions-ending-soon/">competitions ending soon</a>, <a href="/win-a-car/">win-a-car competitions</a>, <a href="/category/vouchers/">voucher competitions</a>, <a href="/category/tech/">tech competitions</a> and <a href="/category/holidays/">holiday competitions</a>.`,
           ],
         },
       ],
@@ -1600,19 +1621,29 @@ function getCollectionFaqItems(routeContext) {
     ],
     cash: [
       {
-        question: "Are cash competitions safe to enter?",
+        question: "Are cash competitions free to enter?",
         answer:
-          "A cash competition is safer when the promoter is identifiable, the terms are clear and the entry link is official. Never share banking passwords or card PINs to claim a prize.",
+          "Some cash competitions are free to enter, while others require a purchase, receipt, app, account, rewards card, WhatsApp entry, USSD entry, paid ticket or qualifying action. Check the Freehub label and the official promoter terms before entering.",
       },
       {
-        question: "Do cash giveaways require payment?",
+        question: "What types of cash prizes can I win?",
         answer:
-          "Some are free entry, while others require a purchase, account action, transaction or paid ticket. Check the cost label and promoter terms first.",
+          "Cash prizes can include once-off cash payouts, weekly cash draws, instant cash rewards, grand-prize cash draws, voucher-style cash rewards and campaign-linked money giveaways where the active listing supports that prize type.",
       },
       {
-        question: "How does Freehub list cash competitions?",
+        question: "Do I need to buy something to enter a cash competition?",
         answer:
-          "Freehub lists published cash competitions with a closing date, entry method and official source link where enough information is available.",
+          "Sometimes. Purchase-required cash competitions may need a qualifying product, minimum spend, till slip, rewards-card swipe or account action, while free-entry cash competitions should not require a purchase. The official terms are the source of truth.",
+      },
+      {
+        question: "How do I avoid fake cash prize messages?",
+        answer:
+          "Use only official promoter links and contact channels. Do not share banking passwords, card PINs, one-time PINs or remote-access permissions, and do not pay unofficial winner, release, admin, courier or delivery fees to claim a prize.",
+      },
+      {
+        question: "Does Freehub run these cash competitions?",
+        answer:
+          "No. Freehub is a competition discovery site. The promoter runs the competition, accepts entries, chooses winners and pays or fulfils cash prizes through its own official process.",
       },
     ],
     holidays: [
@@ -2539,8 +2570,14 @@ function getCategoryInternalLinks(slug, competitions) {
       links: [
         { label: "Cash competitions South Africa", href: "/category/cash/" },
         { label: "Win cash online South Africa", href: byIdPath("fnb-pay-to-win-grand-cash-prize") },
-        { label: "Free competitions", href: "/free-competitions/" },
+        { label: "All competitions", href: "/competitions/" },
         { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
+        { label: "Free competitions", href: "/free-competitions/" },
+        { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
+        { label: "Win a car competitions", href: "/win-a-car/" },
+        { label: "Voucher competitions", href: "/category/vouchers/" },
+        { label: "Tech competitions", href: "/category/tech/" },
+        { label: "Holiday competitions", href: "/category/holidays/" },
       ],
     };
   }
