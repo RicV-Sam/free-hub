@@ -14,6 +14,16 @@ const concurrency = concurrencyArg ? Number(concurrencyArg.split("=")[1]) : 8;
 
 const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 FreeHubValidator/1.0";
+const MANUAL_OK_LINKS = new Map([
+  [
+    "clicks-clubcard-scan-win",
+    "https://clicks.co.za/competitions/view/clubcard-scan-win-2026",
+  ],
+  [
+    "clicks-sorbet-voucher-2026",
+    "https://clicks.co.za/clubcard/competitions/clubcard-magazine-april-may-issue-of-2026-sorbet-voucher-competition",
+  ],
+]);
 
 function loadCompetitions() {
   const raw = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
@@ -65,7 +75,59 @@ function classifyResult(status, finalUrl, bodyText) {
   return { level: "ok", reason: "ok" };
 }
 
+function getManualOkResult(competition) {
+  if (competition.linkValidationStatus !== "manual-ok") {
+    return null;
+  }
+
+  const expectedUrl = MANUAL_OK_LINKS.get(competition.id);
+  let hostname = "";
+
+  try {
+    hostname = new URL(competition.url).hostname.toLowerCase();
+  } catch (error) {
+    return {
+      level: "error",
+      reason: "invalid-manual-ok-url",
+    };
+  }
+
+  if (
+    !expectedUrl ||
+    competition.url !== expectedUrl ||
+    !["clicks.co.za", "www.clicks.co.za"].includes(hostname) ||
+    !competition.linkValidationReason ||
+    !competition.linkValidationCheckedAt
+  ) {
+    return {
+      level: "error",
+      reason: "invalid-manual-ok",
+    };
+  }
+
+  return {
+    level: "ok",
+    reason: "manual-ok",
+  };
+}
+
 async function fetchCompetition(competition) {
+  const manualOkResult = getManualOkResult(competition);
+  if (manualOkResult) {
+    return {
+      id: competition.id,
+      title: competition.title,
+      verificationStatus: competition.verificationStatus || "unset",
+      category: competition.category || "",
+      closingDate: competition.closingDate || "",
+      url: competition.url,
+      finalUrl: competition.url,
+      httpStatus: null,
+      level: manualOkResult.level,
+      reason: manualOkResult.reason,
+    };
+  }
+
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
 

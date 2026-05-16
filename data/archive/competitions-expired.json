@@ -687,5 +687,28 @@
     "region": "South Africa",
     "archivedAt": "2026-05-15",
     "archiveReason": "expired"
+  },
+  {
+    "id": "game-home-theatre-mega-upgrade",
+    "title": "Game Home Theatre Mega Upgrade",
+    "brand": "Game",
+    "category": "Tech",
+    "entryType": "In-store",
+    "closingDate": "2026-05-15",
+    "url": "https://www.game.co.za/cp/home-theatre-mega-upgrade-2026",
+    "summary": "Spend any amount using your Game myStore Card in-store and you'll automatically qualify for entry. Win a 65-inch 4K TV plus soundbar bundle, with additional gadget spot prizes every week.",
+    "prizeName": "65-inch 4K TV plus soundbar bundle",
+    "tags": [
+      "in-store-entry",
+      "electronics",
+      "high-value",
+      "purchase-required",
+      "weekly-draw"
+    ],
+    "verificationStatus": "published",
+    "purchaseRequired": true,
+    "prizeType": "tech",
+    "archivedAt": "2026-05-16",
+    "archiveReason": "expired"
   }
 ]
