@@ -229,7 +229,11 @@
     "isHighValue": false,
     "isEndingSoon": false,
     "url": "https://www.jacarandafm.com/competitions/",
-    "verificationStatus": "published"
+    "lastChecked": "2026-05-17",
+    "verificationStatus": "needs-verification",
+    "publicationStatus": "held",
+    "doNotPublish": true,
+    "verificationNote": "Demoted from published on 2026-05-17 after FH-3.17/FH-3.18 audit because the URL is a generic competitions hub and no specific current prize, closing date and entry route could be verified for this record."
   },
   {
     "id": "makro-cash-draw",
@@ -249,7 +253,11 @@
     "isHighValue": false,
     "isEndingSoon": false,
     "url": "https://www.makro.co.za/",
-    "verificationStatus": "published",
+    "lastChecked": "2026-05-17",
+    "verificationStatus": "needs-verification",
+    "publicationStatus": "held",
+    "doNotPublish": true,
+    "verificationNote": "Demoted from published on 2026-05-17 after FH-3.17/FH-3.18 audit because the official URL is a generic Makro homepage and no specific current competition source could be verified.",
     "prizeType": "cash"
   },
   {
@@ -270,7 +278,11 @@
     "isHighValue": false,
     "isEndingSoon": false,
     "url": "https://www.travelstart.co.za/",
-    "verificationStatus": "published"
+    "lastChecked": "2026-05-17",
+    "verificationStatus": "needs-verification",
+    "publicationStatus": "held",
+    "doNotPublish": true,
+    "verificationNote": "Demoted from published on 2026-05-17 after FH-3.17/FH-3.18 audit because the official URL is a generic Travelstart homepage and no specific current competition source could be verified."
   },
   {
     "id": "mtn-momo-cash-sprint",
@@ -280,6 +292,10 @@
     "entryType": "App",
     "closingDate": "2026-05-29",
     "url": "https://www.mtn.co.za/home/terms-and-conditions/content/momo-cash-sprint-2026",
+    "sourceUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/momo-cash-sprint-2026",
+    "termsUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/momo-cash-sprint-2026",
+    "sourceDomain": "mtn.co.za",
+    "lastChecked": "2026-05-17",
     "summary": "Use MTN MoMo to pay or send money during the promo period and you'll be entered automatically. Stand a chance to win a R300,000 cash grand prize, plus smaller instant cash rewards for qualifying transactions.",
     "prizeName": "R300,000 cash grand prize plus instant cash rewards",
     "tags": [
@@ -291,7 +307,12 @@
       "instant-win"
     ],
     "verificationStatus": "published",
+    "entryCostType": "purchase-required",
+    "entryFeeLabel": "No separate entry fee; qualifying MTN MoMo transaction required",
     "purchaseRequired": true,
+    "requiredProduct": "Qualifying MTN MoMo payment or money transfer",
+    "entryChannel": "MTN MoMo app transaction",
+    "region": "South Africa",
     "prizeType": "cash"
   },
   {
@@ -313,7 +334,11 @@
     "isHighValue": true,
     "isEndingSoon": false,
     "url": "https://www.suninternational.com/",
-    "verificationStatus": "published",
+    "lastChecked": "2026-05-17",
+    "verificationStatus": "needs-verification",
+    "publicationStatus": "held",
+    "doNotPublish": true,
+    "verificationNote": "Demoted from published on 2026-05-17 after FH-3.17/FH-3.18 audit because the official URL is a generic Sun International homepage and no specific current competition source could be verified.",
     "prizeName": "Sun International resort getaway",
     "prizeType": "holiday"
   },
@@ -377,7 +402,11 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published",
+    "lastChecked": "2026-05-17",
+    "verificationStatus": "needs-verification",
+    "publicationStatus": "held",
+    "doNotPublish": true,
+    "verificationNote": "Demoted from published on 2026-05-17 after FH-3.17/FH-3.18 audit because the campaign URL redirects to a generic Sanlam Online homepage and no specific current terms page could be verified.",
     "prizeType": "holiday"
   },
   {
@@ -388,6 +417,10 @@
     "entryType": "Online",
     "closingDate": "2026-08-01",
     "url": "https://www.southafrica.net/za/en/travel/page/mzansi-moments-photo-challenge-2026",
+    "sourceUrl": "https://www.southafrica.net/za/en/travel/page/mzansi-moments-photo-challenge-2026",
+    "termsUrl": "https://www.southafrica.net/za/en/travel/page/mzansi-moments-photo-challenge-2026",
+    "sourceDomain": "southafrica.net",
+    "lastChecked": "2026-05-17",
     "summary": "Upload your best South African travel moment and submit your entry online. The grand prize is a 10-night self-drive Garden Route holiday for two, including accommodation and activity vouchers.",
     "prizeName": "10-night Garden Route holiday for two",
     "tags": [
@@ -397,6 +430,11 @@
       "free-entry"
     ],
     "verificationStatus": "published",
+    "entryCostType": "free-entry",
+    "entryFeeLabel": "Free online entry",
+    "purchaseRequired": false,
+    "entryChannel": "Official SA Tourism online submission",
+    "region": "South Africa",
     "prizeType": "holiday"
   },
   {
@@ -407,6 +445,10 @@
     "entryType": "Online",
     "closingDate": "2026-09-14",
     "url": "https://mtd.woolworths.co.za/tech-for-good-giveaway-2026",
+    "sourceUrl": "https://mtd.woolworths.co.za/tech-for-good-giveaway-2026",
+    "termsUrl": "https://mtd.woolworths.co.za/tech-for-good-giveaway-2026",
+    "sourceDomain": "woolworths.co.za",
+    "lastChecked": "2026-05-17",
     "summary": "Complete the featured MyDifference action and submit your entry online to qualify. Prizes include iPhone 16 devices and Woolworths gift cards, rewarding small actions that add up.",
     "prizeName": "iPhone 16 devices and Woolworths gift cards",
     "tags": [
@@ -417,6 +459,11 @@
       "weekly-draw"
     ],
     "verificationStatus": "published",
+    "entryCostType": "account-required",
+    "entryFeeLabel": "No separate entry fee; MyDifference action/account flow required",
+    "purchaseRequired": false,
+    "entryChannel": "Woolworths MyDifference online action",
+    "region": "South Africa",
     "prizeType": "tech"
   },
   {
@@ -435,7 +482,11 @@
       "high-value",
       "purchase-required"
     ],
-    "verificationStatus": "published",
+    "lastChecked": "2026-05-17",
+    "verificationStatus": "needs-verification",
+    "publicationStatus": "held",
+    "doNotPublish": true,
+    "verificationNote": "Demoted from published on 2026-05-17 after FH-3.17/FH-3.18 audit because the campaign URL redirects to the generic Pick n Pay homepage and no specific current terms page could be verified.",
     "purchaseRequired": true,
     "prizeType": "holiday"
   },
@@ -469,6 +520,10 @@
     "entryType": "In-store",
     "closingDate": "2026-09-27",
     "url": "https://www.mrp.com/competitions/mrphome-room-refresh-voucher-2026",
+    "sourceUrl": "https://www.mrp.com/competitions/mrphome-room-refresh-voucher-2026",
+    "termsUrl": "https://www.mrp.com/competitions/mrphome-room-refresh-voucher-2026",
+    "sourceDomain": "mrp.com",
+    "lastChecked": "2026-05-17",
     "prizeName": "R10,000 Mr Price Home voucher plus weekly decor vouchers",
     "summary": "Spend R500 or more at Mr Price Home and enter using your till slip reference. One winner scores a R10,000 Mr Price Home voucher, with weekly décor vouchers up for grabs.",
     "tags": [
@@ -479,7 +534,13 @@
       "weekly-draw"
     ],
     "verificationStatus": "published",
+    "entryCostType": "purchase-required",
+    "entryFeeLabel": "No separate entry fee; R500 qualifying purchase required",
     "purchaseRequired": true,
+    "minimumSpend": "R500",
+    "requiredProduct": "Mr Price Home purchase of R500 or more",
+    "entryChannel": "Till slip reference submission",
+    "region": "South Africa",
     "prizeType": "voucher"
   },
   {
@@ -490,6 +551,10 @@
     "entryType": "SMS",
     "closingDate": "2026-10-16",
     "url": "https://www.game.co.za/cp/win-your-cart-back-2026",
+    "sourceUrl": "https://www.game.co.za/cp/win-your-cart-back-2026",
+    "termsUrl": "https://www.game.co.za/cp/win-your-cart-back-2026",
+    "sourceDomain": "game.co.za",
+    "lastChecked": "2026-05-17",
     "summary": "Shop at Game, then SMS your receipt number to the shortcode shown in-store to enter. One winner each week wins back their shop as a Game voucher, up to R20,000.",
     "prizeName": "Game voucher up to R20,000",
     "tags": [
@@ -501,7 +566,12 @@
       "weekly-draw"
     ],
     "verificationStatus": "published",
+    "entryCostType": "purchase-required",
+    "entryFeeLabel": "Qualifying purchase required; SMS charged at standard rates where applicable",
     "purchaseRequired": true,
+    "requiredProduct": "Game purchase with receipt number",
+    "entryChannel": "SMS receipt-number entry",
+    "region": "South Africa",
     "prizeType": "voucher"
   },
   {
@@ -512,6 +582,10 @@
     "entryType": "App",
     "closingDate": "2026-10-23",
     "url": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn-app-travel-treat-2026",
+    "sourceUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn-app-travel-treat-2026",
+    "termsUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn-app-travel-treat-2026",
+    "sourceDomain": "mtn.co.za",
+    "lastChecked": "2026-05-17",
     "summary": "Complete the in-app challenge and opt in to enter the draw. Win a 3-night Cape Town winter escape for two, including flights and a curated experiences voucher.",
     "prizeName": "3-night Cape Town winter escape for two",
     "tags": [
@@ -522,6 +596,11 @@
       "free-entry"
     ],
     "verificationStatus": "published",
+    "entryCostType": "app-required",
+    "entryFeeLabel": "No separate entry fee; MTN app opt-in/action required",
+    "purchaseRequired": false,
+    "entryChannel": "MTN app challenge and opt-in",
+    "region": "South Africa",
     "prizeType": "holiday"
   },
   {
@@ -541,7 +620,11 @@
       "free-entry",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
+    "lastChecked": "2026-05-17",
+    "verificationStatus": "needs-verification",
+    "publicationStatus": "held",
+    "doNotPublish": true,
+    "verificationNote": "Demoted from published on 2026-05-17 after FH-3.17/FH-3.18 audit because the campaign URL redirects to a generic Sanlam Online homepage and no specific current terms page could be verified.",
     "prizeType": "cash"
   },
   {
@@ -552,6 +635,10 @@
     "entryType": "App",
     "closingDate": "2026-12-05",
     "url": "https://www.engen.co.za/promotions/1app-cashback-draw-2026",
+    "sourceUrl": "https://www.engen.co.za/promotions/1app-cashback-draw-2026",
+    "termsUrl": "https://www.engen.co.za/promotions/1app-cashback-draw-2026",
+    "sourceDomain": "engen.co.za",
+    "lastChecked": "2026-05-17",
     "summary": "Pay for fuel via Engen 1App and collect stamps toward your automatic entry. Stand a chance to win R75,000 cash back, plus weekly fuel vouchers for active app users.",
     "prizeName": "R75,000 cash back plus weekly fuel vouchers",
     "tags": [
@@ -563,7 +650,12 @@
       "weekly-draw"
     ],
     "verificationStatus": "published",
+    "entryCostType": "purchase-required",
+    "entryFeeLabel": "No separate entry fee; qualifying Engen 1App fuel payment required",
     "purchaseRequired": true,
+    "requiredProduct": "Qualifying Engen 1App fuel payment",
+    "entryChannel": "Engen 1App payment and stamps",
+    "region": "South Africa",
     "prizeType": "cash"
   },
   {
@@ -574,6 +666,10 @@
     "entryType": "Online",
     "closingDate": "2026-12-24",
     "url": "https://www.toyota.co.za/connect/article/roadtrip-tech-pack-giveaway-2026",
+    "sourceUrl": "https://www.toyota.co.za/connect/article/roadtrip-tech-pack-giveaway-2026",
+    "termsUrl": "https://www.toyota.co.za/connect/article/roadtrip-tech-pack-giveaway-2026",
+    "sourceDomain": "toyota.co.za",
+    "lastChecked": "2026-05-17",
     "summary": "Enter online and tell Toyota where you'd take your next road trip. Win a roadtrip tech pack with a dashcam, power bank, and navigation-ready accessories for safer travels.",
     "prizeName": "Roadtrip tech pack with dashcam, power bank and navigation accessories",
     "tags": [
@@ -583,6 +679,11 @@
       "free-entry"
     ],
     "verificationStatus": "published",
+    "entryCostType": "free-entry",
+    "entryFeeLabel": "Free online entry",
+    "purchaseRequired": false,
+    "entryChannel": "Official Toyota online entry",
+    "region": "South Africa",
     "prizeType": "tech"
   },
   {
@@ -624,6 +725,10 @@
     "entryType": "In-store Purchase",
     "closingDate": "2026-07-15",
     "url": "https://www.vodacom.co.za/vodacom/terms/competition/accessory-spend-voucher",
+    "sourceUrl": "https://www.vodacom.co.za/vodacom/terms/competition/accessory-spend-voucher",
+    "termsUrl": "https://www.vodacom.co.za/vodacom/terms/competition/accessory-spend-voucher",
+    "sourceDomain": "vodacom.co.za",
+    "lastChecked": "2026-05-17",
     "prizeName": "1 of 4 R10,000 TFG vouchers",
     "summary": "Buy a new Vodacom device and prepaid SIM at a participating TFG store, RICA and activate the SIM, then recharge with at least R29 on the day to stand a chance to win 1 of 4 R10,000 TFG vouchers.",
     "entrySteps": [
@@ -640,6 +745,7 @@
       "high-value"
     ],
     "verificationStatus": "published",
+    "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee",
     "purchaseRequired": true,
     "minimumSpend": "R29 airtime recharge after device and SIM purchase",
@@ -656,6 +762,10 @@
     "entryType": "App / USSD / Contract Purchase",
     "closingDate": "2026-06-30",
     "url": "https://www.cellc.co.za/cellc/comrades",
+    "sourceUrl": "https://www.cellc.co.za/cellc/comrades",
+    "termsUrl": "https://www.cellc.co.za/cellc/comrades",
+    "sourceDomain": "cellc.co.za",
+    "lastChecked": "2026-05-17",
     "prizeName": "a share of R500,000 cash",
     "summary": "Buy qualifying MyConnecta prepaid deals, sign up or upgrade on eligible Elevate contracts, or top up qualifying contract bolt-ons to earn entries for Cell C's R500,000 cash promotion.",
     "entrySteps": [
@@ -672,6 +782,7 @@
       "high-value"
     ],
     "verificationStatus": "published",
+    "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee",
     "purchaseRequired": true,
     "requiredProduct": "Qualifying Cell C MyConnecta deals, Elevate contracts, or bolt-ons",
@@ -687,6 +798,10 @@
     "entryType": "Social Media",
     "closingDate": "2026-06-30",
     "url": "https://www.fnb.co.za/about-fnb/legal-matters/promo-terms/Love-Fnb-Social-Media-Competition-Rules.pdf",
+    "sourceUrl": "https://www.fnb.co.za/about-fnb/legal-matters/promo-terms/Love-Fnb-Social-Media-Competition-Rules.pdf",
+    "termsUrl": "https://www.fnb.co.za/about-fnb/legal-matters/promo-terms/Love-Fnb-Social-Media-Competition-Rules.pdf",
+    "sourceDomain": "fnb.co.za",
+    "lastChecked": "2026-05-17",
     "prizeName": "Vouchers and eWallet prizes valued at R1.2 million",
     "summary": "Follow and engage with @FNBsa on social media for a chance to win from a prize pool of vouchers and eWallet prizes valued at R1.2 million, with selected campaign prizes also including devices, jerseys and tickets.",
     "entrySteps": [
@@ -703,6 +818,7 @@
       "high-value"
     ],
     "verificationStatus": "published",
+    "entryCostType": "free-entry",
     "entryFeeLabel": "Free entry",
     "purchaseRequired": false,
     "entryChannel": "FNB social media accounts",
@@ -3874,8 +3990,11 @@
     "sourceUrl": "https://www.5fm.co.za/5fm/competitions/code-youth-bootcamp/",
     "termsUrl": "https://www.5fm.co.za/5fm/competition-ts-cs/",
     "sourceDomain": "5fm.co.za",
-    "lastChecked": "2026-05-16",
-    "verificationStatus": "published",
+    "lastChecked": "2026-05-17",
+    "verificationStatus": "needs-verification",
+    "publicationStatus": "held",
+    "doNotPublish": true,
+    "verificationNote": "Demoted from published on 2026-05-17 after FH-3.17/FH-3.18 audit because the official 5FM competition URL timed out in Node validation, returned 502 in PowerShell recheck, and the terms URL also timed out.",
     "entryCostType": "free-entry",
     "entryFeeLabel": "R0 online entry",
     "purchaseRequired": false,
