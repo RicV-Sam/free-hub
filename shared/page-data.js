@@ -40,14 +40,14 @@
     },
     holidays: {
       category: "Holidays",
-      title: "Win a Holiday South Africa | Holiday Giveaway Competitions",
+      title: "Holiday Competitions in South Africa | Win Trips, Getaways & Stays",
       description:
-        "Browse holiday giveaway competitions and win-a-holiday South Africa opportunities, including local getaway competitions and travel prizes.",
-      heading: "Win a Holiday in South Africa",
+        "Find holiday, travel and getaway competitions in South Africa, including trips, hotel stays, accommodation vouchers and travel prizes. Updated with official entry links.",
+      heading: "Holiday Competitions in South Africa",
       intro:
-        "Find holiday giveaway listings, local getaway competitions, and free-entry travel prizes. If you want to win a holiday in South Africa, this page helps you compare active offers quickly.",
+        "Looking for holiday competitions in South Africa? This page lists current travel, getaway and accommodation-related competitions, including trips, hotel stays, weekend breaks, resort vouchers and travel prize draws. Freehub does not run these competitions; we list public competitions from official promoter pages and trusted sources, then link you to the official entry route. Always check the promoter's terms before entering, especially where a purchase, booking, loyalty account, app download or paid entry is required.",
       support:
-        "Travel competitions are popular with South African audiences because they combine accessible entry with high perceived value. This page filters the noise and keeps the focus on holiday giveaway opportunities worth checking today.",
+        "Holiday competitions can include local getaways, hotel stays, resort breaks, flights, travel packages, accommodation vouchers, travel spending money and experience-based trips. If you searched for win a holiday South Africa, holiday giveaway listings or a local getaway competition, compare the closing date, entry cost label, eligibility rules and official terms before entering.",
     },
     tech: {
       category: "Tech",

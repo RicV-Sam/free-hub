@@ -1339,13 +1339,28 @@ function getCategoryEditorial(slug, competitions) {
     },
     holidays: {
       ariaLabel: "Guide to holiday competitions in South Africa",
-      title: "How to check holiday giveaway details",
+      title: "How to compare holiday competitions",
       sections: [
         {
-          heading: "Travel prizes need extra checks",
+          heading: "What counts as a holiday competition?",
           paragraphs: [
-            `Holiday giveaways can include local stays, flights, experiences or travel vouchers. This page currently groups ${escapeHtml(liveCopy)} so you can compare deadlines and source links quickly.`,
-            "Check whether flights, transfers, meals, spending money, visas, passports, taxes, blackout dates or companion rules are included before entering.",
+            `Holiday competitions are prize draws, giveaways or promotions where the reward is travel or accommodation-led. This page currently groups ${escapeHtml(liveCopy)} from the active published Freehub data with visible closing dates, entry labels and official promoter links.`,
+            "Common holiday prize types include local holidays, weekend getaways, hotel stays, resort breaks, accommodation vouchers, flights or travel packages, travel spending money and experience-based trips.",
+          ],
+        },
+        {
+          heading: "What to check before entering",
+          paragraphs: [
+            "Read the promoter terms for the closing date, eligibility rules, fixed travel dates, departure city, booking process, companion rules and whether the prize is transferable.",
+            "Check whether flights are included, whether the prize is accommodation-only, whether meals, transfers, spending money, taxes, visas or resort fees are excluded, and whether a purchase, booking, receipt, loyalty account or app download is required.",
+            `If you only want no-cost routes, compare <a href="/free-competitions/">free competitions</a>. If a listing needs a qualifying purchase, booking, receipt or minimum spend, compare it with <a href="/purchase-required-competitions/">purchase required competitions</a>.`,
+          ],
+        },
+        {
+          heading: "Freehub's role",
+          paragraphs: [
+            `Freehub does not run holiday competitions, collect entries, choose winners, book travel or manage prize fulfilment. We organise active published listings and link to official promoter sources; you can also browse <a href="/competitions/">all current competitions</a>, <a href="/competitions-ending-soon/">competitions ending soon</a>, <a href="/category/cars/">car competitions</a>, <a href="/category/cash/">cash competitions</a>, <a href="/category/vouchers/">voucher competitions</a> and <a href="/category/tech/">tech competitions</a>.`,
+            "Always enter through the official promoter link and read the full terms before submitting details. Prize details can change, and travel prizes often include date, availability, route, partner or redemption conditions.",
           ],
         },
       ],
@@ -1645,19 +1660,29 @@ function getCollectionFaqItems(routeContext) {
     ],
     holidays: [
       {
-        question: "What should I check before entering a holiday competition?",
+        question: "Are holiday competitions free to enter?",
         answer:
-          "Check travel dates, departure city, passport or visa needs, blackout periods, spending money, transfers, taxes and whether the prize is transferable.",
+          "Some holiday competitions are free to enter, while others may require a purchase, booking, account, app download, till slip, loyalty membership or paid entry. Check the Freehub label and the official promoter terms before entering.",
       },
       {
-        question: "Are holiday giveaways free to enter?",
+        question: "Does Freehub run these holiday competitions?",
         answer:
-          "Some holiday giveaways are free entry, while others require a booking, purchase, app action or account. Freehub labels the likely cost route where available.",
+          "No. Freehub lists competitions and links to official promoter pages. The promoter runs the competition, accepts entries, chooses winners and fulfils the prize.",
       },
       {
-        question: "Who handles the holiday prize?",
+        question: "What should I check before entering a travel competition?",
         answer:
-          "The promoter or its agency handles winner contact and prize fulfilment. Freehub only links to the official competition source.",
+          "Check the travel dates, whether flights, accommodation, meals, transfers or spending money are included, eligibility rules, closing date and full terms before entering.",
+      },
+      {
+        question: "Are flights always included in holiday prizes?",
+        answer:
+          "No. Not all holiday prizes include flights. Some are accommodation-only, voucher-based or limited to local getaways, so check the official prize details before entering.",
+      },
+      {
+        question: "What happens when a holiday competition expires?",
+        answer:
+          "Expired holiday competitions are removed from active public listings or no longer shown as live competitions, so users can focus on current prize draws.",
       },
     ],
     tech: [
@@ -1924,7 +1949,7 @@ function renderPage(routeContext, competitions) {
             ${cardsMarkup}
           </div>
 
-          <div id="emptyState" class="state-card state-card--hidden" aria-live="polite"></div>
+          ${renderCollectionEmptyState(routeContext, competitions)}
         </section>
 
         ${renderCategoryEditorial(routeContext, competitions)}
@@ -2551,10 +2576,14 @@ function getCategoryInternalLinks(slug, competitions) {
     return {
       title: "Holiday Competition Searches",
       links: [
-        { label: "Win a holiday South Africa", href: byIdPath("sanlam-plan-win-mauritius") },
-        { label: "Holiday giveaway competitions", href: byIdPath("makro-rewards-zanzibar-getaway") },
-        { label: "Free competitions", href: "/free-competitions/" },
+        { label: "All current competitions", href: "/competitions/" },
         { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
+        { label: "Free competitions", href: "/free-competitions/" },
+        { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
+        { label: "Car competitions", href: "/category/cars/" },
+        { label: "Cash competitions", href: "/category/cash/" },
+        { label: "Voucher competitions", href: "/category/vouchers/" },
+        { label: "Tech competitions", href: "/category/tech/" },
       ],
     };
   }
@@ -2635,6 +2664,31 @@ function renderSupportSection(supportCopy) {
           <p class="state-card__title">Why This Page Matters</p>
           <p class="state-card__text">${escapeHtml(supportCopy)}</p>
         </section>`;
+}
+
+function getCollectionEmptyState(routeContext) {
+  if (routeContext.type === "category" && routeContext.slug === "holidays") {
+    return {
+      title: "No verified holiday competitions right now",
+      text:
+        "There are no verified holiday competitions listed right now. Check all current competitions or come back soon for new travel, getaway and accommodation prize listings.",
+    };
+  }
+
+  return {
+    title: "No competitions match",
+    text: "Try a different search term or clear the current category filter.",
+  };
+}
+
+function renderCollectionEmptyState(routeContext, competitions) {
+  const state = getCollectionEmptyState(routeContext);
+  const hiddenClass = competitions.length > 0 ? " state-card--hidden" : "";
+
+  return `<div id="emptyState" class="state-card${hiddenClass}" aria-live="polite">
+            <p class="state-card__title">${escapeHtml(state.title)}</p>
+            <p class="state-card__text">${escapeHtml(state.text)}</p>
+          </div>`;
 }
 
 function renderWhatsAppChannelCta(routeContext = null) {
