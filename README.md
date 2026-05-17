@@ -23,12 +23,15 @@ Active production site on `https://freehub.co.za`.
 - Regenerate all static pages:
   - `node scripts/generate-pages.js`
 
-## 404 and Legacy URL Handling
-- Competition and out routes are generated for:
-  - published competitions
-  - non-published legacy entries
-  - archived expired entries
-- This prevents hard 404s for previously crawled URLs and preserves redirect pages.
+## Public Generation Rule
+- Only records with `verificationStatus: "published"` are public.
+- Held/unverified/non-published records are private review data only and must not generate:
+  - `/competition/*` pages
+  - `/out/*` redirect pages
+  - listing/category/hub cards
+  - sitemap URLs
+  - public ItemList entries
+- Held review workflows remain in private/admin tooling and are not part of the public static site output.
 
 ## Image Strategy (Current)
 Visual fallback order for cards/heroes:
