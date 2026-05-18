@@ -14,8 +14,22 @@ const DEFAULT_HANDOFF_PATH = path.resolve(
 
 const OFFICIAL_DOMAINS = {
   Capitec: ["capitecbank.co.za", "moneyup.co.za"],
+  Clover: ["clover.co.za"],
   "Dis-Chem": ["dischem.co.za"],
+  Makro: ["makro.co.za"],
+  "SPAR South Africa": ["spar.co.za"],
 };
+
+const FORBIDDEN_SOURCE_FIELDS = [
+  "verificationStatus",
+  "publicationStatus",
+  "doNotPublish",
+  "sourceReviewStatus",
+  "publish",
+  "published",
+  "public",
+  "readyToPublish",
+];
 
 function parseArgs(argv) {
   const options = {
@@ -103,6 +117,15 @@ function isOfficialUrl(brand, value) {
   return allowed.some((domain) => host === domain || host.endsWith(`.${domain}`));
 }
 
+function isPublishedCompetition(competition) {
+  return (
+    competition &&
+    competition.verificationStatus === "published" &&
+    competition.publicationStatus !== "held" &&
+    competition.doNotPublish !== true
+  );
+}
+
 function validateHandoff(handoff, validation) {
   const errors = [];
 
@@ -131,57 +154,89 @@ function validateHandoff(handoff, validation) {
 function getWarningCodes(validation, row) {
   const issues = Array.isArray(validation.issues) ? validation.issues : [];
   return issues
-    .filter((issue) => issue && issue.severity === "warning" && issue.proposedId === row.proposedId)
+    .filter((issue) => {
+      if (!issue || issue.severity !== "warning") return false;
+      return issue.candidateId === row.candidateId || issue.proposedId === row.proposedId;
+    })
     .map((issue) => issue.code)
     .filter(Boolean);
 }
 
-function validateSourceRow(row) {
-  const errors = [];
-  const requiredFields = [
-    "proposedId",
-    "proposedSlug",
-    "brand",
-    "title",
-    "prize",
-    "summary",
-    "sourceUrl",
-    "termsUrl",
-    "closingDate",
-    "entryMethod",
-    "costOrPurchaseRequirement",
-    "eligibility",
-    "imageNotes",
-    "evidenceNotes",
-    "sourceReport",
-  ];
+function getRowId(row) {
+  return asString(row.candidateId || row.proposedId);
+}
 
-  requiredFields.forEach((field) => {
-    if (!asString(row[field])) {
-      errors.push(`${row.proposedId || "row"} missing ${field}.`);
+function getRowSlug(row) {
+  return asString(row.suggestedSlug || row.proposedSlug);
+}
+
+function getRowTitle(row) {
+  return asString(row.competitionTitle || row.title);
+}
+
+function getRowCost(row) {
+  return asString(row.entryCost || row.costOrPurchaseRequirement);
+}
+
+function getRowPurchaseRequirement(row) {
+  return asString(row.purchaseRequirement || row.costOrPurchaseRequirement || row.entryCost);
+}
+
+function getRowEligibility(row) {
+  return asString(row.eligibilityNotes || row.eligibility);
+}
+
+function getRowEvidenceNotes(row) {
+  return asString(row.officialEvidenceSummary || row.evidenceNotes);
+}
+
+function getRowSourceReport(row, handoff) {
+  return asString(row.sourceReport) || `ZA Comp Engine ${handoff.schemaVersion || "handoff"} exported ${handoff.exportedAt || "unknown"}.`;
+}
+
+function validateSourceRow(row, handoff) {
+  const errors = [];
+
+  const rowId = getRowId(row) || "row";
+  const requiredValues = {
+    candidateId: getRowId(row),
+    suggestedSlug: getRowSlug(row),
+    brand: row.brand,
+    competitionTitle: getRowTitle(row),
+    prize: row.prize,
+    summary: row.summary,
+    sourceUrl: row.sourceUrl,
+    termsUrl: row.termsUrl,
+    closingDate: row.closingDate,
+    entryMethod: row.entryMethod,
+    entryCost: getRowCost(row),
+    purchaseRequirement: getRowPurchaseRequirement(row),
+    eligibilityNotes: getRowEligibility(row),
+    imageNotes: row.imageNotes,
+    officialEvidenceSummary: getRowEvidenceNotes(row),
+    sourceReport: getRowSourceReport(row, handoff),
+  };
+
+  Object.entries(requiredValues).forEach(([field, value]) => {
+    if (!asString(value)) {
+      errors.push(`${rowId} missing ${field}.`);
     }
   });
 
-  if (row.verificationStatus !== "needs-verification") {
-    errors.push(`${row.proposedId} must keep verificationStatus=needs-verification.`);
-  }
-  if (row.publicationStatus !== "held") {
-    errors.push(`${row.proposedId} must keep publicationStatus=held.`);
-  }
-  if (row.sourceReviewStatus !== "manual-review-required") {
-    errors.push(`${row.proposedId} must keep sourceReviewStatus=manual-review-required.`);
-  }
-  if (row.doNotPublish !== true) {
-    errors.push(`${row.proposedId} must keep doNotPublish=true.`);
-  }
+  FORBIDDEN_SOURCE_FIELDS.forEach((field) => {
+    if (Object.prototype.hasOwnProperty.call(row, field)) {
+      errors.push(`${rowId} source handoff must not include Freehub-controlled field ${field}.`);
+    }
+  });
+
   if (!Array.isArray(row.riskFlags) || row.riskFlags.length === 0) {
-    errors.push(`${row.proposedId} must preserve riskFlags.`);
+    errors.push(`${rowId} must preserve riskFlags.`);
   }
   if (!isOfficialUrl(row.brand, row.sourceUrl)) {
-    errors.push(`${row.proposedId} sourceUrl is not allowlisted as official for ${row.brand}.`);
+    errors.push(`${rowId} sourceUrl is not allowlisted as official for ${row.brand}.`);
   }
   if (!isOfficialUrl(row.brand, row.termsUrl)) {
-    errors.push(`${row.proposedId} termsUrl is not allowlisted as official for ${row.brand}.`);
+    errors.push(`${rowId} termsUrl is not allowlisted as official for ${row.brand}.`);
   }
 
   return errors;
@@ -235,6 +290,9 @@ function deriveTags(row, prizeType) {
 function deriveEntryType(row) {
   if (row.brand === "Dis-Chem") return "In-store Purchase";
   if (row.brand === "Capitec") return "Online / Account";
+  if (row.brand === "SPAR South Africa") return "In-store Purchase";
+  if (row.brand === "Clover") return "In-store Purchase";
+  if (row.brand === "Makro") return "WhatsApp / In-store Purchase";
   if (/in-store|point of sale|swipe/i.test(row.entryMethod)) return "In-store";
   return "Online";
 }
@@ -259,7 +317,7 @@ function deriveEntryFeeLabel(row) {
   if (row.brand === "Dis-Chem") {
     return "Purchase required; Better Rewards card and qualifying products required";
   }
-  return asString(row.costOrPurchaseRequirement);
+  return getRowCost(row);
 }
 
 function deriveEntrySteps(row) {
@@ -287,19 +345,21 @@ function deriveEntrySteps(row) {
 
 function deriveRequiredProduct(row) {
   if (row.brand === "Dis-Chem") return "Four specified Garnier Pure Active products";
+  if (new Set(asArray(row.riskFlags)).has("purchase_required")) return getRowPurchaseRequirement(row);
   return "";
 }
 
-function mapHandoffRow(row, warningCodes, nowIso, existing) {
+function mapHandoffRow(row, warningCodes, nowIso, existing, handoff) {
   const prizeType = derivePrizeType(row);
   const sourceDomain = getHost(row.sourceUrl);
   const entryCostType = deriveEntryCostType(row);
   const purchaseRequired = entryCostType === "purchase-required";
   const url = row.brand === "Dis-Chem" ? row.termsUrl : row.sourceUrl;
+  const sourceReport = getRowSourceReport(row, handoff);
 
   return {
-    id: row.proposedSlug,
-    title: row.title,
+    id: getRowSlug(row),
+    title: getRowTitle(row),
     brand: row.brand,
     summary: row.summary.replace(/^Held review candidate:\s*/i, ""),
     entrySteps: deriveEntrySteps(row),
@@ -326,20 +386,20 @@ function mapHandoffRow(row, warningCodes, nowIso, existing) {
     requiredProduct: deriveRequiredProduct(row),
     entryChannel: deriveEntryChannel(row),
     region: "National",
-    eligibility: row.eligibility,
-    verificationNote: `Imported from ZA Comp Engine held-review handoff. ${row.evidenceNotes} Accepted held-review warnings: ${warningCodes.join(", ") || "none"}. Do not publish until manually reviewed in Freehub.`,
+    eligibility: getRowEligibility(row),
+    verificationNote: `Imported from ZA Comp Engine held-review handoff. ${getRowEvidenceNotes(row)} Accepted held-review warnings: ${warningCodes.join(", ") || "none"}. Do not publish until manually reviewed in Freehub.`,
     sourceSystem: "za-comp-engine",
-    sourceHandoffId: row.proposedId,
-    proposedSlug: row.proposedSlug,
+    sourceHandoffId: getRowId(row),
+    proposedSlug: getRowSlug(row),
     publicationStatus: "held",
     sourceReviewStatus: "manual-review-required",
     doNotPublish: true,
     riskFlags: asArray(row.riskFlags),
-    costOrPurchaseRequirement: row.costOrPurchaseRequirement,
+    costOrPurchaseRequirement: getRowPurchaseRequirement(row),
     image: row.imageUrl || undefined,
     imageReviewNote: row.imageNotes,
-    evidenceNotes: row.evidenceNotes,
-    sourceReport: row.sourceReport,
+    evidenceNotes: getRowEvidenceNotes(row),
+    sourceReport,
     validationWarnings: warningCodes,
     importedAt: existing && existing.importedAt ? existing.importedAt : nowIso,
   };
@@ -374,6 +434,7 @@ function main() {
   const warnings = [];
   const byId = new Map();
   const byHandoffId = new Map();
+  const byOfficialUrl = new Map();
 
   competitions.forEach((competition, index) => {
     if (byId.has(competition.id)) {
@@ -384,26 +445,41 @@ function main() {
     if (competition.sourceHandoffId) {
       byHandoffId.set(competition.sourceHandoffId, { competition, index });
     }
+    [competition.sourceUrl, competition.termsUrl, competition.url].map(asString).filter(Boolean).forEach((url) => {
+      if (!byOfficialUrl.has(url)) {
+        byOfficialUrl.set(url, { competition, index });
+      }
+    });
   });
 
   const nextCompetitions = competitions.slice();
   let imported = 0;
   let updated = 0;
   let skipped = 0;
+  const skippedPublishedMatches = [];
 
   handoff.rows.forEach((row) => {
-    errors.push(...validateSourceRow(row));
+    errors.push(...validateSourceRow(row, handoff));
     const warningCodes = getWarningCodes(validation, row);
-    const existingByHandoff = byHandoffId.get(row.proposedId);
-    const existingById = byId.get(row.proposedSlug);
-    const existing = existingByHandoff || existingById || null;
+    const existingByHandoff = byHandoffId.get(getRowId(row));
+    const existingById = byId.get(getRowSlug(row));
+    const existingBySourceUrl = byOfficialUrl.get(asString(row.sourceUrl));
+    const existingByTermsUrl = byOfficialUrl.get(asString(row.termsUrl));
+    const existing = existingByHandoff || existingById || existingBySourceUrl || existingByTermsUrl || null;
 
-    if (existing && existing.competition.verificationStatus === "published") {
-      errors.push(`${row.proposedId} collides with published Freehub row "${existing.competition.id}".`);
+    if (existing && isPublishedCompetition(existing.competition)) {
+      skipped += 1;
+      skippedPublishedMatches.push({
+        candidateId: getRowId(row),
+        suggestedSlug: getRowSlug(row),
+        existingId: existing.competition.id,
+        existingTitle: existing.competition.title,
+        reason: "needs_manual_publication_review",
+      });
       return;
     }
 
-    const mapped = mapHandoffRow(row, warningCodes, nowIso, existing && existing.competition);
+    const mapped = mapHandoffRow(row, warningCodes, nowIso, existing && existing.competition, handoff);
 
     if (existing) {
       if (stableJson(existing.competition) === stableJson(mapped)) {
@@ -442,6 +518,7 @@ function main() {
     rowsImported: imported,
     rowsUpdated: updated,
     rowsSkipped: skipped,
+    skippedPublishedMatches,
     errors: 0,
     warnings: warnings.length,
   };
