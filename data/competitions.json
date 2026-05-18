@@ -3445,8 +3445,7 @@
     "summary": "Buy four specified Garnier Pure Active products in-store and swipe a Dis-Chem Better Rewards card for a random draw.",
     "entrySteps": [
       "Purchase four specified Garnier Pure Active products in-store during the campaign period.",
-      "Swipe a Dis-Chem Better Rewards card at point of sale.",
-      "Keep this row held until a reviewer confirms purchase, loyalty-card, product and prize caveats."
+      "Swipe a Dis-Chem Better Rewards card at point of sale."
     ],
     "closingDate": "2026-06-28",
     "category": "Vouchers",
@@ -5008,8 +5007,7 @@
     "brand": "Makro",
     "summary": "Buy participating Schweppes products, enter through the QR code or WhatsApp mechanic, and upload a qualifying till-slip image for prize draws during the 2026 campaign period.",
     "entrySteps": [
-      "Purchase any participating Schweppes product from a participating store, scan the QR code or message 'Schweppes' to 087 133 0081 on WhatsApp, complete registration, and upload a photo of the qualifying till slip.",
-      "Keep this row held until a reviewer confirms all official terms and cost notes."
+      "Purchase any participating Schweppes product from a participating store, scan the QR code or message 'Schweppes' to 087 133 0081 on WhatsApp, complete registration, and upload a photo of the qualifying till slip."
     ],
     "closingDate": "2026-05-31",
     "category": "Vouchers",
@@ -5036,7 +5034,7 @@
     "entryFeeLabel": "Purchase required. Entrants must buy a participating Schweppes product and retain the till slip as proof of purchase. Normal WhatsApp/data costs may apply.",
     "purchaseRequired": true,
     "requiredProduct": "Purchase any participating Schweppes product from a participating store displaying the promotional posters and submit a qualifying till slip.",
-    "entryChannel": "Purchase any participating Schweppes product from a participating store, scan the QR code or message 'Schweppes' to 087 ",
+    "entryChannel": "Purchase any participating Schweppes product from a participating store, scan the QR code or message 'Schweppes' to 087 133 0081 on WhatsApp, complete registration, and upload a photo of the qualifying till slip.",
     "region": "National",
     "eligibility": "Open to permanent residents and citizens of South Africa aged 18 or older, living in South Africa, with a valid South African ID document or passport. Employees, related parties, agencies, suppliers, and associated parties are excluded.",
     "verificationNote": "Imported from ZA Comp Engine held-review handoff. Saved official Makro page contains the full Schweppes Icon Reimagined Transaction Driver 2026 terms. The terms identify Coca-Cola Africa, Off Limit Communication, and VPAS as promoters; define South Africa 18+ eligibility; state the competition period from 1 March 2026 to 23h59 on 31 May 2026; explain QR/WhatsApp/till-slip entry; and describe VIP experience, cash, and instant money voucher prize tiers. Accepted held-review warnings: risk_age_restriction, risk_account_required, risk_sms, risk_purchase_required, risk_loyalty_required, risk_age_restriction, risk_purchase_required, risk_loyalty_required, risk_age_restriction, risk_purchase_required, risk_purchase_required, risk_loyalty_required, risk_sms, risk_purchase_required, risk_loyalty_required, risk_sms. Do not publish until manually reviewed in Freehub.",
@@ -5084,13 +5082,12 @@
     "brand": "SPAR South Africa",
     "summary": "Buy any two Vaseline Cera Glow products from SPAR stores nationally and swipe a SPAR Rewards card during the campaign period for automatic entry into the Vaseline Cera Glow draw.",
     "entrySteps": [
-      "Buy any 2 Vaseline Cera Glow products from SPAR stores nationally and swipe a SPAR Rewards card for automatic entry.",
-      "Keep this row held until a reviewer confirms all official terms and cost notes."
+      "Buy any 2 Vaseline Cera Glow products from SPAR stores nationally and swipe a SPAR Rewards card for automatic entry."
     ],
     "closingDate": "2026-08-02",
-    "category": "Tech",
+    "category": "Vouchers",
     "prizeName": "One of ten Vaseline Cera Glow hampers.",
-    "prizeType": "tech",
+    "prizeType": "voucher",
     "prizeValueAmount": null,
     "prizeValueCurrency": "ZAR",
     "numberOfPrizes": "",
@@ -5164,8 +5161,7 @@
     "brand": "SPAR South Africa",
     "summary": "Buy any two Vaseline products from SPAR stores nationally and swipe a SPAR Rewards card during the campaign period for automatic entry into the Vaseline Winter Drive draw.",
     "entrySteps": [
-      "Buy any 2 Vaseline products from SPAR stores nationally and swipe a SPAR Rewards card for automatic entry.",
-      "Keep this row held until a reviewer confirms all official terms and cost notes."
+      "Buy any 2 Vaseline products from SPAR stores nationally and swipe a SPAR Rewards card for automatic entry."
     ],
     "closingDate": "2026-08-02",
     "category": "Vouchers",
