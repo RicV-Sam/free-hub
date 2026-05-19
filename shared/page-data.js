@@ -927,6 +927,7 @@
       competition &&
       competition.verificationStatus === "published" &&
       competition.publicationStatus !== "held" &&
+      competition.publicationStatus !== "archived-low-value" &&
       competition.doNotPublish !== true
     );
   }
@@ -938,11 +939,52 @@
   function isActiveCompetition(competition) {
     const daysUntilClosing = getDaysUntilClosing(competition && competition.closingDate);
 
-    return Number.isFinite(daysUntilClosing) && daysUntilClosing >= 0;
+    return isPublishedCompetition(competition) && Number.isFinite(daysUntilClosing) && daysUntilClosing >= 0;
   }
 
   function getPublishedActiveCompetitions(competitions) {
-    return getPublishedCompetitions(competitions).filter(isActiveCompetition);
+    return competitions.filter(isActiveCompetition);
+  }
+
+  function isExpiredCompetition(competition) {
+    const daysUntilClosing = getDaysUntilClosing(competition && competition.closingDate);
+    return Number.isFinite(daysUntilClosing) && daysUntilClosing < 0;
+  }
+
+  function hasVerifiedArchiveSource(competition) {
+    return Boolean(
+      competition &&
+        (competition.termsUrl || competition.sourceUrl || competition.url) &&
+        String(competition.title || "").trim() &&
+        String(competition.brand || "").trim() &&
+        String(competition.closingDate || "").trim()
+    );
+  }
+
+  function isExpiredArchiveEligibleCompetition(competition) {
+    return (
+      isPublishedCompetition(competition) &&
+      isExpiredCompetition(competition) &&
+      hasVerifiedArchiveSource(competition)
+    );
+  }
+
+  function isArchivedLowValueCompetition(competition) {
+    return (
+      competition &&
+      competition.verificationStatus === "published" &&
+      competition.publicationStatus === "archived-low-value" &&
+      competition.doNotPublish !== true &&
+      isExpiredCompetition(competition)
+    );
+  }
+
+  function getExpiredArchiveCompetitions(competitions) {
+    return competitions.filter(isExpiredArchiveEligibleCompetition);
+  }
+
+  function getArchivedLowValueCompetitions(competitions) {
+    return competitions.filter(isArchivedLowValueCompetition);
   }
 
   function shouldShowHotBadge(competition) {
@@ -1477,6 +1519,12 @@
     getPublishedCompetitions,
     isActiveCompetition,
     getPublishedActiveCompetitions,
+    isExpiredCompetition,
+    hasVerifiedArchiveSource,
+    isExpiredArchiveEligibleCompetition,
+    isArchivedLowValueCompetition,
+    getExpiredArchiveCompetitions,
+    getArchivedLowValueCompetitions,
     isVehicleRelatedCompetition,
     shouldShowHotBadge,
     isHighValueCompetition,

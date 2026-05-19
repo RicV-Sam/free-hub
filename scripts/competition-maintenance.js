@@ -50,6 +50,8 @@ function classifyCompetitions(competitions, today) {
   const expired = [];
   const active = [];
   const closingSoon = [];
+  const expiredArchiveEligible = [];
+  const expiredLowValue = [];
 
   competitions.forEach((competition) => {
     const closingDate = normalizeDate(competition.closingDate);
@@ -57,6 +59,15 @@ function classifyCompetitions(competitions, today) {
 
     if (diffDays < 0) {
       expired.push(competition);
+      if (shared.hasVerifiedArchiveSource(competition) && competition.publicationStatus !== "archived-low-value") {
+        expiredArchiveEligible.push(competition);
+      } else {
+        expiredLowValue.push(competition);
+      }
+      return;
+    }
+
+    if (!isPublishedCompetition(competition)) {
       return;
     }
 
@@ -66,11 +77,15 @@ function classifyCompetitions(competitions, today) {
     }
   });
 
-  return { expired, active, closingSoon };
+  return { expired, active, closingSoon, expiredArchiveEligible, expiredLowValue };
 }
 
 function isPublishedCompetition(competition) {
-  return competition.verificationStatus === "published";
+  return shared.isPublishedCompetition(competition);
+}
+
+function isLifecyclePublicCompetition(competition) {
+  return shared.isPublishedCompetition(competition) || shared.isArchivedLowValueCompetition(competition);
 }
 
 function archiveExpiredCompetitions(expired, todayIso) {
@@ -103,14 +118,37 @@ function saveActiveCompetitions(active) {
   fs.writeFileSync(DATA_PATH, `${JSON.stringify(active, null, 2)}\n`);
 }
 
-function printSummary({ total, held, expired, active, closingSoon, keywordCoverage, options, todayIso }) {
+function getExpiredOutPageLeaks(expired) {
+  return expired.filter((competition) => {
+    const slug = shared.getCompetitionSlug(competition);
+    return fs.existsSync(path.join(ROOT_DIR, "out", slug, "index.html"));
+  });
+}
+
+function printSummary({
+  total,
+  held,
+  expired,
+  expiredArchiveEligible,
+  expiredLowValue,
+  expiredActiveLeaks,
+  expiredOutLeaks,
+  active,
+  closingSoon,
+  keywordCoverage,
+  options,
+  todayIso,
+}) {
   console.log("=== Competition Maintenance Report ===");
   console.log(`Date: ${todayIso}`);
   console.log(`Mode: ${options.archiveExpired ? "archive-expired" : "dry-run"}`);
   console.log(`Total competitions: ${total}`);
-  console.log(`Published competitions: ${active.length}`);
-  console.log(`Held for verification: ${held.length}`);
-  console.log(`Expired competitions: ${expired.length}`);
+  console.log(`Active published count: ${active.length}`);
+  console.log(`Expired archive page count: ${expiredArchiveEligible.length}`);
+  console.log(`Low-value expired noindex count: ${expiredLowValue.length}`);
+  console.log(`Held/private count: ${held.length}`);
+  console.log(`Expired records still leaking into active listings: ${expiredActiveLeaks.length}`);
+  console.log(`Out pages generated for expired records: ${expiredOutLeaks.length}`);
   console.log(`Closing in next 14 days: ${closingSoon.length}`);
 
   if (expired.length > 0) {
@@ -143,8 +181,8 @@ function printSummary({ total, held, expired, active, closingSoon, keywordCovera
 
   if (options.archiveExpired) {
     console.log("\nApplied changes:");
-    console.log(`- Archived expired entries to ${ARCHIVE_PATH}`);
-    console.log(`- Removed expired entries from ${DATA_PATH}`);
+    console.log("- Expired published records are retained in data for archive rendering.");
+    console.log("- Active listings are controlled by closing date and publication state during page generation.");
     console.log("- Next step: run `node scripts/generate-pages.js` and deploy.");
   }
 }
@@ -224,19 +262,27 @@ function main() {
   const todayIso = formatDateLocal(today);
 
   const competitions = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
-  const held = competitions.filter((competition) => !isPublishedCompetition(competition));
-  const { expired, active, closingSoon } = classifyCompetitions(competitions.filter(isPublishedCompetition), today);
+  const held = competitions.filter((competition) => !isLifecyclePublicCompetition(competition));
+  const { expired, active, closingSoon, expiredArchiveEligible, expiredLowValue } = classifyCompetitions(
+    competitions.filter(isLifecyclePublicCompetition),
+    today
+  );
   const keywordCoverage = scanKeywordCoverage(active);
+  const expiredActiveLeaks = active.filter((competition) => expired.some((expiredCompetition) => expiredCompetition.id === competition.id));
+  const expiredOutLeaks = getExpiredOutPageLeaks(expired);
 
   if (options.archiveExpired) {
-    archiveExpiredCompetitions(expired, todayIso);
-    saveActiveCompetitions([...active, ...held]);
+    archiveExpiredCompetitions([], todayIso);
   }
 
   printSummary({
     total: competitions.length,
     held,
     expired,
+    expiredArchiveEligible,
+    expiredLowValue,
+    expiredActiveLeaks,
+    expiredOutLeaks,
     active,
     closingSoon,
     keywordCoverage,

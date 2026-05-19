@@ -537,23 +537,30 @@ function main() {
     rawCompetitions.filter((entry, index) => validateCompetition(entry, index))
   );
   runDataSafetyChecks(validCompetitions);
-  const publishedCompetitions = shared.getPublishedCompetitions(validCompetitions);
-  const competitions = publishedCompetitions.filter((competition) => !isExpired(competition.closingDate));
-  brandImageLookup = buildBrandImageLookup(competitions);
-  const validSlugs = new Set(competitions.map((competition) => shared.getCompetitionSlug(competition)));
-  removeStaleCompetitionDirectories(validSlugs);
-  const generatedBrandPages = shared.getGeneratedBrandPageDefinitions(competitions);
+  const activeCompetitions = shared.getPublishedActiveCompetitions(validCompetitions);
+  const expiredArchiveCompetitions = shared.getExpiredArchiveCompetitions(validCompetitions);
+  const expiredLowValueCompetitions = shared.getArchivedLowValueCompetitions(validCompetitions);
+  const detailCompetitions = shared.sortCompetitions([
+    ...activeCompetitions,
+    ...expiredArchiveCompetitions,
+    ...expiredLowValueCompetitions,
+  ]);
+  brandImageLookup = buildBrandImageLookup(activeCompetitions);
+  const validCompetitionSlugs = new Set(detailCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
+  const validOutSlugs = new Set(activeCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
+  removeStaleCompetitionDirectories(validCompetitionSlugs, validOutSlugs);
+  const generatedBrandPages = shared.getGeneratedBrandPageDefinitions(activeCompetitions);
   const generatedBrandSlugs = generatedBrandPages.map((brandPage) => brandPage.slug);
-  const routeContexts = getGeneratedRouteContexts(competitions, generatedBrandPages);
+  const routeContexts = getGeneratedRouteContexts(activeCompetitions, generatedBrandPages);
   removeStaleTagDirectories(routeContexts);
   removeStaleBrandDirectories(generatedBrandPages);
   removeLegacyHomeDirectory();
 
-  fs.writeFileSync(path.join(ROOT_DIR, "index.html"), renderHomepage(competitions));
+  fs.writeFileSync(path.join(ROOT_DIR, "index.html"), renderHomepage(activeCompetitions));
   fs.writeFileSync(path.join(ROOT_DIR, "404.html"), renderNotFoundPage());
 
   routeContexts.filter((routeContext) => routeContext.type !== "home").forEach((routeContext) => {
-    const filteredCompetitions = shared.filterCompetitionsByRoute(competitions, routeContext);
+    const filteredCompetitions = shared.filterCompetitionsByRoute(activeCompetitions, routeContext);
     const html =
       routeContext.type === "brand-index"
         ? renderBrandIndexPage(generatedBrandPages)
@@ -564,8 +571,8 @@ function main() {
     fs.writeFileSync(path.join(outputDirectory, "index.html"), html);
   });
 
-  competitions.forEach((competition) => {
-    const html = renderCompetitionPage(competition, competitions, generatedBrandSlugs);
+  detailCompetitions.forEach((competition) => {
+    const html = renderCompetitionPage(competition, activeCompetitions, generatedBrandSlugs);
     const slug = shared.getCompetitionSlug(competition);
     const outputDirectory = path.join(ROOT_DIR, "competition", slug);
 
@@ -573,7 +580,7 @@ function main() {
     fs.writeFileSync(path.join(outputDirectory, "index.html"), html);
   });
 
-  competitions.forEach((competition) => {
+  activeCompetitions.forEach((competition) => {
     const html = renderOutPage(competition);
     const slug = shared.getCompetitionSlug(competition);
     const outputDirectory = path.join(ROOT_DIR, "out", slug);
@@ -589,8 +596,12 @@ function main() {
     fs.writeFileSync(path.join(outputDirectory, "index.html"), renderTrustPage(page));
   });
 
-  fs.writeFileSync(path.join(ROOT_DIR, "sitemap.xml"), generateSitemap(competitions, routeContexts));
+  fs.writeFileSync(
+    path.join(ROOT_DIR, "sitemap.xml"),
+    generateSitemap(activeCompetitions, routeContexts, [...activeCompetitions, ...expiredArchiveCompetitions])
+  );
   fs.writeFileSync(path.join(ROOT_DIR, "robots.txt"), renderRobotsTxt());
+  runLifecycleStaticChecks(validCompetitions, activeCompetitions, expiredArchiveCompetitions, expiredLowValueCompetitions);
   runStaticSeoChecks();
   runImageQualityChecks();
 }
@@ -3504,7 +3515,7 @@ function renderCompetitionDetailHero({
 
   return renderModernHero({
     className: "hero--competition-modern",
-    eyebrow: "Competition listing",
+    eyebrow: expired ? "Archived competition" : "Competition listing",
     heading: heroTitle,
     intro: heroSubline,
     headingId: "pageTitle",
@@ -3512,7 +3523,9 @@ function renderCompetitionDetailHero({
       closingLabel
     )}</p>`,
     actions,
-    trustItems: ["Verified listing", "Official promoter link", "Freehub does not collect entries"],
+    trustItems: expired
+      ? ["Closed competition", "Archived official source", "Current alternatives below"]
+      : ["Verified listing", "Official promoter link", "Freehub does not collect entries"],
     previewMarkup: `<aside class="competition-hero-card" aria-label="Competition summary">
             <div class="${heroMediaClass}">
               ${placeholderMarkup}
@@ -3561,19 +3574,23 @@ function isSpecificCompetitionVisual(competition) {
 function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs = []) {
   const slug = shared.getCompetitionSlug(competition);
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/competition/${slug}/`;
-  const description = shared.buildCompetitionDescription(competition);
   const formattedDate = shared.formatDate(competition.closingDate);
   const heroImage = getCompetitionVisualUrl(competition);
   const ogImage = getMetadataImageUrl(competition);
+  const expired = shared.isExpiredCompetition(competition);
+  const archiveEligible = shared.isExpiredArchiveEligibleCompetition(competition);
+  const archivedLowValue = shared.isArchivedLowValueCompetition(competition);
+  const description = expired
+    ? `This ${competition.brand || "brand"} competition has closed. View the archived prize and closing-date details, then browse current South African competitions on Freehub.`
+    : shared.buildCompetitionDescription(competition);
   const relatedCompetitions = getRelatedCompetitions(competition, allCompetitions);
 
   const categorySlug = shared.CATEGORY_SLUGS.find(
     (key) => shared.CATEGORY_COPY[key].category === competition.category
   );
   const categoryPath = categorySlug ? `/category/${categorySlug}/` : "/";
-  const expired = isExpired(competition.closingDate);
-  const heroTitle = competition.title;
-  const robotsDirective = expired
+  const heroTitle = expired ? `${competition.title} -- Competition Closed` : competition.title;
+  const robotsDirective = archivedLowValue || (expired && !archiveEligible)
     ? "noindex, follow"
     : "index, follow, max-image-preview:large";
   const officialSourceUrl = getOfficialSourceUrl(competition);
@@ -3607,16 +3624,16 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   );
   const breadcrumbMarkup = renderCompetitionBreadcrumb(competition, categorySlug, categoryPath);
   const trustStripMarkup = renderCompetitionTrustStrip(competition, officialSource, lastChecked);
-  const beforeYouEnterMarkup = renderBeforeYouEnterBlock(competition);
-  const sourceBlockMarkup = renderCompetitionSourceBlock(competition, officialSource, officialSourceUrl, lastChecked);
-  const faqItems = buildCompetitionFaqItems(competition, officialSource, ctaLabel);
+  const beforeYouEnterMarkup = expired ? "" : renderBeforeYouEnterBlock(competition);
+  const sourceBlockMarkup = renderCompetitionSourceBlock(competition, officialSource, officialSourceUrl, lastChecked, expired);
+  const faqItems = buildCompetitionFaqItems(competition, officialSource, ctaLabel, expired);
   const faqMarkup = renderCompetitionFaq(faqItems);
 
   const relatedCardsMarkup = relatedCompetitions.map((c) => renderCompetitionCard(c)).join("\n            ");
   const relatedSection = relatedCardsMarkup
     ? `<section class="competition-section" aria-label="Related Competitions">
           <div class="internal-links">
-            <p class="internal-links__title">Related Competitions</p>
+            <p class="internal-links__title">${expired ? "Current competitions you may like" : "Related Competitions"}</p>
           </div>
           <div class="competition-grid">
             ${relatedCardsMarkup}
@@ -3638,7 +3655,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   const webPageData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: competition.title,
+    name: expired ? `${competition.title} -- Competition Closed` : competition.title,
     description,
     url: canonicalUrl,
     inLanguage: "en-ZA",
@@ -3675,18 +3692,18 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>${escapeHtml(competition.title)} – Enter Now | Free Competitions South Africa</title>
+    <title>${escapeHtml(expired ? `${competition.title} Closed | Current Alternatives on Freehub` : `${competition.title} - Enter Now | Free Competitions South Africa`)}</title>
     <meta name="description" content="${escapeAttribute(description)}" />
     <meta name="robots" content="${robotsDirective}" />
     <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="${escapeAttribute(competition.title)}" />
+    <meta property="og:title" content="${escapeAttribute(expired ? `${competition.title} Closed` : competition.title)}" />
     <meta property="og:description" content="${escapeAttribute(description)}" />
     <meta property="og:url" content="${escapeAttribute(canonicalUrl)}" />
     <meta property="og:image" content="${escapeAttribute(ogImage)}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="${escapeAttribute(competition.title)}" />
+    <meta name="twitter:title" content="${escapeAttribute(expired ? `${competition.title} Closed` : competition.title)}" />
     <meta name="twitter:description" content="${escapeAttribute(description)}" />
     <meta name="twitter:image" content="${escapeAttribute(ogImage)}" />
     <script id="structured-data-webpage" type="application/ld+json">${escapeScript(JSON.stringify(webPageData))}</script>
@@ -3734,8 +3751,8 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
         </section>
 
         ${expired ? `<section class="state-card state-card--error" aria-label="Competition closed">
-          <p class="state-card__title">This competition has closed</p>
-          <p class="state-card__text">The closing date was ${escapeHtml(formattedDate)}. Browse related competitions below.</p>
+          <p class="state-card__title">This competition has closed.</p>
+          <p class="state-card__text">This Freehub page is kept as an archive to help users confirm the prize, brand, closing date and official source. Browse current competitions below.</p>
         </section>` : ""}
 
         ${renderCompetitionInternalLinks(competition, categoryPath, generatedBrandSlugs)}
@@ -3747,6 +3764,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
           <div class="competition-detail__body">
             <div class="competition-detail__meta">
               <span class="badge badge--category">${escapeHtml(competition.category)}</span>
+              ${expired ? '<span class="badge badge--tag">Archived competition</span>' : ""}
               ${brandBadge}
               ${closingSoonBadge}
             </div>
@@ -3763,7 +3781,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
               <span class="trust-chip">We link to official brand promotions</span>
               <span class="trust-chip">No sign-up required on FreeHub</span>
             </div>
-            <a
+            ${expired ? renderExpiredCompetitionActions(competition, categorySlug, generatedBrandSlugs, officialSourceUrl) : `<a
               class="competition-detail__cta"
               href="${escapeAttribute(outPath)}"
               target="_blank"
@@ -3772,12 +3790,12 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
             >
               ${escapeHtml(ctaLabel)}
             </a>
-            <p class="competition-detail__cta-note">You will leave Freehub and go to the official promoter page. Freehub does not run this competition or collect your entry.</p>
+            <p class="competition-detail__cta-note">You will leave Freehub and go to the official promoter page. Freehub does not run this competition or collect your entry.</p>`}
             ${sourceBlockMarkup}
             ${faqMarkup}
             <a
               class="competition-detail__whatsapp"
-              href="https://wa.me/?text=${encodeURIComponent(`Enter the ${competition.title} competition – ${canonicalUrl}`)}"
+              href="https://wa.me/?text=${encodeURIComponent(expired ? `View the archived ${competition.title} competition on Freehub - ${canonicalUrl}` : `Enter the ${competition.title} competition - ${canonicalUrl}`)}"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Share on WhatsApp"
@@ -3907,9 +3925,10 @@ function renderBeforeYouEnterBlock(competition) {
             </section>`;
 }
 
-function renderCompetitionSourceBlock(competition, officialSource, officialSourceUrl, lastChecked) {
+function renderCompetitionSourceBlock(competition, officialSource, officialSourceUrl, lastChecked, expired = false) {
+  const sourceLabel = expired ? "View archived official terms/source" : "View official terms";
   const termsMarkup = competition.termsUrl
-    ? `<p><strong>Terms and conditions:</strong> <a href="${escapeAttribute(competition.termsUrl)}" rel="nofollow noopener" target="_blank">View official terms</a></p>`
+    ? `<p><strong>Terms and conditions:</strong> <a href="${escapeAttribute(competition.termsUrl)}" rel="nofollow noopener" target="_blank">${escapeHtml(sourceLabel)}</a></p>`
     : "<p><strong>Terms and conditions:</strong> Check the official promoter page for full terms.</p>";
 
   return `<section class="detail-source" aria-label="Official source and terms">
@@ -3921,9 +3940,30 @@ function renderCompetitionSourceBlock(competition, officialSource, officialSourc
             </section>`;
 }
 
-function buildCompetitionFaqItems(competition, officialSource, ctaLabel) {
+function buildCompetitionFaqItems(competition, officialSource, ctaLabel, expired = false) {
   const items = [];
   const costLabel = shared.getEntryCostLabel(competition);
+
+  if (expired) {
+    return [
+      {
+        question: "Is this competition still open?",
+        answer: "No. This competition has closed and is kept on Freehub as an archive page.",
+      },
+      {
+        question: "Can I still enter this competition?",
+        answer: "No. Freehub does not show an enter button for closed competitions. Browse current competitions instead.",
+      },
+      {
+        question: "Where can I find current competitions like this?",
+        answer: `Use the current competitions, category and related listings on this page to find active South African competitions${competition.category ? ` in ${competition.category}` : ""}.`,
+      },
+      {
+        question: "Why does Freehub keep closed competition pages?",
+        answer: "Freehub keeps useful closed pages so users can confirm the prize, brand, closing date and official source after a competition has ended.",
+      },
+    ];
+  }
 
   if (competition.entryCostType || typeof competition.purchaseRequired === "boolean" || competition.entryFeeLabel) {
     items.push({
@@ -4224,6 +4264,39 @@ function renderCompetitionInternalLinks(competition, categoryPath, generatedBran
         </section>`;
 }
 
+function renderExpiredCompetitionActions(competition, categorySlug, generatedBrandSlugs = [], officialSourceUrl = "") {
+  const links = [
+    { label: "Browse Current Competitions", href: "/competitions/", className: "competition-detail__cta" },
+  ];
+  const brandSlug = shared.getBrandSlugForCompetition(competition, generatedBrandSlugs);
+
+  if (brandSlug) {
+    links.push({ label: `Browse ${competition.brand} competitions`, href: `/brand/${brandSlug}/`, className: "btn btn--secondary" });
+  }
+
+  if (categorySlug) {
+    links.push({ label: `Browse ${competition.category} competitions`, href: `/category/${categorySlug}/`, className: "btn btn--secondary" });
+  }
+
+  links.push(
+    { label: "Competitions ending soon", href: "/competitions-ending-soon/", className: "btn btn--secondary" },
+    { label: "Free competitions", href: "/free-competitions/", className: "btn btn--secondary" }
+  );
+
+  const actionMarkup = links
+    .map((link) => `<a class="${escapeAttribute(link.className)}" href="${escapeAttribute(link.href)}">${escapeHtml(link.label)}</a>`)
+    .join("\n              ");
+  const sourceMarkup = officialSourceUrl
+    ? `<p class="competition-detail__cta-note"><a href="${escapeAttribute(officialSourceUrl)}" rel="nofollow noopener" target="_blank">View archived official terms/source</a></p>`
+    : "";
+
+  return `<div class="competition-archive-actions" aria-label="Archived competition actions">
+              ${actionMarkup}
+              <p class="competition-detail__cta-note">This competition has closed, so Freehub no longer links to the official entry flow as the main action.</p>
+              ${sourceMarkup}
+            </div>`;
+}
+
 function getRelatedCompetitions(competition, allCompetitions) {
   const currentSlug = shared.getCompetitionSlug(competition);
   const competitionTagSet = new Set(competition.tags || []);
@@ -4232,14 +4305,15 @@ function getRelatedCompetitions(competition, allCompetitions) {
     .filter((c) => shared.getCompetitionSlug(c) !== currentSlug)
     .map((c) => {
       let score = 0;
-      if (c.category === competition.category) score += 2;
+      if (c.brand && competition.brand && c.brand === competition.brand) score += 6;
+      if (c.category === competition.category) score += 3;
+      if (shared.isHighValueCompetition(c)) score += 1;
       (c.tags || []).forEach((tag) => {
         if (competitionTagSet.has(tag)) score += 1;
       });
       return { competition: c, score };
     })
-    .filter((item) => item.score > 0)
-    .sort((a, b) => b.score - a.score);
+    .sort((a, b) => b.score - a.score || new Date(a.competition.closingDate) - new Date(b.competition.closingDate));
 
   return scored.slice(0, 5).map((item) => item.competition);
 }
@@ -4275,9 +4349,9 @@ function renderCompetitionDetailFacts(competition, formattedDate, officialSource
     { label: "Region", value: competition.region },
     {
       label: "Official terms",
-      value: competition.termsUrl ? "View terms" : "",
+      value: competition.termsUrl ? (expired ? "View archived official terms/source" : "View terms") : "",
       html: competition.termsUrl
-        ? `<a href="${escapeAttribute(competition.termsUrl)}" rel="nofollow noopener" target="_blank">View terms</a>`
+        ? `<a href="${escapeAttribute(competition.termsUrl)}" rel="nofollow noopener" target="_blank">${escapeHtml(expired ? "View archived official terms/source" : "View terms")}</a>`
         : "",
     },
     {
@@ -4506,7 +4580,7 @@ function renderHowToEnterList(steps) {
             </div>`;
 }
 
-function generateSitemap(competitions, routeContexts) {
+function generateSitemap(competitions, routeContexts, sitemapCompetitions = competitions) {
   const origin = shared.CANONICAL_ORIGIN;
 
   const staticEntries = routeContexts.map((routeContext) => {
@@ -4523,8 +4597,8 @@ function generateSitemap(competitions, routeContexts) {
     });
   });
 
-  const competitionEntries = competitions
-    .filter((competition) => !isExpired(competition.closingDate))
+  const competitionEntries = sitemapCompetitions
+    .filter((competition) => shared.isActiveCompetition(competition) || shared.isExpiredArchiveEligibleCompetition(competition))
     .map((competition) => {
       const slug = shared.getCompetitionSlug(competition);
       return renderSitemapUrl({
@@ -4698,26 +4772,27 @@ function renderDetailCtaDataAttributes(competition, outPath, sourceDomain) {
     .join(" ");
 }
 
-function removeStaleCompetitionDirectories(validSlugs) {
-  const managedDirectories = [path.join(ROOT_DIR, "competition"), path.join(ROOT_DIR, "out")];
+function removeStaleCompetitionDirectories(validCompetitionSlugs, validOutSlugs) {
+  removeStaleSlugDirectories(path.join(ROOT_DIR, "competition"), validCompetitionSlugs, "competition");
+  removeStaleSlugDirectories(path.join(ROOT_DIR, "out"), validOutSlugs, "out");
+}
 
-  managedDirectories.forEach((managedDirectory) => {
-    if (!fs.existsSync(managedDirectory)) {
-      return;
-    }
+function removeStaleSlugDirectories(managedDirectory, validSlugs, label) {
+  if (!fs.existsSync(managedDirectory)) {
+    return;
+  }
 
-    fs.readdirSync(managedDirectory, { withFileTypes: true })
-      .filter((entry) => entry.isDirectory())
-      .forEach((entry) => {
-        if (validSlugs.has(entry.name)) {
-          return;
-        }
+  fs.readdirSync(managedDirectory, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .forEach((entry) => {
+      if (validSlugs.has(entry.name)) {
+        return;
+      }
 
-        const stalePath = path.join(managedDirectory, entry.name);
-        fs.rmSync(stalePath, { recursive: true, force: true });
-        console.log(`[generate-pages] Removed stale directory: ${stalePath}`);
+      const stalePath = path.join(managedDirectory, entry.name);
+      fs.rmSync(stalePath, { recursive: true, force: true });
+      console.log(`[generate-pages] Removed stale ${label} directory: ${stalePath}`);
     });
-  });
 }
 
 function removeStaleTagDirectories(routeContexts) {
@@ -4843,6 +4918,91 @@ function runStaticSeoChecks() {
 
   if (errors.length > 0) {
     throw new Error(`[SEO checks failed]\n${errors.map((error) => `- ${error}`).join("\n")}`);
+  }
+}
+
+function runLifecycleStaticChecks(allCompetitions, activeCompetitions, expiredArchiveCompetitions, expiredLowValueCompetitions) {
+  const errors = [];
+  const activeSlugs = new Set(activeCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
+  const expiredCompetitions = [...expiredArchiveCompetitions, ...expiredLowValueCompetitions];
+  const expiredSlugs = new Set(expiredCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
+  const sitemap = fs.readFileSync(path.join(ROOT_DIR, "sitemap.xml"), "utf8");
+
+  expiredCompetitions.forEach((competition) => {
+    const slug = shared.getCompetitionSlug(competition);
+    const detailPath = path.join(ROOT_DIR, "competition", slug, "index.html");
+    const outPath = path.join(ROOT_DIR, "out", slug, "index.html");
+
+    if (!fs.existsSync(detailPath)) {
+      errors.push(`Expired archive page was not generated: ${slug}`);
+      return;
+    }
+
+    const html = fs.readFileSync(detailPath, "utf8");
+    if (!html.includes("This competition has closed.")) {
+      errors.push(`Expired archive page missing closed banner: ${slug}`);
+    }
+    if (!html.includes("Current competitions you may like")) {
+      errors.push(`Expired archive page missing active related section: ${slug}`);
+    }
+    if (/href="\/out\//.test(html) || />\s*Enter (Competition|Now|on|via|using)/i.test(html)) {
+      errors.push(`Expired archive page still exposes active entry CTA: ${slug}`);
+    }
+    if (fs.existsSync(outPath)) {
+      errors.push(`Expired competition has generated /out/ page: ${slug}`);
+    }
+  });
+
+  expiredArchiveCompetitions.forEach((competition) => {
+    const slug = shared.getCompetitionSlug(competition);
+    if (!sitemap.includes(`/competition/${slug}/`)) {
+      errors.push(`High-quality expired archive page missing from sitemap: ${slug}`);
+    }
+  });
+
+  expiredLowValueCompetitions.forEach((competition) => {
+    const slug = shared.getCompetitionSlug(competition);
+    const detailPath = path.join(ROOT_DIR, "competition", slug, "index.html");
+    const html = fs.existsSync(detailPath) ? fs.readFileSync(detailPath, "utf8") : "";
+    if (sitemap.includes(`/competition/${slug}/`)) {
+      errors.push(`Low-value expired page is included in sitemap: ${slug}`);
+    }
+    if (!html.includes('name="robots" content="noindex, follow"')) {
+      errors.push(`Low-value expired page missing noindex, follow: ${slug}`);
+    }
+  });
+
+  const collectionFiles = [
+    path.join(ROOT_DIR, "index.html"),
+    ...getNestedIndexFiles(path.join(ROOT_DIR, "category")),
+    ...getNestedIndexFiles(path.join(ROOT_DIR, "tag")),
+    ...shared.HUB_SLUGS.map((slug) => path.join(ROOT_DIR, slug, "index.html")),
+    path.join(ROOT_DIR, "brands", "index.html"),
+    ...getNestedIndexFiles(path.join(ROOT_DIR, "brand")),
+  ].filter((filePath) => fs.existsSync(filePath));
+
+  collectionFiles.forEach((filePath) => {
+    const html = fs.readFileSync(filePath, "utf8");
+    expiredSlugs.forEach((slug) => {
+      if (html.includes(`/competition/${slug}/`)) {
+        errors.push(`Expired competition leaks into active listing page ${filePath}: ${slug}`);
+      }
+    });
+  });
+
+  allCompetitions
+    .filter((competition) => !activeSlugs.has(shared.getCompetitionSlug(competition)))
+    .filter((competition) => competition.verificationStatus !== "published" || competition.doNotPublish === true || competition.publicationStatus === "held")
+    .forEach((competition) => {
+      const slug = shared.getCompetitionSlug(competition);
+      const detailPath = path.join(ROOT_DIR, "competition", slug, "index.html");
+      if (fs.existsSync(detailPath)) {
+        errors.push(`Held or unverified competition generated a public detail page: ${slug}`);
+      }
+    });
+
+  if (errors.length > 0) {
+    throw new Error(`[Lifecycle checks failed]\n${errors.map((error) => `- ${error}`).join("\n")}`);
   }
 }
 
