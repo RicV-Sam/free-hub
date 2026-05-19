@@ -29,6 +29,7 @@ report-a-competition/
 
 # Verification artifacts
 verification/
+reports/
 *.log
 data/backups/
 storage/exports/

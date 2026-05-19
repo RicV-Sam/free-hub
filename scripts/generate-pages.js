@@ -3610,7 +3610,9 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
               ${competition.tags.map(tag => `<span class="badge badge--tag">${escapeHtml(tag)}</span>`).join(' ')}
             </div>`
     : "";
-  const heroSubline = competition.brand ? `By ${competition.brand}` : competition.category;
+  const heroSubline = expired
+    ? (competition.brand ? `Archived ${competition.brand} competition` : "Archived competition")
+    : buildCompetitionHeroSubline(competition);
   const imageAltText = buildCompetitionImageAltText(competition, expired);
   const closingSoon = shared.isClosingSoon(competition.closingDate);
   const outPath = shared.getOutPath(competition) + "/";
@@ -3628,6 +3630,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   const trustStripMarkup = renderCompetitionTrustStrip(competition, officialSource, lastChecked);
   const beforeYouEnterMarkup = expired ? "" : renderBeforeYouEnterBlock(competition);
   const brandPrizeContextMarkup = expired ? "" : renderBrandPrizeContextSection(competition);
+  const entryCostEligibilityMarkup = expired ? "" : renderEntryCostEligibilityNotes(competition);
   const sourceBlockMarkup = renderCompetitionSourceBlock(competition, officialSource, officialSourceUrl, lastChecked, expired);
   const faqItems = buildCompetitionFaqItems(competition, officialSource, ctaLabel, expired);
   const faqMarkup = renderCompetitionFaq(faqItems);
@@ -3695,7 +3698,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>${escapeHtml(expired ? `${competition.title} Closed | Current Alternatives on Freehub` : `${competition.title} - Enter Now | Free Competitions South Africa`)}</title>
+    <title>${escapeHtml(expired ? `${competition.title} Closed | Current Alternatives on Freehub` : `${competition.title} | ${competition.brand} Competition in South Africa | Freehub`)}</title>
     <meta name="description" content="${escapeAttribute(description)}" />
     <meta name="robots" content="${robotsDirective}" />
     <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
@@ -3777,6 +3780,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
               <p>${escapeHtml(description)}</p>
             </div>
             ${brandPrizeContextMarkup}
+            ${entryCostEligibilityMarkup}
             ${tagsMarkup}
             ${entryStepsMarkup}
             ${beforeYouEnterMarkup}
@@ -3894,6 +3898,7 @@ function renderBeforeYouEnterBlock(competition) {
   const items = [
     "Read the official promoter terms before entering.",
     "Make sure the page you enter on belongs to the official promoter.",
+    "Confirm the closing date on the official terms or promoter page.",
     "Freehub lists this competition but does not run it or collect your entry.",
   ];
 
@@ -3946,6 +3951,15 @@ function buildCompetitionSeoDescription(competition, expired, fallbackDescriptio
   return `${pieces.join(", ")}.`;
 }
 
+function buildCompetitionHeroSubline(competition) {
+  const parts = [
+    competition.brand ? `${competition.brand} competition in South Africa` : "Competition in South Africa",
+    competition.category,
+  ].filter(Boolean);
+
+  return parts.join(" - ");
+}
+
 function buildCompetitionImageAltText(competition, expired = false) {
   const parts = [
     competition.title,
@@ -3957,9 +3971,25 @@ function buildCompetitionImageAltText(competition, expired = false) {
   return parts.join(" - ");
 }
 
+function renderEntryCostEligibilityNotes(competition) {
+  const notes = [
+    competition.entryCostSummary ? { label: "Entry cost note", value: competition.entryCostSummary } : null,
+    competition.eligibilitySummary ? { label: "Eligibility note", value: competition.eligibilitySummary } : null,
+  ].filter(Boolean);
+
+  if (notes.length === 0) {
+    return "";
+  }
+
+  return `<section class="detail-context detail-context--notes" aria-label="Entry cost and eligibility notes">
+              <p class="detail-section-title">Entry cost and eligibility notes</p>
+              ${notes.map((note) => `<p><strong>${escapeHtml(note.label)}:</strong> ${escapeHtml(note.value)}</p>`).join("\n              ")}
+            </section>`;
+}
+
 function renderBrandPrizeContextSection(competition) {
   const brandContext = competition.brandContext
-    || `${competition.brand || "The named brand"} is the promoter or named brand for this competition. This page summarises the available entry details, prize information, closing date and official source so users can check the promotion before entering.`;
+    || `${competition.brand || "The named brand"} is the named brand or promoter for this competition. This Freehub page summarises the available prize, entry, closing date and official source information so users can check the promotion before entering.`;
   const prizeContext = competition.prizeContext
     || `${competition.prizeName || competition.prize || "The prize"} is listed from the verified competition data available to Freehub, with the closing date and official source shown on this page.`;
   const seoItems = parseSeoContextItems(competition.seoContext);
@@ -4522,12 +4552,14 @@ function runDataSafetyChecks(competitions) {
       seenSlugs.set(slug, competition.title);
     }
 
-    if (previewUrlFields.length > 0) {
+    if (previewUrlFields.length > 0 && competition.verificationStatus === "published") {
+      errors.push(`Preview/staging entry URL detected. Confirm live public entry URL before publishing. ${label}; fields: ${previewUrlFields.join(", ")}`);
+    } else if (previewUrlFields.length > 0) {
       warnings.push(`Preview/staging entry URL detected. Confirm live public entry URL before publishing. ${label}; fields: ${previewUrlFields.join(", ")}`);
     }
 
     if (competition.publicationStatus === "published" && competition.verificationStatus !== "published") {
-      warnings.push(`publicationStatus is published but verificationStatus is not published: ${label}.`);
+      errors.push(`publicationStatus is published but verificationStatus is not published: ${label}.`);
     }
 
     if (competition.verificationStatus === "published" && competition.doNotPublish === true) {
