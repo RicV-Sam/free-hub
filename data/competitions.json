@@ -202,7 +202,7 @@
     "url": "https://looters.co.za/win-a-car/",
     "sourceUrl": "https://looters.co.za/win-a-car/",
     "sourceDomain": "looters.co.za",
-    "lastChecked": "2026-05-02",
+    "lastChecked": "2026-05-19",
     "verificationStatus": "published",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee",
@@ -211,7 +211,9 @@
     "minimumSpendAmount": 350,
     "entryChannel": "Till slip entry box",
     "driverLicenceRequired": "yes",
-    "region": "Retreat, Somerset West, Durban North and Ballito stores"
+    "region": "Retreat, Somerset West, Durban North and Ballito stores",
+    "termsUrl": "https://looters.co.za/win-a-car/",
+    "evidenceNotes": "Official Looters Win a Car page contains on-page terms confirming the 2026 Toyota Vitz 1.0 prize, R350+ single-transaction purchase requirement, till-slip entry box mechanic, 3 April to 30 June 2026 period, four participating stores, finalist draws by 5 July 2026, grand final by 10 July 2026, valid SA ID and unendorsed driver's licence requirements, and prize collection rules. Final resolved URL checked 2026-05-19: https://looters.co.za/win-a-car/."
   },
   {
     "id": "jacaranda-fm-competitions",
