@@ -2478,9 +2478,11 @@ body {
 .competition-detail__placeholder {
   position: absolute;
   inset: 0;
-  display: grid;
-  place-items: center;
-  gap: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  flex-direction: column;
   padding: 0.75rem;
   background: linear-gradient(135deg, #10243f 0%, #0f766e 100%);
   color: #fff;
@@ -2495,11 +2497,34 @@ body {
   font-weight: 900;
 }
 
+.hero-preview-item__placeholder-brand-name,
+.competition-card__placeholder-brand-name,
+.competition-hero-card__placeholder-brand-name,
+.competition-detail__placeholder-brand-name {
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  z-index: 1;
+  max-width: none;
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+  color: #10243f;
+  overflow-wrap: anywhere;
+  font-size: clamp(0.9rem, 1.8vw, 1.25rem);
+  line-height: 1.15;
+  font-weight: 900;
+  text-wrap: balance;
+}
+
 .hero-preview-item__placeholder-logo,
 .competition-card__placeholder-logo,
 .competition-hero-card__placeholder-logo,
 .competition-detail__placeholder-logo {
   width: clamp(52px, 40%, 120px);
+  max-height: 58%;
   aspect-ratio: 1;
   padding: 0.5rem;
   border-radius: 16px;
@@ -2513,10 +2538,16 @@ body {
   width: clamp(44px, 34%, 82px);
 }
 
+.competition-card__placeholder-brand-name,
+.hero-preview-item__placeholder-brand-name {
+  font-size: clamp(0.82rem, 1.35vw, 1rem);
+}
+
 .hero-preview-item__placeholder-category,
 .competition-card__placeholder-category,
 .competition-hero-card__placeholder-category,
 .competition-detail__placeholder-category {
+  margin-bottom: 2.25rem;
   font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.08em;

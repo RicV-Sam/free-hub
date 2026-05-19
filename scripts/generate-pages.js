@@ -2179,11 +2179,13 @@ function renderBrandMark(competition, className = "brand-mark") {
 function renderCompetitionVisualPlaceholder(competition, className = "competition-card__placeholder") {
   const logoUrl = shared.getCompetitionLogoUrl(competition);
   const logoMarkup = logoUrl
-    ? `<img class="${className}-logo" src="${escapeAttribute(logoUrl)}" alt="${escapeAttribute(`${competition.brand || "Brand"} logo`)}" loading="lazy" onerror="this.remove()" />`
-    : `<span class="${className}-initials">${escapeHtml(shared.getBrandInitials(competition.brand))}</span>`;
+    ? `<img class="${className}-logo" src="${escapeAttribute(logoUrl)}" alt="${escapeAttribute(`${competition.brand || "Brand"} logo`)}" loading="eager" decoding="async" onload="this.parentElement.classList.add('${className}--has-logo')" onerror="this.remove()" />`
+    : "";
+  const brandLabel = competition.brand || shared.getBrandInitials(competition.brand);
 
   return `<div class="${className}" aria-hidden="true">
                   ${logoMarkup}
+                  <span class="${className}-brand-name">${escapeHtml(brandLabel)}</span>
                   <span class="${className}-category">${escapeHtml(competition.category || "Prize")}</span>
                 </div>`;
 }
