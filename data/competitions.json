@@ -558,7 +558,7 @@
     "sourceUrl": "https://www.game.co.za/cp/win-your-cart-back-2026",
     "termsUrl": "https://www.game.co.za/cp/win-your-cart-back-2026",
     "sourceDomain": "game.co.za",
-    "lastChecked": "2026-05-17",
+    "lastChecked": "2026-05-19",
     "summary": "Shop at Game, then SMS your receipt number to the shortcode shown in-store to enter. One winner each week wins back their shop as a Game voucher, up to R20,000.",
     "prizeName": "Game voucher up to R20,000",
     "tags": [
@@ -569,7 +569,15 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
+    "publicationStatus": "held",
+    "doNotPublish": true,
+    "verificationNote": "Demoted from published on 2026-05-19 after manual review confirmed the old Game Win Your Cart Back page no longer renders as a live competition.",
+    "evidenceNotes": "User-provided manual check on 2026-05-19: https://www.game.co.za/s/competitions lists only the Haier Play with the Number Ones and 2026 Birthday Competition terms pages as live Game competitions. Automated requests return a generic Game shell / anti-bot content, so do not publish this old cart-back listing.",
+    "replacementCandidateUrls": [
+      "https://www.game.co.za/cp/haier-play-with-the-number-ones-competition-tcs",
+      "https://www.game.co.za/cp/2026-birthday-competition-tcs"
+    ],
     "entryCostType": "purchase-required",
     "entryFeeLabel": "Qualifying purchase required; SMS charged at standard rates where applicable",
     "purchaseRequired": true,
