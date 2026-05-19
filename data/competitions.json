@@ -1363,14 +1363,15 @@
     "sourceUrl": "https://supersport.com/competitions/3524",
     "termsUrl": "https://supersport.com/competitions/terms-and-conditions",
     "sourceDomain": "supersport.com",
-    "lastChecked": "2026-05-15",
+    "lastChecked": "2026-05-19",
     "verificationStatus": "published",
     "entryCostType": "free-entry",
     "entryFeeLabel": "Free online entry",
     "purchaseRequired": false,
     "entryChannel": "Online SuperSport form",
     "eligibility": "Official form asks entrants to confirm passport and US visa validity until September 2026",
-    "region": "South Africa"
+    "region": "South Africa",
+    "evidenceNotes": "Official SuperSport NBA Finals competition page confirms the NBA Finals form, 1 of 2 single trips to the 2026 NBA Finals, passport and US visa validity question, personal-information form fields, terms acceptance and active competition page. Final resolved URL checked 2026-05-19: https://supersport.com/competitions/3524."
   },
   {
     "id": "supersport-sportybet-laliga-samsung-a26",
@@ -3869,7 +3870,7 @@
     "sourceUrl": "https://www.waterfront.co.za/mothers-day-2026-ts-cs/",
     "termsUrl": "https://www.waterfront.co.za/mothers-day-2026-ts-cs/",
     "sourceDomain": "waterfront.co.za",
-    "lastChecked": "2026-05-16",
+    "lastChecked": "2026-05-19",
     "verificationStatus": "published",
     "entryCostType": "free-entry",
     "entryFeeLabel": "R0 online entry",
@@ -3877,7 +3878,8 @@
     "requiredProduct": "",
     "entryChannel": "Online entry form",
     "region": "South Africa",
-    "eligibility": "South African residents over 18. V&A Waterfront tenants, staff and related parties are excluded; recent V&A competition winners may be excluded."
+    "eligibility": "South African residents over 18. V&A Waterfront tenants, staff and related parties are excluded; recent V&A competition winners may be excluded.",
+    "evidenceNotes": "Official V&A Waterfront Mother's Day 2026 Giveaway terms page confirms the 6 May to midnight 20 May 2026 period, South African 18+ eligibility, one-entry-per-person online form route, participating Instagram bonus entry, 26 May winner announcement, Waterfront Winter Escape for Mom + 1 prize worth R20,000, and 26 June 2026 collection deadline. Final resolved URL checked 2026-05-19: https://www.waterfront.co.za/mothers-day-2026-ts-cs/."
   },
   {
     "id": "coca-cola-mzansi-football-promotion-2026",
