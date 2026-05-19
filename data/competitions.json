@@ -39,7 +39,12 @@
     "purchaseRequired": true,
     "requiredProduct": "Participating Big Brands items from OK Furniture or OK Power Express",
     "entryChannel": "In-store purchase and QR entry",
-    "region": "National"
+    "region": "National",
+    "brandContext": "OK Furniture and OK Power Express are the named retailers for this Big Brands promotion. Freehub links to the official terms so users can verify participating products and stores.",
+    "prizeContext": "The prize is listed as a Toyota Vitz 1.0 MT, making this a car-prize competition tied to retail purchases.",
+    "seoContext": "Useful for users searching for OK Furniture competitions, Toyota Vitz giveaways, Big Brands promotions and purchase-required car competitions.",
+    "eligibilitySummary": "Check the official terms for age, residency, customer and purchase requirements before entering.",
+    "entryCostSummary": "This is marked as purchase-required. The listed qualifying action is buying participating Big Brands items from OK Furniture or OK Power Express."
   },
   {
     "id": "comrades-toyota-corolla-cross",
@@ -82,7 +87,12 @@
     "entryChannel": "Online ticket purchase",
     "region": "South African residents only",
     "termsUrl": "https://www.comrades.com/charities/win-a-car",
-    "evidenceNotes": "Official Comrades Toyota Win-a-Car page contains on-page terms confirming the 2026 Toyota Corolla Cross prize, Purchase Tickets route, 14:00 on 14 June 2026 entry cut-off, Race Day draw, no refunds, no international entries and Toyota ownership transfer criteria. Final resolved URL checked 2026-05-19: https://www.comrades.com/charities/win-a-car."
+    "evidenceNotes": "Official Comrades Toyota Win-a-Car page contains on-page terms confirming the 2026 Toyota Corolla Cross prize, Purchase Tickets route, 14:00 on 14 June 2026 entry cut-off, Race Day draw, no refunds, no international entries and Toyota ownership transfer criteria. Final resolved URL checked 2026-05-19: https://www.comrades.com/charities/win-a-car.",
+    "brandContext": "Comrades Marathon and Toyota are the named brands for this competition. This Freehub page keeps the official source and terms visible so users can confirm the entry route and prize details.",
+    "prizeContext": "The prize is listed as a Toyota Corolla Cross, which makes the listing relevant for users comparing vehicle competitions and event-linked prize draws.",
+    "seoContext": "Useful for users searching for Comrades competitions, Toyota Corolla Cross giveaways, win-a-car promotions and paid-entry competition details.",
+    "eligibilitySummary": "Check the official terms for age, residency, ticket, entrant and prize-claim requirements before entering.",
+    "entryCostSummary": "This is marked as paid-entry. Check the official terms for ticket price, entry route and prize draw conditions."
   },
   {
     "id": "ram-couriers-vodacom-bulls",
@@ -123,7 +133,12 @@
     "entryChannel": "Online quiz / DStv Rewards",
     "driverLicenceRequired": "yes",
     "region": "South Africa",
-    "termsUrl": "https://supersport.com/competitions/terms-and-conditions"
+    "termsUrl": "https://supersport.com/competitions/terms-and-conditions",
+    "brandContext": "RAM Couriers and Vodacom Bulls are the named brands for this promotion. The Freehub listing helps users find the official source and confirm the competition details before entering.",
+    "prizeContext": "The prize is listed as an Isuzu X-Rider, making this a sports-linked vehicle giveaway for users browsing car competitions.",
+    "seoContext": "Useful for users searching for RAM Couriers competitions, Vodacom Bulls giveaways, Isuzu X-Rider prizes and free-entry car competitions.",
+    "eligibilitySummary": "Check the official terms for age, residency, customer and prize-claim requirements before entering.",
+    "entryCostSummary": "This is marked as free-entry. Standard data or network charges may still apply when entering online or by mobile."
   },
   {
     "id": "aquelle-mzansi-mango",
@@ -167,7 +182,12 @@
     "requiredProduct": "aQuelle Mzansi Mango with an under-cap code",
     "entryChannel": "USSD, QR code or WhatsApp",
     "driverLicenceRequired": "winner-or-nominated-driver",
-    "region": "National"
+    "region": "National",
+    "brandContext": "aQuelle is the named beverage brand for this retail promotion. The Freehub listing points users to the official source and terms so they can check the qualifying product and entry requirements before entering.",
+    "prizeContext": "The main prize is listed as 1 of 2 Suzuki Swift 1.2 CVT cars, making this a vehicle-focused purchase-required competition for users comparing car giveaways in South Africa.",
+    "seoContext": "Useful for users searching for car competitions in South Africa, aQuelle giveaways, Suzuki Swift prizes and under-cap code promotions.",
+    "eligibilitySummary": "Check the official terms for age, residency, customer and purchase requirements before entering.",
+    "entryCostSummary": "This is marked as purchase-required. The listed qualifying product is aQuelle Mzansi Mango with an under-cap code."
   },
   {
     "id": "looters-warehouse-toyota-vitz",
@@ -213,7 +233,12 @@
     "driverLicenceRequired": "yes",
     "region": "Retreat, Somerset West, Durban North and Ballito stores",
     "termsUrl": "https://looters.co.za/win-a-car/",
-    "evidenceNotes": "Official Looters Win a Car page contains on-page terms confirming the 2026 Toyota Vitz 1.0 prize, R350+ single-transaction purchase requirement, till-slip entry box mechanic, 3 April to 30 June 2026 period, four participating stores, finalist draws by 5 July 2026, grand final by 10 July 2026, valid SA ID and unendorsed driver's licence requirements, and prize collection rules. Final resolved URL checked 2026-05-19: https://looters.co.za/win-a-car/."
+    "evidenceNotes": "Official Looters Win a Car page contains on-page terms confirming the 2026 Toyota Vitz 1.0 prize, R350+ single-transaction purchase requirement, till-slip entry box mechanic, 3 April to 30 June 2026 period, four participating stores, finalist draws by 5 July 2026, grand final by 10 July 2026, valid SA ID and unendorsed driver's licence requirements, and prize collection rules. Final resolved URL checked 2026-05-19: https://looters.co.za/win-a-car/.",
+    "brandContext": "Looters Warehouse is the named retailer for this promotion. This Freehub page summarises the available prize, entry, closing date and official source information so users can verify the competition before entering.",
+    "prizeContext": "The prize is listed as a 2026 Toyota Vitz 1.0, which makes the page relevant for users looking specifically for current win-a-car competitions.",
+    "seoContext": "Useful for users searching for Toyota Vitz competitions, Looters Warehouse giveaways, car prizes and purchase-required retail promotions.",
+    "eligibilitySummary": "Check the official terms for age, residency, customer and purchase requirements before entering.",
+    "entryCostSummary": "This is marked as purchase-required. Check the official terms for the qualifying purchase details before entering."
   },
   {
     "id": "jacaranda-fm-competitions",
@@ -388,7 +413,12 @@
     "requiredProduct": "Any Boxer purchase of R500 or more paid with a debit card linked to a qualifying Nedbank account",
     "entryChannel": "Automatic qualifying card purchase",
     "eligibility": "South African ID holders aged 18+ with a qualifying Nedbank transactional account and Greenbacks membership",
-    "region": "South Africa"
+    "region": "South Africa",
+    "brandContext": "Boxer and Nedbank are the named brands for this retail and banking rewards promotion. Freehub links to the official terms so users can verify the spend, card and rewards requirements.",
+    "prizeContext": "The prize is listed as R5,000 worth of Greenbacks, making the listing relevant to users comparing rewards, voucher and cash-value promotions.",
+    "seoContext": "Useful for users searching for Boxer competitions, Nedbank Greenbacks rewards, card-spend promotions and retail prize draws.",
+    "eligibilitySummary": "The record states that South African ID holders aged 18+ with a qualifying Nedbank transactional account and Greenbacks membership may enter, subject to the official terms.",
+    "entryCostSummary": "This is marked as purchase-required. The listed requirement is any Boxer purchase of R500 or more paid with a debit card linked to a qualifying Nedbank account."
   },
   {
     "id": "sanlam-plan-win-mauritius",
@@ -1292,7 +1322,12 @@
     "requiredProduct": "Qualifying Standard Bank account or product",
     "entryChannel": "Automatic entry after qualifying activity",
     "eligibility": "South African residents aged 18+",
-    "region": "South Africa"
+    "region": "South Africa",
+    "brandContext": "Standard Bank is the named financial services brand for this campaign. Freehub summarises the listed prize, entry cost and official terms for users checking bank-linked promotions.",
+    "prizeContext": "The prize is listed as a share of up to R2 million in cash and vouchers, which makes this a high-value cash and voucher competition.",
+    "seoContext": "Useful for users searching for Standard Bank competitions, cash giveaways, voucher prizes and bank account promotions in South Africa.",
+    "eligibilitySummary": "The record states that South African residents aged 18+ may enter, subject to the official terms.",
+    "entryCostSummary": "This is marked as purchase-required. The listed requirement is a qualifying Standard Bank account or product."
   },
   {
     "id": "flash-mtn-national-airtime-vouchers",
@@ -1380,7 +1415,12 @@
     "entryChannel": "Automatic SPAR Rewards card swipe entry",
     "driverLicenceRequired": "winner-or-nominated-driver",
     "region": "South Africa",
-    "image": "https://www.clover.co.za/wp-content/uploads/2026/04/clo-stormers-competition-terms-banner.jpg"
+    "image": "https://www.clover.co.za/wp-content/uploads/2026/04/clo-stormers-competition-terms-banner.jpg",
+    "brandContext": "Clover and SPAR Rewards are the named brands for this retail rewards promotion. Freehub links to the official terms so users can verify participating products and reward-card requirements.",
+    "prizeContext": "The prize includes a Jetour Dashing motor vehicle and Ultimate DHL Stormers Experiences, combining a vehicle prize with a sports experience element.",
+    "seoContext": "Useful for users searching for SPAR Rewards competitions, Clover giveaways, Jetour Dashing prizes and Stormers experience promotions.",
+    "eligibilitySummary": "Check the official terms for age, residency, SPAR Rewards, customer and purchase requirements before entering.",
+    "entryCostSummary": "This is marked as purchase-required. The listed qualifying product is participating Clover products at SPAR."
   },
   {
     "id": "miwaylife-sanlam-spl-fuel-vouchers",
@@ -1590,7 +1630,12 @@
     "entryChannel": "USSD or WhatsApp",
     "eligibility": "South African citizens or permanent residents aged 18+ with a valid South African ID and South African bank account",
     "region": "Selected retail stores across South Africa",
-    "evidenceNotes": "Official Clere competitions page confirms the Win a Share of R1 Million Cash competition, 1 April to 31 July 2026 period, participating promotional sticker product purchase requirement, USSD or WhatsApp entry route, 20c per 20 seconds USSD cost, till-slip requirement, R700,000 daily cash prize pool and three R100,000 grand prizes. Final resolved URL checked 2026-05-19: https://clere.co.za/competitions/."
+    "evidenceNotes": "Official Clere competitions page confirms the Win a Share of R1 Million Cash competition, 1 April to 31 July 2026 period, participating promotional sticker product purchase requirement, USSD or WhatsApp entry route, 20c per 20 seconds USSD cost, till-slip requirement, R700,000 daily cash prize pool and three R100,000 grand prizes. Final resolved URL checked 2026-05-19: https://clere.co.za/competitions/.",
+    "brandContext": "Clere and Amka Products are the named brands for this personal-care promotion. Freehub summarises the official source, qualifying product information and prize details for users checking the campaign.",
+    "prizeContext": "The prize is listed as a share of R1 million cash, which makes this a high-value cash competition linked to participating Clere products.",
+    "seoContext": "Useful for users searching for Clere competitions, R1 million cash giveaways, Amka promotions and purchase-required personal-care competitions.",
+    "eligibilitySummary": "The record states that South African citizens or permanent residents aged 18+ with a valid South African ID and South African bank account may enter, subject to the official terms.",
+    "entryCostSummary": "This is marked as purchase-required. The listed qualifying products are participating Clere Body Lotion, Body Creme, Petroleum Jelly, Glycerine, Tissue Oil or Gly-Co-Oil products with a promotional sticker."
   },
   {
     "id": "metro-fm-nandos-taaaste-monials-challenge",
@@ -1675,7 +1720,12 @@
     "requiredProduct": "1 x 300ml six-pack or 2 x 1L Schweppes from participating stores displaying the promotion",
     "entryChannel": "QR code or WhatsApp",
     "eligibility": "South African citizens or permanent residents aged 18+ living in South Africa",
-    "region": "South Africa"
+    "region": "South Africa",
+    "brandContext": "Schweppes and Coca-Cola South Africa are the named brands for this promotion. The Freehub listing gives users a structured view of the prize type, entry requirement and official terms.",
+    "prizeContext": "The prizes include VIP experiences, cash prizes and instant money vouchers, making the competition relevant across cash, voucher and experience search intent.",
+    "seoContext": "Useful for users searching for Schweppes competitions, Coca-Cola South Africa promotions, cash prizes, VIP experiences and purchase-required drink promotions.",
+    "eligibilitySummary": "The record states that South African citizens or permanent residents aged 18+ living in South Africa may enter, subject to the official terms.",
+    "entryCostSummary": "This is marked as purchase-required. The listed qualifying purchase is 1 x 300ml six-pack or 2 x 1L Schweppes from participating stores displaying the promotion."
   },
   {
     "id": "bridgestone-toyota-corolla-cross-2026",
@@ -1718,7 +1768,12 @@
     "purchaseRequired": true,
     "requiredProduct": "Two or more 17-inch or larger Bridgestone tyres from a participating store",
     "entryChannel": "Online form, in-store QR code or automatic store-group entry",
-    "region": "South Africa"
+    "region": "South Africa",
+    "brandContext": "Bridgestone South Africa is the named tyre brand for this promotion. Freehub links to the official source and terms so users can verify participating stores and tyre purchase requirements.",
+    "prizeContext": "The prize is listed as 1 of 3 Toyota Corolla Cross 1.8 XI vehicles, making this a high-value vehicle giveaway tied to tyre purchases.",
+    "seoContext": "Useful for users searching for Bridgestone competitions, Toyota Corolla Cross giveaways, tyre promotions and win-a-car competitions in South Africa.",
+    "eligibilitySummary": "Check the official terms for age, residency, driver, purchase and prize-claim requirements before entering.",
+    "entryCostSummary": "This is marked as purchase-required. The listed requirement is buying two or more 17-inch or larger Bridgestone tyres from a participating store."
   },
   {
     "id": "nivea-men-real-madrid-cash-2026",
@@ -1761,7 +1816,12 @@
     "requiredProduct": "Any two NIVEA MEN products from a participating South African store",
     "entryChannel": "USSD or WhatsApp",
     "eligibility": "South African residents; grand-prize travel has passport, visa and travel-readiness requirements",
-    "region": "South Africa"
+    "region": "South Africa",
+    "brandContext": "NIVEA MEN and Beiersdorf are the named brands for this personal-care promotion. The Freehub listing links to the official terms for users checking the qualifying products and prize mechanics.",
+    "prizeContext": "The prize pool is listed as a share of R1 million in weekly cash prizes plus a Real Madrid VIP experience, combining cash and football-related travel or experience interest.",
+    "seoContext": "Useful for users searching for NIVEA MEN competitions, Real Madrid giveaways, cash prizes and purchase-required personal-care promotions.",
+    "eligibilitySummary": "The record states that South African residents may enter, and grand-prize travel has passport, visa and travel-readiness requirements, subject to the official terms.",
+    "entryCostSummary": "This is marked as purchase-required. The listed qualifying purchase is any two NIVEA MEN products from a participating South African store."
   },
   {
     "id": "ackermans-payat-xbox-series-s",
@@ -3086,7 +3146,12 @@
     "eligibility": "South African citizens or permanent residents aged 18+ with qualifying Old Mutual products",
     "region": "South Africa",
     "verificationNote": "Published on 2026-05-17 after official Old Mutual Rewards campaign and FAQ pages confirmed the 23 March to 27 September 2026 campaign period, qualifying transactions, account/product requirements, monthly prize draws and R100,000 grand prize route.",
-    "evidenceNotes": "Official Old Mutual Rewards PDF terms open successfully and confirm title, prize, closing date, eligibility and entry method. Final resolved URL checked 2026-05-17: https://proxy.my.oldmutual.co.za/contentstack-mobile/bltf9ffa14017dbad8a/WinonRepeat_TsCs.pdf."
+    "evidenceNotes": "Official Old Mutual Rewards PDF terms open successfully and confirm title, prize, closing date, eligibility and entry method. Final resolved URL checked 2026-05-17: https://proxy.my.oldmutual.co.za/contentstack-mobile/bltf9ffa14017dbad8a/WinonRepeat_TsCs.pdf.",
+    "brandContext": "Old Mutual Rewards and OM Bank are the named brands for this account and rewards-linked promotion. Freehub summarises the listed qualifying product and official terms for users checking financial-services competitions.",
+    "prizeContext": "The prize is listed as Old Mutual Rewards points worth up to R100,000, making the page relevant to users comparing cash-value rewards promotions.",
+    "seoContext": "Useful for users searching for Old Mutual Rewards competitions, OM Bank promotions, R100,000 rewards prizes and account-required giveaways.",
+    "eligibilitySummary": "The record states that South African citizens or permanent residents aged 18+ with qualifying Old Mutual products may enter, subject to the official terms.",
+    "entryCostSummary": "This is marked as purchase-required. The listed requirement is OM Bank account, Old Mutual Rewards membership and qualifying Old Mutual product."
   },
   {
     "id": "shoprite-drive-away-in-a-toyota-starlet",
@@ -4428,7 +4493,12 @@
     "entryChannel": "QR code or WhatsApp till-slip upload",
     "region": "South Africa",
     "eligibility": "South African citizens or permanent residents residing in South Africa. Under-18 entrants need written parent or guardian consent. Promoter and related parties are excluded.",
-    "evidenceNotes": "Official Kellogg's PDF confirms Big Bowl Energy, 1 May to 31 August 2026 period, 503 prizes, QR/WhatsApp entry and purchase-slip upload. Final resolved URL checked 2026-05-17: PDF URL on kelloggs.com."
+    "evidenceNotes": "Official Kellogg's PDF confirms Big Bowl Energy, 1 May to 31 August 2026 period, 503 prizes, QR/WhatsApp entry and purchase-slip upload. Final resolved URL checked 2026-05-17: PDF URL on kelloggs.com.",
+    "brandContext": "Kellogg's Instant Noodles is the named product brand for this promotion. The listing links to official terms so users can confirm the qualifying products and entry requirements.",
+    "prizeContext": "The prize is listed as an Omoda C5 vehicle, placing this among Freehub's higher-value car competition listings.",
+    "seoContext": "Useful for users searching for Kellogg's competitions, Omoda C5 giveaways, instant noodles promotions and car competitions in South Africa.",
+    "eligibilitySummary": "The record states that South African citizens or permanent residents residing in South Africa may enter, and under-18 entrants need written parent or guardian consent, subject to the official terms.",
+    "entryCostSummary": "This is marked as till-slip required. The listed requirement is three or more qualifying Kellogg's Instant Noodles products in a single transaction."
   },
   {
     "id": "budget-refer-a-friend-cash-2026",
@@ -4828,7 +4898,12 @@
     "entryChannel": "Standard Bank home loan application through available Standard Bank or mortgage origination channels",
     "region": "South Africa",
     "eligibility": "South African citizens aged 18 or older with a valid South African identity number, permanent residence in South Africa, first-time home buyer status and eligibility for a Standard Bank home loan.",
-    "evidenceNotes": "Official Standard Bank PDF terms confirm the 1 January 2026 to 31 March 2027 competition period, first-time-buyer home loan entry route, R100,000 prize paid into the winner's home loan account, 50 prize allocation, eligibility and draw dates. Final resolved URL checked 2026-05-17: https://www.standardbank.co.za/static_file/South%20Africa/PDF/Terms%20and%20Conditions/Competition%20terms%20and%20conditions%20First%20Time%20Buyers%20Homeloans%20Jan%202026%20updated.pdf."
+    "evidenceNotes": "Official Standard Bank PDF terms confirm the 1 January 2026 to 31 March 2027 competition period, first-time-buyer home loan entry route, R100,000 prize paid into the winner's home loan account, 50 prize allocation, eligibility and draw dates. Final resolved URL checked 2026-05-17: https://www.standardbank.co.za/static_file/South%20Africa/PDF/Terms%20and%20Conditions/Competition%20terms%20and%20conditions%20First%20Time%20Buyers%20Homeloans%20Jan%202026%20updated.pdf.",
+    "brandContext": "Standard Bank is the named financial services brand for this home-loan promotion. Freehub summarises the available source, terms and account-related entry information for users comparing bank competitions.",
+    "prizeContext": "The prize is listed as R100,000 paid into a Standard Bank home loan account, making this a cash-value account-linked prize rather than a general cash payout.",
+    "seoContext": "Useful for users searching for Standard Bank competitions, home loan promotions, R100,000 prizes and first-time buyer offers.",
+    "eligibilitySummary": "The record states that eligible entrants are South African citizens aged 18 or older with a valid South African identity number, permanent residence in South Africa, first-time home buyer status and eligibility for a Standard Bank home loan.",
+    "entryCostSummary": "This is marked as account-required. The listed requirement is an eligible Standard Bank first-time-buyer home loan of up to R3 million."
   },
   {
     "id": "ster-kinekor-sk-club-acquisitions-drive-2026",
