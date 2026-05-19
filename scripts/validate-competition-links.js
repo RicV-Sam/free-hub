@@ -16,6 +16,10 @@ const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 FreeHubValidator/1.0";
 const MANUAL_OK_LINKS = new Map([
   [
+    "capitec-moneyup-academy-competition-2026",
+    "https://www.capitecbank.co.za/globalassets/pages/competition-and-conditions/competitions/2026/moneyup-academy-competition-rules-2026.pdf",
+  ],
+  [
     "clicks-clubcard-scan-win",
     "https://clicks.co.za/competitions/view/clubcard-scan-win-2026",
   ],
@@ -95,7 +99,7 @@ function getManualOkResult(competition) {
   if (
     !expectedUrl ||
     competition.url !== expectedUrl ||
-    !["clicks.co.za", "www.clicks.co.za"].includes(hostname) ||
+    !["capitecbank.co.za", "www.capitecbank.co.za", "clicks.co.za", "www.clicks.co.za"].includes(hostname) ||
     !competition.linkValidationReason ||
     !competition.linkValidationCheckedAt
   ) {
