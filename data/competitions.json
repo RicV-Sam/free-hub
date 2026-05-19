@@ -3693,15 +3693,16 @@
     "sourceUrl": "https://alpha52.co.za/terms-and-conditions/",
     "termsUrl": "https://alpha52.co.za/terms-and-conditions/",
     "sourceDomain": "alpha52.co.za",
-    "lastChecked": "2026-05-16",
+    "lastChecked": "2026-05-19",
     "verificationStatus": "published",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee; R100 qualifying cash purchase required",
     "purchaseRequired": true,
     "requiredProduct": "Cash purchase of R100 or more at a participating Alpha Pharm pharmacy",
-    "entryChannel": "Qualifying pharmacy purchase and official Alpha 52 submission",
+    "entryChannel": "Qualifying pharmacy purchase and Alpha 52 WhatsApp or web form till-slip upload",
     "region": "South Africa",
-    "eligibility": "South African citizens aged 18 or older with a valid South African identity document or passport, resident in South Africa, and with a South African bank account in their own name."
+    "eligibility": "South African citizens aged 18 or older with a valid South African identity document or passport, resident in South Africa, and with a South African bank account in their own name.",
+    "evidenceNotes": "Official Alpha52 terms page confirms the Alpha 52 Competition, 1 January to 31 December 2026 period, R100+ cash purchase requirement at participating Alpha Pharm pharmacies, WhatsApp or web form till-slip upload route, one entry per full R100 spent, weekly submission cut-off, 52 total R100,000 cash prizes and 4 monthly winners. Final resolved URL checked 2026-05-19: https://alpha52.co.za/terms-and-conditions/."
   },
   {
     "id": "gotyme-bafana-jersey-giveaway-2026",
