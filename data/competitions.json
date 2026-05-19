@@ -73,14 +73,16 @@
     "url": "https://www.comrades.com/charities/win-a-car",
     "sourceUrl": "https://www.comrades.com/charities/win-a-car",
     "sourceDomain": "comrades.com",
-    "lastChecked": "2026-05-02",
+    "lastChecked": "2026-05-19",
     "verificationStatus": "published",
     "entryCostType": "paid-entry",
     "entryFeeLabel": "R50 ticket",
     "entryFeeAmount": 50,
     "purchaseRequired": false,
     "entryChannel": "Online ticket purchase",
-    "region": "South African residents only"
+    "region": "South African residents only",
+    "termsUrl": "https://www.comrades.com/charities/win-a-car",
+    "evidenceNotes": "Official Comrades Toyota Win-a-Car page contains on-page terms confirming the 2026 Toyota Corolla Cross prize, Purchase Tickets route, 14:00 on 14 June 2026 entry cut-off, Race Day draw, no refunds, no international entries and Toyota ownership transfer criteria. Final resolved URL checked 2026-05-19: https://www.comrades.com/charities/win-a-car."
   },
   {
     "id": "ram-couriers-vodacom-bulls",
