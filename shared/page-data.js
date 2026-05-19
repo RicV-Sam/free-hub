@@ -182,6 +182,26 @@
       support:
         "WhatsApp entry can be convenient, but users should only use the number listed by the official promoter.",
     },
+    football: {
+      title: "Football Competitions South Africa | Jerseys, Tickets & Trips",
+      description:
+        "Browse South African football competitions, including jersey giveaways, football tops, match-day prizes, trips and official promoter campaigns.",
+      heading: "Football Competitions",
+      intro:
+        "Find current football competitions in South Africa, including jersey giveaways, football tops, match-day prizes, club promotions and tournament-linked campaigns.",
+      support:
+        "Football competitions can involve free online forms, social posts, account requirements, purchases or travel prizes. Check the official promoter terms for closing dates, eligibility, entry costs and prize fulfilment before entering.",
+    },
+    rugby: {
+      title: "Rugby Competitions South Africa | Rugby Tops, Trips & Prizes",
+      description:
+        "Browse South African rugby competitions, including rugby top giveaways, match-day experiences, travel prizes and official promoter campaigns.",
+      heading: "Rugby Competitions",
+      intro:
+        "Find current rugby competitions in South Africa, including rugby tops, team jersey giveaways, match-day experiences, travel prizes and supporter promotions.",
+      support:
+        "Rugby prize campaigns can be free-entry, account-linked, purchase-required or experience-based. Compare the promoter, closing date, cost label and official terms before entering.",
+    },
     toyota: {
       title: "Toyota Competitions South Africa",
       description:
