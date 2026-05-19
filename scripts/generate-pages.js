@@ -3490,7 +3490,7 @@ function renderCompetitionDetailHero({
 }) {
   const hasSpecificVisual = isSpecificCompetitionVisual(competition);
   const imageMarkup = heroImage
-    ? `<img src="${escapeAttribute(heroImage)}" alt="${escapeAttribute(competition.title)}" loading="eager" onerror="this.remove()" />`
+    ? `<img src="${escapeAttribute(heroImage)}" alt="${escapeAttribute(buildCompetitionImageAltText(competition, expired))}" loading="eager" onerror="this.remove()" />`
     : "";
   const heroMediaClass = hasSpecificVisual
     ? "competition-hero-card__media competition-hero-card__media--specific"
@@ -3549,10 +3549,10 @@ function renderCompetitionDetailHero({
   });
 }
 
-function renderCompetitionDetailMedia(competition, imageUrl) {
+function renderCompetitionDetailMedia(competition, imageUrl, altText = competition.title) {
   const hasSpecificVisual = isSpecificCompetitionVisual(competition);
   const imageMarkup = imageUrl
-    ? `<img src="${escapeAttribute(imageUrl)}" alt="${escapeAttribute(competition.title)}" loading="lazy" onerror="this.remove()" />`
+    ? `<img src="${escapeAttribute(imageUrl)}" alt="${escapeAttribute(altText)}" loading="lazy" onerror="this.remove()" />`
     : "";
   const mediaClass = hasSpecificVisual
     ? "competition-detail__media competition-detail__media--specific"
@@ -3580,9 +3580,10 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   const expired = shared.isExpiredCompetition(competition);
   const archiveEligible = shared.isExpiredArchiveEligibleCompetition(competition);
   const archivedLowValue = shared.isArchivedLowValueCompetition(competition);
-  const description = expired
+  const fallbackDescription = expired
     ? `This ${competition.brand || "brand"} competition has closed. View the archived prize and closing-date details, then browse current South African competitions on Freehub.`
     : shared.buildCompetitionDescription(competition);
+  const description = buildCompetitionSeoDescription(competition, expired, fallbackDescription);
   const relatedCompetitions = getRelatedCompetitions(competition, allCompetitions);
 
   const categorySlug = shared.CATEGORY_SLUGS.find(
@@ -3610,6 +3611,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
             </div>`
     : "";
   const heroSubline = competition.brand ? `By ${competition.brand}` : competition.category;
+  const imageAltText = buildCompetitionImageAltText(competition, expired);
   const closingSoon = shared.isClosingSoon(competition.closingDate);
   const outPath = shared.getOutPath(competition) + "/";
   const ctaLabel = getDetailCtaLabel(competition);
@@ -3625,6 +3627,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   const breadcrumbMarkup = renderCompetitionBreadcrumb(competition, categorySlug, categoryPath);
   const trustStripMarkup = renderCompetitionTrustStrip(competition, officialSource, lastChecked);
   const beforeYouEnterMarkup = expired ? "" : renderBeforeYouEnterBlock(competition);
+  const brandPrizeContextMarkup = expired ? "" : renderBrandPrizeContextSection(competition);
   const sourceBlockMarkup = renderCompetitionSourceBlock(competition, officialSource, officialSourceUrl, lastChecked, expired);
   const faqItems = buildCompetitionFaqItems(competition, officialSource, ctaLabel, expired);
   const faqMarkup = renderCompetitionFaq(faqItems);
@@ -3760,7 +3763,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
         ${renderAdZone("ad-top", "detail-top")}
 
         <article class="competition-detail" aria-label="${escapeAttribute(competition.title)}">
-          ${renderCompetitionDetailMedia(competition, heroImage)}
+          ${renderCompetitionDetailMedia(competition, heroImage, imageAltText)}
           <div class="competition-detail__body">
             <div class="competition-detail__meta">
               <span class="badge badge--category">${escapeHtml(competition.category)}</span>
@@ -3773,6 +3776,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
             <div class="competition-detail__summary">
               <p>${escapeHtml(description)}</p>
             </div>
+            ${brandPrizeContextMarkup}
             ${tagsMarkup}
             ${entryStepsMarkup}
             ${beforeYouEnterMarkup}
@@ -3923,6 +3927,69 @@ function renderBeforeYouEnterBlock(competition) {
                 ${items.slice(0, 7).map((item) => `<li>${escapeHtml(item)}</li>`).join("\n                ")}
               </ul>
             </section>`;
+}
+
+function buildCompetitionSeoDescription(competition, expired, fallbackDescription) {
+  if (expired) {
+    return fallbackDescription;
+  }
+
+  const prize = competition.prizeName || competition.prize || shared.getPrizeCue(competition);
+  const pieces = [
+    `See the ${competition.title}`,
+    prize ? `including ${prize} prize details` : "including prize details",
+    competition.closingDate ? "closing date" : "",
+    competition.eligibilitySummary || competition.eligibility ? "eligibility notes" : "",
+    "and the official terms",
+  ].filter(Boolean);
+
+  return `${pieces.join(", ")}.`;
+}
+
+function buildCompetitionImageAltText(competition, expired = false) {
+  const parts = [
+    competition.title,
+    competition.prizeName || competition.prize,
+    competition.category ? `${competition.category} competition` : "",
+    expired ? "closed archive page" : "Freehub listing",
+  ].filter(Boolean);
+
+  return parts.join(" - ");
+}
+
+function renderBrandPrizeContextSection(competition) {
+  const brandContext = competition.brandContext
+    || `${competition.brand || "The named brand"} is the promoter or named brand for this competition. This page summarises the available entry details, prize information, closing date and official source so users can check the promotion before entering.`;
+  const prizeContext = competition.prizeContext
+    || `${competition.prizeName || competition.prize || "The prize"} is listed from the verified competition data available to Freehub, with the closing date and official source shown on this page.`;
+  const seoItems = parseSeoContextItems(competition.seoContext);
+
+  return `<section class="detail-context" aria-label="Brand and competition context">
+              <p class="detail-section-title">About the brand and this competition</p>
+              <p>${escapeHtml(brandContext)}</p>
+              <p>${escapeHtml(prizeContext)}</p>
+              ${seoItems.length > 0 ? `<div class="detail-checklist detail-checklist--compact">
+                <p class="detail-section-title">Why this may interest users</p>
+                <ul>
+                  ${seoItems.map((item) => `<li>${escapeHtml(item)}</li>`).join("\n                  ")}
+                </ul>
+              </div>` : ""}
+            </section>`;
+}
+
+function parseSeoContextItems(seoContext) {
+  const raw = String(seoContext || "").trim();
+
+  if (!raw) {
+    return [];
+  }
+
+  return raw
+    .replace(/^Useful for users searching for\s+/i, "")
+    .split(/,\s*|\s+and\s+/)
+    .map((item) => item.replace(/\.$/, "").trim())
+    .filter(Boolean)
+    .slice(0, 5);
 }
 
 function renderCompetitionSourceBlock(competition, officialSource, officialSourceUrl, lastChecked, expired = false) {
@@ -4299,7 +4366,11 @@ function renderExpiredCompetitionActions(competition, categorySlug, generatedBra
 
 function getRelatedCompetitions(competition, allCompetitions) {
   const currentSlug = shared.getCompetitionSlug(competition);
-  const competitionTagSet = new Set(competition.tags || []);
+  const competitionTagSet = new Set([
+    ...(competition.tags || []),
+    ...(competition.sportsTags || []),
+    ...(competition.teamTags || []),
+  ]);
 
   const scored = allCompetitions
     .filter((c) => shared.getCompetitionSlug(c) !== currentSlug)
@@ -4308,7 +4379,7 @@ function getRelatedCompetitions(competition, allCompetitions) {
       if (c.brand && competition.brand && c.brand === competition.brand) score += 6;
       if (c.category === competition.category) score += 3;
       if (shared.isHighValueCompetition(c)) score += 1;
-      (c.tags || []).forEach((tag) => {
+      [...(c.tags || []), ...(c.sportsTags || []), ...(c.teamTags || [])].forEach((tag) => {
         if (competitionTagSet.has(tag)) score += 1;
       });
       return { competition: c, score };
@@ -4443,11 +4514,32 @@ function runDataSafetyChecks(competitions) {
     const prizeType = String(competition.prizeType || "").toLowerCase();
     const headline = shared.getCardHeadline(competition);
     const costLabel = shared.getEntryCostLabel(competition);
+    const previewUrlFields = ["entryUrl", "url", "sourceUrl"].filter((field) => isPreviewOrStagingUrl(competition[field]));
 
     if (seenSlugs.has(slug)) {
       errors.push(`Duplicate competition slug "${slug}" for "${seenSlugs.get(slug)}" and "${competition.title}".`);
     } else {
       seenSlugs.set(slug, competition.title);
+    }
+
+    if (previewUrlFields.length > 0) {
+      warnings.push(`Preview/staging entry URL detected. Confirm live public entry URL before publishing. ${label}; fields: ${previewUrlFields.join(", ")}`);
+    }
+
+    if (competition.publicationStatus === "published" && competition.verificationStatus !== "published") {
+      warnings.push(`publicationStatus is published but verificationStatus is not published: ${label}.`);
+    }
+
+    if (competition.verificationStatus === "published" && competition.doNotPublish === true) {
+      errors.push(`Published record has doNotPublish=true: ${label}.`);
+    }
+
+    if (competition.verificationStatus === "published" && !competition.sourceUrl) {
+      warnings.push(`Published record is missing sourceUrl: ${label}.`);
+    }
+
+    if (competition.verificationStatus === "published" && !competition.termsUrl) {
+      warnings.push(`Published record is missing termsUrl: ${label}.`);
     }
 
     if (competition.verificationStatus !== "published") {
@@ -4502,6 +4594,16 @@ function runDataSafetyChecks(competitions) {
   if (errors.length > 0) {
     throw new Error(`[Data safety checks failed]\n${errors.map((error) => `- ${error}`).join("\n")}`);
   }
+}
+
+function isPreviewOrStagingUrl(value) {
+  const url = String(value || "").trim().toLowerCase();
+
+  return Boolean(url) && (
+    url.includes("display.wayin.com/preview") ||
+    url.includes("stagemode=true") ||
+    url.includes("/preview/")
+  );
 }
 
 function isExpired(dateString) {
