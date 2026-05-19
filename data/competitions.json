@@ -1483,7 +1483,7 @@
     "sourceUrl": "https://clere.co.za/competitions/",
     "termsUrl": "https://clere.co.za/competitions/",
     "sourceDomain": "clere.co.za",
-    "lastChecked": "2026-05-15",
+    "lastChecked": "2026-05-19",
     "verificationStatus": "published",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee; qualifying product purchase required. USSD charged at 20c per 20 seconds; WhatsApp data may apply.",
@@ -1491,7 +1491,8 @@
     "requiredProduct": "Participating Clere Body Lotion, Body Creme, Petroleum Jelly, Glycerine, Tissue Oil or Gly-Co-Oil product with a promotional sticker",
     "entryChannel": "USSD or WhatsApp",
     "eligibility": "South African citizens or permanent residents aged 18+ with a valid South African ID and South African bank account",
-    "region": "Selected retail stores across South Africa"
+    "region": "Selected retail stores across South Africa",
+    "evidenceNotes": "Official Clere competitions page confirms the Win a Share of R1 Million Cash competition, 1 April to 31 July 2026 period, participating promotional sticker product purchase requirement, USSD or WhatsApp entry route, 20c per 20 seconds USSD cost, till-slip requirement, R700,000 daily cash prize pool and three R100,000 grand prizes. Final resolved URL checked 2026-05-19: https://clere.co.za/competitions/."
   },
   {
     "id": "metro-fm-nandos-taaaste-monials-challenge",
