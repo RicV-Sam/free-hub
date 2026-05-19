@@ -493,7 +493,7 @@
       return brandImage;
     }
 
-    return buildBrandFallbackImage(competition || {});
+    return "";
   }
 
   function getCompetitionPrimaryImageUrl(competition, competitionPool = []) {
@@ -506,13 +506,40 @@
       return brandImage;
     }
 
-    return buildBrandFallbackImage(competition || {});
+    return "";
   }
 
   function getCompetitionLogoUrl(competition) {
-    return String(
+    const explicitLogo = String(
       (competition && (competition.logo || competition.brandLogo || competition.logoUrl || competition.brandLogoUrl)) || ""
     ).trim();
+
+    if (explicitLogo) {
+      return explicitLogo;
+    }
+
+    const domain = getCompetitionSourceDomain(competition);
+    return domain ? `https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=128` : "";
+  }
+
+  function getCompetitionSourceDomain(competition) {
+    const explicitDomain = String((competition && competition.sourceDomain) || "").trim().replace(/^www\./, "");
+
+    if (explicitDomain) {
+      return explicitDomain;
+    }
+
+    const sourceUrl = String((competition && (competition.sourceUrl || competition.termsUrl || competition.url)) || "").trim();
+
+    if (!sourceUrl) {
+      return "";
+    }
+
+    try {
+      return new URL(sourceUrl).hostname.replace(/^www\./, "");
+    } catch (_error) {
+      return "";
+    }
   }
 
   function getBrandInitials(brand) {

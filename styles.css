@@ -2489,6 +2489,19 @@ body {
   font-weight: 900;
 }
 
+.hero-preview-item__placeholder-logo,
+.competition-card__placeholder-logo,
+.competition-hero-card__placeholder-logo,
+.competition-detail__placeholder-logo {
+  width: clamp(42px, 34%, 96px);
+  aspect-ratio: 1;
+  padding: 0.5rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.28);
+  object-fit: contain;
+}
+
 .hero-preview-item__placeholder-category,
 .competition-card__placeholder-category,
 .competition-hero-card__placeholder-category,

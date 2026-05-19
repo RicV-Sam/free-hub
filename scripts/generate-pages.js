@@ -718,8 +718,7 @@ function getCompetitionImageUrl(competition) {
     return competition.image;
   }
 
-  const brandImage = getBrandAssociatedImage(competition);
-  return brandImage || buildBrandFallbackImage(competition || {});
+  return getBrandAssociatedImage(competition);
 }
 
 function getMetadataImageUrl(competition) {
@@ -2151,7 +2150,7 @@ function getCompetitionVisualUrl(competition) {
     return brandImage;
   }
 
-  return buildBrandFallbackImage(competition || {});
+  return "";
 }
 
 function getStatusClassName(label) {
@@ -2178,8 +2177,13 @@ function renderBrandMark(competition, className = "brand-mark") {
 }
 
 function renderCompetitionVisualPlaceholder(competition, className = "competition-card__placeholder") {
+  const logoUrl = shared.getCompetitionLogoUrl(competition);
+  const logoMarkup = logoUrl
+    ? `<img class="${className}-logo" src="${escapeAttribute(logoUrl)}" alt="${escapeAttribute(`${competition.brand || "Brand"} logo`)}" loading="lazy" onerror="this.remove()" />`
+    : `<span class="${className}-initials">${escapeHtml(shared.getBrandInitials(competition.brand))}</span>`;
+
   return `<div class="${className}" aria-hidden="true">
-                  <span class="${className}-initials">${escapeHtml(shared.getBrandInitials(competition.brand))}</span>
+                  ${logoMarkup}
                   <span class="${className}-category">${escapeHtml(competition.category || "Prize")}</span>
                 </div>`;
 }
