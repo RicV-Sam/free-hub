@@ -533,12 +533,20 @@ const TRUST_PAGE_DEFINITIONS = [
 
 function main() {
   const rawCompetitions = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
+  const rawArchiveCompetitions = fs.existsSync(ARCHIVE_DATA_PATH)
+    ? JSON.parse(fs.readFileSync(ARCHIVE_DATA_PATH, "utf8"))
+    : [];
   const validCompetitions = shared.sortCompetitions(
     rawCompetitions.filter((entry, index) => validateCompetition(entry, index))
   );
+  const validArchiveCompetitions = shared.sortCompetitions(
+    rawArchiveCompetitions.filter((entry, index) => validateCompetition(entry, index))
+  );
   runDataSafetyChecks(validCompetitions);
   const activeCompetitions = shared.getPublishedActiveCompetitions(validCompetitions);
-  const expiredArchiveCompetitions = shared.getExpiredArchiveCompetitions(validCompetitions);
+  const expiredArchiveCompetitions = uniqueCompetitionsBySlug(
+    shared.getExpiredArchiveCompetitions([...validCompetitions, ...validArchiveCompetitions])
+  );
   const expiredLowValueCompetitions = shared.getArchivedLowValueCompetitions(validCompetitions);
   const detailCompetitions = shared.sortCompetitions([
     ...activeCompetitions,
@@ -604,6 +612,19 @@ function main() {
   runLifecycleStaticChecks(validCompetitions, activeCompetitions, expiredArchiveCompetitions, expiredLowValueCompetitions);
   runStaticSeoChecks();
   runImageQualityChecks();
+}
+
+function uniqueCompetitionsBySlug(competitions) {
+  const seen = new Set();
+  return competitions.filter((competition) => {
+    const slug = shared.getCompetitionSlug(competition);
+    if (seen.has(slug)) {
+      return false;
+    }
+
+    seen.add(slug);
+    return true;
+  });
 }
 
 function getGeneratedRouteContexts(competitions, generatedBrandPages = []) {
@@ -2578,10 +2599,12 @@ function getCategoryInternalLinks(slug, competitions) {
   };
 
   if (slug === "cars") {
+    const aquellePath = byIdPathOrNull("aquelle-mzansi-mango");
     return {
       title: "Car Competition Searches",
       links: [
         { label: "Win a car competitions South Africa", href: "/win-a-car/" },
+        ...(aquellePath ? [{ label: "aQuelle Suzuki Swift competition", href: aquellePath }] : []),
         { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
         { label: "Free competitions", href: "/free-competitions/" },
         { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
@@ -2622,10 +2645,12 @@ function getCategoryInternalLinks(slug, competitions) {
   }
 
   if (slug === "cash") {
+    const mtnMomoPath = byIdPathOrNull("mtn-momo-cash-sprint");
     return {
       title: "Cash Competition Searches",
       links: [
         { label: "Cash competitions South Africa", href: "/category/cash/" },
+        ...(mtnMomoPath ? [{ label: "MTN MoMo cash competition", href: mtnMomoPath }] : []),
         { label: "Win cash online South Africa", href: byIdPath("fnb-pay-to-win-grand-cash-prize") },
         { label: "All competitions", href: "/competitions/" },
         { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
@@ -3590,6 +3615,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
     ? `This ${competition.brand || "brand"} competition has closed. View the archived prize and closing-date details, then browse current South African competitions on Freehub.`
     : shared.buildCompetitionDescription(competition);
   const description = buildCompetitionSeoDescription(competition, expired, fallbackDescription);
+  const pageTitle = buildCompetitionSeoTitle(competition, expired);
   const relatedCompetitions = getRelatedCompetitions(competition, allCompetitions);
 
   const categorySlug = shared.CATEGORY_SLUGS.find(
@@ -3704,7 +3730,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>${escapeHtml(expired ? `${competition.title} Closed | Current Alternatives on Freehub` : `${competition.title} | ${competition.brand} Competition in South Africa | Freehub`)}</title>
+    <title>${escapeHtml(pageTitle)}</title>
     <meta name="description" content="${escapeAttribute(description)}" />
     <meta name="robots" content="${robotsDirective}" />
     <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
@@ -3782,6 +3808,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
             </div>
             ${trustStripMarkup}
             ${detailFactsMarkup}
+            ${renderCompetitionQuickAnswer(competition, expired)}
             <div class="competition-detail__summary">
               <p>${escapeHtml(description)}</p>
             </div>
@@ -3940,7 +3967,29 @@ function renderBeforeYouEnterBlock(competition) {
             </section>`;
 }
 
+function buildCompetitionSeoTitle(competition, expired) {
+  if (expired && competition.archiveSeoTitle) {
+    return competition.archiveSeoTitle;
+  }
+
+  if (!expired && competition.seoTitle) {
+    return competition.seoTitle;
+  }
+
+  return expired
+    ? `${competition.title} Closed | Current Alternatives on Freehub`
+    : `${competition.title} | ${competition.brand} Competition in South Africa | Freehub`;
+}
+
 function buildCompetitionSeoDescription(competition, expired, fallbackDescription) {
+  if (expired && competition.archiveSeoDescription) {
+    return competition.archiveSeoDescription;
+  }
+
+  if (!expired && competition.seoDescription) {
+    return competition.seoDescription;
+  }
+
   if (expired) {
     return fallbackDescription;
   }
@@ -3955,6 +4004,19 @@ function buildCompetitionSeoDescription(competition, expired, fallbackDescriptio
   ].filter(Boolean);
 
   return `${pieces.join(", ")}.`;
+}
+
+function renderCompetitionQuickAnswer(competition, expired = false) {
+  const quickAnswer = expired ? competition.archiveQuickAnswer : competition.quickAnswer;
+
+  if (!quickAnswer) {
+    return "";
+  }
+
+  return `<section class="detail-context detail-context--quick-answer" aria-label="Quick answer">
+              <p class="detail-section-title">Quick answer</p>
+              <p>${escapeHtml(quickAnswer)}</p>
+            </section>`;
 }
 
 function buildCompetitionHeroSubline(competition) {
