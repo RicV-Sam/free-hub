@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "build": "node scripts/generate-pages.js",
     "generate": "node scripts/generate-pages.js",
     "import:held-candidates": "node scripts/import-held-candidates.js",
     "export:held-review": "node scripts/export-held-review.js",
+    "lint": "node scripts/validate-held-candidates.js --allow-missing && node scripts/validate-competition-links.js --published-only --timeout=25000 --concurrency=8",
     "validate:held-candidates": "node scripts/validate-held-candidates.js",
     "test": "node scripts/validate-held-candidates.js --allow-missing"
   }
