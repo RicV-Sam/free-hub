@@ -2085,7 +2085,11 @@
     "verificationStatus": "needs-verification",
     "prizeType": "cash",
     "verificationNote": "Validator returned HTTP 404 on 2026-05-15 and no current official Old Mutual source was found in follow-up search. Hold until a working official source is found.",
-    "lastChecked": "2026-05-15"
+    "lastChecked": "2026-05-15",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "investec-spend-win-takealot-vouchers",
@@ -2106,7 +2110,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "verificationNote": "Validator returned HTTP 403 on 2026-05-15. Hold until the official Investec competition page can be manually re-confirmed in browser or replaced with a validator-accessible official source.",
-    "lastChecked": "2026-05-15"
+    "lastChecked": "2026-05-15",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-403 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "dis-chem-vaseline-cera-glow-beauty-hamper",
@@ -2142,7 +2150,11 @@
     "entryFeeLabel": "No separate entry fee; qualifying purchase and Dis-Chem Better Rewards card swipe required",
     "region": "South Africa",
     "verificationNote": "Official Dis-Chem page confirms the 4 May to 31 July 2026 period, qualifying purchase, Better Rewards card swipe, prize details, eligibility and random draw, but final Node URL validation returned a 403 bot-wall page on 2026-05-17. Hold until the official URL validates without 403.",
-    "evidenceNotes": "Browser/web fetch could read the official Dis-Chem terms page, but final URL health check returned 403. Keep private until URL validation passes."
+    "evidenceNotes": "Browser/web fetch could read the official Dis-Chem terms page, but final URL health check returned 403. Keep private until URL validation passes.",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-403 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "makro-rewards-zanzibar-getaway",
@@ -2163,7 +2175,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "holiday",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "takealot-work-from-home-bundle",
@@ -2182,7 +2198,11 @@
     ],
     "verificationStatus": "needs-verification",
     "prizeType": "tech",
-    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking."
+    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking.",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-403 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "superbalist-winter-layer-up-voucher",
@@ -2202,7 +2222,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "voucher",
-    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking."
+    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking.",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-403 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "vodacom-recharge-win-galaxy-s25",
@@ -2224,7 +2248,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "tech",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "telkom-upgrade-to-win-voucher-drop",
@@ -2244,7 +2272,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "voucher",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "cell-c-recharge-r50k-cash",
@@ -2265,7 +2297,11 @@
     ],
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "fnb-ebucks-kruger-safari-giveaway",
@@ -2286,7 +2322,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "holiday",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "standard-bank-save-win-r200k",
@@ -2307,7 +2347,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "cash",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "absa-rewards-weekend-away",
@@ -2328,7 +2372,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "holiday",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "capitec-pay-daymaker-cash-draw",
@@ -2350,7 +2398,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "cash",
-    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking."
+    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking.",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-403 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "avo-by-nedbank-shopping-voucher-giveaway",
@@ -2370,7 +2422,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "voucher",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "discovery-vitality-local-getaway-challenge",
@@ -2390,7 +2446,11 @@
     ],
     "verificationStatus": "needs-verification",
     "prizeType": "holiday",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-500 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "discovery-bank-tap-to-win-cashback",
@@ -2412,7 +2472,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "cash",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-500 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "shell-v-rewards-mozambique-escape",
@@ -2433,7 +2497,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "holiday",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "kfc-app-cash-crunch",
@@ -2454,7 +2522,11 @@
     ],
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "talk-to-nandos-monthly-voucher-draw",
@@ -2474,7 +2546,11 @@
     ],
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "castle-lager-rugby-away-day",
@@ -2493,7 +2569,11 @@
     ],
     "verificationStatus": "needs-verification",
     "prizeType": "holiday",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "castle-lite-ultimate-home-viewing",
@@ -2512,7 +2592,11 @@
     ],
     "verificationStatus": "needs-verification",
     "prizeType": "tech",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "saa-voyager-fly-win-mauritius",
@@ -2532,7 +2616,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "holiday",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "travelstart-long-weekend-lucky-draw",
@@ -2551,7 +2639,11 @@
     ],
     "verificationStatus": "needs-verification",
     "prizeType": "holiday",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "shoprite-money-market-payday-cash-drop",
@@ -2572,7 +2664,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "cash",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "checkers-xtra-savings-swipe-win",
@@ -2593,7 +2689,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "voucher",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "dis-chem-winter-wellness-tech-bundle",
@@ -2613,7 +2713,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "tech",
-    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking."
+    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking.",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-403 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "truworths-truroyalty-style-voucher-draw",
@@ -2633,7 +2737,11 @@
     ],
     "verificationStatus": "needs-verification",
     "prizeType": "voucher",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "foschini-tech-fashion-upgrade",
@@ -2654,7 +2762,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "tech",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "edgars-monthly-voucher-winners",
@@ -2676,7 +2788,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "voucher",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "takealot-victoria-falls-getaway",
@@ -2695,7 +2811,11 @@
     ],
     "verificationStatus": "needs-verification",
     "prizeType": "holiday",
-    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking."
+    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking.",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-403 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "superbalist-apple-backpack-tech-bundle",
@@ -2714,7 +2834,11 @@
     ],
     "verificationStatus": "needs-verification",
     "prizeType": "tech",
-    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking."
+    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking.",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-403 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "makro-level-up-gaming-bundle",
@@ -2734,7 +2858,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "tech",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "vodapay-cashback-challenge",
@@ -2755,7 +2883,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "cash",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "telkom-fibre-tech-upgrades",
@@ -2776,7 +2908,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "tech",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "cell-c-takealot-voucher-giveaway",
@@ -2797,7 +2933,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "voucher",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "fnb-pay-to-win-grand-cash-prize",
@@ -2819,7 +2959,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "cash",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "standard-bank-mastercard-zanzibar-getaway",
@@ -2839,7 +2983,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "holiday",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "absa-rewards-cash-back-draw",
@@ -2860,7 +3008,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "cash",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "capitec-live-better-voucher-rewards",
@@ -2881,7 +3033,11 @@
     ],
     "verificationStatus": "needs-verification",
     "prizeType": "voucher",
-    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking."
+    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking.",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-403 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "nedbank-greenbacks-holiday-giveaway",
@@ -2901,7 +3057,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "holiday",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "discovery-vitality-move-for-cash",
@@ -2922,7 +3082,11 @@
     ],
     "verificationStatus": "needs-verification",
     "prizeType": "cash",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-500 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "old-mutual-rewards-update-win-vouchers",
@@ -2941,7 +3105,11 @@
       "weekly-draw"
     ],
     "verificationStatus": "needs-verification",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "investec-winelands-escape-competition",
@@ -2961,7 +3129,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "holiday",
-    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking."
+    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking.",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-403 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "shell-v-rewards-gear-up-with-gopro",
@@ -2983,7 +3155,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "tech",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "kfc-rewards-voucher-drop",
@@ -3005,7 +3181,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "voucher",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "nandos-peri-peri-road-trip",
@@ -3026,7 +3206,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "holiday",
-    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking."
+    "verificationNote": "Auto-held on 2026-05-14 after browser-based verification could not confirm the active competition page due to bot/security blocking.",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-403 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "castle-lager-braai-cash-giveaway",
@@ -3046,7 +3230,11 @@
     ],
     "verificationStatus": "needs-verification",
     "prizeType": "cash",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "sab-festival-vip-weekend",
@@ -3065,7 +3253,11 @@
     ],
     "verificationStatus": "needs-verification",
     "prizeType": "holiday",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "travelstart-fare-finder-cash-back",
@@ -3085,7 +3277,11 @@
     ],
     "verificationStatus": "needs-verification",
     "prizeType": "cash",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "sixty60-getaway-giveaway",
@@ -3106,7 +3302,11 @@
     "verificationStatus": "needs-verification",
     "purchaseRequired": true,
     "prizeType": "holiday",
-    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500)."
+    "verificationNote": "Auto-held on 2026-05-14 after outbound URL validation returned a hard failure (404 or 500).",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "old-mutual-win-on-repeat-rewards",
@@ -3177,7 +3377,11 @@
       "ending-soon"
     ],
     "verificationStatus": "needs-verification",
-    "verificationNote": "Not included in the verified official-source car research set for this refresh."
+    "verificationNote": "Not included in the verified official-source car research set for this refresh.",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "dstv-toyota-starlets",
@@ -3237,7 +3441,11 @@
       "high-value"
     ],
     "verificationStatus": "needs-verification",
-    "verificationNote": "Could not verify as current in this pass."
+    "verificationNote": "Could not verify as current in this pass.",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "volkswagen-easydrive-upgrade-to-win",
@@ -3255,7 +3463,11 @@
       "purchase-required"
     ],
     "verificationStatus": "needs-verification",
-    "verificationNote": "Needs official prize verification."
+    "verificationNote": "Needs official prize verification.",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "bmw-xdrive-experience-weekend-giveaway",
@@ -3272,7 +3484,11 @@
       "high-value"
     ],
     "verificationStatus": "needs-verification",
-    "verificationNote": "Experience prize, not verified as car ownership."
+    "verificationNote": "Experience prize, not verified as car ownership.",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "mercedes-benz-amg-track-day-giveaway",
@@ -3290,7 +3506,11 @@
       "purchase-required"
     ],
     "verificationStatus": "needs-verification",
-    "verificationNote": "Experience prize, not verified as car ownership."
+    "verificationNote": "Experience prize, not verified as car ownership.",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "hyundai-grand-i10-test-drive-win",
@@ -3326,7 +3546,11 @@
       "purchase-required"
     ],
     "verificationStatus": "needs-verification",
-    "verificationNote": "Could not verify as current in this pass."
+    "verificationNote": "Could not verify as current in this pass.",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "nissan-magnite-adventure-giveaway",
@@ -3344,7 +3568,11 @@
       "weekly-draw"
     ],
     "verificationStatus": "needs-verification",
-    "verificationNote": "Could not verify as current in this pass."
+    "verificationNote": "Could not verify as current in this pass.",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "ford-ranger-weekend-warrior-giveaway",
@@ -3361,7 +3589,11 @@
       "high-value"
     ],
     "verificationStatus": "needs-verification",
-    "verificationNote": "Experience prize, not verified as car ownership."
+    "verificationNote": "Experience prize, not verified as car ownership.",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "isuzu-d-max-open-day-win",
@@ -3378,7 +3610,11 @@
       "high-value"
     ],
     "verificationStatus": "needs-verification",
-    "verificationNote": "Experience/test-drive style listing; not verified as current car ownership prize."
+    "verificationNote": "Experience/test-drive style listing; not verified as current car ownership prize.",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-404 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23",
+    "doNotPublish": true
   },
   {
     "id": "clicks-cashback-haul-competition",
@@ -3699,7 +3935,10 @@
       "risk_loyalty_required",
       "risk_sms"
     ],
-    "importedAt": "2026-05-15T19:06:05.616Z"
+    "importedAt": "2026-05-15T19:06:05.616Z",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-403 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23"
   },
   {
     "id": "boxer-unilever-b-rewards-2026",
@@ -4634,7 +4873,10 @@
     "publicationStatus": "held",
     "doNotPublish": true,
     "verificationNote": "Official Dis-Chem page confirms the competition details, but final Node URL validation returned a 403 bot-wall page on 2026-05-17. Hold until the official URL validates without 403.",
-    "evidenceNotes": "Browser/web fetch could read the official Dis-Chem terms page, but final URL health check returned 403. Keep private until URL validation passes."
+    "evidenceNotes": "Browser/web fetch could read the official Dis-Chem terms page, but final URL health check returned 403. Keep private until URL validation passes.",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-403 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23"
   },
   {
     "id": "dis-chem-protex-fund-the-future-2026",
@@ -4680,7 +4922,10 @@
     "publicationStatus": "held",
     "doNotPublish": true,
     "verificationNote": "Official Dis-Chem page confirms the competition details, but final Node URL validation returned a 403 bot-wall page on 2026-05-17. Hold until the official URL validates without 403.",
-    "evidenceNotes": "Browser/web fetch could read the official Dis-Chem terms page, but final URL health check returned 403. Keep private until URL validation passes."
+    "evidenceNotes": "Browser/web fetch could read the official Dis-Chem terms page, but final URL health check returned 403. Keep private until URL validation passes.",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-403 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23"
   },
   {
     "id": "dis-chem-nestle-baby-cereals-rewards-2026",
@@ -4727,7 +4972,10 @@
     "publicationStatus": "held",
     "doNotPublish": true,
     "verificationNote": "Official Dis-Chem page confirms the competition details, but final Node URL validation returned a 403 bot-wall page on 2026-05-17. Hold until the official URL validates without 403.",
-    "evidenceNotes": "Browser/web fetch could read the official Dis-Chem terms page, but final URL health check returned 403. Keep private until URL validation passes."
+    "evidenceNotes": "Browser/web fetch could read the official Dis-Chem terms page, but final URL health check returned 403. Keep private until URL validation passes.",
+    "linkValidationStatus": "failed",
+    "linkValidationReason": "Automated URL validation returned http-403 on 2026-05-23. Keep this record out of public pages until a working official source is confirmed.",
+    "linkValidationCheckedAt": "2026-05-23"
   },
   {
     "id": "shell-fuel-your-joy-2026",
