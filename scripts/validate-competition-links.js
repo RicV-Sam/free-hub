@@ -27,6 +27,14 @@ const MANUAL_OK_LINKS = new Map([
     "clicks-sorbet-voucher-2026",
     "https://clicks.co.za/clubcard/competitions/clubcard-magazine-april-may-issue-of-2026-sorbet-voucher-competition",
   ],
+  [
+    "spur-family-cruises-with-spur-2026",
+    "https://www.spursteakranches.com/za/promotions",
+  ],
+  [
+    "spur-ultimate-springboks-match-day-experience-2026",
+    "https://www.spursteakranches.com/za/promotions/win-the-ultimate-springboks-match-day-experience",
+  ],
 ]);
 
 function loadCompetitions() {
@@ -99,7 +107,14 @@ function getManualOkResult(competition) {
   if (
     !expectedUrl ||
     competition.url !== expectedUrl ||
-    !["capitecbank.co.za", "www.capitecbank.co.za", "clicks.co.za", "www.clicks.co.za"].includes(hostname) ||
+    ![
+      "capitecbank.co.za",
+      "www.capitecbank.co.za",
+      "clicks.co.za",
+      "www.clicks.co.za",
+      "spursteakranches.com",
+      "www.spursteakranches.com",
+    ].includes(hostname) ||
     !competition.linkValidationReason ||
     !competition.linkValidationCheckedAt
   ) {
