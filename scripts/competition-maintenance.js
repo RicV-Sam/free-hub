@@ -272,7 +272,7 @@ function main() {
   const expiredOutLeaks = getExpiredOutPageLeaks(expired);
 
   if (options.archiveExpired) {
-    archiveExpiredCompetitions([], todayIso);
+    archiveExpiredCompetitions(expired, todayIso);
   }
 
   printSummary({

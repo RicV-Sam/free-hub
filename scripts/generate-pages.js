@@ -4800,7 +4800,7 @@ function generateSitemap(competitions, routeContexts, sitemapCompetitions = comp
   });
 
   const competitionEntries = sitemapCompetitions
-    .filter((competition) => shared.isActiveCompetition(competition) || shared.isExpiredArchiveEligibleCompetition(competition))
+    .filter((competition) => shared.isActiveCompetition(competition))
     .map((competition) => {
       const slug = shared.getCompetitionSlug(competition);
       return renderSitemapUrl({
@@ -5157,8 +5157,8 @@ function runLifecycleStaticChecks(allCompetitions, activeCompetitions, expiredAr
 
   expiredArchiveCompetitions.forEach((competition) => {
     const slug = shared.getCompetitionSlug(competition);
-    if (!sitemap.includes(`/competition/${slug}/`)) {
-      errors.push(`High-quality expired archive page missing from sitemap: ${slug}`);
+    if (sitemap.includes(`/competition/${slug}/`)) {
+      errors.push(`Expired archive page is included in sitemap: ${slug}`);
     }
   });
 
