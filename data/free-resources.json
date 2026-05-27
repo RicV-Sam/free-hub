@@ -1,0 +1,140 @@
+[
+  {
+    "name": "Google Digital Skills for Africa",
+    "category": "online-courses",
+    "categoryLabel": "Free online courses",
+    "officialUrl": "https://learndigital.withgoogle.com/digitalskills",
+    "bestFor": "Beginners, jobseekers and small business owners",
+    "freeDetails": "Free digital marketing and online business learning from Google.",
+    "requirements": "Google account may be needed for progress tracking and certificates.",
+    "watchOut": "Check the course page before promising a certificate because course availability can change.",
+    "lastReviewed": "2026-05-27"
+  },
+  {
+    "name": "Microsoft Learn South Africa",
+    "category": "online-courses",
+    "categoryLabel": "Free online courses",
+    "officialUrl": "https://www.microsoft.com/en-za/microsoft-learn",
+    "bestFor": "Students, IT beginners and people building technical skills",
+    "freeDetails": "Free learning paths, product training and selected virtual training events from Microsoft.",
+    "requirements": "Microsoft account is useful for saving progress; some certifications or exams may cost money.",
+    "watchOut": "Free learning content is not always the same as a free certification exam.",
+    "lastReviewed": "2026-05-27"
+  },
+  {
+    "name": "Vodacom Digital Skills Hub",
+    "category": "online-courses",
+    "categoryLabel": "Free online courses",
+    "officialUrl": "https://vodacom.com/digital-skills.php",
+    "bestFor": "Young people and jobseekers looking for digital skills",
+    "freeDetails": "Free digital-skills courses, with some learning routes promoted as zero-rated for Vodacom users.",
+    "requirements": "Registration is usually required; data benefits may depend on network and current programme rules.",
+    "watchOut": "Confirm the current course catalogue and any zero-rated data wording on Vodacom's own page.",
+    "lastReviewed": "2026-05-27"
+  },
+  {
+    "name": "Book Dash",
+    "category": "childrens-books",
+    "categoryLabel": "Free children's books",
+    "officialUrl": "https://bookdash.org/",
+    "bestFor": "Parents, teachers, libraries and reading clubs",
+    "freeDetails": "Free African children's picture books that can be read, downloaded, printed and shared under an open model.",
+    "requirements": "No purchase needed for digital books; printing or data may still have normal user costs.",
+    "watchOut": "Use the official Book Dash library rather than third-party download mirrors.",
+    "lastReviewed": "2026-05-27"
+  },
+  {
+    "name": "Nal'ibali",
+    "category": "childrens-books",
+    "categoryLabel": "Free children's books",
+    "officialUrl": "https://nalibali.org/",
+    "bestFor": "Families, teachers and caregivers of children aged 0-12",
+    "freeDetails": "Free stories, audio stories, printables and reading resources in South African languages.",
+    "requirements": "No purchase needed for online resources; downloads and printing may use data or paper.",
+    "watchOut": "Choose the language and age level that fits the child instead of downloading random PDFs.",
+    "lastReviewed": "2026-05-27"
+  },
+  {
+    "name": "FunDza",
+    "category": "childrens-books",
+    "categoryLabel": "Free children's books",
+    "officialUrl": "https://live.fundza.mobi/",
+    "bestFor": "Teens, young adults and mobile readers",
+    "freeDetails": "Mobile-friendly South African stories, reading content and literacy resources.",
+    "requirements": "Works best online or on mobile; account features may vary by current platform setup.",
+    "watchOut": "It is stronger for teen and young-adult reading than preschool picture books.",
+    "lastReviewed": "2026-05-27"
+  },
+  {
+    "name": "Experian South Africa",
+    "category": "credit-report",
+    "categoryLabel": "Free credit reports",
+    "officialUrl": "https://www.experian.co.za/consumer/my-free-credit-check-and-your-free-credit-report",
+    "bestFor": "Consumers checking their credit report and score",
+    "freeDetails": "Free access to Experian personal credit report and credit score through Experian's consumer platform.",
+    "requirements": "Valid South African ID details and identity verification are expected.",
+    "watchOut": "Use Experian's official site and never share banking passwords or card PINs.",
+    "lastReviewed": "2026-05-27"
+  },
+  {
+    "name": "TransUnion South Africa",
+    "category": "credit-report",
+    "categoryLabel": "Free credit reports",
+    "officialUrl": "https://www.transunion.co.za/product/annual-free-credit-report",
+    "bestFor": "Consumers using their free annual bureau report right",
+    "freeDetails": "Free annual credit report access from TransUnion South Africa.",
+    "requirements": "Identity verification is required before report access.",
+    "watchOut": "A free credit report is not the same as guaranteed credit approval.",
+    "lastReviewed": "2026-05-27",
+    "manualOk": true,
+    "manualOkReason": "Official credit-bureau site can return automated-check 403 responses."
+  },
+  {
+    "name": "ClearScore South Africa",
+    "category": "credit-report",
+    "categoryLabel": "Free credit reports",
+    "officialUrl": "https://www.clearscore.com/za/",
+    "bestFor": "Consumers who want ongoing score and report visibility",
+    "freeDetails": "Free credit score and report access, with personalised financial offers shown separately.",
+    "requirements": "Sign-up and identity checks are required.",
+    "watchOut": "Treat loan and credit offers as advertising or eligibility guidance, not approval.",
+    "lastReviewed": "2026-05-27",
+    "manualOk": true,
+    "manualOkReason": "Official site can return automated-check 403 responses."
+  },
+  {
+    "name": "Brand Advisor",
+    "category": "samples",
+    "categoryLabel": "Free samples and product testing",
+    "officialUrl": "https://brandadvisor.co.za/how-it-works/",
+    "bestFor": "Consumers interested in product testing and honest feedback",
+    "freeDetails": "Product exchange and trial opportunities may be available when campaigns are open.",
+    "requirements": "Application, profile details and content or feedback may be required.",
+    "watchOut": "Campaigns are limited and not every application gets selected.",
+    "lastReviewed": "2026-05-27"
+  },
+  {
+    "name": "Review Club South Africa",
+    "category": "samples",
+    "categoryLabel": "Free samples and product testing",
+    "officialUrl": "https://reviewclub.co.za/",
+    "bestFor": "Creators and shoppers who can review products honestly",
+    "freeDetails": "Free product campaigns may be offered to selected users in exchange for feedback or content.",
+    "requirements": "Profile setup, campaign application and review/content tasks may apply.",
+    "watchOut": "Check whether a campaign is active before signing up; availability can be limited.",
+    "lastReviewed": "2026-05-27",
+    "manualOk": true,
+    "manualOkReason": "Official site may reject automated link-check requests."
+  },
+  {
+    "name": "ReviewClub international product tests",
+    "category": "samples",
+    "categoryLabel": "Free samples and product testing",
+    "officialUrl": "https://reviewclub.com/en/how-it-works",
+    "bestFor": "Users comparing how product-testing panels usually work",
+    "freeDetails": "Explains product testing in exchange for honest feedback, reviews or surveys.",
+    "requirements": "Selection, testing periods and feedback tasks vary by campaign.",
+    "watchOut": "Use this as a product-testing explainer; always check whether a South African campaign is actually active.",
+    "lastReviewed": "2026-05-27"
+  }
+]

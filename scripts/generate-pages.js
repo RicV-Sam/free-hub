@@ -5,6 +5,7 @@ const shared = require("../shared/page-data.js");
 const ROOT_DIR = path.resolve(__dirname, "..");
 const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
 const ARCHIVE_DATA_PATH = path.join(ROOT_DIR, "data", "archive", "competitions-expired.json");
+const FREE_RESOURCES_PATH = path.join(ROOT_DIR, "data", "free-resources.json");
 const RELATIVE_ASSET_PATH = "/";
 const ADSENSE_SCRIPT =
   '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6084410613829318" crossorigin="anonymous"></script>';
@@ -32,6 +33,7 @@ const HUB_LINKS = [
   { label: "Paid entry", href: "/paid-entry-competitions/" },
 ];
 let brandImageLookup = new Map();
+const FREE_RESOURCES = JSON.parse(fs.readFileSync(FREE_RESOURCES_PATH, "utf8"));
 const TRUST_PAGE_DEFINITIONS = [
   {
     slug: "about",
@@ -507,40 +509,76 @@ const TRUST_PAGE_DEFINITIONS = [
   },
   {
     slug: "free-stuff-south-africa",
-    title: "Free Stuff South Africa | Legit Freebies, Courses & Resources",
+    title: "Free Stuff South Africa | Legit Freebies, Courses, Books & Samples",
     description:
-      "Find safer ways to look for free stuff in South Africa, including free-entry competitions, free courses, free books, credit reports and sample checks.",
+      "Find useful free stuff in South Africa, including free competitions, courses, children's books, credit reports, product samples and safe official links.",
     heading: "Free Stuff in South Africa",
     intro:
-      "Freehub can help users find more than prize draws. This guide points searchers toward safer free resources and explains how to avoid fake voucher and sample traps.",
+      "A practical guide to free South African resources that are worth your time: competitions, learning, reading, credit checks and cautious sample opportunities from official sources.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: "2026-05-27",
+    dateModified: BUILD_DATE_ISO,
+    resourceCategories: ["online-courses", "childrens-books", "credit-report", "samples"],
+    resourceTitle: "Best free options right now",
+    resourceIntro:
+      "Start with resources that have clear ownership, official websites and a realistic explanation of what is actually free.",
     sections: [
       {
-        heading: "Start with low-risk free options",
+        heading: "What counts as useful free stuff?",
         paragraphs: [
-          "The safest free things are usually official resources with clear ownership: free-entry competitions from known promoters, public learning platforms, free reading libraries, official credit-report tools and brand pages with transparent terms.",
-          "Be cautious with pages that promise free grocery vouchers, cash releases or sample boxes but hide the promoter, ask for card details, or redirect through several unrelated domains.",
+          "The best free resources solve a real consumer problem without hiding the cost. Good examples include free-entry competitions, public learning platforms, open children's book libraries, free credit-report tools and product-testing programmes that explain the exchange clearly.",
+          "A page is only useful if it tells users what is free, what still costs money, who runs the offer, who it suits and what to check before sharing personal details.",
         ],
       },
       {
-        heading: "Free things worth tracking",
+        heading: "Where Freehub should focus",
         paragraphs: [
-          "For Freehub, the strongest organic categories are free competitions, no-purchase voucher draws, free online courses, free children's books, free credit reports, free digital skills tools and carefully verified free samples.",
-          "These searches are evergreen, useful and less dependent on one closing date than a single competition page.",
+          "Freehub should prioritise free things South Africans search for repeatedly: no-purchase competitions, digital skills courses, free children's stories, credit report checks, sample programmes and voucher competitions with clear entry costs.",
+          "These topics can keep attracting search traffic after individual competitions close because the pages answer evergreen questions and point users to current official websites.",
         ],
       },
       {
-        heading: "How to check a freebie",
+        heading: "Quick safety test before you sign up",
         paragraphs: [
-          "Look for the official organisation, current terms, eligibility rules, privacy wording and any cost that may still apply, such as data, delivery, purchase with order, app sign-up or account verification.",
-          "If the offer says free but asks for upfront payment, banking passwords, card PINs, remote access apps or identity documents that do not match the offer, step away and verify through the brand's official website.",
+          "Before using any freebie, check the official organisation, current terms, eligibility, privacy wording and any cost that may still apply, such as data, delivery, purchase with order, app sign-up or account verification.",
+          "Avoid pages that promise free grocery vouchers, instant cash releases or sample boxes while hiding the promoter, asking for card details, or redirecting through unrelated survey domains.",
         ],
+      },
+    ],
+    checklistTitle: "Before you sign up",
+    checklist: [
+      "Open the official website directly before entering personal details.",
+      "Check whether the offer is free forever, a free trial, free with purchase, or free only if you are selected.",
+      "Look for South African eligibility, closing dates, stock limits and age restrictions.",
+      "Keep normal costs in mind: mobile data, delivery, printing, travel or a qualifying purchase may still apply.",
+    ],
+    avoidTitle: "What to avoid",
+    avoid: [
+      "Card PINs, banking passwords or remote-access apps.",
+      "Fake voucher pages that say every visitor has already won.",
+      "Sample offers that force unrelated survey walls before showing the promoter.",
+      "Credit repair promises that ask for upfront fees to remove accurate information.",
+    ],
+    faq: [
+      {
+        question: "Where can I find legit free stuff in South Africa?",
+        answer:
+          "Start with official brand, learning, literacy and credit-bureau websites, then use Freehub for free-entry competitions and safety checks before you click through.",
+      },
+      {
+        question: "Is free stuff really free?",
+        answer:
+          "Sometimes. Some resources are fully free, while others may require data, an account, a purchase, delivery, age verification or selection for a product-testing campaign.",
+      },
+      {
+        question: "What is the safest freebie to claim?",
+        answer:
+          "Free digital resources from established organisations, such as course platforms, reading libraries and credit-bureau tools, are usually lower risk than anonymous voucher or sample pages.",
       },
     ],
     links: [
       { label: "Free competitions", href: "/free-competitions/" },
+      { label: "Voucher competitions", href: "/category/vouchers/" },
       { label: "Free online courses", href: "/free-online-courses-south-africa/" },
       { label: "Free children's books", href: "/free-childrens-books-south-africa/" },
       { label: "Free credit report", href: "/free-credit-report-south-africa/" },
@@ -550,36 +588,71 @@ const TRUST_PAGE_DEFINITIONS = [
   },
   {
     slug: "free-online-courses-south-africa",
-    title: "Free Online Courses South Africa | Skills & Certificates Guide",
+    title: "Free Online Courses South Africa | Digital Skills & Certificates",
     description:
-      "Find safer free online course options for South Africans, including digital skills, business skills and learning platforms with official source checks.",
+      "Compare free online course options for South Africans, including Google Digital Skills, Microsoft Learn, Vodacom Digital Skills Hub and certificate checks.",
     heading: "Free Online Courses in South Africa",
     intro:
-      "Free courses can attract useful organic traffic because they solve a real problem: people want skills without paying before they know whether a programme is right for them.",
+      "A jobseeker-friendly guide to free learning platforms, what they offer, what may still cost money and how to check certificate claims before spending time on a course.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: "2026-05-27",
+    dateModified: BUILD_DATE_ISO,
+    resourceCategories: ["online-courses"],
+    resourceTitle: "Official free course websites",
+    resourceIntro:
+      "Use these as starting points for digital skills, technical learning and beginner business training.",
     sections: [
       {
-        heading: "Good free-course sources to watch",
+        heading: "Best for jobseekers and beginners",
         paragraphs: [
-          "Official and established sources worth monitoring include Google Digital Skills for Africa, Microsoft Learn, Vodacom Digital Skills Hub, YES Microsoft AI Skills Initiative, Atlas online learning and official bank or public-sector learning programmes.",
-          "Some programmes are fully free, some offer free learning with paid certificates, and some limit free certificates or vouchers. Always check the current source before promising a certificate.",
+          "Free online courses work best when the page tells users the skill level, time commitment, certificate status and whether the provider is the official source. That is the difference between a useful search result and a thin list of links.",
+          "For Freehub, the strongest course angle is practical: digital marketing, Microsoft tools, cloud basics, AI basics, CV-friendly skills and beginner business learning.",
         ],
       },
       {
-        heading: "What users should check",
+        heading: "Certificate and cost checks",
         paragraphs: [
-          "Check whether the course is self-paced, whether a certificate is included, whether data is zero-rated, whether the programme is open to all South Africans, and whether applications close on a specific date.",
-          "For jobseekers, the best pages explain the skill level, time required, certificate status and whether the training comes from the platform itself or a third-party provider.",
+          "Some platforms offer free learning but charge for certification exams, pro certificates or optional upgrades. Others may offer free completion certificates for selected courses only.",
+          "Users should confirm whether a course is self-paced, whether a certificate is included, whether data is zero-rated and whether the programme is open to all South Africans.",
         ],
       },
       {
-        heading: "Freehub content angle",
+        heading: "How to choose a course",
         paragraphs: [
-          "A Freehub course guide should stay neutral and useful: point users to official learning platforms, explain what is actually free, and separate open evergreen learning from limited application programmes.",
-          "This page can support organic searches for free online courses, free digital skills, free certificates and no-cost learning in South Africa while keeping competition pages focused on prizes.",
+          "Pick one skill goal first: improve your CV, learn digital marketing, understand Microsoft tools, start coding basics or build small-business confidence. Then choose the shortest official course that helps you prove progress.",
+          "Avoid pages that promise guaranteed jobs after a free course unless the provider gives transparent terms, intake criteria and current programme details.",
         ],
+      },
+    ],
+    checklistTitle: "Before you start a free course",
+    checklist: [
+      "Check whether the course, certificate and exam are all free or only the learning content is free.",
+      "Confirm the course is still open and available to South African learners.",
+      "Check estimated hours so you do not abandon the course halfway.",
+      "Use the official provider page, not a reposted WhatsApp flyer.",
+    ],
+    avoidTitle: "Course red flags",
+    avoid: [
+      "Guaranteed job promises with no employer or programme terms.",
+      "Requests for upfront admin fees for a supposedly free course.",
+      "Certificate claims that do not appear on the provider's own website.",
+      "Pages that collect ID documents before explaining who runs the training.",
+    ],
+    faq: [
+      {
+        question: "Are free online courses in South Africa really free?",
+        answer:
+          "Many learning paths are free to study, but certificates, exams, data or optional upgrades may cost money. Always check the official course page.",
+      },
+      {
+        question: "Which free online course is best for beginners?",
+        answer:
+          "Google Digital Skills and Microsoft Learn are good starting points for beginners because they offer structured learning from official providers.",
+      },
+      {
+        question: "Can I get a job with a free online course?",
+        answer:
+          "A free course can improve your CV and skills, but it does not guarantee employment. Treat job promises carefully unless the provider gives official placement terms.",
       },
     ],
     links: [
@@ -593,34 +666,69 @@ const TRUST_PAGE_DEFINITIONS = [
     slug: "free-childrens-books-south-africa",
     title: "Free Children's Books South Africa | Stories & Reading Resources",
     description:
-      "Find free children's books and reading resources in South Africa, including open story libraries, multilingual stories and safe download checks.",
+      "Find free children's books and reading resources in South Africa, including Book Dash, Nal'ibali, FunDza, multilingual stories and safe download checks.",
     heading: "Free Children's Books in South Africa",
     intro:
-      "Free reading resources are a useful evergreen topic for South African families, teachers and reading clubs, especially when sources are official, multilingual and safe to access.",
+      "A parent- and teacher-friendly guide to free South African reading resources, with official links, language notes and safety checks for downloads.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: "2026-05-27",
+    dateModified: BUILD_DATE_ISO,
+    resourceCategories: ["childrens-books"],
+    resourceTitle: "Official free reading websites",
+    resourceIntro:
+      "These resources are strong starting points for children, classrooms, reading clubs and mobile reading.",
     sections: [
       {
-        heading: "Official reading sources to watch",
+        heading: "Best resources for families and teachers",
         paragraphs: [
-          "Book Dash offers free children's books that can be read, downloaded, adapted, printed and distributed under its open model. FunDza offers mobile-friendly stories for young people, and Nal'ibali provides children's stories and reading resources in South African languages.",
-          "These are better organic fits than random free ebook posts because the resources are designed for ongoing access, not a short-lived coupon window.",
+          "Free children's book searches need practical answers: where to read now, which ages are served, whether stories are available in South African languages and whether downloads are safe.",
+          "Book Dash, Nal'ibali and FunDza are useful because they are ongoing literacy platforms, not short-lived coupon pages.",
         ],
       },
       {
-        heading: "What makes a free book source safer",
+        heading: "Language and age fit",
         paragraphs: [
-          "Look for an established literacy organisation, clear download or reading terms, no hidden subscription, no card details for a supposedly free download and language or age guidance.",
-          "For children, avoid download sites that bundle unrelated software, force browser notifications or ask for adult identity documents for basic reading material.",
+          "Younger children usually need picture books, read-aloud stories and home-language support. Older children and teens may prefer mobile stories, serial fiction and short reads.",
+          "A useful guide should help caregivers pick the right source instead of sending everyone to the same generic ebook page.",
         ],
       },
       {
-        heading: "How Freehub can use this",
+        heading: "Safe download checks",
         paragraphs: [
-          "This page gives Freehub a parent-friendly free-resource doorway while linking back to free competitions and voucher pages for users who also want prize opportunities.",
-          "It can also support seasonal content such as school holidays, reading clubs, Heritage Month stories and free multilingual learning resources.",
+          "Use established literacy organisations with clear reading or download terms. Avoid download sites that bundle unrelated software, force browser notifications or ask for adult identity documents for basic reading material.",
+          "Normal costs may still apply if a family prints books or uses mobile data, so Freehub should describe digital access honestly.",
         ],
+      },
+    ],
+    checklistTitle: "Before downloading books",
+    checklist: [
+      "Check age range, language and whether the story can be read online before downloading.",
+      "Use official literacy platforms or publisher pages.",
+      "Avoid downloads that require card details, unknown browser extensions or software installers.",
+      "If printing, check paper and ink costs before promising the book is completely free.",
+    ],
+    avoidTitle: "Reading-resource red flags",
+    avoid: [
+      "PDF sites with aggressive pop-ups or fake download buttons.",
+      "Books uploaded without permission or unclear copyright terms.",
+      "Child-facing pages that ask for unnecessary adult identity details.",
+      "Apps that hide subscriptions behind a free-book claim.",
+    ],
+    faq: [
+      {
+        question: "Where can I download free children's books in South Africa?",
+        answer:
+          "Start with official literacy platforms such as Book Dash and Nal'ibali, which provide free reading resources and clear access terms.",
+      },
+      {
+        question: "Are free children's books safe to download?",
+        answer:
+          "They are safer when downloaded from official literacy organisations or publishers. Avoid mirror sites, forced extensions and pages with fake download buttons.",
+      },
+      {
+        question: "Can teachers use free children's books?",
+        answer:
+          "Often yes, but teachers should check each provider's terms for classroom use, printing and sharing.",
       },
     ],
     links: [
@@ -634,34 +742,69 @@ const TRUST_PAGE_DEFINITIONS = [
     slug: "free-credit-report-south-africa",
     title: "Free Credit Report South Africa | Safe Credit Score Checks",
     description:
-      "Learn where South Africans can check free credit reports and scores, what to verify before signing up, and how to avoid credit repair scams.",
+      "Learn where South Africans can check free credit reports and scores through Experian, TransUnion, ClearScore and official consumer checks.",
     heading: "Free Credit Reports in South Africa",
     intro:
-      "Free credit-report searches are high-intent and useful. The page should help users understand official credit-report rights and safer free tools without turning into financial advice.",
+      "A consumer-friendly guide to free credit report options, what information you may need, what is not guaranteed and how to avoid credit repair scams.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: "2026-05-27",
+    dateModified: BUILD_DATE_ISO,
+    resourceCategories: ["credit-report"],
+    resourceTitle: "Official free credit report options",
+    resourceIntro:
+      "Use recognised credit-bureau or authorised consumer platforms, then read how your data and offers are handled.",
     sections: [
       {
-        heading: "Free report options",
+        heading: "What you can check for free",
         paragraphs: [
-          "South African consumers can look at credit-bureau and authorised-provider options such as Experian's free personal credit report and score, ClearScore's free score and report service, and statutory free credit-report rights through credit bureaux.",
-          "Availability, score ranges and app requirements can change, so users should confirm the current details on the provider's official website before signing up.",
+          "Free credit report pages are high-intent because users need to understand accounts, missed payments, defaults, judgments and possible errors before applying for credit.",
+          "Experian, TransUnion and ClearScore are useful starting points, but each service has its own sign-up flow, score display and offer model.",
         ],
       },
       {
         heading: "What to check before signing up",
         paragraphs: [
-          "Check who provides the report, whether the service is free forever or a trial, whether card details are required, how your data is used and whether marketing offers are part of the service.",
+          "Check who provides the report, whether the service is free forever or a trial, whether card details are required, how your data is used and whether personalised offers are part of the service.",
           "A free credit score is not the same as guaranteed loan approval. Treat personalised offers as advertising or eligibility guidance unless the provider clearly says otherwise.",
         ],
       },
       {
-        heading: "Scam warning",
+        heading: "Credit repair scam warning",
         paragraphs: [
           "Be wary of credit repair promises, upfront-fee fixes, WhatsApp agents who ask for passwords, and anyone claiming they can delete accurate credit information for a payment.",
-          "Use official provider pages and recognised dispute channels if you find incorrect information on a report.",
+          "If you find incorrect information, use the official provider's dispute process or recognised credit-bureau channels instead of paying an anonymous agent.",
         ],
+      },
+    ],
+    checklistTitle: "Before checking your credit report",
+    checklist: [
+      "Use the official provider website or app.",
+      "Confirm whether the report is free, a free annual report, or a free ongoing service.",
+      "Read how your data may be used for offers or marketing.",
+      "Never share banking passwords, card PINs or remote-access app codes.",
+    ],
+    avoidTitle: "Credit-report red flags",
+    avoid: [
+      "Upfront fees to remove accurate information.",
+      "WhatsApp-only agents who promise instant credit score fixes.",
+      "Sites that ask for card details before explaining the free report.",
+      "Loan approval promises tied to a free credit score check.",
+    ],
+    faq: [
+      {
+        question: "Can I get a free credit report in South Africa?",
+        answer:
+          "Yes. South Africans can use recognised credit-bureau or authorised consumer services, including free annual bureau report options and free score/report platforms.",
+      },
+      {
+        question: "Does checking my own credit report hurt my score?",
+        answer:
+          "Checking your own report is generally treated differently from a lender application check. Use official provider guidance if you are unsure.",
+      },
+      {
+        question: "Is a free credit score the same as loan approval?",
+        answer:
+          "No. A score helps you understand your profile, but approval depends on the lender's full assessment and current affordability checks.",
       },
     ],
     links: [
@@ -675,19 +818,23 @@ const TRUST_PAGE_DEFINITIONS = [
     slug: "free-samples-south-africa",
     title: "Free Samples South Africa | How to Find Legit Samples Safely",
     description:
-      "Learn how to check free sample offers in South Africa, including brand samples, samples with orders, adult-only products and fake freebie red flags.",
+      "Learn how to check free sample offers in South Africa, including product testing, brand samples, samples with orders and fake freebie red flags.",
     heading: "Free Samples in South Africa",
     intro:
-      "Free samples can bring search traffic, but they are also full of bait pages. Freehub should only surface sample opportunities when the source, cost and eligibility are clear.",
+      "A cautious guide to product samples and product-testing opportunities, with clear warnings about purchase requirements, survey walls and fake voucher traps.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: "2026-05-27",
+    dateModified: BUILD_DATE_ISO,
+    resourceCategories: ["samples"],
+    resourceTitle: "Sample and product-testing routes",
+    resourceIntro:
+      "These are not guaranteed freebies. They are places or methods to check when campaigns are active and terms are clear.",
     sections: [
       {
         heading: "Types of sample offers",
         paragraphs: [
           "Common sample routes include official brand request forms, samples included with an order, in-store or kiosk samples, product-testing panels and adult-only product trials with age restrictions.",
-          "Some offers are not truly free because they require a paid order, delivery fee, purchase, loyalty account or collection at a specific store.",
+          "Some offers are not truly free because they require a paid order, delivery fee, purchase, loyalty account, content task or collection at a specific store.",
         ],
       },
       {
@@ -698,11 +845,42 @@ const TRUST_PAGE_DEFINITIONS = [
         ],
       },
       {
-        heading: "How Freehub should list samples",
+        heading: "How Freehub should talk about samples",
         paragraphs: [
-          "Use cautious language such as sample offer, with order, limited stock or adult-only where appropriate. Do not label an offer free-entry if it requires a purchase or age-gated product claim.",
+          "Use cautious labels such as sample offer, product testing, with order, limited stock or adult-only where appropriate. Do not label an offer free-entry if it requires a purchase, delivery payment or age-gated product claim.",
           "When in doubt, keep the item as an editorial guide mention instead of publishing it as a competition-style listing.",
         ],
+      },
+    ],
+    checklistTitle: "Before claiming a sample",
+    checklist: [
+      "Confirm the sample appears on the brand, retailer or testing platform's official website.",
+      "Check whether it is free, free with order, selected testers only, or limited to a store event.",
+      "Read what feedback, content or review is expected in exchange.",
+      "Check delivery, age, stock and purchase conditions before sharing personal details.",
+    ],
+    avoidTitle: "Sample red flags",
+    avoid: [
+      "Survey walls that never reveal the brand or product.",
+      "Card details for a supposedly free sample.",
+      "High-value voucher claims disguised as sample campaigns.",
+      "Pages that say every visitor qualifies without any campaign terms.",
+    ],
+    faq: [
+      {
+        question: "Where can I get free samples in South Africa?",
+        answer:
+          "Check official brand campaigns, product-testing platforms and retailer promotions, but remember that samples are often limited, selected or linked to a purchase.",
+      },
+      {
+        question: "Are free samples always free?",
+        answer:
+          "No. Some are free only with an order, delivery fee, loyalty account, store visit or product-testing task.",
+      },
+      {
+        question: "How do I avoid fake sample offers?",
+        answer:
+          "Use official websites, avoid card requests for free items, and step away from survey pages that hide the promoter or promise everyone a high-value reward.",
       },
     ],
     links: [
@@ -3118,6 +3296,7 @@ function renderHomepage(competitions) {
             <a class="internal-links__link" href="/new-competitions-south-africa/">New competitions this week</a>
             <a class="internal-links__link" href="/win-a-car/">Win a car competitions</a>
             <a class="internal-links__link" href="/free-competitions/">Free competitions</a>
+            <a class="internal-links__link" href="/free-stuff-south-africa/">Free stuff South Africa</a>
             <a class="internal-links__link" href="/competitions-ending-soon/">Competitions ending soon</a>
             <a class="internal-links__link" href="/purchase-required-competitions/">Purchase required competitions</a>
             <a class="internal-links__link" href="/paid-entry-competitions/">Paid entry competitions</a>
@@ -3373,6 +3552,10 @@ ${noscriptLinks}
 function renderTrustPage(page) {
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/${page.slug}/`;
   const usefulLinks = getTrustPageUsefulLinks(page);
+  const pageResources = getTrustPageResources(page);
+  const faqItems = Array.isArray(page.faq) ? page.faq : [];
+  const resourceStructuredData = buildFreeResourceItemList(page, pageResources);
+  const faqStructuredData = buildTrustPageFaqStructuredData(faqItems);
   const articleData = page.article
     ? {
         "@context": "https://schema.org",
@@ -3433,6 +3616,14 @@ function renderTrustPage(page) {
       },
     ],
   };
+  const resourceStructuredDataScript = resourceStructuredData
+    ? `<script id="structured-data-itemlist" type="application/ld+json">${escapeScript(
+        JSON.stringify(resourceStructuredData)
+      )}</script>`
+    : "";
+  const faqStructuredDataScript = faqStructuredData
+    ? `<script id="structured-data-faq" type="application/ld+json">${escapeScript(JSON.stringify(faqStructuredData))}</script>`
+    : "";
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -3456,6 +3647,8 @@ function renderTrustPage(page) {
     <script id="structured-data-webpage" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
     <script id="structured-data-breadcrumb" type="application/ld+json">${escapeScript(JSON.stringify(breadcrumbData))}</script>
     ${articleData ? `<script id="structured-data-article" type="application/ld+json">${escapeScript(JSON.stringify(articleData))}</script>` : ""}
+    ${resourceStructuredDataScript}
+    ${faqStructuredDataScript}
     <link rel="stylesheet" href="/styles.css" />
     ${ADSENSE_SCRIPT}
     <!-- Google tag (gtag.js) -->
@@ -3498,6 +3691,10 @@ function renderTrustPage(page) {
             .join("\n          ")}
         </section>
 
+        ${renderFreeResourceSection(page, pageResources)}
+        ${renderTrustChecklist(page)}
+        ${renderTrustFaqSection(faqItems)}
+
         <section class="internal-links" aria-label="Useful Freehub pages">
           <p class="internal-links__title">Useful Freehub Pages</p>
           <div class="internal-links__list">
@@ -3516,6 +3713,151 @@ function renderTrustPage(page) {
   </body>
 </html>
 `;
+}
+
+function getTrustPageResources(page) {
+  const categories = Array.isArray(page.resourceCategories) ? page.resourceCategories : [];
+
+  if (categories.length === 0) {
+    return [];
+  }
+
+  return FREE_RESOURCES.filter((resource) => categories.includes(resource.category));
+}
+
+function renderFreeResourceSection(page, resources) {
+  if (!Array.isArray(resources) || resources.length === 0) {
+    return "";
+  }
+
+  return `<section class="free-resource-section" aria-label="${escapeAttribute(page.resourceTitle || "Official free resources")}">
+          <div class="free-resource-section__header">
+            <p class="section-kicker">Official Websites</p>
+            <h2>${escapeHtml(page.resourceTitle || "Best free options right now")}</h2>
+            <p>${escapeHtml(page.resourceIntro || "Use official source links and check what is actually free before signing up.")}</p>
+          </div>
+          <div class="free-resource-grid">
+            ${resources.map(renderFreeResourceCard).join("\n            ")}
+          </div>
+        </section>`;
+}
+
+function renderFreeResourceCard(resource) {
+  const rel = resource.internal ? "" : ' rel="nofollow noopener" target="_blank"';
+  const linkLabel = resource.internal ? "Read guide" : "Official website";
+
+  return `<article class="free-resource-card">
+              <div class="free-resource-card__top">
+                <span class="free-resource-card__category">${escapeHtml(resource.categoryLabel)}</span>
+                <span class="free-resource-card__reviewed">Reviewed ${escapeHtml(shared.formatDate(resource.lastReviewed))}</span>
+              </div>
+              <h3>${escapeHtml(resource.name)}</h3>
+              <dl class="free-resource-card__facts">
+                <div>
+                  <dt>Best for</dt>
+                  <dd>${escapeHtml(resource.bestFor)}</dd>
+                </div>
+                <div>
+                  <dt>What is free</dt>
+                  <dd>${escapeHtml(resource.freeDetails)}</dd>
+                </div>
+                <div>
+                  <dt>Requirements</dt>
+                  <dd>${escapeHtml(resource.requirements)}</dd>
+                </div>
+                <div>
+                  <dt>Check first</dt>
+                  <dd>${escapeHtml(resource.watchOut)}</dd>
+                </div>
+              </dl>
+              <a class="free-resource-card__link" href="${escapeAttribute(resource.officialUrl)}"${rel}>${escapeHtml(linkLabel)}</a>
+            </article>`;
+}
+
+function renderTrustChecklist(page) {
+  const checklist = Array.isArray(page.checklist) ? page.checklist : [];
+  const avoid = Array.isArray(page.avoid) ? page.avoid : [];
+
+  if (checklist.length === 0 && avoid.length === 0) {
+    return "";
+  }
+
+  return `<section class="free-resource-advice" aria-label="Free resource checks">
+          ${renderTrustChecklistPanel(page.checklistTitle || "Before you sign up", checklist, "free-resource-advice__panel--positive")}
+          ${renderTrustChecklistPanel(page.avoidTitle || "What to avoid", avoid, "free-resource-advice__panel--warning")}
+        </section>`;
+}
+
+function renderTrustChecklistPanel(title, items, className) {
+  if (!Array.isArray(items) || items.length === 0) {
+    return "";
+  }
+
+  return `<article class="free-resource-advice__panel ${escapeAttribute(className)}">
+            <h2>${escapeHtml(title)}</h2>
+            <ul>
+              ${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("\n              ")}
+            </ul>
+          </article>`;
+}
+
+function renderTrustFaqSection(faqItems) {
+  if (!Array.isArray(faqItems) || faqItems.length === 0) {
+    return "";
+  }
+
+  return `<section class="detail-faq detail-faq--hub" aria-label="Free resource questions">
+          <p class="detail-section-title">Common Questions</p>
+          ${faqItems
+            .map(
+              (item) => `<details>
+            <summary>${escapeHtml(item.question)}</summary>
+            <p>${escapeHtml(item.answer)}</p>
+          </details>`
+            )
+            .join("\n          ")}
+        </section>`;
+}
+
+function buildFreeResourceItemList(page, resources) {
+  if (!Array.isArray(resources) || resources.length === 0) {
+    return null;
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: page.resourceTitle || page.heading,
+    itemListElement: resources.map((resource, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "WebSite",
+        name: resource.name,
+        url: resource.officialUrl,
+        description: resource.freeDetails,
+      },
+    })),
+  };
+}
+
+function buildTrustPageFaqStructuredData(faqItems) {
+  if (!Array.isArray(faqItems) || faqItems.length === 0) {
+    return null;
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
 }
 
 function getTrustPageUsefulLinks(page) {
@@ -5331,6 +5673,61 @@ function runStaticSeoChecks() {
 
   if (errors.length > 0) {
     throw new Error(`[SEO checks failed]\n${errors.map((error) => `- ${error}`).join("\n")}`);
+  }
+
+  runFreeResourceChecks();
+}
+
+function runFreeResourceChecks() {
+  const errors = [];
+  const seenNames = new Set();
+  const requiredFields = [
+    "name",
+    "category",
+    "categoryLabel",
+    "officialUrl",
+    "bestFor",
+    "freeDetails",
+    "requirements",
+    "watchOut",
+    "lastReviewed",
+  ];
+  const resourceCategoriesUsed = new Set(
+    TRUST_PAGE_DEFINITIONS.flatMap((page) => (Array.isArray(page.resourceCategories) ? page.resourceCategories : []))
+  );
+
+  FREE_RESOURCES.forEach((resource) => {
+    const label = resource.name || "(unnamed free resource)";
+
+    if (seenNames.has(label)) {
+      errors.push(`Duplicate free resource name: ${label}`);
+    }
+    seenNames.add(label);
+
+    requiredFields.forEach((field) => {
+      if (!resource[field]) {
+        errors.push(`Free resource missing ${field}: ${label}`);
+      }
+    });
+
+    try {
+      const url = new URL(resource.officialUrl);
+      if (!["http:", "https:"].includes(url.protocol)) {
+        errors.push(`Free resource URL must be http or https: ${label}`);
+      }
+    } catch (error) {
+      errors.push(`Free resource has invalid officialUrl: ${label}`);
+    }
+  });
+
+  resourceCategoriesUsed.forEach((category) => {
+    if (!FREE_RESOURCES.some((resource) => resource.category === category)) {
+      errors.push(`Trust page references free-resource category with no resources: ${category}`);
+    }
+  });
+
+  if (errors.length > 0) {
+    throw new Error(`[Free resource checks failed]\n${errors.map((error) => `- ${error}`).join("\n")}`);
   }
 }
 
