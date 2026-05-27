@@ -506,6 +506,213 @@ const TRUST_PAGE_DEFINITIONS = [
     ],
   },
   {
+    slug: "free-stuff-south-africa",
+    title: "Free Stuff South Africa | Legit Freebies, Courses & Resources",
+    description:
+      "Find safer ways to look for free stuff in South Africa, including free-entry competitions, free courses, free books, credit reports and sample checks.",
+    heading: "Free Stuff in South Africa",
+    intro:
+      "Freehub can help users find more than prize draws. This guide points searchers toward safer free resources and explains how to avoid fake voucher and sample traps.",
+    article: true,
+    datePublished: "2026-05-27",
+    dateModified: "2026-05-27",
+    sections: [
+      {
+        heading: "Start with low-risk free options",
+        paragraphs: [
+          "The safest free things are usually official resources with clear ownership: free-entry competitions from known promoters, public learning platforms, free reading libraries, official credit-report tools and brand pages with transparent terms.",
+          "Be cautious with pages that promise free grocery vouchers, cash releases or sample boxes but hide the promoter, ask for card details, or redirect through several unrelated domains.",
+        ],
+      },
+      {
+        heading: "Free things worth tracking",
+        paragraphs: [
+          "For Freehub, the strongest organic categories are free competitions, no-purchase voucher draws, free online courses, free children's books, free credit reports, free digital skills tools and carefully verified free samples.",
+          "These searches are evergreen, useful and less dependent on one closing date than a single competition page.",
+        ],
+      },
+      {
+        heading: "How to check a freebie",
+        paragraphs: [
+          "Look for the official organisation, current terms, eligibility rules, privacy wording and any cost that may still apply, such as data, delivery, purchase with order, app sign-up or account verification.",
+          "If the offer says free but asks for upfront payment, banking passwords, card PINs, remote access apps or identity documents that do not match the offer, step away and verify through the brand's official website.",
+        ],
+      },
+    ],
+    links: [
+      { label: "Free competitions", href: "/free-competitions/" },
+      { label: "Free online courses", href: "/free-online-courses-south-africa/" },
+      { label: "Free children's books", href: "/free-childrens-books-south-africa/" },
+      { label: "Free credit report", href: "/free-credit-report-south-africa/" },
+      { label: "Free samples guide", href: "/free-samples-south-africa/" },
+      { label: "Fake winner messages", href: "/fake-competition-winner-messages/" },
+    ],
+  },
+  {
+    slug: "free-online-courses-south-africa",
+    title: "Free Online Courses South Africa | Skills & Certificates Guide",
+    description:
+      "Find safer free online course options for South Africans, including digital skills, business skills and learning platforms with official source checks.",
+    heading: "Free Online Courses in South Africa",
+    intro:
+      "Free courses can attract useful organic traffic because they solve a real problem: people want skills without paying before they know whether a programme is right for them.",
+    article: true,
+    datePublished: "2026-05-27",
+    dateModified: "2026-05-27",
+    sections: [
+      {
+        heading: "Good free-course sources to watch",
+        paragraphs: [
+          "Official and established sources worth monitoring include Google Digital Skills for Africa, Microsoft Learn, Vodacom Digital Skills Hub, YES Microsoft AI Skills Initiative, Atlas online learning and official bank or public-sector learning programmes.",
+          "Some programmes are fully free, some offer free learning with paid certificates, and some limit free certificates or vouchers. Always check the current source before promising a certificate.",
+        ],
+      },
+      {
+        heading: "What users should check",
+        paragraphs: [
+          "Check whether the course is self-paced, whether a certificate is included, whether data is zero-rated, whether the programme is open to all South Africans, and whether applications close on a specific date.",
+          "For jobseekers, the best pages explain the skill level, time required, certificate status and whether the training comes from the platform itself or a third-party provider.",
+        ],
+      },
+      {
+        heading: "Freehub content angle",
+        paragraphs: [
+          "A Freehub course guide should stay neutral and useful: point users to official learning platforms, explain what is actually free, and separate open evergreen learning from limited application programmes.",
+          "This page can support organic searches for free online courses, free digital skills, free certificates and no-cost learning in South Africa while keeping competition pages focused on prizes.",
+        ],
+      },
+    ],
+    links: [
+      { label: "Free stuff guide", href: "/free-stuff-south-africa/" },
+      { label: "Free competitions", href: "/free-competitions/" },
+      { label: "App competitions", href: "/app-competitions-south-africa/" },
+      { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
+    ],
+  },
+  {
+    slug: "free-childrens-books-south-africa",
+    title: "Free Children's Books South Africa | Stories & Reading Resources",
+    description:
+      "Find free children's books and reading resources in South Africa, including open story libraries, multilingual stories and safe download checks.",
+    heading: "Free Children's Books in South Africa",
+    intro:
+      "Free reading resources are a useful evergreen topic for South African families, teachers and reading clubs, especially when sources are official, multilingual and safe to access.",
+    article: true,
+    datePublished: "2026-05-27",
+    dateModified: "2026-05-27",
+    sections: [
+      {
+        heading: "Official reading sources to watch",
+        paragraphs: [
+          "Book Dash offers free children's books that can be read, downloaded, adapted, printed and distributed under its open model. FunDza offers mobile-friendly stories for young people, and Nal'ibali provides children's stories and reading resources in South African languages.",
+          "These are better organic fits than random free ebook posts because the resources are designed for ongoing access, not a short-lived coupon window.",
+        ],
+      },
+      {
+        heading: "What makes a free book source safer",
+        paragraphs: [
+          "Look for an established literacy organisation, clear download or reading terms, no hidden subscription, no card details for a supposedly free download and language or age guidance.",
+          "For children, avoid download sites that bundle unrelated software, force browser notifications or ask for adult identity documents for basic reading material.",
+        ],
+      },
+      {
+        heading: "How Freehub can use this",
+        paragraphs: [
+          "This page gives Freehub a parent-friendly free-resource doorway while linking back to free competitions and voucher pages for users who also want prize opportunities.",
+          "It can also support seasonal content such as school holidays, reading clubs, Heritage Month stories and free multilingual learning resources.",
+        ],
+      },
+    ],
+    links: [
+      { label: "Free stuff guide", href: "/free-stuff-south-africa/" },
+      { label: "Free online courses", href: "/free-online-courses-south-africa/" },
+      { label: "Free competitions", href: "/free-competitions/" },
+      { label: "Legit competitions guide", href: "/legit-competitions-south-africa/" },
+    ],
+  },
+  {
+    slug: "free-credit-report-south-africa",
+    title: "Free Credit Report South Africa | Safe Credit Score Checks",
+    description:
+      "Learn where South Africans can check free credit reports and scores, what to verify before signing up, and how to avoid credit repair scams.",
+    heading: "Free Credit Reports in South Africa",
+    intro:
+      "Free credit-report searches are high-intent and useful. The page should help users understand official credit-report rights and safer free tools without turning into financial advice.",
+    article: true,
+    datePublished: "2026-05-27",
+    dateModified: "2026-05-27",
+    sections: [
+      {
+        heading: "Free report options",
+        paragraphs: [
+          "South African consumers can look at credit-bureau and authorised-provider options such as Experian's free personal credit report and score, ClearScore's free score and report service, and statutory free credit-report rights through credit bureaux.",
+          "Availability, score ranges and app requirements can change, so users should confirm the current details on the provider's official website before signing up.",
+        ],
+      },
+      {
+        heading: "What to check before signing up",
+        paragraphs: [
+          "Check who provides the report, whether the service is free forever or a trial, whether card details are required, how your data is used and whether marketing offers are part of the service.",
+          "A free credit score is not the same as guaranteed loan approval. Treat personalised offers as advertising or eligibility guidance unless the provider clearly says otherwise.",
+        ],
+      },
+      {
+        heading: "Scam warning",
+        paragraphs: [
+          "Be wary of credit repair promises, upfront-fee fixes, WhatsApp agents who ask for passwords, and anyone claiming they can delete accurate credit information for a payment.",
+          "Use official provider pages and recognised dispute channels if you find incorrect information on a report.",
+        ],
+      },
+    ],
+    links: [
+      { label: "Free stuff guide", href: "/free-stuff-south-africa/" },
+      { label: "Fake winner messages", href: "/fake-competition-winner-messages/" },
+      { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
+      { label: "Free competitions", href: "/free-competitions/" },
+    ],
+  },
+  {
+    slug: "free-samples-south-africa",
+    title: "Free Samples South Africa | How to Find Legit Samples Safely",
+    description:
+      "Learn how to check free sample offers in South Africa, including brand samples, samples with orders, adult-only products and fake freebie red flags.",
+    heading: "Free Samples in South Africa",
+    intro:
+      "Free samples can bring search traffic, but they are also full of bait pages. Freehub should only surface sample opportunities when the source, cost and eligibility are clear.",
+    article: true,
+    datePublished: "2026-05-27",
+    dateModified: "2026-05-27",
+    sections: [
+      {
+        heading: "Types of sample offers",
+        paragraphs: [
+          "Common sample routes include official brand request forms, samples included with an order, in-store or kiosk samples, product-testing panels and adult-only product trials with age restrictions.",
+          "Some offers are not truly free because they require a paid order, delivery fee, purchase, loyalty account or collection at a specific store.",
+        ],
+      },
+      {
+        heading: "Check the source first",
+        paragraphs: [
+          "A safer sample page should show the brand, eligibility, collection or delivery method, whether stock is limited, whether age restrictions apply and what personal information is collected.",
+          "Avoid sample pages that ask for card details for a free item, send you through unrelated survey walls or claim everyone has already won a high-value voucher.",
+        ],
+      },
+      {
+        heading: "How Freehub should list samples",
+        paragraphs: [
+          "Use cautious language such as sample offer, with order, limited stock or adult-only where appropriate. Do not label an offer free-entry if it requires a purchase or age-gated product claim.",
+          "When in doubt, keep the item as an editorial guide mention instead of publishing it as a competition-style listing.",
+        ],
+      },
+    ],
+    links: [
+      { label: "Free stuff guide", href: "/free-stuff-south-africa/" },
+      { label: "Free competitions", href: "/free-competitions/" },
+      { label: "Entry cost labels", href: "/competition-entry-cost-labels/" },
+      { label: "Report a suspicious listing", href: "/report-a-competition/" },
+    ],
+  },
+  {
     slug: "report-a-competition",
     title: "Report a Competition | Freehub",
     description:
@@ -679,6 +886,10 @@ function renderSiteFooter() {
               <a href="/app-competitions-south-africa/">App competitions</a>
               <a href="/fake-competition-winner-messages/">Fake winner messages</a>
               <a href="/purchase-required-competitions-explained/">Purchase required guide</a>
+              <a href="/free-stuff-south-africa/">Free stuff guide</a>
+              <a href="/free-online-courses-south-africa/">Free online courses</a>
+              <a href="/free-childrens-books-south-africa/">Free children's books</a>
+              <a href="/free-credit-report-south-africa/">Free credit report</a>
               <a href="/report-a-competition/">Report a competition</a>
             </nav>
           </div>

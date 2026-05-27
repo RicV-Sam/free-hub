@@ -20,12 +20,40 @@ const MANUAL_OK_LINKS = new Map([
     "https://www.capitecbank.co.za/globalassets/pages/competition-and-conditions/competitions/2026/moneyup-academy-competition-rules-2026.pdf",
   ],
   [
+    "capitec-tactical-flexi-voucher-2026",
+    "https://www.capitecbank.co.za/competitions-and-conditions/",
+  ],
+  [
     "clicks-clubcard-scan-win",
     "https://clicks.co.za/competitions/view/clubcard-scan-win-2026",
   ],
   [
     "clicks-sorbet-voucher-2026",
     "https://clicks.co.za/clubcard/competitions/clubcard-magazine-april-may-issue-of-2026-sorbet-voucher-competition",
+  ],
+  [
+    "clicks-babyclub-competition",
+    "https://clicks.co.za/clubcard/competitions/win-with-babyclub-competition",
+  ],
+  [
+    "clicks-cashback-haul-competition",
+    "https://clicks.co.za/clubcard/competitions/cashback-haul-competition",
+  ],
+  [
+    "revlon-matric-dance-vouchers",
+    "https://clicks.co.za/clubcard/competitions/revlon-fragrance-take-scentre-stage-matric-dance-2026-competition",
+  ],
+  [
+    "clicks-protex-protect-their-future-2026",
+    "https://clicks.co.za/clubcard/competitions/protex-protect-their-future-competition",
+  ],
+  [
+    "clicks-nivea-men-broscape-cash-card-2026",
+    "https://clicks.co.za/clubcard/competitions/nivea-men-broscape-clicks-clubcard-competition",
+  ],
+  [
+    "dis-chem-protex-fund-the-future-2026",
+    "https://www.dischem.co.za/protex-fund-the-future-june-2026-competition",
   ],
   [
     "spur-family-cruises-with-spur-2026",
@@ -112,6 +140,8 @@ function getManualOkResult(competition) {
       "www.capitecbank.co.za",
       "clicks.co.za",
       "www.clicks.co.za",
+      "dischem.co.za",
+      "www.dischem.co.za",
       "spursteakranches.com",
       "www.spursteakranches.com",
     ].includes(hostname) ||
