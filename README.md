@@ -51,3 +51,5 @@ After data/code changes, always run:
 1. `node scripts/generate-pages.js`
 2. verify output locally
 3. commit and push `main`
+
+Canonical domain guard: `freehub.co.za` is the only production domain for indexable pages. The old `freehub.datacost.co.za` host must be redirected or noindexed outside this repo; see `docs/deployment-canonical-domain.md`.

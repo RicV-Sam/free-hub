@@ -860,6 +860,7 @@
     "linkValidationStatus": "manual-ok",
     "linkValidationReason": "Official Clicks ClubCard competition page is browser-verified with visible title, prize and closing date; automated fetch can be inconsistent on Clicks pages. Verified on 2026-05-27.",
     "linkValidationCheckedAt": "2026-05-27",
+    "linkValidationAllowedDomain": "clicks.co.za",
     "sourceUrl": "https://clicks.co.za/clubcard/competitions/clubcard-magazine-april-may-issue-of-2026-sorbet-voucher-competition",
     "sourceDomain": "clicks.co.za"
   },
@@ -2200,7 +2201,8 @@
     "evidenceNotes": "Official Clicks page confirms the Revlon Fragrance Take Scentre Stage Matric Dance 2026 competition, six R2,000 voucher prizes and 31 May 2026 closing date.",
     "linkValidationStatus": "manual-ok",
     "linkValidationReason": "Official Clicks ClubCard competition page is browser-verified with visible title, prize and closing date; automated fetch can be inconsistent on Clicks pages. Verified on 2026-05-27.",
-    "linkValidationCheckedAt": "2026-05-27"
+    "linkValidationCheckedAt": "2026-05-27",
+    "linkValidationAllowedDomain": "clicks.co.za"
   },
   {
     "id": "old-mutual-rewards-refer-win",
@@ -3800,7 +3802,8 @@
     "evidenceNotes": "Official Clicks page confirms the Cashback Haul Competition title, R250 cashback prize and 19 July 2026 closing date.",
     "linkValidationStatus": "manual-ok",
     "linkValidationReason": "Official Clicks ClubCard competition page is browser-verified with visible title, prize and closing date; automated fetch can be inconsistent on Clicks pages. Verified on 2026-05-27.",
-    "linkValidationCheckedAt": "2026-05-27"
+    "linkValidationCheckedAt": "2026-05-27",
+    "linkValidationAllowedDomain": "clicks.co.za"
   },
   {
     "id": "nescafe-lead-gen-2026-mastercard-vouchers",
@@ -3968,7 +3971,8 @@
     "evidenceNotes": "Official Clicks page confirms the WIN with BabyClub Competition title, cashback prize for nappies and wipes for a year, and 31 July 2026 closing date.",
     "linkValidationStatus": "manual-ok",
     "linkValidationReason": "Official Clicks ClubCard competition page is browser-verified with visible title, prize and closing date; automated fetch can be inconsistent on Clicks pages. Verified on 2026-05-27.",
-    "linkValidationCheckedAt": "2026-05-27"
+    "linkValidationCheckedAt": "2026-05-27",
+    "linkValidationAllowedDomain": "clicks.co.za"
   },
   {
     "id": "capitec-moneyup-academy-competition-2026",
@@ -4016,7 +4020,8 @@
     "importedAt": "2026-05-15T19:06:05.616Z",
     "linkValidationStatus": "manual-ok",
     "linkValidationReason": "Official Capitec competitions and conditions index lists this exact 2026 MoneyUp Academy PDF, but automated fetch returns HTTP 403 for the PDF.",
-    "linkValidationCheckedAt": "2026-05-19"
+    "linkValidationCheckedAt": "2026-05-19",
+    "linkValidationAllowedDomain": "capitecbank.co.za"
   },
   {
     "id": "dis-chem-garnier-pure-active-june-2026-competition",
@@ -5092,7 +5097,8 @@
     "evidenceNotes": "Official Dis-Chem page confirms the 12 May to 23 June 2026 period, purchase of any three Protex soaps, Better Rewards card swipe requirement, 20 x R500 Dis-Chem Better Rewards instant prizes and 10 school water-system overhaul nominations.",
     "linkValidationStatus": "manual-ok",
     "linkValidationReason": "Official Dis-Chem competition terms page is browser-verified, but automated fetch can return HTTP 403. Verified on 2026-05-27.",
-    "linkValidationCheckedAt": "2026-05-27"
+    "linkValidationCheckedAt": "2026-05-27",
+    "linkValidationAllowedDomain": "dischem.co.za"
   },
   {
     "id": "dis-chem-nestle-baby-cereals-rewards-2026",
@@ -6037,6 +6043,7 @@
     "linkValidationStatus": "manual-ok",
     "linkValidationReason": "Official Spur promotions page is live and browser-verified, but automated fetch returns HTTP 403. Verified against the live carousel promotion and official terms PDF on 2026-05-25.",
     "linkValidationCheckedAt": "2026-05-25",
+    "linkValidationAllowedDomain": "spursteakranches.com",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee; Spur Family Club membership and qualifying sit-down spend of R250 or more required",
     "purchaseRequired": true,
@@ -6087,6 +6094,7 @@
     "linkValidationStatus": "manual-ok",
     "linkValidationReason": "Official Spur promotion page is live and browser-verified, but automated fetch returns HTTP 403. Verified against the live promotion page and official SA Rugby terms on 2026-05-25.",
     "linkValidationCheckedAt": "2026-05-25",
+    "linkValidationAllowedDomain": "spursteakranches.com",
     "entryCostType": "free-entry",
     "entryFeeLabel": "No purchase required; Spur Family Club app sign-up required and standard data costs may apply",
     "purchaseRequired": false,
@@ -6148,7 +6156,8 @@
     "evidenceNotes": "Official Capitec competitions page lists the 2026 Tactical Flexi Voucher PDF. The PDF states prizes are various Flexi Vouchers valued from R500 to R2,000, the tactical competitions run from 1 January 2026 to 31 December 2026, and entry is by following Capitec approved social media pages and engaging on the relevant competition post.",
     "linkValidationStatus": "manual-ok",
     "linkValidationReason": "Official Capitec competitions and conditions page is browser-verified and lists the Tactical Flexi Voucher Competition PDF, but automated fetch returns HTTP 403. Verified on 2026-05-27.",
-    "linkValidationCheckedAt": "2026-05-27"
+    "linkValidationCheckedAt": "2026-05-27",
+    "linkValidationAllowedDomain": "capitecbank.co.za"
   },
   {
     "id": "mcdonalds-nazo-meals-airtime-data-rewards-2026",
@@ -6252,7 +6261,8 @@
     "evidenceNotes": "Official Clicks page confirms the Protex Protect Their Future Competition title, water-system overhaul and R1,000 Clicks cashback prizes, and 30 June 2026 closing date.",
     "linkValidationStatus": "manual-ok",
     "linkValidationReason": "Official Clicks ClubCard competition page is browser-verified with visible title, prize and closing date; automated fetch can be inconsistent on Clicks pages. Verified on 2026-05-27.",
-    "linkValidationCheckedAt": "2026-05-27"
+    "linkValidationCheckedAt": "2026-05-27",
+    "linkValidationAllowedDomain": "clicks.co.za"
   },
   {
     "id": "clicks-nivea-men-broscape-cash-card-2026",
@@ -6304,6 +6314,7 @@
     "evidenceNotes": "Official Clicks page confirms the Nivea Men Broscape Clicks ClubCard Competition title, R2,000 cash card prize and 31 May 2026 closing date.",
     "linkValidationStatus": "manual-ok",
     "linkValidationReason": "Official Clicks ClubCard competition page is browser-verified with visible title, prize and closing date; automated fetch can be inconsistent on Clicks pages. Verified on 2026-05-27.",
-    "linkValidationCheckedAt": "2026-05-27"
+    "linkValidationCheckedAt": "2026-05-27",
+    "linkValidationAllowedDomain": "clicks.co.za"
   }
 ]

@@ -517,7 +517,7 @@ const TRUST_PAGE_DEFINITIONS = [
       "A practical guide to free South African resources that are worth your time: competitions, learning, reading, credit checks and cautious sample opportunities from official sources.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: BUILD_DATE_ISO,
+    dateModified: "2026-05-27",
     resourceCategories: ["online-courses", "childrens-books", "credit-report", "samples"],
     resourceTitle: "Best free options right now",
     resourceIntro:
@@ -596,7 +596,7 @@ const TRUST_PAGE_DEFINITIONS = [
       "A jobseeker-friendly guide to free learning platforms, what they offer, what may still cost money and how to check certificate claims before spending time on a course.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: BUILD_DATE_ISO,
+    dateModified: "2026-05-27",
     resourceCategories: ["online-courses"],
     resourceTitle: "Official free course websites",
     resourceIntro:
@@ -672,7 +672,7 @@ const TRUST_PAGE_DEFINITIONS = [
       "A parent- and teacher-friendly guide to free South African reading resources, with official links, language notes and safety checks for downloads.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: BUILD_DATE_ISO,
+    dateModified: "2026-05-27",
     resourceCategories: ["childrens-books"],
     resourceTitle: "Official free reading websites",
     resourceIntro:
@@ -748,7 +748,7 @@ const TRUST_PAGE_DEFINITIONS = [
       "A consumer-friendly guide to free credit report options, what information you may need, what is not guaranteed and how to avoid credit repair scams.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: BUILD_DATE_ISO,
+    dateModified: "2026-05-27",
     resourceCategories: ["credit-report"],
     resourceTitle: "Official free credit report options",
     resourceIntro:
@@ -824,7 +824,7 @@ const TRUST_PAGE_DEFINITIONS = [
       "A cautious guide to product samples and product-testing opportunities, with clear warnings about purchase requirements, survey walls and fake voucher traps.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: BUILD_DATE_ISO,
+    dateModified: "2026-05-27",
     resourceCategories: ["samples"],
     resourceTitle: "Sample and product-testing routes",
     resourceIntro:
@@ -996,6 +996,7 @@ function main() {
   fs.writeFileSync(path.join(ROOT_DIR, "robots.txt"), renderRobotsTxt());
   runLifecycleStaticChecks(validCompetitions, activeCompetitions, expiredArchiveCompetitions, expiredLowValueCompetitions);
   runStaticSeoChecks();
+  runCrawlerVisibleTextChecks();
   runImageQualityChecks();
 }
 
@@ -1031,13 +1032,19 @@ function getGeneratedRouteContexts(competitions, generatedBrandPages = []) {
     slug: brandPage.slug,
     path: brandPage.path,
   }));
+  const brandIndexRouteContext = {
+    type: "brand-index",
+    slug: "brands",
+    path: "/brands/",
+    noindex: generatedBrandPages.length === 0,
+  };
 
   return [
     { type: "home", slug: "", path: "/" },
     ...categoryRouteContexts,
     ...activeTagRouteContexts,
     ...hubRouteContexts,
-    { type: "brand-index", slug: "brands", path: "/brands/" },
+    brandIndexRouteContext,
     ...brandRouteContexts,
   ];
 }
@@ -2410,6 +2417,7 @@ function renderPage(routeContext, competitions) {
 
 function renderBrandIndexPage(brandPages) {
   const pageCopy = shared.BRAND_INDEX_COPY;
+  const hasBrandPages = brandPages.length > 0;
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -2451,6 +2459,17 @@ function renderBrandIndexPage(brandPages) {
         )}">${escapeHtml(brandPage.brand)} competitions (${brandPage.competitionCount})</a>`
     )
     .join("\n            ");
+  const brandIndexBodyMarkup = hasBrandPages
+    ? `<section class="internal-links" id="brandPages" aria-label="Generated brand pages">
+          <p class="internal-links__title">Brands with active competition pages</p>
+          <div class="internal-links__list">
+            ${brandLinksMarkup}
+          </div>
+        </section>`
+    : `<section class="state-card" id="brandPages" aria-label="Brand page status">
+          <p class="state-card__title">No brand pages qualify right now</p>
+          <p class="state-card__text">Freehub only indexes brand pages when a brand has enough active published competitions to make the page useful. Use the current competition hubs below until enough strong brand clusters qualify.</p>
+        </section>`;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -2459,7 +2478,7 @@ function renderBrandIndexPage(brandPages) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${escapeHtml(pageCopy.title)}</title>
     <meta name="description" content="${escapeAttribute(pageCopy.description)}" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="robots" content="${hasBrandPages ? "index, follow, max-image-preview:large" : "noindex, follow"}" />
     <link rel="canonical" href="${escapeAttribute(pageCopy.canonical)}" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
@@ -2512,12 +2531,7 @@ function renderBrandIndexPage(brandPages) {
         ${renderCollectionBreadcrumb(pageCopy.heading)}
         ${renderSupportSection(pageCopy.support)}
 
-        <section class="internal-links" id="brandPages" aria-label="Generated brand pages">
-          <p class="internal-links__title">Brands with active competition pages</p>
-          <div class="internal-links__list">
-            ${brandLinksMarkup}
-          </div>
-        </section>
+        ${brandIndexBodyMarkup}
 
         <section class="state-card" aria-label="About brand pages">
           <p class="state-card__title">Why these brands appear</p>
@@ -3113,10 +3127,13 @@ function getCollectionEmptyState(routeContext) {
 }
 
 function renderCollectionEmptyState(routeContext, competitions) {
-  const state = getCollectionEmptyState(routeContext);
-  const hiddenClass = competitions.length > 0 ? " state-card--hidden" : "";
+  if (competitions.length > 0) {
+    return `<div id="emptyState" class="state-card state-card--hidden" aria-live="polite"></div>`;
+  }
 
-  return `<div id="emptyState" class="state-card${hiddenClass}" aria-live="polite">
+  const state = getCollectionEmptyState(routeContext);
+
+  return `<div id="emptyState" class="state-card" aria-live="polite">
             <p class="state-card__title">${escapeHtml(state.title)}</p>
             <p class="state-card__text">${escapeHtml(state.text)}</p>
           </div>`;
@@ -3563,8 +3580,8 @@ function renderTrustPage(page) {
         headline: page.heading,
         description: page.description,
         image: shared.DEFAULT_OG_IMAGE,
-        datePublished: page.datePublished || BUILD_DATE_ISO,
-        dateModified: page.dateModified || BUILD_DATE_ISO,
+        datePublished: page.datePublished || getTrustPageLastmod(page),
+        dateModified: getTrustPageLastmod(page),
         author: {
           "@type": "Organization",
           name: "Freehub",
@@ -3723,6 +3740,21 @@ function getTrustPageResources(page) {
   }
 
   return FREE_RESOURCES.filter((resource) => categories.includes(resource.category));
+}
+
+function getTrustPageLastmod(page) {
+  const dates = [
+    page.dateModified,
+    ...getTrustPageResources(page).flatMap((resource) => [
+      resource.dateModified,
+      resource.lastReviewed,
+    ]),
+  ]
+    .map(normalizeIsoDateString)
+    .filter(Boolean)
+    .sort();
+
+  return dates.length > 0 ? dates[dates.length - 1] : page.datePublished || BUILD_DATE_ISO;
 }
 
 function renderFreeResourceSection(page, resources) {
@@ -5338,17 +5370,19 @@ function renderHowToEnterList(steps) {
 function generateSitemap(competitions, routeContexts, sitemapCompetitions = competitions) {
   const origin = shared.CANONICAL_ORIGIN;
 
-  const staticEntries = routeContexts.map((routeContext) => {
-    const loc = routeContext.path === "/" ? `${origin}/` : `${origin}${routeContext.path}`;
-    return renderSitemapUrl({
-      loc,
-      lastmod: getRouteLastmod(routeContext, competitions),
+  const staticEntries = routeContexts
+    .filter((routeContext) => routeContext.noindex !== true)
+    .map((routeContext) => {
+      const loc = routeContext.path === "/" ? `${origin}/` : `${origin}${routeContext.path}`;
+      return renderSitemapUrl({
+        loc,
+        lastmod: getRouteLastmod(routeContext, competitions),
+      });
     });
-  });
   const trustPageEntries = TRUST_PAGE_DEFINITIONS.map((page) => {
     return renderSitemapUrl({
       loc: `${origin}/${page.slug}/`,
-      lastmod: page.dateModified || BUILD_DATE_ISO,
+      lastmod: getTrustPageLastmod(page),
     });
   });
 
@@ -5690,7 +5724,9 @@ function runFreeResourceChecks() {
     "freeDetails",
     "requirements",
     "watchOut",
+    "datePublished",
     "lastReviewed",
+    "dateModified",
   ];
   const resourceCategoriesUsed = new Set(
     TRUST_PAGE_DEFINITIONS.flatMap((page) => (Array.isArray(page.resourceCategories) ? page.resourceCategories : []))
@@ -5710,6 +5746,12 @@ function runFreeResourceChecks() {
       }
     });
 
+    ["datePublished", "lastReviewed", "dateModified"].forEach((field) => {
+      if (resource[field] && !normalizeIsoDateString(resource[field])) {
+        errors.push(`Free resource has invalid ${field}: ${label}`);
+      }
+    });
+
     try {
       const url = new URL(resource.officialUrl);
       if (!["http:", "https:"].includes(url.protocol)) {
@@ -5726,8 +5768,54 @@ function runFreeResourceChecks() {
     }
   });
 
+  TRUST_PAGE_DEFINITIONS.filter((page) => Array.isArray(page.resourceCategories) && page.resourceCategories.length > 0).forEach(
+    (page) => {
+      if (!page.datePublished || !page.dateModified) {
+        errors.push(`Free-resource page must define explicit datePublished and dateModified: ${page.slug}`);
+      }
+
+      if (page.dateModified === BUILD_DATE_ISO && page.dateModified !== page.datePublished) {
+        errors.push(`Free-resource page dateModified appears to be using build date by default: ${page.slug}`);
+      }
+    }
+  );
+
   if (errors.length > 0) {
     throw new Error(`[Free resource checks failed]\n${errors.map((error) => `- ${error}`).join("\n")}`);
+  }
+}
+
+function runCrawlerVisibleTextChecks() {
+  const errors = [];
+  const crawlerVisibleStrings = [
+    "No competitions match",
+    "Loading competitions",
+    "Unable to load competitions",
+    "ad placeholder",
+  ];
+  const htmlFiles = [
+    path.join(ROOT_DIR, "index.html"),
+    path.join(ROOT_DIR, "404.html"),
+    ...getNestedIndexFiles(path.join(ROOT_DIR, "category")),
+    ...getNestedIndexFiles(path.join(ROOT_DIR, "tag")),
+    ...getNestedIndexFiles(path.join(ROOT_DIR, "competition")),
+    ...shared.HUB_SLUGS.map((slug) => path.join(ROOT_DIR, slug, "index.html")),
+    path.join(ROOT_DIR, "brands", "index.html"),
+    ...getNestedIndexFiles(path.join(ROOT_DIR, "brand")),
+    ...TRUST_PAGE_DEFINITIONS.map((page) => path.join(ROOT_DIR, page.slug, "index.html")),
+  ].filter((filePath) => fs.existsSync(filePath));
+
+  htmlFiles.forEach((filePath) => {
+    const html = fs.readFileSync(filePath, "utf8");
+    crawlerVisibleStrings.forEach((text) => {
+      if (html.includes(text)) {
+        errors.push(`Crawler-visible placeholder or false empty-state text found in ${filePath}: ${text}`);
+      }
+    });
+  });
+
+  if (errors.length > 0) {
+    throw new Error(`[Crawler-visible text checks failed]\n${errors.map((error) => `- ${error}`).join("\n")}`);
   }
 }
 
