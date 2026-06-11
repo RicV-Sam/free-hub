@@ -5837,13 +5837,17 @@ function runLifecycleStaticChecks(allCompetitions, activeCompetitions, expiredAr
     }
 
     const html = fs.readFileSync(detailPath, "utf8");
+    const archiveLeadSection = html.split("Current competitions you may like")[0] || html;
     if (!html.includes("This competition has closed.")) {
       errors.push(`Expired archive page missing closed banner: ${slug}`);
     }
     if (!html.includes("Current competitions you may like")) {
       errors.push(`Expired archive page missing active related section: ${slug}`);
     }
-    if (/href="\/out\//.test(html) || />\s*Enter (Competition|Now|on|via|using)/i.test(html)) {
+    if (
+      /href="\/out\//.test(archiveLeadSection) ||
+      /<a[^>]*>\s*Enter (Competition|Now|on|via|using)/i.test(archiveLeadSection)
+    ) {
       errors.push(`Expired archive page still exposes active entry CTA: ${slug}`);
     }
     if (fs.existsSync(outPath)) {

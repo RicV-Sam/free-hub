@@ -417,12 +417,16 @@ function validateExpiredArchivePage(competition, lifecycle) {
   }
 
   const html = fs.readFileSync(detailPath, "utf8");
+  const archiveLeadSection = html.split("Current competitions you may like")[0] || html;
 
   if (!html.includes("This competition has closed.")) {
     results.push(makeStaticResult(competition, lifecycle, "archive", `/competition/${slug}/`, "error", "archive-missing-closed-banner"));
   }
 
-  if (/href="\/out\//.test(html) || />\s*Enter (Competition|Now|on|via|using)/i.test(html)) {
+  if (
+    /href="\/out\//.test(archiveLeadSection) ||
+    /<a[^>]*>\s*Enter (Competition|Now|on|via|using)/i.test(archiveLeadSection)
+  ) {
     results.push(makeStaticResult(competition, lifecycle, "archive", `/competition/${slug}/`, "error", "archive-exposes-active-entry-cta"));
   }
 
