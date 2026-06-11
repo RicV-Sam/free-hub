@@ -32,6 +32,12 @@ const HUB_LINKS = [
   { label: "Purchase required", href: "/purchase-required-competitions/" },
   { label: "Paid entry", href: "/paid-entry-competitions/" },
 ];
+const DUPLICATE_TAG_CANONICAL_PATHS = {
+  "free-entry": "/free-competitions/",
+  "purchase-required": "/purchase-required-competitions/",
+  "paid-entry": "/paid-entry-competitions/",
+};
+const MIN_INDEXABLE_COLLECTION_COMPETITIONS = 2;
 let brandImageLookup = new Map();
 const FREE_RESOURCES = JSON.parse(fs.readFileSync(FREE_RESOURCES_PATH, "utf8"));
 const TRUST_PAGE_DEFINITIONS = [
@@ -1021,11 +1027,24 @@ function getGeneratedRouteContexts(competitions, generatedBrandPages = []) {
   }));
   const activeTagRouteContexts = shared.TAG_SLUGS
     .filter((slug) => shared.getTagFilteredCompetitions(competitions, slug).length > 0)
-    .map((slug) => ({ type: "tag", slug, path: `/tag/${slug}/` }));
+    .map((slug) => {
+      const path = `/tag/${slug}/`;
+      const competitionCount = shared.getTagFilteredCompetitions(competitions, slug).length;
+      const canonicalPath = DUPLICATE_TAG_CANONICAL_PATHS[slug] || path;
+
+      return {
+        type: "tag",
+        slug,
+        path,
+        noindex: canonicalPath !== path || competitionCount < MIN_INDEXABLE_COLLECTION_COMPETITIONS,
+        canonicalOverride: `${shared.CANONICAL_ORIGIN}${canonicalPath}`,
+      };
+    });
   const hubRouteContexts = shared.HUB_SLUGS.map((slug) => ({
     type: "hub",
     slug,
     path: `/${slug}/`,
+    noindex: shared.getHubFilteredCompetitions(competitions, slug).length < MIN_INDEXABLE_COLLECTION_COMPETITIONS,
   }));
   const brandRouteContexts = generatedBrandPages.map((brandPage) => ({
     type: "brand",
@@ -1121,6 +1140,8 @@ const CATEGORY_FALLBACK_STYLES = {
   Holidays: { start: "#c2410c", end: "#fb923c", accent: "#ffedd5" },
   Tech: { start: "#4338ca", end: "#818cf8", accent: "#e0e7ff" },
   Vouchers: { start: "#be123c", end: "#fb7185", accent: "#ffe4e6" },
+  Sports: { start: "#047857", end: "#34d399", accent: "#d1fae5" },
+  Lifestyle: { start: "#7c2d12", end: "#fb923c", accent: "#ffedd5" },
 };
 const CATEGORY_FALLBACK_IMAGES = {
   Cars: "https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1600&q=80",
@@ -1128,6 +1149,8 @@ const CATEGORY_FALLBACK_IMAGES = {
   Holidays: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80",
   Tech: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1600&q=80",
   Vouchers: "https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=1600&q=80",
+  Sports: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1600&q=80",
+  Lifestyle: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1600&q=80",
 };
 
 function getCompetitionImageUrl(competition) {
@@ -1135,7 +1158,7 @@ function getCompetitionImageUrl(competition) {
     return competition.image;
   }
 
-  return getBrandAssociatedImage(competition);
+  return getBrandAssociatedImage(competition) || buildBrandFallbackImage(competition || {});
 }
 
 function getMetadataImageUrl(competition) {
@@ -1144,7 +1167,7 @@ function getMetadataImageUrl(competition) {
   }
 
   const brandImage = getBrandAssociatedImage(competition);
-  return brandImage || shared.DEFAULT_OG_IMAGE;
+  return brandImage || buildBrandFallbackImage(competition || {});
 }
 
 function getCollectionMetadataImageUrl(competitions) {
@@ -2215,6 +2238,10 @@ function getCollectionFaqTitle(routeContext) {
 
 function renderPage(routeContext, competitions) {
   const pageCopy = shared.getPageCopy(routeContext);
+  const canonicalUrl = routeContext.canonicalOverride || pageCopy.canonical;
+  const robotsDirective = routeContext.noindex === true
+    ? "noindex, follow"
+    : "index, follow, max-image-preview:large";
   const supportCopy = shared.getPageSupportCopy(routeContext);
   const structuredData = shared.buildStructuredData(competitions, routeContext);
   const ogImage = getCollectionMetadataImageUrl(competitions);
@@ -2226,7 +2253,7 @@ function renderPage(routeContext, competitions) {
           "@type": "CollectionPage",
           name: pageCopy.heading,
           description: pageCopy.description,
-          url: pageCopy.canonical,
+          url: canonicalUrl,
           inLanguage: "en-ZA",
           isPartOf: {
             "@type": "WebSite",
@@ -2242,7 +2269,7 @@ function renderPage(routeContext, competitions) {
           "@type": "BreadcrumbList",
           itemListElement: [
             { "@type": "ListItem", position: 1, name: "Home", item: `${shared.CANONICAL_ORIGIN}/` },
-            { "@type": "ListItem", position: 2, name: pageCopy.heading, item: pageCopy.canonical },
+            { "@type": "ListItem", position: 2, name: pageCopy.heading, item: canonicalUrl },
           ],
         }
       : null;
@@ -2289,13 +2316,13 @@ function renderPage(routeContext, competitions) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${escapeHtml(pageCopy.title)}</title>
     <meta name="description" content="${escapeAttribute(pageCopy.description)}" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <link rel="canonical" href="${escapeAttribute(pageCopy.canonical)}" />
+    <meta name="robots" content="${robotsDirective}" />
+    <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="${escapeAttribute(pageCopy.title)}" />
     <meta property="og:description" content="${escapeAttribute(pageCopy.description)}" />
-    <meta property="og:url" content="${escapeAttribute(pageCopy.canonical)}" />
+    <meta property="og:url" content="${escapeAttribute(canonicalUrl)}" />
     <meta property="og:image" content="${escapeAttribute(ogImage)}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${escapeAttribute(pageCopy.title)}" />
@@ -2574,7 +2601,7 @@ function getCompetitionVisualUrl(competition) {
     return brandImage;
   }
 
-  return "";
+  return buildBrandFallbackImage(competition || {});
 }
 
 function getStatusClassName(label) {
@@ -4194,8 +4221,6 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   const heroImage = getCompetitionVisualUrl(competition);
   const ogImage = getMetadataImageUrl(competition);
   const expired = shared.isExpiredCompetition(competition);
-  const archiveEligible = shared.isExpiredArchiveEligibleCompetition(competition);
-  const archivedLowValue = shared.isArchivedLowValueCompetition(competition);
   const fallbackDescription = expired
     ? `This ${competition.brand || "brand"} competition has closed. View the archived prize and closing-date details, then browse current South African competitions on Freehub.`
     : shared.buildCompetitionDescription(competition);
@@ -4208,7 +4233,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   );
   const categoryPath = categorySlug ? `/category/${categorySlug}/` : "/";
   const heroTitle = expired ? `${competition.title} -- Competition Closed` : competition.title;
-  const robotsDirective = archivedLowValue || (expired && !archiveEligible)
+  const robotsDirective = expired
     ? "noindex, follow"
     : "index, follow, max-image-preview:large";
   const officialSourceUrl = getOfficialSourceUrl(competition);
@@ -5826,6 +5851,25 @@ function runLifecycleStaticChecks(allCompetitions, activeCompetitions, expiredAr
   const expiredSlugs = new Set(expiredCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
   const sitemap = fs.readFileSync(path.join(ROOT_DIR, "sitemap.xml"), "utf8");
 
+  activeCompetitions.forEach((competition) => {
+    const slug = shared.getCompetitionSlug(competition);
+    const detailPath = path.join(ROOT_DIR, "competition", slug, "index.html");
+
+    if (!sitemap.includes(`/competition/${slug}/`)) {
+      errors.push(`Active published competition is missing from sitemap: ${slug}`);
+    }
+
+    if (!fs.existsSync(detailPath)) {
+      errors.push(`Active published competition detail page missing: ${slug}`);
+      return;
+    }
+
+    const html = fs.readFileSync(detailPath, "utf8");
+    if (!html.includes('name="robots" content="index, follow, max-image-preview:large"')) {
+      errors.push(`Active published competition missing index robots directive: ${slug}`);
+    }
+  });
+
   expiredCompetitions.forEach((competition) => {
     const slug = shared.getCompetitionSlug(competition);
     const detailPath = path.join(ROOT_DIR, "competition", slug, "index.html");
@@ -5841,6 +5885,9 @@ function runLifecycleStaticChecks(allCompetitions, activeCompetitions, expiredAr
     if (!html.includes("This competition has closed.")) {
       errors.push(`Expired archive page missing closed banner: ${slug}`);
     }
+    if (!html.includes('name="robots" content="noindex, follow"')) {
+      errors.push(`Expired competition page missing noindex, follow: ${slug}`);
+    }
     if (!html.includes("Current competitions you may like")) {
       errors.push(`Expired archive page missing active related section: ${slug}`);
     }
@@ -5853,24 +5900,15 @@ function runLifecycleStaticChecks(allCompetitions, activeCompetitions, expiredAr
     if (fs.existsSync(outPath)) {
       errors.push(`Expired competition has generated /out/ page: ${slug}`);
     }
-  });
-
-  expiredArchiveCompetitions.forEach((competition) => {
-    const slug = shared.getCompetitionSlug(competition);
     if (sitemap.includes(`/competition/${slug}/`)) {
-      errors.push(`Expired archive page is included in sitemap: ${slug}`);
+      errors.push(`Expired competition page is included in sitemap: ${slug}`);
     }
   });
 
   expiredLowValueCompetitions.forEach((competition) => {
     const slug = shared.getCompetitionSlug(competition);
-    const detailPath = path.join(ROOT_DIR, "competition", slug, "index.html");
-    const html = fs.existsSync(detailPath) ? fs.readFileSync(detailPath, "utf8") : "";
     if (sitemap.includes(`/competition/${slug}/`)) {
       errors.push(`Low-value expired page is included in sitemap: ${slug}`);
-    }
-    if (!html.includes('name="robots" content="noindex, follow"')) {
-      errors.push(`Low-value expired page missing noindex, follow: ${slug}`);
     }
   });
 

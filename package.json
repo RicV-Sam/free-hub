@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "node scripts/generate-pages.js",
+    "discover:bing": "node scripts/bing-search-discovery.js",
     "generate": "node scripts/generate-pages.js",
     "import:held-candidates": "node scripts/import-held-candidates.js",
     "export:held-review": "node scripts/export-held-review.js",

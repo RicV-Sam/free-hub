@@ -13,6 +13,8 @@
     Holidays: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80",
     Tech: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1600&q=80",
     Vouchers: "https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=1600&q=80",
+    Sports: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1600&q=80",
+    Lifestyle: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1600&q=80",
   };
   const BRAND_IMAGE_LOOKUP_KEYS = ["sourceDomain", "brand"];
   const CATEGORY_COPY = {
@@ -58,7 +60,7 @@
       intro:
         "This page lists current tech, gadget and electronics competitions in South Africa, including phone, TV, gaming console, electronics bundle, gadget and tech voucher prizes where the active listings support them. Some tech competitions are free to enter, while others may require a purchase, receipt, app, account, rewards card, WhatsApp entry, USSD entry or other qualifying action. Freehub does not run these competitions or collect entries; use the official promoter links to enter.",
       support:
-        "Tech competitions can include phones and smartphones, TVs and home theatre prizes, gaming consoles, laptops, tablets, gadgets, electronics vouchers, tech-led appliances and app, account or rewards-based promotions. If you searched for tech competitions South Africa, win gadgets South Africa, gadget giveaway listings, win phones South Africa, win electronics South Africa, win TV competitions South Africa or current tech giveaways South Africa, compare the entry label, closing date and official terms before entering.",
+        "Tech competitions can include phones and smartphones, TVs and home theatre prizes, gaming consoles, laptops, tablets, gadgets, electronics vouchers, tech-led appliances and app, account or rewards-based promotions. If you searched for tech competitions South Africa, smartphone competition South Africa, win gadgets South Africa, gadget giveaway listings, win phones South Africa, win electronics South Africa, win TV competitions South Africa or current tech giveaways South Africa, compare the entry label, closing date and official terms before entering.",
     },
     vouchers: {
       category: "Vouchers",
@@ -361,6 +363,7 @@
     },
     clicks: {
       brand: "Clicks",
+      aliases: ["Clicks /", "Clicks ClubCard", "Clicks / BabyClub", "Clicks / Protex"],
       title: "Clicks Competitions South Africa | Freehub",
       description:
         "Browse active Clicks competitions in South Africa with clear entry requirements, closing dates and official source links.",
@@ -416,6 +419,7 @@
     },
     vodacom: {
       brand: "Vodacom",
+      aliases: ["Vodacom /", "Vodacom4U"],
       title: "Vodacom Competitions South Africa | Freehub",
       description:
         "Browse active Vodacom competitions in South Africa. Compare telecom prizes, entry requirements, closing dates and official source links.",
@@ -424,6 +428,90 @@
         "Find active Vodacom competitions and recharge or rewards-linked promotions listed on Freehub.",
       support:
         "Telecom competitions can involve recharge, app, SMS or rewards mechanics, so confirm the official Vodacom terms before entering.",
+    },
+    boxer: {
+      brand: "Boxer",
+      aliases: ["Boxer Superstores", "Boxer /"],
+      title: "Boxer Competitions South Africa | Freehub",
+      description:
+        "Browse active Boxer competitions in South Africa. Compare grocery, voucher, tech and lifestyle prizes with entry requirements and official source links.",
+      heading: "Boxer Competitions",
+      intro:
+        "Find current Boxer and Boxer Rewards Club competitions listed on Freehub, including retail promotions, voucher prizes and purchase-linked giveaways.",
+      support:
+        "Boxer promotions often require qualifying products or Rewards Club details, so check the official terms before entering.",
+    },
+    toyota: {
+      brand: "Toyota",
+      aliases: ["Toyota", "Comrades Marathon / Toyota", "Bridgestone South Africa"],
+      title: "Toyota Competitions South Africa | Freehub",
+      description:
+        "Browse active South African competitions featuring Toyota vehicle prizes, with closing dates, entry costs and official promoter links.",
+      heading: "Toyota Competitions",
+      intro:
+        "Find current Toyota vehicle prize competitions listed on Freehub, including Corolla Cross, Vitz and other Toyota-linked campaigns where the source is verified.",
+      support:
+        "Vehicle prizes can include purchase, licence, paid-ticket or handover requirements. Read the official promoter terms before entering.",
+    },
+    capitec: {
+      brand: "Capitec",
+      aliases: ["Capitec Bank"],
+      title: "Capitec Competitions South Africa | Freehub",
+      description:
+        "Browse active Capitec competitions in South Africa with voucher, banking and social-entry details from official sources.",
+      heading: "Capitec Competitions",
+      intro:
+        "Find current Capitec competitions and rewards-style promotions listed on Freehub.",
+      support:
+        "Bank promotions can involve client, app, account or social media requirements, so confirm the official Capitec terms before entering.",
+    },
+    mtn: {
+      brand: "MTN",
+      aliases: ["MTN", "MTN /"],
+      title: "MTN Competitions South Africa | Freehub",
+      description:
+        "Browse active MTN competitions in South Africa with airtime, cash, app and telecom prize details from official source links.",
+      heading: "MTN Competitions",
+      intro:
+        "Find current MTN competitions and telecom promotions listed on Freehub.",
+      support:
+        "MTN promotions may involve app, recharge, account or transaction requirements. Check the official MTN terms before entering.",
+    },
+    pep: {
+      brand: "PEP",
+      aliases: ["PEP", "PEP and +more", "PEP /"],
+      title: "PEP Competitions South Africa | Freehub",
+      description:
+        "Browse active PEP competitions in South Africa with cash, voucher and retail promotion details from official source links.",
+      heading: "PEP Competitions",
+      intro:
+        "Find current PEP and +more competitions listed on Freehub.",
+      support:
+        "PEP promotions can include purchase, rewards, SMS or in-store requirements, so confirm the official terms before entering.",
+    },
+    "standard-bank": {
+      brand: "Standard Bank",
+      aliases: ["Standard Bank"],
+      title: "Standard Bank Competitions South Africa | Freehub",
+      description:
+        "Browse active Standard Bank competitions in South Africa with cash, voucher and banking promotion details.",
+      heading: "Standard Bank Competitions",
+      intro:
+        "Find current Standard Bank competitions and banking-linked promotions listed on Freehub.",
+      support:
+        "Banking competitions can include account, card, loan or payment requirements. Check the official Standard Bank terms before entering.",
+    },
+    discovery: {
+      brand: "Discovery",
+      aliases: ["Discovery Bank", "Discovery /", "Discovery Vitality"],
+      title: "Discovery Competitions South Africa | Freehub",
+      description:
+        "Browse active Discovery competitions in South Africa, including banking, travel and Vitality-linked prize promotions.",
+      heading: "Discovery Competitions",
+      intro:
+        "Find current Discovery, Discovery Bank and Vitality-linked competitions listed on Freehub.",
+      support:
+        "Discovery promotions can include account, card, booking, Vitality or qualifying-spend requirements. Confirm the official terms before entering.",
     },
   };
   const BRAND_PAGE_SLUGS = Object.keys(APPROVED_BRAND_PAGES);
@@ -442,6 +530,8 @@
     Holidays: { start: "#c2410c", end: "#fb923c", accent: "#ffedd5" },
     Tech: { start: "#4338ca", end: "#818cf8", accent: "#e0e7ff" },
     Vouchers: { start: "#be123c", end: "#fb7185", accent: "#ffe4e6" },
+    Sports: { start: "#047857", end: "#34d399", accent: "#d1fae5" },
+    Lifestyle: { start: "#7c2d12", end: "#fb923c", accent: "#ffedd5" },
   };
 
   function normalizePath(pathname) {
@@ -493,7 +583,7 @@
       return brandImage;
     }
 
-    return "";
+    return buildBrandFallbackImage(competition || {});
   }
 
   function getCompetitionPrimaryImageUrl(competition, competitionPool = []) {
@@ -506,7 +596,7 @@
       return brandImage;
     }
 
-    return "";
+    return buildBrandFallbackImage(competition || {});
   }
 
   function getCompetitionLogoUrl(competition) {
@@ -1413,8 +1503,36 @@
 
     const targetBrand = brandPage.brand.toLowerCase();
     return sortCompetitions(getPublishedActiveCompetitions(competitions)).filter(
-      (competition) => String(competition.brand || "").trim().toLowerCase() === targetBrand
+      (competition) => matchesBrandPage(competition, brandPage, targetBrand)
     );
+  }
+
+  function matchesBrandPage(competition, brandPage, targetBrand = "") {
+    const brandName = normalizeBrandMatchText(competition && competition.brand);
+    const searchableText = normalizeBrandMatchText([
+      competition && competition.brand,
+      competition && competition.title,
+      competition && competition.summary,
+      competition && competition.sourceDomain,
+      Array.isArray(competition && competition.tags) ? competition.tags.join(" ") : "",
+    ].join(" "));
+    const primaryBrand = targetBrand || normalizeBrandMatchText(brandPage && brandPage.brand);
+    const aliases = ((brandPage && Array.isArray(brandPage.aliases)) ? brandPage.aliases : [])
+      .map(normalizeBrandMatchText)
+      .filter(Boolean);
+
+    return brandName === primaryBrand || aliases.some((alias) => brandName === alias || searchableText.includes(alias));
+  }
+
+  function normalizeBrandMatchText(value) {
+    return String(value || "")
+      .trim()
+      .toLowerCase()
+      .replace(/^www\./, "")
+      .replace(/&/g, " and ")
+      .replace(/[^a-z0-9]+/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
   }
 
   function getGeneratedBrandPageDefinitions(competitions) {
@@ -1436,11 +1554,9 @@
   }
 
   function getBrandSlugForCompetition(competition, generatedBrandSlugs = BRAND_PAGE_SLUGS) {
-    const brandName = String(competition.brand || "").trim().toLowerCase();
-
     return generatedBrandSlugs.find((slug) => {
       const definition = APPROVED_BRAND_PAGES[slug];
-      return definition && definition.brand.toLowerCase() === brandName;
+      return definition && matchesBrandPage(competition, definition);
     });
   }
 

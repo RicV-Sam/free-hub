@@ -59,6 +59,18 @@ const APPROVED_MANUAL_OK_URLS = new Map([
     "https://www.dischem.co.za/protex-fund-the-future-june-2026-competition",
   ],
   [
+    "bridgestone-toyota-corolla-cross-2026",
+    "https://www1.bridgestone.co.za/win-a-car",
+  ],
+  [
+    "dragon-energy-xtreme-comp-2026",
+    "https://www.dragon.co.za/xtreme-comp-2026/",
+  ],
+  [
+    "parmalat-everything-needs-cheese-2026",
+    "https://lactalis.co.za/pieces/cms/69d77101348ee.pdf",
+  ],
+  [
     "spur-family-cruises-with-spur-2026",
     "https://www.spursteakranches.com/za/promotions",
   ],
