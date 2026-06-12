@@ -2214,8 +2214,21 @@ function renderHeroActions(actions = []) {
     return "";
   }
 
+  const normalizedActions = actions.some((action) => action.href === WHATSAPP_CHANNEL_URL)
+    ? actions
+    : [
+        ...actions,
+        {
+          label: "Follow on WhatsApp",
+          href: WHATSAPP_CHANNEL_URL,
+          className: "btn--whatsapp",
+          target: "_blank",
+          rel: "noopener noreferrer",
+        },
+      ];
+
   return `<div class="hero__actions">
-              ${actions
+              ${normalizedActions
                 .map((action) => {
                   const className = action.className || "btn--secondary";
                   const target = action.target ? ` target="${escapeAttribute(action.target)}"` : "";
@@ -4282,6 +4295,7 @@ function renderGlobalAuthPanel(options = {}) {
           <div class="competition-auth__actions">
             <button class="competition-auth__button" type="button" data-auth-action="alerts">Get email alerts</button>
             <button class="competition-auth__link" type="button" data-auth-action="signin">Sign in</button>
+            <button class="competition-auth__link" type="button" data-auth-action="signout" hidden>Sign out</button>
           </div>
           <p class="competition-auth__status" data-auth-status aria-live="polite"></p>
         </section>`;
@@ -4584,6 +4598,9 @@ ${noscriptLinks}
             <div class="hero__actions">
               <a class="btn btn--primary" href="#all-competitions">Browse Today&apos;s Competitions</a>
               <a class="btn btn--secondary" href="/tag/ending-soon/">Ending Soon</a>
+              <a class="btn btn--whatsapp" href="${escapeAttribute(
+                WHATSAPP_CHANNEL_URL
+              )}" target="_blank" rel="noopener noreferrer">Follow on WhatsApp</a>
             </div>
             ${renderGlobalAuthPanel({
               id: "home-hero",
@@ -5680,6 +5697,7 @@ function renderCompetitionAuthPanel(competition, slug, canonicalUrl) {
                 <button class="competition-auth__button competition-auth__button--secondary" type="button" data-auth-action="alerts">Get competition alerts</button>
                 <button class="competition-auth__button competition-auth__button--ghost" type="button" data-auth-action="ignore">Sign in to hide</button>
                 <button class="competition-auth__link" type="button" data-auth-action="signin">Sign in to save</button>
+                <button class="competition-auth__link" type="button" data-auth-action="signout" hidden>Sign out</button>
               </div>
               <p class="competition-auth__status" data-auth-status aria-live="polite"></p>
             </section>`;

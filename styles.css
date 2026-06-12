@@ -2772,6 +2772,12 @@ body {
   color: #f8fafc;
 }
 
+.btn--whatsapp {
+  background: #25d366;
+  color: #082117;
+  box-shadow: 0 12px 26px rgba(37, 211, 102, 0.22);
+}
+
 .hero-preview-panel {
   display: grid;
   gap: 0.85rem;

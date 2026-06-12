@@ -49,10 +49,12 @@ function bindPanel(panel) {
   const saveButton = panel.querySelector('[data-auth-action="save"]');
   const alertsButton = panel.querySelector('[data-auth-action="alerts"]');
   const signInButton = panel.querySelector('[data-auth-action="signin"]');
+  const signOutButton = panel.querySelector('[data-auth-action="signout"]');
 
   saveButton?.addEventListener("click", () => handleSaveClick(panel));
   alertsButton?.addEventListener("click", () => handleAlertsClick(panel));
   signInButton?.addEventListener("click", () => openSignupModal(panel, getDefaultAction(panel)));
+  signOutButton?.addEventListener("click", () => handleSignOutClick(panel));
 
   panel.hidden = false;
 }
@@ -146,6 +148,29 @@ async function handleAlertsClick(panel) {
   } finally {
     setPanelBusy(panel, false);
     renderPanel(panel);
+  }
+}
+
+async function handleSignOutClick(panel) {
+  if (!state.client || !state.user) {
+    return;
+  }
+
+  setPanelBusy(panel, true);
+  try {
+    await state.client.signOut();
+    state.saved.clear();
+    state.ignored.clear();
+    state.alerts.clear();
+    state.showIgnored = false;
+    applyIgnoredCompetitionsToPage();
+    setPanelMessage(panel, "Signed out.");
+    trackAuthEvent("signout", {});
+  } catch (error) {
+    setPanelMessage(panel, "We could not sign you out right now.");
+  } finally {
+    setPanelBusy(panel, false);
+    renderPanels();
   }
 }
 
@@ -502,6 +527,7 @@ function renderPanel(panel) {
   const alertsButton = panel.querySelector('[data-auth-action="alerts"]');
   const ignoreButton = panel.querySelector('[data-auth-action="ignore"]');
   const signInButton = panel.querySelector('[data-auth-action="signin"]');
+  const signOutButton = panel.querySelector('[data-auth-action="signout"]');
   const userElement = panel.querySelector("[data-auth-user]");
   const isSaved = competition?.id ? state.saved.get(competition.id) === true : false;
   const isIgnored = competition?.id ? state.ignored.get(competition.id) === true : false;
@@ -526,6 +552,10 @@ function renderPanel(panel) {
 
   if (signInButton) {
     signInButton.hidden = Boolean(state.user);
+  }
+
+  if (signOutButton) {
+    signOutButton.hidden = !state.user;
   }
 
   if (userElement) {
