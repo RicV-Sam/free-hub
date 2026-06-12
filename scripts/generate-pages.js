@@ -5468,6 +5468,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
               ${closingSoonBadge}
             </div>
             ${trustStripMarkup}
+            ${authPanelMarkup}
             ${detailFactsMarkup}
             ${renderCompetitionQuickAnswer(competition, expired)}
             <div class="competition-detail__summary">
@@ -5493,7 +5494,6 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
               ${escapeHtml(ctaLabel)}
             </a>
             <p class="competition-detail__cta-note">You will leave Freehub and go to the official promoter page. Freehub does not run this competition or collect your entry.</p>`}
-            ${authPanelMarkup}
             ${sourceBlockMarkup}
             ${faqMarkup}
             <a
@@ -5561,8 +5561,8 @@ function renderCompetitionAuthPanel(competition, slug, canonicalUrl) {
               hidden
             >
               <div class="competition-auth__copy">
-                <p class="competition-auth__title">Freehub account tools</p>
-                <p class="competition-auth__text" data-auth-user>Sign in is optional. Browsing and entry links stay open.</p>
+                <p class="competition-auth__title">Optional: save this competition</p>
+                <p class="competition-auth__text" data-auth-user>Sign in to save this listing or get alerts. Browsing and entry links stay open.</p>
               </div>
               <div class="competition-auth__actions">
                 <button class="competition-auth__button" type="button" data-auth-action="save">Sign in to save</button>
