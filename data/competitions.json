@@ -4189,7 +4189,7 @@
     "costOrPurchaseRequirement": "Purchase four specified Garnier Pure Active products in-store and swipe a Dis-Chem Better Rewards card.",
     "imageReviewNote": "No clearly reusable campaign-specific official image confirmed. Use no image unless a reviewer selects official campaign art.",
     "evidenceNotes": "Official Dis-Chem terms page provides prize, purchase entry mechanic, Better Rewards requirement, 18+ South Africa eligibility, audited random draw, and closing date.",
-    "sourceReport": "ZA Comp Engine freehub-candidate-evidence-v2 exported 2026-06-12T14:44:08.200Z.",
+    "sourceReport": "ZA Comp Engine freehub-candidate-evidence-v2 exported 2026-06-12T15:14:53.038Z.",
     "validationWarnings": [
       "risk_age_restriction",
       "risk_purchase_required",
@@ -6094,7 +6094,7 @@
     "image": "https://www.spar.co.za/getattachment/285762e3-c90c-4e40-a982-c990601001d5/SPAR-Community-School-Support-Competition.aspx",
     "imageReviewNote": "Official SPAR competition image URL was captured from the SPAR competitions listing. Freehub should confirm reuse suitability before any public publication.",
     "evidenceNotes": "Official SPAR page contains full on-page terms. The terms state the promoters, participating KZN stores, competition period from 1 April 2026 to 31 October 2026, monthly draws/counts from the end of May 2026 to the end of October 2026, till-slip pledge-box entry method, R60,000 total prize structure, school beneficiary mechanics, original till-slip requirement, liability limitation, school publicity clause, and amendment/suspension rights.",
-    "sourceReport": "ZA Comp Engine freehub-candidate-evidence-v2 exported 2026-06-12T14:44:08.200Z.",
+    "sourceReport": "ZA Comp Engine freehub-candidate-evidence-v2 exported 2026-06-12T15:14:53.038Z.",
     "validationWarnings": [
       "risk_paid_entry",
       "risk_purchase_required"
