@@ -122,8 +122,8 @@ const TRUST_PAGE_DEFINITIONS = [
       {
         heading: "Optional Freehub accounts",
         paragraphs: [
-          "Freehub may offer optional account features, such as saving a competition or storing competition alert preferences. You do not need a Freehub account to browse listings, open competition detail pages or click through to official promoter pages.",
-          "If you choose to sign in, Freehub may store your account identifier, email address, display name, sign-in provider, saved competition IDs, alert preferences, consent records and basic timestamps needed to run those optional features.",
+          "Freehub may offer optional account features, such as saving a competition, hiding ignored competitions or storing competition alert preferences. You do not need a Freehub account to browse listings, open competition detail pages or click through to official promoter pages.",
+          "If you choose to sign in, Freehub may store your account identifier, email address, display name, sign-in provider, saved competition IDs, ignored competition IDs, alert preferences, consent records and basic timestamps needed to run those optional features.",
         ],
       },
       {
@@ -134,9 +134,9 @@ const TRUST_PAGE_DEFINITIONS = [
         ],
       },
       {
-        heading: "Saved competitions and alerts",
+        heading: "Saved, ignored and alert preferences",
         paragraphs: [
-          "Saved competitions help you return to listings you chose to keep. Alert preferences help Freehub remember whether you asked for competition alerts or occasional updates.",
+          "Saved competitions help you return to listings you chose to keep. Ignored competition IDs help Freehub hide listings you chose not to see again while signed in. Alert preferences help Freehub remember whether you asked for competition alerts or occasional updates.",
           "The Privacy Policy checkbox is required before using optional account features. The alerts and marketing checkbox is optional and should not be pre-ticked.",
         ],
       },
@@ -164,6 +164,38 @@ const TRUST_PAGE_DEFINITIONS = [
         heading: "Freehub is not the promoter",
         paragraphs: [
           "Freehub lists public competition information and links users to official promoter pages. The promoter remains responsible for entry forms, eligibility checks, winner selection, prize fulfilment and its own privacy notices.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "freehub-account-benefits",
+    title: "Why Sign Up for Freehub? | Saved and Hidden Competitions",
+    description:
+      "See what a Freehub account adds, including saved competitions, hidden seen competitions, email alerts and optional Google or email-link sign-in.",
+    heading: "Why Sign Up for Freehub?",
+    intro:
+      "Freehub stays open for browsing, but signing in gives regular competition hunters a cleaner, more personal way to track what matters.",
+    sections: [
+      {
+        heading: "Hide competitions you have already checked",
+        paragraphs: [
+          "Signed-in users can hide competitions they have already seen or decided to skip. Freehub stores the competition ID in your account and hides matching cards while you browse.",
+          "Hidden competitions are not deleted from Freehub and you can show ignored competitions again if you want to review or undo the choice.",
+        ],
+      },
+      {
+        heading: "Save the competitions worth coming back to",
+        paragraphs: [
+          "Saving a competition keeps useful listings attached to your Freehub account instead of relying on browser history or screenshots.",
+          "This is helpful for competitions with purchase steps, closing dates, receipt uploads or official terms you want to check again before entering.",
+        ],
+      },
+      {
+        heading: "Keep alerts separate from browsing",
+        paragraphs: [
+          "Email alerts are optional. You can browse, search and open official promoter links without signing in.",
+          "When you do sign in, Google and email-link sign-in are available so Freehub does not need to store a password.",
         ],
       },
     ],
@@ -1488,6 +1520,7 @@ function main() {
   runLifecycleStaticChecks(validCompetitions, activeCompetitions, expiredArchiveCompetitions, expiredLowValueCompetitions, routeContexts);
   runStaticSeoChecks(routeContexts);
   runCrawlerVisibleTextChecks(routeContexts);
+  runGlobalCtaChecks(routeContexts);
   runImageQualityChecks(routeContexts);
 }
 
@@ -2009,6 +2042,7 @@ function renderSiteFooter(options = {}) {
               <a href="/free-childrens-books-south-africa/">Free children's books</a>
               <a href="/free-credit-report-south-africa/">Free credit report</a>
               <a href="/report-a-competition/">Report a competition</a>
+              <a href="/freehub-account-benefits/">Account benefits</a>
             </nav>
           </div>
           <div>
@@ -3672,7 +3706,7 @@ function renderCompetitionCard(competition, featured = false) {
     shared.getCompetitionSlug(competition)
   )}" data-competition-title="${escapeAttribute(competition.title)}" data-competition-category="${escapeAttribute(
     competition.category
-  )}">
+  )}" data-competition-path="${escapeAttribute(internalPath)}">
               <div class="competition-card__media">
                 ${renderCompetitionVisualPlaceholder(competition)}
                 ${imageMarkup}
@@ -3706,6 +3740,18 @@ function renderCompetitionCard(competition, featured = false) {
                   <span>Closes: ${escapeHtml(shared.formatDate(competition.closingDate))}</span>
                 </div>
                 ${footerMarkup}
+                <div class="competition-card__actions">
+                  <button
+                    class="competition-card__ignore"
+                    type="button"
+                    data-auth-action="ignore"
+                    data-competition-id="${escapeAttribute(shared.getCompetitionSlug(competition))}"
+                    data-competition-title="${escapeAttribute(competition.title)}"
+                    data-competition-category="${escapeAttribute(competition.category)}"
+                    data-competition-path="${escapeAttribute(internalPath)}"
+                    aria-pressed="false"
+                  >Hide</button>
+                </div>
                 <span class="${ctaClass}">View Details</span>
               </div>
               <a class="competition-card__overlay-link" href="${escapeAttribute(internalPath)}" aria-label="${escapeAttribute(competition.title)} - view details">
@@ -4842,6 +4888,11 @@ function renderTrustPage(page) {
           title: "Want competition alerts instead?",
           text: "For alerts, sign in with Google or an email link. For listing corrections, use the contact email above.",
         }) : ""}
+        ${page.slug === "freehub-account-benefits" ? renderGlobalAuthPanel({
+          id: "account-benefits",
+          title: "Try signed-in competition tracking",
+          text: "Sign in with Google or an email link to save competitions, hide ones you have seen and keep alert preferences with your account.",
+        }) : ""}
 
         ${renderFreeResourceSection(page, pageResources)}
         ${renderTrustChecklist(page)}
@@ -5627,6 +5678,7 @@ function renderCompetitionAuthPanel(competition, slug, canonicalUrl) {
               <div class="competition-auth__actions">
                 <button class="competition-auth__button" type="button" data-auth-action="save">Sign in to save</button>
                 <button class="competition-auth__button competition-auth__button--secondary" type="button" data-auth-action="alerts">Get competition alerts</button>
+                <button class="competition-auth__button competition-auth__button--ghost" type="button" data-auth-action="ignore">Sign in to hide</button>
                 <button class="competition-auth__link" type="button" data-auth-action="signin">Sign in to save</button>
               </div>
               <p class="competition-auth__status" data-auth-status aria-live="polite"></p>
@@ -7097,6 +7149,39 @@ function runLifecycleStaticChecks(allCompetitions, activeCompetitions, expiredAr
 
   if (errors.length > 0) {
     throw new Error(`[Lifecycle checks failed]\n${errors.map((error) => `- ${error}`).join("\n")}`);
+  }
+}
+
+function runGlobalCtaChecks(routeContexts = []) {
+  const errors = [];
+  const htmlFiles = [
+    path.join(ROOT_DIR, "index.html"),
+    path.join(ROOT_DIR, "404.html"),
+    ...routeContexts
+      .filter((routeContext) => routeContext.type !== "home")
+      .map((routeContext) => path.join(ROOT_DIR, routeContext.path.replace(/^\//, "").replace(/\/$/, ""), "index.html")),
+    ...getPublicTrustPageDefinitions().map((page) => path.join(ROOT_DIR, page.slug, "index.html")),
+    ...getNestedIndexFiles(path.join(ROOT_DIR, "competition")),
+  ].filter((filePath, index, files) => fs.existsSync(filePath) && files.indexOf(filePath) === index);
+
+  htmlFiles.forEach((filePath) => {
+    const html = fs.readFileSync(filePath, "utf8");
+
+    if (!html.includes(WHATSAPP_CHANNEL_URL)) {
+      errors.push(`Public content page missing WhatsApp Channel link: ${filePath}`);
+    }
+
+    if (!html.includes("data-freehub-auth")) {
+      errors.push(`Public content page missing Google/email alert signup panel: ${filePath}`);
+    }
+
+    if (!html.includes("/shared/auth-ui.js")) {
+      errors.push(`Public content page missing auth UI script: ${filePath}`);
+    }
+  });
+
+  if (errors.length > 0) {
+    throw new Error(`[Global CTA checks failed]\n${errors.map((error) => `- ${error}`).join("\n")}`);
   }
 }
 

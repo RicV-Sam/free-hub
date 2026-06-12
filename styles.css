@@ -1538,6 +1538,12 @@ button {
   color: #111827;
 }
 
+.competition-auth__button--ghost {
+  border: 1px solid rgba(15, 118, 110, 0.22);
+  background: #fff;
+  color: var(--accent);
+}
+
 .competition-auth__button[aria-pressed="true"] {
   background: var(--accent);
   color: #fff;
@@ -3162,6 +3168,8 @@ body {
 .competition-card__body {
   gap: 0.6rem;
   padding: 0.86rem;
+  z-index: 4;
+  pointer-events: none;
 }
 
 .competition-card__brand-row {
@@ -3278,6 +3286,71 @@ body {
   min-height: 44px;
   background: var(--primary);
   box-shadow: none;
+}
+
+.competition-card__actions {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  pointer-events: auto;
+}
+
+.competition-card__ignore,
+.ignored-summary button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #0f766e;
+  font-size: 0.76rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.competition-card__ignore {
+  display: none;
+  padding: 0.35rem 0.7rem;
+}
+
+.freehub-auth-ready .competition-card__ignore {
+  display: inline-flex;
+}
+
+.competition-card__ignore[aria-pressed="true"] {
+  background: #e8f7f4;
+  color: #0f766e;
+}
+
+.competition-card--ignored {
+  opacity: 0.72;
+}
+
+.ignored-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid rgba(15, 118, 110, 0.16);
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.ignored-summary p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.ignored-summary button {
+  padding: 0.35rem 0.75rem;
 }
 
 .competition-card__cta--featured {

@@ -122,6 +122,7 @@ function buildFirestoreHelpers(db, firestore) {
     deleteDoc,
     doc,
     getDoc,
+    getDocs,
     serverTimestamp,
     setDoc,
   } = firestore;
@@ -173,6 +174,37 @@ function buildFirestoreHelpers(db, firestore) {
       const savedRef = doc(db, "users", userId, "savedCompetitions", competitionId);
       const snapshot = await getDoc(savedRef);
       return snapshot.exists() ? snapshot.data() : null;
+    },
+
+    async ignoreCompetition(userId, competition) {
+      const ignoredRef = doc(db, "users", userId, "ignoredCompetitions", competition.id);
+      await setDoc(
+        ignoredRef,
+        {
+          competitionId: competition.id,
+          title: competition.title,
+          category: competition.category || null,
+          path: competition.path,
+          ignoredAt: serverTimestamp(),
+          updatedAt: serverTimestamp(),
+        },
+        { merge: true }
+      );
+    },
+
+    async unignoreCompetition(userId, competitionId) {
+      await deleteDoc(doc(db, "users", userId, "ignoredCompetitions", competitionId));
+    },
+
+    async getIgnoredCompetition(userId, competitionId) {
+      const ignoredRef = doc(db, "users", userId, "ignoredCompetitions", competitionId);
+      const snapshot = await getDoc(ignoredRef);
+      return snapshot.exists() ? snapshot.data() : null;
+    },
+
+    async getIgnoredCompetitions(userId) {
+      const snapshot = await getDocs(collection(db, "users", userId, "ignoredCompetitions"));
+      return snapshot.docs.map((docSnapshot) => docSnapshot.data());
     },
 
     async setAlertPreferences(userId, preferences = {}) {

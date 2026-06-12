@@ -50,6 +50,15 @@ Metadata fallback (`og:image`, `twitter:image`) may still use the global default
 - fails build if rendered HTML includes SVG data-URI hero/card images
 - catches regressions before deploy
 
+## Page CTA Contract
+Every public content page must expose both Freehub follow-up paths:
+- WhatsApp Channel link using the shared `WHATSAPP_CHANNEL_URL` constant.
+- Optional Google/email alert signup through the shared `renderGlobalAuthPanel()` / `shared/auth-ui.js` flow.
+
+New page templates should use `renderSiteFooter()` unless there is a specific reason not to. The footer is the baseline implementation because it includes the WhatsApp Channel link and global auth panel. Collection and homepage templates can add stronger in-page CTAs with `renderWhatsAppChannelCta()` and `renderGlobalAuthPanel()`, but those do not replace the footer baseline.
+
+The only generated exception is `/out/*`, which is a noindex/nofollow redirect layer to official promoter pages and should stay minimal.
+
 ## Deploy Note
 After data/code changes, always run:
 1. `node scripts/generate-pages.js`

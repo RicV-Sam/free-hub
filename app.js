@@ -262,6 +262,7 @@ function renderCompetitions() {
     elements.competitionsGrid.append(...cards);
   }
 
+  document.dispatchEvent(new CustomEvent("freehub:competition-cards-rendered"));
   injectStructuredData(filteredCompetitions);
   updateResultsSummary(filteredCompetitions.length);
 }
@@ -319,6 +320,7 @@ function createCompetitionCard(competition) {
   article.dataset.competitionSlug = getCompetitionSlug(competition);
   article.dataset.competitionTitle = competition.title;
   article.dataset.competitionCategory = competition.category;
+  article.dataset.competitionPath = getCompetitionPath(competition);
 
   const overlayLink = document.createElement("a");
   overlayLink.className = "competition-card__overlay-link";
@@ -449,12 +451,28 @@ function createCompetitionCard(competition) {
   cta.className = "competition-card__cta";
   cta.textContent = "View Details";
 
+  const actions = document.createElement("div");
+  actions.className = "competition-card__actions";
+
+  const ignoreButton = document.createElement("button");
+  ignoreButton.type = "button";
+  ignoreButton.className = "competition-card__ignore";
+  ignoreButton.dataset.authAction = "ignore";
+  ignoreButton.dataset.competitionId = getCompetitionSlug(competition);
+  ignoreButton.dataset.competitionTitle = competition.title;
+  ignoreButton.dataset.competitionCategory = competition.category || "";
+  ignoreButton.dataset.competitionPath = getCompetitionPath(competition);
+  ignoreButton.setAttribute("aria-pressed", "false");
+  ignoreButton.textContent = "Hide";
+
+  actions.append(ignoreButton);
+
   if (tagLabels.length > 0) {
     footer.append(tags);
     body.appendChild(footer);
   }
 
-  body.appendChild(cta);
+  body.append(actions, cta);
   article.append(media, body, overlayLink);
 
   return article;

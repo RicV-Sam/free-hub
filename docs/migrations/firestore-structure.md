@@ -30,6 +30,7 @@ Email link sign-in is the static-site-friendly email option because the browser 
 ```text
 users/{userId}
 users/{userId}/savedCompetitions/{competitionId}
+users/{userId}/ignoredCompetitions/{competitionId}
 users/{userId}/alertPreferences/main
 signupEvents/{eventId}
 ```
@@ -59,6 +60,19 @@ signupEvents/{eventId}
   "category": "Cash",
   "path": "https://freehub.co.za/competition/brand-competition-slug-2026/",
   "savedAt": "serverTimestamp",
+  "updatedAt": "serverTimestamp"
+}
+```
+
+### `users/{userId}/ignoredCompetitions/{competitionId}`
+
+```json
+{
+  "competitionId": "brand-competition-slug-2026",
+  "title": "Competition title",
+  "category": "Cash",
+  "path": "https://freehub.co.za/competition/brand-competition-slug-2026/",
+  "ignoredAt": "serverTimestamp",
   "updatedAt": "serverTimestamp"
 }
 ```
@@ -136,6 +150,20 @@ service cloud.firestore {
             'category',
             'path',
             'savedAt',
+            'updatedAt'
+          ]);
+      }
+
+      match /ignoredCompetitions/{competitionId} {
+        allow read, delete: if isOwner(userId);
+        allow create, update: if isOwner(userId)
+          && request.resource.data.competitionId == competitionId
+          && request.resource.data.keys().hasOnly([
+            'competitionId',
+            'title',
+            'category',
+            'path',
+            'ignoredAt',
             'updatedAt'
           ]);
       }

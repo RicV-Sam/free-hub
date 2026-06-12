@@ -8,15 +8,19 @@ const state = {
   user: null,
   panels: [],
   activePanel: null,
+  activeCompetition: null,
   pendingAction: "save",
   saved: new Map(),
+  ignored: new Map(),
   alerts: new Map(),
+  showIgnored: false,
 };
 
 document.addEventListener("DOMContentLoaded", initAuthUi);
 
 async function initAuthUi() {
   state.panels = Array.from(document.querySelectorAll("[data-freehub-auth]"));
+  bindGlobalIgnoreControls();
 
   try {
     state.client = await getFirebaseClient();
@@ -28,6 +32,7 @@ async function initAuthUi() {
     return;
   }
 
+  document.documentElement.classList.add("freehub-auth-ready");
   ensureModal();
   await completeEmailLinkIfNeeded();
 
@@ -36,6 +41,7 @@ async function initAuthUi() {
     state.user = user;
     await refreshPanelState();
     renderPanels();
+    applyIgnoredCompetitionsToPage();
   });
 }
 
@@ -49,6 +55,35 @@ function bindPanel(panel) {
   signInButton?.addEventListener("click", () => openSignupModal(panel, getDefaultAction(panel)));
 
   panel.hidden = false;
+}
+
+function bindGlobalIgnoreControls() {
+  document.addEventListener("click", (event) => {
+    const ignoreButton = event.target.closest('[data-auth-action="ignore"]');
+
+    if (!ignoreButton) {
+      return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+    handleIgnoreClick(ignoreButton);
+  });
+
+  document.addEventListener("click", (event) => {
+    const toggleButton = event.target.closest("[data-ignored-toggle]");
+
+    if (!toggleButton) {
+      return;
+    }
+
+    state.showIgnored = !state.showIgnored;
+    applyIgnoredCompetitionsToPage();
+  });
+
+  document.addEventListener("freehub:competition-cards-rendered", () => {
+    applyIgnoredCompetitionsToPage();
+  });
 }
 
 async function handleSaveClick(panel) {
@@ -114,22 +149,68 @@ async function handleAlertsClick(panel) {
   }
 }
 
-function openSignupModal(panel, action) {
+async function handleIgnoreClick(sourceElement) {
+  if (!state.client) {
+    return;
+  }
+
+  const competition = getElementCompetition(sourceElement);
+
+  if (!competition?.id) {
+    return;
+  }
+
+  if (!state.user) {
+    openSignupModal(null, "ignore", competition);
+    return;
+  }
+
+  const isIgnored = state.ignored.get(competition.id) === true;
+
+  setIgnoreButtonsBusy(competition.id, true);
+  try {
+    if (isIgnored) {
+      await state.client.helpers.unignoreCompetition(state.user.uid, competition.id);
+      state.ignored.set(competition.id, false);
+      trackAuthEvent("unignore_competition", getCompetitionEventParams(competition));
+    } else {
+      await state.client.helpers.ignoreCompetition(state.user.uid, competition);
+      state.ignored.set(competition.id, true);
+      trackAuthEvent("ignore_competition", getCompetitionEventParams(competition));
+    }
+    applyIgnoredCompetitionsToPage();
+    renderPanels();
+  } catch (error) {
+    setNearestStatus(sourceElement, "We could not update ignored competitions right now.");
+  } finally {
+    setIgnoreButtonsBusy(competition.id, false);
+  }
+}
+
+function openSignupModal(panel, action, competitionOverride = null) {
   state.activePanel = panel;
+  state.activeCompetition = competitionOverride;
   state.pendingAction = action;
 
   const modal = getModal();
   const form = modal.querySelector("[data-auth-form]");
   const message = modal.querySelector("[data-auth-modal-message]");
   const title = modal.querySelector("[data-auth-modal-title]");
-  const competition = getPanelCompetition(panel);
+  const competition = competitionOverride || getPanelCompetition(panel);
 
   form.reset();
-  title.textContent = action === "alerts" ? "Sign in for competition alerts" : "Sign in to save";
+  title.textContent =
+    action === "alerts"
+      ? "Sign in for competition alerts"
+      : action === "ignore"
+        ? "Sign in to hide competitions"
+        : "Sign in to save";
   message.textContent =
     action === "alerts"
       ? "Use Google or an email sign-in link to store competition alert preferences for your Freehub account."
-      : `Sign in to save ${competition?.title || "this competition"}.`;
+      : action === "ignore"
+        ? `Sign in to hide ${competition?.title || "competitions you have already seen"}.`
+        : `Sign in to save ${competition?.title || "this competition"}.`;
 
   modal.hidden = false;
   modal.querySelector("#freehubPrivacyConsent").focus();
@@ -357,27 +438,54 @@ async function handleSigninSuccess(user, provider, consent) {
       console.warn("Freehub saved competition writes are unavailable:", error.message);
     }
   }
+
+  if (state.pendingAction === "ignore" && competition?.id) {
+    try {
+      await state.client.helpers.ignoreCompetition(user.uid, competition);
+      state.ignored.set(competition.id, true);
+      trackAuthEvent("ignore_competition", getCompetitionEventParams(competition));
+      applyIgnoredCompetitionsToPage();
+    } catch (error) {
+      console.warn("Freehub ignored competition writes are unavailable:", error.message);
+    }
+  }
 }
 
 async function refreshPanelState() {
   if (!state.user || !state.client) {
     state.saved.clear();
+    state.ignored.clear();
     state.alerts.clear();
+    applyIgnoredCompetitionsToPage();
     return;
   }
+
+  const ignoredCompetitions = await state.client.helpers
+    .getIgnoredCompetitions(state.user.uid)
+    .catch(() => []);
+  state.ignored.clear();
+  ignoredCompetitions.forEach((competition) => {
+    if (competition?.competitionId) {
+      state.ignored.set(competition.competitionId, true);
+    }
+  });
 
   await Promise.all(
     state.panels.map(async (panel) => {
       const competition = getPanelCompetition(panel);
-      const [saved, alerts] = await Promise.all([
+      const [saved, ignored, alerts] = await Promise.all([
         competition?.id
           ? state.client.helpers.getSavedCompetition(state.user.uid, competition.id).catch(() => null)
+          : Promise.resolve(null),
+        competition?.id
+          ? state.client.helpers.getIgnoredCompetition(state.user.uid, competition.id).catch(() => null)
           : Promise.resolve(null),
         state.client.helpers.getAlertPreferences(state.user.uid).catch(() => null),
       ]);
 
       if (competition?.id) {
         state.saved.set(competition.id, Boolean(saved));
+        state.ignored.set(competition.id, Boolean(ignored) || state.ignored.get(competition.id) === true);
       }
       state.alerts.set(getAlertKey(competition), alerts?.competitionAlerts === true);
     })
@@ -392,9 +500,11 @@ function renderPanel(panel) {
   const competition = getPanelCompetition(panel);
   const saveButton = panel.querySelector('[data-auth-action="save"]');
   const alertsButton = panel.querySelector('[data-auth-action="alerts"]');
+  const ignoreButton = panel.querySelector('[data-auth-action="ignore"]');
   const signInButton = panel.querySelector('[data-auth-action="signin"]');
   const userElement = panel.querySelector("[data-auth-user]");
   const isSaved = competition?.id ? state.saved.get(competition.id) === true : false;
+  const isIgnored = competition?.id ? state.ignored.get(competition.id) === true : false;
   const alertsOn = state.alerts.get(getAlertKey(competition)) === true;
 
   if (saveButton) {
@@ -407,6 +517,11 @@ function renderPanel(panel) {
       ? (alertsOn ? "Alerts on" : "Get competition alerts")
       : "Get competition alerts";
     alertsButton.setAttribute("aria-pressed", String(alertsOn));
+  }
+
+  if (ignoreButton) {
+    ignoreButton.textContent = state.user ? (isIgnored ? "Ignored" : "Hide this competition") : "Sign in to hide";
+    ignoreButton.setAttribute("aria-pressed", String(isIgnored));
   }
 
   if (signInButton) {
@@ -432,6 +547,23 @@ function setPanelMessage(panel, message) {
   if (status) {
     status.textContent = message;
   }
+}
+
+function setNearestStatus(element, message) {
+  const panel = element.closest("[data-freehub-auth]");
+  const status = panel?.querySelector("[data-auth-status]");
+
+  if (status) {
+    status.textContent = message;
+  }
+}
+
+function setIgnoreButtonsBusy(competitionId, busy) {
+  document
+    .querySelectorAll(`[data-auth-action="ignore"][data-competition-id="${cssEscape(competitionId)}"]`)
+    .forEach((button) => {
+      button.disabled = busy;
+    });
 }
 
 function setModalBusy(busy) {
@@ -462,6 +594,10 @@ function getConsent(form) {
 }
 
 function getActiveCompetition() {
+  if (state.activeCompetition) {
+    return state.activeCompetition;
+  }
+
   if (state.activePanel) {
     return getPanelCompetition(state.activePanel);
   }
@@ -480,6 +616,92 @@ function getPanelCompetition(panel) {
     category: panel.dataset.competitionCategory,
     path: panel.dataset.competitionPath,
   };
+}
+
+function getElementCompetition(element) {
+  const source = element.closest("[data-competition-id]") || element.closest("[data-competition-slug]");
+  const id = source?.dataset.competitionId || source?.dataset.competitionSlug;
+
+  if (!id) {
+    return null;
+  }
+
+  return {
+    id,
+    title: source.dataset.competitionTitle || source.getAttribute("aria-label") || "this competition",
+    category: source.dataset.competitionCategory || "",
+    path: source.dataset.competitionPath || `${window.location.origin}/competition/${id}/`,
+  };
+}
+
+function applyIgnoredCompetitionsToPage() {
+  const ignoredIds = getIgnoredCompetitionIds();
+  const shouldHide = Boolean(state.user) && !state.showIgnored;
+  let hiddenCount = 0;
+
+  document.querySelectorAll(".competition-card[data-competition-slug]").forEach((card) => {
+    const isIgnored = ignoredIds.includes(card.dataset.competitionSlug);
+    card.classList.toggle("competition-card--ignored", isIgnored);
+    card.hidden = isIgnored && shouldHide;
+    if (isIgnored) {
+      hiddenCount += 1;
+    }
+  });
+
+  updateIgnoreButtons();
+  renderIgnoredSummary(hiddenCount);
+  window.FreeHubAuth = buildPublicAuthApi();
+}
+
+function updateIgnoreButtons() {
+  document.querySelectorAll('[data-auth-action="ignore"]').forEach((button) => {
+    const competition = getElementCompetition(button);
+    const isIgnored = competition?.id ? state.ignored.get(competition.id) === true : false;
+
+    button.textContent = state.user ? (isIgnored ? "Ignored" : "Hide") : "Sign in to hide";
+    button.setAttribute("aria-pressed", String(isIgnored));
+  });
+}
+
+function renderIgnoredSummary(hiddenCount) {
+  document.querySelectorAll("[data-ignored-summary]").forEach((element) => element.remove());
+
+  if (!state.user || hiddenCount === 0) {
+    return;
+  }
+
+  document.querySelectorAll(".competition-grid").forEach((grid) => {
+    const summary = document.createElement("div");
+    summary.className = "ignored-summary";
+    summary.dataset.ignoredSummary = "true";
+    summary.innerHTML = `
+      <p>${hiddenCount} ignored ${hiddenCount === 1 ? "competition is" : "competitions are"} ${state.showIgnored ? "shown" : "hidden"}.</p>
+      <button type="button" data-ignored-toggle>${state.showIgnored ? "Hide ignored" : "Show ignored"}</button>
+    `;
+    grid.before(summary);
+  });
+}
+
+function getIgnoredCompetitionIds() {
+  return Array.from(state.ignored.entries())
+    .filter(([, ignored]) => ignored === true)
+    .map(([competitionId]) => competitionId);
+}
+
+function buildPublicAuthApi() {
+  return {
+    user: state.user,
+    getIgnoredCompetitionIds,
+    applyIgnoredCompetitionsToPage,
+  };
+}
+
+function cssEscape(value) {
+  if (window.CSS?.escape) {
+    return window.CSS.escape(value);
+  }
+
+  return String(value).replace(/["\\]/g, "\\$&");
 }
 
 function getAlertKey(competition) {
