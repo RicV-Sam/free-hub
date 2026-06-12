@@ -153,10 +153,12 @@ function validateHandoff(handoff, validation) {
 
 function getWarningCodes(validation, row) {
   const issues = Array.isArray(validation.issues) ? validation.issues : [];
+  const rowId = getRowId(row);
+  const proposedId = asString(row.proposedId);
   return issues
     .filter((issue) => {
       if (!issue || issue.severity !== "warning") return false;
-      return issue.candidateId === row.candidateId || issue.proposedId === row.proposedId;
+      return (rowId && issue.candidateId === rowId) || (proposedId && issue.proposedId === proposedId);
     })
     .map((issue) => issue.code)
     .filter(Boolean);
@@ -357,7 +359,7 @@ function mapHandoffRow(row, warningCodes, nowIso, existing, handoff) {
   const url = row.brand === "Dis-Chem" ? row.termsUrl : row.sourceUrl;
   const sourceReport = getRowSourceReport(row, handoff);
 
-  return {
+  const mapped = {
     id: getRowSlug(row),
     title: getRowTitle(row),
     brand: row.brand,
@@ -403,6 +405,18 @@ function mapHandoffRow(row, warningCodes, nowIso, existing, handoff) {
     validationWarnings: warningCodes,
     importedAt: existing && existing.importedAt ? existing.importedAt : nowIso,
   };
+
+  [
+    "linkValidationStatus",
+    "linkValidationReason",
+    "linkValidationCheckedAt",
+  ].forEach((field) => {
+    if (existing && Object.prototype.hasOwnProperty.call(existing, field)) {
+      mapped[field] = existing[field];
+    }
+  });
+
+  return mapped;
 }
 
 function stableJson(value) {
