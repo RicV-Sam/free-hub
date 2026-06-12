@@ -1975,7 +1975,8 @@ function getGeneratedRouteContexts(competitions, generatedBrandPages = []) {
   ];
 }
 
-function renderSiteFooter() {
+function renderSiteFooter(options = {}) {
+  const { includeAuthPanel = true } = options;
   const verticalLinksMarkup = generatedVerticalPagesForLinks
     .slice(0, 6)
     .map(
@@ -2033,6 +2034,7 @@ function renderSiteFooter() {
               <a href="/privacy-policy/">Privacy policy</a>
               <a href="/terms-of-use/">Terms of use</a>
             </nav>
+            ${includeAuthPanel ? renderGlobalAuthPanel({ id: "footer", compact: true }) : ""}
           </div>
         </div>
       </footer>`;
@@ -3419,6 +3421,7 @@ function renderPage(routeContext, competitions) {
 
     <script src="${RELATIVE_ASSET_PATH}shared/page-data.js" defer></script>
     <script src="${RELATIVE_ASSET_PATH}app.js" defer></script>
+    <script type="module" src="${RELATIVE_ASSET_PATH}shared/auth-ui.js"></script>
   </body>
 </html>
 `;
@@ -3560,6 +3563,7 @@ function renderBrandIndexPage(brandPages) {
 
       ${renderSiteFooter()}
     </div>
+    <script type="module" src="/shared/auth-ui.js"></script>
   </body>
 </html>
 `;
@@ -4205,6 +4209,38 @@ function renderWhatsAppChannelCta(routeContext = null) {
         </section>`;
 }
 
+function renderGlobalAuthPanel(options = {}) {
+  const {
+    id = "global",
+    compact = false,
+    title = "Get Freehub email alerts",
+    text = "Sign in with Google or an email link to save alert preferences. Browsing and entry links stay open.",
+  } = options;
+  const className = compact
+    ? "competition-auth competition-auth--global competition-auth--compact"
+    : "competition-auth competition-auth--global";
+
+  return `<section
+          class="${className}"
+          data-freehub-auth
+          data-auth-context="${escapeAttribute(id)}"
+          data-auth-default-action="alerts"
+          data-auth-signed-out-text="${escapeAttribute(text)}"
+          aria-label="Optional Freehub email alerts"
+          hidden
+        >
+          <div class="competition-auth__copy">
+            <p class="competition-auth__title">${escapeHtml(title)}</p>
+            <p class="competition-auth__text" data-auth-user>${escapeHtml(text)}</p>
+          </div>
+          <div class="competition-auth__actions">
+            <button class="competition-auth__button" type="button" data-auth-action="alerts">Get email alerts</button>
+            <button class="competition-auth__link" type="button" data-auth-action="signin">Sign in</button>
+          </div>
+          <p class="competition-auth__status" data-auth-status aria-live="polite"></p>
+        </section>`;
+}
+
 function renderThinPageTips(competitions) {
   if (!shared.shouldShowThinPageTips(competitions)) {
     return "";
@@ -4503,6 +4539,11 @@ ${noscriptLinks}
               <a class="btn btn--primary" href="#all-competitions">Browse Today&apos;s Competitions</a>
               <a class="btn btn--secondary" href="/tag/ending-soon/">Ending Soon</a>
             </div>
+            ${renderGlobalAuthPanel({
+              id: "home-hero",
+              title: "Get alerts by email",
+              text: "Optional Freehub account: sign in with Google or an email link to save alert preferences.",
+            })}
             <div class="trust-row" aria-label="Trust signals">
               <span class="trust-row__item">Verified listings</span>
               <span class="trust-row__item">Official brand links</span>
@@ -4543,6 +4584,11 @@ ${noscriptLinks}
 
         ${homeIntentLinksMarkup}
         ${renderVerticalDiscoveryLinks()}
+        ${renderGlobalAuthPanel({
+          id: "home-before-whatsapp",
+          title: "Prefer email alerts?",
+          text: "Use Google or an email sign-in link for Freehub competition alerts. WhatsApp remains optional too.",
+        })}
         ${renderWhatsAppChannelCta()}
 
         <section class="controls" aria-label="Competition filters">
@@ -4629,6 +4675,11 @@ ${noscriptLinks}
             )}" target="_blank" rel="noopener noreferrer">Follow on WhatsApp</a>
           </div>
         </section>
+        ${renderGlobalAuthPanel({
+          id: "home-bottom",
+          title: "Save alert preferences for next time",
+          text: "Sign in with Google or an email link to keep Freehub alert preferences with your account.",
+        })}
       </main>
 
       ${renderSiteFooter()}
@@ -4638,6 +4689,7 @@ ${noscriptLinks}
 
     <script src="/shared/page-data.js" defer></script>
     <script src="/app.js" defer></script>
+    <script type="module" src="/shared/auth-ui.js"></script>
   </body>
 </html>
 `;
@@ -4785,6 +4837,12 @@ function renderTrustPage(page) {
             .join("\n          ")}
         </section>
 
+        ${page.slug === "contact" ? renderGlobalAuthPanel({
+          id: "contact",
+          title: "Want competition alerts instead?",
+          text: "For alerts, sign in with Google or an email link. For listing corrections, use the contact email above.",
+        }) : ""}
+
         ${renderFreeResourceSection(page, pageResources)}
         ${renderTrustChecklist(page)}
         ${renderTrustFaqSection(faqItems)}
@@ -4804,6 +4862,7 @@ function renderTrustPage(page) {
 
       ${renderSiteFooter()}
     </div>
+    <script type="module" src="/shared/auth-ui.js"></script>
   </body>
 </html>
 `;
@@ -5056,6 +5115,7 @@ function renderNotFoundPage() {
 
     <script src="/shared/page-data.js" defer></script>
     <script src="/app.js" defer></script>
+    <script type="module" src="/shared/auth-ui.js"></script>
   </body>
 </html>
 `;
@@ -5543,7 +5603,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
 
     <script src="${RELATIVE_ASSET_PATH}shared/page-data.js" defer></script>
     <script src="${RELATIVE_ASSET_PATH}app.js" defer></script>
-    ${authPanelMarkup ? `<script type="module" src="${RELATIVE_ASSET_PATH}shared/auth-ui.js"></script>` : ""}
+    <script type="module" src="${RELATIVE_ASSET_PATH}shared/auth-ui.js"></script>
   </body>
 </html>
 `;
@@ -6072,7 +6132,7 @@ function renderOutPage(competition) {
         ${renderAdZone("ad-middle", "outbound-middle", true)}
       </main>
 
-      ${renderSiteFooter()}
+      ${renderSiteFooter({ includeAuthPanel: false })}
     </div>
   </body>
 </html>

@@ -1464,6 +1464,28 @@ button {
   background: rgba(248, 250, 252, 0.9);
 }
 
+.competition-auth--global {
+  margin: 0;
+}
+
+.hero .competition-auth--global {
+  max-width: 34rem;
+  margin-top: 0.85rem;
+}
+
+.site-footer .competition-auth--compact {
+  margin-top: 0.85rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.site-footer .competition-auth--compact .competition-auth__title,
+.site-footer .competition-auth--compact .competition-auth__text,
+.site-footer .competition-auth--compact .competition-auth__status {
+  color: rgba(255, 255, 255, 0.88);
+}
+
 .competition-auth__copy {
   display: grid;
   gap: 0.25rem;

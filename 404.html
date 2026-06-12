@@ -123,6 +123,25 @@
               <a href="/privacy-policy/">Privacy policy</a>
               <a href="/terms-of-use/">Terms of use</a>
             </nav>
+            <section
+          class="competition-auth competition-auth--global competition-auth--compact"
+          data-freehub-auth
+          data-auth-context="footer"
+          data-auth-default-action="alerts"
+          data-auth-signed-out-text="Sign in with Google or an email link to save alert preferences. Browsing and entry links stay open."
+          aria-label="Optional Freehub email alerts"
+          hidden
+        >
+          <div class="competition-auth__copy">
+            <p class="competition-auth__title">Get Freehub email alerts</p>
+            <p class="competition-auth__text" data-auth-user>Sign in with Google or an email link to save alert preferences. Browsing and entry links stay open.</p>
+          </div>
+          <div class="competition-auth__actions">
+            <button class="competition-auth__button" type="button" data-auth-action="alerts">Get email alerts</button>
+            <button class="competition-auth__link" type="button" data-auth-action="signin">Sign in</button>
+          </div>
+          <p class="competition-auth__status" data-auth-status aria-live="polite"></p>
+        </section>
           </div>
         </div>
       </footer>
@@ -130,5 +149,6 @@
 
     <script src="/shared/page-data.js" defer></script>
     <script src="/app.js" defer></script>
+    <script type="module" src="/shared/auth-ui.js"></script>
   </body>
 </html>

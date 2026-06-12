@@ -46,18 +46,24 @@ function bindPanel(panel) {
 
   saveButton?.addEventListener("click", () => handleSaveClick(panel));
   alertsButton?.addEventListener("click", () => handleAlertsClick(panel));
-  signInButton?.addEventListener("click", () => openSignupModal(panel, "save"));
+  signInButton?.addEventListener("click", () => openSignupModal(panel, getDefaultAction(panel)));
 
   panel.hidden = false;
 }
 
 async function handleSaveClick(panel) {
+  const competition = getPanelCompetition(panel);
+
+  if (!competition?.id) {
+    openSignupModal(panel, "alerts");
+    return;
+  }
+
   if (!state.user) {
     openSignupModal(panel, "save");
     return;
   }
 
-  const competition = getPanelCompetition(panel);
   const isSaved = state.saved.get(competition.id) === true;
 
   setPanelBusy(panel, true);
@@ -88,7 +94,8 @@ async function handleAlertsClick(panel) {
   }
 
   const competition = getPanelCompetition(panel);
-  const alertsOn = state.alerts.get(competition.id) === true;
+  const alertKey = getAlertKey(competition);
+  const alertsOn = state.alerts.get(alertKey) === true;
 
   setPanelBusy(panel, true);
   try {
@@ -96,7 +103,7 @@ async function handleAlertsClick(panel) {
       competitionAlerts: !alertsOn,
       marketingOptIn: !alertsOn,
     });
-    state.alerts.set(competition.id, !alertsOn);
+    state.alerts.set(alertKey, !alertsOn);
     trackAuthEvent(alertsOn ? "alert_opt_out" : "alert_opt_in", getCompetitionEventParams(competition));
     setPanelMessage(panel, alertsOn ? "Competition alerts are off." : "Competition alerts are on.");
   } catch (error) {
@@ -121,8 +128,8 @@ function openSignupModal(panel, action) {
   title.textContent = action === "alerts" ? "Sign in for competition alerts" : "Sign in to save";
   message.textContent =
     action === "alerts"
-      ? "Tick the optional alerts box if you want Freehub to store alert preferences for your account."
-      : `Sign in to save ${competition.title}.`;
+      ? "Use Google or an email sign-in link to store competition alert preferences for your Freehub account."
+      : `Sign in to save ${competition?.title || "this competition"}.`;
 
   modal.hidden = false;
   modal.querySelector("#freehubPrivacyConsent").focus();
@@ -334,9 +341,7 @@ async function handleSigninSuccess(user, provider, consent) {
         competitionAlerts: true,
         marketingOptIn: true,
       });
-      if (competition?.id) {
-        state.alerts.set(competition.id, true);
-      }
+      state.alerts.set(getAlertKey(competition), true);
       trackAuthEvent("alert_opt_in", getCompetitionEventParams(competition));
     } catch (error) {
       console.warn("Freehub alert preference writes are unavailable:", error.message);
@@ -365,12 +370,16 @@ async function refreshPanelState() {
     state.panels.map(async (panel) => {
       const competition = getPanelCompetition(panel);
       const [saved, alerts] = await Promise.all([
-        state.client.helpers.getSavedCompetition(state.user.uid, competition.id).catch(() => null),
+        competition?.id
+          ? state.client.helpers.getSavedCompetition(state.user.uid, competition.id).catch(() => null)
+          : Promise.resolve(null),
         state.client.helpers.getAlertPreferences(state.user.uid).catch(() => null),
       ]);
 
-      state.saved.set(competition.id, Boolean(saved));
-      state.alerts.set(competition.id, alerts?.competitionAlerts === true);
+      if (competition?.id) {
+        state.saved.set(competition.id, Boolean(saved));
+      }
+      state.alerts.set(getAlertKey(competition), alerts?.competitionAlerts === true);
     })
   );
 }
@@ -385,8 +394,8 @@ function renderPanel(panel) {
   const alertsButton = panel.querySelector('[data-auth-action="alerts"]');
   const signInButton = panel.querySelector('[data-auth-action="signin"]');
   const userElement = panel.querySelector("[data-auth-user]");
-  const isSaved = state.saved.get(competition.id) === true;
-  const alertsOn = state.alerts.get(competition.id) === true;
+  const isSaved = competition?.id ? state.saved.get(competition.id) === true : false;
+  const alertsOn = state.alerts.get(getAlertKey(competition)) === true;
 
   if (saveButton) {
     saveButton.textContent = state.user ? (isSaved ? "Saved" : "Save this competition") : "Sign in to save";
@@ -407,7 +416,7 @@ function renderPanel(panel) {
   if (userElement) {
     userElement.textContent = state.user
       ? `Signed in as ${state.user.email || state.user.displayName || "Freehub user"}`
-      : "Sign in is optional. Browsing and entry links stay open.";
+      : panel.dataset.authSignedOutText || "Sign in is optional. Browsing and entry links stay open.";
   }
 }
 
@@ -461,12 +470,24 @@ function getActiveCompetition() {
 }
 
 function getPanelCompetition(panel) {
+  if (!panel?.dataset.competitionId) {
+    return null;
+  }
+
   return {
     id: panel.dataset.competitionId,
     title: panel.dataset.competitionTitle,
     category: panel.dataset.competitionCategory,
     path: panel.dataset.competitionPath,
   };
+}
+
+function getAlertKey(competition) {
+  return competition?.id || "global";
+}
+
+function getDefaultAction(panel) {
+  return panel.dataset.authDefaultAction || (panel.dataset.competitionId ? "save" : "alerts");
 }
 
 function getCompetitionEventParams(competition) {
