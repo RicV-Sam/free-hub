@@ -822,15 +822,15 @@ const TRUST_PAGE_DEFINITIONS = [
   },
   {
     slug: "free-samples-south-africa",
-    title: "Free Samples South Africa | How to Find Legit Samples Safely",
+    title: "Where to Get Free Samples in South Africa | Freehub",
     description:
-      "Learn how to check free sample offers in South Africa, including product testing, brand samples, samples with orders and fake freebie red flags.",
-    heading: "Free Samples in South Africa",
+      "Find where to get free samples in South Africa through product testing, official brand campaigns and retailer offers, with cost, privacy and red-flag checks.",
+    heading: "Where to Get Free Samples in South Africa",
     intro:
-      "A cautious guide to product samples and product-testing opportunities, with clear warnings about purchase requirements, survey walls and fake voucher traps.",
+      "Start with official brand campaigns, product-testing panels and retailer offers, then check cost, delivery, eligibility and privacy terms before sharing personal details.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: "2026-05-27",
+    dateModified: "2026-06-10",
     resourceCategories: ["samples"],
     resourceTitle: "Sample and product-testing routes",
     resourceIntro:
@@ -839,14 +839,14 @@ const TRUST_PAGE_DEFINITIONS = [
       {
         heading: "Types of sample offers",
         paragraphs: [
-          "Common sample routes include official brand request forms, samples included with an order, in-store or kiosk samples, product-testing panels and adult-only product trials with age restrictions.",
+          "Common free sample routes include official brand request forms, samples included with an order, in-store or kiosk samples, product-testing panels and adult-only product trials with age restrictions.",
           "Some offers are not truly free because they require a paid order, delivery fee, purchase, loyalty account, content task or collection at a specific store.",
         ],
       },
       {
         heading: "Check the source first",
         paragraphs: [
-          "A safer sample page should show the brand, eligibility, collection or delivery method, whether stock is limited, whether age restrictions apply and what personal information is collected.",
+          "A safer sample page should show the official brand, eligibility, collection or delivery method, whether stock is limited, whether age restrictions apply and what personal information is collected.",
           "Avoid sample pages that ask for card details for a free item, send you through unrelated survey walls or claim everyone has already won a high-value voucher.",
         ],
       },
@@ -890,9 +890,11 @@ const TRUST_PAGE_DEFINITIONS = [
       },
     ],
     links: [
+      { label: "Free giveaways South Africa", href: "/" },
       { label: "Free stuff guide", href: "/free-stuff-south-africa/" },
+      { label: "Voucher competitions", href: "/category/vouchers/" },
+      { label: "Free credit report guide", href: "/free-credit-report-south-africa/" },
       { label: "Free competitions", href: "/free-competitions/" },
-      { label: "Entry cost labels", href: "/competition-entry-cost-labels/" },
       { label: "Report a suspicious listing", href: "/report-a-competition/" },
     ],
   },
@@ -1584,12 +1586,12 @@ function renderFreeCompetitionsEditorial(routeContext) {
             <section class="hub-editorial__section">
               <h3>What free to enter means on Freehub</h3>
               <p>Freehub treats a free competition as a listing where the available source information shows no required product purchase, paid ticket, minimum spend, till slip, subscription billing, SMS or USSD cost to enter.</p>
-              <p>If the cost route is unclear, the listing should not appear on this page. Browse the full <a href="/competitions/">competitions</a> hub when you want to compare every active published listing.</p>
+              <p>If the cost route is unclear, the listing should not appear on this page. Browse the homepage for broader <a href="/">free giveaways South Africa</a> intent when you want to compare free-entry, purchase-required and account-linked promotions together.</p>
             </section>
             <section class="hub-editorial__section">
               <h3>Free entry vs purchase required</h3>
               <p>A purchase-required competition can still be legitimate, but it belongs on a different page because users must buy something, keep proof of purchase, swipe a loyalty card or meet a spend threshold. Free-entry listings should not require those actions.</p>
-              <p>Compare purchase mechanics separately on <a href="/purchase-required-competitions/">purchase required competitions</a>, or scan urgent deadlines on <a href="/competitions-ending-soon/">competitions ending soon</a>.</p>
+              <p>Compare purchase mechanics separately on <a href="/purchase-required-competitions/">purchase required competitions</a>, scan urgent deadlines on <a href="/competitions-ending-soon/">competitions ending soon</a>, or return to <a href="/">all giveaways and competitions</a> when you are not filtering by entry cost.</p>
             </section>
             <section class="hub-editorial__section">
               <h3>Common free-entry methods</h3>
@@ -1858,12 +1860,12 @@ function getCategoryEditorial(slug, competitions) {
     },
     vouchers: {
       ariaLabel: "Guide to voucher competitions in South Africa",
-      title: "How to compare voucher competitions",
+      title: "How to compare free voucher giveaways",
       sections: [
         {
-          heading: "What voucher competitions are",
+          heading: "What voucher giveaways are",
           paragraphs: [
-            `Voucher competitions are prize draws or giveaways where the reward is a voucher, gift card, credit, store spend or similar redeemable value. This page currently groups ${escapeHtml(liveCopy)} across shopping voucher competitions, grocery voucher competitions, online shopping voucher competitions, retail voucher giveaways, account-linked offers and rewards-style promotions.`,
+            `Voucher competitions are prize draws or giveaways where the reward is a voucher, gift card, credit, store spend or similar redeemable value. This page currently groups ${escapeHtml(liveCopy)} for users searching for free voucher giveaway, free vouchers and free vouchers South Africa intent.`,
             "Common voucher prize types include retail vouchers, grocery vouchers, online shopping vouchers, beauty vouchers, food or restaurant vouchers, fuel vouchers and airtime or data vouchers where the active listing supports that prize type.",
           ],
         },
@@ -1882,9 +1884,9 @@ function getCategoryEditorial(slug, competitions) {
           ],
         },
         {
-          heading: "Takealot voucher prizes",
+          heading: "Retail and online voucher wording",
           paragraphs: [
-            "Where an active verified partner campaign offers Takealot vouchers, Freehub describes the prize as a Takealot voucher prize and keeps the promoter separate. Freehub does not describe partner promotions as Takealot-run campaigns unless the official source supports that claim.",
+            "Where an active verified partner campaign offers a named retail or online-shopping voucher, Freehub describes the prize and keeps the promoter separate. Held, unverified or unclear voucher records should not be used to target generic voucher searches.",
             `For urgent options, also compare <a href="/competitions-ending-soon/">competitions ending soon</a>, <a href="/competitions/">all current competitions</a>, <a href="/win-a-car/">win-a-car competitions</a>, <a href="/category/cash/">cash competitions</a>, <a href="/category/tech/">tech competitions</a> and <a href="/category/holidays/">holiday competitions</a>.`,
           ],
         },
@@ -3340,10 +3342,15 @@ function renderHomepage(competitions) {
             <a class="internal-links__link" href="/new-competitions-south-africa/">New competitions this week</a>
             <a class="internal-links__link" href="/win-a-car/">Win a car competitions</a>
             <a class="internal-links__link" href="/free-competitions/">Free competitions</a>
+            <a class="internal-links__link" href="/free-samples-south-africa/">Where to get free samples</a>
+            <a class="internal-links__link" href="/category/vouchers/">Free voucher giveaways</a>
             <a class="internal-links__link" href="/free-stuff-south-africa/">Free stuff South Africa</a>
             <a class="internal-links__link" href="/competitions-ending-soon/">Competitions ending soon</a>
             <a class="internal-links__link" href="/purchase-required-competitions/">Purchase required competitions</a>
             <a class="internal-links__link" href="/paid-entry-competitions/">Paid entry competitions</a>
+            <a class="internal-links__link" href="/competition/clere-share-of-r1-million-cash-2026/">Clere competition 2026</a>
+            <a class="internal-links__link" href="/competition/aquelle-mzansi-mango/">aQuelle competition 2026</a>
+            <a class="internal-links__link" href="/competition/knorr-win-r5000-weekly-2026/">Knorr competition 2026</a>
           </div>
         </section>`;
   const featuredSectionMarkup = `<section class="home-section home-section--featured" aria-label="Featured competitions this week">
@@ -3392,30 +3399,30 @@ function renderHomepage(competitions) {
     competitions: latestAdded,
   });
 
-  const homepageSeoCopy = `FreeHub helps you discover competitions in South Africa without wading through scattered social posts, outdated promo pages, or low-trust listing sites. Whether you want to win cars, cash, holidays, vouchers, or the latest tech, the homepage is designed to surface the most exciting opportunities quickly. You can browse featured competitions, jump into free-entry giveaways, or prioritise promotions that are ending soon so you do not miss valuable prizes.
+  const homepageSeoCopy = `Freehub helps people looking for free giveaways South Africa, giveaways, competitions South Africa and free competition to win money in South Africa searches compare current opportunities in one place. The homepage brings together published competitions, voucher giveaways, cash prizes, car draws, free-entry routes and purchase-required promotions with source, cost and closing-date cues.
 
-Many South African competitions are tied to official brand promotions, retail campaigns, app offers, and seasonal giveaways. FreeHub makes those easier to compare by showing the entry method, closing date, and prize cues in one clean view. That means less hesitation and fewer wasted clicks before you decide which competition is worth your time.
+Many South African competitions are tied to official brand promotions, retail campaigns, app offers and seasonal giveaways. Freehub makes those easier to compare by showing the entry method, closing date, entry-cost label and prize cues before you leave for the promoter page.
 
-If you are looking for free entry competitions in South Africa, practical voucher giveaways, high-value cash promotions, or travel prizes worth entering this week, FreeHub is built to help you move faster. Browse today, check the official rules on each competition page, and come back regularly for fresh opportunities.`;
+If you want only no-purchase routes, use the free competitions page. If you want broader giveaways, including purchase-required cash, voucher and car promotions, start here and always check the official rules before entering.`;
 
   return `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Competitions South Africa | Current Car, Holiday &amp; Cash Giveaways</title>
-    <meta name="description" content="Browse free competitions South Africa users search for, including current car competitions, holiday giveaways, cash prizes, tech offers, and vouchers." />
+    <title>Free Giveaways South Africa | Competitions &amp; Prizes</title>
+    <meta name="description" content="Browse free giveaways South Africa users search for, including competitions, cash prizes, vouchers, free-entry draws and official promoter links." />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="${escapeAttribute(shared.CANONICAL_ORIGIN)}/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Free Competitions South Africa | Current Car, Holiday &amp; Cash Giveaways" />
-    <meta property="og:description" content="Browse free competitions South Africa users search for, including current car competitions, holiday giveaways, cash prizes, tech offers, and vouchers." />
+    <meta property="og:title" content="Free Giveaways South Africa | Competitions &amp; Prizes" />
+    <meta property="og:description" content="Browse free giveaways South Africa users search for, including competitions, cash prizes, vouchers, free-entry draws and official promoter links." />
     <meta property="og:url" content="${escapeAttribute(shared.CANONICAL_ORIGIN)}/" />
     <meta property="og:image" content="${escapeAttribute(ogImage)}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Free Competitions South Africa | Current Car, Holiday &amp; Cash Giveaways" />
-    <meta name="twitter:description" content="Browse free competitions South Africa users search for, including current car competitions, holiday giveaways, cash prizes, tech offers, and vouchers." />
+    <meta name="twitter:title" content="Free Giveaways South Africa | Competitions &amp; Prizes" />
+    <meta name="twitter:description" content="Browse free giveaways South Africa users search for, including competitions, cash prizes, vouchers, free-entry draws and official promoter links." />
     <meta name="twitter:image" content="${escapeAttribute(ogImage)}" />
     <script id="structured-data-itemlist" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
     <link rel="stylesheet" href="/styles.css" />
@@ -3449,8 +3456,8 @@ ${noscriptLinks}
               <span class="hero__brand-mark" aria-hidden="true">FH</span>
               <span class="hero__brand-name">Freehub</span>
             </div>
-            <h1 id="pageTitle">Today&apos;s Live Competitions in South Africa</h1>
-            <p class="hero__text" id="pageIntro">FreeHub lists vouchers, prizes, cash giveaways and competitions from trusted South African brands so you can find offers worth opening today.</p>
+            <h1 id="pageTitle">Free Giveaways and Competitions in South Africa</h1>
+            <p class="hero__text" id="pageIntro">Compare South African giveaways, competitions, voucher prizes and cash draws with visible entry costs, closing dates and official promoter links.</p>
             ${renderUpdatedNotice()}
             <div class="hero__actions">
               <a class="btn btn--primary" href="#all-competitions">Browse Today&apos;s Competitions</a>
@@ -3487,6 +3494,8 @@ ${noscriptLinks}
             <a class="popular-searches__link" href="/new-competitions-south-africa/">New competitions</a>
             <a class="popular-searches__link" href="/win-a-car/">Win a car</a>
             <a class="popular-searches__link" href="/free-competitions/">Free competitions</a>
+            <a class="popular-searches__link" href="/free-samples-south-africa/">Free samples</a>
+            <a class="popular-searches__link" href="/category/vouchers/">Free vouchers</a>
             <a class="popular-searches__link" href="/competitions-ending-soon/">Ending soon</a>
             <a class="popular-searches__link" href="/purchase-required-competitions/">Purchase required</a>
           </div>
@@ -5006,6 +5015,7 @@ function renderCompetitionInternalLinks(competition, categoryPath, generatedBran
   const links = [{ label: `All ${competition.category} competitions`, href: categoryPath }];
   const entryCostType = String(competition.entryCostType || "").toLowerCase();
   const brandSlug = shared.getBrandSlugForCompetition(competition, generatedBrandSlugs);
+  const slug = shared.getCompetitionSlug(competition);
 
   if (brandSlug) {
     links.push({ label: `More ${competition.brand} competitions`, href: `/brand/${brandSlug}/` });
@@ -5013,6 +5023,10 @@ function renderCompetitionInternalLinks(competition, categoryPath, generatedBran
 
   if (competition.category === "Cars" || String(competition.prizeType || "").toLowerCase() === "car") {
     links.push({ label: "Win a car competitions", href: "/win-a-car/" });
+  }
+
+  if (slug === "clere-share-of-r1-million-cash-2026") {
+    links.push({ label: "Clere For Men competition", href: "/competition/clere-for-men-play-it-smooth-2026/" });
   }
 
   if (competition.purchaseRequired === true || entryCostType === "purchase-required") {

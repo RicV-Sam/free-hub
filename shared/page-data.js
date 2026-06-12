@@ -64,23 +64,23 @@
     },
     vouchers: {
       category: "Vouchers",
-      title: "Voucher Competitions in South Africa | Shopping & Retail Giveaways",
+      title: "Free Voucher Giveaways South Africa | Voucher Competitions",
       description:
-        "Find current South African voucher competitions, including shopping, grocery, retail and Takealot voucher prizes. Compare closing dates, entry costs and official promoter links.",
-      heading: "Voucher Competitions in South Africa",
+        "Find current free voucher giveaways and voucher competitions in South Africa. Compare voucher prizes, entry costs, closing dates and official promoter links.",
+      heading: "Free Voucher Giveaways in South Africa",
       intro:
-        "This page lists current voucher-prize competitions in South Africa, including shopping vouchers, grocery vouchers, retail vouchers, online shopping vouchers and verified Takealot voucher prizes where supported. Some voucher competitions are free to enter, while others require a purchase, receipt, app, account, rewards card or qualifying action. Freehub does not run these competitions or collect entries; use the official promoter links to enter.",
+        "This page lists current voucher-prize competitions and free voucher giveaways in South Africa, including shopping, grocery, retail and online voucher prizes where the source is verified. Some voucher competitions are free to enter, while others require a purchase, receipt, app, account, rewards card or qualifying action. Freehub does not run these competitions or collect entries; use the official promoter links to enter.",
       support:
-        "Voucher giveaways can be free-entry, purchase-required, paid-entry, app-based, account-linked, rewards-card-linked, till-slip, WhatsApp, online or in-store promotions. If you searched for voucher competitions South Africa or Takealot competitions, compare the promoter, cost label and official source before entering; Freehub only uses Takealot wording for online shopping voucher prizes such as Takealot vouchers, where verified.",
+        "Voucher giveaways can be free-entry, purchase-required, paid-entry, app-based, account-linked, rewards-card-linked, till-slip, WhatsApp, online or in-store promotions. If you searched for free vouchers, free vouchers South Africa, free voucher giveaway or voucher competitions South Africa, compare the promoter, cost label and official source before entering; Freehub only uses specific retailer wording where the voucher source is verified.",
     },
   };
   const DEFAULT_COPY = {
-    title: "Free Competitions South Africa | Current Car, Holiday & Cash Giveaways",
+    title: "Free Giveaways South Africa | Competitions & Prizes",
     description:
-      "Browse free competitions South Africa users are searching for, including current car competitions, holiday giveaways, cash prizes, tech offers, and vouchers.",
-    heading: "Today's Live Competitions in South Africa",
+      "Browse free giveaways South Africa users search for, including competitions, cash prizes, vouchers, free-entry draws and official promoter links.",
+    heading: "Free Giveaways and Competitions in South Africa",
     intro:
-      "FreeHub lists vouchers, prizes, cash giveaways and competitions from trusted South African brands so you can find offers worth opening today.",
+      "Freehub lists South African giveaways, competitions, voucher prizes and cash draws from published sources so you can compare entry costs, closing dates and official promoter links.",
     canonical: `${CANONICAL_ORIGIN}/`,
   };
   const TAG_COPY = {
@@ -289,12 +289,12 @@
     "free-competitions": {
       title: "Free Competitions in South Africa | No Purchase Required Giveaways",
       description:
-        "Find current free-to-enter South African competitions and giveaways with no purchase required. Compare prizes, closing dates, entry methods and official promoter links.",
+        "Find current free-to-enter South African competitions with no purchase required. Compare prizes, closing dates, entry methods and official promoter links.",
       heading: "Free Competitions in South Africa",
       intro:
-        "This page is for South African competitions that do not require a purchase or paid ticket to enter. Some free competitions still use an online form, WhatsApp message, social action, radio entry or sign-in step where the official terms allow it.",
+        "This page is for South African competitions that do not require a purchase, paid ticket, till slip, minimum spend, SMS charge or USSD cost to enter. Some free competitions still use an online form, WhatsApp message, social action, radio entry or sign-in step where the official terms allow it.",
       support:
-        "Freehub does not run these competitions or collect entries. Compare the prize, closing date, entry method and official promoter link, then enter through the promoter's own page or channel.",
+        "Freehub does not run these competitions or collect entries. Compare the prize, closing date, entry method and official promoter link, then enter through the promoter's own page or channel. If you want all giveaways, including purchase-required and account-linked promotions, start from the homepage.",
     },
     "competitions-ending-soon": {
       title: "Competitions Ending This Week in South Africa | Freehub",
