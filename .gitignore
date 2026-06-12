@@ -29,7 +29,8 @@ report-a-competition/
 
 # Verification artifacts
 verification/
-reports/
+reports/*
+!reports/vertical-page-coverage-report.md
 *.log
 data/backups/
 storage/exports/

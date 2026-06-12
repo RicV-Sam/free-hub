@@ -38,7 +38,20 @@ const DUPLICATE_TAG_CANONICAL_PATHS = {
   "paid-entry": "/paid-entry-competitions/",
 };
 const MIN_INDEXABLE_COLLECTION_COMPETITIONS = 2;
+const MIN_INDEXABLE_VERTICAL_COMPETITIONS = 3;
+const VERTICAL_PAGE_SLUGS = [
+  "whatsapp-competitions-south-africa",
+  "sms-competitions-south-africa",
+  "till-slip-competitions-south-africa",
+  "online-competitions-south-africa",
+  "win-airtime-competitions-south-africa",
+  "win-data-competitions-south-africa",
+  "win-grocery-vouchers-south-africa",
+  "supermarket-competitions-south-africa",
+];
+const VERTICAL_PAGE_SLUG_SET = new Set(VERTICAL_PAGE_SLUGS);
 let brandImageLookup = new Map();
+let generatedVerticalPagesForLinks = [];
 const FREE_RESOURCES = JSON.parse(fs.readFileSync(FREE_RESOURCES_PATH, "utf8"));
 const TRUST_PAGE_DEFINITIONS = [
   {
@@ -924,6 +937,432 @@ const TRUST_PAGE_DEFINITIONS = [
   },
 ];
 
+const VERTICAL_PAGE_DEFINITIONS = [
+  {
+    slug: "whatsapp-competitions-south-africa",
+    title: "WhatsApp Competitions South Africa | Freehub",
+    heading: "WhatsApp Competitions in South Africa",
+    description:
+      "Browse live South African WhatsApp competitions with official source links, closing dates, entry costs, purchase requirements and safety checks.",
+    intro:
+      "Find current South African competitions that use WhatsApp as an entry route or verification channel. These listings are generated from active published Freehub data only, so each card links to a Freehub detail page with the official promoter source, closing date, entry cost label and important requirements before you leave the site. WhatsApp competitions often ask for a code, till slip, photo, QR scan, receipt number or prompt response, so always confirm the official number and final terms on the promoter website.",
+    support:
+      "WhatsApp entry can be convenient, but it also creates room for fake winner messages and copied numbers. Use the official promoter source, check the entry cost label and never send banking passwords, card PINs or unofficial release fees.",
+    explainerHeading: "How WhatsApp competitions usually work",
+    explainerParagraphs: [
+      "South African WhatsApp competitions often appear in retail, FMCG, beverage, beauty and telecom campaigns. A promoter may ask you to buy a qualifying product, scan a QR code, send a keyword, upload a till slip or follow automated prompts from an official WhatsApp number.",
+      "The safest way to enter is to open the Freehub detail page, check the official source, then use the WhatsApp number or link confirmed by the promoter. Be careful with screenshots, forwarded messages and comments that publish a different number from the official terms.",
+    ],
+    checklist: [
+      "Official promoter page or terms showing the WhatsApp number.",
+      "Closing date, draw date and winner-contact method.",
+      "Purchase, till slip, code, QR or product requirements.",
+      "Any mobile data, consent or marketing opt-in steps.",
+      "Whether Freehub is only summarising the competition.",
+      "Promoter terms, which override Freehub summaries.",
+    ],
+    faq: [
+      {
+        question: "Are WhatsApp competitions free to enter?",
+        answer:
+          "Some are free entry, but many require a product purchase, till slip, app step, QR scan or qualifying code. Check the Freehub entry cost label and the official promoter terms before entering.",
+      },
+      {
+        question: "How do I know the WhatsApp number is official?",
+        answer:
+          "Use the number listed on the promoter's official page, terms PDF or campaign page. Do not trust copied numbers from comments, screenshots or forwarded winner messages.",
+      },
+      {
+        question: "Can a promoter ask for my receipt on WhatsApp?",
+        answer:
+          "Yes, some purchase-required campaigns ask for a receipt, code or photo through WhatsApp. Confirm the exact proof required and keep the original till slip until winners are confirmed.",
+      },
+      {
+        question: "Does Freehub run WhatsApp competition lines?",
+        answer:
+          "No. Freehub lists competitions and links to official promoter sources. The promoter runs the WhatsApp flow, accepts entries and chooses winners.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Till slip competitions", href: "/till-slip-competitions-south-africa/" },
+      { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
+      { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
+      { label: "Fake winner messages", href: "/fake-competition-winner-messages/" },
+    ],
+    getMatchReasons: getWhatsAppVerticalMatchReasons,
+  },
+  {
+    slug: "sms-competitions-south-africa",
+    title: "SMS Competitions South Africa | Freehub",
+    heading: "SMS Competitions in South Africa",
+    description:
+      "Browse live South African SMS competitions when Freehub has enough verified listings with official source links, SMS costs and closing dates.",
+    intro:
+      "SMS competitions can involve a shortcode, keyword, product code or receipt-linked entry, but this page is only published when Freehub has enough active verified SMS-entry competitions to make the page useful. SMS verification during account signup is not treated as an SMS competition entry method.",
+    support:
+      "SMS entry pages need extra caution because costs, shortcodes and opt-in wording matter. Freehub holds this page unless live inventory is strong enough.",
+    explainerHeading: "How SMS competitions usually work",
+    explainerParagraphs: [
+      "A genuine SMS competition should clearly show the shortcode, keyword, charge or standard-rate wording, closing date and promoter terms. Some campaigns also require a product purchase or till slip before the SMS entry is valid.",
+      "This vertical stays unpublished until enough active public listings confirm SMS as the actual entry mechanic rather than ordinary account verification.",
+    ],
+    checklist: [
+      "Official source showing SMS as the entry method.",
+      "Shortcode, keyword and any SMS charge.",
+      "Purchase or proof-of-purchase requirements.",
+      "Closing date and eligibility.",
+      "Privacy and marketing consent wording.",
+      "Promoter terms, which override Freehub summaries.",
+    ],
+    faq: [
+      {
+        question: "Why is this page held when there are too few SMS competitions?",
+        answer:
+          "Freehub avoids thin pages. SMS verification or account security messages do not count as SMS competition entry, so the page is only published when enough live entries qualify.",
+      },
+      {
+        question: "Are SMS competitions always paid?",
+        answer:
+          "No. Some use standard network rates while others may charge more. The official promoter terms should state the SMS cost before you enter.",
+      },
+      {
+        question: "What should I keep after entering by SMS?",
+        answer:
+          "Keep the original message, receipt, product code or proof of purchase where the promoter requires it.",
+      },
+      {
+        question: "Does Freehub send SMS competition entries?",
+        answer:
+          "No. Freehub summarises listings and points users to official promoter sources.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
+      { label: "Till slip competitions", href: "/till-slip-competitions-south-africa/" },
+      { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
+    ],
+    getMatchReasons: getSmsVerticalMatchReasons,
+  },
+  {
+    slug: "till-slip-competitions-south-africa",
+    title: "Till Slip Competitions South Africa | Freehub",
+    heading: "Till Slip Competitions in South Africa",
+    description:
+      "Browse live South African till slip competitions with receipt requirements, official source links, closing dates and entry cost labels.",
+    intro:
+      "Find current South African competitions where a till slip, receipt, invoice, proof of purchase or uploaded purchase proof appears to be part of the entry process. Freehub only uses active published listings for this page, so held, expired and unverified competitions do not appear. Open a listing to compare the promoter, prize, closing date, entry route, qualifying product details and official terms before deciding whether to enter.",
+    support:
+      "Till slip competitions are usually purchase-required. Keep the original proof of purchase, check that the purchase date falls inside the campaign period and follow the promoter's official upload, WhatsApp, QR, app or in-store entry instructions.",
+    explainerHeading: "How till slip competitions usually work",
+    explainerParagraphs: [
+      "A till slip competition usually asks you to buy a qualifying product or spend a minimum amount at a participating retailer. The receipt may contain a code, barcode, transaction number, date, store name or product line that the promoter uses to validate your entry.",
+      "Do not throw the receipt away after submitting. Promoters may ask winners to produce the original till slip before awarding the prize, and entries can be rejected if the purchase falls outside the campaign dates or misses a qualifying product.",
+    ],
+    checklist: [
+      "Official source and terms confirming the receipt requirement.",
+      "Qualifying product, store, minimum spend or campaign dates.",
+      "Closing date and final submission time.",
+      "Upload, WhatsApp, QR, app, SMS or in-store entry route.",
+      "Eligibility, privacy and marketing consent wording.",
+      "Promoter terms, which override Freehub summaries.",
+    ],
+    faq: [
+      {
+        question: "Are till slip competitions free to enter?",
+        answer:
+          "Usually no. They normally require a qualifying purchase, even when there is no separate entry fee. Check the Freehub cost label and the official terms.",
+      },
+      {
+        question: "Should I keep my receipt after entering?",
+        answer:
+          "Yes. Keep the original till slip or invoice until winners are announced and prizes are fulfilled, because promoters often need proof before validating a claim.",
+      },
+      {
+        question: "Can I use an old receipt?",
+        answer:
+          "Only if the official terms allow it. Most campaigns require the receipt date to fall inside the competition period.",
+      },
+      {
+        question: "Does Freehub validate till slips?",
+        answer:
+          "No. Freehub does not accept entries or validate receipts. The official promoter handles entry validation and prize fulfilment.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
+      { label: "WhatsApp competitions", href: "/whatsapp-competitions-south-africa/" },
+      { label: "Supermarket competitions", href: "/supermarket-competitions-south-africa/" },
+      { label: "Entry cost labels", href: "/competition-entry-cost-labels/" },
+    ],
+    getMatchReasons: getTillSlipVerticalMatchReasons,
+  },
+  {
+    slug: "online-competitions-south-africa",
+    title: "Online Competitions South Africa | Freehub",
+    heading: "Online Competitions in South Africa",
+    description:
+      "Browse live South African online competitions with official website forms, closing dates, entry costs, prizes and source links.",
+    intro:
+      "Find current South African competitions that can be entered through an online form, website, quiz, campaign page or official digital entry route. This page is built from active published Freehub listings, with each card linking to a Freehub detail page before the promoter site. Compare the brand, prize, closing date, entry cost and eligibility notes, then check the official rules before submitting any personal information.",
+    support:
+      "Online competitions can be quick to enter, but official URLs, privacy consent and eligibility rules still matter. Avoid cloned forms and always use the promoter source linked from the listing.",
+    explainerHeading: "How online competitions usually work",
+    explainerParagraphs: [
+      "Online competitions can use forms, quizzes, quote requests, account logins, app-linked pages or promoter campaign sites. Some are free entry, while others depend on a purchase, loyalty profile, account action or qualifying transaction.",
+      "Before entering, check whether the form belongs to the promoter or a named campaign partner. Read consent wording carefully, especially when the entry form asks for marketing permission, contact details, identity information or proof of purchase.",
+    ],
+    checklist: [
+      "Official website or campaign partner domain.",
+      "Closing date and eligibility rules.",
+      "Free, purchase-required, account-required or paid-entry label.",
+      "Personal information and marketing consent wording.",
+      "Prize details, draw timing and winner-contact process.",
+      "Promoter terms, which override Freehub summaries.",
+    ],
+    faq: [
+      {
+        question: "Are online competitions free to enter?",
+        answer:
+          "Some are free entry, but online forms can still require an account, quote, purchase, receipt upload or app step. Check the listing label and official terms.",
+      },
+      {
+        question: "How do I avoid fake online entry forms?",
+        answer:
+          "Use the official promoter source, check the domain, avoid cloned forms from comments or messages and do not share banking passwords or one-time PINs.",
+      },
+      {
+        question: "Can Freehub submit an online entry for me?",
+        answer:
+          "No. Freehub does not collect entries. Open the detail page, check the official source and enter through the promoter's own process.",
+      },
+      {
+        question: "Why do some online competitions need an account?",
+        answer:
+          "Some promoters link entries to a loyalty, banking, retail, app or publisher account. The official terms should explain whether account signup is required.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Free competitions", href: "/free-competitions/" },
+      { label: "New competitions", href: "/new-competitions-south-africa/" },
+      { label: "Tech competitions", href: "/category/tech/" },
+      { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
+    ],
+    getMatchReasons: getOnlineVerticalMatchReasons,
+  },
+  {
+    slug: "win-airtime-competitions-south-africa",
+    title: "Win Airtime Competitions South Africa | Freehub",
+    heading: "Win Airtime Competitions in South Africa",
+    description:
+      "Browse live South African airtime competitions, recharge-linked prizes and mobile voucher giveaways with official source links.",
+    intro:
+      "Find current South African competitions where airtime, prepaid recharge value, mobile vouchers or airtime-linked rewards appear in the prize or entry mechanic. Listings are generated from active published Freehub data only, so each card shows the promoter, prize cue, closing date and cost label before you open the official source. Airtime promotions often involve recharges, app accounts, product purchases or retailer payment flows, so read the official terms carefully.",
+    support:
+      "Airtime competitions can be free, purchase-required, recharge-linked or account-linked. Check whether you must buy airtime, recharge a SIM, use an app or keep proof before entering.",
+    explainerHeading: "How airtime competitions usually work",
+    explainerParagraphs: [
+      "Airtime prize campaigns often come from mobile networks, payment platforms, retailers and FMCG brands. They may offer airtime as the main prize, part of a reward bundle, instant vouchers or weekly draws linked to qualifying purchases.",
+      "Check whether the promotion is a real competition rather than a normal deal or discount. Freehub only lists competition-style entries, and the official promoter source remains the final authority on costs, eligibility and prize fulfilment.",
+    ],
+    checklist: [
+      "Official source showing airtime or recharge prize details.",
+      "Whether a recharge, product purchase or account is required.",
+      "Closing date and reward fulfilment timing.",
+      "Network, voucher PIN or mobile-number rules.",
+      "Privacy and marketing consent wording.",
+      "Promoter terms, which override Freehub summaries.",
+    ],
+    faq: [
+      {
+        question: "Do airtime competitions require a recharge?",
+        answer:
+          "Some do and some do not. Check the entry cost label, required product notes and official terms before spending money.",
+      },
+      {
+        question: "Are airtime voucher giveaways the same as ordinary deals?",
+        answer:
+          "No. Freehub should only list competition-style prize draws or reward campaigns, not ordinary airtime specials or discounts.",
+      },
+      {
+        question: "Can I enter with any mobile network?",
+        answer:
+          "Not always. Some campaigns are limited to a specific network, wallet, retailer, app or recharge route.",
+      },
+      {
+        question: "Does Freehub issue airtime prizes?",
+        answer:
+          "No. The promoter or campaign partner handles airtime prize fulfilment.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Voucher competitions", href: "/category/vouchers/" },
+      { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
+      { label: "Online competitions", href: "/online-competitions-south-africa/" },
+      { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
+    ],
+    getMatchReasons: getAirtimeVerticalMatchReasons,
+  },
+  {
+    slug: "win-data-competitions-south-africa",
+    title: "Win Data Competitions South Africa | Freehub",
+    heading: "Win Data Competitions in South Africa",
+    description:
+      "Browse live South African competitions for mobile data, data bundles, connectivity prizes and smartphone data rewards where inventory qualifies.",
+    intro:
+      "Find current South African competitions where mobile data, data bundles, connectivity prizes, SIM-linked rewards or smartphone data bundles are clearly part of the prize. This page is only indexable when Freehub has enough active verified listings to avoid a thin search page. Each listing links to a Freehub detail page first, with official source links and cost labels visible before users leave for the promoter site.",
+    support:
+      "Data competitions should not be confused with ordinary telecom deals. This page only uses records where the active listing supports a competition or prize draw involving data or connectivity rewards.",
+    explainerHeading: "How data competitions usually work",
+    explainerParagraphs: [
+      "Data prize campaigns can come from mobile networks, retailers, app partners, fibre providers or brands bundling smartphone and data rewards. They may require a recharge, app account, product purchase, qualifying transaction or online form.",
+      "Because telecom wording can be broad, Freehub applies a stricter match rule here: telecom brand presence alone is not enough. The prize or entry summary must support a data, bundle, SIM, router, fibre or connectivity competition angle.",
+    ],
+    checklist: [
+      "Official source showing data or connectivity prize wording.",
+      "Whether a recharge, purchase, SIM or app account is required.",
+      "Bundle size, validity period and eligible networks.",
+      "Closing date and reward timing.",
+      "Privacy and marketing consent wording.",
+      "Promoter terms, which override Freehub summaries.",
+    ],
+    faq: [
+      {
+        question: "Why are some telecom competitions not listed here?",
+        answer:
+          "A telecom brand alone does not make a data competition. The listing must clearly support data, bundle, SIM, router, fibre or connectivity prize intent.",
+      },
+      {
+        question: "Are data competitions free to enter?",
+        answer:
+          "Some may be free entry, but others require a recharge, purchase, app account or qualifying transaction. Check the cost label and official terms.",
+      },
+      {
+        question: "Can data prizes expire?",
+        answer:
+          "Yes. Data bundle validity depends on the promoter and network terms, so check expiry and usage rules before entering.",
+      },
+      {
+        question: "Does Freehub provide the data bundle?",
+        answer:
+          "No. Freehub lists the competition and links to the official promoter source.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Airtime competitions", href: "/win-airtime-competitions-south-africa/" },
+      { label: "Tech competitions", href: "/category/tech/" },
+      { label: "Voucher competitions", href: "/category/vouchers/" },
+      { label: "Online competitions", href: "/online-competitions-south-africa/" },
+    ],
+    getMatchReasons: getDataVerticalMatchReasons,
+  },
+  {
+    slug: "win-grocery-vouchers-south-africa",
+    title: "Win Grocery Vouchers South Africa | Freehub",
+    heading: "Win Grocery Vouchers in South Africa",
+    description:
+      "Browse live South African grocery voucher competitions with supermarket, basket, trolley and food voucher prizes where inventory qualifies.",
+    intro:
+      "Find current South African competitions where grocery vouchers, shopping vouchers, food vouchers, supermarket rewards, basket prizes or trolley-style prizes are clearly part of the offer. This page is only published when active verified listings create a useful search page. Freehub keeps the matching stricter than a general voucher category so users looking for grocery value do not land on unrelated voucher promotions.",
+    support:
+      "Grocery voucher pages need clear supermarket or food-shopping intent. Generic voucher competitions stay on the broader voucher category unless the listing supports grocery wording.",
+    explainerHeading: "How grocery voucher competitions usually work",
+    explainerParagraphs: [
+      "Grocery voucher competitions often run through supermarkets, loyalty programmes, food brands, payment partners and shopping campaigns. Some are free entry, but many require a purchase, rewards-card swipe, app account, till slip or qualifying product.",
+      "Check where the voucher can be redeemed, whether exclusions apply, how long it remains valid and whether winners receive a digital voucher, card, account credit or store-specific reward.",
+    ],
+    checklist: [
+      "Official source showing grocery, supermarket or food voucher prize wording.",
+      "Voucher value, redemption store and expiry rules.",
+      "Purchase, till slip, loyalty-card or app requirements.",
+      "Closing date and winner-contact process.",
+      "Privacy and marketing consent wording.",
+      "Promoter terms, which override Freehub summaries.",
+    ],
+    faq: [
+      {
+        question: "Are grocery voucher competitions different from voucher competitions?",
+        answer:
+          "Yes. This page focuses on supermarket, grocery, food voucher, basket or trolley prize intent. General voucher prizes remain in the broader voucher category.",
+      },
+      {
+        question: "Do I need a till slip to win grocery vouchers?",
+        answer:
+          "Sometimes. Many grocery promotions require a qualifying purchase, receipt or loyalty-card swipe, but the official terms decide the entry requirement.",
+      },
+      {
+        question: "Can grocery vouchers expire?",
+        answer:
+          "Yes. Check voucher validity, exclusions and redemption rules on the official promoter terms.",
+      },
+      {
+        question: "Does Freehub issue grocery vouchers?",
+        answer:
+          "No. Freehub summarises listings and links to official promoter pages.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Voucher competitions", href: "/category/vouchers/" },
+      { label: "Supermarket competitions", href: "/supermarket-competitions-south-africa/" },
+      { label: "Till slip competitions", href: "/till-slip-competitions-south-africa/" },
+      { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
+    ],
+    getMatchReasons: getGroceryVoucherVerticalMatchReasons,
+  },
+  {
+    slug: "supermarket-competitions-south-africa",
+    title: "Supermarket Competitions South Africa | Freehub",
+    heading: "Supermarket Competitions in South Africa",
+    description:
+      "Browse live South African supermarket competitions from retailers, loyalty programmes and grocery campaigns with source links and cost labels.",
+    intro:
+      "Find current South African competitions linked to supermarkets, grocery retailers, loyalty programmes and store-based grocery campaigns. This page uses active published Freehub listings only, so users can compare the retailer, prize, closing date, entry route and purchase requirement before opening the official source. Supermarket competitions often involve rewards cards, till slips, qualifying products, app accounts, in-store purchases or digital shopping channels.",
+    support:
+      "Supermarket competitions can be valuable but often depend on store, product, receipt and loyalty rules. Check the participating retailer and official terms before buying anything to enter.",
+    explainerHeading: "How supermarket competitions usually work",
+    explainerParagraphs: [
+      "Supermarket competitions in South Africa often come from grocery retailers, supplier partnerships, payment partners and loyalty programmes. A campaign may ask shoppers to buy a product, swipe a rewards card, upload a receipt, enter through an app or shop at a participating branch.",
+      "Check whether the competition is national or limited to certain stores, provinces, channels or account holders. If a purchase is required, keep your receipt and confirm that the item or basket qualifies before entering.",
+    ],
+    checklist: [
+      "Official retailer, supplier or campaign source.",
+      "Participating stores, products, channels or loyalty programme rules.",
+      "Purchase, till slip, app or rewards-card requirements.",
+      "Closing date, draw date and winner-contact process.",
+      "Privacy and marketing consent wording.",
+      "Promoter terms, which override Freehub summaries.",
+    ],
+    faq: [
+      {
+        question: "Are supermarket competitions usually purchase-required?",
+        answer:
+          "Many are, but not all. Check the Freehub cost label and the official terms for product, minimum spend, loyalty-card or app requirements.",
+      },
+      {
+        question: "Which supermarkets can appear on this page?",
+        answer:
+          "This page can include verified active listings linked to retailers such as SPAR, Checkers, Shoprite, Pick n Pay, Boxer, Woolworths, OK Foods, Food Lover's Market and similar grocery campaigns.",
+      },
+      {
+        question: "Should I keep my till slip?",
+        answer:
+          "Yes, if a purchase or in-store action is involved. Promoters may need the original till slip to validate entries or prizes.",
+      },
+      {
+        question: "Does Freehub run supermarket competitions?",
+        answer:
+          "No. Freehub lists public competitions and links users to official promoter pages.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Grocery voucher competitions", href: "/win-grocery-vouchers-south-africa/" },
+      { label: "Till slip competitions", href: "/till-slip-competitions-south-africa/" },
+      { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
+      { label: "Voucher competitions", href: "/category/vouchers/" },
+    ],
+    getMatchReasons: getSupermarketVerticalMatchReasons,
+  },
+];
+
 function main() {
   const rawCompetitions = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
   const rawArchiveCompetitions = fs.existsSync(ARCHIVE_DATA_PATH)
@@ -952,16 +1391,26 @@ function main() {
   removeStaleCompetitionDirectories(validCompetitionSlugs, validOutSlugs);
   const generatedBrandPages = shared.getGeneratedBrandPageDefinitions(activeCompetitions);
   const generatedBrandSlugs = generatedBrandPages.map((brandPage) => brandPage.slug);
+  const verticalCoverage = getVerticalCoverage(activeCompetitions);
+  generatedVerticalPagesForLinks = verticalCoverage
+    .filter((entry) => entry.safeToPublish)
+    .map((entry) => ({
+      ...entry.definition,
+      competitionCount: entry.matches.length,
+      path: `/${entry.definition.slug}/`,
+    }));
+  writeVerticalCoverageReport(verticalCoverage);
   const routeContexts = getGeneratedRouteContexts(activeCompetitions, generatedBrandPages);
   removeStaleTagDirectories(routeContexts);
   removeStaleBrandDirectories(generatedBrandPages);
+  removeStaleVerticalDirectories(generatedVerticalPagesForLinks);
   removeLegacyHomeDirectory();
 
   fs.writeFileSync(path.join(ROOT_DIR, "index.html"), renderHomepage(activeCompetitions));
   fs.writeFileSync(path.join(ROOT_DIR, "404.html"), renderNotFoundPage());
 
   routeContexts.filter((routeContext) => routeContext.type !== "home").forEach((routeContext) => {
-    const filteredCompetitions = shared.filterCompetitionsByRoute(activeCompetitions, routeContext);
+    const filteredCompetitions = getRouteCompetitions(activeCompetitions, routeContext);
     const html =
       routeContext.type === "brand-index"
         ? renderBrandIndexPage(generatedBrandPages)
@@ -990,7 +1439,7 @@ function main() {
     fs.writeFileSync(path.join(outputDirectory, "index.html"), html);
   });
 
-  TRUST_PAGE_DEFINITIONS.forEach((page) => {
+  getPublicTrustPageDefinitions().forEach((page) => {
     const outputDirectory = path.join(ROOT_DIR, page.slug);
 
     fs.mkdirSync(outputDirectory, { recursive: true });
@@ -1002,10 +1451,10 @@ function main() {
     generateSitemap(activeCompetitions, routeContexts, [...activeCompetitions, ...expiredArchiveCompetitions])
   );
   fs.writeFileSync(path.join(ROOT_DIR, "robots.txt"), renderRobotsTxt());
-  runLifecycleStaticChecks(validCompetitions, activeCompetitions, expiredArchiveCompetitions, expiredLowValueCompetitions);
-  runStaticSeoChecks();
-  runCrawlerVisibleTextChecks();
-  runImageQualityChecks();
+  runLifecycleStaticChecks(validCompetitions, activeCompetitions, expiredArchiveCompetitions, expiredLowValueCompetitions, routeContexts);
+  runStaticSeoChecks(routeContexts);
+  runCrawlerVisibleTextChecks(routeContexts);
+  runImageQualityChecks(routeContexts);
 }
 
 function uniqueCompetitionsBySlug(competitions) {
@@ -1019,6 +1468,421 @@ function uniqueCompetitionsBySlug(competitions) {
     seen.add(slug);
     return true;
   });
+}
+
+function getPublicTrustPageDefinitions() {
+  return TRUST_PAGE_DEFINITIONS.filter((page) => !VERTICAL_PAGE_SLUG_SET.has(page.slug));
+}
+
+function getVerticalCoverage(activeCompetitions) {
+  return VERTICAL_PAGE_DEFINITIONS.map((definition) => {
+    const matches = shared.sortCompetitions(
+      activeCompetitions.filter((competition) => getVerticalMatchReasons(definition, competition).length > 0)
+    );
+    const minimumLiveCount = definition.minimumLiveCount || MIN_INDEXABLE_VERTICAL_COMPETITIONS;
+    const safeToPublish = matches.length >= minimumLiveCount;
+
+    return {
+      definition,
+      matches,
+      minimumLiveCount,
+      safeToPublish,
+      heldReason: safeToPublish
+        ? ""
+        : `Only ${matches.length} active public match${matches.length === 1 ? "" : "es"}; requires ${minimumLiveCount}.`,
+    };
+  });
+}
+
+function getVerticalMatchReasons(definition, competition) {
+  if (!definition || typeof definition.getMatchReasons !== "function") {
+    return [];
+  }
+
+  return definition.getMatchReasons(competition).filter(Boolean);
+}
+
+function getRouteCompetitions(competitions, routeContext) {
+  if (routeContext.type === "vertical") {
+    return getVerticalPageCompetitions(competitions, routeContext.verticalPage);
+  }
+
+  return shared.filterCompetitionsByRoute(competitions, routeContext);
+}
+
+function getVerticalPageCompetitions(competitions, verticalPage) {
+  return shared.sortCompetitions(
+    shared
+      .getPublishedActiveCompetitions(competitions)
+      .filter((competition) => getVerticalMatchReasons(verticalPage, competition).length > 0)
+  );
+}
+
+function getRoutePageCopy(routeContext) {
+  if (routeContext.type === "vertical") {
+    const verticalPage = routeContext.verticalPage;
+    return {
+      title: verticalPage.title,
+      description: verticalPage.description,
+      heading: verticalPage.heading,
+      intro: verticalPage.intro,
+      canonical: `${shared.CANONICAL_ORIGIN}/${verticalPage.slug}/`,
+    };
+  }
+
+  return shared.getPageCopy(routeContext);
+}
+
+function getRouteSupportCopy(routeContext) {
+  if (routeContext.type === "vertical") {
+    return routeContext.verticalPage.support;
+  }
+
+  return shared.getPageSupportCopy(routeContext);
+}
+
+function buildRouteStructuredData(competitions, routeContext) {
+  if (routeContext.type !== "vertical") {
+    return shared.buildStructuredData(competitions, routeContext);
+  }
+
+  const pageCopy = getRoutePageCopy(routeContext);
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: pageCopy.heading,
+    itemListElement: competitions.map((competition, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: shared.getCompetitionAbsoluteUrl(competition),
+      name: competition.title,
+      description: shared.buildCompetitionDescription(competition),
+      image: competition.image || undefined,
+    })),
+  };
+}
+
+function writeVerticalCoverageReport(coverage) {
+  const reportPath = path.join(ROOT_DIR, "reports", "vertical-page-coverage-report.md");
+  fs.mkdirSync(path.dirname(reportPath), { recursive: true });
+
+  const lines = [
+    "# Vertical Page Coverage Report",
+    "",
+    `Generated: ${BUILD_DATE_ISO}`,
+    "",
+    "Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.",
+    "",
+  ];
+
+  coverage.forEach((entry) => {
+    const { definition, matches, minimumLiveCount, safeToPublish, heldReason } = entry;
+    lines.push(`## ${definition.heading}`);
+    lines.push("");
+    lines.push(`- URL: /${definition.slug}/`);
+    lines.push(`- Matching active public competitions: ${matches.length}`);
+    lines.push(`- Publication threshold: ${minimumLiveCount}`);
+    lines.push(`- Safe to publish: ${safeToPublish ? "yes" : "no"}`);
+    lines.push(`- Status: ${safeToPublish ? "indexable vertical page" : `held; ${heldReason}`}`);
+    lines.push("");
+
+    if (matches.length === 0) {
+      lines.push("No active public matches were found.");
+      lines.push("");
+    } else {
+      lines.push("| Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |");
+      lines.push("|---|---:|---|---|---|---|---|");
+      matches.forEach((competition) => {
+        const slug = shared.getCompetitionSlug(competition);
+        const source = competition.sourceUrl ? "yes" : "missing";
+        const terms = competition.termsUrl ? "yes" : "missing";
+        const reasons = getVerticalMatchReasons(definition, competition).join("; ");
+        const dataNotes = getVerticalDataNotes(definition, competition).join("; ") || "none";
+        lines.push(
+          `| ${escapeMarkdownTableCell(competition.title)} (${slug}) | ${escapeMarkdownTableCell(
+            competition.closingDate || ""
+          )} | ${escapeMarkdownTableCell(competition.entryCostType || "")} | ${source} | ${terms} | ${escapeMarkdownTableCell(
+            reasons
+          )} | ${escapeMarkdownTableCell(dataNotes)} |`
+        );
+      });
+      lines.push("");
+    }
+
+    const recommendations = getVerticalRecommendations(definition, matches, safeToPublish);
+    lines.push("Recommended normalisation:");
+    recommendations.forEach((recommendation) => lines.push(`- ${recommendation}`));
+    lines.push("");
+  });
+
+  fs.writeFileSync(reportPath, `${lines.join("\n")}\n`);
+}
+
+function getVerticalDataNotes(definition, competition) {
+  const notes = [];
+  const tags = getCompetitionTagSet(competition);
+  const slug = definition.slug;
+
+  if (!competition.sourceUrl) {
+    notes.push("missing sourceUrl");
+  }
+
+  if (!competition.termsUrl) {
+    notes.push("missing termsUrl");
+  }
+
+  if (slug === "sms-competitions-south-africa" && tags.has("sms-verification") && !tags.has("sms-entry")) {
+    notes.push("SMS verification is not SMS entry");
+  }
+
+  if (slug === "till-slip-competitions-south-africa" && !hasAnyTag(tags, ["till-slip", "till-slip-required", "receipt"])) {
+    notes.push("consider explicit till-slip or receipt tag if terms confirm");
+  }
+
+  if (slug === "win-airtime-competitions-south-africa" && !hasAnyTag(tags, ["airtime", "recharge-required"])) {
+    notes.push("consider airtime or recharge tag if prize terms confirm");
+  }
+
+  if (slug === "win-data-competitions-south-africa" && !hasAnyTag(tags, ["data", "mobile-data", "connectivity"])) {
+    notes.push("consider data/connectivity tag only if prize terms confirm");
+  }
+
+  if (slug === "win-grocery-vouchers-south-africa" && !hasAnyTag(tags, ["grocery", "groceries", "supermarket"])) {
+    notes.push("consider grocery/supermarket tag only if prize terms confirm");
+  }
+
+  return notes;
+}
+
+function getVerticalRecommendations(definition, matches, safeToPublish) {
+  const recommendations = [];
+
+  if (!safeToPublish) {
+    recommendations.push("Do not generate or sitemap this page until active verified inventory improves.");
+  }
+
+  if (definition.slug === "sms-competitions-south-africa") {
+    recommendations.push("Separate sms-entry from sms-verification so account verification does not inflate SMS-entry inventory.");
+  }
+
+  if (definition.slug === "till-slip-competitions-south-africa") {
+    recommendations.push("Use explicit till-slip, receipt or proof-of-purchase tags instead of relying on broad purchase-required matching.");
+  }
+
+  if (definition.slug === "win-data-competitions-south-africa") {
+    recommendations.push("Only tag data when the prize or terms mention data bundles, SIM, fibre, router or connectivity rewards.");
+  }
+
+  if (definition.slug === "win-grocery-vouchers-south-africa") {
+    recommendations.push("Keep grocery voucher intent separate from generic voucher competitions.");
+  }
+
+  if (matches.some((competition) => !competition.termsUrl)) {
+    recommendations.push("Add termsUrl where official terms are available.");
+  }
+
+  if (recommendations.length === 0) {
+    recommendations.push("Inventory is strong enough; keep lastChecked and source/terms links fresh.");
+  }
+
+  return recommendations;
+}
+
+function escapeMarkdownTableCell(value) {
+  return String(value || "")
+    .replace(/\|/g, "\\|")
+    .replace(/\r?\n/g, " ")
+    .trim();
+}
+
+function getCompetitionTagSet(competition) {
+  return new Set((competition.tags || []).map((tag) => String(tag).trim().toLowerCase()).filter(Boolean));
+}
+
+function getCompetitionVerticalText(competition) {
+  return [
+    competition.title,
+    competition.brand,
+    competition.category,
+    competition.summary,
+    competition.prize,
+    competition.prizeName,
+    competition.prizeDescription,
+    competition.requiredProduct,
+    competition.entryType,
+    competition.entryChannel,
+    competition.entryCostSummary,
+    competition.howToEnter,
+    competition.eligibilitySummary,
+    Array.isArray(competition.entrySteps) ? competition.entrySteps.join(" ") : competition.entrySteps,
+    Array.isArray(competition.tags) ? competition.tags.join(" ") : "",
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+}
+
+function getPrizeVerticalText(competition) {
+  return [
+    competition.title,
+    competition.prize,
+    competition.prizeName,
+    competition.prizeDescription,
+    Array.isArray(competition.tags) ? competition.tags.join(" ") : "",
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+}
+
+function hasAnyTag(tags, values) {
+  return values.some((value) => tags.has(value));
+}
+
+function getWhatsAppVerticalMatchReasons(competition) {
+  const tags = getCompetitionTagSet(competition);
+  const text = getCompetitionVerticalText(competition);
+  const reasons = [];
+
+  if (hasAnyTag(tags, ["whatsapp-entry", "whatsapp", "whatsapp-entry-method"])) {
+    reasons.push("WhatsApp entry tag");
+  }
+
+  if (/\bwhats\s*app\b|\bwhatsapp\b/.test(text)) {
+    reasons.push("WhatsApp mentioned in entry text");
+  }
+
+  return reasons;
+}
+
+function getSmsVerticalMatchReasons(competition) {
+  const tags = getCompetitionTagSet(competition);
+  const text = getCompetitionVerticalText(competition);
+  const reasons = [];
+
+  if (tags.has("sms-verification") && !tags.has("sms-entry")) {
+    return [];
+  }
+
+  if (tags.has("sms-entry")) {
+    reasons.push("SMS entry tag");
+  }
+
+  if (hasAnyTag(tags, ["sms", "standard-rates", "shortcode"]) && !tags.has("sms-verification")) {
+    reasons.push("SMS or shortcode tag");
+  }
+
+  if (/\bsms\b|shortcode|short code/.test(text) && !/sms verification|verification sms|one-time pin|otp/i.test(text)) {
+    reasons.push("SMS or shortcode mentioned in entry text");
+  }
+
+  return reasons;
+}
+
+function getTillSlipVerticalMatchReasons(competition) {
+  const tags = getCompetitionTagSet(competition);
+  const text = getCompetitionVerticalText(competition);
+  const reasons = [];
+
+  if (hasAnyTag(tags, ["till-slip", "till-slip-required", "receipt", "proof-of-purchase"])) {
+    reasons.push("Till slip or receipt tag");
+  }
+
+  if (/\btill slip\b|receipt|invoice|proof of purchase|upload (your )?(slip|receipt)|keep (your )?(slip|receipt)/.test(text)) {
+    reasons.push("Till slip or receipt mentioned in entry text");
+  }
+
+  return reasons;
+}
+
+function getOnlineVerticalMatchReasons(competition) {
+  const tags = getCompetitionTagSet(competition);
+  const text = getCompetitionVerticalText(competition);
+  const reasons = [];
+
+  if (tags.has("online-entry")) {
+    reasons.push("Online entry tag");
+  }
+
+  if (/\bonline form\b|\bonline entry\b|\bwebsite entry\b|\bweb form\b|\bentry form\b|\bquiz\b|enter online/.test(text)) {
+    reasons.push("Online entry mentioned in entry text");
+  }
+
+  return reasons;
+}
+
+function getAirtimeVerticalMatchReasons(competition) {
+  const tags = getCompetitionTagSet(competition);
+  const text = getPrizeVerticalText(competition);
+  const reasons = [];
+
+  if (tags.has("airtime")) {
+    reasons.push("Airtime tag");
+  }
+
+  if (/\bairtime\b|\bprepaid\b|mobile voucher|voucher pin/.test(text)) {
+    reasons.push("Airtime prize text");
+  }
+
+  return reasons;
+}
+
+function getDataVerticalMatchReasons(competition) {
+  const tags = getCompetitionTagSet(competition);
+  const text = getPrizeVerticalText(competition);
+  const reasons = [];
+
+  if (hasAnyTag(tags, ["data", "mobile-data", "connectivity", "fibre", "router"])) {
+    reasons.push("Data or connectivity tag");
+  }
+
+  if (/\bmobile data\b|\bdata bundle\b|\bdata bundles\b|\b[0-9]+gb\b|\bgb data\b|\bconnectivity\b|\bsim\b|\bfibre\b|\brouter\b|smartphone with data/.test(text)) {
+    reasons.push("Data or connectivity prize text");
+  }
+
+  return reasons;
+}
+
+function getGroceryVoucherVerticalMatchReasons(competition) {
+  const tags = getCompetitionTagSet(competition);
+  const text = getPrizeVerticalText(competition);
+  const brand = String(competition.brand || "").toLowerCase();
+  const hasVoucherIntent = /voucher|vouchers|shopping card|gift card|store card/.test(text);
+  const foodRetailBrandPattern = /spar|checkers|shoprite|pick n pay|pnp|boxer|ok foods|food lover|food lovers|food lover's market|sixty60/;
+  const hasGroceryIntent =
+    hasAnyTag(tags, ["grocery", "groceries", "supermarket"]) ||
+    foodRetailBrandPattern.test(brand) ||
+    /grocery|groceries|supermarket|food voucher|shopping voucher|basket|trolley/.test(text);
+  const reasons = [];
+
+  if (hasVoucherIntent && hasGroceryIntent) {
+    reasons.push("Grocery or supermarket voucher intent");
+  }
+
+  return reasons;
+}
+
+function getSupermarketVerticalMatchReasons(competition) {
+  const tags = getCompetitionTagSet(competition);
+  const text = getCompetitionVerticalText(competition);
+  const brand = String(competition.brand || "").toLowerCase();
+  const supermarketPattern =
+    /spar|checkers|shoprite|pick n pay|pnp|boxer|woolworths|ok foods|food lover|food lovers|food lover's market|sixty60/;
+  const reasons = [];
+
+  if (supermarketPattern.test(brand)) {
+    reasons.push("Supermarket brand or retail partner");
+  }
+
+  if (hasAnyTag(tags, ["supermarket", "grocery", "groceries"])) {
+    reasons.push("Supermarket or grocery tag");
+  }
+
+  if (/supermarket|grocery|groceries|basket|trolley|xtra savings|smart shopper|spar rewards|boxer rewards|sixty60/.test(text)) {
+    reasons.push("Supermarket or grocery entry text");
+  }
+
+  return reasons;
 }
 
 function getGeneratedRouteContexts(competitions, generatedBrandPages = []) {
@@ -1053,6 +1917,12 @@ function getGeneratedRouteContexts(competitions, generatedBrandPages = []) {
     slug: brandPage.slug,
     path: brandPage.path,
   }));
+  const verticalRouteContexts = generatedVerticalPagesForLinks.map((verticalPage) => ({
+    type: "vertical",
+    slug: verticalPage.slug,
+    path: verticalPage.path,
+    verticalPage,
+  }));
   const brandIndexRouteContext = {
     type: "brand-index",
     slug: "brands",
@@ -1065,12 +1935,21 @@ function getGeneratedRouteContexts(competitions, generatedBrandPages = []) {
     ...categoryRouteContexts,
     ...activeTagRouteContexts,
     ...hubRouteContexts,
+    ...verticalRouteContexts,
     brandIndexRouteContext,
     ...brandRouteContexts,
   ];
 }
 
 function renderSiteFooter() {
+  const verticalLinksMarkup = generatedVerticalPagesForLinks
+    .slice(0, 6)
+    .map(
+      (page) =>
+        `<a href="${escapeAttribute(page.path)}">${escapeHtml(page.heading.replace(" in South Africa", ""))}</a>`
+    )
+    .join("\n              ");
+
   return `<footer class="site-footer" aria-label="Site footer">
         <div class="site-footer__grid">
           <div>
@@ -1087,8 +1966,6 @@ function renderSiteFooter() {
               <a href="/legit-competitions-south-africa/">Legit competition guide</a>
               <a href="/competition-closing-date-checklist/">Closing date checklist</a>
               <a href="/competition-entry-cost-labels/">Entry cost labels</a>
-              <a href="/till-slip-competitions-south-africa/">Till slip competitions</a>
-              <a href="/whatsapp-competitions-south-africa/">WhatsApp competitions</a>
               <a href="/app-competitions-south-africa/">App competitions</a>
               <a href="/fake-competition-winner-messages/">Fake winner messages</a>
               <a href="/purchase-required-competitions-explained/">Purchase required guide</a>
@@ -1109,6 +1986,7 @@ function renderSiteFooter() {
               <a href="/competitions-ending-soon/">Ending soon</a>
               <a href="/purchase-required-competitions/">Purchase required</a>
               <a href="/paid-entry-competitions/">Paid entry</a>
+              ${verticalLinksMarkup}
               <a href="${escapeAttribute(WHATSAPP_CHANNEL_URL)}" target="_blank" rel="noopener noreferrer">WhatsApp channel</a>
               <a href="/brands/">Browse by brand</a>
             </nav>
@@ -1328,7 +2206,7 @@ function renderModernHero({
 function renderCollectionHero(routeContext, pageCopy, competitions) {
   const flagship = isFlagshipSeoHub(routeContext);
   const actions = flagship ? getFlagshipHeroActions(routeContext) : getCollectionHeroActions(routeContext);
-  const trustItems = flagship ? getFlagshipTrustItems(routeContext) : getCollectionTrustItems(routeContext);
+  const trustItems = flagship ? getFlagshipTrustItems(routeContext) : getCollectionTrustItems(routeContext, competitions);
   const previewCopy = getCollectionPreviewCopy(routeContext, pageCopy);
   const previewMarkup = renderHeroPreviewPanel(competitions, {
     title: previewCopy.title,
@@ -1372,10 +2250,18 @@ function getCollectionHeroActions(routeContext) {
     actions.push({ label: "Browse Brands", href: "/brands/", className: "btn--secondary" });
   }
 
+  if (routeContext.type === "vertical") {
+    actions.push({ label: "Entry Cost Guide", href: "/competition-entry-cost-labels/", className: "btn--secondary" });
+  }
+
   return actions.slice(0, 3);
 }
 
-function getCollectionTrustItems(routeContext) {
+function getCollectionTrustItems(routeContext, competitions = []) {
+  if (routeContext.type === "vertical") {
+    return [`${competitions.length} live competitions`, "Official source links", "Freehub is not the promoter"];
+  }
+
   if (routeContext.type === "brand") {
     return ["Active brand page", "Official source links", "Freehub is not the promoter"];
   }
@@ -1417,6 +2303,13 @@ function getCollectionPreviewCopy(routeContext, pageCopy) {
     return {
       title: "Brand Prize Watch",
       intro: "Current published competitions from this brand or promoter.",
+    };
+  }
+
+  if (routeContext.type === "vertical") {
+    return {
+      title: "Live Listings Watch",
+      intro: "Current matches from active published Freehub data.",
     };
   }
 
@@ -1487,6 +2380,48 @@ function renderHubIntroEditorial(routeContext) {
   }
 
   return "";
+}
+
+function renderVerticalEditorial(routeContext) {
+  if (routeContext.type !== "vertical") {
+    return "";
+  }
+
+  const verticalPage = routeContext.verticalPage;
+  const paragraphs = Array.isArray(verticalPage.explainerParagraphs) ? verticalPage.explainerParagraphs : [];
+
+  return `<section class="seo-copy-block seo-copy-block--intro" aria-label="${escapeAttribute(verticalPage.explainerHeading)}">
+          <h2 class="seo-copy-block__title">${escapeHtml(verticalPage.explainerHeading)}</h2>
+          <div class="seo-copy-block__content hub-editorial">
+            <section class="hub-editorial__section">
+              ${paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("\n              ")}
+              <p>Freehub summarises competitions and links to official promoter pages. Always confirm the final rules on the promoter's website.</p>
+            </section>
+          </div>
+        </section>`;
+}
+
+function renderVerticalChecklist(routeContext) {
+  if (routeContext.type !== "vertical") {
+    return "";
+  }
+
+  const checklist = Array.isArray(routeContext.verticalPage.checklist) ? routeContext.verticalPage.checklist : [];
+
+  if (checklist.length === 0) {
+    return "";
+  }
+
+  return `<section class="seo-copy-block seo-copy-block--hub" aria-label="What to check before entering">
+          <h2 class="seo-copy-block__title">What to check before entering</h2>
+          <div class="seo-copy-block__content hub-editorial">
+            <section class="hub-editorial__section">
+              <ul class="hub-editorial__list">
+                ${checklist.map((item) => `<li>${escapeHtml(item)}</li>`).join("\n                ")}
+              </ul>
+            </section>
+          </div>
+        </section>`;
 }
 
 function renderEndingSoonEditorial(routeContext) {
@@ -1941,6 +2876,10 @@ function isWeekendDate(dateString) {
 }
 
 function getCollectionFaqItems(routeContext) {
+  if (routeContext.type === "vertical") {
+    return Array.isArray(routeContext.verticalPage.faq) ? routeContext.verticalPage.faq : [];
+  }
+
   if (isEndingSoonHub(routeContext)) {
     return [
       {
@@ -2215,6 +3154,10 @@ function renderCollectionFaq(routeContext, items) {
 }
 
 function getCollectionFaqTitle(routeContext) {
+  if (routeContext.type === "vertical") {
+    return `${routeContext.verticalPage.heading} FAQ`;
+  }
+
   if (isEndingSoonHub(routeContext)) {
     return "Competitions ending soon FAQ";
   }
@@ -2239,15 +3182,15 @@ function getCollectionFaqTitle(routeContext) {
 }
 
 function renderPage(routeContext, competitions) {
-  const pageCopy = shared.getPageCopy(routeContext);
+  const pageCopy = getRoutePageCopy(routeContext);
   const canonicalUrl = routeContext.canonicalOverride || pageCopy.canonical;
   const robotsDirective = routeContext.noindex === true
     ? "noindex, follow"
     : "index, follow, max-image-preview:large";
-  const supportCopy = shared.getPageSupportCopy(routeContext);
-  const structuredData = shared.buildStructuredData(competitions, routeContext);
+  const supportCopy = getRouteSupportCopy(routeContext);
+  const structuredData = buildRouteStructuredData(competitions, routeContext);
   const ogImage = getCollectionMetadataImageUrl(competitions);
-  const isCollectionPage = ["category", "tag", "hub", "brand"].includes(routeContext.type);
+  const isCollectionPage = ["category", "tag", "hub", "brand", "vertical"].includes(routeContext.type);
   const collectionPageStructuredData =
     isCollectionPage
       ? {
@@ -2357,6 +3300,7 @@ function renderPage(routeContext, competitions) {
 
         ${renderSupportSection(supportCopy)}
         ${renderHubIntroEditorial(routeContext)}
+        ${renderVerticalEditorial(routeContext)}
 
         <nav class="category-nav" aria-label="Competition categories">
           ${CATEGORY_LINKS.map((link) => renderNavLink(link, routeContext.path)).join("\n          ")}
@@ -2370,6 +3314,7 @@ function renderPage(routeContext, competitions) {
         </section>
 
         ${renderInternalLinksSection(routeContext, competitions)}
+        ${routeContext.type === "hub" && ["competitions", "free-competitions", "win-a-car"].includes(routeContext.slug) ? renderVerticalDiscoveryLinks() : ""}
         ${renderHubSupportLinks(routeContext, competitions)}
         ${renderDeadlineBuckets(routeContext, competitions)}
         ${renderWhatsAppChannelCta(routeContext)}
@@ -2409,6 +3354,7 @@ function renderPage(routeContext, competitions) {
         </section>
 
         ${renderCategoryEditorial(routeContext, competitions)}
+        ${renderVerticalChecklist(routeContext)}
         ${renderEndingSoonEditorial(routeContext)}
         ${renderWinACarEditorial(routeContext)}
         ${renderFreeCompetitionsEditorial(routeContext)}
@@ -2864,6 +3810,8 @@ function renderInternalLinksSection(routeContext, competitions) {
         ? getHubInternalLinks(routeContext.slug)
       : routeContext.type === "brand"
         ? getBrandInternalLinks(routeContext.slug)
+      : routeContext.type === "vertical"
+        ? getVerticalInternalLinks(routeContext.verticalPage)
       : routeContext.type === "tag"
         ? {
             title: "Explore Categories",
@@ -2881,7 +3829,7 @@ function renderInternalLinksSection(routeContext, competitions) {
   return `<section class="internal-links" aria-label="${escapeAttribute(section.title)}">
           <p class="internal-links__title">${escapeHtml(section.title)}</p>
           <div class="internal-links__list">
-            ${section.links
+            ${filterPublishedInternalLinks(section.links, routeContext.slug)
               .map(
                 (link) =>
                   `<a class="internal-links__link" href="${escapeAttribute(link.href)}">${escapeHtml(link.label)}</a>`
@@ -2889,6 +3837,44 @@ function renderInternalLinksSection(routeContext, competitions) {
               .join("\n            ")}
           </div>
         </section>`;
+}
+
+function getVerticalInternalLinks(verticalPage) {
+  const relatedLinks = Array.isArray(verticalPage.relatedLinks) ? verticalPage.relatedLinks : [];
+  const baselineLinks = [
+    { label: "All competitions", href: "/competitions/" },
+    { label: "Free competitions", href: "/free-competitions/" },
+    { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
+    { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
+  ];
+
+  return {
+    title: "Related Competition Searches",
+    links: filterPublishedInternalLinks([...relatedLinks, ...baselineLinks], verticalPage.slug),
+  };
+}
+
+function filterPublishedInternalLinks(links, currentSlug = "") {
+  const publishedVerticalSlugs = new Set(generatedVerticalPagesForLinks.map((page) => page.slug));
+
+  return links.filter((link) => {
+    const match = String(link.href || "").match(/^\/([a-z0-9-]+)\/$/);
+
+    if (!match) {
+      return true;
+    }
+
+    const slug = match[1];
+    if (slug === currentSlug) {
+      return false;
+    }
+
+    if (VERTICAL_PAGE_SLUG_SET.has(slug)) {
+      return publishedVerticalSlugs.has(slug);
+    }
+
+    return true;
+  });
 }
 
 function renderHubSupportLinks(routeContext, competitions) {
@@ -2906,7 +3892,7 @@ function renderHubSupportLinks(routeContext, competitions) {
           <p class="state-card__title">More ways to browse live competitions</p>
           <p class="state-card__text">There are currently fewer matches on this hub, so use these related pages to find active competitions.</p>
           <div class="internal-links__list">
-            ${section.links
+            ${filterPublishedInternalLinks(section.links, routeContext.slug)
               .slice(0, 4)
               .map(
                 (link) =>
@@ -3299,6 +4285,26 @@ function renderHomeTrustSection() {
         </section>`;
 }
 
+function renderVerticalDiscoveryLinks() {
+  if (generatedVerticalPagesForLinks.length === 0) {
+    return "";
+  }
+
+  return `<section class="internal-links" aria-label="Ways to enter competitions">
+          <p class="internal-links__title">Ways to Enter Competitions</p>
+          <div class="internal-links__list">
+            ${generatedVerticalPagesForLinks
+              .map(
+                (page) =>
+                  `<a class="internal-links__link" href="${escapeAttribute(page.path)}">${escapeHtml(
+                    page.heading
+                  )} (${page.competitionCount})</a>`
+              )
+              .join("\n            ")}
+          </div>
+        </section>`;
+}
+
 function renderHomepage(competitions) {
   const homeRouteContext = { type: "home", slug: null, path: "/" };
   const structuredData = shared.buildStructuredData(competitions, homeRouteContext);
@@ -3502,6 +4508,7 @@ ${noscriptLinks}
         </section>
 
         ${homeIntentLinksMarkup}
+        ${renderVerticalDiscoveryLinks()}
         ${renderWhatsAppChannelCta()}
 
         <section class="controls" aria-label="Competition filters">
@@ -5418,7 +6425,7 @@ function generateSitemap(competitions, routeContexts, sitemapCompetitions = comp
         lastmod: getRouteLastmod(routeContext, competitions),
       });
     });
-  const trustPageEntries = TRUST_PAGE_DEFINITIONS.map((page) => {
+  const trustPageEntries = getPublicTrustPageDefinitions().map((page) => {
     return renderSitemapUrl({
       loc: `${origin}/${page.slug}/`,
       lastmod: getTrustPageLastmod(page),
@@ -5457,7 +6464,7 @@ function getRouteLastmod(routeContext, competitions) {
     return getCompetitionListLastmod(competitions) || BUILD_DATE_ISO;
   }
 
-  const filteredCompetitions = shared.filterCompetitionsByRoute(competitions, routeContext);
+  const filteredCompetitions = getRouteCompetitions(competitions, routeContext);
   return getCompetitionListLastmod(filteredCompetitions) || BUILD_DATE_ISO;
 }
 
@@ -5667,6 +6674,24 @@ function removeStaleBrandDirectories(generatedBrandPages) {
     });
 }
 
+function removeStaleVerticalDirectories(generatedVerticalPages) {
+  const validVerticalSlugs = new Set(generatedVerticalPages.map((page) => page.slug));
+
+  VERTICAL_PAGE_SLUGS.forEach((slug) => {
+    if (validVerticalSlugs.has(slug)) {
+      return;
+    }
+
+    const stalePath = path.join(ROOT_DIR, slug);
+    if (!fs.existsSync(stalePath)) {
+      return;
+    }
+
+    fs.rmSync(stalePath, { recursive: true, force: true });
+    console.log(`[generate-pages] Removed stale vertical directory: ${stalePath}`);
+  });
+}
+
 function removeLegacyHomeDirectory() {
   const legacyHomeDirectory = path.join(ROOT_DIR, "home");
 
@@ -5678,7 +6703,7 @@ function removeLegacyHomeDirectory() {
   console.log(`[generate-pages] Removed stale directory: ${legacyHomeDirectory}`);
 }
 
-function runStaticSeoChecks() {
+function runStaticSeoChecks(routeContexts = []) {
   const errors = [];
   const sitemapPath = path.join(ROOT_DIR, "sitemap.xml");
   const sitemap = fs.readFileSync(sitemapPath, "utf8");
@@ -5718,13 +6743,11 @@ function runStaticSeoChecks() {
 
   const htmlFiles = [
     path.join(ROOT_DIR, "index.html"),
-    ...getNestedIndexFiles(path.join(ROOT_DIR, "category")),
-    ...getNestedIndexFiles(path.join(ROOT_DIR, "tag")),
+    ...routeContexts
+      .filter((routeContext) => routeContext.type !== "home")
+      .map((routeContext) => path.join(ROOT_DIR, routeContext.path.replace(/^\//, "").replace(/\/$/, ""), "index.html")),
     ...getNestedIndexFiles(path.join(ROOT_DIR, "competition")),
-    ...shared.HUB_SLUGS.map((slug) => path.join(ROOT_DIR, slug, "index.html")),
-    path.join(ROOT_DIR, "brands", "index.html"),
-    ...getNestedIndexFiles(path.join(ROOT_DIR, "brand")),
-    ...TRUST_PAGE_DEFINITIONS.map((page) => path.join(ROOT_DIR, page.slug, "index.html")),
+    ...getPublicTrustPageDefinitions().map((page) => path.join(ROOT_DIR, page.slug, "index.html")),
   ];
 
   htmlFiles.forEach((filePath) => {
@@ -5768,7 +6791,7 @@ function runFreeResourceChecks() {
     "dateModified",
   ];
   const resourceCategoriesUsed = new Set(
-    TRUST_PAGE_DEFINITIONS.flatMap((page) => (Array.isArray(page.resourceCategories) ? page.resourceCategories : []))
+    getPublicTrustPageDefinitions().flatMap((page) => (Array.isArray(page.resourceCategories) ? page.resourceCategories : []))
   );
 
   FREE_RESOURCES.forEach((resource) => {
@@ -5807,7 +6830,7 @@ function runFreeResourceChecks() {
     }
   });
 
-  TRUST_PAGE_DEFINITIONS.filter((page) => Array.isArray(page.resourceCategories) && page.resourceCategories.length > 0).forEach(
+  getPublicTrustPageDefinitions().filter((page) => Array.isArray(page.resourceCategories) && page.resourceCategories.length > 0).forEach(
     (page) => {
       if (!page.datePublished || !page.dateModified) {
         errors.push(`Free-resource page must define explicit datePublished and dateModified: ${page.slug}`);
@@ -5824,7 +6847,7 @@ function runFreeResourceChecks() {
   }
 }
 
-function runCrawlerVisibleTextChecks() {
+function runCrawlerVisibleTextChecks(routeContexts = []) {
   const errors = [];
   const crawlerVisibleStrings = [
     "No competitions match",
@@ -5835,13 +6858,11 @@ function runCrawlerVisibleTextChecks() {
   const htmlFiles = [
     path.join(ROOT_DIR, "index.html"),
     path.join(ROOT_DIR, "404.html"),
-    ...getNestedIndexFiles(path.join(ROOT_DIR, "category")),
-    ...getNestedIndexFiles(path.join(ROOT_DIR, "tag")),
+    ...routeContexts
+      .filter((routeContext) => routeContext.type !== "home")
+      .map((routeContext) => path.join(ROOT_DIR, routeContext.path.replace(/^\//, "").replace(/\/$/, ""), "index.html")),
     ...getNestedIndexFiles(path.join(ROOT_DIR, "competition")),
-    ...shared.HUB_SLUGS.map((slug) => path.join(ROOT_DIR, slug, "index.html")),
-    path.join(ROOT_DIR, "brands", "index.html"),
-    ...getNestedIndexFiles(path.join(ROOT_DIR, "brand")),
-    ...TRUST_PAGE_DEFINITIONS.map((page) => path.join(ROOT_DIR, page.slug, "index.html")),
+    ...getPublicTrustPageDefinitions().map((page) => path.join(ROOT_DIR, page.slug, "index.html")),
   ].filter((filePath) => fs.existsSync(filePath));
 
   htmlFiles.forEach((filePath) => {
@@ -5858,7 +6879,7 @@ function runCrawlerVisibleTextChecks() {
   }
 }
 
-function runLifecycleStaticChecks(allCompetitions, activeCompetitions, expiredArchiveCompetitions, expiredLowValueCompetitions) {
+function runLifecycleStaticChecks(allCompetitions, activeCompetitions, expiredArchiveCompetitions, expiredLowValueCompetitions, routeContexts = []) {
   const errors = [];
   const activeSlugs = new Set(activeCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
   const expiredCompetitions = [...expiredArchiveCompetitions, ...expiredLowValueCompetitions];
@@ -5928,11 +6949,9 @@ function runLifecycleStaticChecks(allCompetitions, activeCompetitions, expiredAr
 
   const collectionFiles = [
     path.join(ROOT_DIR, "index.html"),
-    ...getNestedIndexFiles(path.join(ROOT_DIR, "category")),
-    ...getNestedIndexFiles(path.join(ROOT_DIR, "tag")),
-    ...shared.HUB_SLUGS.map((slug) => path.join(ROOT_DIR, slug, "index.html")),
-    path.join(ROOT_DIR, "brands", "index.html"),
-    ...getNestedIndexFiles(path.join(ROOT_DIR, "brand")),
+    ...routeContexts
+      .filter((routeContext) => routeContext.type !== "home")
+      .map((routeContext) => path.join(ROOT_DIR, routeContext.path.replace(/^\//, "").replace(/\/$/, ""), "index.html")),
   ].filter((filePath) => fs.existsSync(filePath));
 
   collectionFiles.forEach((filePath) => {
@@ -5960,16 +6979,14 @@ function runLifecycleStaticChecks(allCompetitions, activeCompetitions, expiredAr
   }
 }
 
-function runImageQualityChecks() {
+function runImageQualityChecks(routeContexts = []) {
   const errors = [];
   const htmlFiles = [
     path.join(ROOT_DIR, "index.html"),
-    ...getNestedIndexFiles(path.join(ROOT_DIR, "category")),
-    ...getNestedIndexFiles(path.join(ROOT_DIR, "tag")),
+    ...routeContexts
+      .filter((routeContext) => routeContext.type !== "home")
+      .map((routeContext) => path.join(ROOT_DIR, routeContext.path.replace(/^\//, "").replace(/\/$/, ""), "index.html")),
     ...getNestedIndexFiles(path.join(ROOT_DIR, "competition")),
-    ...shared.HUB_SLUGS.map((slug) => path.join(ROOT_DIR, slug, "index.html")),
-    path.join(ROOT_DIR, "brands", "index.html"),
-    ...getNestedIndexFiles(path.join(ROOT_DIR, "brand")),
   ];
 
   const dataUriImageRegex = /<img[^>]+src="data:image\/svg\+xml/i;
