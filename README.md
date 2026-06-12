@@ -56,6 +56,8 @@ After data/code changes, always run:
 2. verify output locally
 3. commit and push `main`
 
+The GitHub Pages workflow can create the optional runtime `firebase-config.json` from repository variables. Do not commit the real config file. Set `FREEHUB_FIREBASE_API_KEY`, `FREEHUB_FIREBASE_AUTH_DOMAIN`, `FREEHUB_FIREBASE_PROJECT_ID`, `FREEHUB_FIREBASE_STORAGE_BUCKET`, `FREEHUB_FIREBASE_MESSAGING_SENDER_ID`, `FREEHUB_FIREBASE_APP_ID`, `FREEHUB_FIREBASE_MEASUREMENT_ID`, and `FREEHUB_FIREBASE_AUTH_PROVIDERS` in GitHub repository variables when optional auth should be enabled on the live site.
+
 Canonical domain guard: `freehub.co.za` is the only production domain for indexable pages. The old `freehub.datacost.co.za` host must be redirected or noindexed outside this repo; see `docs/deployment-canonical-domain.md`.
 
 ## Bing Search Discovery
