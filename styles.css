@@ -1450,6 +1450,212 @@ button {
   line-height: 1.5;
 }
 
+.competition-auth[hidden],
+.auth-modal[hidden] {
+  display: none;
+}
+
+.competition-auth {
+  display: grid;
+  gap: 0.85rem;
+  padding: 0.9rem;
+  border: 1px solid rgba(15, 118, 110, 0.16);
+  border-radius: 8px;
+  background: rgba(248, 250, 252, 0.9);
+}
+
+.competition-auth__copy {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.competition-auth__title,
+.competition-auth__text,
+.competition-auth__status {
+  margin: 0;
+}
+
+.competition-auth__title {
+  color: var(--text);
+  font-weight: 900;
+}
+
+.competition-auth__text,
+.competition-auth__status {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.competition-auth__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  align-items: center;
+}
+
+.competition-auth__button,
+.competition-auth__link,
+.auth-provider,
+.auth-email__submit,
+.auth-modal__close {
+  border: 0;
+  font-weight: 800;
+}
+
+.competition-auth__button {
+  min-height: 42px;
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius-sm);
+  background: #1f2937;
+  color: #fff;
+}
+
+.competition-auth__button--secondary {
+  background: #f59e0b;
+  color: #111827;
+}
+
+.competition-auth__button[aria-pressed="true"] {
+  background: var(--accent);
+  color: #fff;
+}
+
+.competition-auth__link {
+  min-height: 42px;
+  padding: 0.4rem 0.2rem;
+  background: transparent;
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.competition-auth button:disabled,
+.auth-modal button:disabled,
+.auth-modal input:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
+.auth-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.auth-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.58);
+}
+
+.auth-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 440px);
+  max-height: min(720px, calc(100vh - 2rem));
+  overflow: auto;
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.2rem;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.24);
+}
+
+.auth-modal__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.auth-modal__title {
+  margin: 0;
+  padding-right: 2.5rem;
+  color: var(--text);
+  font-size: 1.25rem;
+}
+
+.auth-modal__text,
+.auth-modal__status {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.auth-form {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.auth-check {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 0.55rem;
+  align-items: start;
+  color: var(--text);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.auth-check input {
+  width: 18px;
+  height: 18px;
+  margin-top: 0.1rem;
+  accent-color: var(--accent);
+}
+
+.auth-check a {
+  color: var(--accent);
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+.auth-provider-list {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.auth-provider,
+.auth-email__submit {
+  min-height: 44px;
+  border-radius: 8px;
+  background: #1f2937;
+  color: #fff;
+}
+
+.auth-provider[data-auth-provider="facebook"] {
+  background: #1877f2;
+}
+
+.auth-email {
+  display: grid;
+  gap: 0.35rem;
+  color: var(--text);
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+.auth-email input {
+  min-height: 44px;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.65rem 0.75rem;
+}
+
+.auth-email__submit {
+  background: var(--accent);
+}
+
 @media (min-width: 700px) {
   .competition-detail__cta {
     width: auto;

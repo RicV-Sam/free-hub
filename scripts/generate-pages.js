@@ -107,16 +107,37 @@ const TRUST_PAGE_DEFINITIONS = [
     slug: "privacy-policy",
     title: "Privacy Policy | Freehub",
     description:
-      "Read Freehub's privacy policy, including basic analytics, cookies, outbound links and competition entry responsibility.",
+      "Read Freehub's privacy policy, including optional accounts, saved competitions, alerts, analytics, outbound links and competition entry responsibility.",
     heading: "Privacy Policy",
     intro:
-      "This privacy policy explains how Freehub handles basic site usage information. Freehub is a listing site and does not collect competition entries for promoters.",
+      "This privacy policy explains how Freehub handles basic site usage information and optional account features. Freehub is a listing site and does not collect competition entries for promoters.",
     sections: [
       {
         heading: "Information Freehub may process",
         paragraphs: [
           "Freehub may use analytics tools to understand page views, clicks, device types and broad usage patterns. This helps us improve pages and find broken journeys.",
           "If you contact us by email, we receive the information you choose to send, such as your email address, message and any page URLs included.",
+        ],
+      },
+      {
+        heading: "Optional Freehub accounts",
+        paragraphs: [
+          "Freehub may offer optional account features, such as saving a competition or storing competition alert preferences. You do not need a Freehub account to browse listings, open competition detail pages or click through to official promoter pages.",
+          "If you choose to sign in, Freehub may store your account identifier, email address, display name, sign-in provider, saved competition IDs, alert preferences, consent records and basic timestamps needed to run those optional features.",
+        ],
+      },
+      {
+        heading: "Sign-in providers",
+        paragraphs: [
+          "Freehub may support Google, Facebook and email-link sign-in through Firebase Authentication. Email-link sign-in sends a one-time sign-in link to the email address you provide, instead of asking Freehub to store a password.",
+          "The provider you choose may process your sign-in under its own terms and privacy policy. Freehub does not add phone or SMS authentication for account sign-in.",
+        ],
+      },
+      {
+        heading: "Saved competitions and alerts",
+        paragraphs: [
+          "Saved competitions help you return to listings you chose to keep. Alert preferences help Freehub remember whether you asked for competition alerts or occasional updates.",
+          "The Privacy Policy checkbox is required before using optional account features. The alerts and marketing checkbox is optional and should not be pre-ticked.",
         ],
       },
       {
@@ -130,6 +151,19 @@ const TRUST_PAGE_DEFINITIONS = [
         heading: "Cookies and analytics",
         paragraphs: [
           "The site may use cookies or similar technologies through analytics and measurement tools. These are used to understand site performance and user journeys.",
+        ],
+      },
+      {
+        heading: "Unsubscribe and preferences",
+        paragraphs: [
+          "If Freehub sends alerts or marketing emails in future, those messages should include a way to unsubscribe or change preferences. You can also contact hello@freehub.co.za to ask for account preference help.",
+          "Freehub may keep limited records needed for security, abuse prevention, consent history, legal compliance or to confirm that a preference change was handled.",
+        ],
+      },
+      {
+        heading: "Freehub is not the promoter",
+        paragraphs: [
+          "Freehub lists public competition information and links users to official promoter pages. The promoter remains responsible for entry forms, eligibility checks, winner selection, prize fulfilment and its own privacy notices.",
         ],
       },
     ],
@@ -5292,6 +5326,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   const sourceBlockMarkup = renderCompetitionSourceBlock(competition, officialSource, officialSourceUrl, lastChecked, expired);
   const faqItems = buildCompetitionFaqItems(competition, officialSource, ctaLabel, expired);
   const faqMarkup = renderCompetitionFaq(faqItems);
+  const authPanelMarkup = expired ? "" : renderCompetitionAuthPanel(competition, slug, canonicalUrl);
 
   const relatedCardsMarkup = relatedCompetitions.map((c) => renderCompetitionCard(c)).join("\n            ");
   const relatedSection = relatedCardsMarkup
@@ -5458,6 +5493,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
               ${escapeHtml(ctaLabel)}
             </a>
             <p class="competition-detail__cta-note">You will leave Freehub and go to the official promoter page. Freehub does not run this competition or collect your entry.</p>`}
+            ${authPanelMarkup}
             ${sourceBlockMarkup}
             ${faqMarkup}
             <a
@@ -5507,9 +5543,34 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
 
     <script src="${RELATIVE_ASSET_PATH}shared/page-data.js" defer></script>
     <script src="${RELATIVE_ASSET_PATH}app.js" defer></script>
+    ${authPanelMarkup ? `<script type="module" src="${RELATIVE_ASSET_PATH}shared/auth-ui.js"></script>` : ""}
   </body>
 </html>
 `;
+}
+
+function renderCompetitionAuthPanel(competition, slug, canonicalUrl) {
+  return `<section
+              class="competition-auth"
+              data-freehub-auth
+              data-competition-id="${escapeAttribute(slug)}"
+              data-competition-title="${escapeAttribute(competition.title)}"
+              data-competition-category="${escapeAttribute(competition.category)}"
+              data-competition-path="${escapeAttribute(canonicalUrl)}"
+              aria-label="Optional Freehub account actions"
+              hidden
+            >
+              <div class="competition-auth__copy">
+                <p class="competition-auth__title">Freehub account tools</p>
+                <p class="competition-auth__text" data-auth-user>Sign in is optional. Browsing and entry links stay open.</p>
+              </div>
+              <div class="competition-auth__actions">
+                <button class="competition-auth__button" type="button" data-auth-action="save">Sign in to save</button>
+                <button class="competition-auth__button competition-auth__button--secondary" type="button" data-auth-action="alerts">Get competition alerts</button>
+                <button class="competition-auth__link" type="button" data-auth-action="signin">Sign in to save</button>
+              </div>
+              <p class="competition-auth__status" data-auth-status aria-live="polite"></p>
+            </section>`;
 }
 
 function renderCompetitionBreadcrumb(competition, categorySlug, categoryPath) {

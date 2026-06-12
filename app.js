@@ -61,6 +61,10 @@ const elements = {
   twitterDescription: document.querySelector('meta[name="twitter:description"]'),
 };
 
+window.FreeHubAnalytics = {
+  track: sendGaEvent,
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   bindEvents();
   setupEngagementTracking();
