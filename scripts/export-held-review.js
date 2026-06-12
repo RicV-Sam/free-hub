@@ -8,11 +8,6 @@ const EXPORT_DIR = path.join(ROOT_DIR, "storage", "exports");
 const JSON_EXPORT_PATH = path.join(EXPORT_DIR, "held-candidates-review.json");
 const CSV_EXPORT_PATH = path.join(EXPORT_DIR, "held-candidates-review.csv");
 
-const EXPECTED_HELD_IDS = [
-  "capitec-moneyup-academy-competition-2026",
-  "dis-chem-garnier-pure-active-june-2026-competition",
-];
-
 const REVIEW_FIELDS = [
   "id",
   "slug",
@@ -60,8 +55,13 @@ function asArray(value) {
   return Array.isArray(value) ? value : [];
 }
 
-function isExpectedHeldRow(row) {
-  return row && EXPECTED_HELD_IDS.includes(row.id);
+function isExpired(dateString) {
+  if (!asString(dateString)) return true;
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const closing = new Date(dateString);
+  closing.setHours(0, 0, 0, 0);
+  return Number.isNaN(closing.getTime()) || closing < today;
 }
 
 function isImportedHeldRow(row) {
@@ -81,7 +81,19 @@ function getRecommendedNextAction(row) {
     return "reject_or_archive";
   }
 
+  if (isExpired(row.closingDate) || asArray(row.validationWarnings).includes("past_closing_date")) {
+    return "reject_or_archive";
+  }
+
+  if (flags.has("school_beneficiary_prize_not_individual")) {
+    return "remain_held";
+  }
+
   if (flags.has("image_unresolved")) {
+    return "needs_more_evidence";
+  }
+
+  if (row.linkValidationStatus === "failed") {
     return "needs_more_evidence";
   }
 
@@ -203,13 +215,6 @@ function collectHtmlFiles(directory, results = []) {
 
 function validateHeldRows(rows) {
   const errors = [];
-  const foundIds = new Set(rows.map((row) => row.id));
-
-  EXPECTED_HELD_IDS.forEach((id) => {
-    if (!foundIds.has(id)) {
-      errors.push(`Expected held row missing from data: ${id}`);
-    }
-  });
 
   rows.forEach((row) => {
     if (!isImportedHeldRow(row)) {
@@ -266,7 +271,12 @@ function main() {
     throw new Error("Freehub competitions data must be a JSON array.");
   }
 
-  const heldRows = competitions.filter(isExpectedHeldRow);
+  const heldRows = competitions.filter(isImportedHeldRow);
+  if (heldRows.length === 0) {
+    console.error("Held review export failed.");
+    console.error("- No imported ZA held rows found in data/competitions.json.");
+    process.exit(1);
+  }
   const rowErrors = validateHeldRows(heldRows);
   const publicSafetyErrors = validatePublicSafety(heldRows);
   const errors = [...rowErrors, ...publicSafetyErrors];
