@@ -20,6 +20,11 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    env:
+      BING_WEBMASTER_API_KEY: ${{ secrets.BING_WEBMASTER_API_KEY }}
+      BING_SITE_URL: https://freehub.co.za
+      INDEXNOW_API_KEY: ${{ secrets.INDEXNOW_API_KEY }}
+      INDEXNOW_SITE_URL: https://freehub.co.za
 
     steps:
       - name: Checkout
@@ -74,6 +79,10 @@ jobs:
           fs.writeFileSync("firebase-config.json", `${JSON.stringify(config, null, 2)}\n`);
           NODE
 
+      - name: Write IndexNow key file
+        if: env.INDEXNOW_API_KEY != ''
+        run: node scripts/write-indexnow-key.js
+
       - name: Upload static site artifact
         uses: actions/upload-pages-artifact@v5
         with:
@@ -82,3 +91,13 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+      - name: Submit sitemap URLs to Bing Webmaster
+        if: env.BING_WEBMASTER_API_KEY != ''
+        continue-on-error: true
+        run: node scripts/submit-bing.js --sitemap=https://freehub.co.za/sitemap.xml
+
+      - name: Submit sitemap URLs to IndexNow
+        if: env.INDEXNOW_API_KEY != ''
+        continue-on-error: true
+        run: node scripts/submit-indexnow.js --sitemap=https://freehub.co.za/sitemap.xml
