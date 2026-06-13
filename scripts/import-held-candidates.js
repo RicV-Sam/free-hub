@@ -14,10 +14,14 @@ const DEFAULT_HANDOFF_PATH = path.resolve(
 
 const OFFICIAL_DOMAINS = {
   Capitec: ["capitecbank.co.za", "moneyup.co.za"],
+  Checkers: ["termsconditions.co.za"],
   Clover: ["clover.co.za"],
   "Dis-Chem": ["dischem.co.za"],
   Makro: ["makro.co.za"],
+  "MTN South Africa": ["mtn.co.za"],
+  "Rhodes Quality": ["rhodesquality.com"],
   "SPAR South Africa": ["spar.co.za"],
+  "Standard Bank": ["standardbank.co.za"],
 };
 
 const FORBIDDEN_SOURCE_FIELDS = [
