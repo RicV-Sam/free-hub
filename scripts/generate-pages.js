@@ -1471,6 +1471,7 @@ function main() {
   removeStaleBrandDirectories(generatedBrandPages);
   removeStaleVerticalDirectories(generatedVerticalPagesForLinks);
   removeLegacyHomeDirectory();
+  removeLegacyNestedSiteDirectory();
 
   fs.writeFileSync(path.join(ROOT_DIR, "index.html"), renderHomepage(activeCompetitions));
   fs.writeFileSync(path.join(ROOT_DIR, "404.html"), renderNotFoundPage());
@@ -4232,9 +4233,25 @@ function getCollectionEmptyState(routeContext) {
     };
   }
 
+  if (routeContext.type === "category") {
+    const categoryLabel = routeContext.slug.replace(/-/g, " ");
+    return {
+      title: `No verified ${categoryLabel} competitions right now`,
+      text: `There are no verified ${categoryLabel} competitions listed right now. Check all current competitions or come back soon for new listings.`,
+    };
+  }
+
+  if (routeContext.type === "hub") {
+    const hubLabel = routeContext.slug.replace(/-/g, " ");
+    return {
+      title: `No verified ${hubLabel} right now`,
+      text: `There are no verified listings on this hub right now. Use the related pages to browse current published competitions.`,
+    };
+  }
+
   return {
-    title: "No competitions match",
-    text: "Try a different search term or clear the current category filter.",
+    title: "No verified competitions right now",
+    text: "There are no verified competitions listed here right now. Check all current competitions or come back soon for new listings.",
   };
 }
 
@@ -6892,6 +6909,29 @@ function removeLegacyHomeDirectory() {
 
   fs.rmSync(legacyHomeDirectory, { recursive: true, force: true });
   console.log(`[generate-pages] Removed stale directory: ${legacyHomeDirectory}`);
+}
+
+function removeLegacyNestedSiteDirectory() {
+  const legacyNestedSiteDirectory = path.join(ROOT_DIR, "free-hub");
+
+  if (!fs.existsSync(legacyNestedSiteDirectory)) {
+    return;
+  }
+
+  const nestedSiteLooksGenerated =
+    fs.existsSync(path.join(legacyNestedSiteDirectory, "index.html")) &&
+    fs.existsSync(path.join(legacyNestedSiteDirectory, "sitemap.xml")) &&
+    fs.existsSync(path.join(legacyNestedSiteDirectory, "competition"));
+
+  if (!nestedSiteLooksGenerated) {
+    console.warn(
+      `[generate-pages] Skipped removing unexpected nested directory: ${legacyNestedSiteDirectory}`
+    );
+    return;
+  }
+
+  fs.rmSync(legacyNestedSiteDirectory, { recursive: true, force: true });
+  console.log(`[generate-pages] Removed stale directory: ${legacyNestedSiteDirectory}`);
 }
 
 function runStaticSeoChecks(routeContexts = []) {
