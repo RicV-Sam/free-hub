@@ -4502,7 +4502,6 @@ function renderHomepage(competitions) {
             <a class="internal-links__link" href="/purchase-required-competitions/">Purchase required competitions</a>
             <a class="internal-links__link" href="/paid-entry-competitions/">Paid entry competitions</a>
             <a class="internal-links__link" href="/competition/clere-share-of-r1-million-cash-2026/">Clere competition 2026</a>
-            <a class="internal-links__link" href="/competition/aquelle-mzansi-mango/">aQuelle competition 2026</a>
             <a class="internal-links__link" href="/competition/knorr-win-r5000-weekly-2026/">Knorr competition 2026</a>
           </div>
         </section>`;
