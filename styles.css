@@ -65,6 +65,28 @@ button {
   min-height: 100vh;
 }
 
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  transform: translateY(-180%);
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  background: #111827;
+  color: #fff;
+  font-weight: 900;
+  box-shadow: 0 12px 30px rgba(17, 24, 39, 0.22);
+  transition: transform 0.18s ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
 .site-topbar {
   position: sticky;
   top: 0;
@@ -143,6 +165,12 @@ button {
   gap: 0.45rem;
   padding: 0.35rem 0.75rem;
   background: #111827;
+  color: #fff;
+}
+
+.site-topbar__account:hover,
+.site-topbar__account:focus-visible {
+  background: var(--accent);
   color: #fff;
 }
 
@@ -3887,7 +3915,7 @@ body {
 .club-panel-header {
   display: flex;
   gap: 1rem;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
 
@@ -3969,6 +3997,10 @@ body {
   flex-wrap: wrap;
   gap: 0.65rem;
   align-items: center;
+}
+
+.club-app-actions {
+  justify-content: flex-end;
 }
 
 .club-copy-row input,

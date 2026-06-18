@@ -2211,10 +2211,11 @@ function renderTopNavigation(options = {}) {
     { key: "home", label: "Home", href: "/" },
     { key: "competitions", label: "Competitions", href: "/competitions/" },
     { key: "ending", label: "Ending soon", href: "/competitions-ending-soon/" },
-    { key: "club", label: "Club", href: "/club/dashboard/" },
+    { key: "club", label: "Club", href: "/club/" },
   ];
 
-  return `<header class="site-topbar" aria-label="Freehub navigation">
+  return `<a class="skip-link" href="#main-content">Skip to content</a>
+      <header class="site-topbar" aria-label="Freehub navigation">
         <a class="site-topbar__brand" href="/" aria-label="Freehub home">
           <span class="site-topbar__mark" aria-hidden="true">FH</span>
           <span class="site-topbar__name">Freehub</span>
@@ -2223,7 +2224,8 @@ function renderTopNavigation(options = {}) {
           ${links
             .map((link) => {
               const className = link.key === active ? "site-topbar__link is-active" : "site-topbar__link";
-              return `<a class="${className}" href="${escapeAttribute(link.href)}">${escapeHtml(link.label)}</a>`;
+              const current = link.key === active ? ` aria-current="page"` : "";
+              return `<a class="${className}" href="${escapeAttribute(link.href)}"${current}>${escapeHtml(link.label)}</a>`;
             })
             .join("\n          ")}
         </nav>
@@ -3555,7 +3557,7 @@ function renderPage(routeContext, competitions) {
       ${renderTopNavigation({ active: "competitions" })}
       ${renderCollectionHero(routeContext, pageCopy, competitions)}
 
-      <main class="main-content">
+      <main id="main-content" class="main-content">
         ${isCollectionPage ? renderCollectionBreadcrumb(pageCopy.heading) : ""}
 
         ${renderSupportSection(supportCopy)}
@@ -3764,7 +3766,7 @@ function renderBrandIndexPage(brandPages) {
         trustItems: ["Active brand pages", "Official source links", "Thin pages avoided"],
       })}
 
-      <main class="main-content">
+      <main id="main-content" class="main-content">
         ${renderCollectionBreadcrumb(pageCopy.heading)}
         ${renderSupportSection(pageCopy.support)}
 
@@ -4815,7 +4817,7 @@ ${noscriptLinks}
         </div>
       </header>
 
-      <main class="main-content">
+      <main id="main-content" class="main-content">
         ${featuredSectionMarkup}
         ${closingSoonSectionMarkup}
         ${freeEntrySectionMarkup}
@@ -5088,7 +5090,7 @@ function renderTrustPage(page) {
         trustItems: page.trustItems || ["Freehub is not the promoter", "Official source links", "Safety-first browsing"],
       })}
 
-      <main class="main-content trust-page">
+      <main id="main-content" class="main-content trust-page">
         <nav class="category-nav" aria-label="Competition categories">
           ${CATEGORY_LINKS.map((link) => renderNavLink(link, `/${page.slug}/`)).join("\n          ")}
         </nav>
@@ -5201,7 +5203,7 @@ function renderClubLandingPage() {
         trustItems: ["Free account", "Official source links", "Refer & Win coming soon"],
         previewMarkup: renderClubPreviewPanel(),
       })}
-      <main class="main-content club-page">
+      <main id="main-content" class="main-content club-page">
         <section class="club-section club-section--split" aria-label="Freehub Club benefits">
           <article>
             <p class="section-kicker">What Club does</p>
@@ -5256,7 +5258,7 @@ function renderClubDashboardPage(activeCompetitions = []) {
     pageType: "club_dashboard",
     body: `
       <script>window.FREEHUB_CLUB_COMPETITIONS = ${escapeScript(JSON.stringify(dashboardCompetitions))};</script>
-      <main class="main-content club-page club-dashboard" data-club-page="dashboard">
+      <main id="main-content" class="main-content club-page club-dashboard" data-club-page="dashboard">
         <section class="club-app-shell" aria-label="Freehub Club dashboard">
           <div class="club-app-header">
             <div>
@@ -5346,7 +5348,7 @@ function renderClubAccountPage() {
     robots: "noindex, follow",
     pageType: "club_account",
     body: `
-      <main class="main-content club-page club-account" data-club-page="account">
+      <main id="main-content" class="main-content club-page club-account" data-club-page="account">
         <section class="club-app-shell" aria-label="Freehub Club account">
           <div class="club-app-header">
             <div>
@@ -5783,7 +5785,7 @@ function renderNotFoundPage() {
         trustItems: ["Current listings remain active", "Helpful routes below", "Broken links can be reported"],
       })}
 
-      <main class="main-content">
+      <main id="main-content" class="main-content">
         <section class="internal-links" aria-label="Helpful links">
           <p class="internal-links__title">Keep Browsing</p>
           <div class="internal-links__list">
@@ -6189,7 +6191,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
         heroImage,
       })}
 
-      <main class="main-content">
+      <main id="main-content" class="main-content">
         ${breadcrumbMarkup}
 
         <nav class="category-nav" aria-label="Competition categories">
@@ -6734,7 +6736,7 @@ function renderLegacyCompetitionPage(competition) {
         trustItems: ["Not active on Freehub", "No active entry shown", "Source details can change"],
       })}
 
-      <main class="main-content">
+      <main id="main-content" class="main-content">
         <section class="state-card">
           <p class="state-card__title">This listing is not active on Freehub</p>
           <p class="state-card__text">${closingDate ? `Original closing date: ${escapeHtml(closingDate)}. ` : ""}${
@@ -6815,7 +6817,7 @@ function renderOutPage(competition) {
         trustItems: ["External promoter page", "Terms apply at source", "Freehub does not collect entries"],
       })}
 
-      <main class="main-content">
+      <main id="main-content" class="main-content">
         <section class="state-card outbound-notice" aria-label="Redirect notice">
           <p class="state-card__title">Continue to the official promoter</p>
           <p class="state-card__text">
