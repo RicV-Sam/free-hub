@@ -33,6 +33,9 @@ users/{userId}/savedCompetitions/{competitionId}
 users/{userId}/ignoredCompetitions/{competitionId}
 users/{userId}/alertPreferences/main
 signupEvents/{eventId}
+mail/{mailId}
+emailCampaigns/{campaignId}
+emailCampaigns/{campaignId}/recipients/{userId}
 ```
 
 ### `users/{userId}`
@@ -99,6 +102,46 @@ signupEvents/{eventId}
   "alertsOptIn": false,
   "pagePath": "/competition/brand-competition-slug-2026/",
   "createdAt": "serverTimestamp"
+}
+```
+
+### `mail/{mailId}`
+
+This collection is reserved for the Firebase Trigger Email extension. Public/client access should be denied. Only trusted Admin SDK scripts or Cloud Functions should write documents here.
+
+```json
+{
+  "to": ["user@example.com"],
+  "message": {
+    "subject": "New Freehub competitions",
+    "html": "<p>New competitions...</p>",
+    "text": "New competitions..."
+  },
+  "freehub": {
+    "campaignId": "new-competitions-since-2026-06-11",
+    "userId": "firebase-auth-uid",
+    "competitionIds": ["competition-id"],
+    "type": "competition-alert"
+  },
+  "createdAt": "serverTimestamp"
+}
+```
+
+### `emailCampaigns/{campaignId}`
+
+Admin-only campaign records used to avoid sending the same alert campaign to the same user more than once.
+
+```json
+{
+  "campaignId": "new-competitions-since-2026-06-11",
+  "competitionIds": ["competition-id"],
+  "mailCollection": "mail",
+  "subject": "New Freehub competitions",
+  "queued": 10,
+  "skipped": 2,
+  "createdAt": "serverTimestamp",
+  "updatedAt": "serverTimestamp",
+  "completedAt": "serverTimestamp"
 }
 ```
 
@@ -193,6 +236,18 @@ service cloud.firestore {
           'createdAt'
         ]);
       allow read, update, delete: if false;
+    }
+
+    match /mail/{mailId} {
+      allow read, write: if false;
+    }
+
+    match /emailCampaigns/{campaignId} {
+      allow read, write: if false;
+
+      match /recipients/{userId} {
+        allow read, write: if false;
+      }
     }
   }
 }

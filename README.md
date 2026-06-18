@@ -24,6 +24,9 @@ Active production site on `https://freehub.co.za`.
   - Set `BING_SEARCH_API_KEY` in your local environment or `.env`
   - `npm run discover:bing`
   - Output is written to `.research/bing-competition-leads.json` for manual review
+- Dry-run registered-user competition email alerts:
+  - `npm run email:alerts -- --since 2026-06-11`
+  - Real sends require Firebase Admin credentials, Firebase Trigger Email, and `--send`; see `docs/firebase-email-alerts.md`
 - Regenerate all static pages:
   - `node scripts/generate-pages.js`
 

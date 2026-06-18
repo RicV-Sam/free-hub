@@ -1,20 +1,19 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-06-12
+Generated: 2026-06-18
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 13
+- Matching active public competitions: 12
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| aQuelle Mzansi Mango Competition - Win a Suzuki Swift (aquelle-mzansi-mango) | 2026-06-15 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Flash MTN National Airtime Campaign - Win R10,000 Vouchers (flash-mtn-national-airtime-vouchers) | 2026-06-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Parmalat Everything Needs Cheese WhatsApp Competition (parmalat-everything-needs-cheese-2026) | 2026-07-15 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Coke x Hisense FIFA Fan Hamper Competition (coca-cola-hisense-fifa-fan-hampers-2026) | 2026-07-19 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
@@ -57,11 +56,11 @@ Recommended normalisation:
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| aQuelle Mzansi Mango Competition - Win a Suzuki Swift (aquelle-mzansi-mango) | 2026-06-15 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Looters Warehouse Competition - Win a Toyota Vitz (looters-warehouse-toyota-vitz) | 2026-06-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Flash MTN National Airtime Campaign - Win R10,000 Vouchers (flash-mtn-national-airtime-vouchers) | 2026-06-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Clover and SPAR Rewards Ultimate Stormers Experience - Win a Jetour Dashing (clover-spar-rewards-stormers-jetour) | 2026-06-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Bridgestone Win 1 of 3 Toyota Corolla Cross Vehicles (bridgestone-toyota-corolla-cross-2026) | 2026-06-30 | purchase-required | yes | yes | Till slip or receipt tag | none |
+| MRP Cellular Stand a Chance to Win 1 of 11 R1 500 MRP Gift Card Competition (vodacom-mrp-gift-card-competition-2026) | 2026-06-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Parmalat Everything Needs Cheese WhatsApp Competition (parmalat-everything-needs-cheese-2026) | 2026-07-15 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Coke x Hisense FIFA Fan Hamper Competition (coca-cola-hisense-fifa-fan-hampers-2026) | 2026-07-19 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Game Haier Play With The Number Ones (game-haier-play-with-the-number-ones-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
@@ -80,15 +79,13 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 17
+- Matching active public competitions: 15
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Comrades Toyota Win-a-Car Competition - Win a Corolla Cross (comrades-toyota-corolla-cross) | 2026-06-14 | paid-entry | yes | yes | Online entry tag | none |
-| RAM Couriers / Vodacom Bulls Isuzu X-Rider Competition (ram-couriers-vodacom-bulls) | 2026-06-15 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Spur Ultimate Springboks Match Day Experience (spur-ultimate-springboks-match-day-experience-2026) | 2026-06-21 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | MiWayLife and Sanlam Personal Loans Fuel Voucher Competition (miwaylife-sanlam-spl-fuel-vouchers) | 2026-06-30 | free-entry | yes | yes | Online entry tag | none |
 | Bridgestone Win 1 of 3 Toyota Corolla Cross Vehicles (bridgestone-toyota-corolla-cross-2026) | 2026-06-30 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
