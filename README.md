@@ -53,6 +53,9 @@ Metadata fallback (`og:image`, `twitter:image`) may still use the global default
 - fails build if rendered HTML includes SVG data-URI hero/card images
 - catches regressions before deploy
 
+## Knowledge Base
+- 2026-06-18 Club, submissions, Firebase and layout implementation: `docs/2026-06-18-freehub-club-submissions-and-layout.md`
+
 ## Page CTA Contract
 Every public content page must expose both Freehub follow-up paths:
 - WhatsApp Channel link using the shared `WHATSAPP_CHANNEL_URL` constant.
