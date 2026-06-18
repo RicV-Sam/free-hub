@@ -1639,7 +1639,7 @@ function main() {
     fs.writeFileSync(path.join(outputDirectory, "index.html"), renderTrustPage(page));
   });
 
-  writeClubPages();
+  writeClubPages(activeCompetitions);
 
   fs.writeFileSync(
     path.join(ROOT_DIR, "sitemap.xml"),
@@ -2215,10 +2215,10 @@ function renderStatusPlaceholders() {
         ></section>`;
 }
 
-function writeClubPages() {
+function writeClubPages(activeCompetitions = []) {
   [
     { slug: "club", html: renderClubLandingPage() },
-    { slug: path.join("club", "dashboard"), html: renderClubDashboardPage() },
+    { slug: path.join("club", "dashboard"), html: renderClubDashboardPage(activeCompetitions) },
     { slug: path.join("club", "account"), html: renderClubAccountPage() },
   ].forEach((page) => {
     const outputDirectory = path.join(ROOT_DIR, page.slug);
@@ -5212,7 +5212,9 @@ function renderClubLandingPage() {
   });
 }
 
-function renderClubDashboardPage() {
+function renderClubDashboardPage(activeCompetitions = []) {
+  const dashboardCompetitions = getClubDashboardCompetitions(activeCompetitions);
+
   return renderClubShell({
     title: "Freehub Club Dashboard | Saved Competitions",
     description: "View saved Freehub competitions, update statuses and copy your Club referral link.",
@@ -5220,6 +5222,7 @@ function renderClubDashboardPage() {
     robots: "noindex, follow",
     pageType: "club_dashboard",
     body: `
+      <script>window.FREEHUB_CLUB_COMPETITIONS = ${escapeScript(JSON.stringify(dashboardCompetitions))};</script>
       <main class="main-content club-page club-dashboard" data-club-page="dashboard">
         <section class="club-app-shell" aria-label="Freehub Club dashboard">
           <div class="club-app-header">
@@ -5249,12 +5252,22 @@ function renderClubDashboardPage() {
           <section class="club-saved-panel" aria-label="Saved competitions">
             <div class="club-panel-header">
               <div>
-                <h2>Saved competitions</h2>
+                <h2>Tracked competitions</h2>
                 <p data-club-saved-summary>Saved competitions from this browser or your Freehub Club account will appear here.</p>
               </div>
               <button class="btn btn--secondary" type="button" data-club-action="clear-local">Clear local saves</button>
             </div>
             <div class="club-saved-list" data-club-saved-list></div>
+          </section>
+          <section class="club-saved-panel" aria-label="All active competitions">
+            <div class="club-panel-header">
+              <div>
+                <h2>All active competitions</h2>
+                <p data-club-all-summary>Listed by nearest closing date so members can work through entries before they expire.</p>
+              </div>
+              <a class="btn btn--secondary" href="/competitions/">Public listings</a>
+            </div>
+            <div class="club-all-list" data-club-all-list></div>
           </section>
           <section class="club-section club-section--notice">
             <div><h2>Account settings</h2><p>Check your email, member details, saved count and Club consent records.</p></div>
@@ -5263,6 +5276,27 @@ function renderClubDashboardPage() {
         </section>
       </main>`,
   });
+}
+
+function getClubDashboardCompetitions(activeCompetitions = []) {
+  return activeCompetitions
+    .slice()
+    .sort((left, right) => new Date(left.closingDate) - new Date(right.closingDate))
+    .map((competition) => {
+      const slug = shared.getCompetitionSlug(competition);
+
+      return {
+        competitionId: slug,
+        slug,
+        title: competition.title,
+        brand: competition.brand || "",
+        category: competition.category || "",
+        closingDate: competition.closingDate || "",
+        path: shared.getCompetitionPath(competition),
+        entryCost: shared.getEntryCostLabel(competition),
+        entryMethod: shared.getEntryMethodLabel(competition.entryType),
+      };
+    });
 }
 
 function renderClubAccountPage() {

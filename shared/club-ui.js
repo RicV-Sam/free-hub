@@ -9,6 +9,8 @@ const state = {
   user: null,
   profile: null,
   savedCompetitions: [],
+  ignoredCompetitions: [],
+  allCompetitions: [],
   page: null,
 };
 
@@ -17,6 +19,7 @@ document.addEventListener("DOMContentLoaded", initClubUi);
 async function initClubUi() {
   captureReferralFromUrl();
   state.page = document.querySelector("[data-club-page]")?.dataset.clubPage || "landing";
+  state.allCompetitions = getDashboardCompetitions();
   bindClubActions();
 
   try {
@@ -36,6 +39,7 @@ async function initClubUi() {
     if (!user) {
       state.profile = null;
       state.savedCompetitions = getLocalSavedCompetitions();
+      state.ignoredCompetitions = [];
       renderSignedOutState();
       return;
     }
@@ -128,6 +132,7 @@ async function loadClubState(user) {
   await writePendingReferralAttribution(user, state.profile);
   await importLocalSavedCompetitions(user.uid);
   state.savedCompetitions = await state.client.helpers.getSavedCompetitions(user.uid).catch(() => []);
+  state.ignoredCompetitions = await state.client.helpers.getIgnoredCompetitions(user.uid).catch(() => []);
 }
 
 async function writePendingReferralAttribution(user, profile) {
@@ -155,16 +160,25 @@ async function importLocalSavedCompetitions(userId) {
 
   for (const competition of localSaved) {
     try {
-      await state.client.helpers.saveCompetition(userId, {
-        id: competition.competitionId,
-        slug: competition.slug || competition.competitionId,
-        title: competition.title,
-        brand: competition.brand,
-        category: competition.category,
-        closingDate: competition.closingDate,
-        path: competition.path,
-        status: competition.status,
-      });
+      if (normalizeSavedStatus(competition.status) === "skipped") {
+        await state.client.helpers.ignoreCompetition(userId, {
+          id: competition.competitionId,
+          title: competition.title,
+          category: competition.category,
+          path: competition.path,
+        });
+      } else {
+        await state.client.helpers.saveCompetition(userId, {
+          id: competition.competitionId,
+          slug: competition.slug || competition.competitionId,
+          title: competition.title,
+          brand: competition.brand,
+          category: competition.category,
+          closingDate: competition.closingDate,
+          path: competition.path,
+          status: competition.status,
+        });
+      }
       imported += 1;
     } catch (error) {
       console.warn("Unable to import local saved competition:", error.message);
@@ -186,6 +200,7 @@ function renderSignedOutState(message = "") {
   });
   state.savedCompetitions = getLocalSavedCompetitions();
   renderSavedCompetitions();
+  renderAllCompetitions();
   renderAccountFields();
 }
 
@@ -194,6 +209,7 @@ function renderSignedInState() {
   setWelcomeText(`Welcome${state.profile?.displayName ? `, ${state.profile.displayName}` : ""}. Your Club account is ready.`);
   renderReferralLink();
   renderSavedCompetitions();
+  renderAllCompetitions();
   renderAccountFields();
 }
 
@@ -237,7 +253,9 @@ function renderSavedCompetitions() {
     return;
   }
 
-  const saved = normalizeSavedCompetitionList(state.savedCompetitions);
+  const saved = normalizeSavedCompetitionList(state.savedCompetitions).filter(
+    (competition) => competition.status !== "skipped"
+  );
 
   if (summary) {
     summary.textContent = state.user
@@ -247,14 +265,74 @@ function renderSavedCompetitions() {
 
   if (saved.length === 0) {
     list.innerHTML = `<article class="club-empty-state">
-      <h3>No saved competitions yet</h3>
-      <p>Browse Freehub and save competitions worth coming back to.</p>
+      <h3>No tracked competitions yet</h3>
+      <p>Use the all competitions list below to mark items as interested or entered.</p>
       <a class="btn btn--primary" href="/competitions/">Browse competitions</a>
     </article>`;
     return;
   }
 
   list.innerHTML = saved.map(renderSavedCompetition).join("");
+}
+
+function renderAllCompetitions() {
+  const list = document.querySelector("[data-club-all-list]");
+  const summary = document.querySelector("[data-club-all-summary]");
+
+  if (!list) {
+    return;
+  }
+
+  const competitions = state.allCompetitions;
+  const statusCounts = competitions.reduce(
+    (counts, competition) => {
+      counts[getCompetitionStatus(competition.competitionId)] += 1;
+      return counts;
+    },
+    { untracked: 0, interested: 0, entered: 0, skipped: 0 }
+  );
+
+  if (summary) {
+    summary.textContent = `${competitions.length} active competitions by nearest closing date. ${statusCounts.entered} entered, ${statusCounts.interested} interested, ${statusCounts.skipped} not relevant.`;
+  }
+
+  if (competitions.length === 0) {
+    list.innerHTML = `<article class="club-empty-state">
+      <h3>No active competitions right now</h3>
+      <p>New verified competitions will appear here when Freehub publishes them.</p>
+    </article>`;
+    return;
+  }
+
+  list.innerHTML = competitions.map(renderAllCompetition).join("");
+}
+
+function renderAllCompetition(competition) {
+  const status = getCompetitionStatus(competition.competitionId);
+  const closingDate = formatDate(competition.closingDate);
+
+  return `<article class="club-competition-row club-competition-row--${escapeAttribute(status)}">
+    <div>
+      <p class="club-saved-item__meta">${escapeHtml([competition.brand, competition.category, competition.entryCost].filter(Boolean).join(" - ") || "Freehub competition")}</p>
+      <h3><a href="${escapeAttribute(competition.path)}">${escapeHtml(competition.title || "Competition")}</a></h3>
+      <p>${closingDate ? `Closes ${escapeHtml(closingDate)}` : "Check the listing for the latest closing date."}${competition.entryMethod ? ` Entry: ${escapeHtml(competition.entryMethod)}.` : ""}</p>
+    </div>
+    <div class="club-saved-item__actions">
+      <label>
+        <span class="visually-hidden">Competition status</span>
+        <select data-club-status data-competition-id="${escapeAttribute(competition.competitionId)}">
+          ${[
+            ["untracked", "Need to review"],
+            ["interested", "Interested"],
+            ["entered", "Entered"],
+            ["skipped", "Not relevant"],
+          ]
+            .map(([value, label]) => `<option value="${value}"${value === status ? " selected" : ""}>${label}</option>`)
+            .join("")}
+        </select>
+      </label>
+    </div>
+  </article>`;
 }
 
 function renderSavedCompetition(competition) {
@@ -272,8 +350,12 @@ function renderSavedCompetition(competition) {
       <label>
         <span class="visually-hidden">Saved status</span>
         <select data-club-status data-competition-id="${escapeAttribute(competition.competitionId)}">
-          ${["interested", "entered", "skipped"]
-            .map((option) => `<option value="${option}"${option === status ? " selected" : ""}>${capitalize(option)}</option>`)
+          ${[
+            ["interested", "Interested"],
+            ["entered", "Entered"],
+            ["skipped", "Not relevant"],
+          ]
+            .map(([value, label]) => `<option value="${value}"${value === status ? " selected" : ""}>${label}</option>`)
             .join("")}
         </select>
       </label>
@@ -285,7 +367,9 @@ function renderSavedCompetition(competition) {
 }
 
 function renderAccountFields() {
-  const saved = normalizeSavedCompetitionList(state.savedCompetitions);
+  const saved = normalizeSavedCompetitionList(state.savedCompetitions).filter(
+    (competition) => competition.status !== "skipped"
+  );
   const fields = {
     displayName: state.profile?.displayName || "Not signed in",
     email: state.profile?.email || "Not signed in",
@@ -312,23 +396,44 @@ async function updateSavedStatus(competitionId, status) {
     return;
   }
 
+  const competition = getCompetitionById(competitionId);
+
   if (state.user) {
-    await state.client.helpers.updateSavedCompetitionStatus(state.user.uid, competitionId, nextStatus).catch(() => {
-      setClubStatus("We could not update that saved competition right now.");
-    });
-    state.savedCompetitions = state.savedCompetitions.map((competition) =>
-      competition.competitionId === competitionId ? { ...competition, status: nextStatus } : competition
-    );
+    if (nextStatus === "untracked") {
+      await Promise.all([
+        state.client.helpers.unsaveCompetition(state.user.uid, competitionId).catch(() => null),
+        state.client.helpers.unignoreCompetition(state.user.uid, competitionId).catch(() => null),
+      ]);
+      state.savedCompetitions = state.savedCompetitions.filter((entry) => entry.competitionId !== competitionId);
+      state.ignoredCompetitions = state.ignoredCompetitions.filter((entry) => entry.competitionId !== competitionId);
+    } else if (nextStatus === "skipped") {
+      await Promise.all([
+        state.client.helpers.ignoreCompetition(state.user.uid, toFirestoreCompetition(competition, nextStatus)).catch(() => null),
+        state.client.helpers.unsaveCompetition(state.user.uid, competitionId).catch(() => null),
+      ]);
+      state.savedCompetitions = state.savedCompetitions.filter((entry) => entry.competitionId !== competitionId);
+      state.ignoredCompetitions = upsertStateCompetition(state.ignoredCompetitions, toStateCompetition(competition, nextStatus));
+    } else {
+      await Promise.all([
+        state.client.helpers.saveCompetition(state.user.uid, toFirestoreCompetition(competition, nextStatus)),
+        state.client.helpers.unignoreCompetition(state.user.uid, competitionId).catch(() => null),
+      ]).catch(() => {
+        setClubStatus("We could not update that competition right now.");
+      });
+      state.savedCompetitions = upsertStateCompetition(state.savedCompetitions, toStateCompetition(competition, nextStatus));
+      state.ignoredCompetitions = state.ignoredCompetitions.filter((entry) => entry.competitionId !== competitionId);
+    }
   } else {
-    const saved = getLocalSavedCompetitions().map((competition) =>
-      competition.competitionId === competitionId
-        ? { ...competition, status: nextStatus, updatedAt: new Date().toISOString() }
-        : competition
-    );
+    const saved = getLocalSavedCompetitions().filter((entry) => entry.competitionId !== competitionId);
+    if (nextStatus !== "untracked") {
+      saved.unshift(toStateCompetition(competition, nextStatus));
+    }
     window.localStorage.setItem(LOCAL_SAVED_COMPETITIONS_KEY, JSON.stringify(saved));
     state.savedCompetitions = saved;
   }
 
+  renderSavedCompetitions();
+  renderAllCompetitions();
   renderAccountFields();
 }
 
@@ -349,6 +454,7 @@ async function removeSavedCompetition(competitionId) {
   }
 
   renderSavedCompetitions();
+  renderAllCompetitions();
   renderAccountFields();
 }
 
@@ -448,6 +554,24 @@ function getLocalSavedCompetitions() {
   }
 }
 
+function getDashboardCompetitions() {
+  const competitions = Array.isArray(window.FREEHUB_CLUB_COMPETITIONS) ? window.FREEHUB_CLUB_COMPETITIONS : [];
+  return competitions
+    .filter((competition) => competition?.competitionId)
+    .map((competition) => ({
+      competitionId: competition.competitionId,
+      slug: competition.slug || competition.competitionId,
+      title: competition.title || "Competition",
+      brand: competition.brand || "",
+      category: competition.category || "",
+      closingDate: competition.closingDate || "",
+      path: competition.path || `/competition/${competition.slug || competition.competitionId}/`,
+      entryCost: competition.entryCost || "",
+      entryMethod: competition.entryMethod || "",
+    }))
+    .sort((left, right) => new Date(left.closingDate) - new Date(right.closingDate));
+}
+
 function clearLocalSavedCompetitions() {
   window.localStorage.removeItem(LOCAL_SAVED_COMPETITIONS_KEY);
 }
@@ -468,7 +592,65 @@ function normalizeSavedCompetitionList(saved) {
 
 function normalizeSavedStatus(value) {
   const status = typeof value === "string" ? value.trim().toLowerCase() : "";
-  return ["interested", "entered", "skipped"].includes(status) ? status : "interested";
+  return ["untracked", "interested", "entered", "skipped"].includes(status) ? status : "interested";
+}
+
+function getCompetitionStatus(competitionId) {
+  const saved = state.savedCompetitions.find((competition) => competition.competitionId === competitionId);
+  if (saved) {
+    return normalizeSavedStatus(saved.status);
+  }
+
+  const ignored = state.ignoredCompetitions.find((competition) => competition.competitionId === competitionId);
+  if (ignored) {
+    return "skipped";
+  }
+
+  return "untracked";
+}
+
+function getCompetitionById(competitionId) {
+  return (
+    state.allCompetitions.find((competition) => competition.competitionId === competitionId) ||
+    state.savedCompetitions.find((competition) => competition.competitionId === competitionId) || {
+      competitionId,
+      slug: competitionId,
+      title: "Competition",
+      path: `/competition/${competitionId}/`,
+    }
+  );
+}
+
+function toFirestoreCompetition(competition, status) {
+  return {
+    id: competition.competitionId,
+    slug: competition.slug || competition.competitionId,
+    title: competition.title,
+    brand: competition.brand,
+    category: competition.category,
+    closingDate: competition.closingDate,
+    path: competition.path,
+    status,
+  };
+}
+
+function toStateCompetition(competition, status) {
+  return {
+    competitionId: competition.competitionId,
+    slug: competition.slug || competition.competitionId,
+    title: competition.title,
+    brand: competition.brand || null,
+    category: competition.category || null,
+    closingDate: competition.closingDate || null,
+    path: competition.path,
+    status,
+    savedAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  };
+}
+
+function upsertStateCompetition(competitions, competition) {
+  return [competition, ...competitions.filter((entry) => entry.competitionId !== competition.competitionId)];
 }
 
 function normalizeReferralCode(value) {
@@ -504,10 +686,6 @@ function formatTimestamp(value) {
   }
 
   return formatDate(value) || "Not available";
-}
-
-function capitalize(value) {
-  return value.charAt(0).toUpperCase() + value.slice(1);
 }
 
 function escapeHtml(value) {

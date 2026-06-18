@@ -3820,7 +3820,8 @@ body {
 
 .club-copy-row input,
 .club-definition-list input,
-.club-saved-item select {
+.club-saved-item select,
+.club-competition-row select {
   min-height: 44px;
   border: 1px solid rgba(15, 118, 110, 0.18);
   border-radius: 8px;
@@ -3835,7 +3836,8 @@ body {
   padding: 0.65rem 0.75rem;
 }
 
-.club-saved-item select {
+.club-saved-item select,
+.club-competition-row select {
   padding: 0.55rem 2rem 0.55rem 0.65rem;
 }
 
@@ -3850,12 +3852,14 @@ body {
   padding: 1rem;
 }
 
-.club-saved-list {
+.club-saved-list,
+.club-all-list {
   display: grid;
   gap: 0.8rem;
 }
 
-.club-saved-item {
+.club-saved-item,
+.club-competition-row {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 1rem;
@@ -3866,12 +3870,23 @@ body {
   background: #f8fafc;
 }
 
-.club-saved-item a {
+.club-competition-row--entered {
+  border-color: rgba(15, 118, 110, 0.38);
+  background: #ecfdf5;
+}
+
+.club-competition-row--skipped {
+  opacity: 0.72;
+}
+
+.club-saved-item a,
+.club-competition-row a {
   color: var(--text);
   text-decoration: none;
 }
 
-.club-saved-item a:hover {
+.club-saved-item a:hover,
+.club-competition-row a:hover {
   color: var(--accent);
   text-decoration: underline;
 }
@@ -3932,7 +3947,8 @@ body {
   .club-section--split,
   .club-feature-grid,
   .club-account-grid,
-  .club-saved-item {
+  .club-saved-item,
+  .club-competition-row {
     grid-template-columns: 1fr;
   }
 
@@ -3954,7 +3970,8 @@ body {
   .club-app-actions .btn,
   .club-copy-row .btn,
   .club-saved-item__actions .btn,
-  .club-saved-item select {
+  .club-saved-item select,
+  .club-competition-row select {
     width: 100%;
   }
 }
