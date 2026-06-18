@@ -7,7 +7,7 @@ Only active, published, public-safe competitions are counted. Held, unverified, 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 12
+- Matching active public competitions: 13
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -17,6 +17,7 @@ Only active, published, public-safe competitions are counted. Held, unverified, 
 | Flash MTN National Airtime Campaign - Win R10,000 Vouchers (flash-mtn-national-airtime-vouchers) | 2026-06-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Parmalat Everything Needs Cheese WhatsApp Competition (parmalat-everything-needs-cheese-2026) | 2026-07-15 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Coke x Hisense FIFA Fan Hamper Competition (coca-cola-hisense-fifa-fan-hampers-2026) | 2026-07-19 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
+| KitKat F1 Monza Competition (kitkat-f1-monza-competition-2026) | 2026-07-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Game Haier Play With The Number Ones (game-haier-play-with-the-number-ones-2026) | 2026-07-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Clere Win a Share of R1 Million Cash Competition (clere-share-of-r1-million-cash-2026) | 2026-07-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | NIVEA MEN Real Madrid Competition - Win Cash Prizes (nivea-men-real-madrid-cash-2026) | 2026-07-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
@@ -49,7 +50,7 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 16
+- Matching active public competitions: 17
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -63,6 +64,7 @@ Recommended normalisation:
 | MRP Cellular Stand a Chance to Win 1 of 11 R1 500 MRP Gift Card Competition (vodacom-mrp-gift-card-competition-2026) | 2026-06-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Parmalat Everything Needs Cheese WhatsApp Competition (parmalat-everything-needs-cheese-2026) | 2026-07-15 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Coke x Hisense FIFA Fan Hamper Competition (coca-cola-hisense-fifa-fan-hampers-2026) | 2026-07-19 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
+| KitKat F1 Monza Competition (kitkat-f1-monza-competition-2026) | 2026-07-30 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Game Haier Play With The Number Ones (game-haier-play-with-the-number-ones-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Clere Win a Share of R1 Million Cash Competition (clere-share-of-r1-million-cash-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | NIVEA MEN Real Madrid Competition - Win Cash Prizes (nivea-men-real-madrid-cash-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
