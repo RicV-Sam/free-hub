@@ -11,6 +11,7 @@ const ADSENSE_SCRIPT =
   '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6084410613829318" crossorigin="anonymous"></script>';
 const WHATSAPP_CHANNEL_URL = "https://whatsapp.com/channel/0029Vb7mS1VE50UlOc2yOe2H";
 const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date());
+const CSS_ASSET_VERSION = "20260618-submission";
 const CATEGORY_LINKS = [
   { label: "All Competitions", href: "/" },
   ...shared.CATEGORY_SLUGS.map((slug) => ({
@@ -2211,6 +2212,10 @@ function renderStatusPlaceholders() {
         ></section>`;
 }
 
+function getStylesheetHref(assetPath = "/") {
+  return `${assetPath}styles.css?v=${CSS_ASSET_VERSION}`;
+}
+
 const CATEGORY_FALLBACK_STYLES = {
   Cash: { start: "#0f766e", end: "#14b8a6", accent: "#99f6e4" },
   Cars: { start: "#1d4ed8", end: "#60a5fa", accent: "#dbeafe" },
@@ -3489,7 +3494,7 @@ function renderPage(routeContext, competitions) {
     <script id="structured-data-itemlist" type="application/ld+json">${escapeScript(
       JSON.stringify(structuredData)
     )}</script>
-    <link rel="stylesheet" href="${RELATIVE_ASSET_PATH}styles.css" />
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref(RELATIVE_ASSET_PATH))}" />
     ${ADSENSE_SCRIPT}
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
@@ -3685,7 +3690,7 @@ function renderBrandIndexPage(brandPages) {
     <script id="structured-data-itemlist" type="application/ld+json">${escapeScript(
       JSON.stringify(structuredData)
     )}</script>
-    <link rel="stylesheet" href="${RELATIVE_ASSET_PATH}styles.css" />
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref(RELATIVE_ASSET_PATH))}" />
     ${ADSENSE_SCRIPT}
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
@@ -4703,7 +4708,7 @@ If you want only no-purchase routes, use the free competitions page. If you want
     <meta name="twitter:description" content="Browse free giveaways South Africa users search for, including competitions, cash prizes, vouchers, free-entry draws and official promoter links." />
     <meta name="twitter:image" content="${escapeAttribute(ogImage)}" />
     <script id="structured-data-itemlist" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
     ${ADSENSE_SCRIPT}
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
@@ -5005,7 +5010,7 @@ function renderTrustPage(page) {
     ${resourceStructuredDataScript}
     ${faqStructuredDataScript}
     ${serviceStructuredDataScript}
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
     ${ADSENSE_SCRIPT}
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
@@ -5394,7 +5399,7 @@ function renderNotFoundPage() {
     <meta name="twitter:title" content="Page Not Found | Freehub" />
     <meta name="twitter:description" content="This Freehub page could not be found. Browse live South African competitions, categories, safety guidance and contact options." />
     <meta name="twitter:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
     ${ADSENSE_SCRIPT}
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
@@ -5798,7 +5803,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
     <script id="structured-data-webpage" type="application/ld+json">${escapeScript(JSON.stringify(webPageData))}</script>
     <script id="structured-data-breadcrumb" type="application/ld+json">${escapeScript(JSON.stringify(breadcrumbData))}</script>
     ${faqStructuredDataScript}
-    <link rel="stylesheet" href="${RELATIVE_ASSET_PATH}styles.css" />
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref(RELATIVE_ASSET_PATH))}" />
     ${ADSENSE_SCRIPT}
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
@@ -6352,7 +6357,7 @@ function renderLegacyCompetitionPage(competition) {
     <meta name="robots" content="noindex, follow" />
     <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="${RELATIVE_ASSET_PATH}styles.css" />
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref(RELATIVE_ASSET_PATH))}" />
     ${ADSENSE_SCRIPT}
   </head>
   <body>
@@ -6399,7 +6404,7 @@ function renderOutPage(competition) {
     <meta name="robots" content="noindex, nofollow" />
     <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="${RELATIVE_ASSET_PATH}styles.css" />
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref(RELATIVE_ASSET_PATH))}" />
     ${ADSENSE_SCRIPT}
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
