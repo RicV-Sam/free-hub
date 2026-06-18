@@ -32,6 +32,8 @@ users/{userId}
 users/{userId}/savedCompetitions/{competitionId}
 users/{userId}/ignoredCompetitions/{competitionId}
 users/{userId}/alertPreferences/main
+referralCodes/{code}
+referralAttribution/{attributionId}
 signupEvents/{eventId}
 competitionSubmissions/{submissionId}
 mail/{mailId}
@@ -50,6 +52,13 @@ emailCampaigns/{campaignId}/recipients/{userId}
   "providerIds": ["google.com"],
   "acceptedPrivacyPolicy": true,
   "alertsMarketingConsent": false,
+  "marketingConsent": false,
+  "marketingConsentUpdatedAt": "serverTimestamp",
+  "referralCode": "FH7K92",
+  "clubTermsAccepted": true,
+  "clubTermsAcceptedAt": "serverTimestamp",
+  "referWinTermsAccepted": false,
+  "referWinTermsAcceptedAt": null,
   "createdAt": "serverTimestamp",
   "updatedAt": "serverTimestamp"
 }
@@ -60,11 +69,53 @@ emailCampaigns/{campaignId}/recipients/{userId}
 ```json
 {
   "competitionId": "brand-competition-slug-2026",
+  "slug": "brand-competition-slug-2026",
   "title": "Competition title",
+  "brand": "Brand",
   "category": "Cash",
+  "closingDate": "2026-07-31",
   "path": "https://freehub.co.za/competition/brand-competition-slug-2026/",
+  "status": "interested",
   "savedAt": "serverTimestamp",
   "updatedAt": "serverTimestamp"
+}
+```
+
+`status` must be one of:
+
+- `interested`
+- `entered`
+- `skipped`
+
+### `referralCodes/{code}`
+
+Public reverse lookup for a generated Freehub Club referral code. These records are not a reward ledger and should not be listable by clients.
+
+```json
+{
+  "code": "FH7K92",
+  "userId": "firebase-auth-uid",
+  "createdAt": "serverTimestamp"
+}
+```
+
+### `referralAttribution/{attributionId}`
+
+Pending-only referral attribution captured when a new signed-in user arrives with `?ref=FH7K92`. Refer & Win is not live; these records are stored as `pending_verification` only.
+
+```json
+{
+  "attributionId": "referredUid_FH7K92",
+  "referredUid": "firebase-auth-uid",
+  "referrerUid": "other-firebase-auth-uid",
+  "referralCode": "FH7K92",
+  "landingPath": "/club/?ref=FH7K92",
+  "capturedAt": "2026-06-18T14:00:00.000Z",
+  "registeredAt": "serverTimestamp",
+  "campaignMonth": "2026-06",
+  "status": "pending_verification",
+  "verifiedAt": null,
+  "rejectionReason": null
 }
 ```
 
@@ -201,6 +252,13 @@ service cloud.firestore {
         'providerIds',
         'acceptedPrivacyPolicy',
         'alertsMarketingConsent',
+        'marketingConsent',
+        'marketingConsentUpdatedAt',
+        'referralCode',
+        'clubTermsAccepted',
+        'clubTermsAcceptedAt',
+        'referWinTermsAccepted',
+        'referWinTermsAcceptedAt',
         'createdAt',
         'updatedAt'
       ]);
@@ -219,12 +277,18 @@ service cloud.firestore {
           && request.resource.data.competitionId == competitionId
           && request.resource.data.keys().hasOnly([
             'competitionId',
+            'slug',
             'title',
+            'brand',
             'category',
+            'closingDate',
             'path',
+            'status',
             'savedAt',
             'updatedAt'
-          ]);
+          ])
+          && (!request.resource.data.keys().hasAny(['status'])
+            || request.resource.data.status in ['interested', 'entered', 'skipped']);
       }
 
       match /ignoredCompetitions/{competitionId} {
@@ -264,6 +328,44 @@ service cloud.firestore {
           'alertsOptIn',
           'pagePath',
           'createdAt'
+        ]);
+      allow read, update, delete: if false;
+    }
+
+    match /referralCodes/{code} {
+      allow get: if true;
+      allow list: if false;
+      allow create: if signedIn()
+        && request.resource.data.code == code
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.keys().hasOnly([
+          'code',
+          'userId',
+          'createdAt'
+        ]);
+      allow update, delete: if false;
+    }
+
+    match /referralAttribution/{attributionId} {
+      allow create: if signedIn()
+        && request.resource.data.attributionId == attributionId
+        && request.resource.data.referredUid == request.auth.uid
+        && request.resource.data.referrerUid != request.auth.uid
+        && request.resource.data.status == 'pending_verification'
+        && request.resource.data.verifiedAt == null
+        && request.resource.data.rejectionReason == null
+        && request.resource.data.keys().hasOnly([
+          'attributionId',
+          'referredUid',
+          'referrerUid',
+          'referralCode',
+          'landingPath',
+          'capturedAt',
+          'registeredAt',
+          'campaignMonth',
+          'status',
+          'verifiedAt',
+          'rejectionReason'
         ]);
       allow read, update, delete: if false;
     }

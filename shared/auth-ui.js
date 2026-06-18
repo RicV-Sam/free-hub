@@ -2,6 +2,7 @@ import { getFirebaseClient } from "./firebase-client.js";
 
 const EMAIL_STORAGE_KEY = "freehubEmailForSignIn";
 const PENDING_ACTION_STORAGE_KEY = "freehubPendingAuthAction";
+const LOCAL_SAVED_COMPETITIONS_KEY = "freehubClubSavedCompetitions";
 
 const state = {
   client: null,
@@ -97,7 +98,11 @@ async function handleSaveClick(panel) {
   }
 
   if (!state.user) {
-    openSignupModal(panel, "save");
+    saveCompetitionLocally(competition);
+    state.saved.set(competition.id, true);
+    trackAuthEvent("save_competition_local", getCompetitionEventParams(competition));
+    setPanelMessage(panel, "Saved on this device. Sign in to keep it in your Freehub Club account.");
+    renderPanel(panel);
     return;
   }
 
@@ -432,6 +437,7 @@ async function handleSigninSuccess(user, provider, consent) {
       competitionId: competition?.id,
       alertsOptIn: consent.alertsMarketingConsent === true,
     });
+    await importLocalSavedCompetitions(user.uid);
   } catch (error) {
     console.warn("Freehub account profile writes are unavailable:", error.message);
   }
@@ -479,6 +485,9 @@ async function handleSigninSuccess(user, provider, consent) {
 async function refreshPanelState() {
   if (!state.user || !state.client) {
     state.saved.clear();
+    getLocalSavedCompetitions().forEach((competition) => {
+      state.saved.set(competition.competitionId, true);
+    });
     state.ignored.clear();
     state.alerts.clear();
     applyIgnoredCompetitionsToPage();
@@ -534,7 +543,9 @@ function renderPanel(panel) {
   const alertsOn = state.alerts.get(getAlertKey(competition)) === true;
 
   if (saveButton) {
-    saveButton.textContent = state.user ? (isSaved ? "Saved" : "Save this competition") : "Sign in to save";
+    saveButton.textContent = state.user
+      ? (isSaved ? "Saved" : "Save this competition")
+      : (isSaved ? "Saved locally" : "Save locally");
     saveButton.setAttribute("aria-pressed", String(isSaved));
   }
 
@@ -642,9 +653,13 @@ function getPanelCompetition(panel) {
 
   return {
     id: panel.dataset.competitionId,
+    slug: panel.dataset.competitionSlug || panel.dataset.competitionId,
     title: panel.dataset.competitionTitle,
+    brand: panel.dataset.competitionBrand,
     category: panel.dataset.competitionCategory,
+    closingDate: panel.dataset.competitionClosingDate,
     path: panel.dataset.competitionPath,
+    status: "interested",
   };
 }
 
@@ -658,9 +673,13 @@ function getElementCompetition(element) {
 
   return {
     id,
+    slug: source.dataset.competitionSlug || id,
     title: source.dataset.competitionTitle || source.getAttribute("aria-label") || "this competition",
+    brand: source.dataset.competitionBrand || "",
     category: source.dataset.competitionCategory || "",
+    closingDate: source.dataset.competitionClosingDate || "",
     path: source.dataset.competitionPath || `${window.location.origin}/competition/${id}/`,
+    status: "interested",
   };
 }
 
@@ -721,9 +740,84 @@ function getIgnoredCompetitionIds() {
 function buildPublicAuthApi() {
   return {
     user: state.user,
+    client: state.client,
+    openSignupModal,
+    saveCompetitionLocally,
+    getLocalSavedCompetitions,
+    importLocalSavedCompetitions: () => (state.user ? importLocalSavedCompetitions(state.user.uid) : Promise.resolve(0)),
     getIgnoredCompetitionIds,
     applyIgnoredCompetitionsToPage,
   };
+}
+
+function saveCompetitionLocally(competition, status = "interested") {
+  if (!competition?.id) {
+    return;
+  }
+
+  const saved = getLocalSavedCompetitions();
+  const existing = saved.find((entry) => entry.competitionId === competition.id);
+  const nextEntry = {
+    competitionId: competition.id,
+    slug: competition.slug || competition.id,
+    title: competition.title || "Saved competition",
+    brand: competition.brand || null,
+    category: competition.category || null,
+    closingDate: competition.closingDate || null,
+    path: competition.path || `/competition/${competition.id}/`,
+    status: normalizeSavedStatus(status || existing?.status),
+    savedAt: existing?.savedAt || new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  };
+  const nextSaved = [nextEntry, ...saved.filter((entry) => entry.competitionId !== competition.id)].slice(0, 100);
+  window.localStorage.setItem(LOCAL_SAVED_COMPETITIONS_KEY, JSON.stringify(nextSaved));
+}
+
+function getLocalSavedCompetitions() {
+  try {
+    const value = JSON.parse(window.localStorage.getItem(LOCAL_SAVED_COMPETITIONS_KEY) || "[]");
+    return Array.isArray(value) ? value.filter((entry) => entry?.competitionId) : [];
+  } catch (error) {
+    return [];
+  }
+}
+
+async function importLocalSavedCompetitions(userId) {
+  if (!state.client || !userId) {
+    return 0;
+  }
+
+  const saved = getLocalSavedCompetitions();
+  let importedCount = 0;
+
+  for (const competition of saved) {
+    try {
+      await state.client.helpers.saveCompetition(userId, {
+        id: competition.competitionId,
+        slug: competition.slug || competition.competitionId,
+        title: competition.title,
+        brand: competition.brand,
+        category: competition.category,
+        closingDate: competition.closingDate,
+        path: competition.path,
+        status: competition.status,
+      });
+      importedCount += 1;
+    } catch (error) {
+      console.warn("Unable to import local Freehub saved competition:", error.message);
+    }
+  }
+
+  if (importedCount > 0) {
+    window.localStorage.removeItem(LOCAL_SAVED_COMPETITIONS_KEY);
+  }
+
+  return importedCount;
+}
+
+function normalizeSavedStatus(value) {
+  const status = typeof value === "string" ? value.trim().toLowerCase() : "";
+  return ["interested", "entered", "skipped"].includes(status) ? status : "interested";
 }
 
 function cssEscape(value) {

@@ -3694,3 +3694,271 @@ body {
     font-size: 1.18rem;
   }
 }
+
+.hero--club {
+  background:
+    linear-gradient(135deg, rgba(15, 118, 110, 0.94), rgba(17, 24, 39, 0.9)),
+    url("https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1800&q=80") center/cover;
+}
+
+.hero-preview-panel--club {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.hero-preview-panel__list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-preview-panel__list li {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(15, 118, 110, 0.14);
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.hero-preview-panel__list span,
+.hero-preview-panel__note {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.club-page {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.club-page [hidden] {
+  display: none !important;
+}
+
+.club-section,
+.club-app-shell,
+.club-referral-card,
+.club-saved-panel,
+.club-account-card {
+  border: 1px solid rgba(15, 118, 110, 0.14);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.club-section {
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.club-section h2,
+.club-app-header h1,
+.club-panel-header h2,
+.club-referral-card h2,
+.club-account-card h2,
+.club-feature h3,
+.club-saved-item h3 {
+  margin: 0;
+  color: var(--text);
+}
+
+.club-section p,
+.club-app-header p,
+.club-panel-header p,
+.club-referral-card p,
+.club-account-card p,
+.club-saved-item p {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.club-section--split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(1rem, 3vw, 1.5rem);
+  align-items: start;
+}
+
+.club-feature-grid,
+.club-account-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.club-feature {
+  padding: 1rem;
+  border: 1px solid rgba(15, 118, 110, 0.12);
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.club-section--notice,
+.club-referral-card,
+.club-app-header,
+.club-panel-header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.club-app-shell {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.club-app-actions,
+.club-copy-row,
+.club-saved-item__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.club-copy-row input,
+.club-definition-list input,
+.club-saved-item select {
+  min-height: 44px;
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+}
+
+.club-copy-row input,
+.club-definition-list input {
+  width: min(100%, 28rem);
+  padding: 0.65rem 0.75rem;
+}
+
+.club-saved-item select {
+  padding: 0.55rem 2rem 0.55rem 0.65rem;
+}
+
+.club-referral-card {
+  padding: 1rem;
+  background: #ecfeff;
+}
+
+.club-saved-panel {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.club-saved-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.club-saved-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid rgba(15, 118, 110, 0.12);
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.club-saved-item a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.club-saved-item a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.club-saved-item__meta,
+.club-status {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.club-empty-state {
+  display: grid;
+  justify-items: start;
+  gap: 0.65rem;
+  padding: 1rem;
+  border: 1px dashed rgba(15, 118, 110, 0.28);
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.club-empty-state h3,
+.club-empty-state p {
+  margin: 0;
+}
+
+.club-account-card {
+  padding: 1rem;
+}
+
+.club-definition-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.club-definition-list div {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.club-definition-list dt {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.club-definition-list dd {
+  margin: 0;
+  color: var(--text);
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 760px) {
+  .club-section--split,
+  .club-feature-grid,
+  .club-account-grid,
+  .club-saved-item {
+    grid-template-columns: 1fr;
+  }
+
+  .club-section--notice,
+  .club-referral-card,
+  .club-app-header,
+  .club-panel-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .club-app-actions,
+  .club-copy-row,
+  .club-saved-item__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .club-app-actions .btn,
+  .club-copy-row .btn,
+  .club-saved-item__actions .btn,
+  .club-saved-item select {
+    width: 100%;
+  }
+}
+
+[hidden] {
+  display: none !important;
+}

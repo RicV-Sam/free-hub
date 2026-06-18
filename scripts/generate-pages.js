@@ -11,7 +11,7 @@ const ADSENSE_SCRIPT =
   '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6084410613829318" crossorigin="anonymous"></script>';
 const WHATSAPP_CHANNEL_URL = "https://whatsapp.com/channel/0029Vb7mS1VE50UlOc2yOe2H";
 const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date());
-const CSS_ASSET_VERSION = "20260618-submission";
+const CSS_ASSET_VERSION = "20260618-club-v2";
 const CATEGORY_LINKS = [
   { label: "All Competitions", href: "/" },
   ...shared.CATEGORY_SLUGS.map((slug) => ({
@@ -1639,6 +1639,8 @@ function main() {
     fs.writeFileSync(path.join(outputDirectory, "index.html"), renderTrustPage(page));
   });
 
+  writeClubPages();
+
   fs.writeFileSync(
     path.join(ROOT_DIR, "sitemap.xml"),
     generateSitemap(activeCompetitions, routeContexts, [...activeCompetitions, ...expiredArchiveCompetitions])
@@ -2171,6 +2173,7 @@ function renderSiteFooter(options = {}) {
               <a href="/submit-a-competition/">Submit a competition</a>
               <a href="/report-a-competition/">Report a competition</a>
               <a href="/freehub-account-benefits/">Account benefits</a>
+              <a href="/club/">Freehub Club</a>
             </nav>
           </div>
           <div>
@@ -2210,6 +2213,18 @@ function renderStatusPlaceholders() {
           class="state-card state-card--hidden state-card--error"
           aria-live="assertive"
         ></section>`;
+}
+
+function writeClubPages() {
+  [
+    { slug: "club", html: renderClubLandingPage() },
+    { slug: path.join("club", "dashboard"), html: renderClubDashboardPage() },
+    { slug: path.join("club", "account"), html: renderClubAccountPage() },
+  ].forEach((page) => {
+    const outputDirectory = path.join(ROOT_DIR, page.slug);
+    fs.mkdirSync(outputDirectory, { recursive: true });
+    fs.writeFileSync(path.join(outputDirectory, "index.html"), page.html);
+  });
 }
 
 function getStylesheetHref(assetPath = "/") {
@@ -3851,6 +3866,8 @@ function renderCompetitionCard(competition, featured = false) {
     shared.getCompetitionSlug(competition)
   )}" data-competition-title="${escapeAttribute(competition.title)}" data-competition-category="${escapeAttribute(
     competition.category
+  )}" data-competition-brand="${escapeAttribute(competition.brand || "")}" data-competition-closing-date="${escapeAttribute(
+    competition.closingDate || ""
   )}" data-competition-path="${escapeAttribute(internalPath)}">
               <div class="competition-card__media">
                 ${renderCompetitionVisualPlaceholder(competition)}
@@ -3893,6 +3910,8 @@ function renderCompetitionCard(competition, featured = false) {
                     data-competition-id="${escapeAttribute(shared.getCompetitionSlug(competition))}"
                     data-competition-title="${escapeAttribute(competition.title)}"
                     data-competition-category="${escapeAttribute(competition.category)}"
+                    data-competition-brand="${escapeAttribute(competition.brand || "")}"
+                    data-competition-closing-date="${escapeAttribute(competition.closingDate || "")}"
                     data-competition-path="${escapeAttribute(internalPath)}"
                     aria-pressed="false"
                   >Hide</button>
@@ -5090,6 +5109,270 @@ function renderTrustPage(page) {
 `;
 }
 
+function renderClubLandingPage() {
+  const canonicalUrl = `${shared.CANONICAL_ORIGIN}/club/`;
+  const title = "Freehub Club | Save and Track South African Competitions";
+  const description =
+    "Join Freehub Club to save South African competitions, track what you entered or skipped, and keep your own referral link ready for future Club rewards.";
+  const faqItems = [
+    {
+      question: "Is Freehub Club free?",
+      answer: "Yes. Freehub Club is a free account feature for saving and tracking competition listings on Freehub.",
+    },
+    {
+      question: "Does Freehub enter competitions for me?",
+      answer:
+        "No. Freehub helps you organise listings, but entries still happen on the official promoter website or entry channel.",
+    },
+    {
+      question: "Is Refer and Win live?",
+      answer:
+        "Not yet. Freehub can create your referral link now, but any Refer and Win campaign will have separate terms before it goes live.",
+    },
+  ];
+  const faqStructuredData = buildTrustPageFaqStructuredData(faqItems);
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Freehub Club",
+    description,
+    url: canonicalUrl,
+    inLanguage: "en-ZA",
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Freehub",
+      url: `${shared.CANONICAL_ORIGIN}/`,
+    },
+  };
+
+  return renderClubShell({
+    title,
+    description,
+    canonicalUrl,
+    robots: "index, follow, max-image-preview:large",
+    pageType: "club_landing",
+    structuredDataScripts: `
+    <script id="structured-data-webpage" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
+    ${faqStructuredData ? `<script id="structured-data-faq" type="application/ld+json">${escapeScript(JSON.stringify(faqStructuredData))}</script>` : ""}`,
+    body: `
+      ${renderModernHero({
+        className: "hero--club hero--with-preview",
+        eyebrow: "Freehub Club",
+        heading: "Save and track South African competitions",
+        intro:
+          "Create a free Freehub Club account to keep useful competitions together, mark what you entered, and copy your personal referral link for future Club features.",
+        actions: [
+          { label: "Continue with Google", href: "/club/dashboard/", className: "btn--primary" },
+          { label: "Browse Competitions", href: "/competitions/", className: "btn--secondary" },
+        ],
+        trustItems: ["Free account", "Official source links", "Refer & Win coming soon"],
+        previewMarkup: renderClubPreviewPanel(),
+      })}
+      <main class="main-content club-page">
+        <section class="club-section club-section--split" aria-label="Freehub Club benefits">
+          <article>
+            <p class="section-kicker">What Club does</p>
+            <h2>Keep your competition hunting organised</h2>
+            <p>Freehub Club gives regular visitors a simple place to save listings, keep track of what they still want to enter, and come back before closing dates pass.</p>
+          </article>
+          <div class="club-feature-grid">
+            <article class="club-feature"><h3>Save competitions</h3><p>Keep promising listings in one account instead of relying on screenshots, browser history or memory.</p></article>
+            <article class="club-feature"><h3>Track your status</h3><p>Mark saved competitions as interested, entered or skipped so your dashboard stays useful.</p></article>
+            <article class="club-feature"><h3>Share your link</h3><p>Your referral link is ready for future Club campaigns, but referrals stay pending until Freehub publishes campaign terms.</p></article>
+            <article class="club-feature"><h3>Stay private</h3><p>Freehub does not collect competition entries. Promoter forms, winner selection and prize fulfilment remain with the official promoter.</p></article>
+          </div>
+        </section>
+
+        <section class="club-section club-section--notice" aria-label="Refer and Win status">
+          <div>
+            <p class="section-kicker">Coming soon</p>
+            <h2>Refer &amp; Win is not live yet</h2>
+            <p>Club accounts can create a referral link now, but Freehub will only count rewards under a separate live campaign with clear terms. Current referral records are stored as pending verification only.</p>
+          </div>
+          <a class="btn btn--primary" href="/club/dashboard/">Open Club dashboard</a>
+        </section>
+
+        <section class="trust-faq" aria-label="Freehub Club FAQ">
+          <div class="home-section__header">
+            <div>
+              <p class="section-kicker">FAQ</p>
+              <h2 class="home-section__title">Freehub Club questions</h2>
+            </div>
+          </div>
+          ${faqItems
+            .map(
+              (item) => `<details class="trust-faq__item">
+            <summary>${escapeHtml(item.question)}</summary>
+            <p>${escapeHtml(item.answer)}</p>
+          </details>`
+            )
+            .join("\n          ")}
+        </section>
+      </main>`,
+  });
+}
+
+function renderClubDashboardPage() {
+  return renderClubShell({
+    title: "Freehub Club Dashboard | Saved Competitions",
+    description: "View saved Freehub competitions, update statuses and copy your Club referral link.",
+    canonicalUrl: `${shared.CANONICAL_ORIGIN}/club/dashboard/`,
+    robots: "noindex, follow",
+    pageType: "club_dashboard",
+    body: `
+      <main class="main-content club-page club-dashboard" data-club-page="dashboard">
+        <section class="club-app-shell" aria-label="Freehub Club dashboard">
+          <div class="club-app-header">
+            <div>
+              <p class="section-kicker">Freehub Club</p>
+              <h1>Dashboard</h1>
+              <p data-club-welcome>Sign in with Google to keep your saved competitions synced to your Freehub Club account.</p>
+            </div>
+            <div class="club-app-actions">
+              <button class="btn btn--primary" type="button" data-club-action="signin">Continue with Google</button>
+              <button class="btn btn--secondary" type="button" data-club-action="signout" hidden>Sign out</button>
+            </div>
+          </div>
+          <section class="club-referral-card" data-club-referral hidden>
+            <div>
+              <p class="section-kicker">Referral link</p>
+              <h2>Your Freehub Club link</h2>
+              <p>Refer &amp; Win is coming soon. For now, referrals are captured as pending verification only.</p>
+            </div>
+            <div class="club-copy-row">
+              <input type="text" readonly data-club-referral-link aria-label="Your Freehub Club referral link" />
+              <button class="btn btn--secondary" type="button" data-club-action="copy-referral">Copy</button>
+              <button class="btn btn--secondary" type="button" data-club-action="share-referral">Share</button>
+            </div>
+            <p class="club-status" data-club-referral-status aria-live="polite"></p>
+          </section>
+          <section class="club-saved-panel" aria-label="Saved competitions">
+            <div class="club-panel-header">
+              <div>
+                <h2>Saved competitions</h2>
+                <p data-club-saved-summary>Saved competitions from this browser or your Freehub Club account will appear here.</p>
+              </div>
+              <button class="btn btn--secondary" type="button" data-club-action="clear-local">Clear local saves</button>
+            </div>
+            <div class="club-saved-list" data-club-saved-list></div>
+          </section>
+          <section class="club-section club-section--notice">
+            <div><h2>Account settings</h2><p>Check your email, member details, saved count and Club consent records.</p></div>
+            <a class="btn btn--primary" href="/club/account/">Open account</a>
+          </section>
+        </section>
+      </main>`,
+  });
+}
+
+function renderClubAccountPage() {
+  return renderClubShell({
+    title: "Freehub Club Account | Profile and Referral Link",
+    description: "View your Freehub Club account details, referral code and saved competition count.",
+    canonicalUrl: `${shared.CANONICAL_ORIGIN}/club/account/`,
+    robots: "noindex, follow",
+    pageType: "club_account",
+    body: `
+      <main class="main-content club-page club-account" data-club-page="account">
+        <section class="club-app-shell" aria-label="Freehub Club account">
+          <div class="club-app-header">
+            <div>
+              <p class="section-kicker">Freehub Club</p>
+              <h1>Account</h1>
+              <p data-club-welcome>Sign in with Google to view your Freehub Club account.</p>
+            </div>
+            <div class="club-app-actions">
+              <a class="btn btn--secondary" href="/club/dashboard/">Dashboard</a>
+              <button class="btn btn--primary" type="button" data-club-action="signin">Continue with Google</button>
+              <button class="btn btn--secondary" type="button" data-club-action="signout" hidden>Sign out</button>
+            </div>
+          </div>
+          <section class="club-account-grid" data-club-account>
+            <article class="club-account-card">
+              <p class="section-kicker">Profile</p>
+              <dl class="club-definition-list">
+                <div><dt>Name</dt><dd data-club-field="displayName">Not signed in</dd></div>
+                <div><dt>Email</dt><dd data-club-field="email">Not signed in</dd></div>
+                <div><dt>Member since</dt><dd data-club-field="createdAt">Not available</dd></div>
+                <div><dt>Saved competitions</dt><dd data-club-field="savedCount">0</dd></div>
+              </dl>
+            </article>
+            <article class="club-account-card">
+              <p class="section-kicker">Referral</p>
+              <dl class="club-definition-list">
+                <div><dt>Code</dt><dd data-club-field="referralCode">Not available</dd></div>
+                <div><dt>Link</dt><dd><input type="text" readonly data-club-referral-link aria-label="Your Freehub Club referral link" /></dd></div>
+                <div><dt>Refer &amp; Win terms</dt><dd data-club-field="referWinTermsAccepted">Not live</dd></div>
+                <div><dt>Marketing consent</dt><dd data-club-field="marketingConsent">Not opted in</dd></div>
+              </dl>
+              <button class="btn btn--secondary" type="button" data-club-action="copy-referral">Copy referral link</button>
+              <p class="club-status" data-club-referral-status aria-live="polite"></p>
+            </article>
+          </section>
+        </section>
+      </main>`,
+  });
+}
+
+function renderClubShell({ title, description, canonicalUrl, robots, pageType, body, structuredDataScripts = "" }) {
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${escapeHtml(title)}</title>
+    <meta name="description" content="${escapeAttribute(description)}" />
+    <meta name="robots" content="${escapeAttribute(robots)}" />
+    <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="${escapeAttribute(title)}" />
+    <meta property="og:description" content="${escapeAttribute(description)}" />
+    <meta property="og:url" content="${escapeAttribute(canonicalUrl)}" />
+    <meta property="og:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${escapeAttribute(title)}" />
+    <meta name="twitter:description" content="${escapeAttribute(description)}" />
+    <meta name="twitter:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
+    ${structuredDataScripts}
+    <script>window.FREEHUB_CLUB_CONFIG = { referWinCampaignEnabled: false };</script>
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
+    ${ADSENSE_SCRIPT}
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('set', { page_type: ${escapeScript(JSON.stringify(pageType))} });
+      gtag('config', 'G-23P37R20FY');
+    </script>
+  </head>
+  <body>
+    <div class="site-shell">
+      ${body}
+      ${renderSiteFooter({ includeAuthPanel: false })}
+    </div>
+    <script type="module" src="/shared/club-ui.js"></script>
+    <script type="module" src="/shared/auth-ui.js"></script>
+  </body>
+</html>
+`;
+}
+
+function renderClubPreviewPanel() {
+  return `<aside class="hero-preview-panel hero-preview-panel--club" aria-label="Freehub Club preview">
+            <p class="hero-preview-panel__eyebrow">Member toolkit</p>
+            <h2 class="hero-preview-panel__title">Your competition shortlist</h2>
+            <ul class="hero-preview-panel__list">
+              <li><span>Interested</span><strong>Save before you enter</strong></li>
+              <li><span>Entered</span><strong>Track what you have done</strong></li>
+              <li><span>Skipped</span><strong>Clear out weak listings</strong></li>
+            </ul>
+            <p class="hero-preview-panel__note">Referral records stay pending until a campaign is live.</p>
+          </aside>`;
+}
+
 function renderCompetitionSubmissionForm() {
   return `<section class="submission-panel" aria-labelledby="competitionSubmissionTitle">
           <div class="submission-panel__header">
@@ -5949,8 +6232,11 @@ function renderCompetitionAuthPanel(competition, slug, canonicalUrl) {
               class="competition-auth"
               data-freehub-auth
               data-competition-id="${escapeAttribute(slug)}"
+              data-competition-slug="${escapeAttribute(slug)}"
               data-competition-title="${escapeAttribute(competition.title)}"
+              data-competition-brand="${escapeAttribute(competition.brand || "")}"
               data-competition-category="${escapeAttribute(competition.category)}"
+              data-competition-closing-date="${escapeAttribute(competition.closingDate || "")}"
               data-competition-path="${escapeAttribute(canonicalUrl)}"
               aria-label="Optional Freehub account actions"
               hidden
@@ -6889,6 +7175,12 @@ function generateSitemap(competitions, routeContexts, sitemapCompetitions = comp
       lastmod: getTrustPageLastmod(page),
     });
   });
+  const clubEntries = [
+    renderSitemapUrl({
+      loc: `${origin}/club/`,
+      lastmod: BUILD_DATE_ISO,
+    }),
+  ];
 
   const competitionEntries = sitemapCompetitions
     .filter((competition) => shared.isActiveCompetition(competition))
@@ -6903,7 +7195,7 @@ function generateSitemap(competitions, routeContexts, sitemapCompetitions = comp
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-${[...staticEntries, ...trustPageEntries, ...competitionEntries].join("\n")}
+${[...staticEntries, ...trustPageEntries, ...clubEntries, ...competitionEntries].join("\n")}
 </urlset>
 `;
 }
