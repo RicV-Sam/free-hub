@@ -3066,7 +3066,7 @@ body {
 
 .hero-preview-item {
   display: grid;
-  grid-template-columns: 74px minmax(0, 1fr);
+  grid-template-columns: 64px minmax(0, 1fr);
   gap: 0.7rem;
   align-items: center;
   min-height: 92px;
@@ -3268,6 +3268,15 @@ body {
   color: rgba(248, 250, 252, 0.86);
   font-size: 0.7rem;
   font-weight: 800;
+}
+
+.hero-preview-panel--club {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.hero-preview-panel--club .hero-preview-panel__title,
+.hero-preview-panel--club .hero-preview-panel__intro {
+  color: var(--text);
 }
 
 .competition-hero-card {
@@ -3723,17 +3732,17 @@ body {
 
 @media (min-width: 700px) {
   .hero h1 {
-    font-size: 2.75rem;
+    font-size: 2.55rem;
   }
 
   .hero--home h1 {
-    font-size: 3.6rem;
+    font-size: 3.25rem;
   }
 
   .hero--collection.hero--modern,
   .hero--home {
-    padding-top: 3.25rem;
-    padding-bottom: 1.1rem;
+    padding-top: 2.1rem;
+    padding-bottom: 1rem;
   }
 
   .hero--collection.hero--modern .hero__layout,
@@ -3786,11 +3795,11 @@ body {
 
 @media (min-width: 1024px) {
   .hero h1 {
-    font-size: 3.35rem;
+    font-size: clamp(3rem, 4vw, 3.75rem);
   }
 
   .hero--home h1 {
-    font-size: 4.35rem;
+    font-size: clamp(3.4rem, 4.4vw, 4.1rem);
   }
 
   .competition-grid,
