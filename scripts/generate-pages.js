@@ -5310,7 +5310,7 @@ function renderClubDashboardPage(activeCompetitions = []) {
           </details>
           <section class="club-section club-section--notice">
             <div><h2>Account settings</h2><p>Check your email, member details, saved count and Club consent records.</p></div>
-            <a class="btn btn--primary" href="/club/account/">Open account</a>
+            <a class="btn btn--primary" href="/club/account/">Your account details</a>
           </section>
         </section>
       </main>`,
