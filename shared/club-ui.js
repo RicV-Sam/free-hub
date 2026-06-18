@@ -3,6 +3,7 @@ import { getFirebaseClient } from "./firebase-client.js";
 const LOCAL_SAVED_COMPETITIONS_KEY = "freehubClubSavedCompetitions";
 const REFERRAL_ATTRIBUTION_KEY = "freehubReferralAttribution";
 const REFERRAL_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+const MOBILE_NETWORKS = ["Vodacom", "MTN", "Telkom", "Cell C", "Rain", "Other / not sure"];
 
 const state = {
   client: null,
@@ -73,6 +74,8 @@ function bindClubActions() {
       renderSavedCompetitions();
     } else if (action === "remove-saved") {
       await removeSavedCompetition(actionElement.dataset.competitionId);
+    } else if (action === "save-refer-win") {
+      await saveReferWinParticipation(actionElement);
     }
   });
 
@@ -202,6 +205,7 @@ function renderSignedOutState(message = "") {
   renderSavedCompetitions();
   renderAllCompetitions();
   renderAccountFields();
+  renderReferWinParticipationForm();
 }
 
 function renderSignedInState() {
@@ -211,6 +215,7 @@ function renderSignedInState() {
   renderSavedCompetitions();
   renderAllCompetitions();
   renderAccountFields();
+  renderReferWinParticipationForm();
 }
 
 function toggleAuthButtons(isSignedIn) {
@@ -376,7 +381,9 @@ function renderAccountFields() {
     createdAt: formatTimestamp(state.profile?.createdAt),
     referralCode: state.profile?.referralCode || "Not available",
     savedCount: String(saved.length),
-    referWinTermsAccepted: window.FREEHUB_CLUB_CONFIG?.referWinCampaignEnabled ? "Accepted" : "Not live",
+    referWinTermsAccepted: state.profile?.referWinTermsAccepted === true ? "Accepted" : "Not accepted",
+    referWinParticipant: state.profile?.referWinParticipant === true ? "Joined" : "Not joined",
+    mobileNumberMasked: maskMobileNumber(state.profile?.mobileNumber),
     marketingConsent: state.profile?.marketingConsent === true || state.profile?.alertsMarketingConsent === true ? "Opted in" : "Not opted in",
   };
 
@@ -387,6 +394,59 @@ function renderAccountFields() {
   });
 
   renderReferralLink();
+}
+
+function renderReferWinParticipationForm() {
+  const form = document.querySelector("[data-club-refer-form]");
+
+  if (!form) {
+    return;
+  }
+
+  const isSignedIn = Boolean(state.user);
+  const mobileInput = form.querySelector("[data-club-mobile-number]");
+  const networkInput = form.querySelector("[data-club-mobile-network]");
+  const termsInput = form.querySelector("[data-club-refer-terms]");
+  const prizeConsentInput = form.querySelector("[data-club-prize-mobile-consent]");
+  const marketingInput = form.querySelector("[data-club-marketing-consent]");
+  const saveButton = form.querySelector('[data-club-action="save-refer-win"]');
+
+  [mobileInput, networkInput, termsInput, prizeConsentInput, marketingInput, saveButton].forEach((element) => {
+    if (element) {
+      element.disabled = !isSignedIn;
+    }
+  });
+
+  if (mobileInput) {
+    mobileInput.value = "";
+    mobileInput.placeholder = state.profile?.mobileNumber
+      ? maskMobileNumber(state.profile.mobileNumber)
+      : "082 123 4567";
+  }
+
+  if (networkInput) {
+    networkInput.value = MOBILE_NETWORKS.includes(state.profile?.mobileNetwork) ? state.profile.mobileNetwork : "";
+  }
+
+  if (termsInput) {
+    termsInput.checked = state.profile?.referWinTermsAccepted === true;
+  }
+
+  if (prizeConsentInput) {
+    prizeConsentInput.checked = state.profile?.referWinPrizeMobileConsent === true;
+  }
+
+  if (marketingInput) {
+    marketingInput.checked = state.profile?.marketingConsent === true || state.profile?.alertsMarketingConsent === true;
+  }
+
+  if (!isSignedIn) {
+    setReferWinStatus("Sign in with Google to join Refer & Win.");
+  } else if (state.profile?.referWinParticipant === true) {
+    setReferWinStatus(`Refer & Win joined. Mobile saved as ${maskMobileNumber(state.profile?.mobileNumber)}.`);
+  } else {
+    setReferWinStatus("Add your mobile number and accept the rules to participate in July Refer & Win.");
+  }
 }
 
 async function updateSavedStatus(competitionId, status) {
@@ -458,6 +518,59 @@ async function removeSavedCompetition(competitionId) {
   renderAccountFields();
 }
 
+async function saveReferWinParticipation(button) {
+  if (!state.user || !state.client) {
+    setReferWinStatus("Sign in with Google before joining Refer & Win.", "error");
+    return;
+  }
+
+  const mobileInput = document.querySelector("[data-club-mobile-number]");
+  const networkInput = document.querySelector("[data-club-mobile-network]");
+  const termsInput = document.querySelector("[data-club-refer-terms]");
+  const prizeConsentInput = document.querySelector("[data-club-prize-mobile-consent]");
+  const marketingInput = document.querySelector("[data-club-marketing-consent]");
+  const normalizedMobile = normalizeSouthAfricanMobileNumber(mobileInput?.value || state.profile?.mobileNumber || "");
+
+  if (!normalizedMobile) {
+    setReferWinStatus("Enter a valid South African mobile number, for example 0821234567.", "error");
+    mobileInput?.focus();
+    return;
+  }
+
+  if (termsInput?.checked !== true) {
+    setReferWinStatus("Accept the Refer & Win rules before saving.", "error");
+    termsInput?.focus();
+    return;
+  }
+
+  if (prizeConsentInput?.checked !== true) {
+    setReferWinStatus("Confirm mobile number use for campaign administration and prize fulfilment.", "error");
+    prizeConsentInput?.focus();
+    return;
+  }
+
+  setBusy(button, true);
+  setReferWinStatus("Saving Refer & Win details...");
+
+  try {
+    await state.client.helpers.updateReferWinParticipation(state.user.uid, {
+      mobileNumber: normalizedMobile,
+      mobileNetwork: networkInput?.value || "",
+      referWinTermsAccepted: termsInput.checked,
+      referWinPrizeMobileConsent: prizeConsentInput.checked,
+      marketingConsent: marketingInput?.checked === true,
+    });
+    state.profile = await state.client.helpers.getUserProfile(state.user.uid);
+    renderAccountFields();
+    renderReferWinParticipationForm();
+    setReferWinStatus(`Refer & Win details saved. Mobile: ${maskMobileNumber(state.profile?.mobileNumber)}.`);
+  } catch (error) {
+    setReferWinStatus(error.message || "Could not save Refer & Win details right now.", "error");
+  } finally {
+    setBusy(button, false);
+  }
+}
+
 async function copyReferralLink() {
   const link = getCurrentReferralLink();
 
@@ -496,6 +609,13 @@ function getCurrentReferralLink() {
 function setClubStatus(message) {
   document.querySelectorAll("[data-club-referral-status], .club-status").forEach((element) => {
     element.textContent = message;
+  });
+}
+
+function setReferWinStatus(message, status = "") {
+  document.querySelectorAll("[data-club-mobile-status]").forEach((element) => {
+    element.textContent = message;
+    element.dataset.status = status;
   });
 }
 
@@ -593,6 +713,29 @@ function normalizeSavedCompetitionList(saved) {
 function normalizeSavedStatus(value) {
   const status = typeof value === "string" ? value.trim().toLowerCase() : "";
   return ["untracked", "interested", "entered", "skipped"].includes(status) ? status : "interested";
+}
+
+function normalizeSouthAfricanMobileNumber(value) {
+  const digits = String(value || "").replace(/\D/g, "");
+  let normalized = digits;
+
+  if (normalized.startsWith("0027")) {
+    normalized = normalized.slice(2);
+  } else if (normalized.startsWith("0")) {
+    normalized = `27${normalized.slice(1)}`;
+  }
+
+  return /^27[6-8]\d{8}$/.test(normalized) ? normalized : "";
+}
+
+function maskMobileNumber(value) {
+  const normalized = normalizeSouthAfricanMobileNumber(value);
+
+  if (!normalized) {
+    return "Not provided";
+  }
+
+  return `${normalized.slice(0, 4)}****${normalized.slice(-3)}`;
 }
 
 function getCompetitionStatus(competitionId) {

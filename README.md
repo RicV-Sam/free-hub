@@ -57,6 +57,7 @@ Metadata fallback (`og:image`, `twitter:image`) may still use the global default
 - 2026-06-18 Club, submissions, Firebase and layout implementation: `docs/2026-06-18-freehub-club-submissions-and-layout.md`
 - 2026-06-18 Referral admin review foundation: `docs/2026-06-18-referral-admin-review-foundation.md`
 - 2026-06-18 Refer & Win public foundation: `docs/2026-06-18-refer-and-win-public-foundation.md`
+- 2026-06-18 Refer & Win first campaign R250 airtime live setup: `docs/2026-06-18-refer-and-win-july-2026-r250-live.md`
 
 ## Page CTA Contract
 Every public content page must expose both Freehub follow-up paths:

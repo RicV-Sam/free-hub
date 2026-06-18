@@ -168,6 +168,47 @@ function buildFirestoreHelpers(db, firestore) {
       return snapshot.exists() ? snapshot.data() : null;
     },
 
+    async updateReferWinParticipation(userId, participation = {}) {
+      const userRef = doc(db, "users", userId);
+      const existing = await getDoc(userRef);
+      const profile = existing.exists() ? existing.data() : {};
+      const mobileNumber = normalizeSouthAfricanMobileNumber(participation.mobileNumber);
+      const mobileNetwork = normalizeMobileNetwork(participation.mobileNetwork);
+
+      if (!mobileNumber) {
+        throw new Error("Enter a valid South African mobile number.");
+      }
+
+      if (participation.referWinTermsAccepted !== true) {
+        throw new Error("Refer & Win rules must be accepted.");
+      }
+
+      if (participation.referWinPrizeMobileConsent !== true) {
+        throw new Error("Mobile prize consent must be accepted.");
+      }
+
+      await setDoc(
+        userRef,
+        {
+          referWinParticipant: true,
+          referWinJoinedAt: profile.referWinJoinedAt || serverTimestamp(),
+          referWinTermsAccepted: true,
+          referWinTermsAcceptedAt: profile.referWinTermsAcceptedAt || serverTimestamp(),
+          referWinPrizeMobileConsent: true,
+          referWinPrizeMobileConsentAt: profile.referWinPrizeMobileConsentAt || serverTimestamp(),
+          mobileNumber,
+          mobileCountry: "ZA",
+          mobileNetwork,
+          mobileNumberUpdatedAt: serverTimestamp(),
+          mobileNumberVerified: profile.mobileNumberVerified === true,
+          marketingConsent: participation.marketingConsent === true,
+          marketingConsentUpdatedAt: serverTimestamp(),
+          updatedAt: serverTimestamp(),
+        },
+        { merge: true }
+      );
+    },
+
     async ensureClubProfile(user, consent = {}) {
       const userRef = doc(db, "users", user.uid);
       const existing = await getDoc(userRef);
@@ -444,6 +485,21 @@ function buildFirestoreHelpers(db, firestore) {
       }));
     },
 
+    async getReferWinParticipantProfiles(options = {}) {
+      const snapshot = await getDocs(
+        query(
+          collection(db, "users"),
+          where("referWinParticipant", "==", true),
+          limit(Number.isFinite(options.limit) ? options.limit : 500)
+        )
+      );
+
+      return snapshot.docs.map((docSnapshot) => ({
+        id: docSnapshot.id,
+        ...docSnapshot.data(),
+      }));
+    },
+
     async updateReferralReview(attributionId, review = {}, reviewer) {
       const status = normalizeReferralReviewStatus(review.status);
 
@@ -521,5 +577,33 @@ function normalizeReferralReviewStatus(value) {
 }
 
 function getCampaignMonth() {
+  const configuredMonth = window.FREEHUB_REFER_WIN_CONFIG?.campaignMonth;
+
+  if (
+    window.FREEHUB_REFER_WIN_CONFIG?.referWinCampaignEnabled === true &&
+    /^\d{4}-\d{2}$/.test(configuredMonth)
+  ) {
+    return configuredMonth;
+  }
+
   return new Date().toISOString().slice(0, 7);
+}
+
+function normalizeSouthAfricanMobileNumber(value) {
+  const digits = String(value || "").replace(/\D/g, "");
+  let normalized = digits;
+
+  if (normalized.startsWith("0027")) {
+    normalized = normalized.slice(2);
+  } else if (normalized.startsWith("0")) {
+    normalized = `27${normalized.slice(1)}`;
+  }
+
+  return /^27[6-8]\d{8}$/.test(normalized) ? normalized : "";
+}
+
+function normalizeMobileNetwork(value) {
+  const network = String(value || "").trim();
+  const allowed = ["Vodacom", "MTN", "Telkom", "Cell C", "Rain", "Other / not sure"];
+  return allowed.includes(network) ? network : null;
 }

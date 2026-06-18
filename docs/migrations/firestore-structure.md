@@ -58,12 +58,23 @@ emailCampaigns/{campaignId}/recipients/{userId}
   "referralCode": "FH7K92",
   "clubTermsAccepted": true,
   "clubTermsAcceptedAt": "serverTimestamp",
-  "referWinTermsAccepted": false,
-  "referWinTermsAcceptedAt": null,
+  "referWinParticipant": true,
+  "referWinJoinedAt": "serverTimestamp",
+  "referWinTermsAccepted": true,
+  "referWinTermsAcceptedAt": "serverTimestamp",
+  "referWinPrizeMobileConsent": true,
+  "referWinPrizeMobileConsentAt": "serverTimestamp",
+  "mobileNumber": "27821234567",
+  "mobileCountry": "ZA",
+  "mobileNetwork": "Vodacom",
+  "mobileNumberUpdatedAt": "serverTimestamp",
+  "mobileNumberVerified": false,
   "createdAt": "serverTimestamp",
   "updatedAt": "serverTimestamp"
 }
 ```
+
+Refer & Win mobile numbers are required only for campaign participation, not for joining Freehub Club. Browser UI accepts `0821234567`, `+27821234567`, and `27821234567`, then stores the normalized `27821234567` format. Account UI displays mobile numbers masked, for example `2782****567`.
 
 ### `users/{userId}/savedCompetitions/{competitionId}`
 
@@ -121,7 +132,7 @@ Admin access requires:
 
 ### `referralAttribution/{attributionId}`
 
-Pending-only referral attribution captured when a new signed-in user arrives with `?ref=FH7K92`. Refer & Win is not live; these records are stored as `pending_verification` only.
+Referral attribution captured when a new signed-in user arrives with `?ref=FH7K92`. Refer & Win first campaign is live from 18 June 2026 to 31 July 2026, ending at 23:59 SAST on 31 July 2026, but these records are still stored as `pending_verification` until an authorised admin reviews them.
 
 ```json
 {
@@ -309,18 +320,76 @@ service cloud.firestore {
         'referralCode',
         'clubTermsAccepted',
         'clubTermsAcceptedAt',
+        'referWinParticipant',
+        'referWinJoinedAt',
         'referWinTermsAccepted',
         'referWinTermsAcceptedAt',
+        'referWinPrizeMobileConsent',
+        'referWinPrizeMobileConsentAt',
+        'mobileNumber',
+        'mobileCountry',
+        'mobileNetwork',
+        'mobileNumberUpdatedAt',
+        'mobileNumberVerified',
         'createdAt',
         'updatedAt'
       ]);
+    }
+
+    function optionalTimestamp(fieldName) {
+      return !request.resource.data.keys().hasAny([fieldName])
+        || request.resource.data[fieldName] == null
+        || request.resource.data[fieldName] is timestamp;
+    }
+
+    function validUserCampaignFields() {
+      return (!request.resource.data.keys().hasAny(['referWinParticipant'])
+          || request.resource.data.referWinParticipant is bool)
+        && (!request.resource.data.keys().hasAny(['referWinTermsAccepted'])
+          || request.resource.data.referWinTermsAccepted is bool)
+        && (!request.resource.data.keys().hasAny(['referWinPrizeMobileConsent'])
+          || request.resource.data.referWinPrizeMobileConsent is bool)
+        && (!request.resource.data.keys().hasAny(['mobileNumber'])
+          || (
+            request.resource.data.mobileNumber is string
+            && request.resource.data.mobileNumber.matches('^27[6-8][0-9]{8}$')
+          ))
+        && (!request.resource.data.keys().hasAny(['mobileCountry'])
+          || request.resource.data.mobileCountry == 'ZA')
+        && (!request.resource.data.keys().hasAny(['mobileNetwork'])
+          || request.resource.data.mobileNetwork == null
+          || request.resource.data.mobileNetwork in [
+            'Vodacom',
+            'MTN',
+            'Telkom',
+            'Cell C',
+            'Rain',
+            'Other / not sure'
+          ])
+        && (!request.resource.data.keys().hasAny(['mobileNumberVerified'])
+          || request.resource.data.mobileNumberVerified is bool)
+        && optionalTimestamp('referWinJoinedAt')
+        && optionalTimestamp('referWinTermsAcceptedAt')
+        && optionalTimestamp('referWinPrizeMobileConsentAt')
+        && optionalTimestamp('mobileNumberUpdatedAt')
+        && (
+          request.resource.data.referWinParticipant != true
+          || (
+            request.resource.data.referWinTermsAccepted == true
+            && request.resource.data.referWinPrizeMobileConsent == true
+            && request.resource.data.mobileCountry == 'ZA'
+            && request.resource.data.mobileNumber is string
+            && request.resource.data.mobileNumber.matches('^27[6-8][0-9]{8}$')
+          )
+        );
     }
 
     match /users/{userId} {
       allow create, update: if isOwner(userId)
         && request.resource.data.userId == request.auth.uid
         && request.resource.data.acceptedPrivacyPolicy == true
-        && userFieldsAreAllowed();
+        && userFieldsAreAllowed()
+        && validUserCampaignFields();
       allow read: if isOwner(userId) || isActiveAdmin();
       allow delete: if isOwner(userId);
 

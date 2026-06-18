@@ -11,18 +11,30 @@ const ADSENSE_SCRIPT =
   '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6084410613829318" crossorigin="anonymous"></script>';
 const WHATSAPP_CHANNEL_URL = "https://whatsapp.com/channel/0029Vb7mS1VE50UlOc2yOe2H";
 const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date());
-const CSS_ASSET_VERSION = "20260618-nav-v1";
+const CSS_ASSET_VERSION = "20260618-refer-r250-v1";
 const FREEHUB_REFER_WIN_CONFIG = {
-  referWinCampaignEnabled: false,
-  referWinPrototypeEnabled: true,
-  campaignStatusLabel: "Coming soon - not currently live",
-  monthlyPrizeLabel: "R1,000 airtime or data",
-  prizeFulfilmentLabel: "Airtime or mobile data voucher to a supported South African mobile number",
+  referWinCampaignEnabled: true,
+  referWinLiveReady: true,
+  referWinPrototypeEnabled: false,
+  campaignStatusLabel: "Live: 18 June to 31 July 2026",
+  campaignMonth: "2026-07",
+  campaignStartDate: "2026-06-18",
+  campaignEndDate: "2026-07-31",
+  campaignPeriodLabel: "18 June 2026 to 31 July 2026, ending at 23:59 SAST on 31 July 2026",
+  nextCampaignPeriodLabel: "1 August 2026 to 31 August 2026, ending at 23:59 SAST on 31 August 2026",
+  monthlyPrizeLabel: "R250 airtime",
+  prizeFulfilmentLabel: "Airtime top-up or airtime voucher to a supported South African mobile number",
   winnerMechanicLabel: "Most approved referrals in the campaign month, subject to manual review",
-  minimumApprovedReferrals: 5,
+  tieBreakerLabel: "If eligible participants tie on approved referrals, the winner is the tied participant who first reached that approved count. If that cannot be determined reliably, Freehub may run a random draw among the tied eligible participants after manual review.",
+  winnerNotificationLabel: "Freehub will contact the selected winner using the account email and/or supplied South African mobile number within seven business days after monthly review is complete. If the winner cannot be verified or contacted within five business days, Freehub may select the next eligible participant.",
+  promoterName: "Stura Consulting, operating Freehub",
+  promoterContactEmail: "hello@freehub.co.za",
+  minimumApprovedReferrals: 1,
   publicLeaderboardEnabled: false,
   adminReviewRequired: true,
   marketingConsentRequired: false,
+  mobileNumberRequiredForParticipation: true,
+  noPurchaseRequired: true,
 };
 const CATEGORY_LINKS = [
   { label: "All Competitions", href: "/" },
@@ -5198,7 +5210,7 @@ function renderClubLandingPage() {
     {
       question: "Is Refer and Win live?",
       answer:
-        "Not yet. Freehub can create your referral link now, but any Refer and Win campaign will have separate terms before it goes live.",
+        "Yes. The first Freehub Refer and Win campaign is live from 18 June 2026 to 31 July 2026, ending at 23:59 SAST on 31 July 2026, with R250 airtime as the prize and manual review required before referrals count.",
     },
   ];
   const faqStructuredData = buildTrustPageFaqStructuredData(faqItems);
@@ -5231,12 +5243,12 @@ function renderClubLandingPage() {
         eyebrow: "Freehub Club",
         heading: "Save and track South African competitions",
         intro:
-          "Create a free Freehub Club account to keep useful competitions together, mark what you entered, and copy your personal referral link for future Club features.",
+          "Create a free Freehub Club account to keep useful competitions together, mark what you entered, and copy your personal referral link for the first Refer & Win campaign.",
         actions: [
           { label: "Continue with Google", href: "/club/dashboard/", className: "btn--primary" },
           { label: "Browse Competitions", href: "/competitions/", className: "btn--secondary" },
         ],
-        trustItems: ["Free account", "Official source links", "Refer & Win coming soon"],
+        trustItems: ["Free account", "Official source links", "Refer & Win live"],
         previewMarkup: renderClubPreviewPanel(),
       })}
       <main id="main-content" class="main-content club-page">
@@ -5249,20 +5261,20 @@ function renderClubLandingPage() {
           <div class="club-feature-grid">
             <article class="club-feature"><h3>Save competitions</h3><p>Keep promising listings in one account instead of relying on screenshots, browser history or memory.</p></article>
             <article class="club-feature"><h3>Track your status</h3><p>Mark saved competitions as interested, entered or skipped so your dashboard stays useful.</p></article>
-            <article class="club-feature"><h3>Share your link</h3><p>Your referral link is ready for future Club campaigns, but referrals stay pending until Freehub publishes campaign terms.</p></article>
+            <article class="club-feature"><h3>Share your link</h3><p>Your referral link can be used for the current Refer &amp; Win campaign. Referrals only count after Freehub admin review.</p></article>
             <article class="club-feature"><h3>Stay private</h3><p>Freehub does not collect competition entries. Promoter forms, winner selection and prize fulfilment remain with the official promoter.</p></article>
           </div>
         </section>
 
         <section class="club-section club-section--notice" aria-label="Refer and Win status">
           <div>
-            <p class="section-kicker">Coming soon</p>
-            <h2>Refer &amp; Win is not live yet</h2>
-            <p>Club accounts can create a referral link now, but Freehub will only count rewards under a separate live campaign with clear terms. Current referral records are stored as pending verification only.</p>
+            <p class="section-kicker">First campaign</p>
+            <h2>Refer &amp; Win is live with a R250 airtime prize</h2>
+            <p>Club members can opt in, add a South African mobile number for prize fulfilment, accept the rules and share their referral link. The first campaign runs from 18 June 2026 to 31 July 2026, ending at 23:59 SAST on 31 July 2026.</p>
           </div>
           <div class="club-section__actions">
             <a class="btn btn--primary" href="/refer-and-win/">Learn about Refer &amp; Win</a>
-            <a class="btn btn--secondary" href="/refer-and-win/terms/">Planned rules</a>
+            <a class="btn btn--secondary" href="/refer-and-win/terms/">Campaign rules</a>
             <a class="btn btn--secondary" href="/club/dashboard/">Open Club dashboard</a>
           </div>
         </section>
@@ -5315,7 +5327,7 @@ function renderClubDashboardPage(activeCompetitions = []) {
             <div>
               <p class="section-kicker">Referral link</p>
               <h2>Your Freehub Club link</h2>
-              <p>Refer &amp; Win is coming soon. Referrals may be captured now, but the monthly prize campaign is not live and referral review is still being prepared.</p>
+              <p>Refer &amp; Win is live with a R250 airtime prize. The first campaign runs from 18 June 2026 to 31 July 2026, ending at 23:59 SAST on 31 July 2026. You must opt in from your account and referrals only count after manual review.</p>
             </div>
             <div class="club-copy-row">
               <input type="text" readonly data-club-referral-link aria-label="Your Freehub Club referral link" />
@@ -5324,7 +5336,7 @@ function renderClubDashboardPage(activeCompetitions = []) {
               <a class="btn btn--secondary" href="/refer-and-win/">Refer &amp; Win</a>
               <a class="btn btn--secondary" href="/refer-and-win/terms/">Rules</a>
             </div>
-            <p class="club-status">Approved referrals: coming soon.</p>
+            <p class="club-status">Approved referrals are confirmed by admin review after sign-ups are checked.</p>
             <p class="club-status" data-club-referral-status aria-live="polite"></p>
           </section>
           <details class="club-saved-panel club-collapsible" aria-label="Saved competitions" open>
@@ -5420,12 +5432,64 @@ function renderClubAccountPage() {
               <dl class="club-definition-list">
                 <div><dt>Code</dt><dd data-club-field="referralCode">Not available</dd></div>
                 <div><dt>Link</dt><dd><input type="text" readonly data-club-referral-link aria-label="Your Freehub Club referral link" /></dd></div>
-                <div><dt>Refer &amp; Win terms</dt><dd data-club-field="referWinTermsAccepted">Not live</dd></div>
+                <div><dt>Refer &amp; Win terms</dt><dd data-club-field="referWinTermsAccepted">Not accepted</dd></div>
+                <div><dt>Refer &amp; Win mobile</dt><dd data-club-field="mobileNumberMasked">Not provided</dd></div>
                 <div><dt>Marketing consent</dt><dd data-club-field="marketingConsent">Not opted in</dd></div>
               </dl>
               <button class="btn btn--secondary" type="button" data-club-action="copy-referral">Copy referral link</button>
               <p class="club-status" data-club-referral-status aria-live="polite"></p>
             </article>
+          </section>
+          <section class="club-section club-refer-participation" aria-label="Refer and Win participation">
+            <div class="club-section--split">
+              <div>
+                <p class="section-kicker">Refer &amp; Win first campaign</p>
+                <h2>Join the R250 airtime referral campaign</h2>
+                <p>Freehub Club remains free. A South African mobile number is only required if you want to participate in Refer &amp; Win because airtime fulfilment needs a valid number.</p>
+                <dl class="club-definition-list club-readiness-list">
+                  <div><dt>Participation</dt><dd data-club-field="referWinParticipant">Not joined</dd></div>
+                  <div><dt>Prize</dt><dd>${escapeHtml(FREEHUB_REFER_WIN_CONFIG.monthlyPrizeLabel)}</dd></div>
+                  <div><dt>Campaign period</dt><dd>${escapeHtml(FREEHUB_REFER_WIN_CONFIG.campaignPeriodLabel)}</dd></div>
+                  <div><dt>Review</dt><dd>Admin approval required</dd></div>
+                </dl>
+              </div>
+              <form class="club-participation-form" data-club-refer-form>
+                <div class="club-form-grid">
+                  <label>
+                    <span>South African mobile number</span>
+                    <input type="tel" inputmode="tel" autocomplete="tel" placeholder="082 123 4567" data-club-mobile-number />
+                  </label>
+                  <label>
+                    <span>Network</span>
+                    <select data-club-mobile-network>
+                      <option value="">Select network</option>
+                      <option value="Vodacom">Vodacom</option>
+                      <option value="MTN">MTN</option>
+                      <option value="Telkom">Telkom</option>
+                      <option value="Cell C">Cell C</option>
+                      <option value="Rain">Rain</option>
+                      <option value="Other / not sure">Other / not sure</option>
+                    </select>
+                  </label>
+                </div>
+                <label class="club-checkbox-row">
+                  <input type="checkbox" data-club-refer-terms />
+                  <span>I accept the Freehub Refer &amp; Win rules and understand that referrals only count after review.</span>
+                </label>
+                <label class="club-checkbox-row">
+                  <input type="checkbox" data-club-prize-mobile-consent />
+                  <span>I understand Freehub may use my South African mobile number to administer Refer &amp; Win, prevent abuse, contact me if needed, and fulfil airtime prizes where applicable.</span>
+                </label>
+                <label class="club-checkbox-row">
+                  <input type="checkbox" data-club-marketing-consent />
+                  <span>I agree to receive Freehub competition updates and marketing messages. I understand I can unsubscribe later.</span>
+                </label>
+                <div class="club-form-actions">
+                  <button class="btn btn--primary" type="button" data-club-action="save-refer-win">Save Refer &amp; Win details</button>
+                  <p class="club-form-status" data-club-mobile-status aria-live="polite"></p>
+                </div>
+              </form>
+            </div>
           </section>
         </section>
       </main>`,
@@ -5447,6 +5511,7 @@ function renderReferralAdminPage() {
     <link rel="canonical" href="${escapeAttribute(`${shared.CANONICAL_ORIGIN}/admin/referrals/`)}" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
+    ${renderReferWinConfigScript()}
   </head>
   <body>
     <div class="site-shell">
@@ -5457,7 +5522,7 @@ function renderReferralAdminPage() {
             <div>
               <p class="section-kicker">Private admin</p>
               <h1>Referral review</h1>
-              <p>Manual review for pending Freehub Club referral attribution. Refer &amp; Win remains disabled and no public leaderboard is shown.</p>
+              <p>Manual review for Freehub Club referral attribution. Refer &amp; Win is live from 18 June 2026 to 31 July 2026, but admin approval is still required before any referral counts.</p>
             </div>
             <div class="club-app-actions">
               <a class="club-back-link" href="/club/dashboard/">Back to dashboard</a>
@@ -5476,12 +5541,12 @@ function renderReferralAdminPage() {
             <section class="admin-campaign-status" aria-label="Refer and Win campaign status">
               <div>
                 <p class="section-kicker">Campaign status</p>
-                <h2>Refer &amp; Win campaign: disabled / coming soon</h2>
-                <p>The admin review queue can approve or reject referral records, but this page does not launch the public campaign or select winners.</p>
+                <h2>Refer &amp; Win campaign: first campaign live</h2>
+                <p>${escapeHtml(FREEHUB_REFER_WIN_CONFIG.monthlyPrizeLabel)} prize. Current period: ${escapeHtml(FREEHUB_REFER_WIN_CONFIG.campaignPeriodLabel)}. Next period: ${escapeHtml(FREEHUB_REFER_WIN_CONFIG.nextCampaignPeriodLabel)}. Winner confirmation still requires manual referral review, participant readiness checks and final admin sign-off.</p>
               </div>
               <div class="club-section__actions">
                 <a class="btn btn--secondary" href="/refer-and-win/">Public page</a>
-                <a class="btn btn--secondary" href="/refer-and-win/terms/">Planned rules</a>
+                <a class="btn btn--secondary" href="/refer-and-win/terms/">Campaign rules</a>
               </div>
             </section>
 
@@ -5515,6 +5580,13 @@ function renderReferralAdminPage() {
               <article><span>Rejected</span><strong data-referral-count-rejected>0</strong></article>
             </section>
 
+            <section class="admin-count-grid" aria-label="Refer and Win participant readiness">
+              <article><span>Opted in</span><strong data-referral-participant-count>0</strong></article>
+              <article><span>Missing mobile</span><strong data-referral-missing-mobile-count>0</strong></article>
+              <article><span>Missing terms</span><strong data-referral-missing-terms-count>0</strong></article>
+              <article><span>Review model</span><strong>Manual</strong></article>
+            </section>
+
             <section class="admin-grid">
               <article class="admin-panel">
                 <div class="admin-panel__header">
@@ -5545,14 +5617,14 @@ function renderReferralAdminPage() {
 
 function renderReferAndWinPage() {
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/refer-and-win/`;
-  const title = "Refer Friends and Win Airtime or Data | Freehub Refer & Win";
+  const title = "Refer Friends and Win R250 Airtime | Freehub Refer & Win";
   const description =
-    "Learn how the planned Freehub Refer & Win monthly referral challenge will work. Freehub Club members will be able to share referral links and stand a chance to win airtime or data when the campaign launches.";
+    "Join the first Freehub Refer & Win campaign from 18 June to 31 July 2026. Freehub Club members can share a referral link and stand a chance to win R250 airtime after approved referrals are reviewed.";
   const faqItems = [
     {
       question: "Is Refer & Win live now?",
       answer:
-        "No. Freehub Refer & Win is coming soon and is not currently live. Referral records may be captured for preparation, but the monthly prize campaign has not launched.",
+        "Yes. The first Freehub Refer & Win campaign runs from 18 June 2026 to 31 July 2026, ending at 23:59 SAST on 31 July 2026. It is free to enter, no purchase is required, and referrals only count after manual review.",
     },
     {
       question: "How do I join Freehub Club?",
@@ -5564,9 +5636,14 @@ function renderReferAndWinPage() {
         "After signing in, your personal referral link is available in your Freehub Club dashboard and account page.",
     },
     {
-      question: "What is the planned prize?",
+      question: "What is the first campaign prize?",
       answer:
-        "The planned monthly prize is R1,000 airtime or data for a supported South African mobile number. Final details will be confirmed before launch.",
+        "The first campaign prize is R250 airtime, fulfilled as an airtime top-up or airtime voucher to a supported South African mobile number.",
+    },
+    {
+      question: "When does the next campaign run?",
+      answer:
+        "The next campaign is planned to run from 1 August 2026 to 31 August 2026, ending at 23:59 SAST on 31 August 2026.",
     },
     {
       question: "What counts as an approved referral?",
@@ -5580,7 +5657,7 @@ function renderReferAndWinPage() {
     {
       question: "Will there be a public leaderboard?",
       answer:
-        "No real public leaderboard is live yet. Any future leaderboard should use anonymised display data and will not show personal details.",
+        "No. Freehub does not show a public leaderboard for this campaign. Admin review happens privately.",
     },
     {
       question: "Does Freehub show my personal details publicly?",
@@ -5590,11 +5667,11 @@ function renderReferAndWinPage() {
     {
       question: "Do I have to accept marketing messages?",
       answer:
-        "No. Marketing consent is optional and separate from Freehub Club and the planned Refer & Win campaign.",
+        "No. Marketing consent is optional and separate from Freehub Club and the Refer & Win campaign.",
     },
     {
       question: "Where can I read the rules?",
-      answer: "Read the planned rules at /refer-and-win/terms/ before the campaign launches.",
+      answer: "Read the campaign rules at /refer-and-win/terms/ before sharing your referral link.",
     },
   ];
   const faqStructuredData = buildTrustPageFaqStructuredData(faqItems);
@@ -5624,47 +5701,47 @@ function renderReferAndWinPage() {
       ${renderModernHero({
         className: "hero--refer-win hero--with-preview",
         eyebrow: "Freehub Refer & Win",
-        heading: "Refer friends. Stand a chance to win airtime or data.",
+        heading: "Refer friends. Stand a chance to win R250 airtime.",
         intro:
-          "Freehub Refer & Win is a planned monthly challenge for Freehub Club members in South Africa. Once live, members will be able to share their personal referral link, invite friends to join Freehub Club, and compete for a monthly airtime or data prize based on approved referrals.",
+          "Freehub Refer & Win is live for its first campaign from 18 June 2026 to 31 July 2026. Freehub Club members in South Africa can opt in, share their personal referral link, and compete for a R250 airtime prize based on approved referrals.",
         updatedMarkup: renderReferWinStatusPill(),
         actions: [
           { label: "Join Freehub Club", href: "/club/", className: "btn--primary" },
           { label: "View your Club dashboard", href: "/club/dashboard/", className: "btn--secondary" },
-          { label: "Read the planned rules", href: "/refer-and-win/terms/", className: "btn--secondary" },
+          { label: "Read the campaign rules", href: "/refer-and-win/terms/", className: "btn--secondary" },
         ],
-        trustItems: ["Coming soon", "Approved referrals only", "Marketing consent is optional"],
+        trustItems: ["Free to enter", "Approved referrals only", "Marketing consent is optional"],
         previewMarkup: renderReferAndWinPreviewPanel(),
       })}
       <main id="main-content" class="main-content refer-page">
         <section class="club-section club-section--notice refer-status-notice">
           <div>
             <p class="section-kicker">Campaign status</p>
-            <h2>Coming soon - this campaign is not currently live</h2>
-            <p>The monthly prize campaign is being prepared. Referral links can exist now, but prize counting, public rankings and winner confirmation are not live.</p>
+            <h2>Live now</h2>
+            <p>The first campaign runs from ${escapeHtml(FREEHUB_REFER_WIN_CONFIG.campaignPeriodLabel)}. The next campaign runs from ${escapeHtml(FREEHUB_REFER_WIN_CONFIG.nextCampaignPeriodLabel)}. Prize counting depends on approved referrals after manual review; there is no public leaderboard and no automatic winner selection.</p>
           </div>
-          <a class="btn btn--primary" href="/refer-and-win/terms/">Read draft rules</a>
+          <a class="btn btn--primary" href="/refer-and-win/terms/">Read campaign rules</a>
         </section>
 
         <section class="club-section" aria-label="How Refer and Win will work">
-          <p class="section-kicker">How it will work</p>
-          <h2>Five planned steps</h2>
+          <p class="section-kicker">How it works</p>
+          <h2>Five steps</h2>
           <ol class="refer-steps">
             <li><strong>Join Freehub Club</strong><span>Use Google sign-in to create a free account.</span></li>
             <li><strong>Get your referral link</strong><span>Your personal Freehub referral link appears in your Club dashboard.</span></li>
             <li><strong>Share your link</strong><span>Invite friends to join Freehub Club through your link.</span></li>
             <li><strong>Friends join Freehub Club</strong><span>Referral attribution may be captured when a new member signs in from a valid referral link.</span></li>
-            <li><strong>Approved referrals may count</strong><span>Only approved referrals may count towards the monthly challenge once the campaign is live.</span></li>
+            <li><strong>Approved referrals count</strong><span>Only referrals approved through manual review count towards the July campaign.</span></li>
           </ol>
-          <p class="refer-note">Only approved referrals count. Approval is subject to manual review. The campaign is not live yet.</p>
+          <p class="refer-note">Only approved referrals count. Approval is subject to manual review. No purchase is required.</p>
         </section>
 
         <section class="club-section club-section--split" aria-label="Prize preview and approved referrals">
           <article>
-            <p class="section-kicker">Prize preview</p>
+            <p class="section-kicker">Prize</p>
             <h2>${escapeHtml(FREEHUB_REFER_WIN_CONFIG.monthlyPrizeLabel)}</h2>
-            <p>The planned prize is airtime or mobile data for a supported South African mobile number. It is not currently active because the campaign has not launched.</p>
-            <p>Final prize details, fulfilment timing and any network limitations will be confirmed in the live rules before launch.</p>
+            <p>The first campaign prize is fulfilled as an airtime top-up or airtime voucher to a supported South African mobile number.</p>
+            <p>A valid South African mobile number is required for participation because Freehub needs it for campaign administration and prize fulfilment if you are selected after review.</p>
           </article>
           <article>
             <p class="section-kicker">Approved referrals</p>
@@ -5703,14 +5780,10 @@ function renderReferAndWinPage() {
 
         <section class="club-section club-section--split" aria-label="Example leaderboard and privacy">
           <article class="refer-example-board">
-            <p class="section-kicker">Example only - not live data</p>
-            <h2>Illustrative leaderboard</h2>
-            <ol>
-              <li>Freehub user FH7K92 - 24 approved referrals</li>
-              <li>Freehub user FHM3A8 - 18 approved referrals</li>
-              <li>Freehub user FHZ19P - 11 approved referrals</li>
-            </ol>
-            <p>A public leaderboard has not launched. Any future leaderboard will use anonymised display data and will not show personal details.</p>
+            <p class="section-kicker">No public leaderboard</p>
+            <h2>Review stays private</h2>
+            <p>Freehub does not publish emails, mobile numbers, Firebase UIDs or private referral records. Admin review and provisional counts stay inside the private referral admin area.</p>
+            <p>Winner confirmation happens only after Freehub checks referral quality, participant readiness and rule compliance.</p>
           </article>
           <article>
             <p class="section-kicker">Privacy</p>
@@ -5742,15 +5815,15 @@ function renderReferAndWinPage() {
 
 function renderReferAndWinTermsPage() {
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/refer-and-win/terms/`;
-  const title = "Freehub Refer & Win Rules | Freehub";
+  const title = "Freehub Refer & Win First Campaign Rules | Freehub";
   const description =
-    "Read the planned Freehub Refer & Win rules, including eligibility, referral counting, manual review, prize fulfilment, privacy and campaign status.";
+    "Read the Freehub Refer & Win first campaign rules for the R250 airtime referral campaign running from 18 June to 31 July 2026, including eligibility, manual review, prize fulfilment, privacy and tie-breaker details.";
   const sections = [
     {
       heading: "1. Promoter",
       paragraphs: [
-        "Promoter details will be confirmed before launch.",
-        "TODO: Confirm official promoter/legal entity before enabling referWinCampaignEnabled.",
+        `${FREEHUB_REFER_WIN_CONFIG.promoterName} is the promoter of this Freehub Refer & Win campaign.`,
+        `Campaign support contact: ${FREEHUB_REFER_WIN_CONFIG.promoterContactEmail}.`,
       ],
     },
     { heading: "2. Campaign name", paragraphs: ["Freehub Refer & Win."] },
@@ -5759,8 +5832,9 @@ function renderReferAndWinTermsPage() {
       heading: "4. Eligibility",
       list: [
         "Open to South African residents.",
-        "Participants must be 18 years or older, unless final rules say otherwise.",
+        "Participants must be 18 years or older.",
         "Participants must have a valid Freehub Club account.",
+        "Participants must opt into Refer & Win, accept these rules, and provide a valid South African mobile number for airtime fulfilment.",
         "Participants must comply with the rules.",
         "Freehub may exclude accounts involved in fraud, abuse, duplicate registrations or misleading referral activity.",
       ],
@@ -5768,46 +5842,53 @@ function renderReferAndWinTermsPage() {
     {
       heading: "5. Campaign period",
       paragraphs: [
-        "The campaign period has not started. Monthly campaign dates will be confirmed before launch.",
-        "Once live, monthly campaign periods may run from the first day of a calendar month to the last day of that calendar month, South African time.",
+        `The first campaign period is ${FREEHUB_REFER_WIN_CONFIG.campaignPeriodLabel}.`,
+        `The next campaign is planned for ${FREEHUB_REFER_WIN_CONFIG.nextCampaignPeriodLabel}.`,
+        "Only referrals attributed to the active campaign period can be considered for that campaign's prize.",
       ],
     },
     {
       heading: "6. Prize",
       paragraphs: [
-        `The planned prize is ${FREEHUB_REFER_WIN_CONFIG.monthlyPrizeLabel}.`,
-        "The prize is planned for fulfilment to a supported South African mobile number and is not exchangeable for cash unless Freehub states otherwise.",
-        "Final prize details will be confirmed before launch. Freehub may request details needed for prize fulfilment.",
+        `The prize is ${FREEHUB_REFER_WIN_CONFIG.monthlyPrizeLabel}.`,
+        `${FREEHUB_REFER_WIN_CONFIG.prizeFulfilmentLabel}.`,
+        "The prize is not transferable and is not exchangeable for cash unless Freehub confirms otherwise in writing.",
       ],
     },
+    { heading: "7. No purchase required", paragraphs: ["No purchase is required to participate in Refer & Win. Paid SMS, shortcode entry and paid access are not part of this campaign."] },
     {
-      heading: "7. How to enter",
-      paragraphs: ["Once live, the planned entry route is:"],
+      heading: "8. How to participate",
+      paragraphs: ["To participate in the first Refer & Win campaign:"],
       list: [
         "Join Freehub Club.",
+        "Open your Club account page.",
+        "Opt into Refer & Win.",
+        "Add a valid South African mobile number for prize fulfilment.",
+        "Accept the Freehub Refer & Win rules.",
         "Get your referral link.",
         "Share your referral link.",
         "Referred users join Freehub Club through that link.",
         "Referrals are reviewed.",
-        "Approved referrals count towards the monthly campaign.",
+        "Approved referrals count towards the active campaign period.",
       ],
     },
     {
-      heading: "8. Referral link mechanic",
+      heading: "9. Referral link mechanic",
       paragraphs: [
         "Each Freehub Club member receives a unique referral code. Referral links may look like /club/?ref=FHXXXXX.",
-        "Referral attribution may be stored for a limited period, and only valid referral codes can be considered.",
+        "Referral attribution may be stored for a limited period. Only valid referral codes can be considered, and a click alone does not create an approved referral.",
       ],
     },
     {
-      heading: "9. Approved referral definition",
+      heading: "10. Approved referral definition",
       paragraphs: [
-        "An approved referral is a referral reviewed and approved by Freehub or an authorised admin.",
+        "An approved referral is a referral reviewed and approved by Freehub or an authorised admin for the active campaign period.",
         "A referral is not approved just because someone clicked a link. A referral is not approved just because someone signed in.",
+        "A referral is eligible only if the referrer has opted into Refer & Win, accepted the rules, supplied a valid South African mobile number, and passed manual review.",
       ],
     },
     {
-      heading: "10. What does not count",
+      heading: "11. What does not count",
       list: [
         "Self-referrals.",
         "Duplicate accounts.",
@@ -5820,69 +5901,88 @@ function renderReferAndWinTermsPage() {
       ],
     },
     {
-      heading: "11. Manual review",
+      heading: "12. Manual review",
       paragraphs: [
-        "All referrals are subject to review. Status may be pending, approved or rejected.",
+        "All referrals are subject to manual review. Status may be pending, approved or rejected.",
         "Freehub can reject suspicious referrals. Monthly totals are not final until review is complete.",
+        "Admin approval is required before any referral counts towards the prize.",
       ],
     },
     {
-      heading: "12. Winner selection",
+      heading: "13. Winner selection",
       paragraphs: [
-        "The planned winner mechanic is that the Freehub Club member with the highest number of approved referrals in a campaign month may be selected as the monthly winner, subject to manual review and final confirmation.",
+        "The Freehub Club member with the highest number of approved referrals in the active campaign period may be selected as the winner, subject to participant eligibility checks, manual referral review and final admin confirmation.",
+        "No winner is selected automatically by the website.",
       ],
     },
     {
-      heading: "13. Tie-breaker",
+      heading: "14. Tie-breaker",
       paragraphs: [
-        "If two or more users have the same number of approved referrals, Freehub may use a fair tie-breaker such as earliest to reach the approved count, manual review outcome, or a random draw among tied eligible users. The final tie-breaker will be confirmed before launch.",
+        FREEHUB_REFER_WIN_CONFIG.tieBreakerLabel,
       ],
     },
     {
-      heading: "14. Winner notification",
+      heading: "15. Winner notification",
       list: [
-        "Once live, a selected winner may be contacted through available account or contact details.",
-        "A selected winner may need to respond within a stated period.",
-        "If a selected winner cannot be contacted or verified, Freehub may select another eligible winner.",
+        FREEHUB_REFER_WIN_CONFIG.winnerNotificationLabel,
+        "A selected winner may need to confirm the mobile number and any reasonable information needed for prize fulfilment.",
+        "Freehub will not ask winners for banking passwords, card PINs, one-time PINs or remote access.",
       ],
     },
     {
-      heading: "15. Prize fulfilment",
+      heading: "16. Prize fulfilment",
       paragraphs: [
-        "Airtime or data may be delivered via voucher, recharge or another supported method.",
-        "The recipient may need to provide a supported South African mobile number. Prize fulfilment timing will be confirmed before launch.",
+        `${FREEHUB_REFER_WIN_CONFIG.prizeFulfilmentLabel}.`,
+        "Freehub may use a third-party airtime provider, voucher provider, mobile network product or manual airtime purchase route to fulfil the prize.",
+        "Prize fulfilment depends on the mobile number and network being supported by the selected fulfilment method.",
       ],
     },
     {
-      heading: "16. Publicity",
+      heading: "17. Mobile number use",
       paragraphs: [
-        "Freehub may publish anonymised winner information. Personal details will not be published without appropriate permission.",
-        "Users should not be forced into publicity as a condition unless legally reviewed.",
+        "A South African mobile number is required for Refer & Win participation because the prize is airtime and Freehub needs a valid number for prize fulfilment.",
+        "Freehub may use the mobile number to administer Refer & Win, prevent abuse, contact the participant if needed, verify prize readiness and fulfil airtime prizes where applicable.",
+        "Mobile numbers are not shown publicly.",
       ],
     },
     {
-      heading: "17. Data protection and privacy",
+      heading: "18. Publicity",
       paragraphs: [
-        "Freehub processes data for account management, referral tracking, campaign administration, fraud prevention, support and prize fulfilment.",
-        "Marketing consent is separate and optional. Public leaderboards, if launched, should use anonymised display data. Personal details are not publicly displayed.",
+        "Freehub may publish anonymised winner information, such as a first name, province, masked referral code or non-identifying campaign summary.",
+        "Personal details, emails, full mobile numbers and Firebase UIDs will not be published publicly.",
       ],
     },
     {
-      heading: "18. Marketing consent",
+      heading: "19. Data protection and privacy",
       paragraphs: [
-        "Marketing consent is optional and is not required to participate in Freehub Club or the planned Refer & Win campaign.",
+        "Freehub processes account, referral, consent and mobile-number information for account management, referral tracking, campaign administration, fraud prevention, support, record keeping and prize fulfilment.",
+        "Freehub does not publish emails, mobile numbers, Firebase UIDs or private referral records. Refer & Win does not improve a user's chance of winning third-party competitions listed on Freehub.",
       ],
     },
     {
-      heading: "19. Changes, suspension and cancellation",
+      heading: "20. Marketing consent",
+      paragraphs: [
+        "Marketing consent is optional and is not required to participate.",
+        "A participant can opt into Refer & Win without agreeing to receive Freehub marketing messages.",
+      ],
+    },
+    {
+      heading: "21. Changes, suspension or cancellation",
       paragraphs: [
         "Freehub may amend, pause or cancel the campaign if technical issues, fraud, abuse, operational constraints or legal/compliance concerns arise.",
         "Changes should be communicated clearly.",
       ],
     },
     {
-      heading: "20. Contact and support",
-      paragraphs: ["For Freehub support, contact hello@freehub.co.za."],
+      heading: "22. Contact/support",
+      paragraphs: [`For Freehub support, contact ${FREEHUB_REFER_WIN_CONFIG.promoterContactEmail}.`],
+    },
+    {
+      heading: "23. Record keeping",
+      paragraphs: [
+        "Freehub may keep referral, review, consent, eligibility and prize-fulfilment records needed to administer the campaign, prevent abuse, handle support queries and evidence manual review decisions.",
+        "Referral review records remain private and are not a public leaderboard.",
+      ],
     },
   ];
 
@@ -5891,34 +5991,33 @@ function renderReferAndWinTermsPage() {
     description,
     canonicalUrl,
     pageType: "refer_win_terms",
-    robots: "noindex, follow",
+    robots: "index, follow, max-image-preview:large",
     body: `
       ${renderModernHero({
         className: "hero--refer-win hero--collection hero--no-preview",
-        eyebrow: "Draft rules",
-        heading: "Freehub Refer & Win Rules",
+        eyebrow: "Campaign rules",
+        heading: "Freehub Refer & Win First Campaign Rules",
         intro:
-          "These rules are prepared for the planned Freehub Refer & Win campaign. The campaign is not currently live. Final launch dates and prize details will be confirmed before activation.",
-        updatedMarkup: renderReferWinStatusPill("Draft / coming-soon rules - campaign not currently live"),
+          "These rules apply to the first Freehub Refer & Win campaign, running from 18 June 2026 to 31 July 2026. The prize is R250 airtime and referrals only count after manual admin review.",
+        updatedMarkup: renderReferWinStatusPill(),
         actions: [
           { label: "Back to Refer & Win", href: "/refer-and-win/", className: "btn--primary" },
           { label: "Join Freehub Club", href: "/club/", className: "btn--secondary" },
         ],
-        trustItems: ["Draft rules", "No live prize", "Manual review required"],
+        trustItems: ["Free to enter", "R250 airtime", "Manual review required"],
       })}
       <main id="main-content" class="main-content refer-page refer-terms-page">
         <section class="club-section club-section--notice refer-status-notice">
           <div>
             <p class="section-kicker">Status notice</p>
-            <h2>Draft / coming-soon rules - campaign not currently live</h2>
-            <p>These rules are prepared for the planned Freehub Refer &amp; Win campaign. The campaign is not currently live. Final launch dates and prize details will be confirmed before activation.</p>
+            <h2>Live now</h2>
+            <p>The first campaign period is ${escapeHtml(FREEHUB_REFER_WIN_CONFIG.campaignPeriodLabel)}. The next campaign is planned for ${escapeHtml(FREEHUB_REFER_WIN_CONFIG.nextCampaignPeriodLabel)}. Referrals stay pending until reviewed by an authorised Freehub admin. No public leaderboard, automatic winner selection, SMS billing or shortcode entry is enabled.</p>
           </div>
           <a class="btn btn--primary" href="/club/dashboard/">View Club dashboard</a>
         </section>
 
         <section class="club-section refer-terms">
           ${sections.map(renderReferTermsSection).join("\n          ")}
-          <!-- TODO: Confirm official promoter/legal entity before enabling referWinCampaignEnabled. -->
         </section>
       </main>`,
   });
@@ -5979,9 +6078,20 @@ function renderReferAndWinShell({
 }
 
 function renderReferWinConfigScript() {
+  const clubConfig = {
+    referWinCampaignEnabled: FREEHUB_REFER_WIN_CONFIG.referWinCampaignEnabled,
+    campaignMonth: FREEHUB_REFER_WIN_CONFIG.campaignMonth,
+    campaignStatusLabel: FREEHUB_REFER_WIN_CONFIG.campaignStatusLabel,
+    monthlyPrizeLabel: FREEHUB_REFER_WIN_CONFIG.monthlyPrizeLabel,
+    mobileNumberRequiredForParticipation: FREEHUB_REFER_WIN_CONFIG.mobileNumberRequiredForParticipation,
+    publicLeaderboardEnabled: FREEHUB_REFER_WIN_CONFIG.publicLeaderboardEnabled,
+    adminReviewRequired: FREEHUB_REFER_WIN_CONFIG.adminReviewRequired,
+    marketingConsentRequired: FREEHUB_REFER_WIN_CONFIG.marketingConsentRequired,
+  };
+
   return `<script>window.FREEHUB_REFER_WIN_CONFIG = ${escapeScript(
     JSON.stringify(FREEHUB_REFER_WIN_CONFIG)
-  )}; window.FREEHUB_CLUB_CONFIG = { referWinCampaignEnabled: false };</script>`;
+  )}; window.FREEHUB_CLUB_CONFIG = ${escapeScript(JSON.stringify(clubConfig))};</script>`;
 }
 
 function renderReferWinStatusPill(label = FREEHUB_REFER_WIN_CONFIG.campaignStatusLabel) {
@@ -5990,13 +6100,13 @@ function renderReferWinStatusPill(label = FREEHUB_REFER_WIN_CONFIG.campaignStatu
 
 function renderReferAndWinPreviewPanel() {
   return `<aside class="hero-preview-panel hero-preview-panel--refer" aria-label="Refer and Win status preview">
-            <p class="hero-preview-panel__kicker">Coming soon</p>
+            <p class="hero-preview-panel__kicker">First campaign</p>
             <h2 class="hero-preview-panel__title">${escapeHtml(FREEHUB_REFER_WIN_CONFIG.monthlyPrizeLabel)}</h2>
-            <p class="hero-preview-panel__intro">Planned monthly challenge for approved Freehub Club referrals. Not live yet.</p>
+            <p class="hero-preview-panel__intro">Free-to-enter monthly challenge for approved Freehub Club referrals.</p>
             <ul class="hero-preview-panel__list">
               <li><span>Mechanic</span><strong>Most approved referrals</strong></li>
               <li><span>Review</span><strong>Manual approval required</strong></li>
-              <li><span>Privacy</span><strong>Anonymised public display only</strong></li>
+              <li><span>Privacy</span><strong>No public leaderboard</strong></li>
             </ul>
             <p class="hero-preview-panel__note">No purchase required. Marketing consent is optional.</p>
           </aside>`;
@@ -7892,6 +8002,10 @@ function generateSitemap(competitions, routeContexts, sitemapCompetitions = comp
   const referAndWinEntries = [
     renderSitemapUrl({
       loc: `${origin}/refer-and-win/`,
+      lastmod: BUILD_DATE_ISO,
+    }),
+    renderSitemapUrl({
+      loc: `${origin}/refer-and-win/terms/`,
       lastmod: BUILD_DATE_ISO,
     }),
   ];

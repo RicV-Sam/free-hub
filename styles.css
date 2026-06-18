@@ -4175,6 +4175,81 @@ body {
   overflow-wrap: anywhere;
 }
 
+.club-participation-form {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.club-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.club-participation-form label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 800;
+}
+
+.club-participation-form input,
+.club-participation-form select {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+}
+
+.club-participation-form input,
+.club-participation-form select {
+  padding: 0.6rem 0.75rem;
+}
+
+.club-checkbox-row {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  padding: 0.75rem;
+  border: 1px solid rgba(15, 118, 110, 0.12);
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.club-checkbox-row input {
+  width: 18px;
+  min-height: 18px;
+  margin-top: 0.2rem;
+  padding: 0;
+}
+
+.club-checkbox-row span {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.club-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.club-form-status {
+  margin: 0;
+  color: var(--accent);
+  font-weight: 900;
+}
+
+.club-form-status[data-status="error"] {
+  color: #991b1b;
+}
+
+.club-readiness-list {
+  margin-bottom: 0;
+}
+
 .refer-page {
   display: grid;
   gap: 1rem;
@@ -4436,6 +4511,11 @@ body {
   font-weight: 900;
 }
 
+.admin-referral-rank__readiness {
+  color: var(--muted) !important;
+  font-size: 0.86rem;
+}
+
 .admin-referral-card {
   display: grid;
   gap: 0.85rem;
@@ -4525,6 +4605,7 @@ body {
   .club-section--split,
   .club-feature-grid,
   .club-account-grid,
+  .club-form-grid,
   .club-saved-item,
   .club-competition-row,
   .admin-toolbar,
@@ -4560,6 +4641,7 @@ body {
   .club-copy-row .btn,
   .club-section__actions .btn,
   .club-saved-item__actions .btn,
+  .club-form-actions .btn,
   .club-saved-item select,
   .club-competition-row select {
     width: 100%;

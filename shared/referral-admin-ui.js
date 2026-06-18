@@ -5,6 +5,7 @@ const state = {
   user: null,
   admin: null,
   referrals: [],
+  participants: [],
   userCache: new Map(),
 };
 
@@ -127,8 +128,8 @@ async function loadReferralQueue() {
 
   try {
     const status = document.querySelector("[data-referral-admin-status]")?.value || "pending_verification";
-    const campaignMonth = document.querySelector("[data-referral-admin-month]")?.value || getCurrentMonth();
-    const [referrals, monthlyReferrals] = await Promise.all([
+    const campaignMonth = document.querySelector("[data-referral-admin-month]")?.value || getCampaignMonth();
+    const [referrals, monthlyReferrals, participants] = await Promise.all([
       state.client.helpers.getReferralAttributions({
         status,
         campaignMonth,
@@ -139,12 +140,15 @@ async function loadReferralQueue() {
         campaignMonth,
         limit: 500,
       }),
+      state.client.helpers.getReferWinParticipantProfiles({ limit: 500 }).catch(() => []),
     ]);
 
     state.referrals = referrals.sort(compareReferralDates);
+    state.participants = participants;
     const monthlySorted = monthlyReferrals.sort(compareReferralDates);
     await loadUserContexts([...state.referrals, ...monthlySorted]);
     renderSummary(monthlySorted);
+    renderParticipantReadiness(participants);
     renderTopReferrers(monthlySorted);
     renderReferralList(state.referrals);
     setStatus(`${state.referrals.length} referral ${state.referrals.length === 1 ? "record" : "records"} loaded.`);
@@ -239,6 +243,16 @@ function renderSummary(referrals) {
   setText("[data-referral-count-rejected]", String(counts.rejected || 0));
 }
 
+function renderParticipantReadiness(participants) {
+  const optedIn = participants.filter((profile) => profile.referWinParticipant === true);
+  const missingMobile = optedIn.filter((profile) => !isValidMobileNumber(profile.mobileNumber));
+  const missingTerms = optedIn.filter((profile) => profile.referWinTermsAccepted !== true);
+
+  setText("[data-referral-participant-count]", String(optedIn.length));
+  setText("[data-referral-missing-mobile-count]", String(missingMobile.length));
+  setText("[data-referral-missing-terms-count]", String(missingTerms.length));
+}
+
 function renderTopReferrers(referrals) {
   const list = document.querySelector("[data-referral-top-referrers]");
 
@@ -269,12 +283,14 @@ function renderTopReferrers(referrals) {
   list.innerHTML = rows
     .map((row) => {
       const profile = state.userCache.get(row.uid) || {};
+      const readiness = getParticipantReadinessLabel(profile);
       return `<article class="admin-referral-rank">
         <div>
           <strong>${escapeHtml(profile.displayName || profile.email || shortId(row.uid))}</strong>
           <span>${escapeHtml(shortId(row.uid))}</span>
         </div>
         <p>${row.approved} approved · ${row.pending} pending · ${row.rejected} rejected</p>
+        <p class="admin-referral-rank__readiness">Participant readiness: ${escapeHtml(readiness)}</p>
       </article>`;
     })
     .join("");
@@ -351,15 +367,40 @@ function getMonthlyCounts(referrals) {
   }, {});
 }
 
+function getParticipantReadinessLabel(profile = {}) {
+  if (profile.referWinParticipant !== true) {
+    return "not opted in";
+  }
+
+  if (profile.referWinTermsAccepted !== true) {
+    return "missing terms";
+  }
+
+  if (!isValidMobileNumber(profile.mobileNumber)) {
+    return "missing mobile";
+  }
+
+  return "ready";
+}
+
 function setMonthDefault() {
   const input = document.querySelector("[data-referral-admin-month]");
   if (input && !input.value) {
-    input.value = getCurrentMonth();
+    input.value = getCampaignMonth();
   }
+}
+
+function getCampaignMonth() {
+  const configuredMonth = window.FREEHUB_REFER_WIN_CONFIG?.campaignMonth;
+  return /^\d{4}-\d{2}$/.test(configuredMonth) ? configuredMonth : getCurrentMonth();
 }
 
 function getCurrentMonth() {
   return new Date().toISOString().slice(0, 7);
+}
+
+function isValidMobileNumber(value) {
+  return /^27[6-8]\d{8}$/.test(String(value || ""));
 }
 
 function compareReferralDates(left, right) {

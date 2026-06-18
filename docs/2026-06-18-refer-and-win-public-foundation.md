@@ -1,5 +1,9 @@
 # 2026-06-18 Refer & Win Public Foundation
 
+Historical implementation note. Superseded for launch configuration by `docs/2026-06-18-refer-and-win-july-2026-r250-live.md`.
+
+Current status: the first Refer & Win campaign is live from 18 June 2026 to 31 July 2026, ending at 23:59 SAST on 31 July 2026, with a R250 airtime prize. The next campaign is planned from 1 August 2026 to 31 August 2026, ending at 23:59 SAST on 31 August 2026. The public terms page is now indexable because promoter, prize, dates, fulfilment, tie-breaker and winner notification details have been filled in.
+
 ## Summary
 
 This sprint adds the public coming-soon layer for Freehub Refer & Win. It creates an SEO-safe landing page and a draft rules page for the planned monthly referral challenge, while keeping the campaign disabled.
