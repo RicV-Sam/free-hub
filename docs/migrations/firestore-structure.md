@@ -32,6 +32,7 @@ users/{userId}
 users/{userId}/savedCompetitions/{competitionId}
 users/{userId}/ignoredCompetitions/{competitionId}
 users/{userId}/alertPreferences/main
+admins/{uid}
 referralCodes/{code}
 referralAttribution/{attributionId}
 signupEvents/{eventId}
@@ -99,6 +100,25 @@ Public reverse lookup for a generated Freehub Club referral code. These records 
 }
 ```
 
+### `admins/{uid}`
+
+Manual allowlist for private Freehub admin tools. Create this document manually in Firebase Console. There is no public UI for creating or updating admin records.
+
+```json
+{
+  "email": "riccardo.vallaro@gmail.com",
+  "role": "owner",
+  "active": true,
+  "createdAt": "manual"
+}
+```
+
+Admin access requires:
+
+- Firebase Auth sign-in.
+- A document at `admins/{uid}` for the signed-in user.
+- `active: true`.
+
 ### `referralAttribution/{attributionId}`
 
 Pending-only referral attribution captured when a new signed-in user arrives with `?ref=FH7K92`. Refer & Win is not live; these records are stored as `pending_verification` only.
@@ -115,7 +135,33 @@ Pending-only referral attribution captured when a new signed-in user arrives wit
   "campaignMonth": "2026-06",
   "status": "pending_verification",
   "verifiedAt": null,
+  "rejectionReason": null,
+  "reviewedAt": null,
+  "reviewedBy": null
+}
+```
+
+Admin review may later set:
+
+```json
+{
+  "status": "approved",
+  "verifiedAt": "serverTimestamp",
+  "reviewedAt": "serverTimestamp",
+  "reviewedBy": "admin-auth-uid",
   "rejectionReason": null
+}
+```
+
+or:
+
+```json
+{
+  "status": "rejected",
+  "verifiedAt": null,
+  "reviewedAt": "serverTimestamp",
+  "reviewedBy": "admin-auth-uid",
+  "rejectionReason": "Duplicate account or invalid attribution evidence"
 }
 ```
 
@@ -243,6 +289,12 @@ service cloud.firestore {
       return signedIn() && request.auth.uid == userId;
     }
 
+    function isActiveAdmin() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+        && get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.active == true;
+    }
+
     function userFieldsAreAllowed() {
       return request.resource.data.keys().hasOnly([
         'userId',
@@ -269,7 +321,8 @@ service cloud.firestore {
         && request.resource.data.userId == request.auth.uid
         && request.resource.data.acceptedPrivacyPolicy == true
         && userFieldsAreAllowed();
-      allow read, delete: if isOwner(userId);
+      allow read: if isOwner(userId) || isActiveAdmin();
+      allow delete: if isOwner(userId);
 
       match /savedCompetitions/{competitionId} {
         allow read, delete: if isOwner(userId);
@@ -346,6 +399,11 @@ service cloud.firestore {
       allow update, delete: if false;
     }
 
+    match /admins/{adminId} {
+      allow get: if isActiveAdmin() && request.auth.uid == adminId;
+      allow list, create, update, delete: if false;
+    }
+
     match /referralAttribution/{attributionId} {
       allow create: if signedIn()
         && request.resource.data.attributionId == attributionId
@@ -367,7 +425,43 @@ service cloud.firestore {
           'verifiedAt',
           'rejectionReason'
         ]);
-      allow read, update, delete: if false;
+      allow read: if isActiveAdmin();
+      allow update: if isActiveAdmin()
+        && resource.data.status == 'pending_verification'
+        && request.resource.data.attributionId == resource.data.attributionId
+        && request.resource.data.referredUid == resource.data.referredUid
+        && request.resource.data.referrerUid == resource.data.referrerUid
+        && request.resource.data.referralCode == resource.data.referralCode
+        && request.resource.data.landingPath == resource.data.landingPath
+        && request.resource.data.capturedAt == resource.data.capturedAt
+        && request.resource.data.registeredAt == resource.data.registeredAt
+        && request.resource.data.campaignMonth == resource.data.campaignMonth
+        && request.resource.data.reviewedBy == request.auth.uid
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          'status',
+          'verifiedAt',
+          'rejectionReason',
+          'reviewedAt',
+          'reviewedBy'
+        ])
+        && (
+          (
+            request.resource.data.status == 'approved'
+            && request.resource.data.verifiedAt is timestamp
+            && request.resource.data.reviewedAt is timestamp
+            && request.resource.data.rejectionReason == null
+          )
+          ||
+          (
+            request.resource.data.status == 'rejected'
+            && request.resource.data.verifiedAt == null
+            && request.resource.data.reviewedAt is timestamp
+            && request.resource.data.rejectionReason is string
+            && request.resource.data.rejectionReason.size() >= 3
+            && request.resource.data.rejectionReason.size() <= 500
+          )
+        );
+      allow delete: if false;
     }
 
     match /competitionSubmissions/{submissionId} {

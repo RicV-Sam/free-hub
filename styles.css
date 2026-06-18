@@ -4160,6 +4160,230 @@ body {
   overflow-wrap: anywhere;
 }
 
+.admin-page {
+  display: grid;
+  gap: 1rem;
+}
+
+.admin-shell,
+.admin-gate,
+.admin-content,
+.admin-panel,
+.admin-referral-card {
+  border: 1px solid rgba(15, 118, 110, 0.14);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.admin-shell {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.admin-gate,
+.admin-panel,
+.admin-referral-card {
+  padding: 1rem;
+}
+
+.admin-gate h2,
+.admin-panel h2,
+.admin-referral-card h3 {
+  margin: 0;
+}
+
+.admin-note,
+.admin-empty,
+.admin-toolbar span,
+.admin-referral-details dt,
+.admin-referral-rank span {
+  color: var(--muted);
+}
+
+.admin-content {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.admin-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(160px, auto) minmax(180px, auto) auto;
+  gap: 0.8rem;
+  align-items: end;
+}
+
+.admin-toolbar label,
+.admin-referral-review label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 800;
+}
+
+.admin-toolbar input,
+.admin-toolbar select,
+.admin-referral-review textarea {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+}
+
+.admin-toolbar input,
+.admin-toolbar select {
+  padding: 0.55rem 0.75rem;
+}
+
+.admin-referral-review textarea {
+  padding: 0.65rem 0.75rem;
+  resize: vertical;
+}
+
+.admin-toolbar .btn--secondary,
+.admin-referral-review .btn--secondary {
+  border-color: rgba(15, 118, 110, 0.24);
+  background: #fff;
+  color: var(--accent);
+}
+
+.admin-toolbar__identity {
+  margin: 0;
+  font-weight: 900;
+}
+
+.admin-count-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.admin-count-grid article {
+  padding: 0.95rem;
+  border: 1px solid rgba(15, 118, 110, 0.12);
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.admin-count-grid span {
+  display: block;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.admin-count-grid strong {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--text);
+  font-size: 1.8rem;
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.admin-panel {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.admin-referral-ranks,
+.admin-referral-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.admin-referral-rank,
+.admin-referral-card__header,
+.admin-referral-review__actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-referral-rank {
+  padding: 0.8rem;
+  border: 1px solid rgba(15, 118, 110, 0.12);
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.admin-referral-rank p {
+  margin: 0;
+  color: var(--accent);
+  font-weight: 900;
+}
+
+.admin-referral-card {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.admin-status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: #e5e7eb;
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: capitalize;
+}
+
+.admin-status--pending_verification {
+  background: #fff3cf;
+  color: #8a5a00;
+}
+
+.admin-status--approved {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.admin-status--rejected {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.admin-referral-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin: 0;
+}
+
+.admin-referral-details div {
+  min-width: 0;
+}
+
+.admin-referral-details dt {
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.admin-referral-details dd {
+  margin: 0.15rem 0 0;
+  font-weight: 750;
+  overflow-wrap: anywhere;
+}
+
+.admin-referral-review {
+  display: grid;
+  gap: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(15, 118, 110, 0.12);
+}
+
 @media (max-width: 760px) {
   .site-topbar {
     width: min(calc(100% - 1rem), var(--max-width));
@@ -4187,14 +4411,21 @@ body {
   .club-feature-grid,
   .club-account-grid,
   .club-saved-item,
-  .club-competition-row {
+  .club-competition-row,
+  .admin-toolbar,
+  .admin-count-grid,
+  .admin-grid,
+  .admin-referral-details {
     grid-template-columns: 1fr;
   }
 
   .club-section--notice,
   .club-referral-card,
   .club-app-header,
-  .club-panel-header {
+  .club-panel-header,
+  .admin-referral-card__header,
+  .admin-referral-rank,
+  .admin-referral-review__actions {
     align-items: stretch;
     flex-direction: column;
   }

@@ -1640,6 +1640,7 @@ function main() {
   });
 
   writeClubPages(activeCompetitions);
+  writeAdminPages();
 
   fs.writeFileSync(
     path.join(ROOT_DIR, "sitemap.xml"),
@@ -2251,6 +2252,16 @@ function writeClubPages(activeCompetitions = []) {
     { slug: "club", html: renderClubLandingPage() },
     { slug: path.join("club", "dashboard"), html: renderClubDashboardPage(activeCompetitions) },
     { slug: path.join("club", "account"), html: renderClubAccountPage() },
+  ].forEach((page) => {
+    const outputDirectory = path.join(ROOT_DIR, page.slug);
+    fs.mkdirSync(outputDirectory, { recursive: true });
+    fs.writeFileSync(path.join(outputDirectory, "index.html"), page.html);
+  });
+}
+
+function writeAdminPages() {
+  [
+    { slug: path.join("admin", "referrals"), html: renderReferralAdminPage() },
   ].forEach((page) => {
     const outputDirectory = path.join(ROOT_DIR, page.slug);
     fs.mkdirSync(outputDirectory, { recursive: true });
@@ -5387,6 +5398,105 @@ function renderClubAccountPage() {
         </section>
       </main>`,
   });
+}
+
+function renderReferralAdminPage() {
+  const title = "Freehub Referral Admin Review";
+  const description = "Private Freehub admin review area for pending referral attribution records.";
+
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${escapeHtml(title)}</title>
+    <meta name="description" content="${escapeAttribute(description)}" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href="${escapeAttribute(`${shared.CANONICAL_ORIGIN}/admin/referrals/`)}" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
+  </head>
+  <body>
+    <div class="site-shell">
+      ${renderTopNavigation({ active: "" })}
+      <main id="main-content" class="main-content admin-page" data-admin-page="referrals">
+        <section class="admin-shell" aria-label="Referral admin review">
+          <div class="club-app-header">
+            <div>
+              <p class="section-kicker">Private admin</p>
+              <h1>Referral review</h1>
+              <p>Manual review for pending Freehub Club referral attribution. Refer &amp; Win remains disabled and no public leaderboard is shown.</p>
+            </div>
+            <div class="club-app-actions">
+              <a class="club-back-link" href="/club/dashboard/">Back to dashboard</a>
+              <button class="btn btn--primary" type="button" data-referral-admin-action="signin">Continue with Google</button>
+              <button class="btn btn--secondary" type="button" data-referral-admin-action="signout" hidden>Sign out</button>
+            </div>
+          </div>
+
+          <section class="admin-gate" data-referral-admin-gate>
+            <h2 data-referral-admin-gate-title>Admin sign-in required</h2>
+            <p data-referral-admin-gate-message>Sign in with the Google account that has an active admins/{uid} document.</p>
+            <p class="admin-note">Create admin access manually in Firebase Console. There is no public self-serve admin signup.</p>
+          </section>
+
+          <section class="admin-content" data-referral-admin-content hidden>
+            <div class="admin-toolbar">
+              <div>
+                <p class="section-kicker">Signed in admin</p>
+                <p class="admin-toolbar__identity" data-referral-admin-email>Admin</p>
+              </div>
+              <label>
+                <span>Campaign month</span>
+                <input type="month" data-referral-admin-filter data-referral-admin-month />
+              </label>
+              <label>
+                <span>Status</span>
+                <select data-referral-admin-filter data-referral-admin-status>
+                  <option value="pending_verification">Pending verification</option>
+                  <option value="approved">Approved</option>
+                  <option value="rejected">Rejected</option>
+                  <option value="all">All statuses</option>
+                </select>
+              </label>
+              <button class="btn btn--secondary" type="button" data-referral-admin-action="refresh">Refresh</button>
+            </div>
+
+            <p class="club-status" data-referral-admin-status-text aria-live="polite">Loading referral review queue...</p>
+
+            <section class="admin-count-grid" aria-label="Monthly referral counts">
+              <article><span>Total</span><strong data-referral-count-total>0</strong></article>
+              <article><span>Pending</span><strong data-referral-count-pending>0</strong></article>
+              <article><span>Approved</span><strong data-referral-count-approved>0</strong></article>
+              <article><span>Rejected</span><strong data-referral-count-rejected>0</strong></article>
+            </section>
+
+            <section class="admin-grid">
+              <article class="admin-panel">
+                <div class="admin-panel__header">
+                  <p class="section-kicker">Provisional summary</p>
+                  <h2>Monthly top referrers</h2>
+                </div>
+                <div class="admin-referral-ranks" data-referral-top-referrers></div>
+              </article>
+
+              <article class="admin-panel">
+                <div class="admin-panel__header">
+                  <p class="section-kicker">Review queue</p>
+                  <h2>Referral attribution records</h2>
+                </div>
+                <div class="admin-referral-list" data-referral-admin-list></div>
+              </article>
+            </section>
+          </section>
+        </section>
+      </main>
+      ${renderSiteFooter({ includeAuthPanel: false })}
+    </div>
+    <script type="module" src="/shared/referral-admin-ui.js"></script>
+  </body>
+</html>
+`;
 }
 
 function renderClubShell({ title, description, canonicalUrl, robots, pageType, body, structuredDataScripts = "" }) {

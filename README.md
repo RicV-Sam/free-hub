@@ -55,6 +55,7 @@ Metadata fallback (`og:image`, `twitter:image`) may still use the global default
 
 ## Knowledge Base
 - 2026-06-18 Club, submissions, Firebase and layout implementation: `docs/2026-06-18-freehub-club-submissions-and-layout.md`
+- 2026-06-18 Referral admin review foundation: `docs/2026-06-18-referral-admin-review-foundation.md`
 
 ## Page CTA Contract
 Every public content page must expose both Freehub follow-up paths:

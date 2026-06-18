@@ -123,9 +123,12 @@ function buildFirestoreHelpers(db, firestore) {
     doc,
     getDoc,
     getDocs,
+    limit,
+    query,
     runTransaction,
     serverTimestamp,
     setDoc,
+    where,
   } = firestore;
 
   return {
@@ -156,6 +159,12 @@ function buildFirestoreHelpers(db, firestore) {
     async getUserProfile(userId) {
       const userRef = doc(db, "users", userId);
       const snapshot = await getDoc(userRef);
+      return snapshot.exists() ? snapshot.data() : null;
+    },
+
+    async getAdminProfile(userId) {
+      const adminRef = doc(db, "admins", userId);
+      const snapshot = await getDoc(adminRef);
       return snapshot.exists() ? snapshot.data() : null;
     },
 
@@ -412,6 +421,47 @@ function buildFirestoreHelpers(db, firestore) {
 
       return attributionId;
     },
+
+    async getReferralAttributions(options = {}) {
+      const constraints = [];
+      const status = normalizeReferralReviewStatus(options.status);
+      const campaignMonth = String(options.campaignMonth || "").trim();
+
+      if (status !== "all") {
+        constraints.push(where("status", "==", status));
+      }
+
+      if (/^\d{4}-\d{2}$/.test(campaignMonth)) {
+        constraints.push(where("campaignMonth", "==", campaignMonth));
+      }
+
+      constraints.push(limit(Number.isFinite(options.limit) ? options.limit : 100));
+
+      const snapshot = await getDocs(query(collection(db, "referralAttribution"), ...constraints));
+      return snapshot.docs.map((docSnapshot) => ({
+        id: docSnapshot.id,
+        ...docSnapshot.data(),
+      }));
+    },
+
+    async updateReferralReview(attributionId, review = {}, reviewer) {
+      const status = normalizeReferralReviewStatus(review.status);
+
+      if (!["approved", "rejected"].includes(status)) {
+        throw new Error("Invalid referral review status.");
+      }
+
+      const attributionRef = doc(db, "referralAttribution", attributionId);
+      const payload = {
+        status,
+        reviewedAt: serverTimestamp(),
+        reviewedBy: reviewer?.uid || null,
+        rejectionReason: status === "rejected" ? String(review.rejectionReason || "").trim().slice(0, 500) : null,
+        verifiedAt: status === "approved" ? serverTimestamp() : null,
+      };
+
+      await setDoc(attributionRef, payload, { merge: true });
+    },
   };
 }
 
@@ -463,6 +513,11 @@ function normalizeReferralCode(value) {
 function normalizeSavedStatus(value) {
   const status = typeof value === "string" ? value.trim().toLowerCase() : "";
   return ["interested", "entered", "skipped"].includes(status) ? status : "interested";
+}
+
+function normalizeReferralReviewStatus(value) {
+  const status = typeof value === "string" ? value.trim().toLowerCase() : "";
+  return ["pending_verification", "approved", "rejected", "all"].includes(status) ? status : "pending_verification";
 }
 
 function getCampaignMonth() {
