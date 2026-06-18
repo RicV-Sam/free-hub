@@ -5282,26 +5282,32 @@ function renderClubDashboardPage(activeCompetitions = []) {
             </div>
             <p class="club-status" data-club-referral-status aria-live="polite"></p>
           </section>
-          <section class="club-saved-panel" aria-label="Saved competitions">
-            <div class="club-panel-header">
+          <details class="club-saved-panel club-collapsible" aria-label="Saved competitions" open>
+            <summary class="club-panel-header">
               <div>
                 <h2>Tracked competitions</h2>
                 <p data-club-saved-summary>Saved competitions from this browser or your Freehub Club account will appear here.</p>
               </div>
+              <span class="club-panel-header__toggle"><span data-open-label>Open</span><span data-close-label>Close</span></span>
+            </summary>
+            <div class="club-panel-actions">
               <button class="btn btn--secondary" type="button" data-club-action="clear-local">Clear local saves</button>
             </div>
             <div class="club-saved-list" data-club-saved-list></div>
-          </section>
-          <section class="club-saved-panel" aria-label="All active competitions">
-            <div class="club-panel-header">
+          </details>
+          <details class="club-saved-panel club-collapsible" aria-label="All active competitions">
+            <summary class="club-panel-header">
               <div>
                 <h2>All active competitions</h2>
                 <p data-club-all-summary>Listed by nearest closing date so members can work through entries before they expire.</p>
               </div>
+              <span class="club-panel-header__toggle"><span data-open-label>Open</span><span data-close-label>Close</span></span>
+            </summary>
+            <div class="club-panel-actions">
               <a class="btn btn--secondary" href="/competitions/">Public listings</a>
             </div>
             <div class="club-all-list" data-club-all-list></div>
-          </section>
+          </details>
           <section class="club-section club-section--notice">
             <div><h2>Account settings</h2><p>Check your email, member details, saved count and Club consent records.</p></div>
             <a class="btn btn--primary" href="/club/account/">Open account</a>

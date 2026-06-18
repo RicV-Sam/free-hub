@@ -3891,6 +3891,71 @@ body {
   justify-content: space-between;
 }
 
+.club-collapsible > summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.club-collapsible > summary::-webkit-details-marker {
+  display: none;
+}
+
+.club-collapsible .club-panel-header {
+  margin: -1rem -1rem 0;
+  padding: 1rem;
+  border-radius: 8px 8px 0 0;
+  background: #f8fafc;
+}
+
+.club-collapsible:not([open]) .club-panel-header {
+  margin-bottom: -1rem;
+  border-radius: 8px;
+}
+
+.club-panel-header__toggle {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--accent);
+  font-weight: 900;
+}
+
+.club-panel-header__toggle::before {
+  content: "+";
+  margin-right: 0.4rem;
+}
+
+.club-panel-header__toggle [data-close-label] {
+  display: none;
+}
+
+.club-collapsible[open] .club-panel-header__toggle::before {
+  content: "-";
+}
+
+.club-collapsible[open] .club-panel-header__toggle {
+  background: var(--accent);
+  color: #fff;
+}
+
+.club-collapsible[open] .club-panel-header__toggle [data-open-label] {
+  display: none;
+}
+
+.club-collapsible[open] .club-panel-header__toggle [data-close-label] {
+  display: inline;
+}
+
+.club-panel-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .club-app-shell {
   display: grid;
   gap: 1rem;
@@ -4072,7 +4137,8 @@ body {
 
   .club-app-actions,
   .club-copy-row,
-  .club-saved-item__actions {
+  .club-saved-item__actions,
+  .club-panel-actions {
     align-items: stretch;
     flex-direction: column;
   }
