@@ -853,6 +853,126 @@ button {
   margin-top: 0.7rem;
 }
 
+.submission-panel {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  box-shadow: var(--shadow-soft);
+}
+
+.submission-panel__header {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.submission-panel__header h2,
+.submission-panel__header p {
+  margin: 0;
+}
+
+.submission-panel__header h2 {
+  color: var(--text);
+  font-size: 1.35rem;
+}
+
+.submission-panel__header p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.submission-form,
+.submission-form label {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.submission-form {
+  gap: 0.9rem;
+}
+
+.submission-form__grid {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.submission-form label span {
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.submission-form input,
+.submission-form select,
+.submission-form textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.7rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--text);
+  font: inherit;
+}
+
+.submission-form textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.submission-form__consent {
+  grid-template-columns: 20px 1fr;
+  align-items: start;
+}
+
+.submission-form__consent input {
+  width: 18px;
+  min-height: 18px;
+  height: 18px;
+  margin-top: 0.12rem;
+  accent-color: var(--accent);
+}
+
+.submission-form__consent span {
+  color: var(--muted);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.submission-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.submission-form button:disabled,
+.submission-form input:disabled,
+.submission-form select:disabled,
+.submission-form textarea:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
+.submission-form__status {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.submission-form__status[data-status="ok"] {
+  color: #0f766e;
+}
+
+.submission-form__status[data-status="error"] {
+  color: #dc2626;
+}
+
 .free-resource-section,
 .free-resource-advice {
   margin-top: 1rem;
@@ -1685,6 +1805,10 @@ button {
 }
 
 @media (min-width: 700px) {
+  .submission-form__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .competition-detail__cta {
     width: auto;
     padding-left: 2rem;

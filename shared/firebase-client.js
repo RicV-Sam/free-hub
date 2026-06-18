@@ -239,5 +239,33 @@ function buildFirestoreHelpers(db, firestore) {
         createdAt: serverTimestamp(),
       });
     },
+
+    async submitCompetitionForReview(submission = {}) {
+      const submissionRef = doc(collection(db, "competitionSubmissions"));
+      const trim = (value) => String(value || "").trim();
+
+      await setDoc(submissionRef, {
+        submissionId: submissionRef.id,
+        companyName: trim(submission.companyName),
+        contactName: trim(submission.contactName),
+        contactEmail: trim(submission.contactEmail).toLowerCase(),
+        competitionTitle: trim(submission.competitionTitle),
+        officialUrl: trim(submission.officialUrl),
+        termsUrl: trim(submission.termsUrl),
+        campaignImageUrl: trim(submission.campaignImageUrl),
+        closingDate: trim(submission.closingDate),
+        prizeDetails: trim(submission.prizeDetails),
+        entryMethod: trim(submission.entryMethod),
+        requirements: trim(submission.requirements),
+        notes: trim(submission.notes),
+        reviewStatus: "pending-review",
+        source: "submit-a-competition-page",
+        pagePath: window.location.pathname,
+        createdAt: serverTimestamp(),
+        updatedAt: serverTimestamp(),
+      });
+
+      return submissionRef.id;
+    },
   };
 }

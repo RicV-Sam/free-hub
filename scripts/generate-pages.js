@@ -92,7 +92,7 @@ const TRUST_PAGE_DEFINITIONS = [
         heading: "Email",
         paragraphs: [
           "Send listing corrections and general messages to hello@freehub.co.za.",
-          "Include the competition title, the Freehub page URL and the official source URL if your message is about a specific listing.",
+          "Companies can use the submit-a-competition page for review requests. Listing corrections and suspicious listing reports should include the competition title, the Freehub page URL and the official source URL where available.",
         ],
       },
       {
@@ -116,7 +116,14 @@ const TRUST_PAGE_DEFINITIONS = [
         heading: "Information Freehub may process",
         paragraphs: [
           "Freehub may use analytics tools to understand page views, clicks, device types and broad usage patterns. This helps us improve pages and find broken journeys.",
-          "If you contact us by email, we receive the information you choose to send, such as your email address, message and any page URLs included.",
+          "If you contact Freehub or submit a competition for review, we receive the information you choose to send, such as your name, business contact email, message, competition details and any page URLs included.",
+        ],
+      },
+      {
+        heading: "Competition submissions from companies",
+        paragraphs: [
+          "Companies, brands, agencies and promoters may submit public competition details for Freehub review. Freehub may store the submitted business contact details, official URLs, terms URLs, prize details, entry requirements, notes, review status and timestamps needed to assess the listing.",
+          "Submission information is used to review whether a competition can be listed, to prevent abuse and to keep an internal record of review decisions. Freehub does not use the submission form to collect consumer entries for promoter competitions.",
         ],
       },
       {
@@ -156,7 +163,7 @@ const TRUST_PAGE_DEFINITIONS = [
       {
         heading: "Unsubscribe and preferences",
         paragraphs: [
-          "If Freehub sends alerts or marketing emails in future, those messages should include a way to unsubscribe or change preferences. You can also contact hello@freehub.co.za to ask for account preference help.",
+          "If Freehub sends alerts or marketing emails in future, those messages should include a way to unsubscribe or change preferences.",
           "Freehub may keep limited records needed for security, abuse prevention, consent history, legal compliance or to confirm that a preference change was handled.",
         ],
       },
@@ -975,6 +982,124 @@ const TRUST_PAGE_DEFINITIONS = [
       { label: "Free credit report guide", href: "/free-credit-report-south-africa/" },
       { label: "Free competitions", href: "/free-competitions/" },
       { label: "Report a suspicious listing", href: "/report-a-competition/" },
+    ],
+  },
+  {
+    slug: "submit-a-competition",
+    title: "Submit a Competition South Africa | Brand Review & Listing | Freehub",
+    description:
+      "Submit a South African competition, giveaway or prize draw to Freehub for editorial review, validation and a possible SEO-friendly listing with official source links.",
+    heading: "Submit a Competition to Freehub",
+    intro:
+      "Brands, agencies and promoters can submit South African competitions, giveaways and prize draws to Freehub for editorial review. We check the official source, entry requirements, closing date and user safety basics before deciding whether a listing can be published.",
+    actions: [
+      { label: "Submit Details", href: "#competitionSubmissionTitle", className: "btn--primary" },
+      { label: "Email Freehub", href: "mailto:hello@freehub.co.za?subject=Competition%20submission%20for%20Freehub", className: "btn--secondary" },
+      { label: "Review Criteria", href: "/how-we-verify-competitions/", className: "btn--secondary" },
+    ],
+    trustItems: ["Editorial review", "Official source required", "Dedicated detail pages"],
+    service: {
+      name: "South African competition review and listing",
+      serviceType: "Competition listing review",
+      audience: "Brands, agencies, retailers and promoters in South Africa",
+    },
+    sections: [
+      {
+        heading: "What Freehub currently offers",
+        paragraphs: [
+          "Freehub can review public South African competitions, giveaways, prize draws and brand promotions for possible listing on a Freehub competition detail page.",
+          "A published listing can include the competition title, promoter or brand, prize, closing date, entry cost label, purchase or app requirement, entry channel, eligibility notes, official terms link and a direct route to the promoter source.",
+          "Where there is enough active inventory, competitions may also appear on relevant category, brand, tag and SEO hub pages such as free competitions, purchase-required competitions, WhatsApp competitions, till-slip competitions, voucher competitions or win-a-car pages.",
+        ],
+      },
+      {
+        heading: "What to send for review",
+        paragraphs: [
+          "Use the submission form on this page with the campaign name, promoter or brand, official competition URL, terms and conditions URL, closing date, prize details, entry method, purchase requirements, eligibility limits and any approved campaign image or logo link.",
+          "If an agency is submitting on behalf of a brand, include the brand relationship and the public source where users can confirm the competition is official.",
+          "Please do not send raw customer data, competition entries, identity documents, till slips or private winner information to Freehub.",
+        ],
+      },
+      {
+        heading: "Why submit directly",
+        paragraphs: [
+          "Direct submissions help Freehub validate the official source faster, reduce missing requirement details and avoid publishing copied or incomplete competition information.",
+          "A complete submission is more likely to become a useful page for South African users searching for current competitions, brand giveaways, voucher prizes, car competitions, purchase-required promotions or free-entry prize draws.",
+        ],
+      },
+      {
+        heading: "How review works",
+        paragraphs: [
+          "Freehub reviews submissions against the same safety and usefulness checks used for discovered listings. We look for a credible official source, clear entry rules, transparent costs, a closing date and enough detail for users to make an informed click.",
+          "Submission does not guarantee publication. Freehub may decline, delay, edit, noindex or remove a listing if the source is unclear, the rules are incomplete, the campaign has ended or the promotion creates avoidable user-risk.",
+        ],
+      },
+      {
+        heading: "Useful detail pages for SEO",
+        paragraphs: [
+          "When a competition is approved, Freehub can create a dedicated detail page designed to help users understand the prize, promoter, closing date, entry method, requirements and official source before leaving Freehub.",
+          "Detail pages are written for discovery and trust, not for collecting entries. Users are sent to the official promoter page to enter, and the promoter remains responsible for entry forms, winner selection, privacy notices and prize fulfilment.",
+        ],
+      },
+    ],
+    checklistTitle: "What Freehub can validate",
+    checklist: [
+      "Official promoter page, campaign page, verified social post or terms PDF.",
+      "Promoter, brand, agency or campaign partner relationship.",
+      "Closing date, draw timing and winner-contact process.",
+      "Prize name, prize value where public, number of prizes and important exclusions.",
+      "Approved campaign image, product image or logo URL if the promoter wants a richer listing.",
+      "Entry method, including online form, app, WhatsApp, SMS, USSD, till slip, purchase, loyalty card or paid ticket.",
+      "Eligibility rules such as age, South African residency, region, licence requirements or account requirements.",
+      "Entry cost label, including free entry, purchase required, paid entry, data costs or standard network rates.",
+    ],
+    avoidTitle: "Submissions Freehub may reject",
+    avoid: [
+      "Competitions without a public official source or clear promoter.",
+      "Campaigns that hide costs, terms, eligibility or closing dates.",
+      "Pages asking for banking passwords, card PINs, one-time PINs or unofficial winner fees.",
+      "Expired campaigns unless the page is useful as an archive and has strong source information.",
+      "Submissions that ask Freehub to collect entries, choose winners or validate private user documents.",
+    ],
+    faq: [
+      {
+        question: "Can a company submit a competition to Freehub?",
+        answer:
+          "Yes. Companies, brands, agencies and promoters can use the Freehub submission form to send public competition details for editorial review and possible listing.",
+      },
+      {
+        question: "Does submitting a competition guarantee a listing?",
+        answer:
+          "No. Freehub reviews each submission for source quality, clarity, safety and usefulness before deciding whether it can be published.",
+      },
+      {
+        question: "Can Freehub create a detailed SEO page for an approved competition?",
+        answer:
+          "Yes. Approved competitions can receive a dedicated Freehub detail page with source-backed prize, closing-date, entry-method and requirement information.",
+      },
+      {
+        question: "What helps a submitted competition get reviewed faster?",
+        answer:
+          "A public official competition URL, clear terms and conditions, prize details, closing date, entry method, eligibility rules and any approved image or logo URL help Freehub review the submission faster.",
+      },
+      {
+        question: "Can agencies submit competitions for brands?",
+        answer:
+          "Yes. Agencies can submit competitions for brands, but the submission should include a public source or terms page that confirms the promoter, brand relationship and entry process.",
+      },
+      {
+        question: "Will Freehub collect entries for my competition?",
+        answer:
+          "No. Freehub is a discovery and listing site. Entries, privacy consent, winner selection and prize fulfilment remain with the official promoter.",
+      },
+    ],
+    links: [
+      { label: "Email Freehub", href: "mailto:hello@freehub.co.za?subject=Competition%20submission%20for%20Freehub" },
+      { label: "How Freehub checks listings", href: "/how-we-verify-competitions/" },
+      { label: "Report a competition issue", href: "/report-a-competition/" },
+      { label: "Browse current competitions", href: "/competitions/" },
+      { label: "Browse competition brands", href: "/brands/" },
+      { label: "Entry cost labels", href: "/competition-entry-cost-labels/" },
     ],
   },
   {
@@ -2042,6 +2167,7 @@ function renderSiteFooter(options = {}) {
               <a href="/free-online-courses-south-africa/">Free online courses</a>
               <a href="/free-childrens-books-south-africa/">Free children's books</a>
               <a href="/free-credit-report-south-africa/">Free credit report</a>
+              <a href="/submit-a-competition/">Submit a competition</a>
               <a href="/report-a-competition/">Report a competition</a>
               <a href="/freehub-account-benefits/">Account benefits</a>
             </nav>
@@ -4781,6 +4907,7 @@ function renderTrustPage(page) {
   const faqItems = Array.isArray(page.faq) ? page.faq : [];
   const resourceStructuredData = buildFreeResourceItemList(page, pageResources);
   const faqStructuredData = buildTrustPageFaqStructuredData(faqItems);
+  const serviceStructuredData = buildTrustPageServiceStructuredData(page, canonicalUrl);
   const articleData = page.article
     ? {
         "@context": "https://schema.org",
@@ -4849,6 +4976,9 @@ function renderTrustPage(page) {
   const faqStructuredDataScript = faqStructuredData
     ? `<script id="structured-data-faq" type="application/ld+json">${escapeScript(JSON.stringify(faqStructuredData))}</script>`
     : "";
+  const serviceStructuredDataScript = serviceStructuredData
+    ? `<script id="structured-data-service" type="application/ld+json">${escapeScript(JSON.stringify(serviceStructuredData))}</script>`
+    : "";
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -4874,6 +5004,7 @@ function renderTrustPage(page) {
     ${articleData ? `<script id="structured-data-article" type="application/ld+json">${escapeScript(JSON.stringify(articleData))}</script>` : ""}
     ${resourceStructuredDataScript}
     ${faqStructuredDataScript}
+    ${serviceStructuredDataScript}
     <link rel="stylesheet" href="/styles.css" />
     ${ADSENSE_SCRIPT}
     <!-- Google tag (gtag.js) -->
@@ -4893,11 +5024,11 @@ function renderTrustPage(page) {
         eyebrow: "Freehub trust",
         heading: page.heading,
         intro: page.intro,
-        actions: [
+        actions: page.actions || [
           { label: "Browse Competitions", href: "/competitions/", className: "btn--primary" },
           { label: "Safety Guide", href: "/how-to-enter-competitions-safely/", className: "btn--secondary" },
         ],
-        trustItems: ["Freehub is not the promoter", "Official source links", "Safety-first browsing"],
+        trustItems: page.trustItems || ["Freehub is not the promoter", "Official source links", "Safety-first browsing"],
       })}
 
       <main class="main-content trust-page">
@@ -4916,10 +5047,11 @@ function renderTrustPage(page) {
             .join("\n          ")}
         </section>
 
+        ${page.slug === "submit-a-competition" ? renderCompetitionSubmissionForm() : ""}
         ${page.slug === "contact" ? renderGlobalAuthPanel({
           id: "contact",
           title: "Want competition alerts instead?",
-          text: "For alerts, sign in with Google or an email link. For listing corrections, use the contact email above.",
+          text: "For alerts, sign in with Google or an email link. For company submissions, use the dedicated submission page.",
         }) : ""}
         ${page.slug === "freehub-account-benefits" ? renderGlobalAuthPanel({
           id: "account-benefits",
@@ -4946,10 +5078,93 @@ function renderTrustPage(page) {
 
       ${renderSiteFooter()}
     </div>
+    ${page.slug === "submit-a-competition" ? '<script type="module" src="/shared/submission-ui.js"></script>' : ""}
     <script type="module" src="/shared/auth-ui.js"></script>
   </body>
 </html>
 `;
+}
+
+function renderCompetitionSubmissionForm() {
+  return `<section class="submission-panel" aria-labelledby="competitionSubmissionTitle">
+          <div class="submission-panel__header">
+            <p class="section-kicker">Submit for review</p>
+            <h2 id="competitionSubmissionTitle">Competition submission details</h2>
+            <p>Submissions are saved to Freehub's private review queue and marked pending review. Freehub does not accept consumer competition entries here.</p>
+          </div>
+          <form class="submission-form" data-competition-submission-form>
+            <div class="submission-form__grid">
+              <label>
+                <span>Company or brand</span>
+                <input name="companyName" type="text" autocomplete="organization" maxlength="120" required />
+              </label>
+              <label>
+                <span>Contact name</span>
+                <input name="contactName" type="text" autocomplete="name" maxlength="120" required />
+              </label>
+              <label>
+                <span>Contact email</span>
+                <input name="contactEmail" type="email" autocomplete="email" maxlength="160" required />
+              </label>
+              <label>
+                <span>Competition title</span>
+                <input name="competitionTitle" type="text" maxlength="160" required />
+              </label>
+              <label>
+                <span>Official competition URL</span>
+                <input name="officialUrl" type="url" inputmode="url" maxlength="500" required />
+              </label>
+              <label>
+                <span>Terms URL</span>
+                <input name="termsUrl" type="url" inputmode="url" maxlength="500" />
+              </label>
+              <label>
+                <span>Campaign image or logo URL</span>
+                <input name="campaignImageUrl" type="url" inputmode="url" maxlength="500" />
+              </label>
+              <label>
+                <span>Closing date</span>
+                <input name="closingDate" type="date" required />
+              </label>
+              <label>
+                <span>Entry method</span>
+                <select name="entryMethod" required>
+                  <option value="">Select one</option>
+                  <option value="online-form">Online form</option>
+                  <option value="app">App</option>
+                  <option value="whatsapp">WhatsApp</option>
+                  <option value="sms">SMS</option>
+                  <option value="ussd">USSD</option>
+                  <option value="till-slip">Till slip or receipt</option>
+                  <option value="in-store">In store</option>
+                  <option value="social">Social media</option>
+                  <option value="paid-ticket">Paid ticket</option>
+                  <option value="other">Other or mixed</option>
+                </select>
+              </label>
+            </div>
+            <label>
+              <span>Prize details</span>
+              <textarea name="prizeDetails" rows="4" maxlength="1200" required></textarea>
+            </label>
+            <label>
+              <span>Purchase, eligibility or account requirements</span>
+              <textarea name="requirements" rows="4" maxlength="1200"></textarea>
+            </label>
+            <label>
+              <span>Extra notes for Freehub review</span>
+              <textarea name="notes" rows="4" maxlength="1200"></textarea>
+            </label>
+            <label class="submission-form__consent">
+              <input name="submissionConsent" type="checkbox" required />
+              <span>I am submitting public campaign information for Freehub review and I will not include customer entries, identity documents, banking details or private winner information.</span>
+            </label>
+            <div class="submission-form__actions">
+              <button class="btn btn--primary" type="submit">Submit for Review</button>
+              <p class="submission-form__status" data-submission-status aria-live="polite"></p>
+            </div>
+          </form>
+        </section>`;
 }
 
 function getTrustPageResources(page) {
@@ -5109,6 +5324,37 @@ function buildTrustPageFaqStructuredData(faqItems) {
         text: item.answer,
       },
     })),
+  };
+}
+
+function buildTrustPageServiceStructuredData(page, canonicalUrl) {
+  if (!page || !page.service) {
+    return null;
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: page.service.name || page.heading,
+    serviceType: page.service.serviceType || "Editorial review",
+    description: page.description,
+    url: canonicalUrl,
+    areaServed: {
+      "@type": "Country",
+      name: "South Africa",
+    },
+    audience: page.service.audience
+      ? {
+          "@type": "BusinessAudience",
+          audienceType: page.service.audience,
+        }
+      : undefined,
+    provider: {
+      "@type": "Organization",
+      name: "Freehub",
+      url: `${shared.CANONICAL_ORIGIN}/`,
+      email: "hello@freehub.co.za",
+    },
   };
 }
 

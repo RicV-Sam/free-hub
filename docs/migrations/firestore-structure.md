@@ -33,6 +33,7 @@ users/{userId}/savedCompetitions/{competitionId}
 users/{userId}/ignoredCompetitions/{competitionId}
 users/{userId}/alertPreferences/main
 signupEvents/{eventId}
+competitionSubmissions/{submissionId}
 mail/{mailId}
 emailCampaigns/{campaignId}
 emailCampaigns/{campaignId}/recipients/{userId}
@@ -102,6 +103,35 @@ emailCampaigns/{campaignId}/recipients/{userId}
   "alertsOptIn": false,
   "pagePath": "/competition/brand-competition-slug-2026/",
   "createdAt": "serverTimestamp"
+}
+```
+
+### `competitionSubmissions/{submissionId}`
+
+Company, brand and agency submissions from `/submit-a-competition/`. These records are private review-queue items and must never auto-publish to `data/competitions.json`.
+
+View incoming submissions in Firebase Console under Firestore Database -> `competitionSubmissions`. New rows are created with `reviewStatus: "pending-review"`.
+
+```json
+{
+  "submissionId": "auto-id",
+  "companyName": "Brand or Company",
+  "contactName": "Marketing Contact",
+  "contactEmail": "contact@example.com",
+  "competitionTitle": "Win a prize",
+  "officialUrl": "https://example.com/competition",
+  "termsUrl": "https://example.com/terms",
+  "campaignImageUrl": "https://example.com/campaign-image.jpg",
+  "closingDate": "2026-07-31",
+  "prizeDetails": "Prize summary",
+  "entryMethod": "online-form",
+  "requirements": "Purchase, eligibility or account notes",
+  "notes": "Extra review notes",
+  "reviewStatus": "pending-review",
+  "source": "submit-a-competition-page",
+  "pagePath": "/submit-a-competition/",
+  "createdAt": "serverTimestamp",
+  "updatedAt": "serverTimestamp"
 }
 ```
 
@@ -234,6 +264,76 @@ service cloud.firestore {
           'alertsOptIn',
           'pagePath',
           'createdAt'
+        ]);
+      allow read, update, delete: if false;
+    }
+
+    match /competitionSubmissions/{submissionId} {
+      allow create: if request.resource.data.submissionId == submissionId
+        && request.resource.data.reviewStatus == 'pending-review'
+        && request.resource.data.source == 'submit-a-competition-page'
+        && request.resource.data.pagePath == '/submit-a-competition/'
+        && request.resource.data.companyName is string
+        && request.resource.data.companyName.size() >= 2
+        && request.resource.data.companyName.size() <= 120
+        && request.resource.data.contactName is string
+        && request.resource.data.contactName.size() >= 2
+        && request.resource.data.contactName.size() <= 120
+        && request.resource.data.contactEmail is string
+        && request.resource.data.contactEmail.matches('^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$')
+        && request.resource.data.contactEmail.size() <= 160
+        && request.resource.data.competitionTitle is string
+        && request.resource.data.competitionTitle.size() >= 3
+        && request.resource.data.competitionTitle.size() <= 160
+        && request.resource.data.officialUrl is string
+        && request.resource.data.officialUrl.matches('^https?://.+')
+        && request.resource.data.officialUrl.size() <= 500
+        && request.resource.data.termsUrl is string
+        && request.resource.data.termsUrl.size() <= 500
+        && (request.resource.data.termsUrl == '' || request.resource.data.termsUrl.matches('^https?://.+'))
+        && request.resource.data.campaignImageUrl is string
+        && request.resource.data.campaignImageUrl.size() <= 500
+        && (request.resource.data.campaignImageUrl == '' || request.resource.data.campaignImageUrl.matches('^https?://.+'))
+        && request.resource.data.closingDate is string
+        && request.resource.data.closingDate.matches('^\\d{4}-\\d{2}-\\d{2}$')
+        && request.resource.data.prizeDetails is string
+        && request.resource.data.prizeDetails.size() >= 3
+        && request.resource.data.prizeDetails.size() <= 1200
+        && request.resource.data.entryMethod in [
+          'online-form',
+          'app',
+          'whatsapp',
+          'sms',
+          'ussd',
+          'till-slip',
+          'in-store',
+          'social',
+          'paid-ticket',
+          'other'
+        ]
+        && request.resource.data.requirements is string
+        && request.resource.data.requirements.size() <= 1200
+        && request.resource.data.notes is string
+        && request.resource.data.notes.size() <= 1200
+        && request.resource.data.keys().hasOnly([
+          'submissionId',
+          'companyName',
+          'contactName',
+          'contactEmail',
+          'competitionTitle',
+          'officialUrl',
+          'termsUrl',
+          'campaignImageUrl',
+          'closingDate',
+          'prizeDetails',
+          'entryMethod',
+          'requirements',
+          'notes',
+          'reviewStatus',
+          'source',
+          'pagePath',
+          'createdAt',
+          'updatedAt'
         ]);
       allow read, update, delete: if false;
     }
