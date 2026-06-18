@@ -12,6 +12,18 @@ const ADSENSE_SCRIPT =
 const WHATSAPP_CHANNEL_URL = "https://whatsapp.com/channel/0029Vb7mS1VE50UlOc2yOe2H";
 const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date());
 const CSS_ASSET_VERSION = "20260618-nav-v1";
+const FREEHUB_REFER_WIN_CONFIG = {
+  referWinCampaignEnabled: false,
+  referWinPrototypeEnabled: true,
+  campaignStatusLabel: "Coming soon - not currently live",
+  monthlyPrizeLabel: "R1,000 airtime or data",
+  prizeFulfilmentLabel: "Airtime or mobile data voucher to a supported South African mobile number",
+  winnerMechanicLabel: "Most approved referrals in the campaign month, subject to manual review",
+  minimumApprovedReferrals: 5,
+  publicLeaderboardEnabled: false,
+  adminReviewRequired: true,
+  marketingConsentRequired: false,
+};
 const CATEGORY_LINKS = [
   { label: "All Competitions", href: "/" },
   ...shared.CATEGORY_SLUGS.map((slug) => ({
@@ -1640,6 +1652,7 @@ function main() {
   });
 
   writeClubPages(activeCompetitions);
+  writeReferAndWinPages();
   writeAdminPages();
 
   fs.writeFileSync(
@@ -2175,6 +2188,7 @@ function renderSiteFooter(options = {}) {
               <a href="/report-a-competition/">Report a competition</a>
               <a href="/freehub-account-benefits/">Account benefits</a>
               <a href="/club/">Freehub Club</a>
+              <a href="/refer-and-win/">Refer &amp; Win</a>
             </nav>
           </div>
           <div>
@@ -2262,6 +2276,17 @@ function writeClubPages(activeCompetitions = []) {
 function writeAdminPages() {
   [
     { slug: path.join("admin", "referrals"), html: renderReferralAdminPage() },
+  ].forEach((page) => {
+    const outputDirectory = path.join(ROOT_DIR, page.slug);
+    fs.mkdirSync(outputDirectory, { recursive: true });
+    fs.writeFileSync(path.join(outputDirectory, "index.html"), page.html);
+  });
+}
+
+function writeReferAndWinPages() {
+  [
+    { slug: "refer-and-win", html: renderReferAndWinPage() },
+    { slug: path.join("refer-and-win", "terms"), html: renderReferAndWinTermsPage() },
   ].forEach((page) => {
     const outputDirectory = path.join(ROOT_DIR, page.slug);
     fs.mkdirSync(outputDirectory, { recursive: true });
@@ -5235,7 +5260,11 @@ function renderClubLandingPage() {
             <h2>Refer &amp; Win is not live yet</h2>
             <p>Club accounts can create a referral link now, but Freehub will only count rewards under a separate live campaign with clear terms. Current referral records are stored as pending verification only.</p>
           </div>
-          <a class="btn btn--primary" href="/club/dashboard/">Open Club dashboard</a>
+          <div class="club-section__actions">
+            <a class="btn btn--primary" href="/refer-and-win/">Learn about Refer &amp; Win</a>
+            <a class="btn btn--secondary" href="/refer-and-win/terms/">Planned rules</a>
+            <a class="btn btn--secondary" href="/club/dashboard/">Open Club dashboard</a>
+          </div>
         </section>
 
         <section class="trust-faq" aria-label="Freehub Club FAQ">
@@ -5286,13 +5315,16 @@ function renderClubDashboardPage(activeCompetitions = []) {
             <div>
               <p class="section-kicker">Referral link</p>
               <h2>Your Freehub Club link</h2>
-              <p>Refer &amp; Win is coming soon. For now, referrals are captured as pending verification only.</p>
+              <p>Refer &amp; Win is coming soon. Referrals may be captured now, but the monthly prize campaign is not live and referral review is still being prepared.</p>
             </div>
             <div class="club-copy-row">
               <input type="text" readonly data-club-referral-link aria-label="Your Freehub Club referral link" />
               <button class="btn btn--secondary" type="button" data-club-action="copy-referral">Copy</button>
               <button class="btn btn--secondary" type="button" data-club-action="share-referral">Share</button>
+              <a class="btn btn--secondary" href="/refer-and-win/">Refer &amp; Win</a>
+              <a class="btn btn--secondary" href="/refer-and-win/terms/">Rules</a>
             </div>
+            <p class="club-status">Approved referrals: coming soon.</p>
             <p class="club-status" data-club-referral-status aria-live="polite"></p>
           </section>
           <details class="club-saved-panel club-collapsible" aria-label="Saved competitions" open>
@@ -5441,6 +5473,18 @@ function renderReferralAdminPage() {
           </section>
 
           <section class="admin-content" data-referral-admin-content hidden>
+            <section class="admin-campaign-status" aria-label="Refer and Win campaign status">
+              <div>
+                <p class="section-kicker">Campaign status</p>
+                <h2>Refer &amp; Win campaign: disabled / coming soon</h2>
+                <p>The admin review queue can approve or reject referral records, but this page does not launch the public campaign or select winners.</p>
+              </div>
+              <div class="club-section__actions">
+                <a class="btn btn--secondary" href="/refer-and-win/">Public page</a>
+                <a class="btn btn--secondary" href="/refer-and-win/terms/">Planned rules</a>
+              </div>
+            </section>
+
             <div class="admin-toolbar">
               <div>
                 <p class="section-kicker">Signed in admin</p>
@@ -5499,6 +5543,480 @@ function renderReferralAdminPage() {
 `;
 }
 
+function renderReferAndWinPage() {
+  const canonicalUrl = `${shared.CANONICAL_ORIGIN}/refer-and-win/`;
+  const title = "Refer Friends and Win Airtime or Data | Freehub Refer & Win";
+  const description =
+    "Learn how the planned Freehub Refer & Win monthly referral challenge will work. Freehub Club members will be able to share referral links and stand a chance to win airtime or data when the campaign launches.";
+  const faqItems = [
+    {
+      question: "Is Refer & Win live now?",
+      answer:
+        "No. Freehub Refer & Win is coming soon and is not currently live. Referral records may be captured for preparation, but the monthly prize campaign has not launched.",
+    },
+    {
+      question: "How do I join Freehub Club?",
+      answer: "Join through the Freehub Club page using Google sign-in. Club membership is free.",
+    },
+    {
+      question: "How do I get a referral link?",
+      answer:
+        "After signing in, your personal referral link is available in your Freehub Club dashboard and account page.",
+    },
+    {
+      question: "What is the planned prize?",
+      answer:
+        "The planned monthly prize is R1,000 airtime or data for a supported South African mobile number. Final details will be confirmed before launch.",
+    },
+    {
+      question: "What counts as an approved referral?",
+      answer:
+        "Only referrals that pass manual review may count. A click or sign-in alone does not make a referral approved.",
+    },
+    {
+      question: "Can I refer myself?",
+      answer: "No. Self-referrals do not count and may be rejected during manual review.",
+    },
+    {
+      question: "Will there be a public leaderboard?",
+      answer:
+        "No real public leaderboard is live yet. Any future leaderboard should use anonymised display data and will not show personal details.",
+    },
+    {
+      question: "Does Freehub show my personal details publicly?",
+      answer:
+        "No. Public referral surfaces must not show emails, phone numbers, Firebase UIDs or private account details.",
+    },
+    {
+      question: "Do I have to accept marketing messages?",
+      answer:
+        "No. Marketing consent is optional and separate from Freehub Club and the planned Refer & Win campaign.",
+    },
+    {
+      question: "Where can I read the rules?",
+      answer: "Read the planned rules at /refer-and-win/terms/ before the campaign launches.",
+    },
+  ];
+  const faqStructuredData = buildTrustPageFaqStructuredData(faqItems);
+  const webPageStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Freehub Refer & Win",
+    description,
+    url: canonicalUrl,
+    inLanguage: "en-ZA",
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Freehub",
+      url: `${shared.CANONICAL_ORIGIN}/`,
+    },
+  };
+
+  return renderReferAndWinShell({
+    title,
+    description,
+    canonicalUrl,
+    pageType: "refer_win_landing",
+    structuredDataScripts: `
+    <script id="structured-data-webpage" type="application/ld+json">${escapeScript(JSON.stringify(webPageStructuredData))}</script>
+    <script id="structured-data-faq" type="application/ld+json">${escapeScript(JSON.stringify(faqStructuredData))}</script>`,
+    body: `
+      ${renderModernHero({
+        className: "hero--refer-win hero--with-preview",
+        eyebrow: "Freehub Refer & Win",
+        heading: "Refer friends. Stand a chance to win airtime or data.",
+        intro:
+          "Freehub Refer & Win is a planned monthly challenge for Freehub Club members in South Africa. Once live, members will be able to share their personal referral link, invite friends to join Freehub Club, and compete for a monthly airtime or data prize based on approved referrals.",
+        updatedMarkup: renderReferWinStatusPill(),
+        actions: [
+          { label: "Join Freehub Club", href: "/club/", className: "btn--primary" },
+          { label: "View your Club dashboard", href: "/club/dashboard/", className: "btn--secondary" },
+          { label: "Read the planned rules", href: "/refer-and-win/terms/", className: "btn--secondary" },
+        ],
+        trustItems: ["Coming soon", "Approved referrals only", "Marketing consent is optional"],
+        previewMarkup: renderReferAndWinPreviewPanel(),
+      })}
+      <main id="main-content" class="main-content refer-page">
+        <section class="club-section club-section--notice refer-status-notice">
+          <div>
+            <p class="section-kicker">Campaign status</p>
+            <h2>Coming soon - this campaign is not currently live</h2>
+            <p>The monthly prize campaign is being prepared. Referral links can exist now, but prize counting, public rankings and winner confirmation are not live.</p>
+          </div>
+          <a class="btn btn--primary" href="/refer-and-win/terms/">Read draft rules</a>
+        </section>
+
+        <section class="club-section" aria-label="How Refer and Win will work">
+          <p class="section-kicker">How it will work</p>
+          <h2>Five planned steps</h2>
+          <ol class="refer-steps">
+            <li><strong>Join Freehub Club</strong><span>Use Google sign-in to create a free account.</span></li>
+            <li><strong>Get your referral link</strong><span>Your personal Freehub referral link appears in your Club dashboard.</span></li>
+            <li><strong>Share your link</strong><span>Invite friends to join Freehub Club through your link.</span></li>
+            <li><strong>Friends join Freehub Club</strong><span>Referral attribution may be captured when a new member signs in from a valid referral link.</span></li>
+            <li><strong>Approved referrals may count</strong><span>Only approved referrals may count towards the monthly challenge once the campaign is live.</span></li>
+          </ol>
+          <p class="refer-note">Only approved referrals count. Approval is subject to manual review. The campaign is not live yet.</p>
+        </section>
+
+        <section class="club-section club-section--split" aria-label="Prize preview and approved referrals">
+          <article>
+            <p class="section-kicker">Prize preview</p>
+            <h2>${escapeHtml(FREEHUB_REFER_WIN_CONFIG.monthlyPrizeLabel)}</h2>
+            <p>The planned prize is airtime or mobile data for a supported South African mobile number. It is not currently active because the campaign has not launched.</p>
+            <p>Final prize details, fulfilment timing and any network limitations will be confirmed in the live rules before launch.</p>
+          </article>
+          <article>
+            <p class="section-kicker">Approved referrals</p>
+            <h2>What may count</h2>
+            <ul class="refer-check-list">
+              <li>The referred person is new to Freehub Club.</li>
+              <li>The referred person joins through a valid referral link or referral code.</li>
+              <li>The referred person accepts the relevant Freehub Club and campaign rules.</li>
+              <li>The referral is not a self-referral.</li>
+              <li>The referral is not duplicate, fake, automated or suspicious.</li>
+              <li>The referral is approved through manual review.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="club-section club-section--split" aria-label="Referral exclusions and fairness">
+          <article>
+            <p class="section-kicker">What does not count</p>
+            <h2>Rejected referral examples</h2>
+            <ul class="refer-check-list">
+              <li>Self-referrals.</li>
+              <li>Duplicate accounts.</li>
+              <li>Fake or automated registrations.</li>
+              <li>Incomplete or suspicious profiles.</li>
+              <li>Referrals created by misleading users.</li>
+              <li>Referrals that breach the rules or cannot be verified.</li>
+            </ul>
+          </article>
+          <article>
+            <p class="section-kicker">Fairness and review</p>
+            <h2>Manual review comes first</h2>
+            <p>Referrals are reviewed before they count. Suspicious activity may be rejected, and the highest count is not final until review is complete.</p>
+            <p>Freehub may delay, reject or review referrals if there are technical, fraud, abuse or compliance concerns. Public winner announcements will only happen after confirmation.</p>
+          </article>
+        </section>
+
+        <section class="club-section club-section--split" aria-label="Example leaderboard and privacy">
+          <article class="refer-example-board">
+            <p class="section-kicker">Example only - not live data</p>
+            <h2>Illustrative leaderboard</h2>
+            <ol>
+              <li>Freehub user FH7K92 - 24 approved referrals</li>
+              <li>Freehub user FHM3A8 - 18 approved referrals</li>
+              <li>Freehub user FHZ19P - 11 approved referrals</li>
+            </ol>
+            <p>A public leaderboard has not launched. Any future leaderboard will use anonymised display data and will not show personal details.</p>
+          </article>
+          <article>
+            <p class="section-kicker">Privacy</p>
+            <h2>Personal details stay private</h2>
+            <p>Freehub uses account and referral information to manage Freehub Club, referral tracking, campaign administration, fraud prevention, and prize fulfilment where applicable.</p>
+            <p>Marketing messages are optional and require separate consent. Personal information is not shown publicly, and users can unsubscribe from marketing messages later if they opted in.</p>
+          </article>
+        </section>
+
+        <section class="trust-faq" aria-label="Freehub Refer and Win FAQ">
+          <div class="home-section__header">
+            <div>
+              <p class="section-kicker">FAQ</p>
+              <h2 class="home-section__title">Refer &amp; Win questions</h2>
+            </div>
+          </div>
+          ${faqItems
+            .map(
+              (item) => `<details class="trust-faq__item">
+            <summary>${escapeHtml(item.question)}</summary>
+            <p>${escapeHtml(item.answer)}</p>
+          </details>`
+            )
+            .join("\n          ")}
+        </section>
+      </main>`,
+  });
+}
+
+function renderReferAndWinTermsPage() {
+  const canonicalUrl = `${shared.CANONICAL_ORIGIN}/refer-and-win/terms/`;
+  const title = "Freehub Refer & Win Rules | Freehub";
+  const description =
+    "Read the planned Freehub Refer & Win rules, including eligibility, referral counting, manual review, prize fulfilment, privacy and campaign status.";
+  const sections = [
+    {
+      heading: "1. Promoter",
+      paragraphs: [
+        "Promoter details will be confirmed before launch.",
+        "TODO: Confirm official promoter/legal entity before enabling referWinCampaignEnabled.",
+      ],
+    },
+    { heading: "2. Campaign name", paragraphs: ["Freehub Refer & Win."] },
+    { heading: "3. Territory", paragraphs: ["South Africa."] },
+    {
+      heading: "4. Eligibility",
+      list: [
+        "Open to South African residents.",
+        "Participants must be 18 years or older, unless final rules say otherwise.",
+        "Participants must have a valid Freehub Club account.",
+        "Participants must comply with the rules.",
+        "Freehub may exclude accounts involved in fraud, abuse, duplicate registrations or misleading referral activity.",
+      ],
+    },
+    {
+      heading: "5. Campaign period",
+      paragraphs: [
+        "The campaign period has not started. Monthly campaign dates will be confirmed before launch.",
+        "Once live, monthly campaign periods may run from the first day of a calendar month to the last day of that calendar month, South African time.",
+      ],
+    },
+    {
+      heading: "6. Prize",
+      paragraphs: [
+        `The planned prize is ${FREEHUB_REFER_WIN_CONFIG.monthlyPrizeLabel}.`,
+        "The prize is planned for fulfilment to a supported South African mobile number and is not exchangeable for cash unless Freehub states otherwise.",
+        "Final prize details will be confirmed before launch. Freehub may request details needed for prize fulfilment.",
+      ],
+    },
+    {
+      heading: "7. How to enter",
+      paragraphs: ["Once live, the planned entry route is:"],
+      list: [
+        "Join Freehub Club.",
+        "Get your referral link.",
+        "Share your referral link.",
+        "Referred users join Freehub Club through that link.",
+        "Referrals are reviewed.",
+        "Approved referrals count towards the monthly campaign.",
+      ],
+    },
+    {
+      heading: "8. Referral link mechanic",
+      paragraphs: [
+        "Each Freehub Club member receives a unique referral code. Referral links may look like /club/?ref=FHXXXXX.",
+        "Referral attribution may be stored for a limited period, and only valid referral codes can be considered.",
+      ],
+    },
+    {
+      heading: "9. Approved referral definition",
+      paragraphs: [
+        "An approved referral is a referral reviewed and approved by Freehub or an authorised admin.",
+        "A referral is not approved just because someone clicked a link. A referral is not approved just because someone signed in.",
+      ],
+    },
+    {
+      heading: "10. What does not count",
+      list: [
+        "Self-referrals.",
+        "Duplicate accounts.",
+        "Fake accounts.",
+        "Automated or bot registrations.",
+        "Misleading sharing.",
+        "Incomplete or unverifiable sign-ups.",
+        "Referrals that breach the rules.",
+        "Referrals generated by abuse of the system.",
+      ],
+    },
+    {
+      heading: "11. Manual review",
+      paragraphs: [
+        "All referrals are subject to review. Status may be pending, approved or rejected.",
+        "Freehub can reject suspicious referrals. Monthly totals are not final until review is complete.",
+      ],
+    },
+    {
+      heading: "12. Winner selection",
+      paragraphs: [
+        "The planned winner mechanic is that the Freehub Club member with the highest number of approved referrals in a campaign month may be selected as the monthly winner, subject to manual review and final confirmation.",
+      ],
+    },
+    {
+      heading: "13. Tie-breaker",
+      paragraphs: [
+        "If two or more users have the same number of approved referrals, Freehub may use a fair tie-breaker such as earliest to reach the approved count, manual review outcome, or a random draw among tied eligible users. The final tie-breaker will be confirmed before launch.",
+      ],
+    },
+    {
+      heading: "14. Winner notification",
+      list: [
+        "Once live, a selected winner may be contacted through available account or contact details.",
+        "A selected winner may need to respond within a stated period.",
+        "If a selected winner cannot be contacted or verified, Freehub may select another eligible winner.",
+      ],
+    },
+    {
+      heading: "15. Prize fulfilment",
+      paragraphs: [
+        "Airtime or data may be delivered via voucher, recharge or another supported method.",
+        "The recipient may need to provide a supported South African mobile number. Prize fulfilment timing will be confirmed before launch.",
+      ],
+    },
+    {
+      heading: "16. Publicity",
+      paragraphs: [
+        "Freehub may publish anonymised winner information. Personal details will not be published without appropriate permission.",
+        "Users should not be forced into publicity as a condition unless legally reviewed.",
+      ],
+    },
+    {
+      heading: "17. Data protection and privacy",
+      paragraphs: [
+        "Freehub processes data for account management, referral tracking, campaign administration, fraud prevention, support and prize fulfilment.",
+        "Marketing consent is separate and optional. Public leaderboards, if launched, should use anonymised display data. Personal details are not publicly displayed.",
+      ],
+    },
+    {
+      heading: "18. Marketing consent",
+      paragraphs: [
+        "Marketing consent is optional and is not required to participate in Freehub Club or the planned Refer & Win campaign.",
+      ],
+    },
+    {
+      heading: "19. Changes, suspension and cancellation",
+      paragraphs: [
+        "Freehub may amend, pause or cancel the campaign if technical issues, fraud, abuse, operational constraints or legal/compliance concerns arise.",
+        "Changes should be communicated clearly.",
+      ],
+    },
+    {
+      heading: "20. Contact and support",
+      paragraphs: ["For Freehub support, contact hello@freehub.co.za."],
+    },
+  ];
+
+  return renderReferAndWinShell({
+    title,
+    description,
+    canonicalUrl,
+    pageType: "refer_win_terms",
+    robots: "noindex, follow",
+    body: `
+      ${renderModernHero({
+        className: "hero--refer-win hero--collection hero--no-preview",
+        eyebrow: "Draft rules",
+        heading: "Freehub Refer & Win Rules",
+        intro:
+          "These rules are prepared for the planned Freehub Refer & Win campaign. The campaign is not currently live. Final launch dates and prize details will be confirmed before activation.",
+        updatedMarkup: renderReferWinStatusPill("Draft / coming-soon rules - campaign not currently live"),
+        actions: [
+          { label: "Back to Refer & Win", href: "/refer-and-win/", className: "btn--primary" },
+          { label: "Join Freehub Club", href: "/club/", className: "btn--secondary" },
+        ],
+        trustItems: ["Draft rules", "No live prize", "Manual review required"],
+      })}
+      <main id="main-content" class="main-content refer-page refer-terms-page">
+        <section class="club-section club-section--notice refer-status-notice">
+          <div>
+            <p class="section-kicker">Status notice</p>
+            <h2>Draft / coming-soon rules - campaign not currently live</h2>
+            <p>These rules are prepared for the planned Freehub Refer &amp; Win campaign. The campaign is not currently live. Final launch dates and prize details will be confirmed before activation.</p>
+          </div>
+          <a class="btn btn--primary" href="/club/dashboard/">View Club dashboard</a>
+        </section>
+
+        <section class="club-section refer-terms">
+          ${sections.map(renderReferTermsSection).join("\n          ")}
+          <!-- TODO: Confirm official promoter/legal entity before enabling referWinCampaignEnabled. -->
+        </section>
+      </main>`,
+  });
+}
+
+function renderReferAndWinShell({
+  title,
+  description,
+  canonicalUrl,
+  pageType,
+  body,
+  structuredDataScripts = "",
+  robots = "index, follow, max-image-preview:large",
+}) {
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${escapeHtml(title)}</title>
+    <meta name="description" content="${escapeAttribute(description)}" />
+    <meta name="robots" content="${escapeAttribute(robots)}" />
+    <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="${escapeAttribute(title)}" />
+    <meta property="og:description" content="${escapeAttribute(description)}" />
+    <meta property="og:url" content="${escapeAttribute(canonicalUrl)}" />
+    <meta property="og:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${escapeAttribute(title)}" />
+    <meta name="twitter:description" content="${escapeAttribute(description)}" />
+    <meta name="twitter:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
+    ${structuredDataScripts}
+    ${renderReferWinConfigScript()}
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
+    ${ADSENSE_SCRIPT}
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('set', { page_type: ${escapeScript(JSON.stringify(pageType))} });
+      gtag('config', 'G-23P37R20FY');
+    </script>
+  </head>
+  <body>
+    <div class="site-shell">
+      ${renderTopNavigation({ active: "club" })}
+      ${body}
+      ${renderSiteFooter()}
+    </div>
+    <script type="module" src="/shared/auth-ui.js"></script>
+  </body>
+</html>
+`;
+}
+
+function renderReferWinConfigScript() {
+  return `<script>window.FREEHUB_REFER_WIN_CONFIG = ${escapeScript(
+    JSON.stringify(FREEHUB_REFER_WIN_CONFIG)
+  )}; window.FREEHUB_CLUB_CONFIG = { referWinCampaignEnabled: false };</script>`;
+}
+
+function renderReferWinStatusPill(label = FREEHUB_REFER_WIN_CONFIG.campaignStatusLabel) {
+  return `<p class="refer-status-pill">${escapeHtml(label)}</p>`;
+}
+
+function renderReferAndWinPreviewPanel() {
+  return `<aside class="hero-preview-panel hero-preview-panel--refer" aria-label="Refer and Win status preview">
+            <p class="hero-preview-panel__kicker">Coming soon</p>
+            <h2 class="hero-preview-panel__title">${escapeHtml(FREEHUB_REFER_WIN_CONFIG.monthlyPrizeLabel)}</h2>
+            <p class="hero-preview-panel__intro">Planned monthly challenge for approved Freehub Club referrals. Not live yet.</p>
+            <ul class="hero-preview-panel__list">
+              <li><span>Mechanic</span><strong>Most approved referrals</strong></li>
+              <li><span>Review</span><strong>Manual approval required</strong></li>
+              <li><span>Privacy</span><strong>Anonymised public display only</strong></li>
+            </ul>
+            <p class="hero-preview-panel__note">No purchase required. Marketing consent is optional.</p>
+          </aside>`;
+}
+
+function renderReferTermsSection(section) {
+  const paragraphs = (section.paragraphs || [])
+    .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
+    .join("\n              ");
+  const list = Array.isArray(section.list)
+    ? `<ul>${section.list.map((item) => `<li>${escapeHtml(item)}</li>`).join("\n                ")}</ul>`
+    : "";
+
+  return `<article class="refer-terms__section">
+            <h2>${escapeHtml(section.heading)}</h2>
+            ${paragraphs}
+            ${list}
+          </article>`;
+}
+
 function renderClubShell({ title, description, canonicalUrl, robots, pageType, body, structuredDataScripts = "" }) {
   return `<!DOCTYPE html>
 <html lang="en">
@@ -5520,7 +6038,7 @@ function renderClubShell({ title, description, canonicalUrl, robots, pageType, b
     <meta name="twitter:description" content="${escapeAttribute(description)}" />
     <meta name="twitter:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
     ${structuredDataScripts}
-    <script>window.FREEHUB_CLUB_CONFIG = { referWinCampaignEnabled: false };</script>
+    ${renderReferWinConfigScript()}
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
     ${ADSENSE_SCRIPT}
     <!-- Google tag (gtag.js) -->
@@ -7371,6 +7889,12 @@ function generateSitemap(competitions, routeContexts, sitemapCompetitions = comp
       lastmod: BUILD_DATE_ISO,
     }),
   ];
+  const referAndWinEntries = [
+    renderSitemapUrl({
+      loc: `${origin}/refer-and-win/`,
+      lastmod: BUILD_DATE_ISO,
+    }),
+  ];
 
   const competitionEntries = sitemapCompetitions
     .filter((competition) => shared.isActiveCompetition(competition))
@@ -7385,7 +7909,7 @@ function generateSitemap(competitions, routeContexts, sitemapCompetitions = comp
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-${[...staticEntries, ...trustPageEntries, ...clubEntries, ...competitionEntries].join("\n")}
+${[...staticEntries, ...trustPageEntries, ...clubEntries, ...referAndWinEntries, ...competitionEntries].join("\n")}
 </urlset>
 `;
 }

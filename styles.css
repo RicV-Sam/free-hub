@@ -3928,6 +3928,21 @@ body {
   justify-content: space-between;
 }
 
+.club-section__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.club-section__actions .btn--secondary,
+.club-copy-row .btn--secondary {
+  border-color: rgba(15, 118, 110, 0.24);
+  background: #fff;
+  color: var(--accent);
+}
+
 .club-collapsible > summary {
   list-style: none;
   cursor: pointer;
@@ -4160,6 +4175,95 @@ body {
   overflow-wrap: anywhere;
 }
 
+.refer-page {
+  display: grid;
+  gap: 1rem;
+}
+
+.hero-preview-panel--refer {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.refer-status-pill {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 36px;
+  margin: 1rem 0 0;
+  padding: 0.42rem 0.75rem;
+  border: 1px solid rgba(242, 182, 50, 0.36);
+  border-radius: 999px;
+  background: rgba(242, 182, 50, 0.14);
+  color: #fef3c7;
+  font-weight: 900;
+}
+
+.refer-status-notice {
+  background: #fff7ed;
+  border-color: rgba(217, 154, 22, 0.24);
+}
+
+.refer-steps,
+.refer-check-list,
+.refer-example-board ol,
+.refer-terms ul {
+  display: grid;
+  gap: 0.65rem;
+  margin: 1rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.refer-steps li {
+  padding-left: 0.25rem;
+}
+
+.refer-steps strong,
+.refer-steps span {
+  display: block;
+}
+
+.refer-steps span,
+.refer-note,
+.refer-terms p,
+.refer-example-board p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.refer-note {
+  margin: 1rem 0 0;
+  font-weight: 800;
+}
+
+.refer-example-board {
+  padding: 1rem;
+  border: 1px solid rgba(15, 118, 110, 0.14);
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.refer-terms {
+  display: grid;
+  gap: 1rem;
+}
+
+.refer-terms__section {
+  display: grid;
+  gap: 0.45rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(15, 118, 110, 0.12);
+}
+
+.refer-terms__section:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.refer-terms__section h2,
+.refer-terms__section p {
+  margin: 0;
+}
+
 .admin-page {
   display: grid;
   gap: 1rem;
@@ -4169,7 +4273,8 @@ body {
 .admin-gate,
 .admin-content,
 .admin-panel,
-.admin-referral-card {
+.admin-referral-card,
+.admin-campaign-status {
   border: 1px solid rgba(15, 118, 110, 0.14);
   border-radius: 8px;
   background: #fff;
@@ -4182,6 +4287,7 @@ body {
 }
 
 .admin-gate,
+.admin-campaign-status,
 .admin-panel,
 .admin-referral-card {
   padding: 1rem;
@@ -4205,6 +4311,15 @@ body {
   display: grid;
   gap: 1rem;
   padding: 1rem;
+}
+
+.admin-campaign-status {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: #fff7ed;
+  border-color: rgba(217, 154, 22, 0.24);
 }
 
 .admin-toolbar {
@@ -4423,6 +4538,7 @@ body {
   .club-referral-card,
   .club-app-header,
   .club-panel-header,
+  .admin-campaign-status,
   .admin-referral-card__header,
   .admin-referral-rank,
   .admin-referral-review__actions {
@@ -4433,7 +4549,8 @@ body {
   .club-app-actions,
   .club-copy-row,
   .club-saved-item__actions,
-  .club-panel-actions {
+  .club-panel-actions,
+  .club-section__actions {
     align-items: stretch;
     flex-direction: column;
   }
@@ -4441,6 +4558,7 @@ body {
   .club-app-actions .btn,
   .club-back-link,
   .club-copy-row .btn,
+  .club-section__actions .btn,
   .club-saved-item__actions .btn,
   .club-saved-item select,
   .club-competition-row select {
