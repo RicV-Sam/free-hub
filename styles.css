@@ -3989,6 +3989,29 @@ body {
   padding: 0.65rem 0.75rem;
 }
 
+.club-back-link {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(15, 118, 110, 0.22);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--accent);
+  font-weight: 900;
+}
+
+.club-back-link::before {
+  content: "<";
+  margin-right: 0.45rem;
+}
+
+.club-back-link:hover,
+.club-back-link:focus-visible {
+  background: rgba(15, 118, 110, 0.1);
+}
+
 .club-saved-item select,
 .club-competition-row select {
   padding: 0.55rem 2rem 0.55rem 0.65rem;
@@ -4144,6 +4167,7 @@ body {
   }
 
   .club-app-actions .btn,
+  .club-back-link,
   .club-copy-row .btn,
   .club-saved-item__actions .btn,
   .club-saved-item select,

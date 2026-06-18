@@ -5355,7 +5355,7 @@ function renderClubAccountPage() {
               <p data-club-welcome>Sign in with Google to view your Freehub Club account.</p>
             </div>
             <div class="club-app-actions">
-              <a class="btn btn--secondary" href="/club/dashboard/">Dashboard</a>
+              <a class="club-back-link" href="/club/dashboard/">Back to dashboard</a>
               <button class="btn btn--primary" type="button" data-club-action="signin">Continue with Google</button>
               <button class="btn btn--secondary" type="button" data-club-action="signout" hidden>Sign out</button>
             </div>
