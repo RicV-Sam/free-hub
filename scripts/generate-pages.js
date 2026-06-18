@@ -11,7 +11,7 @@ const ADSENSE_SCRIPT =
   '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6084410613829318" crossorigin="anonymous"></script>';
 const WHATSAPP_CHANNEL_URL = "https://whatsapp.com/channel/0029Vb7mS1VE50UlOc2yOe2H";
 const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date());
-const CSS_ASSET_VERSION = "20260618-club-v2";
+const CSS_ASSET_VERSION = "20260618-nav-v1";
 const CATEGORY_LINKS = [
   { label: "All Competitions", href: "/" },
   ...shared.CATEGORY_SLUGS.map((slug) => ({
@@ -2205,6 +2205,35 @@ function renderSiteFooter(options = {}) {
       </footer>`;
 }
 
+function renderTopNavigation(options = {}) {
+  const { active = "" } = options;
+  const links = [
+    { key: "home", label: "Home", href: "/" },
+    { key: "competitions", label: "Competitions", href: "/competitions/" },
+    { key: "ending", label: "Ending soon", href: "/competitions-ending-soon/" },
+    { key: "club", label: "Club", href: "/club/dashboard/" },
+  ];
+
+  return `<header class="site-topbar" aria-label="Freehub navigation">
+        <a class="site-topbar__brand" href="/" aria-label="Freehub home">
+          <span class="site-topbar__mark" aria-hidden="true">FH</span>
+          <span class="site-topbar__name">Freehub</span>
+        </a>
+        <nav class="site-topbar__nav" aria-label="Primary navigation">
+          ${links
+            .map((link) => {
+              const className = link.key === active ? "site-topbar__link is-active" : "site-topbar__link";
+              return `<a class="${className}" href="${escapeAttribute(link.href)}">${escapeHtml(link.label)}</a>`;
+            })
+            .join("\n          ")}
+        </nav>
+        <a class="site-topbar__account" href="/club/dashboard/" aria-label="Open Freehub Club account">
+          <span class="site-topbar__account-icon" aria-hidden="true">FH</span>
+          <span>Account</span>
+        </a>
+      </header>`;
+}
+
 function renderStatusPlaceholders() {
   return `<section id="loadingState" class="state-card state-card--hidden" aria-live="polite"></section>
 
@@ -3523,6 +3552,7 @@ function renderPage(routeContext, competitions) {
   </head>
   <body>
     <div class="site-shell">
+      ${renderTopNavigation({ active: "competitions" })}
       ${renderCollectionHero(routeContext, pageCopy, competitions)}
 
       <main class="main-content">
@@ -3719,6 +3749,7 @@ function renderBrandIndexPage(brandPages) {
   </head>
   <body>
     <div class="site-shell">
+      ${renderTopNavigation({ active: "competitions" })}
       ${renderModernHero({
         className: "hero--utility hero--brand-index",
         eyebrow: "Freehub brands",
@@ -4751,6 +4782,7 @@ ${noscriptLinks}
     </noscript>
 
     <div class="site-shell">
+      ${renderTopNavigation({ active: "home" })}
       <header class="hero hero--home">
         <div class="hero__layout">
           <div class="hero__copy">
@@ -5043,6 +5075,7 @@ function renderTrustPage(page) {
   </head>
   <body>
     <div class="site-shell">
+      ${renderTopNavigation()}
       ${renderModernHero({
         className: "hero--utility hero--trust",
         eyebrow: "Freehub trust",
@@ -5384,6 +5417,7 @@ function renderClubShell({ title, description, canonicalUrl, robots, pageType, b
   </head>
   <body>
     <div class="site-shell">
+      ${renderTopNavigation({ active: "club" })}
       ${body}
       ${renderSiteFooter({ includeAuthPanel: false })}
     </div>
@@ -5730,6 +5764,7 @@ function renderNotFoundPage() {
   </head>
   <body>
     <div class="site-shell">
+      ${renderTopNavigation()}
       ${renderModernHero({
         className: "hero--utility hero--not-found",
         eyebrow: "Freehub",
@@ -6134,6 +6169,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   </head>
   <body>
     <div class="site-shell">
+      ${renderTopNavigation({ active: "competitions" })}
       ${renderCompetitionDetailHero({
         competition,
         heroTitle,
@@ -6682,6 +6718,7 @@ function renderLegacyCompetitionPage(competition) {
   </head>
   <body>
     <div class="site-shell">
+      ${renderTopNavigation({ active: "competitions" })}
       ${renderModernHero({
         className: "hero--utility hero--closed-listing",
         eyebrow: "Inactive listing",
@@ -6759,6 +6796,7 @@ function renderOutPage(competition) {
   </head>
   <body>
     <div class="site-shell">
+      ${renderTopNavigation({ active: "competitions" })}
       ${renderModernHero({
         className: "hero--utility hero--outbound",
         eyebrow: "Official source",

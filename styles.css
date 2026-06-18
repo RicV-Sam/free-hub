@@ -65,6 +65,94 @@ button {
   min-height: 100vh;
 }
 
+.site-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  width: min(calc(100% - 2rem), var(--max-width));
+  min-height: 64px;
+  margin: 0 auto 0.75rem;
+  padding: 0.55rem;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: center;
+  border: 1px solid rgba(216, 224, 232, 0.9);
+  border-top: 0;
+  border-radius: 0 0 8px 8px;
+  background: rgba(255, 253, 249, 0.94);
+  box-shadow: 0 12px 32px rgba(31, 41, 51, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+.site-topbar__brand,
+.site-topbar__account,
+.site-topbar__link {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: 850;
+}
+
+.site-topbar__brand {
+  gap: 0.45rem;
+  padding: 0.35rem 0.55rem;
+  color: var(--text);
+}
+
+.site-topbar__mark,
+.site-topbar__account-icon {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+}
+
+.site-topbar__name {
+  font-size: 1.05rem;
+}
+
+.site-topbar__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  justify-content: center;
+}
+
+.site-topbar__link {
+  padding: 0.45rem 0.7rem;
+  color: var(--muted);
+}
+
+.site-topbar__link:hover,
+.site-topbar__link:focus-visible,
+.site-topbar__link.is-active {
+  background: rgba(15, 118, 110, 0.1);
+  color: var(--accent);
+}
+
+.site-topbar__account {
+  gap: 0.45rem;
+  padding: 0.35rem 0.75rem;
+  background: #111827;
+  color: #fff;
+}
+
+.site-topbar__account-icon {
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  color: #111827;
+}
+
 .noscript-shell {
   width: min(calc(100% - 2rem), var(--max-width));
   margin: 1rem auto 0;
@@ -3944,6 +4032,28 @@ body {
 }
 
 @media (max-width: 760px) {
+  .site-topbar {
+    width: min(calc(100% - 1rem), var(--max-width));
+    grid-template-columns: 1fr auto;
+    align-items: start;
+  }
+
+  .site-topbar__nav {
+    grid-column: 1 / -1;
+    justify-content: start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.1rem;
+  }
+
+  .site-topbar__link {
+    white-space: nowrap;
+  }
+
+  .site-topbar__account span:last-child {
+    display: none;
+  }
+
   .club-section--split,
   .club-feature-grid,
   .club-account-grid,
