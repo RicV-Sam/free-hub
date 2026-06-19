@@ -59,6 +59,10 @@ const APPROVED_MANUAL_OK_URLS = new Map([
     "https://www.dischem.co.za/protex-fund-the-future-june-2026-competition",
   ],
   [
+    "dis-chem-garnier-pure-active-june-2026-competition",
+    "https://www.dischem.co.za/garnier-pure-active-june-2026-competition",
+  ],
+  [
     "bridgestone-toyota-corolla-cross-2026",
     "https://www1.bridgestone.co.za/win-a-car",
   ],
