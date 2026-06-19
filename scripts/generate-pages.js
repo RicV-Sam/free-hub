@@ -9,6 +9,7 @@ const FREE_RESOURCES_PATH = path.join(ROOT_DIR, "data", "free-resources.json");
 const RELATIVE_ASSET_PATH = "/";
 const ADSENSE_SCRIPT =
   '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6084410613829318" crossorigin="anonymous"></script>';
+const GOOGLE_TAG_MANAGER_ID = "GTM-W2M7PCR7";
 const WHATSAPP_CHANNEL_URL = "https://whatsapp.com/channel/0029Vb7mS1VE50UlOc2yOe2H";
 const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date());
 const CSS_ASSET_VERSION = "20260618-refer-r250-v1";
@@ -2310,6 +2311,28 @@ function getStylesheetHref(assetPath = "/") {
   return `${assetPath}styles.css?v=${CSS_ASSET_VERSION}`;
 }
 
+function renderGoogleTagManagerHead(contextExpression = "{}") {
+  return `<!-- Google Tag Manager -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(${contextExpression});
+      function gtag(){dataLayer.push(arguments);}
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','${GOOGLE_TAG_MANAGER_ID}');
+    </script>
+    <!-- End Google Tag Manager -->`;
+}
+
+function renderGoogleTagManagerNoScript() {
+  return `<!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GOOGLE_TAG_MANAGER_ID}"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->`;
+}
+
 const CATEGORY_FALLBACK_STYLES = {
   Cash: { start: "#0f766e", end: "#14b8a6", accent: "#99f6e4" },
   Cars: { start: "#1d4ed8", end: "#60a5fa", accent: "#dbeafe" },
@@ -3590,17 +3613,10 @@ function renderPage(routeContext, competitions) {
     )}</script>
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref(RELATIVE_ASSET_PATH))}" />
     ${ADSENSE_SCRIPT}
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('set', { page_type: '${routeContext.type}'${routeContext.type === "hub" ? `, hub_slug: '${routeContext.slug}'` : ""}${routeContext.type === "brand" ? `, brand_slug: '${routeContext.slug}'` : ""} });
-      gtag('config', 'G-23P37R20FY');
-    </script>
+    ${renderGoogleTagManagerHead(`{ page_type: '${routeContext.type}'${routeContext.type === "hub" ? `, hub_slug: '${routeContext.slug}'` : ""}${routeContext.type === "brand" ? `, brand_slug: '${routeContext.slug}'` : ""} }`)}
   </head>
   <body>
+    ${renderGoogleTagManagerNoScript()}
     <div class="site-shell">
       ${renderTopNavigation({ active: "competitions" })}
       ${renderCollectionHero(routeContext, pageCopy, competitions)}
@@ -3787,17 +3803,10 @@ function renderBrandIndexPage(brandPages) {
     )}</script>
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref(RELATIVE_ASSET_PATH))}" />
     ${ADSENSE_SCRIPT}
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('set', { page_type: 'brand-index' });
-      gtag('config', 'G-23P37R20FY');
-    </script>
+    ${renderGoogleTagManagerHead("{ page_type: 'brand-index' }")}
   </head>
   <body>
+    ${renderGoogleTagManagerNoScript()}
     <div class="site-shell">
       ${renderTopNavigation({ active: "competitions" })}
       ${renderModernHero({
@@ -4810,17 +4819,10 @@ If you want only no-purchase routes, use the free competitions page. If you want
     <script id="structured-data-itemlist" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
     ${ADSENSE_SCRIPT}
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('set', { page_type: 'home' });
-      gtag('config', 'G-23P37R20FY');
-    </script>
+    ${renderGoogleTagManagerHead("{ page_type: 'home' }")}
   </head>
   <body>
+    ${renderGoogleTagManagerNoScript()}
     <noscript>
       <section class="noscript-shell" aria-label="Competition links">
         <h2>Competition links</h2>
@@ -5113,17 +5115,10 @@ function renderTrustPage(page) {
     ${serviceStructuredDataScript}
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
     ${ADSENSE_SCRIPT}
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('set', { page_type: 'trust', trust_page: ${escapeScript(JSON.stringify(page.slug))} });
-      gtag('config', 'G-23P37R20FY');
-    </script>
+    ${renderGoogleTagManagerHead(`{ page_type: 'trust', trust_page: ${escapeScript(JSON.stringify(page.slug))} }`)}
   </head>
   <body>
+    ${renderGoogleTagManagerNoScript()}
     <div class="site-shell">
       ${renderTopNavigation()}
       ${renderModernHero({
@@ -6055,17 +6050,10 @@ function renderReferAndWinShell({
     ${renderReferWinConfigScript()}
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
     ${ADSENSE_SCRIPT}
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('set', { page_type: ${escapeScript(JSON.stringify(pageType))} });
-      gtag('config', 'G-23P37R20FY');
-    </script>
+    ${renderGoogleTagManagerHead(`{ page_type: ${escapeScript(JSON.stringify(pageType))} }`)}
   </head>
   <body>
+    ${renderGoogleTagManagerNoScript()}
     <div class="site-shell">
       ${renderTopNavigation({ active: "club" })}
       ${body}
@@ -6151,17 +6139,10 @@ function renderClubShell({ title, description, canonicalUrl, robots, pageType, b
     ${renderReferWinConfigScript()}
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
     ${ADSENSE_SCRIPT}
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('set', { page_type: ${escapeScript(JSON.stringify(pageType))} });
-      gtag('config', 'G-23P37R20FY');
-    </script>
+    ${renderGoogleTagManagerHead(`{ page_type: ${escapeScript(JSON.stringify(pageType))} }`)}
   </head>
   <body>
+    ${renderGoogleTagManagerNoScript()}
     <div class="site-shell">
       ${renderTopNavigation({ active: "club" })}
       ${body}
@@ -6498,17 +6479,10 @@ function renderNotFoundPage() {
     <meta name="twitter:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
     ${ADSENSE_SCRIPT}
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('set', { page_type: '404' });
-      gtag('config', 'G-23P37R20FY');
-    </script>
+    ${renderGoogleTagManagerHead("{ page_type: '404' }")}
   </head>
   <body>
+    ${renderGoogleTagManagerNoScript()}
     <div class="site-shell">
       ${renderTopNavigation()}
       ${renderModernHero({
@@ -6903,17 +6877,10 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
     ${faqStructuredDataScript}
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref(RELATIVE_ASSET_PATH))}" />
     ${ADSENSE_SCRIPT}
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('set', { page_type: 'competition', competition_slug: ${escapeScript(JSON.stringify(slug))}, competition_category: ${escapeScript(JSON.stringify(competition.category))} });
-      gtag('config', 'G-23P37R20FY');
-    </script>
+    ${renderGoogleTagManagerHead(`{ page_type: 'competition', competition_slug: ${escapeScript(JSON.stringify(slug))}, competition_category: ${escapeScript(JSON.stringify(competition.category))} }`)}
   </head>
   <body>
+    ${renderGoogleTagManagerNoScript()}
     <div class="site-shell">
       ${renderTopNavigation({ active: "competitions" })}
       ${renderCompetitionDetailHero({
@@ -7461,8 +7428,10 @@ function renderLegacyCompetitionPage(competition) {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref(RELATIVE_ASSET_PATH))}" />
     ${ADSENSE_SCRIPT}
+    ${renderGoogleTagManagerHead(`{ page_type: 'inactive_competition', competition_slug: ${escapeScript(JSON.stringify(slug))}, competition_category: ${escapeScript(JSON.stringify(competition.category))} }`)}
   </head>
   <body>
+    ${renderGoogleTagManagerNoScript()}
     <div class="site-shell">
       ${renderTopNavigation({ active: "competitions" })}
       ${renderModernHero({
@@ -7509,15 +7478,7 @@ function renderOutPage(competition) {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref(RELATIVE_ASSET_PATH))}" />
     ${ADSENSE_SCRIPT}
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23P37R20FY"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('set', { page_type: 'outbound', competition_slug: ${escapeScript(JSON.stringify(slug))}, competition_category: ${escapeScript(JSON.stringify(competition.category))} });
-      gtag('config', 'G-23P37R20FY');
-    </script>
+    ${renderGoogleTagManagerHead(`{ page_type: 'outbound', competition_slug: ${escapeScript(JSON.stringify(slug))}, competition_category: ${escapeScript(JSON.stringify(competition.category))} }`)}
     <script>
       (function () {
         var SLUG = ${escapeScript(JSON.stringify(slug))};
@@ -7541,6 +7502,7 @@ function renderOutPage(competition) {
     </script>
   </head>
   <body>
+    ${renderGoogleTagManagerNoScript()}
     <div class="site-shell">
       ${renderTopNavigation({ active: "competitions" })}
       ${renderModernHero({
