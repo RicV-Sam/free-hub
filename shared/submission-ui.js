@@ -20,10 +20,12 @@ async function initSubmissionForm() {
     event.preventDefault();
 
     if (!form.reportValidity()) {
+      trackSubmissionEvent("competition_submission_invalid", { reason: "browser_validation" });
       return;
     }
 
     const submission = getSubmissionPayload();
+    trackSubmissionEvent("competition_submission_start", getSubmissionEventParams(submission));
 
     if (
       !isValidHttpUrl(submission.officialUrl) ||
@@ -31,6 +33,10 @@ async function initSubmissionForm() {
       (submission.campaignImageUrl && !isValidHttpUrl(submission.campaignImageUrl))
     ) {
       setStatus("Please use valid http or https URLs for the competition, terms and image links.", true);
+      trackSubmissionEvent("competition_submission_invalid", {
+        reason: "invalid_url",
+        ...getSubmissionEventParams(submission),
+      });
       return;
     }
 
@@ -45,6 +51,7 @@ async function initSubmissionForm() {
     } catch (error) {
       console.warn("Freehub competition submission failed:", error.message);
       setStatus("We could not save the submission right now. Please try again later.", true);
+      trackSubmissionEvent("competition_submission_failed", getSubmissionEventParams(submission));
     } finally {
       setFormDisabled(false);
     }
@@ -95,8 +102,23 @@ function setStatus(message, isError) {
   statusElement.dataset.status = isError ? "error" : "ok";
 }
 
+function getSubmissionEventParams(submission) {
+  return {
+    has_terms_url: Boolean(submission.termsUrl),
+    has_campaign_image_url: Boolean(submission.campaignImageUrl),
+    has_closing_date: Boolean(submission.closingDate),
+  };
+}
+
 function trackSubmissionEvent(eventName, params) {
   if (typeof window.gtag === "function") {
     window.gtag("event", eventName, params);
+    return;
   }
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: eventName,
+    ...(params || {}),
+  });
 }

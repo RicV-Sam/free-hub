@@ -61,6 +61,7 @@ function bindClubActions() {
     const action = actionElement.dataset.clubAction;
 
     if (action === "signin") {
+      trackClubEvent("club_signin_start", { provider: "google", club_page: state.page });
       await signInWithGoogle(actionElement);
     } else if (action === "signout") {
       await signOut(actionElement);
@@ -69,9 +70,11 @@ function bindClubActions() {
     } else if (action === "share-referral") {
       await shareReferralLink();
     } else if (action === "clear-local") {
+      const localCount = getLocalSavedCompetitions().length;
       clearLocalSavedCompetitions();
       state.savedCompetitions = state.user ? state.savedCompetitions : [];
       renderSavedCompetitions();
+      trackClubEvent("club_local_saves_clear", { local_saved_count: localCount, club_page: state.page });
     } else if (action === "remove-saved") {
       await removeSavedCompetition(actionElement.dataset.competitionId);
     } else if (action === "save-refer-win") {
@@ -103,6 +106,7 @@ async function signInWithGoogle(button) {
     const result = await state.client.signInWithGoogle();
     await loadClubState(result.user);
     renderSignedInState();
+    trackClubEvent("club_signin_success", { provider: "google", club_page: state.page });
   } catch (error) {
     setClubStatus("Google sign-in was not completed. Please try again.");
   } finally {
@@ -119,6 +123,7 @@ async function signOut(button) {
 
   try {
     await state.client.signOut();
+    trackClubEvent("club_signout", { club_page: state.page });
   } catch (error) {
     setClubStatus("We could not sign you out right now.");
   } finally {
@@ -149,6 +154,10 @@ async function writePendingReferralAttribution(user, profile) {
 
   if (attributionId) {
     window.localStorage.removeItem(REFERRAL_ATTRIBUTION_KEY);
+    trackClubEvent("referral_attribution_created", {
+      club_page: state.page,
+      landing_path: attribution.landingPath ? window.location.pathname : undefined,
+    });
   }
 }
 
@@ -190,6 +199,10 @@ async function importLocalSavedCompetitions(userId) {
 
   if (imported > 0) {
     clearLocalSavedCompetitions();
+    trackClubEvent("club_local_saves_imported", {
+      imported_count: imported,
+      club_page: state.page,
+    });
   }
 
   return imported;
@@ -495,6 +508,12 @@ async function updateSavedStatus(competitionId, status) {
   renderSavedCompetitions();
   renderAllCompetitions();
   renderAccountFields();
+  trackClubEvent("club_competition_status_update", {
+    club_page: state.page,
+    competition_id: competitionId,
+    competition_status: nextStatus,
+    signed_in: Boolean(state.user),
+  });
 }
 
 async function removeSavedCompetition(competitionId) {
@@ -516,6 +535,11 @@ async function removeSavedCompetition(competitionId) {
   renderSavedCompetitions();
   renderAllCompetitions();
   renderAccountFields();
+  trackClubEvent("club_saved_competition_remove", {
+    club_page: state.page,
+    competition_id: competitionId,
+    signed_in: Boolean(state.user),
+  });
 }
 
 async function saveReferWinParticipation(button) {
@@ -564,6 +588,11 @@ async function saveReferWinParticipation(button) {
     renderAccountFields();
     renderReferWinParticipationForm();
     setReferWinStatus(`Refer & Win details saved. Mobile: ${maskMobileNumber(state.profile?.mobileNumber)}.`);
+    trackClubEvent("refer_win_join", {
+      club_page: state.page,
+      mobile_network: networkInput?.value || "",
+      marketing_opt_in: marketingInput?.checked === true,
+    });
   } catch (error) {
     setReferWinStatus(error.message || "Could not save Refer & Win details right now.", "error");
   } finally {
@@ -581,6 +610,7 @@ async function copyReferralLink() {
 
   await navigator.clipboard.writeText(link);
   setClubStatus("Referral link copied.");
+  trackClubEvent("referral_link_copy", { club_page: state.page });
 }
 
 async function shareReferralLink() {
@@ -597,8 +627,10 @@ async function shareReferralLink() {
       text: "Join Freehub Club to save and track South African competitions.",
       url: link,
     });
+    trackClubEvent("referral_link_share", { club_page: state.page, share_method: "native" });
   } else {
     await copyReferralLink();
+    trackClubEvent("referral_link_share", { club_page: state.page, share_method: "clipboard_fallback" });
   }
 }
 
@@ -648,6 +680,10 @@ function captureReferralFromUrl() {
       expiresAt: Date.now() + REFERRAL_TTL_MS,
     })
   );
+  trackClubEvent("referral_link_landing", {
+    club_page: state.page,
+    landing_path: window.location.pathname,
+  });
 }
 
 function getStoredReferralAttribution() {
@@ -842,4 +878,27 @@ function escapeHtml(value) {
 
 function escapeAttribute(value) {
   return escapeHtml(value);
+}
+
+function trackClubEvent(name, params = {}) {
+  const payload = {
+    page_type: "club",
+    ...params,
+  };
+
+  if (window.FreeHubAnalytics?.track) {
+    window.FreeHubAnalytics.track(name, payload);
+    return;
+  }
+
+  if (typeof window.gtag === "function") {
+    window.gtag("event", name, payload);
+    return;
+  }
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: name,
+    ...payload,
+  });
 }

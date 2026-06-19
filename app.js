@@ -29,13 +29,18 @@ const PAGE_AD_PLACEMENTS = [
   { id: "ad-middle", placement: "middle" },
   { id: "ad-bottom", placement: "bottom" },
 ];
+const SEARCH_TRACK_DELAY_MS = 900;
+const MIN_SEARCH_TRACK_LENGTH = 2;
 
 const state = {
   competitions: [],
   searchQuery: "",
+  lastTrackedSearchQuery: "",
   activeCategory: "All",
   routeContext: getRouteContext(getCurrentRoutePath()),
 };
+
+let searchTrackingTimer = null;
 
 const elements = {
   searchInput: document.querySelector("#searchInput"),
@@ -85,6 +90,7 @@ function bindEvents() {
     elements.searchInput.addEventListener("input", (event) => {
       state.searchQuery = event.target.value.trim().toLowerCase();
       renderCompetitions();
+      scheduleSearchTracking();
     });
   }
 
@@ -222,6 +228,11 @@ function renderCategoryFilters() {
       state.activeCategory = category;
       renderCategoryFilters();
       renderCompetitions();
+      sendGaEvent("filter_apply", {
+        filter_type: "category",
+        filter_value: category,
+        page_type: state.routeContext.type,
+      });
     });
 
     elements.categoryFilters.appendChild(button);
@@ -619,6 +630,31 @@ function trackCategoryFilterClick(label, href) {
   });
 }
 
+function scheduleSearchTracking() {
+  window.clearTimeout(searchTrackingTimer);
+
+  if (state.searchQuery.length < MIN_SEARCH_TRACK_LENGTH) {
+    return;
+  }
+
+  searchTrackingTimer = window.setTimeout(() => {
+    if (state.searchQuery === state.lastTrackedSearchQuery) {
+      return;
+    }
+
+    state.lastTrackedSearchQuery = state.searchQuery;
+    sendGaEvent("search", {
+      search_term: state.searchQuery,
+      page_type: state.routeContext.type,
+      results_count: getRenderedCompetitionCount(),
+    });
+  }, SEARCH_TRACK_DELAY_MS);
+}
+
+function getRenderedCompetitionCount() {
+  return Number(elements.competitionsGrid?.querySelectorAll(".competition-card").length || 0);
+}
+
 function setupEngagementTracking() {
   let scrolled50 = false;
 
@@ -653,8 +689,18 @@ function getCurrentCompetitionSlug() {
 }
 
 function sendGaEvent(name, params) {
-  if (typeof gtag !== "function") return;
-  gtag("event", name, params);
+  const payload = params || {};
+
+  if (typeof window.gtag === "function") {
+    window.gtag("event", name, payload);
+    return;
+  }
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: name,
+    ...payload,
+  });
 }
 
 function openSponsoredOffer(placement, url) {

@@ -878,5 +878,12 @@ function trackAuthEvent(name, params = {}) {
 
   if (typeof window.gtag === "function") {
     window.gtag("event", name, payload);
+    return;
   }
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: name,
+    ...payload,
+  });
 }
