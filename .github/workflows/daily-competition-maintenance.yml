@@ -1,0 +1,197 @@
+name: Daily competition maintenance
+
+on:
+  schedule:
+    - cron: "15 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "daily-competition-maintenance"
+  cancel-in-progress: true
+
+jobs:
+  maintain-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      BING_WEBMASTER_API_KEY: ${{ secrets.BING_WEBMASTER_API_KEY }}
+      BING_SITE_URL: https://freehub.co.za
+      INDEXNOW_API_KEY: ${{ secrets.INDEXNOW_API_KEY }}
+      INDEXNOW_SITE_URL: https://freehub.co.za
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+
+      - name: Record archive count before maintenance
+        id: before
+        shell: bash
+        run: |
+          archive_count_before="$(node -e 'const fs=require("fs");const path="data/archive/competitions-expired.json";const rows=fs.existsSync(path)?JSON.parse(fs.readFileSync(path,"utf8")):[];process.stdout.write(String(rows.length));')"
+          echo "archive_count_before=${archive_count_before}" >> "$GITHUB_OUTPUT"
+
+      - name: Run maintenance and regeneration
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/competition-maintenance.js --archive-expired | tee maintenance-report.txt
+          node scripts/generate-pages.js | tee generate-pages-report.txt
+
+      - name: Validate maintenance state
+        run: node scripts/validate-maintenance-state.js > maintenance-summary.json
+
+      - name: Collect diff summary
+        id: diff
+        shell: bash
+        run: |
+          {
+            git diff --name-only
+            git ls-files --others --exclude-standard
+          } | sort -u > changed-files.txt
+
+          if [ -s changed-files.txt ]; then
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Write job summary
+        id: summary
+        shell: bash
+        env:
+          ARCHIVE_COUNT_BEFORE: ${{ steps.before.outputs.archive_count_before }}
+          HAS_CHANGES: ${{ steps.diff.outputs.has_changes }}
+        run: |
+          node <<'NODE'
+          const fs = require("fs");
+
+          const report = JSON.parse(fs.readFileSync("maintenance-summary.json", "utf8"));
+          const summary = report.summary;
+          const changedFiles = fs.existsSync("changed-files.txt")
+            ? fs.readFileSync("changed-files.txt", "utf8").split(/\r?\n/).filter(Boolean)
+            : [];
+          const archiveCountBefore = Number(process.env.ARCHIVE_COUNT_BEFORE || "0");
+          const archiveCountAfter = Number(summary.archivedCompetitionCount || 0);
+          const newlyArchived = Math.max(0, archiveCountAfter - archiveCountBefore);
+          const competitionChanged = changedFiles.some((file) => file.startsWith("competition/"));
+          const outChanged = changedFiles.some((file) => file.startsWith("out/"));
+          const sitemapChanged = changedFiles.includes("sitemap.xml");
+          const archiveFileChanged = changedFiles.includes("data/archive/competitions-expired.json");
+          const reportLines = [
+            "# Daily competition maintenance",
+            "",
+            `- Expired competitions archived this run: ${newlyArchived}`,
+            `- Public pages regenerated successfully: yes`,
+            `- /competition/ pages changed: ${competitionChanged ? "yes" : "no"}`,
+            `- /out/ redirect pages changed: ${outChanged ? "yes" : "no"}`,
+            `- Sitemap generation stayed clean: ${report.ok && !summary.sitemapContainsOutUrls ? "yes" : "no"}`,
+            `- Expired competitions still in sitemap or active public listings: ${summary.expiredInSitemap.length === 0 && summary.expiredInPublicListings.length === 0 ? "no" : "yes"}`,
+            `- Non-public competitions leaked into public pages: ${summary.nonPublicDetailPages.length === 0 && summary.nonPublicInPublicListings.length === 0 ? "no" : "yes"}`,
+            `- Archive ledger changed: ${archiveFileChanged ? "yes" : "no"}`,
+            `- Sitemap file changed: ${sitemapChanged ? "yes" : "no"}`,
+            `- Changed files: ${changedFiles.length === 0 ? "none" : changedFiles.join(", ")}`,
+            `- Manual review needed: ${report.ok ? "no" : "yes"}`,
+          ];
+
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${reportLines.join("\n")}\n`);
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `newly_archived=${newlyArchived}\n`);
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `competition_changed=${competitionChanged ? "true" : "false"}\n`);
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `out_changed=${outChanged ? "true" : "false"}\n`);
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `archive_file_changed=${archiveFileChanged ? "true" : "false"}\n`);
+          NODE
+
+      - name: Commit maintenance changes
+        if: steps.diff.outputs.has_changes == 'true'
+        id: commit
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: daily competition maintenance"
+
+      - name: Create optional Firebase config
+        if: steps.diff.outputs.has_changes == 'true'
+        env:
+          FREEHUB_FIREBASE_API_KEY: ${{ vars.FREEHUB_FIREBASE_API_KEY }}
+          FREEHUB_FIREBASE_AUTH_DOMAIN: ${{ vars.FREEHUB_FIREBASE_AUTH_DOMAIN }}
+          FREEHUB_FIREBASE_PROJECT_ID: ${{ vars.FREEHUB_FIREBASE_PROJECT_ID }}
+          FREEHUB_FIREBASE_STORAGE_BUCKET: ${{ vars.FREEHUB_FIREBASE_STORAGE_BUCKET }}
+          FREEHUB_FIREBASE_MESSAGING_SENDER_ID: ${{ vars.FREEHUB_FIREBASE_MESSAGING_SENDER_ID }}
+          FREEHUB_FIREBASE_APP_ID: ${{ vars.FREEHUB_FIREBASE_APP_ID }}
+          FREEHUB_FIREBASE_MEASUREMENT_ID: ${{ vars.FREEHUB_FIREBASE_MEASUREMENT_ID }}
+          FREEHUB_FIREBASE_AUTH_PROVIDERS: ${{ vars.FREEHUB_FIREBASE_AUTH_PROVIDERS }}
+        run: |
+          if [ -z "$FREEHUB_FIREBASE_API_KEY" ] || [ -z "$FREEHUB_FIREBASE_AUTH_DOMAIN" ] || [ -z "$FREEHUB_FIREBASE_PROJECT_ID" ] || [ -z "$FREEHUB_FIREBASE_APP_ID" ]; then
+            echo "Firebase web config variables are not set; deploying without optional auth UI."
+            exit 0
+          fi
+
+          node <<'NODE'
+          const fs = require("fs");
+
+          const providers = (process.env.FREEHUB_FIREBASE_AUTH_PROVIDERS || "google,emailLink")
+            .split(",")
+            .map((provider) => provider.trim())
+            .filter(Boolean);
+
+          const config = {
+            apiKey: process.env.FREEHUB_FIREBASE_API_KEY,
+            authDomain: process.env.FREEHUB_FIREBASE_AUTH_DOMAIN,
+            projectId: process.env.FREEHUB_FIREBASE_PROJECT_ID,
+            storageBucket: process.env.FREEHUB_FIREBASE_STORAGE_BUCKET,
+            messagingSenderId: process.env.FREEHUB_FIREBASE_MESSAGING_SENDER_ID,
+            appId: process.env.FREEHUB_FIREBASE_APP_ID,
+            measurementId: process.env.FREEHUB_FIREBASE_MEASUREMENT_ID,
+            enabledAuthProviders: providers,
+          };
+
+          fs.writeFileSync("firebase-config.json", `${JSON.stringify(config, null, 2)}\n`);
+          NODE
+
+      - name: Write IndexNow key file
+        if: steps.diff.outputs.has_changes == 'true' && env.INDEXNOW_API_KEY != ''
+        run: node scripts/write-indexnow-key.js
+
+      - name: Upload static site artifact
+        if: steps.diff.outputs.has_changes == 'true'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        if: steps.diff.outputs.has_changes == 'true'
+        id: deployment
+        uses: actions/deploy-pages@v5
+
+      - name: Push maintenance commit
+        if: steps.diff.outputs.has_changes == 'true'
+        shell: bash
+        run: git push origin HEAD:main
+
+      - name: Submit sitemap URLs to Bing Webmaster
+        if: steps.diff.outputs.has_changes == 'true' && env.BING_WEBMASTER_API_KEY != ''
+        continue-on-error: true
+        run: node scripts/submit-bing.js --sitemap=https://freehub.co.za/sitemap.xml
+
+      - name: Submit sitemap URLs to IndexNow
+        if: steps.diff.outputs.has_changes == 'true' && env.INDEXNOW_API_KEY != ''
+        continue-on-error: true
+        run: node scripts/submit-indexnow.js --sitemap=https://freehub.co.za/sitemap.xml
