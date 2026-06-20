@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "errors": [],
+  "summary": {
+    "today": "2026-06-20",
+    "expiredPublishedCount": 44,
+    "archivedCompetitionCount": 69,
+    "publicListingFilesScanned": 65,
+    "sitemapContainsOutUrls": false,
+    "expiredMissingFromArchive": [],
+    "expiredInSitemap": [],
+    "expiredInPublicListings": [],
+    "expiredMissingDetailPage": [],
+    "expiredMissingClosedBanner": [],
+    "expiredMissingNoindex": [],
+    "expiredWithOutPage": [],
+    "nonPublicDetailPages": [],
+    "nonPublicInPublicListings": []
+  }
+}

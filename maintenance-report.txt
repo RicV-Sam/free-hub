@@ -1,0 +1,96 @@
+=== Competition Maintenance Report ===
+Date: 2026-06-20
+Mode: archive-expired
+Total competitions: 189
+Active published count: 68
+Expired archive page count: 44
+Low-value expired noindex count: 0
+Held/private count: 77
+Expired records still leaking into active listings: 0
+Out pages generated for expired records: 0
+Closing in next 14 days: 24
+
+Expired competition IDs:
+- supersport-nba-finals-2026 (2026-05-20)
+- va-waterfront-mothers-day-winter-escape-2026 (2026-05-20)
+- discovery-vitality-oura-mothers-day-2026 (2026-05-21)
+- metro-fm-nandos-taaaste-monials-challenge (2026-05-22)
+- ok-furniture-big-brands-toyota-vitz (2026-05-24)
+- red-bull-symphonic-be-the-maestro (2026-05-24)
+- supersport-sportybet-laliga-samsung-a26 (2026-05-25)
+- discovery-bank-fifa-world-cup-2026 (2026-05-25)
+- mtn-momo-cash-sprint (2026-05-29)
+- nedbank-we-love-nedbank-cash-2026 (2026-05-29)
+- game-2026-birthday-competition (2026-05-30)
+- coca-cola-fifa-world-cup-2026 (2026-05-31)
+- vodacom-tsamaya-pre-season-fan-tour-2026 (2026-05-31)
+- fired-earth-mothers-day-room-makeover (2026-05-31)
+- istore-apple50-macbook-neo (2026-05-31)
+- schweppes-icon-reimagined-2026 (2026-05-31)
+- oxford-freshmarket-birthday-trolley-dash (2026-05-31)
+- revlon-matric-dance-vouchers (2026-05-31)
+- penguin-random-house-vetplantjies-giveaway (2026-05-31)
+- coca-cola-mzansi-football-promotion-2026 (2026-05-31)
+- edgars-club-may-join-win-2026 (2026-05-31)
+- vodacom-core-fibre-soccer-jersey-2026 (2026-05-31)
+- vodacom-prepaid-fibre-soccer-jersey-2026 (2026-05-31)
+- standard-bank-mastercard-grocery-fuel-vouchers-2026 (2026-05-31)
+- nu-metro-radisson-blu-durban-getaway-2026 (2026-05-31)
+- shell-fuel-your-joy-2026 (2026-05-31)
+- ster-kinekor-sk-club-acquisitions-drive-2026 (2026-05-31)
+- alcolin-stanley-cabinet-competition-2026 (2026-05-31)
+- telkom-mothers-month-vacuum-cleaner-2026 (2026-05-31)
+- clicks-nivea-men-broscape-cash-card-2026 (2026-05-31)
+- clicks-sorbet-voucher-2026 (2026-06-01)
+- supersport-samsung-multisport (2026-06-01)
+- lg-ultimate-fan-zone-ps5-competition-2026 (2026-06-01)
+- ackermans-foneyam-tech-prizes (2026-06-03)
+- debtbusters-money-stress-tracker-takealot-vouchers (2026-06-06)
+- boxer-unilever-b-rewards-2026 (2026-06-07)
+- boxer-coca-cola-tv-smartphone-2026 (2026-06-07)
+- boxer-evolve-dream-wedding-2026 (2026-06-07)
+- boxer-coca-cola-tv-smartphone-competition-2026 (2026-06-07)
+- vodacom4u-samsung-s26-tv-giveaway (2026-06-08)
+- comrades-toyota-corolla-cross (2026-06-14)
+- ram-couriers-vodacom-bulls (2026-06-15)
+- aquelle-mzansi-mango (2026-06-15)
+- discovery-bank-qantas-flights-2026 (2026-06-19)
+
+Closing soon (next 14 days):
+- pep-plusmore-win-your-dream-2026 (0 days)
+- spur-ultimate-springboks-match-day-experience-2026 (1 days)
+- dis-chem-protex-fund-the-future-2026 (3 days)
+- dis-chem-garnier-pure-active-june-2026-competition (8 days)
+- isuzu-win-a-new-x-rider-2026 (10 days)
+- looters-warehouse-toyota-vitz (10 days)
+- boxer-nedbank-greenbacks (10 days)
+- cell-c-comrades-cash-promo (10 days)
+- fnb-lovefnb-social-media-competition (10 days)
+- flash-mtn-national-airtime-vouchers (10 days)
+- clover-spar-rewards-stormers-jetour (10 days)
+- miwaylife-sanlam-spl-fuel-vouchers (10 days)
+- bridgestone-toyota-corolla-cross-2026 (10 days)
+- ackermans-payat-xbox-series-s (10 days)
+- dragon-energy-xtreme-comp-2026 (10 days)
+- penguin-random-house-penguin-post-42-hamper (10 days)
+- gotyme-bafana-jersey-giveaway-2026 (10 days)
+- budget-refer-a-friend-cash-2026 (10 days)
+- penguin-random-house-give-in-to-temptation-2026 (10 days)
+- spur-family-cruises-with-spur-2026 (10 days)
+- clicks-protex-protect-their-future-2026 (10 days)
+- discovery-europcar-winter-adventure-2026 (10 days)
+- vodacom-mrp-gift-card-competition-2026 (10 days)
+- starbaby-south-africa-monthly-competition-2026 (10 days)
+
+Keyword cluster coverage (active data + public SEO copy scan):
+- cars: 6/6 terms present
+- holidays: 3/3 terms present
+- cash: 2/2 terms present
+- vouchers: 2/3 terms present
+  Missing: takealot competitions
+- tech: 3/3 terms present
+
+Applied changes:
+- Expired published records are retained in data for archive rendering.
+- Active listings are controlled by closing date and publication state during page generation.
+- Next step: run `node scripts/generate-pages.js` and deploy.
