@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-06-20
+Generated: 2026-06-21
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
@@ -35,14 +35,13 @@ Recommended normalisation:
 ## SMS Competitions in South Africa
 
 - URL: /sms-competitions-south-africa/
-- Matching active public competitions: 4
+- Matching active public competitions: 3
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| PEP and +more Win your Dream Competition (pep-plusmore-win-your-dream-2026) | 2026-06-20 | purchase-required | yes | yes | SMS entry tag; SMS or shortcode mentioned in entry text | none |
 | StarBaby South Africa Monthly Competition (starbaby-south-africa-monthly-competition-2026) | 2026-06-30 | free-entry | yes | yes | SMS or shortcode mentioned in entry text | none |
 | Tekkie Town Football Frenzy FIFA 2026 Competition (tekkie-town-football-frenzy-fifa-2026) | 2026-07-12 | purchase-required | yes | yes | SMS or shortcode mentioned in entry text | none |
 | PEPxDSTV Scan Play Win Competition (pep-dstv-scan-play-win-2026) | 2026-07-23 | purchase-required | yes | yes | SMS or shortcode mentioned in entry text | none |

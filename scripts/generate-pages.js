@@ -3924,9 +3924,11 @@ function renderCompetitionVisualPlaceholder(competition, className = "competitio
                 </div>`;
 }
 
-function renderCardStatusBadges(competition) {
-  return shared
-    .getCardStatusLabels(competition)
+function renderCardStatusBadges(competition, options = {}) {
+  const { expired = false } = options;
+  const labels = expired ? ["Closed", "Verified"] : shared.getCardStatusLabels(competition);
+
+  return labels
     .map((label) => `<span class="${getStatusClassName(label)}">${escapeHtml(label)}</span>`)
     .join("\n                  ");
 }
@@ -6683,6 +6685,9 @@ function renderCompetitionDetailHero({
     ? ""
     : renderCompetitionVisualPlaceholder(competition, "competition-hero-card__placeholder");
   const closingLabel = `${expired ? "Closed" : "Closes"} ${formattedDate}${closingSoon && !expired ? " - Ending soon" : ""}`;
+  const heroUrgencyFact = expired
+    ? "Closed competition"
+    : shared.getUrgencyLabel(competition.closingDate);
   const actions = expired
     ? [{ label: "Browse Current Competitions", href: "/competitions/", className: "btn--primary" }]
     : [
@@ -6721,12 +6726,12 @@ function renderCompetitionDetailHero({
                 <span>${escapeHtml(competition.brand || "Official promotion")}</span>
               </div>
               <div class="competition-hero-card__status-row">
-                ${renderCardStatusBadges(competition)}
+                ${renderCardStatusBadges(competition, { expired })}
               </div>
               <div class="competition-hero-card__facts">
                 <span>${escapeHtml(shared.getPrizeCue(competition))}</span>
                 <span>${escapeHtml(shared.getEntryCostLabel(competition))}</span>
-                <span>${escapeHtml(shared.getUrgencyLabel(competition.closingDate))}</span>
+                <span>${escapeHtml(heroUrgencyFact)}</span>
               </div>
             </div>
           </aside>`,
@@ -6781,7 +6786,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   const officialSource = getOfficialSourceDomain(competition);
   const lastChecked = formatOptionalDate(competition.lastChecked);
 
-  const closingSoonBadge = shared.isClosingSoon(competition.closingDate)
+  const closingSoonBadge = !expired && shared.isClosingSoon(competition.closingDate)
     ? '<span class="badge badge--closing">&#x1F525; Closing Soon</span>'
     : "";
   const brandBadge = competition.brand
@@ -8515,6 +8520,9 @@ function runLifecycleStaticChecks(allCompetitions, activeCompetitions, expiredAr
     }
     if (!html.includes("Current competitions you may like")) {
       errors.push(`Expired archive page missing active related section: ${slug}`);
+    }
+    if (/(Closing soon|Trending|Last chance|Ends today|Ends in \d+ day)/i.test(archiveLeadSection)) {
+      errors.push(`Expired archive page still exposes active status messaging: ${slug}`);
     }
     if (
       /href="\/out\//.test(archiveLeadSection) ||
