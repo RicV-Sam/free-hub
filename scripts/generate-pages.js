@@ -10,6 +10,7 @@ const RELATIVE_ASSET_PATH = "/";
 const ADSENSE_SCRIPT =
   '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6084410613829318" crossorigin="anonymous"></script>';
 const GOOGLE_TAG_MANAGER_ID = "GTM-W2M7PCR7";
+const META_PIXEL_ID = "2506912739756217";
 const WHATSAPP_CHANNEL_URL = "https://whatsapp.com/channel/0029Vb7mS1VE50UlOc2yOe2H";
 const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date());
 const CSS_ASSET_VERSION = "20260618-refer-r250-v1";
@@ -2340,6 +2341,26 @@ function renderGoogleTagManagerNoScript() {
     <!-- End Google Tag Manager (noscript) -->`;
 }
 
+function renderMetaPixelHead() {
+  return `<!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '${META_PIXEL_ID}');
+      fbq('track', 'PageView');
+    </script>
+    <!-- End Facebook Pixel Code -->`;
+}
+
+function renderMetaPixelNoScript() {
+  return `<!-- Facebook Pixel Code (noscript) -->
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1" alt="" /></noscript>
+    <!-- End Facebook Pixel Code (noscript) -->`;
+}
+
 const CATEGORY_FALLBACK_STYLES = {
   Cash: { start: "#0f766e", end: "#14b8a6", accent: "#99f6e4" },
   Cars: { start: "#1d4ed8", end: "#60a5fa", accent: "#dbeafe" },
@@ -3627,9 +3648,11 @@ function renderPage(routeContext, competitions) {
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref(RELATIVE_ASSET_PATH))}" />
     ${ADSENSE_SCRIPT}
     ${renderGoogleTagManagerHead(`{ page_type: '${routeContext.type}'${routeContext.type === "hub" ? `, hub_slug: '${routeContext.slug}'` : ""}${routeContext.type === "brand" ? `, brand_slug: '${routeContext.slug}'` : ""} }`)}
+    ${renderMetaPixelHead()}
   </head>
   <body>
     ${renderGoogleTagManagerNoScript()}
+    ${renderMetaPixelNoScript()}
     <div class="site-shell">
       ${renderTopNavigation({ active: "competitions" })}
       ${renderCollectionHero(routeContext, pageCopy, competitions)}
@@ -3817,9 +3840,11 @@ function renderBrandIndexPage(brandPages) {
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref(RELATIVE_ASSET_PATH))}" />
     ${ADSENSE_SCRIPT}
     ${renderGoogleTagManagerHead("{ page_type: 'brand-index' }")}
+    ${renderMetaPixelHead()}
   </head>
   <body>
     ${renderGoogleTagManagerNoScript()}
+    ${renderMetaPixelNoScript()}
     <div class="site-shell">
       ${renderTopNavigation({ active: "competitions" })}
       ${renderModernHero({
@@ -4848,9 +4873,11 @@ If you want only no-purchase routes, use the free competitions page. If you want
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
     ${ADSENSE_SCRIPT}
     ${renderGoogleTagManagerHead("{ page_type: 'home' }")}
+    ${renderMetaPixelHead()}
   </head>
   <body>
     ${renderGoogleTagManagerNoScript()}
+    ${renderMetaPixelNoScript()}
     <noscript>
       <section class="noscript-shell" aria-label="Competition links">
         <h2>Competition links</h2>
@@ -5146,9 +5173,11 @@ function renderTrustPage(page) {
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
     ${ADSENSE_SCRIPT}
     ${renderGoogleTagManagerHead(`{ page_type: 'trust', trust_page: ${escapeScript(JSON.stringify(page.slug))} }`)}
+    ${renderMetaPixelHead()}
   </head>
   <body>
     ${renderGoogleTagManagerNoScript()}
+    ${renderMetaPixelNoScript()}
     <div class="site-shell">
       ${renderTopNavigation()}
       ${renderModernHero({
@@ -6081,9 +6110,11 @@ function renderReferAndWinShell({
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
     ${ADSENSE_SCRIPT}
     ${renderGoogleTagManagerHead(`{ page_type: ${escapeScript(JSON.stringify(pageType))} }`)}
+    ${renderMetaPixelHead()}
   </head>
   <body>
     ${renderGoogleTagManagerNoScript()}
+    ${renderMetaPixelNoScript()}
     <div class="site-shell">
       ${renderTopNavigation({ active: "club" })}
       ${body}
@@ -6170,9 +6201,11 @@ function renderClubShell({ title, description, canonicalUrl, robots, pageType, b
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
     ${ADSENSE_SCRIPT}
     ${renderGoogleTagManagerHead(`{ page_type: ${escapeScript(JSON.stringify(pageType))} }`)}
+    ${renderMetaPixelHead()}
   </head>
   <body>
     ${renderGoogleTagManagerNoScript()}
+    ${renderMetaPixelNoScript()}
     <div class="site-shell">
       ${renderTopNavigation({ active: "club" })}
       ${body}
@@ -6510,9 +6543,11 @@ function renderNotFoundPage() {
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
     ${ADSENSE_SCRIPT}
     ${renderGoogleTagManagerHead("{ page_type: '404' }")}
+    ${renderMetaPixelHead()}
   </head>
   <body>
     ${renderGoogleTagManagerNoScript()}
+    ${renderMetaPixelNoScript()}
     <div class="site-shell">
       ${renderTopNavigation()}
       ${renderModernHero({
@@ -6911,9 +6946,11 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref(RELATIVE_ASSET_PATH))}" />
     ${ADSENSE_SCRIPT}
     ${renderGoogleTagManagerHead(`{ page_type: 'competition', competition_slug: ${escapeScript(JSON.stringify(slug))}, competition_category: ${escapeScript(JSON.stringify(competition.category))} }`)}
+    ${renderMetaPixelHead()}
   </head>
   <body>
     ${renderGoogleTagManagerNoScript()}
+    ${renderMetaPixelNoScript()}
     <div class="site-shell">
       ${renderTopNavigation({ active: "competitions" })}
       ${renderCompetitionDetailHero({
@@ -7462,9 +7499,11 @@ function renderLegacyCompetitionPage(competition) {
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref(RELATIVE_ASSET_PATH))}" />
     ${ADSENSE_SCRIPT}
     ${renderGoogleTagManagerHead(`{ page_type: 'inactive_competition', competition_slug: ${escapeScript(JSON.stringify(slug))}, competition_category: ${escapeScript(JSON.stringify(competition.category))} }`)}
+    ${renderMetaPixelHead()}
   </head>
   <body>
     ${renderGoogleTagManagerNoScript()}
+    ${renderMetaPixelNoScript()}
     <div class="site-shell">
       ${renderTopNavigation({ active: "competitions" })}
       ${renderModernHero({
@@ -7512,6 +7551,7 @@ function renderOutPage(competition) {
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref(RELATIVE_ASSET_PATH))}" />
     ${ADSENSE_SCRIPT}
     ${renderGoogleTagManagerHead(`{ page_type: 'outbound', competition_slug: ${escapeScript(JSON.stringify(slug))}, competition_category: ${escapeScript(JSON.stringify(competition.category))} }`)}
+    ${renderMetaPixelHead()}
     <script>
       (function () {
         var SLUG = ${escapeScript(JSON.stringify(slug))};
@@ -7536,6 +7576,7 @@ function renderOutPage(competition) {
   </head>
   <body>
     ${renderGoogleTagManagerNoScript()}
+    ${renderMetaPixelNoScript()}
     <div class="site-shell">
       ${renderTopNavigation({ active: "competitions" })}
       ${renderModernHero({
