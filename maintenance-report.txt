@@ -1,14 +1,14 @@
 === Competition Maintenance Report ===
-Date: 2026-06-20
+Date: 2026-06-21
 Mode: archive-expired
 Total competitions: 189
-Active published count: 68
-Expired archive page count: 44
+Active published count: 67
+Expired archive page count: 45
 Low-value expired noindex count: 0
 Held/private count: 77
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 24
+Closing in next 14 days: 23
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -55,32 +55,32 @@ Expired competition IDs:
 - ram-couriers-vodacom-bulls (2026-06-15)
 - aquelle-mzansi-mango (2026-06-15)
 - discovery-bank-qantas-flights-2026 (2026-06-19)
+- pep-plusmore-win-your-dream-2026 (2026-06-20)
 
 Closing soon (next 14 days):
-- pep-plusmore-win-your-dream-2026 (0 days)
-- spur-ultimate-springboks-match-day-experience-2026 (1 days)
-- dis-chem-protex-fund-the-future-2026 (3 days)
-- dis-chem-garnier-pure-active-june-2026-competition (8 days)
-- isuzu-win-a-new-x-rider-2026 (10 days)
-- looters-warehouse-toyota-vitz (10 days)
-- boxer-nedbank-greenbacks (10 days)
-- cell-c-comrades-cash-promo (10 days)
-- fnb-lovefnb-social-media-competition (10 days)
-- flash-mtn-national-airtime-vouchers (10 days)
-- clover-spar-rewards-stormers-jetour (10 days)
-- miwaylife-sanlam-spl-fuel-vouchers (10 days)
-- bridgestone-toyota-corolla-cross-2026 (10 days)
-- ackermans-payat-xbox-series-s (10 days)
-- dragon-energy-xtreme-comp-2026 (10 days)
-- penguin-random-house-penguin-post-42-hamper (10 days)
-- gotyme-bafana-jersey-giveaway-2026 (10 days)
-- budget-refer-a-friend-cash-2026 (10 days)
-- penguin-random-house-give-in-to-temptation-2026 (10 days)
-- spur-family-cruises-with-spur-2026 (10 days)
-- clicks-protex-protect-their-future-2026 (10 days)
-- discovery-europcar-winter-adventure-2026 (10 days)
-- vodacom-mrp-gift-card-competition-2026 (10 days)
-- starbaby-south-africa-monthly-competition-2026 (10 days)
+- spur-ultimate-springboks-match-day-experience-2026 (0 days)
+- dis-chem-protex-fund-the-future-2026 (2 days)
+- dis-chem-garnier-pure-active-june-2026-competition (7 days)
+- isuzu-win-a-new-x-rider-2026 (9 days)
+- looters-warehouse-toyota-vitz (9 days)
+- boxer-nedbank-greenbacks (9 days)
+- cell-c-comrades-cash-promo (9 days)
+- fnb-lovefnb-social-media-competition (9 days)
+- flash-mtn-national-airtime-vouchers (9 days)
+- clover-spar-rewards-stormers-jetour (9 days)
+- miwaylife-sanlam-spl-fuel-vouchers (9 days)
+- bridgestone-toyota-corolla-cross-2026 (9 days)
+- ackermans-payat-xbox-series-s (9 days)
+- dragon-energy-xtreme-comp-2026 (9 days)
+- penguin-random-house-penguin-post-42-hamper (9 days)
+- gotyme-bafana-jersey-giveaway-2026 (9 days)
+- budget-refer-a-friend-cash-2026 (9 days)
+- penguin-random-house-give-in-to-temptation-2026 (9 days)
+- spur-family-cruises-with-spur-2026 (9 days)
+- clicks-protex-protect-their-future-2026 (9 days)
+- discovery-europcar-winter-adventure-2026 (9 days)
+- vodacom-mrp-gift-card-competition-2026 (9 days)
+- starbaby-south-africa-monthly-competition-2026 (9 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
