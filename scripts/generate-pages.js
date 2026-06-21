@@ -934,15 +934,15 @@ const TRUST_PAGE_DEFINITIONS = [
   },
   {
     slug: "free-samples-south-africa",
-    title: "Where to Get Free Samples in South Africa | Freehub",
+    title: "Where to Get Free Samples in South Africa | Freehub Guide",
     description:
-      "Find where to get free samples in South Africa through official brand campaigns, product-testing panels and retailer offers, with cost, privacy and scam checks.",
+      "Where to get free samples in South Africa: check official brand campaigns, retailer sample offers and product-testing panels before sharing details.",
     heading: "Where to Get Free Samples in South Africa",
     intro:
-      "If you want to know where to get free samples in South Africa, start with official brand campaigns, product-testing panels and retailer offers, then check cost, delivery, eligibility and privacy terms before sharing personal details.",
+      "If you are searching where to get free samples in South Africa, start with official brand campaigns, retailer sample offers and recognised product-testing panels. Then check whether the sample is genuinely free, limited to selected testers, bundled with an order or linked to delivery, age or privacy terms.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: "2026-06-10",
+    dateModified: "2026-06-20",
     resourceCategories: ["samples"],
     resourceTitle: "Sample and product-testing routes",
     resourceIntro:
@@ -951,8 +951,8 @@ const TRUST_PAGE_DEFINITIONS = [
       {
         heading: "Quick answer: where to get free samples",
         paragraphs: [
-          "The safest places to look are official brand campaigns, retailer sample offers and recognised product-testing panels that explain who qualifies, whether stock is limited and whether delivery, a purchase or age checks apply.",
-          'Use this guide when you want editorial help, then compare broader <a href="/">free stuff South Africa</a> searches, <a href="/category/vouchers/">free vouchers South Africa</a> options and the <a href="/free-credit-report-south-africa/">free credit report guide</a> for related no-cost discovery routes.',
+          "The safest places to get free samples are official brand campaign pages, retailer sample promotions and product-testing panels that clearly explain who qualifies, whether stock is limited, and whether delivery, a purchase, age checks or feedback tasks apply.",
+          'Use this guide when you want a cautious starting point, then compare broader <a href="/">free stuff South Africa</a> searches, <a href="/free-competitions/">free competitions</a>, <a href="/category/vouchers/">free voucher giveaways</a> and <a href="/free-credit-report-south-africa/">free credit report options</a> for related no-cost routes.',
         ],
       },
       {
@@ -995,7 +995,7 @@ const TRUST_PAGE_DEFINITIONS = [
       {
         question: "Where can I get free samples in South Africa?",
         answer:
-          "Check official brand campaigns, product-testing platforms and retailer promotions, but remember that samples are often limited, selected or linked to a purchase.",
+          "Check official brand campaign pages, retailer sample offers and recognised product-testing platforms. Free samples are often limited, selected, in-store only or linked to a purchase, so read the terms before sharing details.",
       },
       {
         question: "Are free samples always free?",
@@ -1011,7 +1011,7 @@ const TRUST_PAGE_DEFINITIONS = [
     links: [
       { label: "Free giveaways South Africa", href: "/" },
       { label: "Free stuff guide", href: "/free-stuff-south-africa/" },
-      { label: "Free vouchers South Africa", href: "/category/vouchers/" },
+      { label: "Free voucher giveaways", href: "/category/vouchers/" },
       { label: "Free credit report guide", href: "/free-credit-report-south-africa/" },
       { label: "Free competitions", href: "/free-competitions/" },
       { label: "Report a suspicious listing", href: "/report-a-competition/" },
@@ -4417,10 +4417,14 @@ function getCategoryInternalLinks(slug, competitions) {
 
   if (slug === "cash") {
     const mtnMomoPath = byIdPathOrNull("mtn-momo-cash-sprint");
+    const knorrPath = byIdPathOrNull("knorr-win-r5000-weekly-2026");
+    const clerePath = byIdPathOrNull("clere-share-of-r1-million-cash-2026");
     return {
       title: "Cash Competition Searches",
       links: [
         { label: "Cash competitions South Africa", href: "/category/cash/" },
+        ...(knorrPath ? [{ label: "Knorr competition 2026", href: knorrPath }] : []),
+        ...(clerePath ? [{ label: "Clere competition 2026", href: clerePath }] : []),
         ...(mtnMomoPath ? [{ label: "MTN MoMo cash competition", href: mtnMomoPath }] : []),
         { label: "Win cash online South Africa", href: byIdPath("fnb-pay-to-win-grand-cash-prize") },
         { label: "All competitions", href: "/competitions/" },
@@ -7587,8 +7591,12 @@ function renderCompetitionInternalLinks(competition, categoryPath, generatedBran
 
   if (slug === "clere-share-of-r1-million-cash-2026") {
     links.push({ label: "Clere For Men competition", href: "/competition/clere-for-men-play-it-smooth-2026/" });
+    links.push({ label: "Knorr competition 2026", href: "/competition/knorr-win-r5000-weekly-2026/" });
   }
   if (slug === "clere-for-men-play-it-smooth-2026") {
+    links.push({ label: "Clere competition 2026", href: "/competition/clere-share-of-r1-million-cash-2026/" });
+  }
+  if (slug === "knorr-win-r5000-weekly-2026") {
     links.push({ label: "Clere competition 2026", href: "/competition/clere-share-of-r1-million-cash-2026/" });
   }
 
