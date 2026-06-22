@@ -1,14 +1,14 @@
 === Competition Maintenance Report ===
 Date: 2026-06-22
 Mode: archive-expired
-Total competitions: 189
-Active published count: 66
+Total competitions: 191
+Active published count: 68
 Expired archive page count: 46
 Low-value expired noindex count: 0
 Held/private count: 77
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 22
+Closing in next 14 days: 23
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -61,6 +61,7 @@ Expired competition IDs:
 Closing soon (next 14 days):
 - dis-chem-protex-fund-the-future-2026 (1 days)
 - dis-chem-garnier-pure-active-june-2026-competition (6 days)
+- bull-brand-spar-inland-cash-competition-2026 (6 days)
 - isuzu-win-a-new-x-rider-2026 (8 days)
 - looters-warehouse-toyota-vitz (8 days)
 - boxer-nedbank-greenbacks (8 days)

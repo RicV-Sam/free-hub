@@ -52,13 +52,14 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 20
+- Matching active public competitions: 22
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
+| Bull Brand SPAR Inland Cash Competition (bull-brand-spar-inland-cash-competition-2026) | 2026-06-28 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Looters Warehouse Competition - Win a Toyota Vitz (looters-warehouse-toyota-vitz) | 2026-06-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Flash MTN National Airtime Campaign - Win R10,000 Vouchers (flash-mtn-national-airtime-vouchers) | 2026-06-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Clover and SPAR Rewards Ultimate Stormers Experience - Win a Jetour Dashing (clover-spar-rewards-stormers-jetour) | 2026-06-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
@@ -74,6 +75,7 @@ Recommended normalisation:
 | Sunlight Win a Kitchen Makeover Competition (sunlight-kitchen-makeover-2026) | 2026-07-31 | till-slip-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Rhodes Quality Win Your Share of R1 Million Competition (rhodes-quality-win-your-share-of-r1-million-competition-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Plush More Foam More Fun Competition (plush-more-foam-more-fun-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
+| Jacobs National Promotion 2026 (jacobs-national-promotion-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Kellogg's Big Bowl Energy Competition (kelloggs-big-bowl-energy-2026) | 2026-08-31 | till-slip-required | yes | yes | Till slip or receipt tag | none |
 | Mr Price Home Room Refresh Voucher (mr-price-home-room-refresh-voucher) | 2026-09-27 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Knorr Win R5,000 Weekly Competition (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
