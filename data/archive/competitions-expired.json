@@ -2796,5 +2796,60 @@
     "evidenceNotes": "Official PEP competitions page and official +more competition rules page confirm the PEP and +more Win your Dream competition runs from 22 May 2026 to 20 June 2026. Entrants must spend R100 or more in a participating PEP, PEP HOME or PEP CELL store, scan a +more rewards card, then use the one-time SMS or email game link. The campaign offers five weekly R100,000 cash prizes plus 10,000 instant voucher prizes up to R50. Final resolved URLs checked 2026-06-11.",
     "archivedAt": "2026-06-21",
     "archiveReason": "expired"
+  },
+  {
+    "id": "spur-ultimate-springboks-match-day-experience-2026",
+    "title": "Spur Ultimate Springboks Match Day Experience",
+    "brand": "Spur / SA Rugby",
+    "summary": "Spur Family Club app users can enter online for a chance to win 1 of 2 Springboks mascot experience prizes, each including the mascot experience for a nominated child and 3 general admission match tickets.",
+    "entrySteps": [
+      "Sign up to the Spur Family Club app before entering.",
+      "Visit the official campaign landing page linked from the Spur promotion and complete the entry form with the required personal details.",
+      "Optionally complete the survey for 10 extra entries; the survey is not required for entry.",
+      "Submit the entry before 23:59 South African time on 21 June 2026."
+    ],
+    "closingDate": "2026-06-21",
+    "category": "Sports",
+    "prizeName": "Springboks mascot experience plus 3 general admission tickets",
+    "prizeType": "experience",
+    "prizeValueAmount": null,
+    "prizeValueCurrency": "ZAR",
+    "numberOfPrizes": "2",
+    "entryType": "Online Form",
+    "tags": [
+      "sports",
+      "rugby",
+      "springboks",
+      "family",
+      "free-entry",
+      "online-entry"
+    ],
+    "sportsTags": [
+      "rugby"
+    ],
+    "isHighValue": false,
+    "url": "https://www.spursteakranches.com/za/promotions/win-the-ultimate-springboks-match-day-experience",
+    "sourceUrl": "https://www.spursteakranches.com/za/promotions/win-the-ultimate-springboks-match-day-experience",
+    "termsUrl": "https://sa-rugby-partners.partnerships-hub.com/spur/en/terms",
+    "sourceDomain": "spursteakranches.com",
+    "lastChecked": "2026-05-25",
+    "verificationStatus": "published",
+    "linkValidationStatus": "manual-ok",
+    "linkValidationReason": "Official Spur promotion page is live and browser-verified, but automated fetch returns HTTP 403. Verified against the live promotion page and official SA Rugby terms on 2026-05-25.",
+    "linkValidationCheckedAt": "2026-05-25",
+    "linkValidationAllowedDomain": "spursteakranches.com",
+    "entryCostType": "free-entry",
+    "entryFeeLabel": "No purchase required; Spur Family Club app sign-up required and standard data costs may apply",
+    "purchaseRequired": false,
+    "requiredProduct": "Spur Family Club app registration required",
+    "entryChannel": "Official online entry form on the SA Rugby / Spur campaign landing page",
+    "eligibility": "South African citizens or permanent residents signed up to the Spur Family Club app and available for the relevant match date in Pretoria on 11 July 2026 or Durban on 18 July 2026. The mascot participant is a nominated child or dependent represented by a parent or legal guardian.",
+    "region": "South Africa",
+    "evidenceNotes": "Official Spur promotion page and SA Rugby terms confirm the competition period runs from 00:01 on 5 May 2026 to 23:59 on 21 June 2026. Entrants complete the online form, with an optional survey for additional entries. There are two prizes in total, one per specified Springboks fixture, and each prize includes a mascot experience for the nominated child plus three general admission tickets. Travel and accommodation are excluded.",
+    "seoTitle": "Spur Ultimate Springboks Match Day Experience | Freehub",
+    "seoDescription": "Check Spur Ultimate Springboks Match Day. Prize: Springboks mascot experience plus 3 general. Closes 21 Jun 2026. Source: spursteakranches.com. Free entry.",
+    "quickAnswer": "The Spur Ultimate Springboks Match Day Experience is a sports competition marked free entry. Freehub lists Springboks mascot experience plus 3 general admission tickets, entry via Official online entry form on the SA Rugby / Spur campaign landing page, and a closing date of 21 Jun 2026. Confirm the latest rules on.",
+    "archivedAt": "2026-06-22",
+    "archiveReason": "expired"
   }
 ]

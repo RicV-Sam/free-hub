@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-06-21
+Generated: 2026-06-22
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
@@ -86,14 +86,13 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 19
+- Matching active public competitions: 18
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Spur Ultimate Springboks Match Day Experience (spur-ultimate-springboks-match-day-experience-2026) | 2026-06-21 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | ISUZU Win a New X-Rider Competition (isuzu-win-a-new-x-rider-2026) | 2026-06-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | MiWayLife and Sanlam Personal Loans Fuel Voucher Competition (miwaylife-sanlam-spl-fuel-vouchers) | 2026-06-30 | free-entry | yes | yes | Online entry tag | none |
 | Bridgestone Win 1 of 3 Toyota Corolla Cross Vehicles (bridgestone-toyota-corolla-cross-2026) | 2026-06-30 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
