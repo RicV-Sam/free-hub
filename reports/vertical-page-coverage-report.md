@@ -7,7 +7,7 @@ Only active, published, public-safe competitions are counted. Held, unverified, 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 14
+- Matching active public competitions: 15
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -24,6 +24,7 @@ Only active, published, public-safe competitions are counted. Held, unverified, 
 | Clere For Men Play It Smooth Competition (clere-for-men-play-it-smooth-2026) | 2026-07-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Sunlight Win a Kitchen Makeover Competition (sunlight-kitchen-makeover-2026) | 2026-07-31 | till-slip-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Rhodes Quality Win Your Share of R1 Million Competition (rhodes-quality-win-your-share-of-r1-million-competition-2026) | 2026-07-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
+| MasterChef SA Season 6 Watch & Win (masterchef-sa-watch-and-win-competition-2026) | 2026-08-17 | free-entry | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Coca-Cola Get Together Zwakala neFlava Promotion (coca-cola-zwakala-neflava-2026) | 2026-08-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Kellogg's Big Bowl Energy Competition (kelloggs-big-bowl-energy-2026) | 2026-08-31 | till-slip-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Knorr Win R5,000 Weekly Competition (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
@@ -52,7 +53,7 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 22
+- Matching active public competitions: 23
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -71,6 +72,7 @@ Recommended normalisation:
 | Game Haier Play With The Number Ones (game-haier-play-with-the-number-ones-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Clere Win a Share of R1 Million Cash Competition (clere-share-of-r1-million-cash-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | NIVEA MEN Real Madrid Competition - Win Cash Prizes (nivea-men-real-madrid-cash-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
+| Cremora Winter Campaign Competition 2026 (cremora-winter-campaign-competition-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Clere For Men Play It Smooth Competition (clere-for-men-play-it-smooth-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Sunlight Win a Kitchen Makeover Competition (sunlight-kitchen-makeover-2026) | 2026-07-31 | till-slip-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Rhodes Quality Win Your Share of R1 Million Competition (rhodes-quality-win-your-share-of-r1-million-competition-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
@@ -88,7 +90,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 18
+- Matching active public competitions: 20
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -103,7 +105,9 @@ Recommended normalisation:
 | Penguin Random House Give In to Temptation Competition (penguin-random-house-give-in-to-temptation-2026) | 2026-06-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Clicks Protex Protect Their Future Competition (clicks-protex-protect-their-future-2026) | 2026-06-30 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | StarBaby South Africa Monthly Competition (starbaby-south-africa-monthly-competition-2026) | 2026-06-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| Bulbs of the Fynbos Competition (bulbs-of-the-fynbos-competition-2026) | 2026-07-04 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Tekkie Town Football Frenzy FIFA 2026 Competition (tekkie-town-football-frenzy-fifa-2026) | 2026-07-12 | purchase-required | yes | yes | Online entry tag | none |
+| Godfather of the Waves Competition (godfather-of-the-waves-competition-2026) | 2026-07-17 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Clicks Cashback Haul Competition (clicks-cashback-haul-competition) | 2026-07-19 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Game Haier Play With The Number Ones (game-haier-play-with-the-number-ones-2026) | 2026-07-31 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | Clicks WIN with BabyClub Competition (clicks-babyclub-competition) | 2026-07-31 | free-entry | yes | yes | Online entry mentioned in entry text | none |
