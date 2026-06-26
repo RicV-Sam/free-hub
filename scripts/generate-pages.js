@@ -57,7 +57,6 @@ const HUB_LINKS = [
   { label: "Free competitions", href: "/free-competitions/" },
   { label: "Ending soon", href: "/competitions-ending-soon/" },
   { label: "Purchase required", href: "/purchase-required-competitions/" },
-  { label: "Paid entry", href: "/paid-entry-competitions/" },
 ];
 const DUPLICATE_TAG_CANONICAL_PATHS = {
   "free-entry": "/free-competitions/",
@@ -628,20 +627,27 @@ const TRUST_PAGE_DEFINITIONS = [
   },
   {
     slug: "free-stuff-south-africa",
-    title: "Free Stuff South Africa | Legit Freebies, Courses, Books & Samples",
+    title: "Free Stuff South Africa | Legit Freebies, Competitions, Samples",
     description:
-      "Find useful free stuff in South Africa, including free competitions, courses, children's books, credit reports, product samples and safe official links.",
-    heading: "Free Stuff in South Africa",
+      "Find legit free stuff South Africa searchers actually want, including free competitions, samples, credit reports, courses and safe official links.",
+    heading: "Free Stuff South Africa",
     intro:
-      "A practical guide to free South African resources that are worth your time: competitions, learning, reading, credit checks and cautious sample opportunities from official sources.",
+      "Use this free stuff South Africa guide when you want legitimate no-cost options beyond a single giveaway. It brings together free competitions, cautious sample routes, learning resources, reading options and credit-report checks with official-source and safety context.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: "2026-05-27",
+    dateModified: "2026-06-25",
     resourceCategories: ["online-courses", "childrens-books", "credit-report", "samples"],
     resourceTitle: "Best free options right now",
     resourceIntro:
       "Start with resources that have clear ownership, official websites and a realistic explanation of what is actually free.",
     sections: [
+      {
+        heading: "Quick answer: free stuff South Africa",
+        paragraphs: [
+          "The safest free stuff South Africa options usually come from official websites that explain exactly what is free and what still costs money. Start with free-entry competitions, public learning platforms, open reading resources, free credit-report tools and carefully checked sample offers.",
+          "If you mainly want current prize draws, start on the homepage for broader competitions South Africa discovery. If you want product-led offers, use the free samples guide and voucher giveaway hub before sharing any personal details.",
+        ],
+      },
       {
         heading: "What counts as useful free stuff?",
         paragraphs: [
@@ -685,6 +691,11 @@ const TRUST_PAGE_DEFINITIONS = [
           "Start with official brand, learning, literacy and credit-bureau websites, then use Freehub for free-entry competitions and safety checks before you click through.",
       },
       {
+        question: "What counts as free stuff and not just a competition?",
+        answer:
+          "Free stuff can include no-purchase competitions, public courses, reading libraries, free credit-report access and some sample programmes. If a page requires a purchase, delivery fee, paid ticket or selected testing panel, it should say so clearly.",
+      },
+      {
         question: "Is free stuff really free?",
         answer:
           "Sometimes. Some resources are fully free, while others may require data, an account, a purchase, delivery, age verification or selection for a product-testing campaign.",
@@ -696,12 +707,13 @@ const TRUST_PAGE_DEFINITIONS = [
       },
     ],
     links: [
+      { label: "Competitions South Africa", href: "/" },
       { label: "Free competitions", href: "/free-competitions/" },
-      { label: "Voucher competitions", href: "/category/vouchers/" },
+      { label: "Free voucher giveaways", href: "/category/vouchers/" },
       { label: "Free online courses", href: "/free-online-courses-south-africa/" },
       { label: "Free children's books", href: "/free-childrens-books-south-africa/" },
-      { label: "Free credit report", href: "/free-credit-report-south-africa/" },
-      { label: "Free samples guide", href: "/free-samples-south-africa/" },
+      { label: "Free credit report South Africa", href: "/free-credit-report-south-africa/" },
+      { label: "Where to get free samples", href: "/free-samples-south-africa/" },
       { label: "Fake winner messages", href: "/fake-competition-winner-messages/" },
     ],
   },
@@ -859,25 +871,32 @@ const TRUST_PAGE_DEFINITIONS = [
   },
   {
     slug: "free-credit-report-south-africa",
-    title: "Free Credit Report South Africa | Safe Credit Score Checks",
+    title: "Free Credit Report South Africa | Free Credit Score Checks",
     description:
-      "Learn where South Africans can check free credit reports and scores through Experian, TransUnion, ClearScore and official consumer checks.",
-    heading: "Free Credit Reports in South Africa",
+      "Check free credit report South Africa options, free credit score routes, official bureau sources, identity checks and credit repair red flags.",
+    heading: "Free Credit Report South Africa",
     intro:
-      "A consumer-friendly guide to free credit report options, what information you may need, what is not guaranteed and how to avoid credit repair scams.",
+      "Use this guide to compare free credit report South Africa options before you enter identity details. It explains recognised credit-bureau and consumer-platform routes, what a free credit score can and cannot tell you, and the red flags to avoid before applying for credit.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: "2026-05-27",
+    dateModified: "2026-06-25",
     resourceCategories: ["credit-report"],
     resourceTitle: "Official free credit report options",
     resourceIntro:
       "Use recognised credit-bureau or authorised consumer platforms, then read how your data and offers are handled.",
     sections: [
       {
+        heading: "Quick answer: free credit report South Africa",
+        paragraphs: [
+          "South Africans can start with recognised credit-bureau or consumer credit-score services when checking a free credit report or free credit score. Expect identity verification, account creation and privacy terms before the report is shown.",
+          "A free credit report helps you review accounts, payment history, defaults, judgments and possible errors. It does not guarantee loan approval, remove accurate negative information or replace advice from the official provider.",
+        ],
+      },
+      {
         heading: "What you can check for free",
         paragraphs: [
-          "Free credit report pages are high-intent because users need to understand accounts, missed payments, defaults, judgments and possible errors before applying for credit.",
-          "Experian, TransUnion and ClearScore are useful starting points, but each service has its own sign-up flow, score display and offer model.",
+          "A free credit report can help you review listed accounts, missed payments, defaults, judgments, account enquiries and possible errors before you apply for new credit.",
+          "Experian, TransUnion and ClearScore are useful starting points, but each service has its own sign-up flow, score display, update timing, privacy wording and offer model.",
         ],
       },
       {
@@ -885,6 +904,13 @@ const TRUST_PAGE_DEFINITIONS = [
         paragraphs: [
           "Check who provides the report, whether the service is free forever or a trial, whether card details are required, how your data is used and whether personalised offers are part of the service.",
           "A free credit score is not the same as guaranteed loan approval. Treat personalised offers as advertising or eligibility guidance unless the provider clearly says otherwise.",
+        ],
+      },
+      {
+        heading: "When to dispute an error",
+        paragraphs: [
+          "If a report shows an account, judgment, payment status or personal detail you believe is wrong, use the provider's official dispute or correction process. Keep screenshots, reference numbers and dates for your own records.",
+          "Do not pay an anonymous agent to remove accurate information. If the information is wrong, the safer route is the official bureau or provider process, not a WhatsApp-only service.",
         ],
       },
       {
@@ -916,6 +942,11 @@ const TRUST_PAGE_DEFINITIONS = [
           "Yes. South Africans can use recognised credit-bureau or authorised consumer services, including free annual bureau report options and free score/report platforms.",
       },
       {
+        question: "Where should I start if I want to check my credit score for free?",
+        answer:
+          "Start with recognised credit-bureau or consumer credit-score providers and make sure you are on the official website or app before entering identity details.",
+      },
+      {
         question: "Does checking my own credit report hurt my score?",
         answer:
           "Checking your own report is generally treated differently from a lender application check. Use official provider guidance if you are unsure.",
@@ -925,9 +956,16 @@ const TRUST_PAGE_DEFINITIONS = [
         answer:
           "No. A score helps you understand your profile, but approval depends on the lender's full assessment and current affordability checks.",
       },
+      {
+        question: "Should I pay someone to fix my credit report?",
+        answer:
+          "Be careful. Do not pay upfront fees to remove accurate credit information. If something is wrong, use the official provider or bureau dispute process.",
+      },
     ],
     links: [
       { label: "Free stuff guide", href: "/free-stuff-south-africa/" },
+      { label: "Where to get free samples", href: "/free-samples-south-africa/" },
+      { label: "Free online courses", href: "/free-online-courses-south-africa/" },
       { label: "Fake winner messages", href: "/fake-competition-winner-messages/" },
       { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
       { label: "Free competitions", href: "/free-competitions/" },
@@ -937,13 +975,13 @@ const TRUST_PAGE_DEFINITIONS = [
     slug: "free-samples-south-africa",
     title: "Where to Get Free Samples in South Africa | Freehub Guide",
     description:
-      "Where to get free samples in South Africa: check official brand campaigns, retailer sample offers and product-testing panels before sharing details.",
+      "Where to get free samples in South Africa: check official brand campaigns, retailer sample offers and product-testing panels before sharing details or paying anything.",
     heading: "Where to Get Free Samples in South Africa",
     intro:
-      "If you are searching where to get free samples in South Africa, start with official brand campaigns, retailer sample offers and recognised product-testing panels. Then check whether the sample is genuinely free, limited to selected testers, bundled with an order or linked to delivery, age or privacy terms.",
+      "If you are searching where to get free samples in South Africa, start with official brand campaigns, retailer sample offers and recognised product-testing panels. Check whether the offer is genuinely free, limited to selected testers, bundled with an order, tied to delivery costs or restricted by age, stock or privacy terms before you sign up.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: "2026-06-20",
+    dateModified: "2026-06-25",
     resourceCategories: ["samples"],
     resourceTitle: "Sample and product-testing routes",
     resourceIntro:
@@ -953,7 +991,7 @@ const TRUST_PAGE_DEFINITIONS = [
         heading: "Quick answer: where to get free samples",
         paragraphs: [
           "The safest places to get free samples are official brand campaign pages, retailer sample promotions and product-testing panels that clearly explain who qualifies, whether stock is limited, and whether delivery, a purchase, age checks or feedback tasks apply.",
-          'Use this guide when you want a cautious starting point, then compare broader <a href="/">free stuff South Africa</a> searches, <a href="/free-competitions/">free competitions</a>, <a href="/category/vouchers/">free voucher giveaways</a> and <a href="/free-credit-report-south-africa/">free credit report options</a> for related no-cost routes.',
+          "Use this guide when you want a cautious starting point, then compare broader free stuff South Africa options, free competitions, free vouchers South Africa and free credit report South Africa routes for other no-cost options.",
         ],
       },
       {
@@ -997,6 +1035,11 @@ const TRUST_PAGE_DEFINITIONS = [
         question: "Where can I get free samples in South Africa?",
         answer:
           "Check official brand campaign pages, retailer sample offers and recognised product-testing platforms. Free samples are often limited, selected, in-store only or linked to a purchase, so read the terms before sharing details.",
+      },
+      {
+        question: "Can I get free samples without buying anything first?",
+        answer:
+          "Sometimes, yes. Some campaigns are genuinely free, but others are free with order, in-store only, limited to selected testers or linked to a delivery cost. The promoter should explain that before you enter.",
       },
       {
         question: "Are free samples always free?",
@@ -2221,7 +2264,6 @@ function renderSiteFooter(options = {}) {
               <a href="/free-competitions/">Free competitions</a>
               <a href="/competitions-ending-soon/">Ending soon</a>
               <a href="/purchase-required-competitions/">Purchase required</a>
-              <a href="/paid-entry-competitions/">Paid entry</a>
               ${verticalLinksMarkup}
               <a href="${escapeAttribute(WHATSAPP_CHANNEL_URL)}" target="_blank" rel="noopener noreferrer">WhatsApp channel</a>
               <a href="/brands/">Browse by brand</a>
@@ -4786,7 +4828,6 @@ function renderHomepage(competitions) {
             <a class="internal-links__link" href="/free-stuff-south-africa/">Free stuff South Africa</a>
             <a class="internal-links__link" href="/competitions-ending-soon/">Competitions ending soon</a>
             <a class="internal-links__link" href="/purchase-required-competitions/">Purchase required competitions</a>
-            <a class="internal-links__link" href="/paid-entry-competitions/">Paid entry competitions</a>
             <a class="internal-links__link" href="/competition/clere-share-of-r1-million-cash-2026/">Clere competition 2026</a>
             <a class="internal-links__link" href="/competition/knorr-win-r5000-weekly-2026/">Knorr competition 2026</a>
           </div>
@@ -4794,8 +4835,8 @@ function renderHomepage(competitions) {
   const homeQuickAnswerMarkup = `<section class="seo-copy-block seo-copy-block--home" aria-label="Quick answer for giveaways and free stuff in South Africa">
           <h2 class="seo-copy-block__title">Quick answer: where to find free stuff, giveaways and competitions in South Africa</h2>
           <div class="seo-copy-block__content">
-            <p>Start with the homepage when you want to compare broader free stuff South Africa and giveaways searches across verified competition types. Freehub separates free-entry routes, purchase-required promotions, voucher giveaways, cash prizes and car competitions so you can see the entry cost, closing date and official source before clicking through.</p>
-            <p>If you want a narrower path first, compare <a href="/free-competitions/">free competitions</a>, <a href="/free-samples-south-africa/">where to get free samples</a>, <a href="/category/vouchers/">free voucher giveaways</a> and <a href="/free-stuff-south-africa/">free stuff South Africa</a> resources.</p>
+            <p>Start with the homepage when you want to compare competitions South Africa searches, broader giveaways and free stuff South Africa intent across verified competition types. Freehub separates free-entry routes, purchase-required promotions, voucher giveaways, cash prizes and car competitions so you can see the entry cost, closing date and official source before clicking through.</p>
+            <p>If you want a narrower path first, compare <a href="/free-competitions/">free competitions</a>, <a href="/free-samples-south-africa/">where to get free samples</a>, <a href="/category/vouchers/">free voucher giveaways</a> and <a href="/free-stuff-south-africa/">free stuff South Africa</a> resources for evergreen non-competition options.</p>
           </div>
         </section>`;
   const featuredSectionMarkup = `<section class="home-section home-section--featured" aria-label="Featured competitions this week">
@@ -4844,19 +4885,19 @@ function renderHomepage(competitions) {
     competitions: latestAdded,
   });
 
-  const homepageSeoCopy = `Freehub helps people looking for free stuff South Africa, free giveaways South Africa, giveaways and competitions South Africa compare current opportunities in one place. The homepage brings together published competitions, voucher giveaways, cash prizes, car draws, free-entry routes and purchase-required promotions with source, cost and closing-date cues.
+  const homepageSeoCopy = `Freehub helps people looking for competitions South Africa, free stuff South Africa and free giveaways South Africa compare current opportunities in one place. The homepage brings together published competitions, voucher giveaways, cash prizes, car draws, free-entry routes and purchase-required promotions with source, cost and closing-date cues.
 
 Many South African competitions are tied to official brand promotions, retail campaigns, app offers and seasonal giveaways. Freehub makes those easier to compare by showing the entry method, closing date, entry-cost label and prize cues before you leave for the promoter page.
 
-If you want only no-purchase routes, use the free competitions page. If you want broader giveaways and free stuff South Africa discovery, including purchase-required cash, voucher and car promotions, start here and always check the official rules before entering.`;
+If you want only no-purchase routes, use the free competitions page. If you want broader giveaways and free stuff South Africa discovery, including purchase-required cash, voucher and car promotions, start here; for evergreen non-competition ideas, continue to the dedicated free stuff South Africa guide and always check the official rules before entering.`;
 
   return `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Stuff, Giveaways &amp; Competitions South Africa | Freehub</title>
-    <meta name="description" content="Browse free stuff South Africa and free giveaways South Africa searches in one place, including competitions, vouchers, cash prizes and official promoter links." />
+    <title>Competitions South Africa | Free Stuff, Giveaways &amp; More | Freehub</title>
+    <meta name="description" content="Browse competitions South Africa, free stuff South Africa and free giveaways in one place, with vouchers, cash prizes, closing dates and official promoter links." />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="${escapeAttribute(shared.CANONICAL_ORIGIN)}/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -4897,8 +4938,8 @@ ${noscriptLinks}
               <span class="hero__brand-mark" aria-hidden="true">FH</span>
               <span class="hero__brand-name">Freehub</span>
             </div>
-            <h1 id="pageTitle">Free Stuff, Giveaways and Competitions in South Africa</h1>
-            <p class="hero__text" id="pageIntro">Compare free stuff South Africa searchers care about, including giveaways, voucher prizes, cash draws and verified competition links with visible entry costs and closing dates.</p>
+            <h1 id="pageTitle">Competitions, Giveaways and Free Stuff South Africa</h1>
+            <p class="hero__text" id="pageIntro">Compare competitions South Africa searchers care about, including giveaways, voucher prizes, cash draws and free stuff routes with visible entry costs, closing dates and official-source links.</p>
             ${renderUpdatedNotice()}
             <div class="hero__actions">
               <a class="btn btn--primary" href="#all-competitions">Browse Today&apos;s Competitions</a>

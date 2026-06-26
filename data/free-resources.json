@@ -87,8 +87,8 @@
     "requirements": "Valid South African ID details and identity verification are expected.",
     "watchOut": "Use Experian's official site and never share banking passwords or card PINs.",
     "datePublished": "2026-05-27",
-    "lastReviewed": "2026-05-27",
-    "dateModified": "2026-05-27"
+    "lastReviewed": "2026-06-26",
+    "dateModified": "2026-06-26"
   },
   {
     "name": "TransUnion South Africa",
@@ -100,13 +100,13 @@
     "requirements": "Identity verification is required before report access.",
     "watchOut": "A free credit report is not the same as guaranteed credit approval.",
     "datePublished": "2026-05-27",
-    "lastReviewed": "2026-05-27",
-    "dateModified": "2026-05-27",
+    "lastReviewed": "2026-06-26",
+    "dateModified": "2026-06-26",
     "manualOk": true,
     "manualOkReason": "Official credit-bureau site can return automated-check 403 responses.",
-    "manualOkCheckedAt": "2026-05-27",
+    "manualOkCheckedAt": "2026-06-26",
     "manualOkAllowedDomain": "transunion.co.za",
-    "manualOkEvidence": "Official TransUnion South Africa annual free credit report page was manually reviewed for the consumer credit-report offer and matching URL."
+    "manualOkEvidence": "Official TransUnion South Africa annual free credit report page was manually rechecked on 2026-06-26 for the consumer credit-report offer and matching URL."
   },
   {
     "name": "ClearScore South Africa",
@@ -118,13 +118,13 @@
     "requirements": "Sign-up and identity checks are required.",
     "watchOut": "Treat loan and credit offers as advertising or eligibility guidance, not approval.",
     "datePublished": "2026-05-27",
-    "lastReviewed": "2026-05-27",
-    "dateModified": "2026-05-27",
+    "lastReviewed": "2026-06-26",
+    "dateModified": "2026-06-26",
     "manualOk": true,
     "manualOkReason": "Official site can return automated-check 403 responses.",
-    "manualOkCheckedAt": "2026-05-27",
+    "manualOkCheckedAt": "2026-06-26",
     "manualOkAllowedDomain": "clearscore.com",
-    "manualOkEvidence": "Official ClearScore South Africa page was manually reviewed as the consumer score/report entry point for South African users."
+    "manualOkEvidence": "Official ClearScore South Africa page was manually rechecked on 2026-06-26 as the consumer score/report entry point for South African users."
   },
   {
     "name": "Brand Advisor",
@@ -149,13 +149,13 @@
     "requirements": "Profile setup, campaign application and review/content tasks may apply.",
     "watchOut": "Check whether a campaign is active before signing up; availability can be limited.",
     "datePublished": "2026-05-27",
-    "lastReviewed": "2026-05-27",
-    "dateModified": "2026-05-27",
+    "lastReviewed": "2026-06-26",
+    "dateModified": "2026-06-26",
     "manualOk": true,
     "manualOkReason": "Official site may reject automated link-check requests.",
-    "manualOkCheckedAt": "2026-05-27",
+    "manualOkCheckedAt": "2026-06-26",
     "manualOkAllowedDomain": "reviewclub.co.za",
-    "manualOkEvidence": "Official Review Club South Africa how-it-works page was manually reviewed for product-testing programme context."
+    "manualOkEvidence": "Official Review Club South Africa how-it-works page was manually rechecked on 2026-06-26 for free creator product campaign and product-testing programme context."
   },
   {
     "name": "ReviewClub international product tests",
