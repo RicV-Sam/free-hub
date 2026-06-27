@@ -636,7 +636,7 @@ const TRUST_PAGE_DEFINITIONS = [
     article: true,
     datePublished: "2026-05-27",
     dateModified: "2026-06-25",
-    resourceCategories: ["online-courses", "childrens-books", "credit-report", "samples"],
+    resourceCategories: ["online-courses", "childrens-books", "credit-report", "samples", "consumer-support"],
     resourceTitle: "Best free options right now",
     resourceIntro:
       "Start with resources that have clear ownership, official websites and a realistic explanation of what is actually free.",

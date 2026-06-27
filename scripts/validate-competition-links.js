@@ -63,6 +63,22 @@ const APPROVED_MANUAL_OK_URLS = new Map([
     "https://www.dischem.co.za/garnier-pure-active-june-2026-competition",
   ],
   [
+    "dis-chem-power-gro-trust-the-process-2026",
+    "https://www.dischem.co.za/power-gro-trust-the-process-july-2026-competition",
+  ],
+  [
+    "dis-chem-fishermans-friend-luxury-retreat-2026",
+    "https://www.dischem.co.za/fisherman-s-friend-win-a-luxury-retreat-or-an-adventure-day-july-2026-competition",
+  ],
+  [
+    "dis-chem-catrice-skin-like-moisturizer-2026",
+    "https://www.dischem.co.za/dis-chem-better-magazine-winter-issue-catrice-hd-foundation-skin-like-moisturizer-july-2026-competition",
+  ],
+  [
+    "nestle-milo-meet-the-champ-2026",
+    "https://www.nestle-esar.com/nestle-milo-meet-champ-campaign-2026",
+  ],
+  [
     "bridgestone-toyota-corolla-cross-2026",
     "https://www1.bridgestone.co.za/win-a-car",
   ],

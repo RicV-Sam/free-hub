@@ -214,5 +214,49 @@
     "manualOkAllowedDomain": "products.coloplast.co.za",
     "manualOkAllowGenericHomepage": true,
     "manualOkEvidence": "Official Coloplast ZA sampling site was manually rechecked on 2026-06-27. The page identifies South Africa as the country, has category Sampling Site, and includes product and sample-request navigation for ostomy, continence and wound-care products."
+  },
+  {
+    "name": "Kalley free flooring samples",
+    "category": "samples",
+    "categoryLabel": "Free samples and product testing",
+    "officialUrl": "https://www.kalleyflooring.co.za/",
+    "bestFor": "Homeowners and renovators comparing flooring before buying",
+    "freeDetails": "Official Kalley route for requesting a small set of flooring samples before choosing a product.",
+    "requirements": "Sample request details and delivery information may be required; availability can depend on stock and service area.",
+    "watchOut": "The sample request appears from Kalley's official homepage flow, so use the official site rather than third-party sample pages.",
+    "datePublished": "2026-06-27",
+    "lastReviewed": "2026-06-27",
+    "dateModified": "2026-06-27"
+  },
+  {
+    "name": "National Consumer Commission complaints portal",
+    "category": "consumer-support",
+    "categoryLabel": "Consumer support",
+    "officialUrl": "https://thencc.org.za/",
+    "bestFor": "Consumers who need an official complaint route under the Consumer Protection Act",
+    "freeDetails": "Official National Consumer Commission information and complaint route for eligible consumer complaints.",
+    "requirements": "A registered e-Services profile, complaint details and supporting proof may be required.",
+    "watchOut": "This is not a giveaway. Use it for consumer-rights support and keep copies of complaint references and evidence.",
+    "datePublished": "2026-06-27",
+    "lastReviewed": "2026-06-27",
+    "dateModified": "2026-06-27"
+  },
+  {
+    "name": "Free basic municipal services",
+    "category": "consumer-support",
+    "categoryLabel": "Consumer support",
+    "officialUrl": "https://www.gov.za/services/place-live/municipal-services",
+    "bestFor": "Low-income households checking whether they qualify for municipal indigent support",
+    "freeDetails": "Government guidance on free basic water, electricity, sanitation or other municipal support for qualifying households.",
+    "requirements": "Usually means-tested through the local municipality; extra usage can still be billed.",
+    "watchOut": "Rules differ by municipality, so confirm eligibility, documents and limits with your own local municipality.",
+    "datePublished": "2026-06-27",
+    "lastReviewed": "2026-06-27",
+    "dateModified": "2026-06-27",
+    "manualOk": true,
+    "manualOkReason": "Official gov.za municipal-services page can time out during automated link checks.",
+    "manualOkCheckedAt": "2026-06-27",
+    "manualOkAllowedDomain": "gov.za",
+    "manualOkEvidence": "Official gov.za municipal-services route was manually checked on 2026-06-27 for free basic municipal services context, including means-tested municipal support and local municipality eligibility."
   }
 ]
