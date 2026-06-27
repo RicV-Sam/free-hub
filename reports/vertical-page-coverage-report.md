@@ -57,7 +57,7 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 26
+- Matching active public competitions: 25
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -86,7 +86,6 @@ Recommended normalisation:
 | FreshStop Save Every Drop Win Big Competition (freshstop-jojo-fuel-vouchers-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | SPAR Clover Rewards Voucher Competition (spar-clover-rewards-vouchers-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Kellogg's Big Bowl Energy Competition (kelloggs-big-bowl-energy-2026) | 2026-08-31 | till-slip-required | yes | yes | Till slip or receipt tag | none |
-| Mr Price Home Room Refresh Voucher (mr-price-home-room-refresh-voucher) | 2026-09-27 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Knorr Win R5,000 Weekly Competition (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | SPAR Community School Support Competition (spar-community-school-support-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
@@ -97,7 +96,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 20
+- Matching active public competitions: 17
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -120,9 +119,6 @@ Recommended normalisation:
 | Clicks WIN with BabyClub Competition (clicks-babyclub-competition) | 2026-07-31 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | MoneyUp Academy Competition (capitec-moneyup-academy-competition-2026) | 2026-07-31 | account-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Secret Skin Win a Luxury Kuzuko Lodge Getaway for Two (secret-skin-kuzuko-lodge-getaway-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag | none |
-| South Africa Tourism Mzansi Moments Photo Challenge (south-africa-tourism-mzansi-moments-photo-challenge) | 2026-08-01 | free-entry | yes | yes | Online entry tag | none |
-| Woolworths Tech for Good Giveaway (woolworths-tech-for-good-giveaway) | 2026-09-14 | account-required | yes | yes | Online entry tag | none |
-| Toyota Roadtrip Tech Pack Giveaway (toyota-roadtrip-tech-pack-giveaway) | 2026-12-24 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 
 Recommended normalisation:
@@ -185,7 +181,7 @@ Recommended normalisation:
 ## Supermarket Competitions in South Africa
 
 - URL: /supermarket-competitions-south-africa/
-- Matching active public competitions: 14
+- Matching active public competitions: 13
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -204,7 +200,6 @@ Recommended normalisation:
 | SPAR Rewards Vaseline Winter Drive Competition (spar-rewards-vaseline-winter-drive-competition-2026) | 2026-08-02 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Vaseline Winter Shoprite & Checkers Competition (checkers-vaseline-winter-shoprite-checkers-competition-2026) | 2026-08-02 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Nyama Battle - Win 1 of 10 Food Trailers (boxer-nyama-battle-food-trailers-2026) | 2026-08-10 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
-| Woolworths Tech for Good Giveaway (woolworths-tech-for-good-giveaway) | 2026-09-14 | account-required | yes | yes | Supermarket brand or retail partner | none |
 | SPAR Community School Support Competition (spar-community-school-support-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Supermarket brand or retail partner | none |
 
 Recommended normalisation:

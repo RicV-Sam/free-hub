@@ -589,7 +589,7 @@
     "sourceUrl": "https://www.southafrica.net/za/en/travel/page/mzansi-moments-photo-challenge-2026",
     "termsUrl": "https://www.southafrica.net/za/en/travel/page/mzansi-moments-photo-challenge-2026",
     "sourceDomain": "southafrica.net",
-    "lastChecked": "2026-05-17",
+    "lastChecked": "2026-06-27",
     "summary": "Upload your best South African travel moment and submit your entry online. The grand prize is a 10-night self-drive Garden Route holiday for two, including accommodation and activity vouchers.",
     "prizeName": "10-night Garden Route holiday for two",
     "tags": [
@@ -598,7 +598,7 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "entryCostType": "free-entry",
     "entryFeeLabel": "Free online entry",
     "purchaseRequired": false,
@@ -607,7 +607,10 @@
     "prizeType": "holiday",
     "seoTitle": "South Africa Tourism Mzansi Moments Photo Challenge | Freehub",
     "seoDescription": "Check South Africa Tourism Mzansi Moments Photo. Prize: 10-night Garden Route holiday for two. Closes 1 Aug 2026. Source: southafrica.net. Free entry.",
-    "quickAnswer": "The South Africa Tourism Mzansi Moments Photo Challenge is a holidays competition marked free entry. Freehub lists 10-night Garden Route holiday for two, entry via Official SA Tourism online submission, and a closing date of 1 Aug 2026. Confirm the latest rules on southafrica.net before entering."
+    "quickAnswer": "The South Africa Tourism Mzansi Moments Photo Challenge is a holidays competition marked free entry. Freehub lists 10-night Garden Route holiday for two, entry via Official SA Tourism online submission, and a closing date of 1 Aug 2026. Confirm the latest rules on southafrica.net before entering.",
+    "publicationStatus": "held",
+    "doNotPublish": true,
+    "verificationNote": "Held on 2026-06-27 during active-listing QA because the official South Africa Tourism URL resolves to an Eish/not-found style page and no official current competition terms could be verified."
   },
   {
     "id": "woolworths-tech-for-good-giveaway",
@@ -620,7 +623,7 @@
     "sourceUrl": "https://mtd.woolworths.co.za/tech-for-good-giveaway-2026",
     "termsUrl": "https://mtd.woolworths.co.za/tech-for-good-giveaway-2026",
     "sourceDomain": "woolworths.co.za",
-    "lastChecked": "2026-05-17",
+    "lastChecked": "2026-06-27",
     "summary": "Complete the featured MyDifference action and submit your entry online to qualify. Prizes include iPhone 16 devices and Woolworths gift cards, rewarding small actions that add up.",
     "prizeName": "iPhone 16 devices and Woolworths gift cards",
     "tags": [
@@ -630,7 +633,7 @@
       "free-entry",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "entryCostType": "account-required",
     "entryFeeLabel": "No separate entry fee; MyDifference action/account flow required",
     "purchaseRequired": false,
@@ -639,7 +642,10 @@
     "prizeType": "tech",
     "seoTitle": "Woolworths Tech for Good Giveaway | Freehub",
     "seoDescription": "Check Woolworths Tech for Good Giveaway. Prize: iPhone 16 devices and Woolworths gift cards. Closes 14 Sept 2026. Source: woolworths.co.za. Free entry.",
-    "quickAnswer": "The Woolworths Tech for Good Giveaway is a tech competition marked free entry. Freehub lists iPhone 16 devices and Woolworths gift cards, entry via Woolworths MyDifference online action, and a closing date of 14 Sept 2026. Confirm the latest rules on woolworths.co.za before entering."
+    "quickAnswer": "The Woolworths Tech for Good Giveaway is a tech competition marked free entry. Freehub lists iPhone 16 devices and Woolworths gift cards, entry via Woolworths MyDifference online action, and a closing date of 14 Sept 2026. Confirm the latest rules on woolworths.co.za before entering.",
+    "publicationStatus": "held",
+    "doNotPublish": true,
+    "verificationNote": "Held on 2026-06-27 during active-listing QA because the official Woolworths Making the Difference URL displays a page-not-found message for the Tech for Good giveaway path."
   },
   {
     "id": "pick-n-pay-family-break-at-sun-city",
@@ -698,7 +704,7 @@
     "sourceUrl": "https://www.mrp.com/competitions/mrphome-room-refresh-voucher-2026",
     "termsUrl": "https://www.mrp.com/competitions/mrphome-room-refresh-voucher-2026",
     "sourceDomain": "mrp.com",
-    "lastChecked": "2026-05-17",
+    "lastChecked": "2026-06-27",
     "prizeName": "R10,000 Mr Price Home voucher plus weekly decor vouchers",
     "summary": "Spend R500 or more at Mr Price Home and enter using your till slip reference. One winner scores a R10,000 Mr Price Home voucher, with weekly décor vouchers up for grabs.",
     "tags": [
@@ -708,7 +714,7 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee; R500 qualifying purchase required",
     "purchaseRequired": true,
@@ -719,7 +725,10 @@
     "prizeType": "cash",
     "seoTitle": "Mr Price Home Room Refresh Voucher | Freehub",
     "seoDescription": "Check Mr Price Home Room Refresh Voucher. Prize: R10,000 Mr Price Home voucher plus weekly. Closes 27 Sept 2026. Source: mrp.com. Purchase required.",
-    "quickAnswer": "The Mr Price Home Room Refresh Voucher is a vouchers competition marked purchase required. Freehub lists R10,000 Mr Price Home voucher plus weekly decor vouchers, entry via Till slip reference submission, and a closing date of 27 Sept 2026. Confirm the latest rules on mrp.com before entering."
+    "quickAnswer": "The Mr Price Home Room Refresh Voucher is a vouchers competition marked purchase required. Freehub lists R10,000 Mr Price Home voucher plus weekly decor vouchers, entry via Till slip reference submission, and a closing date of 27 Sept 2026. Confirm the latest rules on mrp.com before entering.",
+    "publicationStatus": "held",
+    "doNotPublish": true,
+    "verificationNote": "Held on 2026-06-27 during active-listing QA because the official Mr Price competition URL did not expose verifiable room-refresh campaign terms from this environment and no official alternate source was found."
   },
   {
     "id": "game-win-your-cart-back",
@@ -859,7 +868,7 @@
     "sourceUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn-app-travel-treat-2026",
     "termsUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn-app-travel-treat-2026",
     "sourceDomain": "mtn.co.za",
-    "lastChecked": "2026-05-17",
+    "lastChecked": "2026-06-27",
     "summary": "Complete the in-app challenge and opt in to enter the draw. Win a 3-night Cape Town winter escape for two, including flights and a curated experiences voucher.",
     "prizeName": "3-night Cape Town winter escape for two",
     "tags": [
@@ -869,7 +878,7 @@
       "high-value",
       "free-entry"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "entryCostType": "app-required",
     "entryFeeLabel": "No separate entry fee; MTN app opt-in/action required",
     "purchaseRequired": false,
@@ -878,7 +887,10 @@
     "prizeType": "holiday",
     "seoTitle": "MTN App Travel Treat | Freehub",
     "seoDescription": "Check MTN App Travel Treat. Prize: 3-night Cape Town winter escape for two. Closes 23 Oct 2026. Source: mtn.co.za. App required.",
-    "quickAnswer": "The MTN App Travel Treat is a holidays competition marked app required. Freehub lists 3-night Cape Town winter escape for two, entry via MTN app challenge and opt-in, and a closing date of 23 Oct 2026. Confirm the latest rules on mtn.co.za before entering."
+    "quickAnswer": "The MTN App Travel Treat is a holidays competition marked app required. Freehub lists 3-night Cape Town winter escape for two, entry via MTN app challenge and opt-in, and a closing date of 23 Oct 2026. Confirm the latest rules on mtn.co.za before entering.",
+    "publicationStatus": "held",
+    "doNotPublish": true,
+    "verificationNote": "Held on 2026-06-27 during active-listing QA because the official MTN terms URL says the page no longer exists, so the app travel treat cannot be treated as verified current inventory."
   },
   {
     "id": "sanlam-money-smart-cash-prize",
@@ -915,7 +927,7 @@
     "sourceUrl": "https://www.engen.co.za/promotions/1app-cashback-draw-2026",
     "termsUrl": "https://www.engen.co.za/promotions/1app-cashback-draw-2026",
     "sourceDomain": "engen.co.za",
-    "lastChecked": "2026-05-17",
+    "lastChecked": "2026-06-27",
     "summary": "Pay for fuel via Engen 1App and collect stamps toward your automatic entry. Stand a chance to win R75,000 cash back, plus weekly fuel vouchers for active app users.",
     "prizeName": "R75,000 cash back plus weekly fuel vouchers",
     "tags": [
@@ -926,7 +938,7 @@
       "purchase-required",
       "weekly-draw"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee; qualifying Engen 1App fuel payment required",
     "purchaseRequired": true,
@@ -936,7 +948,10 @@
     "prizeType": "cash",
     "seoTitle": "Engen 1App Cash-Back Draw | Freehub",
     "seoDescription": "Check Engen 1App Cash-Back Draw. Prize: R75,000 cash back plus weekly fuel vouchers. Closes 5 Dec 2026. Source: engen.co.za. Purchase required.",
-    "quickAnswer": "The Engen 1App Cash-Back Draw is a cash competition marked purchase required. Freehub lists R75,000 cash back plus weekly fuel vouchers, entry via Engen 1App payment and stamps, and a closing date of 5 Dec 2026. Confirm the latest rules on engen.co.za before entering."
+    "quickAnswer": "The Engen 1App Cash-Back Draw is a cash competition marked purchase required. Freehub lists R75,000 cash back plus weekly fuel vouchers, entry via Engen 1App payment and stamps, and a closing date of 5 Dec 2026. Confirm the latest rules on engen.co.za before entering.",
+    "publicationStatus": "held",
+    "doNotPublish": true,
+    "verificationNote": "Held on 2026-06-27 during active-listing QA because the official Engen promotion URL returned a sparse/generic page with no verifiable 1App Cash-Back Draw terms or entry details."
   },
   {
     "id": "toyota-roadtrip-tech-pack-giveaway",
@@ -949,7 +964,7 @@
     "sourceUrl": "https://www.toyota.co.za/connect/article/roadtrip-tech-pack-giveaway-2026",
     "termsUrl": "https://www.toyota.co.za/connect/article/roadtrip-tech-pack-giveaway-2026",
     "sourceDomain": "toyota.co.za",
-    "lastChecked": "2026-05-17",
+    "lastChecked": "2026-06-27",
     "summary": "Enter online and tell Toyota where you'd take your next road trip. Win a roadtrip tech pack with a dashcam, power bank, and navigation-ready accessories for safer travels.",
     "prizeName": "Roadtrip tech pack with dashcam, power bank and navigation accessories",
     "tags": [
@@ -958,7 +973,7 @@
       "everyday-prizes",
       "free-entry"
     ],
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "entryCostType": "free-entry",
     "entryFeeLabel": "Free online entry",
     "purchaseRequired": false,
@@ -967,7 +982,10 @@
     "prizeType": "tech",
     "seoTitle": "Toyota Roadtrip Tech Pack Giveaway | Freehub",
     "seoDescription": "Check Toyota Roadtrip Tech Pack Giveaway. Prize: Roadtrip tech pack with dashcam, power bank. Closes 24 Dec 2026. Source: toyota.co.za. Free entry.",
-    "quickAnswer": "The Toyota Roadtrip Tech Pack Giveaway is a tech competition marked free entry. Freehub lists Roadtrip tech pack with dashcam, power bank and navigation accessories, entry via Official Toyota online entry, and a closing date of 24 Dec 2026. Confirm the latest rules on toyota.co.za before entering."
+    "quickAnswer": "The Toyota Roadtrip Tech Pack Giveaway is a tech competition marked free entry. Freehub lists Roadtrip tech pack with dashcam, power bank and navigation accessories, entry via Official Toyota online entry, and a closing date of 24 Dec 2026. Confirm the latest rules on toyota.co.za before entering.",
+    "publicationStatus": "held",
+    "doNotPublish": true,
+    "verificationNote": "Held on 2026-06-27 during active-listing QA because the official Toyota Connect article URL returned no verifiable roadtrip tech pack giveaway content from this environment and no official alternate source was found."
   },
   {
     "id": "clicks-sorbet-voucher-2026",
@@ -1025,7 +1043,7 @@
     "sourceUrl": "https://www.vodacom.co.za/vodacom/terms/competition/accessory-spend-voucher",
     "termsUrl": "https://www.vodacom.co.za/vodacom/terms/competition/accessory-spend-voucher",
     "sourceDomain": "vodacom.co.za",
-    "lastChecked": "2026-05-17",
+    "lastChecked": "2026-06-27",
     "prizeName": "1 of 4 R10,000 TFG vouchers",
     "summary": "Buy a new Vodacom device and prepaid SIM at a participating TFG store, RICA and activate the SIM, then recharge with at least R29 on the day to stand a chance to win 1 of 4 R10,000 TFG vouchers.",
     "entrySteps": [
@@ -1052,7 +1070,10 @@
     "prizeType": "voucher",
     "seoTitle": "Vodacom Spend and Recharge - Win TFG Vouchers | Freehub",
     "seoDescription": "Check Vodacom Spend and Recharge - Win TFG. Prize: 1 of 4 R10,000 TFG vouchers. Closes 15 Jul 2026. Source: vodacom.co.za. Purchase required.",
-    "quickAnswer": "The Vodacom Spend and Recharge - Win TFG Vouchers is a vouchers competition marked purchase required. Freehub lists 1 of 4 R10,000 TFG vouchers, entry via Participating TFG store purchase and recharge, and a closing date of 15 Jul 2026. Confirm the latest rules on vodacom.co.za before entering."
+    "quickAnswer": "The Vodacom Spend and Recharge - Win TFG Vouchers is a vouchers competition marked purchase required. Freehub lists 1 of 4 R10,000 TFG vouchers, entry via Participating TFG store purchase and recharge, and a closing date of 15 Jul 2026. Confirm the latest rules on vodacom.co.za before entering.",
+    "evidenceNotes": "Official Vodacom accessory-spend voucher terms checked on 2026-06-27. The page states that four qualifying customers can win R10,000 TFG vouchers by buying a new device and new Vodacom prepaid SIM at participating TFG stores, RICA/activating the SIM and recharging with at least R29. The terms list the campaign validity period as 16 April 2026 to 15 July 2026.",
+    "eligibility": "Vodacom prepaid customers aged 18 or older with a qualifying new device and prepaid SIM purchase at a participating TFG store, successful RICA/activation and a minimum R29 recharge. Business accounts are excluded.",
+    "eligibilitySummary": "The official Vodacom terms require a qualifying new device and prepaid SIM purchase at a participating TFG store, RICA/activation, and a minimum R29 recharge by an eligible Vodacom prepaid customer."
   },
   {
     "id": "cell-c-comrades-cash-promo",
@@ -1255,7 +1276,7 @@
     "sourceUrl": "https://www.coca-cola.com/za/en/legal/terms-and-conditions-zwakala-neflava-2026",
     "termsUrl": "https://www.coca-cola.com/za/en/legal/terms-and-conditions-zwakala-neflava-2026",
     "sourceDomain": "coca-cola.com",
-    "lastChecked": "2026-05-24",
+    "lastChecked": "2026-06-27",
     "verificationStatus": "published",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee; qualifying promotional product purchase required",
@@ -1271,7 +1292,8 @@
     "entryCostSummary": "This is marked as purchase-required. The listed qualifying action is buying a participating promotional Coca-Cola Company product with a unique code.",
     "seoTitle": "Coca-Cola Get Together Zwakala neFlava Promotion | Freehub",
     "seoDescription": "Check Coca-Cola Get Together Zwakala neFlava. Prize: Airtime and shopping vouchers. Closes 31 Aug 2026. Source: coca-cola.com. Purchase required.",
-    "quickAnswer": "The Coca-Cola Get Together Zwakala neFlava Promotion is a vouchers competition marked purchase required. Freehub lists Airtime and shopping vouchers, entry via QR code or WhatsApp, and a closing date of 31 Aug 2026. Confirm the latest rules on coca-cola.com before entering."
+    "quickAnswer": "The Coca-Cola Get Together Zwakala neFlava Promotion is a vouchers competition marked purchase required. Freehub lists Airtime and shopping vouchers, entry via QR code or WhatsApp, and a closing date of 31 Aug 2026. Confirm the latest rules on coca-cola.com before entering.",
+    "evidenceNotes": "Official Coca-Cola Get Together Zwakala neFlava terms checked on 2026-06-27. The terms state that the promotion runs from 22 May 2026 to 23:59 on 31 August 2026, uses a unique-code purchase mechanic, and lets entrants scan the QR code or WhatsApp Hi to 082 508 9260 to register and submit the code."
   },
   {
     "id": "parmalat-everything-needs-cheese-2026",
@@ -2132,11 +2154,11 @@
       "weekly-draw"
     ],
     "isHighValue": true,
-    "url": "https://www.nivea.co.za/real-madrid-competition/terms-and-conditions",
-    "sourceUrl": "https://www.nivea.co.za/real-madrid-competition/terms-and-conditions",
-    "termsUrl": "https://www.nivea.co.za/real-madrid-competition/terms-and-conditions",
+    "url": "https://www.nivea.co.za/articles/engage/real-madrid-competition/terms-and-conditions",
+    "sourceUrl": "https://www.nivea.co.za/articles/engage/real-madrid-competition/terms-and-conditions",
+    "termsUrl": "https://www.nivea.co.za/articles/engage/real-madrid-competition/terms-and-conditions",
     "sourceDomain": "nivea.co.za",
-    "lastChecked": "2026-05-15",
+    "lastChecked": "2026-06-27",
     "verificationStatus": "published",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee; qualifying NIVEA MEN purchase required. USSD charged up to 22c per 20 seconds; WhatsApp data may apply.",
@@ -2152,7 +2174,8 @@
     "entryCostSummary": "This is marked as purchase-required. The listed qualifying purchase is any two NIVEA MEN products from a participating South African store.",
     "seoTitle": "NIVEA MEN Real Madrid Competition - Win Cash Prizes | Freehub",
     "seoDescription": "Check NIVEA MEN Real Madrid Competition - Win. Prize: Share of R1 million in weekly cash prizes. Closes 31 Jul 2026. Source: nivea.co.za. Purchase required.",
-    "quickAnswer": "The NIVEA MEN Real Madrid Competition - Win Cash Prizes is a cash competition marked purchase required. Freehub lists Share of R1 million in weekly cash prizes plus a Real Madrid VIP experience, entry via USSD or WhatsApp, and a closing date of 31 Jul 2026. Confirm the latest rules on nivea.co.za before entering."
+    "quickAnswer": "The NIVEA MEN Real Madrid Competition - Win Cash Prizes is a cash competition marked purchase required. Freehub lists Share of R1 million in weekly cash prizes plus a Real Madrid VIP experience, entry via USSD or WhatsApp, and a closing date of 31 Jul 2026. Confirm the latest rules on nivea.co.za before entering.",
+    "evidenceNotes": "Official NIVEA MEN Real Madrid terms checked on 2026-06-27 after following the official redirect to the canonical NIVEA terms page. The terms describe qualifying NIVEA MEN purchases, USSD/WhatsApp till-slip entry, weekly cash-prize draws through July 2026, and a grand-prize Real Madrid experience with passport, Schengen travel and verification requirements."
   },
   {
     "id": "ackermans-payat-xbox-series-s",
@@ -2232,8 +2255,8 @@
     "sourceUrl": "https://www.dragon.co.za/xtreme-comp-2026/",
     "termsUrl": "https://www.dragon.co.za/xtreme-comp-2026/",
     "sourceDomain": "dragon.co.za",
-    "lastChecked": "2026-05-15",
-    "verificationStatus": "published",
+    "lastChecked": "2026-06-27",
+    "verificationStatus": "needs-verification",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee; Dragon Energy purchase and Instagram participation required",
     "purchaseRequired": true,
@@ -2248,7 +2271,10 @@
     "linkValidationReason": "Browser/web fetch verified the official Dragon Energy Xtreme Comp 2026 page on 2026-06-11; local Node/curl validation timed out from this environment.",
     "linkValidationCheckedAt": "2026-06-11",
     "linkValidationAllowedDomain": "dragon.co.za",
-    "linkValidationEvidence": "Official Dragon Energy page loaded by web verification on 2026-06-11 and showed Xtreme Comp 2026, Dragon Energy can purchase, QR/social entry steps and adventure prize details."
+    "linkValidationEvidence": "Official Dragon Energy page loaded by web verification on 2026-06-11 and showed Xtreme Comp 2026, Dragon Energy can purchase, QR/social entry steps and adventure prize details.",
+    "publicationStatus": "held",
+    "doNotPublish": true,
+    "verificationNote": "Held on 2026-06-27 during active-listing QA because the official Dragon Energy source now displays the campaign as ended, so it should not remain in active public listings until a live official source confirms it is still open."
   },
   {
     "id": "knorr-win-r5000-weekly-2026",
@@ -2280,7 +2306,7 @@
     "sourceUrl": "https://www.whatsfordinner.co.za/knorr-win-r5000-weekly-ts-and-cs.html",
     "termsUrl": "https://www.whatsfordinner.co.za/knorr-win-r5000-weekly-ts-and-cs.html",
     "sourceDomain": "whatsfordinner.co.za",
-    "lastChecked": "2026-05-15",
+    "lastChecked": "2026-06-27",
     "verificationStatus": "published",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee; qualifying Knorr Soup purchase required. WhatsApp data may apply.",
@@ -2293,7 +2319,8 @@
     "seoDescription": "Knorr competition 2026: buy any 4 Knorr Soup products, WhatsApp your till slip and enter for weekly R5,000 cash prizes before 11 October.",
     "quickAnswer": "The Knorr competition 2026, also searched as the Knorr soup competition 2026, offers weekly R5,000 cash prizes. Buy any 4 Knorr Soup products in one transaction, enter by WhatsApp with your till slip, and submit before 11 October 2026.",
     "eligibilitySummary": "The record states that South African citizens or permanent residents aged 18+ with a valid South African ID may enter, subject to the official terms.",
-    "entryCostSummary": "This is marked as purchase-required. The listed qualifying action is buying any 4 Knorr Soup products in one transaction; WhatsApp data may apply."
+    "entryCostSummary": "This is marked as purchase-required. The listed qualifying action is buying any 4 Knorr Soup products in one transaction; WhatsApp data may apply.",
+    "evidenceNotes": "Official Knorr/Whatsfordinner terms URL checked on 2026-06-27. Freehub retains the purchase-required summary from the official Knorr terms source: buy four Knorr Soup products in a single transaction, WhatsApp Knorr to +27 87 265 1280, upload the original till-slip photo, and enter before 23:59 on 11 October 2026. The source may block some automated fetches, so keep this row on the next manual recheck queue."
   },
   {
     "id": "wanta-fanta-gaming-promotion-2026",
@@ -2483,7 +2510,7 @@
     "sourceUrl": "https://clere.co.za/play-it-smooth-competition/",
     "termsUrl": "https://clere.co.za/play-it-smooth-competition/",
     "sourceDomain": "clere.co.za",
-    "lastChecked": "2026-05-15",
+    "lastChecked": "2026-06-27",
     "verificationStatus": "published",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee; qualifying Clere For Men purchase required. USSD charged at 20c per 20 seconds; WhatsApp data may apply.",
@@ -2494,7 +2521,9 @@
     "region": "South Africa",
     "seoTitle": "Clere For Men Play It Smooth | Freehub",
     "seoDescription": "Check Clere For Men Play It Smooth Competition. Prize: Share of R300,000 cash. Closes 31 Jul 2026. Source: clere.co.za. Purchase required.",
-    "quickAnswer": "The Clere For Men Play It Smooth Competition is a cash competition marked purchase required. Freehub lists Share of R300,000 cash, entry via USSD or WhatsApp, and a closing date of 31 Jul 2026. Confirm the latest rules on clere.co.za before entering."
+    "quickAnswer": "The Clere For Men Play It Smooth Competition is a cash competition marked purchase required. Freehub lists Share of R300,000 cash, entry via USSD or WhatsApp, and a closing date of 31 Jul 2026. Confirm the latest rules on clere.co.za before entering.",
+    "evidenceNotes": "Official Clere For Men Play It Smooth competition page checked on 2026-06-27. The page states that entrants buy a promotional Clere For Men pack, dial *120*5926# or WhatsApp Smooth to 076 833 4442, play the game, and compete for a share of R300,000 before the competition ends on 31 July 2026.",
+    "eligibilitySummary": "The record states that South African citizens or permanent residents aged 18+ with a valid South African ID and South African bank account may enter, subject to the official terms."
   },
   {
     "id": "oxford-freshmarket-birthday-trolley-dash",
@@ -4841,7 +4870,7 @@
     "sourceUrl": "https://www.vodacom.co.za/vodacom/terms/competitions/power-up",
     "termsUrl": "https://www.vodacom.co.za/vodacom/terms/competitions/power-up",
     "sourceDomain": "vodacom.co.za",
-    "lastChecked": "2026-05-16",
+    "lastChecked": "2026-06-27",
     "verificationStatus": "published",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "Purchase and R49 recharge required",
@@ -4852,7 +4881,9 @@
     "eligibility": "Vodacom prepaid customers aged 18 or older with a qualifying new SIM purchased at Woolworths and RICA registered. Business accounts are excluded.",
     "seoTitle": "Vodacom Power Up Woolworths Voucher | Freehub",
     "seoDescription": "Check Vodacom Power Up Woolworths Voucher. Prize: R1,000 Woolworths voucher. Closes 15 Jul 2026. Source: vodacom.co.za. Purchase required.",
-    "quickAnswer": "The Vodacom Power Up Woolworths Voucher Competition is a vouchers competition marked purchase required. Freehub lists R1,000 Woolworths voucher, entry via Participating Woolworths store purchase and Vodacom recharge, and a closing date of 15 Jul 2026. Confirm the latest rules on vodacom.co.za before entering."
+    "quickAnswer": "The Vodacom Power Up Woolworths Voucher Competition is a vouchers competition marked purchase required. Freehub lists R1,000 Woolworths voucher, entry via Participating Woolworths store purchase and Vodacom recharge, and a closing date of 15 Jul 2026. Confirm the latest rules on vodacom.co.za before entering.",
+    "evidenceNotes": "Official Vodacom Power Up Woolworths terms checked on 2026-06-27. The page states that 25 customers can win R1,000 Woolworths vouchers by buying a new device and new Vodacom prepaid SIM at Woolworths, RICA/activating the SIM and recharging with at least R49. The terms list the validity period as 15 May 2026 to 15 July 2026.",
+    "eligibilitySummary": "The official Vodacom terms require an eligible Vodacom prepaid customer, a qualifying new device and prepaid SIM purchase at Woolworths, RICA/activation and a minimum R49 recharge on the new number."
   },
   {
     "id": "volkswagen-easydrive-maintenance-plan-2026",
@@ -4886,7 +4917,7 @@
     "sourceUrl": "https://www.vw.co.za/en/owners-services/service-and-parts/maintenance-and-service-plans.html",
     "termsUrl": "https://www.vw.co.za/idhub/content/dam/onehub_pkw/importers/za/editorials/owners-services-4-0/Ts-and-Cs-EasyDrive-Competition-2026-Final.pdf",
     "sourceDomain": "vw.co.za",
-    "lastChecked": "2026-05-16",
+    "lastChecked": "2026-06-27",
     "verificationStatus": "published",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "Qualifying EasyDrive Maintenance Plan purchase required",
@@ -4897,7 +4928,9 @@
     "eligibility": "Legal residents of South Africa aged 18 or older with a valid driver's licence. Natural persons only; VWGA employees, dealers, agencies and related parties are excluded.",
     "seoTitle": "Volkswagen EasyDrive Maintenance Plan | Freehub",
     "seoDescription": "Check Volkswagen EasyDrive Maintenance Plan. Prize: Fuel, merchandise, retailer, travel and spa. Closes 31 Dec 2026. Source: vw.co.za. Purchase required.",
-    "quickAnswer": "The Volkswagen EasyDrive Maintenance Plan Competition is a vouchers competition marked purchase required. Freehub lists Fuel, merchandise, retailer, travel and spa vouchers, entry via Qualifying Volkswagen EasyDrive purchase, and a closing date of 31 Dec 2026. Confirm the latest rules on vw.co.za before entering."
+    "quickAnswer": "The Volkswagen EasyDrive Maintenance Plan Competition is a vouchers competition marked purchase required. Freehub lists Fuel, merchandise, retailer, travel and spa vouchers, entry via Qualifying Volkswagen EasyDrive purchase, and a closing date of 31 Dec 2026. Confirm the latest rules on vw.co.za before entering.",
+    "evidenceNotes": "Official Volkswagen EasyDrive page checked on 2026-06-27. The page lists the EasyDrive Upgrade to Win Competition and states that buying at least a 4-year/60,000 km EasyDrive Maintenance Plan between 19 January and 31 December 2026 automatically qualifies entrants for prizes including Shell fuel vouchers, VW Collection vouchers and holiday accommodation vouchers. The linked official PDF remains the terms source.",
+    "eligibilitySummary": "The official terms source states that legal residents of South Africa aged 18 or older with a valid driver licence may enter; natural persons only, with VWGA employees, dealers, agencies and related parties excluded."
   },
   {
     "id": "va-waterfront-mothers-day-winter-escape-2026",
@@ -5017,7 +5050,7 @@
     "sourceUrl": "https://www.coca-cola.com/za/en/legal/terms-and-conditions-coke-hisense-fifa-promotion-2026",
     "termsUrl": "https://www.coca-cola.com/za/en/legal/terms-and-conditions-coke-hisense-fifa-promotion-2026",
     "sourceDomain": "coca-cola.com",
-    "lastChecked": "2026-05-27",
+    "lastChecked": "2026-06-27",
     "verificationStatus": "published",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee; qualifying purchase required",
@@ -5028,7 +5061,9 @@
     "eligibility": "Permanent residents and citizens of South Africa aged 18 or older with valid identification. Promoter, Hisense and participating retailer employees and related parties are excluded.",
     "seoTitle": "Coke x Hisense FIFA Promotion 2026 | Freehub",
     "seoDescription": "Check the Coke x Hisense FIFA Consumer Promotion: buy qualifying Coca-Cola packs or Hisense products, enter by QR/WhatsApp, and confirm official terms.",
-    "quickAnswer": "The Coke x Hisense FIFA promotion runs from 18 May to 19 July 2026. Buy a qualifying Coca-Cola pack or qualifying Hisense product at participating retailers, then enter through the QR/WhatsApp flow."
+    "quickAnswer": "The Coke x Hisense FIFA promotion runs from 18 May to 19 July 2026. Buy a qualifying Coca-Cola pack or qualifying Hisense product at participating retailers, then enter through the QR/WhatsApp flow.",
+    "evidenceNotes": "Official Coca-Cola x Hisense FIFA promotion terms checked on 2026-06-27. The terms state that the promotion runs from 18 May 2026 to 23:59 on 19 July 2026, applies through Makro, Game and Walmart South Africa, and requires a qualifying Coca-Cola pack or Hisense product purchase, QR/WhatsApp entry and till-slip upload. The terms list South African citizen/permanent-resident eligibility and fan-hamper prizes.",
+    "eligibilitySummary": "The official terms say entrants must be permanent residents or citizens of South Africa, aged 18 or older, with valid identification and a qualifying purchase from the participating retailers."
   },
   {
     "id": "5fm-code-youth-bootcamp-2026",
