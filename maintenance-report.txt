@@ -1,5 +1,5 @@
 === Competition Maintenance Report ===
-Date: 2026-06-26
+Date: 2026-06-27
 Mode: archive-expired
 Total competitions: 197
 Active published count: 73
@@ -60,29 +60,29 @@ Expired competition IDs:
 - dis-chem-protex-fund-the-future-2026 (2026-06-23)
 
 Closing soon (next 14 days):
-- dis-chem-garnier-pure-active-june-2026-competition (2 days)
-- bull-brand-spar-inland-cash-competition-2026 (2 days)
-- isuzu-win-a-new-x-rider-2026 (4 days)
-- looters-warehouse-toyota-vitz (4 days)
-- boxer-nedbank-greenbacks (4 days)
-- cell-c-comrades-cash-promo (4 days)
-- fnb-lovefnb-social-media-competition (4 days)
-- flash-mtn-national-airtime-vouchers (4 days)
-- clover-spar-rewards-stormers-jetour (4 days)
-- miwaylife-sanlam-spl-fuel-vouchers (4 days)
-- bridgestone-toyota-corolla-cross-2026 (4 days)
-- ackermans-payat-xbox-series-s (4 days)
-- dragon-energy-xtreme-comp-2026 (4 days)
-- penguin-random-house-penguin-post-42-hamper (4 days)
-- gotyme-bafana-jersey-giveaway-2026 (4 days)
-- budget-refer-a-friend-cash-2026 (4 days)
-- penguin-random-house-give-in-to-temptation-2026 (4 days)
-- spur-family-cruises-with-spur-2026 (4 days)
-- clicks-protex-protect-their-future-2026 (4 days)
-- discovery-europcar-winter-adventure-2026 (4 days)
-- vodacom-mrp-gift-card-competition-2026 (4 days)
-- starbaby-south-africa-monthly-competition-2026 (4 days)
-- bulbs-of-the-fynbos-competition-2026 (8 days)
+- dis-chem-garnier-pure-active-june-2026-competition (1 days)
+- bull-brand-spar-inland-cash-competition-2026 (1 days)
+- isuzu-win-a-new-x-rider-2026 (3 days)
+- looters-warehouse-toyota-vitz (3 days)
+- boxer-nedbank-greenbacks (3 days)
+- cell-c-comrades-cash-promo (3 days)
+- fnb-lovefnb-social-media-competition (3 days)
+- flash-mtn-national-airtime-vouchers (3 days)
+- clover-spar-rewards-stormers-jetour (3 days)
+- miwaylife-sanlam-spl-fuel-vouchers (3 days)
+- bridgestone-toyota-corolla-cross-2026 (3 days)
+- ackermans-payat-xbox-series-s (3 days)
+- dragon-energy-xtreme-comp-2026 (3 days)
+- penguin-random-house-penguin-post-42-hamper (3 days)
+- gotyme-bafana-jersey-giveaway-2026 (3 days)
+- budget-refer-a-friend-cash-2026 (3 days)
+- penguin-random-house-give-in-to-temptation-2026 (3 days)
+- spur-family-cruises-with-spur-2026 (3 days)
+- clicks-protex-protect-their-future-2026 (3 days)
+- discovery-europcar-winter-adventure-2026 (3 days)
+- vodacom-mrp-gift-card-competition-2026 (3 days)
+- starbaby-south-africa-monthly-competition-2026 (3 days)
+- bulbs-of-the-fynbos-competition-2026 (7 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
