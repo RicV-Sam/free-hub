@@ -366,7 +366,9 @@
     "entryCostSummary": "This is marked as purchase-required. Check the official terms for the qualifying purchase details before entering.",
     "seoTitle": "Looters Warehouse Competition - Win a Toyota Vitz | Freehub",
     "seoDescription": "Check Looters Warehouse Competition - Win. Prize: 2026 Toyota Vitz 1.0. Closes 30 Jun 2026. Source: looters.co.za. Purchase required.",
-    "quickAnswer": "The Looters Warehouse Competition - Win a Toyota Vitz is a cars competition marked purchase required. Freehub lists 2026 Toyota Vitz 1.0, entry via Till slip entry box, and a closing date of 30 Jun 2026. Confirm the latest rules on looters.co.za before entering."
+    "quickAnswer": "The Looters Warehouse Competition - Win a Toyota Vitz is a cars competition marked purchase required. Freehub lists 2026 Toyota Vitz 1.0, entry via Till slip entry box, and a closing date of 30 Jun 2026. Confirm the latest rules on looters.co.za before entering.",
+    "image": "https://looters.co.za/wp-content/uploads/2026/03/Vitz.webp",
+    "imageAlt": "Looters Warehouse Toyota Vitz win-a-car promotion artwork"
   },
   {
     "id": "jacaranda-fm-competitions",
@@ -1115,7 +1117,9 @@
     "prizeType": "cash",
     "seoTitle": "Cell C Comrades Competition 2026 | Win Share of R500,000 Cash | Freehub",
     "seoDescription": "Cell C Comrades competition 2026: buy a qualifying MyConnecta deal, contract or bolt-on, then enter for a share of R500,000 cash before 30 June.",
-    "quickAnswer": "The Cell C Comrades competition 2026 is a purchase-required Cell C cash promotion. Buy a qualifying MyConnecta deal, Elevate contract or listed bolt-on, then complete the official Cell C entry steps before 30 June 2026."
+    "quickAnswer": "The Cell C Comrades competition 2026 is a purchase-required Cell C cash promotion. Buy a qualifying MyConnecta deal, Elevate contract or listed bolt-on, then complete the official Cell C entry steps before 30 June 2026.",
+    "image": "https://www.cellc.co.za/cellc/img/cellc-comrades/comrades-landing-page-desktop.webp",
+    "imageAlt": "Cell C Comrades R500,000 cash promotion artwork"
   },
   {
     "id": "fnb-lovefnb-social-media-competition",
@@ -2175,7 +2179,9 @@
     "seoTitle": "NIVEA MEN Real Madrid Competition - Win Cash Prizes | Freehub",
     "seoDescription": "Check NIVEA MEN Real Madrid Competition - Win. Prize: Share of R1 million in weekly cash prizes. Closes 31 Jul 2026. Source: nivea.co.za. Purchase required.",
     "quickAnswer": "The NIVEA MEN Real Madrid Competition - Win Cash Prizes is a cash competition marked purchase required. Freehub lists Share of R1 million in weekly cash prizes plus a Real Madrid VIP experience, entry via USSD or WhatsApp, and a closing date of 31 Jul 2026. Confirm the latest rules on nivea.co.za before entering.",
-    "evidenceNotes": "Official NIVEA MEN Real Madrid terms checked on 2026-06-27 after following the official redirect to the canonical NIVEA terms page. The terms describe qualifying NIVEA MEN purchases, USSD/WhatsApp till-slip entry, weekly cash-prize draws through July 2026, and a grand-prize Real Madrid experience with passport, Schengen travel and verification requirements."
+    "evidenceNotes": "Official NIVEA MEN Real Madrid terms checked on 2026-06-27 after following the official redirect to the canonical NIVEA terms page. The terms describe qualifying NIVEA MEN purchases, USSD/WhatsApp till-slip entry, weekly cash-prize draws through July 2026, and a grand-prize Real Madrid experience with passport, Schengen travel and verification requirements.",
+    "image": "https://assets.beiersdorf.com/-/media/images/d/b/a/a/21e86d153b934a5b8870930163a2d5bd-original.png?db=web&ctx=za&mw=512&hash=e6009a77c35358651f473899f64217cc",
+    "imageAlt": "NIVEA MEN Real Madrid competition product artwork"
   },
   {
     "id": "ackermans-payat-xbox-series-s",
@@ -2523,7 +2529,9 @@
     "seoDescription": "Check Clere For Men Play It Smooth Competition. Prize: Share of R300,000 cash. Closes 31 Jul 2026. Source: clere.co.za. Purchase required.",
     "quickAnswer": "The Clere For Men Play It Smooth Competition is a cash competition marked purchase required. Freehub lists Share of R300,000 cash, entry via USSD or WhatsApp, and a closing date of 31 Jul 2026. Confirm the latest rules on clere.co.za before entering.",
     "evidenceNotes": "Official Clere For Men Play It Smooth competition page checked on 2026-06-27. The page states that entrants buy a promotional Clere For Men pack, dial *120*5926# or WhatsApp Smooth to 076 833 4442, play the game, and compete for a share of R300,000 before the competition ends on 31 July 2026.",
-    "eligibilitySummary": "The record states that South African citizens or permanent residents aged 18+ with a valid South African ID and South African bank account may enter, subject to the official terms."
+    "eligibilitySummary": "The record states that South African citizens or permanent residents aged 18+ with a valid South African ID and South African bank account may enter, subject to the official terms.",
+    "image": "https://clere.co.za/wp-content/uploads/2025/09/12269-General-Page-header-banner-2600-x-624px_V1-1.png?_t=1775147594",
+    "imageAlt": "Clere For Men competition page banner artwork"
   },
   {
     "id": "oxford-freshmarket-birthday-trolley-dash",
@@ -4223,7 +4231,9 @@
     "linkValidationStatus": "manual-ok",
     "linkValidationReason": "Official Clicks ClubCard competition page is browser-verified with visible title, prize and closing date; automated fetch can be inconsistent on Clicks pages. Rechecked on 2026-06-27.",
     "linkValidationCheckedAt": "2026-06-27",
-    "linkValidationAllowedDomain": "clicks.co.za"
+    "linkValidationAllowedDomain": "clicks.co.za",
+    "image": "https://clicks.co.za/medias/Clicks-Cashback-Haul-Competition-266x171-.png?context=bWFzdGVyfEN1c3RvbUltYWdlc3w3MjQwN3xpbWFnZS9wbmd8YURjeUwyaGhPUzh4TVRnMU1USXhOVGc1TmpZd05pOURiR2xqYTNNZ1EyRnphR0poWTJzZ1NHRjFiQ0JEYjIxd1pYUnBkR2x2YmlCYk1qWTJlREUzTVYwdWNHNW58ZTYyOThjYjIzNWFmNzI3ODVlNWI1NTU1ZGE1YmI1OGRjYjRmOTRlNzIzOWJhNTRiYjExZDhkOTU2YmU5OTJkOQ",
+    "imageAlt": "Clicks Cashback Haul competition artwork"
   },
   {
     "id": "nescafe-lead-gen-2026-mastercard-vouchers",
@@ -4345,7 +4355,9 @@
     "evidenceNotes": "Official Penguin Random House competition page opens successfully and confirms title, prize, closing date, eligibility and entry method. Final resolved URL checked 2026-05-17: https://www.penguinrandomhouse.co.za/competitions/win-with-the-penguin-post-42/.",
     "seoTitle": "Penguin Random House Penguin Post 42 Book Hamper | Freehub",
     "seoDescription": "Check Penguin Random House Penguin Post 42 Book. Prize: Book hamper valued at R1,500. Closes 30 Jun 2026. Source: penguinrandomhouse.co.za. Free entry.",
-    "quickAnswer": "The Penguin Random House Penguin Post 42 Book Hamper is a vouchers competition marked free entry. Freehub lists Book hamper valued at R1,500, entry via Online form, and a closing date of 30 Jun 2026. Confirm the latest rules on penguinrandomhouse.co.za before entering."
+    "quickAnswer": "The Penguin Random House Penguin Post 42 Book Hamper is a vouchers competition marked free entry. Freehub lists Book hamper valued at R1,500, entry via Online form, and a closing date of 30 Jun 2026. Confirm the latest rules on penguinrandomhouse.co.za before entering.",
+    "image": "https://www.penguinrandomhouse.co.za/wp-content/uploads/Penguin-Post-42-PRH-comp-banner-1240x350_1.jpg",
+    "imageAlt": "Penguin Post 42 book hamper competition banner"
   },
   {
     "id": "godfather-of-the-waves-competition-2026",
@@ -4930,7 +4942,9 @@
     "seoDescription": "Check Volkswagen EasyDrive Maintenance Plan. Prize: Fuel, merchandise, retailer, travel and spa. Closes 31 Dec 2026. Source: vw.co.za. Purchase required.",
     "quickAnswer": "The Volkswagen EasyDrive Maintenance Plan Competition is a vouchers competition marked purchase required. Freehub lists Fuel, merchandise, retailer, travel and spa vouchers, entry via Qualifying Volkswagen EasyDrive purchase, and a closing date of 31 Dec 2026. Confirm the latest rules on vw.co.za before entering.",
     "evidenceNotes": "Official Volkswagen EasyDrive page checked on 2026-06-27. The page lists the EasyDrive Upgrade to Win Competition and states that buying at least a 4-year/60,000 km EasyDrive Maintenance Plan between 19 January and 31 December 2026 automatically qualifies entrants for prizes including Shell fuel vouchers, VW Collection vouchers and holiday accommodation vouchers. The linked official PDF remains the terms source.",
-    "eligibilitySummary": "The official terms source states that legal residents of South Africa aged 18 or older with a valid driver licence may enter; natural persons only, with VWGA employees, dealers, agencies and related parties excluded."
+    "eligibilitySummary": "The official terms source states that legal residents of South Africa aged 18 or older with a valid driver licence may enter; natural persons only, with VWGA employees, dealers, agencies and related parties excluded.",
+    "image": "https://assets.volkswagen.com/is/image/volkswagenag/aftersale-to-win?Zml0PWNyb3AsMSZmbXQ9cG5nLWFscGhhJndpZD0xNjAwJmhlaT05MDAmYmZjPW9mZiY5YWYy",
+    "imageAlt": "Volkswagen EasyDrive Upgrade to Win competition artwork"
   },
   {
     "id": "va-waterfront-mothers-day-winter-escape-2026",
@@ -6789,7 +6803,9 @@
     "linkValidationStatus": "manual-ok",
     "linkValidationReason": "Official Clicks ClubCard competition page is browser-verified with visible title, prize and closing date; automated fetch can be inconsistent on Clicks pages. Rechecked on 2026-06-27.",
     "linkValidationCheckedAt": "2026-06-27",
-    "linkValidationAllowedDomain": "clicks.co.za"
+    "linkValidationAllowedDomain": "clicks.co.za",
+    "image": "https://clicks.co.za/medias/75664-Protex-Water-Tank-Shopper-Camp-Doci-06-Clicks-266x171px-HC-FA-V3.jpg?context=bWFzdGVyfEN1c3RvbUltYWdlc3w2NDc4OHxpbWFnZS9qcGVnfGFEQTRMMmd5Tmk4eE1UZzRPVFF3T0Rjek56TXhNQzgzTlRZMk5DQlFjbTkwWlhnZ1YyRjBaWElnVkdGdWF5QlRhRzl3Y0dWeUlFTmhiWEJmUkc5amFWOHdObDlEYkdsamEzTmZNalkyZURFM01YQjRYMGhESUVaQlgxWXpMbXB3Wnd8NGMwOTIyMmZiMDIxZDRmYjM0YTEwNjNmNmJkYjQxOTBjOGI0MTE5NDFkNTY1OGE4MTY0MjQ4Yjc0ZGE4NTVjOA",
+    "imageAlt": "Clicks Protex Protect Their Future competition artwork"
   },
   {
     "id": "clicks-nivea-men-broscape-cash-card-2026",
@@ -6894,7 +6910,9 @@
     "seoContext": "Useful for users searching for Discovery competitions, holiday competitions, travel rewards, Europcar promotions and South African getaway prizes.",
     "eligibilitySummary": "The record states that South African residents aged 18+ with qualifying Discovery or Vitality status and a valid South African driver's licence may enter, subject to the official terms.",
     "entryCostSummary": "This is marked as account-required because the official rules require qualifying Discovery or Vitality status and a Europcar booking through the Vitality Travel platform.",
-    "evidenceNotes": "Official Discovery page and official PDF terms confirm the Discovery / Europcar Winter Adventure competition runs from 30 March 2026 to 30 June 2026. One winner receives a R60,000 Vitality Travel reward via a Travel Wallet. Eligibility requires qualifying Discovery or Vitality status, South African residency, age 18+ and a valid South African driver's licence. Final resolved URLs checked 2026-06-11."
+    "evidenceNotes": "Official Discovery page and official PDF terms confirm the Discovery / Europcar Winter Adventure competition runs from 30 March 2026 to 30 June 2026. One winner receives a R60,000 Vitality Travel reward via a Travel Wallet. Eligibility requires qualifying Discovery or Vitality status, South African residency, age 18+ and a valid South African driver's licence. Final resolved URLs checked 2026-06-11.",
+    "image": "https://www.discovery.co.za/gallery/discoverycoza/content-hub/vitality-news/europcar-easter-banner.jpeg",
+    "imageAlt": "Discovery Europcar winter adventure promotion banner"
   },
   {
     "id": "pep-plusmore-win-your-dream-2026",
@@ -7000,7 +7018,9 @@
     "seoContext": "Useful for users searching for Boxer competitions, lifestyle competitions, retail giveaways and unusual high-value South African prizes.",
     "eligibilitySummary": "The record states that South African residents aged 18+ with valid ID or passport may enter, subject to the official terms.",
     "entryCostSummary": "This is marked as purchase-required because entrants must buy any two participating brands and swipe a Boxer Rewards Club card.",
-    "evidenceNotes": "Official Boxer competitions hub and official Nyama Battle PDF terms confirm the competition runs from 11 May 2026 to 10 August 2026. Entrants must buy any two participating brands and swipe a Boxer Rewards Club card. The prize pool is 10 fully-kitted, road-ready food trailers. Final resolved URLs checked 2026-06-11."
+    "evidenceNotes": "Official Boxer competitions hub and official Nyama Battle PDF terms confirm the competition runs from 11 May 2026 to 10 August 2026. Entrants must buy any two participating brands and swipe a Boxer Rewards Club card. The prize pool is 10 fully-kitted, road-ready food trailers. Final resolved URLs checked 2026-06-11.",
+    "image": "https://www.boxer.co.za/storage/web/source/1/sM46A00tktx3H-ETM-CNq3cDlzzXrgH0.jpg",
+    "imageAlt": "Boxer Nyama Battle food trailers competition artwork"
   },
   {
     "id": "boxer-celebrate-win-samsung-a06-2026",
@@ -7051,7 +7071,9 @@
     "seoContext": "Useful for users searching for Boxer competitions, Samsung phone giveaways, tech competitions and retail smartphone prizes in South Africa.",
     "eligibilitySummary": "The record states that South African residents aged 18+ with a valid identity document may enter, subject to the official terms.",
     "entryCostSummary": "This is marked as purchase-required because entrants must buy any two advertised products and swipe a Boxer Rewards Club card.",
-    "evidenceNotes": "Official Boxer competitions hub and official Celebrate and Win PDF terms confirm the competition runs from 8 June 2026 to 22 July 2026. Entrants must buy any two advertised products on the current promotional leaflet and swipe a Boxer Rewards Club card. The prize is a Samsung A06 smartphone, with one winner in every store. Final resolved URLs checked 2026-06-11."
+    "evidenceNotes": "Official Boxer competitions hub and official Celebrate and Win PDF terms confirm the competition runs from 8 June 2026 to 22 July 2026. Entrants must buy any two advertised products on the current promotional leaflet and swipe a Boxer Rewards Club card. The prize is a Samsung A06 smartphone, with one winner in every store. Final resolved URLs checked 2026-06-11.",
+    "image": "https://www.boxer.co.za/storage/web/source/1/Smi7vSqtAIUpUHNEcVqcZzfz6H65AFbR.jpg",
+    "imageAlt": "Boxer Celebrate and Win Samsung A06 competition artwork"
   },
   {
     "id": "checkers-vaseline-winter-shoprite-checkers-competition-2026",
@@ -7747,7 +7769,9 @@
     "evidenceNotes": "Official StarBaby terms confirm the monthly competition, free entry, legal guardian requirement, South African 18+ participant eligibility, baby/toddler age range of 0 to 36 months, R40,000 monthly prize pool split between cash and Babies R Us vouchers, and vote-based prize categories. The terms also state that SMS votes and online payment votes are paid, with examples including R2 for 1 SMS vote, R30 for 15 SMS votes, and R1 per SnapScan, EFT or card vote.",
     "seoTitle": "StarBaby South Africa Monthly Competition 2026 | Freehub",
     "seoDescription": "Check the StarBaby South Africa monthly competition: free baby photo entry for cash and Babies R Us voucher prizes, with paid voting costs clearly noted.",
-    "quickAnswer": "The StarBaby South Africa monthly competition has free online photo entry, but paid voting can affect ranking. Freehub lists a monthly R40,000 cash and Babies R Us voucher prize pool, with SMS and online vote costs noted before entering."
+    "quickAnswer": "The StarBaby South Africa monthly competition has free online photo entry, but paid voting can affect ranking. Freehub lists a monthly R40,000 cash and Babies R Us voucher prize pool, with SMS and online vote costs noted before entering.",
+    "image": "https://www.star-baby.co.za/images/meta-images/starbaby/enter.jpg",
+    "imageAlt": "StarBaby South Africa monthly competition entry artwork"
   },
   {
     "id": "bull-brand-spar-inland-cash-competition-2026",
@@ -7968,7 +7992,9 @@
     "evidenceNotes": "Official SPAR competition page reviewed on 27 June 2026. The page states the duration as 15 May 2026 to 31 July 2026, names SPAR Group Limited as promoter and Clover S.A. as co-promoter, requires purchase of any 1 qualifying Clover participating product at participating SPAR stores with a valid SPAR Rewards card swipe, and lists 100 SPAR voucher prizes worth R5,000 each.",
     "seoTitle": "SPAR Clover Rewards Voucher Competition 2026 | Freehub",
     "seoDescription": "Check the SPAR Clover Rewards competition: buy a qualifying Clover product, swipe SPAR Rewards, and stand a chance to win one of 100 R5,000 SPAR vouchers.",
-    "quickAnswer": "The SPAR Clover Rewards Voucher Competition is a purchase-required voucher promotion. Buy a qualifying Clover product at participating SPAR stores, swipe SPAR Rewards, and qualify before 31 July 2026."
+    "quickAnswer": "The SPAR Clover Rewards Voucher Competition is a purchase-required voucher promotion. Buy a qualifying Clover product at participating SPAR stores, swipe SPAR Rewards, and qualify before 31 July 2026.",
+    "image": "https://www.spar.co.za/getattachment/ea1905c4-5f85-4081-87e1-f2aaf2b79738/Clover-SPAR-Rewards-Competition.aspx",
+    "imageAlt": "SPAR Clover Rewards voucher competition artwork"
   },
   {
     "id": "shoprite-low-duma-competition-2026",

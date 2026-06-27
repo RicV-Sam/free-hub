@@ -1,6 +1,6 @@
 # Active Listing Quality Report
 
-Generated: 2026-06-27T14:07:29.577Z
+Generated: 2026-06-27T14:21:10.383Z
 Audit date: 2026-06-27
 
 This report reviews active published Freehub listings and indexable inventory thresholds. It is intended as an editorial QA queue, not a publication approval decision.
@@ -11,7 +11,7 @@ This report reviews active published Freehub listings and indexable inventory th
 - Closing within 7 days: 22
 - Last checked older than 21 days: 20
 - High-value listings older than 14 days: 11
-- Missing image: 48
+- Missing image: 35
 - Missing evidenceNotes: 0
 - Missing eligibility and eligibilitySummary: 0
 - Missing entrySteps: 0
@@ -92,19 +92,13 @@ This report reviews active published Freehub listings and indexable inventory th
 | Slug | Title | Category | Entry cost | Closing | Days left | Last checked | Age days |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | dis-chem-garnier-pure-active-june-2026-competition | Garnier Pure Active June 2026 Competition | Vouchers | purchase-required | 2026-06-28 | 1 | 2026-06-19 | 8 |
-| looters-warehouse-toyota-vitz | Looters Warehouse Competition - Win a Toyota Vitz | Cars | purchase-required | 2026-06-30 | 3 | 2026-05-19 | 39 |
 | boxer-nedbank-greenbacks | Boxer Nedbank Greenbacks Competition | Cash | purchase-required | 2026-06-30 | 3 | 2026-06-27 | 0 |
-| cell-c-comrades-cash-promo | Cell C Comrades Promotion - Win Your Share of R500,000 Cash | Cash | purchase-required | 2026-06-30 | 3 | 2026-06-27 | 0 |
 | fnb-lovefnb-social-media-competition | FNB #LOVEFNB Social Media Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-06-27 | 0 |
 | miwaylife-sanlam-spl-fuel-vouchers | MiWayLife and Sanlam Personal Loans Fuel Voucher Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-19 | 39 |
-| penguin-random-house-penguin-post-42-hamper | Penguin Random House Penguin Post 42 Book Hamper | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-17 | 41 |
 | gotyme-bafana-jersey-giveaway-2026 | GoTyme Bank #GoTymeThursday Bafana Jersey Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-06-27 | 0 |
 | budget-refer-a-friend-cash-2026 | Budget Refer a Friend Cash Competition | Cash | account-required | 2026-06-30 | 3 | 2026-05-17 | 41 |
 | penguin-random-house-give-in-to-temptation-2026 | Penguin Random House Give In to Temptation Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-17 | 41 |
-| clicks-protex-protect-their-future-2026 | Clicks Protex Protect Their Future Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-27 | 31 |
-| discovery-europcar-winter-adventure-2026 | Discovery Europcar Winter Adventure Competition | Holidays | account-required | 2026-06-30 | 3 | 2026-06-11 | 16 |
 | vodacom-mrp-gift-card-competition-2026 | MRP Cellular Stand a Chance to Win 1 of 11 R1 500 MRP Gift Card Competition | Vouchers | purchase-required | 2026-06-30 | 3 | 2026-06-15 | 12 |
-| starbaby-south-africa-monthly-competition-2026 | StarBaby South Africa Monthly Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-06-19 | 8 |
 | shoprite-low-duma-competition-2026 | Shoprite Low-Duma Competition | Cash | purchase-required | 2026-07-05 | 8 | 2026-06-27 | 0 |
 | makro-winter-competition-2026 | Makro Winter Competition | Vouchers | purchase-required | 2026-07-05 | 8 | 2026-06-27 | 0 |
 | one-life-maize-meal-samsung-phones-2026 | 1Lifestyle Maize Meal Samsung Phone Competition | Tech | app-required | 2026-07-09 | 12 | 2026-06-27 | 0 |
@@ -112,23 +106,17 @@ This report reviews active published Freehub listings and indexable inventory th
 | vodacom-spend-and-recharge-tfg-vouchers | Vodacom Spend and Recharge - Win TFG Vouchers | Vouchers | purchase-required | 2026-07-15 | 18 | 2026-06-27 | 0 |
 | parmalat-everything-needs-cheese-2026 | Parmalat Everything Needs Cheese WhatsApp Competition | Cash | purchase-required | 2026-07-15 | 18 | 2026-06-27 | 0 |
 | vodacom-power-up-woolworths-vouchers-2026 | Vodacom Power Up Woolworths Voucher Competition | Vouchers | purchase-required | 2026-07-15 | 18 | 2026-06-27 | 0 |
-| clicks-cashback-haul-competition | Clicks Cashback Haul Competition | Vouchers | free-entry | 2026-07-19 | 22 | 2026-05-27 | 31 |
 | coca-cola-hisense-fifa-fan-hampers-2026 | Coke x Hisense FIFA Fan Hamper Competition | Tech | purchase-required | 2026-07-19 | 22 | 2026-06-27 | 0 |
 | mtn-fc-world-cup-competition-2026 | MTN FC World Cup Competition | Vouchers | purchase-required | 2026-07-20 | 23 | 2026-06-19 | 8 |
-| boxer-celebrate-win-samsung-a06-2026 | Celebrate and Win with Boxer | Tech | purchase-required | 2026-07-22 | 25 | 2026-06-11 | 16 |
 | pep-dstv-scan-play-win-2026 | PEPxDSTV Scan Play Win Competition | Vouchers | purchase-required | 2026-07-23 | 26 | 2026-06-19 | 8 |
 | huggies-dry-comfort-buy-win-2026 | Huggies Dry Comfort Buy and Win Competition | Vouchers | purchase-required | 2026-07-26 | 29 | 2026-06-19 | 8 |
 | game-haier-play-with-the-number-ones-2026 | Game Haier Play With The Number Ones | Holidays | purchase-required | 2026-07-31 | 34 | 2026-05-19 | 39 |
-| nivea-men-real-madrid-cash-2026 | NIVEA MEN Real Madrid Competition - Win Cash Prizes | Cash | purchase-required | 2026-07-31 | 34 | 2026-06-27 | 0 |
-| clere-for-men-play-it-smooth-2026 | Clere For Men Play It Smooth Competition | Cash | purchase-required | 2026-07-31 | 34 | 2026-06-27 | 0 |
 | clicks-babyclub-competition | Clicks WIN with BabyClub Competition | Vouchers | free-entry | 2026-07-31 | 34 | 2026-05-27 | 31 |
 | capitec-moneyup-academy-competition-2026 | MoneyUp Academy Competition | Vouchers | account-required | 2026-07-31 | 34 | 2026-05-17 | 41 |
 | sunlight-kitchen-makeover-2026 | Sunlight Win a Kitchen Makeover Competition | Cash | till-slip-required | 2026-07-31 | 34 | 2026-05-17 | 41 |
 | plush-more-foam-more-fun-2026 | Plush More Foam More Fun Competition | Cash | purchase-required | 2026-07-31 | 34 | 2026-06-19 | 8 |
-| spar-clover-rewards-vouchers-2026 | SPAR Clover Rewards Voucher Competition | Vouchers | purchase-required | 2026-07-31 | 34 | 2026-06-27 | 0 |
 | checkers-vaseline-winter-shoprite-checkers-competition-2026 | Vaseline Winter Shoprite & Checkers Competition | Vouchers | purchase-required | 2026-08-02 | 36 | 2026-06-19 | 8 |
 | fnb-scroll-to-score-springbok-gamification-2026 | FNB Scroll to Score - Springbok Gamification Offers | Sports | free-entry | 2026-08-02 | 36 | 2026-06-15 | 12 |
-| boxer-nyama-battle-food-trailers-2026 | Nyama Battle - Win 1 of 10 Food Trailers | Lifestyle | purchase-required | 2026-08-10 | 44 | 2026-06-11 | 16 |
 | coca-cola-zwakala-neflava-2026 | Coca-Cola Get Together Zwakala neFlava Promotion | Vouchers | purchase-required | 2026-08-31 | 65 | 2026-06-27 | 0 |
 | kelloggs-big-bowl-energy-2026 | Kellogg's Big Bowl Energy Competition | Cars | till-slip-required | 2026-08-31 | 65 | 2026-05-17 | 41 |
 | vodacom-red-springboks-double-tickets-2026 | Vodacom RED and Springboks Double Tickets to Live Games Competition | Sports | purchase-required | 2026-08-31 | 65 | 2026-06-15 | 12 |
@@ -136,7 +124,6 @@ This report reviews active published Freehub listings and indexable inventory th
 | knorr-win-r5000-weekly-2026 | Knorr Win R5,000 Weekly Competition | Cash | purchase-required | 2026-10-11 | 106 | 2026-06-27 | 0 |
 | mcdonalds-nazo-meals-airtime-data-rewards-2026 | McDonald's Nazo Meals Airtime and Data Rewards | Vouchers | purchase-required | 2026-12-20 | 176 | 2026-05-27 | 31 |
 | alpha-pharm-alpha-52-cash-2026 | Alpha Pharm Alpha 52 Competition | Cash | purchase-required | 2026-12-31 | 187 | 2026-05-19 | 39 |
-| volkswagen-easydrive-maintenance-plan-2026 | Volkswagen EasyDrive Maintenance Plan Competition | Vouchers | purchase-required | 2026-12-31 | 187 | 2026-06-27 | 0 |
 | capitec-tactical-flexi-voucher-2026 | Capitec Tactical Flexi Voucher Competitions | Vouchers | free-entry | 2026-12-31 | 187 | 2026-05-27 | 31 |
 | standard-bank-first-time-buyers-home-loans-2026 | Standard Bank First Time Buyers Home Loans Competition | Cash | account-required | 2027-03-31 | 277 | 2026-05-17 | 41 |
 
