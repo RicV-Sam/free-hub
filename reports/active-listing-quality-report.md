@@ -1,6 +1,6 @@
 # Active Listing Quality Report
 
-Generated: 2026-06-27T13:16:20.387Z
+Generated: 2026-06-27T13:32:33.354Z
 Audit date: 2026-06-27
 
 This report reviews active published Freehub listings and indexable inventory thresholds. It is intended as an editorial QA queue, not a publication approval decision.
@@ -9,15 +9,15 @@ This report reviews active published Freehub listings and indexable inventory th
 
 - Active published listings: 78
 - Closing within 7 days: 23
-- Last checked older than 21 days: 45
-- High-value listings older than 14 days: 31
-- Missing image: 59
-- Missing evidenceNotes: 25
-- Missing eligibility and eligibilitySummary: 9
+- Last checked older than 21 days: 35
+- High-value listings older than 14 days: 23
+- Missing image: 55
+- Missing evidenceNotes: 15
+- Missing eligibility and eligibilitySummary: 7
 - Missing entrySteps: 6
 - Free-entry listings mentioning app/account/quote/social/client requirements: 15
 - Collection/brand pages near indexability threshold: 24
-- Vertical hubs near indexability threshold: 3
+- Vertical hubs near indexability threshold: 2
 
 ## Active Listings Closing Within 7 Days
 
@@ -27,17 +27,17 @@ This report reviews active published Freehub listings and indexable inventory th
 | bull-brand-spar-inland-cash-competition-2026 | Bull Brand SPAR Inland Cash Competition | Cash | purchase-required | 2026-06-28 | 1 | 2026-06-22 | 5 |
 | isuzu-win-a-new-x-rider-2026 | ISUZU Win a New X-Rider Competition | Cars | free-entry | 2026-06-30 | 3 | 2026-06-18 | 9 |
 | looters-warehouse-toyota-vitz | Looters Warehouse Competition - Win a Toyota Vitz | Cars | purchase-required | 2026-06-30 | 3 | 2026-05-19 | 39 |
-| boxer-nedbank-greenbacks | Boxer Nedbank Greenbacks Competition | Cash | purchase-required | 2026-06-30 | 3 | 2026-05-15 | 43 |
-| cell-c-comrades-cash-promo | Cell C Comrades Promotion - Win Your Share of R500,000 Cash | Cash | purchase-required | 2026-06-30 | 3 | 2026-05-17 | 41 |
-| fnb-lovefnb-social-media-competition | FNB #LOVEFNB Social Media Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-17 | 41 |
-| flash-mtn-national-airtime-vouchers | Flash MTN National Airtime Campaign - Win R10,000 Vouchers | Vouchers | purchase-required | 2026-06-30 | 3 | 2026-05-10 | 48 |
-| clover-spar-rewards-stormers-jetour | Clover and SPAR Rewards Ultimate Stormers Experience - Win a Jetour Dashing | Cars | purchase-required | 2026-06-30 | 3 | 2026-05-10 | 48 |
+| boxer-nedbank-greenbacks | Boxer Nedbank Greenbacks Competition | Cash | purchase-required | 2026-06-30 | 3 | 2026-06-27 | 0 |
+| cell-c-comrades-cash-promo | Cell C Comrades Promotion - Win Your Share of R500,000 Cash | Cash | purchase-required | 2026-06-30 | 3 | 2026-06-27 | 0 |
+| fnb-lovefnb-social-media-competition | FNB #LOVEFNB Social Media Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-06-27 | 0 |
+| flash-mtn-national-airtime-vouchers | Flash MTN National Airtime Campaign - Win R10,000 Vouchers | Vouchers | purchase-required | 2026-06-30 | 3 | 2026-06-27 | 0 |
+| clover-spar-rewards-stormers-jetour | Clover and SPAR Rewards Ultimate Stormers Experience - Win a Jetour Dashing | Cars | purchase-required | 2026-06-30 | 3 | 2026-06-27 | 0 |
 | miwaylife-sanlam-spl-fuel-vouchers | MiWayLife and Sanlam Personal Loans Fuel Voucher Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-19 | 39 |
-| bridgestone-toyota-corolla-cross-2026 | Bridgestone Win 1 of 3 Toyota Corolla Cross Vehicles | Cars | purchase-required | 2026-06-30 | 3 | 2026-05-15 | 43 |
-| ackermans-payat-xbox-series-s | Ackermans Pay@ Competition - Win an Xbox Series S | Tech | purchase-required | 2026-06-30 | 3 | 2026-05-15 | 43 |
+| bridgestone-toyota-corolla-cross-2026 | Bridgestone Win 1 of 3 Toyota Corolla Cross Vehicles | Cars | purchase-required | 2026-06-30 | 3 | 2026-06-27 | 0 |
+| ackermans-payat-xbox-series-s | Ackermans Pay@ Competition - Win an Xbox Series S | Tech | purchase-required | 2026-06-30 | 3 | 2026-06-27 | 0 |
 | dragon-energy-xtreme-comp-2026 | Dragon Energy Xtreme Comp 2026 | Holidays | purchase-required | 2026-06-30 | 3 | 2026-05-15 | 43 |
 | penguin-random-house-penguin-post-42-hamper | Penguin Random House Penguin Post 42 Book Hamper | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-17 | 41 |
-| gotyme-bafana-jersey-giveaway-2026 | GoTyme Bank #GoTymeThursday Bafana Jersey Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-16 | 42 |
+| gotyme-bafana-jersey-giveaway-2026 | GoTyme Bank #GoTymeThursday Bafana Jersey Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-06-27 | 0 |
 | budget-refer-a-friend-cash-2026 | Budget Refer a Friend Cash Competition | Cash | account-required | 2026-06-30 | 3 | 2026-05-17 | 41 |
 | penguin-random-house-give-in-to-temptation-2026 | Penguin Random House Give In to Temptation Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-17 | 41 |
 | spur-family-cruises-with-spur-2026 | Spur Family Cruises with Spur | Holidays | purchase-required | 2026-06-30 | 3 | 2026-06-26 | 1 |
@@ -52,26 +52,16 @@ This report reviews active published Freehub listings and indexable inventory th
 | Slug | Title | Category | Entry cost | Closing | Days left | Last checked | Age days |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | looters-warehouse-toyota-vitz | Looters Warehouse Competition - Win a Toyota Vitz | Cars | purchase-required | 2026-06-30 | 3 | 2026-05-19 | 39 |
-| boxer-nedbank-greenbacks | Boxer Nedbank Greenbacks Competition | Cash | purchase-required | 2026-06-30 | 3 | 2026-05-15 | 43 |
-| cell-c-comrades-cash-promo | Cell C Comrades Promotion - Win Your Share of R500,000 Cash | Cash | purchase-required | 2026-06-30 | 3 | 2026-05-17 | 41 |
-| fnb-lovefnb-social-media-competition | FNB #LOVEFNB Social Media Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-17 | 41 |
-| flash-mtn-national-airtime-vouchers | Flash MTN National Airtime Campaign - Win R10,000 Vouchers | Vouchers | purchase-required | 2026-06-30 | 3 | 2026-05-10 | 48 |
-| clover-spar-rewards-stormers-jetour | Clover and SPAR Rewards Ultimate Stormers Experience - Win a Jetour Dashing | Cars | purchase-required | 2026-06-30 | 3 | 2026-05-10 | 48 |
 | miwaylife-sanlam-spl-fuel-vouchers | MiWayLife and Sanlam Personal Loans Fuel Voucher Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-19 | 39 |
-| bridgestone-toyota-corolla-cross-2026 | Bridgestone Win 1 of 3 Toyota Corolla Cross Vehicles | Cars | purchase-required | 2026-06-30 | 3 | 2026-05-15 | 43 |
-| ackermans-payat-xbox-series-s | Ackermans Pay@ Competition - Win an Xbox Series S | Tech | purchase-required | 2026-06-30 | 3 | 2026-05-15 | 43 |
 | dragon-energy-xtreme-comp-2026 | Dragon Energy Xtreme Comp 2026 | Holidays | purchase-required | 2026-06-30 | 3 | 2026-05-15 | 43 |
 | penguin-random-house-penguin-post-42-hamper | Penguin Random House Penguin Post 42 Book Hamper | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-17 | 41 |
-| gotyme-bafana-jersey-giveaway-2026 | GoTyme Bank #GoTymeThursday Bafana Jersey Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-16 | 42 |
 | budget-refer-a-friend-cash-2026 | Budget Refer a Friend Cash Competition | Cash | account-required | 2026-06-30 | 3 | 2026-05-17 | 41 |
 | penguin-random-house-give-in-to-temptation-2026 | Penguin Random House Give In to Temptation Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-17 | 41 |
 | clicks-protex-protect-their-future-2026 | Clicks Protex Protect Their Future Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-27 | 31 |
 | vodacom-spend-and-recharge-tfg-vouchers | Vodacom Spend and Recharge - Win TFG Vouchers | Vouchers | purchase-required | 2026-07-15 | 18 | 2026-05-17 | 41 |
-| parmalat-everything-needs-cheese-2026 | Parmalat Everything Needs Cheese WhatsApp Competition | Cash | purchase-required | 2026-07-15 | 18 | 2026-05-24 | 34 |
 | vodacom-power-up-woolworths-vouchers-2026 | Vodacom Power Up Woolworths Voucher Competition | Vouchers | purchase-required | 2026-07-15 | 18 | 2026-05-16 | 42 |
 | clicks-cashback-haul-competition | Clicks Cashback Haul Competition | Vouchers | free-entry | 2026-07-19 | 22 | 2026-05-27 | 31 |
 | coca-cola-hisense-fifa-fan-hampers-2026 | Coke x Hisense FIFA Fan Hamper Competition | Tech | purchase-required | 2026-07-19 | 22 | 2026-05-27 | 31 |
-| standard-bank-game-day-everyday | Standard Bank Game Day Everyday Competition - Win Cash and Vouchers | Cash | purchase-required | 2026-07-21 | 24 | 2026-05-10 | 48 |
 | game-haier-play-with-the-number-ones-2026 | Game Haier Play With The Number Ones | Holidays | purchase-required | 2026-07-31 | 34 | 2026-05-19 | 39 |
 | clere-share-of-r1-million-cash-2026 | Clere Win a Share of R1 Million Cash Competition | Cash | purchase-required | 2026-07-31 | 34 | 2026-05-27 | 31 |
 | nivea-men-real-madrid-cash-2026 | NIVEA MEN Real Madrid Competition - Win Cash Prizes | Cash | purchase-required | 2026-07-31 | 34 | 2026-05-15 | 43 |
@@ -102,19 +92,11 @@ This report reviews active published Freehub listings and indexable inventory th
 | Slug | Title | Category | Entry cost | Closing | Days left | Last checked | Age days |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | looters-warehouse-toyota-vitz | Looters Warehouse Competition - Win a Toyota Vitz | Cars | purchase-required | 2026-06-30 | 3 | 2026-05-19 | 39 |
-| boxer-nedbank-greenbacks | Boxer Nedbank Greenbacks Competition | Cash | purchase-required | 2026-06-30 | 3 | 2026-05-15 | 43 |
-| cell-c-comrades-cash-promo | Cell C Comrades Promotion - Win Your Share of R500,000 Cash | Cash | purchase-required | 2026-06-30 | 3 | 2026-05-17 | 41 |
-| fnb-lovefnb-social-media-competition | FNB #LOVEFNB Social Media Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-17 | 41 |
-| flash-mtn-national-airtime-vouchers | Flash MTN National Airtime Campaign - Win R10,000 Vouchers | Vouchers | purchase-required | 2026-06-30 | 3 | 2026-05-10 | 48 |
-| clover-spar-rewards-stormers-jetour | Clover and SPAR Rewards Ultimate Stormers Experience - Win a Jetour Dashing | Cars | purchase-required | 2026-06-30 | 3 | 2026-05-10 | 48 |
-| bridgestone-toyota-corolla-cross-2026 | Bridgestone Win 1 of 3 Toyota Corolla Cross Vehicles | Cars | purchase-required | 2026-06-30 | 3 | 2026-05-15 | 43 |
 | dragon-energy-xtreme-comp-2026 | Dragon Energy Xtreme Comp 2026 | Holidays | purchase-required | 2026-06-30 | 3 | 2026-05-15 | 43 |
 | budget-refer-a-friend-cash-2026 | Budget Refer a Friend Cash Competition | Cash | account-required | 2026-06-30 | 3 | 2026-05-17 | 41 |
 | discovery-europcar-winter-adventure-2026 | Discovery Europcar Winter Adventure Competition | Holidays | account-required | 2026-06-30 | 3 | 2026-06-11 | 16 |
 | vodacom-spend-and-recharge-tfg-vouchers | Vodacom Spend and Recharge - Win TFG Vouchers | Vouchers | purchase-required | 2026-07-15 | 18 | 2026-05-17 | 41 |
-| parmalat-everything-needs-cheese-2026 | Parmalat Everything Needs Cheese WhatsApp Competition | Cash | purchase-required | 2026-07-15 | 18 | 2026-05-24 | 34 |
 | coca-cola-hisense-fifa-fan-hampers-2026 | Coke x Hisense FIFA Fan Hamper Competition | Tech | purchase-required | 2026-07-19 | 22 | 2026-05-27 | 31 |
-| standard-bank-game-day-everyday | Standard Bank Game Day Everyday Competition - Win Cash and Vouchers | Cash | purchase-required | 2026-07-21 | 24 | 2026-05-10 | 48 |
 | game-haier-play-with-the-number-ones-2026 | Game Haier Play With The Number Ones | Holidays | purchase-required | 2026-07-31 | 34 | 2026-05-19 | 39 |
 | clere-share-of-r1-million-cash-2026 | Clere Win a Share of R1 Million Cash Competition | Cash | purchase-required | 2026-07-31 | 34 | 2026-05-27 | 31 |
 | nivea-men-real-madrid-cash-2026 | NIVEA MEN Real Madrid Competition - Win Cash Prizes | Cash | purchase-required | 2026-07-31 | 34 | 2026-05-15 | 43 |
@@ -139,16 +121,13 @@ This report reviews active published Freehub listings and indexable inventory th
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | dis-chem-garnier-pure-active-june-2026-competition | Garnier Pure Active June 2026 Competition | Vouchers | purchase-required | 2026-06-28 | 1 | 2026-06-19 | 8 |
 | looters-warehouse-toyota-vitz | Looters Warehouse Competition - Win a Toyota Vitz | Cars | purchase-required | 2026-06-30 | 3 | 2026-05-19 | 39 |
-| boxer-nedbank-greenbacks | Boxer Nedbank Greenbacks Competition | Cash | purchase-required | 2026-06-30 | 3 | 2026-05-15 | 43 |
-| cell-c-comrades-cash-promo | Cell C Comrades Promotion - Win Your Share of R500,000 Cash | Cash | purchase-required | 2026-06-30 | 3 | 2026-05-17 | 41 |
-| fnb-lovefnb-social-media-competition | FNB #LOVEFNB Social Media Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-17 | 41 |
-| flash-mtn-national-airtime-vouchers | Flash MTN National Airtime Campaign - Win R10,000 Vouchers | Vouchers | purchase-required | 2026-06-30 | 3 | 2026-05-10 | 48 |
+| boxer-nedbank-greenbacks | Boxer Nedbank Greenbacks Competition | Cash | purchase-required | 2026-06-30 | 3 | 2026-06-27 | 0 |
+| cell-c-comrades-cash-promo | Cell C Comrades Promotion - Win Your Share of R500,000 Cash | Cash | purchase-required | 2026-06-30 | 3 | 2026-06-27 | 0 |
+| fnb-lovefnb-social-media-competition | FNB #LOVEFNB Social Media Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-06-27 | 0 |
 | miwaylife-sanlam-spl-fuel-vouchers | MiWayLife and Sanlam Personal Loans Fuel Voucher Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-19 | 39 |
-| bridgestone-toyota-corolla-cross-2026 | Bridgestone Win 1 of 3 Toyota Corolla Cross Vehicles | Cars | purchase-required | 2026-06-30 | 3 | 2026-05-15 | 43 |
-| ackermans-payat-xbox-series-s | Ackermans Pay@ Competition - Win an Xbox Series S | Tech | purchase-required | 2026-06-30 | 3 | 2026-05-15 | 43 |
 | dragon-energy-xtreme-comp-2026 | Dragon Energy Xtreme Comp 2026 | Holidays | purchase-required | 2026-06-30 | 3 | 2026-05-15 | 43 |
 | penguin-random-house-penguin-post-42-hamper | Penguin Random House Penguin Post 42 Book Hamper | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-17 | 41 |
-| gotyme-bafana-jersey-giveaway-2026 | GoTyme Bank #GoTymeThursday Bafana Jersey Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-16 | 42 |
+| gotyme-bafana-jersey-giveaway-2026 | GoTyme Bank #GoTymeThursday Bafana Jersey Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-06-27 | 0 |
 | budget-refer-a-friend-cash-2026 | Budget Refer a Friend Cash Competition | Cash | account-required | 2026-06-30 | 3 | 2026-05-17 | 41 |
 | penguin-random-house-give-in-to-temptation-2026 | Penguin Random House Give In to Temptation Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-17 | 41 |
 | clicks-protex-protect-their-future-2026 | Clicks Protex Protect Their Future Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-27 | 31 |
@@ -160,12 +139,11 @@ This report reviews active published Freehub listings and indexable inventory th
 | one-life-maize-meal-samsung-phones-2026 | 1Lifestyle Maize Meal Samsung Phone Competition | Tech | app-required | 2026-07-09 | 12 | 2026-06-27 | 0 |
 | tekkie-town-football-frenzy-fifa-2026 | Tekkie Town Football Frenzy FIFA 2026 Competition | Cars | purchase-required | 2026-07-12 | 15 | 2026-06-19 | 8 |
 | vodacom-spend-and-recharge-tfg-vouchers | Vodacom Spend and Recharge - Win TFG Vouchers | Vouchers | purchase-required | 2026-07-15 | 18 | 2026-05-17 | 41 |
-| parmalat-everything-needs-cheese-2026 | Parmalat Everything Needs Cheese WhatsApp Competition | Cash | purchase-required | 2026-07-15 | 18 | 2026-05-24 | 34 |
+| parmalat-everything-needs-cheese-2026 | Parmalat Everything Needs Cheese WhatsApp Competition | Cash | purchase-required | 2026-07-15 | 18 | 2026-06-27 | 0 |
 | vodacom-power-up-woolworths-vouchers-2026 | Vodacom Power Up Woolworths Voucher Competition | Vouchers | purchase-required | 2026-07-15 | 18 | 2026-05-16 | 42 |
 | clicks-cashback-haul-competition | Clicks Cashback Haul Competition | Vouchers | free-entry | 2026-07-19 | 22 | 2026-05-27 | 31 |
 | coca-cola-hisense-fifa-fan-hampers-2026 | Coke x Hisense FIFA Fan Hamper Competition | Tech | purchase-required | 2026-07-19 | 22 | 2026-05-27 | 31 |
 | mtn-fc-world-cup-competition-2026 | MTN FC World Cup Competition | Vouchers | purchase-required | 2026-07-20 | 23 | 2026-06-19 | 8 |
-| standard-bank-game-day-everyday | Standard Bank Game Day Everyday Competition - Win Cash and Vouchers | Cash | purchase-required | 2026-07-21 | 24 | 2026-05-10 | 48 |
 | boxer-celebrate-win-samsung-a06-2026 | Celebrate and Win with Boxer | Tech | purchase-required | 2026-07-22 | 25 | 2026-06-11 | 16 |
 | pep-dstv-scan-play-win-2026 | PEPxDSTV Scan Play Win Competition | Vouchers | purchase-required | 2026-07-23 | 26 | 2026-06-19 | 8 |
 | huggies-dry-comfort-buy-win-2026 | Huggies Dry Comfort Buy and Win Competition | Vouchers | purchase-required | 2026-07-26 | 29 | 2026-06-19 | 8 |
@@ -201,20 +179,10 @@ This report reviews active published Freehub listings and indexable inventory th
 
 | Slug | Title | Category | Entry cost | Closing | Days left | Last checked | Age days |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| boxer-nedbank-greenbacks | Boxer Nedbank Greenbacks Competition | Cash | purchase-required | 2026-06-30 | 3 | 2026-05-15 | 43 |
-| cell-c-comrades-cash-promo | Cell C Comrades Promotion - Win Your Share of R500,000 Cash | Cash | purchase-required | 2026-06-30 | 3 | 2026-05-17 | 41 |
-| fnb-lovefnb-social-media-competition | FNB #LOVEFNB Social Media Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-17 | 41 |
-| flash-mtn-national-airtime-vouchers | Flash MTN National Airtime Campaign - Win R10,000 Vouchers | Vouchers | purchase-required | 2026-06-30 | 3 | 2026-05-10 | 48 |
-| clover-spar-rewards-stormers-jetour | Clover and SPAR Rewards Ultimate Stormers Experience - Win a Jetour Dashing | Cars | purchase-required | 2026-06-30 | 3 | 2026-05-10 | 48 |
-| bridgestone-toyota-corolla-cross-2026 | Bridgestone Win 1 of 3 Toyota Corolla Cross Vehicles | Cars | purchase-required | 2026-06-30 | 3 | 2026-05-15 | 43 |
-| ackermans-payat-xbox-series-s | Ackermans Pay@ Competition - Win an Xbox Series S | Tech | purchase-required | 2026-06-30 | 3 | 2026-05-15 | 43 |
 | dragon-energy-xtreme-comp-2026 | Dragon Energy Xtreme Comp 2026 | Holidays | purchase-required | 2026-06-30 | 3 | 2026-05-15 | 43 |
-| gotyme-bafana-jersey-giveaway-2026 | GoTyme Bank #GoTymeThursday Bafana Jersey Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-16 | 42 |
 | vodacom-spend-and-recharge-tfg-vouchers | Vodacom Spend and Recharge - Win TFG Vouchers | Vouchers | purchase-required | 2026-07-15 | 18 | 2026-05-17 | 41 |
-| parmalat-everything-needs-cheese-2026 | Parmalat Everything Needs Cheese WhatsApp Competition | Cash | purchase-required | 2026-07-15 | 18 | 2026-05-24 | 34 |
 | vodacom-power-up-woolworths-vouchers-2026 | Vodacom Power Up Woolworths Voucher Competition | Vouchers | purchase-required | 2026-07-15 | 18 | 2026-05-16 | 42 |
 | coca-cola-hisense-fifa-fan-hampers-2026 | Coke x Hisense FIFA Fan Hamper Competition | Tech | purchase-required | 2026-07-19 | 22 | 2026-05-27 | 31 |
-| standard-bank-game-day-everyday | Standard Bank Game Day Everyday Competition - Win Cash and Vouchers | Cash | purchase-required | 2026-07-21 | 24 | 2026-05-10 | 48 |
 | nivea-men-real-madrid-cash-2026 | NIVEA MEN Real Madrid Competition - Win Cash Prizes | Cash | purchase-required | 2026-07-31 | 34 | 2026-05-15 | 43 |
 | clere-for-men-play-it-smooth-2026 | Clere For Men Play It Smooth Competition | Cash | purchase-required | 2026-07-31 | 34 | 2026-05-15 | 43 |
 | south-africa-tourism-mzansi-moments-photo-challenge | South Africa Tourism Mzansi Moments Photo Challenge | Holidays | free-entry | 2026-08-01 | 35 | 2026-05-17 | 41 |
@@ -231,8 +199,6 @@ This report reviews active published Freehub listings and indexable inventory th
 
 | Slug | Title | Category | Entry cost | Closing | Days left | Last checked | Age days |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cell-c-comrades-cash-promo | Cell C Comrades Promotion - Win Your Share of R500,000 Cash | Cash | purchase-required | 2026-06-30 | 3 | 2026-05-17 | 41 |
-| fnb-lovefnb-social-media-competition | FNB #LOVEFNB Social Media Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-17 | 41 |
 | vodacom-spend-and-recharge-tfg-vouchers | Vodacom Spend and Recharge - Win TFG Vouchers | Vouchers | purchase-required | 2026-07-15 | 18 | 2026-05-17 | 41 |
 | south-africa-tourism-mzansi-moments-photo-challenge | South Africa Tourism Mzansi Moments Photo Challenge | Holidays | free-entry | 2026-08-01 | 35 | 2026-05-17 | 41 |
 | woolworths-tech-for-good-giveaway | Woolworths Tech for Good Giveaway | Tech | account-required | 2026-09-14 | 79 | 2026-05-17 | 41 |
@@ -258,9 +224,9 @@ These listings are labelled free-entry but mention app, account, quote, social, 
 
 | Slug | Title | Category | Entry cost | Closing | Days left | Last checked | Age days | Matched requirement | Excerpt |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| fnb-lovefnb-social-media-competition | FNB #LOVEFNB Social Media Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-17 | 41 | social | FNB social media accounts Free entry Follow and engage with @FNBsa on social media for a chance to win from a prize pool of vouchers and eWallet pr... |
+| fnb-lovefnb-social-media-competition | FNB #LOVEFNB Social Media Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-06-27 | 0 | social | FNB social media accounts Free entry Follow and engage with @FNBsa on social media for a chance to win from a prize pool of vouchers and eWallet pr... |
 | miwaylife-sanlam-spl-fuel-vouchers | MiWayLife and Sanlam Personal Loans Fuel Voucher Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-19 | 39 | quote, client | Obligation-free life cover quote R0 quote entry; eligible SPL client status required Eligible Sanlam Personal Loans clients with complimentary MiWa... |
-| gotyme-bafana-jersey-giveaway-2026 | GoTyme Bank #GoTymeThursday Bafana Jersey Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-16 | 42 | account, social | Official GoTyme Bank social media competition post R0 social media entry; social account required Comment the correct answer and your T-shirt size ... |
+| gotyme-bafana-jersey-giveaway-2026 | GoTyme Bank #GoTymeThursday Bafana Jersey Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-06-27 | 0 | account, social | Official GoTyme Bank social media competition post R0 social media entry; social account required Comment the correct answer and your T-shirt size ... |
 | budget-refer-a-friend-cash-2026 | Budget Refer a Friend Cash Competition | Cash | account-required | 2026-06-30 | 3 | 2026-05-17 | 41 | account, quote, client | Budget referral dashboard from customer communication No purchase required by the referred person; active Budget Insurance customer referral requir... |
 | clicks-protex-protect-their-future-2026 | Clicks Protex Protect Their Future Competition | Vouchers | free-entry | 2026-06-30 | 3 | 2026-05-27 | 31 | account, social | Official Clicks ClubCard competition page No purchase requirement shown on the public Clicks competition page; check the official form before enter... |
 | discovery-europcar-winter-adventure-2026 | Discovery Europcar Winter Adventure Competition | Holidays | account-required | 2026-06-30 | 3 | 2026-06-11 | 16 | account | Vitality Travel Europcar booking platform No separate entry fee; qualifying Discovery or Vitality status and Europcar booking required Eligible Dis... |
@@ -312,7 +278,6 @@ Vertical hubs are parsed from `reports/vertical-page-coverage-report.md`, which 
 | Type | Path | Active count | Threshold | Safe | Status |
 | --- | --- | --- | --- | --- | --- |
 | vertical | /win-data-competitions-south-africa/ | 3 | 3 | yes | at threshold |
-| vertical | /sms-competitions-south-africa/ | 4 | 3 | yes | near threshold |
 | vertical | /win-grocery-vouchers-south-africa/ | 4 | 3 | yes | near threshold |
 
 ## Recommended Queue Order

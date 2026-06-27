@@ -38,13 +38,14 @@ Recommended normalisation:
 ## SMS Competitions in South Africa
 
 - URL: /sms-competitions-south-africa/
-- Matching active public competitions: 4
+- Matching active public competitions: 5
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
+| Cell C Comrades Promotion - Win Your Share of R500,000 Cash (cell-c-comrades-cash-promo) | 2026-06-30 | purchase-required | yes | yes | SMS or shortcode mentioned in entry text | none |
 | StarBaby South Africa Monthly Competition (starbaby-south-africa-monthly-competition-2026) | 2026-06-30 | free-entry | yes | yes | SMS or shortcode mentioned in entry text | none |
 | Tekkie Town Football Frenzy FIFA 2026 Competition (tekkie-town-football-frenzy-fifa-2026) | 2026-07-12 | purchase-required | yes | yes | SMS or shortcode mentioned in entry text | none |
 | PEPxDSTV Scan Play Win Competition (pep-dstv-scan-play-win-2026) | 2026-07-23 | purchase-required | yes | yes | SMS or shortcode mentioned in entry text | none |
