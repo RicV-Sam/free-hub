@@ -973,12 +973,12 @@ const TRUST_PAGE_DEFINITIONS = [
   },
   {
     slug: "free-samples-south-africa",
-    title: "Where to Get Free Samples in South Africa | Freehub Guide",
+    title: "Where to Get Free Samples in South Africa | Official Offers Guide",
     description:
-      "Where to get free samples in South Africa: check official brand campaigns, retailer sample offers and product-testing panels before sharing details or paying anything.",
+      "Where to get free samples in South Africa: check official brand campaigns, retailer sample offers and product-testing panels before you share details, pay delivery fees or trust a freebie claim.",
     heading: "Where to Get Free Samples in South Africa",
     intro:
-      "If you are searching where to get free samples in South Africa, start with official brand campaigns, retailer sample offers and recognised product-testing panels. Check whether the offer is genuinely free, limited to selected testers, bundled with an order, tied to delivery costs or restricted by age, stock or privacy terms before you sign up.",
+      "If you are searching where to get free samples in South Africa, start with official brand campaigns, retailer sample offers and recognised product-testing panels. This guide is built for searchers who want a practical first check before they share personal details, pay delivery costs or assume every sample page is a legitimate no-cost offer.",
     article: true,
     datePublished: "2026-05-27",
     dateModified: "2026-06-25",
@@ -991,6 +991,7 @@ const TRUST_PAGE_DEFINITIONS = [
         heading: "Quick answer: where to get free samples",
         paragraphs: [
           "The safest places to get free samples are official brand campaign pages, retailer sample promotions and product-testing panels that clearly explain who qualifies, whether stock is limited, and whether delivery, a purchase, age checks or feedback tasks apply.",
+          "If a page asks for bank-card details, hides the promoter, or promises guaranteed luxury freebies for everyone, treat it as a warning sign instead of a real free-samples South Africa offer.",
           "Use this guide when you want a cautious starting point, then compare broader free stuff South Africa options, free competitions, free vouchers South Africa and free credit report South Africa routes for other no-cost options.",
         ],
       },
