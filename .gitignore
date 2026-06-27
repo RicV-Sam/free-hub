@@ -32,6 +32,8 @@ report-a-competition/
 verification/
 reports/*
 !reports/vertical-page-coverage-report.md
+!reports/freehub-seo-ux-growth-audit-2026-06-27.md
+!reports/active-listing-quality-report.md
 *.log
 data/backups/
 storage/exports/

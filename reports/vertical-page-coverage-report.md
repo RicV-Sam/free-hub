@@ -7,7 +7,7 @@ Only active, published, public-safe competitions are counted. Held, unverified, 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 15
+- Matching active public competitions: 17
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -15,6 +15,7 @@ Only active, published, public-safe competitions are counted. Held, unverified, 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
 | Flash MTN National Airtime Campaign - Win R10,000 Vouchers (flash-mtn-national-airtime-vouchers) | 2026-06-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
+| Shoprite Low-Duma Competition (shoprite-low-duma-competition-2026) | 2026-07-05 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Parmalat Everything Needs Cheese WhatsApp Competition (parmalat-everything-needs-cheese-2026) | 2026-07-15 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Coke x Hisense FIFA Fan Hamper Competition (coca-cola-hisense-fifa-fan-hampers-2026) | 2026-07-19 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | KitKat F1 Monza Competition (kitkat-f1-monza-competition-2026) | 2026-07-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
@@ -24,6 +25,7 @@ Only active, published, public-safe competitions are counted. Held, unverified, 
 | Clere For Men Play It Smooth Competition (clere-for-men-play-it-smooth-2026) | 2026-07-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Sunlight Win a Kitchen Makeover Competition (sunlight-kitchen-makeover-2026) | 2026-07-31 | till-slip-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Rhodes Quality Win Your Share of R1 Million Competition (rhodes-quality-win-your-share-of-r1-million-competition-2026) | 2026-07-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
+| FreshStop Save Every Drop Win Big Competition (freshstop-jojo-fuel-vouchers-2026) | 2026-07-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | MasterChef SA Season 6 Watch & Win (masterchef-sa-watch-and-win-competition-2026) | 2026-08-17 | free-entry | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Coca-Cola Get Together Zwakala neFlava Promotion (coca-cola-zwakala-neflava-2026) | 2026-08-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Kellogg's Big Bowl Energy Competition (kelloggs-big-bowl-energy-2026) | 2026-08-31 | till-slip-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
@@ -36,7 +38,7 @@ Recommended normalisation:
 ## SMS Competitions in South Africa
 
 - URL: /sms-competitions-south-africa/
-- Matching active public competitions: 3
+- Matching active public competitions: 4
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -46,6 +48,7 @@ Recommended normalisation:
 | StarBaby South Africa Monthly Competition (starbaby-south-africa-monthly-competition-2026) | 2026-06-30 | free-entry | yes | yes | SMS or shortcode mentioned in entry text | none |
 | Tekkie Town Football Frenzy FIFA 2026 Competition (tekkie-town-football-frenzy-fifa-2026) | 2026-07-12 | purchase-required | yes | yes | SMS or shortcode mentioned in entry text | none |
 | PEPxDSTV Scan Play Win Competition (pep-dstv-scan-play-win-2026) | 2026-07-23 | purchase-required | yes | yes | SMS or shortcode mentioned in entry text | none |
+| FreshStop Save Every Drop Win Big Competition (freshstop-jojo-fuel-vouchers-2026) | 2026-07-31 | purchase-required | yes | yes | SMS entry tag; SMS or shortcode mentioned in entry text | none |
 
 Recommended normalisation:
 - Separate sms-entry from sms-verification so account verification does not inflate SMS-entry inventory.
@@ -53,7 +56,7 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 23
+- Matching active public competitions: 26
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -66,6 +69,7 @@ Recommended normalisation:
 | Clover and SPAR Rewards Ultimate Stormers Experience - Win a Jetour Dashing (clover-spar-rewards-stormers-jetour) | 2026-06-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Bridgestone Win 1 of 3 Toyota Corolla Cross Vehicles (bridgestone-toyota-corolla-cross-2026) | 2026-06-30 | purchase-required | yes | yes | Till slip or receipt tag | none |
 | MRP Cellular Stand a Chance to Win 1 of 11 R1 500 MRP Gift Card Competition (vodacom-mrp-gift-card-competition-2026) | 2026-06-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
+| Makro Winter Competition (makro-winter-competition-2026) | 2026-07-05 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Parmalat Everything Needs Cheese WhatsApp Competition (parmalat-everything-needs-cheese-2026) | 2026-07-15 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Coke x Hisense FIFA Fan Hamper Competition (coca-cola-hisense-fifa-fan-hampers-2026) | 2026-07-19 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | KitKat F1 Monza Competition (kitkat-f1-monza-competition-2026) | 2026-07-30 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
@@ -78,6 +82,8 @@ Recommended normalisation:
 | Rhodes Quality Win Your Share of R1 Million Competition (rhodes-quality-win-your-share-of-r1-million-competition-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Plush More Foam More Fun Competition (plush-more-foam-more-fun-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Jacobs National Promotion 2026 (jacobs-national-promotion-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
+| FreshStop Save Every Drop Win Big Competition (freshstop-jojo-fuel-vouchers-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
+| SPAR Clover Rewards Voucher Competition (spar-clover-rewards-vouchers-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Kellogg's Big Bowl Energy Competition (kelloggs-big-bowl-energy-2026) | 2026-08-31 | till-slip-required | yes | yes | Till slip or receipt tag | none |
 | Mr Price Home Room Refresh Voucher (mr-price-home-room-refresh-voucher) | 2026-09-27 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Knorr Win R5,000 Weekly Competition (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
@@ -143,23 +149,6 @@ Recommended normalisation:
 ## Win Data Competitions in South Africa
 
 - URL: /win-data-competitions-south-africa/
-- Matching active public competitions: 2
-- Publication threshold: 3
-- Safe to publish: no
-- Status: held; Only 2 active public matches; requires 3.
-
-| Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
-|---|---:|---|---|---|---|---|
-| MTN World Cup Bafana Goal 1GB Data Reward (mtn-world-cup-bafana-goal-1gb-data-2026) | 2026-07-19 | free-entry | yes | yes | Data or connectivity tag; Data or connectivity prize text | none |
-| McDonald's Nazo Meals Airtime and Data Rewards (mcdonalds-nazo-meals-airtime-data-rewards-2026) | 2026-12-20 | purchase-required | yes | yes | Data or connectivity tag; Data or connectivity prize text | none |
-
-Recommended normalisation:
-- Do not generate or sitemap this page until active verified inventory improves.
-- Only tag data when the prize or terms mention data bundles, SIM, fibre, router or connectivity rewards.
-
-## Win Grocery Vouchers in South Africa
-
-- URL: /win-grocery-vouchers-south-africa/
 - Matching active public competitions: 3
 - Publication threshold: 3
 - Safe to publish: yes
@@ -167,7 +156,25 @@ Recommended normalisation:
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
+| 1Lifestyle Maize Meal Samsung Phone Competition (one-life-maize-meal-samsung-phones-2026) | 2026-07-09 | app-required | yes | yes | Data or connectivity prize text | consider data/connectivity tag only if prize terms confirm |
+| MTN World Cup Bafana Goal 1GB Data Reward (mtn-world-cup-bafana-goal-1gb-data-2026) | 2026-07-19 | free-entry | yes | yes | Data or connectivity tag; Data or connectivity prize text | none |
+| McDonald's Nazo Meals Airtime and Data Rewards (mcdonalds-nazo-meals-airtime-data-rewards-2026) | 2026-12-20 | purchase-required | yes | yes | Data or connectivity tag; Data or connectivity prize text | none |
+
+Recommended normalisation:
+- Only tag data when the prize or terms mention data bundles, SIM, fibre, router or connectivity rewards.
+
+## Win Grocery Vouchers in South Africa
+
+- URL: /win-grocery-vouchers-south-africa/
+- Matching active public competitions: 4
+- Publication threshold: 3
+- Safe to publish: yes
+- Status: indexable vertical page
+
+| Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
+|---|---:|---|---|---|---|---|
 | Huggies Dry Comfort Buy and Win Competition (huggies-dry-comfort-buy-win-2026) | 2026-07-26 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
+| SPAR Clover Rewards Voucher Competition (spar-clover-rewards-vouchers-2026) | 2026-07-31 | purchase-required | yes | yes | Grocery or supermarket voucher intent | none |
 | SPAR Rewards Vaseline Winter Drive Competition (spar-rewards-vaseline-winter-drive-competition-2026) | 2026-08-02 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Coca-Cola Get Together Zwakala neFlava Promotion (coca-cola-zwakala-neflava-2026) | 2026-08-31 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 
@@ -177,7 +184,7 @@ Recommended normalisation:
 ## Supermarket Competitions in South Africa
 
 - URL: /supermarket-competitions-south-africa/
-- Matching active public competitions: 12
+- Matching active public competitions: 14
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -186,10 +193,12 @@ Recommended normalisation:
 |---|---:|---|---|---|---|---|
 | Boxer Nedbank Greenbacks Competition (boxer-nedbank-greenbacks) | 2026-06-30 | purchase-required | yes | yes | Supermarket brand or retail partner | none |
 | Clover and SPAR Rewards Ultimate Stormers Experience - Win a Jetour Dashing (clover-spar-rewards-stormers-jetour) | 2026-06-30 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
+| Shoprite Low-Duma Competition (shoprite-low-duma-competition-2026) | 2026-07-05 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery tag; Supermarket or grocery entry text | none |
 | Vodacom Power Up Woolworths Voucher Competition (vodacom-power-up-woolworths-vouchers-2026) | 2026-07-15 | purchase-required | yes | yes | Supermarket brand or retail partner | none |
 | Coke x Hisense FIFA Fan Hamper Competition (coca-cola-hisense-fifa-fan-hampers-2026) | 2026-07-19 | purchase-required | yes | yes | Supermarket or grocery tag; Supermarket or grocery entry text | none |
 | Celebrate and Win with Boxer (boxer-celebrate-win-samsung-a06-2026) | 2026-07-22 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Huggies Dry Comfort Buy and Win Competition (huggies-dry-comfort-buy-win-2026) | 2026-07-26 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
+| SPAR Clover Rewards Voucher Competition (spar-clover-rewards-vouchers-2026) | 2026-07-31 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery tag; Supermarket or grocery entry text | none |
 | SPAR Rewards Vaseline Cera Glow Competition (spar-rewards-vaseline-cera-glow-competition-2026) | 2026-08-02 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | SPAR Rewards Vaseline Winter Drive Competition (spar-rewards-vaseline-winter-drive-competition-2026) | 2026-08-02 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Vaseline Winter Shoprite & Checkers Competition (checkers-vaseline-winter-shoprite-checkers-competition-2026) | 2026-08-02 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |

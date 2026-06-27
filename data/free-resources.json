@@ -169,5 +169,50 @@
     "datePublished": "2026-05-27",
     "lastReviewed": "2026-05-27",
     "dateModified": "2026-05-27"
+  },
+  {
+    "name": "Home Tester Club South Africa",
+    "category": "samples",
+    "categoryLabel": "Free samples and product testing",
+    "officialUrl": "https://www.hometesterclub.com/za/en/test",
+    "bestFor": "Shoppers who want to apply for product tests and share feedback",
+    "freeDetails": "Members can view and register for product tests that are open for registration when suitable campaigns are available.",
+    "requirements": "Sign-in, profile details and qualifying questions may be required before selection.",
+    "watchOut": "Product-test places are limited and registration does not guarantee selection.",
+    "datePublished": "2026-06-27",
+    "lastReviewed": "2026-06-27",
+    "dateModified": "2026-06-27"
+  },
+  {
+    "name": "Try and Review South Africa",
+    "category": "samples",
+    "categoryLabel": "Free samples and product testing",
+    "officialUrl": "https://www.tryandreview.com/za",
+    "bestFor": "Consumers interested in applying for home product trials",
+    "freeDetails": "Selected product testers may receive products to try at home and review through the official Try and Review platform.",
+    "requirements": "Account registration, campaign application and honest review feedback may be required.",
+    "watchOut": "Check each product test carefully because availability, eligibility and delivery details can change by campaign.",
+    "datePublished": "2026-06-27",
+    "lastReviewed": "2026-06-27",
+    "dateModified": "2026-06-27"
+  },
+  {
+    "name": "Coloplast South Africa Samples",
+    "category": "samples",
+    "categoryLabel": "Free samples and product testing",
+    "officialUrl": "https://products.coloplast.co.za/",
+    "bestFor": "People who need ostomy, continence or wound-care product samples",
+    "freeDetails": "Official Coloplast South Africa sampling site with product information and sample-request routes for relevant medical product categories.",
+    "requirements": "Registration, product-category details and personal or care-related information may be required.",
+    "watchOut": "This is a niche healthcare sample route, not a general freebie site. Use the official Coloplast page and avoid sharing sensitive medical details with third-party copies.",
+    "datePublished": "2026-06-27",
+    "lastReviewed": "2026-06-27",
+    "dateModified": "2026-06-27",
+    "manualOk": true,
+    "manualOkReason": "Official Coloplast South Africa sampling site returns HTTP 403 to the Freehub link checker but was manually rechecked in a browser-style request.",
+    "manualOkCheckedAt": "2026-06-27",
+    "manualOkAllowedDomain": "products.coloplast.co.za",
+    "manualOkAllowGenericHomepage": true,
+    "manualOkEvidence": "Official Coloplast ZA sampling site was manually rechecked on 2026-06-27. The page identifies South Africa as the country, has category Sampling Site, and includes product and sample-request navigation for ostomy, continence and wound-care products."
   }
 ]
