@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-06-28
+Generated: 2026-06-29
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
@@ -58,14 +58,13 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 30
+- Matching active public competitions: 29
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Bull Brand SPAR Inland Cash Competition (bull-brand-spar-inland-cash-competition-2026) | 2026-06-28 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Looters Warehouse Competition - Win a Toyota Vitz (looters-warehouse-toyota-vitz) | 2026-06-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Flash MTN National Airtime Campaign - Win R10,000 Vouchers (flash-mtn-national-airtime-vouchers) | 2026-06-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Clover and SPAR Rewards Ultimate Stormers Experience - Win a Jetour Dashing (clover-spar-rewards-stormers-jetour) | 2026-06-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
