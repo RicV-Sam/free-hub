@@ -1,20 +1,19 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-06-30
+Generated: 2026-07-01
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 18
+- Matching active public competitions: 17
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Flash MTN National Airtime Campaign - Win R10,000 Vouchers (flash-mtn-national-airtime-vouchers) | 2026-06-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Shoprite Low-Duma Competition (shoprite-low-duma-competition-2026) | 2026-07-05 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Parmalat Everything Needs Cheese WhatsApp Competition (parmalat-everything-needs-cheese-2026) | 2026-07-15 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Coke x Hisense FIFA Fan Hamper Competition (coca-cola-hisense-fifa-fan-hampers-2026) | 2026-07-19 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
@@ -39,15 +38,13 @@ Recommended normalisation:
 ## SMS Competitions in South Africa
 
 - URL: /sms-competitions-south-africa/
-- Matching active public competitions: 5
+- Matching active public competitions: 3
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Cell C Comrades Promotion - Win Your Share of R500,000 Cash (cell-c-comrades-cash-promo) | 2026-06-30 | purchase-required | yes | yes | SMS or shortcode mentioned in entry text | none |
-| StarBaby South Africa Monthly Competition (starbaby-south-africa-monthly-competition-2026) | 2026-06-30 | free-entry | yes | yes | SMS or shortcode mentioned in entry text | none |
 | Tekkie Town Football Frenzy FIFA 2026 Competition (tekkie-town-football-frenzy-fifa-2026) | 2026-07-12 | purchase-required | yes | yes | SMS or shortcode mentioned in entry text | none |
 | PEPxDSTV Scan Play Win Competition (pep-dstv-scan-play-win-2026) | 2026-07-23 | purchase-required | yes | yes | SMS or shortcode mentioned in entry text | none |
 | FreshStop Save Every Drop Win Big Competition (freshstop-jojo-fuel-vouchers-2026) | 2026-07-31 | purchase-required | yes | yes | SMS entry tag; SMS or shortcode mentioned in entry text | none |
@@ -58,18 +55,13 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 29
+- Matching active public competitions: 24
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Looters Warehouse Competition - Win a Toyota Vitz (looters-warehouse-toyota-vitz) | 2026-06-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
-| Flash MTN National Airtime Campaign - Win R10,000 Vouchers (flash-mtn-national-airtime-vouchers) | 2026-06-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
-| Clover and SPAR Rewards Ultimate Stormers Experience - Win a Jetour Dashing (clover-spar-rewards-stormers-jetour) | 2026-06-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
-| Bridgestone Win 1 of 3 Toyota Corolla Cross Vehicles (bridgestone-toyota-corolla-cross-2026) | 2026-06-30 | purchase-required | yes | yes | Till slip or receipt tag | none |
-| MRP Cellular Stand a Chance to Win 1 of 11 R1 500 MRP Gift Card Competition (vodacom-mrp-gift-card-competition-2026) | 2026-06-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Makro Winter Competition (makro-winter-competition-2026) | 2026-07-05 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Parmalat Everything Needs Cheese WhatsApp Competition (parmalat-everything-needs-cheese-2026) | 2026-07-15 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Coke x Hisense FIFA Fan Hamper Competition (coca-cola-hisense-fifa-fan-hampers-2026) | 2026-07-19 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
@@ -101,21 +93,13 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 20
+- Matching active public competitions: 12
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| ISUZU Win a New X-Rider Competition (isuzu-win-a-new-x-rider-2026) | 2026-06-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
-| MiWayLife and Sanlam Personal Loans Fuel Voucher Competition (miwaylife-sanlam-spl-fuel-vouchers) | 2026-06-30 | free-entry | yes | yes | Online entry tag | none |
-| Bridgestone Win 1 of 3 Toyota Corolla Cross Vehicles (bridgestone-toyota-corolla-cross-2026) | 2026-06-30 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
-| Penguin Random House Penguin Post 42 Book Hamper (penguin-random-house-penguin-post-42-hamper) | 2026-06-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
-| Budget Refer a Friend Cash Competition (budget-refer-a-friend-cash-2026) | 2026-06-30 | account-required | yes | yes | Online entry tag | none |
-| Penguin Random House Give In to Temptation Competition (penguin-random-house-give-in-to-temptation-2026) | 2026-06-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
-| Clicks Protex Protect Their Future Competition (clicks-protex-protect-their-future-2026) | 2026-06-30 | free-entry | yes | yes | Online entry mentioned in entry text | none |
-| StarBaby South Africa Monthly Competition (starbaby-south-africa-monthly-competition-2026) | 2026-06-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Bulbs of the Fynbos Competition (bulbs-of-the-fynbos-competition-2026) | 2026-07-04 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Tekkie Town Football Frenzy FIFA 2026 Competition (tekkie-town-football-frenzy-fifa-2026) | 2026-07-12 | purchase-required | yes | yes | Online entry tag | none |
 | Godfather of the Waves Competition (godfather-of-the-waves-competition-2026) | 2026-07-17 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
@@ -135,14 +119,13 @@ Recommended normalisation:
 ## Win Airtime Competitions in South Africa
 
 - URL: /win-airtime-competitions-south-africa/
-- Matching active public competitions: 5
+- Matching active public competitions: 4
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Flash MTN National Airtime Campaign - Win R10,000 Vouchers (flash-mtn-national-airtime-vouchers) | 2026-06-30 | purchase-required | yes | yes | Airtime prize text | consider airtime or recharge tag if prize terms confirm |
 | MTN World Cup Bafana Goal 1GB Data Reward (mtn-world-cup-bafana-goal-1gb-data-2026) | 2026-07-19 | free-entry | yes | yes | Airtime tag; Airtime prize text | none |
 | MTN FC World Cup Competition (mtn-fc-world-cup-competition-2026) | 2026-07-20 | purchase-required | yes | yes | Airtime prize text | consider airtime or recharge tag if prize terms confirm |
 | Coca-Cola Get Together Zwakala neFlava Promotion (coca-cola-zwakala-neflava-2026) | 2026-08-31 | purchase-required | yes | yes | Airtime tag; Airtime prize text | none |
@@ -189,15 +172,13 @@ Recommended normalisation:
 ## Supermarket Competitions in South Africa
 
 - URL: /supermarket-competitions-south-africa/
-- Matching active public competitions: 13
+- Matching active public competitions: 11
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Boxer Nedbank Greenbacks Competition (boxer-nedbank-greenbacks) | 2026-06-30 | purchase-required | yes | yes | Supermarket brand or retail partner | none |
-| Clover and SPAR Rewards Ultimate Stormers Experience - Win a Jetour Dashing (clover-spar-rewards-stormers-jetour) | 2026-06-30 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Shoprite Low-Duma Competition (shoprite-low-duma-competition-2026) | 2026-07-05 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery tag; Supermarket or grocery entry text | none |
 | Vodacom Power Up Woolworths Voucher Competition (vodacom-power-up-woolworths-vouchers-2026) | 2026-07-15 | purchase-required | yes | yes | Supermarket brand or retail partner | none |
 | Coke x Hisense FIFA Fan Hamper Competition (coca-cola-hisense-fifa-fan-hampers-2026) | 2026-07-19 | purchase-required | yes | yes | Supermarket or grocery tag; Supermarket or grocery entry text | none |
