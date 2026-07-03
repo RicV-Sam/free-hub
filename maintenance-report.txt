@@ -1,5 +1,5 @@
 === Competition Maintenance Report ===
-Date: 2026-07-02
+Date: 2026-07-03
 Mode: archive-expired
 Total competitions: 208
 Active published count: 56
@@ -8,7 +8,7 @@ Low-value expired noindex count: 0
 Held/private count: 84
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 8
+Closing in next 14 days: 9
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -81,14 +81,15 @@ Expired competition IDs:
 - starbaby-south-africa-monthly-competition-2026 (2026-06-30)
 
 Closing soon (next 14 days):
-- bulbs-of-the-fynbos-competition-2026 (2 days)
-- shoprite-low-duma-competition-2026 (3 days)
-- makro-winter-competition-2026 (3 days)
-- one-life-maize-meal-samsung-phones-2026 (7 days)
-- tekkie-town-football-frenzy-fifa-2026 (10 days)
-- vodacom-spend-and-recharge-tfg-vouchers (13 days)
-- parmalat-everything-needs-cheese-2026 (13 days)
-- vodacom-power-up-woolworths-vouchers-2026 (13 days)
+- bulbs-of-the-fynbos-competition-2026 (1 days)
+- shoprite-low-duma-competition-2026 (2 days)
+- makro-winter-competition-2026 (2 days)
+- one-life-maize-meal-samsung-phones-2026 (6 days)
+- tekkie-town-football-frenzy-fifa-2026 (9 days)
+- vodacom-spend-and-recharge-tfg-vouchers (12 days)
+- parmalat-everything-needs-cheese-2026 (12 days)
+- vodacom-power-up-woolworths-vouchers-2026 (12 days)
+- godfather-of-the-waves-competition-2026 (14 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
