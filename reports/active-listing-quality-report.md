@@ -1,23 +1,23 @@
 # Active Listing Quality Report
 
-Generated: 2026-07-04T11:31:24.768Z
+Generated: 2026-07-04T11:59:14.492Z
 Audit date: 2026-07-04
 
 This report reviews active published Freehub listings and indexable inventory thresholds. It is intended as an editorial QA queue, not a publication approval decision.
 
 ## Summary
 
-- Active published listings: 62
+- Active published listings: 64
 - Closing within 7 days: 4
 - Last checked older than 21 days: 15
 - High-value listings older than 14 days: 13
-- Missing image: 40
+- Missing image: 42
 - Missing evidenceNotes: 0
 - Missing eligibility and eligibilitySummary: 0
 - Missing entrySteps: 0
-- Free-entry listings mentioning app/account/quote/social/client requirements: 13
+- Free-entry listings mentioning app/account/quote/social/client requirements: 14
 - Collection/brand pages near indexability threshold: 27
-- Vertical hubs near indexability threshold: 4
+- Vertical hubs near indexability threshold: 3
 
 ## Active Listings Closing Within 7 Days
 
@@ -83,6 +83,7 @@ This report reviews active published Freehub listings and indexable inventory th
 | pep-dstv-scan-play-win-2026 | PEPxDSTV Scan Play Win Competition | Vouchers | purchase-required | 2026-07-23 | 19 | 2026-06-19 | 15 |
 | huggies-dry-comfort-buy-win-2026 | Huggies Dry Comfort Buy and Win Competition | Vouchers | purchase-required | 2026-07-26 | 22 | 2026-06-19 | 15 |
 | game-haier-play-with-the-number-ones-2026 | Game Haier Play With The Number Ones | Holidays | purchase-required | 2026-07-31 | 27 | 2026-05-19 | 46 |
+| sanlam-reality-lekkeslaap-voucher-2026 | Sanlam Reality LekkeSlaap Voucher Competition | Vouchers | free-entry | 2026-07-31 | 27 | 2026-07-04 | 0 |
 | clicks-babyclub-competition | Clicks WIN with BabyClub Competition | Vouchers | free-entry | 2026-07-31 | 27 | 2026-05-27 | 38 |
 | capitec-moneyup-academy-competition-2026 | MoneyUp Academy Competition | Vouchers | account-required | 2026-07-31 | 27 | 2026-05-17 | 48 |
 | sunlight-kitchen-makeover-2026 | Sunlight Win a Kitchen Makeover Competition | Cash | till-slip-required | 2026-07-31 | 27 | 2026-05-17 | 48 |
@@ -106,6 +107,7 @@ This report reviews active published Freehub listings and indexable inventory th
 | nestle-milo-meet-the-champ-2026 | Nestle MILO Meet the Champ Campaign 2026 | Sports | purchase-required | 2026-08-31 | 58 | 2026-06-27 | 7 |
 | old-mutual-win-on-repeat-rewards | Old Mutual Win On Repeat - Win R100,000 Rewards Points | Cash | purchase-required | 2026-09-27 | 85 | 2026-05-17 | 48 |
 | knorr-win-r5000-weekly-2026 | Knorr Win R5,000 Weekly Competition | Cash | purchase-required | 2026-10-11 | 99 | 2026-06-27 | 7 |
+| coca-cola-be-a-bok-voucher-prizes-2026 | Coca-Cola Be A Bok Voucher Prizes | Vouchers | purchase-required | 2026-11-30 | 149 | 2026-07-04 | 0 |
 | mcdonalds-nazo-meals-airtime-data-rewards-2026 | McDonald's Nazo Meals Airtime and Data Rewards | Vouchers | purchase-required | 2026-12-20 | 169 | 2026-07-04 | 0 |
 | alpha-pharm-alpha-52-cash-2026 | Alpha Pharm Alpha 52 Competition | Cash | purchase-required | 2026-12-31 | 180 | 2026-05-19 | 46 |
 | capitec-tactical-flexi-voucher-2026 | Capitec Tactical Flexi Voucher Competitions | Vouchers | free-entry | 2026-12-31 | 180 | 2026-05-27 | 38 |
@@ -138,6 +140,7 @@ These listings are labelled free-entry but mention app, account, quote, social, 
 | vodacom-dankovodacom-adidas-voucher-2026 | Vodacom #DankoVodacom Adidas Voucher Competition | Vouchers | free-entry | 2026-07-05 | 1 | 2026-07-04 | 0 | account, social | Facebook, X, Instagram or TikTok social media post/reply No additional entry charge stated; social media access and standard data costs apply Vodac... |
 | clicks-cashback-haul-competition | Clicks Cashback Haul Competition | Vouchers | free-entry | 2026-07-19 | 15 | 2026-05-27 | 38 | account, social | Clicks ClubCard competition page No purchase requirement shown on the public Clicks competition page; check the official form before entering Click... |
 | mtn-world-cup-bafana-goal-1gb-data-2026 | MTN World Cup Bafana Goal 1GB Data Reward | Sports | free-entry | 2026-07-19 | 15 | 2026-06-25 | 9 | app, account | MTN App reward claim No separate entry fee for the goal reward; MTN App access and standard mobile data/network costs may apply MTN is rewarding So... |
+| sanlam-reality-lekkeslaap-voucher-2026 | Sanlam Reality LekkeSlaap Voucher Competition | Vouchers | free-entry | 2026-07-31 | 27 | 2026-07-04 | 0 | social | Online No purchase cost found in the official listing metadata; confirm any Sanlam Reality participation requirements on the source page Enter Sanl... |
 | clicks-babyclub-competition | Clicks WIN with BabyClub Competition | Vouchers | free-entry | 2026-07-31 | 27 | 2026-05-27 | 38 | account, social | Official Clicks ClubCard competition page No purchase requirement shown on the public Clicks competition page; check the official form before enter... |
 | capitec-moneyup-academy-competition-2026 | MoneyUp Academy Competition | Vouchers | account-required | 2026-07-31 | 27 | 2026-05-17 | 48 | account | MoneyUp Academy account No purchase requirement found; MoneyUp account and RSA mobile verification required MoneyUp Academy users can earn weekly p... |
 | clicks-clubcard-have-your-say-june-july-2026 | Clicks ClubCard Have Your Say Competition | Vouchers | free-entry | 2026-08-01 | 28 | 2026-07-04 | 0 | account, social | Official Clicks ClubCard competition page No purchase requirement shown on the public Clicks page; check the official form before entering Clicks C... |
@@ -190,8 +193,7 @@ Vertical hubs are parsed from `reports/vertical-page-coverage-report.md`, which 
 | Type | Path | Active count | Threshold | Safe | Status |
 | --- | --- | --- | --- | --- | --- |
 | vertical | /sms-competitions-south-africa/ | 3 | 3 | yes | at threshold |
-| vertical | /win-data-competitions-south-africa/ | 3 | 3 | yes | at threshold |
-| vertical | /win-airtime-competitions-south-africa/ | 4 | 3 | yes | near threshold |
+| vertical | /win-data-competitions-south-africa/ | 4 | 3 | yes | near threshold |
 | vertical | /win-grocery-vouchers-south-africa/ | 4 | 3 | yes | near threshold |
 
 ## Recommended Queue Order

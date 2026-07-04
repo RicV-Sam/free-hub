@@ -7,7 +7,7 @@ Only active, published, public-safe competitions are counted. Held, unverified, 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 17
+- Matching active public competitions: 18
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -30,6 +30,7 @@ Only active, published, public-safe competitions are counted. Held, unverified, 
 | Kellogg's Big Bowl Energy Competition (kelloggs-big-bowl-energy-2026) | 2026-08-31 | till-slip-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Nestle MILO Meet the Champ Campaign 2026 (nestle-milo-meet-the-champ-2026) | 2026-08-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Knorr Win R5,000 Weekly Competition (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
+| Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | WhatsApp mentioned in entry text | none |
 
 Recommended normalisation:
@@ -94,7 +95,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 17
+- Matching active public competitions: 18
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -105,6 +106,7 @@ Recommended normalisation:
 | Godfather of the Waves Competition (godfather-of-the-waves-competition-2026) | 2026-07-17 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Clicks Cashback Haul Competition (clicks-cashback-haul-competition) | 2026-07-19 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Game Haier Play With The Number Ones (game-haier-play-with-the-number-ones-2026) | 2026-07-31 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
+| Sanlam Reality LekkeSlaap Voucher Competition (sanlam-reality-lekkeslaap-voucher-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag | none |
 | Clicks WIN with BabyClub Competition (clicks-babyclub-competition) | 2026-07-31 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | MoneyUp Academy Competition (capitec-moneyup-academy-competition-2026) | 2026-07-31 | account-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Secret Skin Win a Luxury Kuzuko Lodge Getaway for Two (secret-skin-kuzuko-lodge-getaway-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag | none |
@@ -125,7 +127,7 @@ Recommended normalisation:
 ## Win Airtime Competitions in South Africa
 
 - URL: /win-airtime-competitions-south-africa/
-- Matching active public competitions: 4
+- Matching active public competitions: 5
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -135,6 +137,7 @@ Recommended normalisation:
 | MTN World Cup Bafana Goal 1GB Data Reward (mtn-world-cup-bafana-goal-1gb-data-2026) | 2026-07-19 | free-entry | yes | yes | Airtime tag; Airtime prize text | none |
 | MTN FC World Cup Competition (mtn-fc-world-cup-competition-2026) | 2026-07-20 | purchase-required | yes | yes | Airtime prize text | consider airtime or recharge tag if prize terms confirm |
 | Coca-Cola Get Together Zwakala neFlava Promotion (coca-cola-zwakala-neflava-2026) | 2026-08-31 | purchase-required | yes | yes | Airtime tag; Airtime prize text | none |
+| Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | Airtime tag; Airtime prize text | none |
 | McDonald's Nazo Meals Airtime and Data Rewards (mcdonalds-nazo-meals-airtime-data-rewards-2026) | 2026-12-20 | purchase-required | yes | yes | Airtime tag; Airtime prize text | none |
 
 Recommended normalisation:
@@ -143,7 +146,7 @@ Recommended normalisation:
 ## Win Data Competitions in South Africa
 
 - URL: /win-data-competitions-south-africa/
-- Matching active public competitions: 3
+- Matching active public competitions: 4
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -152,6 +155,7 @@ Recommended normalisation:
 |---|---:|---|---|---|---|---|
 | 1Lifestyle Maize Meal Samsung Phone Competition (one-life-maize-meal-samsung-phones-2026) | 2026-07-09 | app-required | yes | yes | Data or connectivity prize text | consider data/connectivity tag only if prize terms confirm |
 | MTN World Cup Bafana Goal 1GB Data Reward (mtn-world-cup-bafana-goal-1gb-data-2026) | 2026-07-19 | free-entry | yes | yes | Data or connectivity tag; Data or connectivity prize text | none |
+| Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | Data or connectivity tag | none |
 | McDonald's Nazo Meals Airtime and Data Rewards (mcdonalds-nazo-meals-airtime-data-rewards-2026) | 2026-12-20 | purchase-required | yes | yes | Data or connectivity tag; Data or connectivity prize text | none |
 
 Recommended normalisation:
