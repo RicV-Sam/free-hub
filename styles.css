@@ -985,6 +985,11 @@ button {
   padding: 0.9rem;
 }
 
+.info-strip--inline {
+  margin-top: 0.85rem;
+  padding: 0;
+}
+
 .info-strip__text {
   margin: 0;
   color: var(--muted);
@@ -2330,6 +2335,10 @@ button {
 
   .info-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .info-strip--inline {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .site-footer__grid {

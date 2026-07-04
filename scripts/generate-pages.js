@@ -16,7 +16,7 @@ const DATACOST_URL = "https://datacost.co.za/?utm_source=freehub&utm_medium=hous
 const DATACOST_USSD_URL = "https://datacost.co.za/ussd-codes/?utm_source=freehub&utm_medium=house_banner&utm_campaign=ussd_codes";
 const DATACOST_BANNER_IMAGE = "/assets/partners/datacost-data-airtime-banner.jpg";
 const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date());
-const CSS_ASSET_VERSION = "20260704-datacost-promo-v2";
+const CSS_ASSET_VERSION = "20260704-voucher-seo-v1";
 const FREEHUB_REFER_WIN_CONFIG = {
   referWinCampaignEnabled: true,
   referWinLiveReady: true,
@@ -3060,6 +3060,95 @@ function renderCategoryEditorial(routeContext, competitions) {
         </section>`;
 }
 
+function renderVoucherIntentSection(routeContext, competitions) {
+  if (routeContext.type !== "category" || routeContext.slug !== "vouchers") {
+    return "";
+  }
+
+  const lower = (value) => String(value || "").toLowerCase();
+  const haystack = (competition) =>
+    [
+      competition.title,
+      competition.brand,
+      competition.summary,
+      competition.prizeName,
+      competition.prizeContext,
+      competition.seoContext,
+      Array.isArray(competition.tags) ? competition.tags.join(" ") : "",
+    ]
+      .map(lower)
+      .join(" ");
+  const countMatching = (patterns) =>
+    competitions.filter((competition) => patterns.some((pattern) => pattern.test(haystack(competition)))).length;
+  const getTags = (competition) => Array.isArray(competition.tags) ? competition.tags.map(lower) : [];
+  const freeEntryCount = competitions.filter((competition) => {
+    const entryCostType = lower(competition.entryCostType);
+    const tags = getTags(competition);
+    return entryCostType === "free-entry" || tags.includes("free-entry");
+  }).length;
+  const purchaseRequiredCount = competitions.filter((competition) => {
+    const entryCostType = lower(competition.entryCostType);
+    const tags = getTags(competition);
+    return competition.purchaseRequired === true || entryCostType === "purchase-required" || tags.includes("purchase-required");
+  }).length;
+  const endingSoonCount = competitions.filter((competition) => {
+    const daysUntilClosing = shared.getDaysUntilClosing(competition.closingDate);
+    return Number.isFinite(daysUntilClosing) && daysUntilClosing >= 0 && daysUntilClosing <= shared.ENDING_SOON_TAG_DAYS;
+  }).length;
+  const shortcutLinks = [
+    { label: "Grocery voucher competitions", href: "/win-grocery-vouchers-south-africa/", count: countMatching([/grocery|groceries|supermarket|shoprite|checkers|spar|basket|trolley/]) },
+    { label: "Airtime voucher competitions", href: "/win-airtime-competitions-south-africa/", count: countMatching([/airtime|recharge|prepaid/]) },
+    { label: "Data voucher competitions", href: "/win-data-competitions-south-africa/", count: countMatching([/\bdata\b|bundle|mobile data/]) },
+    { label: "Free-entry voucher listings", href: "/free-competitions/", count: freeEntryCount },
+    { label: "Purchase-required voucher listings", href: "/purchase-required-competitions/", count: purchaseRequiredCount },
+    { label: "Ending-soon voucher prizes", href: "/competitions-ending-soon/", count: endingSoonCount },
+  ];
+  const typeCards = [
+    {
+      title: "Shopping and grocery vouchers",
+      text: "Check the redemption store, voucher value, expiry rules and whether a rewards card, till slip or minimum spend is required.",
+    },
+    {
+      title: "Fuel, airtime and data vouchers",
+      text: "Confirm the network, redemption channel, mobile-number rules and whether standard SMS, USSD or data costs apply.",
+    },
+    {
+      title: "Online and retail gift cards",
+      text: "Look for official terms covering exclusions, delivery method, expiry date and whether the voucher can be transferred or converted to cash.",
+    },
+  ];
+
+  return `<section class="seo-copy-block seo-copy-block--category" aria-label="Voucher competition shortcuts">
+          <h2 class="seo-copy-block__title">Find the right voucher giveaway faster</h2>
+          <div class="seo-copy-block__content hub-editorial">
+            <section class="hub-editorial__section">
+              <h3>Voucher shortcuts</h3>
+              <p>Voucher searches are not all the same. Use these routes to separate grocery vouchers, shopping vouchers, fuel rewards, airtime or data prizes, free-entry draws and purchase-required campaigns before opening a listing.</p>
+              <div class="popular-searches__links">
+                ${shortcutLinks
+                  .map(
+                    (link) => `<a class="popular-searches__link" href="${escapeAttribute(link.href)}">${escapeHtml(link.label)}${link.count ? ` (${link.count})` : ""}</a>`
+                  )
+                  .join("\n                ")}
+              </div>
+            </section>
+            <section class="hub-editorial__section">
+              <h3>Voucher prize types to compare</h3>
+              <div class="info-strip info-strip--inline">
+                ${typeCards
+                  .map(
+                    (card) => `<div>
+                  <p class="info-strip__label">${escapeHtml(card.title)}</p>
+                  <p class="info-strip__text">${escapeHtml(card.text)}</p>
+                </div>`
+                  )
+                  .join("\n                ")}
+              </div>
+            </section>
+          </div>
+        </section>`;
+}
+
 function getCategoryEditorial(slug, competitions) {
   const categoryName = shared.CATEGORY_COPY[slug] ? shared.CATEGORY_COPY[slug].category : "Competition";
   const liveCount = competitions.length;
@@ -3207,23 +3296,23 @@ function getCategoryEditorial(slug, competitions) {
         {
           heading: "What voucher giveaways are",
           paragraphs: [
-            `Voucher competitions are prize draws or giveaways where the reward is a voucher, gift card, credit, store spend or similar redeemable value. This page currently groups ${escapeHtml(liveCopy)} for users searching for free voucher giveaway, free vouchers and free vouchers South Africa intent.`,
-            "Common voucher prize types include retail vouchers, grocery vouchers, online shopping vouchers, beauty vouchers, food or restaurant vouchers, fuel vouchers and airtime or data vouchers where the active listing supports that prize type.",
-            `If you want broader giveaway discovery first, compare the <a href="/">Freehub homepage</a>. If you want a tighter voucher-only route, stay on this hub and use the verified listing cards below.`,
+            `Voucher competitions are prize draws or giveaways where the reward is a voucher, gift card, credit, store spend, airtime, data, fuel value or similar redeemable reward. This page currently groups ${escapeHtml(liveCopy)} for users searching voucher competitions South Africa, free voucher giveaway and free vouchers South Africa intent.`,
+            "Common voucher prize types include grocery vouchers, supermarket vouchers, online shopping vouchers, retail gift cards, beauty vouchers, restaurant or food vouchers, fuel vouchers and airtime or data vouchers where the active listing supports that prize type.",
+            `If you want broader giveaway discovery first, compare the <a href="/">Freehub homepage</a>. If you want a tighter voucher-only route, stay on this hub, use the voucher shortcuts above and open verified listing cards below.`,
           ],
         },
         {
           heading: "Free entry and purchase-required entries",
           paragraphs: [
             "Voucher giveaways can be free entry, purchase required, paid entry, account required, app required, rewards card required, till slip required, WhatsApp entry, online entry or in-store entry. Check the label on each card before opening the promoter page.",
-            `If you only want no-cost routes, compare <a href="/free-competitions/">free competitions</a>. If a listing needs a qualifying product, receipt, rewards-card swipe or minimum spend, compare it with <a href="/purchase-required-competitions/">purchase required competitions</a>.`,
+            `If you only want no-cost routes, compare <a href="/free-competitions/">free competitions</a>. If a listing needs a qualifying product, receipt, rewards-card swipe, app action or minimum spend, compare it with <a href="/purchase-required-competitions/">purchase required competitions</a>.`,
           ],
         },
         {
-          heading: "What to check before entering",
+          heading: "Voucher value and redemption rules",
           paragraphs: [
             "Read the official terms for the voucher value, expiry date, redemption rules, participating stores, exclusions, delivery method, draw date, winner-contact process and whether the voucher can be split, transferred or converted to cash.",
-            "Do not pay unofficial winner, courier, delivery, admin or release fees to claim a voucher prize. Verify prize messages through the promoter's official website, social page, app or support channel before sharing personal information.",
+            "For grocery, fuel, airtime and data vouchers, check whether the reward is a physical card, digital voucher, account credit, app reward, recharge PIN or network-specific bundle before entering.",
           ],
         },
         {
@@ -3231,6 +3320,13 @@ function getCategoryEditorial(slug, competitions) {
           paragraphs: [
             "Where an active verified partner campaign offers a named retail or online-shopping voucher, Freehub describes the prize and keeps the promoter separate. Held, unverified or unclear voucher records should not be used to target generic voucher searches.",
             `For urgent options, also compare <a href="/competitions-ending-soon/">competitions ending soon</a>, <a href="/competitions/">all current competitions</a>, <a href="/win-a-car/">win-a-car competitions</a>, <a href="/category/cash/">cash competitions</a>, <a href="/category/tech/">tech competitions</a> and <a href="/category/holidays/">holiday competitions</a>.`,
+          ],
+        },
+        {
+          heading: "Voucher giveaway safety",
+          paragraphs: [
+            "Do not pay unofficial winner, courier, delivery, admin or release fees to claim a voucher prize. Verify prize messages through the promoter's official website, social page, app or support channel before sharing personal information.",
+            "Be careful with copied social posts, survey-wall pages and messages that claim every visitor has already won a voucher. A real Freehub listing should point back to an official promoter source or clear terms.",
           ],
         },
         {
@@ -3528,9 +3624,24 @@ function getCollectionFaqItems(routeContext) {
           "Voucher prizes can include shopping, grocery, retail, beauty, food, fuel, airtime, data, online shopping and partner campaign Takealot voucher prizes where the active source supports the listing.",
       },
       {
+        question: "How do I find grocery or supermarket voucher competitions?",
+        answer:
+          "Use the grocery voucher route when you specifically want supermarket, shopping basket, food voucher or store-card prizes. Broader retail and online voucher prizes remain on the main voucher competitions page.",
+      },
+      {
+        question: "Are airtime and data vouchers included?",
+        answer:
+          "Yes, when the active listing supports it. Airtime and data voucher competitions may involve mobile networks, app rewards, recharge mechanics, USSD, SMS or retailer campaigns, so always check the official terms and any standard network costs.",
+      },
+      {
         question: "Are Takealot voucher competitions listed on Freehub?",
         answer:
           "Freehub may list active verified partner campaigns offering Takealot voucher prizes. We do not describe partner promotions as Takealot-run campaigns unless an official source clearly supports that wording.",
+      },
+      {
+        question: "Which voucher competitions should I enter first?",
+        answer:
+          "Start with voucher competitions that are closing soon, then compare high-value prizes and free-entry routes. Check the voucher amount, expiry date, redemption store, entry cost and promoter before leaving Freehub.",
       },
       {
         question: "What should I check before entering a voucher competition?",
@@ -3722,6 +3833,7 @@ function renderPage(routeContext, competitions) {
           </div>
         </section>
 
+        ${renderVoucherIntentSection(routeContext, competitions)}
         ${renderInternalLinksSection(routeContext, competitions)}
         ${routeContext.type === "hub" && ["competitions", "free-competitions", "win-a-car"].includes(routeContext.slug) ? renderVerticalDiscoveryLinks() : ""}
         ${renderHubSupportLinks(routeContext, competitions)}
@@ -4574,7 +4686,11 @@ function getCategoryInternalLinks(slug, competitions) {
     return {
       title: "Voucher Giveaway Searches",
       links: [
+        { label: "Voucher competitions South Africa", href: "/category/vouchers/" },
         { label: "Free voucher giveaways", href: "/category/vouchers/" },
+        { label: "Grocery voucher competitions", href: "/win-grocery-vouchers-south-africa/" },
+        { label: "Airtime voucher competitions", href: "/win-airtime-competitions-south-africa/" },
+        { label: "Data voucher competitions", href: "/win-data-competitions-south-africa/" },
         { label: "Free giveaways South Africa today", href: "/" },
         { label: "Where to get free samples", href: "/free-samples-south-africa/" },
         ...takealotVoucherLinks,
