@@ -16,7 +16,7 @@ const DATACOST_URL = "https://datacost.co.za/?utm_source=freehub&utm_medium=hous
 const DATACOST_USSD_URL = "https://datacost.co.za/ussd-codes/?utm_source=freehub&utm_medium=house_banner&utm_campaign=ussd_codes";
 const DATACOST_BANNER_IMAGE = "/assets/partners/datacost-data-airtime-banner.jpg";
 const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date());
-const CSS_ASSET_VERSION = "20260704-datacost-promo-v1";
+const CSS_ASSET_VERSION = "20260704-datacost-promo-v2";
 const FREEHUB_REFER_WIN_CONFIG = {
   referWinCampaignEnabled: true,
   referWinLiveReady: true,

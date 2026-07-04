@@ -1363,6 +1363,10 @@ button {
   display: none;
 }
 
+.ad-sticky.ad-sticky--reserved {
+  display: none;
+}
+
 .ad-sticky__close {
   position: absolute;
   top: 0.6rem;

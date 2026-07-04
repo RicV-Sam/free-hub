@@ -151,7 +151,15 @@ function setupPageAds() {
 }
 
 function setupStickyAd() {
-  if (!elements.stickyAd || !elements.stickyAdClose || !elements.stickyAdCta) {
+  if (!elements.stickyAd || !STICKY_AD_URL) {
+    elements.stickyAd?.classList.add("ad-sticky--hidden");
+    elements.stickyAd?.setAttribute("aria-hidden", "true");
+    return;
+  }
+
+  if (!elements.stickyAdClose || !elements.stickyAdCta) {
+    elements.stickyAd.classList.add("ad-sticky--hidden");
+    elements.stickyAd.setAttribute("aria-hidden", "true");
     return;
   }
 
