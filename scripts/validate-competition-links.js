@@ -98,6 +98,10 @@ const APPROVED_MANUAL_OK_URLS = new Map([
     "spur-ultimate-springboks-match-day-experience-2026",
     "https://www.spursteakranches.com/za/promotions/win-the-ultimate-springboks-match-day-experience",
   ],
+  [
+    "mcdonalds-nazo-meals-airtime-data-rewards-2026",
+    "https://www.mcdonalds.co.za/airtime-data-rewards-ts-cs",
+  ],
 ]);
 
 function loadCompetitions() {

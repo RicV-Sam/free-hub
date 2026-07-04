@@ -4015,5 +4015,51 @@
     "imageAlt": "StarBaby South Africa monthly competition entry artwork",
     "archivedAt": "2026-07-01",
     "archiveReason": "expired"
+  },
+  {
+    "id": "bulbs-of-the-fynbos-competition-2026",
+    "title": "Bulbs of the Fynbos Competition",
+    "brand": "Struik Nature / Penguin Random House South Africa",
+    "summary": "Complete the official Struik Nature online form for a chance to win a 3-book fynbos collection including Bulbs of the Fynbos, Proteas of the Fynbos and Ericas of the Fynbos.",
+    "image": "https://freehub.co.za/assets/competitions/bulbs-of-the-fynbos-competition-2026.png",
+    "entrySteps": [
+      "Open the official Struik Nature Bulbs of the Fynbos competition page.",
+      "Complete the online competition form before the closing date.",
+      "Confirm the required South African residency and age terms.",
+      "This competition is now treated as closed because the official entry page returned 404 on 4 July 2026."
+    ],
+    "closingDate": "2026-07-03",
+    "category": "Vouchers",
+    "prizeName": "3-book fynbos collection",
+    "prizeType": "retail",
+    "prizeValueAmount": null,
+    "prizeValueCurrency": "ZAR",
+    "numberOfPrizes": "1",
+    "entryType": "Online Form",
+    "tags": [
+      "books",
+      "nature",
+      "online-entry",
+      "free-entry"
+    ],
+    "url": "https://struiknature.co.za/terms-and-conditions-bulbs-of-the-fynbos-competition/",
+    "sourceUrl": "https://struiknature.co.za/terms-and-conditions-bulbs-of-the-fynbos-competition/",
+    "termsUrl": "https://struiknature.co.za/terms-and-conditions-bulbs-of-the-fynbos-competition/",
+    "sourceDomain": "struiknature.co.za",
+    "lastChecked": "2026-07-04",
+    "verificationStatus": "published",
+    "entryCostType": "free-entry",
+    "entryFeeLabel": "Free online entry",
+    "purchaseRequired": false,
+    "entryChannel": "Online form",
+    "eligibility": "South African residents aged 18 or older",
+    "region": "South Africa",
+    "verificationNote": "Published on 2026-06-23 after the official Struik Nature terms page confirmed the prize, free online form entry, South African residency requirement, 18+ age gate and 4 July 2026 closing date.",
+    "evidenceNotes": "Official Struik Nature terms page reviewed on 23 June 2026 confirmed the competition ran from 4 June 2026 to 4 July 2026. Entry was free via the online form, limited to South African residents aged 18 or older, and the prize was a collection of Bulbs of the Fynbos, Proteas of the Fynbos and Ericas of the Fynbos. On 4 July 2026 the official entry page returned 404 during validation, so Freehub treats the listing as closed and removes it from active entry surfaces.",
+    "seoTitle": "Bulbs of the Fynbos Competition | Freehub",
+    "seoDescription": "Archived Freehub listing for the Bulbs of the Fynbos competition, a free-entry Struik Nature book giveaway.",
+    "quickAnswer": "The Bulbs of the Fynbos Competition is treated as closed on Freehub because the official entry page returned 404 on 4 July 2026.",
+    "archivedAt": "2026-07-04",
+    "archiveReason": "expired"
   }
 ]

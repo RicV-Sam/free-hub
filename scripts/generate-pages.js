@@ -12,8 +12,11 @@ const ADSENSE_SCRIPT =
 const GOOGLE_TAG_MANAGER_ID = "GTM-W2M7PCR7";
 const META_PIXEL_ID = "2506912739756217";
 const WHATSAPP_CHANNEL_URL = "https://whatsapp.com/channel/0029Vb7mS1VE50UlOc2yOe2H";
+const DATACOST_URL = "https://datacost.co.za/?utm_source=freehub&utm_medium=house_banner&utm_campaign=freehub_cross_promo";
+const DATACOST_USSD_URL = "https://datacost.co.za/ussd-codes/?utm_source=freehub&utm_medium=house_banner&utm_campaign=ussd_codes";
+const DATACOST_BANNER_IMAGE = "/assets/partners/datacost-data-airtime-banner.jpg";
 const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date());
-const CSS_ASSET_VERSION = "20260618-refer-r250-v1";
+const CSS_ASSET_VERSION = "20260704-datacost-promo-v1";
 const FREEHUB_REFER_WIN_CONFIG = {
   referWinCampaignEnabled: true,
   referWinLiveReady: true,
@@ -2277,6 +2280,7 @@ function renderSiteFooter(options = {}) {
               <a href="/contact/">Contact</a>
               <a href="/privacy-policy/">Privacy policy</a>
               <a href="/terms-of-use/">Terms of use</a>
+              <a href="${escapeAttribute(DATACOST_URL)}" target="_blank" rel="noopener noreferrer sponsored">DataCost.co.za</a>
             </nav>
             ${includeAuthPanel ? renderGlobalAuthPanel({ id: "footer", compact: true }) : ""}
           </div>
@@ -3723,6 +3727,11 @@ function renderPage(routeContext, competitions) {
         ${renderHubSupportLinks(routeContext, competitions)}
         ${renderDeadlineBuckets(routeContext, competitions)}
         ${renderWhatsAppChannelCta(routeContext)}
+        ${renderDatacostPromo({
+          placement: `${routeContext.type}-${routeContext.slug || "index"}`,
+          compact: routeContext.type === "tag",
+          ussd: ["sms-competitions-south-africa", "win-airtime-competitions-south-africa", "win-data-competitions-south-africa"].includes(routeContext.slug),
+        })}
 
         ${renderAdZone("ad-top", "top")}
 
@@ -3915,6 +3924,8 @@ function renderBrandIndexPage(brandPages) {
           <p class="state-card__text">Freehub only creates brand pages when there are at least ${shared.BRAND_PAGE_MIN_COMPETITIONS} active published competitions for that brand. This keeps brand pages useful and avoids thin listings.</p>
         </section>
 
+        ${renderDatacostPromo({ placement: "brand-index", compact: true })}
+
         <section class="internal-links" aria-label="Related competition browsing">
           <p class="internal-links__title">More ways to browse</p>
           <div class="internal-links__list">
@@ -4103,6 +4114,52 @@ function renderAdZone(id, placement, compact = false) {
   return `<section class="${className}" id="${escapeAttribute(id)}" data-placement="${escapeAttribute(
     placement
   )}" aria-label="Sponsored placement"></section>`;
+}
+
+function renderDatacostPromo(options = {}) {
+  const {
+    placement = "sitewide",
+    compact = false,
+    ussd = false,
+    heading = ussd ? "No data? Keep useful USSD codes close" : "Compare data and airtime deals before you spend",
+    text = ussd
+      ? "DataCost keeps South African network USSD codes in one place for balance checks, airtime, data and quick mobile actions."
+      : "DataCost.co.za helps you compare mobile data and airtime deals across South African networks, with quick links for everyday mobile savings.",
+    cta = ussd ? "Open USSD Codes" : "Visit DataCost.co.za",
+  } = options;
+  const href = ussd ? DATACOST_USSD_URL : DATACOST_URL;
+  const className = compact ? "datacost-promo datacost-promo--compact" : "datacost-promo";
+
+  return `<section class="${className}" id="datacost-promo" aria-label="DataCost partner recommendation" data-placement="${escapeAttribute(
+    placement
+  )}">
+          <a class="datacost-promo__media" href="${escapeAttribute(href)}" target="_blank" rel="noopener noreferrer sponsored" aria-label="${escapeAttribute(cta)}">
+            <img src="${escapeAttribute(DATACOST_BANNER_IMAGE)}" alt="DataCost.co.za data and airtime deals preview" loading="lazy" />
+          </a>
+          <div class="datacost-promo__body">
+            <p class="datacost-promo__label">Freehub partner</p>
+            <h2 class="datacost-promo__title">${escapeHtml(heading)}</h2>
+            <p class="datacost-promo__text">${escapeHtml(text)}</p>
+            <a class="datacost-promo__cta" href="${escapeAttribute(href)}" target="_blank" rel="noopener noreferrer sponsored">${escapeHtml(cta)}</a>
+          </div>
+        </section>`;
+}
+
+function isTelecomOrMobileCompetition(competition) {
+  const tags = Array.isArray(competition && competition.tags) ? competition.tags.join(" ") : "";
+  const searchableText = [
+    competition && competition.title,
+    competition && competition.summary,
+    competition && competition.prizeName,
+    competition && competition.entryType,
+    competition && competition.entryChannel,
+    competition && competition.entryFeeLabel,
+    tags,
+  ]
+    .join(" ")
+    .toLowerCase();
+
+  return /\b(data|airtime|ussd|sms|whatsapp|mtn|vodacom|telkom|cell c|mobile|sim|recharge)\b/.test(searchableText);
 }
 
 function renderHeroPreviewPanel(competitions, options = {}) {
@@ -5002,6 +5059,7 @@ ${noscriptLinks}
           text: "Use Google or an email sign-in link for Freehub competition alerts. WhatsApp remains optional too.",
         })}
         ${renderWhatsAppChannelCta()}
+        ${renderDatacostPromo({ placement: "home-before-filters" })}
 
         <section class="controls" aria-label="Competition filters">
           <label class="search-field" for="searchInput">
@@ -5265,6 +5323,11 @@ function renderTrustPage(page) {
         ${renderFreeResourceSection(page, pageResources)}
         ${renderTrustChecklist(page)}
         ${renderTrustFaqSection(faqItems)}
+        ${renderDatacostPromo({
+          placement: `trust-${page.slug}`,
+          compact: true,
+          ussd: ["free-data-south-africa", "free-stuff-south-africa", "app-competitions-south-africa"].includes(page.slug),
+        })}
 
         <section class="internal-links" aria-label="Useful Freehub pages">
           <p class="internal-links__title">Useful Freehub Pages</p>
@@ -7028,6 +7091,11 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
         </section>` : ""}
 
         ${renderCompetitionInternalLinks(competition, categoryPath, generatedBrandSlugs)}
+        ${renderDatacostPromo({
+          placement: `competition-${slug}`,
+          compact: true,
+          ussd: isTelecomOrMobileCompetition(competition),
+        })}
 
         ${renderAdZone("ad-top", "detail-top")}
 

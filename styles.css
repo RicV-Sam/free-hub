@@ -877,6 +877,108 @@ button {
   margin-top: 1rem;
 }
 
+.datacost-promo {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 8px;
+  background: #07162c;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.1);
+}
+
+.datacost-promo__media {
+  display: block;
+  min-height: 170px;
+  background: #07162c;
+}
+
+.datacost-promo__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 170px;
+  object-fit: contain;
+}
+
+.datacost-promo__body {
+  display: grid;
+  align-content: center;
+  gap: 0.55rem;
+  padding: 1.1rem;
+  background:
+    linear-gradient(135deg, rgba(15, 118, 110, 0.28), rgba(7, 22, 44, 0.94)),
+    #07162c;
+  color: #fff;
+}
+
+.datacost-promo__label {
+  margin: 0;
+  color: #facc15;
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.datacost-promo__title {
+  margin: 0;
+  max-width: 24rem;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 900;
+  line-height: 1.18;
+}
+
+.datacost-promo__text {
+  margin: 0;
+  max-width: 30rem;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+.datacost-promo__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 42px;
+  margin-top: 0.2rem;
+  padding: 0.68rem 1rem;
+  border-radius: 999px;
+  background: #facc15;
+  color: #07162c;
+  font-size: 0.92rem;
+  font-weight: 900;
+  text-decoration: none;
+  box-shadow: 0 10px 26px rgba(250, 204, 21, 0.22);
+}
+
+.datacost-promo__cta:hover,
+.datacost-promo__cta:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(250, 204, 21, 0.3);
+}
+
+.datacost-promo--compact {
+  grid-template-columns: minmax(0, 0.95fr) minmax(17rem, 1.05fr);
+}
+
+.datacost-promo--compact .datacost-promo__media,
+.datacost-promo--compact .datacost-promo__media img {
+  min-height: 138px;
+}
+
+.datacost-promo--compact .datacost-promo__title {
+  font-size: 1.05rem;
+}
+
+.datacost-promo--compact .datacost-promo__text {
+  font-size: 0.88rem;
+}
+
 .info-strip {
   display: grid;
   gap: 1rem;
@@ -1623,6 +1725,41 @@ button {
 }
 
 @media (max-width: 699px) {
+  .datacost-promo,
+  .datacost-promo--compact {
+    grid-template-columns: 1fr;
+  }
+
+  .datacost-promo__media,
+  .datacost-promo--compact .datacost-promo__media {
+    min-height: 0;
+  }
+
+  .datacost-promo__media img,
+  .datacost-promo--compact .datacost-promo__media img {
+    height: auto;
+    min-height: 0;
+    object-fit: contain;
+  }
+
+  .datacost-promo__body {
+    padding: 0.9rem;
+  }
+
+  .datacost-promo__title,
+  .datacost-promo--compact .datacost-promo__title {
+    font-size: 1rem;
+  }
+
+  .datacost-promo__text,
+  .datacost-promo--compact .datacost-promo__text {
+    font-size: 0.86rem;
+  }
+
+  .datacost-promo__cta {
+    width: 100%;
+  }
+
   .competition-detail__media {
     aspect-ratio: 16 / 10;
     max-height: none;
