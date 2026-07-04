@@ -1,5 +1,5 @@
 === Competition Maintenance Report ===
-Date: 2026-07-03
+Date: 2026-07-04
 Mode: archive-expired
 Total competitions: 208
 Active published count: 56
@@ -81,15 +81,15 @@ Expired competition IDs:
 - starbaby-south-africa-monthly-competition-2026 (2026-06-30)
 
 Closing soon (next 14 days):
-- bulbs-of-the-fynbos-competition-2026 (1 days)
-- shoprite-low-duma-competition-2026 (2 days)
-- makro-winter-competition-2026 (2 days)
-- one-life-maize-meal-samsung-phones-2026 (6 days)
-- tekkie-town-football-frenzy-fifa-2026 (9 days)
-- vodacom-spend-and-recharge-tfg-vouchers (12 days)
-- parmalat-everything-needs-cheese-2026 (12 days)
-- vodacom-power-up-woolworths-vouchers-2026 (12 days)
-- godfather-of-the-waves-competition-2026 (14 days)
+- bulbs-of-the-fynbos-competition-2026 (0 days)
+- shoprite-low-duma-competition-2026 (1 days)
+- makro-winter-competition-2026 (1 days)
+- one-life-maize-meal-samsung-phones-2026 (5 days)
+- tekkie-town-football-frenzy-fifa-2026 (8 days)
+- vodacom-spend-and-recharge-tfg-vouchers (11 days)
+- parmalat-everything-needs-cheese-2026 (11 days)
+- vodacom-power-up-woolworths-vouchers-2026 (11 days)
+- godfather-of-the-waves-competition-2026 (13 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
