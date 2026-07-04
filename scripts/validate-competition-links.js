@@ -39,6 +39,30 @@ const APPROVED_MANUAL_OK_URLS = new Map([
     "https://clicks.co.za/clubcard/competitions/win-with-babyclub-competition",
   ],
   [
+    "clicks-dark-and-lovely-best-for-braids-2026",
+    "https://clicks.co.za/clubcard/competitions/dark-and-lovely-best-for-braids-competition1",
+  ],
+  [
+    "clicks-clubcard-have-your-say-june-july-2026",
+    "https://clicks.co.za/clubcard/competitions/clubcard-mag-june-july-2026-have-your-say-competition",
+  ],
+  [
+    "clicks-clubcard-fragrance-giveaway-june-july-2026",
+    "https://www.clicks.co.za/clubcard/competitions/clubcard-magazine-june-july-issue-of-2026-fragrance-giveaway-competition",
+  ],
+  [
+    "clicks-clubcard-portia-m-hamper-june-july-2026",
+    "https://clicks.co.za/clubcard/competitions/clubcard-mag-june-july-2026-portia-m-hamper-competition",
+  ],
+  [
+    "clicks-clubcard-mens-wellness-hamper-june-july-2026",
+    "https://clicks.co.za/clubcard/competitions/clubcard-magazine-june-july-issue-of-2026-mens-wellness-hamper-competition",
+  ],
+  [
+    "clicks-clubcard-newness-hamper-june-july-2026",
+    "https://clicks.co.za/clubcard/competitions/clubcard-magazine-june-july-issue-of-2026-fragrance-giveaway-competition1",
+  ],
+  [
     "clicks-cashback-haul-competition",
     "https://clicks.co.za/clubcard/competitions/cashback-haul-competition",
   ],

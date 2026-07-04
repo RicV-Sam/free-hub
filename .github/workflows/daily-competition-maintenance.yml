@@ -174,12 +174,15 @@ jobs:
         if: steps.diff.outputs.has_changes == 'true'
         uses: actions/upload-pages-artifact@v5
         with:
+          name: github-pages-${{ github.run_attempt }}
           path: .
 
       - name: Deploy to GitHub Pages
         if: steps.diff.outputs.has_changes == 'true'
         id: deployment
         uses: actions/deploy-pages@v5
+        with:
+          artifact_name: github-pages-${{ github.run_attempt }}
 
       - name: Push maintenance commit
         if: steps.diff.outputs.has_changes == 'true'
