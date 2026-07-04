@@ -4129,8 +4129,9 @@ function renderDatacostPromo(options = {}) {
   } = options;
   const href = ussd ? DATACOST_USSD_URL : DATACOST_URL;
   const className = compact ? "datacost-promo datacost-promo--compact" : "datacost-promo";
+  const promoId = `datacost-promo-${String(placement).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
 
-  return `<section class="${className}" id="datacost-promo" aria-label="DataCost partner recommendation" data-placement="${escapeAttribute(
+  return `<section class="${className}" id="${escapeAttribute(promoId)}" aria-label="DataCost partner recommendation" data-placement="${escapeAttribute(
     placement
   )}">
           <a class="datacost-promo__media" href="${escapeAttribute(href)}" target="_blank" rel="noopener noreferrer sponsored" aria-label="${escapeAttribute(cta)}">
@@ -5023,6 +5024,12 @@ ${noscriptLinks}
 
       <main id="main-content" class="main-content">
         ${featuredSectionMarkup}
+        ${renderDatacostPromo({
+          placement: "home-after-featured",
+          compact: true,
+          heading: "Compare data deals before you enter",
+          text: "DataCost.co.za helps you check South African data and airtime deals quickly, so prize browsing and everyday mobile costs stay in one place.",
+        })}
         ${closingSoonSectionMarkup}
         ${freeEntrySectionMarkup}
         ${trendingSectionMarkup}
