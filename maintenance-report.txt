@@ -1,14 +1,14 @@
 === Competition Maintenance Report ===
-Date: 2026-07-04
+Date: 2026-07-05
 Mode: archive-expired
-Total competitions: 208
-Active published count: 56
-Expired archive page count: 68
+Total competitions: 217
+Active published count: 64
+Expired archive page count: 69
 Low-value expired noindex count: 0
 Held/private count: 84
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 9
+Closing in next 14 days: 12
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -79,17 +79,21 @@ Expired competition IDs:
 - discovery-europcar-winter-adventure-2026 (2026-06-30)
 - vodacom-mrp-gift-card-competition-2026 (2026-06-30)
 - starbaby-south-africa-monthly-competition-2026 (2026-06-30)
+- bulbs-of-the-fynbos-competition-2026 (2026-07-03)
 
 Closing soon (next 14 days):
-- bulbs-of-the-fynbos-competition-2026 (0 days)
-- shoprite-low-duma-competition-2026 (1 days)
-- makro-winter-competition-2026 (1 days)
-- one-life-maize-meal-samsung-phones-2026 (5 days)
-- tekkie-town-football-frenzy-fifa-2026 (8 days)
-- vodacom-spend-and-recharge-tfg-vouchers (11 days)
-- parmalat-everything-needs-cheese-2026 (11 days)
-- vodacom-power-up-woolworths-vouchers-2026 (11 days)
-- godfather-of-the-waves-competition-2026 (13 days)
+- vodacom-dankovodacom-adidas-voucher-2026 (0 days)
+- shoprite-low-duma-competition-2026 (0 days)
+- makro-winter-competition-2026 (0 days)
+- one-life-maize-meal-samsung-phones-2026 (4 days)
+- tekkie-town-football-frenzy-fifa-2026 (7 days)
+- vodacom-spend-and-recharge-tfg-vouchers (10 days)
+- parmalat-everything-needs-cheese-2026 (10 days)
+- vodacom-power-up-woolworths-vouchers-2026 (10 days)
+- godfather-of-the-waves-competition-2026 (12 days)
+- clicks-cashback-haul-competition (14 days)
+- coca-cola-hisense-fifa-fan-hampers-2026 (14 days)
+- mtn-world-cup-bafana-goal-1gb-data-2026 (14 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
