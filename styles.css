@@ -161,6 +161,17 @@ button {
   color: var(--accent);
 }
 
+.site-topbar__link--whatsapp {
+  background: rgba(34, 197, 94, 0.12);
+  color: #047857;
+}
+
+.site-topbar__link--whatsapp:hover,
+.site-topbar__link--whatsapp:focus-visible {
+  background: #16a34a;
+  color: #fff;
+}
+
 .site-topbar__account {
   gap: 0.45rem;
   padding: 0.35rem 0.75rem;
@@ -4795,6 +4806,235 @@ body {
   .club-saved-item select,
   .club-competition-row select {
     width: 100%;
+  }
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.top-picks-grid,
+.intent-tile-grid,
+.guide-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.top-pick-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  border-radius: var(--radius-md);
+  background: #fff;
+  min-width: 0;
+}
+
+.top-pick-card__media {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: rgba(15, 118, 110, 0.08);
+  color: inherit;
+}
+
+.top-pick-card__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.top-pick-card__placeholder {
+  position: absolute;
+  inset: 0;
+}
+
+.top-pick-card__body {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0.85rem;
+}
+
+.top-pick-card__label,
+.intent-tile__label,
+.guide-card__title {
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.top-pick-card__title {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.top-pick-card__title a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.top-pick-card__meta {
+  display: grid;
+  gap: 0.25rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.top-pick-card__cta {
+  justify-self: start;
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 0.86rem;
+}
+
+.intent-tile,
+.guide-card {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+  padding: 0.95rem;
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  border-radius: var(--radius-md);
+  background: #fff;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.intent-tile:hover,
+.guide-card:hover,
+.top-pick-card__title a:hover,
+.top-pick-card__cta:hover {
+  color: var(--accent);
+}
+
+.intent-tile__text,
+.guide-card__text {
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.latest-rows {
+  display: grid;
+  border: 1px solid rgba(17, 24, 39, 0.1);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #fff;
+}
+
+.latest-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 0.8rem;
+  align-items: center;
+  padding: 0.8rem 0.95rem;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+}
+
+.latest-row:last-child {
+  border-bottom: 0;
+}
+
+.latest-row:hover {
+  background: rgba(15, 118, 110, 0.06);
+}
+
+.latest-row__title {
+  min-width: 0;
+  font-weight: 800;
+}
+
+.latest-row__meta {
+  color: var(--muted);
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.home-cta--club {
+  text-align: left;
+  justify-items: stretch;
+  background: linear-gradient(135deg, rgba(15, 118, 110, 0.08), rgba(219, 39, 119, 0.06));
+}
+
+.home-cta--club .home-cta__actions {
+  justify-content: flex-start;
+}
+
+.guide-card-grid--expanded {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.guide-card--expanded {
+  min-height: 8rem;
+  align-content: start;
+}
+
+.guide-table-section {
+  background: #fff;
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.guide-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+}
+
+.guide-table th,
+.guide-table td {
+  padding: 0.8rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+  vertical-align: top;
+}
+
+.guide-table th {
+  background: rgba(15, 118, 110, 0.08);
+  color: var(--text);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+.guide-table td {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.guide-table a {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+@media (max-width: 760px) {
+  .top-picks-grid,
+  .intent-tile-grid,
+  .guide-card-grid,
+  .guide-card-grid--expanded {
+    grid-template-columns: 1fr;
+  }
+
+  .latest-row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .latest-row__meta {
+    white-space: normal;
   }
 }
 

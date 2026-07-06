@@ -114,12 +114,15 @@ function validateMaintenanceState(options = {}) {
 
     return normalizeDate(competition.closingDate) < today;
   });
+  const noindexActiveCompetitions = competitions.filter(shared.isNoindexActiveCompetition);
+  const clubOnlyCompetitions = competitions.filter(shared.isClubOnlyCompetition);
 
   const nonPublicCompetitions = competitions.filter(
     (competition) =>
       !shared.isPublishedCompetition(competition) ||
       competition.doNotPublish === true ||
-      competition.publicationStatus === "held"
+      competition.publicationStatus === "held" ||
+      shared.isClubOnlyCompetition(competition)
   );
 
   const summary = {
@@ -135,6 +138,14 @@ function validateMaintenanceState(options = {}) {
     expiredMissingClosedBanner: [],
     expiredMissingNoindex: [],
     expiredWithOutPage: [],
+    expiredInHomepage: [],
+    noindexInSitemap: [],
+    noindexInPublicListings: [],
+    noindexMissingDetailPage: [],
+    noindexMissingNoindex: [],
+    noindexWithAds: [],
+    clubOnlyDetailPages: [],
+    clubOnlyInSitemap: [],
     nonPublicDetailPages: [],
     nonPublicInPublicListings: [],
   };
@@ -169,6 +180,47 @@ function validateMaintenanceState(options = {}) {
     }
   });
 
+  const homepagePath = path.join(ROOT_DIR, "index.html");
+  const homepageHtml = fs.existsSync(homepagePath) ? fs.readFileSync(homepagePath, "utf8") : "";
+  expiredPublishedCompetitions.forEach((competition) => {
+    const slug = getCompetitionSlug(competition);
+    if (homepageHtml.includes(`/competition/${slug}/`)) {
+      summary.expiredInHomepage.push(slug);
+    }
+  });
+
+  noindexActiveCompetitions.forEach((competition) => {
+    const slug = getCompetitionSlug(competition);
+    const detailPath = path.join(ROOT_DIR, "competition", slug, "index.html");
+
+    if (sitemap.includes(`/competition/${slug}/`)) {
+      summary.noindexInSitemap.push(slug);
+    }
+
+    if (!fs.existsSync(detailPath)) {
+      summary.noindexMissingDetailPage.push(slug);
+    } else {
+      const html = fs.readFileSync(detailPath, "utf8");
+      if (!html.includes('name="robots" content="noindex, follow"')) {
+        summary.noindexMissingNoindex.push(slug);
+      }
+      if (html.includes("pagead2.googlesyndication.com") || html.includes("ad-slot")) {
+        summary.noindexWithAds.push(slug);
+      }
+    }
+  });
+
+  clubOnlyCompetitions.forEach((competition) => {
+    const slug = getCompetitionSlug(competition);
+    const detailPath = path.join(ROOT_DIR, "competition", slug, "index.html");
+    if (fs.existsSync(detailPath)) {
+      summary.clubOnlyDetailPages.push(slug);
+    }
+    if (sitemap.includes(`/competition/${slug}/`)) {
+      summary.clubOnlyInSitemap.push(slug);
+    }
+  });
+
   publicListingFiles.forEach((filePath) => {
     const relativePath = path.relative(ROOT_DIR, filePath).replace(/\\/g, "/");
     const html = fs.readFileSync(filePath, "utf8");
@@ -177,6 +229,13 @@ function validateMaintenanceState(options = {}) {
       const slug = getCompetitionSlug(competition);
       if (html.includes(`/competition/${slug}/`)) {
         summary.expiredInPublicListings.push({ page: relativePath, slug });
+      }
+    });
+
+    noindexActiveCompetitions.forEach((competition) => {
+      const slug = getCompetitionSlug(competition);
+      if (html.includes(`/competition/${slug}/`)) {
+        summary.noindexInPublicListings.push({ page: relativePath, slug });
       }
     });
 
@@ -221,6 +280,30 @@ function validateMaintenanceState(options = {}) {
   }
   if (summary.expiredWithOutPage.length > 0) {
     errors.push(`Expired competitions still have /out/ pages: ${summary.expiredWithOutPage.join(", ")}`);
+  }
+  if (summary.expiredInHomepage.length > 0) {
+    errors.push(`Expired competitions still appear on homepage: ${summary.expiredInHomepage.join(", ")}`);
+  }
+  if (summary.noindexInSitemap.length > 0) {
+    errors.push(`Noindex competitions still in sitemap: ${summary.noindexInSitemap.join(", ")}`);
+  }
+  if (summary.noindexInPublicListings.length > 0) {
+    errors.push("Noindex competitions still appear in public listing pages.");
+  }
+  if (summary.noindexMissingDetailPage.length > 0) {
+    errors.push(`Noindex competitions missing detail pages: ${summary.noindexMissingDetailPage.join(", ")}`);
+  }
+  if (summary.noindexMissingNoindex.length > 0) {
+    errors.push(`Noindex competition pages missing noindex: ${summary.noindexMissingNoindex.join(", ")}`);
+  }
+  if (summary.noindexWithAds.length > 0) {
+    errors.push(`Noindex competition pages include ads: ${summary.noindexWithAds.join(", ")}`);
+  }
+  if (summary.clubOnlyDetailPages.length > 0) {
+    errors.push(`Club-only competitions generated public detail pages: ${summary.clubOnlyDetailPages.join(", ")}`);
+  }
+  if (summary.clubOnlyInSitemap.length > 0) {
+    errors.push(`Club-only competitions still in sitemap: ${summary.clubOnlyInSitemap.join(", ")}`);
   }
   if (summary.nonPublicDetailPages.length > 0) {
     errors.push(`Non-public competitions generated public detail pages: ${summary.nonPublicDetailPages.join(", ")}`);

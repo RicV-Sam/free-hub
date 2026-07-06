@@ -79,6 +79,23 @@ const VERTICAL_PAGE_SLUGS = [
   "supermarket-competitions-south-africa",
 ];
 const VERTICAL_PAGE_SLUG_SET = new Set(VERTICAL_PAGE_SLUGS);
+const CONTENT_INDEX_PAGES = [
+  {
+    slug: "guides",
+    title: "Freehub Guides",
+    description: "Guides for finding, checking and entering South African competitions safely.",
+    heading: "Competition guides for South Africa",
+    intro: "Use these guides to compare entry costs, deadlines, free-entry routes and safety checks before you open an official promoter page.",
+  },
+  {
+    slug: "blog",
+    title: "Freehub Blog",
+    description: "Freehub updates and practical competition roundups for South African compers.",
+    heading: "Freehub blog and roundups",
+    intro: "Read practical competition roundups and evergreen explainers backed by current Freehub inventory and official-source checks.",
+  },
+];
+const MONTHLY_GUIDE_SLUG = "best-competitions-south-africa-this-month";
 let brandImageLookup = new Map();
 let generatedVerticalPagesForLinks = [];
 const FREE_RESOURCES = JSON.parse(fs.readFileSync(FREE_RESOURCES_PATH, "utf8"));
@@ -1648,18 +1665,21 @@ function main() {
   );
   runDataSafetyChecks(validCompetitions);
   const activeCompetitions = shared.getPublishedActiveCompetitions(validCompetitions);
+  const noindexActiveCompetitions = shared.getNoindexActiveCompetitions(validCompetitions);
   const expiredArchiveCompetitions = uniqueCompetitionsBySlug(
     shared.getExpiredArchiveCompetitions([...validCompetitions, ...validArchiveCompetitions])
   );
   const expiredLowValueCompetitions = shared.getArchivedLowValueCompetitions(validCompetitions);
   const detailCompetitions = shared.sortCompetitions([
     ...activeCompetitions,
+    ...noindexActiveCompetitions,
     ...expiredArchiveCompetitions,
     ...expiredLowValueCompetitions,
   ]);
   brandImageLookup = buildBrandImageLookup(activeCompetitions);
   const validCompetitionSlugs = new Set(detailCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
-  const validOutSlugs = new Set(activeCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
+  const outCompetitions = [...activeCompetitions, ...noindexActiveCompetitions];
+  const validOutSlugs = new Set(outCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
   removeStaleCompetitionDirectories(validCompetitionSlugs, validOutSlugs);
   const generatedBrandPages = shared.getGeneratedBrandPageDefinitions(activeCompetitions);
   const generatedBrandSlugs = generatedBrandPages.map((brandPage) => brandPage.slug);
@@ -1703,7 +1723,7 @@ function main() {
     fs.writeFileSync(path.join(outputDirectory, "index.html"), html);
   });
 
-  activeCompetitions.forEach((competition) => {
+  outCompetitions.forEach((competition) => {
     const html = renderOutPage(competition);
     const slug = shared.getCompetitionSlug(competition);
     const outputDirectory = path.join(ROOT_DIR, "out", slug);
@@ -1719,6 +1739,7 @@ function main() {
     fs.writeFileSync(path.join(outputDirectory, "index.html"), renderTrustPage(page));
   });
 
+  writeContentPages(activeCompetitions);
   writeClubPages(activeCompetitions);
   writeReferAndWinPages();
   writeAdminPages();
@@ -1728,7 +1749,14 @@ function main() {
     generateSitemap(activeCompetitions, routeContexts, [...activeCompetitions, ...expiredArchiveCompetitions])
   );
   fs.writeFileSync(path.join(ROOT_DIR, "robots.txt"), renderRobotsTxt());
-  runLifecycleStaticChecks(validCompetitions, activeCompetitions, expiredArchiveCompetitions, expiredLowValueCompetitions, routeContexts);
+  runLifecycleStaticChecks(
+    validCompetitions,
+    activeCompetitions,
+    noindexActiveCompetitions,
+    expiredArchiveCompetitions,
+    expiredLowValueCompetitions,
+    routeContexts
+  );
   runStaticSeoChecks(routeContexts);
   runCrawlerVisibleTextChecks(routeContexts);
   runGlobalCtaChecks(routeContexts);
@@ -2294,6 +2322,7 @@ function renderTopNavigation(options = {}) {
     { key: "home", label: "Home", href: "/" },
     { key: "competitions", label: "Competitions", href: "/competitions/" },
     { key: "ending", label: "Ending soon", href: "/competitions-ending-soon/" },
+    { key: "whatsapp", label: "WhatsApp", href: WHATSAPP_CHANNEL_URL, target: "_blank", rel: "noopener noreferrer" },
     { key: "club", label: "Club", href: "/club/" },
   ];
 
@@ -2306,9 +2335,17 @@ function renderTopNavigation(options = {}) {
         <nav class="site-topbar__nav" aria-label="Primary navigation">
           ${links
             .map((link) => {
-              const className = link.key === active ? "site-topbar__link is-active" : "site-topbar__link";
+              const className = [
+                "site-topbar__link",
+                link.key === "whatsapp" ? "site-topbar__link--whatsapp" : "",
+                link.key === active ? "is-active" : "",
+              ]
+                .filter(Boolean)
+                .join(" ");
               const current = link.key === active ? ` aria-current="page"` : "";
-              return `<a class="${className}" href="${escapeAttribute(link.href)}"${current}>${escapeHtml(link.label)}</a>`;
+              const target = link.target ? ` target="${escapeAttribute(link.target)}"` : "";
+              const rel = link.rel ? ` rel="${escapeAttribute(link.rel)}"` : "";
+              return `<a class="${className}" href="${escapeAttribute(link.href)}"${current}${target}${rel}>${escapeHtml(link.label)}</a>`;
             })
             .join("\n          ")}
         </nav>
@@ -4906,6 +4943,220 @@ function getLatestAddedCompetitions(competitions, n) {
     .slice(0, n);
 }
 
+function hasHomepageReadyData(competition) {
+  return Boolean(
+    competition &&
+      (competition.sourceUrl || competition.url) &&
+      (competition.termsUrl || competition.sourceUrl || competition.url) &&
+      competition.closingDate &&
+      competition.entryFeeLabel &&
+      competition.category
+  );
+}
+
+function compareHomepageCandidateScore(left, right) {
+  const leftScore =
+    (hasHomepageReadyData(left) ? 20 : 0) +
+    (shared.isHighValueCompetition(left) ? 10 : 0) +
+    (left.image ? 3 : 0) +
+    (left.termsUrl ? 2 : 0);
+  const rightScore =
+    (hasHomepageReadyData(right) ? 20 : 0) +
+    (shared.isHighValueCompetition(right) ? 10 : 0) +
+    (right.image ? 3 : 0) +
+    (right.termsUrl ? 2 : 0);
+
+  if (rightScore !== leftScore) {
+    return rightScore - leftScore;
+  }
+
+  return new Date(left.closingDate) - new Date(right.closingDate);
+}
+
+function getHomepageTopPicks(competitions) {
+  const selectedSlugs = new Set();
+  const pick = (candidates) => {
+    const winner = candidates
+      .filter(hasHomepageReadyData)
+      .filter((competition) => !selectedSlugs.has(shared.getCompetitionSlug(competition)))
+      .slice()
+      .sort(compareHomepageCandidateScore)[0];
+
+    if (winner) {
+      selectedSlugs.add(shared.getCompetitionSlug(winner));
+    }
+
+    return winner;
+  };
+
+  return [
+    {
+      label: "Best free-entry pick",
+      competition: pick(competitions.filter((competition) => shared.getEntryCostLabel(competition) === "Free entry")),
+    },
+    {
+      label: "Best high-value pick",
+      competition: pick(competitions.filter((competition) => shared.isHighValueCompetition(competition))),
+    },
+    {
+      label: "Closing soon pick",
+      competition: pick(competitions.filter((competition) => shared.isClosingWithinDays(competition.closingDate, 14))),
+    },
+  ].filter((entry) => entry.competition);
+}
+
+function excludeCompetitionsBySlug(competitions, excludedSlugs, limit) {
+  return competitions
+    .filter((competition) => !excludedSlugs.has(shared.getCompetitionSlug(competition)))
+    .slice(0, limit);
+}
+
+function renderTopPicksSection(topPicks) {
+  if (topPicks.length === 0) {
+    return "";
+  }
+
+  return `<section class="home-section home-section--top-picks" aria-label="Today's top competition picks">
+          <div class="home-section__header">
+            <div>
+              <p class="section-kicker">Today's Top Picks</p>
+              <h2 class="home-section__title">Open these first</h2>
+            </div>
+            <a class="home-section__link" href="/competitions/">View all live competitions</a>
+          </div>
+          <div class="top-picks-grid">
+            ${topPicks.map((entry) => renderTopPickCard(entry)).join("\n            ")}
+          </div>
+        </section>`;
+}
+
+function renderTopPickCard(entry) {
+  const competition = entry.competition;
+  const href = shared.getCompetitionPath(competition);
+  const imageUrl = getCompetitionVisualUrl(competition);
+  const imageMarkup = imageUrl
+    ? `<img src="${escapeAttribute(imageUrl)}" alt="${escapeAttribute(competition.title)}" loading="lazy" onerror="this.remove()" />`
+    : "";
+
+  return `<article class="top-pick-card">
+              <a class="top-pick-card__media" href="${escapeAttribute(href)}" aria-label="${escapeAttribute(competition.title)} - view details">
+                ${renderCompetitionVisualPlaceholder(competition, "top-pick-card__placeholder")}
+                ${imageMarkup}
+              </a>
+              <div class="top-pick-card__body">
+                <p class="top-pick-card__label">${escapeHtml(entry.label)}</p>
+                <h3 class="top-pick-card__title"><a href="${escapeAttribute(href)}">${escapeHtml(shared.getCardHeadline(competition))}</a></h3>
+                <div class="top-pick-card__meta">
+                  <span>${escapeHtml(competition.brand || "Official promoter")}</span>
+                  <span>${escapeHtml(shared.getEntryCostLabel(competition))}</span>
+                  <span>${escapeHtml(shared.getUrgencyLabel(competition.closingDate))}</span>
+                </div>
+                <a class="top-pick-card__cta" href="${escapeAttribute(href)}">View details</a>
+              </div>
+            </article>`;
+}
+
+function renderIntentTilesSection() {
+  const intentLinks = [
+    { label: "Win a car", href: "/win-a-car/", text: "Vehicle prizes and car-focused campaigns" },
+    { label: "Free entry", href: "/free-competitions/", text: "No-purchase listings from verified sources" },
+    { label: "Ending soon", href: "/competitions-ending-soon/", text: "Deadlines to check before they close" },
+    { label: "WhatsApp", href: "/whatsapp-competitions-south-africa/", text: "Mobile-entry campaigns and till-slip routes" },
+    { label: "Till slip", href: "/till-slip-competitions-south-africa/", text: "Receipt and purchase-proof promotions" },
+    { label: "Cash prizes", href: "/category/cash/", text: "Money prizes with clear cost labels" },
+  ];
+
+  return `<section class="home-section home-section--intent" aria-label="Browse competitions by intent">
+          <div class="home-section__header">
+            <div>
+              <p class="section-kicker">Browse by Intent</p>
+              <h2 class="home-section__title">Choose the route that fits today</h2>
+            </div>
+          </div>
+          <div class="intent-tile-grid">
+            ${intentLinks
+              .map(
+                (link) => `<a class="intent-tile" href="${escapeAttribute(link.href)}">
+                  <span class="intent-tile__label">${escapeHtml(link.label)}</span>
+                  <span class="intent-tile__text">${escapeHtml(link.text)}</span>
+                </a>`
+              )
+              .join("\n            ")}
+          </div>
+        </section>`;
+}
+
+function renderLatestRowsSection(competitions) {
+  if (competitions.length === 0) {
+    return "";
+  }
+
+  return `<section class="home-section home-section--latest-rows" aria-label="Latest checked competitions">
+          <div class="home-section__header">
+            <div>
+              <p class="section-kicker">Latest Added</p>
+              <h2 class="home-section__title">Recently checked competitions</h2>
+            </div>
+            <a class="home-section__link" href="/new-competitions-south-africa/">View new competitions</a>
+          </div>
+          <div class="latest-rows">
+            ${competitions.map(renderLatestCompetitionRow).join("\n            ")}
+          </div>
+        </section>`;
+}
+
+function renderLatestCompetitionRow(competition) {
+  return `<a class="latest-row" href="${escapeAttribute(shared.getCompetitionPath(competition))}">
+              <span class="latest-row__title">${escapeHtml(competition.title)}</span>
+              <span class="latest-row__meta">${escapeHtml(shared.getEntryCostLabel(competition))}</span>
+              <span class="latest-row__meta">${escapeHtml(shared.getUrgencyLabel(competition.closingDate))}</span>
+            </a>`;
+}
+
+function renderHomepageClubSection() {
+  return `<section class="home-cta home-cta--club" aria-label="Freehub Club and alerts">
+          <div>
+            <p class="section-kicker">Freehub Club</p>
+            <h2 class="home-cta__title">Save competitions and get reminders</h2>
+            <p class="home-section__intro">Create a free account to save listings, track what you entered or skipped, and keep useful competition alerts in one place.</p>
+          </div>
+          <div class="home-cta__actions">
+            <a class="btn btn--primary" href="/club/">Open Club</a>
+            <a class="btn btn--secondary" href="/competitions-ending-soon/">See deadlines</a>
+          </div>
+          ${renderGlobalAuthPanel({
+            id: "home-club",
+            title: "Get email alerts",
+            text: "Optional Freehub account: sign in with Google or an email link to save alert preferences.",
+          })}
+        </section>`;
+}
+
+function renderHomepageGuidesSection() {
+  const guides = [
+    { label: "Best competitions this month", href: "/best-competitions-south-africa-this-month/" },
+    { label: "Win a car competitions", href: "/win-a-car/" },
+    { label: "Free entry competitions", href: "/free-competitions/" },
+    { label: "Enter safely", href: "/how-to-enter-competitions-safely/" },
+    { label: "Purchase required explained", href: "/purchase-required-competitions-explained/" },
+  ];
+
+  return `<section class="home-section home-section--guides" aria-label="Competition guides">
+          <div class="home-section__header">
+            <div>
+              <p class="section-kicker">Guides</p>
+              <h2 class="home-section__title">Read before you enter</h2>
+            </div>
+            <a class="home-section__link" href="/guides/">View guides</a>
+          </div>
+          <div class="guide-card-grid">
+            ${guides
+              .map((guide) => `<a class="guide-card" href="${escapeAttribute(guide.href)}">${escapeHtml(guide.label)}</a>`)
+              .join("\n            ")}
+          </div>
+        </section>`;
+}
+
 function renderHomeTrustSection() {
   return `<section class="home-section home-section--trust" aria-label="Why trust Freehub">
           <div class="home-section__header">
@@ -4959,15 +5210,13 @@ function renderHomepage(competitions) {
   const homeRouteContext = { type: "home", slug: null, path: "/" };
   const structuredData = shared.buildStructuredData(competitions, homeRouteContext);
   const ogImage = getCollectionMetadataImageUrl(competitions);
-  const featured = getFeaturedCompetitions(competitions, 4);
-  const featuredCardsMarkup = featured.map((c) => renderCompetitionCard(c, true)).join("\n            ");
-  const closingSoon = getEndingSoonCompetitions(competitions, 4);
-  const freeEntryPicks = getFreeEntryPicks(competitions, 4);
-  const trending = getTrendingCompetitions(competitions, 4);
-  const latestAdded = getLatestAddedCompetitions(competitions, 4);
-  const heroPreviewMarkup = renderHeroPreviewPanel(featured, {
+  const topPicks = getHomepageTopPicks(competitions);
+  const topPickSlugs = new Set(topPicks.map((entry) => shared.getCompetitionSlug(entry.competition)));
+  const latestAdded = excludeCompetitionsBySlug(getLatestAddedCompetitions(competitions, 12), topPickSlugs, 6);
+  const previewCompetitions = topPicks.map((entry) => entry.competition);
+  const heroPreviewMarkup = renderHeroPreviewPanel(previewCompetitions, {
     title: "Prize Watch",
-    intro: "A fast look at high-value and near-deadline competitions.",
+    intro: "Three active picks with clear prize, cost and deadline cues.",
     className: "hero-preview-panel--home",
   });
 
@@ -4979,111 +5228,24 @@ function renderHomepage(competitions) {
     })
     .join("\n");
 
-  const categoryNavMarkup = [
-    `<a class="category-nav__link is-active" href="/">All</a>`,
-    `<a class="category-nav__link" href="/tag/free-entry/">Free Entry</a>`,
-    `<a class="category-nav__link" href="/tag/ending-soon/">Ending Soon</a>`,
-    `<a class="category-nav__link" href="/tag/high-value/">High Value</a>`,
-    ...shared.CATEGORY_SLUGS.map(
-      (slug) =>
-        `<a class="category-nav__link" href="${escapeAttribute(`/category/${slug}/`)}">${escapeHtml(
-          shared.CATEGORY_COPY[slug].category
-        )}</a>`
-    ),
-  ].join("\n          ");
-  const homeIntentLinksMarkup = `<section class="internal-links" aria-label="Explore competition hubs">
-          <p class="internal-links__title">Explore Competition Hubs</p>
-          <div class="internal-links__list">
-            <a class="internal-links__link" href="/competitions/">All live competitions</a>
-            <a class="internal-links__link" href="/new-competitions-south-africa/">New competitions this week</a>
-            <a class="internal-links__link" href="/win-a-car/">Win a car competitions</a>
-            <a class="internal-links__link" href="/free-competitions/">Free competitions</a>
-            <a class="internal-links__link" href="/free-samples-south-africa/">Where to get free samples</a>
-            <a class="internal-links__link" href="/category/vouchers/">Free voucher giveaways</a>
-            <a class="internal-links__link" href="/free-stuff-south-africa/">Free stuff South Africa</a>
-            <a class="internal-links__link" href="/competitions-ending-soon/">Competitions ending soon</a>
-            <a class="internal-links__link" href="/purchase-required-competitions/">Purchase required competitions</a>
-            <a class="internal-links__link" href="/competition/clere-share-of-r1-million-cash-2026/">Clere competition 2026</a>
-            <a class="internal-links__link" href="/competition/knorr-win-r5000-weekly-2026/">Knorr competition 2026</a>
-          </div>
-        </section>`;
-  const homeQuickAnswerMarkup = `<section class="seo-copy-block seo-copy-block--home" aria-label="Quick answer for giveaways and free stuff in South Africa">
-          <h2 class="seo-copy-block__title">Quick answer: where to find free stuff, giveaways and competitions in South Africa</h2>
-          <div class="seo-copy-block__content">
-            <p>Start with the homepage when you want to compare competitions South Africa searches, broader giveaways and free stuff South Africa intent across verified competition types. Freehub separates free-entry routes, purchase-required promotions, voucher giveaways, cash prizes and car competitions so you can see the entry cost, closing date and official source before clicking through.</p>
-            <p>If you want a narrower path first, compare <a href="/free-competitions/">free competitions</a>, <a href="/free-samples-south-africa/">where to get free samples</a>, <a href="/category/vouchers/">free voucher giveaways</a> and <a href="/free-stuff-south-africa/">free stuff South Africa</a> resources for evergreen non-competition options.</p>
-          </div>
-        </section>`;
-  const featuredSectionMarkup = `<section class="home-section home-section--featured" aria-label="Featured competitions this week">
-          <div class="home-section__header">
-            <div>
-              <p class="section-kicker">Featured This Week</p>
-              <h2 class="home-section__title">Curated competitions to open first</h2>
-            </div>
-            <a class="home-section__link" href="/tag/high-value/">High-value picks</a>
-          </div>
-          <p class="home-section__intro">A shortlist prioritising strong prizes, free-entry signals, useful everyday rewards and clear source information.</p>
-          <div class="competition-grid competition-grid--featured">
-            ${featuredCardsMarkup}
-          </div>
-        </section>`;
-  const closingSoonSectionMarkup = renderHomeDiscoverySection({
-    kicker: "Closing Soon",
-    title: "Last-chance competitions",
-    intro: "Sorted by deadline so mobile users can quickly spot competitions worth checking before they close.",
-    href: "/competitions-ending-soon/",
-    linkLabel: "View all ending soon",
-    competitions: closingSoon,
-  });
-  const freeEntrySectionMarkup = renderHomeDiscoverySection({
-    kicker: "Free Entry Picks",
-    title: "No-purchase competitions",
-    intro: "Published listings where the current Freehub data does not show a required product purchase or paid ticket.",
-    href: "/free-competitions/",
-    linkLabel: "View free competitions",
-    competitions: freeEntryPicks,
-  });
-  const trendingSectionMarkup = renderHomeDiscoverySection({
-    kicker: "Trending Competitions",
-    title: "High-value and urgent prize draws",
-    intro: "Competitions with high-value prizes, strong category demand or near-deadline urgency signals.",
-    href: "/tag/high-value/",
-    linkLabel: "View high-value picks",
-    competitions: trending,
-  });
-  const latestAddedSectionMarkup = renderHomeDiscoverySection({
-    kicker: "Latest Added",
-    title: "Recently checked competitions",
-    intro: "Freshly checked listings from the current data set, useful for repeat visitors looking for something new.",
-    href: "/new-competitions-south-africa/",
-    linkLabel: "View new competitions",
-    competitions: latestAdded,
-  });
-
-  const homepageSeoCopy = `Freehub helps people looking for competitions South Africa, free stuff South Africa and free giveaways South Africa compare current opportunities in one place. The homepage brings together published competitions, voucher giveaways, cash prizes, car draws, free-entry routes and purchase-required promotions with source, cost and closing-date cues.
-
-Many South African competitions are tied to official brand promotions, retail campaigns, app offers and seasonal giveaways. Freehub makes those easier to compare by showing the entry method, closing date, entry-cost label and prize cues before you leave for the promoter page.
-
-If you want only no-purchase routes, use the free competitions page. If you want broader giveaways and free stuff South Africa discovery, including purchase-required cash, voucher and car promotions, start here; for evergreen non-competition ideas, continue to the dedicated free stuff South Africa guide and always check the official rules before entering.`;
-
   return `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Competitions South Africa | Free Stuff, Giveaways &amp; More | Freehub</title>
-    <meta name="description" content="Browse competitions South Africa, free stuff South Africa and free giveaways in one place, with vouchers, cash prizes, closing dates and official promoter links." />
+    <title>South African Competitions Worth Entering Today | Freehub</title>
+    <meta name="description" content="Find South African competitions worth checking today, with curated picks, clear closing dates, entry-cost labels and official promoter links." />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="${escapeAttribute(shared.CANONICAL_ORIGIN)}/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Free Stuff, Giveaways &amp; Competitions South Africa | Freehub" />
-    <meta property="og:description" content="Browse free stuff South Africa and free giveaways South Africa searches in one place, including competitions, vouchers, cash prizes and official promoter links." />
+    <meta property="og:title" content="South African Competitions Worth Entering Today | Freehub" />
+    <meta property="og:description" content="Find active South African competitions with curated picks, clear costs, closing dates and official promoter links." />
     <meta property="og:url" content="${escapeAttribute(shared.CANONICAL_ORIGIN)}/" />
     <meta property="og:image" content="${escapeAttribute(ogImage)}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Free Stuff, Giveaways &amp; Competitions South Africa | Freehub" />
-    <meta name="twitter:description" content="Browse free stuff South Africa and free giveaways South Africa searches in one place, including competitions, vouchers, cash prizes and official promoter links." />
+    <meta name="twitter:title" content="South African Competitions Worth Entering Today | Freehub" />
+    <meta name="twitter:description" content="Find active South African competitions with curated picks, clear costs, closing dates and official promoter links." />
     <meta name="twitter:image" content="${escapeAttribute(ogImage)}" />
     <script id="structured-data-itemlist" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
@@ -5113,24 +5275,19 @@ ${noscriptLinks}
               <span class="hero__brand-mark" aria-hidden="true">FH</span>
               <span class="hero__brand-name">Freehub</span>
             </div>
-            <h1 id="pageTitle">Competitions, Giveaways and Free Stuff South Africa</h1>
-            <p class="hero__text" id="pageIntro">Compare competitions South Africa searchers care about, including giveaways, voucher prizes, cash draws and free stuff routes with visible entry costs, closing dates and official-source links.</p>
+            <h1 id="pageTitle">Find South African competitions worth entering today</h1>
+            <p class="hero__text" id="pageIntro">Verified competition listings from official promoter sources. Compare prizes, closing dates and entry costs before you click through.</p>
             ${renderUpdatedNotice()}
             <div class="hero__actions">
-              <a class="btn btn--primary" href="#all-competitions">Browse Today&apos;s Competitions</a>
-              <a class="btn btn--secondary" href="/tag/ending-soon/">Ending Soon</a>
-              <a class="btn btn--whatsapp" href="${escapeAttribute(
-                WHATSAPP_CHANNEL_URL
-              )}" target="_blank" rel="noopener noreferrer">Follow on WhatsApp</a>
+              <a class="btn btn--primary" href="/competitions/">View today&apos;s picks</a>
+              <a class="btn btn--secondary" href="/win-a-car/">Win a car</a>
+              <a class="btn btn--secondary" href="/free-competitions/">Free entry competitions</a>
+              <a class="btn btn--whatsapp" href="${escapeAttribute(WHATSAPP_CHANNEL_URL)}" target="_blank" rel="noopener noreferrer">Follow on WhatsApp</a>
             </div>
-            ${renderGlobalAuthPanel({
-              id: "home-hero",
-              title: "Get alerts by email",
-              text: "Optional Freehub account: sign in with Google or an email link to save alert preferences.",
-            })}
             <div class="trust-row" aria-label="Trust signals">
               <span class="trust-row__item">Verified listings</span>
-              <span class="trust-row__item">Official brand links</span>
+              <span class="trust-row__item">Official source links</span>
+              <span class="trust-row__item">Cost labels</span>
               <span class="trust-row__item">Freehub is not the promoter</span>
             </div>
           </div>
@@ -5139,140 +5296,19 @@ ${noscriptLinks}
       </header>
 
       <main id="main-content" class="main-content">
-        ${featuredSectionMarkup}
+        ${renderTopPicksSection(topPicks)}
         ${renderDatacostPromo({
           placement: "home-after-featured",
           compact: true,
           heading: "Compare data deals before you enter",
           text: "DataCost.co.za helps you check South African data and airtime deals quickly, so prize browsing and everyday mobile costs stay in one place.",
         })}
-        ${closingSoonSectionMarkup}
-        ${freeEntrySectionMarkup}
-        ${trendingSectionMarkup}
-        ${latestAddedSectionMarkup}
+        ${renderIntentTilesSection()}
+        ${renderLatestRowsSection(latestAdded)}
         ${renderHomeTrustSection()}
-
-        ${renderAdZone("ad-top", "after-featured")}
-
-        <nav class="category-nav" aria-label="Competition categories">
-          ${categoryNavMarkup}
-        </nav>
-
-        ${homeQuickAnswerMarkup}
-
-        <section class="popular-searches" aria-label="Popular searches">
-          <p class="popular-searches__title">Quick Paths</p>
-          <div class="popular-searches__links">
-            <a class="popular-searches__link" href="/competitions/">All competitions</a>
-            <a class="popular-searches__link" href="/new-competitions-south-africa/">New competitions</a>
-            <a class="popular-searches__link" href="/win-a-car/">Win a car</a>
-            <a class="popular-searches__link" href="/free-competitions/">Free competitions</a>
-            <a class="popular-searches__link" href="/free-samples-south-africa/">Free samples</a>
-            <a class="popular-searches__link" href="/category/vouchers/">Free vouchers</a>
-            <a class="popular-searches__link" href="/competitions-ending-soon/">Ending soon</a>
-            <a class="popular-searches__link" href="/purchase-required-competitions/">Purchase required</a>
-          </div>
-        </section>
-
-        ${homeIntentLinksMarkup}
-        ${renderVerticalDiscoveryLinks()}
-        ${renderGlobalAuthPanel({
-          id: "home-before-whatsapp",
-          title: "Prefer email alerts?",
-          text: "Use Google or an email sign-in link for Freehub competition alerts. WhatsApp remains optional too.",
-        })}
-        ${renderWhatsAppChannelCta()}
         ${renderDatacostPromo({ placement: "home-before-filters" })}
-
-        <section class="controls" aria-label="Competition filters">
-          <label class="search-field" for="searchInput">
-            <span class="search-field__label">Search competitions</span>
-            <input
-              id="searchInput"
-              type="search"
-              name="search"
-              placeholder="Search by title or category"
-              autocomplete="off"
-            />
-          </label>
-
-          <div class="filters">
-            <p class="filters__label">Categories</p>
-            <div id="categoryFilters" class="filter-list" role="group" aria-label="Categories"></div>
-          </div>
-        </section>
-
-        <section class="results-header" aria-live="polite">
-          <p id="resultsSummary" class="results-header__summary">Showing featured competitions</p>
-        </section>
-
-        ${renderStatusPlaceholders()}
-
-        <section class="competition-section" id="all-competitions">
-          <div id="competitionsGrid" class="competition-grid" aria-live="polite"></div>
-
-          <div id="emptyState" class="state-card state-card--hidden" aria-live="polite"></div>
-        </section>
-
-        ${renderAdZone("ad-middle", "after-results", true)}
-
-        <section class="home-section home-section--steps" aria-label="How FreeHub Works">
-          <h2 class="home-section__title">How FreeHub Works</h2>
-          <p class="home-section__intro">FreeHub is built to help you move from browsing to entering with less hesitation and more confidence.</p>
-          <div class="steps-grid">
-            <article class="step-card">
-              <span class="step-card__number">1</span>
-              <h3 class="step-card__title">Browse competitions</h3>
-              <p class="step-card__text">Start with featured picks, free entry offers, or categories like cars, cash, holidays, tech, and vouchers.</p>
-            </article>
-            <article class="step-card">
-              <span class="step-card__number">2</span>
-              <h3 class="step-card__title">Open the competition page</h3>
-              <p class="step-card__text">Each listing gives you the key details first so you can decide quickly which competitions are worth the click.</p>
-            </article>
-            <article class="step-card">
-              <span class="step-card__number">3</span>
-              <h3 class="step-card__title">Follow the official entry method</h3>
-              <p class="step-card__text">We point you to the promoter's page so you can follow the real entry instructions, terms, and closing dates.</p>
-            </article>
-            <article class="step-card">
-              <span class="step-card__number">4</span>
-              <h3 class="step-card__title">Check back for new prizes</h3>
-              <p class="step-card__text">Fresh competitions appear regularly, so returning visitors always have something new to explore.</p>
-            </article>
-          </div>
-          <div class="trust-note">
-            <p class="trust-note__title">Trust note</p>
-            <p class="trust-note__text">We link to official brand promotions and we do not require sign-up on our site to browse the listings.</p>
-          </div>
-        </section>
-
-        ${renderAdZone("ad-bottom", "bottom")}
-
-        <section class="seo-copy-block" aria-label="About competitions in South Africa">
-          <h2 class="seo-copy-block__title">Competitions in South Africa, all in one place</h2>
-          <div class="seo-copy-block__content">
-            <p>${escapeHtml(homepageSeoCopy.split("\n\n")[0])}</p>
-            <p>${escapeHtml(homepageSeoCopy.split("\n\n")[1])}</p>
-            <p>${escapeHtml(homepageSeoCopy.split("\n\n")[2])}</p>
-          </div>
-        </section>
-
-        <section class="home-cta" aria-label="Find more competitions">
-          <h2 class="home-cta__title">Browse more prizes before the best ones disappear</h2>
-          <div class="home-cta__actions">
-            <a class="btn btn--primary" href="#all-competitions">Browse Today&apos;s Competitions</a>
-            <a class="btn btn--secondary" href="/tag/ending-soon/">Ending Soon</a>
-            <a class="btn btn--secondary" href="${escapeAttribute(
-              WHATSAPP_CHANNEL_URL
-            )}" target="_blank" rel="noopener noreferrer">Follow on WhatsApp</a>
-          </div>
-        </section>
-        ${renderGlobalAuthPanel({
-          id: "home-bottom",
-          title: "Save alert preferences for next time",
-          text: "Sign in with Google or an email link to keep Freehub alert preferences with your account.",
-        })}
+        ${renderHomepageClubSection()}
+        ${renderHomepageGuidesSection()}
       </main>
 
       ${renderSiteFooter()}
@@ -5472,6 +5508,259 @@ function renderTrustPage(page) {
   </body>
 </html>
 `;
+}
+
+function writeContentPages(activeCompetitions) {
+  CONTENT_INDEX_PAGES.forEach((page) => {
+    const outputDirectory = path.join(ROOT_DIR, page.slug);
+    fs.mkdirSync(outputDirectory, { recursive: true });
+    fs.writeFileSync(path.join(outputDirectory, "index.html"), renderContentIndexPage(page));
+  });
+
+  const monthlyGuideDirectory = path.join(ROOT_DIR, MONTHLY_GUIDE_SLUG);
+  fs.mkdirSync(monthlyGuideDirectory, { recursive: true });
+  fs.writeFileSync(path.join(monthlyGuideDirectory, "index.html"), renderMonthlyGuidePage(activeCompetitions));
+}
+
+function getGuideCards() {
+  return [
+    {
+      title: "Best competitions to enter in South Africa this month",
+      href: `/${MONTHLY_GUIDE_SLUG}/`,
+      text: "A current, inventory-backed roundup of active listings worth opening first.",
+    },
+    {
+      title: "Win a car competitions in South Africa 2026",
+      href: "/win-a-car/",
+      text: "Vehicle prizes and car-focused promotions with official-source links.",
+    },
+    {
+      title: "Free entry competitions South Africa",
+      href: "/free-competitions/",
+      text: "No-purchase competitions where Freehub data does not show a required product purchase or paid ticket.",
+    },
+    {
+      title: "How to enter competitions safely",
+      href: "/how-to-enter-competitions-safely/",
+      text: "Safety checks for prize messages, official links, closing dates and personal information.",
+    },
+    {
+      title: "Purchase required competitions explained",
+      href: "/purchase-required-competitions-explained/",
+      text: "What to check before buying a product, keeping a receipt or using a loyalty-card route.",
+    },
+  ];
+}
+
+function renderContentIndexPage(page) {
+  const canonicalUrl = `${shared.CANONICAL_ORIGIN}/${page.slug}/`;
+  const guideCards = getGuideCards();
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: page.heading,
+    description: page.description,
+    url: canonicalUrl,
+  };
+
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${escapeHtml(page.title)} | Freehub</title>
+    <meta name="description" content="${escapeAttribute(page.description)}" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script id="structured-data-content-index" type="application/ld+json">${escapeScript(JSON.stringify(jsonLd))}</script>
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
+    ${renderGoogleTagManagerHead(`{ page_type: '${escapeScript(page.slug)}' }`)}
+    ${renderMetaPixelHead()}
+  </head>
+  <body>
+    ${renderGoogleTagManagerNoScript()}
+    ${renderMetaPixelNoScript()}
+    <div class="site-shell">
+      ${renderTopNavigation({ active: page.slug === "guides" ? "competitions" : "home" })}
+      ${renderModernHero({
+        className: "hero--standard hero--no-preview",
+        eyebrow: "Freehub guides",
+        heading: page.heading,
+        intro: page.intro,
+        actions: [
+          { label: "All Competitions", href: "/competitions/", className: "btn--primary" },
+          { label: "Ending Soon", href: "/competitions-ending-soon/", className: "btn--secondary" },
+        ],
+        trustItems: ["Official source links", "Cost labels", "Freehub is not the promoter"],
+      })}
+
+      <main id="main-content" class="main-content">
+        <section class="home-section home-section--guides" aria-label="Freehub guide collection">
+          <div class="guide-card-grid guide-card-grid--expanded">
+            ${guideCards.map(renderGuideCollectionCard).join("\n            ")}
+          </div>
+        </section>
+
+        ${renderGlobalAuthPanel({
+          id: `${page.slug}-alerts`,
+          title: "Get competition alerts",
+          text: "Sign in with Google or an email link to save Freehub alert preferences.",
+        })}
+      </main>
+
+      ${renderSiteFooter()}
+    </div>
+    <script src="/shared/page-data.js" defer></script>
+    <script type="module" src="/shared/auth-ui.js"></script>
+  </body>
+</html>
+`;
+}
+
+function renderGuideCollectionCard(guide) {
+  return `<a class="guide-card guide-card--expanded" href="${escapeAttribute(guide.href)}">
+              <span class="guide-card__title">${escapeHtml(guide.title)}</span>
+              <span class="guide-card__text">${escapeHtml(guide.text)}</span>
+            </a>`;
+}
+
+function renderMonthlyGuidePage(activeCompetitions) {
+  const canonicalUrl = `${shared.CANONICAL_ORIGIN}/${MONTHLY_GUIDE_SLUG}/`;
+  const featuredCompetitions = getMonthlyGuideCompetitions(activeCompetitions);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: "Best Competitions to Enter in South Africa This Month",
+    description: "A current Freehub roundup of active South African competitions with costs, entry methods and closing dates.",
+    datePublished: BUILD_DATE_ISO,
+    dateModified: BUILD_DATE_ISO,
+    author: { "@type": "Organization", name: "Freehub" },
+    publisher: { "@type": "Organization", name: "Freehub" },
+    mainEntityOfPage: canonicalUrl,
+  };
+
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Best Competitions to Enter in South Africa This Month | Freehub</title>
+    <meta name="description" content="Compare current South African competitions worth checking this month, with prize, cost, entry method and closing-date details from Freehub." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script id="structured-data-article" type="application/ld+json">${escapeScript(JSON.stringify(jsonLd))}</script>
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
+    ${renderGoogleTagManagerHead("{ page_type: 'monthly_guide' }")}
+    ${renderMetaPixelHead()}
+  </head>
+  <body>
+    ${renderGoogleTagManagerNoScript()}
+    ${renderMetaPixelNoScript()}
+    <div class="site-shell">
+      ${renderTopNavigation({ active: "competitions" })}
+      ${renderModernHero({
+        className: "hero--standard hero--with-preview",
+        eyebrow: "Monthly guide",
+        heading: "Best competitions to enter in South Africa this month",
+        intro: "A current roundup of active Freehub listings with visible costs, closing dates and official-source paths.",
+        updatedMarkup: renderUpdatedNotice(),
+        actions: [
+          { label: "All Competitions", href: "/competitions/", className: "btn--primary" },
+          { label: "Free Entry", href: "/free-competitions/", className: "btn--secondary" },
+          { label: "Ending Soon", href: "/competitions-ending-soon/", className: "btn--secondary" },
+        ],
+        trustItems: ["Active listings only", "Official source links", "Cost labels"],
+        previewMarkup: renderHeroPreviewPanel(featuredCompetitions.slice(0, 3), {
+          title: "This Month",
+          intro: "A quick look at current picks from the roundup.",
+          className: "hero-preview-panel--collection",
+        }),
+      })}
+
+      <main id="main-content" class="main-content">
+        <section class="seo-copy-block seo-copy-block--intro" aria-label="Monthly competition guide">
+          <h2 class="seo-copy-block__title">Current picks from Freehub inventory</h2>
+          <div class="seo-copy-block__content">
+            <p>This guide is generated from active public Freehub listings. It favours competitions with clear source links, cost labels, entry methods and closing dates.</p>
+            <p>Freehub does not run these competitions or collect entries. Open the detail page first, then confirm the latest rules on the official promoter source before entering.</p>
+          </div>
+        </section>
+
+        ${renderMonthlyGuideTable(featuredCompetitions)}
+
+        <section class="seo-copy-block" aria-label="Safety checklist">
+          <h2 class="seo-copy-block__title">Safety checklist</h2>
+          <div class="seo-copy-block__content">
+            <p>Check the official promoter page, closing date, entry cost, purchase requirement and winner-contact process before submitting personal details.</p>
+            <p>Be cautious with prize messages that ask for upfront fees, unofficial payment links or documents that are not explained in the promoter terms.</p>
+          </div>
+        </section>
+
+        ${renderHomepageGuidesSection()}
+        ${renderGlobalAuthPanel({
+          id: "monthly-guide-alerts",
+          title: "Get competition alerts",
+          text: "Sign in with Google or an email link to save Freehub alert preferences.",
+        })}
+      </main>
+
+      ${renderSiteFooter()}
+    </div>
+    <script src="/shared/page-data.js" defer></script>
+    <script type="module" src="/shared/auth-ui.js"></script>
+  </body>
+</html>
+`;
+}
+
+function getMonthlyGuideCompetitions(activeCompetitions) {
+  return activeCompetitions
+    .filter(hasHomepageReadyData)
+    .slice()
+    .sort(compareHomepageCandidateScore)
+    .slice(0, 12);
+}
+
+function renderMonthlyGuideTable(competitions) {
+  if (competitions.length === 0) {
+    return `<section class="state-card" aria-label="No current monthly picks">
+          <p class="state-card__title">No monthly picks are ready yet</p>
+          <p class="state-card__text">Browse all current competitions while Freehub refreshes this guide.</p>
+        </section>`;
+  }
+
+  return `<section class="guide-table-section" aria-label="Best competitions this month">
+          <div class="table-scroll">
+            <table class="guide-table">
+              <thead>
+                <tr>
+                  <th>Competition</th>
+                  <th>Brand</th>
+                  <th>Prize</th>
+                  <th>Cost</th>
+                  <th>Closes</th>
+                  <th>Entry method</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${competitions
+                  .map(
+                    (competition) => `<tr>
+                  <td><a href="${escapeAttribute(shared.getCompetitionPath(competition))}">${escapeHtml(competition.title)}</a></td>
+                  <td>${escapeHtml(competition.brand || "Official promoter")}</td>
+                  <td>${escapeHtml(competition.prizeName || shared.getPrizeCue(competition))}</td>
+                  <td>${escapeHtml(shared.getEntryCostLabel(competition))}</td>
+                  <td>${escapeHtml(shared.formatDate(competition.closingDate))}</td>
+                  <td>${escapeHtml(competition.entryChannel || competition.entryType || "Official source")}</td>
+                </tr>`
+                  )
+                  .join("\n                ")}
+              </tbody>
+            </table>
+          </div>
+        </section>`;
 }
 
 function renderClubLandingPage() {
@@ -7034,6 +7323,9 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   const heroImage = getCompetitionVisualUrl(competition);
   const ogImage = getMetadataImageUrl(competition);
   const expired = shared.isExpiredCompetition(competition);
+  const noindexActive = !expired && shared.getCompetitionVisibility(competition) === "noindex";
+  const adsAllowed = !expired && shared.competitionAllowsAds(competition);
+  const adScriptMarkup = adsAllowed ? ADSENSE_SCRIPT : "";
   const fallbackDescription = expired
     ? `This ${competition.brand || "brand"} competition has closed. View the archived prize and closing-date details, then browse current South African competitions on Freehub.`
     : shared.buildCompetitionDescription(competition);
@@ -7046,7 +7338,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   );
   const categoryPath = categorySlug ? `/category/${categorySlug}/` : "/";
   const heroTitle = expired ? `${competition.title} -- Competition Closed` : competition.title;
-  const robotsDirective = expired
+  const robotsDirective = expired || noindexActive
     ? "noindex, follow"
     : "index, follow, max-image-preview:large";
   const officialSourceUrl = getOfficialSourceUrl(competition);
@@ -7172,7 +7464,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
     <script id="structured-data-breadcrumb" type="application/ld+json">${escapeScript(JSON.stringify(breadcrumbData))}</script>
     ${faqStructuredDataScript}
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref(RELATIVE_ASSET_PATH))}" />
-    ${ADSENSE_SCRIPT}
+    ${adScriptMarkup}
     ${renderGoogleTagManagerHead(`{ page_type: 'competition', competition_slug: ${escapeScript(JSON.stringify(slug))}, competition_category: ${escapeScript(JSON.stringify(competition.category))} }`)}
     ${renderMetaPixelHead()}
   </head>
@@ -7220,7 +7512,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
           ussd: isTelecomOrMobileCompetition(competition),
         })}
 
-        ${renderAdZone("ad-top", "detail-top")}
+        ${adsAllowed ? renderAdZone("ad-top", "detail-top") : ""}
 
         <article class="competition-detail" aria-label="${escapeAttribute(competition.title)}">
           ${renderCompetitionDetailMedia(competition, heroImage, imageAltText)}
@@ -7285,11 +7577,11 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
           <p class="competition-detail__cta-note">You will leave Freehub and go to the official promoter page.</p>
         </section>` : ""}
 
-        ${renderAdZone("ad-middle", "detail-inside", true)}
+        ${adsAllowed ? renderAdZone("ad-middle", "detail-inside", true) : ""}
 
         ${relatedSection}
 
-        ${renderAdZone("ad-bottom", "after-related")}
+        ${adsAllowed ? renderAdZone("ad-bottom", "after-related") : ""}
 
         ${competition.brand ? `<section class="internal-links" aria-label="More from ${escapeAttribute(competition.brand)}">
           <p class="internal-links__title">More from ${escapeHtml(competition.brand)}</p>
@@ -7303,7 +7595,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
       ${renderSiteFooter()}
     </div>
 
-    <aside class="ad-sticky ad-sticky--reserved" id="ad-sticky" aria-hidden="true"></aside>
+    ${adsAllowed ? '<aside class="ad-sticky ad-sticky--reserved" id="ad-sticky" aria-hidden="true"></aside>' : ""}
 
     <script src="${RELATIVE_ASSET_PATH}shared/page-data.js" defer></script>
     <script src="${RELATIVE_ASSET_PATH}app.js" defer></script>
@@ -8111,6 +8403,22 @@ function runDataSafetyChecks(competitions) {
       warnings.push(`Published record is missing termsUrl: ${label}.`);
     }
 
+    if (competition.visibility && !["public", "noindex", "club_only"].includes(String(competition.visibility).trim().toLowerCase())) {
+      errors.push(`Invalid visibility value for ${label}: ${competition.visibility}.`);
+    }
+
+    if (competition.riskLevel && !["low", "medium", "high"].includes(String(competition.riskLevel).trim().toLowerCase())) {
+      errors.push(`Invalid riskLevel value for ${label}: ${competition.riskLevel}.`);
+    }
+
+    if (competition.adsAllowed !== undefined && typeof competition.adsAllowed !== "boolean") {
+      errors.push(`adsAllowed must be boolean when present: ${label}.`);
+    }
+
+    if (competition.requiresAgeGate !== undefined && typeof competition.requiresAgeGate !== "boolean") {
+      errors.push(`requiresAgeGate must be boolean when present: ${label}.`);
+    }
+
     if (competition.verificationStatus !== "published") {
       return;
     }
@@ -8269,6 +8577,12 @@ function generateSitemap(competitions, routeContexts, sitemapCompetitions = comp
       lastmod: getTrustPageLastmod(page),
     });
   });
+  const contentPageEntries = getContentSitemapEntries().map((entry) =>
+    renderSitemapUrl({
+      loc: `${origin}/${entry.slug}/`,
+      lastmod: BUILD_DATE_ISO,
+    })
+  );
   const clubEntries = [
     renderSitemapUrl({
       loc: `${origin}/club/`,
@@ -8299,9 +8613,13 @@ function generateSitemap(competitions, routeContexts, sitemapCompetitions = comp
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-${[...staticEntries, ...trustPageEntries, ...clubEntries, ...referAndWinEntries, ...competitionEntries].join("\n")}
+${[...staticEntries, ...trustPageEntries, ...contentPageEntries, ...clubEntries, ...referAndWinEntries, ...competitionEntries].join("\n")}
 </urlset>
 `;
+}
+
+function getContentSitemapEntries() {
+  return [...CONTENT_INDEX_PAGES, { slug: MONTHLY_GUIDE_SLUG }];
 }
 
 function renderSitemapUrl({ loc, lastmod, images = [] }) {
@@ -8625,6 +8943,7 @@ function runStaticSeoChecks(routeContexts = []) {
       .map((routeContext) => path.join(ROOT_DIR, routeContext.path.replace(/^\//, "").replace(/\/$/, ""), "index.html")),
     ...getNestedIndexFiles(path.join(ROOT_DIR, "competition")),
     ...getPublicTrustPageDefinitions().map((page) => path.join(ROOT_DIR, page.slug, "index.html")),
+    ...getContentIndexFiles(),
   ];
 
   htmlFiles.forEach((filePath) => {
@@ -8740,6 +9059,7 @@ function runCrawlerVisibleTextChecks(routeContexts = []) {
       .map((routeContext) => path.join(ROOT_DIR, routeContext.path.replace(/^\//, "").replace(/\/$/, ""), "index.html")),
     ...getNestedIndexFiles(path.join(ROOT_DIR, "competition")),
     ...getPublicTrustPageDefinitions().map((page) => path.join(ROOT_DIR, page.slug, "index.html")),
+    ...getContentIndexFiles(),
   ].filter((filePath) => fs.existsSync(filePath));
 
   htmlFiles.forEach((filePath) => {
@@ -8756,9 +9076,17 @@ function runCrawlerVisibleTextChecks(routeContexts = []) {
   }
 }
 
-function runLifecycleStaticChecks(allCompetitions, activeCompetitions, expiredArchiveCompetitions, expiredLowValueCompetitions, routeContexts = []) {
+function runLifecycleStaticChecks(
+  allCompetitions,
+  activeCompetitions,
+  noindexActiveCompetitions,
+  expiredArchiveCompetitions,
+  expiredLowValueCompetitions,
+  routeContexts = []
+) {
   const errors = [];
   const activeSlugs = new Set(activeCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
+  const noindexActiveSlugs = new Set(noindexActiveCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
   const expiredCompetitions = [...expiredArchiveCompetitions, ...expiredLowValueCompetitions];
   const expiredSlugs = new Set(expiredCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
   const sitemap = fs.readFileSync(path.join(ROOT_DIR, "sitemap.xml"), "utf8");
@@ -8779,6 +9107,28 @@ function runLifecycleStaticChecks(allCompetitions, activeCompetitions, expiredAr
     const html = fs.readFileSync(detailPath, "utf8");
     if (!html.includes('name="robots" content="index, follow, max-image-preview:large"')) {
       errors.push(`Active published competition missing index robots directive: ${slug}`);
+    }
+  });
+
+  noindexActiveCompetitions.forEach((competition) => {
+    const slug = shared.getCompetitionSlug(competition);
+    const detailPath = path.join(ROOT_DIR, "competition", slug, "index.html");
+
+    if (sitemap.includes(`/competition/${slug}/`)) {
+      errors.push(`Noindex competition page is included in sitemap: ${slug}`);
+    }
+
+    if (!fs.existsSync(detailPath)) {
+      errors.push(`Noindex active competition detail page missing: ${slug}`);
+      return;
+    }
+
+    const html = fs.readFileSync(detailPath, "utf8");
+    if (!html.includes('name="robots" content="noindex, follow"')) {
+      errors.push(`Noindex active competition missing noindex robots directive: ${slug}`);
+    }
+    if (html.includes("pagead2.googlesyndication.com") || html.includes("ad-slot")) {
+      errors.push(`Noindex active competition includes ad markup: ${slug}`);
     }
   });
 
@@ -8834,6 +9184,24 @@ function runLifecycleStaticChecks(allCompetitions, activeCompetitions, expiredAr
       .map((routeContext) => path.join(ROOT_DIR, routeContext.path.replace(/^\//, "").replace(/\/$/, ""), "index.html")),
   ].filter((filePath) => fs.existsSync(filePath));
 
+  const homepagePath = path.join(ROOT_DIR, "index.html");
+  if (fs.existsSync(homepagePath)) {
+    const homepageHtml = fs.readFileSync(homepagePath, "utf8");
+    const topPickCardCount = (homepageHtml.match(/class="top-pick-card"/g) || []).length;
+    const topPickSlugs = [...homepageHtml.matchAll(/<article class="top-pick-card"[\s\S]*?href="\/competition\/([^/]+)\//g)].map(
+      (match) => match[1]
+    );
+    const duplicateTopPickSlugs = topPickSlugs.filter((slug, index) => topPickSlugs.indexOf(slug) !== index);
+
+    if (topPickCardCount > 3) {
+      errors.push(`Homepage has more than 3 top-pick cards: ${topPickCardCount}`);
+    }
+
+    if (duplicateTopPickSlugs.length > 0) {
+      errors.push(`Homepage top picks contain duplicate competitions: ${Array.from(new Set(duplicateTopPickSlugs)).join(", ")}`);
+    }
+  }
+
   collectionFiles.forEach((filePath) => {
     const html = fs.readFileSync(filePath, "utf8");
     expiredSlugs.forEach((slug) => {
@@ -8841,11 +9209,23 @@ function runLifecycleStaticChecks(allCompetitions, activeCompetitions, expiredAr
         errors.push(`Expired competition leaks into active listing page ${filePath}: ${slug}`);
       }
     });
+    noindexActiveSlugs.forEach((slug) => {
+      if (html.includes(`/competition/${slug}/`)) {
+        errors.push(`Noindex competition leaks into public listing page ${filePath}: ${slug}`);
+      }
+    });
   });
 
   allCompetitions
     .filter((competition) => !activeSlugs.has(shared.getCompetitionSlug(competition)))
-    .filter((competition) => competition.verificationStatus !== "published" || competition.doNotPublish === true || competition.publicationStatus === "held")
+    .filter((competition) => !noindexActiveSlugs.has(shared.getCompetitionSlug(competition)))
+    .filter(
+      (competition) =>
+        competition.verificationStatus !== "published" ||
+        competition.doNotPublish === true ||
+        competition.publicationStatus === "held" ||
+        shared.isClubOnlyCompetition(competition)
+    )
     .forEach((competition) => {
       const slug = shared.getCompetitionSlug(competition);
       const detailPath = path.join(ROOT_DIR, "competition", slug, "index.html");
@@ -8868,6 +9248,7 @@ function runGlobalCtaChecks(routeContexts = []) {
       .filter((routeContext) => routeContext.type !== "home")
       .map((routeContext) => path.join(ROOT_DIR, routeContext.path.replace(/^\//, "").replace(/\/$/, ""), "index.html")),
     ...getPublicTrustPageDefinitions().map((page) => path.join(ROOT_DIR, page.slug, "index.html")),
+    ...getContentIndexFiles(),
     ...getNestedIndexFiles(path.join(ROOT_DIR, "competition")),
   ].filter((filePath, index, files) => fs.existsSync(filePath) && files.indexOf(filePath) === index);
 
@@ -8900,6 +9281,7 @@ function runImageQualityChecks(routeContexts = []) {
       .filter((routeContext) => routeContext.type !== "home")
       .map((routeContext) => path.join(ROOT_DIR, routeContext.path.replace(/^\//, "").replace(/\/$/, ""), "index.html")),
     ...getNestedIndexFiles(path.join(ROOT_DIR, "competition")),
+    ...getContentIndexFiles(),
   ];
 
   const dataUriImageRegex = /<img[^>]+src="data:image\/svg\+xml/i;
@@ -8932,6 +9314,10 @@ function getNestedIndexFiles(directory) {
     .filter((entry) => entry.isDirectory())
     .map((entry) => path.join(directory, entry.name, "index.html"))
     .filter((filePath) => fs.existsSync(filePath));
+}
+
+function getContentIndexFiles() {
+  return getContentSitemapEntries().map((entry) => path.join(ROOT_DIR, entry.slug, "index.html"));
 }
 
 function normalizeStaticPath(pathname) {

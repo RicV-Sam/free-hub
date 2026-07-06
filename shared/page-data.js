@@ -1049,18 +1049,119 @@
     );
   }
 
+  function getCompetitionVisibility(competition) {
+    const explicitVisibility = String((competition && competition.visibility) || "").trim().toLowerCase();
+
+    if (["public", "noindex", "club_only"].includes(explicitVisibility)) {
+      return explicitVisibility;
+    }
+
+    if (isGreyAreaCompetition(competition)) {
+      return "noindex";
+    }
+
+    return "public";
+  }
+
+  function getCompetitionRiskLevel(competition) {
+    const explicitRiskLevel = String((competition && competition.riskLevel) || "").trim().toLowerCase();
+
+    if (["low", "medium", "high"].includes(explicitRiskLevel)) {
+      return explicitRiskLevel;
+    }
+
+    return isGreyAreaCompetition(competition) ? "medium" : "low";
+  }
+
+  function competitionRequiresAgeGate(competition) {
+    if (typeof (competition && competition.requiresAgeGate) === "boolean") {
+      return competition.requiresAgeGate;
+    }
+
+    return getCompetitionRiskLevel(competition) === "high";
+  }
+
+  function competitionAllowsAds(competition) {
+    if (competition && competition.adsAllowed === false) {
+      return false;
+    }
+
+    if (getCompetitionVisibility(competition) !== "public") {
+      return false;
+    }
+
+    return getCompetitionRiskLevel(competition) === "low";
+  }
+
+  function isGreyAreaCompetition(competition) {
+    if (!competition) {
+      return false;
+    }
+
+    const tags = Array.isArray(competition.tags) ? competition.tags : [];
+    const entryCostType = normalizeEntryCostType(competition.entryCostType);
+    const searchableText = [
+      competition.title,
+      competition.summary,
+      competition.entryType,
+      competition.entryChannel,
+      competition.entryFeeLabel,
+      competition.requiredProduct,
+      tags.join(" "),
+    ]
+      .join(" ")
+      .toLowerCase();
+
+    return (
+      entryCostType === "paid-entry" ||
+      Number(competition.entryFeeAmount) > 0 ||
+      tags.includes("paid-entry") ||
+      tags.includes("raffle") ||
+      tags.includes("premium-sms") ||
+      tags.includes("subscription") ||
+      tags.includes("alcohol") ||
+      tags.includes("finance") ||
+      /\b(raffle|paid ticket|ticket purchase|premium sms|subscription|subscribe & win|alcohol|beer|wine|spirits|finance|loan|account-opening)\b/.test(
+        searchableText
+      )
+    );
+  }
+
+  function isPublicCompetition(competition) {
+    return isPublishedCompetition(competition) && getCompetitionVisibility(competition) === "public";
+  }
+
   function getPublishedCompetitions(competitions) {
-    return competitions.filter(isPublishedCompetition);
+    return competitions.filter(isPublicCompetition);
   }
 
   function isActiveCompetition(competition) {
     const daysUntilClosing = getDaysUntilClosing(competition && competition.closingDate);
 
-    return isPublishedCompetition(competition) && Number.isFinite(daysUntilClosing) && daysUntilClosing >= 0;
+    return isPublicCompetition(competition) && Number.isFinite(daysUntilClosing) && daysUntilClosing >= 0;
   }
 
   function getPublishedActiveCompetitions(competitions) {
     return competitions.filter(isActiveCompetition);
+  }
+
+  function isNoindexActiveCompetition(competition) {
+    const daysUntilClosing = getDaysUntilClosing(competition && competition.closingDate);
+
+    return (
+      isPublishedCompetition(competition) &&
+      getCompetitionVisibility(competition) === "noindex" &&
+      Number.isFinite(daysUntilClosing) &&
+      daysUntilClosing >= 0
+    );
+  }
+
+  function getNoindexActiveCompetitions(competitions) {
+    return competitions.filter(isNoindexActiveCompetition);
+  }
+
+  function isClubOnlyCompetition(competition) {
+    return isPublishedCompetition(competition) && getCompetitionVisibility(competition) === "club_only";
   }
 
   function isExpiredCompetition(competition) {
@@ -1658,10 +1759,19 @@
     isRecentlyCheckedCompetition,
     formatRandAmount,
     getCardTagLabels,
+    getCompetitionVisibility,
+    getCompetitionRiskLevel,
+    competitionRequiresAgeGate,
+    competitionAllowsAds,
+    isGreyAreaCompetition,
     isPublishedCompetition,
+    isPublicCompetition,
     getPublishedCompetitions,
     isActiveCompetition,
     getPublishedActiveCompetitions,
+    isNoindexActiveCompetition,
+    getNoindexActiveCompetitions,
+    isClubOnlyCompetition,
     isExpiredCompetition,
     hasVerifiedArchiveSource,
     isExpiredArchiveEligibleCompetition,
