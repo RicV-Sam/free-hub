@@ -7378,7 +7378,6 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   const beforeYouEnterMarkup = expired ? "" : renderBeforeYouEnterBlock(competition);
   const brandPrizeContextMarkup = expired ? "" : renderBrandPrizeContextSection(competition);
   const entryCostEligibilityMarkup = expired ? "" : renderEntryCostEligibilityNotes(competition);
-  const promoKitMarkup = expired ? "" : renderCompetitionPromoKit(competition);
   const sourceBlockMarkup = renderCompetitionSourceBlock(competition, officialSource, officialSourceUrl, lastChecked, expired);
   const faqItems = buildCompetitionFaqItems(competition, officialSource, ctaLabel, expired);
   const faqMarkup = renderCompetitionFaq(faqItems);
@@ -7533,7 +7532,6 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
             </div>
             ${brandPrizeContextMarkup}
             ${entryCostEligibilityMarkup}
-            ${promoKitMarkup}
             ${tagsMarkup}
             ${entryStepsMarkup}
             ${beforeYouEnterMarkup}
@@ -7822,49 +7820,6 @@ function renderBrandPrizeContextSection(competition) {
                   ${seoItems.map((item) => `<li>${escapeHtml(item)}</li>`).join("\n                  ")}
                 </ul>
               </div>` : ""}
-            </section>`;
-}
-
-function renderCompetitionPromoKit(competition) {
-  const promoKit = competition && typeof competition.promoKit === "object" ? competition.promoKit : null;
-  if (!promoKit) {
-    return "";
-  }
-
-  const items = [
-    promoKit.websiteUrl
-      ? { title: "Website", body: escapeHtml(String(promoKit.websiteUrl).trim()), plain: true }
-      : null,
-    promoKit.geminiVideoPrompt
-      ? { title: "10 sec Gemini video prompt", body: escapeHtml(String(promoKit.geminiVideoPrompt).trim()) }
-      : null,
-    promoKit.facebookPost
-      ? { title: "Facebook post", body: escapeHtml(String(promoKit.facebookPost).trim()) }
-      : null,
-    promoKit.tiktokPost
-      ? { title: "TikTok post", body: escapeHtml(String(promoKit.tiktokPost).trim()) }
-      : null,
-    promoKit.chatgptImagePrompt
-      ? { title: "ChatGPT image prompt", body: escapeHtml(String(promoKit.chatgptImagePrompt).trim()) }
-      : null,
-  ].filter(Boolean);
-
-  if (items.length === 0) {
-    return "";
-  }
-
-  return `<section class="detail-promo-kit" aria-label="Promo kit">
-              <p class="detail-section-title">Promo kit</p>
-              <div class="detail-promo-kit__grid">
-                ${items
-                  .map(
-                    (item) => `<article class="detail-promo-kit__card">
-                      <p class="detail-promo-kit__title">${escapeHtml(item.title)}</p>
-                      <div class="detail-promo-kit__body${item.plain ? " detail-promo-kit__body--plain" : ""}">${item.body}</div>
-                    </article>`
-                  )
-                  .join("\n                ")}
-              </div>
             </section>`;
 }
 
