@@ -313,25 +313,191 @@ const TRUST_PAGE_DEFINITIONS = [
     slug: "how-to-enter-competitions-safely",
     title: "How to Enter Competitions Safely in South Africa",
     description:
-      "Safety guidance for entering South African competitions, checking official sources, reading terms and avoiding suspicious requests.",
+      "A practical South African competition safety checklist covering official terms, closing dates, entry costs, till slips, WhatsApp entries and fake winner messages.",
     heading: "How to Enter Competitions Safely",
     intro:
-      "Competitions can be useful and fun, but it is worth checking the basics before sharing information or spending money.",
+      "Most competition problems start before the entry is submitted: a missed closing time, a wrong product, a fake WhatsApp number or a winner message that asks for money. Use this page as a quick pre-entry check.",
+    article: true,
+    datePublished: "2026-05-10",
+    dateModified: "2026-07-07",
     sections: [
       {
-        heading: "Before you enter",
+        heading: "Do the 60-second source check",
         paragraphs: [
-          "Check that the entry link goes to the official promoter or a trusted campaign partner. Read the terms, closing date, eligibility rules and entry costs.",
-          "If a purchase, till slip, rewards card, SMS, USSD session or paid ticket is required, make sure you understand the cost before entering.",
+          "Before you enter, open the promoter's own page, app, verified social post, terms PDF or named campaign partner page. You should be able to see who runs the competition, what the prize is, how entries work and when it closes.",
+          "Freehub is useful for comparing listings, but it is not the entry form and it is not the promoter. If the official source says something different from a summary, treat the official source as the final word.",
         ],
       },
       {
-        heading: "Red flags",
+        heading: "Check the cost before you act",
         paragraphs: [
-          "Be careful with messages that ask for banking passwords, card PINs, upfront release fees, remote access apps or unnecessary identity documents.",
-          "If a winner message looks suspicious, contact the promoter through the official website or verified social channel rather than replying directly.",
+          "Look for the closing date and, where available, the closing time. Some campaigns close at 23:59, some close during business hours, and some draw from purchases made only inside a specific campaign period.",
+          "Then check the entry cost. Free entry is different from purchase required. Purchase required is different from paid entry. USSD, SMS, app sign-in, data, a loyalty card or a receipt upload can all change what the user needs to do.",
         ],
       },
+      {
+        heading: "Keep proof until the prize is settled",
+        paragraphs: [
+          "For purchase-required competitions, keep the original till slip, online invoice, product code, app receipt or loyalty-card record. A photo is useful, but some promoters still ask for the original proof.",
+          "For WhatsApp, SMS, USSD and form entries, keep confirmation messages or screenshots if the official terms say proof may be needed. Do not throw away packaging or till slips the same day you enter.",
+        ],
+      },
+      {
+        heading: "Share less, verify more",
+        paragraphs: [
+          "An entry form may need a name, contact details, province or proof of purchase. It should not need your banking password, card PIN, one-time PIN, remote-access app code or a photo of unnecessary documents just to enter.",
+          "Read consent wording before ticking boxes. If a link came from a comment thread, unknown WhatsApp forward or private message, match it back to the official promoter before typing in personal information.",
+        ],
+      },
+      {
+        heading: "Treat surprise winner messages carefully",
+        paragraphs: [
+          "A fake winner message can use a real brand name and logo. Warning signs include a prize you never entered for, pressure to reply now, requests for release fees, courier fees, banking details, card PINs or one-time PINs.",
+          "If you are unsure, do not argue with the message. Check the competition terms for the winner-contact method, then contact the promoter through its official website, app or verified social profile.",
+        ],
+      },
+    ],
+    checklistTitle: "Before you enter",
+    checklist: [
+      "Open the official promoter page, app, verified post or terms PDF.",
+      "Check the closing date, closing time, eligibility rules and entry method.",
+      "Confirm whether entry is free, purchase required, USSD/SMS linked or paid entry.",
+      "Keep till slips, product codes, invoices and entry confirmations where required.",
+      "Use only official WhatsApp numbers, USSD codes, forms, apps and payment routes.",
+    ],
+    avoidTitle: "Stop if you see",
+    avoid: [
+      "A page or message asks for banking passwords, card PINs or one-time PINs.",
+      "A winner message demands release, admin, courier or verification fees.",
+      "The WhatsApp number, USSD code or form link cannot be matched to the official promoter.",
+      "You are being rushed to pay, send documents or click a link before checking the source.",
+    ],
+    faq: [
+      {
+        question: "Is Freehub the promoter of the competitions it lists?",
+        answer:
+          "No. Freehub is a competition discovery site. Entries, winner selection, prize fulfilment and final terms belong to the official promoter.",
+      },
+      {
+        question: "Should I check the official page if Freehub has already summarised the listing?",
+        answer:
+          "Yes. Freehub helps users compare competitions, but the promoter's current official page and terms are the source of truth before entering.",
+      },
+      {
+        question: "What proof should I keep after entering?",
+        answer:
+          "Keep the till slip, invoice, product code, entry confirmation or screenshot named in the official terms until the promoter has finished winner checks.",
+      },
+      {
+        question: "What should I do if a competition message feels suspicious?",
+        answer:
+          "Do not share sensitive details or pay fees. Check the official terms and contact the promoter through its official website, app or verified social profile.",
+      },
+    ],
+    links: [
+      { label: "How to spot a scam competition", href: "/how-to-spot-a-scam-competition/" },
+      { label: "Purchase required guide", href: "/purchase-required-competitions-explained/" },
+      { label: "Paid entry guide", href: "/paid-entry-competitions-explained/" },
+      { label: "Free competitions", href: "/free-competitions/" },
+      { label: "All current competitions", href: "/competitions/" },
+    ],
+  },
+  {
+    slug: "how-to-spot-a-scam-competition",
+    title: "How to Spot a Scam Competition in South Africa | Freehub",
+    description:
+      "Learn how to check if a South African competition is legitimate, including official-source checks, fake winner messages, payment red flags and safe entry tips.",
+    heading: "How to Spot a Scam Competition",
+    intro:
+      "A scam competition often looks familiar at first glance: a known brand name, a logo, a prize image and a link that feels urgent. The safer move is to slow down and match the claim to an official source.",
+    article: true,
+    datePublished: "2026-07-07",
+    dateModified: "2026-07-07",
+    sections: [
+      {
+        heading: "Ask: where did this competition come from?",
+        paragraphs: [
+          "A trustworthy competition should make the promoter easy to identify. Look for the campaign on the brand's official website, app, verified social page, product packaging, receipt, terms PDF or named agency/campaign partner page.",
+          "If the only source is a screenshot, comment reply, forwarded WhatsApp message or newly created Facebook page, do not treat it as verified yet. Search for the promoter's official page and compare the link, dates and entry instructions.",
+        ],
+      },
+      {
+        heading: "Check WhatsApp and Facebook details",
+        paragraphs: [
+          "For WhatsApp competitions, the number or click-to-chat link should appear in the promoter's own terms, post, website, pack or receipt. A number pasted into comments is not enough on its own.",
+          "For Facebook competitions, inspect the page: when it was created, whether it has normal brand posts, whether it links to the official website, and whether the terms exist outside a private message. Fake pages often push users into inbox conversations quickly.",
+        ],
+      },
+      {
+        heading: "Read winner messages like a detective",
+        paragraphs: [
+          "Check whether you actually entered, whether the message came through the contact method named in the terms, and whether the sender can prove they represent the promoter without asking for unsafe information.",
+          "Scam prize claims often ask for a release fee, courier fee, 'SARS clearance', verification payment, banking password, card PIN, one-time PIN or remote-access app. A real prize process should not need those from you.",
+        ],
+      },
+      {
+        heading: "Separate entry fees from prize-claim fees",
+        paragraphs: [
+          "Some competitions are labelled paid entry because the official entry route itself appears to require a ticket or fee. That is different from a message that says you already won but must now pay to release the prize.",
+          "Freehub does not process competition payments, sell entries or collect winner fees. If any payment is involved, it should be visible in the official terms before entry, not introduced later by a private message.",
+        ],
+      },
+      {
+        heading: "When something feels off",
+        paragraphs: [
+          "Pause before clicking again. Keep screenshots, copy the URL, and check the official promoter channel separately. Do not use the contact details supplied in the suspicious message as your only verification route.",
+          "If you already shared information, stop the conversation, avoid sending money, contact your bank or mobile provider where relevant, and report the fake page or message through the platform and the real brand's support channel.",
+        ],
+      },
+    ],
+    checklistTitle: "Scam red flags checklist",
+    checklist: [
+      "The promoter is hidden, misspelled or only available through a private inbox.",
+      "The link comes from a copied comment, unknown WhatsApp message or lookalike Facebook page.",
+      "The page has no closing date, terms, entry rules or official website link.",
+      "A winner message asks for passwords, card PINs, one-time PINs, remote access or release fees.",
+      "The message pressures you to pay or send documents before you can verify the source.",
+    ],
+    avoidTitle: "Safer checks",
+    avoid: [
+      "Type the brand's website address yourself or use its verified social profile.",
+      "Match the WhatsApp number, USSD code, form link or payment route to official terms.",
+      "Check the closing date, draw date and winner-contact method.",
+      "Report suspicious Freehub listings through the report page so they can be reviewed.",
+    ],
+    faq: [
+      {
+        question: "How do I know if a competition is legitimate?",
+        answer:
+          "Look for a clear promoter, official source, closing date, entry method, prize details and terms. If those basics are missing, verify the promotion before entering.",
+      },
+      {
+        question: "Can a fake competition use a real brand logo?",
+        answer:
+          "Yes. Scammers can copy logos, images and names from real brands. Check the official website, app or verified social page rather than trusting the image alone.",
+      },
+      {
+        question: "Should I pay a fee to claim a competition prize?",
+        answer:
+          "Be very careful. Requests for release, admin, courier or verification fees are common scam warning signs. Verify directly with the official promoter before paying anything.",
+      },
+      {
+        question: "Is a verified badge on social media enough?",
+        answer:
+          "It helps, but still check the competition terms and official website link. Fake pages can copy real content, and real-looking posts can be shared out of context.",
+      },
+      {
+        question: "What should I do if I receive a suspicious winner message?",
+        answer:
+          "Do not send sensitive information or payment. Check the competition terms and contact the promoter through its official website, app or verified social profile.",
+      },
+    ],
+    links: [
+      { label: "Legit competitions guide", href: "/legit-competitions-south-africa/" },
+      { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
+      { label: "Purchase required guide", href: "/purchase-required-competitions-explained/" },
+      { label: "Paid entry guide", href: "/paid-entry-competitions-explained/" },
+      { label: "All current competitions", href: "/competitions/" },
     ],
   },
   {
@@ -606,43 +772,173 @@ const TRUST_PAGE_DEFINITIONS = [
   },
   {
     slug: "purchase-required-competitions-explained",
-    title: "Purchase Required Competitions Explained | Freehub",
+    title: "Purchase Required Competitions Explained | South Africa | Freehub",
     description:
-      "Learn what purchase required competitions mean in South Africa, including qualifying products, minimum spend, loyalty cards and proof of purchase.",
+      "Understand purchase-required competitions in South Africa, including qualifying products, till slips, loyalty cards, receipt uploads and official terms checks.",
     heading: "Purchase Required Competitions Explained",
     intro:
-      "Purchase required competitions are not the same as free-entry giveaways, because you need to complete a qualifying purchase or store action first.",
+      "A purchase-required competition can be legitimate and still cost you money. The key question is simple: would you buy the product anyway if there were no prize?",
     article: true,
     datePublished: "2026-05-10",
-    dateModified: "2026-05-10",
+    dateModified: "2026-07-07",
     sections: [
       {
-        heading: "What purchase required means",
+        heading: "What the label really means",
         paragraphs: [
-          "A purchase required competition may ask you to buy a specific product, spend a minimum amount, swipe a loyalty card, recharge, scan a code or keep a receipt.",
-          "The purchase must usually happen inside the campaign period and through a participating store, website, app or merchant.",
+          "Purchase required means the route to entry starts with a shopping action. It might be a specific product, a minimum basket spend, a recharge, a loyalty-card swipe, an app opt-in, a QR scan or a receipt upload.",
+          "There may be no separate ticket fee, but the purchase is still a cost. Freehub labels these separately so they do not get mixed into no-purchase or free-entry pages.",
         ],
       },
       {
-        heading: "What to check first",
+        heading: "Check the product before you buy",
         paragraphs: [
-          "Check the official terms for qualifying products, excluded stores, minimum spend, receipt rules, entry limits and closing date.",
-          "If the listing also uses WhatsApp, USSD, SMS or an app, check whether data or network rates may apply.",
+          "The small details matter: product name, pack size, flavour, barcode, sticker, participating store, online-only wording, minimum spend, purchase dates and excluded products.",
+          "Do the check before you pay. Buying the wrong size, missing the campaign dates or forgetting to swipe a required loyalty card can make an entry invalid even if the prize advert looked clear.",
         ],
       },
       {
-        heading: "Freehub's cost labels",
+        heading: "Receipts are part of the entry",
         paragraphs: [
-          "Freehub labels purchase required competitions separately so users can see the likely cost before opening the promoter page.",
-          "The promoter's current terms remain the source of truth, so always confirm the latest rules before buying anything to enter.",
+          "For many retail competitions, the till slip is not paperwork; it is proof that the entry qualifies. Keep the original until the promoter finishes winner checks, even if you upload a photo.",
+          "If entry happens after purchase through WhatsApp, SMS, USSD, a website form, an app or a QR code, use only the number or link in the official terms. Check whether data, SMS or USSD charges apply.",
         ],
+      },
+      {
+        heading: "How Freehub handles these listings",
+        paragraphs: [
+          "Freehub uses purchase-required labels, cost notes and requirement summaries to help users compare competitions before opening the official page.",
+          "Those labels are a browsing aid. The official terms still decide whether your product, receipt, purchase date, store and entry method qualify.",
+        ],
+      },
+    ],
+    checklistTitle: "Before buying to enter",
+    checklist: [
+      "Confirm the exact product, pack size, barcode, sticker or minimum spend.",
+      "Check whether a loyalty card, app opt-in, payment method or receipt upload is required.",
+      "Keep the original till slip, invoice, app receipt, product code or packaging.",
+      "Make sure the purchase date falls inside the campaign period.",
+      "Use only the official WhatsApp number, USSD code, SMS line, app or upload form.",
+    ],
+    avoidTitle: "What to avoid",
+    avoid: [
+      "Buying a product only because of the prize before checking the terms.",
+      "Assuming a similar product, size or flavour will qualify.",
+      "Throwing away proof of purchase before winners are verified.",
+      "Uploading receipts through unofficial links, copied forms or comment-thread instructions.",
+    ],
+    faq: [
+      {
+        question: "Is a purchase-required competition free to enter?",
+        answer:
+          "No. There may be no separate ticket fee, but you still need a qualifying purchase or shopping action before entry.",
+      },
+      {
+        question: "Why should I keep my till slip?",
+        answer:
+          "Promoters often use receipts, invoices or app records to confirm that the winner made the qualifying purchase during the campaign period.",
+      },
+      {
+        question: "Can I enter if I bought the wrong product?",
+        answer:
+          "Usually not. Check the official terms for exact qualifying products, pack sizes, stores and purchase dates before entering.",
+      },
+      {
+        question: "Is a loyalty-card competition purchase required?",
+        answer:
+          "Often yes if you must buy something and swipe or link a loyalty card for the entry to count. Check whether opt-in is required before payment.",
       },
     ],
     links: [
       { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
-      { label: "Till slip competitions", href: "/till-slip-competitions-south-africa/" },
-      { label: "Entry cost labels", href: "/competition-entry-cost-labels/" },
-      { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
+      { label: "Free competitions", href: "/free-competitions/" },
+      { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
+      { label: "How to spot a scam competition", href: "/how-to-spot-a-scam-competition/" },
+    ],
+  },
+  {
+    slug: "paid-entry-competitions-explained",
+    title: "Paid Entry Competitions Explained | South Africa | Freehub",
+    description:
+      "Understand how paid-entry competitions work in South Africa, what to check before paying, and how they differ from free-entry and purchase-required competitions.",
+    heading: "Paid Entry Competitions Explained",
+    intro:
+      "Paid-entry competitions need extra caution because the cost is part of the entry itself. This guide is here to help users recognise the category, not to encourage payment.",
+    article: true,
+    datePublished: "2026-07-07",
+    dateModified: "2026-07-07",
+    sections: [
+      {
+        heading: "Know which type of cost you are seeing",
+        paragraphs: [
+          "Free entry means no required purchase or paid ticket, although normal data or account requirements may still apply. Purchase required means a qualifying shopping action comes first.",
+          "Paid entry means the entry route itself appears to require a fee, ticket or similar paid participation. Freehub labels this clearly so users do not confuse it with a free draw.",
+        ],
+      },
+      {
+        heading: "Check before paying anything",
+        paragraphs: [
+          "Before paying, identify the promoter, entry price, payment destination, closing date, draw date, winner-selection method, refund wording and contact details.",
+          "Use only official promoter pages or official ticketing/payment routes. Do not pay from a private message, copied banking details or a comment-thread instruction that cannot be matched to the terms.",
+        ],
+      },
+      {
+        heading: "Do not confuse paid entry with prize-claim fees",
+        paragraphs: [
+          "A paid-entry cost should be visible before you enter. A later message claiming you won and must now pay a release, courier, admin or verification fee is a different thing and should be treated as a red flag.",
+          "If a prize claim asks for payment after the fact, stop and verify through the promoter's official support channel. Do not use only the phone number or link supplied in the message.",
+        ],
+      },
+      {
+        heading: "When to walk away",
+        paragraphs: [
+          "Walk away if the promoter is unclear, the terms are missing, the payment destination does not match the official source, or the page uses pressure instead of clear rules.",
+          "If you prefer not to pay, use Freehub's free-entry hub. It is better to skip a doubtful paid entry than to chase a prize through a payment route you cannot verify.",
+        ],
+      },
+    ],
+    checklistTitle: "Before paying to enter",
+    checklist: [
+      "Identify the promoter, entry price, payment destination and official terms.",
+      "Check the closing date, draw date, entry limits and eligibility rules.",
+      "Use only the official promoter or official ticketing/payment route.",
+      "Look for refund, cancellation or substitution wording before paying.",
+      "Compare free-entry alternatives before deciding whether payment is worth it.",
+    ],
+    avoidTitle: "Do not pay if",
+    avoid: [
+      "The promoter, terms, payment destination or draw date is missing.",
+      "The payment route appears only in a private message or copied comment.",
+      "A winner message asks for release, courier, admin or verification fees.",
+      "You feel rushed to pay before you can verify the competition.",
+    ],
+    faq: [
+      {
+        question: "Does Freehub recommend paid-entry competitions?",
+        answer:
+          "No. Freehub labels paid-entry competitions so users can identify the cost and check the official terms carefully before deciding what to do.",
+      },
+      {
+        question: "What is the difference between paid entry and purchase required?",
+        answer:
+          "Purchase required means a qualifying shopping action is needed. Paid entry means the entry itself appears to require a fee, ticket or similar paid participation route.",
+      },
+      {
+        question: "What should I check before paying for an entry?",
+        answer:
+          "Check the official promoter, terms, entry price, payment destination, closing date, draw date, eligibility rules and winner contact process.",
+      },
+      {
+        question: "Are free-entry competitions safer than paid-entry competitions?",
+        answer:
+          "They usually carry less direct financial risk because you are not paying to enter, but you should still check the official source, privacy wording and winner-contact rules.",
+      },
+    ],
+    links: [
+      { label: "Paid entry competitions", href: "/paid-entry-competitions/" },
+      { label: "Free competitions", href: "/free-competitions/" },
+      { label: "Purchase required guide", href: "/purchase-required-competitions-explained/" },
+      { label: "How to spot a scam competition", href: "/how-to-spot-a-scam-competition/" },
+      { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
     ],
   },
   {
@@ -2270,12 +2566,14 @@ function renderSiteFooter(options = {}) {
             <nav class="site-footer__links" aria-label="Trust and safety links">
               <a href="/how-we-verify-competitions/">How we check listings</a>
               <a href="/how-to-enter-competitions-safely/">Enter safely</a>
+              <a href="/how-to-spot-a-scam-competition/">Spot scam competitions</a>
               <a href="/legit-competitions-south-africa/">Legit competition guide</a>
               <a href="/competition-closing-date-checklist/">Closing date checklist</a>
               <a href="/competition-entry-cost-labels/">Entry cost labels</a>
               <a href="/app-competitions-south-africa/">App competitions</a>
               <a href="/fake-competition-winner-messages/">Fake winner messages</a>
               <a href="/purchase-required-competitions-explained/">Purchase required guide</a>
+              <a href="/paid-entry-competitions-explained/">Paid entry guide</a>
               <a href="/free-stuff-south-africa/">Free stuff guide</a>
               <a href="/free-online-courses-south-africa/">Free online courses</a>
               <a href="/free-childrens-books-south-africa/">Free children's books</a>
@@ -4542,6 +4840,7 @@ function getHubInternalLinks(slug) {
       { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
       { label: "How we verify listings", href: "/how-we-verify-competitions/" },
       { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
+      { label: "How to spot scam competitions", href: "/how-to-spot-a-scam-competition/" },
     ],
     "win-a-car": [
       { label: "All competitions", href: "/competitions/" },
@@ -4555,6 +4854,7 @@ function getHubInternalLinks(slug) {
       { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
       { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
       { label: "Legit competitions guide", href: "/legit-competitions-south-africa/" },
+      { label: "How to spot scam competitions", href: "/how-to-spot-a-scam-competition/" },
     ],
     "free-competitions": [
       { label: "All competitions", href: "/competitions/" },
@@ -4566,6 +4866,7 @@ function getHubInternalLinks(slug) {
       { label: "Tech competitions", href: "/category/tech/" },
       { label: "Holiday competitions", href: "/category/holidays/" },
       { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
+      { label: "How to spot scam competitions", href: "/how-to-spot-a-scam-competition/" },
     ],
     "competitions-ending-soon": [
       { label: "All competitions", href: "/competitions/" },
@@ -4596,12 +4897,15 @@ function getHubInternalLinks(slug) {
       { label: "Win a car competitions", href: "/win-a-car/" },
       { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
       { label: "Legit competitions guide", href: "/legit-competitions-south-africa/" },
+      { label: "How to spot scam competitions", href: "/how-to-spot-a-scam-competition/" },
     ],
     "paid-entry-competitions": [
       { label: "Browse competition brands", href: "/brands/" },
+      { label: "Paid entry guide", href: "/paid-entry-competitions-explained/" },
       { label: "Free competitions", href: "/free-competitions/" },
       { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
       { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
+      { label: "How to spot scam competitions", href: "/how-to-spot-a-scam-competition/" },
     ],
   };
   const titlesBySlug = {
@@ -7672,10 +7976,42 @@ function renderCompetitionTrustStrip(competition, officialSource, lastChecked) {
             </div>`;
 }
 
+function hasPurchaseRequiredSignal(competition) {
+  const tags = Array.isArray(competition && competition.tags) ? competition.tags : [];
+  const entryCostType = String((competition && competition.entryCostType) || "").toLowerCase();
+
+  return (
+    competition &&
+    (competition.purchaseRequired === true ||
+      entryCostType === "purchase-required" ||
+      tags.includes("purchase-required") ||
+      tags.includes("till-slip") ||
+      tags.includes("till-slip-required") ||
+      tags.includes("qualifying-products"))
+  );
+}
+
+function hasPaidEntrySignal(competition) {
+  const tags = Array.isArray(competition && competition.tags) ? competition.tags : [];
+  const entryCostType = String((competition && competition.entryCostType) || "").toLowerCase();
+
+  return (
+    competition &&
+    (entryCostType === "paid-entry" ||
+      Number(competition.entryFeeAmount) > 0 ||
+      tags.includes("paid-entry") ||
+      tags.includes("raffle"))
+  );
+}
+
 function renderBeforeYouEnterBlock(competition) {
   const costLabel = shared.getEntryCostLabel(competition);
   const entryCostType = String(competition.entryCostType || "").toLowerCase();
   const entryChannel = String(competition.entryChannel || competition.entryType || "").toLowerCase();
+  const helpLinks = [
+    { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
+    { label: "Spot scam competitions", href: "/how-to-spot-a-scam-competition/" },
+  ];
   const items = [
     "Read the official promoter terms before entering.",
     "Make sure the page you enter on belongs to the official promoter.",
@@ -7683,8 +8019,9 @@ function renderBeforeYouEnterBlock(competition) {
     "Freehub lists this competition but does not run it or collect your entry.",
   ];
 
-  if (competition.purchaseRequired === true || entryCostType === "purchase-required") {
+  if (hasPurchaseRequiredSignal(competition)) {
     items.push("Keep your receipt or proof of purchase.");
+    helpLinks.push({ label: "Purchase required guide", href: "/purchase-required-competitions-explained/" });
     if (competition.requiredProduct) {
       items.push("Check the qualifying products and participating stores.");
     }
@@ -7693,9 +8030,10 @@ function renderBeforeYouEnterBlock(competition) {
     }
   }
 
-  if (costLabel === "Paid entry") {
+  if (hasPaidEntrySignal(competition) || costLabel === "Paid entry") {
     items.push("Check the ticket price and official payment flow.");
     items.push("Only buy through the official promoter or ticketing page.");
+    helpLinks.push({ label: "Paid entry guide", href: "/paid-entry-competitions-explained/" });
   }
 
   if (/sms|ussd|whatsapp/.test(entryChannel)) {
@@ -7709,9 +8047,18 @@ function renderBeforeYouEnterBlock(competition) {
 
   return `<section class="detail-checklist" aria-label="Before you enter">
               <p class="detail-section-title">Before you enter</p>
+              <p>Check the promoter's official terms, closing date and entry requirements before entering. Freehub summarises competitions to help users compare them, but the promoter's official page is the source of truth.</p>
               <ul>
                 ${items.slice(0, 7).map((item) => `<li>${escapeHtml(item)}</li>`).join("\n                ")}
               </ul>
+              <div class="internal-links__list">
+                ${helpLinks
+                  .map(
+                    (link) =>
+                      `<a class="internal-links__link" href="${escapeAttribute(link.href)}">${escapeHtml(link.label)}</a>`
+                  )
+                  .join("\n                ")}
+              </div>
             </section>`;
 }
 
@@ -8166,15 +8513,16 @@ function renderCompetitionInternalLinks(competition, categoryPath, generatedBran
     links.push({ label: "Clere competition 2026", href: "/competition/clere-share-of-r1-million-cash-2026/" });
   }
 
-  if (competition.purchaseRequired === true || entryCostType === "purchase-required") {
+  if (hasPurchaseRequiredSignal(competition)) {
     links.push({ label: "Purchase required competitions", href: "/purchase-required-competitions/" });
-  } else if (entryCostType === "paid-entry" || Number(competition.entryFeeAmount) > 0) {
+  } else if (hasPaidEntrySignal(competition)) {
     links.push({ label: "Paid entry competitions", href: "/paid-entry-competitions/" });
   } else if (entryCostType === "free-entry") {
     links.push({ label: "Free competitions", href: "/free-competitions/" });
   }
 
   links.push({ label: "How to enter competitions safely", href: "/how-to-enter-competitions-safely/" });
+  links.push({ label: "How to spot scam competitions", href: "/how-to-spot-a-scam-competition/" });
   links.push({ label: "Competitions ending soon", href: "/competitions-ending-soon/" });
 
   return `<section class="internal-links" aria-label="Explore More">

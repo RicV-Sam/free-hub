@@ -19,6 +19,14 @@ const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 FreeHubValidator/1.0";
 const APPROVED_MANUAL_OK_URLS = new Map([
   [
+    "clere-share-of-r1-million-cash-2026",
+    "https://clere.co.za/competitions/",
+  ],
+  [
+    "clere-for-men-play-it-smooth-2026",
+    "https://clere.co.za/play-it-smooth-competition/",
+  ],
+  [
     "capitec-moneyup-academy-competition-2026",
     "https://www.capitecbank.co.za/globalassets/pages/competition-and-conditions/competitions/2026/moneyup-academy-competition-rules-2026.pdf",
   ],
