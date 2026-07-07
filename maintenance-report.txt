@@ -1,9 +1,9 @@
 === Competition Maintenance Report ===
-Date: 2026-07-05
+Date: 2026-07-07
 Mode: archive-expired
-Total competitions: 217
+Total competitions: 220
 Active published count: 64
-Expired archive page count: 69
+Expired archive page count: 72
 Low-value expired noindex count: 0
 Held/private count: 84
 Expired records still leaking into active listings: 0
@@ -80,20 +80,23 @@ Expired competition IDs:
 - vodacom-mrp-gift-card-competition-2026 (2026-06-30)
 - starbaby-south-africa-monthly-competition-2026 (2026-06-30)
 - bulbs-of-the-fynbos-competition-2026 (2026-07-03)
+- vodacom-dankovodacom-adidas-voucher-2026 (2026-07-05)
+- shoprite-low-duma-competition-2026 (2026-07-05)
+- makro-winter-competition-2026 (2026-07-05)
 
 Closing soon (next 14 days):
-- vodacom-dankovodacom-adidas-voucher-2026 (0 days)
-- shoprite-low-duma-competition-2026 (0 days)
-- makro-winter-competition-2026 (0 days)
-- one-life-maize-meal-samsung-phones-2026 (4 days)
-- tekkie-town-football-frenzy-fifa-2026 (7 days)
-- vodacom-spend-and-recharge-tfg-vouchers (10 days)
-- parmalat-everything-needs-cheese-2026 (10 days)
-- vodacom-power-up-woolworths-vouchers-2026 (10 days)
-- godfather-of-the-waves-competition-2026 (12 days)
-- clicks-cashback-haul-competition (14 days)
-- coca-cola-hisense-fifa-fan-hampers-2026 (14 days)
-- mtn-world-cup-bafana-goal-1gb-data-2026 (14 days)
+- one-life-maize-meal-samsung-phones-2026 (2 days)
+- tekkie-town-football-frenzy-fifa-2026 (5 days)
+- vodacom-spend-and-recharge-tfg-vouchers (8 days)
+- parmalat-everything-needs-cheese-2026 (8 days)
+- vodacom-power-up-woolworths-vouchers-2026 (8 days)
+- godfather-of-the-waves-competition-2026 (10 days)
+- clicks-cashback-haul-competition (12 days)
+- coca-cola-hisense-fifa-fan-hampers-2026 (12 days)
+- mtn-world-cup-bafana-goal-1gb-data-2026 (12 days)
+- mtn-fc-world-cup-competition-2026 (13 days)
+- standard-bank-game-day-everyday (14 days)
+- gotyme-bank-swipe-tap-to-win-2026 (14 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
