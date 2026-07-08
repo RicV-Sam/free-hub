@@ -1,5 +1,5 @@
 === Competition Maintenance Report ===
-Date: 2026-07-07
+Date: 2026-07-08
 Mode: archive-expired
 Total competitions: 220
 Active published count: 64
@@ -8,7 +8,7 @@ Low-value expired noindex count: 0
 Held/private count: 84
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 12
+Closing in next 14 days: 13
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -85,18 +85,19 @@ Expired competition IDs:
 - makro-winter-competition-2026 (2026-07-05)
 
 Closing soon (next 14 days):
-- one-life-maize-meal-samsung-phones-2026 (2 days)
-- tekkie-town-football-frenzy-fifa-2026 (5 days)
-- vodacom-spend-and-recharge-tfg-vouchers (8 days)
-- parmalat-everything-needs-cheese-2026 (8 days)
-- vodacom-power-up-woolworths-vouchers-2026 (8 days)
-- godfather-of-the-waves-competition-2026 (10 days)
-- clicks-cashback-haul-competition (12 days)
-- coca-cola-hisense-fifa-fan-hampers-2026 (12 days)
-- mtn-world-cup-bafana-goal-1gb-data-2026 (12 days)
-- mtn-fc-world-cup-competition-2026 (13 days)
-- standard-bank-game-day-everyday (14 days)
-- gotyme-bank-swipe-tap-to-win-2026 (14 days)
+- one-life-maize-meal-samsung-phones-2026 (1 days)
+- tekkie-town-football-frenzy-fifa-2026 (4 days)
+- vodacom-spend-and-recharge-tfg-vouchers (7 days)
+- parmalat-everything-needs-cheese-2026 (7 days)
+- vodacom-power-up-woolworths-vouchers-2026 (7 days)
+- godfather-of-the-waves-competition-2026 (9 days)
+- clicks-cashback-haul-competition (11 days)
+- coca-cola-hisense-fifa-fan-hampers-2026 (11 days)
+- mtn-world-cup-bafana-goal-1gb-data-2026 (11 days)
+- mtn-fc-world-cup-competition-2026 (12 days)
+- standard-bank-game-day-everyday (13 days)
+- gotyme-bank-swipe-tap-to-win-2026 (13 days)
+- boxer-celebrate-win-samsung-a06-2026 (14 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
