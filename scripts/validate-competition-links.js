@@ -134,6 +134,10 @@ const APPROVED_MANUAL_OK_URLS = new Map([
     "mcdonalds-nazo-meals-airtime-data-rewards-2026",
     "https://www.mcdonalds.co.za/airtime-data-rewards-ts-cs",
   ],
+  [
+    "sanlam-reality-lekkeslaap-voucher-2026",
+    "https://www.sanlamreality.co.za/competitions/",
+  ],
 ]);
 
 function loadCompetitions() {
