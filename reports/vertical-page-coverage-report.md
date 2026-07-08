@@ -56,7 +56,7 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 28
+- Matching active public competitions: 29
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -88,6 +88,7 @@ Recommended normalisation:
 | Dis-Chem Fisherman's Friend Luxury Retreat Competition (dis-chem-fishermans-friend-luxury-retreat-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Dis-Chem Catrice Skin Like Moisturizer Competition (dis-chem-catrice-skin-like-moisturizer-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Nestle MILO Meet the Champ Campaign 2026 (nestle-milo-meet-the-champ-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
+| OREO BTS Promotion 2026 (oreo-bts-promotion-2026) | 2026-09-30 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Knorr Win R5,000 Weekly Competition (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | SPAR Community School Support Competition (spar-community-school-support-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
@@ -98,7 +99,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 24
+- Matching active public competitions: 26
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -113,6 +114,8 @@ Recommended normalisation:
 | Hisense x Coca-Cola Match Day Competition (hisense-coca-cola-match-day-2026) | 2026-07-19 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | Game Haier Play With The Number Ones (game-haier-play-with-the-number-ones-2026) | 2026-07-31 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | Sanlam Reality LekkeSlaap Voucher Competition (sanlam-reality-lekkeslaap-voucher-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag | none |
+| Beares Russell Hobbs Top Loader Facebook Competition (beares-russell-hobbs-top-loader-facebook-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| Best Home & Electric Kelvinator Top Loader Competition (best-home-electric-kelvinator-top-loader-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Himalaya Winter Colouring Competition 2026 (himalaya-winter-colouring-competition-2026) | 2026-07-31 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | Clicks WIN with BabyClub Competition (clicks-babyclub-competition) | 2026-07-31 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | MoneyUp Academy Competition (capitec-moneyup-academy-competition-2026) | 2026-07-31 | account-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
