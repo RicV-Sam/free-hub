@@ -98,13 +98,14 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 23
+- Matching active public competitions: 24
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
+| Mobile World Live Satellite & NTN Survey - Win an Apple iPad (mobile-world-live-satellite-ntn-survey-ipad-draw-2026) | 2026-07-10 | free-entry | yes | yes | Online entry tag | none |
 | Tekkie Town Football Frenzy FIFA 2026 Competition (tekkie-town-football-frenzy-fifa-2026) | 2026-07-12 | purchase-required | yes | yes | Online entry tag | none |
 | Godfather of the Waves Competition (godfather-of-the-waves-competition-2026) | 2026-07-17 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Clicks Cashback Haul Competition (clicks-cashback-haul-competition) | 2026-07-19 | free-entry | yes | yes | Online entry mentioned in entry text | none |
