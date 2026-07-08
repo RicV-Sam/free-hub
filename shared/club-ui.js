@@ -219,6 +219,7 @@ function renderSignedOutState(message = "") {
   renderAllCompetitions();
   renderAccountFields();
   renderReferWinParticipationForm();
+  publishClubState();
 }
 
 function renderSignedInState() {
@@ -229,6 +230,7 @@ function renderSignedInState() {
   renderAllCompetitions();
   renderAccountFields();
   renderReferWinParticipationForm();
+  publishClubState();
 }
 
 function toggleAuthButtons(isSignedIn) {
@@ -287,10 +289,12 @@ function renderSavedCompetitions() {
       <p>Use the all competitions list below to mark items as interested or entered.</p>
       <a class="btn btn--primary" href="/competitions/">Browse competitions</a>
     </article>`;
+    publishClubState();
     return;
   }
 
   list.innerHTML = saved.map(renderSavedCompetition).join("");
+  publishClubState();
 }
 
 function renderAllCompetitions() {
@@ -508,6 +512,7 @@ async function updateSavedStatus(competitionId, status) {
   renderSavedCompetitions();
   renderAllCompetitions();
   renderAccountFields();
+  publishClubState();
   trackClubEvent("club_competition_status_update", {
     club_page: state.page,
     competition_id: competitionId,
@@ -535,6 +540,7 @@ async function removeSavedCompetition(competitionId) {
   renderSavedCompetitions();
   renderAllCompetitions();
   renderAccountFields();
+  publishClubState();
   trackClubEvent("club_saved_competition_remove", {
     club_page: state.page,
     competition_id: competitionId,
@@ -901,4 +907,14 @@ function trackClubEvent(name, params = {}) {
     event: name,
     ...payload,
   });
+}
+
+function publishClubState() {
+  window.FreeHubClub = {
+    user: state.user,
+    savedCompetitions: normalizeSavedCompetitionList(state.savedCompetitions),
+    ignoredCompetitions: state.ignoredCompetitions,
+    allCompetitions: state.allCompetitions,
+  };
+  document.dispatchEvent(new CustomEvent("freehub:club-state-rendered"));
 }

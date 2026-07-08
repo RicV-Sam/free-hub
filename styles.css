@@ -4027,7 +4027,8 @@ body {
 .club-app-shell,
 .club-referral-card,
 .club-saved-panel,
-.club-account-card {
+.club-account-card,
+.club-tool-card {
   border: 1px solid rgba(15, 118, 110, 0.14);
   border-radius: 8px;
   background: #fff;
@@ -4043,7 +4044,9 @@ body {
 .club-referral-card h2,
 .club-account-card h2,
 .club-feature h3,
-.club-saved-item h3 {
+.club-saved-item h3,
+.club-tool-card h3,
+.club-proof-item h4 {
   margin: 0;
   color: var(--text);
 }
@@ -4053,7 +4056,9 @@ body {
 .club-panel-header p,
 .club-referral-card p,
 .club-account-card p,
-.club-saved-item p {
+.club-saved-item p,
+.club-tool-card p,
+.club-proof-item p {
   color: var(--muted);
   line-height: 1.55;
 }
@@ -4066,10 +4071,15 @@ body {
 }
 
 .club-feature-grid,
-.club-account-grid {
+.club-account-grid,
+.club-tools-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.85rem;
+}
+
+.club-tools-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .club-feature {
@@ -4177,7 +4187,8 @@ body {
 
 .club-app-actions,
 .club-copy-row,
-.club-saved-item__actions {
+.club-saved-item__actions,
+.club-tool-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem;
@@ -4191,7 +4202,9 @@ body {
 .club-copy-row input,
 .club-definition-list input,
 .club-saved-item select,
-.club-competition-row select {
+.club-competition-row select,
+.club-tool-card input,
+.club-tool-card select {
   min-height: 44px;
   border: 1px solid rgba(15, 118, 110, 0.18);
   border-radius: 8px;
@@ -4230,8 +4243,157 @@ body {
 }
 
 .club-saved-item select,
-.club-competition-row select {
+.club-competition-row select,
+.club-tool-card select {
   padding: 0.55rem 2rem 0.55rem 0.65rem;
+}
+
+.club-tool-card {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1rem;
+  background: #f8fafc;
+}
+
+.club-tool-card--wide {
+  background: #fff;
+}
+
+.club-tool-card__header {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.club-tool-card__header p {
+  margin: 0;
+}
+
+.club-tool-card label {
+  display: grid;
+  gap: 0.35rem;
+  color: var(--text);
+  font-weight: 800;
+}
+
+.club-tool-card label span {
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.club-tool-card input,
+.club-tool-card select {
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+}
+
+.club-tool-form-grid,
+.club-proof-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.club-tool-result {
+  min-height: 54px;
+  padding: 0.75rem;
+  border: 1px solid rgba(15, 118, 110, 0.14);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.club-tool-list {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.club-tool-muted {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.club-lotto-set {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid rgba(15, 118, 110, 0.12);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  font-weight: 800;
+}
+
+.club-lotto-set button {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(15, 118, 110, 0.16);
+  border-radius: 8px;
+  background: #f8fafc;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.club-risk-list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.club-risk-list label {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  padding: 0.6rem;
+  border: 1px solid rgba(15, 118, 110, 0.12);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--muted);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.club-risk-list input {
+  width: 18px;
+  min-height: 18px;
+  margin-top: 0.1rem;
+  padding: 0;
+}
+
+.club-proof-list {
+  margin-top: 0.2rem;
+}
+
+.club-proof-item {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr) auto;
+  gap: 0.9rem;
+  align-items: center;
+  padding: 0.85rem;
+  border: 1px solid rgba(15, 118, 110, 0.12);
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.club-proof-item__summary {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.club-proof-item__summary a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.club-proof-item__summary a:hover,
+.club-proof-item__summary a:focus-visible {
+  color: var(--accent);
+  text-decoration: underline;
 }
 
 .club-referral-card {
@@ -4766,9 +4928,13 @@ body {
   .club-section--split,
   .club-feature-grid,
   .club-account-grid,
+  .club-tools-grid,
+  .club-tool-form-grid,
+  .club-proof-fields,
   .club-form-grid,
   .club-saved-item,
   .club-competition-row,
+  .club-proof-item,
   .admin-toolbar,
   .admin-count-grid,
   .admin-grid,
@@ -4791,6 +4957,7 @@ body {
   .club-app-actions,
   .club-copy-row,
   .club-saved-item__actions,
+  .club-tool-actions,
   .club-panel-actions,
   .club-section__actions {
     align-items: stretch;
@@ -4803,8 +4970,11 @@ body {
   .club-section__actions .btn,
   .club-saved-item__actions .btn,
   .club-form-actions .btn,
+  .club-tool-actions .btn,
   .club-saved-item select,
-  .club-competition-row select {
+  .club-competition-row select,
+  .club-tool-card input,
+  .club-tool-card select {
     width: 100%;
   }
 }

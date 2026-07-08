@@ -6214,6 +6214,74 @@ function renderClubDashboardPage(activeCompetitions = []) {
             <p class="club-status">Approved referrals are confirmed by admin review after sign-ups are checked.</p>
             <p class="club-status" data-club-referral-status aria-live="polite"></p>
           </section>
+          <section class="club-saved-panel club-tools" aria-label="Freehub member tools" data-club-tools>
+            <div class="club-panel-header club-tools__header">
+              <div>
+                <h2>Member tools</h2>
+                <p>Quick utilities for tracking entries, checking prize messages and keeping competition admin tidy.</p>
+              </div>
+            </div>
+            <div class="club-tools-grid">
+              <article class="club-tool-card" data-tool="lotto">
+                <div class="club-tool-card__header">
+                  <p class="club-saved-item__meta">Number generator</p>
+                  <h3>Lotto quick picks</h3>
+                </div>
+                <label>
+                  <span>Game</span>
+                  <select data-lotto-game>
+                    <option value="lotto">Lotto: 6 from 52</option>
+                    <option value="powerball">PowerBall: 5 from 50 + 1 from 20</option>
+                    <option value="daily">Daily Lotto: 5 from 36</option>
+                  </select>
+                </label>
+                <div class="club-tool-result" data-lotto-result aria-live="polite">Choose a game and generate numbers.</div>
+                <div class="club-tool-actions">
+                  <button class="btn btn--primary" type="button" data-tool-action="generate-lotto">Generate</button>
+                  <button class="btn btn--secondary" type="button" data-tool-action="save-lotto">Save set</button>
+                </div>
+                <div class="club-tool-list" data-lotto-saved></div>
+              </article>
+              <article class="club-tool-card" data-tool="entry-calculator">
+                <div class="club-tool-card__header">
+                  <p class="club-saved-item__meta">Spend check</p>
+                  <h3>Entry cost calculator</h3>
+                </div>
+                <div class="club-tool-form-grid">
+                  <label><span>Spend</span><input type="number" min="0" step="0.01" inputmode="decimal" data-cost-spend placeholder="0.00" /></label>
+                  <label><span>Entries</span><input type="number" min="1" step="1" inputmode="numeric" data-cost-entries placeholder="1" /></label>
+                  <label><span>Prize value</span><input type="number" min="0" step="0.01" inputmode="decimal" data-cost-prize placeholder="0.00" /></label>
+                  <label><span>Chance note</span><input type="text" data-cost-odds placeholder="Unknown or 1 in 1000" /></label>
+                </div>
+                <button class="btn btn--primary" type="button" data-tool-action="calculate-cost">Calculate</button>
+                <div class="club-tool-result" data-cost-result aria-live="polite">Enter the spend and entries to compare the cost per entry.</div>
+              </article>
+              <article class="club-tool-card" data-tool="scam-checker">
+                <div class="club-tool-card__header">
+                  <p class="club-saved-item__meta">Safety</p>
+                  <h3>Prize message checker</h3>
+                </div>
+                <div class="club-risk-list">
+                  <label><input type="checkbox" data-risk-item value="payment" /> They ask for a fee, courier payment or airtime first</label>
+                  <label><input type="checkbox" data-risk-item value="banking" /> They ask for banking PINs, OTPs or card details</label>
+                  <label><input type="checkbox" data-risk-item value="pressure" /> They pressure you to respond immediately</label>
+                  <label><input type="checkbox" data-risk-item value="unofficial" /> The message comes from an unofficial number, Gmail or shortened link</label>
+                  <label><input type="checkbox" data-risk-item value="unknown" /> You do not remember entering this competition</label>
+                </div>
+                <button class="btn btn--primary" type="button" data-tool-action="check-scam">Check risk</button>
+                <div class="club-tool-result" data-risk-result aria-live="polite">Tick what applies to the message you received.</div>
+              </article>
+            </div>
+            <article class="club-tool-card club-tool-card--wide" data-tool="proof-vault">
+              <div class="club-tool-card__header">
+                <p class="club-saved-item__meta">Entry admin</p>
+                <h3>Proof and reminder vault</h3>
+                <p>Store reference numbers, receipt notes and reminder dates for tracked competitions on this device.</p>
+              </div>
+              <div class="club-tool-list club-proof-list" data-proof-vault-list></div>
+              <p class="club-status" data-proof-status aria-live="polite"></p>
+            </article>
+          </section>
           <details class="club-saved-panel club-collapsible" aria-label="Saved competitions" open>
             <summary class="club-panel-header">
               <div>
@@ -7033,6 +7101,7 @@ function renderClubShell({ title, description, canonicalUrl, robots, pageType, b
       ${renderSiteFooter({ includeAuthPanel: false })}
     </div>
     <script type="module" src="/shared/club-ui.js"></script>
+    <script type="module" src="/shared/club-tools.js"></script>
     <script type="module" src="/shared/auth-ui.js"></script>
   </body>
 </html>
