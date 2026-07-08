@@ -56,7 +56,7 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 29
+- Matching active public competitions: 30
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -69,6 +69,7 @@ Recommended normalisation:
 | Hisense x Coca-Cola Match Day Competition (hisense-coca-cola-match-day-2026) | 2026-07-19 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | KitKat F1 Monza Competition (kitkat-f1-monza-competition-2026) | 2026-07-30 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Game Haier Play With The Number Ones (game-haier-play-with-the-number-ones-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
+| Clover SPAR Rewards Competition (clover-spar-rewards-voucher-competition-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Clere Win a Share of R1 Million Cash Competition (clere-share-of-r1-million-cash-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | NIVEA MEN Real Madrid Competition - Win Cash Prizes (nivea-men-real-madrid-cash-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Cremora Winter Campaign Competition 2026 (cremora-winter-campaign-competition-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
@@ -99,7 +100,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 26
+- Matching active public competitions: 27
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -131,6 +132,7 @@ Recommended normalisation:
 | Dark & Lovely Best For Braids Competition (clicks-dark-and-lovely-best-for-braids-2026) | 2026-08-15 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | GARDENA Winter Pruning Giveaway 2026 (gardena-winter-pruning-giveaway-2026) | 2026-08-25 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Dis-Chem Catrice Skin Like Moisturizer Competition (dis-chem-catrice-skin-like-moisturizer-2026) | 2026-08-31 | purchase-required | yes | yes | Online entry tag | none |
+| Wanderlust Reader Travel Awards 2026 Prize Draw (wanderlust-reader-travel-awards-prize-draw-2026) | 2026-10-27 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 
 Recommended normalisation:
@@ -175,7 +177,7 @@ Recommended normalisation:
 ## Win Grocery Vouchers in South Africa
 
 - URL: /win-grocery-vouchers-south-africa/
-- Matching active public competitions: 4
+- Matching active public competitions: 5
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -183,6 +185,7 @@ Recommended normalisation:
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
 | Huggies Dry Comfort Buy and Win Competition (huggies-dry-comfort-buy-win-2026) | 2026-07-26 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
+| Clover SPAR Rewards Competition (clover-spar-rewards-voucher-competition-2026) | 2026-07-31 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | SPAR Clover Rewards Voucher Competition (spar-clover-rewards-vouchers-2026) | 2026-07-31 | purchase-required | yes | yes | Grocery or supermarket voucher intent | none |
 | SPAR Rewards Vaseline Winter Drive Competition (spar-rewards-vaseline-winter-drive-competition-2026) | 2026-08-02 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Coca-Cola Get Together Zwakala neFlava Promotion (coca-cola-zwakala-neflava-2026) | 2026-08-31 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
@@ -193,7 +196,7 @@ Recommended normalisation:
 ## Supermarket Competitions in South Africa
 
 - URL: /supermarket-competitions-south-africa/
-- Matching active public competitions: 10
+- Matching active public competitions: 11
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -204,6 +207,7 @@ Recommended normalisation:
 | Coke x Hisense FIFA Fan Hamper Competition (coca-cola-hisense-fifa-fan-hampers-2026) | 2026-07-19 | purchase-required | yes | yes | Supermarket or grocery tag; Supermarket or grocery entry text | none |
 | Celebrate and Win with Boxer (boxer-celebrate-win-samsung-a06-2026) | 2026-07-22 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Huggies Dry Comfort Buy and Win Competition (huggies-dry-comfort-buy-win-2026) | 2026-07-26 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
+| Clover SPAR Rewards Competition (clover-spar-rewards-voucher-competition-2026) | 2026-07-31 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | SPAR Clover Rewards Voucher Competition (spar-clover-rewards-vouchers-2026) | 2026-07-31 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery tag; Supermarket or grocery entry text | none |
 | SPAR Rewards Vaseline Cera Glow Competition (spar-rewards-vaseline-cera-glow-competition-2026) | 2026-08-02 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | SPAR Rewards Vaseline Winter Drive Competition (spar-rewards-vaseline-winter-drive-competition-2026) | 2026-08-02 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
