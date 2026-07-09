@@ -435,11 +435,6 @@ function buildFirestoreHelpers(db, firestore) {
 
       const referralCode = normalizeReferralCode(lead.referralCode) || generateReferralCode();
       const leadRef = doc(db, "publicReferralLeads", referralCode);
-      const existing = await getDoc(leadRef);
-
-      if (existing.exists()) {
-        throw new Error("Could not create a unique referral code. Please try again.");
-      }
 
       await setDoc(leadRef, {
         referralCode,
