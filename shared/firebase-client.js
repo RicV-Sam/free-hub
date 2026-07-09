@@ -418,6 +418,88 @@ function buildFirestoreHelpers(db, firestore) {
       return submissionRef.id;
     },
 
+    async createPublicReferralLead(lead = {}) {
+      const contact = normalizeReferralContact(lead.contact);
+
+      if (!contact) {
+        throw new Error("Enter a valid South African mobile number or email address.");
+      }
+
+      if (lead.termsAccepted !== true) {
+        throw new Error("Accept the Refer & Win rules before creating a referral link.");
+      }
+
+      if (lead.prizeContactConsent !== true) {
+        throw new Error("Confirm the prize contact consent before creating a referral link.");
+      }
+
+      const referralCode = normalizeReferralCode(lead.referralCode) || generateReferralCode();
+      const leadRef = doc(db, "publicReferralLeads", referralCode);
+      const existing = await getDoc(leadRef);
+
+      if (existing.exists()) {
+        throw new Error("Could not create a unique referral code. Please try again.");
+      }
+
+      await setDoc(leadRef, {
+        referralCode,
+        contactType: contact.type,
+        contactValue: contact.value,
+        contactMasked: contact.masked,
+        source: "refer-and-win-public",
+        landingPath: String(lead.landingPath || window.location.pathname).slice(0, 500),
+        referredByCode: normalizeReferralCode(lead.referredByCode),
+        termsAccepted: true,
+        prizeContactConsent: lead.prizeContactConsent === true,
+        marketingConsent: lead.marketingConsent === true,
+        campaignMonth: getCampaignMonth(),
+        createdAt: serverTimestamp(),
+        updatedAt: serverTimestamp(),
+      });
+
+      return {
+        referralCode,
+        contactMasked: contact.masked,
+      };
+    },
+
+    async recordPublicReferralVisit(visit = {}) {
+      const referralCode = normalizeReferralCode(visit.referralCode);
+
+      if (!referralCode) {
+        return null;
+      }
+
+      const visitRef = doc(collection(db, "publicReferralVisits"));
+      await setDoc(visitRef, {
+        visitId: visitRef.id,
+        referralCode,
+        landingPath: String(visit.landingPath || window.location.pathname).slice(0, 500),
+        referrer: String(document.referrer || "").slice(0, 500),
+        campaignMonth: getCampaignMonth(),
+        createdAt: serverTimestamp(),
+      });
+
+      return visitRef.id;
+    },
+
+    async getPublicReferralLeads(options = {}) {
+      const constraints = [];
+      const campaignMonth = String(options.campaignMonth || "").trim();
+
+      if (/^\d{4}-\d{2}$/.test(campaignMonth)) {
+        constraints.push(where("campaignMonth", "==", campaignMonth));
+      }
+
+      constraints.push(limit(Number.isFinite(options.limit) ? options.limit : 200));
+
+      const snapshot = await getDocs(query(collection(db, "publicReferralLeads"), ...constraints));
+      return snapshot.docs.map((docSnapshot) => ({
+        id: docSnapshot.id,
+        ...docSnapshot.data(),
+      }));
+    },
+
     async createPendingReferralAttribution(user, attribution = {}) {
       const referralCode = normalizeReferralCode(attribution.referralCode);
 
@@ -564,6 +646,46 @@ function generateReferralCode() {
 function normalizeReferralCode(value) {
   const code = String(value || "").trim().toUpperCase();
   return /^FH[A-Z0-9]{5,6}$/.test(code) ? code : "";
+}
+
+function normalizeReferralContact(value) {
+  const raw = String(value || "").trim();
+  const mobileNumber = normalizeSouthAfricanMobileNumber(raw);
+
+  if (mobileNumber) {
+    return {
+      type: "mobile",
+      value: mobileNumber,
+      masked: maskMobileNumber(mobileNumber),
+    };
+  }
+
+  const email = raw.toLowerCase();
+
+  if (/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) && email.length <= 160) {
+    return {
+      type: "email",
+      value: email,
+      masked: maskEmail(email),
+    };
+  }
+
+  return null;
+}
+
+function maskMobileNumber(value) {
+  const normalized = normalizeSouthAfricanMobileNumber(value);
+  return normalized ? `${normalized.slice(0, 4)}****${normalized.slice(-3)}` : "";
+}
+
+function maskEmail(value) {
+  const [name, domain] = String(value || "").split("@");
+
+  if (!name || !domain) {
+    return "";
+  }
+
+  return `${name.slice(0, 2)}***@${domain}`;
 }
 
 function normalizeSavedStatus(value) {

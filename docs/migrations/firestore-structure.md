@@ -35,6 +35,8 @@ users/{userId}/alertPreferences/main
 admins/{uid}
 referralCodes/{code}
 referralAttribution/{attributionId}
+publicReferralLeads/{referralCode}
+publicReferralVisits/{visitId}
 signupEvents/{eventId}
 competitionSubmissions/{submissionId}
 mail/{mailId}
@@ -149,6 +151,45 @@ Referral attribution captured when a new signed-in user arrives with `?ref=FH7K9
   "rejectionReason": null,
   "reviewedAt": null,
   "reviewedBy": null
+}
+```
+
+### `publicReferralLeads/{referralCode}`
+
+Low-friction Refer & Win records for visitors who want a share link without full Firebase Auth registration. These records are for growth attribution and contactability. They do not replace the stronger signed-in `referralAttribution` ledger.
+
+```json
+{
+  "referralCode": "FH7K92A",
+  "contactType": "mobile",
+  "contactValue": "27821234567",
+  "contactMasked": "2782****567",
+  "source": "refer-and-win-public",
+  "landingPath": "/refer-and-win/?ref=FH2ABC9",
+  "referredByCode": "FH2ABC9",
+  "termsAccepted": true,
+  "prizeContactConsent": true,
+  "marketingConsent": false,
+  "campaignMonth": "2026-07",
+  "createdAt": "serverTimestamp",
+  "updatedAt": "serverTimestamp"
+}
+```
+
+`contactType` may be `mobile` or `email`. Public UI masks the displayed contact after creation, but the stored value is retained so Freehub can contact potential airtime winners. Public quick leads should be manually reviewed before prize eligibility.
+
+### `publicReferralVisits/{visitId}`
+
+Lightweight click attribution when a visitor lands on `/refer-and-win/?ref=FHXXXXX`.
+
+```json
+{
+  "visitId": "auto-id",
+  "referralCode": "FH7K92A",
+  "landingPath": "/refer-and-win/?ref=FH7K92A",
+  "referrer": "https://...",
+  "campaignMonth": "2026-07",
+  "createdAt": "serverTimestamp"
 }
 ```
 
@@ -384,6 +425,10 @@ service cloud.firestore {
         );
     }
 
+    function validReferralCode(code) {
+      return code is string && code.matches('^FH[A-Z0-9]{5,6}$');
+    }
+
     match /users/{userId} {
       allow create, update: if isOwner(userId)
         && request.resource.data.userId == request.auth.uid
@@ -531,6 +576,61 @@ service cloud.firestore {
           )
         );
       allow delete: if false;
+    }
+
+    match /publicReferralLeads/{referralCode} {
+      allow create: if validReferralCode(referralCode)
+        && request.resource.data.referralCode == referralCode
+        && request.resource.data.source == 'refer-and-win-public'
+        && request.resource.data.termsAccepted == true
+        && request.resource.data.prizeContactConsent == true
+        && request.resource.data.contactType in ['mobile', 'email']
+        && request.resource.data.contactValue is string
+        && request.resource.data.contactValue.size() >= 5
+        && request.resource.data.contactValue.size() <= 160
+        && request.resource.data.contactMasked is string
+        && request.resource.data.contactMasked.size() >= 3
+        && request.resource.data.contactMasked.size() <= 180
+        && (!request.resource.data.keys().hasAny(['referredByCode'])
+          || request.resource.data.referredByCode == ''
+          || validReferralCode(request.resource.data.referredByCode))
+        && request.resource.data.campaignMonth is string
+        && request.resource.data.campaignMonth.matches('^\\d{4}-\\d{2}$')
+        && request.resource.data.marketingConsent is bool
+        && request.resource.data.keys().hasOnly([
+          'referralCode',
+          'contactType',
+          'contactValue',
+          'contactMasked',
+          'source',
+          'landingPath',
+          'referredByCode',
+          'termsAccepted',
+          'prizeContactConsent',
+          'marketingConsent',
+          'campaignMonth',
+          'createdAt',
+          'updatedAt'
+        ]);
+      allow read: if isActiveAdmin();
+      allow update, delete: if false;
+    }
+
+    match /publicReferralVisits/{visitId} {
+      allow create: if request.resource.data.visitId == visitId
+        && validReferralCode(request.resource.data.referralCode)
+        && request.resource.data.campaignMonth is string
+        && request.resource.data.campaignMonth.matches('^\\d{4}-\\d{2}$')
+        && request.resource.data.keys().hasOnly([
+          'visitId',
+          'referralCode',
+          'landingPath',
+          'referrer',
+          'campaignMonth',
+          'createdAt'
+        ]);
+      allow read: if isActiveAdmin();
+      allow update, delete: if false;
     }
 
     match /competitionSubmissions/{submissionId} {

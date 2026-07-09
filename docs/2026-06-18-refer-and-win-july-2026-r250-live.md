@@ -6,6 +6,8 @@ This sprint moves Freehub Refer & Win from a coming-soon foundation to a first l
 
 The campaign is free to enter, has a R250 airtime prize, requires Freehub Club sign-in, and keeps admin review mandatory before referrals count.
 
+Update: the public Refer & Win page now also supports a low-friction quick referral link. A visitor can enter a WhatsApp number or email, accept the campaign rules and prize-contact consent, then receive a shareable referral link without creating a full Firebase Auth account. These quick-link records are stored separately from signed-in Club referrals and still require manual review before prize eligibility.
+
 ## Campaign mechanic
 
 - Campaign name: Freehub Refer & Win.
@@ -101,6 +103,18 @@ Refer & Win participation is stored on `users/{uid}`:
 - Cell C
 - Rain
 - Other / not sure
+
+## Public quick referral leads
+
+Quick referral links are stored in `publicReferralLeads/{referralCode}` and visits are stored in `publicReferralVisits/{visitId}`. This is the no-cost, no-WhatsApp-API growth layer:
+
+- no SMS verification;
+- no WhatsApp Business API;
+- no Cloud Functions requirement;
+- no full account required before sharing;
+- admin-only read access for review.
+
+The quick lead captures a masked display contact, the stored contact value, consent flags, campaign month, landing path and any referring code. A quick lead can drive traffic and later be matched to Club signups, but the signed-in `referralAttribution` records remain the stronger proof for approved referrals.
 
 ## Consent model
 

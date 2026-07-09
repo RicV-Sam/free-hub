@@ -5,6 +5,7 @@ const state = {
   user: null,
   admin: null,
   referrals: [],
+  publicLeads: [],
   participants: [],
   userCache: new Map(),
 };
@@ -129,7 +130,7 @@ async function loadReferralQueue() {
   try {
     const status = document.querySelector("[data-referral-admin-status]")?.value || "pending_verification";
     const campaignMonth = document.querySelector("[data-referral-admin-month]")?.value || getCampaignMonth();
-    const [referrals, monthlyReferrals, participants] = await Promise.all([
+    const [referrals, monthlyReferrals, participants, publicLeads] = await Promise.all([
       state.client.helpers.getReferralAttributions({
         status,
         campaignMonth,
@@ -141,16 +142,20 @@ async function loadReferralQueue() {
         limit: 500,
       }),
       state.client.helpers.getReferWinParticipantProfiles({ limit: 500 }).catch(() => []),
+      state.client.helpers.getPublicReferralLeads({ campaignMonth, limit: 500 }).catch(() => []),
     ]);
 
     state.referrals = referrals.sort(compareReferralDates);
+    state.publicLeads = publicLeads.sort(compareReferralDates);
     state.participants = participants;
     const monthlySorted = monthlyReferrals.sort(compareReferralDates);
     await loadUserContexts([...state.referrals, ...monthlySorted]);
     renderSummary(monthlySorted);
+    renderPublicLeadSummary(state.publicLeads);
     renderParticipantReadiness(participants);
     renderTopReferrers(monthlySorted);
     renderReferralList(state.referrals);
+    renderPublicLeadList(state.publicLeads);
     setStatus(`${state.referrals.length} referral ${state.referrals.length === 1 ? "record" : "records"} loaded.`);
   } catch (error) {
     setStatus("Could not load referrals. Check Firestore rules and admin access.");
@@ -253,6 +258,17 @@ function renderParticipantReadiness(participants) {
   setText("[data-referral-missing-terms-count]", String(missingTerms.length));
 }
 
+function renderPublicLeadSummary(leads) {
+  const referredLeads = leads.filter((lead) => lead.referredByCode);
+  const mobileLeads = leads.filter((lead) => lead.contactType === "mobile");
+  const marketingOptIns = leads.filter((lead) => lead.marketingConsent === true);
+
+  setText("[data-public-lead-count]", String(leads.length));
+  setText("[data-public-lead-referred-count]", String(referredLeads.length));
+  setText("[data-public-lead-mobile-count]", String(mobileLeads.length));
+  setText("[data-public-lead-marketing-count]", String(marketingOptIns.length));
+}
+
 function renderTopReferrers(referrals) {
   const list = document.querySelector("[data-referral-top-referrers]");
 
@@ -312,6 +328,44 @@ function renderReferralList(referrals) {
   }
 
   list.innerHTML = referrals.map(renderReferralCard).join("");
+}
+
+function renderPublicLeadList(leads) {
+  const list = document.querySelector("[data-public-referral-lead-list]");
+
+  if (!list) {
+    return;
+  }
+
+  if (leads.length === 0) {
+    list.innerHTML = `<article class="admin-empty">
+      <h3>No public referral leads found</h3>
+      <p>Quick referral link requests will appear here after visitors enter a WhatsApp number or email.</p>
+    </article>`;
+    return;
+  }
+
+  list.innerHTML = leads.map(renderPublicLeadCard).join("");
+}
+
+function renderPublicLeadCard(lead) {
+  return `<article class="admin-referral-card admin-referral-card--lead">
+    <div class="admin-referral-card__header">
+      <div>
+        <p class="section-kicker">${escapeHtml(lead.campaignMonth || "No month")}</p>
+        <h3>${escapeHtml(lead.referralCode || lead.id || "Public lead")}</h3>
+      </div>
+      <span class="admin-status admin-status--lead">${escapeHtml(lead.contactType || "lead")}</span>
+    </div>
+    <dl class="admin-referral-details">
+      ${renderDetail("Contact", lead.contactMasked || "Masked")}
+      ${renderDetail("Referred by", lead.referredByCode || "Direct")}
+      ${renderDetail("Created", formatTimestamp(lead.createdAt))}
+      ${renderDetail("Landing path", lead.landingPath || "Not captured")}
+      ${renderDetail("Prize consent", lead.prizeContactConsent === true ? "Yes" : "No")}
+      ${renderDetail("Marketing", lead.marketingConsent === true ? "Opted in" : "Not opted in")}
+    </dl>
+  </article>`;
 }
 
 function renderReferralCard(referral) {
@@ -404,7 +458,7 @@ function isValidMobileNumber(value) {
 }
 
 function compareReferralDates(left, right) {
-  return getMillis(right.registeredAt || right.capturedAt) - getMillis(left.registeredAt || left.capturedAt);
+  return getMillis(right.registeredAt || right.capturedAt || right.createdAt) - getMillis(left.registeredAt || left.capturedAt || left.createdAt);
 }
 
 function getMillis(value) {

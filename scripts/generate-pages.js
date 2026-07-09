@@ -194,6 +194,13 @@ const TRUST_PAGE_DEFINITIONS = [
         ],
       },
       {
+        heading: "Refer & Win and quick referral links",
+        paragraphs: [
+          "If you choose to create a Refer & Win quick referral link, Freehub may store the WhatsApp number or email address you provide, a masked version for display, your referral code, any referring code, consent records, landing path, campaign month and timestamps.",
+          "Freehub uses this information to create referral links, track referral source, administer the Refer & Win campaign, prevent abuse, contact potential winners and fulfil airtime prizes where applicable. Marketing consent remains optional.",
+        ],
+      },
+      {
         heading: "Competition entries",
         paragraphs: [
           "Freehub does not collect or process entries for the competitions listed on the site. When you click through, the promoter's own privacy policy and terms apply.",
@@ -6530,6 +6537,13 @@ function renderReferralAdminPage() {
               <article><span>Review model</span><strong>Manual</strong></article>
             </section>
 
+            <section class="admin-count-grid" aria-label="Public referral lead counts">
+              <article><span>Quick links</span><strong data-public-lead-count>0</strong></article>
+              <article><span>Referred leads</span><strong data-public-lead-referred-count>0</strong></article>
+              <article><span>Mobile contacts</span><strong data-public-lead-mobile-count>0</strong></article>
+              <article><span>Marketing opt-ins</span><strong data-public-lead-marketing-count>0</strong></article>
+            </section>
+
             <section class="admin-grid">
               <article class="admin-panel">
                 <div class="admin-panel__header">
@@ -6546,6 +6560,15 @@ function renderReferralAdminPage() {
                 </div>
                 <div class="admin-referral-list" data-referral-admin-list></div>
               </article>
+            </section>
+
+            <section class="admin-panel">
+              <div class="admin-panel__header">
+                <p class="section-kicker">Low-friction growth</p>
+                <h2>Public quick referral leads</h2>
+                <p>These records are created when a visitor enters a WhatsApp number or email to get a share link without full Club registration. They support traffic attribution, but prize eligibility still needs review.</p>
+              </div>
+              <div class="admin-referral-list" data-public-referral-lead-list></div>
             </section>
           </section>
         </section>
@@ -6571,12 +6594,12 @@ function renderReferAndWinPage() {
     },
     {
       question: "How do I join Freehub Club?",
-      answer: "Join through the Freehub Club page using Google sign-in. Club membership is free.",
+      answer: "Join through the Freehub Club page using Google sign-in. Club membership is free, and the quick referral link on this page is available if you want to share before creating a full account.",
     },
     {
       question: "How do I get a referral link?",
       answer:
-        "After signing in, your personal referral link is available in your Freehub Club dashboard and account page.",
+        "Use the quick referral form on this page with a WhatsApp number or email, or sign into Freehub Club and use the referral link in your Club dashboard.",
     },
     {
       question: "What is the first campaign prize?",
@@ -6657,6 +6680,8 @@ function renderReferAndWinPage() {
         previewMarkup: renderReferAndWinPreviewPanel(),
       })}
       <main id="main-content" class="main-content refer-page">
+        ${renderPublicReferralSignup()}
+
         <section class="club-section club-section--notice refer-status-notice">
           <div>
             <p class="section-kicker">Campaign status</p>
@@ -6670,10 +6695,10 @@ function renderReferAndWinPage() {
           <p class="section-kicker">How it works</p>
           <h2>Five steps</h2>
           <ol class="refer-steps">
-            <li><strong>Join Freehub Club</strong><span>Use Google sign-in to create a free account.</span></li>
-            <li><strong>Get your referral link</strong><span>Your personal Freehub referral link appears in your Club dashboard.</span></li>
-            <li><strong>Share your link</strong><span>Invite friends to join Freehub Club through your link.</span></li>
-            <li><strong>Friends join Freehub Club</strong><span>Referral attribution may be captured when a new member signs in from a valid referral link.</span></li>
+            <li><strong>Create your referral link</strong><span>Enter a WhatsApp number or email on this page, or sign into Freehub Club for the full account version.</span></li>
+            <li><strong>Share on WhatsApp</strong><span>Use the WhatsApp share button or copy your link for friends and family.</span></li>
+            <li><strong>Friends visit Freehub</strong><span>Referral attribution may be captured when someone arrives from your valid referral link.</span></li>
+            <li><strong>Friends join or follow</strong><span>Friends can create their own quick link, join Freehub Club or follow the WhatsApp channel.</span></li>
             <li><strong>Approved referrals count</strong><span>Only referrals approved through manual review count towards the July campaign.</span></li>
           </ol>
           <p class="refer-note">Only approved referrals count. Approval is subject to manual review. No purchase is required.</p>
@@ -6684,15 +6709,15 @@ function renderReferAndWinPage() {
             <p class="section-kicker">Prize</p>
             <h2>${escapeHtml(FREEHUB_REFER_WIN_CONFIG.monthlyPrizeLabel)}</h2>
             <p>The first campaign prize is fulfilled as an airtime top-up or airtime voucher to a supported South African mobile number.</p>
-            <p>A valid South African mobile number is required for participation because Freehub needs it for campaign administration and prize fulfilment if you are selected after review.</p>
+            <p>A WhatsApp number or email lets Freehub contact you about your quick referral link. A supported South African mobile number may still be needed before airtime can be fulfilled if you are selected after review.</p>
           </article>
           <article>
             <p class="section-kicker">Approved referrals</p>
             <h2>What may count</h2>
             <ul class="refer-check-list">
               <li>The referred person is new to Freehub Club.</li>
-              <li>The referred person joins through a valid referral link or referral code.</li>
-              <li>The referred person accepts the relevant Freehub Club and campaign rules.</li>
+              <li>The referred person arrives through a valid referral link or referral code.</li>
+              <li>The referred person joins the Club, follows the WhatsApp channel, or creates a quick referral lead that can be reviewed.</li>
               <li>The referral is not a self-referral.</li>
               <li>The referral is not duplicate, fake, automated or suspicious.</li>
               <li>The referral is approved through manual review.</li>
@@ -6776,8 +6801,9 @@ function renderReferAndWinTermsPage() {
       list: [
         "Open to South African residents.",
         "Participants must be 18 years or older.",
-        "Participants must have a valid Freehub Club account.",
-        "Participants must opt into Refer & Win, accept these rules, and provide a valid South African mobile number for airtime fulfilment.",
+        "Participants can create a quick referral link with a WhatsApp number or email, or use a valid Freehub Club account.",
+        "Participants must accept these rules and provide a valid contact route for campaign administration and airtime fulfilment.",
+        "Freehub may require a selected quick-link participant to confirm details or create/verify a Freehub Club account before prize fulfilment.",
         "Participants must comply with the rules.",
         "Freehub may exclude accounts involved in fraud, abuse, duplicate registrations or misleading referral activity.",
       ],
@@ -6803,14 +6829,11 @@ function renderReferAndWinTermsPage() {
       heading: "8. How to participate",
       paragraphs: ["To participate in the first Refer & Win campaign:"],
       list: [
-        "Join Freehub Club.",
-        "Open your Club account page.",
-        "Opt into Refer & Win.",
-        "Add a valid South African mobile number for prize fulfilment.",
-        "Accept the Freehub Refer & Win rules.",
+        "Create a quick referral link on the public Refer & Win page with a WhatsApp number or email, or join Freehub Club and use your Club referral link.",
+        "Accept the Freehub Refer & Win rules and prize-contact consent.",
         "Get your referral link.",
         "Share your referral link.",
-        "Referred users join Freehub Club through that link.",
+        "Referred users visit Freehub, follow the WhatsApp channel, create their own quick link or join Freehub Club through that link.",
         "Referrals are reviewed.",
         "Approved referrals count towards the active campaign period.",
       ],
@@ -6818,7 +6841,7 @@ function renderReferAndWinTermsPage() {
     {
       heading: "9. Referral link mechanic",
       paragraphs: [
-        "Each Freehub Club member receives a unique referral code. Referral links may look like /club/?ref=FHXXXXX.",
+        "Each quick-link participant or Freehub Club member receives a unique referral code. Referral links may look like /refer-and-win/?ref=FHXXXXX or /club/?ref=FHXXXXX.",
         "Referral attribution may be stored for a limited period. Only valid referral codes can be considered, and a click alone does not create an approved referral.",
       ],
     },
@@ -6827,7 +6850,7 @@ function renderReferAndWinTermsPage() {
       paragraphs: [
         "An approved referral is a referral reviewed and approved by Freehub or an authorised admin for the active campaign period.",
         "A referral is not approved just because someone clicked a link. A referral is not approved just because someone signed in.",
-        "A referral is eligible only if the referrer has opted into Refer & Win, accepted the rules, supplied a valid South African mobile number, and passed manual review.",
+        "A referral is eligible only if the referrer accepted the rules, supplied a valid contact route, and passed manual review.",
       ],
     },
     {
@@ -6854,7 +6877,7 @@ function renderReferAndWinTermsPage() {
     {
       heading: "13. Winner selection",
       paragraphs: [
-        "The Freehub Club member with the highest number of approved referrals in the active campaign period may be selected as the winner, subject to participant eligibility checks, manual referral review and final admin confirmation.",
+        "The eligible participant with the highest number of approved referrals in the active campaign period may be selected as the winner, subject to participant eligibility checks, manual referral review and final admin confirmation.",
         "No winner is selected automatically by the website.",
       ],
     },
@@ -6883,9 +6906,9 @@ function renderReferAndWinTermsPage() {
     {
       heading: "17. Mobile number use",
       paragraphs: [
-        "A South African mobile number is required for Refer & Win participation because the prize is airtime and Freehub needs a valid number for prize fulfilment.",
-        "Freehub may use the mobile number to administer Refer & Win, prevent abuse, contact the participant if needed, verify prize readiness and fulfil airtime prizes where applicable.",
-        "Mobile numbers are not shown publicly.",
+        "A South African mobile number is preferred for Refer & Win because the prize is airtime and Freehub needs a valid number for prize fulfilment. Quick-link participants may provide an email address first, but a selected winner may still need to provide a supported South African mobile number before fulfilment.",
+        "Freehub may use the supplied contact details to administer Refer & Win, prevent abuse, contact the participant if needed, verify prize readiness and fulfil airtime prizes where applicable.",
+        "Mobile numbers and email addresses are not shown publicly.",
       ],
     },
     {
@@ -6898,7 +6921,7 @@ function renderReferAndWinTermsPage() {
     {
       heading: "19. Data protection and privacy",
       paragraphs: [
-        "Freehub processes account, referral, consent and mobile-number information for account management, referral tracking, campaign administration, fraud prevention, support, record keeping and prize fulfilment.",
+        "Freehub processes account, referral, quick-link, consent, email and mobile-number information for account management, referral tracking, campaign administration, fraud prevention, support, record keeping and prize fulfilment.",
         "Freehub does not publish emails, mobile numbers, Firebase UIDs or private referral records. Refer & Win does not improve a user's chance of winning third-party competitions listed on Freehub.",
       ],
     },
@@ -7010,6 +7033,7 @@ function renderReferAndWinShell({
       ${renderSiteFooter()}
     </div>
     <script type="module" src="/shared/auth-ui.js"></script>
+    <script type="module" src="/shared/refer-win-ui.js"></script>
   </body>
 </html>
 `;
@@ -7048,6 +7072,55 @@ function renderReferAndWinPreviewPanel() {
             </ul>
             <p class="hero-preview-panel__note">No purchase required. Marketing consent is optional.</p>
           </aside>`;
+}
+
+function renderPublicReferralSignup() {
+  return `<section class="club-section public-referral-card" aria-label="Create a Freehub referral link">
+          <div class="public-referral-card__header">
+            <div>
+              <p class="section-kicker">Quick referral link</p>
+              <h2>Get your link without creating a full account</h2>
+              <p>Enter a WhatsApp number or email so Freehub can contact you if your referral entries are selected. Your friends can use your link to join the Club or follow the WhatsApp channel.</p>
+            </div>
+            <a class="btn btn--whatsapp" href="${escapeAttribute(WHATSAPP_CHANNEL_URL)}" target="_blank" rel="noopener noreferrer">Follow on WhatsApp</a>
+          </div>
+          <form class="public-referral-form" data-public-referral-form>
+            <label>
+              <span>WhatsApp number or email</span>
+              <input type="text" inputmode="email" autocomplete="email tel" maxlength="160" placeholder="082 123 4567 or name@email.com" data-public-referral-contact required />
+            </label>
+            <label class="club-checkbox-row">
+              <input type="checkbox" data-public-referral-terms required />
+              <span>I accept the Freehub Refer &amp; Win rules and understand referrals only count after review.</span>
+            </label>
+            <label class="club-checkbox-row">
+              <input type="checkbox" data-public-referral-prize-consent required />
+              <span>I understand Freehub may use this contact for campaign administration, abuse prevention, winner contact and airtime fulfilment where applicable.</span>
+            </label>
+            <label class="club-checkbox-row">
+              <input type="checkbox" data-public-referral-marketing />
+              <span>I agree to receive Freehub competition updates. This is optional.</span>
+            </label>
+            <div class="club-form-actions">
+              <button class="btn btn--primary" type="submit">Create my referral link</button>
+              <p class="club-form-status" data-public-referral-status aria-live="polite"></p>
+            </div>
+          </form>
+          <article class="public-referral-result" data-public-referral-result hidden>
+            <div>
+              <p class="section-kicker">Your referral code</p>
+              <h3 data-public-referral-code>FHXXXXX</h3>
+              <p>Saved for <span data-public-referral-contact-masked>your contact</span>. Share this link with friends so Freehub can track the referral source.</p>
+            </div>
+            <div class="club-copy-row">
+              <input type="text" readonly data-public-referral-link aria-label="Your Freehub referral link" />
+              <button class="btn btn--secondary" type="button" data-public-referral-action="copy">Copy</button>
+              <button class="btn btn--whatsapp" type="button" data-public-referral-action="whatsapp">Share on WhatsApp</button>
+              <a class="btn btn--secondary" href="${escapeAttribute(WHATSAPP_CHANNEL_URL)}" target="_blank" rel="noopener noreferrer" data-public-referral-channel-link data-public-referral-action="channel">Join channel</a>
+            </div>
+            <p class="refer-note">For stronger prize eligibility, you can still create a full Freehub Club account later using the same referral journey.</p>
+          </article>
+        </section>`;
 }
 
 function renderReferTermsSection(section) {

@@ -4601,6 +4601,65 @@ body {
   border-color: rgba(217, 154, 22, 0.24);
 }
 
+.public-referral-card {
+  display: grid;
+  gap: 1rem;
+  border-color: rgba(15, 118, 110, 0.2);
+  background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 48%, #fff7ed 100%);
+}
+
+.public-referral-card__header {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.public-referral-card__header h2,
+.public-referral-card__header p,
+.public-referral-result h3,
+.public-referral-result p {
+  margin: 0;
+}
+
+.public-referral-form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.public-referral-form > label:first-child {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 850;
+}
+
+.public-referral-form input[type="text"],
+.public-referral-result input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid rgba(15, 118, 110, 0.2);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+}
+
+.public-referral-result {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1rem;
+  border: 1px solid rgba(15, 118, 110, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.public-referral-result h3 {
+  color: var(--accent);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  letter-spacing: 0;
+}
+
 .refer-steps,
 .refer-check-list,
 .refer-example-board ol,
@@ -4872,6 +4931,11 @@ body {
   color: #991b1b;
 }
 
+.admin-status--lead {
+  background: #dbeafe;
+  color: #1e3a8a;
+}
+
 .admin-referral-details {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -4946,6 +5010,7 @@ body {
   .club-referral-card,
   .club-app-header,
   .club-panel-header,
+  .public-referral-card__header,
   .admin-campaign-status,
   .admin-referral-card__header,
   .admin-referral-rank,
