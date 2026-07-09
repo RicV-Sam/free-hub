@@ -1,0 +1,10 @@
+{
+  "apiKey": "AIzaSyA33NnMPTRtbcIVp6K973Znbk909NdnVrI",
+  "authDomain": "datacost-ef9c7.firebaseapp.com",
+  "projectId": "datacost-ef9c7",
+  "storageBucket": "datacost-ef9c7.firebasestorage.app",
+  "messagingSenderId": "210994634272",
+  "appId": "1:210994634272:web:67bd7af9c6e9277a50e645",
+  "measurementId": "G-YL7BT24ZRL",
+  "enabledAuthProviders": ["google", "emailLink"]
+}

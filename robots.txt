@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://freehub.co.za/sitemap.xml

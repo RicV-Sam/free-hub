@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Freehub Referral Admin Review</title>
+    <meta name="description" content="Private Freehub admin review area for pending referral attribution records." />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href="https://freehub.co.za/admin/referrals/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/styles.css?v=20260704-voucher-seo-v1" />
+    <script>window.FREEHUB_REFER_WIN_CONFIG = {"referWinCampaignEnabled":true,"referWinLiveReady":true,"referWinPrototypeEnabled":false,"campaignStatusLabel":"Live: 18 June to 31 July 2026","campaignMonth":"2026-07","campaignStartDate":"2026-06-18","campaignEndDate":"2026-07-31","campaignPeriodLabel":"18 June 2026 to 31 July 2026, ending at 23:59 SAST on 31 July 2026","nextCampaignPeriodLabel":"1 August 2026 to 31 August 2026, ending at 23:59 SAST on 31 August 2026","monthlyPrizeLabel":"R250 airtime","prizeFulfilmentLabel":"Airtime top-up or airtime voucher to a supported South African mobile number","winnerMechanicLabel":"Most approved referrals in the campaign month, subject to manual review","tieBreakerLabel":"If eligible participants tie on approved referrals, the winner is the tied participant who first reached that approved count. If that cannot be determined reliably, Freehub may run a random draw among the tied eligible participants after manual review.","winnerNotificationLabel":"Freehub will contact the selected winner using the account email and/or supplied South African mobile number within seven business days after monthly review is complete. If the winner cannot be verified or contacted within five business days, Freehub may select the next eligible participant.","promoterName":"Stura Consulting, operating Freehub","promoterContactEmail":"hello@freehub.co.za","minimumApprovedReferrals":1,"publicLeaderboardEnabled":false,"adminReviewRequired":true,"marketingConsentRequired":false,"mobileNumberRequiredForParticipation":true,"noPurchaseRequired":true}; window.FREEHUB_CLUB_CONFIG = {"referWinCampaignEnabled":true,"campaignMonth":"2026-07","campaignStatusLabel":"Live: 18 June to 31 July 2026","monthlyPrizeLabel":"R250 airtime","mobileNumberRequiredForParticipation":true,"publicLeaderboardEnabled":false,"adminReviewRequired":true,"marketingConsentRequired":false};</script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <a class="skip-link" href="#main-content">Skip to content</a>
+      <header class="site-topbar" aria-label="Freehub navigation">
+        <a class="site-topbar__brand" href="/" aria-label="Freehub home">
+          <span class="site-topbar__mark" aria-hidden="true">FH</span>
+          <span class="site-topbar__name">Freehub</span>
+        </a>
+        <nav class="site-topbar__nav" aria-label="Primary navigation">
+          <a class="site-topbar__link" href="/">Home</a>
+          <a class="site-topbar__link" href="/competitions/">Competitions</a>
+          <a class="site-topbar__link" href="/competitions-ending-soon/">Ending soon</a>
+          <a class="site-topbar__link site-topbar__link--whatsapp" href="https://whatsapp.com/channel/0029Vb7mS1VE50UlOc2yOe2H" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a class="site-topbar__link" href="/club/">Club</a>
+        </nav>
+        <a class="site-topbar__account" href="/club/dashboard/" aria-label="Open Freehub Club account">
+          <span class="site-topbar__account-icon" aria-hidden="true">FH</span>
+          <span>Account</span>
+        </a>
+      </header>
+      <main id="main-content" class="main-content admin-page" data-admin-page="referrals">
+        <section class="admin-shell" aria-label="Referral admin review">
+          <div class="club-app-header">
+            <div>
+              <p class="section-kicker">Private admin</p>
+              <h1>Referral review</h1>
+              <p>Manual review for Freehub Club referral attribution. Refer &amp; Win is live from 18 June 2026 to 31 July 2026, but admin approval is still required before any referral counts.</p>
+            </div>
+            <div class="club-app-actions">
+              <a class="club-back-link" href="/club/dashboard/">Back to dashboard</a>
+              <button class="btn btn--primary" type="button" data-referral-admin-action="signin">Continue with Google</button>
+              <button class="btn btn--secondary" type="button" data-referral-admin-action="signout" hidden>Sign out</button>
+            </div>
+          </div>
+
+          <section class="admin-gate" data-referral-admin-gate>
+            <h2 data-referral-admin-gate-title>Admin sign-in required</h2>
+            <p data-referral-admin-gate-message>Sign in with the Google account that has an active admins/{uid} document.</p>
+            <p class="admin-note">Create admin access manually in Firebase Console. There is no public self-serve admin signup.</p>
+          </section>
+
+          <section class="admin-content" data-referral-admin-content hidden>
+            <section class="admin-campaign-status" aria-label="Refer and Win campaign status">
+              <div>
+                <p class="section-kicker">Campaign status</p>
+                <h2>Refer &amp; Win campaign: first campaign live</h2>
+                <p>R250 airtime prize. Current period: 18 June 2026 to 31 July 2026, ending at 23:59 SAST on 31 July 2026. Next period: 1 August 2026 to 31 August 2026, ending at 23:59 SAST on 31 August 2026. Winner confirmation still requires manual referral review, participant readiness checks and final admin sign-off.</p>
+              </div>
+              <div class="club-section__actions">
+                <a class="btn btn--secondary" href="/refer-and-win/">Public page</a>
+                <a class="btn btn--secondary" href="/refer-and-win/terms/">Campaign rules</a>
+              </div>
+            </section>
+
+            <div class="admin-toolbar">
+              <div>
+                <p class="section-kicker">Signed in admin</p>
+                <p class="admin-toolbar__identity" data-referral-admin-email>Admin</p>
+              </div>
+              <label>
+                <span>Campaign month</span>
+                <input type="month" data-referral-admin-filter data-referral-admin-month />
+              </label>
+              <label>
+                <span>Status</span>
+                <select data-referral-admin-filter data-referral-admin-status>
+                  <option value="pending_verification">Pending verification</option>
+                  <option value="approved">Approved</option>
+                  <option value="rejected">Rejected</option>
+                  <option value="all">All statuses</option>
+                </select>
+              </label>
+              <button class="btn btn--secondary" type="button" data-referral-admin-action="refresh">Refresh</button>
+            </div>
+
+            <p class="club-status" data-referral-admin-status-text aria-live="polite">Loading referral review queue...</p>
+
+            <section class="admin-count-grid" aria-label="Monthly referral counts">
+              <article><span>Total</span><strong data-referral-count-total>0</strong></article>
+              <article><span>Pending</span><strong data-referral-count-pending>0</strong></article>
+              <article><span>Approved</span><strong data-referral-count-approved>0</strong></article>
+              <article><span>Rejected</span><strong data-referral-count-rejected>0</strong></article>
+            </section>
+
+            <section class="admin-count-grid" aria-label="Refer and Win participant readiness">
+              <article><span>Opted in</span><strong data-referral-participant-count>0</strong></article>
+              <article><span>Missing mobile</span><strong data-referral-missing-mobile-count>0</strong></article>
+              <article><span>Missing terms</span><strong data-referral-missing-terms-count>0</strong></article>
+              <article><span>Review model</span><strong>Manual</strong></article>
+            </section>
+
+            <section class="admin-count-grid" aria-label="Public referral lead counts">
+              <article><span>Quick links</span><strong data-public-lead-count>0</strong></article>
+              <article><span>Referred leads</span><strong data-public-lead-referred-count>0</strong></article>
+              <article><span>Mobile contacts</span><strong data-public-lead-mobile-count>0</strong></article>
+              <article><span>Marketing opt-ins</span><strong data-public-lead-marketing-count>0</strong></article>
+            </section>
+
+            <section class="admin-grid">
+              <article class="admin-panel">
+                <div class="admin-panel__header">
+                  <p class="section-kicker">Provisional summary</p>
+                  <h2>Monthly top referrers</h2>
+                </div>
+                <div class="admin-referral-ranks" data-referral-top-referrers></div>
+              </article>
+
+              <article class="admin-panel">
+                <div class="admin-panel__header">
+                  <p class="section-kicker">Review queue</p>
+                  <h2>Referral attribution records</h2>
+                </div>
+                <div class="admin-referral-list" data-referral-admin-list></div>
+              </article>
+            </section>
+
+            <section class="admin-panel">
+              <div class="admin-panel__header">
+                <p class="section-kicker">Low-friction growth</p>
+                <h2>Public quick referral leads</h2>
+                <p>These records are created when a visitor enters a WhatsApp number or email to get a share link without full Club registration. They support traffic attribution, but prize eligibility still needs review.</p>
+              </div>
+              <div class="admin-referral-list" data-public-referral-lead-list></div>
+            </section>
+          </section>
+        </section>
+      </main>
+      <footer class="site-footer" aria-label="Site footer">
+        <div class="site-footer__grid">
+          <div>
+            <p class="site-footer__title">Freehub</p>
+            <p class="site-footer__text">
+              Freehub lists South African competitions and links users to official promoter pages. We do not run the competitions or collect entries.
+            </p>
+          </div>
+          <div>
+            <p class="site-footer__title">Trust &amp; Safety</p>
+            <nav class="site-footer__links" aria-label="Trust and safety links">
+              <a href="/how-we-verify-competitions/">How we check listings</a>
+              <a href="/how-to-enter-competitions-safely/">Enter safely</a>
+              <a href="/how-to-spot-a-scam-competition/">Spot scam competitions</a>
+              <a href="/legit-competitions-south-africa/">Legit competition guide</a>
+              <a href="/competition-closing-date-checklist/">Closing date checklist</a>
+              <a href="/competition-entry-cost-labels/">Entry cost labels</a>
+              <a href="/app-competitions-south-africa/">App competitions</a>
+              <a href="/fake-competition-winner-messages/">Fake winner messages</a>
+              <a href="/purchase-required-competitions-explained/">Purchase required guide</a>
+              <a href="/paid-entry-competitions-explained/">Paid entry guide</a>
+              <a href="/free-stuff-south-africa/">Free stuff guide</a>
+              <a href="/free-online-courses-south-africa/">Free online courses</a>
+              <a href="/free-childrens-books-south-africa/">Free children's books</a>
+              <a href="/free-credit-report-south-africa/">Free credit report</a>
+              <a href="/submit-a-competition/">Submit a competition</a>
+              <a href="/report-a-competition/">Report a competition</a>
+              <a href="/freehub-account-benefits/">Account benefits</a>
+              <a href="/club/">Freehub Club</a>
+              <a href="/refer-and-win/">Refer &amp; Win</a>
+            </nav>
+          </div>
+          <div>
+            <p class="site-footer__title">Explore Competitions</p>
+            <nav class="site-footer__links" aria-label="Explore competition hubs">
+              <a href="/competitions/">All competitions</a>
+              <a href="/new-competitions-south-africa/">New competitions</a>
+              <a href="/win-a-car/">Win a car</a>
+              <a href="/free-competitions/">Free competitions</a>
+              <a href="/competitions-ending-soon/">Ending soon</a>
+              <a href="/purchase-required-competitions/">Purchase required</a>
+              <a href="/whatsapp-competitions-south-africa/">WhatsApp Competitions</a>
+              <a href="/sms-competitions-south-africa/">SMS Competitions</a>
+              <a href="/till-slip-competitions-south-africa/">Till Slip Competitions</a>
+              <a href="/online-competitions-south-africa/">Online Competitions</a>
+              <a href="/win-airtime-competitions-south-africa/">Win Airtime Competitions</a>
+              <a href="/win-data-competitions-south-africa/">Win Data Competitions</a>
+              <a href="https://whatsapp.com/channel/0029Vb7mS1VE50UlOc2yOe2H" target="_blank" rel="noopener noreferrer">WhatsApp channel</a>
+              <a href="/brands/">Browse by brand</a>
+            </nav>
+          </div>
+          <div>
+            <p class="site-footer__title">Site</p>
+            <nav class="site-footer__links" aria-label="Site links">
+              <a href="/about/">About</a>
+              <a href="/contact/">Contact</a>
+              <a href="/privacy-policy/">Privacy policy</a>
+              <a href="/terms-of-use/">Terms of use</a>
+              <a href="https://datacost.co.za/?utm_source=freehub&amp;utm_medium=house_banner&amp;utm_campaign=freehub_cross_promo" target="_blank" rel="noopener noreferrer sponsored">DataCost.co.za</a>
+            </nav>
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="/shared/referral-admin-ui.js"></script>
+  </body>
+</html>
