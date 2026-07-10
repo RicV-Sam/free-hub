@@ -2407,13 +2407,14 @@ function getTillSlipVerticalMatchReasons(competition) {
 function getOnlineVerticalMatchReasons(competition) {
   const tags = getCompetitionTagSet(competition);
   const text = getCompetitionVerticalText(competition);
+  const positiveEntryText = text.replace(/\bno separate (?:competition )?entry form\b/g, "");
   const reasons = [];
 
   if (tags.has("online-entry")) {
     reasons.push("Online entry tag");
   }
 
-  if (/\bonline form\b|\bonline entry\b|\bwebsite entry\b|\bweb form\b|\bentry form\b|\bquiz\b|enter online/.test(text)) {
+  if (/\bonline form\b|\bonline entry\b|\bwebsite entry\b|\bweb form\b|\bentry form\b|\bquiz\b|enter online/.test(positiveEntryText)) {
     reasons.push("Online entry mentioned in entry text");
   }
 
@@ -7810,6 +7811,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   const closingSoon = shared.isClosingSoon(competition.closingDate);
   const outPath = shared.getOutPath(competition) + "/";
   const ctaLabel = getDetailCtaLabel(competition);
+  const automaticEntry = isAutomaticEntryCompetition(competition);
   const ctaAttributes = renderDetailCtaDataAttributes(competition, outPath, officialSource);
   const detailFactsMarkup = renderCompetitionDetailFacts(
     competition,
@@ -8000,7 +8002,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
             ${faqMarkup}
             <a
               class="competition-detail__whatsapp"
-              href="https://wa.me/?text=${encodeURIComponent(expired ? `View the archived ${competition.title} competition on Freehub - ${canonicalUrl}` : `Enter the ${competition.title} competition - ${canonicalUrl}`)}"
+              href="https://wa.me/?text=${encodeURIComponent(expired ? `View the archived ${competition.title} competition on Freehub - ${canonicalUrl}` : automaticEntry ? `View the ${competition.title} automatic-entry details on Freehub - ${canonicalUrl}` : `Enter the ${competition.title} competition - ${canonicalUrl}`)}"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Share on WhatsApp"
@@ -8017,8 +8019,8 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
           </p>
         </section>
 
-        ${!expired ? `<section class="competition-cta-repeat" aria-label="Enter this competition">
-          <p>Ready to enter? Head to the official competition page.</p>
+        ${!expired ? `<section class="competition-cta-repeat" aria-label="${automaticEntry ? "Check the official terms" : "Enter this competition"}">
+          <p>${automaticEntry ? "Check the membership, benefit-use and automatic-entry conditions on the official terms page." : "Ready to enter? Head to the official competition page."}</p>
           <a class="competition-detail__cta" href="${escapeAttribute(outPath)}" target="_blank" rel="noopener noreferrer" ${ctaAttributes}>${escapeHtml(ctaLabel)}</a>
           <p class="competition-detail__cta-note">You will leave Freehub and go to the official promoter page.</p>
         </section>` : ""}
@@ -8345,6 +8347,7 @@ function renderCompetitionSourceBlock(competition, officialSource, officialSourc
 function buildCompetitionFaqItems(competition, officialSource, ctaLabel, expired = false) {
   const items = [];
   const costLabel = shared.getEntryCostLabel(competition);
+  const automaticEntry = isAutomaticEntryCompetition(competition);
 
   if (expired) {
     return [
@@ -8381,7 +8384,12 @@ function buildCompetitionFaqItems(competition, officialSource, ctaLabel, expired
     });
   }
 
-  if (officialSource) {
+  if (officialSource && automaticEntry) {
+    items.push({
+      question: "Is there a separate competition entry form?",
+      answer: `No. Eligible participants are entered automatically after completing the qualifying action in the official terms. Use ${officialSource} to check the membership, benefit and competition conditions.`,
+    });
+  } else if (officialSource) {
     items.push({
       question: "Where do I enter?",
       answer: `${ctaLabel} through Freehub's tracked outbound page, then complete your entry on ${officialSource}.`,
@@ -8744,6 +8752,7 @@ function renderCompetitionDetailFacts(competition, formattedDate, officialSource
     { label: "Prize", value: competition.prizeName || shared.getPrizeCue(competition) },
     { label: "Prize value", value: formatPrizeValue(competition) },
     { label: "Number of prizes", value: competition.numberOfPrizes },
+    { label: "Competition period", value: competition.competitionPeriod },
     { label: "Brand", value: competition.brand || "Official promotion" },
     { label: "Category", value: competition.category },
     {
@@ -9216,6 +9225,10 @@ function getDetailCtaLabel(competition) {
   const entryCostType = String(competition.entryCostType || "").toLowerCase();
   const entryText = [competition.entryType, competition.entryChannel, ...(competition.tags || [])].join(" ").toLowerCase();
 
+  if (isAutomaticEntryCompetition(competition)) {
+    return "View official terms";
+  }
+
   if (entryCostType === "paid-entry" || shared.getEntryCostLabel(competition) === "Paid entry") {
     return "Buy ticket on official page";
   }
@@ -9237,6 +9250,13 @@ function getDetailCtaLabel(competition) {
   }
 
   return "View official entry page";
+}
+
+function isAutomaticEntryCompetition(competition) {
+  const entryText = [competition.entryType, competition.entryChannel, ...(competition.tags || [])]
+    .join(" ")
+    .toLowerCase();
+  return entryText.includes("automatic entry") || entryText.includes("automatic-entry");
 }
 
 function isSimpleBrandName(brand) {

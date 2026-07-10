@@ -100,7 +100,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 27
+- Matching active public competitions: 26
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -114,7 +114,6 @@ Recommended normalisation:
 | Hisense Pepkor Match-Ready Gallery Competition (hisense-pepkor-match-ready-gallery-2026) | 2026-07-19 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | Hisense x Coca-Cola Match Day Competition (hisense-coca-cola-match-day-2026) | 2026-07-19 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | Game Haier Play With The Number Ones (game-haier-play-with-the-number-ones-2026) | 2026-07-31 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
-| Sanlam Reality LekkeSlaap Voucher Competition (sanlam-reality-lekkeslaap-voucher-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag | none |
 | Beares Russell Hobbs Top Loader Facebook Competition (beares-russell-hobbs-top-loader-facebook-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Best Home & Electric Kelvinator Top Loader Competition (best-home-electric-kelvinator-top-loader-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Himalaya Winter Colouring Competition 2026 (himalaya-winter-colouring-competition-2026) | 2026-07-31 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
