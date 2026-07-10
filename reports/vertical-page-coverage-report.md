@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-07-09
+Generated: 2026-07-10
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
@@ -159,14 +159,13 @@ Recommended normalisation:
 ## Win Data Competitions in South Africa
 
 - URL: /win-data-competitions-south-africa/
-- Matching active public competitions: 4
+- Matching active public competitions: 3
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| 1Lifestyle Maize Meal Samsung Phone Competition (one-life-maize-meal-samsung-phones-2026) | 2026-07-09 | app-required | yes | yes | Data or connectivity prize text | consider data/connectivity tag only if prize terms confirm |
 | MTN World Cup Bafana Goal 1GB Data Reward (mtn-world-cup-bafana-goal-1gb-data-2026) | 2026-07-19 | free-entry | yes | yes | Data or connectivity tag; Data or connectivity prize text | none |
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | Data or connectivity tag | none |
 | McDonald's Nazo Meals Airtime and Data Rewards (mcdonalds-nazo-meals-airtime-data-rewards-2026) | 2026-12-20 | purchase-required | yes | yes | Data or connectivity tag; Data or connectivity prize text | none |

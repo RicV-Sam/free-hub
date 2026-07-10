@@ -950,15 +950,15 @@ const TRUST_PAGE_DEFINITIONS = [
   },
   {
     slug: "free-stuff-south-africa",
-    title: "Free Stuff South Africa | Legit Freebies, Competitions, Samples",
+    title: "Free Stuff South Africa | Legit Freebies, Samples, Competitions",
     description:
-      "Find legit free stuff South Africa searchers actually want, including free competitions, samples, credit reports, courses and safe official links.",
+      "Find free stuff South Africa searchers actually want, including legit freebies, free samples, competitions, credit reports, courses and safe official links.",
     heading: "Free Stuff South Africa",
     intro:
-      "Use this free stuff South Africa guide when you want legitimate no-cost options beyond a single giveaway. It brings together free competitions, cautious sample routes, learning resources, reading options and credit-report checks with official-source and safety context.",
+      "Use this free stuff South Africa guide when you want legitimate no-cost options beyond a single giveaway. It brings together free competitions, cautious sample routes, learning resources, reading options and credit-report checks so users can compare official-source options before they click.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: "2026-06-25",
+    dateModified: "2026-07-09",
     resourceCategories: ["online-courses", "childrens-books", "credit-report", "samples", "consumer-support"],
     resourceTitle: "Best free options right now",
     resourceIntro:
@@ -968,7 +968,7 @@ const TRUST_PAGE_DEFINITIONS = [
         heading: "Quick answer: free stuff South Africa",
         paragraphs: [
           "The safest free stuff South Africa options usually come from official websites that explain exactly what is free and what still costs money. Start with free-entry competitions, public learning platforms, open reading resources, free credit-report tools and carefully checked sample offers.",
-          "If you mainly want current prize draws, start on the homepage for broader competitions South Africa discovery. If you want product-led offers, use the free samples guide and voucher giveaway hub before sharing any personal details.",
+          "If you mainly want current prize draws, start with Competitions South Africa on the homepage for broader discovery. If you want product-led offers, compare where to get free samples, free voucher giveaways and free credit report routes before sharing any personal details.",
         ],
       },
       {
@@ -8646,6 +8646,7 @@ function renderCompetitionInternalLinks(competition, categoryPath, generatedBran
 
   if (slug === "clere-share-of-r1-million-cash-2026") {
     links.push({ label: "Clere For Men competition", href: "/competition/clere-for-men-play-it-smooth-2026/" });
+    links.push({ label: "Alpha 52 competition", href: "/competition/alpha-pharm-alpha-52-cash-2026/" });
     links.push({ label: "Knorr competition 2026", href: "/competition/knorr-win-r5000-weekly-2026/" });
   }
   if (slug === "clere-for-men-play-it-smooth-2026") {
