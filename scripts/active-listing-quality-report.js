@@ -75,12 +75,24 @@ function daysUntilClosing(competition, today) {
 }
 
 function daysSinceLastChecked(competition, today) {
-  const lastChecked = normalizeDate(competition.lastChecked);
+  const lastChecked = getLatestReviewDate(competition);
   if (!lastChecked) {
     return Number.POSITIVE_INFINITY;
   }
 
   return daysBetween(today, lastChecked);
+}
+
+function getLatestReviewDate(competition) {
+  return [competition.lastChecked, competition.linkValidationCheckedAt]
+    .map(normalizeDate)
+    .filter(Boolean)
+    .sort((left, right) => right.getTime() - left.getTime())[0] || null;
+}
+
+function getLatestReviewDateLabel(competition) {
+  const latest = getLatestReviewDate(competition);
+  return latest ? formatDateLocal(latest) : "";
 }
 
 function isActiveCompetition(competition, today) {
@@ -155,7 +167,7 @@ function summarizeCompetition(competition, today, extra = {}) {
     entryCostType: competition.entryCostType || "",
     closingDate: competition.closingDate || "",
     daysUntilClose: daysUntilClosing(competition, today),
-    lastChecked: competition.lastChecked || "",
+    lastChecked: getLatestReviewDateLabel(competition),
     lastCheckedAgeDays: daysSinceLastChecked(competition, today),
     ...extra,
   };
@@ -443,7 +455,7 @@ function buildReport({ today, activeCompetitions, flags, thresholdRows, vertical
     `- Closing within ${CLOSING_SOON_DAYS} days: ${flags.closingSoon.length}`,
     `- Last checked older than ${STALE_DAYS} days: ${flags.stale.length}`,
     `- High-value listings older than ${HIGH_VALUE_STALE_DAYS} days: ${flags.staleHighValue.length}`,
-    `- Missing image: ${flags.missingImage.length}`,
+    `- Missing or unreviewed image: ${flags.missingImage.length}`,
     `- Missing evidenceNotes: ${flags.missingEvidence.length}`,
     `- Missing eligibility and eligibilitySummary: ${flags.missingEligibility.length}`,
     `- Missing entrySteps: ${flags.missingEntrySteps.length}`,
@@ -463,7 +475,7 @@ function buildReport({ today, activeCompetitions, flags, thresholdRows, vertical
     "",
     renderCompetitionFlagTable(flags.staleHighValue),
     "",
-    "## Listings Missing Image",
+    "## Listings Missing or Awaiting Image Review",
     "",
     renderCompetitionFlagTable(flags.missingImage),
     "",
@@ -548,7 +560,11 @@ function main() {
       .filter((competition) => isHighValueCompetition(competition) && daysSinceLastChecked(competition, today) > HIGH_VALUE_STALE_DAYS)
       .map((competition) => summarizeCompetition(competition, today)),
     missingImage: activeCompetitions
-      .filter((competition) => !hasText(competition.image))
+      .filter(
+        (competition) =>
+          !hasText(competition.image) &&
+          !(competition.imageReviewStatus === "neutral-fallback" && hasText(competition.imageFallback))
+      )
       .map((competition) => summarizeCompetition(competition, today)),
     missingEvidence: activeCompetitions
       .filter((competition) => !hasText(competition.evidenceNotes))

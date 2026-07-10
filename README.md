@@ -22,6 +22,7 @@ Active production site on `https://freehub.co.za`.
 - Discover image candidates for published competitions without explicit images:
   - `node scripts/find-competition-images.js`
   - `node scripts/find-competition-images.js --apply`
+  - `node scripts/find-competition-images.js --apply --mark-neutral-fallbacks` applies high-confidence official images and records FreeHub's neutral fallback for active listings where no safe official image is available.
 - Discover new competition leads from a Bing Search compatible endpoint:
   - Set `BING_SEARCH_API_KEY` in your local environment or `.env`
   - `npm run discover:bing`

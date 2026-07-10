@@ -578,6 +578,10 @@
       return competition.image;
     }
 
+    if (competition && competition.imageFallback) {
+      return competition.imageFallback;
+    }
+
     const brandImage = getBrandAssociatedImage(competition, competitionPool);
     if (brandImage) {
       return brandImage;
@@ -589,6 +593,10 @@
   function getCompetitionPrimaryImageUrl(competition, competitionPool = []) {
     if (competition && competition.image) {
       return competition.image;
+    }
+
+    if (competition && competition.imageFallback) {
+      return competition.imageFallback;
     }
 
     const brandImage = getBrandAssociatedImage(competition, competitionPool);
@@ -914,6 +922,14 @@
 
     if (entryCostType === "app-required") {
       return "App required";
+    }
+
+    if (entryCostType === "account-required") {
+      return "Account required";
+    }
+
+    if (entryCostType === "membership-required") {
+      return "Membership required";
     }
 
     if (entryCostType === "unknown") {

@@ -100,7 +100,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 26
+- Matching active public competitions: 25
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -119,7 +119,6 @@ Recommended normalisation:
 | Himalaya Winter Colouring Competition 2026 (himalaya-winter-colouring-competition-2026) | 2026-07-31 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | Clicks WIN with BabyClub Competition (clicks-babyclub-competition) | 2026-07-31 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | MoneyUp Academy Competition (capitec-moneyup-academy-competition-2026) | 2026-07-31 | account-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
-| Secret Skin Win a Luxury Kuzuko Lodge Getaway for Two (secret-skin-kuzuko-lodge-getaway-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag | none |
 | Penguin Random House Peppa Pig Hamper Competition (penguin-random-house-peppa-pig-hamper-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Budget Insurance BizBucks Bonanza Competition (budget-insurance-bizbucks-bonanza-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Makro Oscal Pad 100 Tablet Competition (makro-oscal-pad-100-tablet-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |

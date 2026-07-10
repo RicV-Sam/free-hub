@@ -2775,12 +2775,20 @@ function getCompetitionImageUrl(competition) {
     return competition.image;
   }
 
+  if (competition && competition.imageFallback) {
+    return competition.imageFallback;
+  }
+
   return getBrandAssociatedImage(competition) || buildBrandFallbackImage(competition || {});
 }
 
 function getMetadataImageUrl(competition) {
   if (competition && competition.image) {
     return competition.image;
+  }
+
+  if (competition && competition.imageFallback) {
+    return competition.imageFallback;
   }
 
   const brandImage = getBrandAssociatedImage(competition);
@@ -4411,6 +4419,10 @@ function renderCollectionBreadcrumb(currentLabel) {
 function getCompetitionVisualUrl(competition) {
   if (competition && competition.image) {
     return competition.image;
+  }
+
+  if (competition && competition.imageFallback) {
+    return competition.imageFallback;
   }
 
   const brandImage = getBrandAssociatedImage(competition);
@@ -7760,7 +7772,7 @@ function renderCompetitionDetailMedia(competition, imageUrl, altText = competiti
 }
 
 function isSpecificCompetitionVisual(competition) {
-  return Boolean(competition && (competition.image || getBrandAssociatedImage(competition)));
+  return Boolean(competition && (competition.image || competition.imageFallback || getBrandAssociatedImage(competition)));
 }
 
 function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs = []) {
@@ -8428,6 +8440,14 @@ function buildFreeEntryAnswer(competition, costLabel) {
     return "Entry appears to require the official app. Check the app and promoter terms for any costs or account requirements.";
   }
 
+  if (costLabel === "Account required") {
+    return "No unrestricted free entry. An eligible account, client relationship or qualifying account action is required; check the official terms for the exact conditions.";
+  }
+
+  if (costLabel === "Membership required") {
+    return "No unrestricted free entry. Eligible membership and the promoter's membership conditions are required.";
+  }
+
   if (costLabel === "Free entry") {
     return "This listing is marked as free entry based on the available Freehub data. Always confirm the latest terms on the official promoter page.";
   }
@@ -8445,6 +8465,14 @@ function buildPurchaseRequirementAnswer(competition) {
       parts.push(` with ${competition.minimumSpend}`);
     }
     return `${parts.join("")}. Keep your proof of purchase for verification.`;
+  }
+
+  if (competition.entryCostType === "account-required") {
+    return "This is not presented as a standard retail-purchase competition, but an eligible account, client relationship or qualifying account action is required. Check the official terms for any related transaction or service conditions.";
+  }
+
+  if (competition.entryCostType === "membership-required") {
+    return "Eligible membership is required. Check the official terms to confirm whether using the qualifying member benefit also involves a booking, transaction or purchase.";
   }
 
   return "The available Freehub data does not show a purchase requirement for this listing. Check the official promoter page before entering.";

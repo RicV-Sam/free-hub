@@ -92,11 +92,16 @@
     ],
     "isHighValue": true,
     "isEndingSoon": false,
-    "url": "https://www.nestlegoodnes.com/esar/kitkat-break",
-    "sourceUrl": "https://www.nestlegoodnes.com/esar/kitkat-break",
-    "termsUrl": "https://nestlesouthafrica.qualifioapp.com/20/ws/screens/?idProduction=A6FC2486-9518-4D22-B24F-0E197DBEF55B&screen=rules",
-    "sourceDomain": "nestlegoodnes.com",
-    "lastChecked": "2026-06-18",
+    "url": "https://www.nestle-esar.com/2026-kitkat%C2%AE-south-africa-breaks-full-throttle-promotion-terms-conditions-conditions-entry",
+    "sourceUrl": "https://www.nestle-esar.com/2026-kitkat%C2%AE-south-africa-breaks-full-throttle-promotion-terms-conditions-conditions-entry",
+    "termsUrl": "https://www.nestle-esar.com/2026-kitkat%C2%AE-south-africa-breaks-full-throttle-promotion-terms-conditions-conditions-entry",
+    "sourceDomain": "nestle-esar.com",
+    "lastChecked": "2026-07-10",
+    "linkValidationStatus": "manual-ok",
+    "linkValidationReason": "The official Nestle ESAR campaign terms were browser-verified on 2026-07-10; the site blocks the automated link validator with HTTP 403.",
+    "linkValidationCheckedAt": "2026-07-10",
+    "linkValidationAllowedDomain": "nestle-esar.com",
+    "linkValidationEvidence": "Manual verification on 2026-07-10 confirmed that the official Nestle ESAR terms page displays the current KitKat Breaks at Full Throttle promotion period, purchase mechanic, eligibility and prizes.",
     "verificationStatus": "published",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee; purchase any 2 participating KitKat products and keep the receipt",
@@ -110,7 +115,7 @@
     "seoContext": "Useful for users searching for KitKat competition 2026, KitKat F1 competition, Monza F1 tickets South Africa and WhatsApp till-slip competitions.",
     "eligibilitySummary": "Entrants must be South African residents aged 18 or older. Keep the original proof of purchase for verification.",
     "entryCostSummary": "This is marked as purchase-required because the official Nestle press page says entrants must buy any two participating KitKat products in one transaction before entering.",
-    "evidenceNotes": "Official Nestle Goodnes KitKat Break page embeds Qualifio campaign A6FC2486-9518-4D22-B24F-0E197DBEF55B with the title Win a trip to Monza. The Qualifio gifts screen confirms 3 x double F1 tickets to Monza, Italy, and 1 x limited edition merch. The official Nestle ESAR press page at https://www.nestle-esar.com/press/nestle-kitkat-fuels-south-africas-formula-1-fever was browser/web-verified on 18 June 2026 and published 26 May 2026; it states that entrants must buy any two Nestle KitKat participating products in a single transaction from a participating retailer, in-store or online, then scan the QR code or WhatsApp 073 082 3517 and follow the prompts. It also confirms the competition is open to South African residents aged 18+ and runs from 1 May 2026 to 30 July 2026, with one entry per qualifying transaction and unique receipt retention required."
+    "evidenceNotes": "Official Nestle ESAR campaign terms rechecked on 2026-07-10. They confirm the 1 May to 30 July 2026 period, purchase of any two participating KitKat products in one transaction, QR or WhatsApp entry with receipt upload, South African residence and age 18+ eligibility, three Monza trip prizes and the listed merchandise prizes."
   },
   {
     "id": "ok-furniture-big-brands-toyota-vitz",
@@ -778,11 +783,11 @@
     "category": "Holidays",
     "entryType": "Purchase / WhatsApp",
     "closingDate": "2026-07-31",
-    "url": "https://www.game.co.za/cp/haier-play-with-the-number-ones-competition-tcs",
-    "sourceUrl": "https://www.game.co.za/cp/haier-play-with-the-number-ones-competition-tcs",
+    "url": "https://www.haier.com/za/where-to-buy/promotions/20260507_290224.shtml",
+    "sourceUrl": "https://www.haier.com/za/where-to-buy/promotions/20260507_290224.shtml",
     "termsUrl": "https://www.game.co.za/cp/haier-play-with-the-number-ones-competition-tcs",
-    "sourceDomain": "game.co.za",
-    "lastChecked": "2026-05-19",
+    "sourceDomain": "haier.com",
+    "lastChecked": "2026-07-10",
     "summary": "Buy a selected Haier product from a participating Game or Makro store during the promotion period and enter online, by QR code or WhatsApp. Stand a chance to win one of three double-ticket football trips to see Liverpool FC or PSG, plus Spin & Win merchandise prizes.",
     "entrySteps": [
       "Buy a selected Haier participating product from Game or Makro online or in store during the promotion period.",
@@ -813,10 +818,13 @@
     "entryChannel": "QR code, online form or WhatsApp",
     "eligibility": "South African citizens and permanent residents aged 18+ for the Buy & Win and Spin & Win elements",
     "region": "South Africa",
-    "evidenceNotes": "Official Game terms page supplied by user on 2026-05-19. Terms state the promotion runs from 8 May 2026 at 00:01 until 31 July 2026 at 23:59 and covers participating Makro and Game stores.",
+    "evidenceNotes": "Official Haier South Africa promotion page rechecked on 2026-07-10. It confirms the Play with the Number Ones campaign, selected Haier product purchase, proof-of-purchase entry through haierpromotions.com, South African eligibility and the Liverpool FC or PSG travel and merchandise prizes. The official Game terms remain linked for the retailer-specific rules and 31 July 2026 closing date.",
     "seoTitle": "Game Haier Play With The Number Ones | Freehub",
     "seoDescription": "Check Game Haier Play With The Number Ones. Prize: Liverpool FC or PSG double-ticket football. Closes 31 Jul 2026. Source: game.co.za. Purchase required.",
-    "quickAnswer": "The Game Haier Play With The Number Ones is a holidays competition marked purchase required. Freehub lists Liverpool FC or PSG double-ticket football trip, entry via QR code, online form or WhatsApp, and a closing date of 31 Jul 2026. Confirm the latest rules on game.co.za before entering."
+    "quickAnswer": "The Game Haier Play With The Number Ones is a holidays competition marked purchase required. Freehub lists Liverpool FC or PSG double-ticket football trip, entry via QR code, online form or WhatsApp, and a closing date of 31 Jul 2026. Confirm the latest rules on game.co.za before entering.",
+    "image": "https://image.haier.com/za/where-to-buy/promotions/W020260507826285605870_q_p11.jpg",
+    "imageReviewStatus": "official-source",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "game-2026-birthday-competition",
@@ -1137,7 +1145,10 @@
     "quickAnswer": "The Vodacom Spend and Recharge - Win TFG Vouchers is a vouchers competition marked purchase required. Freehub lists 1 of 4 R10,000 TFG vouchers, entry via Participating TFG store purchase and recharge, and a closing date of 15 Jul 2026. Confirm the latest rules on vodacom.co.za before entering.",
     "evidenceNotes": "Official Vodacom accessory-spend voucher terms checked on 2026-06-27. The page states that four qualifying customers can win R10,000 TFG vouchers by buying a new device and new Vodacom prepaid SIM at participating TFG stores, RICA/activating the SIM and recharging with at least R29. The terms list the campaign validity period as 16 April 2026 to 15 July 2026.",
     "eligibility": "Vodacom prepaid customers aged 18 or older with a qualifying new device and prepaid SIM purchase at a participating TFG store, successful RICA/activation and a minimum R29 recharge. Business accounts are excluded.",
-    "eligibilitySummary": "The official Vodacom terms require a qualifying new device and prepaid SIM purchase at a participating TFG store, RICA/activation, and a minimum R29 recharge by an eligible Vodacom prepaid customer."
+    "eligibilitySummary": "The official Vodacom terms require a qualifying new device and prepaid SIM purchase at a participating TFG store, RICA/activation, and a minimum R29 recharge by an eligible Vodacom prepaid customer.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "cell-c-comrades-cash-promo",
@@ -1359,7 +1370,10 @@
     "seoTitle": "Coca-Cola Get Together Zwakala neFlava Promotion | Freehub",
     "seoDescription": "Check Coca-Cola Get Together Zwakala neFlava. Prize: Airtime and shopping vouchers. Closes 31 Aug 2026. Source: coca-cola.com. Purchase required.",
     "quickAnswer": "The Coca-Cola Get Together Zwakala neFlava Promotion is a vouchers competition marked purchase required. Freehub lists Airtime and shopping vouchers, entry via QR code or WhatsApp, and a closing date of 31 Aug 2026. Confirm the latest rules on coca-cola.com before entering.",
-    "evidenceNotes": "Official Coca-Cola Get Together Zwakala neFlava terms checked on 2026-06-27. The terms state that the promotion runs from 22 May 2026 to 23:59 on 31 August 2026, uses a unique-code purchase mechanic, and lets entrants scan the QR code or WhatsApp Hi to 082 508 9260 to register and submit the code."
+    "evidenceNotes": "Official Coca-Cola Get Together Zwakala neFlava terms checked on 2026-06-27. The terms state that the promotion runs from 22 May 2026 to 23:59 on 31 August 2026, uses a unique-code purchase mechanic, and lets entrants scan the QR code or WhatsApp Hi to 082 508 9260 to register and submit the code.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "hisense-big-wash-no-drama-2026",
@@ -1412,7 +1426,8 @@
     "seoTitle": "Hisense Big Wash No Drama | Freehub",
     "seoDescription": "Check Hisense Big Wash No Drama Buy and Win. Prize: vouchers and small home appliances. Closes 31 Aug 2026. Source: hisense.co.za. Purchase required.",
     "quickAnswer": "The Hisense Big Wash No Drama Buy and Win promotion is a tech competition marked purchase required. Freehub lists vouchers and small home appliances, entry via in-store QR code after a qualifying purchase, and a closing date of 31 Aug 2026. Confirm the latest rules on hisense.co.za before entering.",
-    "evidenceNotes": "Official Hisense campaign page checked on 2026-07-06 confirms the Big Wash No Drama entry mechanic, participating retailers, participating product lists, prize pool and South African 18+ eligibility. The official Hisense campaigns index also lists Big Wash No Drama as active from 1 June 2026 to 31 August 2026. Official Hisense Big Wash No Drama page rechecked from ZA Comp Engine approved export on 8 July 2026; source and terms remain live with the same 31 August 2026 closing date."
+    "evidenceNotes": "Official Hisense campaign page checked on 2026-07-06 confirms the Big Wash No Drama entry mechanic, participating retailers, participating product lists, prize pool and South African 18+ eligibility. The official Hisense campaigns index also lists Big Wash No Drama as active from 1 June 2026 to 31 August 2026. Official Hisense Big Wash No Drama page rechecked from ZA Comp Engine approved export on 8 July 2026; source and terms remain live with the same 31 August 2026 closing date.",
+    "image": "https://hisense.co.za/wp-content/uploads/2026/06/LaundryPromo_Square_WebBanner_2026.jpg"
   },
   {
     "id": "coca-cola-be-a-bok-voucher-prizes-2026",
@@ -1469,7 +1484,10 @@
     "seoTitle": "Coca-Cola Be A Bok Voucher Prizes | Freehub",
     "seoDescription": "Check Coca-Cola Be A Bok Voucher Prizes. Prize: DStv, Old School, Springboks, Spur, airtime and data vouchers. Closes 30 Nov 2026. Source: coca-cola.com. Purchase required.",
     "quickAnswer": "The Coca-Cola Be A Bok Voucher Prizes promotion is a vouchers competition marked purchase required. Freehub lists DStv, Old School, Springboks, Spur, airtime and data vouchers, entry via QR code or WhatsApp, and a closing date of 30 Nov 2026. Confirm the latest rules on coca-cola.com before entering.",
-    "evidenceNotes": "Official Coca-Cola Be A Bok terms checked on 2026-07-04. The terms state that the competition commences on 6 July 2026 and ends at 23:59 on 30 November 2026, with QR code or WhatsApp entry using Coke to 087 133 0080 and voucher prizes including DStv Mobile Stream packages, Old School vouchers, Springboks retail store shopping vouchers, Spur vouchers, airtime vouchers and data vouchers."
+    "evidenceNotes": "Official Coca-Cola Be A Bok terms checked on 2026-07-04. The terms state that the competition commences on 6 July 2026 and ends at 23:59 on 30 November 2026, with QR code or WhatsApp entry using Coke to 087 133 0080 and voucher prizes including DStv Mobile Stream packages, Old School vouchers, Springboks retail store shopping vouchers, Spur vouchers, airtime vouchers and data vouchers.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "parmalat-everything-needs-cheese-2026",
@@ -1527,7 +1545,10 @@
     "linkValidationReason": "Browser/web fetch verified the official Lactalis terms PDF on 2026-06-27; local Node/curl validation may time out from this environment.",
     "linkValidationCheckedAt": "2026-06-27",
     "linkValidationAllowedDomain": "lactalis.co.za",
-    "linkValidationEvidence": "Official Lactalis PDF loaded by web verification on 2026-06-27 and matched the Parmalat Everything Needs Cheese promotion terms source used by Freehub."
+    "linkValidationEvidence": "Official Lactalis PDF loaded by web verification on 2026-06-27 and matched the Parmalat Everything Needs Cheese promotion terms source used by Freehub.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "vodacom-tsamaya-pre-season-fan-tour-2026",
@@ -1796,7 +1817,10 @@
     ],
     "sourceSystem": "freehub-manual-review",
     "sourceReviewStatus": "approved-for-publication",
-    "sourceReport": "Manual user-supplied lead reviewed by Codex on 2026-07-08."
+    "sourceReport": "Manual user-supplied lead reviewed by Codex on 2026-07-08.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "clover-spar-rewards-voucher-competition-2026",
@@ -1849,7 +1873,10 @@
     "seoContext": "Useful for users searching for Clover competitions, SPAR Rewards competitions, grocery voucher draws and automatic loyalty-card competitions.",
     "eligibilitySummary": "Entrants must be South African citizens aged 18 or older with valid identification and a SPAR Rewards Card linked to usable contact details.",
     "entryCostSummary": "This is marked purchase-required because a qualifying Clover product purchase is required for automatic entry.",
-    "evidenceNotes": "Official SPAR Clover SPAR Rewards Competition page reviewed on 8 July 2026 confirms the 15 May to 31 July 2026 duration, SPAR Group Limited as promoter, Clover S.A. as co-promoter, qualifying Clover product purchase, automatic entry by SPAR Rewards Card swipe or SPAR2U purchase, printed qualifying till slip for in-store entries, 100 R5,000 SPAR voucher prizes, random draw after 31 July 2026 and South African citizen 18+ eligibility."
+    "evidenceNotes": "Official SPAR Clover SPAR Rewards Competition page reviewed on 8 July 2026 confirms the 15 May to 31 July 2026 duration, SPAR Group Limited as promoter, Clover S.A. as co-promoter, qualifying Clover product purchase, automatic entry by SPAR Rewards Card swipe or SPAR2U purchase, printed qualifying till slip for in-store entries, 100 R5,000 SPAR voucher prizes, random draw after 31 July 2026 and South African citizen 18+ eligibility.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "volkswagen-group-africa-july-win-a-car-2026",
@@ -1902,7 +1929,10 @@
     "seoContext": "Useful for users searching for Volkswagen competitions, VW win-a-car competitions, Polo Vivo giveaways and purchase-required vehicle draws.",
     "eligibilitySummary": "Entrants must be 18 or older, legally resident in South Africa and the end customer of the qualifying vehicle purchase.",
     "entryCostSummary": "This is marked purchase-required because automatic entry depends on buying and taking delivery of a new Volkswagen vehicle during July 2026.",
-    "evidenceNotes": "Official Volkswagen Group Africa PDF terms reviewed on 8 July 2026 confirm the July Win-a-Car Competition, VWGA as promoter, 1 July 2026 08:00 to 31 July 2026 24:00 period, automatic entry for end customers who purchase and take delivery of a new Volkswagen Passenger or Commercial vehicle during July 2026, no additional competition fee beyond the ordinary vehicle purchase, South African legal-resident 18+ eligibility, one Polo Vivo Base prize valued at approximately R271,900, five finalist ProShop vouchers worth R5,000 each, and independent/random winner selection through a VW Driving Experience key-selection process."
+    "evidenceNotes": "Official Volkswagen Group Africa PDF terms reviewed on 8 July 2026 confirm the July Win-a-Car Competition, VWGA as promoter, 1 July 2026 08:00 to 31 July 2026 24:00 period, automatic entry for end customers who purchase and take delivery of a new Volkswagen Passenger or Commercial vehicle during July 2026, no additional competition fee beyond the ordinary vehicle purchase, South African legal-resident 18+ eligibility, one Polo Vivo Base prize valued at approximately R271,900, five finalist ProShop vouchers worth R5,000 each, and independent/random winner selection through a VW Driving Experience key-selection process.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "oreo-bts-promotion-2026",
@@ -1955,7 +1985,10 @@
     "seoContext": "Useful for users searching for OREO competitions, Mondelez South Africa promotions, BTS giveaways and QR code till-slip competitions.",
     "eligibilitySummary": "Entrants must be 18 or older and meet the South African citizen or legal-resident requirements in the official terms.",
     "entryCostSummary": "This is marked purchase-required because entrants must buy the participating OREO product and retain or upload proof of purchase.",
-    "evidenceNotes": "Official OREO South Africa terms reviewed on 8 July 2026 confirm the OREO BTS Promotion 2026, Mondelez South Africa as promoter, 1 July to 30 September 2026 promotion period, South African citizen/legal resident 18+ eligibility, participating OREO Brown Sugar Pancake 105g purchase requirement, QR-code entry route, proof-of-purchase requirement, 27 weekly prizes and independent-auditor draw process."
+    "evidenceNotes": "Official OREO South Africa terms reviewed on 8 July 2026 confirm the OREO BTS Promotion 2026, Mondelez South Africa as promoter, 1 July to 30 September 2026 promotion period, South African citizen/legal resident 18+ eligibility, participating OREO Brown Sugar Pancake 105g purchase requirement, QR-code entry route, proof-of-purchase requirement, 27 weekly prizes and independent-auditor draw process.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "beares-russell-hobbs-top-loader-facebook-2026",
@@ -2006,7 +2039,10 @@
     "seoContext": "Useful for users searching for Beares competitions, Russell Hobbs giveaways and free-entry appliance competitions.",
     "eligibilitySummary": "The official page lists South Africa and neighbouring Southern African countries as eligible regions.",
     "entryCostSummary": "This is marked free-entry because the listed mechanic is liking the Beares page and completing the entry form, with no purchase requirement shown on the official competition listing.",
-    "evidenceNotes": "Official Beares competitions page reviewed on 8 July 2026 lists a Beares Facebook Competition launched 1 July 2026 and closing 31 July 2026, with a Russell Hobbs 15kg top loader prize, South Africa/Namibia/Botswana/Eswatini/Lesotho region, Facebook platform, page-like and entry-form mechanic, and phone/email winner notification."
+    "evidenceNotes": "Official Beares competitions page reviewed on 8 July 2026 lists a Beares Facebook Competition launched 1 July 2026 and closing 31 July 2026, with a Russell Hobbs 15kg top loader prize, South Africa/Namibia/Botswana/Eswatini/Lesotho region, Facebook platform, page-like and entry-form mechanic, and phone/email winner notification.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "best-home-electric-kelvinator-top-loader-2026",
@@ -2057,7 +2093,10 @@
     "seoContext": "Useful for users searching for Best Home & Electric competitions, Kelvinator giveaways and free-entry appliance competitions.",
     "eligibilitySummary": "The official competition listing marks the region as All Countries; entrants should confirm the promoter's country selector and terms before entering.",
     "entryCostSummary": "This is marked free-entry because the official listing shows an Instagram follow and website entry-form mechanic, with no purchase requirement shown on the listing.",
-    "evidenceNotes": "Official Best Home & Electric competitions page reviewed on 8 July 2026 lists a Kelvinator SS 13kg Top Loader competition launched 1 July 2026 and closing 31 July 2026, with Region: All Countries, Instagram follow and website entry-form mechanic, and Instagram winner announcement."
+    "evidenceNotes": "Official Best Home & Electric competitions page reviewed on 8 July 2026 lists a Kelvinator SS 13kg Top Loader competition launched 1 July 2026 and closing 31 July 2026, with Region: All Countries, Instagram follow and website entry-form mechanic, and Instagram winner announcement.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "vodacom4u-samsung-s26-tv-giveaway",
@@ -2204,7 +2243,10 @@
     "seoTitle": "GoTyme Bank Swipe and Tap to Win | Freehub",
     "seoDescription": "Check GoTyme Bank Swipe and Tap to Win. Prize: Xbox console and 12-month Game Pass Ultimate subscription. Closes 21 Jul 2026. Source: gotyme.co.za.",
     "quickAnswer": "The GoTyme Bank Swipe and Tap to Win Competition is a tech competition marked purchase required. Freehub lists an Xbox console and a 12-month Xbox Game Pass Ultimate subscription, entry via qualifying GoTyme card transactions, and a closing date of 21 Jul 2026. Confirm the latest rules on gotyme.co.za before entering.",
-    "evidenceNotes": "Official GoTyme Bank campaigns terms page checked on 2026-07-06. The Swipe and Tap to Win terms state that the competition runs from 25 June 2026 to 23:59 on 21 July 2026, requires an active GoTyme account plus eligible physical-card or supported virtual-card purchase transactions, gives one entry per qualifying transaction with no minimum transaction value, and awards four weekly Xbox console plus 12-month Xbox Game Pass Ultimate prizes."
+    "evidenceNotes": "Official GoTyme Bank campaigns terms page checked on 2026-07-06. The Swipe and Tap to Win terms state that the competition runs from 25 June 2026 to 23:59 on 21 July 2026, requires an active GoTyme account plus eligible physical-card or supported virtual-card purchase transactions, gives one entry per qualifying transaction with no minimum transaction value, and awards four weekly Xbox console plus 12-month Xbox Game Pass Ultimate prizes.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "flash-mtn-national-airtime-vouchers",
@@ -2881,7 +2923,10 @@
     "quickAnswer": "The Knorr competition 2026, also searched as the Knorr soup competition 2026, offers weekly R5,000 cash prizes. Buy any 4 Knorr Soup products in one transaction, enter by WhatsApp with your till slip, and submit before 11 October 2026.",
     "eligibilitySummary": "The record states that South African citizens or permanent residents aged 18+ with a valid South African ID may enter, subject to the official terms.",
     "entryCostSummary": "This is marked as purchase-required. The listed qualifying action is buying any 4 Knorr Soup products in one transaction; WhatsApp data may apply.",
-    "evidenceNotes": "Official Knorr/Whatsfordinner terms URL checked on 2026-06-27. Freehub retains the purchase-required summary from the official Knorr terms source: buy four Knorr Soup products in a single transaction, WhatsApp Knorr to +27 87 265 1280, upload the original till-slip photo, and enter before 23:59 on 11 October 2026. The source may block some automated fetches, so keep this row on the next manual recheck queue."
+    "evidenceNotes": "Official Knorr/Whatsfordinner terms URL checked on 2026-06-27. Freehub retains the purchase-required summary from the official Knorr terms source: buy four Knorr Soup products in a single transaction, WhatsApp Knorr to +27 87 265 1280, upload the original till-slip photo, and enter before 23:59 on 11 October 2026. The source may block some automated fetches, so keep this row on the next manual recheck queue.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "wanta-fanta-gaming-promotion-2026",
@@ -2917,7 +2962,7 @@
     "sourceUrl": "https://www.coca-cola.com/za/en/legal/terms-and-conditions-wanta-fanta-gaming-2026-prize-draw",
     "termsUrl": "https://www.coca-cola.com/za/en/legal/terms-and-conditions-wanta-fanta-gaming-2026-prize-draw",
     "sourceDomain": "coca-cola.com",
-    "lastChecked": "2026-06-23",
+    "lastChecked": "2026-07-10",
     "verificationStatus": "published",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee; buy any 3 participating Fanta products and submit a unique code",
@@ -3020,7 +3065,7 @@
     "sourceUrl": "https://www.cremora.co.za/sites/default/files/2026-04/Cremora%20Winter%20campaign%20T%26C%27s%202026.pdf",
     "termsUrl": "https://www.cremora.co.za/sites/default/files/2026-04/Cremora%20Winter%20campaign%20T%26C%27s%202026.pdf",
     "sourceDomain": "cremora.co.za",
-    "lastChecked": "2026-06-23",
+    "lastChecked": "2026-07-10",
     "verificationStatus": "published",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee; buy 2 x 750g Cremora products and standard USSD costs may apply",
@@ -3143,7 +3188,10 @@
     "seoTitle": "Himalaya Winter Colouring Competition 2026 | Freehub",
     "seoDescription": "Check the Himalaya Winter Colouring Competition 2026: buy one qualifying product, submit the colouring page, and stand a chance to win R50,000 towards school fees before 31 Jul 2026.",
     "quickAnswer": "The Himalaya Winter Colouring Competition 2026 is a cash competition marked purchase required. Freehub lists a R50,000 school-fees cash prize, entry via the official QR code and form submission, and a closing date of 31 Jul 2026. Confirm the latest rules on himalayawellness.co.za before entering.",
-    "evidenceNotes": "Official Himalaya campaign page and official terms page checked on 2026-07-06 confirm that the competition runs from 15 May 2026 to 23:59:59 on 31 July 2026. Entrants must buy one qualifying Himalaya Pharmaceutical product, download the colouring page through the official QR flow, submit the completed artwork via the official form, and remain able to provide proof of purchase. The prize is one R50,000 cash EFT prize toward school fees."
+    "evidenceNotes": "Official Himalaya campaign page and official terms page checked on 2026-07-06 confirm that the competition runs from 15 May 2026 to 23:59:59 on 31 July 2026. Entrants must buy one qualifying Himalaya Pharmaceutical product, download the colouring page through the official QR flow, submit the completed artwork via the official form, and remain able to provide proof of purchase. The prize is one R50,000 cash EFT prize toward school fees.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "oxford-freshmarket-birthday-trolley-dash",
@@ -4515,7 +4563,7 @@
     "sourceUrl": "https://proxy.my.oldmutual.co.za/contentstack-mobile/bltf9ffa14017dbad8a/WinonRepeat_TsCs.pdf",
     "termsUrl": "https://proxy.my.oldmutual.co.za/contentstack-mobile/bltf9ffa14017dbad8a/WinonRepeat_TsCs.pdf",
     "sourceDomain": "oldmutual.co.za",
-    "lastChecked": "2026-05-17",
+    "lastChecked": "2026-07-10",
     "verificationStatus": "published",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee; OM Bank account, qualifying product and R30+ transactions required",
@@ -4535,7 +4583,10 @@
     "entryCostSummary": "This is marked as purchase-required. The listed requirement is OM Bank account, Old Mutual Rewards membership and qualifying Old Mutual product.",
     "seoTitle": "Old Mutual Win On Repeat - Win R100,000 Rewards Points | Freehub",
     "seoDescription": "Check Old Mutual Win On Repeat - Win R100,000. Prize: Old Mutual Rewards points worth up. Closes 27 Sept 2026. Source: oldmutual.co.za. Purchase required.",
-    "quickAnswer": "The Old Mutual Win On Repeat - Win R100,000 Rewards Points is a cash competition marked purchase required. Freehub lists Old Mutual Rewards points worth up to R100,000 grand prize, entry via OM Bank card/account transactions and DebiCheck mandate, and a closing date of 27 Sept 2026. Confirm the latest rules on."
+    "quickAnswer": "The Old Mutual Win On Repeat - Win R100,000 Rewards Points is a cash competition marked purchase required. Freehub lists Old Mutual Rewards points worth up to R100,000 grand prize, entry via OM Bank card/account transactions and DebiCheck mandate, and a closing date of 27 Sept 2026. Confirm the latest rules on.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "shoprite-drive-away-in-a-toyota-starlet",
@@ -5107,7 +5158,10 @@
     "linkValidationStatus": "manual-ok",
     "linkValidationReason": "Official Clicks ClubCard competition page is browser-verified with visible title, prize and closing date; automated fetch can be inconsistent on Clicks pages. Rechecked on 2026-06-27.",
     "linkValidationCheckedAt": "2026-06-27",
-    "linkValidationAllowedDomain": "clicks.co.za"
+    "linkValidationAllowedDomain": "clicks.co.za",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "clicks-dark-and-lovely-best-for-braids-2026",
@@ -5164,7 +5218,10 @@
     "linkValidationReason": "Official Clicks ClubCard competition page is browser/web-verified with visible title, prize and closing date; automated fetch can be inconsistent on Clicks pages.",
     "linkValidationCheckedAt": "2026-07-04",
     "linkValidationAllowedDomain": "clicks.co.za",
-    "linkValidationEvidence": "Official Clicks Dark & Lovely page loaded on 2026-07-04 and showed the competition title, R1,000 cashback prize, qualifying product purchase requirement and 15 August 2026 closing date."
+    "linkValidationEvidence": "Official Clicks Dark & Lovely page loaded on 2026-07-04 and showed the competition title, R1,000 cashback prize, qualifying product purchase requirement and 15 August 2026 closing date.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "clicks-clubcard-have-your-say-june-july-2026",
@@ -5217,7 +5274,10 @@
     "linkValidationReason": "Official Clicks ClubCard competition page is browser/web-verified with visible title, prize and closing date; automated fetch can be inconsistent on Clicks pages.",
     "linkValidationCheckedAt": "2026-07-04",
     "linkValidationAllowedDomain": "clicks.co.za",
-    "linkValidationEvidence": "Official Clicks Have Your Say page loaded on 2026-07-04 and showed the title, R500 cashback prize and 1 August 2026 closing date."
+    "linkValidationEvidence": "Official Clicks Have Your Say page loaded on 2026-07-04 and showed the title, R500 cashback prize and 1 August 2026 closing date.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "clicks-clubcard-fragrance-giveaway-june-july-2026",
@@ -5270,7 +5330,10 @@
     "linkValidationReason": "Official Clicks ClubCard competition page is browser/web-verified with visible title, prize and closing date; automated fetch can be inconsistent on Clicks pages.",
     "linkValidationCheckedAt": "2026-07-04",
     "linkValidationAllowedDomain": "clicks.co.za",
-    "linkValidationEvidence": "Official Clicks Fragrance Giveaway page loaded on 2026-07-04 and showed the title, Montblanc Explorer gift set prize worth R1,200 and 1 August 2026 closing date."
+    "linkValidationEvidence": "Official Clicks Fragrance Giveaway page loaded on 2026-07-04 and showed the title, Montblanc Explorer gift set prize worth R1,200 and 1 August 2026 closing date.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "clicks-clubcard-portia-m-hamper-june-july-2026",
@@ -5324,7 +5387,10 @@
     "linkValidationReason": "Official Clicks ClubCard competition page is browser/web-verified with visible title, prize and closing date; automated fetch can be inconsistent on Clicks pages.",
     "linkValidationCheckedAt": "2026-07-04",
     "linkValidationAllowedDomain": "clicks.co.za",
-    "linkValidationEvidence": "Official Clicks Portia M page loaded on 2026-07-04 and showed the title, Portia M product hamper worth R2,500 and 1 August 2026 closing date."
+    "linkValidationEvidence": "Official Clicks Portia M page loaded on 2026-07-04 and showed the title, Portia M product hamper worth R2,500 and 1 August 2026 closing date.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "clicks-clubcard-mens-wellness-hamper-june-july-2026",
@@ -5378,7 +5444,10 @@
     "linkValidationReason": "Official Clicks ClubCard competition page is browser/web-verified with visible title, prize and closing date; automated fetch can be inconsistent on Clicks pages.",
     "linkValidationCheckedAt": "2026-07-04",
     "linkValidationAllowedDomain": "clicks.co.za",
-    "linkValidationEvidence": "Official Clicks Men's Wellness page loaded on 2026-07-04 and showed the title, men's wellness hamper worth R2,000 and 1 August 2026 closing date."
+    "linkValidationEvidence": "Official Clicks Men's Wellness page loaded on 2026-07-04 and showed the title, men's wellness hamper worth R2,000 and 1 August 2026 closing date.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "clicks-clubcard-newness-hamper-june-july-2026",
@@ -5433,7 +5502,10 @@
     "linkValidationReason": "Official Clicks ClubCard competition page is browser/web-verified with visible title, prize and closing date; automated fetch can be inconsistent on Clicks pages.",
     "linkValidationCheckedAt": "2026-07-04",
     "linkValidationAllowedDomain": "clicks.co.za",
-    "linkValidationEvidence": "Official Clicks Newness Hamper page loaded on 2026-07-04 and showed the title, K-Beauty hamper worth R4,000 and 1 August 2026 closing date."
+    "linkValidationEvidence": "Official Clicks Newness Hamper page loaded on 2026-07-04 and showed the title, K-Beauty hamper worth R4,000 and 1 August 2026 closing date.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "vodacom-dankovodacom-adidas-voucher-2026",
@@ -5521,7 +5593,7 @@
     "sourceUrl": "https://www.capitecbank.co.za/globalassets/pages/competition-and-conditions/competitions/2026/moneyup-academy-competition-rules-2026.pdf",
     "termsUrl": "https://www.capitecbank.co.za/globalassets/pages/competition-and-conditions/competitions/2026/moneyup-academy-competition-rules-2026.pdf",
     "sourceDomain": "capitecbank.co.za",
-    "lastChecked": "2026-05-17",
+    "lastChecked": "2026-07-10",
     "verificationStatus": "published",
     "entryCostType": "account-required",
     "entryFeeLabel": "No purchase requirement found; MoneyUp account and RSA mobile verification required",
@@ -5534,13 +5606,16 @@
     "evidenceNotes": "Promoted during FH-3.19 after manual review. Official Capitec PDF confirms the 1 March to 31 July 2026 competition period, Capitec Flexi Voucher prize, weekly points target entry mechanic, MoneyUp Academy account requirement, RSA mobile verification requirement, eligibility and voucher caveats. Final resolved terms URL checked 2026-05-19 via the official Capitec competitions and conditions index and search-cached PDF text: https://www.capitecbank.co.za/globalassets/pages/competition-and-conditions/competitions/2026/moneyup-academy-competition-rules-2026.pdf.",
     "importedAt": "2026-05-15T19:06:05.616Z",
     "linkValidationStatus": "manual-ok",
-    "linkValidationReason": "Official Capitec MoneyUp Academy Competition Rules 2026 PDF is browser/web verified, but automated fetch can return HTTP 403 for the PDF. Verified on 2026-06-19.",
-    "linkValidationCheckedAt": "2026-06-19",
+    "linkValidationReason": "Official Capitec MoneyUp Academy Competition Rules 2026 PDF is browser/web verified, but automated fetch can return HTTP 403 for the PDF. Reverified on 2026-07-10.",
+    "linkValidationCheckedAt": "2026-07-10",
     "linkValidationAllowedDomain": "capitecbank.co.za",
     "seoTitle": "MoneyUp Academy | Freehub",
     "seoDescription": "Check MoneyUp Academy Competition. Prize: Capitec Flexi Voucher up to R200. Closes 31 Jul 2026. Source: capitecbank.co.za. Free entry.",
-    "quickAnswer": "The MoneyUp Academy Competition is a vouchers competition marked free entry. Freehub lists Capitec Flexi Voucher up to R200, entry via MoneyUp Academy account, and a closing date of 31 Jul 2026. Confirm the latest rules on capitecbank.co.za before entering.",
-    "linkValidationEvidence": "Official Capitec PDF loaded by browser/web verification on 2026-06-19 and matched the MoneyUp Academy Competition Rules 2026 source used by Freehub."
+    "quickAnswer": "The MoneyUp Academy Competition is account-required. Verified MoneyUp Academy users earn points through learning activities and receive an instant randomised-draw entry after reaching the weekly target; no product purchase is required. The competition closes 31 July 2026.",
+    "linkValidationEvidence": "Official Capitec PDF and competitions index loaded through browser/web verification on 2026-07-10 and matched the MoneyUp Academy Competition Rules 2026 source used by Freehub.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "dis-chem-garnier-pure-active-june-2026-competition",
@@ -5781,7 +5856,7 @@
     "sourceUrl": "https://alpha52.co.za/terms-and-conditions/",
     "termsUrl": "https://alpha52.co.za/terms-and-conditions/",
     "sourceDomain": "alpha52.co.za",
-    "lastChecked": "2026-05-19",
+    "lastChecked": "2026-07-10",
     "verificationStatus": "published",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee; R100 qualifying cash purchase required",
@@ -5793,7 +5868,10 @@
     "evidenceNotes": "Official Alpha52 terms page confirms the Alpha 52 Competition, 1 January to 31 December 2026 period, R100+ cash purchase requirement at participating Alpha Pharm pharmacies, WhatsApp or web form till-slip upload route, one entry per full R100 spent, weekly submission cut-off, 52 total R100,000 cash prizes and 4 monthly winners. Final resolved URL checked 2026-05-19: https://alpha52.co.za/terms-and-conditions/.",
     "seoTitle": "Alpha 52 Competition | Alpha Pharm R100,000 Cash | Freehub",
     "seoDescription": "Alpha 52 competition: spend R100 or more at a participating Alpha Pharm, then use the official Alpha 52 entry route for a chance to win R100,000 cash.",
-    "quickAnswer": "The Alpha 52 competition is a purchase-required Alpha Pharm cash promotion. Spend R100 or more at a participating Alpha Pharm pharmacy, then use the official Alpha 52 WhatsApp or web-form entry route before 31 December 2026."
+    "quickAnswer": "The Alpha 52 competition is a purchase-required Alpha Pharm cash promotion. Spend R100 or more at a participating Alpha Pharm pharmacy, then use the official Alpha 52 WhatsApp or web-form entry route before 31 December 2026.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "gotyme-bafana-jersey-giveaway-2026",
@@ -5887,7 +5965,10 @@
     "seoDescription": "Check Vodacom Power Up Woolworths Voucher. Prize: R1,000 Woolworths voucher. Closes 15 Jul 2026. Source: vodacom.co.za. Purchase required.",
     "quickAnswer": "The Vodacom Power Up Woolworths Voucher Competition is a vouchers competition marked purchase required. Freehub lists R1,000 Woolworths voucher, entry via Participating Woolworths store purchase and Vodacom recharge, and a closing date of 15 Jul 2026. Confirm the latest rules on vodacom.co.za before entering.",
     "evidenceNotes": "Official Vodacom Power Up Woolworths terms checked on 2026-06-27. The page states that 25 customers can win R1,000 Woolworths vouchers by buying a new device and new Vodacom prepaid SIM at Woolworths, RICA/activating the SIM and recharging with at least R49. The terms list the validity period as 15 May 2026 to 15 July 2026.",
-    "eligibilitySummary": "The official Vodacom terms require an eligible Vodacom prepaid customer, a qualifying new device and prepaid SIM purchase at Woolworths, RICA/activation and a minimum R49 recharge on the new number."
+    "eligibilitySummary": "The official Vodacom terms require an eligible Vodacom prepaid customer, a qualifying new device and prepaid SIM purchase at Woolworths, RICA/activation and a minimum R49 recharge on the new number.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "volkswagen-easydrive-maintenance-plan-2026",
@@ -6069,7 +6150,10 @@
     "seoDescription": "Check the Coke x Hisense FIFA Consumer Promotion: buy qualifying Coca-Cola packs or Hisense products, enter by QR/WhatsApp, and confirm official terms.",
     "quickAnswer": "The Coke x Hisense FIFA promotion runs from 18 May to 19 July 2026. Buy a qualifying Coca-Cola pack or qualifying Hisense product at participating retailers, then enter through the QR/WhatsApp flow.",
     "evidenceNotes": "Official Coca-Cola x Hisense FIFA promotion terms checked on 2026-06-27. The terms state that the promotion runs from 18 May 2026 to 23:59 on 19 July 2026, applies through Makro, Game and Walmart South Africa, and requires a qualifying Coca-Cola pack or Hisense product purchase, QR/WhatsApp entry and till-slip upload. The terms list South African citizen/permanent-resident eligibility and fan-hamper prizes.",
-    "eligibilitySummary": "The official terms say entrants must be permanent residents or citizens of South Africa, aged 18 or older, with valid identification and a qualifying purchase from the participating retailers."
+    "eligibilitySummary": "The official terms say entrants must be permanent residents or citizens of South Africa, aged 18 or older, with valid identification and a qualifying purchase from the participating retailers.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "5fm-code-youth-bootcamp-2026",
@@ -6386,7 +6470,7 @@
     "sourceUrl": "https://www.sunlight.co.za/win-a-kitchen-makeover.html",
     "termsUrl": "https://www.sunlight.co.za/win-a-kitchen-makeover.html",
     "sourceDomain": "sunlight.co.za",
-    "lastChecked": "2026-05-17",
+    "lastChecked": "2026-07-10",
     "verificationStatus": "published",
     "entryCostType": "till-slip-required",
     "entryFeeLabel": "No separate entry fee; purchase of three qualifying Sunlight products and till slip required",
@@ -6398,7 +6482,10 @@
     "evidenceNotes": "Official Sunlight terms page confirms the kitchen makeover competition, 9 February to 31 July 2026 period, qualifying products, WhatsApp entry line, till-slip requirement and prize value. Final resolved URL checked 2026-05-17: https://www.sunlight.co.za/win-a-kitchen-makeover.html.",
     "seoTitle": "Sunlight Win a Kitchen Makeover | Freehub",
     "seoDescription": "Check Sunlight Win a Kitchen Makeover Competition. Prize: Kitchen makeover cash prize. Closes 31 Jul 2026. Source: sunlight.co.za. Purchase required.",
-    "quickAnswer": "The Sunlight Win a Kitchen Makeover Competition is a cash competition marked purchase required. Freehub lists Kitchen makeover cash prize, entry via WhatsApp till-slip upload, and a closing date of 31 Jul 2026. Confirm the latest rules on sunlight.co.za before entering."
+    "quickAnswer": "The Sunlight Win a Kitchen Makeover Competition is a cash competition marked purchase required. Freehub lists Kitchen makeover cash prize, entry via WhatsApp till-slip upload, and a closing date of 31 Jul 2026. Confirm the latest rules on sunlight.co.za before entering.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "kelloggs-big-bowl-energy-2026",
@@ -6434,7 +6521,7 @@
     "sourceUrl": "https://www.kelloggs.com/content/dam/Asia/kelloggs_za/pdf/Kelloggs-Promotional-Competition-Ts%26Cs-BigBowlEnergy-FINAL.pdf",
     "termsUrl": "https://www.kelloggs.com/content/dam/Asia/kelloggs_za/pdf/Kelloggs-Promotional-Competition-Ts%26Cs-BigBowlEnergy-FINAL.pdf",
     "sourceDomain": "kelloggs.com",
-    "lastChecked": "2026-05-17",
+    "lastChecked": "2026-07-10",
     "verificationStatus": "published",
     "entryCostType": "till-slip-required",
     "entryFeeLabel": "No separate entry fee; qualifying Kellogg's Instant Noodles purchase and till slip required",
@@ -6451,7 +6538,10 @@
     "entryCostSummary": "This is marked as till-slip required. The listed requirement is three or more qualifying Kellogg's Instant Noodles products in a single transaction.",
     "seoTitle": "Kellogg's Big Bowl Energy | Freehub",
     "seoDescription": "Check Kellogg's Big Bowl Energy Competition. Prize: Omoda C5 vehicle. Closes 31 Aug 2026. Source: kelloggs.com. Purchase required.",
-    "quickAnswer": "The Kellogg's Big Bowl Energy Competition is a cars competition marked purchase required. Freehub lists Omoda C5 vehicle, entry via QR code or WhatsApp till-slip upload, and a closing date of 31 Aug 2026. Confirm the latest rules on kelloggs.com before entering."
+    "quickAnswer": "The Kellogg's Big Bowl Energy Competition is a cars competition marked purchase required. Freehub lists Omoda C5 vehicle, entry via QR code or WhatsApp till-slip upload, and a closing date of 31 Aug 2026. Confirm the latest rules on kelloggs.com before entering.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "budget-refer-a-friend-cash-2026",
@@ -6868,7 +6958,7 @@
     "sourceUrl": "https://www.standardbank.co.za/static_file/South%20Africa/PDF/Terms%20and%20Conditions/Competition%20terms%20and%20conditions%20First%20Time%20Buyers%20Homeloans%20Jan%202026%20updated.pdf",
     "termsUrl": "https://www.standardbank.co.za/static_file/South%20Africa/PDF/Terms%20and%20Conditions/Competition%20terms%20and%20conditions%20First%20Time%20Buyers%20Homeloans%20Jan%202026%20updated.pdf",
     "sourceDomain": "standardbank.co.za",
-    "lastChecked": "2026-05-17",
+    "lastChecked": "2026-07-10",
     "verificationStatus": "published",
     "entryCostType": "account-required",
     "entryFeeLabel": "No separate entry fee; eligible Standard Bank home loan application and bond registration required",
@@ -6885,7 +6975,10 @@
     "entryCostSummary": "This is marked as account-required. The listed requirement is an eligible Standard Bank first-time-buyer home loan of up to R3 million.",
     "seoTitle": "Standard Bank First Time Buyers Home Loans | Freehub",
     "seoDescription": "Check Standard Bank First Time Buyers Home Loans. Prize: R100,000 paid into a Standard Bank home loan. Closes 31 Mar 2027. Source: standardbank.co.za.",
-    "quickAnswer": "The Standard Bank First Time Buyers Home Loans Competition is a cash competition marked free entry. Freehub lists R100,000 paid into a Standard Bank home loan account, entry via Standard Bank home loan application through available Standard Bank or mortgage origination channels, and a closing date of 31 Mar 2027.."
+    "quickAnswer": "The Standard Bank First Time Buyers Home Loans Competition is an account-required cash promotion. Entry depends on an eligible first-time-buyer home loan application and qualifying bond registration; it is not unrestricted free entry. The final competition date is 31 March 2027.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "ster-kinekor-sk-club-acquisitions-drive-2026",
@@ -7328,7 +7421,7 @@
     "sourceUrl": "https://www.spar.co.za/SPAR-Rewards-Cera-Glow-Competition",
     "termsUrl": "https://www.spar.co.za/SPAR-Rewards-Cera-Glow-Competition",
     "sourceDomain": "spar.co.za",
-    "lastChecked": "2026-05-18",
+    "lastChecked": "2026-07-10",
     "verificationStatus": "published",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "Purchase required. Entrants must buy any 2 Vaseline Cera Glow products from SPAR stores nationally and use a SPAR Rewards card. Normal shopping, rewards-card, SMS, data/contact, and delivery-contact costs may apply.",
@@ -7411,7 +7504,7 @@
     "sourceUrl": "https://www.spar.co.za/SPAR-Rewards-Vaseline-Competition",
     "termsUrl": "https://www.spar.co.za/SPAR-Rewards-Vaseline-Competition",
     "sourceDomain": "spar.co.za",
-    "lastChecked": "2026-05-18",
+    "lastChecked": "2026-07-10",
     "verificationStatus": "published",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "Purchase required. Entrants must buy any 2 Vaseline products from SPAR stores nationally and use a SPAR Rewards card. Normal shopping, rewards-card, SMS, and data/contact costs may apply.",
@@ -7662,7 +7755,6 @@
     "tags": [
       "vouchers",
       "banking",
-      "free-entry",
       "social-entry",
       "account-required"
     ],
@@ -7672,9 +7764,9 @@
     "sourceUrl": "https://www.capitecbank.co.za/competitions-and-conditions/",
     "termsUrl": "https://www.capitecbank.co.za/globalassets/pages/competition-and-conditions/competitions/2026/capitec-tactical-flexi-voucher-competition-tcs.pdf",
     "sourceDomain": "capitecbank.co.za",
-    "lastChecked": "2026-05-27",
+    "lastChecked": "2026-07-10",
     "verificationStatus": "published",
-    "entryCostType": "free-entry",
+    "entryCostType": "account-required",
     "entryFeeLabel": "No purchase required; Capitec client and social media entry requirements apply",
     "purchaseRequired": false,
     "requiredProduct": "Capitec client status and compliance with the relevant official social media post instructions",
@@ -7685,12 +7777,15 @@
     "prizeContext": "The official terms describe various Flexi Voucher prizes valued between R500 and R2,000.",
     "seoContext": "Useful for users searching for Capitec competitions, Flexi Voucher giveaways, banking social media competitions and free-entry voucher promotions.",
     "eligibilitySummary": "The record states that eligible Capitec clients who are South African residents aged 18+ may enter, subject to the official terms.",
-    "entryCostSummary": "This is marked as free-entry, although Capitec client status and social media access are required.",
-    "evidenceNotes": "Official Capitec competitions page lists the 2026 Tactical Flexi Voucher PDF. The PDF states prizes are various Flexi Vouchers valued from R500 to R2,000, the tactical competitions run from 1 January 2026 to 31 December 2026, and entry is by following Capitec approved social media pages and engaging on the relevant competition post.",
+    "entryCostSummary": "This is marked account-required because eligible Capitec client status and the relevant official social media action are required, although no product purchase is stated.",
+    "evidenceNotes": "Official Capitec competitions page and Tactical Flexi Voucher PDF rechecked on 2026-07-10. The PDF states prizes are various Flexi Vouchers valued from R500 to R2,000, the tactical competitions run from 1 January 2026 to 31 December 2026, eligible entrants must be Capitec clients, and entry is by following and engaging with the relevant official social media post.",
     "linkValidationStatus": "manual-ok",
     "linkValidationReason": "Official Capitec competitions and conditions page is browser-verified and lists the Tactical Flexi Voucher Competition PDF, but automated fetch returns HTTP 403. Rechecked on 2026-06-27.",
     "linkValidationCheckedAt": "2026-06-27",
-    "linkValidationAllowedDomain": "capitecbank.co.za"
+    "linkValidationAllowedDomain": "capitecbank.co.za",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "mcdonalds-nazo-meals-airtime-data-rewards-2026",
@@ -7747,7 +7842,10 @@
     "seoContext": "Useful for users searching for McDonald's rewards, airtime giveaways, free data promotions and app-based food rewards in South Africa.",
     "eligibilitySummary": "The record states that South African residents with a valid ID number may participate, subject to the official terms.",
     "entryCostSummary": "This is marked as purchase-required because users obtain reward vouchers through a participating Nazo Meals Value Meal and app reward flow.",
-    "evidenceNotes": "Official McDonald's terms state the Nazo Meals Rewards Campaign, South African resident eligibility, reward voucher mechanic, app loyalty points flow, last entry date of 20 December 2026 and reward validity until 15 January 2027, subject to stock and terms changes."
+    "evidenceNotes": "Official McDonald's terms state the Nazo Meals Rewards Campaign, South African resident eligibility, reward voucher mechanic, app loyalty points flow, last entry date of 20 December 2026 and reward validity until 15 January 2027, subject to stock and terms changes.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "clicks-protex-protect-their-future-2026",
@@ -8001,7 +8099,7 @@
     "sourceUrl": "https://www.boxer.co.za/page/competitions",
     "termsUrl": "https://www.boxer.co.za/storage/web/source/2026/Competition%20T%26Cs/Boxer%20%26%20Nyama%20Ts%26Cs.pdf?_t=1778316216",
     "sourceDomain": "boxer.co.za",
-    "lastChecked": "2026-06-11",
+    "lastChecked": "2026-07-10",
     "verificationStatus": "published",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee; buy any 2 participating brands and swipe a Boxer Rewards Club card",
@@ -8054,7 +8152,7 @@
     "sourceUrl": "https://www.boxer.co.za/page/competitions",
     "termsUrl": "https://www.boxer.co.za/storage/web/source/2026/Competition%20T%26Cs/Boxer%20Celebrate%20%26%20Win%20TsCs.pdf?_t=1780910791",
     "sourceDomain": "boxer.co.za",
-    "lastChecked": "2026-06-11",
+    "lastChecked": "2026-07-10",
     "verificationStatus": "published",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee; buy any 2 advertised products and swipe a Boxer Rewards Club card",
@@ -8135,7 +8233,10 @@
       "risk_loyalty_required"
     ],
     "importedAt": "2026-06-12T18:27:00.154Z",
-    "entryCostSummary": "This is marked as purchase-required. Purchase required. Entrants must buy the qualifying Vaseline product quantity and use an active Xtra Savings card; normal purchase costs apply."
+    "entryCostSummary": "This is marked as purchase-required. Purchase required. Entrants must buy the qualifying Vaseline product quantity and use an active Xtra Savings card; normal purchase costs apply.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "mtn-world-cup-bafana-goal-1gb-data-2026",
@@ -8268,7 +8369,10 @@
       "risk_account_required"
     ],
     "importedAt": "2026-06-12T18:27:00.154Z",
-    "entryCostSummary": "This is marked as purchase-required. Paid MTN FC subscription and successful billing required; normal subscription, airtime, data, and network costs may apply."
+    "entryCostSummary": "This is marked as purchase-required. Paid MTN FC subscription and successful billing required; normal subscription, airtime, data, and network costs may apply.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "rhodes-quality-win-your-share-of-r1-million-competition-2026",
@@ -8420,7 +8524,7 @@
     "sourceUrl": "https://www.vodacom.co.za/vodacom/terms/competition/springboks-double-tickets",
     "termsUrl": "https://www.vodacom.co.za/vodacom/terms/competition/springboks-double-tickets",
     "sourceDomain": "vodacom.co.za",
-    "lastChecked": "2026-06-15",
+    "lastChecked": "2026-07-10",
     "verificationStatus": "published",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee; qualifying Vodacom RED signup or upgrade required",
@@ -8432,7 +8536,10 @@
     "evidenceNotes": "Official Vodacom terms page confirms the competition runs from 09:00 on 9 June 2026 to 24:00 on 31 August 2026. Eligible entrants must sign up or upgrade on specified Samsung Galaxy devices and take up a qualifying Vodacom RED Core or RED VIP plan. The prize pool is 750 double Springbok tickets, with winners selected in ongoing draws during the campaign.",
     "seoTitle": "Vodacom RED Springboks Tickets Competition 2026 | Freehub",
     "seoDescription": "Check the Vodacom RED Springboks tickets competition: sign up or upgrade on qualifying Samsung RED plans for a chance to win 750 double Springbok match tickets.",
-    "quickAnswer": "The Vodacom RED Springboks tickets competition is a sports competition marked purchase required. Freehub lists 750 double Springbok tickets, entry via qualifying Vodacom RED signup or upgrade, and a closing date of 31 Aug 2026."
+    "quickAnswer": "The Vodacom RED Springboks tickets competition is a sports competition marked purchase required. Freehub lists 750 double Springbok tickets, entry via qualifying Vodacom RED signup or upgrade, and a closing date of 31 Aug 2026.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "fnb-scroll-to-score-springbok-gamification-2026",
@@ -8469,7 +8576,7 @@
     "sourceUrl": "https://www.fnb.co.za/about-fnb/legal-matters/promo-terms/Scroll-to-score-Springbok-Gamification-Offers.pdf",
     "termsUrl": "https://www.fnb.co.za/about-fnb/legal-matters/promo-terms/Scroll-to-score-Springbok-Gamification-Offers.pdf",
     "sourceDomain": "fnb.co.za",
-    "lastChecked": "2026-06-15",
+    "lastChecked": "2026-07-10",
     "verificationStatus": "published",
     "entryCostType": "free-entry",
     "entryFeeLabel": "No purchase required; active FNB retail product, app access and Personalised Solutions consent required",
@@ -8481,7 +8588,10 @@
     "evidenceNotes": "Official FNB competition PDF confirms the competition runs from 4 May 2026 to 2 August 2026. Eligible FNB retail customers with Personalised Solutions consent must click the Springbok icon on the FNB App to earn one weekly entry, limited to one per week. Weekly prizes are Springbok match tickets or jerseys across 13 weeks, and the grand prize is a Springboks vs New Zealand hospitality experience on 5 September 2026 in Johannesburg for four winners, with flights and accommodation for winners outside Gauteng.",
     "seoTitle": "FNB Scroll to Score Springbok Competition 2026 | Freehub",
     "seoDescription": "Check the FNB Scroll to Score Springbok competition: click the Springbok offer in the FNB App for ticket, jersey and hospitality prizes before 2 August 2026.",
-    "quickAnswer": "The FNB Scroll to Score Springbok competition is a sports competition marked free entry. Freehub lists Springbok tickets, jerseys and a grand-prize hospitality experience, entry via the FNB App Springbok offer, and a closing date of 2 Aug 2026."
+    "quickAnswer": "The FNB Scroll to Score Springbok competition is a sports competition marked free entry. Freehub lists Springbok tickets, jerseys and a grand-prize hospitality experience, entry via the FNB App Springbok offer, and a closing date of 2 Aug 2026.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "secret-skin-kuzuko-lodge-getaway-2026",
@@ -8517,8 +8627,11 @@
     "sourceUrl": "https://secretskin.co.za/pages/giveaway",
     "termsUrl": "https://secretskin.co.za/pages/giveaway",
     "sourceDomain": "secretskin.co.za",
-    "lastChecked": "2026-06-19",
-    "verificationStatus": "published",
+    "lastChecked": "2026-07-10",
+    "verificationStatus": "needs-verification",
+    "publicationStatus": "held",
+    "doNotPublish": true,
+    "verificationNote": "Held on 2026-07-10 because the current official Secret Skin giveaway page no longer exposes the Kuzuko-specific closing date, entry form or full competition terms. The listing can be restored when competition-specific official evidence is available again.",
     "entryCostType": "free-entry",
     "entryFeeLabel": "No purchase required; optional purchases can earn extra entries",
     "purchaseRequired": false,
@@ -8576,7 +8689,10 @@
     "evidenceNotes": "Official +more competition rules page confirms the PEPxDSTV Scan Play Win Competition runs from 27 May 2026 to 23 July 2026. Eligible customers must buy any DStv decoder at PEP, PEP HOME or PEP CELL, scan a +more rewards card, and access the SMS data-lite game. The rules list 5,000 R50 PEP instant virtual vouchers and 440 R500 Shoprite Checkers virtual vouchers, with the draw on 29 July 2026 and voucher distribution by 14 August 2026.",
     "seoTitle": "PEPxDSTV Scan Play Win Competition 2026 | Freehub",
     "seoDescription": "Check the PEPxDSTV Scan Play Win competition: buy a DStv decoder at PEP, scan +more and play for PEP and Shoprite Checkers voucher prizes.",
-    "quickAnswer": "The PEPxDSTV Scan Play Win competition is a purchase-required voucher promotion. Freehub lists PEP and Shoprite Checkers virtual vouchers, entry via DStv decoder purchase, +more scan and SMS game, and a closing date of 23 Jul 2026."
+    "quickAnswer": "The PEPxDSTV Scan Play Win competition is a purchase-required voucher promotion. Freehub lists PEP and Shoprite Checkers virtual vouchers, entry via DStv decoder purchase, +more scan and SMS game, and a closing date of 23 Jul 2026.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "tekkie-town-football-frenzy-fifa-2026",
@@ -8613,7 +8729,7 @@
     "sourceUrl": "https://cloud.info.plusmore.co.za/competition_rules",
     "termsUrl": "https://cloud.info.plusmore.co.za/competition_rules",
     "sourceDomain": "cloud.info.plusmore.co.za",
-    "lastChecked": "2026-06-19",
+    "lastChecked": "2026-07-10",
     "verificationStatus": "published",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee; R800+ Tekkie Town spend, +more rewards scan and mobile data for the game required",
@@ -8626,7 +8742,10 @@
     "evidenceNotes": "Official +more competition rules page confirms the Tekkie Town Football Frenzy FIFA 2026 Competition runs from 4 June 2026 to 12 July 2026. Entrants must spend R800 or more at Tekkie Town in-store or online, scan +more, play the SMS game and enter an email address. The prize is a Toyota Starlet Xi Manual Hatchback, with instant Tekkie Town vouchers in the game and a final draw on 30 July 2026.",
     "seoTitle": "Tekkie Town Football Frenzy FIFA Competition 2026 | Freehub",
     "seoDescription": "Check the Tekkie Town Football Frenzy FIFA 2026 competition: spend R800, scan +more and play for a Toyota Starlet and instant vouchers.",
-    "quickAnswer": "The Tekkie Town Football Frenzy FIFA 2026 competition is a purchase-required car competition. Freehub lists a Toyota Starlet Xi Manual Hatchback, entry via R800+ Tekkie Town spend, +more scan and SMS game, and a closing date of 12 Jul 2026."
+    "quickAnswer": "The Tekkie Town Football Frenzy FIFA 2026 competition is a purchase-required car competition. Freehub lists a Toyota Starlet Xi Manual Hatchback, entry via R800+ Tekkie Town spend, +more scan and SMS game, and a closing date of 12 Jul 2026.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "plush-more-foam-more-fun-2026",
@@ -8671,7 +8790,10 @@
     "evidenceNotes": "Facebook Ads Library and the official Plush promotion PDF URL identify the More Foam More Fun promotion. The active ad states entrants should buy Plush Dishwashing Liquid, photograph the bottle and till receipt, share to their story and tag @plushsouthafrica for a chance to win R1,000. Social search snippets for the official Plush page describe 50 R1,000 cash vouchers.",
     "seoTitle": "Plush More Foam More Fun Competition 2026 | Freehub",
     "seoDescription": "Check the Plush More Foam More Fun competition: buy Plush Dishwashing Liquid, share your bottle and till receipt photo, and enter for R1,000 voucher prizes.",
-    "quickAnswer": "The Plush More Foam More Fun competition is a purchase-required cash voucher promotion. Freehub lists 50 R1,000 cash vouchers, entry via Plush purchase, receipt photo and social story tag."
+    "quickAnswer": "The Plush More Foam More Fun competition is a purchase-required cash voucher promotion. Freehub lists 50 R1,000 cash vouchers, entry via Plush purchase, receipt photo and social story tag.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "huggies-dry-comfort-buy-win-2026",
@@ -8718,7 +8840,10 @@
     "evidenceNotes": "Facebook Ads Library surfaced the active Shoprite/Huggies campaign and official termsconditions.co.za PDF. The ad states entrants buy Huggies Dry Comfort nappies or pants at Shoprite and swipe Xtra Savings for instant shopping discounts up to R750 and a share of R50,000 towards education. The ad lists a 26 July 2026 end date.",
     "seoTitle": "Huggies Dry Comfort Buy and Win Competition 2026 | Freehub",
     "seoDescription": "Check the Huggies Dry Comfort Buy and Win competition: buy Huggies at Shoprite, swipe Xtra Savings and enter for shopping and education prizes.",
-    "quickAnswer": "The Huggies Dry Comfort Buy and Win competition is a purchase-required voucher promotion. Freehub lists shopping discounts and education-prize support, entry via Shoprite Huggies purchase and Xtra Savings swipe, and a closing date of 26 Jul 2026."
+    "quickAnswer": "The Huggies Dry Comfort Buy and Win competition is a purchase-required voucher promotion. Freehub lists shopping discounts and education-prize support, entry via Shoprite Huggies purchase and Xtra Savings swipe, and a closing date of 26 Jul 2026.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "starbaby-south-africa-monthly-competition-2026",
@@ -8860,7 +8985,7 @@
     "sourceUrl": "https://www.jacobscoffee.co.za/nationalpromo/terms-and-conditions/",
     "termsUrl": "https://www.jacobscoffee.co.za/nationalpromo/terms-and-conditions/",
     "sourceDomain": "jacobscoffee.co.za",
-    "lastChecked": "2026-06-22",
+    "lastChecked": "2026-07-10",
     "verificationStatus": "published",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "No separate entry fee; buy any 2 participating Jacobs products and USSD costs apply",
@@ -9205,7 +9330,10 @@
     "linkValidationEvidence": "Official Dis-Chem Power GRO page loaded by browser/web verification on 2026-06-27 and showed the campaign title, qualifying purchase route, Better Rewards card requirement, prize details and 31 July 2026 closing date.",
     "seoTitle": "Dis-Chem Power GRO Competition 2026 | Freehub",
     "seoDescription": "Check the Dis-Chem Power GRO Trust the Process competition: buy participating Power GRO products, swipe Better Rewards and enter before 31 July 2026.",
-    "quickAnswer": "The Dis-Chem Power GRO Trust the Process competition is a purchase-required voucher and supplement promotion. Buy a participating Power GRO product at Dis-Chem, swipe your Better Rewards card and qualify before 31 July 2026."
+    "quickAnswer": "The Dis-Chem Power GRO Trust the Process competition is a purchase-required voucher and supplement promotion. Buy a participating Power GRO product at Dis-Chem, swipe your Better Rewards card and qualify before 31 July 2026.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "dis-chem-fishermans-friend-luxury-retreat-2026",
@@ -9262,7 +9390,10 @@
     "linkValidationEvidence": "Official Dis-Chem Fisherman's Friend page loaded by browser/web verification on 2026-06-27 and showed the qualifying purchase route, Better Rewards card requirement, 12 winner prizes and 31 August 2026 closing date.",
     "seoTitle": "Dis-Chem Fisherman's Friend Competition 2026 | Freehub",
     "seoDescription": "Check the Dis-Chem Fisherman's Friend competition: buy 2 qualifying products, swipe Better Rewards and stand a chance to win retreat or adventure prizes.",
-    "quickAnswer": "The Dis-Chem Fisherman's Friend competition is a purchase-required experience promotion. Buy two qualifying Fisherman's Friend products at Dis-Chem, swipe your Better Rewards card and qualify before 31 August 2026."
+    "quickAnswer": "The Dis-Chem Fisherman's Friend competition is a purchase-required experience promotion. Buy two qualifying Fisherman's Friend products at Dis-Chem, swipe your Better Rewards card and qualify before 31 August 2026.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "dis-chem-catrice-skin-like-moisturizer-2026",
@@ -9319,7 +9450,10 @@
     "linkValidationEvidence": "Official Dis-Chem Catrice page loaded by browser/web verification on 2026-06-27 and showed the qualifying Catrice product route, five R2,000 hamper prizes and 31 August 2026 closing date.",
     "seoTitle": "Dis-Chem Catrice Competition 2026 | Freehub",
     "seoDescription": "Check the Dis-Chem Catrice Skin Like Moisturizer competition: buy the qualifying Catrice product for a chance to win a R2,000 hamper.",
-    "quickAnswer": "The Dis-Chem Catrice Skin Like Moisturizer competition is a purchase-required beauty hamper promotion. Buy the qualifying Catrice product through Dis-Chem and qualify before 31 August 2026."
+    "quickAnswer": "The Dis-Chem Catrice Skin Like Moisturizer competition is a purchase-required beauty hamper promotion. Buy the qualifying Catrice product through Dis-Chem and qualify before 31 August 2026.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "gardena-winter-pruning-giveaway-2026",
@@ -9370,7 +9504,10 @@
     "evidenceNotes": "Official GARDENA South Africa promotions and competitions page reviewed on 27 June 2026. The page displays the Winter Pruning Giveaway, promotes three pruning hamper prizes, requires purchase of GARDENA products worth at least R250 and an official online entry form, and displays a campaign period running from 15 June 2026 to 25 August 2026.",
     "seoTitle": "GARDENA Winter Pruning Giveaway 2026 | Freehub",
     "seoDescription": "Check the GARDENA Winter Pruning Giveaway: buy R250 or more in GARDENA products and enter online for a pruning hamper before 25 August 2026.",
-    "quickAnswer": "The GARDENA Winter Pruning Giveaway is a purchase-required gardening competition. Buy qualifying GARDENA products worth at least R250, complete the official online form and enter before 25 August 2026."
+    "quickAnswer": "The GARDENA Winter Pruning Giveaway is a purchase-required gardening competition. Buy qualifying GARDENA products worth at least R250, complete the official online form and enter before 25 August 2026.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "nestle-milo-meet-the-champ-2026",
@@ -9433,7 +9570,10 @@
     "linkValidationEvidence": "Official Nestle ESAR MILO Meet the Champ page loaded by browser/web verification on 2026-06-27 and showed the purchase-linked campaign, till-slip entry route, nine winner experiences and 31 August 2026 closing date.",
     "seoTitle": "Nestle MILO Meet the Champ Competition 2026 | Freehub",
     "seoDescription": "Check the Nestle MILO Meet the Champ campaign: buy participating MILO, enter with your till slip and stand a chance to meet a sports champion.",
-    "quickAnswer": "The Nestle MILO Meet the Champ campaign is a purchase-required sports experience promotion. Buy a participating MILO product, keep your till slip and enter before 31 August 2026."
+    "quickAnswer": "The Nestle MILO Meet the Champ campaign is a purchase-required sports experience promotion. Buy a participating MILO product, keep your till slip and enter before 31 August 2026.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "id": "penguin-random-house-peppa-pig-hamper-2026",
@@ -9482,7 +9622,8 @@
     "evidenceNotes": "Official Penguin Random House South Africa Peppa Pig hamper competition page reviewed on 27 June 2026. The page lists a Peppa Pig hamper prize, online form entry and a closing date of 31 July 2026.",
     "seoTitle": "Penguin Random House Peppa Pig Hamper Competition | Freehub",
     "seoDescription": "Check the Penguin Random House Peppa Pig Hamper competition: enter the official online form before 31 July 2026.",
-    "quickAnswer": "The Penguin Random House Peppa Pig Hamper competition is a free-entry online form giveaway. Enter through the official Penguin Random House page before 31 July 2026."
+    "quickAnswer": "The Penguin Random House Peppa Pig Hamper competition is a free-entry online form giveaway. Enter through the official Penguin Random House page before 31 July 2026.",
+    "image": "https://www.penguinrandomhouse.co.za/wp-content/uploads/Peppa-Comp-PRH-Thumbnail-500x300-1.jpg"
   },
   {
     "lastChecked": "2026-07-07",
@@ -10228,7 +10369,10 @@
     "seoContext": "Useful for users searching for 1Life competitions, weekly cash giveaways and social media competitions in South Africa.",
     "eligibilitySummary": "Entrants should confirm the current social post and official 1Life terms before commenting.",
     "entryCostSummary": "This is marked as free-entry because the route is following the page and commenting on the official social post.",
-    "evidenceNotes": "Official 1Life Winning Wednesday terms reviewed on 8 July 2026 confirm the social media follow-and-comment entry method, one entry per person per week, weekly Friday random draw and R2,000 cash prize."
+    "evidenceNotes": "Official 1Life Winning Wednesday terms reviewed on 8 July 2026 confirm the social media follow-and-comment entry method, one entry per person per week, weekly Friday random draw and R2,000 cash prize.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "lastChecked": "2026-07-08",
@@ -10280,7 +10424,10 @@
     "seoContext": "Useful for users searching for Nedbank competitions, Money app competitions and adventure experience giveaways.",
     "eligibilitySummary": "This is limited to qualifying Nedbank personal banking clients with Money app access and accounts in good standing.",
     "entryCostSummary": "This is marked account-required because the qualifying action depends on being an eligible Nedbank client and using the Money app.",
-    "evidenceNotes": "Official Nedbank AppVenture terms reviewed on 8 July 2026 confirm the 1 May 2026 to 31 March 2027 period, Money app 20-login monthly entry mechanic, account eligibility rules and monthly prize worth up to R20,000."
+    "evidenceNotes": "Official Nedbank AppVenture terms reviewed on 8 July 2026 confirm the 1 May 2026 to 31 March 2027 period, Money app 20-login monthly entry mechanic, account eligibility rules and monthly prize worth up to R20,000.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "lastChecked": "2026-07-08",
@@ -10331,7 +10478,10 @@
     "seoContext": "Useful for users searching for Makro competitions, Oscal tablet giveaways and social media competitions.",
     "eligibilitySummary": "Entrants should follow the official Makro page rules and complete the linked entry form for a valid entry.",
     "entryCostSummary": "This is marked free-entry because the official rules reviewed did not require buying a product.",
-    "evidenceNotes": "Official Makro Oscal competition page reviewed on 8 July 2026 confirms the 15 July to 31 July 2026 competition rules, social-post action, linked official entry form, judged winner selection by ASBIS Africa and one OSCAL Pad 100 tablet prize."
+    "evidenceNotes": "Official Makro Oscal competition page reviewed on 8 July 2026 confirms the 15 July to 31 July 2026 competition rules, social-post action, linked official entry form, judged winner selection by ASBIS Africa and one OSCAL Pad 100 tablet prize.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   },
   {
     "lastChecked": "2026-07-08",
@@ -10550,6 +10700,9 @@
     "seoContext": "Useful for users searching for international travel competitions, Wanderlust competitions, free holiday prize draws and global online competitions open to South African entrants with restrictions.",
     "eligibilitySummary": "Entrants must be 18 or older, enter online by the closing date and satisfy any prize-provider rules for the prize drawn.",
     "entryCostSummary": "This is marked free-entry because the official master terms state that entry is free and no purchase is necessary.",
-    "evidenceNotes": "Official Wanderlust Reader Travel Awards 2026 prize draw terms reviewed on 8 July 2026 confirm the 1 July to 27 October 2026 entry period, free no-purchase entry, ten winners, approximate combined prize value of GBP 76,219, social-follow requirement and international-entrant caveat with prize-specific restrictions."
+    "evidenceNotes": "Official Wanderlust Reader Travel Awards 2026 prize draw terms reviewed on 8 July 2026 confirm the 1 July to 27 October 2026 entry period, free no-purchase entry, ten winners, approximate combined prize value of GBP 76,219, social-follow requirement and international-entrant caveat with prize-specific restrictions.",
+    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "imageReviewStatus": "neutral-fallback",
+    "imageReviewCheckedAt": "2026-07-10"
   }
 ]

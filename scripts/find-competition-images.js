@@ -1,10 +1,12 @@
 const fs = require("fs");
 const path = require("path");
+const shared = require("../shared/page-data.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
 const DEFAULT_TIMEOUT_MS = 12000;
 const DEFAULT_CONCURRENCY = 4;
+const NEUTRAL_FALLBACK_URL = "https://freehub.co.za/FH%20logo.png";
 
 function parseArgs(argv) {
   const options = {
@@ -13,11 +15,17 @@ function parseArgs(argv) {
     limit: null,
     timeoutMs: DEFAULT_TIMEOUT_MS,
     concurrency: DEFAULT_CONCURRENCY,
+    markNeutralFallbacks: false,
   };
 
   argv.forEach((arg) => {
     if (arg === "--apply") {
       options.apply = true;
+      return;
+    }
+
+    if (arg === "--mark-neutral-fallbacks") {
+      options.markNeutralFallbacks = true;
       return;
     }
 
@@ -413,12 +421,31 @@ async function main() {
     inspectCompetition(competition, options)
   );
   const selectedById = new Map(results.filter((result) => result.selected).map((result) => [result.id, result.selected]));
+  const neutralFallbackIds = new Set(
+    options.markNeutralFallbacks
+      ? competitions
+          .filter(
+            (competition) =>
+              !competition.image &&
+              !selectedById.has(competition.id) &&
+              isActivePublishedCompetition(competition)
+          )
+          .map((competition) => competition.id)
+      : []
+  );
 
-  if (options.apply && selectedById.size > 0) {
+  if (options.apply && (selectedById.size > 0 || neutralFallbackIds.size > 0)) {
     competitions.forEach((competition) => {
       const selected = selectedById.get(competition.id);
       if (selected) {
         competition.image = selected;
+        competition.imageReviewStatus = "official-source";
+        competition.imageReviewCheckedAt = getTodayIsoDate();
+        delete competition.imageFallback;
+      } else if (neutralFallbackIds.has(competition.id)) {
+        competition.imageFallback = NEUTRAL_FALLBACK_URL;
+        competition.imageReviewStatus = "neutral-fallback";
+        competition.imageReviewCheckedAt = getTodayIsoDate();
       }
     });
     fs.writeFileSync(DATA_PATH, `${JSON.stringify(competitions, null, 2)}\n`);
@@ -434,6 +461,7 @@ async function main() {
   console.log(`Failed fetches: ${failed}`);
   if (options.apply) {
     console.log(`Applied images: ${selectedById.size}`);
+    console.log(`Marked neutral fallbacks: ${neutralFallbackIds.size}`);
   }
 
   results.forEach((result) => {
@@ -453,6 +481,21 @@ async function main() {
 
     console.log(`\n[NO IMAGE] ${result.id}${result.error ? ` - ${result.error}` : ""}`);
   });
+}
+
+function isActivePublishedCompetition(competition) {
+  if (!competition || !shared.isPublishedCompetition(competition)) {
+    return false;
+  }
+
+  const closingDate = String(competition.closingDate || "").slice(0, 10);
+  return !closingDate || closingDate >= getTodayIsoDate();
+}
+
+function getTodayIsoDate() {
+  const date = new Date();
+  date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
+  return date.toISOString().slice(0, 10);
 }
 
 main().catch((error) => {

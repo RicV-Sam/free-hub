@@ -19,6 +19,10 @@ const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 FreeHubValidator/1.0";
 const APPROVED_MANUAL_OK_URLS = new Map([
   [
+    "kitkat-f1-monza-competition-2026",
+    "https://www.nestle-esar.com/2026-kitkat%C2%AE-south-africa-breaks-full-throttle-promotion-terms-conditions-conditions-entry",
+  ],
+  [
     "mobile-world-live-satellite-ntn-survey-ipad-draw-2026",
     "https://gsma.co1.qualtrics.com/jfe/form/SV_aafYIcTV5FSxuC2",
   ],
