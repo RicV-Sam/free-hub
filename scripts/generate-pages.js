@@ -12,6 +12,7 @@ const ADSENSE_SCRIPT =
 const GOOGLE_TAG_MANAGER_ID = "GTM-W2M7PCR7";
 const META_PIXEL_ID = "2506912739756217";
 const WHATSAPP_CHANNEL_URL = "https://whatsapp.com/channel/0029Vb7mS1VE50UlOc2yOe2H";
+const FACEBOOK_PAGE_URL = "https://www.facebook.com/FreeHubZA/";
 const DATACOST_URL = "https://datacost.co.za/?utm_source=freehub&utm_medium=house_banner&utm_campaign=freehub_cross_promo";
 const DATACOST_USSD_URL = "https://datacost.co.za/ussd-codes/?utm_source=freehub&utm_medium=house_banner&utm_campaign=ussd_codes";
 const DATACOST_BANNER_IMAGE = "/assets/partners/datacost-data-airtime-banner.jpg";
@@ -2604,6 +2605,7 @@ function renderSiteFooter(options = {}) {
               <a href="/purchase-required-competitions/">Purchase required</a>
               ${verticalLinksMarkup}
               <a href="${escapeAttribute(WHATSAPP_CHANNEL_URL)}" target="_blank" rel="noopener noreferrer">WhatsApp channel</a>
+              <a href="${escapeAttribute(FACEBOOK_PAGE_URL)}" target="_blank" rel="noopener noreferrer">Facebook page</a>
               <a href="/brands/">Browse by brand</a>
             </nav>
           </div>
@@ -9796,6 +9798,10 @@ function runGlobalCtaChecks(routeContexts = []) {
 
     if (!html.includes(WHATSAPP_CHANNEL_URL)) {
       errors.push(`Public content page missing WhatsApp Channel link: ${filePath}`);
+    }
+
+    if (!html.includes(FACEBOOK_PAGE_URL)) {
+      errors.push(`Public content page missing Facebook Page link: ${filePath}`);
     }
 
     if (!html.includes("data-freehub-auth")) {
