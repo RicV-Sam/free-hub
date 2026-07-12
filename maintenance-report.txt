@@ -1,14 +1,14 @@
 === Competition Maintenance Report ===
-Date: 2026-07-11
+Date: 2026-07-12
 Mode: archive-expired
-Total competitions: 243
-Active published count: 75
+Total competitions: 253
+Active published count: 85
 Expired archive page count: 74
 Low-value expired noindex count: 0
 Held/private count: 94
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 16
+Closing in next 14 days: 18
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -87,22 +87,24 @@ Expired competition IDs:
 - mobile-world-live-satellite-ntn-survey-ipad-draw-2026 (2026-07-10)
 
 Closing soon (next 14 days):
-- tekkie-town-football-frenzy-fifa-2026 (1 days)
-- vodacom-spend-and-recharge-tfg-vouchers (4 days)
-- parmalat-everything-needs-cheese-2026 (4 days)
-- vodacom-power-up-woolworths-vouchers-2026 (4 days)
-- godfather-of-the-waves-competition-2026 (6 days)
-- clicks-cashback-haul-competition (8 days)
-- coca-cola-hisense-fifa-fan-hampers-2026 (8 days)
-- mtn-world-cup-bafana-goal-1gb-data-2026 (8 days)
-- hisense-pepkor-match-ready-gallery-2026 (8 days)
-- hisense-hirsch-foosball-activation-2026 (8 days)
-- hisense-coca-cola-match-day-2026 (8 days)
-- mtn-fc-world-cup-competition-2026 (9 days)
-- standard-bank-game-day-everyday (10 days)
-- gotyme-bank-swipe-tap-to-win-2026 (10 days)
-- boxer-celebrate-win-samsung-a06-2026 (11 days)
-- pep-dstv-scan-play-win-2026 (12 days)
+- tekkie-town-football-frenzy-fifa-2026 (0 days)
+- vodacom-spend-and-recharge-tfg-vouchers (3 days)
+- parmalat-everything-needs-cheese-2026 (3 days)
+- vodacom-power-up-woolworths-vouchers-2026 (3 days)
+- kampi-refer-and-escape-2026 (4 days)
+- godfather-of-the-waves-competition-2026 (5 days)
+- clicks-cashback-haul-competition (7 days)
+- coca-cola-hisense-fifa-fan-hampers-2026 (7 days)
+- mtn-world-cup-bafana-goal-1gb-data-2026 (7 days)
+- hisense-pepkor-match-ready-gallery-2026 (7 days)
+- hisense-hirsch-foosball-activation-2026 (7 days)
+- hisense-coca-cola-match-day-2026 (7 days)
+- mtn-fc-world-cup-competition-2026 (8 days)
+- standard-bank-game-day-everyday (9 days)
+- gotyme-bank-swipe-tap-to-win-2026 (9 days)
+- boxer-celebrate-win-samsung-a06-2026 (10 days)
+- pep-dstv-scan-play-win-2026 (11 days)
+- huggies-dry-comfort-buy-win-2026 (14 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
