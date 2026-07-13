@@ -11200,6 +11200,7 @@
     "id": "ofm-show-us-your-ofm-cash-2026",
     "title": "OFM Show Us Your OFM Cash Competition",
     "brand": "OFM",
+    "image": "https://freehub.co.za/assets/competitions/ofm-show-us-your-ofm-cash-2026.png",
     "summary": "Send OFM a creative photo showing where or how you listen for a chance to win R40,000 cash.",
     "entrySteps": [
       "Take a creative photo showing where or how OFM is part of your daily routine.",
@@ -11235,9 +11236,11 @@
     "sourceReviewStatus": "publication-approved",
     "sourceReport": "Freehub weekly new competition scan completed on 13 July 2026.",
     "evidenceNotes": "Official OFM page confirms the R40,000 prize, Telegram and app photo mechanics and 30 July closing date. OFM's general rules confirm broadcast-area eligibility and the 18-plus cash-prize requirement.",
-    "imageReviewNote": "Official campaign image not yet selected.",
-    "riskFlags": ["broadcast_area_restriction", "photo_rights", "image_unresolved"],
-    "validationWarnings": ["regional_eligibility", "image_unresolved"]
+    "imageReviewNote": "User-supplied OFM brand artwork selected on 13 July 2026.",
+    "imageReviewStatus": "official-source",
+    "imageReviewCheckedAt": "2026-07-13",
+    "riskFlags": ["broadcast_area_restriction", "photo_rights"],
+    "validationWarnings": ["regional_eligibility"]
   },
   {
     "id": "lewis-donna-mk2-sleigh-bed-2026",
