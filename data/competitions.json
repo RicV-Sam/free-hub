@@ -11107,6 +11107,7 @@
     "id": "afrisam-together-we-win-2026",
     "title": "AfriSam Together We Win Competition",
     "brand": "AfriSam",
+    "image": "https://freehub.co.za/assets/competitions/afrisam-together-we-win-2026.png",
     "summary": "Buy five participating 50kg AfriSam cement bags and submit the till slip for a chance to win a Springbok experience for two or a building voucher prize.",
     "entrySteps": [
       "Buy at least five 50kg bags of participating AfriSam All Purpose Cement or Starbuild Cement during the competition period.",
@@ -11143,9 +11144,11 @@
     "sourceReviewStatus": "publication-approved",
     "sourceReport": "Freehub weekly new competition scan completed on 13 July 2026.",
     "evidenceNotes": "Official AfriSam PDF confirms the 1 May to 31 July 2026 period, five-bag purchase mechanic, WhatsApp and Cashbuild Shopper entry routes, eligibility, 18 Springbok experience prizes and 30 building voucher prizes worth at least R2,000 each.",
-    "imageReviewNote": "Official campaign image not yet selected.",
-    "riskFlags": ["purchase_required", "travel_to_match_excluded", "whatsapp_entry", "image_unresolved"],
-    "validationWarnings": ["travel_to_match_excluded", "image_unresolved"]
+    "imageReviewNote": "User-supplied capture from the official AfriSam website selected on 13 July 2026.",
+    "imageReviewStatus": "official-source",
+    "imageReviewCheckedAt": "2026-07-13",
+    "riskFlags": ["purchase_required", "travel_to_match_excluded", "whatsapp_entry"],
+    "validationWarnings": ["travel_to_match_excluded"]
   },
   {
     "id": "cashbuild-pimp-my-room-2026",
