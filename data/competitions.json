@@ -11154,6 +11154,7 @@
     "id": "cashbuild-pimp-my-room-2026",
     "title": "Cashbuild Pimp My Room Competition",
     "brand": "Cashbuild",
+    "image": "https://freehub.co.za/assets/competitions/cashbuild-pimp-my-room-2026.png",
     "summary": "Create a short video showing the room you want to renovate for a chance to become a finalist and win R60,000 in Cashbuild Payment Card credit.",
     "entrySteps": [
       "Hold or open a Cashbuild Payment Card before entering.",
@@ -11189,9 +11190,11 @@
     "sourceReviewStatus": "publication-approved",
     "sourceReport": "Freehub weekly new competition scan completed on 13 July 2026.",
     "evidenceNotes": "Official Cashbuild terms confirm the 17 July public-entry deadline, 18-to-35 eligibility, Payment Card requirement, video mechanic, three R10,000 finalist renovation budgets and R60,000 final Cashbuild Payment Card prize.",
-    "imageReviewNote": "Official campaign image not yet selected.",
-    "riskFlags": ["age_18_to_35", "payment_card_required", "judged_competition", "public_video_required", "image_unresolved"],
-    "validationWarnings": ["high_effort_entry", "image_unresolved"]
+    "imageReviewNote": "User-supplied Cashbuild brand artwork selected on 13 July 2026.",
+    "imageReviewStatus": "official-source",
+    "imageReviewCheckedAt": "2026-07-13",
+    "riskFlags": ["age_18_to_35", "payment_card_required", "judged_competition", "public_video_required"],
+    "validationWarnings": ["high_effort_entry"]
   },
   {
     "id": "ofm-show-us-your-ofm-cash-2026",
