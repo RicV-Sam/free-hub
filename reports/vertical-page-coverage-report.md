@@ -1,13 +1,13 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-07-12
+Generated: 2026-07-13
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 19
+- Matching active public competitions: 20
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -25,6 +25,7 @@ Only active, published, public-safe competitions are counted. Held, unverified, 
 | Sunlight Win a Kitchen Makeover Competition (sunlight-kitchen-makeover-2026) | 2026-07-31 | till-slip-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Rhodes Quality Win Your Share of R1 Million Competition (rhodes-quality-win-your-share-of-r1-million-competition-2026) | 2026-07-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | FreshStop Save Every Drop Win Big Competition (freshstop-jojo-fuel-vouchers-2026) | 2026-07-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
+| AfriSam Together We Win Competition (afrisam-together-we-win-2026) | 2026-07-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | MasterChef SA Season 6 Watch & Win (masterchef-sa-watch-and-win-competition-2026) | 2026-08-17 | free-entry | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Coca-Cola Get Together Zwakala neFlava Promotion (coca-cola-zwakala-neflava-2026) | 2026-08-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Kellogg's Big Bowl Energy Competition (kelloggs-big-bowl-energy-2026) | 2026-08-31 | till-slip-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
@@ -40,24 +41,24 @@ Recommended normalisation:
 ## SMS Competitions in South Africa
 
 - URL: /sms-competitions-south-africa/
-- Matching active public competitions: 3
+- Matching active public competitions: 2
 - Publication threshold: 3
-- Safe to publish: yes
-- Status: indexable vertical page
+- Safe to publish: no
+- Status: held; Only 2 active public matches; requires 3.
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Tekkie Town Football Frenzy FIFA 2026 Competition (tekkie-town-football-frenzy-fifa-2026) | 2026-07-12 | purchase-required | yes | yes | SMS or shortcode mentioned in entry text | none |
 | PEPxDSTV Scan Play Win Competition (pep-dstv-scan-play-win-2026) | 2026-07-23 | purchase-required | yes | yes | SMS or shortcode mentioned in entry text | none |
 | FreshStop Save Every Drop Win Big Competition (freshstop-jojo-fuel-vouchers-2026) | 2026-07-31 | purchase-required | yes | yes | SMS entry tag; SMS or shortcode mentioned in entry text | none |
 
 Recommended normalisation:
+- Do not generate or sitemap this page until active verified inventory improves.
 - Separate sms-entry from sms-verification so account verification does not inflate SMS-entry inventory.
 
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 31
+- Matching active public competitions: 32
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -83,6 +84,7 @@ Recommended normalisation:
 | FreshStop Save Every Drop Win Big Competition (freshstop-jojo-fuel-vouchers-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | SPAR Clover Rewards Voucher Competition (spar-clover-rewards-vouchers-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Dis-Chem Power GRO Trust the Process Competition (dis-chem-power-gro-trust-the-process-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
+| AfriSam Together We Win Competition (afrisam-together-we-win-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Dark & Lovely Best For Braids Competition (clicks-dark-and-lovely-best-for-braids-2026) | 2026-08-15 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | GARDENA Winter Pruning Giveaway 2026 (gardena-winter-pruning-giveaway-2026) | 2026-08-25 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Hisense Big Wash No Drama Buy and Win (hisense-big-wash-no-drama-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
@@ -102,14 +104,13 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 24
+- Matching active public competitions: 25
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Tekkie Town Football Frenzy FIFA 2026 Competition (tekkie-town-football-frenzy-fifa-2026) | 2026-07-12 | purchase-required | yes | yes | Online entry tag | none |
 | Godfather of the Waves Competition (godfather-of-the-waves-competition-2026) | 2026-07-17 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Clicks Cashback Haul Competition (clicks-cashback-haul-competition) | 2026-07-19 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Hisense Pepkor Match-Ready Gallery Competition (hisense-pepkor-match-ready-gallery-2026) | 2026-07-19 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
@@ -123,6 +124,8 @@ Recommended normalisation:
 | Penguin Random House Peppa Pig Hamper Competition (penguin-random-house-peppa-pig-hamper-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Budget Insurance BizBucks Bonanza Competition (budget-insurance-bizbucks-bonanza-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Makro Oscal Pad 100 Tablet Competition (makro-oscal-pad-100-tablet-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| Lewis Donna MK2 Sleigh Bed Competition (lewis-donna-mk2-sleigh-bed-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| Lewis LG CJ44 Hi-Fi Competition (lewis-lg-cj44-hifi-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Clicks ClubCard Have Your Say Competition (clicks-clubcard-have-your-say-june-july-2026) | 2026-08-01 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Clicks ClubCard Fragrance Giveaway Competition (clicks-clubcard-fragrance-giveaway-june-july-2026) | 2026-08-01 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Clicks ClubCard Portia M Hamper Competition (clicks-clubcard-portia-m-hamper-june-july-2026) | 2026-08-01 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
