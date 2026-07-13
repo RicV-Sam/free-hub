@@ -11240,6 +11240,7 @@
     "id": "lewis-donna-mk2-sleigh-bed-2026",
     "title": "Lewis Donna MK2 Sleigh Bed Competition",
     "brand": "Lewis Stores",
+    "image": "https://freehub.co.za/assets/competitions/lewis-stores-july-2026.png",
     "summary": "Follow Lewis Stores on Facebook and complete the official entry form for a chance to win a Donna MK2 sleigh bed with pedestals.",
     "entrySteps": [
       "Like or follow the official Lewis Stores Facebook page.",
@@ -11275,14 +11276,17 @@
     "sourceReviewStatus": "publication-approved",
     "sourceReport": "Freehub weekly new competition scan completed on 13 July 2026.",
     "evidenceNotes": "Lewis Stores' official competition page confirms the July campaign, prize, South Africa region, Facebook and website-form mechanic and 31 July closing date. Official social rules confirm 18-plus eligibility and one entry per person.",
-    "imageReviewNote": "Official campaign image not yet selected.",
-    "riskFlags": ["marketing_consent", "prize_substitution_possible", "image_unresolved"],
-    "validationWarnings": ["image_unresolved"]
+    "imageReviewNote": "User-supplied Lewis Stores brand artwork selected on 13 July 2026.",
+    "imageReviewStatus": "official-source",
+    "imageReviewCheckedAt": "2026-07-13",
+    "riskFlags": ["marketing_consent", "prize_substitution_possible"],
+    "validationWarnings": []
   },
   {
     "id": "lewis-lg-cj44-hifi-2026",
     "title": "Lewis LG CJ44 Hi-Fi Competition",
     "brand": "Lewis Stores",
+    "image": "https://freehub.co.za/assets/competitions/lewis-stores-july-2026.png",
     "summary": "Follow Lewis Stores on Instagram and complete the official entry form for a chance to win an LG CJ44 Hi-Fi.",
     "entrySteps": [
       "Follow the official Lewis Stores Instagram page.",
@@ -11318,9 +11322,11 @@
     "sourceReviewStatus": "publication-approved",
     "sourceReport": "Freehub weekly new competition scan completed on 13 July 2026.",
     "evidenceNotes": "Lewis Stores' official competition page confirms the July campaign, LG CJ44 Hi-Fi prize, Instagram and website-form mechanic and 31 July closing date. Official social rules confirm 18-plus eligibility and one entry per person.",
-    "imageReviewNote": "Official campaign image not yet selected.",
-    "riskFlags": ["marketing_consent", "prize_substitution_possible", "image_unresolved"],
-    "validationWarnings": ["image_unresolved"]
+    "imageReviewNote": "User-supplied Lewis Stores brand artwork selected on 13 July 2026.",
+    "imageReviewStatus": "official-source",
+    "imageReviewCheckedAt": "2026-07-13",
+    "riskFlags": ["marketing_consent", "prize_substitution_possible"],
+    "validationWarnings": []
   },
   {
     "id": "mtn-shift-gaming-experience-cash-2026",
