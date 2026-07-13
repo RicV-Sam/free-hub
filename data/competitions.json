@@ -11338,6 +11338,7 @@
     "id": "mtn-shift-gaming-experience-cash-2026",
     "title": "MTN Shift Gaming Experience Cash Competition",
     "brand": "Hyprop / MTN South Africa",
+    "image": "https://freehub.co.za/assets/competitions/mtn-shift-gaming-experience-cash-2026.png",
     "summary": "Complete an eligible MTN activity at a participating mall gaming event for a chance to win one of five R10,000 cash prizes or equal-value mall gift cards.",
     "entrySteps": [
       "Visit an MTN Shift Gaming Experience mall event or pop-up at a participating Hyprop shopping centre.",
@@ -11373,8 +11374,10 @@
     "sourceReviewStatus": "publication-approved",
     "sourceReport": "Freehub weekly new competition scan completed on 13 July 2026.",
     "evidenceNotes": "Official rules confirm the 24 April to 30 August 2026 period, participating malls, eligible MTN activities, in-person digital form, South African residency and five R10,000 prizes.",
-    "imageReviewNote": "Official campaign image not yet selected.",
-    "riskFlags": ["in_person_entry", "participating_malls_only", "service_registration_may_apply", "image_unresolved"],
-    "validationWarnings": ["regional_entry_points", "image_unresolved"]
+    "imageReviewNote": "User-supplied MTN brand artwork selected on 13 July 2026.",
+    "imageReviewStatus": "official-source",
+    "imageReviewCheckedAt": "2026-07-13",
+    "riskFlags": ["in_person_entry", "participating_malls_only", "service_registration_may_apply"],
+    "validationWarnings": ["regional_entry_points"]
   }
 ]
