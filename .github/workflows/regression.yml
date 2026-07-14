@@ -44,7 +44,8 @@ jobs:
           node scripts/compare-generated-output.js --base-dir="$candidate_absent_dir"
           echo "Compare enabled reviewed Opportunity pilot with flag-off candidate"
           FREEHUB_ENABLE_OPPORTUNITIES=true npm run build
-          node scripts/compare-generated-output.js --base-dir="$candidate_absent_dir" --allow-opportunity-pilot
+          FREEHUB_ENABLE_OPPORTUNITIES=true npm run test:seo
+          node scripts/compare-generated-output.js --base-dir="$candidate_absent_dir" --allow-opportunity-detail-flow
 
   links:
     name: Live link and warning baseline

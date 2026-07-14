@@ -49,7 +49,7 @@
     "sourceUrl": { "type": "string", "format": "uri", "pattern": "^https?://" },
     "termsUrl": { "type": "string", "format": "uri", "pattern": "^https?://" },
     "imageUrl": { "type": "string", "format": "uri", "pattern": "^https?://" },
-    "publicationStatus": { "enum": ["draft", "review", "published", "held", "expired", "rejected"] },
+    "publicationStatus": { "enum": ["draft", "review", "published", "held", "expired", "withdrawn", "rejected"] },
     "verificationStatus": {
       "enum": [
         "unverified",
@@ -59,6 +59,7 @@
         "verification_due",
         "source_changed",
         "expired",
+        "withdrawn",
         "rejected"
       ]
     },
@@ -173,6 +174,22 @@
     }
   },
   "allOf": [
+    {
+      "if": { "properties": { "publicationStatus": { "const": "expired" } }, "required": ["publicationStatus"] },
+      "then": { "properties": { "verificationStatus": { "const": "expired" }, "publishedAt": { "$ref": "#/$defs/date" } }, "required": ["publishedAt"] }
+    },
+    {
+      "if": { "properties": { "verificationStatus": { "const": "expired" } }, "required": ["verificationStatus"] },
+      "then": { "properties": { "publicationStatus": { "const": "expired" }, "publishedAt": { "$ref": "#/$defs/date" } }, "required": ["publishedAt"] }
+    },
+    {
+      "if": { "properties": { "publicationStatus": { "const": "withdrawn" } }, "required": ["publicationStatus"] },
+      "then": { "properties": { "verificationStatus": { "const": "withdrawn" }, "publishedAt": { "$ref": "#/$defs/date" } }, "required": ["publishedAt"] }
+    },
+    {
+      "if": { "properties": { "verificationStatus": { "const": "withdrawn" } }, "required": ["verificationStatus"] },
+      "then": { "properties": { "publicationStatus": { "const": "withdrawn" }, "publishedAt": { "$ref": "#/$defs/date" } }, "required": ["publishedAt"] }
+    },
     { "if": { "properties": { "type": { "const": "free_sample" } } }, "then": { "properties": { "details": { "$ref": "#/$defs/freeSampleDetails" } } } },
     { "if": { "properties": { "type": { "const": "product_testing" } } }, "then": { "properties": { "details": { "$ref": "#/$defs/productTestingDetails" } } } },
     { "if": { "properties": { "type": { "const": "birthday_freebie" } } }, "then": { "properties": { "details": { "$ref": "#/$defs/birthdayDetails" } } } },

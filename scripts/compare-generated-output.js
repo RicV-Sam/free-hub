@@ -8,7 +8,7 @@ const baseArg = process.argv.find((arg) => arg.startsWith("--base-dir="));
 const actualArg = process.argv.find((arg) => arg.startsWith("--actual-dir="));
 const allowFreeStuffParentV2 = process.argv.includes("--allow-free-stuff-parent-v2");
 const allowFreeSamplesV2 = process.argv.includes("--allow-free-samples-v2");
-const allowOpportunityPilot = process.argv.includes("--allow-opportunity-pilot");
+const allowOpportunityDetailFlow = process.argv.includes("--allow-opportunity-detail-flow");
 if (!baseArg) {
   console.error("Usage: node scripts/compare-generated-output.js --base-dir=/path/to/built/base");
   process.exit(1);
@@ -21,16 +21,29 @@ const FREE_SAMPLES_FILE = "free-samples-south-africa/index.html";
 const FREE_STUFF_PARENT_MARKER = 'data-free-stuff-parent-version="2"';
 const FREE_SAMPLES_MARKER = 'data-free-samples-page-version="2"';
 const OPPORTUNITY_SURFACE_FILES = new Set([FREE_STUFF_PARENT_FILE, FREE_SAMPLES_FILE]);
-const OPPORTUNITY_PILOT_FRAGMENT_HASHES = Object.freeze({
+const OPPORTUNITY_DETAIL_FILE = "opportunity/coloplast-speedicath-short-sample/index.html";
+const OPPORTUNITY_EXIT_FILE = "out/opportunity/coloplast-speedicath-short-sample/index.html";
+const OPPORTUNITY_DETAIL_FLOW_FILE_HASHES = Object.freeze({
+  [OPPORTUNITY_DETAIL_FILE]: "8c7379dcd1ca4f3063e2cef0737038236272785dd8cec54f453e2a3f67bd388c",
+  [OPPORTUNITY_EXIT_FILE]: "3807302f4c55e0ce06c096c84b3c51fd5cec4cb410ea56bcdf766f12fe790e4c",
+});
+const OPPORTUNITY_DETAIL_FLOW_FRAGMENT_HASHES = Object.freeze({
   [FREE_SAMPLES_FILE]: Object.freeze({
-    section: "cbdac709faad6e5e76f700ba661e0dcfbea4c1c9d784ce6b6b313568c1ac0b27",
-    schema: "b53fd770d9a047edf0ce8b3ba491bedeca8b01cbf38171eadca1a2ffafeffa8f",
+    section: "6511b8d1e2579b5fcbecdd5111455aabd9b865c5e72e519177c84855f3724c17",
+    schema: "ae5d3c3f5d2c525358f12e24eeaafb106b4bce0b8e3dff10f56a23a813d69e44",
   }),
   [FREE_STUFF_PARENT_FILE]: Object.freeze({
-    section: "54fed56748fd194d59251b15b20346158ce72d82bc99c77cf6d3cafddfe73008",
-    schema: "98caf66922dc9da55071f50f0cc980970f7b9e7e0fa14b04ff4fab1031e76d50",
+    section: "18abba09a8c7fe9ffc1049d97dab799ff534f67e2dee00ccc3734bd1be5636cb",
+    schema: "2c7ccecb725dee6439ed65801d632dc5b59733bf14b51bae1f938f80a1bc129b",
   }),
 });
+const OPPORTUNITY_SITEMAP_FRAGMENT = [
+  "  <url>",
+  "    <loc>https://freehub.co.za/opportunity/coloplast-speedicath-short-sample/</loc>",
+  "    <lastmod>2026-07-14</lastmod>",
+  "  </url>",
+  "",
+].join("\n");
 const SAMPLE_RESOURCE_CLASSIFICATIONS = Object.freeze([
   ["Brand Advisor", "product_testing_panel", "brand-advisor"],
   ["Review Club South Africa", "product_testing_panel", "review-club-south-africa"],
@@ -77,6 +90,12 @@ const differences = [...paths]
   .filter(Boolean);
 
 function classifyDifference(filePath, expectedEntry, actualEntry) {
+  if (allowOpportunityDetailFlow && !expectedEntry && actualEntry && OPPORTUNITY_DETAIL_FLOW_FILE_HASHES[filePath]) {
+    if (actualEntry.hash === OPPORTUNITY_DETAIL_FLOW_FILE_HASHES[filePath]) {
+      approvedDifferences.push({ file: filePath, reason: "exact reviewed Opportunity detail-flow file" });
+      return null;
+    }
+  }
   if (!expectedEntry || !actualEntry) {
     return {
       file: filePath,
@@ -101,10 +120,10 @@ function classifyDifference(filePath, expectedEntry, actualEntry) {
     }
   }
 
-  if (OPPORTUNITY_SURFACE_FILES.has(filePath) && allowOpportunityPilot) {
-    const normalizedActual = removeExactOpportunityPilot(actualHtml, filePath);
+  if (OPPORTUNITY_SURFACE_FILES.has(filePath) && allowOpportunityDetailFlow) {
+    const normalizedActual = removeExactOpportunityDetailFlow(actualHtml, filePath);
     if (normalizedActual === expectedHtml) {
-      approvedDifferences.push({ file: filePath, reason: "exact flag-enabled Opportunity pilot fragments" });
+      approvedDifferences.push({ file: filePath, reason: "exact flag-enabled Opportunity detail-flow fragments" });
       return null;
     }
     if (process.env.FREEHUB_PARITY_DEBUG === "true") {
@@ -112,6 +131,14 @@ function classifyDifference(filePath, expectedEntry, actualEntry) {
       console.error(`[parity debug] ${filePath} first normalized difference at ${index}; expected=${expectedHtml.length}; actual=${normalizedActual.length}`);
       console.error(JSON.stringify(expectedHtml.slice(Math.max(0, index - 40), index + 80)));
       console.error(JSON.stringify(normalizedActual.slice(Math.max(0, index - 40), index + 80)));
+    }
+  }
+  if (filePath === "sitemap.xml" && allowOpportunityDetailFlow) {
+    const occurrences = actualHtml.split(OPPORTUNITY_SITEMAP_FRAGMENT).length - 1;
+    const normalizedActual = occurrences === 1 ? actualHtml.replace(OPPORTUNITY_SITEMAP_FRAGMENT, "") : actualHtml;
+    if (normalizedActual === expectedHtml) {
+      approvedDifferences.push({ file: filePath, reason: "exact active Opportunity detail sitemap entry" });
+      return null;
     }
   }
   if (filePath === FREE_STUFF_PARENT_FILE && allowFreeStuffParentV2) {
@@ -199,7 +226,7 @@ function escapeAttributeText(value) {
   return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
 }
 
-function removeExactOpportunityPilot(html, filePath) {
+function removeExactOpportunityDetailFlow(html, filePath) {
   const id = "coloplast-speedicath-short-sample";
   const sectionMatches = html.match(/        <section class="opportunity-section"[\s\S]*?        <\/section>\r?\n\r?\n/g) || [];
   const schemaMatches = html.match(/    <script id="structured-data-opportunities"[^>]*>[\s\S]*?<\/script>\r?\n/g) || [];
@@ -212,7 +239,7 @@ function removeExactOpportunityPilot(html, filePath) {
   if ((html.match(new RegExp(`data-opportunity-id="${id}"`, "g")) || []).length !== 1) {
     return html;
   }
-  const expectedHashes = OPPORTUNITY_PILOT_FRAGMENT_HASHES[filePath];
+  const expectedHashes = OPPORTUNITY_DETAIL_FLOW_FRAGMENT_HASHES[filePath];
   if (
     !expectedHashes ||
     hashContent(sectionMatches[0]) !== expectedHashes.section ||

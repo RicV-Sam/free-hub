@@ -4,6 +4,8 @@ const { parseHtml, walkHtmlFiles } = require("./lib/baseline-utils.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const expectedOpportunityCount = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true" ? 1 : 0;
+const expectedGeneratedFiles = 345 + expectedOpportunityCount * 2;
+const expectedSitemapUrls = 145 + expectedOpportunityCount;
 const expectedId = "coloplast-speedicath-short-sample";
 const errors = [];
 const checks = [];
@@ -21,6 +23,12 @@ function check(label, actual, expected) {
   if (actual !== expected) errors.push({ label, actual, expected });
 }
 
+function countGeneratedRoutes(relativeDirectory) {
+  const directory = path.join(ROOT_DIR, relativeDirectory);
+  if (!fs.existsSync(directory)) return 0;
+  return walkHtmlFiles(directory).filter((filePath) => path.basename(filePath) === "index.html").length;
+}
+
 const samples = read("free-samples-south-africa/index.html");
 const parent = read("free-stuff-south-africa/index.html");
 const competitions = read("competitions/index.html");
@@ -35,8 +43,8 @@ const faqSchema = samplePage.jsonLd.find((item) => item?.["@type"] === "FAQPage"
 const competitionSchema = competitionPage.jsonLd.find((item) => item?.["@type"] === "ItemList");
 const htmlFiles = walkHtmlFiles(ROOT_DIR);
 
-check("Generated files", htmlFiles.length + 1, 345);
-check("Sitemap URLs", count(sitemap, /<loc>/g), 145);
+check("Generated files", htmlFiles.length + 1, expectedGeneratedFiles);
+check("Sitemap URLs", count(sitemap, /<loc>/g), expectedSitemapUrls);
 check("Active competition cards", count(competitions, /<article class="competition-card\b/g), 85);
 check("Competition schema items", competitionSchema?.itemListElement?.length || 0, 85);
 check("Samples page marker", samples.includes('data-free-samples-page-version="2"'), true);
@@ -55,8 +63,9 @@ check("Samples Opportunity cards", count(samples, /<article class="opportunity-c
 check("Parent Opportunity cards", count(parent, /<article class="opportunity-card\b/g), expectedOpportunityCount);
 check("Samples Opportunity schema items", sampleOpportunitySchema?.itemListElement?.length || 0, expectedOpportunityCount);
 check("Parent Opportunity schema items", parentOpportunitySchema?.itemListElement?.length || 0, expectedOpportunityCount);
-check("Opportunity detail routes", fs.existsSync(path.join(ROOT_DIR, "opportunity")) ? 1 : 0, 0);
-check("Opportunity sitemap entries", count(sitemap, /<loc>https:\/\/freehub\.co\.za\/opportunity\//g), 0);
+check("Opportunity detail routes", countGeneratedRoutes("opportunity"), expectedOpportunityCount);
+check("Opportunity exit routes", countGeneratedRoutes(path.join("out", "opportunity")), expectedOpportunityCount);
+check("Opportunity sitemap entries", count(sitemap, /<loc>https:\/\/freehub\.co\.za\/opportunity\//g), expectedOpportunityCount);
 
 const renderedIds = [
   ...samples.matchAll(/data-opportunity-id="([^"]+)"/g),
@@ -67,6 +76,7 @@ if (expectedOpportunityCount === 1) {
   check("Opportunity stable ID only", renderedIds.every((id) => id === expectedId), true);
   check("Full card variant", samples.includes('data-card-variant="full"'), true);
   check("Compact card variant", parent.includes('data-card-variant="compact"'), true);
+  check("Cards link to one detail route", [samples, parent].every((html) => html.includes('href="/opportunity/coloplast-speedicath-short-sample/"')), true);
   check("Privacy boundary on both surfaces", [samples, parent].every((html) => html.includes("Freehub does not receive or assess your application")), true);
   check("Official consent link on both surfaces", [samples, parent].every((html) => html.includes("https://www.coloplast.co.za/global/declaration-of-consent/")), true);
 }

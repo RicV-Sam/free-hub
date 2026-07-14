@@ -25,6 +25,7 @@
     if (link.dataset.discoveryAction === "card") {
       sendEvent("discovery_card_click", {
         ...common,
+        ...(link.dataset.contentId ? { content_id: link.dataset.contentId } : {}),
         destination_path: link.dataset.destinationPath,
       });
       return;
@@ -36,6 +37,7 @@
         content_id: link.dataset.contentId,
         source_domain: link.dataset.sourceDomain,
         ...(link.dataset.destinationPath ? { destination_path: link.dataset.destinationPath } : {}),
+        ...(link.dataset.linkRole ? { link_role: link.dataset.linkRole } : {}),
       });
     }
   }

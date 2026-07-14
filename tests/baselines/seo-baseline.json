@@ -3,6 +3,7 @@
   "buildDate": "2026-07-13",
   "siteOrigin": "https://freehub.co.za",
   "sitemapUrlCount": 145,
+  "opportunityAllowedSourceHosts": ["products.coloplast.co.za"],
   "canonicalAliases": {
     "/tag/free-entry/": "/free-competitions/",
     "/tag/purchase-required/": "/purchase-required-competitions/",

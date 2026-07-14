@@ -38,8 +38,8 @@
    * @property {string} sourceUrl
    * @property {string=} termsUrl
    * @property {string=} imageUrl
-   * @property {'draft'|'review'|'published'|'held'|'expired'|'rejected'} publicationStatus
-   * @property {'unverified'|'source_found'|'requirements_checked'|'verified'|'verification_due'|'source_changed'|'expired'|'rejected'} verificationStatus
+   * @property {'draft'|'review'|'published'|'held'|'expired'|'withdrawn'|'rejected'} publicationStatus
+   * @property {'unverified'|'source_found'|'requirements_checked'|'verified'|'verification_due'|'source_changed'|'expired'|'withdrawn'|'rejected'} verificationStatus
    * @property {'ZA'} country
    * @property {string[]} regions
    * @property {string=} startsAt
@@ -104,7 +104,7 @@
     "birthday_freebie",
     "free_course",
   ]);
-  const PUBLICATION_STATUSES = Object.freeze(["draft", "review", "published", "held", "expired", "rejected"]);
+  const PUBLICATION_STATUSES = Object.freeze(["draft", "review", "published", "held", "expired", "withdrawn", "rejected"]);
   const VERIFICATION_STATUSES = Object.freeze([
     "unverified",
     "source_found",
@@ -113,7 +113,15 @@
     "verification_due",
     "source_changed",
     "expired",
+    "withdrawn",
     "rejected",
+  ]);
+  const OPPORTUNITY_LIFECYCLE_STATES = Object.freeze([
+    "withdrawn",
+    "expired",
+    "verification_due",
+    "active",
+    "private",
   ]);
   const AVAILABILITY_KINDS = Object.freeze(["fixed_window", "stock_limited", "recurring", "ongoing"]);
   const COST_CLASSIFICATIONS = Object.freeze([
@@ -518,6 +526,12 @@
     if (isIsoDate(opportunity.startsAt) && isIsoDate(opportunity.expiresAt) && opportunity.expiresAt < opportunity.startsAt) {
       errors.push("expiresAt cannot be before startsAt.");
     }
+    if ((opportunity.publicationStatus === "expired") !== (opportunity.verificationStatus === "expired")) {
+      errors.push("expired publication and verification statuses must be paired.");
+    }
+    if ((opportunity.publicationStatus === "withdrawn") !== (opportunity.verificationStatus === "withdrawn")) {
+      errors.push("withdrawn publication and verification statuses must be paired.");
+    }
     if (
       opportunity.type === "free_sample" &&
       isIsoDate(opportunity.lastVerifiedAt) &&
@@ -720,12 +734,11 @@
     return true;
   }
 
-  function isPublicOpportunity(opportunity, options = {}) {
+  function hasPublicOpportunityFacts(opportunity, options = {}) {
     const validation = validateOpportunity(opportunity);
     const asOfDate = options.asOfDate;
     const strictFreeOnly = options.strictFreeOnly === true;
     if (!validation.valid || !validation.typeSupported || !isIsoDate(asOfDate)) return false;
-    if (opportunity.publicationStatus !== "published" || opportunity.verificationStatus !== "verified") return false;
     if (!isIsoDate(opportunity.publishedAt) || opportunity.publishedAt > asOfDate) return false;
     if (opportunity.lastVerifiedAt > asOfDate || opportunity.reviewDueAt < asOfDate) return false;
     if (opportunity.startsAt && opportunity.startsAt > asOfDate) return false;
@@ -754,6 +767,102 @@
       if (opportunity.details.stockState === "closed") return false;
     }
     return true;
+  }
+
+  function isPublicOpportunity(opportunity, options = {}) {
+    if (opportunity.publicationStatus !== "published" || opportunity.verificationStatus !== "verified") return false;
+    return hasPublicOpportunityFacts(opportunity, options);
+  }
+
+  function getOpportunityDetailPath(opportunityOrSlug) {
+    const slug = typeof opportunityOrSlug === "string" ? opportunityOrSlug : opportunityOrSlug && opportunityOrSlug.slug;
+    if (!isNonEmptyString(slug) || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
+      throw new TypeError("Opportunity detail path requires a valid slug.");
+    }
+    return `/opportunity/${slug}/`;
+  }
+
+  function getOpportunityExitPath(opportunityOrSlug) {
+    const slug = typeof opportunityOrSlug === "string" ? opportunityOrSlug : opportunityOrSlug && opportunityOrSlug.slug;
+    if (!isNonEmptyString(slug) || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
+      throw new TypeError("Opportunity exit path requires a valid slug.");
+    }
+    return `/out/opportunity/${slug}/`;
+  }
+
+  function hasRequiredCurrentEvidence(opportunity, options, asOfDate) {
+    if (options.requireSourceEvidence !== true) return true;
+    if (!hasCurrentSourceEvidence(opportunity, "sourceUrl", options.sourceEvidence, asOfDate)) return false;
+    if (opportunity.termsUrl && !hasCurrentSourceEvidence(opportunity, "termsUrl", options.sourceEvidence, asOfDate)) return false;
+    return true;
+  }
+
+  function getOpportunityLifecycleState(opportunity, options = {}) {
+    const validation = validateOpportunity(opportunity);
+    const asOfDate = options.asOfDate;
+    if (!validation.valid || !validation.typeSupported || !isIsoDate(asOfDate)) return "private";
+    if (!isIsoDate(opportunity.publishedAt) || opportunity.publishedAt > asOfDate) return "private";
+
+    if (opportunity.publicationStatus === "withdrawn" && opportunity.verificationStatus === "withdrawn") {
+      return "withdrawn";
+    }
+
+    const fixedWindowEnded =
+      opportunity.availabilityKind === "fixed_window" &&
+      isIsoDate(opportunity.expiresAt) &&
+      opportunity.expiresAt < asOfDate;
+    if (
+      (opportunity.publicationStatus === "expired" && opportunity.verificationStatus === "expired") ||
+      fixedWindowEnded
+    ) {
+      return "expired";
+    }
+
+    if (opportunity.publicationStatus !== "published") return "private";
+    if (opportunity.verificationStatus === "verification_due") return "verification_due";
+    if (opportunity.verificationStatus !== "verified") return "private";
+    if (opportunity.reviewDueAt < asOfDate) return "verification_due";
+    if (!hasRequiredCurrentEvidence(opportunity, options, asOfDate)) return "verification_due";
+    return isPublicOpportunity(opportunity, options) ? "active" : "private";
+  }
+
+  function wasPreviouslyPubliclyEligible(opportunity, options = {}) {
+    const validation = validateOpportunity(opportunity);
+    const asOfDate = options.asOfDate;
+    if (!validation.valid || !validation.typeSupported || !isIsoDate(asOfDate) || !isIsoDate(opportunity.publishedAt)) {
+      return false;
+    }
+    if (!Array.isArray(options.sourceEvidence)) return false;
+
+    const candidateDates = Array.from(
+      new Set(
+        options.sourceEvidence
+          .filter((entry) => {
+            if (!validateSourceEvidenceEntry(entry).valid) return false;
+            if (entry.recordId !== opportunity.id || entry.url !== opportunity[entry.field]) return false;
+            if (!isHttpUrl(opportunity[entry.field])) return false;
+            return normalizeHost(entry.hostname) === normalizeHost(new URL(opportunity[entry.field]).hostname);
+          })
+          .map((entry) => entry.verifiedAt)
+          .filter((date) => date >= opportunity.publishedAt && date <= asOfDate)
+      )
+    ).sort().reverse();
+
+    return candidateDates.some((historicalDate) =>
+      hasPublicOpportunityFacts(opportunity, {
+        ...options,
+        asOfDate: historicalDate,
+        requireSourceEvidence: true,
+      })
+    );
+  }
+
+  function isOpportunityTombstoneAllowed(opportunity, options = {}) {
+    const lifecycle = getOpportunityLifecycleState(opportunity, options);
+    return (
+      ["verification_due", "expired", "withdrawn"].includes(lifecycle) &&
+      wasPreviouslyPubliclyEligible(opportunity, options)
+    );
   }
 
   function validateDiscoverySummary(summary) {
@@ -820,13 +929,19 @@
     PUBLICATION_STATUSES,
     VERIFICATION_STATUSES,
     AVAILABILITY_KINDS,
+    OPPORTUNITY_LIFECYCLE_STATES,
     COST_CLASSIFICATIONS,
     REQUIREMENT_KINDS,
     DISCOVERY_ENTITY_KINDS,
     createDiscoverySummary,
+    getOpportunityDetailPath,
+    getOpportunityExitPath,
+    getOpportunityLifecycleState,
     isAllowedOfficialSource,
     isOpportunityFeatureEnabled,
+    isOpportunityTombstoneAllowed,
     isPublicOpportunity,
+    wasPreviouslyPubliclyEligible,
     hasCurrentSourceEvidence,
     validateDiscoverySummary,
     validateFreeResource,

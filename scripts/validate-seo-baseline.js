@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const shared = require("../shared/page-data.js");
+const opportunityData = require("../shared/opportunity-data.js");
 const {
   SITE_ORIGIN,
   fileToRoute,
@@ -15,6 +16,27 @@ const BASELINE_DIR = path.join(ROOT_DIR, "tests", "baselines");
 const CONFIG = readJson(path.join(BASELINE_DIR, "seo-baseline.json"));
 const MANIFEST = readJson(path.join(BASELINE_DIR, "generated-pages.json"));
 const COMPETITIONS = readJson(path.join(ROOT_DIR, "data", "competitions.json")).filter(Boolean);
+const OPPORTUNITIES = readJson(path.join(ROOT_DIR, "data", "opportunities.json")).filter(Boolean);
+const OPPORTUNITY_EVIDENCE = readJson(path.join(ROOT_DIR, "data", "opportunity-source-evidence.json")).filter(Boolean);
+const OPPORTUNITIES_ENABLED = opportunityData.isOpportunityFeatureEnabled(process.env.FREEHUB_ENABLE_OPPORTUNITIES);
+const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date());
+const OPPORTUNITY_GATE_OPTIONS = {
+  asOfDate: BUILD_DATE_ISO,
+  strictFreeOnly: false,
+  allowedSourceHosts: CONFIG.opportunityAllowedSourceHosts,
+  sourceEvidence: OPPORTUNITY_EVIDENCE,
+  requireSourceEvidence: true,
+};
+const ACTIVE_OPPORTUNITIES = OPPORTUNITIES_ENABLED
+  ? OPPORTUNITIES.filter((opportunity) => opportunityData.isPublicOpportunity(opportunity, OPPORTUNITY_GATE_OPTIONS))
+  : [];
+const TOMBSTONE_OPPORTUNITY_IDS = new Set(
+  OPPORTUNITIES_ENABLED
+    ? OPPORTUNITIES.filter((opportunity) =>
+        opportunityData.isOpportunityTombstoneAllowed(opportunity, OPPORTUNITY_GATE_OPTIONS)
+      ).map((opportunity) => opportunity.id)
+    : []
+);
 const SITEMAP_PATH = path.join(ROOT_DIR, "sitemap.xml");
 const errors = [];
 const notices = [];
@@ -22,6 +44,14 @@ let checks = 0;
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function getLocalIsoDate(date) {
+  return [
+    date.getFullYear(),
+    String(date.getMonth() + 1).padStart(2, "0"),
+    String(date.getDate()).padStart(2, "0"),
+  ].join("-");
 }
 
 function formatValue(value) {
@@ -78,11 +108,12 @@ const sitemapUrls = fs.existsSync(SITEMAP_PATH) ? parseSitemap(fs.readFileSync(S
 const sitemapRoutes = sitemapUrls.map((url) => normalizeRoute(url));
 const sitemapSet = new Set(sitemapRoutes);
 
-check(sitemapUrls.length === CONFIG.sitemapUrlCount, {
+const expectedSitemapUrlCount = CONFIG.sitemapUrlCount + ACTIVE_OPPORTUNITIES.length;
+check(sitemapUrls.length === expectedSitemapUrlCount, {
   file: "sitemap.xml",
   route: "/sitemap.xml",
   rule: "sitemap URL count matches reviewed baseline",
-  expected: CONFIG.sitemapUrlCount,
+  expected: expectedSitemapUrlCount,
   actual: sitemapUrls.length,
 });
 
@@ -247,6 +278,26 @@ COMPETITIONS.filter((competition) => !activePublicSlugs.has(shared.getCompetitio
   });
 });
 
+const activeOpportunityRoutes = new Set(ACTIVE_OPPORTUNITIES.map(opportunityData.getOpportunityDetailPath));
+sitemapRoutes.filter((route) => route.startsWith("/opportunity/")).forEach((route) => {
+  check(activeOpportunityRoutes.has(route), {
+    file: "sitemap.xml",
+    route,
+    rule: "Opportunity sitemap entry is active, verified, evidence-backed, and indexable",
+    expected: "active public Opportunity",
+    actual: route,
+  });
+});
+activeOpportunityRoutes.forEach((route) => {
+  check(sitemapSet.has(route), {
+    file: "sitemap.xml",
+    route,
+    rule: "active public Opportunity has one sitemap entry",
+    expected: "route included",
+    actual: sitemapSet.has(route) ? "route included" : "route excluded",
+  });
+});
+
 Object.entries(CONFIG.canonicalAliases).forEach(([alias, canonicalRoute]) => {
   const aliasFile = routeToFile(ROOT_DIR, alias);
   check(!sitemapSet.has(alias), {
@@ -327,6 +378,65 @@ for (const [route, sources] of incoming) {
 MANIFEST.pages.forEach((expectedPage) => {
   const filePath = path.join(ROOT_DIR, expectedPage.file);
   const route = expectedPage.route;
+  const tombstoneExpected =
+    expectedPage.route.startsWith("/opportunity/") &&
+    expectedPage.opportunityId &&
+    TOMBSTONE_OPPORTUNITY_IDS.has(expectedPage.opportunityId);
+  if (tombstoneExpected) {
+    check(fs.existsSync(filePath), {
+      file: expectedPage.file,
+      route,
+      rule: "reviewed Opportunity tombstone exists",
+      expected: "file present",
+      actual: fs.existsSync(filePath) ? "file present" : "missing",
+    });
+    if (fs.existsSync(filePath)) {
+      const page = getPage(filePath);
+      check(page.canonical === expectedPage.canonical, {
+        file: expectedPage.file,
+        route,
+        rule: "Opportunity tombstone retains its canonical",
+        expected: expectedPage.canonical,
+        actual: page.canonical,
+      });
+      check(page.robots === "noindex, follow", {
+        file: expectedPage.file,
+        route,
+        rule: "Opportunity tombstone is noindex, follow",
+        expected: "noindex, follow",
+        actual: page.robots,
+      });
+      check(!page.schemaTypes.includes("Thing") && !sitemapSet.has(route), {
+        file: expectedPage.file,
+        route,
+        rule: "Opportunity tombstone has no active Thing schema or sitemap entry",
+        expected: "no Thing; route excluded",
+        actual: `${page.schemaTypes.includes("Thing") ? "Thing present" : "no Thing"}; ${sitemapSet.has(route) ? "route included" : "route excluded"}`,
+      });
+    }
+    return;
+  }
+  const conditionMet =
+    expectedPage.requiresOpportunityFlag !== true ||
+    (OPPORTUNITIES_ENABLED &&
+      (!expectedPage.opportunityId || ACTIVE_OPPORTUNITIES.some((opportunity) => opportunity.id === expectedPage.opportunityId)));
+  if (!conditionMet) {
+    check(!fs.existsSync(filePath), {
+      file: expectedPage.file,
+      route,
+      rule: "flag-controlled representative route is absent",
+      expected: "file absent",
+      actual: fs.existsSync(filePath) ? "file present" : "file absent",
+    });
+    check(!sitemapSet.has(route), {
+      file: "sitemap.xml",
+      route,
+      rule: "disabled representative route stays out of sitemap",
+      expected: "route excluded",
+      actual: sitemapSet.has(route) ? "route included" : "route excluded",
+    });
+    return;
+  }
   check(fs.existsSync(filePath), {
     file: expectedPage.file,
     route,
