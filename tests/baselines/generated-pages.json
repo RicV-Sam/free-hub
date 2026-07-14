@@ -101,6 +101,32 @@
       "inSitemap": false
     },
     {
+      "route": "/opportunity/coloplast-speedicath-short-sample/",
+      "file": "opportunity/coloplast-speedicath-short-sample/index.html",
+      "title": "Coloplast SpeediCath Short free sample | Freehub",
+      "description": "People who currently use, or have been prescribed, an intermittent catheter can request a free SpeediCath Short sample for Coloplast suitability review. Check eligibility, delivery, privacy and the current official-source verification before applying.",
+      "canonical": "https://freehub.co.za/opportunity/coloplast-speedicath-short-sample/",
+      "robots": "index, follow, max-image-preview:large",
+      "h1": "Coloplast SpeediCath Short free sample",
+      "schemaTypes": ["BreadcrumbList", "ListItem", "Thing", "WebPage", "WebSite"],
+      "inSitemap": true,
+      "requiresOpportunityFlag": true,
+      "opportunityId": "coloplast-speedicath-short-sample"
+    },
+    {
+      "route": "/out/opportunity/coloplast-speedicath-short-sample/",
+      "file": "out/opportunity/coloplast-speedicath-short-sample/index.html",
+      "title": "Continue to Coloplast South Africa | Freehub",
+      "description": "Freehub is handing you to the official Coloplast South Africa source. Freehub does not collect or assess the application.",
+      "canonical": "https://freehub.co.za/out/opportunity/coloplast-speedicath-short-sample/",
+      "robots": "noindex, nofollow",
+      "h1": "You are leaving Freehub",
+      "schemaTypes": [],
+      "inSitemap": false,
+      "requiresOpportunityFlag": true,
+      "opportunityId": "coloplast-speedicath-short-sample"
+    },
+    {
       "route": "/free-stuff-south-africa/",
       "file": "free-stuff-south-africa/index.html",
       "title": "Free Stuff South Africa | Legit Freebies, Samples, Competitions",

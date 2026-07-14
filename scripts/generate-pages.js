@@ -5,6 +5,7 @@ const opportunityData = require("../shared/opportunity-data.js");
 const { applyLegacyArchiveCostCompatibility } = require("./lib/legacy-archive-costs.js");
 const { createFreeResourceRenderer } = require("./lib/free-resource-renderer.js");
 const { createOpportunityRenderer } = require("./lib/opportunity-renderer.js");
+const { createOpportunityRouteRenderer } = require("./lib/opportunity-route-renderer.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
@@ -117,6 +118,8 @@ const MONTHLY_GUIDE_SLUG = "best-competitions-south-africa-this-month";
 let brandImageLookup = new Map();
 let generatedVerticalPagesForLinks = [];
 let approvedPublicOpportunities = [];
+let activeOpportunityRoutes = [];
+let opportunityTombstones = [];
 const FREE_RESOURCES = JSON.parse(fs.readFileSync(FREE_RESOURCES_PATH, "utf8"));
 const freeResourceRenderer = createFreeResourceRenderer({
   escapeHtml,
@@ -127,6 +130,16 @@ const opportunityRenderer = createOpportunityRenderer({
   escapeHtml,
   escapeAttribute,
   formatDate: shared.formatDate,
+  canonicalOrigin: shared.CANONICAL_ORIGIN,
+  getDetailPath: opportunityData.getOpportunityDetailPath,
+});
+const opportunityRouteRenderer = createOpportunityRouteRenderer({
+  escapeHtml,
+  escapeAttribute,
+  formatDate: shared.formatDate,
+  canonicalOrigin: shared.CANONICAL_ORIGIN,
+  getDetailPath: opportunityData.getOpportunityDetailPath,
+  getExitPath: opportunityData.getOpportunityExitPath,
 });
 const TRUST_PAGE_DEFINITIONS = [
   {
@@ -1986,7 +1999,10 @@ const VERTICAL_PAGE_DEFINITIONS = [
 
 function main() {
   validateFreeResourceData();
-  approvedPublicOpportunities = loadApprovedPublicOpportunities();
+  const opportunityPublication = loadOpportunityPublicationState();
+  activeOpportunityRoutes = opportunityPublication.active;
+  approvedPublicOpportunities = activeOpportunityRoutes.map((entry) => entry.opportunity);
+  opportunityTombstones = opportunityPublication.tombstones;
   const rawCompetitions = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
   const rawArchiveCompetitions = fs.existsSync(ARCHIVE_DATA_PATH)
     ? applyLegacyArchiveCostCompatibility(JSON.parse(fs.readFileSync(ARCHIVE_DATA_PATH, "utf8")))
@@ -2015,6 +2031,10 @@ function main() {
   const outCompetitions = [...activeCompetitions, ...noindexActiveCompetitions];
   const validOutSlugs = new Set(outCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
   removeStaleCompetitionDirectories(validCompetitionSlugs, validOutSlugs);
+  removeStaleOpportunityDirectories(
+    new Set([...activeOpportunityRoutes, ...opportunityTombstones].map((entry) => entry.opportunity.slug)),
+    new Set(activeOpportunityRoutes.map((entry) => entry.opportunity.slug))
+  );
   const generatedBrandPages = shared.getGeneratedBrandPageDefinitions(activeCompetitions);
   const generatedBrandSlugs = generatedBrandPages.map((brandPage) => brandPage.slug);
   const verticalCoverage = getVerticalCoverage(activeCompetitions);
@@ -2066,6 +2086,18 @@ function main() {
     fs.writeFileSync(path.join(outputDirectory, "index.html"), html);
   });
 
+  [...activeOpportunityRoutes, ...opportunityTombstones].forEach(({ opportunity, lifecycleState }) => {
+    const outputDirectory = path.join(ROOT_DIR, "opportunity", opportunity.slug);
+    fs.mkdirSync(outputDirectory, { recursive: true });
+    fs.writeFileSync(path.join(outputDirectory, "index.html"), renderOpportunityDetailPage(opportunity, lifecycleState));
+  });
+
+  activeOpportunityRoutes.forEach(({ opportunity }) => {
+    const outputDirectory = path.join(ROOT_DIR, "out", "opportunity", opportunity.slug);
+    fs.mkdirSync(outputDirectory, { recursive: true });
+    fs.writeFileSync(path.join(outputDirectory, "index.html"), renderOpportunityExitPage(opportunity));
+  });
+
   getPublicTrustPageDefinitions().forEach((page) => {
     const outputDirectory = path.join(ROOT_DIR, page.slug);
 
@@ -2080,7 +2112,12 @@ function main() {
 
   fs.writeFileSync(
     path.join(ROOT_DIR, "sitemap.xml"),
-    generateSitemap(activeCompetitions, routeContexts, [...activeCompetitions, ...expiredArchiveCompetitions])
+    generateSitemap(
+      activeCompetitions,
+      routeContexts,
+      [...activeCompetitions, ...expiredArchiveCompetitions],
+      approvedPublicOpportunities
+    )
   );
   fs.writeFileSync(path.join(ROOT_DIR, "robots.txt"), renderRobotsTxt());
   runLifecycleStaticChecks(
@@ -2089,7 +2126,9 @@ function main() {
     noindexActiveCompetitions,
     expiredArchiveCompetitions,
     expiredLowValueCompetitions,
-    routeContexts
+    routeContexts,
+    activeOpportunityRoutes,
+    opportunityTombstones
   );
   runStaticSeoChecks(routeContexts);
   runCrawlerVisibleTextChecks(routeContexts);
@@ -2097,7 +2136,7 @@ function main() {
   runImageQualityChecks(routeContexts);
 }
 
-function loadApprovedPublicOpportunities() {
+function loadOpportunityPublicationState() {
   if (!fs.existsSync(OPPORTUNITIES_PATH)) {
     throw new Error("[Opportunity validation failed]\n- data/opportunities.json is missing.");
   }
@@ -2115,20 +2154,29 @@ function loadApprovedPublicOpportunities() {
       `[Opportunity validation failed]\n${errors.map((error) => `- ${error}`).join("\n")}`
     );
   }
-  if (!OPPORTUNITIES_ENABLED) return [];
-  const approved = opportunities.filter((opportunity) =>
-    opportunityData.isPublicOpportunity(opportunity, {
+  if (!OPPORTUNITIES_ENABLED) return { active: [], tombstones: [] };
+  const gateOptions = {
       asOfDate: BUILD_DATE_ISO,
       strictFreeOnly: false,
       allowedSourceHosts: OPPORTUNITY_ALLOWED_SOURCE_HOSTS,
       sourceEvidence,
       requireSourceEvidence: true,
-    })
+  };
+  const classified = opportunities.map((opportunity) => ({
+    opportunity,
+    lifecycleState: opportunityData.getOpportunityLifecycleState(opportunity, gateOptions),
+  }));
+  const active = classified.filter(({ opportunity, lifecycleState }) =>
+    lifecycleState === "active" && opportunityData.isPublicOpportunity(opportunity, gateOptions)
+  );
+  const tombstones = classified.filter(({ opportunity, lifecycleState }) =>
+    ["verification_due", "expired", "withdrawn"].includes(lifecycleState) &&
+    opportunityData.isOpportunityTombstoneAllowed(opportunity, gateOptions)
   );
   console.log(
-    `[Opportunity foundations] ${opportunities.length} private records validated; ${approved.length} records passed the reviewed public gate.`
+    `[Opportunity publication] ${opportunities.length} records validated; ${active.length} active; ${tombstones.length} retained tombstones.`
   );
-  return approved;
+  return { active, tombstones };
 }
 
 function validateFreeResourceData() {
@@ -9039,6 +9087,130 @@ function renderLegacyCompetitionPage(competition) {
 `;
 }
 
+function renderOpportunityDetailPage(opportunity, lifecycleState) {
+  const detailPath = opportunityData.getOpportunityDetailPath(opportunity);
+  const canonicalUrl = `${shared.CANONICAL_ORIGIN}${detailPath}`;
+  const metadata = opportunityRouteRenderer.getMetadata(opportunity, lifecycleState);
+  const structuredData = opportunityRouteRenderer.buildStructuredData(opportunity, lifecycleState);
+  const active = lifecycleState === "active";
+  const robots = active ? "index, follow, max-image-preview:large" : "noindex, follow";
+  const eyebrow = active ? "Verified opportunity" : "Opportunity status";
+
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${escapeHtml(metadata.title)}</title>
+    <meta name="description" content="${escapeAttribute(metadata.description)}" />
+    <meta name="robots" content="${robots}" />
+    <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="${escapeAttribute(metadata.title)}" />
+    <meta property="og:description" content="${escapeAttribute(metadata.description)}" />
+    <meta property="og:url" content="${escapeAttribute(canonicalUrl)}" />
+    <meta property="og:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${escapeAttribute(metadata.title)}" />
+    <meta name="twitter:description" content="${escapeAttribute(metadata.description)}" />
+    <meta name="twitter:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
+    <script id="structured-data-webpage" type="application/ld+json">${escapeScript(JSON.stringify(structuredData.webPage))}</script>
+    <script id="structured-data-breadcrumb" type="application/ld+json">${escapeScript(JSON.stringify(structuredData.breadcrumb))}</script>
+    ${structuredData.thing ? `<script id="structured-data-opportunity" type="application/ld+json">${escapeScript(JSON.stringify(structuredData.thing))}</script>` : ""}
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
+    ${renderGoogleTagManagerHead(`{ page_type: 'opportunity_detail', opportunity_id: ${escapeScript(JSON.stringify(opportunity.id))}, opportunity_type: ${escapeScript(JSON.stringify(opportunity.type))}, opportunity_lifecycle: ${escapeScript(JSON.stringify(lifecycleState))} }`)}
+    ${renderMetaPixelHead()}
+  </head>
+  <body data-opportunity-detail-page-version="1" data-opportunity-page-type="opportunity_detail" data-opportunity-id="${escapeAttribute(opportunity.id)}" data-opportunity-type="${escapeAttribute(opportunity.type)}" data-opportunity-lifecycle="${escapeAttribute(lifecycleState)}">
+    ${renderGoogleTagManagerNoScript()}
+    ${renderMetaPixelNoScript()}
+    <div class="site-shell">
+      ${renderTopNavigation()}
+      ${renderModernHero({
+        className: "hero--utility hero--trust",
+        eyebrow,
+        heading: opportunity.title,
+        intro: active
+          ? "Check the provider, eligibility, fulfilment, privacy and current verification facts before continuing to the official application."
+          : "This noindex trust page records why the opportunity is not currently available.",
+        actions: [
+          { label: "Browse Current Samples", href: "/free-samples-south-africa/", className: "btn--secondary" },
+        ],
+        trustItems: active
+          ? ["Verified official source", "Free delivery", "Suitability approval required"]
+          : ["No application link", "Noindex historical page", "Current offers stay separate"],
+      })}
+
+      <main id="main-content" class="main-content opportunity-detail-page">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a><span aria-hidden="true">/</span>
+          <a href="/free-samples-south-africa/">Free Samples</a><span aria-hidden="true">/</span>
+          <span aria-current="page">${escapeHtml(opportunity.title)}</span>
+        </nav>
+        ${opportunityRouteRenderer.renderDetailContent(opportunity, lifecycleState)}
+      </main>
+
+      ${renderSiteFooter()}
+    </div>
+    <script src="/shared/discovery-analytics.js"></script>
+    <script src="/shared/opportunity-analytics.js"></script>
+    <script type="module" src="/shared/auth-ui.js"></script>
+  </body>
+</html>
+`;
+}
+
+function renderOpportunityExitPage(opportunity) {
+  const exitPath = opportunityData.getOpportunityExitPath(opportunity);
+  const canonicalUrl = `${shared.CANONICAL_ORIGIN}${exitPath}`;
+  const sourceUrl = new URL(opportunity.sourceUrl);
+  const sourceDomain = sourceUrl.hostname.toLowerCase().replace(/^www\./, "");
+  const destinationPath = sourceUrl.pathname || "/";
+
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Continue to ${escapeHtml(opportunity.provider)} | Freehub</title>
+    <meta name="description" content="Freehub is handing you to the official ${escapeAttribute(opportunity.provider)} source. Freehub does not collect or assess the application." />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
+    ${renderGoogleTagManagerHead(`{ page_type: 'opportunity_exit', opportunity_id: ${escapeScript(JSON.stringify(opportunity.id))}, opportunity_type: ${escapeScript(JSON.stringify(opportunity.type))} }`)}
+    ${renderMetaPixelHead()}
+  </head>
+  <body data-opportunity-exit-page-version="1" data-opportunity-page-type="opportunity_exit" data-opportunity-id="${escapeAttribute(opportunity.id)}" data-opportunity-type="${escapeAttribute(opportunity.type)}" data-opportunity-lifecycle="active" data-opportunity-target-url="${escapeAttribute(opportunity.sourceUrl)}" data-opportunity-source-domain="${escapeAttribute(sourceDomain)}" data-opportunity-destination-path="${escapeAttribute(destinationPath)}">
+    ${renderGoogleTagManagerNoScript()}
+    ${renderMetaPixelNoScript()}
+    <div class="site-shell">
+      ${renderTopNavigation()}
+      ${renderModernHero({
+        className: "hero--utility hero--outbound",
+        eyebrow: "Official source",
+        heading: "You are leaving Freehub",
+        intro: `Taking you to ${sourceDomain} for ${opportunity.title}.`,
+        actions: [
+          { label: "Back to Opportunity Details", href: opportunityData.getOpportunityDetailPath(opportunity), className: "btn--secondary" },
+        ],
+        trustItems: ["External provider page", "Coloplast assesses suitability", "Freehub collects no application data"],
+      })}
+
+      <main id="main-content" class="main-content opportunity-exit-page">
+        ${opportunityRouteRenderer.renderExitContent(opportunity)}
+      </main>
+
+      ${renderSiteFooter({ includeAuthPanel: false })}
+    </div>
+    <script src="/shared/discovery-analytics.js"></script>
+    <script src="/shared/opportunity-analytics.js"></script>
+  </body>
+</html>
+`;
+}
+
 function renderOutPage(competition) {
   const slug = shared.getCompetitionSlug(competition);
   const externalUrl = getOfficialSourceUrl(competition);
@@ -9543,7 +9715,7 @@ function renderHowToEnterList(steps) {
             </div>`;
 }
 
-function generateSitemap(competitions, routeContexts, sitemapCompetitions = competitions) {
+function generateSitemap(competitions, routeContexts, sitemapCompetitions = competitions, sitemapOpportunities = []) {
   const origin = shared.CANONICAL_ORIGIN;
 
   const staticEntries = routeContexts
@@ -9595,11 +9767,25 @@ function generateSitemap(competitions, routeContexts, sitemapCompetitions = comp
       });
     });
 
+  const opportunityEntries = sitemapOpportunities.map((opportunity) =>
+    renderSitemapUrl({
+      loc: `${origin}${opportunityData.getOpportunityDetailPath(opportunity)}`,
+      lastmod: getOpportunityLastmod(opportunity),
+    })
+  );
+
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-${[...staticEntries, ...trustPageEntries, ...contentPageEntries, ...clubEntries, ...referAndWinEntries, ...competitionEntries].join("\n")}
+${[...staticEntries, ...trustPageEntries, ...contentPageEntries, ...clubEntries, ...referAndWinEntries, ...competitionEntries, ...opportunityEntries].join("\n")}
 </urlset>
 `;
+}
+
+function getOpportunityLastmod(opportunity) {
+  return [opportunity.publishedAt, opportunity.lastVerifiedAt, opportunity.updatedAt]
+    .filter((value) => /^\d{4}-\d{2}-\d{2}$/.test(String(value || "")))
+    .sort()
+    .pop() || BUILD_DATE_ISO;
 }
 
 function getContentSitemapEntries() {
@@ -9776,18 +9962,30 @@ function renderDetailCtaDataAttributes(competition, outPath, sourceDomain) {
 
 function removeStaleCompetitionDirectories(validCompetitionSlugs, validOutSlugs) {
   removeStaleSlugDirectories(path.join(ROOT_DIR, "competition"), validCompetitionSlugs, "competition");
-  removeStaleSlugDirectories(path.join(ROOT_DIR, "out"), validOutSlugs, "out");
+  removeStaleSlugDirectories(path.join(ROOT_DIR, "out"), validOutSlugs, "out", {
+    preservedSlugs: new Set(["opportunity"]),
+  });
 }
 
-function removeStaleSlugDirectories(managedDirectory, validSlugs, label) {
+function removeStaleOpportunityDirectories(validDetailSlugs, validExitSlugs) {
+  const detailDirectory = path.join(ROOT_DIR, "opportunity");
+  const exitDirectory = path.join(ROOT_DIR, "out", "opportunity");
+  removeStaleSlugDirectories(detailDirectory, validDetailSlugs, "Opportunity detail");
+  removeStaleSlugDirectories(exitDirectory, validExitSlugs, "Opportunity exit");
+  removeDirectoryIfEmpty(detailDirectory);
+  removeDirectoryIfEmpty(exitDirectory);
+}
+
+function removeStaleSlugDirectories(managedDirectory, validSlugs, label, options = {}) {
   if (!fs.existsSync(managedDirectory)) {
     return;
   }
+  const preservedSlugs = options.preservedSlugs instanceof Set ? options.preservedSlugs : new Set();
 
   fs.readdirSync(managedDirectory, { withFileTypes: true })
     .filter((entry) => entry.isDirectory())
     .forEach((entry) => {
-      if (validSlugs.has(entry.name)) {
+      if (validSlugs.has(entry.name) || preservedSlugs.has(entry.name)) {
         return;
       }
 
@@ -9795,6 +9993,12 @@ function removeStaleSlugDirectories(managedDirectory, validSlugs, label) {
       fs.rmSync(stalePath, { recursive: true, force: true });
       console.log(`[generate-pages] Removed stale ${label} directory: ${stalePath}`);
     });
+}
+
+function removeDirectoryIfEmpty(directoryPath) {
+  if (fs.existsSync(directoryPath) && fs.readdirSync(directoryPath).length === 0) {
+    fs.rmdirSync(directoryPath);
+  }
 }
 
 function removeStaleTagDirectories(routeContexts) {
@@ -9937,6 +10141,7 @@ function runStaticSeoChecks(routeContexts = []) {
       .filter((routeContext) => routeContext.type !== "home")
       .map((routeContext) => path.join(ROOT_DIR, routeContext.path.replace(/^\//, "").replace(/\/$/, ""), "index.html")),
     ...getNestedIndexFiles(path.join(ROOT_DIR, "competition")),
+    ...getNestedIndexFiles(path.join(ROOT_DIR, "opportunity")),
     ...getPublicTrustPageDefinitions().map((page) => path.join(ROOT_DIR, page.slug, "index.html")),
     ...getContentIndexFiles(),
   ];
@@ -9948,7 +10153,7 @@ function runStaticSeoChecks(routeContexts = []) {
       errors.push(`Structured data competition URL missing trailing slash in: ${filePath}`);
     }
 
-    const internalHrefRegex = /href="(\/(?:competition|category|tag|brand|brands)\/[^"]*)"/g;
+    const internalHrefRegex = /href="(\/(?:competition|opportunity|out\/opportunity|category|tag|brand|brands)\/[^"]*)"/g;
     const internalHrefMatches = [...html.matchAll(internalHrefRegex)];
     internalHrefMatches.forEach((match) => {
       const href = match[1];
@@ -10055,6 +10260,7 @@ function runCrawlerVisibleTextChecks(routeContexts = []) {
       .filter((routeContext) => routeContext.type !== "home")
       .map((routeContext) => path.join(ROOT_DIR, routeContext.path.replace(/^\//, "").replace(/\/$/, ""), "index.html")),
     ...getNestedIndexFiles(path.join(ROOT_DIR, "competition")),
+    ...getNestedIndexFiles(path.join(ROOT_DIR, "opportunity")),
     ...getPublicTrustPageDefinitions().map((page) => path.join(ROOT_DIR, page.slug, "index.html")),
     ...getContentIndexFiles(),
   ].filter((filePath) => fs.existsSync(filePath));
@@ -10079,7 +10285,9 @@ function runLifecycleStaticChecks(
   noindexActiveCompetitions,
   expiredArchiveCompetitions,
   expiredLowValueCompetitions,
-  routeContexts = []
+  routeContexts = [],
+  activeOpportunities = [],
+  tombstoneOpportunities = []
 ) {
   const errors = [];
   const activeSlugs = new Set(activeCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
@@ -10231,6 +10439,52 @@ function runLifecycleStaticChecks(
       }
     });
 
+  activeOpportunities.forEach(({ opportunity }) => {
+    const detailRoute = opportunityData.getOpportunityDetailPath(opportunity);
+    const exitRoute = opportunityData.getOpportunityExitPath(opportunity);
+    const detailPath = path.join(ROOT_DIR, detailRoute.replace(/^\//, ""), "index.html");
+    const exitPath = path.join(ROOT_DIR, exitRoute.replace(/^\//, ""), "index.html");
+    if (!fs.existsSync(detailPath)) errors.push(`Active Opportunity detail page missing: ${opportunity.slug}`);
+    if (!fs.existsSync(exitPath)) errors.push(`Active Opportunity exit page missing: ${opportunity.slug}`);
+    if (!sitemap.includes(`${shared.CANONICAL_ORIGIN}${detailRoute}`)) {
+      errors.push(`Active Opportunity is missing from sitemap: ${opportunity.slug}`);
+    }
+    if (sitemap.includes(`${shared.CANONICAL_ORIGIN}${exitRoute}`)) {
+      errors.push(`Opportunity exit route is included in sitemap: ${opportunity.slug}`);
+    }
+    if (fs.existsSync(detailPath)) {
+      const html = fs.readFileSync(detailPath, "utf8");
+      if (!html.includes('name="robots" content="index, follow, max-image-preview:large"')) {
+        errors.push(`Active Opportunity detail is not indexable: ${opportunity.slug}`);
+      }
+      if (!html.includes(`href="${exitRoute}"`)) {
+        errors.push(`Active Opportunity detail CTA bypasses exit route: ${opportunity.slug}`);
+      }
+    }
+  });
+
+  tombstoneOpportunities.forEach(({ opportunity, lifecycleState }) => {
+    const detailRoute = opportunityData.getOpportunityDetailPath(opportunity);
+    const exitRoute = opportunityData.getOpportunityExitPath(opportunity);
+    const detailPath = path.join(ROOT_DIR, detailRoute.replace(/^\//, ""), "index.html");
+    const exitPath = path.join(ROOT_DIR, exitRoute.replace(/^\//, ""), "index.html");
+    if (!fs.existsSync(detailPath)) {
+      errors.push(`${lifecycleState} Opportunity tombstone missing: ${opportunity.slug}`);
+      return;
+    }
+    const html = fs.readFileSync(detailPath, "utf8");
+    if (!html.includes('name="robots" content="noindex, follow"')) {
+      errors.push(`${lifecycleState} Opportunity tombstone is not noindex: ${opportunity.slug}`);
+    }
+    if (html.includes(opportunity.sourceUrl) || html.includes(exitRoute) || html.includes('id="structured-data-opportunity"')) {
+      errors.push(`${lifecycleState} Opportunity tombstone exposes an active campaign path or schema: ${opportunity.slug}`);
+    }
+    if (fs.existsSync(exitPath)) errors.push(`${lifecycleState} Opportunity retained an exit route: ${opportunity.slug}`);
+    if (sitemap.includes(`${shared.CANONICAL_ORIGIN}${detailRoute}`)) {
+      errors.push(`${lifecycleState} Opportunity tombstone is included in sitemap: ${opportunity.slug}`);
+    }
+  });
+
   if (errors.length > 0) {
     throw new Error(`[Lifecycle checks failed]\n${errors.map((error) => `- ${error}`).join("\n")}`);
   }
@@ -10247,6 +10501,7 @@ function runGlobalCtaChecks(routeContexts = []) {
     ...getPublicTrustPageDefinitions().map((page) => path.join(ROOT_DIR, page.slug, "index.html")),
     ...getContentIndexFiles(),
     ...getNestedIndexFiles(path.join(ROOT_DIR, "competition")),
+    ...getNestedIndexFiles(path.join(ROOT_DIR, "opportunity")),
   ].filter((filePath, index, files) => fs.existsSync(filePath) && files.indexOf(filePath) === index);
 
   htmlFiles.forEach((filePath) => {
@@ -10282,6 +10537,7 @@ function runImageQualityChecks(routeContexts = []) {
       .filter((routeContext) => routeContext.type !== "home")
       .map((routeContext) => path.join(ROOT_DIR, routeContext.path.replace(/^\//, "").replace(/\/$/, ""), "index.html")),
     ...getNestedIndexFiles(path.join(ROOT_DIR, "competition")),
+    ...getNestedIndexFiles(path.join(ROOT_DIR, "opportunity")),
     ...getContentIndexFiles(),
   ];
 

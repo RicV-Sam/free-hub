@@ -10,6 +10,8 @@ const FREE_STUFF_ROUTE = "/free-stuff-south-africa/";
 const FREE_STUFF_NAV_INACTIVE = '          <a class="site-topbar__link" href="/free-stuff-south-africa/">Free Stuff</a>';
 const FREE_STUFF_NAV_ACTIVE = '          <a class="site-topbar__link is-active" href="/free-stuff-south-africa/" aria-current="page">Free Stuff</a>';
 const expectedOpportunityCount = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true" ? 1 : 0;
+const expectedGeneratedFiles = 345 + expectedOpportunityCount * 2;
+const expectedSitemapUrls = 145 + expectedOpportunityCount;
 
 function check(label, actual, expected) {
   checks.push({ label, actual, expected });
@@ -22,6 +24,12 @@ function read(relativePath) {
 
 function count(html, pattern) {
   return [...html.matchAll(pattern)].length;
+}
+
+function countGeneratedRoutes(relativeDirectory) {
+  const directory = path.join(ROOT_DIR, relativeDirectory);
+  if (!fs.existsSync(directory)) return 0;
+  return walkHtmlFiles(directory).filter((filePath) => path.basename(filePath) === "index.html").length;
 }
 
 const htmlFiles = walkHtmlFiles(ROOT_DIR);
@@ -41,16 +49,17 @@ const activeCompetitions = shared.getPublishedActiveCompetitions(
   JSON.parse(read("data/competitions.json")).filter(Boolean)
 );
 
-check("Generated files", htmlFiles.length + 1, 345);
-check("Sitemap URLs", count(sitemap, /<loc>/g), 145);
+check("Generated files", htmlFiles.length + 1, expectedGeneratedFiles);
+check("Sitemap URLs", count(sitemap, /<loc>/g), expectedSitemapUrls);
 check("Active competition cards", count(competitions, /<article class="competition-card\b/g), 85);
 check("Competition schema items", competitionItemList?.itemListElement?.length || 0, 85);
 check("Active competition records", activeCompetitions.length, 85);
 check("Opportunity records rendered", new Set([...parent.matchAll(/data-opportunity-id="([^"]+)"/g)].map((match) => match[1])).size, expectedOpportunityCount);
 check("Opportunity cards rendered", count(parent, /<article class="opportunity-card\b/g), expectedOpportunityCount);
 check("Opportunity schema items", opportunitySchema?.itemListElement?.length || 0, expectedOpportunityCount);
-check("Opportunity routes generated", fs.existsSync(path.join(ROOT_DIR, "opportunity")) ? 1 : 0, 0);
-check("Opportunity sitemap entries", count(sitemap, /<loc>https:\/\/freehub\.co\.za\/opportunity\//g), 0);
+check("Opportunity routes generated", countGeneratedRoutes("opportunity"), expectedOpportunityCount);
+check("Opportunity exit routes generated", countGeneratedRoutes(path.join("out", "opportunity")), expectedOpportunityCount);
+check("Opportunity sitemap entries", count(sitemap, /<loc>https:\/\/freehub\.co\.za\/opportunity\//g), expectedOpportunityCount);
 check("Durable resources on parent", count(parent, /<article class="free-resource-card">/g), 18);
 check("Durable resource schema items", resourceItemList?.itemListElement?.length || 0, 18);
 check("Permanent Free Stuff child links", count(parent, /class="free-stuff-child-nav__link"/g), 4);

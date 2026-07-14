@@ -19,9 +19,12 @@ const COST_LABELS = Object.freeze({
   paid_entry: "Paid entry",
 });
 
-function createOpportunityRenderer({ escapeHtml, escapeAttribute, formatDate }) {
-  if (![escapeHtml, escapeAttribute, formatDate].every((helper) => typeof helper === "function")) {
-    throw new TypeError("Opportunity renderer requires escapeHtml, escapeAttribute, and formatDate helpers.");
+function createOpportunityRenderer({ escapeHtml, escapeAttribute, formatDate, canonicalOrigin, getDetailPath }) {
+  if (![escapeHtml, escapeAttribute, formatDate, getDetailPath].every((helper) => typeof helper === "function")) {
+    throw new TypeError("Opportunity renderer requires escape, date, and detail-path helpers.");
+  }
+  if (typeof canonicalOrigin !== "string" || !/^https:\/\//.test(canonicalOrigin)) {
+    throw new TypeError("Opportunity renderer requires an HTTPS canonical origin.");
   }
 
   function renderOpportunitySection({ opportunities, heading, pageType, cardVariant = "full" }) {
@@ -49,7 +52,8 @@ function createOpportunityRenderer({ escapeHtml, escapeAttribute, formatDate }) 
     const typeLabel = OPPORTUNITY_TYPE_LABELS[opportunity.type] || opportunity.type;
     const costLabel = COST_LABELS[opportunity.costClassification] || opportunity.costClassification;
     const required = opportunity.requirements.filter((requirement) => requirement.required);
-    const renderAnalyticsAttributes = (url) => [
+    const detailPath = getDetailPath(opportunity);
+    const renderOfficialAnalyticsAttributes = (url) => [
       ' data-discovery-action="official-source"',
       ' data-entity-kind="opportunity"',
       ` data-content-type="${escapeAttribute(opportunity.type)}"`,
@@ -58,9 +62,16 @@ function createOpportunityRenderer({ escapeHtml, escapeAttribute, formatDate }) 
       ` data-page-type="${escapeAttribute(pageType)}"`,
       ` data-destination-path="${escapeAttribute(getDestinationPath(url))}"`,
     ].join("");
-    const analyticsAttributes = renderAnalyticsAttributes(opportunity.sourceUrl);
+    const cardAnalyticsAttributes = [
+      ' data-discovery-action="card"',
+      ' data-entity-kind="opportunity"',
+      ` data-content-type="${escapeAttribute(opportunity.type)}"`,
+      ` data-content-id="${escapeAttribute(opportunity.id)}"`,
+      ` data-page-type="${escapeAttribute(pageType)}"`,
+      ` data-destination-path="${escapeAttribute(detailPath)}"`,
+    ].join("");
     const privacyLink = opportunity.details?.privacyUrl
-      ? `<a class="opportunity-card__privacy-link" href="${escapeAttribute(opportunity.details.privacyUrl)}" rel="nofollow noopener" target="_blank"${renderAnalyticsAttributes(opportunity.details.privacyUrl)}>Coloplast consent and privacy information</a>`
+      ? `<a class="opportunity-card__privacy-link" href="${escapeAttribute(opportunity.details.privacyUrl)}" rel="nofollow noopener" target="_blank"${renderOfficialAnalyticsAttributes(opportunity.details.privacyUrl)}>Coloplast consent and privacy information</a>`
       : "";
     const privacyNotice = "You will provide suitability and health-related information directly to Coloplast. Freehub does not receive or assess your application.";
 
@@ -76,7 +87,7 @@ function createOpportunityRenderer({ escapeHtml, escapeAttribute, formatDate }) 
               <p><strong>${escapeHtml(costLabel)}.</strong> Application only; fulfilment is not guaranteed.</p>
               <p class="opportunity-card__privacy">${escapeHtml(privacyNotice)}</p>
               ${privacyLink}
-              <a class="opportunity-card__link" href="${escapeAttribute(opportunity.sourceUrl)}" rel="nofollow noopener" target="_blank"${analyticsAttributes}>Official sample request</a>
+              <a class="opportunity-card__link" href="${escapeAttribute(detailPath)}"${cardAnalyticsAttributes}>View verified sample details</a>
             </article>`;
     }
 
@@ -106,7 +117,7 @@ function createOpportunityRenderer({ escapeHtml, escapeAttribute, formatDate }) 
               <p class="opportunity-card__privacy">${escapeHtml(privacyNotice)}</p>
               <p class="opportunity-card__medical-boundary">Coloplast, not Freehub, assesses product suitability. Freehub does not provide medical suitability advice.</p>
               ${privacyLink}
-              <a class="opportunity-card__link" href="${escapeAttribute(opportunity.sourceUrl)}" rel="nofollow noopener" target="_blank"${analyticsAttributes}>Official sample request</a>
+              <a class="opportunity-card__link" href="${escapeAttribute(detailPath)}"${cardAnalyticsAttributes}>View verified sample details</a>
             </article>`;
   }
 
@@ -128,7 +139,7 @@ function createOpportunityRenderer({ escapeHtml, escapeAttribute, formatDate }) 
           identifier: opportunity.id,
           name: opportunity.title,
           description: opportunity.summary,
-          url: opportunity.sourceUrl,
+          url: `${canonicalOrigin}${getDetailPath(opportunity)}`,
         },
       })),
     };

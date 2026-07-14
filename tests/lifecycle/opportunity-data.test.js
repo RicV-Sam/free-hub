@@ -23,6 +23,19 @@ function loadSchema(name) {
   return JSON.parse(fs.readFileSync(path.join(rootDir, "data", "schemas", name), "utf8"));
 }
 
+function evidenceFor(opportunity) {
+  return ["sourceUrl", ...(opportunity.termsUrl ? ["termsUrl"] : [])].map((field) => ({
+    recordId: opportunity.id,
+    field,
+    hostname: new URL(opportunity[field]).hostname,
+    url: opportunity[field],
+    reason: "official_source_verified_despite_automated_access_block",
+    verifiedAt: opportunity.lastVerifiedAt,
+    expiresAt: opportunity.reviewDueAt,
+    evidenceSummary: "Reviewed fixture evidence.",
+  }));
+}
+
 test("committed JSON schemas compile and accept every strict contract fixture", () => {
   const ajv = new Ajv2020({ allErrors: true, strict: true, allowUnionTypes: true });
   addFormats(ajv);
@@ -63,6 +76,20 @@ test("committed JSON schemas compile and accept every strict contract fixture", 
   unsupportedDetails.details.unreviewed = true;
   assert.equal(ajv.getSchema(opportunitySchema.$id)(unsupportedDetails), false);
   assert.equal(opportunityData.validateOpportunity(unsupportedDetails).valid, false);
+
+  const withdrawn = clone(fixtures.publishedSample);
+  withdrawn.publicationStatus = "withdrawn";
+  withdrawn.verificationStatus = "withdrawn";
+  assert.equal(ajv.getSchema(opportunitySchema.$id)(withdrawn), true);
+  withdrawn.verificationStatus = "verified";
+  assert.equal(ajv.getSchema(opportunitySchema.$id)(withdrawn), false);
+
+  const expired = clone(fixtures.publishedSample);
+  expired.publicationStatus = "expired";
+  expired.verificationStatus = "expired";
+  assert.equal(ajv.getSchema(opportunitySchema.$id)(expired), true);
+  expired.publicationStatus = "published";
+  assert.equal(ajv.getSchema(opportunitySchema.$id)(expired), false);
 });
 
 test("runtime validators enforce strict contracts and legacy FreeResource compatibility", () => {
@@ -160,6 +187,80 @@ test("publication dates and availability are deterministic and inclusive", () =>
   assert.equal(opportunityData.isPublicOpportunity(recurring, publicOptions), true);
   assert.equal(opportunityData.isPublicOpportunity(recurring, { ...publicOptions, asOfDate: "not-a-date" }), false);
   assert.equal(opportunityData.isPublicOpportunity(recurring, { allowedSourceHosts: publicOptions.allowedSourceHosts }), false);
+});
+
+test("Opportunity lifecycle precedence and historical eligibility fail closed", () => {
+  const record = clone(fixtures.publishedSample);
+  const options = {
+    ...publicOptions,
+    requireSourceEvidence: true,
+    sourceEvidence: evidenceFor(record),
+  };
+  assert.equal(opportunityData.getOpportunityLifecycleState(record, options), "active");
+  assert.equal(opportunityData.wasPreviouslyPubliclyEligible(record, options), true);
+
+  const overdueOptions = { ...options, asOfDate: "2026-07-18" };
+  assert.equal(opportunityData.getOpportunityLifecycleState(record, overdueOptions), "verification_due");
+  assert.equal(opportunityData.isOpportunityTombstoneAllowed(record, overdueOptions), true);
+
+  const endedOptions = { ...options, asOfDate: "2026-08-01" };
+  assert.equal(opportunityData.getOpportunityLifecycleState(record, endedOptions), "expired");
+  assert.equal(opportunityData.isOpportunityTombstoneAllowed(record, endedOptions), true);
+
+  const withdrawn = clone(record);
+  withdrawn.publicationStatus = "withdrawn";
+  withdrawn.verificationStatus = "withdrawn";
+  assert.equal(opportunityData.validateOpportunity(withdrawn).valid, true);
+  assert.equal(opportunityData.getOpportunityLifecycleState(withdrawn, options), "withdrawn");
+  assert.equal(opportunityData.isOpportunityTombstoneAllowed(withdrawn, options), true);
+
+  const expired = clone(record);
+  expired.publicationStatus = "expired";
+  expired.verificationStatus = "expired";
+  assert.equal(opportunityData.getOpportunityLifecycleState(expired, options), "expired");
+
+  const mismatched = clone(record);
+  mismatched.publicationStatus = "withdrawn";
+  assert.equal(opportunityData.validateOpportunity(mismatched).valid, false);
+  assert.equal(opportunityData.getOpportunityLifecycleState(mismatched, options), "private");
+});
+
+test("publishedAt alone cannot create a tombstone and private states produce no lifecycle route", () => {
+  const record = clone(fixtures.publishedSample);
+  const evidence = evidenceFor(record);
+  const options = {
+    ...publicOptions,
+    asOfDate: "2026-07-18",
+    requireSourceEvidence: true,
+    sourceEvidence: evidence,
+  };
+  assert.equal(opportunityData.isOpportunityTombstoneAllowed(record, options), true);
+  assert.equal(opportunityData.isOpportunityTombstoneAllowed(record, { ...options, sourceEvidence: [] }), false);
+
+  const wrongEvidence = evidence.map((entry) => ({ ...entry, recordId: "another-record" }));
+  assert.equal(opportunityData.isOpportunityTombstoneAllowed(record, { ...options, sourceEvidence: wrongEvidence }), false);
+
+  ["draft", "review", "held", "rejected"].forEach((publicationStatus) => {
+    const privateRecord = clone(record);
+    privateRecord.publicationStatus = publicationStatus;
+    assert.equal(opportunityData.getOpportunityLifecycleState(privateRecord, options), "private");
+  });
+  const sourceChanged = clone(record);
+  sourceChanged.verificationStatus = "source_changed";
+  assert.equal(opportunityData.getOpportunityLifecycleState(sourceChanged, options), "private");
+
+  const neverPublished = clone(record);
+  delete neverPublished.publishedAt;
+  neverPublished.verificationStatus = "verification_due";
+  assert.equal(opportunityData.getOpportunityLifecycleState(neverPublished, options), "private");
+  assert.equal(opportunityData.isOpportunityTombstoneAllowed(neverPublished, options), false);
+});
+
+test("Opportunity route helpers produce canonical root-relative paths", () => {
+  assert.equal(opportunityData.getOpportunityDetailPath(fixtures.publishedSample), "/opportunity/fixture-current-sample/");
+  assert.equal(opportunityData.getOpportunityExitPath(fixtures.publishedSample), "/out/opportunity/fixture-current-sample/");
+  assert.throws(() => opportunityData.getOpportunityDetailPath("../unsafe"), /valid slug/);
+  assert.throws(() => opportunityData.getOpportunityExitPath({ slug: "Bad Slug" }), /valid slug/);
 });
 
 test("cost and requirement mismatches fail closed, including strict free-only collections", () => {
