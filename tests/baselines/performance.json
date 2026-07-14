@@ -4,10 +4,10 @@
   "warnGrowthPercent": 10,
   "failGrowthPercent": 25,
   "assets": {
-    "homepage": { "file": "index.html", "bytes": 71186 },
-    "competitions": { "file": "competitions/index.html", "bytes": 463501 },
-    "freeStuff": { "file": "free-stuff-south-africa/index.html", "bytes": 53237 },
-    "css": { "file": "styles.css", "bytes": 102431 },
+    "homepage": { "file": "index.html", "bytes": 71273 },
+    "competitions": { "file": "competitions/index.html", "bytes": 463588 },
+    "freeStuff": { "file": "free-stuff-south-africa/index.html", "bytes": 58260 },
+    "css": { "file": "styles.css", "bytes": 105455 },
     "javascript": { "file": "app.js", "bytes": 24882 }
   },
   "inventory": {

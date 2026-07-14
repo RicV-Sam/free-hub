@@ -1208,8 +1208,43 @@ button {
 }
 
 .free-resource-section,
-.free-resource-advice {
+.free-resource-advice,
+.opportunity-section,
+.free-stuff-competition-callout {
   margin-top: 1rem;
+}
+
+.free-stuff-child-nav {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.free-stuff-child-nav__link {
+  display: flex;
+  min-height: 56px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(15, 118, 110, 0.2);
+  border-radius: var(--radius-md);
+  background: #fff;
+  color: var(--text);
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: var(--shadow-soft);
+}
+
+.free-stuff-child-nav__link::after {
+  content: "→";
+  color: var(--accent);
+}
+
+.free-stuff-child-nav__link:hover,
+.free-stuff-child-nav__link:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .free-resource-section {
@@ -1321,6 +1356,119 @@ button {
 
 .free-resource-card__link:hover {
   background: var(--accent);
+}
+
+.opportunity-section {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(15, 118, 110, 0.25);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(236, 253, 245, 0.95), #fff);
+}
+
+.opportunity-section__header,
+.opportunity-grid,
+.opportunity-card,
+.opportunity-card__facts {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.opportunity-section__header h2,
+.opportunity-section__header p,
+.opportunity-card h3,
+.opportunity-card p,
+.opportunity-card__facts {
+  margin: 0;
+}
+
+.opportunity-section__header p,
+.opportunity-card p,
+.opportunity-card__facts dd {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.opportunity-card {
+  padding: 1rem;
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: var(--radius-md);
+  background: #fff;
+}
+
+.opportunity-card__top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.opportunity-card__type,
+.opportunity-card__verified,
+.opportunity-card__provider {
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.opportunity-card__type {
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.opportunity-card__facts div {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.opportunity-card__facts dt {
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.opportunity-card__facts dd {
+  margin: 0;
+}
+
+.opportunity-card__link {
+  width: fit-content;
+  padding: 0.65rem 0.9rem;
+  border-radius: 999px;
+  background: var(--text);
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.free-stuff-competition-callout {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.free-stuff-competition-callout h2,
+.free-stuff-competition-callout p {
+  margin: 0;
+}
+
+.free-stuff-competition-callout > div:first-child {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.free-stuff-competition-callout > div:first-child > p:last-child {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.free-stuff-competition-callout__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 .free-resource-advice {
@@ -2313,8 +2461,18 @@ button {
   }
 
   .free-resource-grid,
-  .free-resource-advice {
+  .free-resource-advice,
+  .opportunity-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .free-stuff-child-nav {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .free-stuff-competition-callout {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
   }
 
   .deadline-buckets__grid {

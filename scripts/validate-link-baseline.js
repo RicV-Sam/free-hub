@@ -3,6 +3,8 @@ const { spawnSync } = require("child_process");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const BASELINE = "tests/baselines/link-warnings.json";
+const allowCiNetworkInconclusive = process.argv.includes("--allow-ci-network-inconclusive");
+const ciNetworkArgs = allowCiNetworkInconclusive ? ["--allow-ci-network-inconclusive"] : [];
 
 function run(script, args) {
   const result = spawnSync(process.execPath, [path.join(ROOT_DIR, script), ...args], {
@@ -18,8 +20,9 @@ const competitionPassed = run("scripts/validate-competition-links.js", [
   "--timeout=25000",
   "--concurrency=8",
   `--baseline=${BASELINE}`,
+  ...ciNetworkArgs,
 ]);
-const resourcePassed = run("scripts/validate-free-resource-links.js", [`--baseline=${BASELINE}`]);
+const resourcePassed = run("scripts/validate-free-resource-links.js", [`--baseline=${BASELINE}`, ...ciNetworkArgs]);
 
 if (!competitionPassed || !resourcePassed) {
   process.exitCode = 1;

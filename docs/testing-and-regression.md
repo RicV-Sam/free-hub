@@ -27,6 +27,7 @@ The npm interfaces are:
 - `npm run test:browser`: Chromium smoke tests. Reports, traces, screenshots and videos are written under ignored `output/playwright/`.
 - `npm run test:baseline`: deterministic SEO and lifecycle checks without live external-link requests.
 - `npm run validate:all`: deterministic tests, live link validation and maintenance-state validation. Browser tests remain separate.
+- `npm run lint:ci`: CI-only live-link mode. It reports runner access blocks and transient network failures as inconclusive without changing the strict local `npm run lint` contract.
 
 ## SEO and generated-page baseline
 
@@ -52,6 +53,8 @@ The performance baseline is informational until growth exceeds the reviewed thre
 `tests/baselines/link-warnings.json` stores warnings by stable `{recordId, field, reason}` identity and retains source type, lifecycle and URL as review context. The reviewed merge-time state contains ten expired-archive warning identities and five accepted free-resource manual-check warnings. A temporarily recovered archived source is reported as resolved without removing its reviewed identity, while a different record, field, reason, URL or lifecycle is surfaced.
 
 Active competition failures, active non-manual free-resource failures, invalid manual-exception evidence and lifecycle/output leakage remain hard failures. New or changed warnings also return a non-zero result until reviewed; a lower warning count does not fail.
+
+The GitHub-hosted live-link job uses `npm run lint:ci` because some official sites block cloud-runner IPs or return transient 5xx responses. Only HTTP 401, 403, 429, 5xx and transport/time-out failures are reported in a separate inconclusive section; they are never written to the warning baseline. Confirmed HTTP 404/410 responses, other hard HTTP failures, soft 404s, redirects to error pages, metadata defects and lifecycle/output leakage remain failures. Local `npm run lint` stays strict and is the merge-time evidence for the complete live-link warning counts.
 
 To refresh the baseline intentionally:
 
@@ -79,6 +82,10 @@ Fifteen retained expired records predate `entryCostType`. `data/archive/legacy-c
 The pure `isPublicOpportunity()` gate requires an explicit `asOfDate` and official-source host allowlist. It rejects non-published, non-verified, future, overdue, expired, unsupported-type, invalid-source, unclear-cost and requirement-mismatch records. Strict free-only use accepts only `completely_free`. Supported type-specific details are currently limited to direct samples, product-testing campaigns, birthday freebies and free courses; other declared types may be stored as drafts but cannot become public.
 
 `FREEHUB_ENABLE_OPPORTUNITIES` is false unless its exact value is `true`. PR 2 commits an empty registry. Enabling the flag validates that registry and still produces no cards, routes, schema, sitemap entries, analytics events or Club state. The deterministic CI job compares absent, explicit-false and validation-only true builds with the same PR base output.
+
+PR 3 upgrades the existing Free Stuff parent independently of the flag and keeps its Opportunity insertion point empty. The generator owns the publication boundary and passes only approved records to renderers. Its `OPPORTUNITY_ALLOWED_SOURCE_HOSTS` value is deliberately an empty array as a PR 3 test safeguard, not permanent configuration. A later pilot PR must introduce an explicitly reviewed host allowlist; registry contents must never be used to infer or silently permit source hosts.
+
+Generated-output parity permits only the exact shared Free Stuff navigation fragment at its exact position and the one-time `data-free-stuff-parent-version="2"` transition. Once that marker exists in the PR base, later parent changes are compared normally.
 
 Browser tests preserve two named expected defects:
 
