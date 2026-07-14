@@ -129,7 +129,7 @@ test("PR2-mobile-navigation: collapsible mobile navigation opens and closes", as
 test("competition collection cards are present in the static HTML", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
-  const response = await page.goto("/competitions/");
+  const response = await page.goto("/competitions/", { waitUntil: "domcontentloaded" });
   expect(response.status()).toBe(200);
   expect(await page.locator("article.competition-card").count()).toBeGreaterThan(0);
   await expectCanonical(page, "/competitions/");

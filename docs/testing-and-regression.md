@@ -27,6 +27,7 @@ The npm interfaces are:
 - `npm run test:browser`: Chromium smoke tests. Reports, traces, screenshots and videos are written under ignored `output/playwright/`.
 - `npm run test:baseline`: deterministic SEO and lifecycle checks without live external-link requests.
 - `npm run validate:all`: deterministic tests, live link validation and maintenance-state validation. Browser tests remain separate.
+- `npm run lint:ci`: CI-only live-link mode. It reports runner access blocks and transient network failures as inconclusive without changing the strict local `npm run lint` contract.
 
 ## SEO and generated-page baseline
 
@@ -52,6 +53,8 @@ The performance baseline is informational until growth exceeds the reviewed thre
 `tests/baselines/link-warnings.json` stores warnings by stable `{recordId, field, reason}` identity and retains source type, lifecycle and URL as review context. The reviewed merge-time state contains ten expired-archive warning identities and five accepted free-resource manual-check warnings. A temporarily recovered archived source is reported as resolved without removing its reviewed identity, while a different record, field, reason, URL or lifecycle is surfaced.
 
 Active competition failures, active non-manual free-resource failures, invalid manual-exception evidence and lifecycle/output leakage remain hard failures. New or changed warnings also return a non-zero result until reviewed; a lower warning count does not fail.
+
+The GitHub-hosted live-link job uses `npm run lint:ci` because some official sites block cloud-runner IPs or return transient 5xx responses. Only HTTP 401, 403, 429, 5xx and transport/time-out failures are reported in a separate inconclusive section; they are never written to the warning baseline. Confirmed HTTP 404/410 responses, other hard HTTP failures, soft 404s, redirects to error pages, metadata defects and lifecycle/output leakage remain failures. Local `npm run lint` stays strict and is the merge-time evidence for the complete live-link warning counts.
 
 To refresh the baseline intentionally:
 

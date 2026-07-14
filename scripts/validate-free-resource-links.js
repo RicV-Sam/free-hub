@@ -6,6 +6,7 @@ const {
   normalizeResourceWarning,
   printWarningComparison,
 } = require("./lib/warning-baseline.js");
+const { getCiNetworkInconclusiveReason } = require("./lib/ci-network-policy.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const DATA_PATH = path.join(ROOT_DIR, "data", "free-resources.json");
@@ -13,6 +14,7 @@ const resources = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
 const timeoutMs = Number(process.env.FREE_RESOURCE_LINK_TIMEOUT_MS || 20000);
 const manualRecheckDays = 30;
 const jsonOnly = process.argv.includes("--json");
+const allowCiNetworkInconclusive = process.argv.includes("--allow-ci-network-inconclusive");
 const baselineArg = process.argv.find((arg) => arg.startsWith("--baseline="));
 const baselinePath = baselineArg ? baselineArg.slice("--baseline=".length) : "";
 
@@ -24,6 +26,8 @@ main().catch((error) => {
 async function main() {
   const failures = [];
   const warnings = [];
+  const inconclusive = [];
+  let okCount = 0;
   const manualOkResources = resources.filter((resource) => resource.manualOk);
 
   for (const resource of resources) {
@@ -36,10 +40,16 @@ async function main() {
 
     const result = await checkResource(resource);
 
-    if (!result.ok) {
+    if (result.inconclusive) {
+      inconclusive.push(result);
+    } else if (!result.ok) {
       failures.push(result);
-    } else if (result.manualOk) {
-      warnings.push(result);
+    } else {
+      okCount += 1;
+
+      if (result.manualOk) {
+        warnings.push(result);
+      }
     }
   }
 
@@ -50,13 +60,15 @@ async function main() {
   const output = {
     summary: {
       total: resources.length,
-      ok: resources.length - failures.length,
+      ok: okCount,
       manualOk: manualOkResources.length,
       warning: warnings.length,
+      inconclusive: inconclusive.length,
       error: failures.length,
     },
     failures,
     warnings,
+    inconclusive,
     normalizedWarnings,
     warningComparison,
   };
@@ -66,9 +78,10 @@ async function main() {
   } else {
     console.log("=== Free Resource Link Validation ===");
     console.log(`Total checked: ${resources.length}`);
-    console.log(`OK: ${resources.length - failures.length}`);
+    console.log(`OK: ${okCount}`);
     console.log(`Manual OK: ${manualOkResources.length}`);
     console.log(`Warnings: ${warnings.length}`);
+    console.log(`Inconclusive CI network checks: ${inconclusive.length}`);
     console.log(`Errors: ${failures.length}`);
 
     if (manualOkResources.length > 0) {
@@ -88,6 +101,14 @@ async function main() {
       console.log("Warnings:");
       warnings.forEach((warning) => {
         console.log(`- ${warning.name}: ${warning.url} (${warning.reason})`);
+      });
+    }
+
+    if (inconclusive.length > 0) {
+      console.log("");
+      console.log("Inconclusive CI network checks (not baseline candidates):");
+      inconclusive.forEach((result) => {
+        console.log(`- ${result.name}: ${result.url} (${result.reason})`);
       });
     }
 
@@ -210,12 +231,30 @@ async function checkResource(resource) {
       return { ok: true };
     }
 
-    return resource.manualOk
-      ? { ok: true, manualOk: true, name: resource.name, category: resource.category, url, reason: `manual-ok after HTTP ${fallback.status}` }
+    if (resource.manualOk) {
+      return { ok: true, manualOk: true, name: resource.name, category: resource.category, url, reason: `manual-ok after HTTP ${fallback.status}` };
+    }
+
+    const inconclusiveReason = getCiNetworkInconclusiveReason(
+      { status: fallback.status },
+      allowCiNetworkInconclusive
+    );
+
+    return inconclusiveReason
+      ? { ok: false, inconclusive: true, name: resource.name, url, reason: inconclusiveReason }
       : { ok: false, name: resource.name, url, reason: `HTTP ${fallback.status}` };
   } catch (error) {
-    return resource.manualOk
-      ? { ok: true, manualOk: true, name: resource.name, category: resource.category, url, reason: `manual-ok after ${error.message}` }
+    if (resource.manualOk) {
+      return { ok: true, manualOk: true, name: resource.name, category: resource.category, url, reason: `manual-ok after ${error.message}` };
+    }
+
+    const inconclusiveReason = getCiNetworkInconclusiveReason(
+      { error },
+      allowCiNetworkInconclusive
+    );
+
+    return inconclusiveReason
+      ? { ok: false, inconclusive: true, name: resource.name, url, reason: inconclusiveReason }
       : { ok: false, name: resource.name, url, reason: error.message };
   }
 }

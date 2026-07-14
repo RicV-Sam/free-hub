@@ -7,6 +7,7 @@ const {
   normalizeCompetitionWarning,
   printWarningComparison,
 } = require("./lib/warning-baseline.js");
+const { getCiNetworkInconclusiveReason } = require("./lib/ci-network-policy.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
@@ -15,6 +16,7 @@ const SITEMAP_PATH = path.join(ROOT_DIR, "sitemap.xml");
 const args = new Set(process.argv.slice(2));
 const publishedOnly = args.has("--published-only");
 const jsonOnly = args.has("--json");
+const allowCiNetworkInconclusive = args.has("--allow-ci-network-inconclusive");
 const timeoutArg = process.argv.find((arg) => arg.startsWith("--timeout="));
 const concurrencyArg = process.argv.find((arg) => arg.startsWith("--concurrency="));
 const baselineArg = process.argv.find((arg) => arg.startsWith("--baseline="));
@@ -301,6 +303,25 @@ async function fetchUrlField(competition, field, lifecycle) {
   try {
     const response = await fetchWithRetry(field.url);
     const bodyText = await response.text().catch(() => "");
+    const inconclusiveReason = getCiNetworkInconclusiveReason(
+      { status: response.status },
+      allowCiNetworkInconclusive
+    );
+
+    if (inconclusiveReason) {
+      return {
+        id: competition.id,
+        title: competition.title,
+        lifecycle,
+        field: field.name,
+        url: field.url,
+        finalUrl: response.url,
+        httpStatus: response.status,
+        level: "inconclusive",
+        reason: inconclusiveReason,
+      };
+    }
+
     const classification = classifyResult(response.status, response.url, bodyText);
 
     return {
@@ -315,6 +336,11 @@ async function fetchUrlField(competition, field, lifecycle) {
       reason: classification.reason,
     };
   } catch (error) {
+    const inconclusiveReason = getCiNetworkInconclusiveReason(
+      { error },
+      allowCiNetworkInconclusive
+    );
+
     return {
       id: competition.id,
       title: competition.title,
@@ -323,8 +349,8 @@ async function fetchUrlField(competition, field, lifecycle) {
       url: field.url,
       finalUrl: "",
       httpStatus: null,
-      level: warningOnly ? "warning" : "error",
-      reason: error.name === "AbortError" ? "timeout" : error.code || error.message || "fetch-error",
+      level: inconclusiveReason ? "inconclusive" : warningOnly ? "warning" : "error",
+      reason: inconclusiveReason || (error.name === "AbortError" ? "timeout" : error.code || error.message || "fetch-error"),
     };
   }
 }
@@ -632,6 +658,7 @@ function buildSummary(results, competitions) {
       total: 0,
       ok: 0,
       warning: 0,
+      inconclusive: 0,
       error: 0,
       byReason: {},
       lifecycleCounts,
@@ -639,13 +666,14 @@ function buildSummary(results, competitions) {
   );
 }
 
-function printHumanReport(summary, failures, warnings, manualOkResults) {
+function printHumanReport(summary, failures, warnings, inconclusive, manualOkResults) {
   console.log("=== Competition Link Validation ===");
   console.log(`Scope: ${publishedOnly ? "published competitions plus private output checks" : "all competitions with URLs"}`);
   console.log(`Lifecycle scope: ${formatObjectCounts(summary.lifecycleCounts)}`);
   console.log(`Total checks: ${summary.total}`);
   console.log(`OK: ${summary.ok}`);
   console.log(`Warnings: ${summary.warning}`);
+  console.log(`Inconclusive CI network checks: ${summary.inconclusive}`);
   console.log(`Errors: ${summary.error}`);
   console.log("");
 
@@ -670,6 +698,12 @@ function printHumanReport(summary, failures, warnings, manualOkResults) {
   if (warnings.length > 0) {
     console.log("Warnings:");
     warnings.forEach(printResult);
+    console.log("");
+  }
+
+  if (inconclusive.length > 0) {
+    console.log("Inconclusive CI network checks (not baseline candidates):");
+    inconclusive.forEach(printResult);
     console.log("");
   }
 
@@ -783,6 +817,7 @@ async function main() {
   const results = [...linkResults, ...privateOutputResults];
   const failures = results.filter((result) => result.level === "error");
   const warnings = results.filter((result) => result.level === "warning");
+  const inconclusive = results.filter((result) => result.level === "inconclusive");
   const manualOkResults = results.filter((result) => result.manualOk);
   const summary = buildSummary(results, linkScope);
   const normalizedWarnings = warnings.map(normalizeCompetitionWarning);
@@ -795,6 +830,7 @@ async function main() {
     summary,
     failures,
     warnings,
+    inconclusive,
     normalizedWarnings,
     warningComparison,
     manualOk: uniqueManualOkResults(manualOkResults).map((result) => ({
@@ -807,7 +843,7 @@ async function main() {
   if (jsonOnly) {
     console.log(JSON.stringify(output, null, 2));
   } else {
-    printHumanReport(summary, failures, warnings, manualOkResults);
+    printHumanReport(summary, failures, warnings, inconclusive, manualOkResults);
     if (warningComparison) {
       console.log("");
       console.log("=== Competition Warning Baseline ===");
