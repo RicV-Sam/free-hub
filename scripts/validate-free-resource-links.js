@@ -1,11 +1,20 @@
 const fs = require("fs");
 const path = require("path");
+const {
+  compareWarningBaseline,
+  loadWarningBaseline,
+  normalizeResourceWarning,
+  printWarningComparison,
+} = require("./lib/warning-baseline.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const DATA_PATH = path.join(ROOT_DIR, "data", "free-resources.json");
 const resources = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
 const timeoutMs = Number(process.env.FREE_RESOURCE_LINK_TIMEOUT_MS || 20000);
 const manualRecheckDays = 30;
+const jsonOnly = process.argv.includes("--json");
+const baselineArg = process.argv.find((arg) => arg.startsWith("--baseline="));
+const baselinePath = baselineArg ? baselineArg.slice("--baseline=".length) : "";
 
 main().catch((error) => {
   console.error(error.message || error);
@@ -34,39 +43,70 @@ async function main() {
     }
   }
 
-  console.log("=== Free Resource Link Validation ===");
-  console.log(`Total checked: ${resources.length}`);
-  console.log(`OK: ${resources.length - failures.length}`);
-  console.log(`Manual OK: ${manualOkResources.length}`);
-  console.log(`Warnings: ${warnings.length}`);
-  console.log(`Errors: ${failures.length}`);
+  const normalizedWarnings = warnings.map(normalizeResourceWarning);
+  const warningComparison = baselinePath
+    ? compareWarningBaseline(normalizedWarnings, loadWarningBaseline(ROOT_DIR, baselinePath), "free-resource")
+    : null;
+  const output = {
+    summary: {
+      total: resources.length,
+      ok: resources.length - failures.length,
+      manualOk: manualOkResources.length,
+      warning: warnings.length,
+      error: failures.length,
+    },
+    failures,
+    warnings,
+    normalizedWarnings,
+    warningComparison,
+  };
 
-  if (manualOkResources.length > 0) {
-    console.log("");
-    console.log("Manual OK exceptions (warning summary):");
-    manualOkResources.forEach((resource) => {
-      console.log(
-        `- ${resource.name}: checked ${resource.manualOkCheckedAt || "unknown"}, recheck by ${
-          addDays(resource.manualOkCheckedAt, manualRecheckDays) || "unknown"
-        }`
-      );
-    });
+  if (jsonOnly) {
+    console.log(JSON.stringify(output, null, 2));
+  } else {
+    console.log("=== Free Resource Link Validation ===");
+    console.log(`Total checked: ${resources.length}`);
+    console.log(`OK: ${resources.length - failures.length}`);
+    console.log(`Manual OK: ${manualOkResources.length}`);
+    console.log(`Warnings: ${warnings.length}`);
+    console.log(`Errors: ${failures.length}`);
+
+    if (manualOkResources.length > 0) {
+      console.log("");
+      console.log("Manual OK exceptions (warning summary):");
+      manualOkResources.forEach((resource) => {
+        console.log(
+          `- ${resource.name}: checked ${resource.manualOkCheckedAt || "unknown"}, recheck by ${
+            addDays(resource.manualOkCheckedAt, manualRecheckDays) || "unknown"
+          }`
+        );
+      });
+    }
+
+    if (warnings.length > 0) {
+      console.log("");
+      console.log("Warnings:");
+      warnings.forEach((warning) => {
+        console.log(`- ${warning.name}: ${warning.url} (${warning.reason})`);
+      });
+    }
+
+    if (failures.length > 0) {
+      console.log("");
+      console.log("Failures:");
+      failures.forEach((failure) => {
+        console.log(`- ${failure.name}: ${failure.url || "(no URL)"} (${failure.reason})`);
+      });
+    }
+
+    if (warningComparison) {
+      console.log("");
+      console.log("=== Free Resource Warning Baseline ===");
+      printWarningComparison(warningComparison);
+    }
   }
 
-  if (warnings.length > 0) {
-    console.log("");
-    console.log("Warnings:");
-    warnings.forEach((warning) => {
-      console.log(`- ${warning.name}: ${warning.url} (${warning.reason})`);
-    });
-  }
-
-  if (failures.length > 0) {
-    console.log("");
-    console.log("Failures:");
-    failures.forEach((failure) => {
-      console.log(`- ${failure.name}: ${failure.url || "(no URL)"} (${failure.reason})`);
-    });
+  if (failures.length > 0 || warningComparison?.hasRegression) {
     process.exitCode = 1;
   }
 }
@@ -171,11 +211,11 @@ async function checkResource(resource) {
     }
 
     return resource.manualOk
-      ? { ok: true, manualOk: true, name: resource.name, url, reason: `manual-ok after HTTP ${fallback.status}` }
+      ? { ok: true, manualOk: true, name: resource.name, category: resource.category, url, reason: `manual-ok after HTTP ${fallback.status}` }
       : { ok: false, name: resource.name, url, reason: `HTTP ${fallback.status}` };
   } catch (error) {
     return resource.manualOk
-      ? { ok: true, manualOk: true, name: resource.name, url, reason: `manual-ok after ${error.message}` }
+      ? { ok: true, manualOk: true, name: resource.name, category: resource.category, url, reason: `manual-ok after ${error.message}` }
       : { ok: false, name: resource.name, url, reason: error.message };
   }
 }

@@ -1,6 +1,12 @@
 const fs = require("fs");
 const path = require("path");
 const shared = require("../shared/page-data.js");
+const {
+  compareWarningBaseline,
+  loadWarningBaseline,
+  normalizeCompetitionWarning,
+  printWarningComparison,
+} = require("./lib/warning-baseline.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
@@ -11,8 +17,10 @@ const publishedOnly = args.has("--published-only");
 const jsonOnly = args.has("--json");
 const timeoutArg = process.argv.find((arg) => arg.startsWith("--timeout="));
 const concurrencyArg = process.argv.find((arg) => arg.startsWith("--concurrency="));
+const baselineArg = process.argv.find((arg) => arg.startsWith("--baseline="));
 const timeoutMs = timeoutArg ? Number(timeoutArg.split("=")[1]) : 25000;
 const concurrency = concurrencyArg ? Number(concurrencyArg.split("=")[1]) : 8;
+const baselinePath = baselineArg ? baselineArg.slice("--baseline=".length) : "";
 const manualRecheckDays = 30;
 
 const USER_AGENT =
@@ -777,12 +785,18 @@ async function main() {
   const warnings = results.filter((result) => result.level === "warning");
   const manualOkResults = results.filter((result) => result.manualOk);
   const summary = buildSummary(results, linkScope);
+  const normalizedWarnings = warnings.map(normalizeCompetitionWarning);
+  const warningComparison = baselinePath
+    ? compareWarningBaseline(normalizedWarnings, loadWarningBaseline(ROOT_DIR, baselinePath), "competition")
+    : null;
   const output = {
     generatedAt: new Date().toISOString(),
     scope: publishedOnly ? "published-plus-private-output-checks" : "all-with-urls",
     summary,
     failures,
     warnings,
+    normalizedWarnings,
+    warningComparison,
     manualOk: uniqueManualOkResults(manualOkResults).map((result) => ({
       id: result.id,
       checkedAt: result.checkedAt || "",
@@ -794,9 +808,14 @@ async function main() {
     console.log(JSON.stringify(output, null, 2));
   } else {
     printHumanReport(summary, failures, warnings, manualOkResults);
+    if (warningComparison) {
+      console.log("");
+      console.log("=== Competition Warning Baseline ===");
+      printWarningComparison(warningComparison);
+    }
   }
 
-  if (failures.length > 0) {
+  if (failures.length > 0 || warningComparison?.hasRegression) {
     process.exitCode = 1;
   }
 }

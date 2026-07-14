@@ -35,6 +35,7 @@ reports/*
 !reports/freehub-seo-ux-growth-audit-2026-06-27.md
 !reports/active-listing-quality-report.md
 *.log
+output/playwright/
 data/backups/
 storage/exports/
 *.backup.json

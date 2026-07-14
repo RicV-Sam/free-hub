@@ -1,0 +1,181 @@
+{
+  "version": 1,
+  "pages": [
+    {
+      "route": "/",
+      "file": "index.html",
+      "title": "South African Competitions Worth Entering Today | Freehub",
+      "description": "Find South African competitions worth checking today, with curated picks, clear closing dates, entry-cost labels and official promoter links.",
+      "canonical": "https://freehub.co.za/",
+      "robots": "index, follow, max-image-preview:large",
+      "h1": "Find South African competitions worth entering today",
+      "schemaTypes": ["ItemList", "ListItem"],
+      "inSitemap": true
+    },
+    {
+      "route": "/competitions/",
+      "file": "competitions/index.html",
+      "title": "Competitions South Africa – Live Giveaways & Prize Draws | Freehub",
+      "description": "Browse live South African competitions, giveaways and prize draws. Find car, cash, voucher, tech and holiday competitions with clear entry rules and official source links.",
+      "canonical": "https://freehub.co.za/competitions/",
+      "robots": "index, follow, max-image-preview:large",
+      "h1": "Live Competitions in South Africa",
+      "schemaTypes": ["BreadcrumbList", "CollectionPage", "ItemList", "ListItem", "WebSite"],
+      "inSitemap": true
+    },
+    {
+      "route": "/free-competitions/",
+      "file": "free-competitions/index.html",
+      "title": "Free Competitions in South Africa | No Purchase Required Giveaways",
+      "description": "Find current free-to-enter South African competitions with no purchase required. Compare prizes, closing dates, entry methods and official promoter links.",
+      "canonical": "https://freehub.co.za/free-competitions/",
+      "robots": "index, follow, max-image-preview:large",
+      "h1": "Free Competitions in South Africa",
+      "schemaTypes": ["Answer", "BreadcrumbList", "CollectionPage", "FAQPage", "ItemList", "ListItem", "Question", "WebSite"],
+      "inSitemap": true
+    },
+    {
+      "route": "/category/cash/",
+      "file": "category/cash/index.html",
+      "title": "Cash Competitions in South Africa | Win Money & Cash Prizes",
+      "description": "Find current South African cash competitions and money giveaways. Compare prizes, closing dates, entry costs and official promoter links before entering.",
+      "canonical": "https://freehub.co.za/category/cash/",
+      "robots": "index, follow, max-image-preview:large",
+      "h1": "Cash Competitions in South Africa",
+      "schemaTypes": ["Answer", "BreadcrumbList", "CollectionPage", "FAQPage", "ItemList", "ListItem", "Question", "WebSite"],
+      "inSitemap": true
+    },
+    {
+      "route": "/tag/ending-soon/",
+      "file": "tag/ending-soon/index.html",
+      "title": "Competitions Ending Soon South Africa",
+      "description": "Browse competitions ending soon in South Africa and enter before the closing dates pass.",
+      "canonical": "https://freehub.co.za/tag/ending-soon/",
+      "robots": "index, follow, max-image-preview:large",
+      "h1": "Competitions Ending Soon You Should Enter Today",
+      "schemaTypes": ["BreadcrumbList", "CollectionPage", "ItemList", "ListItem", "WebSite"],
+      "inSitemap": true
+    },
+    {
+      "route": "/brand/clicks/",
+      "file": "brand/clicks/index.html",
+      "title": "Clicks Competitions South Africa | Freehub",
+      "description": "Browse active Clicks competitions in South Africa with clear entry requirements, closing dates and official source links.",
+      "canonical": "https://freehub.co.za/brand/clicks/",
+      "robots": "index, follow, max-image-preview:large",
+      "h1": "Clicks Competitions",
+      "schemaTypes": ["BreadcrumbList", "CollectionPage", "ItemList", "ListItem", "WebSite"],
+      "inSitemap": true
+    },
+    {
+      "route": "/competition/one-life-winning-wednesday-cash-2026/",
+      "file": "competition/one-life-winning-wednesday-cash-2026/index.html",
+      "title": "1Life Winning Wednesday Competition 2026 | Freehub",
+      "description": "Check the 1Life Winning Wednesday competition: follow the relevant 1Life social page and comment with the answer to the weekly question for a chance to win R2,000 cash.",
+      "canonical": "https://freehub.co.za/competition/one-life-winning-wednesday-cash-2026/",
+      "robots": "index, follow, max-image-preview:large",
+      "h1": "1Life Winning Wednesday Cash Competition",
+      "schemaTypes": ["Answer", "BreadcrumbList", "FAQPage", "ListItem", "Question", "Thing", "WebPage", "WebSite"],
+      "inSitemap": true
+    },
+    {
+      "route": "/competition/isuzu-win-a-new-x-rider-2026/",
+      "file": "competition/isuzu-win-a-new-x-rider-2026/index.html",
+      "title": "ISUZU Win a New X-Rider Competition Closed | Current Alternatives on Freehub",
+      "description": "This ISUZU Motors South Africa competition has closed. View the archived prize and closing-date details, then browse current South African competitions on Freehub.",
+      "canonical": "https://freehub.co.za/competition/isuzu-win-a-new-x-rider-2026/",
+      "robots": "noindex, follow",
+      "h1": "ISUZU Win a New X-Rider Competition -- Competition Closed",
+      "schemaTypes": ["Answer", "BreadcrumbList", "FAQPage", "ListItem", "Question", "Thing", "WebPage", "WebSite"],
+      "inSitemap": false
+    },
+    {
+      "route": "/out/one-life-winning-wednesday-cash-2026/",
+      "file": "out/one-life-winning-wednesday-cash-2026/index.html",
+      "title": "Redirecting to 1Life Winning Wednesday Cash Competition | Free Hub SA",
+      "description": "",
+      "canonical": "https://freehub.co.za/out/one-life-winning-wednesday-cash-2026/",
+      "robots": "noindex, nofollow",
+      "h1": "You are leaving Freehub",
+      "schemaTypes": [],
+      "inSitemap": false
+    },
+    {
+      "route": "/free-stuff-south-africa/",
+      "file": "free-stuff-south-africa/index.html",
+      "title": "Free Stuff South Africa | Legit Freebies, Samples, Competitions",
+      "description": "Find free stuff South Africa searchers actually want, including legit freebies, free samples, competitions, credit reports, courses and safe official links.",
+      "canonical": "https://freehub.co.za/free-stuff-south-africa/",
+      "robots": "index, follow, max-image-preview:large",
+      "h1": "Free Stuff South Africa",
+      "schemaTypes": ["Answer", "Article", "BreadcrumbList", "FAQPage", "ImageObject", "ItemList", "ListItem", "Organization", "Question", "WebPage", "WebSite"],
+      "inSitemap": true
+    },
+    {
+      "route": "/free-samples-south-africa/",
+      "file": "free-samples-south-africa/index.html",
+      "title": "Where to Get Free Samples in South Africa | Official Offers Guide",
+      "description": "Where to get free samples in South Africa: check official brand campaigns, retailer sample offers and product-testing panels before you share details, pay delivery fees or trust a freebie claim.",
+      "canonical": "https://freehub.co.za/free-samples-south-africa/",
+      "robots": "index, follow, max-image-preview:large",
+      "h1": "Where to Get Free Samples in South Africa",
+      "schemaTypes": ["Answer", "Article", "BreadcrumbList", "FAQPage", "ImageObject", "ItemList", "ListItem", "Organization", "Question", "WebPage", "WebSite"],
+      "inSitemap": true
+    },
+    {
+      "route": "/free-online-courses-south-africa/",
+      "file": "free-online-courses-south-africa/index.html",
+      "title": "Free Online Courses South Africa | Digital Skills & Certificates",
+      "description": "Compare free online course options for South Africans, including Google Digital Skills, Microsoft Learn, Vodacom Digital Skills Hub and certificate checks.",
+      "canonical": "https://freehub.co.za/free-online-courses-south-africa/",
+      "robots": "index, follow, max-image-preview:large",
+      "h1": "Free Online Courses in South Africa",
+      "schemaTypes": ["Answer", "Article", "BreadcrumbList", "FAQPage", "ImageObject", "ItemList", "ListItem", "Organization", "Question", "WebPage", "WebSite"],
+      "inSitemap": true
+    },
+    {
+      "route": "/club/",
+      "file": "club/index.html",
+      "title": "Freehub Club | Save and Track South African Competitions",
+      "description": "Join Freehub Club to save South African competitions, track what you entered or skipped, and keep your own referral link ready for future Club rewards.",
+      "canonical": "https://freehub.co.za/club/",
+      "robots": "index, follow, max-image-preview:large",
+      "h1": "Save and track South African competitions",
+      "schemaTypes": ["Answer", "FAQPage", "Question", "WebPage", "WebSite"],
+      "inSitemap": true
+    },
+    {
+      "route": "/club/dashboard/",
+      "file": "club/dashboard/index.html",
+      "title": "Freehub Club Dashboard | Saved Competitions",
+      "description": "View saved Freehub competitions, update statuses and copy your Club referral link.",
+      "canonical": "https://freehub.co.za/club/dashboard/",
+      "robots": "noindex, follow",
+      "h1": "Dashboard",
+      "schemaTypes": [],
+      "inSitemap": false
+    },
+    {
+      "route": "/admin/referrals/",
+      "file": "admin/referrals/index.html",
+      "title": "Freehub Referral Admin Review",
+      "description": "Private Freehub admin review area for pending referral attribution records.",
+      "canonical": "https://freehub.co.za/admin/referrals/",
+      "robots": "noindex, nofollow",
+      "h1": "Referral review",
+      "schemaTypes": [],
+      "inSitemap": false
+    },
+    {
+      "route": "/404/",
+      "file": "404.html",
+      "title": "Page Not Found | Freehub",
+      "description": "This Freehub page could not be found. Browse live South African competitions, categories, safety guidance and contact options.",
+      "canonical": "https://freehub.co.za/",
+      "robots": "noindex, follow",
+      "h1": "Page not found",
+      "schemaTypes": [],
+      "inSitemap": false
+    }
+  ]
+}

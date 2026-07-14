@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "buildDate": "2026-07-13",
+  "warnGrowthPercent": 10,
+  "failGrowthPercent": 25,
+  "assets": {
+    "homepage": { "file": "index.html", "bytes": 71186 },
+    "competitions": { "file": "competitions/index.html", "bytes": 463501 },
+    "freeStuff": { "file": "free-stuff-south-africa/index.html", "bytes": 53237 },
+    "css": { "file": "styles.css", "bytes": 102431 },
+    "javascript": { "file": "app.js", "bytes": 24882 }
+  },
+  "inventory": {
+    "competitionCards": 85,
+    "structuredDataItems": 85
+  }
+}

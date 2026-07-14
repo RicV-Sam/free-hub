@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "warnings": [
+    {
+      "sourceType": "competition",
+      "recordId": "ackermans-payat-xbox-series-s",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.ackermans.co.za/blogs/blog/win-an-xbox-s-series-competition",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "bulbs-of-the-fynbos-competition-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://struiknature.co.za/terms-and-conditions-bulbs-of-the-fynbos-competition/",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "discovery-vitality-oura-mothers-day-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.discovery.co.za/vitality/oura-mothers-day-2026",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "oxford-freshmarket-birthday-trolley-dash",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.oxfordfreshmarket.co.za/competitions/birthday-trolley-dash",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "penguin-random-house-penguin-post-42-hamper",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.penguinrandomhouse.co.za/competitions/win-with-the-penguin-post-42/",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "penguin-random-house-vetplantjies-giveaway",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.penguinrandomhouse.co.za/competitions/win-your-own-vetplantjies-giveaway/",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "red-bull-symphonic-be-the-maestro",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.redbull.com/za-en/events/red-bull-symphonic-south-africa/red-bull-symphonic-south-africa-info-page",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "shell-fuel-your-joy-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.shell.co.za/motorists/offers-and-competitions/_jcr_content/root/main/section/text_copy_copy.multi.stream/1773113057914/01467c23e9b109b3137c43b8eda58c44dace33dc/easter-campaign-fuel-your-joy-terms-and-conditions.pdf",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "vodacom-core-fibre-soccer-jersey-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.vodacom.co.za/vodacom/terms/competition/core-fibre-soccer-jersey",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "vodacom-tsamaya-pre-season-fan-tour-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.vodacom.co.za/vodacom/terms/competition/tsamaya-pre-season-fan-tour",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "free-resource",
+      "recordId": "free-resource:consumer-support:free-basic-municipal-services",
+      "field": "officialUrl",
+      "reason": "manual_check_fetch_failed",
+      "url": "https://www.gov.za/services/place-live/municipal-services",
+      "lifecycle": "active-manual-check"
+    },
+    {
+      "sourceType": "free-resource",
+      "recordId": "free-resource:credit-report:clearscore-south-africa",
+      "field": "officialUrl",
+      "reason": "manual_check_http_403",
+      "url": "https://www.clearscore.com/za/",
+      "lifecycle": "active-manual-check"
+    },
+    {
+      "sourceType": "free-resource",
+      "recordId": "free-resource:credit-report:transunion-south-africa",
+      "field": "officialUrl",
+      "reason": "manual_check_http_403",
+      "url": "https://www.transunion.co.za/product/annual-free-credit-report",
+      "lifecycle": "active-manual-check"
+    },
+    {
+      "sourceType": "free-resource",
+      "recordId": "free-resource:samples:coloplast-south-africa-samples",
+      "field": "officialUrl",
+      "reason": "manual_check_http_403",
+      "url": "https://products.coloplast.co.za/",
+      "lifecycle": "active-manual-check"
+    },
+    {
+      "sourceType": "free-resource",
+      "recordId": "free-resource:samples:review-club-south-africa",
+      "field": "officialUrl",
+      "reason": "manual_check_fetch_failed",
+      "url": "https://reviewclub.co.za/how-it-works/",
+      "lifecycle": "active-manual-check"
+    }
+  ]
+}

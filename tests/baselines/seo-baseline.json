@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "buildDate": "2026-07-13",
+  "siteOrigin": "https://freehub.co.za",
+  "sitemapUrlCount": 145,
+  "canonicalAliases": {
+    "/tag/free-entry/": "/free-competitions/",
+    "/tag/purchase-required/": "/purchase-required-competitions/",
+    "/tag/paid-entry/": "/paid-entry-competitions/"
+  },
+  "forbiddenAliases": [
+    "/free-stuff/",
+    "/free-samples/",
+    "/free-courses/"
+  ],
+  "reviewedOrphanExceptions": [
+    "/blog/",
+    "/tag/football/",
+    "/tag/in-store-entry/",
+    "/tag/online-entry/",
+    "/tag/rugby/",
+    "/tag/ussd-entry/",
+    "/tag/whatsapp-entry/",
+    "/tag/win-a-car/"
+  ]
+}

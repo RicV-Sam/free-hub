@@ -1,0 +1,71 @@
+name: Regression harness
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  FREEHUB_BUILD_DATE: "2026-07-13"
+
+jobs:
+  baseline:
+    name: Deterministic baseline
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+      - name: Compare generated output with PR base
+        if: github.event_name == 'pull_request'
+        shell: bash
+        run: |
+          base_dir="${RUNNER_TEMP}/freehub-base"
+          cleanup() { git worktree remove --force "$base_dir" >/dev/null 2>&1 || true; }
+          trap cleanup EXIT
+          git worktree add --detach "$base_dir" "${{ github.event.pull_request.base.sha }}"
+          (cd "$base_dir" && FREEHUB_BUILD_DATE="$FREEHUB_BUILD_DATE" node scripts/generate-pages.js)
+          node scripts/compare-generated-output.js --base-dir="$base_dir"
+
+  links:
+    name: Live link and warning baseline
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm run lint
+
+  browser:
+    name: Chromium smoke tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
+      - name: Upload Playwright artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-regression-artifacts
+          path: output/playwright/
+          if-no-files-found: ignore

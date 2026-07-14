@@ -1,0 +1,83 @@
+{
+  "activePublic": {
+    "id": "fixture-active-public",
+    "title": "Active public fixture",
+    "brand": "Fixture Brand",
+    "url": "https://example.com/active",
+    "closingDate": "2099-12-31",
+    "verificationStatus": "published",
+    "publicationStatus": "published",
+    "entryCostType": "free-entry"
+  },
+  "activeNoindex": {
+    "id": "fixture-active-noindex",
+    "title": "Active noindex fixture",
+    "brand": "Fixture Brand",
+    "url": "https://example.com/noindex",
+    "closingDate": "2099-12-31",
+    "verificationStatus": "published",
+    "publicationStatus": "published",
+    "visibility": "noindex"
+  },
+  "clubOnly": {
+    "id": "fixture-club-only",
+    "title": "Club fixture",
+    "brand": "Fixture Brand",
+    "url": "https://example.com/club",
+    "closingDate": "2099-12-31",
+    "verificationStatus": "published",
+    "publicationStatus": "published",
+    "visibility": "club_only"
+  },
+  "expiredPublished": {
+    "id": "fixture-expired-published",
+    "title": "Expired fixture",
+    "brand": "Fixture Brand",
+    "url": "https://example.com/expired",
+    "closingDate": "2000-01-01",
+    "verificationStatus": "published",
+    "publicationStatus": "published"
+  },
+  "expiredMissingEvidence": {
+    "id": "fixture-expired-missing-evidence",
+    "title": "Expired missing evidence fixture",
+    "closingDate": "2000-01-01",
+    "verificationStatus": "published",
+    "publicationStatus": "published"
+  },
+  "archivedLowValue": {
+    "id": "fixture-archived-low-value",
+    "title": "Archived low value fixture",
+    "brand": "Fixture Brand",
+    "url": "https://example.com/archived",
+    "closingDate": "2000-01-01",
+    "verificationStatus": "published",
+    "publicationStatus": "archived-low-value"
+  },
+  "held": {
+    "id": "fixture-held",
+    "title": "Held fixture",
+    "brand": "Fixture Brand",
+    "url": "https://example.com/held",
+    "closingDate": "2099-12-31",
+    "verificationStatus": "needs-verification",
+    "publicationStatus": "held",
+    "doNotPublish": true
+  },
+  "rejected": {
+    "id": "fixture-rejected",
+    "title": "Rejected fixture",
+    "brand": "Fixture Brand",
+    "url": "https://example.com/rejected",
+    "closingDate": "2099-12-31",
+    "verificationStatus": "rejected",
+    "publicationStatus": "rejected",
+    "doNotPublish": true
+  },
+  "freeCost": { "entryCostType": "free-entry" },
+  "purchaseCost": { "entryCostType": "purchase-required", "purchaseRequired": true },
+  "paidCost": { "entryCostType": "paid-entry", "entryFeeAmount": 20 },
+  "unknownCost": { "entryCostType": "unknown" },
+  "missingCost": {},
+  "unrecognizedCost": { "entryCostType": "mystery-value" }
+}
