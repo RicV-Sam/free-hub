@@ -80,6 +80,10 @@ The pure `isPublicOpportunity()` gate requires an explicit `asOfDate` and offici
 
 `FREEHUB_ENABLE_OPPORTUNITIES` is false unless its exact value is `true`. PR 2 commits an empty registry. Enabling the flag validates that registry and still produces no cards, routes, schema, sitemap entries, analytics events or Club state. The deterministic CI job compares absent, explicit-false and validation-only true builds with the same PR base output.
 
+PR 3 upgrades the existing Free Stuff parent independently of the flag and keeps its Opportunity insertion point empty. The generator owns the publication boundary and passes only approved records to renderers. Its `OPPORTUNITY_ALLOWED_SOURCE_HOSTS` value is deliberately an empty array as a PR 3 test safeguard, not permanent configuration. A later pilot PR must introduce an explicitly reviewed host allowlist; registry contents must never be used to infer or silently permit source hosts.
+
+Generated-output parity permits only the exact shared Free Stuff navigation fragment at its exact position and the one-time `data-free-stuff-parent-version="2"` transition. Once that marker exists in the PR base, later parent changes are compared normally.
+
 Browser tests preserve two named expected defects:
 
 - `PR2-collection-controls`: controls render on collection pages but are not activated there.

@@ -30,18 +30,22 @@ jobs:
         shell: bash
         run: |
           base_dir="${RUNNER_TEMP}/freehub-base"
+          candidate_absent_dir="${RUNNER_TEMP}/freehub-candidate-absent"
           cleanup() { git worktree remove --force "$base_dir" >/dev/null 2>&1 || true; }
           trap cleanup EXIT
           git worktree add --detach "$base_dir" "${{ github.event.pull_request.base.sha }}"
           (cd "$base_dir" && FREEHUB_BUILD_DATE="$FREEHUB_BUILD_DATE" node scripts/generate-pages.js)
+          node scripts/capture-generated-output.js --output-dir="$candidate_absent_dir"
           echo "Compare feature flag absent with PR base"
-          node scripts/compare-generated-output.js --base-dir="$base_dir"
+          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-free-stuff-parent-v2
           echo "Compare feature flag explicitly disabled with PR base"
           FREEHUB_ENABLE_OPPORTUNITIES=false npm run build
-          node scripts/compare-generated-output.js --base-dir="$base_dir"
-          echo "Compare validation-only enabled foundations with PR base"
+          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-free-stuff-parent-v2
+          node scripts/compare-generated-output.js --base-dir="$candidate_absent_dir"
+          echo "Compare enabled empty Opportunity registry with PR base"
           FREEHUB_ENABLE_OPPORTUNITIES=true npm run build
-          node scripts/compare-generated-output.js --base-dir="$base_dir"
+          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-free-stuff-parent-v2
+          node scripts/compare-generated-output.js --base-dir="$candidate_absent_dir"
 
   links:
     name: Live link and warning baseline

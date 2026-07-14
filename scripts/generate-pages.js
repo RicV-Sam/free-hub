@@ -3,6 +3,8 @@ const path = require("path");
 const shared = require("../shared/page-data.js");
 const opportunityData = require("../shared/opportunity-data.js");
 const { applyLegacyArchiveCostCompatibility } = require("./lib/legacy-archive-costs.js");
+const { createFreeResourceRenderer } = require("./lib/free-resource-renderer.js");
+const { createOpportunityRenderer } = require("./lib/opportunity-renderer.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
@@ -23,6 +25,9 @@ const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Dat
 const OPPORTUNITIES_ENABLED = opportunityData.isOpportunityFeatureEnabled(
   process.env.FREEHUB_ENABLE_OPPORTUNITIES
 );
+// PR 3 safeguard: PR 4 must replace this with an explicitly reviewed host allowlist.
+// Never infer or permit source hosts from registry contents.
+const OPPORTUNITY_ALLOWED_SOURCE_HOSTS = Object.freeze([]);
 const CSS_ASSET_VERSION = "20260704-voucher-seo-v1";
 const FREEHUB_REFER_WIN_CONFIG = {
   referWinCampaignEnabled: true,
@@ -55,6 +60,12 @@ const CATEGORY_LINKS = [
     href: `/category/${slug}/`,
   })),
 ];
+const FREE_STUFF_CHILD_LINKS = Object.freeze([
+  { label: "Free Samples", contentType: "free_samples", href: "/free-samples-south-africa/" },
+  { label: "Free Courses", contentType: "free_courses", href: "/free-online-courses-south-africa/" },
+  { label: "Children's Books", contentType: "childrens_books", href: "/free-childrens-books-south-africa/" },
+  { label: "Credit Reports", contentType: "credit_reports", href: "/free-credit-report-south-africa/" },
+]);
 const TAG_LINKS = [
   { label: "Free Entry", href: "/tag/free-entry/" },
   { label: "Ending Soon", href: "/tag/ending-soon/" },
@@ -105,7 +116,18 @@ const CONTENT_INDEX_PAGES = [
 const MONTHLY_GUIDE_SLUG = "best-competitions-south-africa-this-month";
 let brandImageLookup = new Map();
 let generatedVerticalPagesForLinks = [];
+let approvedPublicOpportunities = [];
 const FREE_RESOURCES = JSON.parse(fs.readFileSync(FREE_RESOURCES_PATH, "utf8"));
+const freeResourceRenderer = createFreeResourceRenderer({
+  escapeHtml,
+  escapeAttribute,
+  formatDate: shared.formatDate,
+});
+const opportunityRenderer = createOpportunityRenderer({
+  escapeHtml,
+  escapeAttribute,
+  formatDate: shared.formatDate,
+});
 const TRUST_PAGE_DEFINITIONS = [
   {
     slug: "about",
@@ -1963,7 +1985,7 @@ const VERTICAL_PAGE_DEFINITIONS = [
 ];
 
 function main() {
-  validateEnabledOpportunityRegistry();
+  approvedPublicOpportunities = loadApprovedPublicOpportunities();
   const rawCompetitions = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
   const rawArchiveCompetitions = fs.existsSync(ARCHIVE_DATA_PATH)
     ? applyLegacyArchiveCostCompatibility(JSON.parse(fs.readFileSync(ARCHIVE_DATA_PATH, "utf8")))
@@ -2074,9 +2096,9 @@ function main() {
   runImageQualityChecks(routeContexts);
 }
 
-function validateEnabledOpportunityRegistry() {
+function loadApprovedPublicOpportunities() {
   if (!OPPORTUNITIES_ENABLED) {
-    return;
+    return [];
   }
   if (!fs.existsSync(OPPORTUNITIES_PATH)) {
     throw new Error("[Opportunity validation failed]\n- data/opportunities.json is missing.");
@@ -2088,7 +2110,17 @@ function validateEnabledOpportunityRegistry() {
       `[Opportunity validation failed]\n${validation.errors.map((error) => `- ${error}`).join("\n")}`
     );
   }
-  console.log(`[Opportunity foundations] Feature enabled for validation only; ${opportunities.length} private records loaded, 0 public outputs.`);
+  const approved = opportunities.filter((opportunity) =>
+    opportunityData.isPublicOpportunity(opportunity, {
+      asOfDate: BUILD_DATE_ISO,
+      strictFreeOnly: false,
+      allowedSourceHosts: OPPORTUNITY_ALLOWED_SOURCE_HOSTS,
+    })
+  );
+  console.log(
+    `[Opportunity foundations] ${opportunities.length} private records validated; ${approved.length} records passed the reviewed public gate.`
+  );
+  return approved;
 }
 
 function uniqueCompetitionsBySlug(competitions) {
@@ -2653,6 +2685,7 @@ function renderTopNavigation(options = {}) {
   const links = [
     { key: "home", label: "Home", href: "/" },
     { key: "competitions", label: "Competitions", href: "/competitions/" },
+    { key: "free-stuff", label: "Free Stuff", href: "/free-stuff-south-africa/" },
     { key: "ending", label: "Ending soon", href: "/competitions-ending-soon/" },
     { key: "whatsapp", label: "WhatsApp", href: WHATSAPP_CHANNEL_URL, target: "_blank", rel: "noopener noreferrer" },
     { key: "club", label: "Club", href: "/club/" },
@@ -5674,12 +5707,238 @@ ${noscriptLinks}
 `;
 }
 
-function renderTrustPage(page) {
+function renderFreeStuffParentPage(page) {
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/${page.slug}/`;
   const usefulLinks = getTrustPageUsefulLinks(page);
   const pageResources = getTrustPageResources(page);
   const faqItems = Array.isArray(page.faq) ? page.faq : [];
-  const resourceStructuredData = buildFreeResourceItemList(page, pageResources);
+  const resourceStructuredData = freeResourceRenderer.buildFreeResourceItemList({
+    resources: pageResources,
+    name: "Official programmes, services and directories",
+  });
+  const opportunityStructuredData = opportunityRenderer.buildOpportunityItemList({
+    opportunities: approvedPublicOpportunities,
+    name: "Current verified opportunities",
+  });
+  const faqStructuredData = buildTrustPageFaqStructuredData(faqItems);
+  const articleData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: page.heading,
+    description: page.description,
+    image: shared.DEFAULT_OG_IMAGE,
+    datePublished: page.datePublished || getTrustPageLastmod(page),
+    dateModified: getTrustPageLastmod(page),
+    author: {
+      "@type": "Organization",
+      name: "Freehub",
+      url: `${shared.CANONICAL_ORIGIN}/`,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Freehub",
+      url: `${shared.CANONICAL_ORIGIN}/`,
+      logo: {
+        "@type": "ImageObject",
+        url: `${shared.CANONICAL_ORIGIN}/FH%20logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonicalUrl,
+    },
+  };
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: page.heading,
+    description: page.description,
+    url: canonicalUrl,
+    inLanguage: "en-ZA",
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Freehub",
+      url: `${shared.CANONICAL_ORIGIN}/`,
+    },
+  };
+  const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${shared.CANONICAL_ORIGIN}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: page.heading,
+        item: canonicalUrl,
+      },
+    ],
+  };
+
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${escapeHtml(page.title)}</title>
+    <meta name="description" content="${escapeAttribute(page.description)}" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="${escapeAttribute(page.title)}" />
+    <meta property="og:description" content="${escapeAttribute(page.description)}" />
+    <meta property="og:url" content="${escapeAttribute(canonicalUrl)}" />
+    <meta property="og:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${escapeAttribute(page.title)}" />
+    <meta name="twitter:description" content="${escapeAttribute(page.description)}" />
+    <meta name="twitter:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
+    <script id="structured-data-webpage" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
+    <script id="structured-data-breadcrumb" type="application/ld+json">${escapeScript(JSON.stringify(breadcrumbData))}</script>
+    <script id="structured-data-article" type="application/ld+json">${escapeScript(JSON.stringify(articleData))}</script>
+    ${resourceStructuredData ? `<script id="structured-data-itemlist" type="application/ld+json">${escapeScript(JSON.stringify(resourceStructuredData))}</script>` : ""}
+    ${opportunityStructuredData ? `<script id="structured-data-opportunities" type="application/ld+json">${escapeScript(JSON.stringify(opportunityStructuredData))}</script>` : ""}
+    ${faqStructuredData ? `<script id="structured-data-faq" type="application/ld+json">${escapeScript(JSON.stringify(faqStructuredData))}</script>` : ""}
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
+    ${ADSENSE_SCRIPT}
+    ${renderGoogleTagManagerHead("{ page_type: 'free_stuff_parent', trust_page: 'free-stuff-south-africa' }")}
+    ${renderMetaPixelHead()}
+  </head>
+  <body data-free-stuff-parent-version="2">
+    ${renderGoogleTagManagerNoScript()}
+    ${renderMetaPixelNoScript()}
+    <div class="site-shell">
+      ${renderTopNavigation({ active: "free-stuff" })}
+      ${renderModernHero({
+        className: "hero--utility hero--trust",
+        eyebrow: "Freehub trust",
+        heading: page.heading,
+        intro: page.intro,
+        actions: page.actions || [
+          { label: "Browse Competitions", href: "/competitions/", className: "btn--primary" },
+          { label: "Safety Guide", href: "/how-to-enter-competitions-safely/", className: "btn--secondary" },
+        ],
+        trustItems: page.trustItems || ["Freehub is not the promoter", "Official source links", "Safety-first browsing"],
+      })}
+
+      <main id="main-content" class="main-content trust-page free-stuff-parent">
+${renderFreeStuffParentContent({ page, pageResources, usefulLinks, faqItems })}
+      </main>
+
+      ${renderSiteFooter()}
+    </div>
+    <script src="/shared/discovery-analytics.js"></script>
+    <script type="module" src="/shared/auth-ui.js"></script>
+  </body>
+</html>
+`;
+}
+
+function renderFreeStuffParentContent({ page, pageResources, usefulLinks, faqItems }) {
+  const definitionSections = page.sections.slice(0, 2);
+  const guidanceSections = page.sections.slice(2);
+
+  return `        ${renderTrustPageSections(definitionSections, "Free Stuff definition")}
+
+        ${renderFreeStuffChildNavigation()}
+
+        ${opportunityRenderer.renderOpportunitySection({
+          opportunities: approvedPublicOpportunities,
+          heading: "Current verified opportunities",
+          pageType: "free_stuff_parent",
+        })}
+
+        ${freeResourceRenderer.renderFreeResourceSection({
+          resources: pageResources,
+          heading: "Official programmes, services and directories",
+          description: "These durable resources stay useful over time. A listed programme, service or directory does not mean a current claimable offer is available.",
+          pageType: "free_stuff_parent",
+          kicker: "Durable resources",
+        })}
+
+        ${renderFreeStuffCompetitionCallout()}
+
+        ${renderTrustPageSections(guidanceSections, "Trust and verification guidance")}
+
+        ${renderTrustChecklist(page)}
+        ${renderDatacostPromo({
+          placement: `trust-${page.slug}`,
+          compact: true,
+          ussd: true,
+        })}
+
+        ${renderTrustPageUsefulLinks(usefulLinks)}
+
+        ${renderTrustFaqSection(faqItems)}`;
+}
+
+function renderTrustPageSections(sections, label) {
+  return `<section class="trust-page__content" aria-label="${escapeAttribute(label)}">
+          ${sections
+            .map(
+              (section) => `<article class="trust-page__section">
+            <h2>${escapeHtml(section.heading)}</h2>
+            ${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("\n            ")}
+          </article>`
+            )
+            .join("\n          ")}
+        </section>`;
+}
+
+function renderFreeStuffChildNavigation() {
+  return `<nav class="free-stuff-child-nav" aria-label="Free Stuff categories">
+          ${FREE_STUFF_CHILD_LINKS.map(
+            (link) => `<a class="free-stuff-child-nav__link" href="${escapeAttribute(link.href)}" data-discovery-action="card" data-entity-kind="resource_category" data-content-type="${escapeAttribute(link.contentType)}" data-destination-path="${escapeAttribute(link.href)}">${escapeHtml(link.label)}</a>`
+          ).join("\n          ")}
+        </nav>`;
+}
+
+function renderFreeStuffCompetitionCallout() {
+  return `<section class="free-stuff-competition-callout" aria-label="Competition discovery">
+          <div>
+            <p class="section-kicker">Competitions stay separate</p>
+            <h2>Looking for current prize draws?</h2>
+            <p>Freehub tracks competitions in a separate inventory with closing dates, entry costs and promoter evidence. A free-entry competition is not presented as a claimable free item.</p>
+          </div>
+          <div class="free-stuff-competition-callout__links">
+            <a class="btn btn--primary" href="/competitions/">Browse Competitions</a>
+            <a class="btn btn--secondary" href="/free-competitions/">Free-entry Competitions</a>
+          </div>
+        </section>`;
+}
+
+function renderTrustPageUsefulLinks(usefulLinks) {
+  return `<section class="internal-links" aria-label="Useful Freehub pages">
+          <p class="internal-links__title">Useful Freehub Pages</p>
+          <div class="internal-links__list">
+            ${usefulLinks
+              .map(
+                (link) =>
+                  `<a class="internal-links__link" href="${escapeAttribute(link.href)}">${escapeHtml(link.label)}</a>`
+              )
+              .join("\n            ")}
+          </div>
+        </section>`;
+}
+
+function renderTrustPage(page) {
+  if (page.slug === "free-stuff-south-africa") {
+    return renderFreeStuffParentPage(page);
+  }
+  const canonicalUrl = `${shared.CANONICAL_ORIGIN}/${page.slug}/`;
+  const usefulLinks = getTrustPageUsefulLinks(page);
+  const pageResources = getTrustPageResources(page);
+  const faqItems = Array.isArray(page.faq) ? page.faq : [];
+  const resourceStructuredData = freeResourceRenderer.buildFreeResourceItemList({
+    resources: pageResources,
+    name: page.resourceTitle || page.heading,
+  });
   const faqStructuredData = buildTrustPageFaqStructuredData(faqItems);
   const serviceStructuredData = buildTrustPageServiceStructuredData(page, canonicalUrl);
   const articleData = page.article
@@ -5829,7 +6088,12 @@ function renderTrustPage(page) {
           text: "Sign in with Google or an email link to save competitions, hide ones you have seen and keep alert preferences with your account.",
         }) : ""}
 
-        ${renderFreeResourceSection(page, pageResources)}
+        ${freeResourceRenderer.renderFreeResourceSection({
+          resources: pageResources,
+          heading: page.resourceTitle || "Best free options right now",
+          description: page.resourceIntro || "Use official source links and check what is actually free before signing up.",
+          pageType: "trust",
+        })}
         ${renderTrustChecklist(page)}
         ${renderTrustFaqSection(faqItems)}
         ${renderDatacostPromo({
@@ -7340,55 +7604,6 @@ function getTrustPageLastmod(page) {
   return dates.length > 0 ? dates[dates.length - 1] : page.datePublished || BUILD_DATE_ISO;
 }
 
-function renderFreeResourceSection(page, resources) {
-  if (!Array.isArray(resources) || resources.length === 0) {
-    return "";
-  }
-
-  return `<section class="free-resource-section" aria-label="${escapeAttribute(page.resourceTitle || "Official free resources")}">
-          <div class="free-resource-section__header">
-            <p class="section-kicker">Official Websites</p>
-            <h2>${escapeHtml(page.resourceTitle || "Best free options right now")}</h2>
-            <p>${escapeHtml(page.resourceIntro || "Use official source links and check what is actually free before signing up.")}</p>
-          </div>
-          <div class="free-resource-grid">
-            ${resources.map(renderFreeResourceCard).join("\n            ")}
-          </div>
-        </section>`;
-}
-
-function renderFreeResourceCard(resource) {
-  const rel = resource.internal ? "" : ' rel="nofollow noopener" target="_blank"';
-  const linkLabel = resource.internal ? "Read guide" : "Official website";
-
-  return `<article class="free-resource-card">
-              <div class="free-resource-card__top">
-                <span class="free-resource-card__category">${escapeHtml(resource.categoryLabel)}</span>
-                <span class="free-resource-card__reviewed">Reviewed ${escapeHtml(shared.formatDate(resource.lastReviewed))}</span>
-              </div>
-              <h3>${escapeHtml(resource.name)}</h3>
-              <dl class="free-resource-card__facts">
-                <div>
-                  <dt>Best for</dt>
-                  <dd>${escapeHtml(resource.bestFor)}</dd>
-                </div>
-                <div>
-                  <dt>What is free</dt>
-                  <dd>${escapeHtml(resource.freeDetails)}</dd>
-                </div>
-                <div>
-                  <dt>Requirements</dt>
-                  <dd>${escapeHtml(resource.requirements)}</dd>
-                </div>
-                <div>
-                  <dt>Check first</dt>
-                  <dd>${escapeHtml(resource.watchOut)}</dd>
-                </div>
-              </dl>
-              <a class="free-resource-card__link" href="${escapeAttribute(resource.officialUrl)}"${rel}>${escapeHtml(linkLabel)}</a>
-            </article>`;
-}
-
 function renderTrustChecklist(page) {
   const checklist = Array.isArray(page.checklist) ? page.checklist : [];
   const avoid = Array.isArray(page.avoid) ? page.avoid : [];
@@ -7432,28 +7647,6 @@ function renderTrustFaqSection(faqItems) {
             )
             .join("\n          ")}
         </section>`;
-}
-
-function buildFreeResourceItemList(page, resources) {
-  if (!Array.isArray(resources) || resources.length === 0) {
-    return null;
-  }
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: page.resourceTitle || page.heading,
-    itemListElement: resources.map((resource, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      item: {
-        "@type": "WebSite",
-        name: resource.name,
-        url: resource.officialUrl,
-        description: resource.freeDetails,
-      },
-    })),
-  };
 }
 
 function buildTrustPageFaqStructuredData(faqItems) {
