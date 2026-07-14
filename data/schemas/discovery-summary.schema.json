@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://freehub.co.za/schemas/discovery-summary.schema.json",
+  "title": "Freehub DiscoverySummary",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "entityKind", "contentType", "title", "summary", "path", "labels"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "entityKind": { "enum": ["competition", "resource", "opportunity"] },
+    "contentType": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "summary": { "type": "string", "minLength": 1 },
+    "path": { "type": "string", "pattern": "^/(?!/)" },
+    "imageUrl": { "type": "string", "format": "uri", "pattern": "^https?://" },
+    "labels": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "expiresAt": { "$ref": "#/$defs/date" },
+    "lastVerifiedAt": { "$ref": "#/$defs/date" }
+  },
+  "$defs": {
+    "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+  }
+}

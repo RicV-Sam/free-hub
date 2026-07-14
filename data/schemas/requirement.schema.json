@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://freehub.co.za/schemas/requirement.schema.json",
+  "title": "Freehub Requirement",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["kind", "required", "label"],
+  "properties": {
+    "kind": {
+      "enum": [
+        "account",
+        "app",
+        "membership",
+        "purchase",
+        "delivery",
+        "card",
+        "location",
+        "age",
+        "identity",
+        "questionnaire",
+        "review",
+        "social_post",
+        "other"
+      ]
+    },
+    "required": { "type": "boolean" },
+    "label": { "type": "string", "minLength": 1 },
+    "detail": { "type": "string", "minLength": 1 }
+  }
+}

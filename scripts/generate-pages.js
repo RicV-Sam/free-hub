@@ -1,11 +1,14 @@
 const fs = require("fs");
 const path = require("path");
 const shared = require("../shared/page-data.js");
+const opportunityData = require("../shared/opportunity-data.js");
+const { applyLegacyArchiveCostCompatibility } = require("./lib/legacy-archive-costs.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
 const ARCHIVE_DATA_PATH = path.join(ROOT_DIR, "data", "archive", "competitions-expired.json");
 const FREE_RESOURCES_PATH = path.join(ROOT_DIR, "data", "free-resources.json");
+const OPPORTUNITIES_PATH = path.join(ROOT_DIR, "data", "opportunities.json");
 const RELATIVE_ASSET_PATH = "/";
 const ADSENSE_SCRIPT =
   '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6084410613829318" crossorigin="anonymous"></script>';
@@ -17,6 +20,9 @@ const DATACOST_URL = "https://datacost.co.za/?utm_source=freehub&utm_medium=hous
 const DATACOST_USSD_URL = "https://datacost.co.za/ussd-codes/?utm_source=freehub&utm_medium=house_banner&utm_campaign=ussd_codes";
 const DATACOST_BANNER_IMAGE = "/assets/partners/datacost-data-airtime-banner.jpg";
 const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date());
+const OPPORTUNITIES_ENABLED = opportunityData.isOpportunityFeatureEnabled(
+  process.env.FREEHUB_ENABLE_OPPORTUNITIES
+);
 const CSS_ASSET_VERSION = "20260704-voucher-seo-v1";
 const FREEHUB_REFER_WIN_CONFIG = {
   referWinCampaignEnabled: true,
@@ -1957,9 +1963,10 @@ const VERTICAL_PAGE_DEFINITIONS = [
 ];
 
 function main() {
+  validateEnabledOpportunityRegistry();
   const rawCompetitions = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
   const rawArchiveCompetitions = fs.existsSync(ARCHIVE_DATA_PATH)
-    ? JSON.parse(fs.readFileSync(ARCHIVE_DATA_PATH, "utf8"))
+    ? applyLegacyArchiveCostCompatibility(JSON.parse(fs.readFileSync(ARCHIVE_DATA_PATH, "utf8")))
     : [];
   const validCompetitions = shared.sortCompetitions(
     rawCompetitions.filter((entry, index) => validateCompetition(entry, index))
@@ -2065,6 +2072,23 @@ function main() {
   runCrawlerVisibleTextChecks(routeContexts);
   runGlobalCtaChecks(routeContexts);
   runImageQualityChecks(routeContexts);
+}
+
+function validateEnabledOpportunityRegistry() {
+  if (!OPPORTUNITIES_ENABLED) {
+    return;
+  }
+  if (!fs.existsSync(OPPORTUNITIES_PATH)) {
+    throw new Error("[Opportunity validation failed]\n- data/opportunities.json is missing.");
+  }
+  const opportunities = JSON.parse(fs.readFileSync(OPPORTUNITIES_PATH, "utf8"));
+  const validation = opportunityData.validateOpportunityRegistry(opportunities);
+  if (!validation.valid) {
+    throw new Error(
+      `[Opportunity validation failed]\n${validation.errors.map((error) => `- ${error}`).join("\n")}`
+    );
+  }
+  console.log(`[Opportunity foundations] Feature enabled for validation only; ${opportunities.length} private records loaded, 0 public outputs.`);
 }
 
 function uniqueCompetitionsBySlug(competitions) {

@@ -34,6 +34,13 @@ jobs:
           trap cleanup EXIT
           git worktree add --detach "$base_dir" "${{ github.event.pull_request.base.sha }}"
           (cd "$base_dir" && FREEHUB_BUILD_DATE="$FREEHUB_BUILD_DATE" node scripts/generate-pages.js)
+          echo "Compare feature flag absent with PR base"
+          node scripts/compare-generated-output.js --base-dir="$base_dir"
+          echo "Compare feature flag explicitly disabled with PR base"
+          FREEHUB_ENABLE_OPPORTUNITIES=false npm run build
+          node scripts/compare-generated-output.js --base-dir="$base_dir"
+          echo "Compare validation-only enabled foundations with PR base"
+          FREEHUB_ENABLE_OPPORTUNITIES=true npm run build
           node scripts/compare-generated-output.js --base-dir="$base_dir"
 
   links:

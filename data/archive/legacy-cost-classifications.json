@@ -1,0 +1,17 @@
+[
+  { "id": "clicks-summer-sun-escape", "entryCostType": "sms-rate" },
+  { "id": "cruise-nicely-this-easter", "entryCostType": "free-entry" },
+  { "id": "dis-chem-wellness-cash-dash", "entryCostType": "purchase-required" },
+  { "id": "game-home-theatre-mega-upgrade", "entryCostType": "purchase-required" },
+  { "id": "game-store-gadget-giveaway", "entryCostType": "free-entry" },
+  { "id": "gummy-vites-back-to-school", "entryCostType": "free-entry" },
+  { "id": "mr-price-wardrobe-refresh-vouchers", "entryCostType": "purchase-required" },
+  { "id": "mtn-promo-giveaway", "entryCostType": "free-entry" },
+  { "id": "nedbank-we-love-nedbank-cash", "entryCostType": "free-entry" },
+  { "id": "nestle-nido-grow-with-love", "entryCostType": "free-entry" },
+  { "id": "pick-n-pay-smart-shopper-tech-treats", "entryCostType": "free-entry" },
+  { "id": "picknpay-voucher", "entryCostType": "free-entry" },
+  { "id": "standard-bank-credit-card-spend-back-april", "entryCostType": "purchase-required" },
+  { "id": "vodacom-rewards", "entryCostType": "free-entry" },
+  { "id": "woolworths-mydifference-cash-boost", "entryCostType": "free-entry" }
+]

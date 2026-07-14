@@ -5,6 +5,30 @@
   const HOME_ROUTE = "/";
   const CLOSING_SOON_DAYS = 3;
   const ENDING_SOON_TAG_DAYS = 7;
+  const LEGACY_ARCHIVE_COST_TYPE = Symbol.for("freehub.legacyArchiveCostType");
+  const ENTRY_COST_CLASSIFICATIONS = Object.freeze({
+    FREE_ENTRY: "free_entry",
+    STANDARD_DATA_MAY_APPLY: "standard_data_may_apply",
+    ACCOUNT_REQUIRED: "account_required",
+    MEMBERSHIP_REQUIRED: "membership_required",
+    APP_REQUIRED: "app_required",
+    PURCHASE_REQUIRED: "purchase_required",
+    PAID_ENTRY: "paid_entry",
+    UNCLEAR: "unclear",
+  });
+  const RECOGNIZED_ENTRY_COST_TYPES = new Set([
+    "free-entry",
+    "purchase-required",
+    "paid-entry",
+    "sms-rate",
+    "app-required",
+    "account-required",
+    "membership-required",
+    "till-slip-required",
+    "loyalty-required",
+    "conditional",
+    "unknown",
+  ]);
   const DEFAULT_OG_IMAGE =
     "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200&q=80";
   const CATEGORY_FALLBACK_IMAGES = {
@@ -902,49 +926,102 @@
     }
   }
 
-  function getEntryCostLabel(competition) {
-    const tags = Array.isArray(competition.tags) ? competition.tags : [];
-    const entryCostType = String(competition.entryCostType || "").toLowerCase();
-    const entryFeeLabel = String(competition.entryFeeLabel || "").toLowerCase();
-    const entryFeeAmount = Number(competition.entryFeeAmount);
+  function getEntryCostClassification(competition) {
+    const entry = competition && typeof competition === "object" ? competition : {};
+    const explicitType = String(entry.entryCostType || "").trim().toLowerCase();
+    const compatibilityType = String(entry[LEGACY_ARCHIVE_COST_TYPE] || "").trim().toLowerCase();
+    const entryCostType = explicitType || compatibilityType;
+    const tags = Array.isArray(entry.tags) ? entry.tags : [];
+    const entryFeeLabel = String(entry.entryFeeLabel || "").trim().toLowerCase();
+    const entryFeeAmount = Number(entry.entryFeeAmount);
 
-    if (competition.purchaseRequired === true || entryCostType === "purchase-required") {
-      return "Purchase required";
-    }
-
-    if (entryCostType === "paid-entry" || tags.includes("paid-entry") || entryFeeAmount > 0) {
-      return "Paid entry";
-    }
-
-    if (entryCostType === "sms-rate" || tags.includes("standard-rates") || tags.includes("sms-entry")) {
-      return "SMS/data rates may apply";
-    }
-
-    if (entryCostType === "app-required") {
-      return "App required";
-    }
-
-    if (entryCostType === "account-required") {
-      return "Account required";
-    }
-
-    if (entryCostType === "membership-required") {
-      return "Membership required";
+    if (explicitType && !RECOGNIZED_ENTRY_COST_TYPES.has(explicitType)) {
+      return ENTRY_COST_CLASSIFICATIONS.UNCLEAR;
     }
 
     if (entryCostType === "unknown") {
-      return "Entry requirements unclear";
+      return ENTRY_COST_CLASSIFICATIONS.UNCLEAR;
     }
 
     if (
+      entry.purchaseRequired === true ||
+      ["purchase-required", "till-slip-required", "loyalty-required"].includes(entryCostType)
+    ) {
+      return ENTRY_COST_CLASSIFICATIONS.PURCHASE_REQUIRED;
+    }
+
+    if (
+      entryCostType === "paid-entry" ||
+      tags.includes("paid-entry") ||
+      entryFeeAmount > 0 ||
       entryFeeLabel.includes("ticket") ||
       entryFeeLabel.includes("paid") ||
       /^r\s?[1-9]/i.test(entryFeeLabel)
     ) {
-      return "Paid entry";
+      return ENTRY_COST_CLASSIFICATIONS.PAID_ENTRY;
     }
 
-    return "Free entry";
+    if (entryCostType === "sms-rate" || tags.includes("standard-rates") || tags.includes("sms-entry")) {
+      return ENTRY_COST_CLASSIFICATIONS.STANDARD_DATA_MAY_APPLY;
+    }
+
+    if (entryCostType === "app-required") {
+      return ENTRY_COST_CLASSIFICATIONS.APP_REQUIRED;
+    }
+
+    if (entryCostType === "account-required") {
+      return ENTRY_COST_CLASSIFICATIONS.ACCOUNT_REQUIRED;
+    }
+
+    if (entryCostType === "membership-required") {
+      return ENTRY_COST_CLASSIFICATIONS.MEMBERSHIP_REQUIRED;
+    }
+
+    if (entryCostType === "conditional") {
+      const hasNoMandatoryPurchaseEvidence =
+        entry.purchaseRequired === false &&
+        (/\bno mandatory purchase\b/i.test(entryFeeLabel) ||
+          /\bno purchase (?:is )?required\b/i.test(entryFeeLabel) ||
+          /\bpurchase (?:is )?optional\b/i.test(entryFeeLabel) ||
+          tags.includes("free-entry"));
+
+      return hasNoMandatoryPurchaseEvidence
+        ? ENTRY_COST_CLASSIFICATIONS.FREE_ENTRY
+        : ENTRY_COST_CLASSIFICATIONS.UNCLEAR;
+    }
+
+    if (entryCostType === "free-entry") {
+      return ENTRY_COST_CLASSIFICATIONS.FREE_ENTRY;
+    }
+
+    if (!entryCostType && (tags.includes("free-entry") || /^free entry\b/i.test(entryFeeLabel))) {
+      return ENTRY_COST_CLASSIFICATIONS.FREE_ENTRY;
+    }
+
+    return ENTRY_COST_CLASSIFICATIONS.UNCLEAR;
+  }
+
+  function getEntryCostLabel(competition) {
+    const classification = getEntryCostClassification(competition);
+
+    switch (classification) {
+      case ENTRY_COST_CLASSIFICATIONS.FREE_ENTRY:
+        return "Free entry";
+      case ENTRY_COST_CLASSIFICATIONS.PURCHASE_REQUIRED:
+        return "Purchase required";
+      case ENTRY_COST_CLASSIFICATIONS.PAID_ENTRY:
+        return "Paid entry";
+      case ENTRY_COST_CLASSIFICATIONS.STANDARD_DATA_MAY_APPLY:
+        return "SMS/data rates may apply";
+      case ENTRY_COST_CLASSIFICATIONS.APP_REQUIRED:
+        return "App required";
+      case ENTRY_COST_CLASSIFICATIONS.ACCOUNT_REQUIRED:
+        return "Account required";
+      case ENTRY_COST_CLASSIFICATIONS.MEMBERSHIP_REQUIRED:
+        return "Membership required";
+      default:
+        return "Entry requirements unclear";
+    }
   }
 
   function getPrizeName(competition) {
@@ -1770,6 +1847,8 @@
     getPrizeCue,
     getPrimaryPrizeText,
     getCardHeadline,
+    ENTRY_COST_CLASSIFICATIONS,
+    getEntryCostClassification,
     getEntryCostLabel,
     getCardStatusLabels,
     isRecentlyCheckedCompetition,

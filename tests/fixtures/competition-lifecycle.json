@@ -79,5 +79,15 @@
   "paidCost": { "entryCostType": "paid-entry", "entryFeeAmount": 20 },
   "unknownCost": { "entryCostType": "unknown" },
   "missingCost": {},
-  "unrecognizedCost": { "entryCostType": "mystery-value" }
+  "unrecognizedCost": { "entryCostType": "mystery-value" },
+  "missingWithFreeEvidence": { "tags": ["free-entry"] },
+  "missingWithPurchaseEvidence": { "purchaseRequired": true },
+  "legacyTillSlipCost": { "entryCostType": "till-slip-required" },
+  "legacyLoyaltyCost": { "entryCostType": "loyalty-required" },
+  "conditionalFreeCost": {
+    "entryCostType": "conditional",
+    "purchaseRequired": false,
+    "entryFeeLabel": "No mandatory purchase route stated; account registration may apply"
+  },
+  "conditionalUnclearCost": { "entryCostType": "conditional", "purchaseRequired": false }
 }

@@ -46,7 +46,18 @@ test("known cost types keep their current display labels", () => {
   assert.equal(shared.getEntryCostLabel(fixtures.unknownCost), "Entry requirements unclear");
 });
 
-test("PR 2 defect baseline: missing and unrecognized cost values still fall back to Free entry", () => {
-  assert.equal(shared.getEntryCostLabel(fixtures.missingCost), "Free entry");
-  assert.equal(shared.getEntryCostLabel(fixtures.unrecognizedCost), "Free entry");
+test("missing and unrecognized cost values fail closed", () => {
+  assert.equal(shared.getEntryCostClassification(fixtures.missingCost), "unclear");
+  assert.equal(shared.getEntryCostClassification(fixtures.unrecognizedCost), "unclear");
+  assert.equal(shared.getEntryCostLabel(fixtures.missingCost), "Entry requirements unclear");
+  assert.equal(shared.getEntryCostLabel(fixtures.unrecognizedCost), "Entry requirements unclear");
+});
+
+test("explicit legacy cost evidence remains exhaustive without a free default", () => {
+  assert.equal(shared.getEntryCostLabel(fixtures.missingWithFreeEvidence), "Free entry");
+  assert.equal(shared.getEntryCostLabel(fixtures.missingWithPurchaseEvidence), "Purchase required");
+  assert.equal(shared.getEntryCostLabel(fixtures.legacyTillSlipCost), "Purchase required");
+  assert.equal(shared.getEntryCostLabel(fixtures.legacyLoyaltyCost), "Purchase required");
+  assert.equal(shared.getEntryCostLabel(fixtures.conditionalFreeCost), "Free entry");
+  assert.equal(shared.getEntryCostLabel(fixtures.conditionalUnclearCost), "Entry requirements unclear");
 });

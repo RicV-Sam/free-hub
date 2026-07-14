@@ -2,7 +2,7 @@
 
 ## Purpose
 
-PR 1B protects the repository-grounded Freehub baseline without changing public routes, generated markup, competition data, Firebase collections or publication behavior. The deterministic snapshot uses build date `2026-07-13`, when the generated sitemap contained 145 URLs, the main competition collection contained 85 static cards and its ItemList contained 85 structured-data items.
+PR 1B established the repository-grounded Freehub baseline. PR 2 adds fail-closed cost and Opportunity contract tests without changing public routes, generated markup, competition data, Firebase collections or publication behavior. The deterministic snapshot uses build date `2026-07-13`, when the generated sitemap contained 145 URLs, the main competition collection contained 85 static cards and its ItemList contained 85 structured-data items.
 
 ZA Comp Engine exports remain private review evidence. Passing these tests cannot approve a handoff row, change Freehub publication state or create a public page.
 
@@ -68,7 +68,17 @@ The update command performs live requests and intentionally contains no generate
 
 Fixtures cover active public, active noindex, Club-only, expired published, missing archive evidence, archived low-value, held, rejected/`doNotPublish`, free, purchase-required, paid, explicit unknown, missing and unrecognized cost states.
 
-The missing and unrecognized cost fixtures deliberately assert the current unsafe fallback to `Free entry`. This is a documented PR 2 defect, not approval of the behavior. PR 1B must not change the cost contract or public labels.
+Missing, explicit `unknown` and unrecognized cost fixtures now fail closed to `unclear` / `Entry requirements unclear`. A missing type may classify only from affirmative evidence such as a purchase boolean, paid amount, standard-rate tag, exact free-entry tag or explicit fee label; absence never implies free. The active `{id, label}` inventory is protected by a compact hash covering all 85 public competitions.
+
+Fifteen retained expired records predate `entryCostType`. `data/archive/legacy-cost-classifications.json` records their reviewed display compatibility. The generator applies those values through a non-serializable archive-only marker, so it cannot modify source data, active filtering, `/out/` eligibility, sitemap inclusion or generated attributes. Tests require the manifest to match exactly the current published expired records with missing types; a new record is never added automatically.
+
+## Opportunity foundations
+
+`shared/opportunity-data.js` is a dependency-free Node/browser module containing the FreeResource, Requirement, Opportunity and DiscoverySummary validators. JSON Schemas under `data/schemas/` are compiled against the same fixtures with Ajv during tests. The 18 current resources remain unchanged and validate through explicit legacy mode; new resources use the strict contract.
+
+The pure `isPublicOpportunity()` gate requires an explicit `asOfDate` and official-source host allowlist. It rejects non-published, non-verified, future, overdue, expired, unsupported-type, invalid-source, unclear-cost and requirement-mismatch records. Strict free-only use accepts only `completely_free`. Supported type-specific details are currently limited to direct samples, product-testing campaigns, birthday freebies and free courses; other declared types may be stored as drafts but cannot become public.
+
+`FREEHUB_ENABLE_OPPORTUNITIES` is false unless its exact value is `true`. PR 2 commits an empty registry. Enabling the flag validates that registry and still produces no cards, routes, schema, sitemap entries, analytics events or Club state. The deterministic CI job compares absent, explicit-false and validation-only true builds with the same PR base output.
 
 Browser tests preserve two named expected defects:
 
