@@ -1,5 +1,5 @@
 === Competition Maintenance Report ===
-Date: 2026-07-13
+Date: 2026-07-14
 Mode: archive-expired
 Total competitions: 259
 Active published count: 90
@@ -88,24 +88,24 @@ Expired competition IDs:
 - tekkie-town-football-frenzy-fifa-2026 (2026-07-12)
 
 Closing soon (next 14 days):
-- vodacom-spend-and-recharge-tfg-vouchers (2 days)
-- parmalat-everything-needs-cheese-2026 (2 days)
-- vodacom-power-up-woolworths-vouchers-2026 (2 days)
-- kampi-refer-and-escape-2026 (3 days)
-- godfather-of-the-waves-competition-2026 (4 days)
-- cashbuild-pimp-my-room-2026 (4 days)
-- clicks-cashback-haul-competition (6 days)
-- coca-cola-hisense-fifa-fan-hampers-2026 (6 days)
-- mtn-world-cup-bafana-goal-1gb-data-2026 (6 days)
-- hisense-pepkor-match-ready-gallery-2026 (6 days)
-- hisense-hirsch-foosball-activation-2026 (6 days)
-- hisense-coca-cola-match-day-2026 (6 days)
-- mtn-fc-world-cup-competition-2026 (7 days)
-- standard-bank-game-day-everyday (8 days)
-- gotyme-bank-swipe-tap-to-win-2026 (8 days)
-- boxer-celebrate-win-samsung-a06-2026 (9 days)
-- pep-dstv-scan-play-win-2026 (10 days)
-- huggies-dry-comfort-buy-win-2026 (13 days)
+- vodacom-spend-and-recharge-tfg-vouchers (1 days)
+- parmalat-everything-needs-cheese-2026 (1 days)
+- vodacom-power-up-woolworths-vouchers-2026 (1 days)
+- kampi-refer-and-escape-2026 (2 days)
+- godfather-of-the-waves-competition-2026 (3 days)
+- cashbuild-pimp-my-room-2026 (3 days)
+- clicks-cashback-haul-competition (5 days)
+- coca-cola-hisense-fifa-fan-hampers-2026 (5 days)
+- mtn-world-cup-bafana-goal-1gb-data-2026 (5 days)
+- hisense-pepkor-match-ready-gallery-2026 (5 days)
+- hisense-hirsch-foosball-activation-2026 (5 days)
+- hisense-coca-cola-match-day-2026 (5 days)
+- mtn-fc-world-cup-competition-2026 (6 days)
+- standard-bank-game-day-everyday (7 days)
+- gotyme-bank-swipe-tap-to-win-2026 (7 days)
+- boxer-celebrate-win-samsung-a06-2026 (8 days)
+- pep-dstv-scan-play-win-2026 (9 days)
+- huggies-dry-comfort-buy-win-2026 (12 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
