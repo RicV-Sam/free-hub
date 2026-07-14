@@ -73,7 +73,7 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: npm run test:browser
       - run: FREEHUB_ENABLE_OPPORTUNITIES=true npm run build
-      - run: npm run test:browser
+      - run: FREEHUB_ENABLE_OPPORTUNITIES=true npm run test:browser
       - name: Upload Playwright artifacts
         if: always()
         uses: actions/upload-artifact@v4
