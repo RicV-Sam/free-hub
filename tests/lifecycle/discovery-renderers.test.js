@@ -37,12 +37,39 @@ test("Opportunity renderer accepts approved inputs and emits no empty section or
     opportunities: [fixtures.publishedSample],
     heading: "Current verified opportunities",
     pageType: "free_stuff_parent",
+    cardVariant: "compact",
   });
   assert.match(html, /data-opportunity-id="fixture-current-sample"/);
   assert.match(html, /data-entity-kind="opportunity"/);
   assert.match(html, /data-content-type="free_sample"/);
   assert.match(html, /Completely free/);
+  assert.match(html, /Medical product sample request/);
+  assert.match(html, /Suitability approval required/);
+  assert.match(html, /Freehub does not receive or assess your application/);
+  assert.match(html, /data-page-type="free_stuff_parent"/);
   assert.equal(opportunities.buildOpportunityItemList({ opportunities: [fixtures.publishedSample], name: "Current" }).itemListElement.length, 1);
+});
+
+test("full Opportunity cards expose sample facts and privacy without inventing product schema", () => {
+  const record = { ...fixtures.publishedSample, provider: "Provider <unsafe>" };
+  const html = opportunities.renderOpportunitySection({
+    opportunities: [record],
+    heading: "Current verified samples",
+    pageType: "free_samples_vertical",
+    cardVariant: "full",
+  });
+  assert.match(html, /Provider &lt;unsafe&gt;/);
+  assert.match(html, /Application only/);
+  assert.match(html, /No delivery charge/);
+  assert.match(html, /Freehub does not provide medical suitability advice/);
+  assert.match(html, /data-page-type="free_samples_vertical"/);
+  assert.throws(
+    () => opportunities.renderOpportunitySection({ opportunities: [record], heading: "Current", pageType: "test", cardVariant: "invented" }),
+    /Unsupported Opportunity card variant/
+  );
+  const itemList = opportunities.buildOpportunityItemList({ opportunities: [record], name: "Samples" });
+  assert.equal(itemList.itemListElement[0].item["@type"], "Thing");
+  assert.equal(JSON.stringify(itemList).includes('"Product"'), false);
 });
 
 test("Opportunity renderer asserts approved publication state without importing the public gate", () => {
@@ -54,9 +81,9 @@ test("Opportunity renderer asserts approved publication state without importing 
   assert.doesNotMatch(source, /isPublicOpportunity|opportunity-data/);
 });
 
-test("PR 3 controller keeps the reviewed host allowlist empty and owns eligibility", () => {
+test("PR 4 controller uses the exact reviewed Coloplast host and owns eligibility", () => {
   const source = fs.readFileSync(path.join(ROOT_DIR, "scripts", "generate-pages.js"), "utf8");
-  assert.match(source, /OPPORTUNITY_ALLOWED_SOURCE_HOSTS = Object\.freeze\(\[\]\)/);
+  assert.match(source, /OPPORTUNITY_ALLOWED_SOURCE_HOSTS = Object\.freeze\(\["products\.coloplast\.co\.za"\]\)/);
   assert.match(source, /opportunityData\.isPublicOpportunity/);
   assert.match(source, /allowedSourceHosts: OPPORTUNITY_ALLOWED_SOURCE_HOSTS/);
 });

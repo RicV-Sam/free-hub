@@ -58,3 +58,37 @@ test("parent v2 transition is one-time and marker-gated", (context) => {
   context.after(() => fs.rmSync(laterChange.root, { recursive: true, force: true }));
   assert.notEqual(compare(laterChange, ["--allow-free-stuff-parent-v2"]).status, 0);
 });
+
+test("Samples v2 transition stops being exempt after its marker reaches the base", (context) => {
+  const relative = "free-samples-south-africa/index.html";
+  const transition = createPair("<body>samples v1</body>", '<body data-free-samples-page-version="2">samples v2</body>', relative);
+  context.after(() => fs.rmSync(transition.root, { recursive: true, force: true }));
+  assert.equal(compare(transition, ["--allow-free-samples-v2"]).status, 0);
+
+  const laterChange = createPair(
+    '<body data-free-samples-page-version="2">samples v2</body>',
+    '<body data-free-samples-page-version="2">unreviewed samples change</body>',
+    relative
+  );
+  context.after(() => fs.rmSync(laterChange.root, { recursive: true, force: true }));
+  assert.notEqual(compare(laterChange, ["--allow-free-samples-v2"]).status, 0);
+});
+
+test("enabled parity rejects lookalike or tampered Coloplast fragments", (context) => {
+  const relative = "free-samples-south-africa/index.html";
+  const id = "coloplast-speedicath-short-sample";
+  const base = `<head>\n    \n    <script id="faq"></script>\n</head>\n        \n\n        <section class="next"></section>`;
+  const actual = `<head>\n    <script id="structured-data-opportunities" type="application/ld+json">{"identifier":"${id}"}</script>\n    <script id="faq"></script>\n</head>\n        <section class="opportunity-section"><article data-opportunity-id="${id}"></article>\n        </section>\n\n        <section class="next"></section>`;
+  const lookalike = createPair(base, actual, relative);
+  context.after(() => fs.rmSync(lookalike.root, { recursive: true, force: true }));
+  assert.notEqual(compare(lookalike, ["--allow-opportunity-pilot"]).status, 0);
+
+  const tampered = createPair(base, actual.replace("<article", "<p>Invented claim</p><article"), relative);
+  context.after(() => fs.rmSync(tampered.root, { recursive: true, force: true }));
+  assert.notEqual(compare(tampered, ["--allow-opportunity-pilot"]).status, 0);
+
+  const source = fs.readFileSync(COMPARATOR, "utf8");
+  assert.match(source, /OPPORTUNITY_PILOT_FRAGMENT_HASHES/);
+  assert.match(source, /hashContent\(sectionMatches\[0\]\)/);
+  assert.match(source, /hashContent\(schemaMatches\[0\]\)/);
+});

@@ -26,6 +26,15 @@
     "id": { "type": "string", "minLength": 1 },
     "name": { "type": "string", "minLength": 1 },
     "resourceType": { "enum": ["programme", "platform", "directory", "public_service", "guide"] },
+    "sampleResourceType": {
+      "enum": [
+        "product_testing_panel",
+        "sample_directory",
+        "brand_sample_programme",
+        "research_panel",
+        "editorial_guide"
+      ]
+    },
     "category": { "type": "string", "minLength": 1 },
     "categoryLabel": { "type": "string", "minLength": 1 },
     "officialUrl": { "type": "string", "format": "uri", "pattern": "^https?://" },
@@ -38,8 +47,21 @@
     "datePublished": { "$ref": "#/$defs/date" },
     "lastReviewed": { "$ref": "#/$defs/date" },
     "reviewDueAt": { "$ref": "#/$defs/date" },
-    "dateModified": { "$ref": "#/$defs/date" }
+    "dateModified": { "$ref": "#/$defs/date" },
+    "manualOk": { "type": "boolean" },
+    "manualOkReason": { "type": "string", "minLength": 1 },
+    "manualOkCheckedAt": { "$ref": "#/$defs/date" },
+    "manualOkAllowedDomain": { "type": "string", "minLength": 1 },
+    "manualOkEvidence": { "type": "string", "minLength": 1 },
+    "manualOkAllowGenericHomepage": { "type": "boolean" }
   },
+  "allOf": [
+    {
+      "if": { "properties": { "category": { "const": "samples" } }, "required": ["category"] },
+      "then": { "properties": { "sampleResourceType": {} }, "required": ["sampleResourceType"] },
+      "else": { "not": { "required": ["sampleResourceType"] } }
+    }
+  ],
   "$defs": {
     "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
   }

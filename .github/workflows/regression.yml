@@ -8,7 +8,7 @@ permissions:
   contents: read
 
 env:
-  FREEHUB_BUILD_DATE: "2026-07-13"
+  FREEHUB_BUILD_DATE: "2026-07-14"
 
 jobs:
   baseline:
@@ -37,15 +37,14 @@ jobs:
           (cd "$base_dir" && FREEHUB_BUILD_DATE="$FREEHUB_BUILD_DATE" node scripts/generate-pages.js)
           node scripts/capture-generated-output.js --output-dir="$candidate_absent_dir"
           echo "Compare feature flag absent with PR base"
-          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-free-stuff-parent-v2
+          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-free-samples-v2
           echo "Compare feature flag explicitly disabled with PR base"
           FREEHUB_ENABLE_OPPORTUNITIES=false npm run build
-          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-free-stuff-parent-v2
+          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-free-samples-v2
           node scripts/compare-generated-output.js --base-dir="$candidate_absent_dir"
-          echo "Compare enabled empty Opportunity registry with PR base"
+          echo "Compare enabled reviewed Opportunity pilot with flag-off candidate"
           FREEHUB_ENABLE_OPPORTUNITIES=true npm run build
-          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-free-stuff-parent-v2
-          node scripts/compare-generated-output.js --base-dir="$candidate_absent_dir"
+          node scripts/compare-generated-output.js --base-dir="$candidate_absent_dir" --allow-opportunity-pilot
 
   links:
     name: Live link and warning baseline
@@ -70,9 +69,11 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
-      - run: npm run build
+      - run: FREEHUB_ENABLE_OPPORTUNITIES=false npm run build
       - run: npx playwright install --with-deps chromium
       - run: npm run test:browser
+      - run: FREEHUB_ENABLE_OPPORTUNITIES=true npm run build
+      - run: FREEHUB_ENABLE_OPPORTUNITIES=true npm run test:browser
       - name: Upload Playwright artifacts
         if: always()
         uses: actions/upload-artifact@v4

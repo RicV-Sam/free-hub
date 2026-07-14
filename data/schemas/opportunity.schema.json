@@ -102,13 +102,15 @@
     "freeSampleDetails": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["fulfilmentMethod", "deliveryCharge", "stockState", "householdLimit", "selectionRequired"],
+      "required": ["fulfilmentMethod", "deliveryCharge", "stockState", "householdLimit", "selectionStatus", "expectedFulfilmentWindow"],
       "properties": {
-        "fulfilmentMethod": { "enum": ["delivery", "collection", "digital"] },
-        "deliveryCharge": { "type": "number", "minimum": 0 },
-        "stockState": { "enum": ["available", "limited", "selection_required"] },
+        "fulfilmentMethod": { "enum": ["delivery", "collection", "digital", "mixed"] },
+        "deliveryCharge": { "enum": ["none", "required", "unknown"] },
+        "stockState": { "enum": ["available", "limited", "application_only", "unknown"] },
         "householdLimit": { "type": ["integer", "null"], "minimum": 1 },
-        "selectionRequired": { "type": "boolean" }
+        "selectionStatus": { "enum": ["guaranteed", "selected_participants", "first_come_first_served", "unknown"] },
+        "expectedFulfilmentWindow": { "type": "string", "minLength": 1 },
+        "privacyUrl": { "type": "string", "format": "uri", "pattern": "^https://" }
       }
     },
     "productTestingDetails": {

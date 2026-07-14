@@ -1,0 +1,22 @@
+[
+  {
+    "recordId": "coloplast-speedicath-short-sample",
+    "field": "sourceUrl",
+    "hostname": "products.coloplast.co.za",
+    "url": "https://products.coloplast.co.za/global-campaigns/speedicath-short/",
+    "reason": "official_source_verified_despite_automated_access_block",
+    "verifiedAt": "2026-07-14",
+    "expiresAt": "2026-07-21",
+    "evidenceSummary": "Official Coloplast South Africa campaign displayed a free SpeediCath Short sample form and stated that requests are qualified and verified for product suitability."
+  },
+  {
+    "recordId": "coloplast-speedicath-short-sample",
+    "field": "termsUrl",
+    "hostname": "products.coloplast.co.za",
+    "url": "https://products.coloplast.co.za/webshop/terms-of-sale/",
+    "reason": "official_source_verified_despite_automated_access_block",
+    "verifiedAt": "2026-07-14",
+    "expiresAt": "2026-07-21",
+    "evidenceSummary": "Official Coloplast sample clauses stated that approved sample requests are dispatched separately within three business days and receive free delivery in South Africa."
+  }
+]

@@ -19,7 +19,7 @@
     const common = {
       entity_kind: link.dataset.entityKind,
       content_type: link.dataset.contentType,
-      page_type: "free_stuff_parent",
+      page_type: link.dataset.pageType,
     };
 
     if (link.dataset.discoveryAction === "card") {
@@ -35,6 +35,7 @@
         ...common,
         content_id: link.dataset.contentId,
         source_domain: link.dataset.sourceDomain,
+        ...(link.dataset.destinationPath ? { destination_path: link.dataset.destinationPath } : {}),
       });
     }
   }

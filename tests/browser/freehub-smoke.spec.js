@@ -1,4 +1,5 @@
 const { expect, test } = require("@playwright/test");
+const opportunitiesEnabled = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true";
 
 async function disableFirebase(page) {
   await page.route("**/firebase-config.json", (route) => route.fulfill({ status: 404, body: "Not configured in regression tests" }));
@@ -71,9 +72,14 @@ test("Free Stuff parent preserves intent and separates durable resources from op
   await expect(childNavigation.getByRole("link", { name: "Credit Reports" })).toHaveAttribute("href", "/free-credit-report-south-africa/");
 
   await expect(page.locator("article.free-resource-card")).toHaveCount(18);
-  await expect(page.locator("article.opportunity-card")).toHaveCount(0);
-  await expect(page.locator("section.opportunity-section")).toHaveCount(0);
-  await expect(page.locator("#structured-data-opportunities")).toHaveCount(0);
+  await expect(page.locator("article.opportunity-card")).toHaveCount(opportunitiesEnabled ? 1 : 0);
+  await expect(page.locator("section.opportunity-section")).toHaveCount(opportunitiesEnabled ? 1 : 0);
+  await expect(page.locator("#structured-data-opportunities")).toHaveCount(opportunitiesEnabled ? 1 : 0);
+  if (opportunitiesEnabled) {
+    await expect(page.locator('[data-opportunity-id="coloplast-speedicath-short-sample"]')).toHaveAttribute("data-card-variant", "compact");
+    await expect(page.locator("article.opportunity-card")).toContainText("Medical product sample request");
+    await expect(page.locator("article.opportunity-card")).toContainText("Freehub does not receive or assess your application");
+  }
   await expect(page.getByRole("region", { name: "Competition discovery" })).toContainText("separate inventory");
 });
 
@@ -111,7 +117,72 @@ test("Free Stuff discovery analytics separates pillar and official-source events
   });
   expect(events[0][2].content_id).toBeTruthy();
   expect(events[0][2].source_domain).toBeTruthy();
-  expect(events[0][2]).not.toHaveProperty("destination_path");
+  expect(events[0][2].destination_path).toMatch(/^\//);
+});
+
+test("Free Samples v2 preserves its canonical and seven classified resources", async ({ page }) => {
+  await page.goto("/free-samples-south-africa/");
+  await expect(page).toHaveTitle("Where to Get Free Samples in South Africa | Official Offers Guide");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Where to Get Free Samples in South Africa");
+  await expectCanonical(page, "/free-samples-south-africa/");
+  await expect(page.locator('body[data-free-samples-page-version="2"]')).toHaveCount(1);
+  await expect(page.locator("article.free-resource-card")).toHaveCount(7);
+  await expect(page.locator('[data-content-type="product_testing_panel"]')).toHaveCount(4);
+  await expect(page.locator('[data-content-type="brand_sample_programme"]')).toHaveCount(2);
+  await expect(page.locator('[data-content-type="editorial_guide"]')).toHaveCount(1);
+  await expect(page.getByRole("region", { name: "Product-testing panels" })).toContainText("does not guarantee");
+  await expect(page.locator("section.detail-faq details")).toHaveCount(6);
+  await expect(page.locator("article.opportunity-card")).toHaveCount(opportunitiesEnabled ? 1 : 0);
+  await expect(page.locator("#structured-data-opportunities")).toHaveCount(opportunitiesEnabled ? 1 : 0);
+
+  if (opportunitiesEnabled) {
+    const card = page.locator('[data-opportunity-id="coloplast-speedicath-short-sample"]');
+    await expect(card).toHaveAttribute("data-card-variant", "full");
+    await expect(card).toContainText("Application only");
+    await expect(card).toContainText("No delivery charge");
+    await expect(card).toContainText("Coloplast, not Freehub, assesses product suitability");
+    await expect(card).toContainText("Freehub does not receive or assess your application");
+    await expect(card.getByRole("link", { name: "Coloplast consent and privacy information" })).toHaveAttribute(
+      "href",
+      "https://www.coloplast.co.za/global/declaration-of-consent/"
+    );
+  }
+
+  const missingDetail = await page.request.get("/opportunity/coloplast-speedicath-short-sample/");
+  expect(missingDetail.status()).toBe(404);
+});
+
+test("Samples analytics identify the vertical and use parameter-free destinations", async ({ page }) => {
+  await page.goto("/free-samples-south-africa/");
+  await page.evaluate(() => {
+    window.__freehubTestEvents = [];
+    window.gtag = (...args) => window.__freehubTestEvents.push(args);
+  });
+  const resource = page.locator("a.free-resource-card__link").first();
+  await resource.evaluate((link) => link.addEventListener("click", (event) => event.preventDefault(), { once: true }));
+  await resource.click();
+  let events = await page.evaluate(() => window.__freehubTestEvents);
+  expect(events).toHaveLength(1);
+  expect(events[0][1]).toBe("official_source_click");
+  expect(events[0][2]).toMatchObject({ entity_kind: "resource", page_type: "free_samples_vertical" });
+  expect(events[0][2].destination_path).toMatch(/^\//);
+  expect(events[0][2].destination_path).not.toContain("?");
+
+  if (opportunitiesEnabled) {
+    await page.evaluate(() => { window.__freehubTestEvents = []; });
+    const source = page.locator("article.opportunity-card a.opportunity-card__link");
+    await source.evaluate((link) => link.addEventListener("click", (event) => event.preventDefault(), { once: true }));
+    await source.click();
+    events = await page.evaluate(() => window.__freehubTestEvents);
+    expect(events).toEqual([["event", "official_source_click", {
+      entity_kind: "opportunity",
+      content_type: "free_sample",
+      page_type: "free_samples_vertical",
+      content_id: "coloplast-speedicath-short-sample",
+      source_domain: "products.coloplast.co.za",
+      destination_path: "/global-campaigns/speedicath-short/",
+    }]]);
+  }
 });
 
 test("PR2-mobile-navigation: collapsible mobile navigation opens and closes", async ({ page }) => {

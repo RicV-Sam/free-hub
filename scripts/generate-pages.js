@@ -11,6 +11,7 @@ const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
 const ARCHIVE_DATA_PATH = path.join(ROOT_DIR, "data", "archive", "competitions-expired.json");
 const FREE_RESOURCES_PATH = path.join(ROOT_DIR, "data", "free-resources.json");
 const OPPORTUNITIES_PATH = path.join(ROOT_DIR, "data", "opportunities.json");
+const OPPORTUNITY_SOURCE_EVIDENCE_PATH = path.join(ROOT_DIR, "data", "opportunity-source-evidence.json");
 const RELATIVE_ASSET_PATH = "/";
 const ADSENSE_SCRIPT =
   '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6084410613829318" crossorigin="anonymous"></script>';
@@ -25,9 +26,8 @@ const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Dat
 const OPPORTUNITIES_ENABLED = opportunityData.isOpportunityFeatureEnabled(
   process.env.FREEHUB_ENABLE_OPPORTUNITIES
 );
-// PR 3 safeguard: PR 4 must replace this with an explicitly reviewed host allowlist.
-// Never infer or permit source hosts from registry contents.
-const OPPORTUNITY_ALLOWED_SOURCE_HOSTS = Object.freeze([]);
+// Reviewed PR 4 pilot allowlist. Never infer or permit hosts from registry contents.
+const OPPORTUNITY_ALLOWED_SOURCE_HOSTS = Object.freeze(["products.coloplast.co.za"]);
 const CSS_ASSET_VERSION = "20260704-voucher-seo-v1";
 const FREEHUB_REFER_WIN_CONFIG = {
   referWinCampaignEnabled: true,
@@ -1333,7 +1333,7 @@ const TRUST_PAGE_DEFINITIONS = [
       "If you are searching where to get free samples in South Africa, start with official brand campaigns, retailer sample offers and recognised product-testing panels. This guide is built for searchers who want a practical first check before they share personal details, pay delivery costs or assume every sample page is a legitimate no-cost offer.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: "2026-06-25",
+    dateModified: "2026-07-14",
     resourceCategories: ["samples"],
     resourceTitle: "Sample and product-testing routes",
     resourceIntro:
@@ -1985,6 +1985,7 @@ const VERTICAL_PAGE_DEFINITIONS = [
 ];
 
 function main() {
+  validateFreeResourceData();
   approvedPublicOpportunities = loadApprovedPublicOpportunities();
   const rawCompetitions = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
   const rawArchiveCompetitions = fs.existsSync(ARCHIVE_DATA_PATH)
@@ -2097,30 +2098,62 @@ function main() {
 }
 
 function loadApprovedPublicOpportunities() {
-  if (!OPPORTUNITIES_ENABLED) {
-    return [];
-  }
   if (!fs.existsSync(OPPORTUNITIES_PATH)) {
     throw new Error("[Opportunity validation failed]\n- data/opportunities.json is missing.");
   }
+  if (!fs.existsSync(OPPORTUNITY_SOURCE_EVIDENCE_PATH)) {
+    throw new Error("[Opportunity validation failed]\n- data/opportunity-source-evidence.json is missing.");
+  }
   const opportunities = JSON.parse(fs.readFileSync(OPPORTUNITIES_PATH, "utf8"));
+  const sourceEvidence = JSON.parse(fs.readFileSync(OPPORTUNITY_SOURCE_EVIDENCE_PATH, "utf8"));
   const validation = opportunityData.validateOpportunityRegistry(opportunities);
-  if (!validation.valid) {
+  const evidenceValidation = opportunityData.validateSourceEvidenceLedger(sourceEvidence);
+  const referenceErrors = validateOpportunityEvidenceReferences(opportunities, sourceEvidence);
+  const errors = [...validation.errors, ...evidenceValidation.errors, ...referenceErrors];
+  if (errors.length > 0) {
     throw new Error(
-      `[Opportunity validation failed]\n${validation.errors.map((error) => `- ${error}`).join("\n")}`
+      `[Opportunity validation failed]\n${errors.map((error) => `- ${error}`).join("\n")}`
     );
   }
+  if (!OPPORTUNITIES_ENABLED) return [];
   const approved = opportunities.filter((opportunity) =>
     opportunityData.isPublicOpportunity(opportunity, {
       asOfDate: BUILD_DATE_ISO,
       strictFreeOnly: false,
       allowedSourceHosts: OPPORTUNITY_ALLOWED_SOURCE_HOSTS,
+      sourceEvidence,
+      requireSourceEvidence: true,
     })
   );
   console.log(
     `[Opportunity foundations] ${opportunities.length} private records validated; ${approved.length} records passed the reviewed public gate.`
   );
   return approved;
+}
+
+function validateFreeResourceData() {
+  const strictSamples = FREE_RESOURCES.filter((resource) => resource.category === "samples");
+  const legacyResources = FREE_RESOURCES.filter((resource) => resource.category !== "samples");
+  const strictValidation = opportunityData.validateFreeResourceRegistry(strictSamples);
+  const legacyValidation = opportunityData.validateFreeResourceRegistry(legacyResources, { legacy: true });
+  const names = FREE_RESOURCES.map((resource) => String(resource.name || "").trim().toLowerCase()).filter(Boolean);
+  const duplicateNames = names.filter((name, index) => names.indexOf(name) !== index);
+  const errors = [...strictValidation.errors, ...legacyValidation.errors];
+  [...new Set(duplicateNames)].forEach((name) => errors.push(`free resource name is duplicated across validation modes: ${name}`));
+  if (errors.length > 0) {
+    throw new Error(`[FreeResource validation failed]\n${errors.map((error) => `- ${error}`).join("\n")}`);
+  }
+}
+
+function validateOpportunityEvidenceReferences(opportunities, sourceEvidence) {
+  const byId = new Map(opportunities.map((opportunity) => [opportunity.id, opportunity]));
+  return sourceEvidence.flatMap((entry, index) => {
+    const opportunity = byId.get(entry.recordId);
+    if (!opportunity) return [`sourceEvidence[${index}] references an unknown Opportunity.`];
+    if (!opportunity[entry.field]) return [`sourceEvidence[${index}] references a missing ${entry.field}.`];
+    if (opportunity[entry.field] !== entry.url) return [`sourceEvidence[${index}] URL does not exactly match the Opportunity.`];
+    return [];
+  });
 }
 
 function uniqueCompetitionsBySlug(competitions) {
@@ -5852,6 +5885,7 @@ function renderFreeStuffParentContent({ page, pageResources, usefulLinks, faqIte
           opportunities: approvedPublicOpportunities,
           heading: "Current verified opportunities",
           pageType: "free_stuff_parent",
+          cardVariant: "compact",
         })}
 
         ${freeResourceRenderer.renderFreeResourceSection({
@@ -5894,7 +5928,7 @@ function renderTrustPageSections(sections, label) {
 function renderFreeStuffChildNavigation() {
   return `<nav class="free-stuff-child-nav" aria-label="Free Stuff categories">
           ${FREE_STUFF_CHILD_LINKS.map(
-            (link) => `<a class="free-stuff-child-nav__link" href="${escapeAttribute(link.href)}" data-discovery-action="card" data-entity-kind="resource_category" data-content-type="${escapeAttribute(link.contentType)}" data-destination-path="${escapeAttribute(link.href)}">${escapeHtml(link.label)}</a>`
+            (link) => `<a class="free-stuff-child-nav__link" href="${escapeAttribute(link.href)}" data-discovery-action="card" data-entity-kind="resource_category" data-content-type="${escapeAttribute(link.contentType)}" data-destination-path="${escapeAttribute(link.href)}" data-page-type="free_stuff_parent">${escapeHtml(link.label)}</a>`
           ).join("\n          ")}
         </nav>`;
 }
@@ -5927,9 +5961,212 @@ function renderTrustPageUsefulLinks(usefulLinks) {
         </section>`;
 }
 
+function renderFreeSamplesPage(page) {
+  const canonicalUrl = `${shared.CANONICAL_ORIGIN}/${page.slug}/`;
+  const pageResources = getTrustPageResources(page);
+  const panels = pageResources.filter((resource) => resource.sampleResourceType === "product_testing_panel");
+  const programmes = pageResources.filter((resource) => resource.sampleResourceType === "brand_sample_programme");
+  const explainers = pageResources.filter((resource) => resource.sampleResourceType === "editorial_guide");
+  const sampleOpportunities = approvedPublicOpportunities.filter((opportunity) => opportunity.type === "free_sample");
+  const faqItems = getFreeSamplesFaqItems();
+  const resourceStructuredData = freeResourceRenderer.buildFreeResourceItemList({
+    resources: pageResources,
+    name: "Sample and product-testing routes",
+  });
+  const opportunityStructuredData = opportunityRenderer.buildOpportunityItemList({
+    opportunities: sampleOpportunities,
+    name: "Current verified samples",
+  });
+  const faqStructuredData = buildTrustPageFaqStructuredData(faqItems);
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: page.heading,
+    description: page.description,
+    url: canonicalUrl,
+    inLanguage: "en-ZA",
+    isPartOf: { "@type": "WebSite", name: "Freehub", url: `${shared.CANONICAL_ORIGIN}/` },
+  };
+  const articleData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: page.heading,
+    description: page.description,
+    image: shared.DEFAULT_OG_IMAGE,
+    datePublished: page.datePublished,
+    dateModified: getTrustPageLastmod(page),
+    author: { "@type": "Organization", name: "Freehub", url: `${shared.CANONICAL_ORIGIN}/` },
+    publisher: {
+      "@type": "Organization",
+      name: "Freehub",
+      url: `${shared.CANONICAL_ORIGIN}/`,
+      logo: { "@type": "ImageObject", url: `${shared.CANONICAL_ORIGIN}/FH%20logo.png` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl },
+  };
+  const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${shared.CANONICAL_ORIGIN}/` },
+      { "@type": "ListItem", position: 2, name: page.heading, item: canonicalUrl },
+    ],
+  };
+
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${escapeHtml(page.title)}</title>
+    <meta name="description" content="${escapeAttribute(page.description)}" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="${escapeAttribute(page.title)}" />
+    <meta property="og:description" content="${escapeAttribute(page.description)}" />
+    <meta property="og:url" content="${escapeAttribute(canonicalUrl)}" />
+    <meta property="og:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${escapeAttribute(page.title)}" />
+    <meta name="twitter:description" content="${escapeAttribute(page.description)}" />
+    <meta name="twitter:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
+    <script id="structured-data-webpage" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
+    <script id="structured-data-breadcrumb" type="application/ld+json">${escapeScript(JSON.stringify(breadcrumbData))}</script>
+    <script id="structured-data-article" type="application/ld+json">${escapeScript(JSON.stringify(articleData))}</script>
+    <script id="structured-data-itemlist" type="application/ld+json">${escapeScript(JSON.stringify(resourceStructuredData))}</script>
+    ${opportunityStructuredData ? `<script id="structured-data-opportunities" type="application/ld+json">${escapeScript(JSON.stringify(opportunityStructuredData))}</script>` : ""}
+    <script id="structured-data-faq" type="application/ld+json">${escapeScript(JSON.stringify(faqStructuredData))}</script>
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
+    ${ADSENSE_SCRIPT}
+    ${renderGoogleTagManagerHead("{ page_type: 'free_samples_vertical', trust_page: 'free-samples-south-africa' }")}
+    ${renderMetaPixelHead()}
+  </head>
+  <body data-free-samples-page-version="2">
+    ${renderGoogleTagManagerNoScript()}
+    ${renderMetaPixelNoScript()}
+    <div class="site-shell">
+      ${renderTopNavigation()}
+      ${renderModernHero({
+        className: "hero--utility hero--trust",
+        eyebrow: "Verified sample guide",
+        heading: page.heading,
+        intro: page.intro,
+        actions: [
+          { label: "Browse Free Stuff", href: "/free-stuff-south-africa/", className: "btn--primary" },
+          { label: "Free-entry Competitions", href: "/free-competitions/", className: "btn--secondary" },
+        ],
+        trustItems: ["Official source links", "Costs stated clearly", "Freehub never handles applications"],
+      })}
+
+      <main id="main-content" class="main-content trust-page free-samples-page">
+        <section class="trust-page__content" aria-label="Free samples definition">
+          <article class="trust-page__section">
+            <h2>Direct samples, testing panels and directories are different</h2>
+            <p>A direct sample is a current request on an official brand page. Product-testing panels recruit selected members and do not guarantee a product. Directories and guides help you find campaigns but are not current offers themselves.</p>
+            <p>Freehub keeps those routes visibly separate so a platform membership or application is never presented as a guaranteed free item.</p>
+          </article>
+        </section>
+
+        ${opportunityRenderer.renderOpportunitySection({
+          opportunities: sampleOpportunities,
+          heading: "Current verified samples",
+          pageType: "free_samples_vertical",
+          cardVariant: "full",
+        })}
+
+        ${freeResourceRenderer.renderFreeResourceSection({
+          resources: panels,
+          heading: "Product-testing panels",
+          description: "These platforms recruit selected testers. Joining a panel does not guarantee that you will receive a product, and feedback or review tasks may be required.",
+          pageType: "free_samples_vertical",
+          kicker: "Selected testers only",
+        })}
+
+        ${freeResourceRenderer.renderFreeResourceSection({
+          resources: programmes,
+          heading: "Official brand sample programmes",
+          description: "Official brand programmes can change or pause without notice. Check the current campaign, eligibility and delivery facts on the official site before sharing details.",
+          pageType: "free_samples_vertical",
+          kicker: "Brand sources",
+        })}
+
+        ${freeResourceRenderer.renderFreeResourceSection({
+          resources: explainers,
+          heading: "International sample explainer",
+          description: "This is a non-South-African explainer, not a current South African sample offer. Use it only to understand how international product-testing programmes work.",
+          pageType: "free_samples_vertical",
+          kicker: "Explainer only",
+        })}
+
+        <section class="trust-page__content" aria-label="Sample safety and privacy">
+          <article class="trust-page__section">
+            <h2>Safety and sensitive information</h2>
+            <p>Apply only on the named provider's official website. Check delivery charges, selection rules, feedback duties and what information the provider will collect before submitting a form.</p>
+            <p>For the medical-product sample shown here, you will provide suitability and health-related information directly to Coloplast. Freehub does not receive or assess your application, store application answers, pre-fill the form or provide medical suitability advice.</p>
+          </article>
+        </section>
+
+        <section class="free-stuff-competition-callout" aria-label="Free competition distinction">
+          <div>
+            <p class="section-kicker">Competitions stay separate</p>
+            <h2>Looking for free-entry prize draws?</h2>
+            <p>Competitions have promoters, closing dates and entry mechanics. They remain a separate inventory and are not presented as claimable samples.</p>
+          </div>
+          <div class="free-stuff-competition-callout__links">
+            <a class="btn btn--primary" href="/free-competitions/">Browse Free-entry Competitions</a>
+          </div>
+        </section>
+
+        ${renderTrustFaqSection(faqItems)}
+        ${renderTrustPageUsefulLinks(getTrustPageUsefulLinks(page))}
+      </main>
+
+      ${renderSiteFooter()}
+    </div>
+    <script src="/shared/discovery-analytics.js"></script>
+    <script type="module" src="/shared/auth-ui.js"></script>
+  </body>
+</html>
+`;
+}
+
+function getFreeSamplesFaqItems() {
+  return [
+    {
+      question: "Where can I get free samples in South Africa?",
+      answer: "Start with current requests on official brand pages. Product-testing panels can also recruit South African testers, but joining does not guarantee a product.",
+    },
+    {
+      question: "Can I get free samples without buying anything first?",
+      answer: "Sometimes. A verified sample marked completely free must have no purchase or delivery charge. Other programmes may have different conditions, so check the official terms.",
+    },
+    {
+      question: "Do product-testing panels guarantee a free product?",
+      answer: "No. Panels select participants for individual campaigns and may require questionnaires, feedback or reviews. Membership alone does not guarantee selection.",
+    },
+    {
+      question: "How does Freehub verify a current sample?",
+      answer: "Freehub checks the official campaign, cost, fulfilment, selection facts and review date. Medical-product sample evidence is reviewed at least every seven days while published.",
+    },
+    {
+      question: "Does Freehub receive health or application information?",
+      answer: "No. You submit information directly to the provider. Freehub does not receive, store, assess, proxy or pre-fill sample applications.",
+    },
+    {
+      question: "How do I avoid fake sample offers?",
+      answer: "Use the provider's official website, reject hidden delivery charges or card requests, and avoid survey pages that hide the provider or promise guaranteed high-value rewards.",
+    },
+  ];
+}
+
 function renderTrustPage(page) {
   if (page.slug === "free-stuff-south-africa") {
     return renderFreeStuffParentPage(page);
+  }
+  if (page.slug === "free-samples-south-africa") {
+    return renderFreeSamplesPage(page);
   }
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/${page.slug}/`;
   const usefulLinks = getTrustPageUsefulLinks(page);
@@ -9790,7 +10027,9 @@ function runFreeResourceChecks() {
         errors.push(`Free-resource page must define explicit datePublished and dateModified: ${page.slug}`);
       }
 
-      if (page.dateModified === BUILD_DATE_ISO && page.dateModified !== page.datePublished) {
+      const isReviewedSamplesV2Date =
+        page.slug === "free-samples-south-africa" && page.dateModified === "2026-07-14";
+      if (page.dateModified === BUILD_DATE_ISO && page.dateModified !== page.datePublished && !isReviewedSamplesV2Date) {
         errors.push(`Free-resource page dateModified appears to be using build date by default: ${page.slug}`);
       }
     }
