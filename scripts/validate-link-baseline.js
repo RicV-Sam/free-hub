@@ -23,7 +23,8 @@ const competitionPassed = run("scripts/validate-competition-links.js", [
   ...ciNetworkArgs,
 ]);
 const resourcePassed = run("scripts/validate-free-resource-links.js", [`--baseline=${BASELINE}`, ...ciNetworkArgs]);
+const opportunityPassed = run("scripts/validate-opportunity-links.js", ciNetworkArgs);
 
-if (!competitionPassed || !resourcePassed) {
+if (!competitionPassed || !resourcePassed || !opportunityPassed) {
   process.exitCode = 1;
 }

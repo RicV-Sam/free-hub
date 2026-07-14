@@ -12,7 +12,7 @@ const fixtures = JSON.parse(
 );
 const publicOptions = {
   asOfDate: "2026-07-14",
-  allowedSourceHosts: ["example.org"],
+  allowedSourceHosts: ["samples.example.org", "testing.example.org", "rewards.example.org", "learning.example.org"],
 };
 
 function clone(value) {
@@ -30,7 +30,8 @@ test("committed JSON schemas compile and accept every strict contract fixture", 
   const resourceSchema = loadSchema("free-resource.schema.json");
   const summarySchema = loadSchema("discovery-summary.schema.json");
   const opportunitySchema = loadSchema("opportunity.schema.json");
-  [requirementSchema, resourceSchema, summarySchema, opportunitySchema].forEach((schema) => ajv.addSchema(schema));
+  const evidenceSchema = loadSchema("opportunity-source-evidence.schema.json");
+  [requirementSchema, resourceSchema, summarySchema, opportunitySchema, evidenceSchema].forEach((schema) => ajv.addSchema(schema));
 
   assert.equal(ajv.getSchema(requirementSchema.$id)(fixtures.requirement), true);
   assert.equal(ajv.getSchema(resourceSchema.$id)(fixtures.freeResource), true);
@@ -41,6 +42,8 @@ test("committed JSON schemas compile and accept every strict contract fixture", 
     fixtures.publishedCourse,
     fixtures.unsupportedDraft,
   ].forEach((fixture) => assert.equal(ajv.getSchema(opportunitySchema.$id)(fixture), true));
+  const evidenceLedger = JSON.parse(fs.readFileSync(path.join(rootDir, "data", "opportunity-source-evidence.json"), "utf8"));
+  assert.equal(ajv.getSchema(evidenceSchema.$id)(evidenceLedger), true);
 
   const summary = opportunityData.createDiscoverySummary({
     id: "fixture-summary",
@@ -104,6 +107,10 @@ test("type-specific details reject missing, contradictory, and misspelled facts"
   const impossibleDates = clone(fixtures.publishedSample);
   impossibleDates.reviewDueAt = "2026-07-01";
   assert.equal(opportunityData.validateOpportunity(impossibleDates).valid, false);
+
+  const invalidPrivacyUrl = clone(fixtures.publishedSample);
+  invalidPrivacyUrl.details.privacyUrl = "javascript:alert(1)";
+  assert.equal(opportunityData.validateOpportunity(invalidPrivacyUrl).valid, false);
 });
 
 test("the public gate admits only current, verified, supported official-source records", () => {
@@ -138,6 +145,8 @@ test("publication dates and availability are deterministic and inclusive", () =>
     false
   );
   const expiryBoundary = clone(fixtures.publishedSample);
+  expiryBoundary.lastVerifiedAt = "2026-07-25";
+  expiryBoundary.updatedAt = "2026-07-25";
   expiryBoundary.reviewDueAt = "2026-08-01";
   assert.equal(opportunityData.isPublicOpportunity(expiryBoundary, { ...publicOptions, asOfDate: "2026-07-31" }), true);
   assert.equal(opportunityData.isPublicOpportunity(expiryBoundary, { ...publicOptions, asOfDate: "2026-08-01" }), false);
@@ -150,7 +159,7 @@ test("publication dates and availability are deterministic and inclusive", () =>
   recurring.expiresAt = "2026-01-01";
   assert.equal(opportunityData.isPublicOpportunity(recurring, publicOptions), true);
   assert.equal(opportunityData.isPublicOpportunity(recurring, { ...publicOptions, asOfDate: "not-a-date" }), false);
-  assert.equal(opportunityData.isPublicOpportunity(recurring, { allowedSourceHosts: ["example.org"] }), false);
+  assert.equal(opportunityData.isPublicOpportunity(recurring, { allowedSourceHosts: publicOptions.allowedSourceHosts }), false);
 });
 
 test("cost and requirement mismatches fail closed, including strict free-only collections", () => {
@@ -181,7 +190,7 @@ test("cost and requirement mismatches fail closed, including strict free-only co
 
   const paidDelivery = clone(fixtures.publishedSample);
   paidDelivery.costClassification = "delivery_fee";
-  paidDelivery.details.deliveryCharge = 49;
+  paidDelivery.details.deliveryCharge = "required";
   paidDelivery.requirements.push({ kind: "delivery", required: true, label: "R49 delivery fee" });
   assert.equal(opportunityData.isPublicOpportunity(paidDelivery, publicOptions), true);
   assert.equal(opportunityData.isPublicOpportunity(paidDelivery, { ...publicOptions, strictFreeOnly: true }), false);
@@ -259,8 +268,59 @@ test("DiscoverySummary copies supplied facts and invents no optional metadata", 
   assert.throws(() => opportunityData.createDiscoverySummary({ ...input, labelz: [] }), /not allowed/);
 });
 
-test("the tracked Opportunity registry is empty and valid", () => {
+test("the tracked Opportunity registry contains only the reviewed Coloplast pilot", () => {
   const registry = JSON.parse(fs.readFileSync(path.join(rootDir, "data", "opportunities.json"), "utf8"));
-  assert.deepEqual(registry, []);
+  assert.deepEqual(registry.map((record) => record.id), ["coloplast-speedicath-short-sample"]);
   assert.equal(opportunityData.validateOpportunityRegistry(registry).valid, true);
+});
+
+test("manual evidence is exact, fresh, append-only data and cannot match another URL", () => {
+  const ledger = JSON.parse(fs.readFileSync(path.join(rootDir, "data", "opportunity-source-evidence.json"), "utf8"));
+  const record = JSON.parse(fs.readFileSync(path.join(rootDir, "data", "opportunities.json"), "utf8"))[0];
+  assert.equal(opportunityData.validateSourceEvidenceLedger(ledger).valid, true);
+  const outOfOrder = [
+    { ...ledger[0], verifiedAt: "2026-07-15", expiresAt: "2026-07-21" },
+    ledger[1],
+  ];
+  assert.equal(opportunityData.validateSourceEvidenceLedger(outOfOrder).valid, false);
+  assert.equal(opportunityData.hasCurrentSourceEvidence(record, "sourceUrl", ledger, "2026-07-14"), true);
+  assert.equal(opportunityData.hasCurrentSourceEvidence(record, "sourceUrl", ledger, "2026-07-22"), false);
+  assert.equal(
+    opportunityData.hasCurrentSourceEvidence({ ...record, sourceUrl: `${record.sourceUrl}?changed=1` }, "sourceUrl", ledger, "2026-07-14"),
+    false
+  );
+  const suffixLookalike = { ...record, sourceUrl: "https://fakeproducts.coloplast.co.za/global-campaigns/speedicath-short/" };
+  assert.equal(
+    opportunityData.isPublicOpportunity(suffixLookalike, {
+      asOfDate: "2026-07-14",
+      allowedSourceHosts: ["products.coloplast.co.za"],
+    }),
+    false
+  );
+  assert.equal(
+    opportunityData.isPublicOpportunity(
+      { ...record, sourceUrl: "https://www.products.coloplast.co.za/global-campaigns/speedicath-short/" },
+      { asOfDate: "2026-07-14", allowedSourceHosts: ["products.coloplast.co.za"] }
+    ),
+    false
+  );
+});
+
+test("all seven Samples resources pass strict subtype and 30-day cadence validation", () => {
+  const resources = JSON.parse(fs.readFileSync(path.join(rootDir, "data", "free-resources.json"), "utf8"));
+  const samples = resources.filter((resource) => resource.category === "samples");
+  assert.equal(samples.length, 7);
+  assert.equal(opportunityData.validateFreeResourceRegistry(samples).valid, true);
+  assert.deepEqual(
+    samples.map((resource) => resource.sampleResourceType).sort(),
+    [
+      "brand_sample_programme",
+      "brand_sample_programme",
+      "editorial_guide",
+      "product_testing_panel",
+      "product_testing_panel",
+      "product_testing_panel",
+      "product_testing_panel",
+    ].sort()
+  );
 });

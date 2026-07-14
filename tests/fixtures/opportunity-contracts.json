@@ -51,10 +51,11 @@
     "tags": ["direct-sample"],
     "details": {
       "fulfilmentMethod": "delivery",
-      "deliveryCharge": 0,
+      "deliveryCharge": "none",
       "stockState": "limited",
       "householdLimit": 1,
-      "selectionRequired": false
+      "selectionStatus": "first_come_first_served",
+      "expectedFulfilmentWindow": "Approved samples dispatch within five business days."
     }
   },
   "publishedProductTesting": {

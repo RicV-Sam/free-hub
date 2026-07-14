@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://freehub.co.za/schemas/opportunity-source-evidence.schema.json",
+  "title": "Freehub Opportunity Source Evidence Ledger",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "recordId",
+      "field",
+      "hostname",
+      "url",
+      "reason",
+      "verifiedAt",
+      "expiresAt",
+      "evidenceSummary"
+    ],
+    "properties": {
+      "recordId": { "type": "string", "minLength": 1 },
+      "field": { "enum": ["sourceUrl", "termsUrl"] },
+      "hostname": { "type": "string", "minLength": 1 },
+      "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+      "reason": { "const": "official_source_verified_despite_automated_access_block" },
+      "verifiedAt": { "$ref": "#/$defs/date" },
+      "expiresAt": { "$ref": "#/$defs/date" },
+      "evidenceSummary": { "type": "string", "minLength": 1 }
+    }
+  },
+  "$defs": {
+    "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+  }
+}

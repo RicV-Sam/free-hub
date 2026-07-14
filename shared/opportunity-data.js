@@ -72,6 +72,13 @@
    */
 
   const RESOURCE_TYPES = Object.freeze(["programme", "platform", "directory", "public_service", "guide"]);
+  const SAMPLE_RESOURCE_TYPES = Object.freeze([
+    "product_testing_panel",
+    "sample_directory",
+    "brand_sample_programme",
+    "research_panel",
+    "editorial_guide",
+  ]);
   const RESOURCE_AVAILABILITY = Object.freeze(["active", "manual_check", "retired"]);
   const RESOURCE_VERIFICATION_STATUSES = Object.freeze([
     "verified",
@@ -187,6 +194,11 @@
     return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value;
   }
 
+  function daysBetween(start, end) {
+    if (!isIsoDate(start) || !isIsoDate(end)) return Number.NaN;
+    return (Date.parse(`${end}T00:00:00.000Z`) - Date.parse(`${start}T00:00:00.000Z`)) / 86400000;
+  }
+
   function isHttpUrl(value) {
     try {
       const parsed = new URL(value);
@@ -282,10 +294,17 @@
     const strictFields = [
       "id",
       "resourceType",
+      "sampleResourceType",
       ...commonFields,
       "availability",
       "verificationStatus",
       "reviewDueAt",
+      "manualOk",
+      "manualOkReason",
+      "manualOkCheckedAt",
+      "manualOkAllowedDomain",
+      "manualOkEvidence",
+      "manualOkAllowGenericHomepage",
     ];
 
     if (!legacy) {
@@ -295,6 +314,21 @@
       requireEnum(resource, "availability", RESOURCE_AVAILABILITY, errors);
       requireEnum(resource, "verificationStatus", RESOURCE_VERIFICATION_STATUSES, errors);
       requireDate(resource, "reviewDueAt", errors);
+      if (resource.category === "samples") {
+        requireEnum(resource, "sampleResourceType", SAMPLE_RESOURCE_TYPES, errors);
+      } else if (resource.sampleResourceType !== undefined) {
+        errors.push("sampleResourceType is allowed only for sample resources.");
+      }
+      if (resource.manualOk !== undefined && typeof resource.manualOk !== "boolean") {
+        errors.push("manualOk must be a boolean when present.");
+      }
+      if (resource.manualOk === true) {
+        ["manualOkReason", "manualOkAllowedDomain", "manualOkEvidence"].forEach((field) => requireString(resource, field, errors));
+        requireDate(resource, "manualOkCheckedAt", errors);
+      }
+      if (resource.manualOkAllowGenericHomepage !== undefined && typeof resource.manualOkAllowGenericHomepage !== "boolean") {
+        errors.push("manualOkAllowGenericHomepage must be a boolean when present.");
+      }
     }
 
     commonFields.filter((field) => !field.startsWith("date")).forEach((field) => requireString(resource, field, errors));
@@ -304,6 +338,9 @@
     }
     if (!legacy && isIsoDate(resource.lastReviewed) && isIsoDate(resource.reviewDueAt) && resource.reviewDueAt < resource.lastReviewed) {
       errors.push("reviewDueAt cannot be before lastReviewed.");
+    }
+    if (!legacy && resource.category === "samples" && daysBetween(resource.lastReviewed, resource.reviewDueAt) > 30) {
+      errors.push("sample resource reviewDueAt must be within 30 days of lastReviewed.");
     }
     return validationResult(errors);
   }
@@ -334,24 +371,35 @@
 
   function validateFreeSampleDetails(details) {
     const errors = [];
-    const fields = ["fulfilmentMethod", "deliveryCharge", "stockState", "householdLimit", "selectionRequired"];
+    const fields = [
+      "fulfilmentMethod",
+      "deliveryCharge",
+      "stockState",
+      "householdLimit",
+      "selectionStatus",
+      "expectedFulfilmentWindow",
+      "privacyUrl",
+    ];
     addUnexpectedFieldErrors(details, fields, errors, "details");
-    requireEnum(details, "fulfilmentMethod", ["delivery", "collection", "digital"], errors);
-    if (typeof details.deliveryCharge !== "number" || !Number.isFinite(details.deliveryCharge) || details.deliveryCharge < 0) {
-      errors.push("deliveryCharge must be a non-negative number.");
-    }
-    requireEnum(details, "stockState", ["available", "limited", "selection_required"], errors);
+    requireEnum(details, "fulfilmentMethod", ["delivery", "collection", "digital", "mixed"], errors);
+    requireEnum(details, "deliveryCharge", ["none", "required", "unknown"], errors);
+    requireEnum(details, "stockState", ["available", "limited", "application_only", "unknown"], errors);
     if (!(details.householdLimit === null || (Number.isInteger(details.householdLimit) && details.householdLimit > 0))) {
       errors.push("householdLimit must be null or a positive integer.");
     }
-    if (typeof details.selectionRequired !== "boolean") {
-      errors.push("selectionRequired must be a boolean.");
+    requireEnum(details, "selectionStatus", ["guaranteed", "selected_participants", "first_come_first_served", "unknown"], errors);
+    requireString(details, "expectedFulfilmentWindow", errors);
+    if (details.privacyUrl !== undefined && !isHttpUrl(details.privacyUrl)) {
+      errors.push("privacyUrl must be an HTTP(S) URL without credentials when present.");
     }
-    if (details.selectionRequired === true && details.stockState !== "selection_required") {
-      errors.push("selectionRequired=true requires stockState=selection_required.");
+    if (details.stockState === "application_only" && details.selectionStatus !== "selected_participants") {
+      errors.push("stockState=application_only requires selectionStatus=selected_participants.");
     }
-    if (details.selectionRequired === false && details.stockState === "selection_required") {
-      errors.push("stockState=selection_required requires selectionRequired=true.");
+    if (details.selectionStatus === "selected_participants" && details.stockState !== "application_only") {
+      errors.push("selectionStatus=selected_participants requires stockState=application_only.");
+    }
+    if (details.selectionStatus === "first_come_first_served" && !["available", "limited"].includes(details.stockState)) {
+      errors.push("selectionStatus=first_come_first_served requires available or limited stockState.");
     }
     return errors;
   }
@@ -470,6 +518,14 @@
     if (isIsoDate(opportunity.startsAt) && isIsoDate(opportunity.expiresAt) && opportunity.expiresAt < opportunity.startsAt) {
       errors.push("expiresAt cannot be before startsAt.");
     }
+    if (
+      opportunity.type === "free_sample" &&
+      isIsoDate(opportunity.lastVerifiedAt) &&
+      isIsoDate(opportunity.reviewDueAt) &&
+      daysBetween(opportunity.lastVerifiedAt, opportunity.reviewDueAt) > 7
+    ) {
+      errors.push("free_sample reviewDueAt must be within 7 days of lastVerifiedAt.");
+    }
     if (!Array.isArray(opportunity.requirements)) {
       errors.push("requirements must be an array.");
     } else {
@@ -516,7 +572,67 @@
   }
 
   function normalizeHost(value) {
-    return String(value || "").trim().toLowerCase().replace(/^www\./, "").replace(/\.$/, "");
+    return String(value || "").trim().toLowerCase().replace(/\.$/, "");
+  }
+
+  function validateSourceEvidenceEntry(evidence) {
+    const errors = [];
+    const fields = ["recordId", "field", "hostname", "url", "reason", "verifiedAt", "expiresAt", "evidenceSummary"];
+    if (!isPlainObject(evidence)) return validationResult(["source evidence must be an object."]);
+    addUnexpectedFieldErrors(evidence, fields, errors, "sourceEvidence");
+    ["recordId", "hostname", "evidenceSummary"].forEach((field) => requireString(evidence, field, errors));
+    requireEnum(evidence, "field", ["sourceUrl", "termsUrl"], errors);
+    if (!isHttpUrl(evidence.url)) errors.push("url must be an HTTP(S) URL without credentials.");
+    if (evidence.reason !== "official_source_verified_despite_automated_access_block") {
+      errors.push("reason must identify the reviewed automated access block.");
+    }
+    requireDate(evidence, "verifiedAt", errors);
+    requireDate(evidence, "expiresAt", errors);
+    if (isHttpUrl(evidence.url) && normalizeHost(new URL(evidence.url).hostname) !== normalizeHost(evidence.hostname)) {
+      errors.push("hostname must exactly match the evidence URL hostname.");
+    }
+    const validityDays = daysBetween(evidence.verifiedAt, evidence.expiresAt);
+    if (Number.isFinite(validityDays) && (validityDays < 0 || validityDays > 7)) {
+      errors.push("source evidence expiresAt must be within 7 days of verifiedAt.");
+    }
+    return validationResult(errors);
+  }
+
+  function validateSourceEvidenceLedger(entries) {
+    if (!Array.isArray(entries)) return validationResult(["source evidence ledger must be an array."]);
+    const errors = [];
+    const seen = new Set();
+    let previousVerifiedAt = "";
+    entries.forEach((entry, index) => {
+      validateSourceEvidenceEntry(entry).errors.forEach((error) => errors.push(`sourceEvidence[${index}].${error}`));
+      const key = `${entry && entry.recordId}:${entry && entry.field}:${entry && entry.verifiedAt}`;
+      if (seen.has(key)) errors.push(`sourceEvidence[${index}] duplicates recordId, field, and verifiedAt.`);
+      seen.add(key);
+      if (isIsoDate(entry && entry.verifiedAt)) {
+        if (previousVerifiedAt && entry.verifiedAt < previousVerifiedAt) {
+          errors.push(`sourceEvidence[${index}] is out of append-only verification-date order.`);
+        }
+        previousVerifiedAt = entry.verifiedAt;
+      }
+    });
+    return validationResult(errors);
+  }
+
+  function hasCurrentSourceEvidence(opportunity, field, entries, asOfDate) {
+    if (!Array.isArray(entries) || !isIsoDate(asOfDate) || !isHttpUrl(opportunity[field])) return false;
+    const expectedUrl = opportunity[field];
+    const expectedHost = normalizeHost(new URL(expectedUrl).hostname);
+    return entries.some((entry) => {
+      if (!validateSourceEvidenceEntry(entry).valid) return false;
+      return (
+        entry.recordId === opportunity.id &&
+        entry.field === field &&
+        entry.url === expectedUrl &&
+        normalizeHost(entry.hostname) === expectedHost &&
+        entry.verifiedAt <= asOfDate &&
+        entry.expiresAt >= asOfDate
+      );
+    });
   }
 
   function isAllowedOfficialSource(sourceUrl, allowedSourceHosts) {
@@ -537,7 +653,7 @@
         /^\d{1,3}(?:\.\d{1,3}){3}$/.test(host) ||
         host.includes(":")
       ) return false;
-      if (!allowedHosts.some((allowed) => host === allowed || host.endsWith(`.${allowed}`))) return false;
+      if (!allowedHosts.includes(host)) return false;
       if (
         /\/preview(?:\/|$)/i.test(url.pathname) ||
         String(url.searchParams.get("stagemode") || "").toLowerCase() === "true"
@@ -572,10 +688,17 @@
     if (opportunity.costClassification === "completely_free") {
       const blockedKinds = ["purchase", "delivery", "card", "membership"];
       if (blockedKinds.some((kind) => hasRequiredRequirement(opportunity, kind))) return false;
-      if (opportunity.type === "free_sample" && opportunity.details.deliveryCharge !== 0) return false;
+      if (opportunity.type === "free_sample" && opportunity.details.deliveryCharge !== "none") return false;
     }
     if (opportunity.costClassification === "delivery_fee") {
-      if (opportunity.type !== "free_sample" || !(opportunity.details.deliveryCharge > 0)) return false;
+      if (opportunity.type !== "free_sample" || opportunity.details.deliveryCharge !== "required") return false;
+    }
+    if (
+      opportunity.type === "free_sample" &&
+      opportunity.details.deliveryCharge === "required" &&
+      opportunity.costClassification !== "delivery_fee"
+    ) {
+      return false;
     }
     if (opportunity.type === "free_course" && opportunity.details.certificateCost === "unclear") return false;
     if (opportunity.type === "product_testing") {
@@ -607,9 +730,20 @@
     if (opportunity.lastVerifiedAt > asOfDate || opportunity.reviewDueAt < asOfDate) return false;
     if (opportunity.startsAt && opportunity.startsAt > asOfDate) return false;
     if (!isAllowedOfficialSource(opportunity.sourceUrl, options.allowedSourceHosts)) return false;
+    if (opportunity.termsUrl && !isAllowedOfficialSource(opportunity.termsUrl, options.allowedSourceHosts)) return false;
+    if (options.requireSourceEvidence === true) {
+      if (!hasCurrentSourceEvidence(opportunity, "sourceUrl", options.sourceEvidence, asOfDate)) return false;
+      if (opportunity.termsUrl && !hasCurrentSourceEvidence(opportunity, "termsUrl", options.sourceEvidence, asOfDate)) return false;
+    }
     if (["unclear", "free_entry"].includes(opportunity.costClassification)) return false;
     if (strictFreeOnly && opportunity.costClassification !== "completely_free") return false;
     if (!hasConsistentCostRequirements(opportunity)) return false;
+    if (
+      opportunity.type === "free_sample" &&
+      (opportunity.details.deliveryCharge === "unknown" ||
+        opportunity.details.stockState === "unknown" ||
+        opportunity.details.selectionStatus === "unknown")
+    ) return false;
 
     if (opportunity.availabilityKind === "fixed_window") {
       if (!isIsoDate(opportunity.startsAt) || !isIsoDate(opportunity.expiresAt)) return false;
@@ -678,6 +812,7 @@
 
   const api = {
     RESOURCE_TYPES,
+    SAMPLE_RESOURCE_TYPES,
     RESOURCE_AVAILABILITY,
     RESOURCE_VERIFICATION_STATUSES,
     OPPORTUNITY_TYPES,
@@ -692,12 +827,15 @@
     isAllowedOfficialSource,
     isOpportunityFeatureEnabled,
     isPublicOpportunity,
+    hasCurrentSourceEvidence,
     validateDiscoverySummary,
     validateFreeResource,
     validateFreeResourceRegistry,
     validateOpportunity,
     validateOpportunityRegistry,
     validateRequirement,
+    validateSourceEvidenceEntry,
+    validateSourceEvidenceLedger,
   };
 
   if (typeof module !== "undefined" && module.exports) {

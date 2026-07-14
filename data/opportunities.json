@@ -1,1 +1,39 @@
-[]
+[
+  {
+    "id": "coloplast-speedicath-short-sample",
+    "slug": "coloplast-speedicath-short-sample",
+    "type": "free_sample",
+    "title": "Coloplast SpeediCath Short free sample",
+    "summary": "People who currently use, or have been prescribed, an intermittent catheter can request a free SpeediCath Short sample for Coloplast suitability review.",
+    "provider": "Coloplast South Africa",
+    "sourceUrl": "https://products.coloplast.co.za/global-campaigns/speedicath-short/",
+    "termsUrl": "https://products.coloplast.co.za/webshop/terms-of-sale/",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": ["National"],
+    "lastVerifiedAt": "2026-07-14",
+    "reviewDueAt": "2026-07-21",
+    "publishedAt": "2026-07-14",
+    "updatedAt": "2026-07-14",
+    "availabilityKind": "ongoing",
+    "costClassification": "completely_free",
+    "requirements": [
+      { "kind": "location", "required": true, "label": "South African delivery address required" },
+      { "kind": "identity", "required": true, "label": "Contact details required" },
+      { "kind": "questionnaire", "required": true, "label": "Product-suitability information required" },
+      { "kind": "other", "required": true, "label": "Coloplast Care Advisor approval required" }
+    ],
+    "categories": ["samples", "medical-product-samples"],
+    "tags": ["medical-product-sample", "suitability-approval-required", "free-delivery"],
+    "details": {
+      "fulfilmentMethod": "delivery",
+      "deliveryCharge": "none",
+      "stockState": "application_only",
+      "householdLimit": null,
+      "selectionStatus": "selected_participants",
+      "expectedFulfilmentWindow": "Approved samples are dispatched within 3 business days after confirmation; delivery time varies by address.",
+      "privacyUrl": "https://www.coloplast.co.za/global/declaration-of-consent/"
+    }
+  }
+]

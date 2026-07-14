@@ -30,13 +30,15 @@ function createFreeResourceRenderer({ escapeHtml, escapeAttribute, formatDate })
     const rel = resource.internal ? "" : ' rel="nofollow noopener" target="_blank"';
     const linkLabel = resource.internal ? "Read guide" : "Official website";
     const analyticsAttributes =
-      pageType === "free_stuff_parent" && !resource.internal
+      ["free_stuff_parent", "free_samples_vertical"].includes(pageType) && !resource.internal
         ? renderAnalyticsAttributes({
             action: "official-source",
             entityKind: "resource",
-            contentType: resource.resourceType || resource.category,
+            contentType: resource.sampleResourceType || resource.resourceType || resource.category,
             contentId: resource.id || resource.name,
             sourceDomain: getHostname(resource.officialUrl),
+            pageType,
+            destinationPath: getDestinationPath(resource.officialUrl),
           })
         : "";
 
@@ -90,13 +92,15 @@ function createFreeResourceRenderer({ escapeHtml, escapeAttribute, formatDate })
     };
   }
 
-  function renderAnalyticsAttributes({ action, entityKind, contentType, contentId, sourceDomain }) {
+  function renderAnalyticsAttributes({ action, entityKind, contentType, contentId, sourceDomain, pageType, destinationPath }) {
     return [
       ` data-discovery-action="${escapeAttribute(action)}"`,
       ` data-entity-kind="${escapeAttribute(entityKind)}"`,
       ` data-content-type="${escapeAttribute(contentType)}"`,
       ` data-content-id="${escapeAttribute(contentId)}"`,
       ` data-source-domain="${escapeAttribute(sourceDomain)}"`,
+      ` data-page-type="${escapeAttribute(pageType)}"`,
+      ` data-destination-path="${escapeAttribute(destinationPath)}"`,
     ].join("");
   }
 
@@ -105,6 +109,14 @@ function createFreeResourceRenderer({ escapeHtml, escapeAttribute, formatDate })
     renderFreeResourceCard,
     renderFreeResourceSection,
   };
+}
+
+function getDestinationPath(value) {
+  try {
+    return new URL(value).pathname || "/";
+  } catch (error) {
+    return "";
+  }
 }
 
 function getHostname(value) {

@@ -9,6 +9,7 @@ const checks = [];
 const FREE_STUFF_ROUTE = "/free-stuff-south-africa/";
 const FREE_STUFF_NAV_INACTIVE = '          <a class="site-topbar__link" href="/free-stuff-south-africa/">Free Stuff</a>';
 const FREE_STUFF_NAV_ACTIVE = '          <a class="site-topbar__link is-active" href="/free-stuff-south-africa/" aria-current="page">Free Stuff</a>';
+const expectedOpportunityCount = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true" ? 1 : 0;
 
 function check(label, actual, expected) {
   checks.push({ label, actual, expected });
@@ -45,9 +46,9 @@ check("Sitemap URLs", count(sitemap, /<loc>/g), 145);
 check("Active competition cards", count(competitions, /<article class="competition-card\b/g), 85);
 check("Competition schema items", competitionItemList?.itemListElement?.length || 0, 85);
 check("Active competition records", activeCompetitions.length, 85);
-check("Opportunity records rendered", new Set([...parent.matchAll(/data-opportunity-id="([^"]+)"/g)].map((match) => match[1])).size, 0);
-check("Opportunity cards rendered", count(parent, /<article class="opportunity-card\b/g), 0);
-check("Opportunity schema items", opportunitySchema?.itemListElement?.length || 0, 0);
+check("Opportunity records rendered", new Set([...parent.matchAll(/data-opportunity-id="([^"]+)"/g)].map((match) => match[1])).size, expectedOpportunityCount);
+check("Opportunity cards rendered", count(parent, /<article class="opportunity-card\b/g), expectedOpportunityCount);
+check("Opportunity schema items", opportunitySchema?.itemListElement?.length || 0, expectedOpportunityCount);
 check("Opportunity routes generated", fs.existsSync(path.join(ROOT_DIR, "opportunity")) ? 1 : 0, 0);
 check("Opportunity sitemap entries", count(sitemap, /<loc>https:\/\/freehub\.co\.za\/opportunity\//g), 0);
 check("Durable resources on parent", count(parent, /<article class="free-resource-card">/g), 18);
