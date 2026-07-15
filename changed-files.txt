@@ -1,4 +1,5 @@
 changed-files.txt
+generate-pages-report.txt
 maintenance-report.txt
 maintenance-summary.json
 reports/vertical-page-coverage-report.md
