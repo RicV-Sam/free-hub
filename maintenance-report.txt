@@ -1,14 +1,14 @@
 === Competition Maintenance Report ===
-Date: 2026-07-15
+Date: 2026-07-16
 Mode: archive-expired
 Total competitions: 259
-Active published count: 90
-Expired archive page count: 75
+Active published count: 87
+Expired archive page count: 78
 Low-value expired noindex count: 0
 Held/private count: 94
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 18
+Closing in next 14 days: 17
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -86,26 +86,28 @@ Expired competition IDs:
 - one-life-maize-meal-samsung-phones-2026 (2026-07-09)
 - mobile-world-live-satellite-ntn-survey-ipad-draw-2026 (2026-07-10)
 - tekkie-town-football-frenzy-fifa-2026 (2026-07-12)
+- vodacom-spend-and-recharge-tfg-vouchers (2026-07-15)
+- parmalat-everything-needs-cheese-2026 (2026-07-15)
+- vodacom-power-up-woolworths-vouchers-2026 (2026-07-15)
 
 Closing soon (next 14 days):
-- vodacom-spend-and-recharge-tfg-vouchers (0 days)
-- parmalat-everything-needs-cheese-2026 (0 days)
-- vodacom-power-up-woolworths-vouchers-2026 (0 days)
-- kampi-refer-and-escape-2026 (1 days)
-- godfather-of-the-waves-competition-2026 (2 days)
-- cashbuild-pimp-my-room-2026 (2 days)
-- clicks-cashback-haul-competition (4 days)
-- coca-cola-hisense-fifa-fan-hampers-2026 (4 days)
-- mtn-world-cup-bafana-goal-1gb-data-2026 (4 days)
-- hisense-pepkor-match-ready-gallery-2026 (4 days)
-- hisense-hirsch-foosball-activation-2026 (4 days)
-- hisense-coca-cola-match-day-2026 (4 days)
-- mtn-fc-world-cup-competition-2026 (5 days)
-- standard-bank-game-day-everyday (6 days)
-- gotyme-bank-swipe-tap-to-win-2026 (6 days)
-- boxer-celebrate-win-samsung-a06-2026 (7 days)
-- pep-dstv-scan-play-win-2026 (8 days)
-- huggies-dry-comfort-buy-win-2026 (11 days)
+- kampi-refer-and-escape-2026 (0 days)
+- godfather-of-the-waves-competition-2026 (1 days)
+- cashbuild-pimp-my-room-2026 (1 days)
+- clicks-cashback-haul-competition (3 days)
+- coca-cola-hisense-fifa-fan-hampers-2026 (3 days)
+- mtn-world-cup-bafana-goal-1gb-data-2026 (3 days)
+- hisense-pepkor-match-ready-gallery-2026 (3 days)
+- hisense-hirsch-foosball-activation-2026 (3 days)
+- hisense-coca-cola-match-day-2026 (3 days)
+- mtn-fc-world-cup-competition-2026 (4 days)
+- standard-bank-game-day-everyday (5 days)
+- gotyme-bank-swipe-tap-to-win-2026 (5 days)
+- boxer-celebrate-win-samsung-a06-2026 (6 days)
+- pep-dstv-scan-play-win-2026 (7 days)
+- huggies-dry-comfort-buy-win-2026 (10 days)
+- kitkat-f1-monza-competition-2026 (14 days)
+- ofm-show-us-your-ofm-cash-2026 (14 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present

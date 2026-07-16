@@ -1,5 +1,5 @@
 changed-files.txt
-generate-pages-report.txt
+data/archive/competitions-expired.json
 maintenance-report.txt
 maintenance-summary.json
 reports/vertical-page-coverage-report.md
