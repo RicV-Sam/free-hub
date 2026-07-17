@@ -4569,5 +4569,62 @@
     "imageReviewCheckedAt": "2026-07-10",
     "archivedAt": "2026-07-16",
     "archiveReason": "expired"
+  },
+  {
+    "id": "kampi-refer-and-escape-2026",
+    "title": "Kampi Refer and Escape Competition",
+    "brand": "Kampi / Multi Risk",
+    "summary": "Refer someone for a no-obligation insurance quote for a chance to win a bushveld weekend for two over the August long weekend.",
+    "entrySteps": [
+      "Open the official Kampi / Multi Risk entry route.",
+      "Refer an eligible person for a no-obligation insurance quote.",
+      "Submit each valid referral before 16 July 2026."
+    ],
+    "closingDate": "2026-07-16",
+    "category": "Holidays",
+    "prizeName": "Bushveld weekend for two from 7 to 10 August 2026",
+    "prizeType": "holiday",
+    "prizeValueAmount": null,
+    "prizeValueCurrency": "ZAR",
+    "numberOfPrizes": "1",
+    "entryType": "Online Referral",
+    "tags": [
+      "holidays",
+      "free-entry",
+      "referral",
+      "ending-soon"
+    ],
+    "url": "https://kampi.co.za/blog/refer-escape-win-bushveld-weekend",
+    "sourceUrl": "https://kampi.co.za/blog/refer-escape-win-bushveld-weekend",
+    "termsUrl": "https://kampi.co.za/blog/refer-escape-win-bushveld-weekend",
+    "sourceDomain": "kampi.co.za",
+    "lastChecked": "2026-07-11",
+    "verificationStatus": "published",
+    "publicationStatus": "published",
+    "doNotPublish": false,
+    "entryCostType": "free-entry",
+    "entryFeeLabel": "No purchase necessary; a valid insurance-quote referral is required",
+    "purchaseRequired": false,
+    "entryChannel": "Kampi / Multi Risk online referral form",
+    "eligibility": "South African residents aged 18 or older; each valid referral counts as an entry.",
+    "region": "South Africa",
+    "verificationNote": "Direct official-source research candidate. Keep held until final Freehub publication review.",
+    "sourceSystem": "za-comp-engine",
+    "sourceHandoffId": "direct-20260711-kampi-escape",
+    "sourceReviewStatus": "publication-approved",
+    "sourceReport": "Direct official-source validation performed for Freehub on 11 July 2026.",
+    "evidenceNotes": "Official Kampi page confirms the 1 April to 16 July period, no-purchase referral mechanic, eligibility and fixed-date bushveld prize.",
+    "imageReviewNote": "Official campaign image not yet selected.",
+    "riskFlags": [
+      "referral_entry",
+      "fixed_travel_dates",
+      "image_unresolved"
+    ],
+    "validationWarnings": [
+      "fixed_travel_dates",
+      "image_unresolved"
+    ],
+    "archivedAt": "2026-07-17",
+    "archiveReason": "expired"
   }
 ]
