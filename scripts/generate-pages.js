@@ -4619,6 +4619,29 @@ function renderCardStatusBadges(competition, options = {}) {
     .join("\n                  ");
 }
 
+function getCompetitionMediaLayoutClass(competition) {
+  const layout = String(competition?.imageLayout || "").toLowerCase();
+  return ["portrait", "square", "landscape"].includes(layout) ? ` competition-media--${layout}` : "";
+}
+
+function renderCompetitionImageStage(imageUrl, altText, loading = "lazy", layered = false) {
+  if (!imageUrl) {
+    return "";
+  }
+
+  const src = escapeAttribute(imageUrl);
+  if (!layered) {
+    return `<img src="${src}" alt="${escapeAttribute(
+      altText
+    )}" loading="${loading}" decoding="async" onerror="this.remove()" />`;
+  }
+
+  return `<img class="competition-image-backdrop" src="${src}" alt="" aria-hidden="true" loading="${loading}" decoding="async" onerror="this.remove()" />
+                <img class="competition-image-foreground" src="${src}" alt="${escapeAttribute(
+                  altText
+                )}" loading="${loading}" decoding="async" onerror="this.remove()" />`;
+}
+
 function renderCompetitionCard(competition, featured = false) {
   const internalPath = shared.getCompetitionPath(competition);
   const urgencyBadge = `<span class="badge badge--closing">${escapeHtml(
@@ -4647,11 +4670,13 @@ function renderCompetitionCard(competition, featured = false) {
   const brand = competition.brand || "Official promotion";
   const featuredEyebrow = featured ? '<p class="competition-card__eyebrow">Featured this week</p>' : "";
   const ctaClass = featured ? "competition-card__cta competition-card__cta--featured" : "competition-card__cta";
-  const imageMarkup = cardImageUrl
-    ? `<img src="${escapeAttribute(cardImageUrl)}" alt="${escapeAttribute(
-        competition.title
-      )}" loading="lazy" onerror="this.remove()" />`
-    : "";
+  const mediaLayoutClass = getCompetitionMediaLayoutClass(competition);
+  const imageMarkup = renderCompetitionImageStage(
+    cardImageUrl,
+    competition.title,
+    "lazy",
+    mediaLayoutClass === " competition-media--portrait"
+  );
 
   return `<article class="${cardClass}" data-competition-slug="${escapeAttribute(
     shared.getCompetitionSlug(competition)
@@ -4660,7 +4685,7 @@ function renderCompetitionCard(competition, featured = false) {
   )}" data-competition-brand="${escapeAttribute(competition.brand || "")}" data-competition-closing-date="${escapeAttribute(
     competition.closingDate || ""
   )}" data-competition-path="${escapeAttribute(internalPath)}">
-              <div class="competition-card__media">
+              <div class="competition-card__media${mediaLayoutClass}">
                 ${renderCompetitionVisualPlaceholder(competition)}
                 ${imageMarkup}
                 <div class="competition-card__badges">
@@ -8194,15 +8219,17 @@ function renderCompetitionDetailHero({
   heroImage,
 }) {
   const hasSpecificVisual = isSpecificCompetitionVisual(competition);
-  const imageMarkup = heroImage
-    ? `<img src="${escapeAttribute(heroImage)}" alt="${escapeAttribute(buildCompetitionImageAltText(competition, expired))}" loading="eager" onerror="this.remove()" />`
-    : "";
+  const mediaLayoutClass = getCompetitionMediaLayoutClass(competition);
+  const imageMarkup = renderCompetitionImageStage(
+    heroImage,
+    buildCompetitionImageAltText(competition, expired),
+    "eager",
+    mediaLayoutClass === " competition-media--portrait"
+  );
   const heroMediaClass = hasSpecificVisual
-    ? "competition-hero-card__media competition-hero-card__media--specific"
+    ? `competition-hero-card__media competition-hero-card__media--specific${mediaLayoutClass}`
     : "competition-hero-card__media";
-  const placeholderMarkup = hasSpecificVisual
-    ? ""
-    : renderCompetitionVisualPlaceholder(competition, "competition-hero-card__placeholder");
+  const placeholderMarkup = renderCompetitionVisualPlaceholder(competition, "competition-hero-card__placeholder");
   const closingLabel = `${expired ? "Closed" : "Closes"} ${formattedDate}${closingSoon && !expired ? " - Ending soon" : ""}`;
   const heroUrgencyFact = expired
     ? "Closed competition"
@@ -8259,15 +8286,17 @@ function renderCompetitionDetailHero({
 
 function renderCompetitionDetailMedia(competition, imageUrl, altText = competition.title) {
   const hasSpecificVisual = isSpecificCompetitionVisual(competition);
-  const imageMarkup = imageUrl
-    ? `<img src="${escapeAttribute(imageUrl)}" alt="${escapeAttribute(altText)}" loading="lazy" onerror="this.remove()" />`
-    : "";
+  const mediaLayoutClass = getCompetitionMediaLayoutClass(competition);
+  const imageMarkup = renderCompetitionImageStage(
+    imageUrl,
+    altText,
+    "lazy",
+    mediaLayoutClass === " competition-media--portrait"
+  );
   const mediaClass = hasSpecificVisual
-    ? "competition-detail__media competition-detail__media--specific"
+    ? `competition-detail__media competition-detail__media--specific${mediaLayoutClass}`
     : "competition-detail__media";
-  const placeholderMarkup = hasSpecificVisual
-    ? ""
-    : renderCompetitionVisualPlaceholder(competition, "competition-detail__placeholder");
+  const placeholderMarkup = renderCompetitionVisualPlaceholder(competition, "competition-detail__placeholder");
 
   return `<div class="${mediaClass}">
             ${placeholderMarkup}

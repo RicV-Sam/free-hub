@@ -364,6 +364,37 @@ test("competition collection cards are present in the static HTML", async ({ bro
   await context.close();
 });
 
+test("portrait competition artwork fills its media stage without being cropped", async ({ page }) => {
+  const portraitCompetitionRoutes = [
+    "/competition/evetech-pulse-giveaway-2026/",
+    "/competition/takealot-back-to-school-voucher-2026/",
+  ];
+
+  for (const route of portraitCompetitionRoutes) {
+    await page.setViewportSize({ width: 1280, height: 900 });
+    await page.goto(route);
+
+    const heroMedia = page.locator(".competition-hero-card__media.competition-media--portrait");
+    const detailMedia = page.locator(".competition-detail__media.competition-media--portrait");
+    await expect(heroMedia.locator(":scope > .competition-image-backdrop")).toHaveCount(1);
+    await expect(heroMedia.locator(":scope > .competition-image-foreground")).toHaveCount(1);
+    await expect(detailMedia.locator(":scope > .competition-image-backdrop")).toHaveCount(1);
+    await expect(detailMedia.locator(":scope > .competition-image-foreground")).toHaveCount(1);
+
+    const desktopHeroBox = await heroMedia.boundingBox();
+    const desktopDetailBox = await detailMedia.boundingBox();
+    expect(desktopHeroBox.height).toBeGreaterThanOrEqual(285);
+    expect(desktopDetailBox.height).toBeGreaterThanOrEqual(375);
+    await expect(heroMedia.locator(":scope > .competition-image-foreground")).toHaveCSS("object-fit", "contain");
+
+    await page.setViewportSize({ width: 390, height: 844 });
+    const mobileHeroBox = await heroMedia.boundingBox();
+    const mobileDetailBox = await detailMedia.boundingBox();
+    expect(mobileHeroBox.height / mobileHeroBox.width).toBeGreaterThan(1.2);
+    expect(mobileDetailBox.height / mobileDetailBox.width).toBeGreaterThan(1.2);
+  }
+});
+
 test("PR2-collection-controls: rendered collection filters become interactive", async ({ page }) => {
   test.fail(true, "Expected defect: collection controls render but app.js only activates them for the home route.");
   await page.goto("/competitions/");
