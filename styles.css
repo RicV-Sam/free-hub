@@ -3677,6 +3677,17 @@ body {
   aspect-ratio: auto;
 }
 
+.competition-hero-card__media--specific.competition-media--landscape {
+  min-height: 230px;
+  aspect-ratio: 16 / 9;
+}
+
+.competition-detail__media--specific.competition-media--landscape {
+  min-height: clamp(300px, 38vw, 520px);
+  max-height: 520px;
+  aspect-ratio: auto;
+}
+
 .competition-media--portrait .competition-image-foreground {
   padding: 0.35rem;
 }
@@ -3687,6 +3698,13 @@ body {
     min-height: 0;
     max-height: none;
     aspect-ratio: 4 / 5;
+  }
+
+  .competition-hero-card__media--specific.competition-media--landscape,
+  .competition-detail__media--specific.competition-media--landscape {
+    min-height: 0;
+    max-height: none;
+    aspect-ratio: 16 / 9;
   }
 }
 

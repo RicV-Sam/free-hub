@@ -2,7 +2,7 @@
 
 ## Purpose
 
-PR 1B established the repository-grounded Freehub baseline. PR 2 adds fail-closed cost and Opportunity contract tests without changing public routes, generated markup, competition data, Firebase collections or publication behavior. The current reviewed snapshot uses build date `2026-07-18`, when the generated sitemap contained 140 URLs, the main competition collection contained 81 static cards and its ItemList contained 81 structured-data items.
+PR 1B established the repository-grounded Freehub baseline. PR 2 adds fail-closed cost and Opportunity contract tests without changing public routes, generated markup, competition data, Firebase collections or publication behavior. The current reviewed snapshot uses build date `2026-07-18`, when the generated sitemap contained 141 URLs, the main competition collection contained 82 static cards and its ItemList contained 82 structured-data items.
 
 ZA Comp Engine exports remain private review evidence. Passing these tests cannot approve a handoff row, change Freehub publication state or create a public page.
 
@@ -31,7 +31,7 @@ The npm interfaces are:
 
 ## SEO and generated-page baseline
 
-`tests/baselines/seo-baseline.json` fixes the audited origin, snapshot date, 140-URL sitemap count, canonical aliases, forbidden aliases and reviewed link-graph exceptions. `tests/baselines/generated-pages.json` records representative outputs for the homepage, collection hubs, taxonomy routes, active and expired detail pages, outbound redirect, evergreen pillars, Club, admin and 404.
+`tests/baselines/seo-baseline.json` fixes the audited origin, snapshot date, 141-URL sitemap count, canonical aliases, forbidden aliases and reviewed link-graph exceptions. `tests/baselines/generated-pages.json` records representative outputs for the homepage, collection hubs, taxonomy routes, active and expired detail pages, outbound redirect, evergreen pillars, Club, admin and 404.
 
 Hard failures include:
 

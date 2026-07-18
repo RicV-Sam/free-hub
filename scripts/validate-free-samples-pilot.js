@@ -4,9 +4,9 @@ const { parseHtml, walkHtmlFiles } = require("./lib/baseline-utils.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const expectedOpportunityCount = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true" ? 1 : 0;
-const expectedGeneratedFiles = 342 + expectedOpportunityCount * 2;
-const expectedSitemapUrls = 140 + expectedOpportunityCount;
-const expectedActiveCompetitionCount = 81;
+const expectedGeneratedFiles = 344 + expectedOpportunityCount * 2;
+const expectedSitemapUrls = 141 + expectedOpportunityCount;
+const expectedActiveCompetitionCount = 82;
 const expectedId = "coloplast-speedicath-short-sample";
 const errors = [];
 const checks = [];

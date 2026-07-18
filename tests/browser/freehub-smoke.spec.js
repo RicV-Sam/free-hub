@@ -395,6 +395,29 @@ test("portrait competition artwork fills its media stage without being cropped",
   }
 });
 
+test("landscape competition artwork receives a full 16:9 media stage", async ({ page }) => {
+  const route = "/competition/discovery-four-principles-book-launch-2026/";
+  const response = await page.request.get(route);
+  const html = await response.text();
+  expect(html).toContain("competition-media--landscape");
+  expect(html).toContain("assets/competitions/discovery-four-principles-book-launch-2026.png");
+
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(route);
+  const heroMedia = page.locator(".competition-hero-card__media.competition-media--landscape");
+  const detailMedia = page.locator(".competition-detail__media.competition-media--landscape");
+  const desktopHeroBox = await heroMedia.boundingBox();
+  const desktopDetailBox = await detailMedia.boundingBox();
+  expect(desktopHeroBox.height).toBeGreaterThanOrEqual(225);
+  expect(desktopDetailBox.height).toBeGreaterThanOrEqual(295);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  const mobileHeroBox = await heroMedia.boundingBox();
+  const mobileDetailBox = await detailMedia.boundingBox();
+  expect(mobileHeroBox.height / mobileHeroBox.width).toBeGreaterThan(0.55);
+  expect(mobileDetailBox.height / mobileDetailBox.width).toBeGreaterThan(0.55);
+});
+
 test("PR2-collection-controls: rendered collection filters become interactive", async ({ page }) => {
   test.fail(true, "Expected defect: collection controls render but app.js only activates them for the home route.");
   await page.goto("/competitions/");
