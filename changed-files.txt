@@ -1,4 +1,3 @@
 changed-files.txt
-data/archive/competitions-expired.json
 maintenance-report.txt
 maintenance-summary.json
