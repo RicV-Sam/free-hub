@@ -10,8 +10,9 @@ const FREE_STUFF_ROUTE = "/free-stuff-south-africa/";
 const FREE_STUFF_NAV_INACTIVE = '          <a class="site-topbar__link" href="/free-stuff-south-africa/">Free Stuff</a>';
 const FREE_STUFF_NAV_ACTIVE = '          <a class="site-topbar__link is-active" href="/free-stuff-south-africa/" aria-current="page">Free Stuff</a>';
 const expectedOpportunityCount = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true" ? 1 : 0;
-const expectedGeneratedFiles = 345 + expectedOpportunityCount * 2;
-const expectedSitemapUrls = 145 + expectedOpportunityCount;
+const expectedGeneratedFiles = 342 + expectedOpportunityCount * 2;
+const expectedSitemapUrls = 140 + expectedOpportunityCount;
+const expectedActiveCompetitionCount = 81;
 
 function check(label, actual, expected) {
   checks.push({ label, actual, expected });
@@ -51,9 +52,9 @@ const activeCompetitions = shared.getPublishedActiveCompetitions(
 
 check("Generated files", htmlFiles.length + 1, expectedGeneratedFiles);
 check("Sitemap URLs", count(sitemap, /<loc>/g), expectedSitemapUrls);
-check("Active competition cards", count(competitions, /<article class="competition-card\b/g), 85);
-check("Competition schema items", competitionItemList?.itemListElement?.length || 0, 85);
-check("Active competition records", activeCompetitions.length, 85);
+check("Active competition cards", count(competitions, /<article class="competition-card\b/g), expectedActiveCompetitionCount);
+check("Competition schema items", competitionItemList?.itemListElement?.length || 0, expectedActiveCompetitionCount);
+check("Active competition records", activeCompetitions.length, expectedActiveCompetitionCount);
 check("Opportunity records rendered", new Set([...parent.matchAll(/data-opportunity-id="([^"]+)"/g)].map((match) => match[1])).size, expectedOpportunityCount);
 check("Opportunity cards rendered", count(parent, /<article class="opportunity-card\b/g), expectedOpportunityCount);
 check("Opportunity schema items", opportunitySchema?.itemListElement?.length || 0, expectedOpportunityCount);

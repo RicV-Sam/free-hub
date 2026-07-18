@@ -4,8 +4,9 @@ const { parseHtml, walkHtmlFiles } = require("./lib/baseline-utils.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const expectedOpportunityCount = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true" ? 1 : 0;
-const expectedGeneratedFiles = 345 + expectedOpportunityCount * 2;
-const expectedSitemapUrls = 145 + expectedOpportunityCount;
+const expectedGeneratedFiles = 342 + expectedOpportunityCount * 2;
+const expectedSitemapUrls = 140 + expectedOpportunityCount;
+const expectedActiveCompetitionCount = 81;
 const expectedId = "coloplast-speedicath-short-sample";
 const errors = [];
 const checks = [];
@@ -45,8 +46,8 @@ const htmlFiles = walkHtmlFiles(ROOT_DIR);
 
 check("Generated files", htmlFiles.length + 1, expectedGeneratedFiles);
 check("Sitemap URLs", count(sitemap, /<loc>/g), expectedSitemapUrls);
-check("Active competition cards", count(competitions, /<article class="competition-card\b/g), 85);
-check("Competition schema items", competitionSchema?.itemListElement?.length || 0, 85);
+check("Active competition cards", count(competitions, /<article class="competition-card\b/g), expectedActiveCompetitionCount);
+check("Competition schema items", competitionSchema?.itemListElement?.length || 0, expectedActiveCompetitionCount);
 check("Samples page marker", samples.includes('data-free-samples-page-version="2"'), true);
 check("Samples title", samplePage.title, "Where to Get Free Samples in South Africa | Official Offers Guide");
 check("Samples H1 count", samplePage.h1.length, 1);

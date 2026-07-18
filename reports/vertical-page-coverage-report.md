@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-07-17
+Generated: 2026-07-18
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
@@ -109,7 +109,6 @@ Recommended normalisation:
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Godfather of the Waves Competition (godfather-of-the-waves-competition-2026) | 2026-07-17 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Clicks Cashback Haul Competition (clicks-cashback-haul-competition) | 2026-07-19 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Hisense Pepkor Match-Ready Gallery Competition (hisense-pepkor-match-ready-gallery-2026) | 2026-07-19 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | Hisense x Coca-Cola Match Day Competition (hisense-coca-cola-match-day-2026) | 2026-07-19 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
@@ -129,6 +128,7 @@ Recommended normalisation:
 | Clicks ClubCard Portia M Hamper Competition (clicks-clubcard-portia-m-hamper-june-july-2026) | 2026-08-01 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Clicks ClubCard Men's Wellness Hamper Competition (clicks-clubcard-mens-wellness-hamper-june-july-2026) | 2026-08-01 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Clicks ClubCard Newness Hamper Competition (clicks-clubcard-newness-hamper-june-july-2026) | 2026-08-01 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| Evetech Pulse 2026 Giveaway (evetech-pulse-giveaway-2026) | 2026-08-01 | free-entry | yes | yes | Online entry tag | none |
 | Dark & Lovely Best For Braids Competition (clicks-dark-and-lovely-best-for-braids-2026) | 2026-08-15 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | GARDENA Winter Pruning Giveaway 2026 (gardena-winter-pruning-giveaway-2026) | 2026-08-25 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Dis-Chem Catrice Skin Like Moisturizer Competition (dis-chem-catrice-skin-like-moisturizer-2026) | 2026-08-31 | purchase-required | yes | yes | Online entry tag | none |
