@@ -384,10 +384,20 @@ test("manual evidence is exact, fresh, append-only data and cannot match another
     ledger[1],
   ];
   assert.equal(opportunityData.validateSourceEvidenceLedger(outOfOrder).valid, false);
-  assert.equal(opportunityData.hasCurrentSourceEvidence(record, "sourceUrl", ledger, "2026-07-14"), true);
-  assert.equal(opportunityData.hasCurrentSourceEvidence(record, "sourceUrl", ledger, "2026-07-22"), false);
+  assert.equal(opportunityData.hasCurrentSourceEvidence(record, "sourceUrl", ledger, record.lastVerifiedAt), true);
+  const dayAfterReviewDue = new Date(`${record.reviewDueAt}T00:00:00.000Z`);
+  dayAfterReviewDue.setUTCDate(dayAfterReviewDue.getUTCDate() + 1);
   assert.equal(
-    opportunityData.hasCurrentSourceEvidence({ ...record, sourceUrl: `${record.sourceUrl}?changed=1` }, "sourceUrl", ledger, "2026-07-14"),
+    opportunityData.hasCurrentSourceEvidence(record, "sourceUrl", ledger, dayAfterReviewDue.toISOString().slice(0, 10)),
+    false
+  );
+  assert.equal(
+    opportunityData.hasCurrentSourceEvidence(
+      { ...record, sourceUrl: `${record.sourceUrl}?changed=1` },
+      "sourceUrl",
+      ledger,
+      record.lastVerifiedAt
+    ),
     false
   );
   const suffixLookalike = { ...record, sourceUrl: "https://fakeproducts.coloplast.co.za/global-campaigns/speedicath-short/" };
