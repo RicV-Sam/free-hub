@@ -1,0 +1,166 @@
+{
+  "generatedAt": "2026-07-20T11:23:28.034Z",
+  "asOfDate": "2026-07-20",
+  "featureFlag": {
+    "rawValue": "true",
+    "parsedEnabled": true,
+    "parserMatrix": [
+      {
+        "label": "absent",
+        "parsedEnabled": false
+      },
+      {
+        "label": "false",
+        "rawValue": "false",
+        "parsedEnabled": false
+      },
+      {
+        "label": "true",
+        "rawValue": "true",
+        "parsedEnabled": true
+      },
+      {
+        "label": "uppercase_true",
+        "rawValue": "TRUE",
+        "parsedEnabled": false
+      },
+      {
+        "label": "boolean_true",
+        "rawValue": true,
+        "parsedEnabled": false
+      }
+    ]
+  },
+  "counts": {
+    "generatedFiles": 355,
+    "sitemapUrls": 142,
+    "sampleCards": 1,
+    "parentCards": 1,
+    "sampleSchemaItems": 1,
+    "parentSchemaItems": 1,
+    "detailRoutes": 1,
+    "exitRoutes": 1,
+    "sitemapOpportunityEntries": 1,
+    "renderedCards": 2,
+    "uniqueRenderedRecords": 1,
+    "discoverySurfacesWithCards": 2
+  },
+  "records": [
+    {
+      "id": "coloplast-speedicath-short-sample",
+      "slug": "coloplast-speedicath-short-sample",
+      "type": "free_sample",
+      "publicationStatus": "published",
+      "verificationStatus": "verified",
+      "lifecycle": {
+        "lifecycle": "active",
+        "tombstoneEligible": false,
+        "reviewState": {
+          "label": "current",
+          "daysUntilReviewDue": 7
+        },
+        "validationErrors": []
+      },
+      "expected": {
+        "detailRoute": "/opportunity/coloplast-speedicath-short-sample/",
+        "exitRoute": "/out/opportunity/coloplast-speedicath-short-sample/",
+        "sitemapEligible": true,
+        "exitExcluded": false,
+        "tombstoneEligible": false
+      },
+      "evidence": {
+        "sourceUrl": {
+          "field": "sourceUrl",
+          "required": true,
+          "currentUrl": "https://products.coloplast.co.za/global-campaigns/speedicath-short/",
+          "currentHost": "products.coloplast.co.za",
+          "status": "current",
+          "newestMatching": {
+            "recordId": "coloplast-speedicath-short-sample",
+            "field": "sourceUrl",
+            "hostname": "products.coloplast.co.za",
+            "url": "https://products.coloplast.co.za/global-campaigns/speedicath-short/",
+            "reason": "official_source_verified_despite_automated_access_block",
+            "verifiedAt": "2026-07-20",
+            "expiresAt": "2026-07-27",
+            "evidenceSummary": "Official Coloplast South Africa campaign still displayed a free SpeediCath Short sample request and stated that Coloplast Care Advisors review requests for product suitability."
+          },
+          "newestUsable": {
+            "recordId": "coloplast-speedicath-short-sample",
+            "field": "sourceUrl",
+            "hostname": "products.coloplast.co.za",
+            "url": "https://products.coloplast.co.za/global-campaigns/speedicath-short/",
+            "reason": "official_source_verified_despite_automated_access_block",
+            "verifiedAt": "2026-07-20",
+            "expiresAt": "2026-07-27",
+            "evidenceSummary": "Official Coloplast South Africa campaign still displayed a free SpeediCath Short sample request and stated that Coloplast Care Advisors review requests for product suitability."
+          },
+          "reviewedWarnings": [
+            "coloplast-speedicath-short-sample.sourceUrl uses reviewed manual evidence because automated access is blocked."
+          ],
+          "actionableErrors": []
+        },
+        "termsUrl": {
+          "field": "termsUrl",
+          "required": true,
+          "currentUrl": "https://products.coloplast.co.za/webshop/terms-of-sale/",
+          "currentHost": "products.coloplast.co.za",
+          "status": "current",
+          "newestMatching": {
+            "recordId": "coloplast-speedicath-short-sample",
+            "field": "termsUrl",
+            "hostname": "products.coloplast.co.za",
+            "url": "https://products.coloplast.co.za/webshop/terms-of-sale/",
+            "reason": "official_source_verified_despite_automated_access_block",
+            "verifiedAt": "2026-07-20",
+            "expiresAt": "2026-07-27",
+            "evidenceSummary": "Official Coloplast sample clauses still state that approved sample requests are dispatched within 3 business days of confirmation and shipped free in discreet packaging within South Africa."
+          },
+          "newestUsable": {
+            "recordId": "coloplast-speedicath-short-sample",
+            "field": "termsUrl",
+            "hostname": "products.coloplast.co.za",
+            "url": "https://products.coloplast.co.za/webshop/terms-of-sale/",
+            "reason": "official_source_verified_despite_automated_access_block",
+            "verifiedAt": "2026-07-20",
+            "expiresAt": "2026-07-27",
+            "evidenceSummary": "Official Coloplast sample clauses still state that approved sample requests are dispatched within 3 business days of confirmation and shipped free in discreet packaging within South Africa."
+          },
+          "reviewedWarnings": [
+            "coloplast-speedicath-short-sample.termsUrl uses reviewed manual evidence because automated access is blocked."
+          ],
+          "actionableErrors": []
+        }
+      }
+    }
+  ],
+  "routeChecks": [
+    {
+      "id": "coloplast-speedicath-short-sample",
+      "lifecycle": "active",
+      "expected": {
+        "detailRoute": "/opportunity/coloplast-speedicath-short-sample/",
+        "exitRoute": "/out/opportunity/coloplast-speedicath-short-sample/",
+        "sitemapEligible": true,
+        "exitExcluded": false,
+        "tombstoneEligible": false
+      },
+      "generated": {
+        "detailRoute": "/opportunity/coloplast-speedicath-short-sample/",
+        "exitRoute": "/out/opportunity/coloplast-speedicath-short-sample/",
+        "detailFileExists": true,
+        "exitFileExists": true,
+        "detailInSitemap": true,
+        "exitInSitemap": false,
+        "renderedOnSamples": true,
+        "renderedOnParent": true
+      }
+    }
+  ],
+  "actionableErrors": [],
+  "reviewedWarnings": [
+    "coloplast-speedicath-short-sample.sourceUrl uses reviewed manual evidence because automated access is blocked.",
+    "coloplast-speedicath-short-sample.termsUrl uses reviewed manual evidence because automated access is blocked."
+  ],
+  "ok": true
+}
