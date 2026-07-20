@@ -10710,7 +10710,11 @@
     "title": "aQuellé Pause & Win Competition",
     "brand": "aQuellé",
     "summary": "Pause the official aQuellé competition video on Facebook or Instagram and comment with the drink shown for a chance to win an aQuellé hamper.",
-    "entrySteps": ["Find the official Pause & Win post on aQuellé's Facebook or Instagram page.", "Pause the spinning-wheel video and comment with the aQuellé drink visible.", "Submit no more than one entry per platform before 31 July 2026."],
+    "entrySteps": [
+      "Find the official Pause & Win post on aQuellé's Facebook or Instagram page.",
+      "Pause the spinning-wheel video and comment with the aQuellé drink visible.",
+      "Submit no more than one entry per platform before 31 July 2026."
+    ],
     "closingDate": "2026-07-31",
     "category": "Lifestyle",
     "prizeName": "aQuellé hamper",
@@ -10719,7 +10723,11 @@
     "prizeValueCurrency": "ZAR",
     "numberOfPrizes": "1",
     "entryType": "Facebook / Instagram Comment",
-    "tags": ["free-entry", "social-media", "aquelle"],
+    "tags": [
+      "free-entry",
+      "social-media",
+      "aquelle"
+    ],
     "url": "https://aquelle.co.za/wp-content/uploads/2026/06/aQuelle-Pause-Win-Competition-TCs_June-2026.pdf",
     "sourceUrl": "https://aquelle.co.za/wp-content/uploads/2026/06/aQuelle-Pause-Win-Competition-TCs_June-2026.pdf",
     "termsUrl": "https://aquelle.co.za/wp-content/uploads/2026/06/aQuelle-Pause-Win-Competition-TCs_June-2026.pdf",
@@ -10741,15 +10749,24 @@
     "sourceReport": "Direct official-source validation performed for Freehub on 11 July 2026.",
     "evidenceNotes": "Official aQuellé PDF confirms the 1 June to 31 July 2026 period, social entry mechanics, eligibility and one hamper prize.",
     "imageReviewNote": "Official campaign image not yet selected.",
-    "riskFlags": ["image_unresolved", "social_media_entry"],
-    "validationWarnings": ["image_unresolved"]
+    "riskFlags": [
+      "image_unresolved",
+      "social_media_entry"
+    ],
+    "validationWarnings": [
+      "image_unresolved"
+    ]
   },
   {
     "id": "dr-oetker-taste-the-upgrade-2026",
     "title": "Dr. Oetker Taste the Upgrade Competition",
     "brand": "Dr. Oetker South Africa",
     "summary": "Buy two participating Dr. Oetker pizzas and enter on WhatsApp with a unique till slip for hosting kits and weekly R1,000 prizes.",
-    "entrySteps": ["Buy any two participating Dr. Oetker Ital Pizza Classic or Familia pizzas.", "Scan the pack QR code or WhatsApp 076 285 1866.", "Upload the unique till slip before 31 August 2026."],
+    "entrySteps": [
+      "Buy any two participating Dr. Oetker Ital Pizza Classic or Familia pizzas.",
+      "Scan the pack QR code or WhatsApp 076 285 1866.",
+      "Upload the unique till slip before 31 August 2026."
+    ],
     "closingDate": "2026-08-31",
     "category": "Cash",
     "prizeName": "3 pizza hosting kits worth R14,196 each and 50 weekly R1,000 prizes",
@@ -10758,7 +10775,12 @@
     "prizeValueCurrency": "ZAR",
     "numberOfPrizes": "53",
     "entryType": "WhatsApp Till Slip",
-    "tags": ["purchase-required", "whatsapp-entry", "till-slip", "cash"],
+    "tags": [
+      "purchase-required",
+      "whatsapp-entry",
+      "till-slip",
+      "cash"
+    ],
     "url": "https://www.oetker.co.za/taste-the-upgrade-competition",
     "sourceUrl": "https://www.oetker.co.za/taste-the-upgrade-competition",
     "termsUrl": "https://www.oetker.co.za/taste-the-upgrade-competition",
@@ -10781,15 +10803,24 @@
     "sourceReport": "Direct official-source validation performed for Freehub on 11 July 2026.",
     "evidenceNotes": "Official Dr. Oetker page confirms campaign period, products, WhatsApp receipt mechanic, eligibility and prizes.",
     "imageReviewNote": "Official campaign image not yet selected.",
-    "riskFlags": ["purchase_required", "image_unresolved"],
-    "validationWarnings": ["image_unresolved"]
+    "riskFlags": [
+      "purchase_required",
+      "image_unresolved"
+    ],
+    "validationWarnings": [
+      "image_unresolved"
+    ]
   },
   {
     "id": "ultra-mel-christmas-in-july-2026",
     "title": "Ultra Mel Christmas in July Competition",
     "brand": "Ultra Mel / Shoprite Checkers",
     "summary": "Buy qualifying Ultra Mel products using Xtra Savings at participating Checkers, Shoprite or Sixty60 channels for a chance to win a R1,500 UNIQ voucher.",
-    "entrySteps": ["Be an active Xtra Savings member.", "Buy the qualifying Ultra Mel custard and Delight multipack combination through an eligible channel.", "Swipe Xtra Savings in-store or use the linked Sixty60 account before 30 August 2026."],
+    "entrySteps": [
+      "Be an active Xtra Savings member.",
+      "Buy the qualifying Ultra Mel custard and Delight multipack combination through an eligible channel.",
+      "Swipe Xtra Savings in-store or use the linked Sixty60 account before 30 August 2026."
+    ],
     "closingDate": "2026-08-30",
     "category": "Vouchers",
     "prizeName": "R1,500 UNIQ Winter Fashion voucher",
@@ -10798,7 +10829,12 @@
     "prizeValueCurrency": "ZAR",
     "numberOfPrizes": "150",
     "entryType": "Xtra Savings Automatic Entry",
-    "tags": ["purchase-required", "loyalty-required", "vouchers", "ultra-mel"],
+    "tags": [
+      "purchase-required",
+      "loyalty-required",
+      "vouchers",
+      "ultra-mel"
+    ],
     "url": "https://corporate.danone.co.za/content/dam/corp/local/zaf/2025/2026-new-images-/UltraMel_15.05.26%20.pdf",
     "sourceUrl": "https://corporate.danone.co.za/content/dam/corp/local/zaf/2025/2026-new-images-/UltraMel_15.05.26%20.pdf",
     "termsUrl": "https://corporate.danone.co.za/content/dam/corp/local/zaf/2025/2026-new-images-/UltraMel_15.05.26%20.pdf",
@@ -10821,15 +10857,26 @@
     "sourceReport": "Direct official-source validation performed for Freehub on 11 July 2026.",
     "evidenceNotes": "Official Danone PDF confirms dates, Xtra Savings mechanics, regional channels and 150 R1,500 voucher prizes.",
     "imageReviewNote": "Official campaign image not yet selected.",
-    "riskFlags": ["purchase_required", "loyalty_required", "regional_restrictions", "image_unresolved"],
-    "validationWarnings": ["image_unresolved"]
+    "riskFlags": [
+      "purchase_required",
+      "loyalty_required",
+      "regional_restrictions",
+      "image_unresolved"
+    ],
+    "validationWarnings": [
+      "image_unresolved"
+    ]
   },
   {
     "id": "castle-lager-fifa-world-cup-cans-2026",
     "title": "Castle Lager FIFA World Cup 26 Cans Competition",
     "brand": "Castle Lager",
     "summary": "Collect and scan all 26 Castle Lager FIFA World Cup limited-edition cans for a chance to be the earliest verified collector and win R1 million.",
-    "entrySteps": ["Buy Castle Lager FIFA World Cup limited-edition 500ml cans.", "Scan each can through castlecans.com and collect variations 1 to 26.", "Retain and present all 26 physical cans for verification before 31 August 2026."],
+    "entrySteps": [
+      "Buy Castle Lager FIFA World Cup limited-edition 500ml cans.",
+      "Scan each can through castlecans.com and collect variations 1 to 26.",
+      "Retain and present all 26 physical cans for verification before 31 August 2026."
+    ],
     "closingDate": "2026-08-31",
     "category": "Cash",
     "prizeName": "R1,000,000 cash",
@@ -10838,7 +10885,12 @@
     "prizeValueCurrency": "ZAR",
     "numberOfPrizes": "1",
     "entryType": "Purchase / Can Scan / Collection",
-    "tags": ["cash", "purchase-required", "alcohol", "high-value"],
+    "tags": [
+      "cash",
+      "purchase-required",
+      "alcohol",
+      "high-value"
+    ],
     "isHighValue": true,
     "url": "https://castlecans.com/",
     "sourceUrl": "https://www.castlelager.co.za/sites/g/files/seuoyk1831/files/2026-05/FIFA_World_Cup_26_Castle_Lager_Cans_Competition_Rules.pdf",
@@ -10862,15 +10914,28 @@
     "sourceReport": "Direct official-source validation performed for Freehub on 11 July 2026.",
     "evidenceNotes": "Official Castle Lager rules confirm the dates, 26-can purchase/scan/physical verification mechanic and one R1 million prize.",
     "imageReviewNote": "Official campaign image not yet selected.",
-    "riskFlags": ["purchase_required", "alcohol", "age_18_plus", "first_verified_completion", "image_unresolved"],
-    "validationWarnings": ["image_unresolved", "alcohol_age_gate"]
+    "riskFlags": [
+      "purchase_required",
+      "alcohol",
+      "age_18_plus",
+      "first_verified_completion",
+      "image_unresolved"
+    ],
+    "validationWarnings": [
+      "image_unresolved",
+      "alcohol_age_gate"
+    ]
   },
   {
     "id": "first-battery-centre-win-a-car-2026",
     "title": "First Battery Centre Win a Car Competition",
     "brand": "First Battery Centre",
     "summary": "Buy any automotive battery at a participating First Battery Centre and register its warranty in-store for automatic entry into the audited car draw.",
-    "entrySteps": ["Buy any automotive battery from a participating First Battery Centre during the promotion.", "Register the battery warranty in-store.", "Keep the purchase and warranty records for verification before 31 August 2026."],
+    "entrySteps": [
+      "Buy any automotive battery from a participating First Battery Centre during the promotion.",
+      "Register the battery warranty in-store.",
+      "Keep the purchase and warranty records for verification before 31 August 2026."
+    ],
     "closingDate": "2026-08-31",
     "category": "Cars",
     "prizeName": "One car (exact model not specified in the official rules)",
@@ -10879,7 +10944,12 @@
     "prizeValueCurrency": "ZAR",
     "numberOfPrizes": "1",
     "entryType": "In-store Purchase / Warranty Registration",
-    "tags": ["cars", "win-a-car", "purchase-required", "in-store-entry"],
+    "tags": [
+      "cars",
+      "win-a-car",
+      "purchase-required",
+      "in-store-entry"
+    ],
     "isHighValue": true,
     "url": "https://firstbatterycentre.co.za/competition_terms_and_conditions/First-Battery-Centre-Win-a-Car-Terms-and-conditions.pdf",
     "sourceUrl": "https://firstbatterycentre.co.za/competition_terms_and_conditions/First-Battery-Centre-Win-a-Car-Terms-and-conditions.pdf",
@@ -10903,15 +10973,26 @@
     "sourceReport": "Official rules reviewed online and prize/entry clauses confirmed by the user on 11 July 2026.",
     "evidenceNotes": "Official rules confirm purchase, warranty registration, audited 1 September draw, one car prize, contact/claim conditions and possible equal-value substitution.",
     "imageReviewNote": "Exact car and official campaign image remain unresolved.",
-    "riskFlags": ["purchase_required", "vehicle_model_unspecified", "image_unresolved"],
-    "validationWarnings": ["vehicle_model_unspecified", "image_unresolved"]
+    "riskFlags": [
+      "purchase_required",
+      "vehicle_model_unspecified",
+      "image_unresolved"
+    ],
+    "validationWarnings": [
+      "vehicle_model_unspecified",
+      "image_unresolved"
+    ]
   },
   {
     "id": "hadeco-80th-birthday-competition-2026",
     "title": "Hadeco 80th Birthday Competition",
     "brand": "Hadeco / Black Horse Brewery",
     "summary": "Share a Hadeco garden memory or growing story and tag seven guests for a chance to win a private flowering-fields experience for eight.",
-    "entrySteps": ["Follow Hadeco and Black Horse Brewery's official social accounts and like the competition post.", "Share a Hadeco memory, garden photo or growing story on a public profile.", "Tag seven guests and answer the competition question before 1 September 2026."],
+    "entrySteps": [
+      "Follow Hadeco and Black Horse Brewery's official social accounts and like the competition post.",
+      "Share a Hadeco memory, garden photo or growing story on a public profile.",
+      "Tag seven guests and answer the competition question before 1 September 2026."
+    ],
     "closingDate": "2026-09-01",
     "category": "Lifestyle",
     "prizeName": "Hadeco Flowering Fields experience for 8 people",
@@ -10920,7 +11001,12 @@
     "prizeValueCurrency": "ZAR",
     "numberOfPrizes": "1",
     "entryType": "Social Media Post",
-    "tags": ["free-entry", "experience", "social-media", "gauteng"],
+    "tags": [
+      "free-entry",
+      "experience",
+      "social-media",
+      "gauteng"
+    ],
     "url": "https://hadeco.co.za/pages/hadeco-80th-birthday-competition-terms-conditions",
     "sourceUrl": "https://hadeco.co.za/pages/hadeco-80th-birthday-competition-terms-conditions",
     "termsUrl": "https://hadeco.co.za/pages/hadeco-80th-birthday-competition-terms-conditions",
@@ -10942,15 +11028,27 @@
     "sourceReport": "Direct official-source validation performed for Freehub on 11 July 2026.",
     "evidenceNotes": "Official Hadeco terms confirm dates, social entry steps, eligibility, experience components and travel/accommodation exclusions.",
     "imageReviewNote": "Official campaign image not yet selected.",
-    "riskFlags": ["travel_excluded", "alcohol_tasting", "age_18_plus", "image_unresolved"],
-    "validationWarnings": ["travel_excluded", "image_unresolved"]
+    "riskFlags": [
+      "travel_excluded",
+      "alcohol_tasting",
+      "age_18_plus",
+      "image_unresolved"
+    ],
+    "validationWarnings": [
+      "travel_excluded",
+      "image_unresolved"
+    ]
   },
   {
     "id": "witness-cape-town-trip-2026",
     "title": "The Witness Win a Cape Town Trip for Two",
     "brand": "The Witness",
     "summary": "Take out a qualifying 12-month Witness subscription, or remain a paid-up existing subscriber, for automatic entry to win a Cape Town trip for two.",
-    "entrySteps": ["Take out a new 12-month debit-order subscription at R255 per month, or hold an eligible paid-up existing subscription.", "Ensure the first debit order succeeds and contact details are current.", "Qualify for automatic entry before 30 August 2026."],
+    "entrySteps": [
+      "Take out a new 12-month debit-order subscription at R255 per month, or hold an eligible paid-up existing subscription.",
+      "Ensure the first debit order succeeds and contact details are current.",
+      "Qualify for automatic entry before 30 August 2026."
+    ],
     "closingDate": "2026-08-30",
     "category": "Holidays",
     "prizeName": "Cape Town trip for two with flights, 3 hotel nights, sightseeing and car rental",
@@ -10959,7 +11057,11 @@
     "prizeValueCurrency": "ZAR",
     "numberOfPrizes": "1",
     "entryType": "Subscription Automatic Entry",
-    "tags": ["holidays", "subscription-required", "cape-town"],
+    "tags": [
+      "holidays",
+      "subscription-required",
+      "cape-town"
+    ],
     "url": "https://witness.co.za/ts-cs/",
     "sourceUrl": "https://witness.co.za/ts-cs/",
     "termsUrl": "https://witness.co.za/ts-cs/",
@@ -10982,15 +11084,26 @@
     "sourceReport": "Direct official-source validation performed for Freehub on 11 July 2026.",
     "evidenceNotes": "Official Witness terms confirm the July-August period, subscription mechanic, eligibility and included trip components.",
     "imageReviewNote": "Official campaign image not yet selected.",
-    "riskFlags": ["subscription_required", "purchase_required", "prize_exclusions", "image_unresolved"],
-    "validationWarnings": ["image_unresolved"]
+    "riskFlags": [
+      "subscription_required",
+      "purchase_required",
+      "prize_exclusions",
+      "image_unresolved"
+    ],
+    "validationWarnings": [
+      "image_unresolved"
+    ]
   },
   {
     "id": "kampi-refer-and-escape-2026",
     "title": "Kampi Refer and Escape Competition",
     "brand": "Kampi / Multi Risk",
     "summary": "Refer someone for a no-obligation insurance quote for a chance to win a bushveld weekend for two over the August long weekend.",
-    "entrySteps": ["Open the official Kampi / Multi Risk entry route.", "Refer an eligible person for a no-obligation insurance quote.", "Submit each valid referral before 16 July 2026."],
+    "entrySteps": [
+      "Open the official Kampi / Multi Risk entry route.",
+      "Refer an eligible person for a no-obligation insurance quote.",
+      "Submit each valid referral before 16 July 2026."
+    ],
     "closingDate": "2026-07-16",
     "category": "Holidays",
     "prizeName": "Bushveld weekend for two from 7 to 10 August 2026",
@@ -10999,7 +11112,12 @@
     "prizeValueCurrency": "ZAR",
     "numberOfPrizes": "1",
     "entryType": "Online Referral",
-    "tags": ["holidays", "free-entry", "referral", "ending-soon"],
+    "tags": [
+      "holidays",
+      "free-entry",
+      "referral",
+      "ending-soon"
+    ],
     "url": "https://kampi.co.za/blog/refer-escape-win-bushveld-weekend",
     "sourceUrl": "https://kampi.co.za/blog/refer-escape-win-bushveld-weekend",
     "termsUrl": "https://kampi.co.za/blog/refer-escape-win-bushveld-weekend",
@@ -11021,15 +11139,26 @@
     "sourceReport": "Direct official-source validation performed for Freehub on 11 July 2026.",
     "evidenceNotes": "Official Kampi page confirms the 1 April to 16 July period, no-purchase referral mechanic, eligibility and fixed-date bushveld prize.",
     "imageReviewNote": "Official campaign image not yet selected.",
-    "riskFlags": ["referral_entry", "fixed_travel_dates", "image_unresolved"],
-    "validationWarnings": ["fixed_travel_dates", "image_unresolved"]
+    "riskFlags": [
+      "referral_entry",
+      "fixed_travel_dates",
+      "image_unresolved"
+    ],
+    "validationWarnings": [
+      "fixed_travel_dates",
+      "image_unresolved"
+    ]
   },
   {
     "id": "ncwsa-refurbished-dell-laptop-2026",
     "title": "NCWSA Refurbished Dell Laptop Giveaway",
     "brand": "Network Computer Wireless",
     "summary": "Follow NCWSA, tag two friends and share the official giveaway post for a chance to win a refurbished Dell Windows 11 laptop.",
-    "entrySteps": ["Follow Network Computer Wireless on Facebook and @ncwsa_ on Instagram.", "Tag two friends in the official giveaway post comments.", "Share the official post before 31 July 2026."],
+    "entrySteps": [
+      "Follow Network Computer Wireless on Facebook and @ncwsa_ on Instagram.",
+      "Tag two friends in the official giveaway post comments.",
+      "Share the official post before 31 July 2026."
+    ],
     "closingDate": "2026-07-31",
     "category": "Tech",
     "prizeName": "Refurbished Dell Core i5 laptop with 8GB RAM, 256GB SSD and Windows 11",
@@ -11038,7 +11167,12 @@
     "prizeValueCurrency": "ZAR",
     "numberOfPrizes": "1",
     "entryType": "Social Media",
-    "tags": ["tech", "laptop", "free-entry", "social-media"],
+    "tags": [
+      "tech",
+      "laptop",
+      "free-entry",
+      "social-media"
+    ],
     "url": "https://www.ncwsa.co.za/competitions/",
     "sourceUrl": "https://www.ncwsa.co.za/competitions/",
     "termsUrl": "https://www.ncwsa.co.za/competitions/",
@@ -11060,15 +11194,26 @@
     "sourceReport": "Direct official-source validation performed for Freehub on 11 July 2026.",
     "evidenceNotes": "Official NCWSA page confirms closing date, no-purchase entry steps, eligibility and laptop specifications.",
     "imageReviewNote": "Official campaign image not yet selected.",
-    "riskFlags": ["social_media_entry", "refurbished_prize", "image_unresolved"],
-    "validationWarnings": ["social_post_recheck", "image_unresolved"]
+    "riskFlags": [
+      "social_media_entry",
+      "refurbished_prize",
+      "image_unresolved"
+    ],
+    "validationWarnings": [
+      "social_post_recheck",
+      "image_unresolved"
+    ]
   },
   {
     "id": "hyundai-host-a-bok-2026",
     "title": "Hyundai Host a Bok Competition",
     "brand": "Hyundai Automotive South Africa",
     "summary": "Book a qualifying Hyundai service for a chance to win one of three home match-viewing experiences with John Smit and a current Springbok or official representative.",
-    "entrySteps": ["Open Hyundai South Africa's official service-booking competition page.", "Book a qualifying Hyundai service before 31 July 2026.", "Keep booking and customer details current for winner verification."],
+    "entrySteps": [
+      "Open Hyundai South Africa's official service-booking competition page.",
+      "Book a qualifying Hyundai service before 31 July 2026.",
+      "Keep booking and customer details current for winner verification."
+    ],
     "closingDate": "2026-07-31",
     "category": "Sports",
     "prizeName": "Hyundai Host a Bok home experience with John Smit and Springbok guest",
@@ -11077,7 +11222,13 @@
     "prizeValueCurrency": "ZAR",
     "numberOfPrizes": "3",
     "entryType": "Online Service Booking",
-    "tags": ["sports", "rugby", "springboks", "service-booking", "experience"],
+    "tags": [
+      "sports",
+      "rugby",
+      "springboks",
+      "service-booking",
+      "experience"
+    ],
     "url": "https://www.hyundai.co.za/book-a-service",
     "sourceUrl": "https://www.hyundai.co.za/book-a-service",
     "termsUrl": "https://www.hyundai.co.za/book-a-service",
@@ -11100,8 +11251,16 @@
     "sourceReport": "Official Hyundai page reviewed online and prize clause supplied by the user on 11 July 2026.",
     "evidenceNotes": "Prize comprises one of three home visits with John Smit and a current Springbok or representative, live match viewing, Hyundai x Springbok kit, streaming/SuperSport access, refreshments and signed memorabilia.",
     "imageReviewNote": "Official campaign image not yet selected.",
-    "riskFlags": ["service_booking_required", "regional_prize", "eligibility_terms_incomplete", "image_unresolved"],
-    "validationWarnings": ["eligibility_terms_incomplete", "image_unresolved"]
+    "riskFlags": [
+      "service_booking_required",
+      "regional_prize",
+      "eligibility_terms_incomplete",
+      "image_unresolved"
+    ],
+    "validationWarnings": [
+      "eligibility_terms_incomplete",
+      "image_unresolved"
+    ]
   },
   {
     "id": "afrisam-together-we-win-2026",
@@ -11122,7 +11281,14 @@
     "prizeValueCurrency": "ZAR",
     "numberOfPrizes": "48",
     "entryType": "WhatsApp Till Slip / Automatic Loyalty Entry",
-    "tags": ["holidays", "springboks", "rugby", "purchase-required", "whatsapp", "building-vouchers"],
+    "tags": [
+      "holidays",
+      "springboks",
+      "rugby",
+      "purchase-required",
+      "whatsapp",
+      "building-vouchers"
+    ],
     "url": "https://www.afrisam.co.za/wp-content/uploads/2026/04/2026-Together-We-Win-promotion-Ts-Cs.pdf",
     "sourceUrl": "https://www.afrisam.co.za/wp-content/uploads/2026/04/2026-Together-We-Win-promotion-Ts-Cs.pdf",
     "termsUrl": "https://www.afrisam.co.za/wp-content/uploads/2026/04/2026-Together-We-Win-promotion-Ts-Cs.pdf",
@@ -11147,8 +11313,14 @@
     "imageReviewNote": "User-supplied capture from the official AfriSam website selected on 13 July 2026.",
     "imageReviewStatus": "official-source",
     "imageReviewCheckedAt": "2026-07-13",
-    "riskFlags": ["purchase_required", "travel_to_match_excluded", "whatsapp_entry"],
-    "validationWarnings": ["travel_to_match_excluded"]
+    "riskFlags": [
+      "purchase_required",
+      "travel_to_match_excluded",
+      "whatsapp_entry"
+    ],
+    "validationWarnings": [
+      "travel_to_match_excluded"
+    ]
   },
   {
     "id": "cashbuild-pimp-my-room-2026",
@@ -11169,7 +11341,14 @@
     "prizeValueCurrency": "ZAR",
     "numberOfPrizes": "1 main prize; 3 finalist renovation budgets",
     "entryType": "TikTok / Instagram Video",
-    "tags": ["vouchers", "home-improvement", "renovation", "free-entry", "social-media", "ending-soon"],
+    "tags": [
+      "vouchers",
+      "home-improvement",
+      "renovation",
+      "free-entry",
+      "social-media",
+      "ending-soon"
+    ],
     "url": "https://www.cashbuild.co.za/module/smartblog/download?id=425",
     "sourceUrl": "https://www.cashbuild.co.za/module/smartblog/download?id=425",
     "termsUrl": "https://www.cashbuild.co.za/module/smartblog/download?id=425",
@@ -11193,8 +11372,15 @@
     "imageReviewNote": "User-supplied Cashbuild brand artwork selected on 13 July 2026.",
     "imageReviewStatus": "official-source",
     "imageReviewCheckedAt": "2026-07-13",
-    "riskFlags": ["age_18_to_35", "payment_card_required", "judged_competition", "public_video_required"],
-    "validationWarnings": ["high_effort_entry"]
+    "riskFlags": [
+      "age_18_to_35",
+      "payment_card_required",
+      "judged_competition",
+      "public_video_required"
+    ],
+    "validationWarnings": [
+      "high_effort_entry"
+    ]
   },
   {
     "id": "ofm-show-us-your-ofm-cash-2026",
@@ -11215,7 +11401,13 @@
     "prizeValueCurrency": "ZAR",
     "numberOfPrizes": "1",
     "entryType": "Telegram / OFM App Photo",
-    "tags": ["cash", "free-entry", "photo", "telegram", "radio-competition"],
+    "tags": [
+      "cash",
+      "free-entry",
+      "photo",
+      "telegram",
+      "radio-competition"
+    ],
     "url": "https://www.ofm.co.za/competition/3663/show-us-your-ofm-win-r40-000-cash-",
     "sourceUrl": "https://www.ofm.co.za/competition/3663/show-us-your-ofm-win-r40-000-cash-",
     "termsUrl": "https://www.ofm.co.za/Content/10/competition-rules",
@@ -11239,8 +11431,13 @@
     "imageReviewNote": "User-supplied OFM brand artwork selected on 13 July 2026.",
     "imageReviewStatus": "official-source",
     "imageReviewCheckedAt": "2026-07-13",
-    "riskFlags": ["broadcast_area_restriction", "photo_rights"],
-    "validationWarnings": ["regional_eligibility"]
+    "riskFlags": [
+      "broadcast_area_restriction",
+      "photo_rights"
+    ],
+    "validationWarnings": [
+      "regional_eligibility"
+    ]
   },
   {
     "id": "lewis-donna-mk2-sleigh-bed-2026",
@@ -11261,7 +11458,13 @@
     "prizeValueCurrency": "ZAR",
     "numberOfPrizes": "1",
     "entryType": "Facebook Follow / Website Form",
-    "tags": ["free-entry", "furniture", "home", "facebook", "online-entry"],
+    "tags": [
+      "free-entry",
+      "furniture",
+      "home",
+      "facebook",
+      "online-entry"
+    ],
     "url": "https://lewisstores.co.za/ls-competition-landing.php?intshown=TF_facebook_Generic_Post_FreeGifts&invoke=facebook",
     "sourceUrl": "https://lewisstores.co.za/ls-competition-landing.php?intshown=TF_facebook_Generic_Post_FreeGifts&invoke=facebook",
     "termsUrl": "https://lewisstores.co.za/Images/ls_social.pdf",
@@ -11285,7 +11488,10 @@
     "imageReviewNote": "User-supplied Lewis Stores brand artwork selected on 13 July 2026.",
     "imageReviewStatus": "official-source",
     "imageReviewCheckedAt": "2026-07-13",
-    "riskFlags": ["marketing_consent", "prize_substitution_possible"],
+    "riskFlags": [
+      "marketing_consent",
+      "prize_substitution_possible"
+    ],
     "validationWarnings": []
   },
   {
@@ -11307,7 +11513,13 @@
     "prizeValueCurrency": "ZAR",
     "numberOfPrizes": "1",
     "entryType": "Instagram Follow / Website Form",
-    "tags": ["tech", "free-entry", "audio", "instagram", "online-entry"],
+    "tags": [
+      "tech",
+      "free-entry",
+      "audio",
+      "instagram",
+      "online-entry"
+    ],
     "url": "https://lewisstores.co.za/ls-competition-landing.php?intshown=TF_facebook_Generic_Post_FreeGifts&invoke=facebook",
     "sourceUrl": "https://lewisstores.co.za/ls-competition-landing.php?intshown=TF_facebook_Generic_Post_FreeGifts&invoke=facebook",
     "termsUrl": "https://lewisstores.co.za/Images/ls_social.pdf",
@@ -11331,7 +11543,10 @@
     "imageReviewNote": "User-supplied Lewis Stores brand artwork selected on 13 July 2026.",
     "imageReviewStatus": "official-source",
     "imageReviewCheckedAt": "2026-07-13",
-    "riskFlags": ["marketing_consent", "prize_substitution_possible"],
+    "riskFlags": [
+      "marketing_consent",
+      "prize_substitution_possible"
+    ],
     "validationWarnings": []
   },
   {
@@ -11353,7 +11568,13 @@
     "prizeValueCurrency": "ZAR",
     "numberOfPrizes": "5",
     "entryType": "In-Person Mall Event Form",
-    "tags": ["cash", "gaming", "mtn", "mall-competition", "in-person-entry"],
+    "tags": [
+      "cash",
+      "gaming",
+      "mtn",
+      "mall-competition",
+      "in-person-entry"
+    ],
     "url": "https://cdn.hyprop.co.za/document/2026/4/23/d6e838c8-8ab8-4d64-ac3b-3de21668823d/f5ebd71e-2405-4276-a189-280fc8d50b25.pdf",
     "sourceUrl": "https://cdn.hyprop.co.za/document/2026/4/23/d6e838c8-8ab8-4d64-ac3b-3de21668823d/f5ebd71e-2405-4276-a189-280fc8d50b25.pdf",
     "termsUrl": "https://cdn.hyprop.co.za/document/2026/4/23/d6e838c8-8ab8-4d64-ac3b-3de21668823d/f5ebd71e-2405-4276-a189-280fc8d50b25.pdf",
@@ -11377,8 +11598,14 @@
     "imageReviewNote": "User-supplied MTN brand artwork selected on 13 July 2026.",
     "imageReviewStatus": "official-source",
     "imageReviewCheckedAt": "2026-07-13",
-    "riskFlags": ["in_person_entry", "participating_malls_only", "service_registration_may_apply"],
-    "validationWarnings": ["regional_entry_points"]
+    "riskFlags": [
+      "in_person_entry",
+      "participating_malls_only",
+      "service_registration_may_apply"
+    ],
+    "validationWarnings": [
+      "regional_entry_points"
+    ]
   },
   {
     "id": "evetech-pulse-giveaway-2026",
@@ -11402,7 +11629,14 @@
     "prizeValueCurrency": "ZAR",
     "numberOfPrizes": "3",
     "entryType": "Social Follow / Online Survey",
-    "tags": ["tech", "gaming", "free-entry", "survey", "social-media", "online-entry"],
+    "tags": [
+      "tech",
+      "gaming",
+      "free-entry",
+      "survey",
+      "social-media",
+      "online-entry"
+    ],
     "url": "https://www.evetech.co.za/pulse",
     "sourceUrl": "https://www.evetech.co.za/pulse/methodology",
     "termsUrl": "https://www.evetech.co.za/pulse/methodology",
@@ -11426,8 +11660,15 @@
     "imageReviewNote": "User-supplied official Evetech Pulse giveaway artwork selected on 18 July 2026.",
     "imageReviewStatus": "official-source",
     "imageReviewCheckedAt": "2026-07-18",
-    "riskFlags": ["social_media_entry", "account_required", "survey_entry", "personal_information_processing"],
-    "validationWarnings": ["closing_time_09_00_sast"]
+    "riskFlags": [
+      "social_media_entry",
+      "account_required",
+      "survey_entry",
+      "personal_information_processing"
+    ],
+    "validationWarnings": [
+      "closing_time_09_00_sast"
+    ]
   },
   {
     "id": "takealot-back-to-school-voucher-2026",
@@ -11450,7 +11691,14 @@
     "prizeValueCurrency": "ZAR",
     "numberOfPrizes": "1",
     "entryType": "Facebook Comment",
-    "tags": ["vouchers", "takealot", "free-entry", "facebook", "social-media", "back-to-school"],
+    "tags": [
+      "vouchers",
+      "takealot",
+      "free-entry",
+      "facebook",
+      "social-media",
+      "back-to-school"
+    ],
     "url": "https://www.facebook.com/Takealot/posts/pfbid0XYY5E79N56xE1UxiMHXZixeKfLSKxSH1bCAnSKtx1CKGU6CphEUW6uGp81Ypd6mvl",
     "sourceUrl": "https://www.facebook.com/Takealot/posts/pfbid0XYY5E79N56xE1UxiMHXZixeKfLSKxSH1bCAnSKtx1CKGU6CphEUW6uGp81Ypd6mvl",
     "termsUrl": "https://www.takealot.com/competitions/takealot-back-to-school-competition-terms-and-conditions-july-2026",
@@ -11479,8 +11727,15 @@
     "imageReviewNote": "User-supplied official Takealot Back to School competition artwork selected on 18 July 2026.",
     "imageReviewStatus": "official-source",
     "imageReviewCheckedAt": "2026-07-18",
-    "riskFlags": ["social_media_entry", "age_restriction", "one_entry_per_person", "personal_information_processing"],
-    "validationWarnings": ["closing_time_17_00"]
+    "riskFlags": [
+      "social_media_entry",
+      "age_restriction",
+      "one_entry_per_person",
+      "personal_information_processing"
+    ],
+    "validationWarnings": [
+      "closing_time_17_00"
+    ]
   },
   {
     "id": "discovery-four-principles-book-launch-2026",
@@ -11502,7 +11757,14 @@
     "prizeValueCurrency": "ZAR",
     "numberOfPrizes": "5",
     "entryType": "Exclusive Books Online Purchase with Discovery Miles",
-    "tags": ["lifestyle", "books", "purchase-required", "discovery-miles", "event", "johannesburg"],
+    "tags": [
+      "lifestyle",
+      "books",
+      "purchase-required",
+      "discovery-miles",
+      "event",
+      "johannesburg"
+    ],
     "url": "https://www.discovery.co.za/portal/vitality/adrian-gore-preorders-competition",
     "sourceUrl": "https://www.discovery.co.za/portal/vitality/adrian-gore-preorders-competition",
     "termsUrl": "https://www.discovery.co.za/wcm/discoverycoza/assets/vitality/terms-and-conditions/adrian-book-launch.pdf",
@@ -11527,7 +11789,548 @@
     "imageReviewNote": "User-supplied official Discovery and Exclusive Books competition artwork selected on 18 July 2026.",
     "imageReviewStatus": "official-source",
     "imageReviewCheckedAt": "2026-07-18",
-    "riskFlags": ["purchase_required", "loyalty_membership_required", "qualifying_bank_account_required", "age_restriction", "personal_information_processing"],
-    "validationWarnings": ["eligibility_limited_to_qualifying_discovery_members"]
+    "riskFlags": [
+      "purchase_required",
+      "loyalty_membership_required",
+      "qualifying_bank_account_required",
+      "age_restriction",
+      "personal_information_processing"
+    ],
+    "validationWarnings": [
+      "eligibility_limited_to_qualifying_discovery_members"
+    ]
+  },
+  {
+    "id": "blue-ribbon-50-days-of-winning-2026",
+    "title": "Blue Ribbon 50 Days of Winning Competition",
+    "brand": "Blue Ribbon / Premier FMCG",
+    "summary": "Buy a qualifying promotional Blue Ribbon loaf and enter by USSD or WhatsApp for a chance to win one of 50 daily R10,000 cash prizes.",
+    "entrySteps": [
+      "Buy a qualifying promotional Blue Ribbon Standard Brown 700g, Standard White 700g or Toaster White 700g loaf.",
+      "Dial *120*5546# and follow the prompts, or scan the promotional QR code and enter through WhatsApp on 060 018 8204.",
+      "Keep the promotional pack and proof of purchase available for winner verification; only one entry per participant is allowed."
+    ],
+    "closingDate": "2026-08-19",
+    "category": "Cash",
+    "prizeName": "R10,000 cash prize",
+    "prizeType": "cash",
+    "prizeValueAmount": 10000,
+    "prizeValueCurrency": "ZAR",
+    "numberOfPrizes": "50",
+    "entryType": "USSD or WhatsApp Product Entry",
+    "tags": [
+      "cash",
+      "food",
+      "purchase-required",
+      "whatsapp",
+      "ussd",
+      "daily-prize"
+    ],
+    "url": "https://www.blueribbon.co.za/50-days-of-winning-official-blue-ribbon-site/",
+    "sourceUrl": "https://www.blueribbon.co.za/50-days-of-winning-official-blue-ribbon-site/",
+    "termsUrl": "https://blueribbon.co.za/media/eskhumtz/blue-ribbon-50-days-of-winning-ts-cs-updated.pdf",
+    "sourceDomain": "blueribbon.co.za",
+    "lastChecked": "2026-07-20",
+    "verificationStatus": "published",
+    "publicationStatus": "published",
+    "doNotPublish": false,
+    "entryCostType": "purchase-required",
+    "entryFeeLabel": "Purchase a qualifying promotional 700g Blue Ribbon loaf; USSD costs 20c per 20 seconds or standard WhatsApp data costs apply",
+    "purchaseRequired": true,
+    "requiredProduct": "Qualifying promotional Blue Ribbon Standard Brown 700g, Standard White 700g or Toaster White 700g loaf",
+    "entryChannel": "USSD *120*5546# or WhatsApp 060 018 8204",
+    "eligibility": "South African citizens or permanent residents. A minor may participate only with a parent or legal guardian representing them and accepting the rules.",
+    "region": "South Africa; promotional pack availability highlighted for the Western Cape and Gqeberha/Port Elizabeth",
+    "verificationNote": "Official Blue Ribbon campaign page and updated Premier FMCG PDF terms reviewed and approved for Freehub publication on 20 July 2026.",
+    "sourceSystem": "weekly-direct-discovery",
+    "sourceHandoffId": "weekly-20260720-blue-ribbon-50-days",
+    "sourceReviewStatus": "publication-approved",
+    "sourceReport": "Freehub weekly new competition scan completed on 20 July 2026.",
+    "evidenceNotes": "Official sources confirm the 1 July to 19 August 2026 period, three qualifying 700g promotional loaves, USSD and WhatsApp entry routes, one entry per participant and 50 daily R10,000 cash prizes worth R500,000 in total.",
+    "riskFlags": [
+      "purchase_required",
+      "promotional_pack_required",
+      "ussd_cost",
+      "regional_pack_availability",
+      "proof_of_purchase_required"
+    ],
+    "validationWarnings": [
+      "minor_entries_require_guardian",
+      "regional_promotional_pack_availability"
+    ]
+  },
+  {
+    "id": "standard-bank-gen-z-virtual-credit-card-2026",
+    "title": "Standard Bank Gen Z Virtual Credit Card Competition",
+    "brand": "Standard Bank",
+    "summary": "Qualifying Standard Bank clients aged 18 to 29 can activate a virtual credit card and complete eligible card transactions for a chance to win Apple, Samsung or Amazon prizes.",
+    "entrySteps": [
+      "Hold or obtain a qualifying Standard Bank credit card and create a Standard Bank virtual credit card during the promotion period.",
+      "Make the first qualifying virtual-card transaction of at least R100 to earn an entry.",
+      "Earn additional entries through the qualifying R300 spend and monthly transaction activity described in the official terms, up to three entries."
+    ],
+    "closingDate": "2026-09-22",
+    "category": "Tech",
+    "prizeName": "MacBook Pro, Samsung Galaxy S26 Ultra or R3,500 Amazon voucher",
+    "prizeType": "tech",
+    "prizeValueAmount": null,
+    "prizeValueCurrency": "ZAR",
+    "numberOfPrizes": "11",
+    "entryType": "Virtual Credit Card Activation and Spend",
+    "tags": [
+      "tech",
+      "vouchers",
+      "purchase-required",
+      "banking",
+      "virtual-card",
+      "gen-z"
+    ],
+    "url": "https://www.standardbank.co.za/static_file/South%20Africa/PDF/Campaigns%20Ts%20and%20Cs/SBSA_GenZ_Virtual_Credit_Card_Campaign_terms_and_conditions.pdf",
+    "sourceUrl": "https://www.standardbank.co.za/static_file/South%20Africa/PDF/Campaigns%20Ts%20and%20Cs/SBSA_GenZ_Virtual_Credit_Card_Campaign_terms_and_conditions.pdf",
+    "termsUrl": "https://www.standardbank.co.za/static_file/South%20Africa/PDF/Campaigns%20Ts%20and%20Cs/SBSA_GenZ_Virtual_Credit_Card_Campaign_terms_and_conditions.pdf",
+    "sourceDomain": "standardbank.co.za",
+    "lastChecked": "2026-07-20",
+    "verificationStatus": "published",
+    "publicationStatus": "published",
+    "doNotPublish": false,
+    "entryCostType": "purchase-required",
+    "entryFeeLabel": "Qualifying Standard Bank credit-card account and virtual-card transaction of at least R100 required; normal account fees and transaction costs may apply",
+    "purchaseRequired": true,
+    "requiredProduct": "Qualifying Standard Bank credit card and Standard Bank virtual credit card",
+    "entryChannel": "Standard Bank virtual credit card activation and qualifying transactions",
+    "eligibility": "South African citizens or residents aged 18 to 29 who meet the qualifying Standard Bank credit-card and virtual-card requirements.",
+    "region": "South Africa",
+    "verificationNote": "Official Standard Bank campaign terms reviewed and approved for Freehub publication on 20 July 2026.",
+    "sourceSystem": "weekly-direct-discovery",
+    "sourceHandoffId": "weekly-20260720-standard-bank-gen-z-vcc",
+    "sourceReviewStatus": "publication-approved",
+    "sourceReport": "Freehub weekly new competition scan completed on 20 July 2026.",
+    "evidenceNotes": "Official Standard Bank terms confirm the qualifying 18-to-29 age range, 22 September 2026 closing date, virtual-card activation and spend mechanics, maximum three entries and a prize pool comprising one MacBook Pro, two Samsung Galaxy S26 Ultra phones and eight R3,500 Amazon South Africa virtual gift cards.",
+    "riskFlags": [
+      "purchase_required",
+      "credit_product_required",
+      "qualifying_bank_account_required",
+      "age_restriction",
+      "transaction_costs_may_apply"
+    ],
+    "validationWarnings": [
+      "limited_to_ages_18_to_29",
+      "credit_approval_and_account_terms_apply"
+    ]
+  },
+  {
+    "id": "coca-cola-fan-can-be-a-bok-2026",
+    "title": "Coca-Cola Fan Can Be a Bok Competition",
+    "brand": "Coca-Cola South Africa",
+    "summary": "Buy a participating Coca-Cola, Powerade or Bonaqua product and enter by WhatsApp for chances to win rugby trips, Springbok experiences, tickets, vouchers, airtime or data.",
+    "entrySteps": [
+      "Buy a participating Coca-Cola unique-code product, or a participating Powerade or Bonaqua product that uses the till-slip route.",
+      "Scan the campaign QR code or WhatsApp Coke to 087 133 0080.",
+      "Submit the unique promotional code or upload the qualifying till slip as directed and retain the original proof of purchase."
+    ],
+    "closingDate": "2026-11-30",
+    "category": "Holidays",
+    "prizeName": "Rugby trips, Springbok experiences, match tickets, vouchers, airtime and data",
+    "prizeType": "holiday",
+    "prizeValueAmount": null,
+    "prizeValueCurrency": "ZAR",
+    "numberOfPrizes": "Multiple",
+    "entryType": "WhatsApp Product Code or Till-Slip Entry",
+    "tags": [
+      "holidays",
+      "rugby",
+      "purchase-required",
+      "whatsapp",
+      "till-slip",
+      "vouchers",
+      "airtime-data"
+    ],
+    "url": "https://www.coca-cola.com/za/en/legal/terms-and-conditions-be-a-bok-2026-promotion",
+    "sourceUrl": "https://www.coca-cola.com/za/en/legal/terms-and-conditions-be-a-bok-2026-promotion",
+    "termsUrl": "https://www.coca-cola.com/za/en/legal/terms-and-conditions-be-a-bok-2026-promotion",
+    "sourceDomain": "coca-cola.com",
+    "lastChecked": "2026-07-20",
+    "verificationStatus": "published",
+    "publicationStatus": "published",
+    "doNotPublish": false,
+    "entryCostType": "purchase-required",
+    "entryFeeLabel": "Purchase a participating Coca-Cola, Powerade or Bonaqua product; standard WhatsApp data costs apply",
+    "purchaseRequired": true,
+    "requiredProduct": "Participating Coca-Cola, Powerade or Bonaqua promotional product",
+    "entryChannel": "Campaign QR code and WhatsApp 087 133 0080",
+    "eligibility": "South African citizens or permanent residents aged 18 or older, living in South Africa and holding valid identification. Recent promoter-competition winners may be excluded under the official rules.",
+    "region": "South Africa with regional prize allocations",
+    "verificationNote": "Official Coca-Cola South Africa promotion terms reviewed and approved for Freehub publication on 20 July 2026.",
+    "sourceSystem": "weekly-direct-discovery",
+    "sourceHandoffId": "weekly-20260720-coca-cola-be-a-bok",
+    "sourceReviewStatus": "publication-approved",
+    "sourceReport": "Freehub weekly new competition scan completed on 20 July 2026.",
+    "evidenceNotes": "Official Coca-Cola rules confirm the 6 July to 30 November 2026 period, participating product-code and till-slip routes, WhatsApp entry, South African 18-plus eligibility and a broad prize pool including two France rugby trips for two, domestic Springbok experiences, match tickets, accommodation, retail and restaurant vouchers, airtime and data.",
+    "riskFlags": [
+      "purchase_required",
+      "proof_of_purchase_required",
+      "age_restriction",
+      "whatsapp_entry",
+      "travel_documents_required"
+    ],
+    "validationWarnings": [
+      "regional_prize_allocation",
+      "passport_and_visa_requirements_for_international_trip"
+    ]
+  },
+  {
+    "id": "beares-grandiose-kitchen-scheme-2026",
+    "title": "Beares Grandiose Kitchen Scheme Competition",
+    "brand": "Beares",
+    "summary": "Follow Beares on Instagram and complete the official competition form for a chance to win a Grandiose kitchen scheme.",
+    "entrySteps": [
+      "Follow the official Beares Instagram account.",
+      "Open the current Grandiose Kitchen competition from the official Beares competitions page.",
+      "Complete and submit the official entry form before 31 July 2026; only one entry per person is allowed."
+    ],
+    "closingDate": "2026-07-31",
+    "category": "Lifestyle",
+    "prizeName": "Grandiose kitchen scheme",
+    "prizeType": "retail",
+    "prizeValueAmount": null,
+    "prizeValueCurrency": "ZAR",
+    "numberOfPrizes": "1",
+    "entryType": "Instagram Follow and Online Form",
+    "tags": [
+      "lifestyle",
+      "home",
+      "free-entry",
+      "instagram",
+      "online-entry",
+      "ending-soon"
+    ],
+    "url": "https://www.beares.co.za/terms-and-conditions-instagram-grandiose-kitchen",
+    "sourceUrl": "https://www.beares.co.za/terms-and-conditions-instagram-grandiose-kitchen",
+    "termsUrl": "https://www.beares.co.za/terms-and-conditions-instagram-grandiose-kitchen",
+    "sourceDomain": "beares.co.za",
+    "lastChecked": "2026-07-20",
+    "verificationStatus": "published",
+    "publicationStatus": "published",
+    "doNotPublish": false,
+    "entryCostType": "free-entry",
+    "entryFeeLabel": "No purchase or entry fee; Instagram access and standard data costs may apply",
+    "purchaseRequired": false,
+    "entryChannel": "Official Beares Instagram follow and linked online entry form",
+    "eligibility": "Residents of South Africa, Botswana, Lesotho, Namibia and Eswatini aged 18 or older with valid identification or a passport.",
+    "region": "South Africa, Botswana, Lesotho, Namibia and Eswatini",
+    "verificationNote": "Official Beares competition listing and campaign-specific terms reviewed and approved for Freehub publication on 20 July 2026.",
+    "sourceSystem": "weekly-direct-discovery",
+    "sourceHandoffId": "weekly-20260720-beares-grandiose-kitchen",
+    "sourceReviewStatus": "publication-approved",
+    "sourceReport": "Freehub weekly new competition scan completed on 20 July 2026.",
+    "evidenceNotes": "Official Beares sources confirm the 1 to 31 July 2026 period, Instagram-follow and official-form entry mechanic, no-purchase route, one entry per person, regional 18-plus eligibility and one Grandiose kitchen scheme prize.",
+    "riskFlags": [
+      "social_media_account_required",
+      "online_form",
+      "personal_information_processing"
+    ],
+    "validationWarnings": [
+      "prize_may_be_substituted_if_stock_unavailable",
+      "multi_country_eligibility"
+    ]
+  },
+  {
+    "id": "virgin-active-springbok-partner-2026",
+    "title": "Virgin Active Springbok Partner Competition",
+    "brand": "Virgin Active South Africa",
+    "summary": "Active Virgin Active members can meet their weekly visit goal and claim an app entry for a chance to win a premium Springbok match experience for two in Johannesburg.",
+    "entrySteps": [
+      "Be an active Virgin Active member in good standing and use the Virgin Active app.",
+      "Meet the weekly fitness visit goal; only one qualifying club visit per day is counted.",
+      "Claim the competition entry from the weekly rewards pool in the app before 16 August 2026."
+    ],
+    "closingDate": "2026-08-16",
+    "category": "Holidays",
+    "prizeName": "Springbok match experience for two in Johannesburg with hotel, jerseys and R10,000 spending money",
+    "prizeType": "experience",
+    "prizeValueAmount": null,
+    "prizeValueCurrency": "ZAR",
+    "numberOfPrizes": "1",
+    "entryType": "Virgin Active App Fitness Goal",
+    "tags": [
+      "holidays",
+      "rugby",
+      "app-required",
+      "membership-required",
+      "fitness",
+      "johannesburg"
+    ],
+    "url": "https://hello.virginactive.co.za/support/solutions/articles/201000130252-springbok-competition-2026-terms-and-conditions",
+    "sourceUrl": "https://hello.virginactive.co.za/support/solutions/articles/201000130252-springbok-competition-2026-terms-and-conditions",
+    "termsUrl": "https://hello.virginactive.co.za/support/solutions/articles/201000130252-springbok-competition-2026-terms-and-conditions",
+    "sourceDomain": "hello.virginactive.co.za",
+    "lastChecked": "2026-07-20",
+    "verificationStatus": "published",
+    "publicationStatus": "published",
+    "doNotPublish": false,
+    "entryCostType": "membership-required",
+    "entryFeeLabel": "No separate competition fee; an active Virgin Active membership, app access and qualifying club visits are required",
+    "purchaseRequired": false,
+    "requiredProduct": "Active Virgin Active membership in good standing",
+    "entryChannel": "Virgin Active app weekly rewards pool",
+    "eligibility": "Permanent South African residents aged 18 or older with an active Virgin Active membership in good standing, the Virgin Active app and a claimed qualifying entry.",
+    "region": "South Africa / prize event in Johannesburg",
+    "verificationNote": "Official Virgin Active South Africa competition terms reviewed and approved for Freehub publication on 20 July 2026.",
+    "sourceSystem": "weekly-direct-discovery",
+    "sourceHandoffId": "weekly-20260720-virgin-active-springbok",
+    "sourceReviewStatus": "publication-approved",
+    "sourceReport": "Freehub weekly new competition scan completed on 20 July 2026.",
+    "evidenceNotes": "Official Virgin Active terms confirm the 8 July to 16 August 2026 period, active-member and app requirements, weekly visit-goal mechanic and a Springbok Johannesburg prize for two including tickets, two hotel nights, jerseys, R10,000 spending money and domestic flights when the winner lives outside Gauteng.",
+    "riskFlags": [
+      "paid_membership_required",
+      "app_required",
+      "fitness_activity_required",
+      "age_restriction",
+      "travel_exclusions"
+    ],
+    "validationWarnings": [
+      "food_drinks_and_daily_local_transport_excluded"
+    ]
+  },
+  {
+    "id": "clover-tropika-ginger-beer-cash-2026",
+    "title": "Clover Tropika Ginger Beer Cash Competition",
+    "brand": "Clover / Tropika",
+    "summary": "Share a photo or video enjoying the non-alcoholic Tropika Ginger Beer Flavoured Dairy Fruit Mix on an official Tropika social account for a chance to win R1,000 cash.",
+    "entrySteps": [
+      "Obtain a participating Tropika Limited Edition Ginger Beer Flavoured Dairy Fruit Mix in a 500ml or 2L pack.",
+      "Reply to an official Tropika competition post with a photo or video of yourself enjoying the product.",
+      "Tag @MyTropika, use #Tropika and follow the applicable official Tropika social account; multiple entries are allowed."
+    ],
+    "closingDate": "2026-07-31",
+    "category": "Cash",
+    "prizeName": "R1,000 cash prize",
+    "prizeType": "cash",
+    "prizeValueAmount": 1000,
+    "prizeValueCurrency": "ZAR",
+    "numberOfPrizes": "3",
+    "entryType": "Social Media Photo or Video",
+    "tags": [
+      "cash",
+      "food",
+      "purchase-required",
+      "social-media",
+      "photo-entry",
+      "ending-soon"
+    ],
+    "url": "https://www.clover.co.za/competitions/tropika-limited-edition-ginger-beer-social-media-competition/",
+    "sourceUrl": "https://www.clover.co.za/competitions/tropika-limited-edition-ginger-beer-social-media-competition/",
+    "termsUrl": "https://www.clover.co.za/competitions/tropika-limited-edition-ginger-beer-social-media-competition/",
+    "sourceDomain": "clover.co.za",
+    "lastChecked": "2026-07-20",
+    "verificationStatus": "published",
+    "publicationStatus": "published",
+    "doNotPublish": false,
+    "visibility": "public",
+    "riskLevel": "low",
+    "requiresAgeGate": false,
+    "adsAllowed": true,
+    "entryCostType": "purchase-required",
+    "entryFeeLabel": "A participating Tropika Ginger Beer Flavoured Dairy Fruit Mix product is needed for the entry photo or video; standard data costs apply",
+    "purchaseRequired": true,
+    "requiredProduct": "Tropika Limited Edition Ginger Beer Flavoured Dairy Fruit Mix 500ml or 2L",
+    "entryChannel": "Official Tropika Facebook, X, Instagram or TikTok competition post",
+    "eligibility": "Permanent South African residents aged 18 or older with a valid South African ID and South African bank account.",
+    "region": "South Africa",
+    "verificationNote": "Official Clover campaign-specific terms reviewed and approved for Freehub publication on 20 July 2026.",
+    "sourceSystem": "weekly-direct-discovery",
+    "sourceHandoffId": "weekly-20260720-tropika-ginger-beer",
+    "sourceReviewStatus": "publication-approved",
+    "sourceReport": "Freehub weekly new competition scan completed on 20 July 2026.",
+    "evidenceNotes": "Official Clover terms confirm the 10 June to 23:00 on 31 July 2026 period, photo-or-video social mechanic across official Tropika accounts, required tag and hashtag, unlimited entries and three R1,000 cash prizes. The named product is a non-alcoholic dairy fruit mix.",
+    "riskFlags": [
+      "product_required",
+      "social_media_entry",
+      "public_photo_or_video",
+      "age_restriction",
+      "bank_account_required"
+    ],
+    "validationWarnings": [
+      "non_alcoholic_product_despite_ginger_beer_name",
+      "entrant_content_usage_rights"
+    ],
+    "image": "https://www.clover.co.za/wp-content/uploads/2026/07/tropikaLong.png",
+    "imageReviewStatus": "official-source",
+    "imageReviewCheckedAt": "2026-07-20"
+  },
+  {
+    "id": "pick-n-pay-supersport-the-big-eat-2026",
+    "title": "Pick n Pay Smart Shopper The Big Eat Competition",
+    "brand": "Pick n Pay Smart Shopper / SuperSport",
+    "summary": "Vote for the best Springbok tackle after participating matches for a chance to win R10,000 in Pick n Pay Smart Shopper points.",
+    "entrySteps": [
+      "Hold a valid Pick n Pay Smart Shopper card.",
+      "Vote for the best tackle after the latest Springbok Nations Championship match through the official SuperSport competition page or DStv Rewards.",
+      "Submit no more than one tackle selection per day; a participant may win only one prize during the promotion."
+    ],
+    "closingDate": "2026-11-28",
+    "category": "Vouchers",
+    "prizeName": "R10,000 in Pick n Pay Smart Shopper points",
+    "prizeType": "voucher",
+    "prizeValueAmount": 10000,
+    "prizeValueCurrency": "ZAR",
+    "numberOfPrizes": "One after each qualifying Springbok match",
+    "entryType": "Online Rugby Vote",
+    "tags": [
+      "vouchers",
+      "rugby",
+      "loyalty-required",
+      "online-entry",
+      "smart-shopper",
+      "sports"
+    ],
+    "url": "https://campaigns.supersport.com/competitions/3544",
+    "sourceUrl": "https://campaigns.supersport.com/competitions/3544",
+    "termsUrl": "https://campaigns.supersport.com/competitions/3544",
+    "sourceDomain": "campaigns.supersport.com",
+    "lastChecked": "2026-07-20",
+    "verificationStatus": "published",
+    "publicationStatus": "published",
+    "doNotPublish": false,
+    "entryCostType": "account-required",
+    "entryFeeLabel": "No purchase or entry fee; a valid Pick n Pay Smart Shopper account and standard data access are required",
+    "purchaseRequired": false,
+    "requiredProduct": "Pick n Pay Smart Shopper membership",
+    "entryChannel": "Official SuperSport competition page or DStv Rewards tackle vote",
+    "eligibility": "South African residents aged 18 or older who hold a valid Pick n Pay Smart Shopper card at the time of the draw.",
+    "region": "South Africa",
+    "verificationNote": "Official SuperSport and Pick n Pay Smart Shopper competition page and terms reviewed and approved for Freehub publication on 20 July 2026.",
+    "sourceSystem": "weekly-direct-discovery",
+    "sourceHandoffId": "weekly-20260720-the-big-eat",
+    "sourceReviewStatus": "publication-approved",
+    "sourceReport": "Freehub weekly new competition scan completed on 20 July 2026.",
+    "evidenceNotes": "Official terms confirm the 4 July to 28 November 2026 period, online best-tackle voting mechanic, South African 18-plus Smart Shopper eligibility and a R10,000 Smart Shopper points prize after each qualifying Springbok match.",
+    "riskFlags": [
+      "loyalty_membership_required",
+      "age_restriction",
+      "daily_entry_limit",
+      "personal_information_processing"
+    ],
+    "validationWarnings": [
+      "one_prize_maximum_per_entrant"
+    ]
+  },
+  {
+    "id": "vodacom-spotify-premium-activate-rewarded-2026",
+    "title": "Vodacom Spotify Premium Activate and Get Rewarded Competition",
+    "brand": "Vodacom",
+    "summary": "Vodacom RED Core and VIP customers who activate their Spotify Premium trial benefit through the campaign can win a R5,000 Takealot voucher for headphones or earphones.",
+    "entrySteps": [
+      "Be a Vodacom customer on a qualifying RED Core or VIP plan with a RICA-registered SIM.",
+      "Open the official Vodacom campaign email or WhatsApp message during the promotion period.",
+      "Activate the included Spotify Premium trial benefit through that campaign route before 31 July 2026."
+    ],
+    "closingDate": "2026-07-31",
+    "category": "Tech",
+    "prizeName": "R5,000 Takealot headphone or earphone voucher",
+    "prizeType": "voucher",
+    "prizeValueAmount": 5000,
+    "prizeValueCurrency": "ZAR",
+    "numberOfPrizes": "3",
+    "entryType": "Spotify Premium Benefit Activation",
+    "tags": [
+      "tech",
+      "vouchers",
+      "account-required",
+      "vodacom",
+      "spotify",
+      "ending-soon"
+    ],
+    "url": "https://www.vodacom.co.za/vodacom/terms/spotify-premium-activate-and-get-rewarded-competition",
+    "sourceUrl": "https://www.vodacom.co.za/vodacom/terms/spotify-premium-activate-and-get-rewarded-competition",
+    "termsUrl": "https://www.vodacom.co.za/vodacom/terms/spotify-premium-activate-and-get-rewarded-competition",
+    "sourceDomain": "vodacom.co.za",
+    "lastChecked": "2026-07-20",
+    "verificationStatus": "published",
+    "publicationStatus": "published",
+    "doNotPublish": false,
+    "entryCostType": "account-required",
+    "entryFeeLabel": "No additional competition charge; a qualifying Vodacom RED Core or VIP plan is required and standard data costs apply",
+    "purchaseRequired": false,
+    "requiredProduct": "Qualifying Vodacom RED Core or VIP plan and included Spotify Premium trial benefit",
+    "entryChannel": "Vodacom campaign email or WhatsApp benefit-activation route",
+    "eligibility": "Natural persons residing in South Africa who use a RICA-registered Vodacom SIM on a qualifying RED Core or VIP plan and hold valid South African identity or qualifying residence documentation.",
+    "region": "South Africa",
+    "verificationNote": "Official Vodacom campaign terms reviewed and approved for Freehub publication on 20 July 2026.",
+    "sourceSystem": "weekly-direct-discovery",
+    "sourceHandoffId": "weekly-20260720-vodacom-spotify",
+    "sourceReviewStatus": "publication-approved",
+    "sourceReport": "Freehub weekly new competition scan completed on 20 July 2026.",
+    "evidenceNotes": "Official Vodacom terms confirm the 23 June to 31 July 2026 period, RED Core and VIP plan eligibility, campaign email or WhatsApp Spotify Premium trial activation, no additional entry charge and three R5,000 Takealot digital vouchers restricted to the headphones and earphones category.",
+    "riskFlags": [
+      "qualifying_mobile_plan_required",
+      "targeted_campaign_channel",
+      "rica_required",
+      "standard_data_costs",
+      "voucher_category_restriction"
+    ],
+    "validationWarnings": [
+      "limited_to_red_core_and_vip_customers",
+      "takealot_voucher_restricted_to_audio_category"
+    ]
+  },
+  {
+    "id": "nedbank-appventure-with-us-2026-2027",
+    "title": "Nedbank Appventure With Us Competition",
+    "brand": "Nedbank",
+    "summary": "Eligible Nedbank personal-banking clients who log into the Money app at least 20 times in a month can win a monthly adventure or shopping experience worth up to R20,000.",
+    "entrySteps": [
+      "Be an eligible Nedbank personal-banking client with an active account in good standing and register for the Nedbank Money app.",
+      "Log into the Nedbank Money app at least 20 times during a calendar month in the competition period.",
+      "A qualifying client receives an entry into that month's recorded draw; each winner chooses an eligible adventure or voucher option worth up to R20,000."
+    ],
+    "closingDate": "2027-03-31",
+    "category": "Holidays",
+    "prizeName": "Monthly adventure, getaway or shopping experience worth up to R20,000",
+    "prizeType": "holiday",
+    "prizeValueAmount": 20000,
+    "prizeValueCurrency": "ZAR",
+    "numberOfPrizes": "11 monthly prizes",
+    "entryType": "Nedbank Money App Login Activity",
+    "tags": [
+      "holidays",
+      "vouchers",
+      "account-required",
+      "app-required",
+      "banking",
+      "monthly-prize"
+    ],
+    "url": "https://personal.nedbank.co.za/legal/terms-and-conditions/appventure-with-us-competition.html",
+    "sourceUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/appventure-with-us-competition.html",
+    "termsUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/appventure-with-us-competition.html",
+    "sourceDomain": "personal.nedbank.co.za",
+    "lastChecked": "2026-07-20",
+    "verificationStatus": "published",
+    "publicationStatus": "published",
+    "doNotPublish": false,
+    "entryCostType": "account-required",
+    "entryFeeLabel": "No separate entry fee; an eligible active Nedbank personal-banking account, Money app registration and standard data access are required",
+    "purchaseRequired": false,
+    "requiredProduct": "Eligible Nedbank personal-banking account and registered Nedbank Money app",
+    "entryChannel": "Automatic monthly draw entry after at least 20 Nedbank Money app logins",
+    "eligibility": "South African citizens aged 18 or older who are natural-person Nedbank personal-banking clients with an eligible active account in good standing and a registered Nedbank Money app. Certain client categories are excluded under the terms.",
+    "region": "South Africa",
+    "verificationNote": "Official Nedbank campaign-specific terms reviewed and approved for Freehub publication on 20 July 2026.",
+    "sourceSystem": "weekly-direct-discovery",
+    "sourceHandoffId": "weekly-20260720-nedbank-appventure",
+    "sourceReviewStatus": "publication-approved",
+    "sourceReport": "Freehub weekly new competition scan completed on 20 July 2026.",
+    "evidenceNotes": "Official Nedbank terms confirm the 1 May 2026 to 31 March 2027 period, qualifying personal-banking client and Money app requirements, at least 20 app logins per month, monthly recorded draws and one adventure, getaway or voucher option worth up to R20,000 for each monthly winner.",
+    "riskFlags": [
+      "qualifying_bank_account_required",
+      "app_required",
+      "monthly_activity_required",
+      "age_restriction",
+      "travel_exclusions"
+    ],
+    "validationWarnings": [
+      "may_be_limited_to_selected_nedbank_clients",
+      "additional_costs_above_prize_cap_excluded"
+    ]
   }
 ]

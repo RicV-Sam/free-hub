@@ -3,6 +3,14 @@
   "warnings": [
     {
       "sourceType": "competition",
+      "recordId": "ackermans-foneyam-tech-prizes",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.ackermans.co.za/blogs/blog/stand-a-chance-to-win-your-share-of-r1-million-in-tech-prizes",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
       "recordId": "ackermans-payat-xbox-series-s",
       "field": "url",
       "reason": "expired_archive_404",
@@ -14,6 +22,14 @@
       "recordId": "bulbs-of-the-fynbos-competition-2026",
       "field": "url",
       "reason": "expired_archive_404",
+      "url": "https://struiknature.co.za/terms-and-conditions-bulbs-of-the-fynbos-competition/",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "bulbs-of-the-fynbos-competition-2026",
+      "field": "url",
+      "reason": "timeout",
       "url": "https://struiknature.co.za/terms-and-conditions-bulbs-of-the-fynbos-competition/",
       "lifecycle": "expired-archive"
     },
