@@ -2044,7 +2044,8 @@
     "evidenceNotes": "Official Beares campaign page and campaign-specific terms reviewed on 20 July 2026 confirm the 1 to 31 July 2026 period, Facebook-page-like and official-form entry mechanic, no-purchase route, one entry per person, regional 18-plus eligibility and one Russell Hobbs 15kg top loader prize.",
     "imageReviewNote": "User-supplied official Beares Russell Hobbs campaign artwork selected on 20 July 2026.",
     "imageReviewStatus": "official-source",
-    "imageReviewCheckedAt": "2026-07-20"
+    "imageReviewCheckedAt": "2026-07-20",
+    "imageLayout": "portrait"
   },
   {
     "id": "best-home-electric-kelvinator-top-loader-2026",
@@ -11986,7 +11987,8 @@
     ],
     "imageReviewNote": "User-supplied official Beares Grandiose Kitchen campaign artwork selected on 20 July 2026.",
     "imageReviewStatus": "official-source",
-    "imageReviewCheckedAt": "2026-07-20"
+    "imageReviewCheckedAt": "2026-07-20",
+    "imageLayout": "portrait"
   },
   {
     "id": "virgin-active-springbok-partner-2026",
