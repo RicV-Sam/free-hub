@@ -5078,5 +5078,64 @@
     "evidenceNotes": "Official Hisense x Coca-Cola promotion terms reviewed on 8 July 2026 confirm the 18 May to 19 July 2026 period, Makro/Game/Walmart retail route, qualifying Hisense and Coca-Cola product categories, QR or online form entry, proof-of-purchase upload and nine weekly draws.",
     "archivedAt": "2026-07-20",
     "archiveReason": "expired"
+  },
+  {
+    "id": "blue-ribbon-50-days-of-winning-2026",
+    "title": "Blue Ribbon 50 Days of Winning Competition",
+    "brand": "Blue Ribbon / Premier FMCG",
+    "summary": "Buy a qualifying promotional Blue Ribbon loaf and enter by USSD or WhatsApp for a chance to win one of 50 daily R10,000 cash prizes.",
+    "entrySteps": [
+      "Buy a qualifying promotional Blue Ribbon Standard Brown 700g, Standard White 700g or Toaster White 700g loaf.",
+      "Dial *120*5546# and follow the prompts, or scan the promotional QR code and enter through WhatsApp on 060 018 8204.",
+      "Keep the promotional pack and proof of purchase available for winner verification; only one entry per participant is allowed."
+    ],
+    "closingDate": "2025-10-20",
+    "category": "Cash",
+    "prizeName": "R10,000 cash prize",
+    "prizeType": "cash",
+    "prizeValueAmount": 10000,
+    "prizeValueCurrency": "ZAR",
+    "numberOfPrizes": "50",
+    "entryType": "USSD or WhatsApp Product Entry",
+    "tags": [
+      "cash",
+      "food",
+      "purchase-required",
+      "whatsapp",
+      "ussd",
+      "daily-prize"
+    ],
+    "url": "https://www.blueribbon.co.za/50-days-of-winning-official-blue-ribbon-site/",
+    "sourceUrl": "https://www.blueribbon.co.za/50-days-of-winning-official-blue-ribbon-site/",
+    "termsUrl": "https://blueribbon.co.za/media/eskhumtz/blue-ribbon-50-days-of-winning-ts-cs-updated.pdf",
+    "sourceDomain": "blueribbon.co.za",
+    "lastChecked": "2026-07-20",
+    "verificationStatus": "expired",
+    "publicationStatus": "archived",
+    "doNotPublish": true,
+    "entryCostType": "purchase-required",
+    "entryFeeLabel": "Purchase a qualifying promotional 700g Blue Ribbon loaf; USSD costs 20c per 20 seconds or standard WhatsApp data costs apply",
+    "purchaseRequired": true,
+    "requiredProduct": "Qualifying promotional Blue Ribbon Standard Brown 700g, Standard White 700g or Toaster White 700g loaf",
+    "entryChannel": "USSD *120*5546# or WhatsApp 060 018 8204",
+    "eligibility": "South African citizens or permanent residents. A minor may participate only with a parent or legal guardian representing them and accepting the rules.",
+    "region": "South Africa",
+    "verificationNote": "Removed from active publication on 20 July 2026 after user-supplied campaign artwork showed a 1 September to 20 October 2025 promotion period. The undated official page and its linked PDF contain conflicting campaign dates, so the record is retained only as an archive entry.",
+    "sourceSystem": "weekly-direct-discovery",
+    "sourceHandoffId": "weekly-20260720-blue-ribbon-50-days",
+    "sourceReviewStatus": "archived-date-conflict",
+    "sourceReport": "Freehub weekly new competition scan correction completed on 20 July 2026.",
+    "evidenceNotes": "User-supplied Blue Ribbon campaign artwork states that the promotion ran from 1 September to 20 October 2025. The current official campaign page is undated, while its linked terms PDF describes a different 1 July to 19 August 2026 schedule. This conflict makes the campaign unsafe for active publication.",
+    "riskFlags": [
+      "expired",
+      "conflicting_official_dates",
+      "purchase_required",
+      "ussd_cost"
+    ],
+    "validationWarnings": [
+      "do_not_republish_without_campaign_specific_current_artwork_and_terms"
+    ],
+    "archivedAt": "2026-07-20",
+    "archiveReason": "expired-and-conflicting-dates"
   }
 ]

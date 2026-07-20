@@ -7,7 +7,7 @@ Only active, published, public-safe competitions are counted. Held, unverified, 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 20
+- Matching active public competitions: 19
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -25,7 +25,6 @@ Only active, published, public-safe competitions are counted. Held, unverified, 
 | AfriSam Together We Win Competition (afrisam-together-we-win-2026) | 2026-07-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Vodacom Spotify Premium Activate and Get Rewarded Competition (vodacom-spotify-premium-activate-rewarded-2026) | 2026-07-31 | account-required | yes | yes | WhatsApp mentioned in entry text | none |
 | MasterChef SA Season 6 Watch & Win (masterchef-sa-watch-and-win-competition-2026) | 2026-08-17 | free-entry | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
-| Blue Ribbon 50 Days of Winning Competition (blue-ribbon-50-days-of-winning-2026) | 2026-08-19 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Coca-Cola Get Together Zwakala neFlava Promotion (coca-cola-zwakala-neflava-2026) | 2026-08-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Kellogg's Big Bowl Energy Competition (kelloggs-big-bowl-energy-2026) | 2026-08-31 | till-slip-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Nestle MILO Meet the Champ Campaign 2026 (nestle-milo-meet-the-champ-2026) | 2026-08-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
@@ -58,7 +57,7 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 30
+- Matching active public competitions: 29
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -82,7 +81,6 @@ Recommended normalisation:
 | Dis-Chem Power GRO Trust the Process Competition (dis-chem-power-gro-trust-the-process-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | AfriSam Together We Win Competition (afrisam-together-we-win-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Dark & Lovely Best For Braids Competition (clicks-dark-and-lovely-best-for-braids-2026) | 2026-08-15 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
-| Blue Ribbon 50 Days of Winning Competition (blue-ribbon-50-days-of-winning-2026) | 2026-08-19 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | GARDENA Winter Pruning Giveaway 2026 (gardena-winter-pruning-giveaway-2026) | 2026-08-25 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Hisense Big Wash No Drama Buy and Win (hisense-big-wash-no-drama-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Kellogg's Big Bowl Energy Competition (kelloggs-big-bowl-energy-2026) | 2026-08-31 | till-slip-required | yes | yes | Till slip or receipt tag | none |
