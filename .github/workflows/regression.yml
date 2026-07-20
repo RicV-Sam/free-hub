@@ -25,6 +25,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm test
+      - run: npm run report:opportunity-health
       - name: Compare generated output with PR base
         if: github.event_name == 'pull_request'
         shell: bash
