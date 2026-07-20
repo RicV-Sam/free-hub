@@ -1,21 +1,19 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-07-19
+Generated: 2026-07-20
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 19
+- Matching active public competitions: 17
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Coke x Hisense FIFA Fan Hamper Competition (coca-cola-hisense-fifa-fan-hampers-2026) | 2026-07-19 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
-| Hisense Hirsch Foosball Activation Competition (hisense-hirsch-foosball-activation-2026) | 2026-07-19 | free-entry | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | KitKat F1 Monza Competition (kitkat-f1-monza-competition-2026) | 2026-07-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Game Haier Play With The Number Ones (game-haier-play-with-the-number-ones-2026) | 2026-07-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Clere Win a Share of R1 Million Cash Competition (clere-share-of-r1-million-cash-2026) | 2026-07-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
@@ -57,16 +55,13 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 31
+- Matching active public competitions: 28
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Coke x Hisense FIFA Fan Hamper Competition (coca-cola-hisense-fifa-fan-hampers-2026) | 2026-07-19 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
-| Hisense Pepkor Match-Ready Gallery Competition (hisense-pepkor-match-ready-gallery-2026) | 2026-07-19 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
-| Hisense x Coca-Cola Match Day Competition (hisense-coca-cola-match-day-2026) | 2026-07-19 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | KitKat F1 Monza Competition (kitkat-f1-monza-competition-2026) | 2026-07-30 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Game Haier Play With The Number Ones (game-haier-play-with-the-number-ones-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Clover SPAR Rewards Competition (clover-spar-rewards-voucher-competition-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
@@ -102,16 +97,13 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 25
+- Matching active public competitions: 22
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Clicks Cashback Haul Competition (clicks-cashback-haul-competition) | 2026-07-19 | free-entry | yes | yes | Online entry mentioned in entry text | none |
-| Hisense Pepkor Match-Ready Gallery Competition (hisense-pepkor-match-ready-gallery-2026) | 2026-07-19 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
-| Hisense x Coca-Cola Match Day Competition (hisense-coca-cola-match-day-2026) | 2026-07-19 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | Game Haier Play With The Number Ones (game-haier-play-with-the-number-ones-2026) | 2026-07-31 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | Beares Russell Hobbs Top Loader Facebook Competition (beares-russell-hobbs-top-loader-facebook-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Best Home & Electric Kelvinator Top Loader Competition (best-home-electric-kelvinator-top-loader-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
@@ -141,14 +133,13 @@ Recommended normalisation:
 ## Win Airtime Competitions in South Africa
 
 - URL: /win-airtime-competitions-south-africa/
-- Matching active public competitions: 4
+- Matching active public competitions: 3
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| MTN World Cup Bafana Goal 1GB Data Reward (mtn-world-cup-bafana-goal-1gb-data-2026) | 2026-07-19 | free-entry | yes | yes | Airtime tag; Airtime prize text | none |
 | Coca-Cola Get Together Zwakala neFlava Promotion (coca-cola-zwakala-neflava-2026) | 2026-08-31 | purchase-required | yes | yes | Airtime tag; Airtime prize text | none |
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | Airtime tag; Airtime prize text | none |
 | McDonald's Nazo Meals Airtime and Data Rewards (mcdonalds-nazo-meals-airtime-data-rewards-2026) | 2026-12-20 | purchase-required | yes | yes | Airtime tag; Airtime prize text | none |
@@ -159,14 +150,13 @@ Recommended normalisation:
 ## Win Data Competitions in South Africa
 
 - URL: /win-data-competitions-south-africa/
-- Matching active public competitions: 4
+- Matching active public competitions: 3
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| MTN World Cup Bafana Goal 1GB Data Reward (mtn-world-cup-bafana-goal-1gb-data-2026) | 2026-07-19 | free-entry | yes | yes | Data or connectivity tag; Data or connectivity prize text | none |
 | NCWSA Refurbished Dell Laptop Giveaway (ncwsa-refurbished-dell-laptop-2026) | 2026-07-31 | free-entry | yes | yes | Data or connectivity prize text | consider data/connectivity tag only if prize terms confirm |
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | Data or connectivity tag | none |
 | McDonald's Nazo Meals Airtime and Data Rewards (mcdonalds-nazo-meals-airtime-data-rewards-2026) | 2026-12-20 | purchase-required | yes | yes | Data or connectivity tag; Data or connectivity prize text | none |
@@ -197,14 +187,13 @@ Recommended normalisation:
 ## Supermarket Competitions in South Africa
 
 - URL: /supermarket-competitions-south-africa/
-- Matching active public competitions: 11
+- Matching active public competitions: 10
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Coke x Hisense FIFA Fan Hamper Competition (coca-cola-hisense-fifa-fan-hampers-2026) | 2026-07-19 | purchase-required | yes | yes | Supermarket or grocery tag; Supermarket or grocery entry text | none |
 | Celebrate and Win with Boxer (boxer-celebrate-win-samsung-a06-2026) | 2026-07-22 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Huggies Dry Comfort Buy and Win Competition (huggies-dry-comfort-buy-win-2026) | 2026-07-26 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Clover SPAR Rewards Competition (clover-spar-rewards-voucher-competition-2026) | 2026-07-31 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
