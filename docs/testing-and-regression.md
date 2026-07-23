@@ -81,9 +81,9 @@ Fifteen retained expired records predate `entryCostType`. `data/archive/legacy-c
 
 The pure `isPublicOpportunity()` gate requires an explicit `asOfDate` and official-source host allowlist. It rejects non-published, non-verified, future, overdue, expired, unsupported-type, invalid-source, unclear-cost and requirement-mismatch records. Strict free-only use accepts only `completely_free`. Supported type-specific details are currently limited to direct samples, product-testing campaigns, birthday freebies and free courses; other declared types may be stored as drafts but cannot become public.
 
-`FREEHUB_ENABLE_OPPORTUNITIES` is false unless its exact value is `true`. PR 4 adds one reviewed pilot record, while absent and explicit-false builds still produce no Opportunity cards or schema. No flag state creates routes, sitemap entries or Club state.
+`FREEHUB_ENABLE_OPPORTUNITIES` is false unless its exact value is `true`. The enabled build publishes one reviewed direct sample and four reviewed product-testing applications, while absent and explicit-false builds still produce no Opportunity cards or schema. No flag state creates Club state.
 
-PR 3 upgrades the existing Free Stuff parent independently of the flag. The generator owns the publication boundary and passes only approved records to renderers. PR 4 replaces the empty test safeguard with the single reviewed exact host `products.coloplast.co.za`; registry contents must never be used to infer or silently permit source hosts.
+The generator owns the publication boundary and passes only approved records to renderers. The explicit source allowlist contains only `brandadvisor.co.za` and `products.coloplast.co.za`; registry contents must never be used to infer or silently permit source hosts. Enabled opportunities create matching cards, structured data, detail routes and sitemap entries. Exit routes remain outside the sitemap and carry `noindex`.
 
 Generated-output parity permits only the exact shared Free Stuff navigation fragment at its exact position and the one-time `data-free-stuff-parent-version="2"` transition. Once that marker exists in the PR base, later parent changes are compared normally.
 
@@ -102,12 +102,12 @@ The harness does not estimate Lighthouse history, Core Web Vitals, Search Consol
 
 ## PR 4 Free Samples pilot
 
-The Samples pilot adds a deterministic two-state check. With `FREEHUB_ENABLE_OPPORTUNITIES` absent or set to any value other than the exact string `true`, both approved pages contain zero Opportunity cards and zero Opportunity ItemLists. With the flag set to `true`, the same reviewed Coloplast record appears once as a full card on `/free-samples-south-africa/` and once as a compact card on `/free-stuff-south-africa/`. No detail route or sitemap entry is permitted in either state.
+The Samples inventory adds a deterministic two-state check. With `FREEHUB_ENABLE_OPPORTUNITIES` absent or set to any value other than the exact string `true`, both approved pages contain zero Opportunity cards and zero Opportunity ItemLists. With the flag set to `true`, one reviewed direct sample and four reviewed product-testing applications appear on `/free-samples-south-africa/` and `/free-stuff-south-africa/`. Each record also produces a detail route and sitemap entry; its exit route remains `noindex` and outside the sitemap.
 
-`node scripts/validate-free-samples-pilot.js` checks the canonical, title, H1, seven classified resources, six visible/schema-matched FAQs, card/schema equality, section order, stable ID, card variants, privacy boundary, route exclusion, and unchanged competition counts. The script reads the exact same fail-closed flag value as the build.
+`node scripts/validate-free-samples-pilot.js` checks the canonical, title, H1, seven classified resources, six visible/schema-matched FAQs, card/schema equality, section order, stable IDs, card variants, privacy boundary, route inclusion, and unchanged competition counts. The script reads the exact same fail-closed flag value as the build.
 
 `node scripts/validate-opportunity-links.js` validates the Opportunity source and terms independently of the ordinary warning baseline. A current exact manual-evidence entry can cover an automated access block. It cannot cover a 404, 410, redirect, confirmed soft-404, mismatched URL, or stale evidence.
 
-The pull-request workflow builds and tests Chromium once with the flag disabled and again with the flag enabled. Flag-absent and explicit-false HTML must be byte-identical. The enabled comparison permits only the exact Coloplast section and matching JSON-LD script on the Samples and Free Stuff pages. The one-time Samples v2 parity exception stops applying as soon as the base branch contains its marker.
+The pull-request workflow builds and tests Chromium once with the flag disabled and again with the flag enabled. Flag-absent and explicit-false HTML must be byte-identical. The enabled comparison permits only the reviewed opportunity sections, matching JSON-LD, detail and exit routes, sitemap entries, and related route-finder content.
 
 Editorial review, activation, rollback, privacy, and evidence-retention procedures are in `docs/free-samples-editorial-runbook.md`.

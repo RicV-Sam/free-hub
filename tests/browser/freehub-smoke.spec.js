@@ -82,7 +82,7 @@ test("Free Stuff parent preserves intent and separates durable resources from op
   await expect(childNavigation.getByRole("link", { name: "Credit Reports" })).toHaveAttribute("href", "/free-credit-report-south-africa/");
 
   await expect(page.locator("article.free-resource-card")).toHaveCount(18);
-  await expect(page.locator("article.opportunity-card")).toHaveCount(opportunitiesEnabled ? 1 : 0);
+  await expect(page.locator("article.opportunity-card")).toHaveCount(opportunitiesEnabled ? 5 : 0);
   await expect(page.locator("section.opportunity-section")).toHaveCount(opportunitiesEnabled ? 1 : 0);
   await expect(page.locator("#structured-data-opportunities")).toHaveCount(opportunitiesEnabled ? 1 : 0);
   if (opportunitiesEnabled) {
@@ -136,7 +136,7 @@ test("Free Stuff discovery analytics separates pillar and official-source events
 
   if (opportunitiesEnabled) {
     await page.evaluate(() => { window.__freehubTestEvents = []; });
-    const opportunity = page.locator("article.opportunity-card a.opportunity-card__link");
+    const opportunity = page.locator('[data-opportunity-id="coloplast-speedicath-short-sample"] a.opportunity-card__link');
     await opportunity.evaluate((link) => link.addEventListener("click", (event) => event.preventDefault(), { once: true }));
     await opportunity.click();
     events = await page.evaluate(() => window.__freehubTestEvents);
@@ -156,7 +156,13 @@ test("Free Samples v3 preserves its canonical and seven classified resources", a
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Where to Get Free Samples in South Africa");
   await expectCanonical(page, "/free-samples-south-africa/");
   await expect(page.locator('body[data-free-samples-page-version="3"]')).toHaveCount(1);
-  await expect(page.getByRole("region", { name: "7 reviewed sample routes, clearly separated" })).toBeVisible();
+  await expect(
+    page.getByRole("region", {
+      name: opportunitiesEnabled
+        ? "7 reviewed routes plus 5 current opportunities"
+        : "7 reviewed sample routes, clearly separated",
+    })
+  ).toBeVisible();
   await expect(page.locator("article.free-resource-card")).toHaveCount(7);
   await expect(page.locator('[data-content-type="product_testing_panel"]')).toHaveCount(4);
   await expect(page.locator('[data-content-type="brand_sample_programme"]')).toHaveCount(2);
@@ -164,17 +170,18 @@ test("Free Samples v3 preserves its canonical and seven classified resources", a
   await expect(page.locator("#brand-sample-programmes")).toContainText("Official brand sample programmes");
   await expect(page.getByRole("region", { name: "Product-testing panels" })).toContainText("does not guarantee");
   await expect(page.locator("section.detail-faq details")).toHaveCount(6);
-  await expect(page.locator("article.opportunity-card")).toHaveCount(opportunitiesEnabled ? 1 : 0);
+  await expect(page.locator("article.opportunity-card")).toHaveCount(opportunitiesEnabled ? 5 : 0);
   await expect(page.locator("#structured-data-opportunities")).toHaveCount(opportunitiesEnabled ? 1 : 0);
+  await expect(page.locator("#structured-data-product-testing")).toHaveCount(opportunitiesEnabled ? 1 : 0);
 
   if (opportunitiesEnabled) {
     const card = page.locator('[data-opportunity-id="coloplast-speedicath-short-sample"]');
     await expect(card).toHaveAttribute("data-card-variant", "full");
     await expect(card).toContainText("Application only");
     await expect(card).toContainText("No delivery charge");
-    await expect(card).toContainText("Coloplast, not Freehub, assesses product suitability");
+    await expect(card).toContainText("Coloplast South Africa, not Freehub, assesses product suitability");
     await expect(card).toContainText("Freehub does not receive or assess your application");
-    await expect(card.getByRole("link", { name: "Coloplast consent and privacy information" })).toHaveAttribute(
+    await expect(card.getByRole("link", { name: "Coloplast South Africa consent and privacy information" })).toHaveAttribute(
       "href",
       "https://www.coloplast.co.za/global/declaration-of-consent/"
     );
@@ -182,10 +189,17 @@ test("Free Samples v3 preserves its canonical and seven classified resources", a
       "href",
       "/opportunity/coloplast-speedicath-short-sample/"
     );
+    const testingCards = page.locator('[data-content-type="product_testing"]');
+    await expect(testingCards).toHaveCount(4);
+    const sunlight = page.locator('[data-opportunity-id="brand-advisor-sunlight-dishwashing-testing"]');
+    await expect(sunlight).toContainText("Two TikTok videos required if selected");
+    await expect(sunlight).toContainText("not a guaranteed free sample");
   }
 
   const detail = await page.request.get("/opportunity/coloplast-speedicath-short-sample/");
   expect(detail.status()).toBe(opportunitiesEnabled ? 200 : 404);
+  const testingDetail = await page.request.get("/opportunity/brand-advisor-sunlight-dishwashing-testing/");
+  expect(testingDetail.status()).toBe(opportunitiesEnabled ? 200 : 404);
 });
 
 test("voucher hub leads with verified free-entry choices", async ({ page }) => {
@@ -222,7 +236,7 @@ test("Samples analytics identify the vertical and use parameter-free destination
 
   if (opportunitiesEnabled) {
     await page.evaluate(() => { window.__freehubTestEvents = []; });
-    const source = page.locator("article.opportunity-card a.opportunity-card__link");
+    const source = page.locator('[data-opportunity-id="coloplast-speedicath-short-sample"] a.opportunity-card__link');
     await source.evaluate((link) => link.addEventListener("click", (event) => event.preventDefault(), { once: true }));
     await source.click();
     events = await page.evaluate(() => window.__freehubTestEvents);
@@ -278,7 +292,7 @@ test("Opportunity detail and measured exit flow remain flag-controlled", async (
   })]]);
 
   await page.evaluate(() => { window.__freehubTestEvents = []; });
-  const terms = page.getByRole("link", { name: "Read Coloplast sample terms" });
+  const terms = page.getByRole("link", { name: "Read the official sample terms" });
   await terms.evaluate((link) => link.addEventListener("click", (event) => event.preventDefault(), { once: true }));
   await terms.click();
   events = await page.evaluate(() => window.__freehubTestEvents);
@@ -327,6 +341,31 @@ test("Opportunity detail and measured exit flow remain flag-controlled", async (
   ]);
   expect(automaticEvents.some((event) => event[1] === "official_source_click")).toBe(false);
   await automaticContext.close();
+});
+
+test("Product-testing detail pages state selection and creator obligations", async ({ page }) => {
+  const detailPath = "/opportunity/brand-advisor-sunlight-dishwashing-testing/";
+  const exitPath = "/out/opportunity/brand-advisor-sunlight-dishwashing-testing/";
+  if (!opportunitiesEnabled) {
+    expect((await page.request.get(detailPath)).status()).toBe(404);
+    expect((await page.request.get(exitPath)).status()).toBe(404);
+    return;
+  }
+
+  await page.goto(detailPath);
+  await expectCanonical(page, detailPath);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+    "Sunlight Dishwashing Liquid product-testing application"
+  );
+  await expect(page.getByText("This is a creator product-testing application, not a guaranteed free sample.")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "What Brand Advisor requires" })).toBeVisible();
+  await expect(page.getByText("Two TikTok videos required if selected")).toBeVisible();
+  await expect(page.getByText("Your application goes directly to Brand Advisor")).toBeVisible();
+  await expect(page.getByText(/health-related information|medical suitability/i)).toHaveCount(0);
+  await expect(page.getByRole("link", { name: "Continue to the official product-testing application" })).toHaveAttribute(
+    "href",
+    exitPath
+  );
 });
 
 test("Opportunity tombstones keep historical context without application paths", async ({ page }) => {

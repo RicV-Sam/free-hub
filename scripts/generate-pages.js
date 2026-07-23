@@ -27,8 +27,11 @@ const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Dat
 const OPPORTUNITIES_ENABLED = opportunityData.isOpportunityFeatureEnabled(
   process.env.FREEHUB_ENABLE_OPPORTUNITIES
 );
-// Reviewed PR 4 pilot allowlist. Never infer or permit hosts from registry contents.
-const OPPORTUNITY_ALLOWED_SOURCE_HOSTS = Object.freeze(["products.coloplast.co.za"]);
+// Reviewed source allowlist. Never infer or permit hosts from registry contents.
+const OPPORTUNITY_ALLOWED_SOURCE_HOSTS = Object.freeze([
+  "brandadvisor.co.za",
+  "products.coloplast.co.za",
+]);
 const CSS_ASSET_VERSION = "20260704-voucher-seo-v1";
 const FREEHUB_REFER_WIN_CONFIG = {
   referWinCampaignEnabled: true,
@@ -6078,7 +6081,14 @@ function renderTrustPageUsefulLinks(usefulLinks) {
         </section>`;
 }
 
-function renderFreeSamplesRouteFinder({ sampleOpportunities, programmes, panels, explainers, pageResources }) {
+function renderFreeSamplesRouteFinder({
+  sampleOpportunities,
+  testingOpportunities,
+  programmes,
+  panels,
+  explainers,
+  pageResources,
+}) {
   const routes = [
     ...(sampleOpportunities.length > 0
       ? [
@@ -6087,6 +6097,16 @@ function renderFreeSamplesRouteFinder({ sampleOpportunities, programmes, panels,
             label: "Current verified samples",
             count: sampleOpportunities.length,
             description: "Official requests checked for cost, eligibility, delivery and selection details.",
+          },
+        ]
+      : []),
+    ...(testingOpportunities.length > 0
+      ? [
+          {
+            href: "#current-product-tests",
+            label: "Current product tests",
+            count: testingOpportunities.length,
+            description: "Apply for selected creator campaigns with the account and content tasks shown.",
           },
         ]
       : []),
@@ -6112,16 +6132,22 @@ function renderFreeSamplesRouteFinder({ sampleOpportunities, programmes, panels,
   const reviewDates = [
     ...pageResources.map((resource) => resource.lastReviewed),
     ...sampleOpportunities.map((opportunity) => opportunity.lastVerifiedAt || opportunity.updatedAt),
+    ...testingOpportunities.map((opportunity) => opportunity.lastVerifiedAt || opportunity.updatedAt),
   ]
     .filter(Boolean)
     .sort();
   const latestReviewDate = reviewDates[reviewDates.length - 1];
 
+  const opportunityCount = sampleOpportunities.length + testingOpportunities.length;
+  const routeHeading = opportunityCount > 0
+    ? `${pageResources.length} reviewed routes plus ${opportunityCount} current opportunities`
+    : `${pageResources.length} reviewed sample routes, clearly separated`;
+
   return `<section class="sample-route-finder" id="sample-options" aria-labelledby="sample-route-finder-title">
           <div class="sample-route-finder__header">
             <div>
               <p class="section-kicker">Start here</p>
-              <h2 id="sample-route-finder-title">${escapeHtml(String(pageResources.length))} reviewed sample routes, clearly separated</h2>
+              <h2 id="sample-route-finder-title">${escapeHtml(routeHeading)}</h2>
             </div>
             ${latestReviewDate ? `<p class="sample-route-finder__reviewed">Latest source check: ${escapeHtml(shared.formatDate(latestReviewDate))}</p>` : ""}
           </div>
@@ -6147,6 +6173,7 @@ function renderFreeSamplesPage(page) {
   const programmes = pageResources.filter((resource) => resource.sampleResourceType === "brand_sample_programme");
   const explainers = pageResources.filter((resource) => resource.sampleResourceType === "editorial_guide");
   const sampleOpportunities = approvedPublicOpportunities.filter((opportunity) => opportunity.type === "free_sample");
+  const testingOpportunities = approvedPublicOpportunities.filter((opportunity) => opportunity.type === "product_testing");
   const faqItems = getFreeSamplesFaqItems();
   const resourceStructuredData = freeResourceRenderer.buildFreeResourceItemList({
     resources: pageResources,
@@ -6155,6 +6182,10 @@ function renderFreeSamplesPage(page) {
   const opportunityStructuredData = opportunityRenderer.buildOpportunityItemList({
     opportunities: sampleOpportunities,
     name: "Current verified samples",
+  });
+  const productTestingStructuredData = opportunityRenderer.buildOpportunityItemList({
+    opportunities: testingOpportunities,
+    name: "Current verified product-testing applications",
   });
   const faqStructuredData = buildTrustPageFaqStructuredData(faqItems);
   const structuredData = {
@@ -6216,6 +6247,7 @@ function renderFreeSamplesPage(page) {
     <script id="structured-data-article" type="application/ld+json">${escapeScript(JSON.stringify(articleData))}</script>
     <script id="structured-data-itemlist" type="application/ld+json">${escapeScript(JSON.stringify(resourceStructuredData))}</script>
     ${opportunityStructuredData ? `<script id="structured-data-opportunities" type="application/ld+json">${escapeScript(JSON.stringify(opportunityStructuredData))}</script>` : ""}
+    ${productTestingStructuredData ? `<script id="structured-data-product-testing" type="application/ld+json">${escapeScript(JSON.stringify(productTestingStructuredData))}</script>` : ""}
     <script id="structured-data-faq" type="application/ld+json">${escapeScript(JSON.stringify(faqStructuredData))}</script>
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
     ${ADSENSE_SCRIPT}
@@ -6242,6 +6274,7 @@ function renderFreeSamplesPage(page) {
       <main id="main-content" class="main-content trust-page free-samples-page">
         ${renderFreeSamplesRouteFinder({
           sampleOpportunities,
+          testingOpportunities,
           programmes,
           panels,
           explainers,
@@ -6260,6 +6293,15 @@ function renderFreeSamplesPage(page) {
         ${opportunityRenderer.renderOpportunitySection({
           opportunities: sampleOpportunities,
           heading: "Current verified samples",
+          pageType: "free_samples_vertical",
+          cardVariant: "full",
+        })}
+        </div>
+
+        <div id="current-product-tests" class="anchor-target">
+        ${opportunityRenderer.renderOpportunitySection({
+          opportunities: testingOpportunities,
+          heading: "Current product-testing applications",
           pageType: "free_samples_vertical",
           cardVariant: "full",
         })}
@@ -6299,7 +6341,8 @@ function renderFreeSamplesPage(page) {
           <article class="trust-page__section">
             <h2>Safety and sensitive information</h2>
             <p>Apply only on the named provider's official website. Check delivery charges, selection rules, feedback duties and what information the provider will collect before submitting a form.</p>
-            <p>For the medical-product sample shown here, you will provide suitability and health-related information directly to Coloplast. Freehub does not receive or assess your application, store application answers, pre-fill the form or provide medical suitability advice.</p>
+            <p>Applications go directly to the named provider. Freehub does not receive or assess application answers, choose participants, pre-fill forms or guarantee that a sample or gifted product will be supplied.</p>
+            <p>For medical-product samples, suitability and health-related information goes directly to the provider. Freehub does not provide medical suitability advice.</p>
           </article>
         </section>
 
@@ -9246,6 +9289,10 @@ function renderOpportunityDetailPage(opportunity, lifecycleState) {
   const active = lifecycleState === "active";
   const robots = active ? "index, follow, max-image-preview:large" : "noindex, follow";
   const eyebrow = active ? "Verified opportunity" : "Opportunity status";
+  const productTesting = opportunity.type === "product_testing";
+  const detailTrustItems = productTesting
+    ? ["Verified official source", "Selection required", "Creator tasks stated"]
+    : ["Verified official source", "Costs stated clearly", "Provider approval required"];
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -9283,13 +9330,13 @@ function renderOpportunityDetailPage(opportunity, lifecycleState) {
         eyebrow,
         heading: opportunity.title,
         intro: active
-          ? "Check the provider, eligibility, fulfilment, privacy and current verification facts before continuing to the official application."
+          ? "Check the provider, selection rules, required tasks, privacy and current verification facts before continuing to the official application."
           : "This noindex trust page records why the opportunity is not currently available.",
         actions: [
-          { label: "Browse Current Samples", href: "/free-samples-south-africa/", className: "btn--secondary" },
+          { label: "Browse Sample Options", href: "/free-samples-south-africa/", className: "btn--secondary" },
         ],
         trustItems: active
-          ? ["Verified official source", "Free delivery", "Suitability approval required"]
+          ? detailTrustItems
           : ["No application link", "Noindex historical page", "Current offers stay separate"],
       })}
 
@@ -9318,6 +9365,7 @@ function renderOpportunityExitPage(opportunity) {
   const sourceUrl = new URL(opportunity.sourceUrl);
   const sourceDomain = sourceUrl.hostname.toLowerCase().replace(/^www\./, "");
   const destinationPath = sourceUrl.pathname || "/";
+  const productTesting = opportunity.type === "product_testing";
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -9346,7 +9394,11 @@ function renderOpportunityExitPage(opportunity) {
         actions: [
           { label: "Back to Opportunity Details", href: opportunityData.getOpportunityDetailPath(opportunity), className: "btn--secondary" },
         ],
-        trustItems: ["External provider page", "Coloplast assesses suitability", "Freehub collects no application data"],
+        trustItems: [
+          "External provider page",
+          productTesting ? "Provider selects participants" : "Provider approves requests",
+          "Freehub collects no application data",
+        ],
       })}
 
       <main id="main-content" class="main-content opportunity-exit-page">

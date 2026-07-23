@@ -3,11 +3,20 @@ const path = require("path");
 const { parseHtml, walkHtmlFiles } = require("./lib/baseline-utils.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
-const expectedOpportunityCount = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true" ? 1 : 0;
+const opportunitiesEnabled = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true";
+const expectedOpportunityCount = opportunitiesEnabled ? 5 : 0;
+const expectedSampleOpportunityCount = opportunitiesEnabled ? 1 : 0;
+const expectedTestingOpportunityCount = opportunitiesEnabled ? 4 : 0;
 const expectedGeneratedFiles = 350 + expectedOpportunityCount * 2;
 const expectedSitemapUrls = 138 + expectedOpportunityCount;
 const expectedActiveCompetitionCount = 81;
-const expectedId = "coloplast-speedicath-short-sample";
+const expectedIds = [
+  "brand-advisor-clover-krush-testing",
+  "brand-advisor-kinder-testing",
+  "brand-advisor-parmalat-easygest-testing",
+  "brand-advisor-sunlight-dishwashing-testing",
+  "coloplast-speedicath-short-sample",
+];
 const errors = [];
 const checks = [];
 
@@ -39,6 +48,7 @@ const parentPage = parseHtml(parent);
 const competitionPage = parseHtml(competitions);
 const sampleResourceSchema = samplePage.jsonLd.find((item) => item?.name === "Sample and product-testing routes");
 const sampleOpportunitySchema = samplePage.jsonLd.find((item) => item?.name === "Current verified samples");
+const testingOpportunitySchema = samplePage.jsonLd.find((item) => item?.name === "Current verified product-testing applications");
 const parentOpportunitySchema = parentPage.jsonLd.find((item) => item?.name === "Current verified opportunities");
 const faqSchema = samplePage.jsonLd.find((item) => item?.["@type"] === "FAQPage");
 const competitionSchema = competitionPage.jsonLd.find((item) => item?.["@type"] === "ItemList");
@@ -64,7 +74,8 @@ check("Visible FAQs", count(samples, /<details>/g), 6);
 check("FAQ schema items", faqSchema?.mainEntity?.length || 0, 6);
 check("Samples Opportunity cards", count(samples, /<article class="opportunity-card\b/g), expectedOpportunityCount);
 check("Parent Opportunity cards", count(parent, /<article class="opportunity-card\b/g), expectedOpportunityCount);
-check("Samples Opportunity schema items", sampleOpportunitySchema?.itemListElement?.length || 0, expectedOpportunityCount);
+check("Samples Opportunity schema items", sampleOpportunitySchema?.itemListElement?.length || 0, expectedSampleOpportunityCount);
+check("Product-testing Opportunity schema items", testingOpportunitySchema?.itemListElement?.length || 0, expectedTestingOpportunityCount);
 check("Parent Opportunity schema items", parentOpportunitySchema?.itemListElement?.length || 0, expectedOpportunityCount);
 check("Opportunity detail routes", countGeneratedRoutes("opportunity"), expectedOpportunityCount);
 check("Opportunity exit routes", countGeneratedRoutes(path.join("out", "opportunity")), expectedOpportunityCount);
@@ -75,18 +86,21 @@ const renderedIds = [
   ...parent.matchAll(/data-opportunity-id="([^"]+)"/g),
 ].map((match) => match[1]);
 check("Opportunity surface render count", renderedIds.length, expectedOpportunityCount * 2);
-if (expectedOpportunityCount === 1) {
-  check("Opportunity stable ID only", renderedIds.every((id) => id === expectedId), true);
+if (opportunitiesEnabled) {
+  const uniqueRenderedIds = [...new Set(renderedIds)].sort();
+  check("Opportunity stable IDs", JSON.stringify(uniqueRenderedIds), JSON.stringify(expectedIds));
   check("Full card variant", samples.includes('data-card-variant="full"'), true);
   check("Compact card variant", parent.includes('data-card-variant="compact"'), true);
-  check("Cards link to one detail route", [samples, parent].every((html) => html.includes('href="/opportunity/coloplast-speedicath-short-sample/"')), true);
+  check("Coloplast detail route", [samples, parent].every((html) => html.includes('href="/opportunity/coloplast-speedicath-short-sample/"')), true);
+  check("Product-testing detail routes", expectedIds.slice(0, 4).every((id) => samples.includes(`href="/opportunity/${id}/"`)), true);
   check("Privacy boundary on both surfaces", [samples, parent].every((html) => html.includes("Freehub does not receive or assess your application")), true);
   check("Official consent link on both surfaces", [samples, parent].every((html) => html.includes("https://www.coloplast.co.za/global/declaration-of-consent/")), true);
+  check("Selection boundary", samples.includes("not a guaranteed free sample"), true);
 }
 
 const orderedMarkers = [
   "Direct samples, testing panels and directories are different",
-  ...(expectedOpportunityCount ? ["<h2>Current verified samples</h2>"] : []),
+  ...(expectedOpportunityCount ? ["<h2>Current verified samples</h2>", "<h2>Current product-testing applications</h2>"] : []),
   "<h2>Official brand sample programmes</h2>",
   "<h2>Product-testing panels</h2>",
   "<h2>International sample explainer</h2>",

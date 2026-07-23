@@ -155,6 +155,10 @@
     "other",
   ]);
   const DISCOVERY_ENTITY_KINDS = Object.freeze(["competition", "resource", "opportunity"]);
+  const SOURCE_EVIDENCE_REASONS = Object.freeze([
+    "official_source_manually_reviewed",
+    "official_source_verified_despite_automated_access_block",
+  ]);
   const SHORTENER_HOSTS = new Set(["bit.ly", "goo.gl", "rb.gy", "t.co", "tinyurl.com"]);
   const AFFILIATE_QUERY_KEYS = new Set(["aff", "affiliate", "affiliate_id", "clickid", "referral", "subid"]);
   const CORE_OPPORTUNITY_FIELDS = Object.freeze([
@@ -597,8 +601,8 @@
     ["recordId", "hostname", "evidenceSummary"].forEach((field) => requireString(evidence, field, errors));
     requireEnum(evidence, "field", ["sourceUrl", "termsUrl"], errors);
     if (!isHttpUrl(evidence.url)) errors.push("url must be an HTTP(S) URL without credentials.");
-    if (evidence.reason !== "official_source_verified_despite_automated_access_block") {
-      errors.push("reason must identify the reviewed automated access block.");
+    if (!SOURCE_EVIDENCE_REASONS.includes(evidence.reason)) {
+      errors.push(`reason must be one of: ${SOURCE_EVIDENCE_REASONS.join(", ")}.`);
     }
     requireDate(evidence, "verifiedAt", errors);
     requireDate(evidence, "expiresAt", errors);
@@ -933,6 +937,7 @@
     COST_CLASSIFICATIONS,
     REQUIREMENT_KINDS,
     DISCOVERY_ENTITY_KINDS,
+    SOURCE_EVIDENCE_REASONS,
     createDiscoverySummary,
     getOpportunityDetailPath,
     getOpportunityExitPath,

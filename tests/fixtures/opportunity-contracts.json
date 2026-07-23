@@ -48,7 +48,7 @@
       { "kind": "location", "required": true, "label": "South African delivery address" }
     ],
     "categories": ["samples"],
-    "tags": ["direct-sample"],
+    "tags": ["direct-sample", "medical-product-sample"],
     "details": {
       "fulfilmentMethod": "delivery",
       "deliveryCharge": "none",

@@ -35,5 +35,205 @@
       "expectedFulfilmentWindow": "Approved samples are dispatched within 3 business days after confirmation; delivery time varies by address.",
       "privacyUrl": "https://www.coloplast.co.za/global/declaration-of-consent/"
     }
+  },
+  {
+    "id": "brand-advisor-parmalat-easygest-testing",
+    "slug": "brand-advisor-parmalat-easygest-testing",
+    "type": "product_testing",
+    "title": "Parmalat EasyGest product-testing application",
+    "summary": "Brand Advisor is recruiting 150 Instagram creators to receive a Parmalat EasyGest hamper in exchange for two Instagram reels. Applying does not guarantee selection.",
+    "provider": "Brand Advisor",
+    "sourceUrl": "https://brandadvisor.co.za/parmalat-easygest-fb-event-landing-page/",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": ["National"],
+    "lastVerifiedAt": "2026-07-23",
+    "reviewDueAt": "2026-07-30",
+    "publishedAt": "2026-07-23",
+    "updatedAt": "2026-07-23",
+    "availabilityKind": "stock_limited",
+    "costClassification": "account_required",
+    "requirements": [
+      {
+        "kind": "account",
+        "required": true,
+        "label": "Active Instagram Creator or Business account with at least 1,000 followers"
+      },
+      {
+        "kind": "questionnaire",
+        "required": true,
+        "label": "Brand Advisor application survey required"
+      },
+      {
+        "kind": "social_post",
+        "required": true,
+        "label": "Two Instagram reels required if selected"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Intended for creators who are lactose intolerant or use milk alternatives"
+      }
+    ],
+    "categories": ["samples", "product-testing", "food-and-drink"],
+    "tags": ["creator-campaign", "selection-required", "instagram", "gifted-product"],
+    "details": {
+      "fulfilmentMethod": "delivery",
+      "selectionMethod": "provider_selection",
+      "stockState": "open",
+      "questionnaireRequired": true,
+      "reviewRequired": false
+    }
+  },
+  {
+    "id": "brand-advisor-kinder-testing",
+    "slug": "brand-advisor-kinder-testing",
+    "type": "product_testing",
+    "title": "Kinder family product-testing application",
+    "summary": "Brand Advisor is recruiting 100 Instagram creators to receive a Kinder hamper in exchange for one family-focused Instagram reel. Applying does not guarantee selection.",
+    "provider": "Brand Advisor",
+    "sourceUrl": "https://brandadvisor.co.za/kinder-fb-event-landing-page/",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": ["National"],
+    "lastVerifiedAt": "2026-07-23",
+    "reviewDueAt": "2026-07-30",
+    "publishedAt": "2026-07-23",
+    "updatedAt": "2026-07-23",
+    "availabilityKind": "stock_limited",
+    "costClassification": "account_required",
+    "requirements": [
+      {
+        "kind": "account",
+        "required": true,
+        "label": "Active Instagram Creator or Business account with at least 1,000 followers"
+      },
+      {
+        "kind": "questionnaire",
+        "required": true,
+        "label": "Brand Advisor application survey required"
+      },
+      {
+        "kind": "social_post",
+        "required": true,
+        "label": "One Instagram reel featuring genuine family moments required if selected"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Applicant must be willing to feature their family in the campaign content"
+      }
+    ],
+    "categories": ["samples", "product-testing", "food-and-drink"],
+    "tags": ["creator-campaign", "selection-required", "instagram", "gifted-product"],
+    "details": {
+      "fulfilmentMethod": "delivery",
+      "selectionMethod": "provider_selection",
+      "stockState": "open",
+      "questionnaireRequired": true,
+      "reviewRequired": false
+    }
+  },
+  {
+    "id": "brand-advisor-sunlight-dishwashing-testing",
+    "slug": "brand-advisor-sunlight-dishwashing-testing",
+    "type": "product_testing",
+    "title": "Sunlight Dishwashing Liquid product-testing application",
+    "summary": "Brand Advisor is recruiting 250 TikTok creators to receive a Sunlight hamper in exchange for two TikTok videos. Applying does not guarantee selection.",
+    "provider": "Brand Advisor",
+    "sourceUrl": "https://brandadvisor.co.za/sunlight-dishwashing-liquid-fb-event-landing-page/",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": ["National"],
+    "lastVerifiedAt": "2026-07-23",
+    "reviewDueAt": "2026-07-30",
+    "publishedAt": "2026-07-23",
+    "updatedAt": "2026-07-23",
+    "availabilityKind": "stock_limited",
+    "costClassification": "account_required",
+    "requirements": [
+      {
+        "kind": "account",
+        "required": true,
+        "label": "Active TikTok Creator or Business account with at least 1,000 followers"
+      },
+      {
+        "kind": "questionnaire",
+        "required": true,
+        "label": "Brand Advisor application survey required"
+      },
+      {
+        "kind": "social_post",
+        "required": true,
+        "label": "Two TikTok videos required if selected"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Applicant must be willing to take part in the Sunlight Clean Challenge"
+      }
+    ],
+    "categories": ["samples", "product-testing", "home-care"],
+    "tags": ["creator-campaign", "selection-required", "tiktok", "gifted-product"],
+    "details": {
+      "fulfilmentMethod": "delivery",
+      "selectionMethod": "provider_selection",
+      "stockState": "open",
+      "questionnaireRequired": true,
+      "reviewRequired": false
+    }
+  },
+  {
+    "id": "brand-advisor-clover-krush-testing",
+    "slug": "brand-advisor-clover-krush-testing",
+    "type": "product_testing",
+    "title": "Clover Krush Cans product-testing application",
+    "summary": "Brand Advisor is inviting Instagram creators to receive a Clover Krush hamper in exchange for two Instagram posts, with an optional review. Applying does not guarantee selection.",
+    "provider": "Brand Advisor",
+    "sourceUrl": "https://brandadvisor.co.za/clover-krush-fb-event-landing-page/",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": ["National"],
+    "lastVerifiedAt": "2026-07-23",
+    "reviewDueAt": "2026-07-30",
+    "publishedAt": "2026-07-23",
+    "updatedAt": "2026-07-23",
+    "availabilityKind": "stock_limited",
+    "costClassification": "account_required",
+    "requirements": [
+      {
+        "kind": "account",
+        "required": true,
+        "label": "Active Instagram Creator account with at least 1,000 followers"
+      },
+      {
+        "kind": "account",
+        "required": true,
+        "label": "Active TikTok presence also required"
+      },
+      {
+        "kind": "questionnaire",
+        "required": true,
+        "label": "Brand Advisor application survey required"
+      },
+      {
+        "kind": "social_post",
+        "required": true,
+        "label": "Two Instagram posts required if selected"
+      }
+    ],
+    "categories": ["samples", "product-testing", "food-and-drink"],
+    "tags": ["creator-campaign", "selection-required", "instagram", "tiktok", "gifted-product"],
+    "details": {
+      "fulfilmentMethod": "delivery",
+      "selectionMethod": "provider_selection",
+      "stockState": "open",
+      "questionnaireRequired": true,
+      "reviewRequired": false
+    }
   }
 ]

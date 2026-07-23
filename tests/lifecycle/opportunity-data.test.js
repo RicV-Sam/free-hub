@@ -369,16 +369,28 @@ test("DiscoverySummary copies supplied facts and invents no optional metadata", 
   assert.throws(() => opportunityData.createDiscoverySummary({ ...input, labelz: [] }), /not allowed/);
 });
 
-test("the tracked Opportunity registry contains only the reviewed Coloplast pilot", () => {
+test("the tracked Opportunity registry contains the reviewed sample and product-testing content pack", () => {
   const registry = JSON.parse(fs.readFileSync(path.join(rootDir, "data", "opportunities.json"), "utf8"));
-  assert.deepEqual(registry.map((record) => record.id), ["coloplast-speedicath-short-sample"]);
+  assert.deepEqual(
+    registry.map((record) => record.id),
+    [
+      "coloplast-speedicath-short-sample",
+      "brand-advisor-parmalat-easygest-testing",
+      "brand-advisor-kinder-testing",
+      "brand-advisor-sunlight-dishwashing-testing",
+      "brand-advisor-clover-krush-testing",
+    ]
+  );
   assert.equal(opportunityData.validateOpportunityRegistry(registry).valid, true);
+  assert.equal(registry.filter((record) => record.type === "free_sample").length, 1);
+  assert.equal(registry.filter((record) => record.type === "product_testing").length, 4);
 });
 
 test("manual evidence is exact, fresh, append-only data and cannot match another URL", () => {
   const ledger = JSON.parse(fs.readFileSync(path.join(rootDir, "data", "opportunity-source-evidence.json"), "utf8"));
   const record = JSON.parse(fs.readFileSync(path.join(rootDir, "data", "opportunities.json"), "utf8"))[0];
   assert.equal(opportunityData.validateSourceEvidenceLedger(ledger).valid, true);
+  assert.equal(ledger.some((entry) => entry.reason === "official_source_manually_reviewed"), true);
   const outOfOrder = [
     { ...ledger[0], verifiedAt: "2026-07-15", expiresAt: "2026-07-21" },
     ledger[1],

@@ -38,5 +38,45 @@
     "verifiedAt": "2026-07-23",
     "expiresAt": "2026-07-30",
     "evidenceSummary": "Official Coloplast sample clauses still stated that suitability-approved samples are dispatched separately within three business days with free delivery and discreet packaging from Coloplast South Africa."
+  },
+  {
+    "recordId": "brand-advisor-parmalat-easygest-testing",
+    "field": "sourceUrl",
+    "hostname": "brandadvisor.co.za",
+    "url": "https://brandadvisor.co.za/parmalat-easygest-fb-event-landing-page/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-07-23",
+    "expiresAt": "2026-07-30",
+    "evidenceSummary": "Official Brand Advisor application page invited 150 Instagram creators with at least 1,000 followers to apply for a Parmalat EasyGest hamper in exchange for two Instagram reels."
+  },
+  {
+    "recordId": "brand-advisor-kinder-testing",
+    "field": "sourceUrl",
+    "hostname": "brandadvisor.co.za",
+    "url": "https://brandadvisor.co.za/kinder-fb-event-landing-page/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-07-23",
+    "expiresAt": "2026-07-30",
+    "evidenceSummary": "Official Brand Advisor application page invited 100 Instagram creators with at least 1,000 followers to apply for a Kinder hamper in exchange for one family-focused Instagram reel."
+  },
+  {
+    "recordId": "brand-advisor-sunlight-dishwashing-testing",
+    "field": "sourceUrl",
+    "hostname": "brandadvisor.co.za",
+    "url": "https://brandadvisor.co.za/sunlight-dishwashing-liquid-fb-event-landing-page/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-07-23",
+    "expiresAt": "2026-07-30",
+    "evidenceSummary": "Official Brand Advisor application page invited 250 TikTok creators with at least 1,000 followers to apply for a Sunlight hamper in exchange for two TikTok videos."
+  },
+  {
+    "recordId": "brand-advisor-clover-krush-testing",
+    "field": "sourceUrl",
+    "hostname": "brandadvisor.co.za",
+    "url": "https://brandadvisor.co.za/clover-krush-fb-event-landing-page/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-07-23",
+    "expiresAt": "2026-07-30",
+    "evidenceSummary": "Official Brand Advisor application page invited Instagram creators with at least 1,000 followers and an active TikTok presence to apply for a Clover Krush hamper in exchange for two Instagram posts."
   }
 ]

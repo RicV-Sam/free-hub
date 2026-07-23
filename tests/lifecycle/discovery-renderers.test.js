@@ -92,6 +92,20 @@ test("full Opportunity cards expose sample facts and privacy without inventing p
   assert.equal(JSON.stringify(itemList).includes('"Product"'), false);
 });
 
+test("product-testing Opportunity cards expose selection and creator-task boundaries", () => {
+  const html = opportunities.renderOpportunitySection({
+    opportunities: [fixtures.publishedProductTesting],
+    heading: "Current product-testing applications",
+    pageType: "free_samples_vertical",
+    cardVariant: "full",
+  });
+  assert.match(html, /Product testing/);
+  assert.match(html, /Applications open/);
+  assert.match(html, /Applying does not guarantee selection/);
+  assert.match(html, /Product feedback/);
+  assert.doesNotMatch(html, /medical suitability|health-related information/i);
+});
+
 test("Opportunity renderer asserts approved publication state without importing the public gate", () => {
   assert.throws(
     () => opportunities.renderOpportunitySection({ opportunities: [fixtures.unsupportedDraft], heading: "Current", pageType: "free_stuff_parent" }),
@@ -101,16 +115,17 @@ test("Opportunity renderer asserts approved publication state without importing 
   assert.doesNotMatch(source, /isPublicOpportunity|opportunity-data/);
 });
 
-test("PR 4 controller uses the exact reviewed Coloplast host and owns eligibility", () => {
+test("Opportunity controller uses only the reviewed provider hosts and owns eligibility", () => {
   const source = fs.readFileSync(path.join(ROOT_DIR, "scripts", "generate-pages.js"), "utf8");
-  assert.match(source, /OPPORTUNITY_ALLOWED_SOURCE_HOSTS = Object\.freeze\(\["products\.coloplast\.co\.za"\]\)/);
+  assert.match(source, /"brandadvisor\.co\.za"/);
+  assert.match(source, /"products\.coloplast\.co\.za"/);
   assert.match(source, /opportunityData\.isPublicOpportunity/);
   assert.match(source, /allowedSourceHosts: OPPORTUNITY_ALLOWED_SOURCE_HOSTS/);
 });
 
 test("active Opportunity details expose trust facts and only the measured exit CTA", () => {
   const html = opportunityRoutes.renderDetailContent(fixtures.publishedSample, "active");
-  assert.match(html, /What Coloplast requires/);
+  assert.match(html, /What Fixture Samples requires/);
   assert.match(html, /Freehub does not receive, store or assess your application/);
   assert.match(html, /href="\/out\/opportunity\/fixture-current-sample\/"/);
   assert.doesNotMatch(html, new RegExp(`href="${fixtures.publishedSample.sourceUrl}"`));
@@ -121,6 +136,16 @@ test("active Opportunity details expose trust facts and only the measured exit C
   assert.equal(schemas.thing["@type"], "Thing");
   assert.equal(JSON.stringify(schemas).includes('"Product"'), false);
   assert.equal(JSON.stringify(schemas).includes('"Offer"'), false);
+});
+
+test("active product-testing details remain separate from guaranteed samples", () => {
+  const html = opportunityRoutes.renderDetailContent(fixtures.publishedProductTesting, "active");
+  assert.match(html, /What Fixture Testing requires/);
+  assert.match(html, /not a guaranteed free sample/i);
+  assert.match(html, /Provider account/);
+  assert.match(html, /Product feedback/);
+  assert.match(html, /Continue to the official product-testing application/);
+  assert.doesNotMatch(html, /medical suitability|health-related information/i);
 });
 
 test("Opportunity tombstones retain safe facts without campaign paths or active schema", () => {

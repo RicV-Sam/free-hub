@@ -1,20 +1,25 @@
-# Free Samples pilot editorial runbook
+# Free Samples and product-testing editorial runbook
 
 ## Publication boundary
 
-The Coloplast SpeediCath Short record is a free, suitability-reviewed medical-product sample request. It is not a guaranteed consumer giveaway and Freehub does not assess whether the product is suitable for a visitor.
+Freehub publishes two distinct opportunity types:
+
+- direct sample requests, where the provider may approve and fulfil a sample;
+- product-testing applications, where the provider selects participants and may require social content or a review.
+
+Neither type is a guaranteed giveaway. Product-testing applications must never be labelled as direct free samples, and Freehub must state the required account, audience, questionnaire, and content obligations before a visitor leaves the site.
 
 Publication follows one route only:
 
-`registry + reviewed evidence → strict validation → isPublicOpportunity() → approved surface list → renderer`
+`registry + reviewed evidence -> strict validation -> isPublicOpportunity() -> approved surface list -> renderer`
 
 The renderer cannot approve a record. ZA Comp Engine and held-candidate output remain evidence-only and cannot edit the Opportunity registry, evidence ledger, verification state, or publication state.
 
-## Weekly Opportunity review
+## Weekly opportunity review
 
-Recheck every published free sample within seven days of `lastVerifiedAt` and never publish beyond `reviewDueAt`.
+Recheck every published sample or product-testing application within seven days of `lastVerifiedAt`. Never publish a record beyond `reviewDueAt`.
 
-For the Coloplast pilot, confirm on the exact official URLs:
+For the Coloplast sample, confirm on the exact official URLs:
 
 - the campaign still displays a free SpeediCath Short sample request;
 - requests are qualified or reviewed for product suitability;
@@ -24,27 +29,44 @@ For the Coloplast pilot, confirm on the exact official URLs:
 - no age, stock, purchase, payment, or guaranteed-fulfilment claim has been introduced;
 - the source and terms URLs have not redirected or become a 404, 410, or soft-404.
 
-Paid-order clauses on the Terms of Sale page must not be used to classify the free sample. Use only the clauses that explicitly concern approved sample requests.
+Paid-order clauses on the Terms of Sale page must not be used to classify the free sample. Use only clauses that explicitly concern approved sample requests.
 
-If automated access is blocked but the page is visibly verified, append a reviewed entry to `data/opportunity-source-evidence.json`. Never edit or remove older evidence rows. The entry must match the record, field, hostname and exact URL, and must expire no later than seven days after verification. Manual evidence cannot override a 404, 410, soft-404, redirect, mismatched URL, stale review, or any other publication failure.
+For every Brand Advisor product-testing application, confirm:
+
+- the exact official application page still has an active apply action;
+- the gifted product or hamper is still described;
+- the required social platform, account state, and follower threshold remain accurate;
+- every required post, reel, video, questionnaire, or review is stated on Freehub;
+- selection is still controlled by the provider and is not guaranteed;
+- no purchase, entry fee, or payment requirement has appeared;
+- the campaign has not moved to a past or completed state.
+
+Append one reviewed entry to `data/opportunity-source-evidence.json` for each source check. Use `official_source_manually_reviewed` for a normal manual review. Use `official_source_verified_despite_automated_access_block` only when automated access is blocked but the exact page has been visibly checked.
+
+Never edit or remove older evidence rows. Each entry must match the record, field, hostname, and exact URL, and must expire no later than seven days after verification. Manual evidence cannot override a 404, 410, soft-404, redirect, mismatched URL, stale review, or any other publication failure.
 
 ## Monthly durable-resource review
 
-Recheck all seven resources on `/free-samples-south-africa/` within 30 days. Confirm the stable ID, subtype, official URL, availability, verification state, review dates, and visible description. Product-testing panels must retain the no-guarantee distinction; the international ReviewClub guide must not be presented as a South African current offer.
+Recheck all seven durable resources on `/free-samples-south-africa/` within 30 days. Confirm the stable ID, subtype, official URL, availability, verification state, review dates, and visible description. Product-testing resources must retain the no-guarantee distinction; the international ReviewClub guide must not be presented as a current South African offer.
 
 ## Privacy and medical boundary
 
-Freehub must never collect, store, proxy, pre-fill, or receive health information, prescription details, catheter-use information, or application answers. Visitors go directly to Coloplast. Coloplast, not Freehub, assesses suitability. Freehub provides no medical efficacy or suitability advice.
+Freehub must never collect, store, proxy, pre-fill, or receive application answers, health information, prescription details, catheter-use information, or social-account credentials. Visitors apply directly with the provider.
 
-The final review confirmed Coloplast's stable consent page at `https://www.coloplast.co.za/global/declaration-of-consent/`; the cards link directly to it. Recheck that link with the weekly campaign review. Never copy, proxy, or recreate the application form.
+For Coloplast, the provider alone assesses suitability. Freehub provides no medical efficacy or suitability advice. Recheck Coloplast's consent page at `https://www.coloplast.co.za/global/declaration-of-consent/` during the weekly campaign review. Never copy, proxy, or recreate the application form.
 
 ## Activation and rollback
 
-Merge and deploy with `FREEHUB_ENABLE_OPPORTUNITIES` absent or false. After the resource-only page is live, perform a same-day source review and append current evidence through a reviewed change. Then set the repository variable to the exact string `true` and rerun both the main deployment and daily-maintenance deployment path.
+When `FREEHUB_ENABLE_OPPORTUNITIES=true`, every current opportunity must produce:
 
-Activation is complete only when one card and one matching `Thing` ItemList entry appear on each approved page, with no Opportunity route or sitemap URL.
+- one card on the Free Samples hub;
+- one matching `Thing` entry in the appropriate ItemList;
+- one indexable detail page with an official outbound handoff;
+- one sitemap URL.
 
-For immediate rollback, remove the variable or set it to `false`, redeploy, and confirm that both cards and both Opportunity ItemLists disappear while both editorial pages and all seven sample resources remain.
+Exit pages must remain `noindex` and outside the sitemap. If any record fails validation, becomes stale, or loses current source support, it must disappear from every public surface.
+
+For immediate rollback, remove the variable or set it to `false`, redeploy, and confirm that current opportunity cards, ItemLists, detail pages, and sitemap entries disappear while the seven durable resources remain.
 
 ## User reports
 

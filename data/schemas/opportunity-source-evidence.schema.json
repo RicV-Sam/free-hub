@@ -21,7 +21,12 @@
       "field": { "enum": ["sourceUrl", "termsUrl"] },
       "hostname": { "type": "string", "minLength": 1 },
       "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
-      "reason": { "const": "official_source_verified_despite_automated_access_block" },
+      "reason": {
+        "enum": [
+          "official_source_manually_reviewed",
+          "official_source_verified_despite_automated_access_block"
+        ]
+      },
       "verifiedAt": { "$ref": "#/$defs/date" },
       "expiresAt": { "$ref": "#/$defs/date" },
       "evidenceSummary": { "type": "string", "minLength": 1 }
