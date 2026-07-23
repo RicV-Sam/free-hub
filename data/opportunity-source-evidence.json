@@ -18,5 +18,25 @@
     "verifiedAt": "2026-07-14",
     "expiresAt": "2026-07-21",
     "evidenceSummary": "Official Coloplast sample clauses stated that approved sample requests are dispatched separately within three business days and receive free delivery in South Africa."
+  },
+  {
+    "recordId": "coloplast-speedicath-short-sample",
+    "field": "sourceUrl",
+    "hostname": "products.coloplast.co.za",
+    "url": "https://products.coloplast.co.za/global-campaigns/speedicath-short/",
+    "reason": "official_source_verified_despite_automated_access_block",
+    "verifiedAt": "2026-07-20",
+    "expiresAt": "2026-07-27",
+    "evidenceSummary": "Official Coloplast South Africa campaign still displayed a free SpeediCath Short sample request and stated that Coloplast Care Advisors review requests for product suitability."
+  },
+  {
+    "recordId": "coloplast-speedicath-short-sample",
+    "field": "termsUrl",
+    "hostname": "products.coloplast.co.za",
+    "url": "https://products.coloplast.co.za/webshop/terms-of-sale/",
+    "reason": "official_source_verified_despite_automated_access_block",
+    "verifiedAt": "2026-07-20",
+    "expiresAt": "2026-07-27",
+    "evidenceSummary": "Official Coloplast sample clauses still state that approved sample requests are dispatched within 3 business days of confirmation and shipped free in discreet packaging within South Africa."
   }
 ]

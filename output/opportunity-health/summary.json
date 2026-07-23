@@ -1,0 +1,45 @@
+{
+  "asOfDate": "2026-07-20",
+  "states": [
+    {
+      "state": "disabled",
+      "ok": true,
+      "actionableErrors": 0,
+      "reviewedWarnings": 2,
+      "counts": {
+        "generatedFiles": 353,
+        "sitemapUrls": 141,
+        "sampleCards": 0,
+        "parentCards": 0,
+        "sampleSchemaItems": 0,
+        "parentSchemaItems": 0,
+        "detailRoutes": 0,
+        "exitRoutes": 0,
+        "sitemapOpportunityEntries": 0,
+        "renderedCards": 0,
+        "uniqueRenderedRecords": 0,
+        "discoverySurfacesWithCards": 0
+      }
+    },
+    {
+      "state": "enabled",
+      "ok": true,
+      "actionableErrors": 0,
+      "reviewedWarnings": 2,
+      "counts": {
+        "generatedFiles": 355,
+        "sitemapUrls": 142,
+        "sampleCards": 1,
+        "parentCards": 1,
+        "sampleSchemaItems": 1,
+        "parentSchemaItems": 1,
+        "detailRoutes": 1,
+        "exitRoutes": 1,
+        "sitemapOpportunityEntries": 1,
+        "renderedCards": 2,
+        "uniqueRenderedRecords": 1,
+        "discoverySurfacesWithCards": 2
+      }
+    }
+  ]
+}
