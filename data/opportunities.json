@@ -12,10 +12,10 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["National"],
-    "lastVerifiedAt": "2026-07-14",
-    "reviewDueAt": "2026-07-21",
+    "lastVerifiedAt": "2026-07-23",
+    "reviewDueAt": "2026-07-30",
     "publishedAt": "2026-07-14",
-    "updatedAt": "2026-07-14",
+    "updatedAt": "2026-07-23",
     "availabilityKind": "ongoing",
     "costClassification": "completely_free",
     "requirements": [
