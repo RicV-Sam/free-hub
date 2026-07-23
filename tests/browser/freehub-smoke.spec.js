@@ -150,16 +150,18 @@ test("Free Stuff discovery analytics separates pillar and official-source events
   }
 });
 
-test("Free Samples v2 preserves its canonical and seven classified resources", async ({ page }) => {
+test("Free Samples v3 preserves its canonical and seven classified resources", async ({ page }) => {
   await page.goto("/free-samples-south-africa/");
-  await expect(page).toHaveTitle("Where to Get Free Samples in South Africa | Official Offers Guide");
+  await expect(page).toHaveTitle("Where to Get Free Samples in South Africa | 7 Legit Options");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Where to Get Free Samples in South Africa");
   await expectCanonical(page, "/free-samples-south-africa/");
-  await expect(page.locator('body[data-free-samples-page-version="2"]')).toHaveCount(1);
+  await expect(page.locator('body[data-free-samples-page-version="3"]')).toHaveCount(1);
+  await expect(page.getByRole("region", { name: "7 reviewed sample routes, clearly separated" })).toBeVisible();
   await expect(page.locator("article.free-resource-card")).toHaveCount(7);
   await expect(page.locator('[data-content-type="product_testing_panel"]')).toHaveCount(4);
   await expect(page.locator('[data-content-type="brand_sample_programme"]')).toHaveCount(2);
   await expect(page.locator('[data-content-type="editorial_guide"]')).toHaveCount(1);
+  await expect(page.locator("#brand-sample-programmes")).toContainText("Official brand sample programmes");
   await expect(page.getByRole("region", { name: "Product-testing panels" })).toContainText("does not guarantee");
   await expect(page.locator("section.detail-faq details")).toHaveCount(6);
   await expect(page.locator("article.opportunity-card")).toHaveCount(opportunitiesEnabled ? 1 : 0);
@@ -184,6 +186,22 @@ test("Free Samples v2 preserves its canonical and seven classified resources", a
 
   const detail = await page.request.get("/opportunity/coloplast-speedicath-short-sample/");
   expect(detail.status()).toBe(opportunitiesEnabled ? 200 : 404);
+});
+
+test("voucher hub leads with verified free-entry choices", async ({ page }) => {
+  await page.goto("/category/vouchers/");
+  await expect(page).toHaveTitle("Free Voucher Giveaways South Africa | Current Competitions");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+    "Free Voucher Giveaways and Competitions in South Africa"
+  );
+  await expectCanonical(page, "/category/vouchers/");
+  await expect(page.getByRole("heading", { level: 2, name: "How to get free vouchers safely" })).toBeVisible();
+  await expect(page.locator("#free-entry-vouchers")).toContainText("No purchase required");
+
+  const freeEntryPicks = page.locator("#free-entry-vouchers .voucher-free-pick");
+  expect(await freeEntryPicks.count()).toBeGreaterThan(0);
+  await expect(freeEntryPicks.first()).toContainText("Free entry");
+  await expect(page.locator("#competitionsGrid article.competition-card").first()).toBeVisible();
 });
 
 test("Samples analytics identify the vertical and use parameter-free destinations", async ({ page }) => {

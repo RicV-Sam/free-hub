@@ -88,14 +88,15 @@
     },
     vouchers: {
       category: "Vouchers",
-      title: "Voucher Competitions South Africa | Free Voucher Giveaways",
+      title: "Free Voucher Giveaways South Africa | Current Competitions",
       description:
-        "Browse current South African voucher competitions, including shopping, grocery, fuel, airtime, data and retail voucher giveaways with official source links.",
-      heading: "Voucher Competitions and Giveaways in South Africa",
+        "Find current free voucher giveaways and voucher competitions in South Africa. Compare shopping, grocery, fuel, airtime and data prizes with verified entry costs.",
+      heading: "Free Voucher Giveaways and Competitions in South Africa",
+      dateModified: "2026-07-23",
       intro:
-        "This page lists current voucher-prize competitions and free voucher giveaways in South Africa, including shopping vouchers, grocery vouchers, fuel vouchers, airtime and data rewards, retail gift cards and online voucher prizes where the source is verified. Use this hub to compare the promoter, voucher value, closing date and entry-cost label before opening the official promoter page. Some voucher competitions are free to enter, while others require a purchase, receipt, app, account, rewards card or qualifying action. Freehub does not run these competitions or collect entries; use the official promoter links to enter.",
+        "Looking for free vouchers in South Africa? Start with the free-entry picks on this page, then compare all current shopping, grocery, fuel, airtime, data and retail voucher competitions. Every listing shows its entry-cost label, promoter, prize and closing date before you open the official source. Some voucher promotions require a purchase, receipt, app, account or rewards card, so they remain clearly labelled and separate from free-entry options.",
       support:
-        "Voucher giveaways can be free-entry, purchase-required, paid-entry, app-based, account-linked, rewards-card-linked, till-slip, WhatsApp, online or in-store promotions. If you searched for free vouchers, shopping voucher competitions, grocery vouchers, fuel vouchers, airtime vouchers, data vouchers or voucher competitions South Africa, compare the promoter, cost label and official source before entering; Freehub only uses specific retailer wording where the voucher source is verified.",
+        "Use the quick answer and free-entry shortlist first when you want a voucher without buying anything. The complete voucher competitions South Africa hub also includes purchase-required, app-based, account-linked, rewards-card, till-slip, WhatsApp, online and in-store promotions, each with a visible cost label and official source.",
     },
   };
   const DEFAULT_COPY = {

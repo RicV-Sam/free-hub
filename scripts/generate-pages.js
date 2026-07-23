@@ -1338,15 +1338,15 @@ const TRUST_PAGE_DEFINITIONS = [
   },
   {
     slug: "free-samples-south-africa",
-    title: "Where to Get Free Samples in South Africa | Official Offers Guide",
+    title: "Where to Get Free Samples in South Africa | 7 Legit Options",
     description:
-      "Where to get free samples in South Africa: check official brand campaigns, retailer sample offers and product-testing panels before you share details, pay delivery fees or trust a freebie claim.",
+      "Check 7 reviewed places to find free samples in South Africa, including official brand programmes and product-testing panels, with costs and selection rules explained.",
     heading: "Where to Get Free Samples in South Africa",
     intro:
-      "If you are searching where to get free samples in South Africa, start with official brand campaigns, retailer sample offers and recognised product-testing panels. This guide is built for searchers who want a practical first check before they share personal details, pay delivery costs or assume every sample page is a legitimate no-cost offer.",
+      "Start with these 7 reviewed South African sample routes: current official requests when available, brand sample programmes and recognised product-testing panels. Each option explains what is actually free, who may qualify and what to check before you share personal details.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: "2026-07-14",
+    dateModified: "2026-07-23",
     resourceCategories: ["samples"],
     resourceTitle: "Sample and product-testing routes",
     resourceIntro:
@@ -3134,14 +3134,21 @@ function renderCollectionHero(routeContext, pageCopy, competitions) {
 }
 
 function getCollectionHeroActions(routeContext) {
-  const actions = [{ label: "View Listings", href: "#competitionsGrid", className: "btn--primary" }];
+  const actions =
+    routeContext.type === "category" && routeContext.slug === "vouchers"
+      ? [{ label: "Free-entry Voucher Picks", href: "#free-entry-vouchers", className: "btn--primary" }]
+      : [{ label: "View Listings", href: "#competitionsGrid", className: "btn--primary" }];
 
   if (routeContext.type !== "hub" || routeContext.slug !== "competitions") {
     actions.push({ label: "All Competitions", href: "/competitions/", className: "btn--secondary" });
   }
 
   if (routeContext.type === "category") {
-    actions.push({ label: "Ending Soon", href: "/competitions-ending-soon/", className: "btn--secondary" });
+    actions.push(
+      routeContext.slug === "vouchers"
+        ? { label: "All Voucher Listings", href: "#competitionsGrid", className: "btn--secondary" }
+        : { label: "Ending Soon", href: "/competitions-ending-soon/", className: "btn--secondary" }
+    );
   }
 
   if (routeContext.type === "brand") {
@@ -3165,6 +3172,17 @@ function getCollectionTrustItems(routeContext, competitions = []) {
   }
 
   if (routeContext.type === "category") {
+    if (routeContext.slug === "vouchers") {
+      const freeEntryCount = competitions.filter(
+        (competition) => shared.getEntryCostLabel(competition) === "Free entry"
+      ).length;
+      return [
+        `${freeEntryCount} free-entry options`,
+        `${competitions.length} current voucher competitions`,
+        "Official promoter links",
+      ];
+    }
+
     return ["Published listings", "Official source links", "Freehub is not the promoter"];
   }
 
@@ -3572,11 +3590,10 @@ function renderVoucherIntentSection(routeContext, competitions) {
   const countMatching = (patterns) =>
     competitions.filter((competition) => patterns.some((pattern) => pattern.test(haystack(competition)))).length;
   const getTags = (competition) => Array.isArray(competition.tags) ? competition.tags.map(lower) : [];
-  const freeEntryCount = competitions.filter((competition) => {
-    const entryCostType = lower(competition.entryCostType);
-    const tags = getTags(competition);
-    return entryCostType === "free-entry" || tags.includes("free-entry");
-  }).length;
+  const freeEntryPicks = getFreeEntryPicks(competitions, 6);
+  const freeEntryCount = competitions.filter(
+    (competition) => shared.getEntryCostLabel(competition) === "Free entry"
+  ).length;
   const purchaseRequiredCount = competitions.filter((competition) => {
     const entryCostType = lower(competition.entryCostType);
     const tags = getTags(competition);
@@ -3590,7 +3607,7 @@ function renderVoucherIntentSection(routeContext, competitions) {
     { label: "Grocery voucher competitions", href: "/win-grocery-vouchers-south-africa/", count: countMatching([/grocery|groceries|supermarket|shoprite|checkers|spar|basket|trolley/]) },
     { label: "Airtime voucher competitions", href: "/win-airtime-competitions-south-africa/", count: countMatching([/airtime|recharge|prepaid/]) },
     { label: "Data voucher competitions", href: "/win-data-competitions-south-africa/", count: countMatching([/\bdata\b|bundle|mobile data/]) },
-    { label: "Free-entry voucher listings", href: "/free-competitions/", count: freeEntryCount },
+    { label: "Free-entry voucher listings", href: "#free-entry-vouchers", count: freeEntryCount },
     { label: "Purchase-required voucher listings", href: "/purchase-required-competitions/", count: purchaseRequiredCount },
     { label: "Ending-soon voucher prizes", href: "/competitions-ending-soon/", count: endingSoonCount },
   ];
@@ -3609,9 +3626,35 @@ function renderVoucherIntentSection(routeContext, competitions) {
     },
   ];
 
-  return `<section class="seo-copy-block seo-copy-block--category" aria-label="Voucher competition shortcuts">
-          <h2 class="seo-copy-block__title">Find the right voucher giveaway faster</h2>
+  return `<section class="seo-copy-block seo-copy-block--category voucher-answer" aria-label="Voucher competition shortcuts">
+          <h2 class="seo-copy-block__title">How to get free vouchers safely</h2>
           <div class="seo-copy-block__content hub-editorial">
+            <section class="hub-editorial__section voucher-answer__quick">
+              <p class="section-kicker">Quick answer</p>
+              <h3>Start with ${escapeHtml(String(freeEntryCount))} current free-entry voucher competitions</h3>
+              <p>Freehub does not issue voucher codes or promise instant vouchers. It finds current competitions where vouchers are the prize, verifies the promoter source and labels the entry cost. Use the free-entry shortlist below when you do not want to make a purchase, then check the official terms before entering.</p>
+            </section>
+            <section class="hub-editorial__section voucher-free-picks" id="free-entry-vouchers">
+              <div class="voucher-free-picks__header">
+                <div>
+                  <p class="section-kicker">No purchase required</p>
+                  <h3>Free-entry voucher picks</h3>
+                </div>
+                <a href="#competitionsGrid">See all ${escapeHtml(String(competitions.length))} voucher competitions</a>
+              </div>
+              <div class="voucher-free-picks__grid">
+                ${freeEntryPicks
+                  .map(
+                    (competition) => `<a class="voucher-free-pick" href="${escapeAttribute(shared.getCompetitionPath(competition))}">
+                  <span class="voucher-free-pick__label">Free entry</span>
+                  <strong>${escapeHtml(shared.getCardHeadline(competition))}</strong>
+                  <span>${escapeHtml(competition.brand || "Verified promoter")}</span>
+                  <span class="voucher-free-pick__date">Closes ${escapeHtml(shared.formatDate(competition.closingDate))}</span>
+                </a>`
+                  )
+                  .join("\n                ")}
+              </div>
+            </section>
             <section class="hub-editorial__section">
               <h3>Voucher shortcuts</h3>
               <p>Voucher searches are not all the same. Use these routes to separate grocery vouchers, shopping vouchers, fuel rewards, airtime or data prizes, free-entry draws and purchase-required campaigns before opening a listing.</p>
@@ -4215,6 +4258,7 @@ function renderPage(routeContext, competitions) {
           description: pageCopy.description,
           url: canonicalUrl,
           inLanguage: "en-ZA",
+          ...(pageCopy.dateModified ? { dateModified: pageCopy.dateModified } : {}),
           isPartOf: {
             "@type": "WebSite",
             name: "Freehub",
@@ -6034,6 +6078,68 @@ function renderTrustPageUsefulLinks(usefulLinks) {
         </section>`;
 }
 
+function renderFreeSamplesRouteFinder({ sampleOpportunities, programmes, panels, explainers, pageResources }) {
+  const routes = [
+    ...(sampleOpportunities.length > 0
+      ? [
+          {
+            href: "#current-samples",
+            label: "Current verified samples",
+            count: sampleOpportunities.length,
+            description: "Official requests checked for cost, eligibility, delivery and selection details.",
+          },
+        ]
+      : []),
+    {
+      href: "#brand-sample-programmes",
+      label: "Official brand programmes",
+      count: programmes.length,
+      description: "Go directly to named brands offering a sample-request route.",
+    },
+    {
+      href: "#product-testing-panels",
+      label: "Product-testing panels",
+      count: panels.length,
+      description: "Apply for selected tests where feedback or reviews may be required.",
+    },
+    {
+      href: "#sample-explainer",
+      label: "How product testing works",
+      count: explainers.length,
+      description: "Understand selection and return rules before joining a programme.",
+    },
+  ].filter((route) => route.count > 0);
+  const reviewDates = [
+    ...pageResources.map((resource) => resource.lastReviewed),
+    ...sampleOpportunities.map((opportunity) => opportunity.lastVerifiedAt || opportunity.updatedAt),
+  ]
+    .filter(Boolean)
+    .sort();
+  const latestReviewDate = reviewDates[reviewDates.length - 1];
+
+  return `<section class="sample-route-finder" id="sample-options" aria-labelledby="sample-route-finder-title">
+          <div class="sample-route-finder__header">
+            <div>
+              <p class="section-kicker">Start here</p>
+              <h2 id="sample-route-finder-title">${escapeHtml(String(pageResources.length))} reviewed sample routes, clearly separated</h2>
+            </div>
+            ${latestReviewDate ? `<p class="sample-route-finder__reviewed">Latest source check: ${escapeHtml(shared.formatDate(latestReviewDate))}</p>` : ""}
+          </div>
+          <p class="sample-route-finder__intro">Choose the route that matches what you actually want. A direct brand request, a brand programme and a testing-panel application are not the same promise.</p>
+          <nav class="sample-route-finder__grid" aria-label="Free sample options">
+            ${routes
+              .map(
+                (route) => `<a class="sample-route-card" href="${escapeAttribute(route.href)}">
+              <span class="sample-route-card__count">${escapeHtml(String(route.count))}</span>
+              <strong>${escapeHtml(route.label)}</strong>
+              <span>${escapeHtml(route.description)}</span>
+            </a>`
+              )
+              .join("\n            ")}
+          </nav>
+        </section>`;
+}
+
 function renderFreeSamplesPage(page) {
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/${page.slug}/`;
   const pageResources = getTrustPageResources(page);
@@ -6116,7 +6222,7 @@ function renderFreeSamplesPage(page) {
     ${renderGoogleTagManagerHead("{ page_type: 'free_samples_vertical', trust_page: 'free-samples-south-africa' }")}
     ${renderMetaPixelHead()}
   </head>
-  <body data-free-samples-page-version="2">
+  <body data-free-samples-page-version="3">
     ${renderGoogleTagManagerNoScript()}
     ${renderMetaPixelNoScript()}
     <div class="site-shell">
@@ -6127,13 +6233,21 @@ function renderFreeSamplesPage(page) {
         heading: page.heading,
         intro: page.intro,
         actions: [
-          { label: "Browse Free Stuff", href: "/free-stuff-south-africa/", className: "btn--primary" },
-          { label: "Free-entry Competitions", href: "/free-competitions/", className: "btn--secondary" },
+          { label: "See Sample Options", href: "#sample-options", className: "btn--primary" },
+          { label: "Avoid Sample Scams", href: "#sample-safety", className: "btn--secondary" },
         ],
         trustItems: ["Official source links", "Costs stated clearly", "Freehub never handles applications"],
       })}
 
       <main id="main-content" class="main-content trust-page free-samples-page">
+        ${renderFreeSamplesRouteFinder({
+          sampleOpportunities,
+          programmes,
+          panels,
+          explainers,
+          pageResources,
+        })}
+
         <section class="trust-page__content" aria-label="Free samples definition">
           <article class="trust-page__section">
             <h2>Direct samples, testing panels and directories are different</h2>
@@ -6142,21 +6256,16 @@ function renderFreeSamplesPage(page) {
           </article>
         </section>
 
+        <div id="current-samples" class="anchor-target">
         ${opportunityRenderer.renderOpportunitySection({
           opportunities: sampleOpportunities,
           heading: "Current verified samples",
           pageType: "free_samples_vertical",
           cardVariant: "full",
         })}
+        </div>
 
-        ${freeResourceRenderer.renderFreeResourceSection({
-          resources: panels,
-          heading: "Product-testing panels",
-          description: "These platforms recruit selected testers. Joining a panel does not guarantee that you will receive a product, and feedback or review tasks may be required.",
-          pageType: "free_samples_vertical",
-          kicker: "Selected testers only",
-        })}
-
+        <div id="brand-sample-programmes" class="anchor-target">
         ${freeResourceRenderer.renderFreeResourceSection({
           resources: programmes,
           heading: "Official brand sample programmes",
@@ -6164,7 +6273,19 @@ function renderFreeSamplesPage(page) {
           pageType: "free_samples_vertical",
           kicker: "Brand sources",
         })}
+        </div>
 
+        <div id="product-testing-panels" class="anchor-target">
+        ${freeResourceRenderer.renderFreeResourceSection({
+          resources: panels,
+          heading: "Product-testing panels",
+          description: "These platforms recruit selected testers. Joining a panel does not guarantee that you will receive a product, and feedback or review tasks may be required.",
+          pageType: "free_samples_vertical",
+          kicker: "Selected testers only",
+        })}
+        </div>
+
+        <div id="sample-explainer" class="anchor-target">
         ${freeResourceRenderer.renderFreeResourceSection({
           resources: explainers,
           heading: "International sample explainer",
@@ -6172,8 +6293,9 @@ function renderFreeSamplesPage(page) {
           pageType: "free_samples_vertical",
           kicker: "Explainer only",
         })}
+        </div>
 
-        <section class="trust-page__content" aria-label="Sample safety and privacy">
+        <section class="trust-page__content anchor-target" id="sample-safety" aria-label="Sample safety and privacy">
           <article class="trust-page__section">
             <h2>Safety and sensitive information</h2>
             <p>Apply only on the named provider's official website. Check delivery charges, selection rules, feedback duties and what information the provider will collect before submitting a form.</p>
@@ -9836,7 +9958,12 @@ function getRouteLastmod(routeContext, competitions) {
   }
 
   const filteredCompetitions = getRouteCompetitions(competitions, routeContext);
-  return getCompetitionListLastmod(filteredCompetitions) || BUILD_DATE_ISO;
+  const listingLastmod = getCompetitionListLastmod(filteredCompetitions);
+  const contentLastmod =
+    routeContext.type === "category"
+      ? normalizeIsoDateString(shared.CATEGORY_COPY[routeContext.slug]?.dateModified)
+      : "";
+  return [listingLastmod, contentLastmod].filter(Boolean).sort().pop() || BUILD_DATE_ISO;
 }
 
 function getCompetitionListLastmod(competitions) {
@@ -10261,9 +10388,9 @@ function runFreeResourceChecks() {
         errors.push(`Free-resource page must define explicit datePublished and dateModified: ${page.slug}`);
       }
 
-      const isReviewedSamplesV2Date =
-        page.slug === "free-samples-south-africa" && page.dateModified === "2026-07-14";
-      if (page.dateModified === BUILD_DATE_ISO && page.dateModified !== page.datePublished && !isReviewedSamplesV2Date) {
+      const isReviewedSamplesV3Date =
+        page.slug === "free-samples-south-africa" && page.dateModified === "2026-07-23";
+      if (page.dateModified === BUILD_DATE_ISO && page.dateModified !== page.datePublished && !isReviewedSamplesV3Date) {
         errors.push(`Free-resource page dateModified appears to be using build date by default: ${page.slug}`);
       }
     }

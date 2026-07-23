@@ -71,7 +71,7 @@ The update command performs live requests and intentionally contains no generate
 
 Fixtures cover active public, active noindex, Club-only, expired published, missing archive evidence, archived low-value, held, rejected/`doNotPublish`, free, purchase-required, paid, explicit unknown, missing and unrecognized cost states.
 
-Missing, explicit `unknown` and unrecognized cost fixtures now fail closed to `unclear` / `Entry requirements unclear`. A missing type may classify only from affirmative evidence such as a purchase boolean, paid amount, standard-rate tag, exact free-entry tag or explicit fee label; absence never implies free. The active `{id, label}` inventory is protected by a compact hash covering all 85 public competitions.
+Missing, explicit `unknown` and unrecognized cost fixtures now fail closed to `unclear` / `Entry requirements unclear`. A missing type may classify only from affirmative evidence such as a purchase boolean, paid amount, standard-rate tag, exact free-entry tag or explicit fee label; absence never implies free. The active `{id, label}` inventory is protected by a compact hash covering all 81 public competitions in the 23 July 2026 snapshot.
 
 Fifteen retained expired records predate `entryCostType`. `data/archive/legacy-cost-classifications.json` records their reviewed display compatibility. The generator applies those values through a non-serializable archive-only marker, so it cannot modify source data, active filtering, `/out/` eligibility, sitemap inclusion or generated attributes. Tests require the manifest to match exactly the current published expired records with missing types; a new record is never added automatically.
 

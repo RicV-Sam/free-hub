@@ -1215,6 +1215,154 @@ button {
   margin-top: 1rem;
 }
 
+.anchor-target {
+  scroll-margin-top: 11rem;
+}
+
+.sample-route-finder {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1rem;
+  padding: clamp(1rem, 3vw, 1.5rem) 0;
+  border-top: 1px solid rgba(15, 23, 42, 0.12);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.12);
+  scroll-margin-top: 11rem;
+}
+
+.sample-route-finder__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.sample-route-finder__header h2,
+.voucher-free-picks__header h3 {
+  margin: 0;
+  color: var(--text);
+}
+
+.sample-route-finder__reviewed {
+  margin: 0;
+  color: #166534;
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.sample-route-finder__intro {
+  max-width: 72ch;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.sample-route-finder__grid,
+.voucher-free-picks__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.sample-route-card,
+.voucher-free-pick {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.sample-route-card:hover,
+.sample-route-card:focus-visible,
+.voucher-free-pick:hover,
+.voucher-free-pick:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  transform: translateY(-1px);
+}
+
+.sample-route-card__count {
+  color: #be123c;
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.sample-route-card strong,
+.voucher-free-pick strong {
+  font-size: 1rem;
+}
+
+.sample-route-card > span:last-child,
+.voucher-free-pick > span:not(.voucher-free-pick__label) {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.voucher-answer__quick {
+  padding-left: 1rem;
+  border-left: 4px solid #0f766e;
+}
+
+.voucher-answer__quick .section-kicker,
+.voucher-free-picks .section-kicker {
+  margin-bottom: 0.35rem;
+}
+
+.voucher-free-picks {
+  scroll-margin-top: 11rem;
+}
+
+.voucher-free-picks__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.voucher-free-picks__header a {
+  font-weight: 800;
+}
+
+.voucher-free-pick__label {
+  width: fit-content;
+  padding: 0.25rem 0.45rem;
+  border-radius: 4px;
+  background: #dcfce7;
+  color: #166534;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.voucher-free-pick__date {
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+@media (min-width: 720px) {
+  .anchor-target,
+  .sample-route-finder,
+  .voucher-free-picks {
+    scroll-margin-top: 6rem;
+  }
+
+  .sample-route-finder__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .voucher-free-picks__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .free-stuff-child-nav {
   display: grid;
   grid-template-columns: 1fr;

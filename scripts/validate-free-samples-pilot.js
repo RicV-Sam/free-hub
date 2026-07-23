@@ -4,9 +4,9 @@ const { parseHtml, walkHtmlFiles } = require("./lib/baseline-utils.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const expectedOpportunityCount = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true" ? 1 : 0;
-const expectedGeneratedFiles = 356 + expectedOpportunityCount * 2;
-const expectedSitemapUrls = 142 + expectedOpportunityCount;
-const expectedActiveCompetitionCount = 85;
+const expectedGeneratedFiles = 350 + expectedOpportunityCount * 2;
+const expectedSitemapUrls = 138 + expectedOpportunityCount;
+const expectedActiveCompetitionCount = 81;
 const expectedId = "coloplast-speedicath-short-sample";
 const errors = [];
 const checks = [];
@@ -48,8 +48,8 @@ check("Generated files", htmlFiles.length + 1, expectedGeneratedFiles);
 check("Sitemap URLs", count(sitemap, /<loc>/g), expectedSitemapUrls);
 check("Active competition cards", count(competitions, /<article class="competition-card\b/g), expectedActiveCompetitionCount);
 check("Competition schema items", competitionSchema?.itemListElement?.length || 0, expectedActiveCompetitionCount);
-check("Samples page marker", samples.includes('data-free-samples-page-version="2"'), true);
-check("Samples title", samplePage.title, "Where to Get Free Samples in South Africa | Official Offers Guide");
+check("Samples page marker", samples.includes('data-free-samples-page-version="3"'), true);
+check("Samples title", samplePage.title, "Where to Get Free Samples in South Africa | 7 Legit Options");
 check("Samples H1 count", samplePage.h1.length, 1);
 check("Samples H1", samplePage.h1[0], "Where to Get Free Samples in South Africa");
 check("Samples canonical", samplePage.canonical, "https://freehub.co.za/free-samples-south-africa/");
@@ -58,6 +58,8 @@ check("Durable sample schema items", sampleResourceSchema?.itemListElement?.leng
 check("Product-testing panels", count(samples, /data-content-type="product_testing_panel"/g), 4);
 check("Brand sample programmes", count(samples, /data-content-type="brand_sample_programme"/g), 2);
 check("Editorial explainers", count(samples, /data-content-type="editorial_guide"/g), 1);
+check("Sample route finder", samples.includes('id="sample-options"'), true);
+check("Brand programmes prioritised", samples.indexOf('id="brand-sample-programmes"') < samples.indexOf('id="product-testing-panels"'), true);
 check("Visible FAQs", count(samples, /<details>/g), 6);
 check("FAQ schema items", faqSchema?.mainEntity?.length || 0, 6);
 check("Samples Opportunity cards", count(samples, /<article class="opportunity-card\b/g), expectedOpportunityCount);
@@ -85,8 +87,8 @@ if (expectedOpportunityCount === 1) {
 const orderedMarkers = [
   "Direct samples, testing panels and directories are different",
   ...(expectedOpportunityCount ? ["<h2>Current verified samples</h2>"] : []),
-  "<h2>Product-testing panels</h2>",
   "<h2>Official brand sample programmes</h2>",
+  "<h2>Product-testing panels</h2>",
   "<h2>International sample explainer</h2>",
   "<h2>Safety and sensitive information</h2>",
   "<h2>Looking for free-entry prize draws?</h2>",
