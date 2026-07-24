@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-07-23
+Generated: 2026-07-24
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
@@ -40,14 +40,13 @@ Recommended normalisation:
 ## SMS Competitions in South Africa
 
 - URL: /sms-competitions-south-africa/
-- Matching active public competitions: 2
+- Matching active public competitions: 1
 - Publication threshold: 3
 - Safe to publish: no
-- Status: held; Only 2 active public matches; requires 3.
+- Status: held; Only 1 active public match; requires 3.
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| PEPxDSTV Scan Play Win Competition (pep-dstv-scan-play-win-2026) | 2026-07-23 | purchase-required | yes | yes | SMS or shortcode mentioned in entry text | none |
 | FreshStop Save Every Drop Win Big Competition (freshstop-jojo-fuel-vouchers-2026) | 2026-07-31 | purchase-required | yes | yes | SMS entry tag; SMS or shortcode mentioned in entry text | none |
 
 Recommended normalisation:
