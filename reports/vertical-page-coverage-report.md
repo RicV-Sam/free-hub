@@ -29,7 +29,7 @@ Only active, published, public-safe competitions are counted. Held, unverified, 
 | Kellogg's Big Bowl Energy Competition (kelloggs-big-bowl-energy-2026) | 2026-08-31 | till-slip-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Nestle MILO Meet the Champ Campaign 2026 (nestle-milo-meet-the-champ-2026) | 2026-08-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Dr. Oetker Taste the Upgrade Competition (dr-oetker-taste-the-upgrade-2026) | 2026-08-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
-| Knorr Win R5,000 Weekly Competition (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
+| Knorr Soup Competition 2026 - Win R5,000 Weekly (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Coca-Cola Fan Can Be a Bok Competition (coca-cola-fan-can-be-a-bok-2026) | 2026-11-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | WhatsApp mentioned in entry text | none |
@@ -89,7 +89,7 @@ Recommended normalisation:
 | Nestle MILO Meet the Champ Campaign 2026 (nestle-milo-meet-the-champ-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Dr. Oetker Taste the Upgrade Competition (dr-oetker-taste-the-upgrade-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | OREO BTS Promotion 2026 (oreo-bts-promotion-2026) | 2026-09-30 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
-| Knorr Win R5,000 Weekly Competition (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
+| Knorr Soup Competition 2026 - Win R5,000 Weekly (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | SPAR Community School Support Competition (spar-community-school-support-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Coca-Cola Fan Can Be a Bok Competition (coca-cola-fan-can-be-a-bok-2026) | 2026-11-30 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |

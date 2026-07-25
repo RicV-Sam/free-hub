@@ -55,7 +55,7 @@ test("skip link is keyboard reachable and targets main content", async ({ page }
   await expect(page.locator("#main-content")).toBeVisible();
 });
 
-test("current mobile navigation remains visible and horizontally responsive", async ({ page }) => {
+test("mobile navigation remains fully visible without a horizontal strip", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
   const navigation = page.getByRole("navigation", { name: "Primary navigation" });
@@ -64,7 +64,41 @@ test("current mobile navigation remains visible and horizontally responsive", as
   await navigation.getByRole("link", { name: "Free Stuff" }).scrollIntoViewIfNeeded();
   await expect(navigation.getByRole("link", { name: "Free Stuff" })).toBeVisible();
   const dimensions = await navigation.evaluate((element) => ({ clientWidth: element.clientWidth, scrollWidth: element.scrollWidth }));
-  expect(dimensions.scrollWidth).toBeGreaterThanOrEqual(dimensions.clientWidth);
+  expect(dimensions.scrollWidth).toBeLessThanOrEqual(dimensions.clientWidth + 1);
+  await expect(page.getByRole("link", { name: "Open Freehub Club account" })).toContainText("Account");
+});
+
+test("competition hub search filters prerendered listings and updates the result count", async ({ page }) => {
+  await page.goto("/competitions/");
+  const search = page.getByRole("searchbox", { name: "Search competitions" });
+  await expect(search).toBeVisible();
+  await expect(page.getByRole("group", { name: "Categories" }).getByRole("button")).not.toHaveCount(0);
+
+  await search.fill("OFM");
+  await expect(page.locator("#resultsSummary")).toHaveText("Showing 1 competition");
+  await expect(page.locator("#competitionsGrid article.competition-card")).toHaveCount(1);
+  await expect(page.locator("#competitionsGrid article.competition-card")).toContainText("OFM");
+
+  await search.fill("not-a-real-competition");
+  await expect(page.locator("#resultsSummary")).toHaveText("Showing 0 competitions");
+  await expect(page.getByText("No competitions match", { exact: true })).toBeVisible();
+});
+
+test("competition detail shows entry facts before discovery and partner content", async ({ page }) => {
+  await page.goto("/competition/ofm-show-us-your-ofm-cash-2026/");
+  await expect(page.getByRole("heading", { level: 2, name: "How to enter" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 2, name: "Quick answer" })).toBeVisible();
+
+  const order = await page.evaluate(() => {
+    const detail = document.querySelector("article.competition-detail");
+    const categories = document.querySelector('nav[aria-label="Competition categories"]');
+    return Boolean(
+      detail &&
+      categories &&
+      (detail.compareDocumentPosition(categories) & Node.DOCUMENT_POSITION_FOLLOWING)
+    );
+  });
+  expect(order).toBe(true);
 });
 
 test("Free Stuff parent preserves intent and separates durable resources from opportunities", async ({ page }) => {
@@ -399,18 +433,6 @@ test("Opportunity tombstones keep historical context without application paths",
   }
 });
 
-test("PR2-mobile-navigation: collapsible mobile navigation opens and closes", async ({ page }) => {
-  test.fail(true, "Expected defect: current mobile navigation scrolls horizontally and has no collapsible menu yet.");
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/");
-  const menuButton = page.getByRole("button", { name: /menu/i });
-  await expect(menuButton).toBeVisible();
-  await menuButton.click();
-  await expect(page.getByRole("navigation", { name: "Primary navigation" })).toHaveAttribute("data-open", "true");
-  await menuButton.click();
-  await expect(page.getByRole("navigation", { name: "Primary navigation" })).toHaveAttribute("data-open", "false");
-});
-
 test("competition collection cards are present in the static HTML", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
@@ -473,12 +495,6 @@ test("landscape competition artwork receives a full 16:9 media stage", async ({ 
   const mobileDetailBox = await detailMedia.boundingBox();
   expect(mobileHeroBox.height / mobileHeroBox.width).toBeGreaterThan(0.55);
   expect(mobileDetailBox.height / mobileDetailBox.width).toBeGreaterThan(0.55);
-});
-
-test("PR2-collection-controls: rendered collection filters become interactive", async ({ page }) => {
-  test.fail(true, "Expected defect: collection controls render but app.js only activates them for the home route.");
-  await page.goto("/competitions/");
-  await expect(page.locator("#categoryFilters button")).not.toHaveCount(0);
 });
 
 test("active detail, outbound handoff, and expired detail retain lifecycle behavior", async ({ browser, page }) => {

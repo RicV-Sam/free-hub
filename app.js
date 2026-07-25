@@ -80,13 +80,13 @@ document.addEventListener("DOMContentLoaded", () => {
     trackDetailPageView();
   }
 
-  if (state.routeContext.type === "home") {
+  if (elements.competitionsGrid && state.routeContext.type !== "competition") {
     loadCompetitions();
   }
 });
 
 function bindEvents() {
-  if (elements.searchInput && state.routeContext.type === "home") {
+  if (elements.searchInput && elements.competitionsGrid) {
     elements.searchInput.addEventListener("input", (event) => {
       state.searchQuery = event.target.value.trim().toLowerCase();
       renderCompetitions();
@@ -400,15 +400,6 @@ function createCompetitionCard(competition) {
   source.textContent = "Official source";
   brandRow.append(createBrandMark(competition), brand, source);
 
-  const statusRow = document.createElement("div");
-  statusRow.className = "competition-card__status-row";
-  getCardStatusLabels(competition).forEach((label) => {
-    const status = document.createElement("span");
-    status.className = getStatusClassName(label);
-    status.textContent = label;
-    statusRow.append(status);
-  });
-
   const title = document.createElement("h2");
   title.className = "competition-card__title";
   title.textContent = getCardHeadline(competition);
@@ -416,19 +407,11 @@ function createCompetitionCard(competition) {
   const signals = document.createElement("div");
   signals.className = "competition-card__signals";
 
-  const valueSignal = document.createElement("span");
-  valueSignal.className = "competition-card__signal competition-card__signal--value";
-  valueSignal.textContent = getPrizeCue(competition);
-
-  const urgencySignal = document.createElement("span");
-  urgencySignal.className = "competition-card__signal competition-card__signal--urgency";
-  urgencySignal.textContent = getUrgencyLabel(competition.closingDate);
-
   const costSignal = document.createElement("span");
   costSignal.className = "competition-card__signal competition-card__signal--cost";
   costSignal.textContent = getEntryCostLabel(competition);
 
-  signals.append(valueSignal, urgencySignal, costSignal);
+  signals.append(costSignal);
 
   const meta = document.createElement("div");
   meta.className = "competition-card__meta";
@@ -440,7 +423,7 @@ function createCompetitionCard(competition) {
   entryMethod.textContent = `Entry: ${getEntryMethodLabel(competition.entryType)}`;
   meta.append(entryMethod, closingDate);
 
-  body.append(brandRow, statusRow, title, signals);
+  body.append(brandRow, title, signals);
 
   if (competition.summary) {
     const summary = document.createElement("p");
@@ -450,21 +433,6 @@ function createCompetitionCard(competition) {
   }
 
   body.appendChild(meta);
-
-  const footer = document.createElement("div");
-  footer.className = "competition-card__footer";
-
-  const tags = document.createElement("div");
-  tags.className = "competition-card__tags";
-
-  const tagLabels = getCardTagLabels(competition);
-  tagLabels.forEach((label) => {
-    const tag = document.createElement("span");
-    tag.className =
-      label === getEntryMethodLabel(competition.entryType) ? "competition-card__entry" : "badge badge--soft";
-    tag.textContent = label;
-    tags.append(tag);
-  });
 
   const cta = document.createElement("span");
   cta.className = "competition-card__cta";
@@ -486,11 +454,6 @@ function createCompetitionCard(competition) {
 
   actions.append(ignoreButton);
 
-  if (tagLabels.length > 0) {
-    footer.append(tags);
-    body.appendChild(footer);
-  }
-
   body.append(actions, cta);
   article.append(media, body, overlayLink);
 
@@ -498,7 +461,7 @@ function createCompetitionCard(competition) {
 }
 
 function updateResultsSummary(count) {
-  elements.resultsSummary.textContent = `Showing ${count} competitions`;
+  elements.resultsSummary.textContent = `Showing ${count} competition${count === 1 ? "" : "s"}`;
 }
 
 function showLoading() {

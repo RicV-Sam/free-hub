@@ -4252,6 +4252,8 @@ function renderPage(routeContext, competitions) {
   const structuredData = buildRouteStructuredData(competitions, routeContext);
   const ogImage = getCollectionMetadataImageUrl(competitions);
   const isCollectionPage = ["category", "tag", "hub", "brand", "vertical"].includes(routeContext.type);
+  const isPrimaryCompetitionHub =
+    routeContext.type === "hub" && routeContext.slug === "competitions";
   const collectionPageStructuredData =
     isCollectionPage
       ? {
@@ -4314,7 +4316,7 @@ function renderPage(routeContext, competitions) {
   const cardsMarkup = competitions
     .map((competition) => renderCompetitionCard(competition))
     .join("\n");
-  const resultsSummary = `Showing ${competitions.length} competitions`;
+  const resultsSummary = `Showing ${competitions.length} competition${competitions.length === 1 ? "" : "s"}`;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -4357,8 +4359,8 @@ function renderPage(routeContext, competitions) {
         ${isCollectionPage ? renderCollectionBreadcrumb(pageCopy.heading) : ""}
 
         ${renderSupportSection(supportCopy)}
-        ${renderHubIntroEditorial(routeContext)}
-        ${renderVerticalEditorial(routeContext)}
+        ${isPrimaryCompetitionHub ? "" : renderHubIntroEditorial(routeContext)}
+        ${isPrimaryCompetitionHub ? "" : renderVerticalEditorial(routeContext)}
 
         <nav class="category-nav" aria-label="Competition categories">
           ${CATEGORY_LINKS.map((link) => renderNavLink(link, routeContext.path)).join("\n          ")}
@@ -4371,13 +4373,13 @@ function renderPage(routeContext, competitions) {
           </div>
         </section>
 
-        ${renderVoucherIntentSection(routeContext, competitions)}
-        ${renderInternalLinksSection(routeContext, competitions)}
-        ${routeContext.type === "hub" && ["competitions", "free-competitions", "win-a-car"].includes(routeContext.slug) ? renderVerticalDiscoveryLinks() : ""}
-        ${renderHubSupportLinks(routeContext, competitions)}
-        ${renderDeadlineBuckets(routeContext, competitions)}
-        ${renderWhatsAppChannelCta(routeContext)}
-        ${renderDatacostPromo({
+        ${isPrimaryCompetitionHub ? "" : renderVoucherIntentSection(routeContext, competitions)}
+        ${isPrimaryCompetitionHub ? "" : renderInternalLinksSection(routeContext, competitions)}
+        ${isPrimaryCompetitionHub ? "" : routeContext.type === "hub" && ["competitions", "free-competitions", "win-a-car"].includes(routeContext.slug) ? renderVerticalDiscoveryLinks() : ""}
+        ${isPrimaryCompetitionHub ? "" : renderHubSupportLinks(routeContext, competitions)}
+        ${isPrimaryCompetitionHub ? "" : renderDeadlineBuckets(routeContext, competitions)}
+        ${isPrimaryCompetitionHub ? "" : renderWhatsAppChannelCta(routeContext)}
+        ${isPrimaryCompetitionHub ? "" : renderDatacostPromo({
           placement: `${routeContext.type}-${routeContext.slug || "index"}`,
           compact: routeContext.type === "tag",
           ussd: ["sms-competitions-south-africa", "win-airtime-competitions-south-africa", "win-data-competitions-south-africa"].includes(routeContext.slug),
@@ -4416,6 +4418,15 @@ function renderPage(routeContext, competitions) {
 
           ${renderCollectionEmptyState(routeContext, competitions)}
         </section>
+
+        ${isPrimaryCompetitionHub ? renderHubIntroEditorial(routeContext) : ""}
+        ${isPrimaryCompetitionHub ? renderInternalLinksSection(routeContext, competitions) : ""}
+        ${isPrimaryCompetitionHub ? renderVerticalDiscoveryLinks() : ""}
+        ${isPrimaryCompetitionHub ? renderHubSupportLinks(routeContext, competitions) : ""}
+        ${isPrimaryCompetitionHub ? renderWhatsAppChannelCta(routeContext) : ""}
+        ${isPrimaryCompetitionHub ? renderDatacostPromo({
+          placement: `${routeContext.type}-${routeContext.slug || "index"}`,
+        }) : ""}
 
         ${renderCategoryEditorial(routeContext, competitions)}
         ${renderVerticalChecklist(routeContext)}
@@ -4694,25 +4705,12 @@ function renderCompetitionCard(competition, featured = false) {
   const urgencyBadge = `<span class="badge badge--closing">${escapeHtml(
     shared.getUrgencyBadgeLabel(competition.closingDate)
   )}</span>`;
-  const tagBadges = shared
-    .getCardTagLabels(competition)
-    .map((label) => `<span class="badge badge--soft">${escapeHtml(label)}</span>`)
-    .join("\n                    ");
-  const footerMarkup = tagBadges
-    ? `<div class="competition-card__footer">
-                  <div class="competition-card__tags">
-                    ${tagBadges}
-                  </div>
-                </div>`
-    : "";
   const summaryMarkup = competition.summary
     ? `<p class="competition-card__summary">${escapeHtml(competition.summary)}</p>`
     : "";
   const cardClass = `competition-card${featured ? " competition-card--featured" : ""}`;
   const cardImageUrl = getCompetitionVisualUrl(competition);
-  const urgencyLabel = shared.getUrgencyLabel(competition.closingDate);
   const entryMethodLabel = shared.getEntryMethodLabel(competition.entryType);
-  const prizeCue = shared.getPrizeCue(competition);
   const headline = shared.getCardHeadline(competition);
   const brand = competition.brand || "Official promotion";
   const featuredEyebrow = featured ? '<p class="competition-card__eyebrow">Featured this week</p>' : "";
@@ -4750,13 +4748,8 @@ function renderCompetitionCard(competition, featured = false) {
                   <p class="competition-card__brand">${escapeHtml(brand)}</p>
                   <span class="competition-card__source">Official source</span>
                 </div>
-                <div class="competition-card__status-row">
-                  ${renderCardStatusBadges(competition)}
-                </div>
                 <h2 class="competition-card__title">${escapeHtml(headline)}</h2>
                 <div class="competition-card__signals">
-                  <span class="competition-card__signal competition-card__signal--value">${escapeHtml(prizeCue)}</span>
-                  <span class="competition-card__signal competition-card__signal--urgency">${escapeHtml(urgencyLabel)}</span>
                   <span class="competition-card__signal competition-card__signal--cost">${escapeHtml(shared.getEntryCostLabel(competition))}</span>
                 </div>
                 ${summaryMarkup}
@@ -4764,7 +4757,6 @@ function renderCompetitionCard(competition, featured = false) {
                   <span>Entry: ${escapeHtml(entryMethodLabel)}</span>
                   <span>Closes: ${escapeHtml(shared.formatDate(competition.closingDate))}</span>
                 </div>
-                ${footerMarkup}
                 <div class="competition-card__actions">
                   <button
                     class="competition-card__ignore"
@@ -5649,6 +5641,49 @@ function renderLatestCompetitionRow(competition) {
             </a>`;
 }
 
+function renderHomepageHeroGuide(competitions) {
+  const freeEntryCount = competitions.filter(
+    (competition) => shared.getEntryCostLabel(competition) === "Free entry"
+  ).length;
+  const endingSoonCount = competitions.filter(
+    (competition) => shared.isClosingWithinDays(competition.closingDate, 14)
+  ).length;
+
+  const links = [
+    {
+      label: "Browse all",
+      value: `${competitions.length} current listings`,
+      href: "/competitions/",
+    },
+    {
+      label: "Free entry",
+      value: `${freeEntryCount} no-purchase listings`,
+      href: "/free-competitions/",
+    },
+    {
+      label: "Closing soon",
+      value: `${endingSoonCount} deadlines within 14 days`,
+      href: "/competitions-ending-soon/",
+    },
+  ];
+
+  return `<aside class="home-hero-guide" aria-label="Start browsing competitions">
+            <p class="home-hero-guide__kicker">Start here</p>
+            <h2>Choose what matters today</h2>
+            <p class="home-hero-guide__intro">Go straight to the listings that fit your time and entry budget.</p>
+            <div class="home-hero-guide__links">
+              ${links
+                .map(
+                  (link) => `<a href="${escapeAttribute(link.href)}">
+                    <span>${escapeHtml(link.label)}</span>
+                    <strong>${escapeHtml(link.value)}</strong>
+                  </a>`
+                )
+                .join("\n              ")}
+            </div>
+          </aside>`;
+}
+
 function renderHomepageClubSection() {
   return `<section class="home-cta home-cta--club" aria-label="Freehub Club and alerts">
           <div>
@@ -5749,12 +5784,7 @@ function renderHomepage(competitions) {
   const topPicks = getHomepageTopPicks(competitions);
   const topPickSlugs = new Set(topPicks.map((entry) => shared.getCompetitionSlug(entry.competition)));
   const latestAdded = excludeCompetitionsBySlug(getLatestAddedCompetitions(competitions, 12), topPickSlugs, 6);
-  const previewCompetitions = topPicks.map((entry) => entry.competition);
-  const heroPreviewMarkup = renderHeroPreviewPanel(previewCompetitions, {
-    title: "Prize Watch",
-    intro: "Three active picks with clear prize, cost and deadline cues.",
-    className: "hero-preview-panel--home",
-  });
+  const heroGuideMarkup = renderHomepageHeroGuide(competitions);
 
   const noscriptLinks = competitions
     .slice(0, 6)
@@ -5827,7 +5857,7 @@ ${noscriptLinks}
               <span class="trust-row__item">Freehub is not the promoter</span>
             </div>
           </div>
-          ${heroPreviewMarkup}
+          ${heroGuideMarkup}
         </div>
       </header>
 
@@ -5842,7 +5872,6 @@ ${noscriptLinks}
         ${renderIntentTilesSection()}
         ${renderLatestRowsSection(latestAdded)}
         ${renderHomeTrustSection()}
-        ${renderDatacostPromo({ placement: "home-before-filters" })}
         ${renderHomepageClubSection()}
         ${renderHomepageGuidesSection()}
       </main>
@@ -8647,30 +8676,10 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
       <main id="main-content" class="main-content">
         ${breadcrumbMarkup}
 
-        <nav class="category-nav" aria-label="Competition categories">
-          ${CATEGORY_LINKS.map((link) => renderNavLink(link, "/competition/")).join("\n          ")}
-        </nav>
-
-        <section class="popular-searches" aria-label="Popular searches">
-          <p class="popular-searches__title">Popular Searches</p>
-          <div class="popular-searches__links">
-            ${TAG_LINKS.map((link) => renderPopularLink(link, "/competition/")).join("\n            ")}
-          </div>
-        </section>
-
         ${expired ? `<section class="state-card state-card--error" aria-label="Competition closed">
           <p class="state-card__title">This competition has closed.</p>
           <p class="state-card__text">This Freehub page is kept as an archive to help users confirm the prize, brand, closing date and official source. Browse current competitions below.</p>
         </section>` : ""}
-
-        ${renderCompetitionInternalLinks(competition, categoryPath, generatedBrandSlugs)}
-        ${renderDatacostPromo({
-          placement: `competition-${slug}`,
-          compact: true,
-          ussd: isTelecomOrMobileCompetition(competition),
-        })}
-
-        ${adsAllowed ? renderAdZone("ad-top", "detail-top") : ""}
 
         <article class="competition-detail" aria-label="${escapeAttribute(competition.title)}">
           ${renderCompetitionDetailMedia(competition, heroImage, imageAltText)}
@@ -8682,17 +8691,17 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
               ${closingSoonBadge}
             </div>
             ${trustStripMarkup}
-            ${authPanelMarkup}
             ${detailFactsMarkup}
             ${renderCompetitionQuickAnswer(competition, expired)}
+            ${entryCostEligibilityMarkup}
+            ${entryStepsMarkup}
+            ${beforeYouEnterMarkup}
+            ${authPanelMarkup}
             <div class="competition-detail__summary">
               <p>${escapeHtml(description)}</p>
             </div>
             ${brandPrizeContextMarkup}
-            ${entryCostEligibilityMarkup}
             ${tagsMarkup}
-            ${entryStepsMarkup}
-            ${beforeYouEnterMarkup}
             <div class="trust-chips">
               <span class="trust-chip">Verified listing</span>
               <span class="trust-chip">We link to official brand promotions</span>
@@ -8735,6 +8744,25 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
           <p class="competition-detail__cta-note">You will leave Freehub and go to the official promoter page.</p>
         </section>` : ""}
 
+        <nav class="category-nav" aria-label="Competition categories">
+          ${CATEGORY_LINKS.map((link) => renderNavLink(link, "/competition/")).join("\n          ")}
+        </nav>
+
+        <section class="popular-searches" aria-label="Popular searches">
+          <p class="popular-searches__title">Popular Searches</p>
+          <div class="popular-searches__links">
+            ${TAG_LINKS.map((link) => renderPopularLink(link, "/competition/")).join("\n            ")}
+          </div>
+        </section>
+
+        ${renderCompetitionInternalLinks(competition, categoryPath, generatedBrandSlugs)}
+        ${renderDatacostPromo({
+          placement: `competition-${slug}`,
+          compact: true,
+          ussd: isTelecomOrMobileCompetition(competition),
+        })}
+
+        ${adsAllowed ? renderAdZone("ad-top", "detail-top") : ""}
         ${adsAllowed ? renderAdZone("ad-middle", "detail-inside", true) : ""}
 
         ${relatedSection}
@@ -8962,8 +8990,8 @@ function renderCompetitionQuickAnswer(competition, expired = false) {
     return "";
   }
 
-  return `<section class="detail-context detail-context--quick-answer" aria-label="Quick answer">
-              <p class="detail-section-title">Quick answer</p>
+  return `<section class="detail-context detail-context--quick-answer" aria-labelledby="quick-answer-heading">
+              <h2 class="detail-section-title" id="quick-answer-heading">Quick answer</h2>
               <p>${escapeHtml(quickAnswer)}</p>
             </section>`;
 }
@@ -8998,8 +9026,8 @@ function renderEntryCostEligibilityNotes(competition) {
     return "";
   }
 
-  return `<section class="detail-context detail-context--notes" aria-label="Entry cost and eligibility notes">
-              <p class="detail-section-title">Entry cost and eligibility notes</p>
+  return `<section class="detail-context detail-context--notes" aria-labelledby="entry-notes-heading">
+              <h2 class="detail-section-title" id="entry-notes-heading">Entry cost and eligibility notes</h2>
               ${notes.map((note) => `<p><strong>${escapeHtml(note.label)}:</strong> ${escapeHtml(note.value)}</p>`).join("\n              ")}
             </section>`;
 }
@@ -9045,8 +9073,8 @@ function renderCompetitionSourceBlock(competition, officialSource, officialSourc
     ? `<p><strong>Terms and conditions:</strong> <a href="${escapeAttribute(competition.termsUrl)}" rel="nofollow noopener" target="_blank">${escapeHtml(sourceLabel)}</a></p>`
     : "<p><strong>Terms and conditions:</strong> Check the official promoter page for full terms.</p>";
 
-  return `<section class="detail-source" aria-label="Official source and terms">
-              <p class="detail-section-title">Source and terms</p>
+  return `<section class="detail-source" aria-labelledby="source-terms-heading">
+              <h2 class="detail-section-title" id="source-terms-heading">Source and terms</h2>
               <p><strong>Official source:</strong> <a href="${escapeAttribute(officialSourceUrl)}" rel="nofollow noopener" target="_blank">${escapeHtml(officialSource)}</a></p>
               ${termsMarkup}
               ${lastChecked ? `<p><strong>Last checked:</strong> ${escapeHtml(lastChecked)}</p>` : ""}
@@ -9191,8 +9219,8 @@ function renderCompetitionFaq(items) {
     return "";
   }
 
-  return `<section class="detail-faq" aria-label="Competition questions">
-              <p class="detail-section-title">Quick questions</p>
+  return `<section class="detail-faq" aria-labelledby="competition-questions-heading">
+              <h2 class="detail-section-title" id="competition-questions-heading">Quick questions</h2>
               ${items
                 .map(
                   (item) => `<details>
@@ -9910,12 +9938,12 @@ function buildHowToEnterSteps(competition) {
 }
 
 function renderHowToEnterList(steps) {
-  return `<div class="competition-detail__steps">
-              <p class="competition-detail__steps-title"><strong>How to Enter</strong></p>
+  return `<section class="competition-detail__steps" aria-labelledby="how-to-enter-heading">
+              <h2 class="competition-detail__steps-title" id="how-to-enter-heading">How to enter</h2>
               <ol class="competition-detail__steps-list">
                 ${steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("\n                ")}
               </ol>
-            </div>`;
+            </section>`;
 }
 
 function generateSitemap(competitions, routeContexts, sitemapCompetitions = competitions, sitemapOpportunities = []) {

@@ -192,6 +192,77 @@ button {
   color: #111827;
 }
 
+.home-hero-guide {
+  align-self: stretch;
+  display: grid;
+  align-content: center;
+  gap: 0.8rem;
+  padding: clamp(1rem, 2.5vw, 1.35rem);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.home-hero-guide__kicker,
+.home-hero-guide h2,
+.home-hero-guide__intro {
+  margin: 0;
+}
+
+.home-hero-guide__kicker {
+  color: #86efac;
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.home-hero-guide h2 {
+  color: #fff;
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  line-height: 1.12;
+}
+
+.home-hero-guide__intro {
+  color: rgba(248, 250, 252, 0.74);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.home-hero-guide__links {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.home-hero-guide__links a {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  gap: 0.8rem;
+  align-items: center;
+  min-height: 58px;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.home-hero-guide__links a:hover,
+.home-hero-guide__links a:focus-visible {
+  border-color: rgba(134, 239, 172, 0.52);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.home-hero-guide__links span {
+  color: #fff;
+  font-weight: 900;
+}
+
+.home-hero-guide__links strong {
+  color: rgba(248, 250, 252, 0.72);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
 .noscript-shell {
   width: min(calc(100% - 2rem), var(--max-width));
   margin: 1rem auto 0;
@@ -2425,7 +2496,17 @@ button {
 .detail-section-title {
   margin: 0 0 0.55rem;
   color: var(--text);
+  font-size: 1rem;
   font-weight: 900;
+  line-height: 1.3;
+}
+
+.competition-detail__steps-title {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.05rem;
+  font-weight: 900;
+  line-height: 1.3;
 }
 
 .detail-checklist ul {
@@ -5365,17 +5446,32 @@ body {
 
   .site-topbar__nav {
     grid-column: 1 / -1;
-    justify-content: start;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    padding-bottom: 0.1rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.3rem;
+    overflow-x: visible;
+    padding-bottom: 0;
   }
 
   .site-topbar__link {
-    white-space: nowrap;
+    min-width: 0;
+    padding: 0.45rem 0.35rem;
+    font-size: 0.82rem;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+    text-align: center;
+    white-space: normal;
   }
 
-  .site-topbar__account span:last-child {
+  .site-topbar__account {
+    padding-inline: 0.65rem;
+  }
+
+  .site-topbar__account-icon {
+    display: none;
+  }
+
+  .home-hero-guide {
     display: none;
   }
 

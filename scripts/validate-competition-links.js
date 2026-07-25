@@ -200,7 +200,14 @@ function getLifecycle(competition) {
 }
 
 function classifyResult(status, finalUrl, bodyText) {
-  const content = (bodyText || "").slice(0, 6000).toLowerCase();
+  const content = String(bodyText || "").toLowerCase();
+  const visibleContent = content
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, " ")
+    .replace(/<template\b[^>]*>[\s\S]*?<\/template>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .slice(0, 6000);
   const normalizedUrl = (finalUrl || "").toLowerCase();
   const badUrlHints = ["404", "not-found", "page-not-found", "/error", "/errors", "page-no-longer-available"];
   const soft404Hints = [
@@ -227,7 +234,7 @@ function classifyResult(status, finalUrl, bodyText) {
     return { level: "error", reason: "redirected-to-error-like-url" };
   }
 
-  if (soft404Hints.some((hint) => content.includes(hint))) {
+  if (soft404Hints.some((hint) => visibleContent.includes(hint))) {
     return { level: "error", reason: "soft-404-content" };
   }
 
