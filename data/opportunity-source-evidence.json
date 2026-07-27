@@ -44,7 +44,7 @@
     "field": "sourceUrl",
     "hostname": "brandadvisor.co.za",
     "url": "https://brandadvisor.co.za/parmalat-easygest-fb-event-landing-page/",
-    "reason": "official_source_manually_reviewed",
+    "reason": "official_source_verified_despite_automated_access_block",
     "verifiedAt": "2026-07-23",
     "expiresAt": "2026-07-30",
     "evidenceSummary": "Official Brand Advisor application page invited 150 Instagram creators with at least 1,000 followers to apply for a Parmalat EasyGest hamper in exchange for two Instagram reels."
@@ -78,5 +78,225 @@
     "verifiedAt": "2026-07-23",
     "expiresAt": "2026-07-30",
     "evidenceSummary": "Official Brand Advisor application page invited Instagram creators with at least 1,000 followers and an active TikTok presence to apply for a Clover Krush hamper in exchange for two Instagram posts."
+  },
+  {
+    "recordId": "coloplast-speedicath-short-sample",
+    "field": "sourceUrl",
+    "hostname": "products.coloplast.co.za",
+    "url": "https://products.coloplast.co.za/global-campaigns/speedicath-short/",
+    "reason": "official_source_verified_despite_automated_access_block",
+    "verifiedAt": "2026-07-27",
+    "expiresAt": "2026-08-03",
+    "evidenceSummary": "Official Coloplast South Africa campaign returned HTTP 200 and still displayed the free SpeediCath Short application, qualification wording and provider consent route."
+  },
+  {
+    "recordId": "coloplast-speedicath-short-sample",
+    "field": "termsUrl",
+    "hostname": "products.coloplast.co.za",
+    "url": "https://products.coloplast.co.za/webshop/terms-of-sale/",
+    "reason": "official_source_verified_despite_automated_access_block",
+    "verifiedAt": "2026-07-27",
+    "expiresAt": "2026-08-03",
+    "evidenceSummary": "Official Coloplast South Africa terms still supported separate dispatch and free delivery for approved sample requests."
+  },
+  {
+    "recordId": "brand-advisor-parmalat-easygest-testing",
+    "field": "sourceUrl",
+    "hostname": "brandadvisor.co.za",
+    "url": "https://brandadvisor.co.za/parmalat-easygest-fb-event-landing-page/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-07-27",
+    "expiresAt": "2026-08-03",
+    "evidenceSummary": "Official Brand Advisor page returned HTTP 200 and retained its active application survey, follower threshold, hamper and two-Reel requirement."
+  },
+  {
+    "recordId": "brand-advisor-kinder-testing",
+    "field": "sourceUrl",
+    "hostname": "brandadvisor.co.za",
+    "url": "https://brandadvisor.co.za/kinder-fb-event-landing-page/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-07-27",
+    "expiresAt": "2026-08-03",
+    "evidenceSummary": "Official Brand Advisor page returned HTTP 200 and retained its active application survey, follower threshold, Kinder hamper and family-focused Reel requirement."
+  },
+  {
+    "recordId": "brand-advisor-sunlight-dishwashing-testing",
+    "field": "sourceUrl",
+    "hostname": "brandadvisor.co.za",
+    "url": "https://brandadvisor.co.za/sunlight-dishwashing-liquid-fb-event-landing-page/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-07-27",
+    "expiresAt": "2026-08-03",
+    "evidenceSummary": "Official Brand Advisor page returned HTTP 200 and retained its active application survey, follower threshold, Sunlight hamper and two-video requirement."
+  },
+  {
+    "recordId": "brand-advisor-clover-krush-testing",
+    "field": "sourceUrl",
+    "hostname": "brandadvisor.co.za",
+    "url": "https://brandadvisor.co.za/clover-krush-fb-event-landing-page/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-07-27",
+    "expiresAt": "2026-08-03",
+    "evidenceSummary": "Official Brand Advisor page returned HTTP 200 and retained its application survey, account conditions, Clover Krush hamper and two-post requirement."
+  },
+  {
+    "recordId": "brand-advisor-sta-soft-parfum-testing",
+    "field": "sourceUrl",
+    "hostname": "brandadvisor.co.za",
+    "url": "https://brandadvisor.co.za/sta-soft-parfum-project/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-07-27",
+    "expiresAt": "2026-08-03",
+    "evidenceSummary": "Official Brand Advisor page returned HTTP 200 and displayed an active survey for creators with at least 1,000 followers to receive a voucher in exchange for one Instagram Reel or TikTok video."
+  },
+  {
+    "recordId": "brand-advisor-clover-nolac-testing",
+    "field": "sourceUrl",
+    "hostname": "brandadvisor.co.za",
+    "url": "https://brandadvisor.co.za/clover-nolac-project-2/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-07-27",
+    "expiresAt": "2026-08-03",
+    "evidenceSummary": "Official Brand Advisor page returned HTTP 200 and displayed an active Clover Nolac survey with the dairy-suitability context, 1,000-follower threshold, hamper and one-video requirement."
+  },
+  {
+    "recordId": "brand-advisor-clover-barley-milk-testing",
+    "field": "sourceUrl",
+    "hostname": "brandadvisor.co.za",
+    "url": "https://brandadvisor.co.za/clover-barley-milk-project/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-07-27",
+    "expiresAt": "2026-08-03",
+    "evidenceSummary": "Official Brand Advisor page returned HTTP 200 and displayed an active alternative-milk survey with the 1,000-follower threshold, Clover hamper and one-post requirement."
+  },
+  {
+    "recordId": "brand-advisor-super-c-sweets-testing",
+    "field": "sourceUrl",
+    "hostname": "brandadvisor.co.za",
+    "url": "https://brandadvisor.co.za/super-c-sweets-project/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-07-27",
+    "expiresAt": "2026-08-03",
+    "evidenceSummary": "Official Brand Advisor page returned HTTP 200 and displayed an active Super C survey with the active-lifestyle fit, 1,000-follower threshold, hamper and one-post requirement."
+  },
+  {
+    "recordId": "brand-advisor-clover-onion-slices-testing",
+    "field": "sourceUrl",
+    "hostname": "brandadvisor.co.za",
+    "url": "https://brandadvisor.co.za/clover-onion-project/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-07-27",
+    "expiresAt": "2026-08-03",
+    "evidenceSummary": "Official Brand Advisor page returned HTTP 200 and displayed an active Clover survey with the meal-content fit, 1,000-follower threshold and one-post requirement; the official projects page identifies the Onion Flavoured Cheese Slices product."
+  },
+  {
+    "recordId": "brand-advisor-speckled-eggs-testing",
+    "field": "sourceUrl",
+    "hostname": "brandadvisor.co.za",
+    "url": "https://brandadvisor.co.za/speckled-eggs-project/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-07-27",
+    "expiresAt": "2026-08-03",
+    "evidenceSummary": "Official Brand Advisor page returned HTTP 200 and displayed an active Speckled Eggs survey with the 1,000-follower threshold, hamper and two-video requirement."
+  },
+  {
+    "recordId": "brand-advisor-steri-stumpie-200ml-testing",
+    "field": "sourceUrl",
+    "hostname": "brandadvisor.co.za",
+    "url": "https://brandadvisor.co.za/steri-stumpie-200ml-project/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-07-27",
+    "expiresAt": "2026-08-03",
+    "evidenceSummary": "Official Brand Advisor page returned HTTP 200 and displayed an active Steri Stumpie survey with the parent and lunchbox context, 1,000-follower threshold, hamper and one-post requirement."
+  },
+  {
+    "recordId": "brand-advisor-b-well-canola-oil-testing",
+    "field": "sourceUrl",
+    "hostname": "brandadvisor.co.za",
+    "url": "https://brandadvisor.co.za/b-well-canola-oil-project/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-07-27",
+    "expiresAt": "2026-08-03",
+    "evidenceSummary": "Official Brand Advisor page returned HTTP 200 and displayed an active B-well survey with the home-cooking fit, 1,000-follower threshold, hamper and one-post requirement."
+  },
+  {
+    "recordId": "brand-advisor-simba-voucher-testing",
+    "field": "sourceUrl",
+    "hostname": "brandadvisor.co.za",
+    "url": "https://brandadvisor.co.za/simba-project/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-07-27",
+    "expiresAt": "2026-08-03",
+    "evidenceSummary": "Official Brand Advisor page returned HTTP 200 and displayed an active Simba survey with the 1,000-follower threshold, voucher exchange and one-video requirement."
+  },
+  {
+    "recordId": "brand-advisor-vicks-vapolozenges-testing",
+    "field": "sourceUrl",
+    "hostname": "brandadvisor.co.za",
+    "url": "https://brandadvisor.co.za/vicks-project/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-07-27",
+    "expiresAt": "2026-08-03",
+    "evidenceSummary": "Official Brand Advisor page returned HTTP 200 and displayed an active Vicks VapoLozenges survey with the age-21 rule, 1,000-follower threshold, hamper and one-video requirement."
+  },
+  {
+    "recordId": "coloplast-sensura-mio-free-sample",
+    "field": "sourceUrl",
+    "hostname": "products.coloplast.co.za",
+    "url": "https://products.coloplast.co.za/global-campaigns/sensura-mio-consumer-what-comes-naturally/",
+    "reason": "official_source_verified_despite_automated_access_block",
+    "verifiedAt": "2026-07-27",
+    "expiresAt": "2026-08-03",
+    "evidenceSummary": "Official Coloplast South Africa campaign returned HTTP 200 and invited visitors with a relevant ostomy-product need to try a free SenSura Mio sample through Coloplast's own sample flow."
+  },
+  {
+    "recordId": "coloplast-sensura-mio-free-sample",
+    "field": "termsUrl",
+    "hostname": "products.coloplast.co.za",
+    "url": "https://products.coloplast.co.za/webshop/terms-of-sale/",
+    "reason": "official_source_verified_despite_automated_access_block",
+    "verifiedAt": "2026-07-27",
+    "expiresAt": "2026-08-03",
+    "evidenceSummary": "Official Coloplast South Africa terms supported separate dispatch and free delivery for approved sample requests."
+  },
+  {
+    "recordId": "coloplast-brava-elastic-tape-free-sample",
+    "field": "sourceUrl",
+    "hostname": "products.coloplast.co.za",
+    "url": "https://products.coloplast.co.za/global-campaigns/brava-elastic-tape/",
+    "reason": "official_source_verified_despite_automated_access_block",
+    "verifiedAt": "2026-07-27",
+    "expiresAt": "2026-08-03",
+    "evidenceSummary": "Official Coloplast South Africa campaign returned HTTP 200 and displayed repeated 'Order free sample' actions for Brava Elastic Tape."
+  },
+  {
+    "recordId": "coloplast-brava-elastic-tape-free-sample",
+    "field": "termsUrl",
+    "hostname": "products.coloplast.co.za",
+    "url": "https://products.coloplast.co.za/webshop/terms-of-sale/",
+    "reason": "official_source_verified_despite_automated_access_block",
+    "verifiedAt": "2026-07-27",
+    "expiresAt": "2026-08-03",
+    "evidenceSummary": "Official Coloplast South Africa terms supported separate dispatch and free delivery for approved sample requests."
+  },
+  {
+    "recordId": "coloplast-sensura-mio-click-free-sample",
+    "field": "sourceUrl",
+    "hostname": "products.coloplast.co.za",
+    "url": "https://products.coloplast.co.za/global-campaigns/sensura-mio-click-coupling/",
+    "reason": "official_source_verified_despite_automated_access_block",
+    "verifiedAt": "2026-07-27",
+    "expiresAt": "2026-08-03",
+    "evidenceSummary": "Official Coloplast South Africa campaign returned HTTP 200, said 'Order a free sample today' and used Coloplast's own care-advisor contact form."
+  },
+  {
+    "recordId": "coloplast-sensura-mio-click-free-sample",
+    "field": "termsUrl",
+    "hostname": "products.coloplast.co.za",
+    "url": "https://products.coloplast.co.za/webshop/terms-of-sale/",
+    "reason": "official_source_verified_despite_automated_access_block",
+    "verifiedAt": "2026-07-27",
+    "expiresAt": "2026-08-03",
+    "evidenceSummary": "Official Coloplast South Africa terms supported separate dispatch and free delivery for approved sample requests."
   }
 ]

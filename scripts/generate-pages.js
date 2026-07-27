@@ -1004,7 +1004,15 @@ const TRUST_PAGE_DEFINITIONS = [
     article: true,
     datePublished: "2026-05-27",
     dateModified: "2026-07-09",
-    resourceCategories: ["online-courses", "childrens-books", "credit-report", "samples", "consumer-support"],
+    resourceCategories: [
+      "online-courses",
+      "childrens-books",
+      "credit-report",
+      "samples",
+      "rewards",
+      "family-support",
+      "consumer-support",
+    ],
     resourceTitle: "Best free options right now",
     resourceIntro:
       "Start with resources that have clear ownership, official websites and a realistic explanation of what is actually free.",
@@ -5893,13 +5901,17 @@ function renderFreeStuffParentPage(page) {
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/${page.slug}/`;
   const usefulLinks = getTrustPageUsefulLinks(page);
   const pageResources = getTrustPageResources(page);
+  const featuredOpportunities = [
+    ...approvedPublicOpportunities.filter((opportunity) => opportunity.type === "free_sample").slice(0, 1),
+    ...approvedPublicOpportunities.filter((opportunity) => opportunity.type === "product_testing").slice(-1),
+  ];
   const faqItems = Array.isArray(page.faq) ? page.faq : [];
   const resourceStructuredData = freeResourceRenderer.buildFreeResourceItemList({
     resources: pageResources,
     name: "Official programmes, services and directories",
   });
   const opportunityStructuredData = opportunityRenderer.buildOpportunityItemList({
-    opportunities: approvedPublicOpportunities,
+    opportunities: featuredOpportunities,
     name: "Current verified opportunities",
   });
   const faqStructuredData = buildTrustPageFaqStructuredData(faqItems);
@@ -6010,7 +6022,7 @@ function renderFreeStuffParentPage(page) {
       })}
 
       <main id="main-content" class="main-content trust-page free-stuff-parent">
-${renderFreeStuffParentContent({ page, pageResources, usefulLinks, faqItems })}
+${renderFreeStuffParentContent({ page, pageResources, featuredOpportunities, usefulLinks, faqItems })}
       </main>
 
       ${renderSiteFooter()}
@@ -6022,7 +6034,7 @@ ${renderFreeStuffParentContent({ page, pageResources, usefulLinks, faqItems })}
 `;
 }
 
-function renderFreeStuffParentContent({ page, pageResources, usefulLinks, faqItems }) {
+function renderFreeStuffParentContent({ page, pageResources, featuredOpportunities, usefulLinks, faqItems }) {
   const definitionSections = page.sections.slice(0, 2);
   const guidanceSections = page.sections.slice(2);
 
@@ -6031,7 +6043,7 @@ function renderFreeStuffParentContent({ page, pageResources, usefulLinks, faqIte
         ${renderFreeStuffChildNavigation()}
 
         ${opportunityRenderer.renderOpportunitySection({
-          opportunities: approvedPublicOpportunities,
+          opportunities: featuredOpportunities,
           heading: "Current verified opportunities",
           pageType: "free_stuff_parent",
           cardVariant: "compact",

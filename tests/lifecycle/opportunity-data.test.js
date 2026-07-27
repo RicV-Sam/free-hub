@@ -105,7 +105,7 @@ test("runtime validators enforce strict contracts and legacy FreeResource compat
   assert.equal(unsupported.typeSupported, false);
 
   const legacyResources = JSON.parse(fs.readFileSync(path.join(rootDir, "data", "free-resources.json"), "utf8"));
-  assert.equal(legacyResources.length, 18);
+  assert.equal(legacyResources.length, 21);
   assert.equal(opportunityData.validateFreeResourceRegistry(legacyResources, { legacy: true }).valid, true);
   assert.equal(opportunityData.validateFreeResource(legacyResources[0]).valid, false);
 
@@ -379,11 +379,24 @@ test("the tracked Opportunity registry contains the reviewed sample and product-
       "brand-advisor-kinder-testing",
       "brand-advisor-sunlight-dishwashing-testing",
       "brand-advisor-clover-krush-testing",
+      "brand-advisor-sta-soft-parfum-testing",
+      "brand-advisor-clover-nolac-testing",
+      "brand-advisor-clover-barley-milk-testing",
+      "brand-advisor-super-c-sweets-testing",
+      "brand-advisor-clover-onion-slices-testing",
+      "brand-advisor-speckled-eggs-testing",
+      "brand-advisor-steri-stumpie-200ml-testing",
+      "brand-advisor-b-well-canola-oil-testing",
+      "brand-advisor-simba-voucher-testing",
+      "brand-advisor-vicks-vapolozenges-testing",
+      "coloplast-sensura-mio-free-sample",
+      "coloplast-brava-elastic-tape-free-sample",
+      "coloplast-sensura-mio-click-free-sample",
     ]
   );
   assert.equal(opportunityData.validateOpportunityRegistry(registry).valid, true);
-  assert.equal(registry.filter((record) => record.type === "free_sample").length, 1);
-  assert.equal(registry.filter((record) => record.type === "product_testing").length, 4);
+  assert.equal(registry.filter((record) => record.type === "free_sample").length, 4);
+  assert.equal(registry.filter((record) => record.type === "product_testing").length, 14);
 });
 
 test("manual evidence is exact, fresh, append-only data and cannot match another URL", () => {

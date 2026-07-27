@@ -4,17 +4,31 @@ const { parseHtml, walkHtmlFiles } = require("./lib/baseline-utils.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const opportunitiesEnabled = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true";
-const expectedOpportunityCount = opportunitiesEnabled ? 5 : 0;
-const expectedSampleOpportunityCount = opportunitiesEnabled ? 1 : 0;
-const expectedTestingOpportunityCount = opportunitiesEnabled ? 4 : 0;
+const expectedOpportunityCount = opportunitiesEnabled ? 18 : 0;
+const expectedSampleOpportunityCount = opportunitiesEnabled ? 4 : 0;
+const expectedTestingOpportunityCount = opportunitiesEnabled ? 14 : 0;
+const expectedParentOpportunityCount = opportunitiesEnabled ? 2 : 0;
 const expectedGeneratedFiles = 362 + expectedOpportunityCount * 2;
 const expectedSitemapUrls = 143 + expectedOpportunityCount;
 const expectedActiveCompetitionCount = 86;
 const expectedIds = [
+  "brand-advisor-b-well-canola-oil-testing",
+  "brand-advisor-clover-barley-milk-testing",
   "brand-advisor-clover-krush-testing",
+  "brand-advisor-clover-nolac-testing",
+  "brand-advisor-clover-onion-slices-testing",
   "brand-advisor-kinder-testing",
   "brand-advisor-parmalat-easygest-testing",
+  "brand-advisor-simba-voucher-testing",
+  "brand-advisor-speckled-eggs-testing",
+  "brand-advisor-sta-soft-parfum-testing",
+  "brand-advisor-steri-stumpie-200ml-testing",
   "brand-advisor-sunlight-dishwashing-testing",
+  "brand-advisor-super-c-sweets-testing",
+  "brand-advisor-vicks-vapolozenges-testing",
+  "coloplast-brava-elastic-tape-free-sample",
+  "coloplast-sensura-mio-click-free-sample",
+  "coloplast-sensura-mio-free-sample",
   "coloplast-speedicath-short-sample",
 ];
 const errors = [];
@@ -73,10 +87,10 @@ check("Brand programmes prioritised", samples.indexOf('id="brand-sample-programm
 check("Visible FAQs", count(samples, /<details>/g), 6);
 check("FAQ schema items", faqSchema?.mainEntity?.length || 0, 6);
 check("Samples Opportunity cards", count(samples, /<article class="opportunity-card\b/g), expectedOpportunityCount);
-check("Parent Opportunity cards", count(parent, /<article class="opportunity-card\b/g), expectedOpportunityCount);
+check("Parent Opportunity cards", count(parent, /<article class="opportunity-card\b/g), expectedParentOpportunityCount);
 check("Samples Opportunity schema items", sampleOpportunitySchema?.itemListElement?.length || 0, expectedSampleOpportunityCount);
 check("Product-testing Opportunity schema items", testingOpportunitySchema?.itemListElement?.length || 0, expectedTestingOpportunityCount);
-check("Parent Opportunity schema items", parentOpportunitySchema?.itemListElement?.length || 0, expectedOpportunityCount);
+check("Parent Opportunity schema items", parentOpportunitySchema?.itemListElement?.length || 0, expectedParentOpportunityCount);
 check("Opportunity detail routes", countGeneratedRoutes("opportunity"), expectedOpportunityCount);
 check("Opportunity exit routes", countGeneratedRoutes(path.join("out", "opportunity")), expectedOpportunityCount);
 check("Opportunity sitemap entries", count(sitemap, /<loc>https:\/\/freehub\.co\.za\/opportunity\//g), expectedOpportunityCount);
@@ -85,14 +99,26 @@ const renderedIds = [
   ...samples.matchAll(/data-opportunity-id="([^"]+)"/g),
   ...parent.matchAll(/data-opportunity-id="([^"]+)"/g),
 ].map((match) => match[1]);
-check("Opportunity surface render count", renderedIds.length, expectedOpportunityCount * 2);
+check("Opportunity surface render count", renderedIds.length, expectedOpportunityCount + expectedParentOpportunityCount);
 if (opportunitiesEnabled) {
   const uniqueRenderedIds = [...new Set(renderedIds)].sort();
   check("Opportunity stable IDs", JSON.stringify(uniqueRenderedIds), JSON.stringify(expectedIds));
   check("Full card variant", samples.includes('data-card-variant="full"'), true);
   check("Compact card variant", parent.includes('data-card-variant="compact"'), true);
-  check("Coloplast detail route", [samples, parent].every((html) => html.includes('href="/opportunity/coloplast-speedicath-short-sample/"')), true);
-  check("Product-testing detail routes", expectedIds.slice(0, 4).every((id) => samples.includes(`href="/opportunity/${id}/"`)), true);
+  check(
+    "Coloplast detail routes",
+    expectedIds
+      .filter((id) => id.startsWith("coloplast-"))
+      .every((id) => samples.includes(`href="/opportunity/${id}/"`)),
+    true
+  );
+  check(
+    "Product-testing detail routes",
+    expectedIds
+      .filter((id) => id.startsWith("brand-advisor-"))
+      .every((id) => samples.includes(`href="/opportunity/${id}/"`)),
+    true
+  );
   check("Privacy boundary on both surfaces", [samples, parent].every((html) => html.includes("Freehub does not receive or assess your application")), true);
   check("Official consent link on both surfaces", [samples, parent].every((html) => html.includes("https://www.coloplast.co.za/global/declaration-of-consent/")), true);
   check("Selection boundary", samples.includes("not a guaranteed free sample"), true);

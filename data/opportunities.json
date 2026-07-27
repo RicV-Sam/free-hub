@@ -12,10 +12,10 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["National"],
-    "lastVerifiedAt": "2026-07-23",
-    "reviewDueAt": "2026-07-30",
+    "lastVerifiedAt": "2026-07-27",
+    "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-14",
-    "updatedAt": "2026-07-23",
+    "updatedAt": "2026-07-27",
     "availabilityKind": "ongoing",
     "costClassification": "completely_free",
     "requirements": [
@@ -48,10 +48,10 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["National"],
-    "lastVerifiedAt": "2026-07-23",
-    "reviewDueAt": "2026-07-30",
+    "lastVerifiedAt": "2026-07-27",
+    "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-23",
-    "updatedAt": "2026-07-23",
+    "updatedAt": "2026-07-27",
     "availabilityKind": "stock_limited",
     "costClassification": "account_required",
     "requirements": [
@@ -98,10 +98,10 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["National"],
-    "lastVerifiedAt": "2026-07-23",
-    "reviewDueAt": "2026-07-30",
+    "lastVerifiedAt": "2026-07-27",
+    "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-23",
-    "updatedAt": "2026-07-23",
+    "updatedAt": "2026-07-27",
     "availabilityKind": "stock_limited",
     "costClassification": "account_required",
     "requirements": [
@@ -148,10 +148,10 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["National"],
-    "lastVerifiedAt": "2026-07-23",
-    "reviewDueAt": "2026-07-30",
+    "lastVerifiedAt": "2026-07-27",
+    "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-23",
-    "updatedAt": "2026-07-23",
+    "updatedAt": "2026-07-27",
     "availabilityKind": "stock_limited",
     "costClassification": "account_required",
     "requirements": [
@@ -198,10 +198,10 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["National"],
-    "lastVerifiedAt": "2026-07-23",
-    "reviewDueAt": "2026-07-30",
+    "lastVerifiedAt": "2026-07-27",
+    "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-23",
-    "updatedAt": "2026-07-23",
+    "updatedAt": "2026-07-27",
     "availabilityKind": "stock_limited",
     "costClassification": "account_required",
     "requirements": [
@@ -234,6 +234,607 @@
       "stockState": "open",
       "questionnaireRequired": true,
       "reviewRequired": false
+    }
+  },
+  {
+    "id": "brand-advisor-sta-soft-parfum-testing",
+    "slug": "brand-advisor-sta-soft-parfum-testing",
+    "type": "product_testing",
+    "title": "Sta-Soft Parfum creator product trade",
+    "summary": "Brand Advisor is inviting eligible Instagram and TikTok creators to apply for a Sta-Soft Parfum voucher trade in exchange for one social video. Applying does not guarantee selection.",
+    "provider": "Brand Advisor",
+    "sourceUrl": "https://brandadvisor.co.za/sta-soft-parfum-project/",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": ["National"],
+    "lastVerifiedAt": "2026-07-27",
+    "reviewDueAt": "2026-08-03",
+    "publishedAt": "2026-07-27",
+    "updatedAt": "2026-07-27",
+    "availabilityKind": "stock_limited",
+    "costClassification": "account_required",
+    "requirements": [
+      {
+        "kind": "account",
+        "required": true,
+        "label": "Active Instagram or TikTok Creator/Business account with at least 1,000 followers"
+      },
+      {
+        "kind": "questionnaire",
+        "required": true,
+        "label": "Brand Advisor application survey required"
+      },
+      {
+        "kind": "social_post",
+        "required": true,
+        "label": "One Instagram Reel or TikTok video required if selected"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Fashion, beauty, lifestyle, self-care or home-content fit required"
+      }
+    ],
+    "categories": ["samples", "product-testing", "home-care"],
+    "tags": ["creator-campaign", "selection-required", "instagram", "tiktok", "voucher-trade"],
+    "details": {
+      "fulfilmentMethod": "digital",
+      "selectionMethod": "provider_selection",
+      "stockState": "open",
+      "questionnaireRequired": true,
+      "reviewRequired": false
+    }
+  },
+  {
+    "id": "brand-advisor-clover-nolac-testing",
+    "slug": "brand-advisor-clover-nolac-testing",
+    "type": "product_testing",
+    "title": "Clover Nolac product-testing application",
+    "summary": "Brand Advisor is inviting eligible TikTok creators who are lactose intolerant or experience dairy discomfort to apply for a Clover Nolac hamper in exchange for one video. Applying does not guarantee selection.",
+    "provider": "Brand Advisor",
+    "sourceUrl": "https://brandadvisor.co.za/clover-nolac-project-2/",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": ["National"],
+    "lastVerifiedAt": "2026-07-27",
+    "reviewDueAt": "2026-08-03",
+    "publishedAt": "2026-07-27",
+    "updatedAt": "2026-07-27",
+    "availabilityKind": "stock_limited",
+    "costClassification": "account_required",
+    "requirements": [
+      {
+        "kind": "account",
+        "required": true,
+        "label": "Active TikTok Creator/Business account with at least 1,000 followers"
+      },
+      {
+        "kind": "questionnaire",
+        "required": true,
+        "label": "Brand Advisor application survey required"
+      },
+      {
+        "kind": "social_post",
+        "required": true,
+        "label": "One TikTok video required if selected"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Intended for people who are lactose intolerant or experience digestive discomfort after dairy"
+      }
+    ],
+    "categories": ["samples", "product-testing", "food-and-drink"],
+    "tags": ["creator-campaign", "selection-required", "tiktok", "gifted-product"],
+    "details": {
+      "fulfilmentMethod": "delivery",
+      "selectionMethod": "provider_selection",
+      "stockState": "open",
+      "questionnaireRequired": true,
+      "reviewRequired": false
+    }
+  },
+  {
+    "id": "brand-advisor-clover-barley-milk-testing",
+    "slug": "brand-advisor-clover-barley-milk-testing",
+    "type": "product_testing",
+    "title": "Clover Barley Milk product-testing application",
+    "summary": "Brand Advisor is inviting eligible TikTok creators to apply for a Clover Barley Milk hamper in exchange for one TikTok post. Applying does not guarantee selection.",
+    "provider": "Brand Advisor",
+    "sourceUrl": "https://brandadvisor.co.za/clover-barley-milk-project/",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": ["National"],
+    "lastVerifiedAt": "2026-07-27",
+    "reviewDueAt": "2026-08-03",
+    "publishedAt": "2026-07-27",
+    "updatedAt": "2026-07-27",
+    "availabilityKind": "stock_limited",
+    "costClassification": "account_required",
+    "requirements": [
+      {
+        "kind": "account",
+        "required": true,
+        "label": "Active TikTok Creator/Business account with at least 1,000 followers"
+      },
+      {
+        "kind": "questionnaire",
+        "required": true,
+        "label": "Brand Advisor application survey required"
+      },
+      {
+        "kind": "social_post",
+        "required": true,
+        "label": "One TikTok post required if selected"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Applicant must be interested in trying an alternative milk"
+      }
+    ],
+    "categories": ["samples", "product-testing", "food-and-drink"],
+    "tags": ["creator-campaign", "selection-required", "tiktok", "gifted-product"],
+    "details": {
+      "fulfilmentMethod": "delivery",
+      "selectionMethod": "provider_selection",
+      "stockState": "open",
+      "questionnaireRequired": true,
+      "reviewRequired": false
+    }
+  },
+  {
+    "id": "brand-advisor-super-c-sweets-testing",
+    "slug": "brand-advisor-super-c-sweets-testing",
+    "type": "product_testing",
+    "title": "Super C Sweets product-testing application",
+    "summary": "Brand Advisor is inviting active TikTok creators to apply for a Super C hamper in exchange for one TikTok post. Applying does not guarantee selection.",
+    "provider": "Brand Advisor",
+    "sourceUrl": "https://brandadvisor.co.za/super-c-sweets-project/",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": ["National"],
+    "lastVerifiedAt": "2026-07-27",
+    "reviewDueAt": "2026-08-03",
+    "publishedAt": "2026-07-27",
+    "updatedAt": "2026-07-27",
+    "availabilityKind": "stock_limited",
+    "costClassification": "account_required",
+    "requirements": [
+      {
+        "kind": "account",
+        "required": true,
+        "label": "Active TikTok Creator/Business account with at least 1,000 followers"
+      },
+      {
+        "kind": "questionnaire",
+        "required": true,
+        "label": "Brand Advisor application survey required"
+      },
+      {
+        "kind": "social_post",
+        "required": true,
+        "label": "One TikTok post required if selected"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Staying active must be important to the applicant"
+      }
+    ],
+    "categories": ["samples", "product-testing", "food-and-drink"],
+    "tags": ["creator-campaign", "selection-required", "tiktok", "gifted-product"],
+    "details": {
+      "fulfilmentMethod": "delivery",
+      "selectionMethod": "provider_selection",
+      "stockState": "open",
+      "questionnaireRequired": true,
+      "reviewRequired": false
+    }
+  },
+  {
+    "id": "brand-advisor-clover-onion-slices-testing",
+    "slug": "brand-advisor-clover-onion-slices-testing",
+    "type": "product_testing",
+    "title": "Clover Onion Flavoured Cheese Slices product test",
+    "summary": "Brand Advisor is inviting eligible TikTok creators to apply to try Clover Onion Flavoured Cheese Slices and create one TikTok post. Applying does not guarantee selection.",
+    "provider": "Brand Advisor",
+    "sourceUrl": "https://brandadvisor.co.za/clover-onion-project/",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": ["National"],
+    "lastVerifiedAt": "2026-07-27",
+    "reviewDueAt": "2026-08-03",
+    "publishedAt": "2026-07-27",
+    "updatedAt": "2026-07-27",
+    "availabilityKind": "stock_limited",
+    "costClassification": "account_required",
+    "requirements": [
+      {
+        "kind": "account",
+        "required": true,
+        "label": "Active TikTok Creator/Business account with at least 1,000 followers"
+      },
+      {
+        "kind": "questionnaire",
+        "required": true,
+        "label": "Brand Advisor application survey required"
+      },
+      {
+        "kind": "social_post",
+        "required": true,
+        "label": "One TikTok post required if selected"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Quick-meal or lunchbox content fit expected"
+      }
+    ],
+    "categories": ["samples", "product-testing", "food-and-drink"],
+    "tags": ["creator-campaign", "selection-required", "tiktok", "gifted-product"],
+    "details": {
+      "fulfilmentMethod": "delivery",
+      "selectionMethod": "provider_selection",
+      "stockState": "open",
+      "questionnaireRequired": true,
+      "reviewRequired": false
+    }
+  },
+  {
+    "id": "brand-advisor-speckled-eggs-testing",
+    "slug": "brand-advisor-speckled-eggs-testing",
+    "type": "product_testing",
+    "title": "Speckled Eggs product-testing application",
+    "summary": "Brand Advisor is inviting eligible TikTok creators to apply for a Speckled Eggs hamper in exchange for two TikTok videos. Applying does not guarantee selection.",
+    "provider": "Brand Advisor",
+    "sourceUrl": "https://brandadvisor.co.za/speckled-eggs-project/",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": ["National"],
+    "lastVerifiedAt": "2026-07-27",
+    "reviewDueAt": "2026-08-03",
+    "publishedAt": "2026-07-27",
+    "updatedAt": "2026-07-27",
+    "availabilityKind": "stock_limited",
+    "costClassification": "account_required",
+    "requirements": [
+      {
+        "kind": "account",
+        "required": true,
+        "label": "Active TikTok Creator/Business account with at least 1,000 followers"
+      },
+      {
+        "kind": "questionnaire",
+        "required": true,
+        "label": "Brand Advisor application survey required"
+      },
+      {
+        "kind": "social_post",
+        "required": true,
+        "label": "Two TikTok videos required if selected"
+      }
+    ],
+    "categories": ["samples", "product-testing", "food-and-drink"],
+    "tags": ["creator-campaign", "selection-required", "tiktok", "gifted-product"],
+    "details": {
+      "fulfilmentMethod": "delivery",
+      "selectionMethod": "provider_selection",
+      "stockState": "open",
+      "questionnaireRequired": true,
+      "reviewRequired": false
+    }
+  },
+  {
+    "id": "brand-advisor-steri-stumpie-200ml-testing",
+    "slug": "brand-advisor-steri-stumpie-200ml-testing",
+    "type": "product_testing",
+    "title": "Steri Stumpie 200ml family product test",
+    "summary": "Brand Advisor is inviting eligible parents on TikTok to apply for a Steri Stumpie hamper in exchange for one lunchbox-focused video. Applying does not guarantee selection.",
+    "provider": "Brand Advisor",
+    "sourceUrl": "https://brandadvisor.co.za/steri-stumpie-200ml-project/",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": ["National"],
+    "lastVerifiedAt": "2026-07-27",
+    "reviewDueAt": "2026-08-03",
+    "publishedAt": "2026-07-27",
+    "updatedAt": "2026-07-27",
+    "availabilityKind": "stock_limited",
+    "costClassification": "account_required",
+    "requirements": [
+      {
+        "kind": "account",
+        "required": true,
+        "label": "Active TikTok Creator/Business account with at least 1,000 followers"
+      },
+      {
+        "kind": "questionnaire",
+        "required": true,
+        "label": "Brand Advisor application survey required"
+      },
+      {
+        "kind": "social_post",
+        "required": true,
+        "label": "One TikTok post required if selected"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Parent with a child aged 5 to 16 and relevant lunchbox-content interest"
+      }
+    ],
+    "categories": ["samples", "product-testing", "food-and-drink", "family"],
+    "tags": ["creator-campaign", "selection-required", "tiktok", "gifted-product", "family-content"],
+    "details": {
+      "fulfilmentMethod": "delivery",
+      "selectionMethod": "provider_selection",
+      "stockState": "open",
+      "questionnaireRequired": true,
+      "reviewRequired": false
+    }
+  },
+  {
+    "id": "brand-advisor-b-well-canola-oil-testing",
+    "slug": "brand-advisor-b-well-canola-oil-testing",
+    "type": "product_testing",
+    "title": "B-well Canola Oil product-testing application",
+    "summary": "Brand Advisor is inviting home cooks on TikTok to apply for a B-well hamper in exchange for one cooking post. Applying does not guarantee selection.",
+    "provider": "Brand Advisor",
+    "sourceUrl": "https://brandadvisor.co.za/b-well-canola-oil-project/",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": ["National"],
+    "lastVerifiedAt": "2026-07-27",
+    "reviewDueAt": "2026-08-03",
+    "publishedAt": "2026-07-27",
+    "updatedAt": "2026-07-27",
+    "availabilityKind": "stock_limited",
+    "costClassification": "account_required",
+    "requirements": [
+      {
+        "kind": "account",
+        "required": true,
+        "label": "Active TikTok Creator/Business account with at least 1,000 followers"
+      },
+      {
+        "kind": "questionnaire",
+        "required": true,
+        "label": "Brand Advisor application survey required"
+      },
+      {
+        "kind": "social_post",
+        "required": true,
+        "label": "One TikTok post required if selected"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Applicant must enjoy cooking at home"
+      }
+    ],
+    "categories": ["samples", "product-testing", "food-and-drink"],
+    "tags": ["creator-campaign", "selection-required", "tiktok", "gifted-product"],
+    "details": {
+      "fulfilmentMethod": "delivery",
+      "selectionMethod": "provider_selection",
+      "stockState": "open",
+      "questionnaireRequired": true,
+      "reviewRequired": false
+    }
+  },
+  {
+    "id": "brand-advisor-simba-voucher-testing",
+    "slug": "brand-advisor-simba-voucher-testing",
+    "type": "product_testing",
+    "title": "Simba Chips creator voucher trade",
+    "summary": "Brand Advisor is inviting eligible TikTok creators to apply for a Simba voucher in exchange for one snack-focused video. Applying does not guarantee selection.",
+    "provider": "Brand Advisor",
+    "sourceUrl": "https://brandadvisor.co.za/simba-project/",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": ["National"],
+    "lastVerifiedAt": "2026-07-27",
+    "reviewDueAt": "2026-08-03",
+    "publishedAt": "2026-07-27",
+    "updatedAt": "2026-07-27",
+    "availabilityKind": "stock_limited",
+    "costClassification": "account_required",
+    "requirements": [
+      {
+        "kind": "account",
+        "required": true,
+        "label": "Active TikTok Creator/Business account with at least 1,000 followers"
+      },
+      {
+        "kind": "questionnaire",
+        "required": true,
+        "label": "Brand Advisor application survey required"
+      },
+      {
+        "kind": "social_post",
+        "required": true,
+        "label": "One TikTok video required if selected"
+      }
+    ],
+    "categories": ["samples", "product-testing", "food-and-drink", "vouchers"],
+    "tags": ["creator-campaign", "selection-required", "tiktok", "voucher-trade"],
+    "details": {
+      "fulfilmentMethod": "digital",
+      "selectionMethod": "provider_selection",
+      "stockState": "open",
+      "questionnaireRequired": true,
+      "reviewRequired": false
+    }
+  },
+  {
+    "id": "brand-advisor-vicks-vapolozenges-testing",
+    "slug": "brand-advisor-vicks-vapolozenges-testing",
+    "type": "product_testing",
+    "title": "Vicks VapoLozenges product-testing application",
+    "summary": "Brand Advisor is inviting eligible adult TikTok creators to apply for a Vicks VapoLozenges hamper in exchange for one video. Applying does not guarantee selection.",
+    "provider": "Brand Advisor",
+    "sourceUrl": "https://brandadvisor.co.za/vicks-project/",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": ["National"],
+    "lastVerifiedAt": "2026-07-27",
+    "reviewDueAt": "2026-08-03",
+    "publishedAt": "2026-07-27",
+    "updatedAt": "2026-07-27",
+    "availabilityKind": "stock_limited",
+    "costClassification": "account_required",
+    "requirements": [
+      {
+        "kind": "age",
+        "required": true,
+        "label": "Age 21 or older"
+      },
+      {
+        "kind": "account",
+        "required": true,
+        "label": "Active TikTok Creator/Business account with at least 1,000 followers"
+      },
+      {
+        "kind": "questionnaire",
+        "required": true,
+        "label": "Brand Advisor application survey required"
+      },
+      {
+        "kind": "social_post",
+        "required": true,
+        "label": "One TikTok video required if selected"
+      }
+    ],
+    "categories": ["samples", "product-testing", "health-and-wellness"],
+    "tags": ["creator-campaign", "selection-required", "tiktok", "gifted-product", "age-restricted"],
+    "details": {
+      "fulfilmentMethod": "delivery",
+      "selectionMethod": "provider_selection",
+      "stockState": "open",
+      "questionnaireRequired": true,
+      "reviewRequired": false
+    }
+  },
+  {
+    "id": "coloplast-sensura-mio-free-sample",
+    "slug": "coloplast-sensura-mio-free-sample",
+    "type": "free_sample",
+    "title": "Coloplast SenSura Mio free sample",
+    "summary": "People with a relevant ostomy-product need can request a free SenSura Mio sample for Coloplast suitability review.",
+    "provider": "Coloplast South Africa",
+    "sourceUrl": "https://products.coloplast.co.za/global-campaigns/sensura-mio-consumer-what-comes-naturally/",
+    "termsUrl": "https://products.coloplast.co.za/webshop/terms-of-sale/",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": ["National"],
+    "lastVerifiedAt": "2026-07-27",
+    "reviewDueAt": "2026-08-03",
+    "publishedAt": "2026-07-27",
+    "updatedAt": "2026-07-27",
+    "availabilityKind": "ongoing",
+    "costClassification": "completely_free",
+    "requirements": [
+      { "kind": "location", "required": true, "label": "South African delivery address required" },
+      { "kind": "identity", "required": true, "label": "Contact details required" },
+      { "kind": "questionnaire", "required": true, "label": "Product-suitability information required" },
+      { "kind": "other", "required": true, "label": "Coloplast Care Advisor approval required" }
+    ],
+    "categories": ["samples", "medical-product-samples"],
+    "tags": ["medical-product-sample", "suitability-approval-required", "free-delivery"],
+    "details": {
+      "fulfilmentMethod": "delivery",
+      "deliveryCharge": "none",
+      "stockState": "application_only",
+      "householdLimit": null,
+      "selectionStatus": "selected_participants",
+      "expectedFulfilmentWindow": "Approved samples are dispatched separately by Coloplast; delivery time varies by address.",
+      "privacyUrl": "https://www.coloplast.co.za/global/declaration-of-consent/"
+    }
+  },
+  {
+    "id": "coloplast-brava-elastic-tape-free-sample",
+    "slug": "coloplast-brava-elastic-tape-free-sample",
+    "type": "free_sample",
+    "title": "Coloplast Brava Elastic Tape free sample",
+    "summary": "People with a relevant ostomy-product need can request a free Brava Elastic Tape sample for Coloplast suitability review.",
+    "provider": "Coloplast South Africa",
+    "sourceUrl": "https://products.coloplast.co.za/global-campaigns/brava-elastic-tape/",
+    "termsUrl": "https://products.coloplast.co.za/webshop/terms-of-sale/",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": ["National"],
+    "lastVerifiedAt": "2026-07-27",
+    "reviewDueAt": "2026-08-03",
+    "publishedAt": "2026-07-27",
+    "updatedAt": "2026-07-27",
+    "availabilityKind": "ongoing",
+    "costClassification": "completely_free",
+    "requirements": [
+      { "kind": "location", "required": true, "label": "South African delivery address required" },
+      { "kind": "identity", "required": true, "label": "Contact details required" },
+      { "kind": "questionnaire", "required": true, "label": "Product-suitability information required" },
+      { "kind": "other", "required": true, "label": "Coloplast Care Advisor approval required" }
+    ],
+    "categories": ["samples", "medical-product-samples"],
+    "tags": ["medical-product-sample", "suitability-approval-required", "free-delivery"],
+    "details": {
+      "fulfilmentMethod": "delivery",
+      "deliveryCharge": "none",
+      "stockState": "application_only",
+      "householdLimit": null,
+      "selectionStatus": "selected_participants",
+      "expectedFulfilmentWindow": "Approved samples are dispatched separately by Coloplast; delivery time varies by address.",
+      "privacyUrl": "https://www.coloplast.co.za/global/declaration-of-consent/"
+    }
+  },
+  {
+    "id": "coloplast-sensura-mio-click-free-sample",
+    "slug": "coloplast-sensura-mio-click-free-sample",
+    "type": "free_sample",
+    "title": "Coloplast SenSura Mio Click free sample",
+    "summary": "People with a relevant ostomy-product need can request a free SenSura Mio Click sample for Coloplast suitability review.",
+    "provider": "Coloplast South Africa",
+    "sourceUrl": "https://products.coloplast.co.za/global-campaigns/sensura-mio-click-coupling/",
+    "termsUrl": "https://products.coloplast.co.za/webshop/terms-of-sale/",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": ["National"],
+    "lastVerifiedAt": "2026-07-27",
+    "reviewDueAt": "2026-08-03",
+    "publishedAt": "2026-07-27",
+    "updatedAt": "2026-07-27",
+    "availabilityKind": "ongoing",
+    "costClassification": "completely_free",
+    "requirements": [
+      { "kind": "location", "required": true, "label": "South African delivery address required" },
+      { "kind": "identity", "required": true, "label": "Contact details required" },
+      { "kind": "questionnaire", "required": true, "label": "Product-suitability information required" },
+      { "kind": "other", "required": true, "label": "Coloplast Care Advisor approval required" }
+    ],
+    "categories": ["samples", "medical-product-samples"],
+    "tags": ["medical-product-sample", "suitability-approval-required", "free-delivery"],
+    "details": {
+      "fulfilmentMethod": "delivery",
+      "deliveryCharge": "none",
+      "stockState": "application_only",
+      "householdLimit": null,
+      "selectionStatus": "selected_participants",
+      "expectedFulfilmentWindow": "Approved samples are dispatched separately by Coloplast; delivery time varies by address.",
+      "privacyUrl": "https://www.coloplast.co.za/global/declaration-of-consent/"
     }
   }
 ]

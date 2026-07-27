@@ -115,8 +115,8 @@ test("Free Stuff parent preserves intent and separates durable resources from op
   await expect(childNavigation.getByRole("link", { name: "Children's Books" })).toHaveAttribute("href", "/free-childrens-books-south-africa/");
   await expect(childNavigation.getByRole("link", { name: "Credit Reports" })).toHaveAttribute("href", "/free-credit-report-south-africa/");
 
-  await expect(page.locator("article.free-resource-card")).toHaveCount(18);
-  await expect(page.locator("article.opportunity-card")).toHaveCount(opportunitiesEnabled ? 5 : 0);
+  await expect(page.locator("article.free-resource-card")).toHaveCount(21);
+  await expect(page.locator("article.opportunity-card")).toHaveCount(opportunitiesEnabled ? 2 : 0);
   await expect(page.locator("section.opportunity-section")).toHaveCount(opportunitiesEnabled ? 1 : 0);
   await expect(page.locator("#structured-data-opportunities")).toHaveCount(opportunitiesEnabled ? 1 : 0);
   if (opportunitiesEnabled) {
@@ -193,7 +193,7 @@ test("Free Samples v3 preserves its canonical and seven classified resources", a
   await expect(
     page.getByRole("region", {
       name: opportunitiesEnabled
-        ? "7 reviewed routes plus 5 current opportunities"
+        ? "7 reviewed routes plus 18 current opportunities"
         : "7 reviewed sample routes, clearly separated",
     })
   ).toBeVisible();
@@ -204,7 +204,7 @@ test("Free Samples v3 preserves its canonical and seven classified resources", a
   await expect(page.locator("#brand-sample-programmes")).toContainText("Official brand sample programmes");
   await expect(page.getByRole("region", { name: "Product-testing panels" })).toContainText("does not guarantee");
   await expect(page.locator("section.detail-faq details")).toHaveCount(6);
-  await expect(page.locator("article.opportunity-card")).toHaveCount(opportunitiesEnabled ? 5 : 0);
+  await expect(page.locator("article.opportunity-card")).toHaveCount(opportunitiesEnabled ? 18 : 0);
   await expect(page.locator("#structured-data-opportunities")).toHaveCount(opportunitiesEnabled ? 1 : 0);
   await expect(page.locator("#structured-data-product-testing")).toHaveCount(opportunitiesEnabled ? 1 : 0);
 
@@ -224,7 +224,7 @@ test("Free Samples v3 preserves its canonical and seven classified resources", a
       "/opportunity/coloplast-speedicath-short-sample/"
     );
     const testingCards = page.locator('[data-content-type="product_testing"]');
-    await expect(testingCards).toHaveCount(4);
+    await expect(testingCards).toHaveCount(14);
     const sunlight = page.locator('[data-opportunity-id="brand-advisor-sunlight-dishwashing-testing"]');
     await expect(sunlight).toContainText("Two TikTok videos required if selected");
     await expect(sunlight).toContainText("not a guaranteed free sample");
