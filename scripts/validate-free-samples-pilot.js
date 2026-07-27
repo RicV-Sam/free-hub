@@ -7,9 +7,9 @@ const opportunitiesEnabled = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true"
 const expectedOpportunityCount = opportunitiesEnabled ? 5 : 0;
 const expectedSampleOpportunityCount = opportunitiesEnabled ? 1 : 0;
 const expectedTestingOpportunityCount = opportunitiesEnabled ? 4 : 0;
-const expectedGeneratedFiles = 356 + expectedOpportunityCount * 2;
-const expectedSitemapUrls = 140 + expectedOpportunityCount;
-const expectedActiveCompetitionCount = 83;
+const expectedGeneratedFiles = 362 + expectedOpportunityCount * 2;
+const expectedSitemapUrls = 143 + expectedOpportunityCount;
+const expectedActiveCompetitionCount = 86;
 const expectedIds = [
   "brand-advisor-clover-krush-testing",
   "brand-advisor-kinder-testing",

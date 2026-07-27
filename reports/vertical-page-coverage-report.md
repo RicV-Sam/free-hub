@@ -57,7 +57,7 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 31
+- Matching active public competitions: 32
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -89,6 +89,7 @@ Recommended normalisation:
 | Nestle MILO Meet the Champ Campaign 2026 (nestle-milo-meet-the-champ-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Dr. Oetker Taste the Upgrade Competition (dr-oetker-taste-the-upgrade-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | CTM Pro Grip Win 1 of 3 Toyota Hilux Bakkies (ctm-pro-grip-win-toyota-hilux-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
+| Col'Cacchio x Alva Winter Pizza Oven Giveaway (colcacchio-alva-winter-pizza-oven-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | OREO BTS Promotion 2026 (oreo-bts-promotion-2026) | 2026-09-30 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Denny Win Your Share of R100,000 Cash Competition (denny-r100000-cash-competition-2026) | 2026-09-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Knorr Soup Competition 2026 - Win R5,000 Weekly (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
@@ -102,7 +103,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 23
+- Matching active public competitions: 25
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -130,6 +131,8 @@ Recommended normalisation:
 | Dark & Lovely Best For Braids Competition (clicks-dark-and-lovely-best-for-braids-2026) | 2026-08-15 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | GARDENA Winter Pruning Giveaway 2026 (gardena-winter-pruning-giveaway-2026) | 2026-08-25 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Dis-Chem Catrice Skin Like Moisturizer Competition (dis-chem-catrice-skin-like-moisturizer-2026) | 2026-08-31 | purchase-required | yes | yes | Online entry tag | none |
+| Col'Cacchio x Alva Winter Pizza Oven Giveaway (colcacchio-alva-winter-pizza-oven-2026) | 2026-08-31 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
+| Penguin Random House Penguin Post 43 Book Hamper Competition (penguin-random-house-penguin-post-43-book-hampers-2026) | 2026-08-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Wanderlust Reader Travel Awards 2026 Prize Draw (wanderlust-reader-travel-awards-prize-draw-2026) | 2026-10-27 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 
