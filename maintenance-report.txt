@@ -1,14 +1,14 @@
 === Competition Maintenance Report ===
-Date: 2026-07-26
+Date: 2026-07-27
 Mode: archive-expired
-Total competitions: 271
-Active published count: 83
-Expired archive page count: 94
+Total competitions: 280
+Active published count: 89
+Expired archive page count: 96
 Low-value expired noindex count: 0
-Held/private count: 94
+Held/private count: 95
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 46
+Closing in next 14 days: 45
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -105,54 +105,55 @@ Expired competition IDs:
 - takealot-back-to-school-voucher-2026 (2026-07-22)
 - discovery-four-principles-book-launch-2026 (2026-07-22)
 - pep-dstv-scan-play-win-2026 (2026-07-23)
+- huggies-dry-comfort-buy-win-2026 (2026-07-26)
+- mr-price-sphokuhle-chery-tiggo4cross-2026 (2026-07-26)
 
 Closing soon (next 14 days):
-- huggies-dry-comfort-buy-win-2026 (0 days)
-- mr-price-sphokuhle-chery-tiggo4cross-2026 (0 days)
-- kitkat-f1-monza-competition-2026 (4 days)
-- ofm-show-us-your-ofm-cash-2026 (4 days)
-- game-haier-play-with-the-number-ones-2026 (5 days)
-- sanlam-reality-lekkeslaap-voucher-2026 (5 days)
-- clover-spar-rewards-voucher-competition-2026 (5 days)
-- volkswagen-group-africa-july-win-a-car-2026 (5 days)
-- beares-russell-hobbs-top-loader-facebook-2026 (5 days)
-- best-home-electric-kelvinator-top-loader-2026 (5 days)
-- clere-share-of-r1-million-cash-2026 (5 days)
-- nivea-men-real-madrid-cash-2026 (5 days)
-- cremora-winter-campaign-competition-2026 (5 days)
-- clere-for-men-play-it-smooth-2026 (5 days)
-- himalaya-winter-colouring-competition-2026 (5 days)
-- clicks-babyclub-competition (5 days)
-- capitec-moneyup-academy-competition-2026 (5 days)
-- sunlight-kitchen-makeover-2026 (5 days)
-- rhodes-quality-win-your-share-of-r1-million-competition-2026 (5 days)
-- plush-more-foam-more-fun-2026 (5 days)
-- jacobs-national-promotion-2026 (5 days)
-- freshstop-jojo-fuel-vouchers-2026 (5 days)
-- spar-clover-rewards-vouchers-2026 (5 days)
-- dis-chem-power-gro-trust-the-process-2026 (5 days)
-- penguin-random-house-peppa-pig-hamper-2026 (5 days)
-- budget-insurance-bizbucks-bonanza-2026 (5 days)
-- makro-oscal-pad-100-tablet-2026 (5 days)
-- aquelle-pause-and-win-2026 (5 days)
-- ncwsa-refurbished-dell-laptop-2026 (5 days)
-- hyundai-host-a-bok-2026 (5 days)
-- afrisam-together-we-win-2026 (5 days)
-- lewis-donna-mk2-sleigh-bed-2026 (5 days)
-- lewis-lg-cj44-hifi-2026 (5 days)
-- beares-grandiose-kitchen-scheme-2026 (5 days)
-- clover-tropika-ginger-beer-cash-2026 (5 days)
-- vodacom-spotify-premium-activate-rewarded-2026 (5 days)
-- clicks-clubcard-have-your-say-june-july-2026 (6 days)
-- clicks-clubcard-fragrance-giveaway-june-july-2026 (6 days)
-- clicks-clubcard-portia-m-hamper-june-july-2026 (6 days)
-- clicks-clubcard-mens-wellness-hamper-june-july-2026 (6 days)
-- clicks-clubcard-newness-hamper-june-july-2026 (6 days)
-- evetech-pulse-giveaway-2026 (6 days)
-- spar-rewards-vaseline-cera-glow-competition-2026 (7 days)
-- spar-rewards-vaseline-winter-drive-competition-2026 (7 days)
-- checkers-vaseline-winter-shoprite-checkers-competition-2026 (7 days)
-- fnb-scroll-to-score-springbok-gamification-2026 (7 days)
+- kitkat-f1-monza-competition-2026 (3 days)
+- ofm-show-us-your-ofm-cash-2026 (3 days)
+- game-haier-play-with-the-number-ones-2026 (4 days)
+- sanlam-reality-lekkeslaap-voucher-2026 (4 days)
+- clover-spar-rewards-voucher-competition-2026 (4 days)
+- volkswagen-group-africa-july-win-a-car-2026 (4 days)
+- beares-russell-hobbs-top-loader-facebook-2026 (4 days)
+- best-home-electric-kelvinator-top-loader-2026 (4 days)
+- clere-share-of-r1-million-cash-2026 (4 days)
+- nivea-men-real-madrid-cash-2026 (4 days)
+- cremora-winter-campaign-competition-2026 (4 days)
+- clere-for-men-play-it-smooth-2026 (4 days)
+- himalaya-winter-colouring-competition-2026 (4 days)
+- clicks-babyclub-competition (4 days)
+- capitec-moneyup-academy-competition-2026 (4 days)
+- sunlight-kitchen-makeover-2026 (4 days)
+- rhodes-quality-win-your-share-of-r1-million-competition-2026 (4 days)
+- plush-more-foam-more-fun-2026 (4 days)
+- jacobs-national-promotion-2026 (4 days)
+- freshstop-jojo-fuel-vouchers-2026 (4 days)
+- spar-clover-rewards-vouchers-2026 (4 days)
+- dis-chem-power-gro-trust-the-process-2026 (4 days)
+- penguin-random-house-peppa-pig-hamper-2026 (4 days)
+- budget-insurance-bizbucks-bonanza-2026 (4 days)
+- makro-oscal-pad-100-tablet-2026 (4 days)
+- aquelle-pause-and-win-2026 (4 days)
+- ncwsa-refurbished-dell-laptop-2026 (4 days)
+- hyundai-host-a-bok-2026 (4 days)
+- afrisam-together-we-win-2026 (4 days)
+- lewis-donna-mk2-sleigh-bed-2026 (4 days)
+- lewis-lg-cj44-hifi-2026 (4 days)
+- beares-grandiose-kitchen-scheme-2026 (4 days)
+- clover-tropika-ginger-beer-cash-2026 (4 days)
+- vodacom-spotify-premium-activate-rewarded-2026 (4 days)
+- clicks-clubcard-have-your-say-june-july-2026 (5 days)
+- clicks-clubcard-fragrance-giveaway-june-july-2026 (5 days)
+- clicks-clubcard-portia-m-hamper-june-july-2026 (5 days)
+- clicks-clubcard-mens-wellness-hamper-june-july-2026 (5 days)
+- clicks-clubcard-newness-hamper-june-july-2026 (5 days)
+- evetech-pulse-giveaway-2026 (5 days)
+- spar-rewards-vaseline-cera-glow-competition-2026 (6 days)
+- spar-rewards-vaseline-winter-drive-competition-2026 (6 days)
+- checkers-vaseline-winter-shoprite-checkers-competition-2026 (6 days)
+- fnb-scroll-to-score-springbok-gamification-2026 (6 days)
+- boxer-nyama-battle-food-trailers-2026 (14 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
