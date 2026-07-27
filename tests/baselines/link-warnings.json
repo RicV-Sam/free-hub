@@ -83,6 +83,14 @@
     },
     {
       "sourceType": "competition",
+      "recordId": "standard-bank-game-day-everyday",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.standardbank.co.za/southafrica/personal/campaigns/game-day-everyday",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
       "recordId": "vodacom-core-fibre-soccer-jersey-2026",
       "field": "url",
       "reason": "expired_archive_404",

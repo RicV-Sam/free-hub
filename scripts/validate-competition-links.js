@@ -29,6 +29,10 @@ const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 FreeHubValidator/1.0";
 const APPROVED_MANUAL_OK_URLS = new Map([
   [
+    "aldo-football-club-competition-2026",
+    "https://www.aldoshoes.co.za/in-store-ts-cs/",
+  ],
+  [
     "takealot-back-to-school-voucher-2026",
     "https://www.facebook.com/Takealot/posts/pfbid0XYY5E79N56xE1UxiMHXZixeKfLSKxSH1bCAnSKtx1CKGU6CphEUW6uGp81Ypd6mvl",
   ],

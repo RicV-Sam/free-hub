@@ -1,13 +1,13 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-07-26
+Generated: 2026-07-27
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 19
+- Matching active public competitions: 20
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -29,6 +29,7 @@ Only active, published, public-safe competitions are counted. Held, unverified, 
 | Kellogg's Big Bowl Energy Competition (kelloggs-big-bowl-energy-2026) | 2026-08-31 | till-slip-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Nestle MILO Meet the Champ Campaign 2026 (nestle-milo-meet-the-champ-2026) | 2026-08-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Dr. Oetker Taste the Upgrade Competition (dr-oetker-taste-the-upgrade-2026) | 2026-08-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
+| ALDO Football Club Voucher Competition (aldo-football-club-competition-2026) | 2026-08-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Knorr Soup Competition 2026 - Win R5,000 Weekly (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Coca-Cola Fan Can Be a Bok Competition (coca-cola-fan-can-be-a-bok-2026) | 2026-11-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
@@ -56,14 +57,13 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 30
+- Matching active public competitions: 31
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Mr Price x Sphokuhle Win a Chery Car Competition (mr-price-sphokuhle-chery-tiggo4cross-2026) | 2026-07-26 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | KitKat F1 Monza Competition (kitkat-f1-monza-competition-2026) | 2026-07-30 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Game Haier Play With The Number Ones (game-haier-play-with-the-number-ones-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Clover SPAR Rewards Competition (clover-spar-rewards-voucher-competition-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
@@ -88,7 +88,9 @@ Recommended normalisation:
 | Dis-Chem Catrice Skin Like Moisturizer Competition (dis-chem-catrice-skin-like-moisturizer-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Nestle MILO Meet the Champ Campaign 2026 (nestle-milo-meet-the-champ-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Dr. Oetker Taste the Upgrade Competition (dr-oetker-taste-the-upgrade-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
+| CTM Pro Grip Win 1 of 3 Toyota Hilux Bakkies (ctm-pro-grip-win-toyota-hilux-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | OREO BTS Promotion 2026 (oreo-bts-promotion-2026) | 2026-09-30 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
+| Denny Win Your Share of R100,000 Cash Competition (denny-r100000-cash-competition-2026) | 2026-09-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Knorr Soup Competition 2026 - Win R5,000 Weekly (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | SPAR Community School Support Competition (spar-community-school-support-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Coca-Cola Fan Can Be a Bok Competition (coca-cola-fan-can-be-a-bok-2026) | 2026-11-30 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
@@ -100,7 +102,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 24
+- Matching active public competitions: 23
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -129,7 +131,6 @@ Recommended normalisation:
 | GARDENA Winter Pruning Giveaway 2026 (gardena-winter-pruning-giveaway-2026) | 2026-08-25 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Dis-Chem Catrice Skin Like Moisturizer Competition (dis-chem-catrice-skin-like-moisturizer-2026) | 2026-08-31 | purchase-required | yes | yes | Online entry tag | none |
 | Wanderlust Reader Travel Awards 2026 Prize Draw (wanderlust-reader-travel-awards-prize-draw-2026) | 2026-10-27 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
-| Pick n Pay Smart Shopper The Big Eat Competition (pick-n-pay-supersport-the-big-eat-2026) | 2026-11-28 | account-required | yes | yes | Online entry tag | none |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 
 Recommended normalisation:
@@ -173,20 +174,18 @@ Recommended normalisation:
 ## Win Grocery Vouchers in South Africa
 
 - URL: /win-grocery-vouchers-south-africa/
-- Matching active public competitions: 7
+- Matching active public competitions: 5
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Huggies Dry Comfort Buy and Win Competition (huggies-dry-comfort-buy-win-2026) | 2026-07-26 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Clover SPAR Rewards Competition (clover-spar-rewards-voucher-competition-2026) | 2026-07-31 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | SPAR Clover Rewards Voucher Competition (spar-clover-rewards-vouchers-2026) | 2026-07-31 | purchase-required | yes | yes | Grocery or supermarket voucher intent | none |
 | SPAR Rewards Vaseline Winter Drive Competition (spar-rewards-vaseline-winter-drive-competition-2026) | 2026-08-02 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Ultra Mel Christmas in July Competition (ultra-mel-christmas-in-july-2026) | 2026-08-30 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Coca-Cola Get Together Zwakala neFlava Promotion (coca-cola-zwakala-neflava-2026) | 2026-08-31 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
-| Pick n Pay Smart Shopper The Big Eat Competition (pick-n-pay-supersport-the-big-eat-2026) | 2026-11-28 | account-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 
 Recommended normalisation:
 - Keep grocery voucher intent separate from generic voucher competitions.
@@ -194,14 +193,13 @@ Recommended normalisation:
 ## Supermarket Competitions in South Africa
 
 - URL: /supermarket-competitions-south-africa/
-- Matching active public competitions: 10
+- Matching active public competitions: 8
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Huggies Dry Comfort Buy and Win Competition (huggies-dry-comfort-buy-win-2026) | 2026-07-26 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Clover SPAR Rewards Competition (clover-spar-rewards-voucher-competition-2026) | 2026-07-31 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | SPAR Clover Rewards Voucher Competition (spar-clover-rewards-vouchers-2026) | 2026-07-31 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery tag; Supermarket or grocery entry text | none |
 | SPAR Rewards Vaseline Cera Glow Competition (spar-rewards-vaseline-cera-glow-competition-2026) | 2026-08-02 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
@@ -210,7 +208,6 @@ Recommended normalisation:
 | Nyama Battle - Win 1 of 10 Food Trailers (boxer-nyama-battle-food-trailers-2026) | 2026-08-10 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Ultra Mel Christmas in July Competition (ultra-mel-christmas-in-july-2026) | 2026-08-30 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | SPAR Community School Support Competition (spar-community-school-support-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Supermarket brand or retail partner | none |
-| Pick n Pay Smart Shopper The Big Eat Competition (pick-n-pay-supersport-the-big-eat-2026) | 2026-11-28 | account-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 
 Recommended normalisation:
 - Inventory is strong enough; keep lastChecked and source/terms links fresh.

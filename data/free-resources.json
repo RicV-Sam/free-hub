@@ -100,13 +100,13 @@
     "requirements": "Identity verification is required before report access.",
     "watchOut": "A free credit report is not the same as guaranteed credit approval.",
     "datePublished": "2026-05-27",
-    "lastReviewed": "2026-06-26",
-    "dateModified": "2026-06-26",
+    "lastReviewed": "2026-07-27",
+    "dateModified": "2026-07-27",
     "manualOk": true,
     "manualOkReason": "Official credit-bureau site can return automated-check 403 responses.",
-    "manualOkCheckedAt": "2026-06-26",
+    "manualOkCheckedAt": "2026-07-27",
     "manualOkAllowedDomain": "transunion.co.za",
-    "manualOkEvidence": "Official TransUnion South Africa annual free credit report page was manually rechecked on 2026-06-26 for the consumer credit-report offer and matching URL."
+    "manualOkEvidence": "Official TransUnion South Africa annual free credit report page was manually rechecked on 2026-07-27 and still states that consumers can access their TransUnion credit report once a year for free."
   },
   {
     "name": "ClearScore South Africa",
@@ -118,13 +118,13 @@
     "requirements": "Sign-up and identity checks are required.",
     "watchOut": "Treat loan and credit offers as advertising or eligibility guidance, not approval.",
     "datePublished": "2026-05-27",
-    "lastReviewed": "2026-06-26",
-    "dateModified": "2026-06-26",
+    "lastReviewed": "2026-07-27",
+    "dateModified": "2026-07-27",
     "manualOk": true,
     "manualOkReason": "Official site can return automated-check 403 responses.",
-    "manualOkCheckedAt": "2026-06-26",
+    "manualOkCheckedAt": "2026-07-27",
     "manualOkAllowedDomain": "clearscore.com",
-    "manualOkEvidence": "Official ClearScore South Africa page was manually rechecked on 2026-06-26 as the consumer score/report entry point for South African users."
+    "manualOkEvidence": "Official ClearScore South Africa page was manually rechecked on 2026-07-27 and still advertises a free South African credit score and report with no credit-card trial requirement."
   },
   {
     "id": "brand-advisor",

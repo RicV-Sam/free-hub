@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "buildDate": "2026-07-25",
+  "buildDate": "2026-07-27",
   "siteOrigin": "https://freehub.co.za",
-  "sitemapUrlCount": 137,
+  "sitemapUrlCount": 140,
   "opportunityAllowedSourceHosts": ["brandadvisor.co.za", "products.coloplast.co.za"],
   "canonicalAliases": {
     "/tag/free-entry/": "/free-competitions/",
