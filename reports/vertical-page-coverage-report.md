@@ -1,20 +1,19 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-07-30
+Generated: 2026-07-31
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 20
+- Matching active public competitions: 19
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| KitKat F1 Monza Competition (kitkat-f1-monza-competition-2026) | 2026-07-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Game Haier Play With The Number Ones (game-haier-play-with-the-number-ones-2026) | 2026-07-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Clere Win a Share of R1 Million Cash Competition (clere-share-of-r1-million-cash-2026) | 2026-07-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | NIVEA MEN Real Madrid Competition - Win Cash Prizes (nivea-men-real-madrid-cash-2026) | 2026-07-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
@@ -57,14 +56,13 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 32
+- Matching active public competitions: 31
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| KitKat F1 Monza Competition (kitkat-f1-monza-competition-2026) | 2026-07-30 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Game Haier Play With The Number Ones (game-haier-play-with-the-number-ones-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Clover SPAR Rewards Competition (clover-spar-rewards-voucher-competition-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Clere Win a Share of R1 Million Cash Competition (clere-share-of-r1-million-cash-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
