@@ -46,6 +46,17 @@
       "inSitemap": true
     },
     {
+      "route": "/category/vouchers/",
+      "file": "category/vouchers/index.html",
+      "title": "Free Voucher Giveaways South Africa | Offers & Competitions",
+      "description": "Find current free vouchers, rewards and voucher competitions in South Africa. Compare eligibility, costs, expiry dates and official source links.",
+      "canonical": "https://freehub.co.za/category/vouchers/",
+      "robots": "index, follow, max-image-preview:large",
+      "h1": "Free Voucher Giveaways and Competitions in South Africa",
+      "schemaTypes": ["Answer", "BreadcrumbList", "CollectionPage", "FAQPage", "ItemList", "ListItem", "Question", "WebSite"],
+      "inSitemap": true
+    },
+    {
       "route": "/tag/ending-soon/",
       "file": "tag/ending-soon/index.html",
       "title": "Competitions Ending Soon South Africa",
@@ -140,8 +151,9 @@
     {
       "route": "/free-samples-south-africa/",
       "file": "free-samples-south-africa/index.html",
-      "title": "Where to Get Free Samples in South Africa | 7 Legit Options",
-      "description": "Check 7 reviewed places to find free samples in South Africa, including official brand programmes and product-testing panels, with costs and selection rules explained.",
+      "title": "Where to Get Free Samples in South Africa | Current Offers",
+      "description": "Find current free samples in South Africa, product-testing applications and reviewed official sites. Compare eligibility, delivery, costs and verification dates.",
+      "descriptionWhenOpportunitiesEnabled": "See 7 verified sample requests and 14 current product-testing opportunities in South Africa, with costs, eligibility, delivery and last-checked dates.",
       "canonical": "https://freehub.co.za/free-samples-south-africa/",
       "robots": "index, follow, max-image-preview:large",
       "h1": "Where to Get Free Samples in South Africa",

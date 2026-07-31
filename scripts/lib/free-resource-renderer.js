@@ -30,7 +30,7 @@ function createFreeResourceRenderer({ escapeHtml, escapeAttribute, formatDate })
     const rel = resource.internal ? "" : ' rel="nofollow noopener" target="_blank"';
     const linkLabel = resource.internal ? "Read guide" : "Official website";
     const analyticsAttributes =
-      ["free_stuff_parent", "free_samples_vertical"].includes(pageType) && !resource.internal
+      ["free_stuff_parent", "free_samples_vertical", "voucher_hub"].includes(pageType) && !resource.internal
         ? renderAnalyticsAttributes({
             action: "official-source",
             entityKind: "resource",

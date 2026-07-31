@@ -27,7 +27,14 @@ function createOpportunityRenderer({ escapeHtml, escapeAttribute, formatDate, ca
     throw new TypeError("Opportunity renderer requires an HTTPS canonical origin.");
   }
 
-  function renderOpportunitySection({ opportunities, heading, pageType, cardVariant = "full" }) {
+  function renderOpportunitySection({
+    opportunities,
+    heading,
+    pageType,
+    cardVariant = "full",
+    kicker = "Current opportunities",
+    description = "Only verified opportunities with current official-source evidence appear here.",
+  }) {
     assertEligibleInput(opportunities);
     assertCardVariant(cardVariant);
     if (opportunities.length === 0) {
@@ -36,9 +43,9 @@ function createOpportunityRenderer({ escapeHtml, escapeAttribute, formatDate, ca
 
     return `<section class="opportunity-section" aria-label="${escapeAttribute(heading)}">
           <div class="opportunity-section__header">
-            <p class="section-kicker">Current opportunities</p>
+            <p class="section-kicker">${escapeHtml(kicker)}</p>
             <h2>${escapeHtml(heading)}</h2>
-            <p>Only verified opportunities with current official-source evidence appear here.</p>
+            <p>${escapeHtml(description)}</p>
           </div>
           <div class="opportunity-grid">
             ${opportunities.map((opportunity) => renderOpportunityCard(opportunity, { pageType, cardVariant })).join("\n            ")}
@@ -108,7 +115,7 @@ function createOpportunityRenderer({ escapeHtml, escapeAttribute, formatDate, ca
                 ${facts.map((fact) => `<div><dt>${escapeHtml(fact.label)}</dt><dd>${escapeHtml(fact.value)}</dd></div>`).join("\n                ")}
               </dl>
               ${privacyNotice ? `<p class="opportunity-card__privacy">${escapeHtml(privacyNotice)}</p>` : ""}
-              <p class="opportunity-card__medical-boundary">${escapeHtml(boundary)}</p>
+              <p class="opportunity-card__provider-boundary">${escapeHtml(boundary)}</p>
               ${privacyLink}
               <a class="opportunity-card__link" href="${escapeAttribute(detailPath)}"${cardAnalyticsAttributes}>${escapeHtml(cardCopy.ctaLabel)}</a>
             </article>`;
@@ -157,13 +164,24 @@ function getOpportunityCardCopy(opportunity) {
   }
 
   const medical = isMedicalSample(opportunity);
+  const suitabilityReview = requiresSuitabilityReview(opportunity);
+  const directRequest = opportunity.details?.selectionStatus === "guaranteed";
+  const firstCome = opportunity.details?.selectionStatus === "first_come_first_served";
   return {
     compactType: medical ? "Medical product sample request" : "Free sample request",
-    requirementCue: medical ? "Suitability approval required" : "Provider approval may be required",
-    availabilityCue: "Application only; fulfilment is not guaranteed",
-    fullEligibilityCue: medical
+    requirementCue: suitabilityReview
+      ? "Suitability approval required"
+      : directRequest
+        ? "Direct request under the provider's stated limits"
+        : firstCome
+          ? "First come, first served while stock lasts"
+          : "Provider approval may be required",
+    availabilityCue: getSampleAvailabilityCue(opportunity),
+    fullEligibilityCue: suitabilityReview
       ? "This medical-product sample is intended for people who meet the provider's suitability requirements."
-      : "Availability and fulfilment depend on the provider's current stock and approval rules.",
+      : directRequest
+        ? "This is a direct sample request. Availability still depends on the provider's stock, delivery area and stated request limits."
+        : "Availability and fulfilment depend on the provider's current stock and approval rules.",
     ctaLabel: "View verified sample details",
   };
 }
@@ -181,12 +199,10 @@ function buildOpportunityFacts(opportunity, costLabel, required, formatDate) {
   } else {
     const fulfilment = formatToken(details.fulfilmentMethod);
     const delivery = details.deliveryCharge === "none" ? "No delivery charge" : formatToken(details.deliveryCharge);
-    const selection = details.selectionStatus === "selected_participants"
-      ? "Selected applicants after provider review"
-      : formatToken(details.selectionStatus);
+    const selection = getSampleSelectionLabel(details.selectionStatus);
     facts.push(
       { label: "Fulfilment", value: [fulfilment, delivery].filter(Boolean).join("; ") },
-      { label: "Availability", value: `Application only; ${selection}` }
+      { label: "Availability", value: selection }
     );
     if (details.expectedFulfilmentWindow) {
       facts.push({ label: "Expected fulfilment", value: details.expectedFulfilmentWindow });
@@ -206,21 +222,43 @@ function getPrivacyNotice(opportunity) {
   if (!isMedicalSample(opportunity)) {
     return "";
   }
-  return `You will provide suitability and health-related information directly to ${opportunity.provider}. Freehub does not receive or assess your application.`;
+  return requiresSuitabilityReview(opportunity)
+    ? `You will provide suitability and health-related information directly to ${opportunity.provider}. Freehub does not receive or assess your application.`
+    : `You may provide health-related product information directly to ${opportunity.provider}. Freehub does not receive or assess your request.`;
 }
 
 function getProviderBoundary(opportunity) {
   if (opportunity.type === "product_testing") {
     return `${opportunity.provider}, not Freehub, selects participants and sets the creator tasks. Freehub does not receive applications or guarantee selection.`;
   }
-  if (isMedicalSample(opportunity)) {
+  if (requiresSuitabilityReview(opportunity)) {
     return `${opportunity.provider}, not Freehub, assesses product suitability. Freehub does not provide medical suitability advice.`;
   }
-  return `${opportunity.provider}, not Freehub, decides whether a sample request is approved and fulfilled.`;
+  return `${opportunity.provider}, not Freehub, owns the sample stock, request limits and fulfilment. Freehub does not receive the request.`;
 }
 
 function isMedicalSample(opportunity) {
   return opportunity.type === "free_sample" && Array.isArray(opportunity.tags) && opportunity.tags.includes("medical-product-sample");
+}
+
+function requiresSuitabilityReview(opportunity) {
+  return isMedicalSample(opportunity) && opportunity.tags.includes("suitability-approval-required");
+}
+
+function getSampleAvailabilityCue(opportunity) {
+  const details = opportunity.details || {};
+  if (details.selectionStatus === "selected_participants") return "Application only; fulfilment is not guaranteed";
+  if (details.selectionStatus === "first_come_first_served") return "Available while the provider's sample stock lasts";
+  if (details.selectionStatus === "guaranteed") return "Available to request under the provider's stated limits";
+  if (details.stockState === "limited") return "Limited stock; check the official source before requesting";
+  return "Request availability depends on the provider's current rules";
+}
+
+function getSampleSelectionLabel(selectionStatus) {
+  if (selectionStatus === "selected_participants") return "Application only; selected applicants after provider review";
+  if (selectionStatus === "first_come_first_served") return "First come, first served while stock lasts";
+  if (selectionStatus === "guaranteed") return "Direct request under the provider's stated limits";
+  return formatToken(selectionStatus);
 }
 
 function formatToken(value) {

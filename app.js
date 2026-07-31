@@ -743,13 +743,5 @@ function getCurrentRoutePath() {
 }
 
 function getDataPath() {
-  if (isNestedRoutePath(window.location.pathname)) {
-    return "../../data/competitions.json";
-  }
-
-  return "data/competitions.json";
-}
-
-function isNestedRoutePath(pathname) {
-  return pathname.includes("/category/") || pathname.includes("/tag/") || pathname.includes("/competition/");
+  return "/data/competitions.json";
 }

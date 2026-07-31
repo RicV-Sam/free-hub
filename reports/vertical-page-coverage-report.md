@@ -56,7 +56,7 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 31
+- Matching active public competitions: 28
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -76,14 +76,11 @@ Recommended normalisation:
 | Jacobs National Promotion 2026 (jacobs-national-promotion-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | FreshStop Save Every Drop Win Big Competition (freshstop-jojo-fuel-vouchers-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | SPAR Clover Rewards Voucher Competition (spar-clover-rewards-vouchers-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
-| Dis-Chem Power GRO Trust the Process Competition (dis-chem-power-gro-trust-the-process-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | AfriSam Together We Win Competition (afrisam-together-we-win-2026) | 2026-07-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Dark & Lovely Best For Braids Competition (clicks-dark-and-lovely-best-for-braids-2026) | 2026-08-15 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | GARDENA Winter Pruning Giveaway 2026 (gardena-winter-pruning-giveaway-2026) | 2026-08-25 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Hisense Big Wash No Drama Buy and Win (hisense-big-wash-no-drama-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Kellogg's Big Bowl Energy Competition (kelloggs-big-bowl-energy-2026) | 2026-08-31 | till-slip-required | yes | yes | Till slip or receipt tag | none |
-| Dis-Chem Fisherman's Friend Luxury Retreat Competition (dis-chem-fishermans-friend-luxury-retreat-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
-| Dis-Chem Catrice Skin Like Moisturizer Competition (dis-chem-catrice-skin-like-moisturizer-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Nestle MILO Meet the Champ Campaign 2026 (nestle-milo-meet-the-champ-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Dr. Oetker Taste the Upgrade Competition (dr-oetker-taste-the-upgrade-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | CTM Pro Grip Win 1 of 3 Toyota Hilux Bakkies (ctm-pro-grip-win-toyota-hilux-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
@@ -101,7 +98,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 25
+- Matching active public competitions: 23
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -112,7 +109,7 @@ Recommended normalisation:
 | Beares Russell Hobbs Top Loader Facebook Competition (beares-russell-hobbs-top-loader-facebook-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Best Home & Electric Kelvinator Top Loader Competition (best-home-electric-kelvinator-top-loader-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Himalaya Winter Colouring Competition 2026 (himalaya-winter-colouring-competition-2026) | 2026-07-31 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
-| Clicks WIN with BabyClub Competition (clicks-babyclub-competition) | 2026-07-31 | free-entry | yes | yes | Online entry mentioned in entry text | none |
+| Clicks WIN with BabyClub Competition (clicks-babyclub-competition) | 2026-07-31 | unknown | yes | yes | Online entry mentioned in entry text | none |
 | MoneyUp Academy Competition (capitec-moneyup-academy-competition-2026) | 2026-07-31 | account-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Penguin Random House Peppa Pig Hamper Competition (penguin-random-house-peppa-pig-hamper-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Budget Insurance BizBucks Bonanza Competition (budget-insurance-bizbucks-bonanza-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
@@ -120,7 +117,6 @@ Recommended normalisation:
 | Lewis Donna MK2 Sleigh Bed Competition (lewis-donna-mk2-sleigh-bed-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Lewis LG CJ44 Hi-Fi Competition (lewis-lg-cj44-hifi-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Beares Grandiose Kitchen Scheme Competition (beares-grandiose-kitchen-scheme-2026) | 2026-07-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
-| Clicks ClubCard Have Your Say Competition (clicks-clubcard-have-your-say-june-july-2026) | 2026-08-01 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Clicks ClubCard Fragrance Giveaway Competition (clicks-clubcard-fragrance-giveaway-june-july-2026) | 2026-08-01 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Clicks ClubCard Portia M Hamper Competition (clicks-clubcard-portia-m-hamper-june-july-2026) | 2026-08-01 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Clicks ClubCard Men's Wellness Hamper Competition (clicks-clubcard-mens-wellness-hamper-june-july-2026) | 2026-08-01 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
@@ -128,7 +124,6 @@ Recommended normalisation:
 | Evetech Pulse 2026 Giveaway (evetech-pulse-giveaway-2026) | 2026-08-01 | free-entry | yes | yes | Online entry tag | none |
 | Dark & Lovely Best For Braids Competition (clicks-dark-and-lovely-best-for-braids-2026) | 2026-08-15 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | GARDENA Winter Pruning Giveaway 2026 (gardena-winter-pruning-giveaway-2026) | 2026-08-25 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
-| Dis-Chem Catrice Skin Like Moisturizer Competition (dis-chem-catrice-skin-like-moisturizer-2026) | 2026-08-31 | purchase-required | yes | yes | Online entry tag | none |
 | Col'Cacchio x Alva Winter Pizza Oven Giveaway (colcacchio-alva-winter-pizza-oven-2026) | 2026-08-31 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | Penguin Random House Penguin Post 43 Book Hamper Competition (penguin-random-house-penguin-post-43-book-hampers-2026) | 2026-08-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Wanderlust Reader Travel Awards 2026 Prize Draw (wanderlust-reader-travel-awards-prize-draw-2026) | 2026-10-27 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |

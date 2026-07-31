@@ -99,6 +99,22 @@
     },
     {
       "sourceType": "competition",
+      "recordId": "vodacom-dankovodacom-adidas-voucher-2026",
+      "field": "url",
+      "reason": "expired_archive_403",
+      "url": "https://www.vodacom.co.za/vodacom/terms/competition/dankovodacom",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "vodacom-prepaid-fibre-soccer-jersey-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.vodacom.co.za/vodacom/terms/competitions/prepaid-fibre-soccer-jersey",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
       "recordId": "vodacom-tsamaya-pre-season-fan-tour-2026",
       "field": "url",
       "reason": "expired_archive_404",
@@ -127,6 +143,14 @@
       "field": "officialUrl",
       "reason": "manual_check_http_403",
       "url": "https://www.transunion.co.za/product/annual-free-credit-report",
+      "lifecycle": "active-manual-check"
+    },
+    {
+      "sourceType": "free-resource",
+      "recordId": "free-resource:rewards:spur-r50-birthday-voucher",
+      "field": "officialUrl",
+      "reason": "manual_check_http_403",
+      "url": "https://www.spursteakranches.com/view-document/9",
       "lifecycle": "active-manual-check"
     },
     {

@@ -298,5 +298,35 @@
     "verifiedAt": "2026-07-27",
     "expiresAt": "2026-08-03",
     "evidenceSummary": "Official Coloplast South Africa terms supported separate dispatch and free delivery for approved sample requests."
+  },
+  {
+    "recordId": "tena-women-free-sample-pack",
+    "field": "sourceUrl",
+    "hostname": "www.tena.co.za",
+    "url": "https://www.tena.co.za/women/products/free-sample",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-07-31",
+    "expiresAt": "2026-08-07",
+    "evidenceSummary": "Official TENA South Africa page offered a free product sample pack, discreet home delivery, one pack per person, family or address every six months, and delivery only to South African physical addresses."
+  },
+  {
+    "recordId": "tena-men-free-sample-pack",
+    "field": "sourceUrl",
+    "hostname": "www.tena.co.za",
+    "url": "https://www.tena.co.za/men/products/free-sample",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-07-31",
+    "expiresAt": "2026-08-07",
+    "evidenceSummary": "Official TENA South Africa page offered a free Keep Control sample pack, discreet delivery, one pack per person, family or address every six months, and delivery only to South African physical addresses."
+  },
+  {
+    "recordId": "blind-designs-free-fabric-samples",
+    "field": "sourceUrl",
+    "hostname": "www.blinddesigns.co.za",
+    "url": "https://www.blinddesigns.co.za/view-blind-type/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-07-31",
+    "expiresAt": "2026-08-07",
+    "evidenceSummary": "Official Blind Designs fabric-sample page allowed visitors to select up to five sample pieces per delivery and stated that delivery to a South African address is free."
   }
 ]

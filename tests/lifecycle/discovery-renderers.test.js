@@ -62,8 +62,8 @@ test("Opportunity renderer accepts approved inputs and emits no empty section or
   assert.match(html, /href="\/opportunity\/fixture-current-sample\/"/);
   assert.match(html, /Completely free/);
   assert.match(html, /Medical product sample request/);
-  assert.match(html, /Suitability approval required/);
-  assert.match(html, /Freehub does not receive or assess your application/);
+  assert.match(html, /First come, first served while stock lasts/);
+  assert.match(html, /Freehub does not receive or assess your request/);
   assert.match(html, /data-page-type="free_stuff_parent"/);
   const itemList = opportunities.buildOpportunityItemList({ opportunities: [fixtures.publishedSample], name: "Current" });
   assert.equal(itemList.itemListElement.length, 1);
@@ -79,9 +79,9 @@ test("full Opportunity cards expose sample facts and privacy without inventing p
     cardVariant: "full",
   });
   assert.match(html, /Provider &lt;unsafe&gt;/);
-  assert.match(html, /Application only/);
+  assert.match(html, /First come, first served while stock lasts/);
   assert.match(html, /No delivery charge/);
-  assert.match(html, /Freehub does not provide medical suitability advice/);
+  assert.match(html, /owns the sample stock, request limits and fulfilment/);
   assert.match(html, /data-page-type="free_samples_vertical"/);
   assert.throws(
     () => opportunities.renderOpportunitySection({ opportunities: [record], heading: "Current", pageType: "test", cardVariant: "invented" }),
@@ -90,6 +90,30 @@ test("full Opportunity cards expose sample facts and privacy without inventing p
   const itemList = opportunities.buildOpportunityItemList({ opportunities: [record], name: "Samples" });
   assert.equal(itemList.itemListElement[0].item["@type"], "Thing");
   assert.equal(JSON.stringify(itemList).includes('"Product"'), false);
+});
+
+test("direct non-medical sample requests do not inherit suitability or health claims", () => {
+  const { privacyUrl, ...directDetails } = fixtures.publishedSample.details;
+  const record = {
+    ...fixtures.publishedSample,
+    id: "fixture-direct-fabric-sample",
+    slug: "fixture-direct-fabric-sample",
+    provider: "Fixture Fabrics",
+    tags: ["fabric-samples", "free-delivery"],
+    details: { ...directDetails, stockState: "available", selectionStatus: "guaranteed" },
+  };
+  const cardHtml = opportunities.renderOpportunitySection({
+    opportunities: [record],
+    heading: "Current verified samples",
+    pageType: "free_samples_vertical",
+    cardVariant: "full",
+  });
+  assert.match(cardHtml, /Direct request under the provider&#039;s stated limits/);
+  assert.doesNotMatch(cardHtml, /medical|health-related|suitability/i);
+
+  const detailHtml = opportunityRoutes.renderDetailContent(record, "active");
+  assert.match(detailHtml, /Direct sample request/);
+  assert.doesNotMatch(detailHtml, /medical|health-related|suitability/i);
 });
 
 test("product-testing Opportunity cards expose selection and creator-task boundaries", () => {
@@ -119,6 +143,8 @@ test("Opportunity controller uses only the reviewed provider hosts and owns elig
   const source = fs.readFileSync(path.join(ROOT_DIR, "scripts", "generate-pages.js"), "utf8");
   assert.match(source, /"brandadvisor\.co\.za"/);
   assert.match(source, /"products\.coloplast\.co\.za"/);
+  assert.match(source, /"www\.blinddesigns\.co\.za"/);
+  assert.match(source, /"www\.tena\.co\.za"/);
   assert.match(source, /opportunityData\.isPublicOpportunity/);
   assert.match(source, /allowedSourceHosts: OPPORTUNITY_ALLOWED_SOURCE_HOSTS/);
 });
@@ -126,7 +152,7 @@ test("Opportunity controller uses only the reviewed provider hosts and owns elig
 test("active Opportunity details expose trust facts and only the measured exit CTA", () => {
   const html = opportunityRoutes.renderDetailContent(fixtures.publishedSample, "active");
   assert.match(html, /What Fixture Samples requires/);
-  assert.match(html, /Freehub does not receive, store or assess your application/);
+  assert.match(html, /Freehub does not receive, store or assess your request/);
   assert.match(html, /href="\/out\/opportunity\/fixture-current-sample\/"/);
   assert.doesNotMatch(html, new RegExp(`href="${fixtures.publishedSample.sourceUrl}"`));
   assert.match(html, /data-link-role="terms"/);

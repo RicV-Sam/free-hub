@@ -31,8 +31,17 @@ const OPPORTUNITIES_ENABLED = opportunityData.isOpportunityFeatureEnabled(
 const OPPORTUNITY_ALLOWED_SOURCE_HOSTS = Object.freeze([
   "brandadvisor.co.za",
   "products.coloplast.co.za",
+  "www.blinddesigns.co.za",
+  "www.tena.co.za",
 ]);
-const CSS_ASSET_VERSION = "20260704-voucher-seo-v1";
+const VOUCHER_DISCOVERY_RESOURCE_HOSTS = Object.freeze({
+  "absa-advantage-meal-vouchers": "www.absa.co.za",
+  "kauai-app-birthday-reward": "kauai.co.za",
+  "spur-r50-birthday-voucher": "www.spursteakranches.com",
+  "western-cape-jobseeker-travel-voucher": "www.westerncape.gov.za",
+});
+const VOUCHER_DISCOVERY_RESOURCE_IDS = Object.freeze(Object.keys(VOUCHER_DISCOVERY_RESOURCE_HOSTS));
+const CSS_ASSET_VERSION = "20260731-voucher-samples-v1";
 const FREEHUB_REFER_WIN_CONFIG = {
   referWinCampaignEnabled: true,
   referWinLiveReady: true,
@@ -256,6 +265,7 @@ const TRUST_PAGE_DEFINITIONS = [
         heading: "Cookies and analytics",
         paragraphs: [
           "The site may use cookies or similar technologies through analytics and measurement tools. These are used to understand site performance and user journeys.",
+          "Freehub may also use Google AdSense to display advertising. Google and its partners may use cookies or similar technologies to serve, limit, measure and personalise ads where permitted. Consent choices and applicable controls should be presented before advertising cookies are used where the law requires them.",
         ],
       },
       {
@@ -1349,15 +1359,15 @@ const TRUST_PAGE_DEFINITIONS = [
   },
   {
     slug: "free-samples-south-africa",
-    title: "Where to Get Free Samples in South Africa | 7 Legit Options",
+    title: "Where to Get Free Samples in South Africa | Current Offers",
     description:
-      "Check 7 reviewed places to find free samples in South Africa, including official brand programmes and product-testing panels, with costs and selection rules explained.",
+      "Find current free samples in South Africa, product-testing applications and reviewed official sites. Compare eligibility, delivery, costs and verification dates.",
     heading: "Where to Get Free Samples in South Africa",
     intro:
-      "Start with these 7 reviewed South African sample routes: current official requests when available, brand sample programmes and recognised product-testing panels. Each option explains what is actually free, who may qualify and what to check before you share personal details.",
+      "Find current free sample requests, recognised product-testing panels and official brand programmes available to South Africans. Each route explains what is free, who may qualify, what work is required and where your details go.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: "2026-07-23",
+    dateModified: "2026-07-31",
     resourceCategories: ["samples"],
     resourceTitle: "Sample and product-testing routes",
     resourceIntro:
@@ -3117,7 +3127,11 @@ function renderCollectionHero(routeContext, pageCopy, competitions) {
   const actions = flagship ? getFlagshipHeroActions(routeContext) : getCollectionHeroActions(routeContext);
   const trustItems = flagship ? getFlagshipTrustItems(routeContext) : getCollectionTrustItems(routeContext, competitions);
   const previewCopy = getCollectionPreviewCopy(routeContext, pageCopy);
-  const previewMarkup = renderHeroPreviewPanel(competitions, {
+  const previewCompetitions =
+    routeContext.type === "category" && routeContext.slug === "vouchers"
+      ? competitions.filter((competition) => shared.getEntryCostLabel(competition) !== "Entry requirements unclear")
+      : competitions;
+  const previewMarkup = renderHeroPreviewPanel(previewCompetitions, {
     title: previewCopy.title,
     intro: previewCopy.intro,
     className: "hero-preview-panel--collection",
@@ -3145,21 +3159,26 @@ function renderCollectionHero(routeContext, pageCopy, competitions) {
 }
 
 function getCollectionHeroActions(routeContext) {
-  const actions =
-    routeContext.type === "category" && routeContext.slug === "vouchers"
-      ? [{ label: "Free-entry Voucher Picks", href: "#free-entry-vouchers", className: "btn--primary" }]
-      : [{ label: "View Listings", href: "#competitionsGrid", className: "btn--primary" }];
+  if (routeContext.type === "category" && routeContext.slug === "vouchers") {
+    const actions = [];
+    if (getCurrentVoucherResources().length > 0) {
+      actions.push({ label: "Current Voucher Offers", href: "#current-voucher-offers", className: "btn--primary" });
+    }
+    actions.push(
+      { label: "Free-entry Prize Draws", href: "#free-entry-vouchers", className: actions.length ? "btn--secondary" : "btn--primary" },
+      { label: "All Voucher Listings", href: "#competitionsGrid", className: "btn--secondary" }
+    );
+    return actions;
+  }
+
+  const actions = [{ label: "View Listings", href: "#competitionsGrid", className: "btn--primary" }];
 
   if (routeContext.type !== "hub" || routeContext.slug !== "competitions") {
     actions.push({ label: "All Competitions", href: "/competitions/", className: "btn--secondary" });
   }
 
   if (routeContext.type === "category") {
-    actions.push(
-      routeContext.slug === "vouchers"
-        ? { label: "All Voucher Listings", href: "#competitionsGrid", className: "btn--secondary" }
-        : { label: "Ending Soon", href: "/competitions-ending-soon/", className: "btn--secondary" }
-    );
+    actions.push({ label: "Ending Soon", href: "/competitions-ending-soon/", className: "btn--secondary" });
   }
 
   if (routeContext.type === "brand") {
@@ -3187,10 +3206,16 @@ function getCollectionTrustItems(routeContext, competitions = []) {
       const freeEntryCount = competitions.filter(
         (competition) => shared.getEntryCostLabel(competition) === "Free entry"
       ).length;
+      const accountLinkedNoPurchaseCount = competitions.filter(
+        (competition) =>
+          shared.getEntryCostLabel(competition) === "Account required" && competition.purchaseRequired === false
+      ).length;
+      const voucherResourceCount = getCurrentVoucherResources().length;
       return [
-        `${freeEntryCount} free-entry options`,
+        `${voucherResourceCount} checked reward routes`,
+        `${freeEntryCount} unrestricted free-entry draws`,
+        `${accountLinkedNoPurchaseCount} no-purchase, account-linked draws`,
         `${competitions.length} current voucher competitions`,
-        "Official promoter links",
       ];
     }
 
@@ -3580,6 +3605,43 @@ function renderCategoryEditorial(routeContext, competitions) {
         </section>`;
 }
 
+function getCurrentVoucherResources() {
+  return FREE_RESOURCES.filter((resource) => {
+    const reviewDueAt = normalizeIsoDateString(resource.reviewDueAt);
+    let officialHost = "";
+
+    try {
+      officialHost = new URL(resource.officialUrl).hostname.toLowerCase();
+    } catch {
+      return false;
+    }
+
+    return (
+      VOUCHER_DISCOVERY_RESOURCE_IDS.includes(resource.id) &&
+      officialHost === VOUCHER_DISCOVERY_RESOURCE_HOSTS[resource.id] &&
+      resource.verificationStatus === "verified" &&
+      ["active", "manual_check"].includes(resource.availability) &&
+      reviewDueAt &&
+      reviewDueAt >= BUILD_DATE_ISO
+    );
+  }).sort((a, b) => {
+    const reviewedDelta = String(b.lastReviewed || "").localeCompare(String(a.lastReviewed || ""));
+    return reviewedDelta || String(a.name).localeCompare(String(b.name));
+  });
+}
+
+function getCurrentVoucherOpportunities() {
+  return approvedPublicOpportunities.filter((opportunity) => {
+    const categories = Array.isArray(opportunity.categories) ? opportunity.categories : [];
+    const tags = Array.isArray(opportunity.tags) ? opportunity.tags : [];
+    const searchText = [opportunity.title, opportunity.summary, ...categories, ...tags]
+      .map((value) => String(value || "").toLowerCase())
+      .join(" ");
+
+    return categories.includes("vouchers") || tags.includes("voucher-trade") || /\bvouchers?\b/.test(searchText);
+  });
+}
+
 function renderVoucherIntentSection(routeContext, competitions) {
   if (routeContext.type !== "category" || routeContext.slug !== "vouchers") {
     return "";
@@ -3601,10 +3663,18 @@ function renderVoucherIntentSection(routeContext, competitions) {
   const countMatching = (patterns) =>
     competitions.filter((competition) => patterns.some((pattern) => pattern.test(haystack(competition)))).length;
   const getTags = (competition) => Array.isArray(competition.tags) ? competition.tags.map(lower) : [];
-  const freeEntryPicks = getFreeEntryPicks(competitions, 6);
-  const freeEntryCount = competitions.filter(
+  const voucherCompetitions = competitions.filter(shared.isVoucherPrizeCompetition);
+  const voucherResources = getCurrentVoucherResources();
+  const voucherOpportunities = getCurrentVoucherOpportunities();
+  const freeEntryPicks = getFreeEntryPicks(voucherCompetitions, 6);
+  const freeEntryCount = voucherCompetitions.filter(
     (competition) => shared.getEntryCostLabel(competition) === "Free entry"
   ).length;
+  const accountLinkedCompetitions = voucherCompetitions.filter(
+    (competition) =>
+      shared.getEntryCostLabel(competition) === "Account required" && competition.purchaseRequired === false
+  );
+  const accountLinkedPicks = accountLinkedCompetitions.slice(0, 6);
   const purchaseRequiredCount = competitions.filter((competition) => {
     const entryCostType = lower(competition.entryCostType);
     const tags = getTags(competition);
@@ -3618,42 +3688,85 @@ function renderVoucherIntentSection(routeContext, competitions) {
     { label: "Grocery voucher competitions", href: "/win-grocery-vouchers-south-africa/", count: countMatching([/grocery|groceries|supermarket|shoprite|checkers|spar|basket|trolley/]) },
     { label: "Airtime voucher competitions", href: "/win-airtime-competitions-south-africa/", count: countMatching([/airtime|recharge|prepaid/]) },
     { label: "Data voucher competitions", href: "/win-data-competitions-south-africa/", count: countMatching([/\bdata\b|bundle|mobile data/]) },
-    { label: "Free-entry voucher listings", href: "#free-entry-vouchers", count: freeEntryCount },
+    { label: "Unrestricted free-entry vouchers", href: "#free-entry-vouchers", count: freeEntryCount },
+    ...(accountLinkedCompetitions.length > 0
+      ? [{ label: "Account-linked voucher draws", href: "#account-linked-vouchers", count: accountLinkedCompetitions.length }]
+      : []),
     { label: "Purchase-required voucher listings", href: "/purchase-required-competitions/", count: purchaseRequiredCount },
     { label: "Ending-soon voucher prizes", href: "/competitions-ending-soon/", count: endingSoonCount },
   ];
   const typeCards = [
     {
-      title: "Shopping and grocery vouchers",
-      text: "Check the redemption store, voucher value, expiry rules and whether a rewards card, till slip or minimum spend is required.",
+      title: "Direct rewards and support vouchers",
+      text: "Check who qualifies, which app or account is required, where the reward can be used and when it expires.",
+    },
+    {
+      title: "Free-entry voucher competitions",
+      text: "Unrestricted free entry has no purchase, account, app or membership requirement. Account-linked draws are listed separately.",
+    },
+    {
+      title: "Purchase and account promotions",
+      text: "Confirm the qualifying spend, product, app, loyalty card or account action before treating the promotion as worthwhile.",
     },
     {
       title: "Fuel, airtime and data vouchers",
       text: "Confirm the network, redemption channel, mobile-number rules and whether standard SMS, USSD or data costs apply.",
     },
-    {
-      title: "Online and retail gift cards",
-      text: "Look for official terms covering exclusions, delivery method, expiry date and whether the voucher can be transferred or converted to cash.",
-    },
+  ];
+  const routeLinks = [
+    ...(voucherResources.length > 0
+      ? [{ href: "#current-voucher-offers", count: voucherResources.length, label: "Current rewards", text: "Official reward and public-service voucher routes." }]
+      : []),
+    { href: "#free-entry-vouchers", count: freeEntryCount, label: "Unrestricted free entry", text: "No purchase, account, app or membership requirement." },
+    ...(accountLinkedCompetitions.length > 0
+      ? [{ href: "#account-linked-vouchers", count: accountLinkedCompetitions.length, label: "Account-linked draws", text: "No purchase stated, but an eligible account is required." }]
+      : []),
+    ...(voucherOpportunities.length > 0
+      ? [{ href: "#creator-voucher-exchanges", count: voucherOpportunities.length, label: "Creator exchanges", text: "Selected campaigns with content work required." }]
+      : []),
+    { href: "#competitionsGrid", count: voucherCompetitions.length, label: "All voucher listings", text: "Every current voucher, gift-card or cashback competition and cost label." },
   ];
 
-  return `<section class="seo-copy-block seo-copy-block--category voucher-answer" aria-label="Voucher competition shortcuts">
-          <h2 class="seo-copy-block__title">How to get free vouchers safely</h2>
+  return `<section class="seo-copy-block seo-copy-block--category voucher-answer" aria-label="Free voucher finder">
+          <h2 class="seo-copy-block__title">Free vouchers in South Africa: what is available now?</h2>
           <div class="seo-copy-block__content hub-editorial">
             <section class="hub-editorial__section voucher-answer__quick">
               <p class="section-kicker">Quick answer</p>
-              <h3>Start with ${escapeHtml(String(freeEntryCount))} current free-entry voucher competitions</h3>
-              <p>Freehub does not issue voucher codes or promise instant vouchers. It finds current competitions where vouchers are the prize, verifies the promoter source and labels the entry cost. Use the free-entry shortlist below when you do not want to make a purchase, then check the official terms before entering.</p>
+              <h3>Choose the route before you give anyone your details</h3>
+              <p>There is no universal Freehub voucher code. We currently separate ${escapeHtml(String(voucherResources.length))} checked reward or public-service voucher routes, ${escapeHtml(String(freeEntryCount))} unrestricted free-entry voucher draws, ${escapeHtml(String(accountLinkedCompetitions.length))} no-purchase draws that require an eligible account and ${escapeHtml(String(voucherOpportunities.length))} selected creator exchanges. A direct reward, a competition and a product trade are different offers, so the requirement appears before the link.</p>
+              <nav class="voucher-route-grid" aria-label="Choose a voucher route">
+                ${routeLinks
+                  .map(
+                    (route) => `<a class="voucher-route-link" href="${escapeAttribute(route.href)}">
+                  <strong>${escapeHtml(String(route.count))}</strong>
+                  <span>${escapeHtml(route.label)}</span>
+                  <small>${escapeHtml(route.text)}</small>
+                </a>`
+                  )
+                  .join("\n                ")}
+              </nav>
             </section>
+            ${voucherResources.length > 0
+              ? `<div class="anchor-target" id="current-voucher-offers">
+            ${freeResourceRenderer.renderFreeResourceSection({
+              resources: voucherResources,
+              heading: "Current voucher and reward routes",
+              description: "These are checked official routes, not universal coupon codes. Eligibility, app or account steps, location limits and expiry rules still apply.",
+              pageType: "voucher_hub",
+              kicker: "Checked official sources",
+            })}
+            </div>`
+              : ""}
             <section class="hub-editorial__section voucher-free-picks" id="free-entry-vouchers">
               <div class="voucher-free-picks__header">
                 <div>
-                  <p class="section-kicker">No purchase required</p>
-                  <h3>Free-entry voucher picks</h3>
+                  <p class="section-kicker">Chance to win &middot; no purchase or account required</p>
+                  <h3>Current unrestricted free-entry voucher prize draws</h3>
                 </div>
-                <a href="#competitionsGrid">See all ${escapeHtml(String(competitions.length))} voucher competitions</a>
+                <a href="#competitionsGrid">See all ${escapeHtml(String(voucherCompetitions.length))} voucher competitions</a>
               </div>
-              <div class="voucher-free-picks__grid">
+              ${freeEntryPicks.length > 0
+                ? `<div class="voucher-free-picks__grid">
                 ${freeEntryPicks
                   .map(
                     (competition) => `<a class="voucher-free-pick" href="${escapeAttribute(shared.getCompetitionPath(competition))}">
@@ -3664,11 +3777,46 @@ function renderVoucherIntentSection(routeContext, competitions) {
                 </a>`
                   )
                   .join("\n                ")}
-              </div>
+              </div>`
+                : `<p class="voucher-free-picks__empty">No verified unrestricted free-entry voucher, gift-card or cashback prize is available today. Account-linked draws appear separately below, and we will not substitute hamper competitions for this shortlist.</p>`}
             </section>
+            ${accountLinkedPicks.length > 0
+              ? `<section class="hub-editorial__section voucher-free-picks" id="account-linked-vouchers">
+              <div class="voucher-free-picks__header">
+                <div>
+                  <p class="section-kicker">Chance to win &middot; eligible account required</p>
+                  <h3>Current no-purchase, account-linked voucher draws</h3>
+                </div>
+              </div>
+              <div class="voucher-free-picks__grid">
+                ${accountLinkedPicks
+                  .map(
+                    (competition) => `<a class="voucher-free-pick" href="${escapeAttribute(shared.getCompetitionPath(competition))}">
+                  <span class="voucher-free-pick__label">Account required</span>
+                  <strong>${escapeHtml(shared.getCardHeadline(competition))}</strong>
+                  <span>${escapeHtml(competition.brand || "Verified promoter")}</span>
+                  <span class="voucher-free-pick__date">Closes ${escapeHtml(shared.formatDate(competition.closingDate))}</span>
+                </a>`
+                  )
+                  .join("\n                ")}
+              </div>
+            </section>`
+              : ""}
+            ${voucherOpportunities.length > 0
+              ? `<div class="anchor-target" id="creator-voucher-exchanges">
+            ${opportunityRenderer.renderOpportunitySection({
+              opportunities: voucherOpportunities,
+              heading: "Current creator voucher exchanges",
+              pageType: "voucher_hub",
+              cardVariant: "compact",
+              kicker: "Selection and content work required",
+              description: "These are applications for selected creators, not no-strings-attached vouchers. Open an offer to check the account threshold and content work before applying.",
+            })}
+            </div>`
+              : ""}
             <section class="hub-editorial__section">
               <h3>Voucher shortcuts</h3>
-              <p>Voucher searches are not all the same. Use these routes to separate grocery vouchers, shopping vouchers, fuel rewards, airtime or data prizes, free-entry draws and purchase-required campaigns before opening a listing.</p>
+              <p>Use these routes to narrow grocery vouchers, fuel rewards, airtime or data prizes, no-purchase draws and purchase-required campaigns before opening a listing.</p>
               <div class="popular-searches__links">
                 ${shortcutLinks
                   .map(
@@ -4161,7 +4309,12 @@ function getCollectionFaqItems(routeContext) {
       {
         question: "Where can I find free voucher giveaways today?",
         answer:
-          "Start with this voucher hub when you specifically want voucher prizes, gift cards or store-credit giveaways. If your search intent is broader, compare the Freehub homepage for current giveaways across vouchers, cash, cars and free-entry routes.",
+          "Start with the current reward and public-service voucher routes near the top of this page, then compare the no-purchase voucher prize draws. Freehub keeps direct rewards, creator exchanges and competitions separate because they have different eligibility and fulfilment rules.",
+      },
+      {
+        question: "Does free voucher mean I am guaranteed to receive one?",
+        answer:
+          "No. A checked reward may be available after an account, app, eligibility or task requirement, while a free-entry voucher competition is only a chance to win. Creator exchanges require selection and content work. Read the label and official terms before sharing details.",
       },
       {
         question: "What types of vouchers can I win?",
@@ -4251,6 +4404,9 @@ function getCollectionFaqTitle(routeContext) {
 }
 
 function renderPage(routeContext, competitions) {
+  if (routeContext.type === "category" && routeContext.slug === "vouchers") {
+    competitions = competitions.filter(shared.isVoucherPrizeCompetition);
+  }
   const pageCopy = getRoutePageCopy(routeContext);
   const canonicalUrl = routeContext.canonicalOverride || pageCopy.canonical;
   const robotsDirective = routeContext.noindex === true
@@ -4258,6 +4414,28 @@ function renderPage(routeContext, competitions) {
     : "index, follow, max-image-preview:large";
   const supportCopy = getRouteSupportCopy(routeContext);
   const structuredData = buildRouteStructuredData(competitions, routeContext);
+  const voucherResources = routeContext.type === "category" && routeContext.slug === "vouchers"
+    ? getCurrentVoucherResources()
+    : [];
+  const voucherOpportunities = routeContext.type === "category" && routeContext.slug === "vouchers"
+    ? getCurrentVoucherOpportunities()
+    : [];
+  const voucherResourceStructuredData = freeResourceRenderer.buildFreeResourceItemList({
+    resources: voucherResources,
+    name: "Current South African voucher and reward routes",
+  });
+  const voucherOpportunityStructuredData = opportunityRenderer.buildOpportunityItemList({
+    opportunities: voucherOpportunities,
+    name: "Current creator voucher exchanges",
+  });
+  const voucherStructuredDataScripts = [
+    voucherResourceStructuredData
+      ? `<script id="structured-data-voucher-resources" type="application/ld+json">${escapeScript(JSON.stringify(voucherResourceStructuredData))}</script>`
+      : "",
+    voucherOpportunityStructuredData
+      ? `<script id="structured-data-voucher-opportunities" type="application/ld+json">${escapeScript(JSON.stringify(voucherOpportunityStructuredData))}</script>`
+      : "",
+  ].filter(Boolean).join("\n    ");
   const ogImage = getCollectionMetadataImageUrl(competitions);
   const isCollectionPage = ["category", "tag", "hub", "brand", "vertical"].includes(routeContext.type);
   const isPrimaryCompetitionHub =
@@ -4271,7 +4449,11 @@ function renderPage(routeContext, competitions) {
           description: pageCopy.description,
           url: canonicalUrl,
           inLanguage: "en-ZA",
-          ...(pageCopy.dateModified ? { dateModified: pageCopy.dateModified } : {}),
+          ...(routeContext.type === "category" && routeContext.slug === "vouchers"
+            ? { dateModified: getRouteLastmod(routeContext, competitions) }
+            : pageCopy.dateModified
+              ? { dateModified: pageCopy.dateModified }
+              : {}),
           isPartOf: {
             "@type": "WebSite",
             name: "Freehub",
@@ -4347,7 +4529,7 @@ function renderPage(routeContext, competitions) {
     <meta name="twitter:image" content="${escapeAttribute(ogImage)}" />
     ${collectionPageScript}
     ${breadcrumbScript}
-    ${collectionFaqScript}
+    ${collectionFaqScript}${voucherStructuredDataScripts ? `\n    ${voucherStructuredDataScripts}` : ""}
     <script id="structured-data-itemlist" type="application/ld+json">${escapeScript(
       JSON.stringify(structuredData)
     )}</script>
@@ -4356,7 +4538,7 @@ function renderPage(routeContext, competitions) {
     ${renderGoogleTagManagerHead(`{ page_type: '${routeContext.type}'${routeContext.type === "hub" ? `, hub_slug: '${routeContext.slug}'` : ""}${routeContext.type === "brand" ? `, brand_slug: '${routeContext.slug}'` : ""} }`)}
     ${renderMetaPixelHead()}
   </head>
-  <body>
+  <body${routeContext.type === "category" && routeContext.slug === "vouchers" ? ' data-voucher-hub-version="2"' : ""}>
     ${renderGoogleTagManagerNoScript()}
     ${renderMetaPixelNoScript()}
     <div class="site-shell">
@@ -4466,7 +4648,7 @@ function renderPage(routeContext, competitions) {
 
     <aside class="ad-sticky ad-sticky--reserved" id="ad-sticky" aria-hidden="true"></aside>
 
-    <script src="${RELATIVE_ASSET_PATH}shared/page-data.js" defer></script>
+    <script src="${RELATIVE_ASSET_PATH}shared/page-data.js" defer></script>${routeContext.type === "category" && routeContext.slug === "vouchers" ? `\n    <script src="${RELATIVE_ASSET_PATH}shared/discovery-analytics.js" defer></script>` : ""}
     <script src="${RELATIVE_ASSET_PATH}app.js" defer></script>
     <script type="module" src="${RELATIVE_ASSET_PATH}shared/auth-ui.js"></script>
   </body>
@@ -6004,7 +6186,7 @@ function renderFreeStuffParentPage(page) {
     ${renderGoogleTagManagerHead("{ page_type: 'free_stuff_parent', trust_page: 'free-stuff-south-africa' }")}
     ${renderMetaPixelHead()}
   </head>
-  <body data-free-stuff-parent-version="2">
+  <body data-free-stuff-parent-version="3">
     ${renderGoogleTagManagerNoScript()}
     ${renderMetaPixelNoScript()}
     <div class="site-shell">
@@ -6215,6 +6397,10 @@ function renderFreeSamplesPage(page) {
   const explainers = pageResources.filter((resource) => resource.sampleResourceType === "editorial_guide");
   const sampleOpportunities = approvedPublicOpportunities.filter((opportunity) => opportunity.type === "free_sample");
   const testingOpportunities = approvedPublicOpportunities.filter((opportunity) => opportunity.type === "product_testing");
+  const pageDescription = sampleOpportunities.length + testingOpportunities.length > 0
+    ? `See ${sampleOpportunities.length} verified sample requests and ${testingOpportunities.length} current product-testing opportunities in South Africa, with costs, eligibility, delivery and last-checked dates.`
+    : page.description;
+  const heroIntro = "Freehub separates direct sample requests from selected product tests and reviewed programmes. Completely free means no purchase or delivery fee; provider limits or selection may still apply.";
   const faqItems = getFreeSamplesFaqItems();
   const resourceStructuredData = freeResourceRenderer.buildFreeResourceItemList({
     resources: pageResources,
@@ -6233,7 +6419,7 @@ function renderFreeSamplesPage(page) {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: page.heading,
-    description: page.description,
+    description: pageDescription,
     url: canonicalUrl,
     inLanguage: "en-ZA",
     isPartOf: { "@type": "WebSite", name: "Freehub", url: `${shared.CANONICAL_ORIGIN}/` },
@@ -6242,7 +6428,7 @@ function renderFreeSamplesPage(page) {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: page.heading,
-    description: page.description,
+    description: pageDescription,
     image: shared.DEFAULT_OG_IMAGE,
     datePublished: page.datePublished,
     dateModified: getTrustPageLastmod(page),
@@ -6270,18 +6456,18 @@ function renderFreeSamplesPage(page) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${escapeHtml(page.title)}</title>
-    <meta name="description" content="${escapeAttribute(page.description)}" />
+    <meta name="description" content="${escapeAttribute(pageDescription)}" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="${escapeAttribute(page.title)}" />
-    <meta property="og:description" content="${escapeAttribute(page.description)}" />
+    <meta property="og:description" content="${escapeAttribute(pageDescription)}" />
     <meta property="og:url" content="${escapeAttribute(canonicalUrl)}" />
     <meta property="og:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${escapeAttribute(page.title)}" />
-    <meta name="twitter:description" content="${escapeAttribute(page.description)}" />
+    <meta name="twitter:description" content="${escapeAttribute(pageDescription)}" />
     <meta name="twitter:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
     <script id="structured-data-webpage" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
     <script id="structured-data-breadcrumb" type="application/ld+json">${escapeScript(JSON.stringify(breadcrumbData))}</script>
@@ -6295,7 +6481,7 @@ function renderFreeSamplesPage(page) {
     ${renderGoogleTagManagerHead("{ page_type: 'free_samples_vertical', trust_page: 'free-samples-south-africa' }")}
     ${renderMetaPixelHead()}
   </head>
-  <body data-free-samples-page-version="3">
+  <body data-free-samples-page-version="4">
     ${renderGoogleTagManagerNoScript()}
     ${renderMetaPixelNoScript()}
     <div class="site-shell">
@@ -6304,12 +6490,30 @@ function renderFreeSamplesPage(page) {
         className: "hero--utility hero--trust",
         eyebrow: "Verified sample guide",
         heading: page.heading,
-        intro: page.intro,
-        actions: [
-          { label: "See Sample Options", href: "#sample-options", className: "btn--primary" },
-          { label: "Avoid Sample Scams", href: "#sample-safety", className: "btn--secondary" },
-        ],
-        trustItems: ["Official source links", "Costs stated clearly", "Freehub never handles applications"],
+        intro: heroIntro,
+        actions:
+          sampleOpportunities.length > 0
+            ? [
+                { label: "Current Sample Requests", href: "#current-samples", className: "btn--primary" },
+                { label: "Testing & Sample Sites", href: "#sample-options", className: "btn--secondary" },
+                { label: "Avoid Sample Scams", href: "#sample-safety", className: "btn--secondary" },
+              ]
+            : [
+                { label: "Reviewed Sample & Testing Sites", href: "#sample-options", className: "btn--primary" },
+                { label: "Avoid Sample Scams", href: "#sample-safety", className: "btn--secondary" },
+              ],
+        trustItems:
+          sampleOpportunities.length + testingOpportunities.length > 0
+            ? [
+                `${sampleOpportunities.length} current sample requests`,
+                `${testingOpportunities.length} current product tests`,
+                `${pageResources.length} reviewed sites and programmes`,
+              ]
+            : [
+                `${pageResources.length} reviewed sites and programmes`,
+                "Current requests publish only after verification",
+                "Official provider links",
+              ],
       })}
 
       <main id="main-content" class="main-content trust-page free-samples-page">
@@ -6336,6 +6540,8 @@ function renderFreeSamplesPage(page) {
           heading: "Current verified samples",
           pageType: "free_samples_vertical",
           cardVariant: "full",
+          kicker: "Direct requests on official brand sites",
+          description: "These are direct requests on official brand sites. Each card states the cost, delivery, request limit and any suitability review; Freehub never receives form answers.",
         })}
         </div>
 
@@ -6344,7 +6550,9 @@ function renderFreeSamplesPage(page) {
           opportunities: testingOpportunities,
           heading: "Current product-testing applications",
           pageType: "free_samples_vertical",
-          cardVariant: "full",
+          cardVariant: "compact",
+          kicker: "Selected creators only",
+          description: "These are product or voucher exchanges for selected creators, not guaranteed samples. Each card summarises the exchange; open the details to check every account, audience and content requirement.",
         })}
         </div>
 
@@ -8112,6 +8320,12 @@ function getTrustPageLastmod(page) {
       resource.dateModified,
       resource.lastReviewed,
     ]),
+    ...(page.slug === "free-samples-south-africa"
+      ? approvedPublicOpportunities.flatMap((opportunity) => [
+          opportunity.lastVerifiedAt,
+          opportunity.updatedAt,
+        ])
+      : []),
   ]
     .map(normalizeIsoDateString)
     .filter(Boolean)
@@ -9470,7 +9684,6 @@ function renderOutPage(competition) {
     <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref(RELATIVE_ASSET_PATH))}" />
-    ${ADSENSE_SCRIPT}
     ${renderGoogleTagManagerHead(`{ page_type: 'outbound', competition_slug: ${escapeScript(JSON.stringify(slug))}, competition_category: ${escapeScript(JSON.stringify(competition.category))} }`)}
     ${renderMetaPixelHead()}
     <script>
@@ -9524,10 +9737,6 @@ function renderOutPage(competition) {
           </a>
           <p class="competition-detail__cta-note">If the redirect does not work, use the button above as the manual fallback link.</p>
         </section>
-
-        ${renderAdZone("ad-top", "outbound-top")}
-
-        ${renderAdZone("ad-middle", "outbound-middle", true)}
       </main>
 
       ${renderSiteFooter({ includeAuthPanel: false })}
@@ -10055,7 +10264,21 @@ function getRouteLastmod(routeContext, competitions) {
     routeContext.type === "category"
       ? normalizeIsoDateString(shared.CATEGORY_COPY[routeContext.slug]?.dateModified)
       : "";
-  return [listingLastmod, contentLastmod].filter(Boolean).sort().pop() || BUILD_DATE_ISO;
+  const discoveryLastmod =
+    routeContext.type === "category" && routeContext.slug === "vouchers"
+      ? [
+          ...getCurrentVoucherResources().flatMap((resource) => [resource.dateModified, resource.lastReviewed]),
+          ...getCurrentVoucherOpportunities().flatMap((opportunity) => [
+            opportunity.lastVerifiedAt,
+            opportunity.updatedAt,
+          ]),
+        ]
+          .map(normalizeIsoDateString)
+          .filter(Boolean)
+          .sort()
+          .pop() || ""
+      : "";
+  return [listingLastmod, contentLastmod, discoveryLastmod].filter(Boolean).sort().pop() || BUILD_DATE_ISO;
 }
 
 function getCompetitionListLastmod(competitions) {
@@ -10480,9 +10703,9 @@ function runFreeResourceChecks() {
         errors.push(`Free-resource page must define explicit datePublished and dateModified: ${page.slug}`);
       }
 
-      const isReviewedSamplesV3Date =
-        page.slug === "free-samples-south-africa" && page.dateModified === "2026-07-23";
-      if (page.dateModified === BUILD_DATE_ISO && page.dateModified !== page.datePublished && !isReviewedSamplesV3Date) {
+      const isReviewedSamplesEditorialDate =
+        page.slug === "free-samples-south-africa" && ["2026-07-23", "2026-07-31"].includes(page.dateModified);
+      if (page.dateModified === BUILD_DATE_ISO && page.dateModified !== page.datePublished && !isReviewedSamplesEditorialDate) {
         errors.push(`Free-resource page dateModified appears to be using build date by default: ${page.slug}`);
       }
     }

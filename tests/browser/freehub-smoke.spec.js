@@ -74,10 +74,10 @@ test("competition hub search filters prerendered listings and updates the result
   await expect(search).toBeVisible();
   await expect(page.getByRole("group", { name: "Categories" }).getByRole("button")).not.toHaveCount(0);
 
-  await search.fill("OFM");
+  await search.fill("Knorr Soup");
   await expect(page.locator("#resultsSummary")).toHaveText("Showing 1 competition");
   await expect(page.locator("#competitionsGrid article.competition-card")).toHaveCount(1);
-  await expect(page.locator("#competitionsGrid article.competition-card")).toContainText("OFM");
+  await expect(page.locator("#competitionsGrid article.competition-card")).toContainText("Knorr Soup");
 
   await search.fill("not-a-real-competition");
   await expect(page.locator("#resultsSummary")).toHaveText("Showing 0 competitions");
@@ -85,7 +85,7 @@ test("competition hub search filters prerendered listings and updates the result
 });
 
 test("competition detail shows entry facts before discovery and partner content", async ({ page }) => {
-  await page.goto("/competition/ofm-show-us-your-ofm-cash-2026/");
+  await page.goto("/competition/spar-win-a-car/");
   await expect(page.getByRole("heading", { level: 2, name: "How to enter" })).toBeVisible();
   await expect(page.getByRole("heading", { level: 2, name: "Quick answer" })).toBeVisible();
 
@@ -106,7 +106,7 @@ test("Free Stuff parent preserves intent and separates durable resources from op
   await expect(page).toHaveTitle("Free Stuff South Africa | Legit Freebies, Samples, Competitions");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Free Stuff South Africa");
   await expectCanonical(page, "/free-stuff-south-africa/");
-  await expect(page.locator('body[data-free-stuff-parent-version="2"]')).toHaveCount(1);
+  await expect(page.locator('body[data-free-stuff-parent-version="3"]')).toHaveCount(1);
 
   const childNavigation = page.getByRole("navigation", { name: "Free Stuff categories" });
   await expect(childNavigation.getByRole("link")).toHaveCount(4);
@@ -115,7 +115,7 @@ test("Free Stuff parent preserves intent and separates durable resources from op
   await expect(childNavigation.getByRole("link", { name: "Children's Books" })).toHaveAttribute("href", "/free-childrens-books-south-africa/");
   await expect(childNavigation.getByRole("link", { name: "Credit Reports" })).toHaveAttribute("href", "/free-credit-report-south-africa/");
 
-  await expect(page.locator("article.free-resource-card")).toHaveCount(21);
+  await expect(page.locator("article.free-resource-card")).toHaveCount(24);
   await expect(page.locator("article.opportunity-card")).toHaveCount(opportunitiesEnabled ? 2 : 0);
   await expect(page.locator("section.opportunity-section")).toHaveCount(opportunitiesEnabled ? 1 : 0);
   await expect(page.locator("#structured-data-opportunities")).toHaveCount(opportunitiesEnabled ? 1 : 0);
@@ -184,16 +184,16 @@ test("Free Stuff discovery analytics separates pillar and official-source events
   }
 });
 
-test("Free Samples v3 preserves its canonical and seven classified resources", async ({ page }) => {
+test("Free Samples v4 preserves its canonical and separates current offers from reviewed routes", async ({ page }) => {
   await page.goto("/free-samples-south-africa/");
-  await expect(page).toHaveTitle("Where to Get Free Samples in South Africa | 7 Legit Options");
+  await expect(page).toHaveTitle("Where to Get Free Samples in South Africa | Current Offers");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Where to Get Free Samples in South Africa");
   await expectCanonical(page, "/free-samples-south-africa/");
-  await expect(page.locator('body[data-free-samples-page-version="3"]')).toHaveCount(1);
+  await expect(page.locator('body[data-free-samples-page-version="4"]')).toHaveCount(1);
   await expect(
     page.getByRole("region", {
       name: opportunitiesEnabled
-        ? "7 reviewed routes plus 18 current opportunities"
+        ? "7 reviewed routes plus 21 current opportunities"
         : "7 reviewed sample routes, clearly separated",
     })
   ).toBeVisible();
@@ -204,11 +204,15 @@ test("Free Samples v3 preserves its canonical and seven classified resources", a
   await expect(page.locator("#brand-sample-programmes")).toContainText("Official brand sample programmes");
   await expect(page.getByRole("region", { name: "Product-testing panels" })).toContainText("does not guarantee");
   await expect(page.locator("section.detail-faq details")).toHaveCount(6);
-  await expect(page.locator("article.opportunity-card")).toHaveCount(opportunitiesEnabled ? 18 : 0);
+  await expect(page.locator("article.opportunity-card")).toHaveCount(opportunitiesEnabled ? 21 : 0);
   await expect(page.locator("#structured-data-opportunities")).toHaveCount(opportunitiesEnabled ? 1 : 0);
   await expect(page.locator("#structured-data-product-testing")).toHaveCount(opportunitiesEnabled ? 1 : 0);
 
   if (opportunitiesEnabled) {
+    await expect(page.getByText("7 current sample requests", { exact: true })).toBeVisible();
+    await expect(page.getByText("14 current product tests", { exact: true })).toBeVisible();
+    await expect(page.getByText("7 reviewed sites and programmes", { exact: true })).toBeVisible();
+    await expect(page.locator("#current-samples article.opportunity-card")).toHaveCount(7);
     const card = page.locator('[data-opportunity-id="coloplast-speedicath-short-sample"]');
     await expect(card).toHaveAttribute("data-card-variant", "full");
     await expect(card).toContainText("Application only");
@@ -223,33 +227,93 @@ test("Free Samples v3 preserves its canonical and seven classified resources", a
       "href",
       "/opportunity/coloplast-speedicath-short-sample/"
     );
+    const tena = page.locator('[data-opportunity-id="tena-women-free-sample-pack"]');
+    await expect(tena).toContainText("Direct request under the provider's stated limits");
+    await expect(tena).toContainText("One sample pack per person, family or address every six months");
+    await expect(tena.getByRole("link", { name: "View verified sample details" })).toHaveAttribute(
+      "href",
+      "/opportunity/tena-women-free-sample-pack/"
+    );
+    const blindDesigns = page.locator('[data-opportunity-id="blind-designs-free-fabric-samples"]');
+    await expect(blindDesigns).toContainText("up to five");
+    await expect(blindDesigns).toContainText("No delivery charge");
+    await expect(blindDesigns).not.toContainText(/medical|health-related|suitability/i);
     const testingCards = page.locator('[data-content-type="product_testing"]');
     await expect(testingCards).toHaveCount(14);
     const sunlight = page.locator('[data-opportunity-id="brand-advisor-sunlight-dishwashing-testing"]');
-    await expect(sunlight).toContainText("Two TikTok videos required if selected");
-    await expect(sunlight).toContainText("not a guaranteed free sample");
+    await expect(sunlight).toContainText("two TikTok videos");
+    await expect(sunlight).toContainText("does not guarantee selection");
+  } else {
+    await expect(page.getByText("0 current sample requests", { exact: true })).toHaveCount(0);
+    await expect(page.getByText("0 current product tests", { exact: true })).toHaveCount(0);
+    await expect(page.getByRole("link", { name: "Reviewed Sample & Testing Sites" })).toHaveAttribute("href", "#sample-options");
+    await expect(page.getByRole("link", { name: "Testing & Sample Sites" })).toHaveCount(0);
   }
 
   const detail = await page.request.get("/opportunity/coloplast-speedicath-short-sample/");
   expect(detail.status()).toBe(opportunitiesEnabled ? 200 : 404);
   const testingDetail = await page.request.get("/opportunity/brand-advisor-sunlight-dishwashing-testing/");
   expect(testingDetail.status()).toBe(opportunitiesEnabled ? 200 : 404);
+  const blindDetail = await page.request.get("/opportunity/blind-designs-free-fabric-samples/");
+  expect(blindDetail.status()).toBe(opportunitiesEnabled ? 200 : 404);
 });
 
-test("voucher hub leads with verified free-entry choices", async ({ page }) => {
+test("voucher hub separates direct rewards, strict voucher prizes and creator exchanges", async ({ page }) => {
   await page.goto("/category/vouchers/");
-  await expect(page).toHaveTitle("Free Voucher Giveaways South Africa | Current Competitions");
+  await expect(page).toHaveTitle("Free Voucher Giveaways South Africa | Offers & Competitions");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
     "Free Voucher Giveaways and Competitions in South Africa"
   );
   await expectCanonical(page, "/category/vouchers/");
-  await expect(page.getByRole("heading", { level: 2, name: "How to get free vouchers safely" })).toBeVisible();
-  await expect(page.locator("#free-entry-vouchers")).toContainText("No purchase required");
+  await expect(page.locator('body[data-voucher-hub-version="2"]')).toHaveCount(1);
+  await expect(page.getByRole("heading", { level: 2, name: "Free vouchers in South Africa: what is available now?" })).toBeVisible();
+  await expect(page.locator("#free-entry-vouchers")).toContainText("No verified unrestricted free-entry voucher");
+  await expect(page.locator('.hero-preview-panel a[href="/competition/clicks-babyclub-competition/"]')).toHaveCount(0);
+
+  const voucherResources = page.locator("#current-voucher-offers article.free-resource-card");
+  await expect(voucherResources).toHaveCount(4);
+  await expect(voucherResources.filter({ hasText: "Absa Advantage meal vouchers" })).toContainText("Account-linked meal vouchers");
+  await expect(voucherResources.filter({ hasText: "Spur R50 birthday voucher" })).toContainText("not a no-purchase freebie");
+  const voucherResourceSchema = await page.locator("#structured-data-voucher-resources").evaluate((script) => JSON.parse(script.textContent || "{}"));
+  expect(voucherResourceSchema.itemListElement).toHaveLength(4);
 
   const freeEntryPicks = page.locator("#free-entry-vouchers .voucher-free-pick");
-  expect(await freeEntryPicks.count()).toBeGreaterThan(0);
-  await expect(freeEntryPicks.first()).toContainText("Free entry");
-  await expect(page.locator("#competitionsGrid article.competition-card").first()).toBeVisible();
+  await expect(freeEntryPicks).toHaveCount(0);
+  await expect(page.locator("#free-entry-vouchers .voucher-free-picks__empty")).toBeVisible();
+  await expect(page.locator('#free-entry-vouchers a[href="/competition/clicks-babyclub-competition/"]')).toHaveCount(0);
+  await expect(page.locator('#free-entry-vouchers a[href="/competition/clicks-clubcard-have-your-say-june-july-2026/"]')).toHaveCount(0);
+  const accountLinkedPicks = page.locator("#account-linked-vouchers .voucher-free-pick");
+  await expect(accountLinkedPicks).toHaveCount(2);
+  await expect(accountLinkedPicks.first()).toContainText("Account required");
+  expect((await accountLinkedPicks.evaluateAll((links) => links.map((link) => link.getAttribute("href")).sort()))).toEqual([
+    "/competition/capitec-moneyup-academy-competition-2026/",
+    "/competition/capitec-tactical-flexi-voucher-2026/",
+  ].sort());
+  await expect(page.locator('a[href="/competition/clicks-clubcard-fragrance-giveaway-june-july-2026/"]')).toHaveCount(0);
+  await expect(page.locator("#creator-voucher-exchanges article.opportunity-card")).toHaveCount(opportunitiesEnabled ? 2 : 0);
+  await expect(page.locator("#structured-data-voucher-opportunities")).toHaveCount(opportunitiesEnabled ? 1 : 0);
+  const voucherListings = page.locator("#competitionsGrid article.competition-card");
+  await expect(voucherListings).toHaveCount(15);
+  await expect(voucherListings.first()).toBeVisible();
+});
+
+test("voucher reward links emit source-safe discovery analytics", async ({ page }) => {
+  await page.goto("/category/vouchers/");
+  await page.evaluate(() => {
+    window.__freehubTestEvents = [];
+    window.gtag = (...args) => window.__freehubTestEvents.push(args);
+  });
+  const source = page.locator('[data-content-id="absa-advantage-meal-vouchers"]');
+  await source.evaluate((link) => link.addEventListener("click", (event) => event.preventDefault(), { once: true }));
+  await source.click();
+  const events = await page.evaluate(() => window.__freehubTestEvents);
+  expect(events).toEqual([["event", "official_source_click", expect.objectContaining({
+    entity_kind: "resource",
+    content_id: "absa-advantage-meal-vouchers",
+    page_type: "voucher_hub",
+    source_domain: "absa.co.za",
+    destination_path: "/personal/bank/absa-advantage/",
+  })]]);
 });
 
 test("Samples analytics identify the vertical and use parameter-free destinations", async ({ page }) => {
@@ -513,7 +577,16 @@ test("active detail, outbound handoff, and expired detail retain lifecycle behav
   expect(response.status()).toBe(200);
   await expect(outPage.getByRole("heading", { level: 1 })).toHaveText("You are leaving Freehub");
   await expect(outPage.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, nofollow");
+  await expect(outPage.locator('script[src*="adsbygoogle"]')).toHaveCount(0);
+  await expect(outPage.locator(".ad-slot")).toHaveCount(0);
   await noJavaScript.close();
+});
+
+test("privacy policy discloses advertising cookies", async ({ page }) => {
+  await page.goto("/privacy-policy/");
+  await expect(page.getByRole("heading", { level: 2, name: "Cookies and analytics" })).toBeVisible();
+  await expect(page.getByText(/Google AdSense to display advertising/)).toBeVisible();
+  await expect(page.getByText(/Consent choices and applicable controls/)).toBeVisible();
 });
 
 test("unknown routes serve the generated 404 response", async ({ page }) => {

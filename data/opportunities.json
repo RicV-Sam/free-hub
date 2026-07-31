@@ -836,5 +836,121 @@
       "expectedFulfilmentWindow": "Approved samples are dispatched separately by Coloplast; delivery time varies by address.",
       "privacyUrl": "https://www.coloplast.co.za/global/declaration-of-consent/"
     }
+  },
+  {
+    "id": "tena-women-free-sample-pack",
+    "slug": "tena-women-free-sample-pack",
+    "type": "free_sample",
+    "title": "TENA Women free sample pack",
+    "summary": "People in South Africa can choose a TENA Women product sample and request one free sample pack for discreet delivery to a physical home address.",
+    "provider": "TENA South Africa",
+    "sourceUrl": "https://www.tena.co.za/women/products/free-sample",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": ["National"],
+    "lastVerifiedAt": "2026-07-31",
+    "reviewDueAt": "2026-08-07",
+    "publishedAt": "2026-07-31",
+    "updatedAt": "2026-07-31",
+    "availabilityKind": "ongoing",
+    "costClassification": "completely_free",
+    "requirements": [
+      {
+        "kind": "location",
+        "required": true,
+        "label": "South African physical delivery address required",
+        "detail": "TENA does not deliver sample packs to PO boxes."
+      },
+      { "kind": "identity", "required": true, "label": "Contact and delivery details required" },
+      { "kind": "other", "required": true, "label": "Choose a sample product in TENA's three-step form" },
+      { "kind": "other", "required": true, "label": "One sample pack per person, family or address every six months" }
+    ],
+    "categories": ["samples", "personal-care-samples"],
+    "tags": ["incontinence-care", "discreet-delivery", "free-delivery", "six-month-limit"],
+    "details": {
+      "fulfilmentMethod": "delivery",
+      "deliveryCharge": "none",
+      "stockState": "available",
+      "householdLimit": 1,
+      "selectionStatus": "guaranteed",
+      "expectedFulfilmentWindow": "TENA does not state a delivery timeframe; the official page says the pack is delivered discreetly to the supplied home address.",
+      "privacyUrl": "https://www.tena.co.za/women/privacy-policy"
+    }
+  },
+  {
+    "id": "tena-men-free-sample-pack",
+    "slug": "tena-men-free-sample-pack",
+    "type": "free_sample",
+    "title": "TENA Men free sample pack",
+    "summary": "People in South Africa can choose a TENA Men product sample and request one free Keep Control sample pack for discreet delivery to a physical home address.",
+    "provider": "TENA South Africa",
+    "sourceUrl": "https://www.tena.co.za/men/products/free-sample",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": ["National"],
+    "lastVerifiedAt": "2026-07-31",
+    "reviewDueAt": "2026-08-07",
+    "publishedAt": "2026-07-31",
+    "updatedAt": "2026-07-31",
+    "availabilityKind": "ongoing",
+    "costClassification": "completely_free",
+    "requirements": [
+      {
+        "kind": "location",
+        "required": true,
+        "label": "South African physical delivery address required",
+        "detail": "TENA does not deliver sample packs to PO boxes."
+      },
+      { "kind": "identity", "required": true, "label": "Contact and delivery details required" },
+      { "kind": "other", "required": true, "label": "Choose a sample product in TENA's three-step form" },
+      { "kind": "other", "required": true, "label": "One sample pack per person, family or address every six months" }
+    ],
+    "categories": ["samples", "personal-care-samples"],
+    "tags": ["incontinence-care", "discreet-delivery", "free-delivery", "six-month-limit"],
+    "details": {
+      "fulfilmentMethod": "delivery",
+      "deliveryCharge": "none",
+      "stockState": "available",
+      "householdLimit": 1,
+      "selectionStatus": "guaranteed",
+      "expectedFulfilmentWindow": "TENA does not state a delivery timeframe; the official page says the pack is delivered discreetly to the supplied home address.",
+      "privacyUrl": "https://www.tena.co.za/men/privacy-policy"
+    }
+  },
+  {
+    "id": "blind-designs-free-fabric-samples",
+    "slug": "blind-designs-free-fabric-samples",
+    "type": "free_sample",
+    "title": "Blind Designs free fabric samples",
+    "summary": "People in South Africa can order up to five Blind Designs blind or curtain fabric sample pieces per delivery with free delivery to a South African address.",
+    "provider": "Blind Designs",
+    "sourceUrl": "https://www.blinddesigns.co.za/view-blind-type/",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": ["National"],
+    "lastVerifiedAt": "2026-07-31",
+    "reviewDueAt": "2026-08-07",
+    "publishedAt": "2026-07-31",
+    "updatedAt": "2026-07-31",
+    "availabilityKind": "ongoing",
+    "costClassification": "completely_free",
+    "requirements": [
+      { "kind": "location", "required": true, "label": "South African delivery address required" },
+      { "kind": "identity", "required": true, "label": "Contact and delivery details required" },
+      { "kind": "other", "required": true, "label": "Select a blind or curtain range and up to five fabric pieces per delivery" }
+    ],
+    "categories": ["samples", "home-improvement-samples"],
+    "tags": ["fabric-samples", "blind-samples", "curtain-samples", "free-delivery", "up-to-five-samples"],
+    "details": {
+      "fulfilmentMethod": "delivery",
+      "deliveryCharge": "none",
+      "stockState": "available",
+      "householdLimit": null,
+      "selectionStatus": "guaranteed",
+      "expectedFulfilmentWindow": "Blind Designs does not state a delivery timeframe on the official fabric-sample page."
+    }
   }
 ]

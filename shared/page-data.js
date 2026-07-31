@@ -88,15 +88,15 @@
     },
     vouchers: {
       category: "Vouchers",
-      title: "Free Voucher Giveaways South Africa | Current Competitions",
+      title: "Free Voucher Giveaways South Africa | Offers & Competitions",
       description:
-        "Find current free voucher giveaways and voucher competitions in South Africa. Compare shopping, grocery, fuel, airtime and data prizes with verified entry costs.",
+        "Find current free vouchers, rewards and voucher competitions in South Africa. Compare eligibility, costs, expiry dates and official source links.",
       heading: "Free Voucher Giveaways and Competitions in South Africa",
-      dateModified: "2026-07-23",
+      dateModified: "2026-07-31",
       intro:
-        "Looking for free vouchers in South Africa? Start with the free-entry picks on this page, then compare all current shopping, grocery, fuel, airtime, data and retail voucher competitions. Every listing shows its entry-cost label, promoter, prize and closing date before you open the official source. Some voucher promotions require a purchase, receipt, app, account or rewards card, so they remain clearly labelled and separate from free-entry options.",
+        "Looking for free vouchers in South Africa? Start with current rewards and public-service voucher routes, then compare free-entry voucher competitions and other shopping, grocery, fuel, airtime, data and retail voucher prizes. Each route shows what you must do before you open the official source.",
       support:
-        "Use the quick answer and free-entry shortlist first when you want a voucher without buying anything. The complete voucher competitions South Africa hub also includes purchase-required, app-based, account-linked, rewards-card, till-slip, WhatsApp, online and in-store promotions, each with a visible cost label and official source.",
+        "Use the quick answer to separate direct rewards, public-service vouchers, creator exchanges and prize draws. The full voucher competitions hub also includes purchase-required, app-based, account-linked, rewards-card, till-slip, WhatsApp, online and in-store promotions, each with a visible cost label and official source.",
     },
   };
   const DEFAULT_COPY = {
@@ -1477,7 +1477,12 @@
 
     if (routeContext.type === "category") {
       const targetCategory = CATEGORY_COPY[routeContext.slug].category;
-      return sortCompetitions(publishedCompetitions.filter((competition) => competition.category === targetCategory));
+      const categoryCompetitions = publishedCompetitions.filter((competition) => competition.category === targetCategory);
+      return sortCompetitions(
+        routeContext.slug === "vouchers"
+          ? categoryCompetitions.filter(isVoucherPrizeCompetition)
+          : categoryCompetitions
+      );
     }
 
     if (routeContext.type === "tag") {
@@ -1493,6 +1498,14 @@
     }
 
     return publishedCompetitions;
+  }
+
+  function isVoucherPrizeCompetition(competition) {
+    const prizeName = String(competition?.prizeName || "").trim().toLowerCase();
+    const fallbackTitle = String(competition?.title || "").trim().toLowerCase();
+    return /\b(vouchers?|e[-\s]?vouchers?|gift[-\s]+cards?|gift[-\s]+vouchers?|store[-\s]+credits?|cashback|airtime|data[-\s]+bundles?)\b/i.test(
+      prizeName || fallbackTitle
+    );
   }
 
   function getHubFilteredCompetitions(competitions, slug) {
@@ -1889,6 +1902,7 @@
     getPageCopy,
     getPageSupportCopy,
     filterCompetitionsByRoute,
+    isVoucherPrizeCompetition,
     buildStructuredData,
     getAllStaticRouteContexts,
     THIN_PAGE_TIPS,

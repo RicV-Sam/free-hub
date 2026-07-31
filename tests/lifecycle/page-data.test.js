@@ -61,3 +61,13 @@ test("explicit legacy cost evidence remains exhaustive without a free default", 
   assert.equal(shared.getEntryCostLabel(fixtures.conditionalFreeCost), "Free entry");
   assert.equal(shared.getEntryCostLabel(fixtures.conditionalUnclearCost), "Entry requirements unclear");
 });
+
+test("voucher discovery accepts voucher value and rejects category-only hamper matches", () => {
+  assert.equal(shared.isVoucherPrizeCompetition({ prizeName: "R500 Clicks cashback" }), true);
+  assert.equal(shared.isVoucherPrizeCompetition({ prizeName: "Airtime and data bundles" }), true);
+  assert.equal(shared.isVoucherPrizeCompetition({ title: "Win a R2,000 gift card" }), true);
+  assert.equal(shared.isVoucherPrizeCompetition({ prizeName: "R500 eVoucher" }), true);
+  assert.equal(shared.isVoucherPrizeCompetition({ prizeName: "R1,000 gift-card" }), true);
+  assert.equal(shared.isVoucherPrizeCompetition({ prizeName: "Montblanc Explorer gift set" }), false);
+  assert.equal(shared.isVoucherPrizeCompetition({ prizeName: "Beauty product hamper" }), false);
+});

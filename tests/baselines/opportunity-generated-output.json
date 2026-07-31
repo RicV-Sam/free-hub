@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "buildDate": "2026-07-31",
+  "opportunityIds": [
+    "blind-designs-free-fabric-samples",
+    "brand-advisor-b-well-canola-oil-testing",
+    "brand-advisor-clover-barley-milk-testing",
+    "brand-advisor-clover-krush-testing",
+    "brand-advisor-clover-nolac-testing",
+    "brand-advisor-clover-onion-slices-testing",
+    "brand-advisor-kinder-testing",
+    "brand-advisor-parmalat-easygest-testing",
+    "brand-advisor-simba-voucher-testing",
+    "brand-advisor-speckled-eggs-testing",
+    "brand-advisor-sta-soft-parfum-testing",
+    "brand-advisor-steri-stumpie-200ml-testing",
+    "brand-advisor-sunlight-dishwashing-testing",
+    "brand-advisor-super-c-sweets-testing",
+    "brand-advisor-vicks-vapolozenges-testing",
+    "coloplast-brava-elastic-tape-free-sample",
+    "coloplast-sensura-mio-click-free-sample",
+    "coloplast-sensura-mio-free-sample",
+    "coloplast-speedicath-short-sample",
+    "tena-men-free-sample-pack",
+    "tena-women-free-sample-pack"
+  ],
+  "files": {
+    "opportunity/blind-designs-free-fabric-samples/index.html": "a6e66e3b47a6a8bffe0db1dc89da018b6efc6181a1068ca261f112f058aa41ca",
+    "out/opportunity/blind-designs-free-fabric-samples/index.html": "2983a20d6d9caf0ed583d70882378e6bb638e308bfb026ac0b2c3a2c1f2b48bf",
+    "opportunity/brand-advisor-b-well-canola-oil-testing/index.html": "93106779a2cdbacee9ad9935328deb3bba99c99ee18402f22bf49854e4d97649",
+    "out/opportunity/brand-advisor-b-well-canola-oil-testing/index.html": "940ba3ceb29b96e1483fde1543fab085e087e0669839d0ad0ca3d388c176cf57",
+    "opportunity/brand-advisor-clover-barley-milk-testing/index.html": "9e9454e8e640017c14e631ff32fdcccd632ce9b974c3bd73e0a4d0a6ff87a89b",
+    "out/opportunity/brand-advisor-clover-barley-milk-testing/index.html": "8ef6638c098f5527ba9ae34c7730715b1fec14eb8b39edcb0a3c0a9be34251f0",
+    "opportunity/brand-advisor-clover-krush-testing/index.html": "5f26793aeffe9e7aeff6760aa74521eac3993604b59a7a6ef690b27021033f1f",
+    "out/opportunity/brand-advisor-clover-krush-testing/index.html": "012b7f4422b6455bc3d286042454ade7db7ceaaa3bae7ec3b3e10fada18de45e",
+    "opportunity/brand-advisor-clover-nolac-testing/index.html": "a3b07f82a9db68ed20e0ee926bd9f9223af687730e9b614e95fcb0b5771cefde",
+    "out/opportunity/brand-advisor-clover-nolac-testing/index.html": "bb736ca3c53b879450500f2dfd9ad813084c8431f113ed53ad3bafd0d9a3f952",
+    "opportunity/brand-advisor-clover-onion-slices-testing/index.html": "906f36eec2ce293df18348ef0eed0a9edbcaa3fd371dc19a4696026ac5e37d4d",
+    "out/opportunity/brand-advisor-clover-onion-slices-testing/index.html": "0a20634645dbcbcac4bd804e044524c055f7fab9163890cddebd143c9c4c5c1f",
+    "opportunity/brand-advisor-kinder-testing/index.html": "2baf93803ec1d1b457300fa3161523a2e8e8dcdf73e40325922ebdf5ad187866",
+    "out/opportunity/brand-advisor-kinder-testing/index.html": "1a6de7c58b6e4e471ac2c2a02ee728c20b883f09896375021fe5182ae11333ab",
+    "opportunity/brand-advisor-parmalat-easygest-testing/index.html": "946c51538571536a921b889bf385158f63d8462e8f5111483fe5ca2787d840ed",
+    "out/opportunity/brand-advisor-parmalat-easygest-testing/index.html": "459c7e77028fd745dd5c25dfc3afeaa5cf6f0019b41fc75c9ae617b37c7ab18a",
+    "opportunity/brand-advisor-simba-voucher-testing/index.html": "199dfe45502b85329a386a7dd55e1aa7bdcab01424c4281b9a48bf4038d39dcd",
+    "out/opportunity/brand-advisor-simba-voucher-testing/index.html": "2d7fb87bb69f774511b0392c287ad92337c110aad21fa1d11c10770a81fd3895",
+    "opportunity/brand-advisor-speckled-eggs-testing/index.html": "eabe08513343418db616203d47cbb4dab0170b638844e87220354e8990af0a50",
+    "out/opportunity/brand-advisor-speckled-eggs-testing/index.html": "59583d3a2a974b8ab7c1fa7d5942710cc6b82be5149a56c3578bea660861852e",
+    "opportunity/brand-advisor-sta-soft-parfum-testing/index.html": "223e69bd107157146e47d19a3915bb5161a2f63defad5fb5ffb7057f92d0a457",
+    "out/opportunity/brand-advisor-sta-soft-parfum-testing/index.html": "8206a92239806b4ed581735bc957f49a0e7db3575b5395a1afdaf27d4a394d2d",
+    "opportunity/brand-advisor-steri-stumpie-200ml-testing/index.html": "a1068a5eba52846a74e5f018591de8c16f204e54bbe836eba706cbe0305face7",
+    "out/opportunity/brand-advisor-steri-stumpie-200ml-testing/index.html": "046716221edd6ab563e3710b8275afca848fe3f7d5a5e23cb4ae93530d258d6b",
+    "opportunity/brand-advisor-sunlight-dishwashing-testing/index.html": "bf8fe69ad2f0e1562a82560a26442f4060511cb9c6588cc7621edf473d442885",
+    "out/opportunity/brand-advisor-sunlight-dishwashing-testing/index.html": "c5bb38174a6942ef6fca8b00f1e53b5ccc072c9e6196957c23877f3748826a14",
+    "opportunity/brand-advisor-super-c-sweets-testing/index.html": "5df6a0b26b6d723a9b90004ae6e805d9020b4ef7c593d979b8e7051f78e3b3b1",
+    "out/opportunity/brand-advisor-super-c-sweets-testing/index.html": "11ecf3a348b2d1b0dd8608869a152f18d49d018afca5a5c347c3e15f9c710e89",
+    "opportunity/brand-advisor-vicks-vapolozenges-testing/index.html": "cf6e89b1462286426dccdf99c95bc3e6a76d2ebe835687b428f2c24cfeaf59f8",
+    "out/opportunity/brand-advisor-vicks-vapolozenges-testing/index.html": "27ed302cdff09016f0baef64cd1a416ed49070fa933098833467c4221c94d53c",
+    "opportunity/coloplast-brava-elastic-tape-free-sample/index.html": "f9fb4b253a27e0d10704880385200c2378ba51a73dbe1c148698475e4d05a1aa",
+    "out/opportunity/coloplast-brava-elastic-tape-free-sample/index.html": "8f7617fc1c267c862a833258e7d83f7a3ad12ac5730541e54ac4ac423d56467a",
+    "opportunity/coloplast-sensura-mio-click-free-sample/index.html": "e2c24f59952dbefa8f053b0d6b5a709b673ce0c45027c8fdddcbc191b77c26a2",
+    "out/opportunity/coloplast-sensura-mio-click-free-sample/index.html": "51deb79e5fba12274fa1f5ceded0c7ec980950ba9f34175d796971ffea5214ce",
+    "opportunity/coloplast-sensura-mio-free-sample/index.html": "cffb2ea9b20ebb854324a5b30570278c66a015b46633c6cb310a10708c929d5f",
+    "out/opportunity/coloplast-sensura-mio-free-sample/index.html": "a75e3e82e4004550cf1b2250930be37adcb895c794f7f67358ca991e3bf28770",
+    "opportunity/coloplast-speedicath-short-sample/index.html": "241d70a674bad6586f7f26e8759a63999f0227fbe921f747f61e551d837f2aff",
+    "out/opportunity/coloplast-speedicath-short-sample/index.html": "729f07fac0bd1b1fe89ee3d1ebd5fe67bcb93990fb5d8ede9b7e36c44594cc14",
+    "opportunity/tena-men-free-sample-pack/index.html": "a7c3518546fcf60516d27f70f637459487f90dc53c0f96d6804b20c03018550b",
+    "out/opportunity/tena-men-free-sample-pack/index.html": "51a58ba73d5af640bf304aad3755a225d72c4ec3d89c707a0e2a391c2d3429a1",
+    "opportunity/tena-women-free-sample-pack/index.html": "d5e41ef5ff8bcd92d56db9c584eabd9cd28c34e10ec2626532e0581c73406571",
+    "out/opportunity/tena-women-free-sample-pack/index.html": "d1cab44d6c603db9579f3c8746ef76de5ad7399c89e33501d98d8648a89b7157"
+  },
+  "surfaces": {
+    "category/vouchers/index.html": {
+      "flagOff": "2bf470c9aea64f411ebada8bcf5bdccf34e3673f034aa31c8f6457a1790b7b58",
+      "flagOn": "c2a24d376b31f1b229bfaba649e6072b53bb0bc943107b28d3d7309fabe3c8de"
+    },
+    "free-samples-south-africa/index.html": {
+      "flagOff": "2eac8aed629221f1b422228c1ebcb436b7fd703361bbccbfc39728831cbb6864",
+      "flagOn": "84d466dd69612296daa95441d37f43401458c91a79de417e0668668d29b73620"
+    },
+    "free-stuff-south-africa/index.html": {
+      "flagOff": "450ac249c409bbebd88de05d248d04c127e3f0e1cb9d7bbcbccba2128d716539",
+      "flagOn": "62ae867f110a13ede2f6269e9be7b443935e0b9ebe4860863b4833dacf73b0a8"
+    },
+    "sitemap.xml": {
+      "flagOff": "6aa7547b01499e2ea7db6425373b00e6e23b34bee4b8a73bc55c34eaac366df3",
+      "flagOn": "7eb4bdbaf2118ca66154ed3bae82a15c00b8fc7d0bcdcf958df9ecb49a7fd499"
+    }
+  }
+}

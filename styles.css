@@ -1385,6 +1385,47 @@ button {
   margin-bottom: 0.35rem;
 }
 
+.voucher-route-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(15, 23, 42, 0.14);
+}
+
+.voucher-route-link {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: 0.2rem 0.75rem;
+  min-width: 0;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.14);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.voucher-route-link strong {
+  grid-row: 1 / span 2;
+  color: #be123c;
+  font-size: 1.55rem;
+  line-height: 1;
+}
+
+.voucher-route-link span {
+  font-weight: 900;
+}
+
+.voucher-route-link small {
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.voucher-route-link:hover,
+.voucher-route-link:focus-visible {
+  background: rgba(15, 118, 110, 0.06);
+  outline-offset: 4px;
+}
+
 .voucher-free-picks {
   scroll-margin-top: 11rem;
 }
@@ -1418,6 +1459,16 @@ button {
   font-weight: 800;
 }
 
+.voucher-free-picks__empty {
+  max-width: 70ch;
+  margin: 0;
+  padding: 0.9rem 1rem;
+  border-left: 4px solid #be123c;
+  background: #fff7ed;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
 @media (min-width: 720px) {
   .anchor-target,
   .sample-route-finder,
@@ -1427,6 +1478,19 @@ button {
 
   .sample-route-finder__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .voucher-route-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .voucher-route-link {
+    padding-right: 1rem;
+  }
+
+  .voucher-route-link:nth-child(even) {
+    padding-left: 1rem;
+    border-left: 1px solid rgba(15, 23, 42, 0.14);
   }
 
   .voucher-free-picks__grid {

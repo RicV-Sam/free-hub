@@ -229,26 +229,34 @@ function getRouteCopy(opportunity) {
   }
 
   const medical = isMedicalSample(opportunity);
+  const suitabilityReview = requiresSuitabilityReview(opportunity);
+  const directRequest = opportunity.details?.selectionStatus === "guaranteed";
   return {
-    statusLabel: "Application only",
-    eligibilityCue: medical
+    statusLabel: suitabilityReview ? "Suitability review" : directRequest ? "Direct sample request" : "Application only",
+    eligibilityCue: suitabilityReview
       ? "This medical-product sample is intended for people who meet the provider's suitability requirements."
-      : "The provider may limit availability or approve requests based on its current sample rules.",
-    selectionBoundary: medical
+      : directRequest
+        ? "This is a direct request under the provider's stated stock, delivery-area and per-request limits."
+        : "The provider may limit availability or approve requests based on its current sample rules.",
+    selectionBoundary: suitabilityReview
       ? `${opportunity.provider}, not Freehub, decides whether the product is suitable and whether a sample request is approved.`
-      : `${opportunity.provider}, not Freehub, decides whether the sample request is approved and fulfilled.`,
+      : `${opportunity.provider}, not Freehub, owns the sample stock, request limits and fulfilment.`,
     privacyHeading: medical
       ? `Your information goes directly to ${opportunity.provider.replace(/\s+South Africa$/i, "")}`
       : `Your request goes directly to ${opportunity.provider}`,
-    privacyText: medical
+    privacyText: suitabilityReview
       ? `You will provide suitability and health-related information directly to ${opportunity.provider}. Freehub does not receive, store or assess your application and does not provide medical suitability advice.`
-      : `Freehub does not receive, store or assess your request. ${opportunity.provider} controls approval and fulfilment.`,
+      : medical
+        ? `You may provide health-related product information directly to ${opportunity.provider}. Freehub does not receive, store or assess your request.`
+        : `Freehub does not receive, store or assess your request. ${opportunity.provider} controls approval and fulfilment.`,
     ctaLabel: "Continue to the official sample request",
     termsLabel: "Read the official sample terms",
     exitHeading: `Continue to the official ${opportunity.provider} sample request`,
-    exitPrivacyText: medical
+    exitPrivacyText: suitabilityReview
       ? "You may provide suitability and health-related information directly to the provider. Freehub does not receive, store or assess it."
-      : "Freehub does not receive, store or assess the sample request.",
+      : medical
+        ? "You may provide health-related product information directly to the provider. Freehub does not receive, store or assess it."
+        : "Freehub does not receive, store or assess the sample request.",
   };
 }
 
@@ -265,9 +273,7 @@ function buildDetailFacts(opportunity, costLabel, formatDate) {
   } else {
     const fulfilment = formatToken(details.fulfilmentMethod);
     const delivery = details.deliveryCharge === "none" ? "No delivery charge" : formatToken(details.deliveryCharge);
-    const selection = details.selectionStatus === "selected_participants"
-      ? "Selected applicants after provider review"
-      : formatToken(details.selectionStatus);
+    const selection = getSampleSelectionLabel(details.selectionStatus);
     facts.push(
       { label: "Fulfilment", value: [fulfilment, delivery].filter(Boolean).join("; ") },
       { label: "Selection", value: selection }
@@ -286,6 +292,17 @@ function buildDetailFacts(opportunity, costLabel, formatDate) {
 
 function isMedicalSample(opportunity) {
   return opportunity.type === "free_sample" && Array.isArray(opportunity.tags) && opportunity.tags.includes("medical-product-sample");
+}
+
+function requiresSuitabilityReview(opportunity) {
+  return isMedicalSample(opportunity) && opportunity.tags.includes("suitability-approval-required");
+}
+
+function getSampleSelectionLabel(selectionStatus) {
+  if (selectionStatus === "selected_participants") return "Selected applicants after provider review";
+  if (selectionStatus === "first_come_first_served") return "First come, first served while stock lasts";
+  if (selectionStatus === "guaranteed") return "Direct request under the provider's stated limits";
+  return formatToken(selectionStatus);
 }
 
 function formatToken(value) {

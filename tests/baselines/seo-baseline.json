@@ -2,8 +2,8 @@
   "version": 1,
   "buildDate": "2026-07-31",
   "siteOrigin": "https://freehub.co.za",
-  "sitemapUrlCount": 141,
-  "opportunityAllowedSourceHosts": ["brandadvisor.co.za", "products.coloplast.co.za"],
+  "sitemapUrlCount": 137,
+  "opportunityAllowedSourceHosts": ["brandadvisor.co.za", "products.coloplast.co.za", "www.blinddesigns.co.za", "www.tena.co.za"],
   "canonicalAliases": {
     "/tag/free-entry/": "/free-competitions/",
     "/tag/purchase-required/": "/purchase-required-competitions/",

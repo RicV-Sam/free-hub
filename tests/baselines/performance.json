@@ -1,17 +1,19 @@
 {
-  "version": 1,
-  "buildDate": "2026-07-13",
+  "version": 2,
+  "buildDate": "2026-07-31",
   "warnGrowthPercent": 10,
   "failGrowthPercent": 25,
   "assets": {
-    "homepage": { "file": "index.html", "bytes": 71273 },
-    "competitions": { "file": "competitions/index.html", "bytes": 463588 },
-    "freeStuff": { "file": "free-stuff-south-africa/index.html", "bytes": 58260 },
-    "css": { "file": "styles.css", "bytes": 105455 },
-    "javascript": { "file": "app.js", "bytes": 24882 }
+    "homepage": { "file": "index.html", "bytes": 62234 },
+    "competitions": { "file": "competitions/index.html", "bytes": 384107 },
+    "freeStuff": { "file": "free-stuff-south-africa/index.html", "bytes": 78717 },
+    "vouchers": { "file": "category/vouchers/index.html", "bytes": 127259 },
+    "freeSamples": { "file": "free-samples-south-africa/index.html", "bytes": 87871 },
+    "css": { "file": "styles.css", "bytes": 114032 },
+    "javascript": { "file": "app.js", "bytes": 23638 }
   },
   "inventory": {
-    "competitionCards": 85,
-    "structuredDataItems": 85
+    "competitionCards": 80,
+    "structuredDataItems": 80
   }
 }

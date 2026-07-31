@@ -105,7 +105,7 @@ test("runtime validators enforce strict contracts and legacy FreeResource compat
   assert.equal(unsupported.typeSupported, false);
 
   const legacyResources = JSON.parse(fs.readFileSync(path.join(rootDir, "data", "free-resources.json"), "utf8"));
-  assert.equal(legacyResources.length, 21);
+  assert.equal(legacyResources.length, 24);
   assert.equal(opportunityData.validateFreeResourceRegistry(legacyResources, { legacy: true }).valid, true);
   assert.equal(opportunityData.validateFreeResource(legacyResources[0]).valid, false);
 
@@ -392,11 +392,20 @@ test("the tracked Opportunity registry contains the reviewed sample and product-
       "coloplast-sensura-mio-free-sample",
       "coloplast-brava-elastic-tape-free-sample",
       "coloplast-sensura-mio-click-free-sample",
+      "tena-women-free-sample-pack",
+      "tena-men-free-sample-pack",
+      "blind-designs-free-fabric-samples",
     ]
   );
   assert.equal(opportunityData.validateOpportunityRegistry(registry).valid, true);
-  assert.equal(registry.filter((record) => record.type === "free_sample").length, 4);
+  assert.equal(registry.filter((record) => record.type === "free_sample").length, 7);
   assert.equal(registry.filter((record) => record.type === "product_testing").length, 14);
+
+  const generatedOutput = JSON.parse(
+    fs.readFileSync(path.join(rootDir, "tests", "baselines", "opportunity-generated-output.json"), "utf8")
+  );
+  assert.deepEqual(generatedOutput.opportunityIds, registry.map((record) => record.id).sort());
+  assert.equal(Object.keys(generatedOutput.files).length, registry.length * 2);
 });
 
 test("manual evidence is exact, fresh, append-only data and cannot match another URL", () => {

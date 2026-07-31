@@ -4,14 +4,15 @@ const { parseHtml, walkHtmlFiles } = require("./lib/baseline-utils.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const opportunitiesEnabled = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true";
-const expectedOpportunityCount = opportunitiesEnabled ? 18 : 0;
-const expectedSampleOpportunityCount = opportunitiesEnabled ? 4 : 0;
+const expectedOpportunityCount = opportunitiesEnabled ? 21 : 0;
+const expectedSampleOpportunityCount = opportunitiesEnabled ? 7 : 0;
 const expectedTestingOpportunityCount = opportunitiesEnabled ? 14 : 0;
 const expectedParentOpportunityCount = opportunitiesEnabled ? 2 : 0;
-const expectedGeneratedFiles = 360 + expectedOpportunityCount * 2;
-const expectedSitemapUrls = 141 + expectedOpportunityCount;
-const expectedActiveCompetitionCount = 84;
+const expectedGeneratedFiles = 352 + expectedOpportunityCount * 2;
+const expectedSitemapUrls = 137 + expectedOpportunityCount;
+const expectedActiveCompetitionCount = 80;
 const expectedIds = [
+  "blind-designs-free-fabric-samples",
   "brand-advisor-b-well-canola-oil-testing",
   "brand-advisor-clover-barley-milk-testing",
   "brand-advisor-clover-krush-testing",
@@ -30,6 +31,17 @@ const expectedIds = [
   "coloplast-sensura-mio-click-free-sample",
   "coloplast-sensura-mio-free-sample",
   "coloplast-speedicath-short-sample",
+  "tena-men-free-sample-pack",
+  "tena-women-free-sample-pack",
+];
+const expectedSampleIds = [
+  "blind-designs-free-fabric-samples",
+  "coloplast-brava-elastic-tape-free-sample",
+  "coloplast-sensura-mio-click-free-sample",
+  "coloplast-sensura-mio-free-sample",
+  "coloplast-speedicath-short-sample",
+  "tena-men-free-sample-pack",
+  "tena-women-free-sample-pack",
 ];
 const errors = [];
 const checks = [];
@@ -72,8 +84,8 @@ check("Generated files", htmlFiles.length + 1, expectedGeneratedFiles);
 check("Sitemap URLs", count(sitemap, /<loc>/g), expectedSitemapUrls);
 check("Active competition cards", count(competitions, /<article class="competition-card\b/g), expectedActiveCompetitionCount);
 check("Competition schema items", competitionSchema?.itemListElement?.length || 0, expectedActiveCompetitionCount);
-check("Samples page marker", samples.includes('data-free-samples-page-version="3"'), true);
-check("Samples title", samplePage.title, "Where to Get Free Samples in South Africa | 7 Legit Options");
+check("Samples page marker", samples.includes('data-free-samples-page-version="4"'), true);
+check("Samples title", samplePage.title, "Where to Get Free Samples in South Africa | Current Offers");
 check("Samples H1 count", samplePage.h1.length, 1);
 check("Samples H1", samplePage.h1[0], "Where to Get Free Samples in South Africa");
 check("Samples canonical", samplePage.canonical, "https://freehub.co.za/free-samples-south-africa/");
@@ -106,10 +118,8 @@ if (opportunitiesEnabled) {
   check("Full card variant", samples.includes('data-card-variant="full"'), true);
   check("Compact card variant", parent.includes('data-card-variant="compact"'), true);
   check(
-    "Coloplast detail routes",
-    expectedIds
-      .filter((id) => id.startsWith("coloplast-"))
-      .every((id) => samples.includes(`href="/opportunity/${id}/"`)),
+    "Direct sample detail routes",
+    expectedSampleIds.every((id) => samples.includes(`href="/opportunity/${id}/"`)),
     true
   );
   check(
@@ -121,7 +131,7 @@ if (opportunitiesEnabled) {
   );
   check("Privacy boundary on both surfaces", [samples, parent].every((html) => html.includes("Freehub does not receive or assess your application")), true);
   check("Official consent link on both surfaces", [samples, parent].every((html) => html.includes("https://www.coloplast.co.za/global/declaration-of-consent/")), true);
-  check("Selection boundary", samples.includes("not a guaranteed free sample"), true);
+  check("Selection boundary", samples.includes("Applying does not guarantee selection or a product"), true);
 }
 
 const orderedMarkers = [

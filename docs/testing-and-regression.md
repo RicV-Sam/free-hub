@@ -2,7 +2,7 @@
 
 ## Purpose
 
-PR 1B established the repository-grounded Freehub baseline. PR 2 adds fail-closed cost and Opportunity contract tests without changing public routes, generated markup, competition data, Firebase collections or publication behavior. The current reviewed snapshot uses build date `2026-07-18`, when the generated sitemap contained 141 URLs, the main competition collection contained 82 static cards and its ItemList contained 82 structured-data items.
+PR 1B established the repository-grounded Freehub baseline. Later releases added fail-closed cost, Opportunity and discovery-page contracts. The current reviewed snapshot uses build date `2026-07-31`: the flag-disabled build contains 137 sitemap URLs and 352 generated files, while the reviewed 21-record Opportunity build contains 158 sitemap URLs and 394 generated files.
 
 ZA Comp Engine exports remain private review evidence. Passing these tests cannot approve a handoff row, change Freehub publication state or create a public page.
 
@@ -11,7 +11,7 @@ ZA Comp Engine exports remain private review evidence. Passing these tests canno
 Run the generator before tests when working from a fresh checkout:
 
 ```powershell
-$env:FREEHUB_BUILD_DATE = "2026-07-18"
+$env:FREEHUB_BUILD_DATE = "2026-07-31"
 npm run build
 npm test
 npm run lint
@@ -31,7 +31,7 @@ The npm interfaces are:
 
 ## SEO and generated-page baseline
 
-`tests/baselines/seo-baseline.json` fixes the audited origin, snapshot date, 141-URL sitemap count, canonical aliases, forbidden aliases and reviewed link-graph exceptions. `tests/baselines/generated-pages.json` records representative outputs for the homepage, collection hubs, taxonomy routes, active and expired detail pages, outbound redirect, evergreen pillars, Club, admin and 404.
+`tests/baselines/seo-baseline.json` fixes the audited origin, snapshot date, flag-disabled 137-URL sitemap count, canonical aliases, forbidden aliases and reviewed link-graph exceptions. `tests/baselines/generated-pages.json` records representative outputs for the homepage, voucher hub, collection hubs, taxonomy routes, active and expired detail pages, outbound redirect, evergreen pillars, Club, admin and 404. `tests/baselines/discovery-generated-output.json` pins the exact reviewed base-to-candidate hashes for this discovery release, while `tests/baselines/opportunity-generated-output.json` pins every reviewed flag-enabled detail, exit, discovery-surface and sitemap hash.
 
 Hard failures include:
 
@@ -46,11 +46,11 @@ Hard failures include:
 
 The strict anchor crawl excludes self-canonicals and other non-anchor `href` values. It therefore records eight existing exceptions that the earlier broad audit did not expose: `/blog/`, `/tag/win-a-car/`, `/tag/online-entry/`, `/tag/in-store-entry/`, `/tag/ussd-entry/`, `/tag/whatsapp-entry/`, `/tag/football/` and `/tag/rugby/`. Resolved exceptions pass and are reported; new exceptions fail.
 
-The performance baseline is informational until growth exceeds the reviewed thresholds. An increase above 10% warns, an increase above 25% fails, and decreases pass. Competition card count and ItemList size may move with verified inventory, but they must remain equal.
+The performance baseline covers the homepage, competition index, Free Stuff, vouchers, Samples, CSS and JavaScript. It is informational until growth exceeds the reviewed thresholds. An increase above 10% warns, an increase above 25% fails, and decreases pass. Competition card count and ItemList size may move with verified inventory, but they must remain equal.
 
 ## Link-warning baseline
 
-`tests/baselines/link-warnings.json` stores warnings by stable `{recordId, field, reason}` identity and retains source type, lifecycle and URL as review context. The reviewed merge-time state contains ten expired-archive warning identities and five accepted free-resource manual-check warnings. A temporarily recovered archived source is reported as resolved without removing its reviewed identity, while a different record, field, reason, URL or lifecycle is surfaced.
+`tests/baselines/link-warnings.json` stores warnings by stable `{recordId, field, reason}` identity and retains source type, lifecycle and URL as review context. The reviewed merge-time state contains 15 competition warning identities (13 archived 404s, one archived 403 and one retained timeout) and six accepted free-resource manual-check warnings. A temporarily recovered archived source is reported as resolved without removing its reviewed identity, while a different record, field, reason, URL or lifecycle is surfaced.
 
 Active competition failures, active non-manual free-resource failures, invalid manual-exception evidence and lifecycle/output leakage remain hard failures. New or changed warnings also return a non-zero result until reviewed; a lower warning count does not fail.
 
@@ -71,21 +71,21 @@ The update command performs live requests and intentionally contains no generate
 
 Fixtures cover active public, active noindex, Club-only, expired published, missing archive evidence, archived low-value, held, rejected/`doNotPublish`, free, purchase-required, paid, explicit unknown, missing and unrecognized cost states.
 
-Missing, explicit `unknown` and unrecognized cost fixtures now fail closed to `unclear` / `Entry requirements unclear`. A missing type may classify only from affirmative evidence such as a purchase boolean, paid amount, standard-rate tag, exact free-entry tag or explicit fee label; absence never implies free. The active `{id, label}` inventory is protected by a compact hash covering all 81 public competitions in the 23 July 2026 snapshot.
+Missing, explicit `unknown` and unrecognized cost fixtures now fail closed to `unclear` / `Entry requirements unclear`. A missing type may classify only from affirmative evidence such as a purchase boolean, paid amount, standard-rate tag, exact free-entry tag or explicit fee label; absence never implies free. The active `{id, label}` inventory is protected by a compact hash covering all 80 public competitions in the 31 July 2026 snapshot.
 
 Fifteen retained expired records predate `entryCostType`. `data/archive/legacy-cost-classifications.json` records their reviewed display compatibility. The generator applies those values through a non-serializable archive-only marker, so it cannot modify source data, active filtering, `/out/` eligibility, sitemap inclusion or generated attributes. Tests require the manifest to match exactly the current published expired records with missing types; a new record is never added automatically.
 
 ## Opportunity foundations
 
-`shared/opportunity-data.js` is a dependency-free Node/browser module containing the FreeResource, Requirement, Opportunity and DiscoverySummary validators. JSON Schemas under `data/schemas/` are compiled against the same fixtures with Ajv during tests. The 18 current resources remain unchanged and validate through explicit legacy mode; new resources use the strict contract.
+`shared/opportunity-data.js` is a dependency-free Node/browser module containing the FreeResource, Requirement, Opportunity and DiscoverySummary validators. JSON Schemas under `data/schemas/` are compiled against the same fixtures with Ajv during tests. The 24 current durable resources validate through explicit legacy mode; new resources use the strict contract.
 
 The pure `isPublicOpportunity()` gate requires an explicit `asOfDate` and official-source host allowlist. It rejects non-published, non-verified, future, overdue, expired, unsupported-type, invalid-source, unclear-cost and requirement-mismatch records. Strict free-only use accepts only `completely_free`. Supported type-specific details are currently limited to direct samples, product-testing campaigns, birthday freebies and free courses; other declared types may be stored as drafts but cannot become public.
 
-`FREEHUB_ENABLE_OPPORTUNITIES` is false unless its exact value is `true`. The enabled build publishes one reviewed direct sample and four reviewed product-testing applications, while absent and explicit-false builds still produce no Opportunity cards or schema. No flag state creates Club state.
+`FREEHUB_ENABLE_OPPORTUNITIES` is false unless its exact value is `true`. The enabled build publishes seven reviewed direct sample requests and 14 reviewed product-testing applications, while absent and explicit-false builds still produce no Opportunity cards or Opportunity schema. No flag state creates Club state.
 
-The generator owns the publication boundary and passes only approved records to renderers. The explicit source allowlist contains only `brandadvisor.co.za` and `products.coloplast.co.za`; registry contents must never be used to infer or silently permit source hosts. Enabled opportunities create matching cards, structured data, detail routes and sitemap entries. Exit routes remain outside the sitemap and carry `noindex`.
+The generator owns the publication boundary and passes only approved records to renderers. The explicit source allowlist contains only `brandadvisor.co.za`, `products.coloplast.co.za`, `www.blinddesigns.co.za` and `www.tena.co.za`; registry contents must never be used to infer or silently permit source hosts. Enabled opportunities create matching cards, structured data, detail routes and sitemap entries. Exit routes remain outside the sitemap and carry `noindex`.
 
-Generated-output parity permits only the exact shared Free Stuff navigation fragment at its exact position and the one-time `data-free-stuff-parent-version="2"` transition. Once that marker exists in the PR base, later parent changes are compared normally.
+Generated-output parity permits only exact reviewed hashes for the feature-flag transition and the discovery release passed with `--allow-discovery-content-v1`. Version markers alone approve nothing. The discovery manifest pins every reviewed expected-to-actual hash, including held-page removals, while a narrow structural check permits only the exact removal of advertising from outbound handoff pages. Tampered or lookalike output fails.
 
 Browser tests preserve two named expected defects:
 
@@ -100,14 +100,16 @@ The pull-request workflow separates deterministic baseline tests, live link chec
 
 The harness does not estimate Lighthouse history, Core Web Vitals, Search Console, GA4, deployed Firestore rules or Cloudflare configuration. Those remain unavailable external evidence and require separate access and review.
 
-## PR 4 Free Samples pilot
+## Samples and vouchers discovery release
 
-The Samples inventory adds a deterministic two-state check. With `FREEHUB_ENABLE_OPPORTUNITIES` absent or set to any value other than the exact string `true`, both approved pages contain zero Opportunity cards and zero Opportunity ItemLists. With the flag set to `true`, one reviewed direct sample and four reviewed product-testing applications appear on `/free-samples-south-africa/` and `/free-stuff-south-africa/`. Each record also produces a detail route and sitemap entry; its exit route remains `noindex` and outside the sitemap.
+The Samples inventory adds a deterministic two-state check. With `FREEHUB_ENABLE_OPPORTUNITIES` absent or set to any value other than the exact string `true`, the approved discovery pages contain zero Opportunity cards and zero Opportunity ItemLists. With the flag set to `true`, seven reviewed direct sample requests and 14 reviewed product-testing applications appear on `/free-samples-south-africa/`; the Free Stuff parent features the reviewed subset, and the voucher hub shows only voucher-relevant creator exchanges. Every published record also produces a detail route and sitemap entry; its exit route remains `noindex` and outside the sitemap.
 
-`node scripts/validate-free-samples-pilot.js` checks the canonical, title, H1, seven classified resources, six visible/schema-matched FAQs, card/schema equality, section order, stable IDs, card variants, privacy boundary, route inclusion, and unchanged competition counts. The script reads the exact same fail-closed flag value as the build.
+The generated Samples hub contains 21 cards split into ItemLists of seven direct requests and 14 selected product tests. The Free Stuff parent contains all 24 durable resources and two featured Opportunity cards. The voucher hub contains four checked reward or public-service resources, an honest empty state for unrestricted free-entry voucher prizes, two no-purchase draws that require an eligible Capitec account, 15 strict voucher/gift-card/cashback competition listings and—only when the flag is enabled—two creator voucher exchanges.
+
+`node scripts/validate-free-samples-pilot.js` checks the canonical, current-offers title, H1, seven classified durable resources, six visible/schema-matched FAQs, 21 Opportunity IDs, direct-versus-selected grouping, card/schema equality, section order, privacy boundary, route inclusion and unchanged competition counts. The script reads the exact same fail-closed flag value as the build.
 
 `node scripts/validate-opportunity-links.js` validates the Opportunity source and terms independently of the ordinary warning baseline. A current exact manual-evidence entry can cover an automated access block. It cannot cover a 404, 410, redirect, confirmed soft-404, mismatched URL, or stale evidence.
 
-The pull-request workflow builds and tests Chromium once with the flag disabled and again with the flag enabled. Flag-absent and explicit-false HTML must be byte-identical. The enabled comparison permits only the reviewed opportunity sections, matching JSON-LD, detail and exit routes, sitemap entries, and related route-finder content.
+The pull-request workflow builds and tests Chromium once with the flag disabled and again with the flag enabled. Flag-absent and explicit-false HTML must be byte-identical. The enabled comparison permits only exact reviewed Opportunity hashes for the 42 detail and exit files, three discovery surfaces and sitemap; lookalike or partially changed output fails.
 
 Editorial review, activation, rollback, privacy, and evidence-retention procedures are in `docs/free-samples-editorial-runbook.md`.

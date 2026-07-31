@@ -9,11 +9,11 @@ const checks = [];
 const FREE_STUFF_ROUTE = "/free-stuff-south-africa/";
 const FREE_STUFF_NAV_INACTIVE = '          <a class="site-topbar__link" href="/free-stuff-south-africa/">Free Stuff</a>';
 const FREE_STUFF_NAV_ACTIVE = '          <a class="site-topbar__link is-active" href="/free-stuff-south-africa/" aria-current="page">Free Stuff</a>';
-const expectedOpportunityCount = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true" ? 18 : 0;
+const expectedOpportunityCount = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true" ? 21 : 0;
 const expectedFeaturedOpportunityCount = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true" ? 2 : 0;
-const expectedGeneratedFiles = 360 + expectedOpportunityCount * 2;
-const expectedSitemapUrls = 141 + expectedOpportunityCount;
-const expectedActiveCompetitionCount = 84;
+const expectedGeneratedFiles = 352 + expectedOpportunityCount * 2;
+const expectedSitemapUrls = 137 + expectedOpportunityCount;
+const expectedActiveCompetitionCount = 80;
 
 function check(label, actual, expected) {
   checks.push({ label, actual, expected });
@@ -62,8 +62,8 @@ check("Opportunity schema items", opportunitySchema?.itemListElement?.length || 
 check("Opportunity routes generated", countGeneratedRoutes("opportunity"), expectedOpportunityCount);
 check("Opportunity exit routes generated", countGeneratedRoutes(path.join("out", "opportunity")), expectedOpportunityCount);
 check("Opportunity sitemap entries", count(sitemap, /<loc>https:\/\/freehub\.co\.za\/opportunity\//g), expectedOpportunityCount);
-check("Durable resources on parent", count(parent, /<article class="free-resource-card">/g), 21);
-check("Durable resource schema items", resourceItemList?.itemListElement?.length || 0, 21);
+check("Durable resources on parent", count(parent, /<article class="free-resource-card">/g), 24);
+check("Durable resource schema items", resourceItemList?.itemListElement?.length || 0, 24);
 check("Permanent Free Stuff child links", count(parent, /class="free-stuff-child-nav__link"/g), 4);
 check("Parent H1 count", parentPage.h1.length, 1);
 check("Parent H1", parentPage.h1[0], "Free Stuff South Africa");

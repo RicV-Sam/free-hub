@@ -456,11 +456,14 @@ MANIFEST.pages.forEach((expectedPage) => {
     actual: page.jsonLdErrors,
   });
   ["title", "description", "canonical", "robots"].forEach((field) => {
-    check(page[field] === expectedPage[field], {
+    const expectedValue = field === "description" && OPPORTUNITIES_ENABLED && expectedPage.descriptionWhenOpportunitiesEnabled
+      ? expectedPage.descriptionWhenOpportunitiesEnabled
+      : expectedPage[field];
+    check(page[field] === expectedValue, {
       file: expectedPage.file,
       route,
       rule: `representative ${field} matches baseline`,
-      expected: expectedPage[field],
+      expected: expectedValue,
       actual: page[field],
     });
   });
