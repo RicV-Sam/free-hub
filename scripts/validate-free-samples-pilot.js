@@ -8,9 +8,9 @@ const expectedOpportunityCount = opportunitiesEnabled ? 18 : 0;
 const expectedSampleOpportunityCount = opportunitiesEnabled ? 4 : 0;
 const expectedTestingOpportunityCount = opportunitiesEnabled ? 14 : 0;
 const expectedParentOpportunityCount = opportunitiesEnabled ? 2 : 0;
-const expectedGeneratedFiles = 362 + expectedOpportunityCount * 2;
-const expectedSitemapUrls = 143 + expectedOpportunityCount;
-const expectedActiveCompetitionCount = 86;
+const expectedGeneratedFiles = 360 + expectedOpportunityCount * 2;
+const expectedSitemapUrls = 141 + expectedOpportunityCount;
+const expectedActiveCompetitionCount = 84;
 const expectedIds = [
   "brand-advisor-b-well-canola-oil-testing",
   "brand-advisor-clover-barley-milk-testing",
