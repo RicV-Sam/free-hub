@@ -1,14 +1,14 @@
 === Competition Maintenance Report ===
-Date: 2026-08-01
+Date: 2026-08-02
 Mode: archive-expired
 Total competitions: 280
-Active published count: 52
-Expired archive page count: 129
+Active published count: 47
+Expired archive page count: 134
 Low-value expired noindex count: 0
 Held/private count: 99
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 11
+Closing in next 14 days: 7
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -140,19 +140,20 @@ Expired competition IDs:
 - beares-grandiose-kitchen-scheme-2026 (2026-07-31)
 - clover-tropika-ginger-beer-cash-2026 (2026-07-31)
 - vodacom-spotify-premium-activate-rewarded-2026 (2026-07-31)
+- clicks-clubcard-fragrance-giveaway-june-july-2026 (2026-08-01)
+- clicks-clubcard-portia-m-hamper-june-july-2026 (2026-08-01)
+- clicks-clubcard-mens-wellness-hamper-june-july-2026 (2026-08-01)
+- clicks-clubcard-newness-hamper-june-july-2026 (2026-08-01)
+- evetech-pulse-giveaway-2026 (2026-08-01)
 
 Closing soon (next 14 days):
-- clicks-clubcard-fragrance-giveaway-june-july-2026 (0 days)
-- clicks-clubcard-portia-m-hamper-june-july-2026 (0 days)
-- clicks-clubcard-mens-wellness-hamper-june-july-2026 (0 days)
-- clicks-clubcard-newness-hamper-june-july-2026 (0 days)
-- evetech-pulse-giveaway-2026 (0 days)
-- spar-rewards-vaseline-cera-glow-competition-2026 (1 days)
-- spar-rewards-vaseline-winter-drive-competition-2026 (1 days)
-- checkers-vaseline-winter-shoprite-checkers-competition-2026 (1 days)
-- fnb-scroll-to-score-springbok-gamification-2026 (1 days)
-- boxer-nyama-battle-food-trailers-2026 (9 days)
-- clicks-dark-and-lovely-best-for-braids-2026 (14 days)
+- spar-rewards-vaseline-cera-glow-competition-2026 (0 days)
+- spar-rewards-vaseline-winter-drive-competition-2026 (0 days)
+- checkers-vaseline-winter-shoprite-checkers-competition-2026 (0 days)
+- fnb-scroll-to-score-springbok-gamification-2026 (0 days)
+- boxer-nyama-battle-food-trailers-2026 (8 days)
+- clicks-dark-and-lovely-best-for-braids-2026 (13 days)
+- virgin-active-springbok-partner-2026 (14 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
