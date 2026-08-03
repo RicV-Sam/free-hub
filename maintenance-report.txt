@@ -1,14 +1,14 @@
 === Competition Maintenance Report ===
-Date: 2026-08-02
+Date: 2026-08-03
 Mode: archive-expired
-Total competitions: 280
-Active published count: 47
-Expired archive page count: 134
+Total competitions: 282
+Active published count: 45
+Expired archive page count: 138
 Low-value expired noindex count: 0
 Held/private count: 99
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 7
+Closing in next 14 days: 4
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -145,15 +145,16 @@ Expired competition IDs:
 - clicks-clubcard-mens-wellness-hamper-june-july-2026 (2026-08-01)
 - clicks-clubcard-newness-hamper-june-july-2026 (2026-08-01)
 - evetech-pulse-giveaway-2026 (2026-08-01)
+- spar-rewards-vaseline-cera-glow-competition-2026 (2026-08-02)
+- spar-rewards-vaseline-winter-drive-competition-2026 (2026-08-02)
+- checkers-vaseline-winter-shoprite-checkers-competition-2026 (2026-08-02)
+- fnb-scroll-to-score-springbok-gamification-2026 (2026-08-02)
 
 Closing soon (next 14 days):
-- spar-rewards-vaseline-cera-glow-competition-2026 (0 days)
-- spar-rewards-vaseline-winter-drive-competition-2026 (0 days)
-- checkers-vaseline-winter-shoprite-checkers-competition-2026 (0 days)
-- fnb-scroll-to-score-springbok-gamification-2026 (0 days)
-- boxer-nyama-battle-food-trailers-2026 (8 days)
-- clicks-dark-and-lovely-best-for-braids-2026 (13 days)
-- virgin-active-springbok-partner-2026 (14 days)
+- boxer-nyama-battle-food-trailers-2026 (7 days)
+- clicks-dark-and-lovely-best-for-braids-2026 (12 days)
+- virgin-active-springbok-partner-2026 (13 days)
+- masterchef-sa-watch-and-win-competition-2026 (14 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
