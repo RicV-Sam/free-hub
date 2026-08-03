@@ -35,10 +35,42 @@
     },
     {
       "sourceType": "competition",
+      "recordId": "clover-spar-rewards-voucher-competition-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.spar.co.za/Clover-SPAR-Rewards-Competition",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "discovery-four-principles-book-launch-2026",
+      "field": "url",
+      "reason": "timeout",
+      "url": "https://www.discovery.co.za/portal/vitality/adrian-gore-preorders-competition",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
       "recordId": "discovery-vitality-oura-mothers-day-2026",
       "field": "url",
       "reason": "expired_archive_404",
       "url": "https://www.discovery.co.za/vitality/oura-mothers-day-2026",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "discovery-vitality-oura-mothers-day-2026",
+      "field": "url",
+      "reason": "timeout",
+      "url": "https://www.discovery.co.za/vitality/oura-mothers-day-2026",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "looters-warehouse-toyota-vitz",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://looters.co.za/win-a-car/",
       "lifecycle": "expired-archive"
     },
     {
@@ -55,6 +87,14 @@
       "field": "url",
       "reason": "expired_archive_404",
       "url": "https://www.penguinrandomhouse.co.za/competitions/win-with-the-penguin-post-42/",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "penguin-random-house-peppa-pig-hamper-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.penguinrandomhouse.co.za/competitions/win-a-peppa-pig-hamper/",
       "lifecycle": "expired-archive"
     },
     {
@@ -79,6 +119,30 @@
       "field": "url",
       "reason": "expired_archive_404",
       "url": "https://www.shell.co.za/motorists/offers-and-competitions/_jcr_content/root/main/section/text_copy_copy.multi.stream/1773113057914/01467c23e9b109b3137c43b8eda58c44dace33dc/easter-campaign-fuel-your-joy-terms-and-conditions.pdf",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "spar-clover-rewards-vouchers-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.spar.co.za/Clover-SPAR-Rewards-Competition",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "spar-rewards-vaseline-cera-glow-competition-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.spar.co.za/SPAR-Rewards-Cera-Glow-Competition",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "spar-rewards-vaseline-winter-drive-competition-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.spar.co.za/SPAR-Rewards-Vaseline-Competition",
       "lifecycle": "expired-archive"
     },
     {

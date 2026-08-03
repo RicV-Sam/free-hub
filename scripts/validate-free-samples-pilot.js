@@ -8,9 +8,9 @@ const expectedOpportunityCount = opportunitiesEnabled ? 21 : 0;
 const expectedSampleOpportunityCount = opportunitiesEnabled ? 7 : 0;
 const expectedTestingOpportunityCount = opportunitiesEnabled ? 14 : 0;
 const expectedParentOpportunityCount = opportunitiesEnabled ? 2 : 0;
-const expectedGeneratedFiles = 352 + expectedOpportunityCount * 2;
-const expectedSitemapUrls = 137 + expectedOpportunityCount;
-const expectedActiveCompetitionCount = 80;
+const expectedGeneratedFiles = 312 + expectedOpportunityCount * 2;
+const expectedSitemapUrls = 91 + expectedOpportunityCount;
+const expectedActiveCompetitionCount = 42;
 const expectedIds = [
   "blind-designs-free-fabric-samples",
   "brand-advisor-b-well-canola-oil-testing",

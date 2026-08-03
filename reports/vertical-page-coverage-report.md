@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-08-02
+Generated: 2026-08-03
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
@@ -31,12 +31,14 @@ Recommended normalisation:
 ## SMS Competitions in South Africa
 
 - URL: /sms-competitions-south-africa/
-- Matching active public competitions: 0
+- Matching active public competitions: 1
 - Publication threshold: 3
 - Safe to publish: no
-- Status: held; Only 0 active public matches; requires 3.
+- Status: held; Only 1 active public match; requires 3.
 
-No active public matches were found.
+| Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
+|---|---:|---|---|---|---|---|
+| SPAR Melrose Back-to-School Voucher Competition (spar-melrose-back-to-school-vouchers-2026) | 2026-08-23 | purchase-required | yes | yes | SMS or shortcode mentioned in entry text | none |
 
 Recommended normalisation:
 - Do not generate or sitemap this page until active verified inventory improves.
@@ -45,7 +47,7 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 14
+- Matching active public competitions: 15
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -60,6 +62,7 @@ Recommended normalisation:
 | Dr. Oetker Taste the Upgrade Competition (dr-oetker-taste-the-upgrade-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | CTM Pro Grip Win 1 of 3 Toyota Hilux Bakkies (ctm-pro-grip-win-toyota-hilux-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Col'Cacchio x Alva Winter Pizza Oven Giveaway (colcacchio-alva-winter-pizza-oven-2026) | 2026-08-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
+| SPAR Polony Win One of Six VW Polo Vivos (spar-polony-win-six-vw-polo-vivos-2026) | 2026-09-21 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | OREO BTS Promotion 2026 (oreo-bts-promotion-2026) | 2026-09-30 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Denny Win Your Share of R100,000 Cash Competition (denny-r100000-cash-competition-2026) | 2026-09-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Knorr Soup Competition 2026 - Win R5,000 Weekly (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
@@ -135,7 +138,7 @@ Recommended normalisation:
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| SPAR Rewards Vaseline Winter Drive Competition (spar-rewards-vaseline-winter-drive-competition-2026) | 2026-08-02 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
+| SPAR Melrose Back-to-School Voucher Competition (spar-melrose-back-to-school-vouchers-2026) | 2026-08-23 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Ultra Mel Christmas in July Competition (ultra-mel-christmas-in-july-2026) | 2026-08-30 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Coca-Cola Get Together Zwakala neFlava Promotion (coca-cola-zwakala-neflava-2026) | 2026-08-31 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 
@@ -145,18 +148,17 @@ Recommended normalisation:
 ## Supermarket Competitions in South Africa
 
 - URL: /supermarket-competitions-south-africa/
-- Matching active public competitions: 6
+- Matching active public competitions: 5
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| SPAR Rewards Vaseline Cera Glow Competition (spar-rewards-vaseline-cera-glow-competition-2026) | 2026-08-02 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
-| SPAR Rewards Vaseline Winter Drive Competition (spar-rewards-vaseline-winter-drive-competition-2026) | 2026-08-02 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
-| Vaseline Winter Shoprite & Checkers Competition (checkers-vaseline-winter-shoprite-checkers-competition-2026) | 2026-08-02 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Nyama Battle - Win 1 of 10 Food Trailers (boxer-nyama-battle-food-trailers-2026) | 2026-08-10 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
+| SPAR Melrose Back-to-School Voucher Competition (spar-melrose-back-to-school-vouchers-2026) | 2026-08-23 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Ultra Mel Christmas in July Competition (ultra-mel-christmas-in-july-2026) | 2026-08-30 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
+| SPAR Polony Win One of Six VW Polo Vivos (spar-polony-win-six-vw-polo-vivos-2026) | 2026-09-21 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | SPAR Community School Support Competition (spar-community-school-support-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Supermarket brand or retail partner | none |
 
 Recommended normalisation:

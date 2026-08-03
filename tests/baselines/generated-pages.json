@@ -29,10 +29,10 @@
       "title": "Free Competitions in South Africa | No Purchase Required Giveaways",
       "description": "Find current free-to-enter South African competitions with no purchase required. Compare prizes, closing dates, entry methods and official promoter links.",
       "canonical": "https://freehub.co.za/free-competitions/",
-      "robots": "index, follow, max-image-preview:large",
+      "robots": "noindex, follow",
       "h1": "Free Competitions in South Africa",
       "schemaTypes": ["Answer", "BreadcrumbList", "CollectionPage", "FAQPage", "ItemList", "ListItem", "Question", "WebSite"],
-      "inSitemap": true
+      "inSitemap": false
     },
     {
       "route": "/category/cash/",
@@ -57,26 +57,15 @@
       "inSitemap": true
     },
     {
-      "route": "/tag/ending-soon/",
-      "file": "tag/ending-soon/index.html",
-      "title": "Competitions Ending Soon South Africa",
-      "description": "Browse competitions ending soon in South Africa and enter before the closing dates pass.",
-      "canonical": "https://freehub.co.za/tag/ending-soon/",
-      "robots": "index, follow, max-image-preview:large",
-      "h1": "Competitions Ending Soon You Should Enter Today",
+      "route": "/tag/win-a-car/",
+      "file": "tag/win-a-car/index.html",
+      "title": "Win a Car Competitions South Africa",
+      "description": "Browse verified South African win-a-car competitions with official source links, closing dates and entry requirements.",
+      "canonical": "https://freehub.co.za/tag/win-a-car/",
+      "robots": "noindex, follow",
+      "h1": "Win a Car Competitions",
       "schemaTypes": ["BreadcrumbList", "CollectionPage", "ItemList", "ListItem", "WebSite"],
-      "inSitemap": true
-    },
-    {
-      "route": "/brand/clicks/",
-      "file": "brand/clicks/index.html",
-      "title": "Clicks Competitions South Africa | Freehub",
-      "description": "Browse active Clicks competitions in South Africa with clear entry requirements, closing dates and official source links.",
-      "canonical": "https://freehub.co.za/brand/clicks/",
-      "robots": "index, follow, max-image-preview:large",
-      "h1": "Clicks Competitions",
-      "schemaTypes": ["BreadcrumbList", "CollectionPage", "ItemList", "ListItem", "WebSite"],
-      "inSitemap": true
+      "inSitemap": false
     },
     {
       "route": "/competition/one-life-winning-wednesday-cash-2026/",
