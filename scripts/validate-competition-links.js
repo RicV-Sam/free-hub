@@ -37,6 +37,10 @@ const APPROVED_MANUAL_OK_URLS = new Map([
     "https://www.facebook.com/Takealot/posts/pfbid0XYY5E79N56xE1UxiMHXZixeKfLSKxSH1bCAnSKtx1CKGU6CphEUW6uGp81Ypd6mvl",
   ],
   [
+    "vodacom-green-gold-fieldbar-cooler-competition",
+    "https://www.facebook.com/Vodacom/posts/pfbid0GKoPb7hGXeGiaZtnUsayHgLxYorcRoJkpgywHoFtJarnE7EC3ybvW8tJfW948aEPl",
+  ],
+  [
     "kitkat-f1-monza-competition-2026",
     "https://www.nestle-esar.com/2026-kitkat%C2%AE-south-africa-breaks-full-throttle-promotion-terms-conditions-conditions-entry",
   ],
