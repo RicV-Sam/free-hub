@@ -1,8 +1,8 @@
 === Competition Maintenance Report ===
-Date: 2026-08-04
+Date: 2026-08-05
 Mode: archive-expired
-Total competitions: 282
-Active published count: 45
+Total competitions: 283
+Active published count: 46
 Expired archive page count: 138
 Low-value expired noindex count: 0
 Held/private count: 99
@@ -151,10 +151,10 @@ Expired competition IDs:
 - fnb-scroll-to-score-springbok-gamification-2026 (2026-08-02)
 
 Closing soon (next 14 days):
-- boxer-nyama-battle-food-trailers-2026 (6 days)
-- clicks-dark-and-lovely-best-for-braids-2026 (11 days)
-- virgin-active-springbok-partner-2026 (12 days)
-- masterchef-sa-watch-and-win-competition-2026 (13 days)
+- boxer-nyama-battle-food-trailers-2026 (5 days)
+- clicks-dark-and-lovely-best-for-braids-2026 (10 days)
+- virgin-active-springbok-partner-2026 (11 days)
+- masterchef-sa-watch-and-win-competition-2026 (12 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
