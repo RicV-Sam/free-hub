@@ -188,7 +188,7 @@ function createOpportunityRouteRenderer({
     ].join(" ");
     return `<section class="state-card outbound-notice opportunity-exit" aria-label="Official provider handoff">
           <p class="state-card__title">${escapeHtml(routeCopy.exitHeading)}</p>
-          <p class="state-card__text">You will be sent to ${escapeHtml(target.hostname)} in 2 seconds. ${escapeHtml(opportunity.provider)} owns the application and decides selection or fulfilment.</p>
+          <p class="state-card__text">You will be sent to ${escapeHtml(target.hostname)} shortly after Freehub checks whether you are signed in. ${escapeHtml(opportunity.provider)} owns the application and decides selection or fulfilment.</p>
           <p class="state-card__text">${escapeHtml(routeCopy.exitPrivacyText)}</p>
           <a class="competition-detail__cta" href="${escapeAttribute(opportunity.sourceUrl)}" data-opportunity-action="handoff" ${analytics}>Continue now</a>
           <p class="competition-detail__cta-note">Use this manual fallback if the automatic handoff does not start.</p>

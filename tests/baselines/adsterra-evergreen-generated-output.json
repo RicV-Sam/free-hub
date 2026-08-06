@@ -1,0 +1,1271 @@
+{
+  "version": 1,
+  "buildDate": "2026-07-31",
+  "asOfDate": "2026-08-06",
+  "files": {
+    "404.html": {
+      "expected": "b7fbd785406724e3ef56060598cc4490753430c2f6dc70dfdfdc6fba050028dc",
+      "actual": "4194070c6a1ff83d9d4906e76dfbb49a964897e386efe5816273cb9a47541214"
+    },
+    "about/index.html": {
+      "expected": "60fff2e8ffafcce1744dfa76ed84de36ce50dabba832e882ebda05ae994efc9e",
+      "actual": "2692269013db927a1500b455889011a60a1ba366ce5465625d5b1bf2f829b987"
+    },
+    "admin/referrals/index.html": {
+      "expected": "ca74cca70ba988809132c44e1f1a82e5b055868bd3e44cfc6b13e57001243822",
+      "actual": "c3f2436ba560a32e48216032b2e0fe682e587bc16716ddaf44abf7a006b433c9"
+    },
+    "app-competitions-south-africa/index.html": {
+      "expected": "92cff07eab179098cb5ecb3c5986b52db9259c5804c2b9d41d1681bfbe197521",
+      "actual": "1618fae5c721c4c54db9b6695f46b0f59e4517ded0b1d6f3dbe22e25933cf00a"
+    },
+    "best-competitions-south-africa-this-month/index.html": {
+      "expected": "c90a66255f504978baa2bc380e19d4fbe502defced9e032df072348002cace6c",
+      "actual": "a6c975a3b22a92b04c66b2c79b0b6b2432eb59dc7ff3f0a3c3f9b670f3483674"
+    },
+    "blog/index.html": {
+      "expected": "8622ad741c2d46426940433d57876770a85a45ab7e8051e253012a95320264ba",
+      "actual": "ad7ff7cbf6a499419eeae19aeb3bb58ffb6f378a067c5f6795ebe1a30e550b8f"
+    },
+    "brands/index.html": {
+      "expected": "7f6b6fd1c0559f64d89e9c3e753e7de94376a9d59cf6ed53add959c7116138ca",
+      "actual": "2d3339ee1336878ae1e2753c8756c000d7af9b9a5e117562742af9f48bc36b08"
+    },
+    "category/cars/index.html": {
+      "expected": "8bb54c8e48aee0506de9ce6bc379c3f17110fc5e19005b11a7f0fe9d40538e2f",
+      "actual": "70fae0d3268c27bc5dbb59781ed6b8b55beafde57870140daea64170a0a8db4c"
+    },
+    "category/cash/index.html": {
+      "expected": "2eed86093597084c3df91789794f28173fdbc1865fb5029e0d5e8b5b15202019",
+      "actual": "93833ef81436877a89cb42a8048164979ddbc91be1c5ca8ffea5a324fc953034"
+    },
+    "category/experiences/index.html": {
+      "expected": "missing",
+      "actual": "dc408fbfcc32662e1ba74cc63292a53196808df9ece100e2b584cb9cd8ae323a"
+    },
+    "category/groceries/index.html": {
+      "expected": "missing",
+      "actual": "6d6a00529d3265d053ea65e1f092706770c6e74e1f038a3dbadef3d828862cfe"
+    },
+    "category/holidays/index.html": {
+      "expected": "2acb2e29aadd00408083236da450ab3385e5ed2ff204fa2571dec76f1b2c298c",
+      "actual": "c80c64cb2369c17aed581f58ee3da2f315dd29119ebc725783f9b8aa4823d4b7"
+    },
+    "category/tech/index.html": {
+      "expected": "603457493b400fa5cd73eafe31b11debc33cb160b2c71a2d87bfd5c287b13965",
+      "actual": "b9c5d594795c1cafaab9ffe71c88941e0dde77e16d96a3080f100760b3bb09aa"
+    },
+    "category/vouchers/index.html": {
+      "expected": "c4e4f538032bd399e95297766d76247543e58aa65ce75197295306b9b69b532a",
+      "actual": "8c2addc827a4c8df805794ab0504e9ffc8f9e85c8539e52f7d25dddec401d534"
+    },
+    "club/account/index.html": {
+      "expected": "db9f83be131c79115e633a7433b6f9323fc579d529460ff67218ad9f3c2a5c12",
+      "actual": "13808b1ff78c5f0e1fcf3741b61b80e42270956520cfc06d340f0d0bfa1b4f5a"
+    },
+    "club/dashboard/index.html": {
+      "expected": "942b2559b2ce667ba4a3a6145ad37846bb2ae6fd06ff992381c53b1ba5299fa2",
+      "actual": "692eedcd6fe939f7bf37924adbfa98d1eb0a48307fae9f9f4f9b32908f931025"
+    },
+    "club/index.html": {
+      "expected": "91764359ee8edac89d383ee16206aab73a398ab49fa5d512e57b4ccf43c42483",
+      "actual": "a8b1bc393f9581b1d87b82c244eda08a80bd5956249b7e28346892efe8f3b008"
+    },
+    "competition-closing-date-checklist/index.html": {
+      "expected": "1559e7dfe2a406e7cbe5f1bc6968ac2eb36ad0e3db0b752a803bfbe9d73c0fc7",
+      "actual": "7e84ea2d18ba58cbaee5308dedcfdb9eb9568addf013371062059ca92d54aafd"
+    },
+    "competition-entry-cost-labels/index.html": {
+      "expected": "bc7ff97cb99b7147ca52bb9e6b4628a2e0007d8808829906c4638b7810b02fdd",
+      "actual": "a24d8b0f994426efc977a83ca40995d43dc80a19beccfdbcfa85aea3fdb2a6dc"
+    },
+    "competition/ackermans-foneyam-tech-prizes/index.html": {
+      "expected": "49324b9fd265c086523797ddf6788ebe9e8379d079c78fa8df8d414b0a57d2f0",
+      "actual": "8a0997a493766621bf6b6ed113188333e44fc66d8c71329cd55db6f4aebee97a"
+    },
+    "competition/ackermans-payat-xbox-series-s/index.html": {
+      "expected": "8c49a7893f78882e0e9a958bf14c820ef223bd77bfac05f8ca4a39503f5bc4ad",
+      "actual": "6fe5fe6295e75c6214734c1989b348aaf1b5020145cd74c36b0e8421e3974b4f"
+    },
+    "competition/afrisam-together-we-win-2026/index.html": {
+      "expected": "12af59f827deb3987bd0c5a6c3488451dc48e834ae93bcb88b711f47c2968453",
+      "actual": "70e44f24136df476b9e086aedf98595832cb60cb0e189c7c3caa30b889532f60"
+    },
+    "competition/alcolin-stanley-cabinet-competition-2026/index.html": {
+      "expected": "8f554077f12ab83282bf73b0086a60d7d17d7e5bd92b0aee0c5090ca667a2e7f",
+      "actual": "b7349e3d4e58a8f678ee9deb5375881c2ab8bad0b3d19545dda285accaec5e59"
+    },
+    "competition/aldo-football-club-competition-2026/index.html": {
+      "expected": "b2b799f78768f6144b4685795dfbfdb29293df0f4eec96905367a5bab066f81c",
+      "actual": "f078aee844ff521c370ea4887617da5807d5585fa02e2623620fce70c2480b50"
+    },
+    "competition/alpha-pharm-alpha-52-cash-2026/index.html": {
+      "expected": "f7e5ca77ddd823917822c4b21c84b1e6d45c11ab7ea8a5007e7b4f0b7e576038",
+      "actual": "caea36f1874f544c24788a617bd16650cd61ec5254f34a74431b99b262021cd0"
+    },
+    "competition/aquelle-mzansi-mango/index.html": {
+      "expected": "ba652fda843f26f69f35880c0f250292a58836a2f0e9960ee7c261ab8beee295",
+      "actual": "691e4b4d709062ed1a5cfe249a238ca22475f411509a01962728425fef2c8a2f"
+    },
+    "competition/aquelle-pause-and-win-2026/index.html": {
+      "expected": "ea94e66defa67e114e053762f519fba620d69c3df13d085194a18b042d75c823",
+      "actual": "e83440124153674b78c0a712b31184d26ac0606d42712a4744a6ccc5f6e8a01c"
+    },
+    "competition/beares-grandiose-kitchen-scheme-2026/index.html": {
+      "expected": "0f77db2a04a8c390f99257dcd589b01b2bb022d931410e303f89166db3fa3f7e",
+      "actual": "e49c5cdd6a04bbe14fe666aabbbfd87a90e8f1ac61c30db882f0afe2c4e065fe"
+    },
+    "competition/beares-russell-hobbs-top-loader-facebook-2026/index.html": {
+      "expected": "878e5be36372c8a4305fa5ac66f361c8a504e5330fa98956acb5edbc73e7f8b9",
+      "actual": "e629fae9de0f8ee8d203431f7335b887f90ac37596f5911bbccd63fb391d2dbb"
+    },
+    "competition/best-home-electric-kelvinator-top-loader-2026/index.html": {
+      "expected": "a5f0fc2659ddf9c5ef10a21efda37167f8503bbf493057ab3637e57230b00aa3",
+      "actual": "59eb8742f306d725939aa60ce83943fbe89581c4e41aea5148295c79d76cdcf2"
+    },
+    "competition/boxer-celebrate-win-samsung-a06-2026/index.html": {
+      "expected": "a453823e816d5426f6f5e7d4fc601fe31d48cfe2472f0b0cc8c5e90333599fae",
+      "actual": "75cf228a20b2e259b8fb167be9885bbdd3aa50ad669588db43c9535eb2bfaf3f"
+    },
+    "competition/boxer-coca-cola-tv-smartphone-2026/index.html": {
+      "expected": "f5d7b7302e944597a389ce9a7aa855db4191e88866bf0a0b516b60588a6729c3",
+      "actual": "943a308a054ad9516ce9eac28b2f662b7dcfaca791a34930fb7ef7e41b960122"
+    },
+    "competition/boxer-coca-cola-tv-smartphone-competition-2026/index.html": {
+      "expected": "989ebc24f161df6c0e52939cebf83b0154ea38c35669fe23d4df5aa20d89315c",
+      "actual": "04fef417f5984423d6207f1e4cd5b6b8fec6f8c801537c306ce8f4176494d883"
+    },
+    "competition/boxer-evolve-dream-wedding-2026/index.html": {
+      "expected": "708ad13059a84e3f537faaee3f1407328b47ea8690f02c1e3240a07b29eaad34",
+      "actual": "8becaa7bca495707af3db1f80e4918f6f97af1f57c29435779bf2ea951014880"
+    },
+    "competition/boxer-nedbank-greenbacks/index.html": {
+      "expected": "9da5623dca50295458ec3b0dc97bad1362c8bc3426c9885100717d6ca1d5f420",
+      "actual": "5b53fdd60a944b03d053287638d250ab883ce0b151becd90280a8432631ef660"
+    },
+    "competition/boxer-nyama-battle-food-trailers-2026/index.html": {
+      "expected": "04de6924c366dd73feaccce7559c3a653efa9b18074b091f6ef03b3e7a0217d9",
+      "actual": "fda2bb1c460a09f624f23185ee74e197d7500588a106e7154e45c085bb3558e9"
+    },
+    "competition/boxer-unilever-b-rewards-2026/index.html": {
+      "expected": "38fed900a52485fe8b91be10e8d68f0a5043d3c77fd3cb34d6e4ef1ab78fff47",
+      "actual": "c31d6e4878e4d6ae390359bf89d838d2bd5cb1ac40519a435239b01bb23b54d3"
+    },
+    "competition/bridgestone-toyota-corolla-cross-2026/index.html": {
+      "expected": "f6652b6dc4e898295e19eb7b46ba5f72f15f2968d89b6e05ebf8431691386a53",
+      "actual": "d09db030d2387a5f9be4d737b0006523305fdbe3d3a5b51e1867d9d55d6e68ff"
+    },
+    "competition/budget-insurance-bizbucks-bonanza-2026/index.html": {
+      "expected": "604a0d0125d12448a20d36ee342e73f7113f8ff677cdd9728846efdb78669455",
+      "actual": "9ae843e19d6ea4336c88046d82ebe192f0c49f60cd90a241390af4909a9b8e3b"
+    },
+    "competition/budget-refer-a-friend-cash-2026/index.html": {
+      "expected": "c037535d564416ecd08fb1a6c65536c8ad599f3c33b52fedd6e9de3e08406462",
+      "actual": "07f3c1d3bfe8196584795dd224faf3da221933a2fd4053914955ba8c42e3fcc9"
+    },
+    "competition/bulbs-of-the-fynbos-competition-2026/index.html": {
+      "expected": "03108782699442edf419c8cdce352e1d3f87da336fe6d54e05a5335309929a1b",
+      "actual": "fd2dca8364126a1c4f77a8d1b188bc0d1e52c2d2eff0e14041a99590aadb91f0"
+    },
+    "competition/bull-brand-spar-inland-cash-competition-2026/index.html": {
+      "expected": "2a4c05ee6b641bd45c19a70f29966886c627cb6ff0a97832ed35c0e23aa50f6f",
+      "actual": "0aa7c3904add7be330fa31dba901edd926bfa39da55da3611daa85bb7f134e31"
+    },
+    "competition/capitec-moneyup-academy-competition-2026/index.html": {
+      "expected": "25a448d75c5b5e0de3eba2acde6c28673b4a0fbeea317b700ec11f3e7c199fb5",
+      "actual": "db1680c0677d69d63a337bf09c369ddfff8ac88ae117abe11529671d2d1c7fd6"
+    },
+    "competition/capitec-tactical-flexi-voucher-2026/index.html": {
+      "expected": "bae65fe92e5ca1e5ce0b6413763c7bfff20ace91096ffa93fc82367f46348512",
+      "actual": "df7aea8c77ca81f0a30c2af5895a0f154d24fb4ac6715d2709b01229e7b76a17"
+    },
+    "competition/cashbuild-pimp-my-room-2026/index.html": {
+      "expected": "02ac1631dc2c2c9d3166bd17c462327c0b1c6ddc1922f29b676adf02b2f18c48",
+      "actual": "6bbb943323e01bae584f0147a859b3b54dad646aa99571d41debaaf9f62383e6"
+    },
+    "competition/castle-lager-fifa-world-cup-cans-2026/index.html": {
+      "expected": "1b04e757b7a0e88deb8a184a64e56814644704d920cd40ad0c813afd41591cd3",
+      "actual": "a65a973442e8aa8cfdd1e5e756dae21fb34de5db48565975d0e5306dadd9eef5"
+    },
+    "competition/cell-c-comrades-cash-promo/index.html": {
+      "expected": "ca241ff5b65e32975dd811181c240fa854256c923db2ca3a1701d70088e33709",
+      "actual": "922ea411c56d7a7e0d6c1f8095afc1c006df00419fd7fc5c05d0059efc9d9e5f"
+    },
+    "competition/checkers-vaseline-winter-shoprite-checkers-competition-2026/index.html": {
+      "expected": "6c44edf927e301564801e84fcce1bbd875d4921f022af65fd0b29282bb7222d0",
+      "actual": "417be2b8fed7661c6c5494d291ec1a1eb0441693a3e5e7fac362357dd150a1a6"
+    },
+    "competition/clere-for-men-play-it-smooth-2026/index.html": {
+      "expected": "9b8fe1d7a8885eafb8149a1eb416840500c2953ff6ca3ad07232ef8d2738b458",
+      "actual": "c3bc59066771cc8d7756f5b737013779c5f698dcb88537ff5450323589a3d14c"
+    },
+    "competition/clere-share-of-r1-million-cash-2026/index.html": {
+      "expected": "860cec2ba2b378dffcfe5431f025ce9ee9914b5d62790dc688e60d73340958ce",
+      "actual": "b58ac32a142a44a37e78821bf014aa4ca72e3f780e7559b491da80d52825cf72"
+    },
+    "competition/clicks-babyclub-competition/index.html": {
+      "expected": "6a13baebc98e84363217201296b6454181dc91fd13e58aa40a9933ea2921b5f1",
+      "actual": "88b49d3defb55d5908e3f1093159711eb6190d093f32f4284a45cae1e5c3e81e"
+    },
+    "competition/clicks-cashback-haul-competition/index.html": {
+      "expected": "87297639e4598ddaa68699170585da08176e029cbd9947a9547e0382b0d5005f",
+      "actual": "4dec36374016615b63ec7ddabeceb968778b84632fba8d68630aa474fba173bc"
+    },
+    "competition/clicks-clubcard-fragrance-giveaway-june-july-2026/index.html": {
+      "expected": "3081339366c026393230fff93438ea4a07fda941a2506a348a411c8336ca6e16",
+      "actual": "2dce84205134a8f30f0d76ccc93033f035d2a461926fd8150a08369564a03380"
+    },
+    "competition/clicks-clubcard-mens-wellness-hamper-june-july-2026/index.html": {
+      "expected": "22ac5c3b0f2ec2c90762b54274692c9e65b7272c2c40a5c633260c4acc2ff343",
+      "actual": "0632802d8693b0f67a5d8710b9dcddd8a90e956142b6f18e97d9329157daaa51"
+    },
+    "competition/clicks-clubcard-newness-hamper-june-july-2026/index.html": {
+      "expected": "caa859241d39eb4c7af6c188b9f78c2433ca6d6b61ac23033b72e4af448a8f31",
+      "actual": "7a8e75c173d13bd4b263922d8aed33fc0e9b3e36f91ff27cfc440f32380128c2"
+    },
+    "competition/clicks-clubcard-portia-m-hamper-june-july-2026/index.html": {
+      "expected": "f2bc778e57d965744e07c31d3da556ddf44079fb05ff7777eccd23e1492f0c79",
+      "actual": "faaa71977cef1543a3b4372ad3c95876eb2ace7cd284a4d396aa2b4b7be6587b"
+    },
+    "competition/clicks-dark-and-lovely-best-for-braids-2026/index.html": {
+      "expected": "9355386b6d0203ca79fe71e03e334f44446937c60d4d3833ce859fcbdcc5f3d1",
+      "actual": "d7b3490af6930047929ce77373689ba9fb5189975e3057f1cbf8bd566d121c27"
+    },
+    "competition/clicks-nivea-men-broscape-cash-card-2026/index.html": {
+      "expected": "240265403ffc17c1ee83e23472fc205497b4eca3e559141e5843205b68b01fef",
+      "actual": "bc67839668075f2bb7f2b71e659db15bbf2c1ea76f1f0b1be4025eed368e804d"
+    },
+    "competition/clicks-protex-protect-their-future-2026/index.html": {
+      "expected": "a3e42b35543b52fd7d4387fd469f3c51d478d826ff922e1a39fedea8379b34cf",
+      "actual": "4d30f16af3f706d1f6ee75764ca5b06586cf31d035787d5dae91c3063b41c448"
+    },
+    "competition/clicks-sorbet-voucher-2026/index.html": {
+      "expected": "56818f9d744e353fd5435e33b0ea6aaf2a9ccf4526304ec995e86f80c45f1a4b",
+      "actual": "ac739ee9b8a0678d4c6451879e6256d0adb57bae3060d3ec8bafab2a74fbbf3c"
+    },
+    "competition/clicks-summer-sun-escape/index.html": {
+      "expected": "a8e53427a498c3c200cd08f70235bff3af8e10892402be4d98bfb9e9debcfdbd",
+      "actual": "a532793bd411b5db03cd7119148574fd0b766dd6acef0c035ab03eb9218b7fce"
+    },
+    "competition/clover-spar-rewards-stormers-jetour/index.html": {
+      "expected": "92321dd41d052243b5bfe321c2f449f525e7c3068c1b4e7c7573c8271dfb0825",
+      "actual": "970c24520b93203d6df486e6f72a023e76b53d1228e5dbb0d258b4b7ea7bbc5d"
+    },
+    "competition/clover-spar-rewards-voucher-competition-2026/index.html": {
+      "expected": "c08094243c336210ff8c25736ffb009f4c904c4ea0ca60f46a6ffa929d2f98de",
+      "actual": "e2fdff48d21d4a2cb9d69ff533504fbcbc7b59c0a04bbfbdecbcdb30707a70ea"
+    },
+    "competition/clover-tropika-ginger-beer-cash-2026/index.html": {
+      "expected": "c2149e1b1554098094182121110abdb62f7f7a1d05d10026c33b3ecc38d9da28",
+      "actual": "000ea1d861ea46f4b1219fafdc9bedc8a210530c003b2a2c9539b18a2f37965c"
+    },
+    "competition/coca-cola-be-a-bok-voucher-prizes-2026/index.html": {
+      "expected": "d1242b417db6787efd937b0cd5f8d29ce661a31643fd60c9c82f921786209626",
+      "actual": "f92ad822120e142a31e3682a860bd61c3e02fcd10290c3a765dddd2f6e050806"
+    },
+    "competition/coca-cola-fan-can-be-a-bok-2026/index.html": {
+      "expected": "bc4f1d70f76049e7b6a19eb400587c067a45569cffc7bbd6fbb63a2f762d5241",
+      "actual": "e093a5d53eec1994153b4d4e1aa7e4e7858e8e48534b2e51def9f2eed108fabf"
+    },
+    "competition/coca-cola-fifa-world-cup-2026/index.html": {
+      "expected": "1e00d40cc17445d4189b6f46f1e13062f9f0af220e4058a124033a8ea0bafef8",
+      "actual": "a3ce76de477db32c62f679e763af021e67d69e1e152dce3d6aa5990fb79583f4"
+    },
+    "competition/coca-cola-hisense-fifa-fan-hampers-2026/index.html": {
+      "expected": "d9cd21fc733024cabbccef932a510a8eadeefc80e6b757d3d4fe8fe48977fd38",
+      "actual": "467d1ea070f5f49ba001f0fed187422c5ab0f4833c541adbc8dedf9efebab006"
+    },
+    "competition/coca-cola-mzansi-football-promotion-2026/index.html": {
+      "expected": "c8892d7a8da6b6b8cb3c0739135c72226a3b9ce53f62b4bce62a125290519485",
+      "actual": "ae50a05c4effa71c794d6231ca4dddd3226820cc478aa354a74bb2dcf0a99c00"
+    },
+    "competition/coca-cola-zwakala-neflava-2026/index.html": {
+      "expected": "a48ffb6aa392c2dcaba98a90dae0e81ac26c20e5b96f575dbb83905a1f5ac0e7",
+      "actual": "21992efd7a3eb07167fb72efdbca4f4b1552a5269349fd3c10327c41131b9422"
+    },
+    "competition/colcacchio-alva-winter-pizza-oven-2026/index.html": {
+      "expected": "7ff731e425b2109f0a1826a16d5167457424c19a880b86f9b0812ba9cdd5e0ee",
+      "actual": "b841278a7e5f5210372eb6e786eb3e84fa61cb1a1a901c12b58563bb148e1c28"
+    },
+    "competition/comrades-toyota-corolla-cross/index.html": {
+      "expected": "ed561218567898a5adba32eea1b863e940a8339eef89c879213afb111e323e39",
+      "actual": "60b8018e18ea6748b247f5637ad98d2f89de03305af069e7e8e0dfdebe47444f"
+    },
+    "competition/cremora-winter-campaign-competition-2026/index.html": {
+      "expected": "ace5f12d80734e1bfffe77afe493d3e8d3b6068acbd2838911c0e6b9dcd59613",
+      "actual": "9378a68670515886b38e199fed49dc64bd74c9112f8c5652037d8c926d6cda00"
+    },
+    "competition/cruise-nicely-this-easter/index.html": {
+      "expected": "73d78074395f6f26fe1d8c4b76664b3687855f3d69ff4c7a5b6de3a276fbc4b6",
+      "actual": "8e0a3dbd76c3ef4cb4735b05c9888b45d632da1ec153431a520d036aee5495b0"
+    },
+    "competition/ctm-pro-grip-win-toyota-hilux-2026/index.html": {
+      "expected": "0e277bc1cd0597d2cdd5b2d3b83907fd4f6cab9e0ef04a8fdaf4b5114835a4d1",
+      "actual": "13b3da09983fd6f05058c772a509f0544b0572a9c4b3350ebe2919d2708e403a"
+    },
+    "competition/debtbusters-money-stress-tracker-takealot-vouchers/index.html": {
+      "expected": "0fe3615194d0ad1d20edd91d9c09e8b5ed1f1beff7eda0b34d40421bdcb67b8c",
+      "actual": "195805c3afa4746455bdefba80a083cfb511d6eb2a8fb376607f7afe79553917"
+    },
+    "competition/denny-r100000-cash-competition-2026/index.html": {
+      "expected": "710430d625fd8a10395d4aa7bd7e0135db12f61c5b0952ae5978118e2ba0d20b",
+      "actual": "10d1942103bb178b85d74af23392e6bf995548f1bbfadf1b798232feb809728d"
+    },
+    "competition/dis-chem-garnier-pure-active-june-2026-competition/index.html": {
+      "expected": "d8019f8fefed59c9d50b812afb481abf946ec3f0ec7ec8cad05985afc881f57e",
+      "actual": "3bc8bc24d96fec5a86bd8332ecfe6f35fbf50834fbb90242541a9c8cd1db7c81"
+    },
+    "competition/dis-chem-protex-fund-the-future-2026/index.html": {
+      "expected": "56831fb4d0c1a73287367a365ee728d96a11a1d1c6cb0d5640c1d1df81be9cc4",
+      "actual": "fa221ec5e05f356a4f717c144e572a99a9aecbdf7892aa4fcc0873ac3f4ee7f5"
+    },
+    "competition/dis-chem-wellness-cash-dash/index.html": {
+      "expected": "44d0f24ef04436981b89a2adb1d9ffa5ae672647810bbff0396e27c5eb6ecaaf",
+      "actual": "24ddc226849db79c7b25155b392ebc307f07a8a4b5629c74f34615702ac84cf9"
+    },
+    "competition/discovery-bank-fifa-world-cup-2026/index.html": {
+      "expected": "b4e4e08afd941a38fb163fa6875347227d800ed102f83705de3795c6b2f38482",
+      "actual": "924a2ea41d6def0752b7f5ced365645d14300cb6e1c62ed114f4bed89115eced"
+    },
+    "competition/discovery-bank-qantas-flights-2026/index.html": {
+      "expected": "35c506c08f73cfaa9a6d2624549e2d76e3e29ac89e84e6146be1473a64609b39",
+      "actual": "4495291e814a26352f4bdfdc2f13388113b16a9d3bc7c18bc2eb12283221ad9a"
+    },
+    "competition/discovery-europcar-winter-adventure-2026/index.html": {
+      "expected": "2f0ff4933eb50440342096b9d072f3bea7e762eb4eb219558b638adb10505614",
+      "actual": "f503c68ef83bddde188d44107a64a612c74e57fd5dd22b9f34349a22a9ac446d"
+    },
+    "competition/discovery-four-principles-book-launch-2026/index.html": {
+      "expected": "9d19bc9e527df62a70a2c0119f04ad3c3e335466eae4466406e0862c5aa8b59a",
+      "actual": "10525d8b2cedd312e3148eaf9f02c62c4af3a941fe3d7bd50a69ccc1f09ae3d8"
+    },
+    "competition/discovery-vitality-oura-mothers-day-2026/index.html": {
+      "expected": "33565ae0e3f8c4ce5a46d0d93ab74137879da12b04705f519acf24c8633713a7",
+      "actual": "f1ef45ebcab85fd1d2b90d47913f31299b2e87df4a3ef4e9910218b199cce970"
+    },
+    "competition/dr-oetker-taste-the-upgrade-2026/index.html": {
+      "expected": "654b32d1aa29ae77c56598dc57c85948653e3a4a9300e7424359af32daaaf2d9",
+      "actual": "66c5ffb1e2707ea3401fac859fe29d55c2b23a365f63c1949176e9175829eaf2"
+    },
+    "competition/edgars-club-may-join-win-2026/index.html": {
+      "expected": "929f3aa1353e3cf5b5905a59111ce3ebfa4da51422c47310bf92aff2fa23b6b4",
+      "actual": "7b4019d068b1e45d8810b4fd8c377bafe8b02791b2a894b4288c62838003275e"
+    },
+    "competition/evetech-pulse-giveaway-2026/index.html": {
+      "expected": "21952579077558c036d1a283de1979e7c606d1f0edb82e377690b501917fdc53",
+      "actual": "428f5307ac691aa28e41af1c776d02568b7e809c9633a12bba3463d2cc4ad98a"
+    },
+    "competition/fired-earth-mothers-day-room-makeover/index.html": {
+      "expected": "031a99a486aa90d98a1176f68fdf25f2cf42b9dbeac99c4d114da7a79b7644f3",
+      "actual": "e5bc32b17b0541f748a7f815f267eb01cb173c1cb2153982da031323b13a3c5a"
+    },
+    "competition/first-battery-centre-win-a-car-2026/index.html": {
+      "expected": "5ef998de3e97ef5667cf800c01077df6917b6d599c94ac5c4f4306c70bc3317b",
+      "actual": "3043c9f0f0e22bf21d1a6a11628bb022bafa9608173916c5882f4c15d876ddfe"
+    },
+    "competition/flash-mtn-national-airtime-vouchers/index.html": {
+      "expected": "52d28142bcf35e3b62a19ccb457290f1d3d2ff67bc3c05501d22e1f27f7e870a",
+      "actual": "d46f90b528e25b04f81fce4670a889a4e49978d8960935750a111a905fb1f147"
+    },
+    "competition/fnb-family-banking-million-ebucks-makro-2026/index.html": {
+      "expected": "bd6ad1803f6157630cf6c5ceb04bab7a4f19ad983e3aeee65cdf0f8dac86a05b",
+      "actual": "059b0670cccb5a456edfc2adfb9f439b372bcf843af5eb08c2ba6989e9ae6465"
+    },
+    "competition/fnb-lovefnb-social-media-competition/index.html": {
+      "expected": "4e9707bdc00c23115b1250cea995e7117def23f2a5d5b2ea272f90f8c5d562db",
+      "actual": "84c0d4832e7a220b7b79b36ca8577b5f603e89e0a3b3b70ad2a38a6ee3359ac4"
+    },
+    "competition/fnb-scroll-to-score-springbok-gamification-2026/index.html": {
+      "expected": "e41c68439f9527e594ff97544368f5552cc8d6ad1731413a79b09e62a6428b58",
+      "actual": "7790fb84d00ce20f4165b25caf8e944713b8a7c20a339e9b5eb2989cea16dc47"
+    },
+    "competition/freshstop-jojo-fuel-vouchers-2026/index.html": {
+      "expected": "9001b80522d6a459738238d90bc86b19635912bd68f53b7b6a760d0f94f2ad5d",
+      "actual": "41af59baa0dcb1685432de7799672c81b31223c29b06cf538c0288877e6d51dd"
+    },
+    "competition/game-2026-birthday-competition/index.html": {
+      "expected": "75fa9116c6e64cd9759a5bf32bb8596b6167b5ba625fd7d3381a0937dc2b6289",
+      "actual": "e68b229948a4c052626561ad388e1b4dfa970643f4bdda69f6c77f1e4d20e2e2"
+    },
+    "competition/game-haier-play-with-the-number-ones-2026/index.html": {
+      "expected": "274283fe3036003b68bd6efbecf21b1283c2785adb2e655fc7038b80478d5cc7",
+      "actual": "dd10eda049b5233ae7703ea784bd870ba4e3f7a0caa95bcc60c30fbc8adaea64"
+    },
+    "competition/game-home-theatre-mega-upgrade/index.html": {
+      "expected": "e308c6826afb7f23f4e6f1ac19deb52050d5d822b30f513a140a3d3e21a94fdc",
+      "actual": "108b44daa9ad8971919b42d379ec1d85b70a3df6c39e0b930f505075fbbb98b6"
+    },
+    "competition/game-store-gadget-giveaway/index.html": {
+      "expected": "fabf19df66d758e1091181ebd051c2a9b1acbcc1f0236852b1317b08af07ba05",
+      "actual": "e81e855aefbffcd47f531012c06f2bc329f30931e6175de608e1aacf5e4618dc"
+    },
+    "competition/gardena-winter-pruning-giveaway-2026/index.html": {
+      "expected": "022831dad1a126a1ce1d377dd0415617502d9572e645d68cafc688e33fa86858",
+      "actual": "d021c3a88b464e658a862858792144ad0eef16b3dbd3284835aea9b0a1eed163"
+    },
+    "competition/godfather-of-the-waves-competition-2026/index.html": {
+      "expected": "80ed66e20b70dd8a31f211eaf6bc07bfb7d44bdc1d85438e5c6c48c812d1fdd3",
+      "actual": "595865a79e16f2b4ed63375374047b070f4dc354b85f27cde5680b549ac1770f"
+    },
+    "competition/gotyme-bafana-jersey-giveaway-2026/index.html": {
+      "expected": "83ce40c331d2ce22be29a8a523d35427d894525f646637ca3960f6e26b18fc0e",
+      "actual": "7d8621bd277d77cad1078711622e9480701bf4af9534385ded68f541b26758aa"
+    },
+    "competition/gotyme-bank-swipe-tap-to-win-2026/index.html": {
+      "expected": "fcf0e880853a343305535f17692a784756649c6ea0f0bf6d8113b035ce7934ee",
+      "actual": "1f4edc34a357057b51d9577c46143d618d0ec6fd9427c1a6a1f5dba5aad97cb7"
+    },
+    "competition/gummy-vites-back-to-school/index.html": {
+      "expected": "34f227c0f617482d230ff1a1f0626d11814c516514ea5418c1b073237066538c",
+      "actual": "a981fe9db0c07c4db4a5b7b5823a5d75c1488ca71267ee933072633cdf4626a6"
+    },
+    "competition/hadeco-80th-birthday-competition-2026/index.html": {
+      "expected": "b50396d7d6b4f5e331ab20a8cf6e4049fa4dab0108d8f09498e6097254ff591c",
+      "actual": "67931d90d9ea471d0213d8a7c371a52606d7f299fb6227da37ac7cfad276e135"
+    },
+    "competition/himalaya-winter-colouring-competition-2026/index.html": {
+      "expected": "0722de1dd23653222771623a631863ec6fbcb73ce80c257a87f6ee5352e0e6cd",
+      "actual": "0e8aa5696aef7c6af70af0973fc8590b24bd2360677b77cb878c5ad99bdfd2eb"
+    },
+    "competition/hinds-checkstar-suzuki-swift/index.html": {
+      "expected": "3d5a8042265db0305c835fef38a95b6fb21edc551fa602ab0fb26ac6b1eba042",
+      "actual": "a9d497c0ec93e939f2cf513bc4d64fe469a2a96e5af5cb819d89f3663e77da8b"
+    },
+    "competition/hinds-pick-n-pay-suzuki-swift/index.html": {
+      "expected": "9594c1028d2ecdb15915d3dc084e44cdae25a3b434496a7fbc1f52b17997f434",
+      "actual": "38d3d5d8c20e75301c7db986b47274fa0253f7da01956949d07689326ce5b8de"
+    },
+    "competition/hinds-shoprite-checkers-win-a-car/index.html": {
+      "expected": "c920fb93838acce21c08044b1b37bff8afad2106b6a7c252f7fb0c4a31ed35c8",
+      "actual": "d73e53cb1f305620e1911a64fbf2ca8775699ad7966d5308edae2445cdd6123a"
+    },
+    "competition/hisense-big-wash-no-drama-2026/index.html": {
+      "expected": "23b078809e4a10610446726297d2273bbe797573d86e41d6e5feba5497727b19",
+      "actual": "aaa64fc4edfeb5c61ed2a72ac3b5e5b331ffb282bccb2454e72d8238d39e50fb"
+    },
+    "competition/hisense-coca-cola-match-day-2026/index.html": {
+      "expected": "e898073f9a2c757d0f43e46eabe11308bc7e75c12ed8c9e6f1aca63d190dd048",
+      "actual": "ea74613645a2ccc6925d57e7bbaabf0dc38abd4f4e645dfe6f562dd886c18c8d"
+    },
+    "competition/hisense-hirsch-foosball-activation-2026/index.html": {
+      "expected": "cfcdd21191cd7124d5cf12a82a5ba92356868aa533689b5cf8020736c29aa5c5",
+      "actual": "9e35caad711ae034fc54f8793b3e23a1b2b375937f6c808a54309efd8688c102"
+    },
+    "competition/hisense-pepkor-match-ready-gallery-2026/index.html": {
+      "expected": "d0b36af26cf8f4c5507e5fadeaeec6c583be00350460662cd3e4ae3ad109257d",
+      "actual": "e7360df4998271d8a10fe91ab16df45f58c595d626150f9dad24f4ce66180730"
+    },
+    "competition/huggies-dry-comfort-buy-win-2026/index.html": {
+      "expected": "7b7c3b96263272da2c039437e054d62571499123effc994fc8e066dd8156a4c8",
+      "actual": "b47b1a1ff6af7e6e47d5d6bfa65ad3374772e775376022415ca5a919b3241b59"
+    },
+    "competition/hyundai-host-a-bok-2026/index.html": {
+      "expected": "e5a67c95ded31213d66e85d540bb9f2150f32c04f488d0e9b8bcf426b625a67a",
+      "actual": "521bb8ff4cdb52bc39954962c04f1cdf28cd283535cc7eb759b3daf3ce785f22"
+    },
+    "competition/istore-apple50-macbook-neo/index.html": {
+      "expected": "1bdc95c902c7fc3ef94bc1f702693925c1bbada0a12c9a124e486962c7908840",
+      "actual": "6caaca0c96ed3bd214210713c7c42d909fbba718d2be46f1eafb988791feccdd"
+    },
+    "competition/istore-find-and-win-gift-card/index.html": {
+      "expected": "9edbfa490f871e935b7ff01ed47282b4945cd919850a815d12f4da25571fc5ba",
+      "actual": "89b44845a50487aa0fe0f6926c835fccecf31aa345bd8b4f9adf0cadcb3d573c"
+    },
+    "competition/isuzu-win-a-new-x-rider-2026/index.html": {
+      "expected": "ebbaf38032a406574adb6cedd391602bcfe03e839b237797f1863042dd414f44",
+      "actual": "bab9bd113004dd33972ad9c274e892806e8b77e0fc0fcf81c2d8c9a35f12c011"
+    },
+    "competition/jacobs-national-promotion-2026/index.html": {
+      "expected": "c09192c12b9419a1d915bf6d61a853bd4a3cc2e349cc14ce6926ad703d4c8e8d",
+      "actual": "4dc7f536be3869dc48d44115df7af2afad7d1367c892471e9b8a2bde63c18f08"
+    },
+    "competition/kampi-refer-and-escape-2026/index.html": {
+      "expected": "f90600e4af1440110ed93c180e4fd2d06ce61b5bc6d5f8167ffa22793c355d5d",
+      "actual": "a295bf4026a68e67f2101265a820e135a7337ad79f8bf0f525ef911c408b5743"
+    },
+    "competition/kaufmann-rugga-supporter-competition-2026/index.html": {
+      "expected": "85ccd31fef9f75cb420b09a10fdaf5813c4499d3f4b7abf392d45f366eeec796",
+      "actual": "b4980a1ee5dac315019a773a98b4d1a14a817a84c6b76ee116abfcdbd7673134"
+    },
+    "competition/kelloggs-big-bowl-energy-2026/index.html": {
+      "expected": "6f42c49349b81f4442911ae98e34b3186f6e2dd22e614ff4f0d60207aaf04052",
+      "actual": "ed1c8106557eb245a2b3777d22b3baa7863c459982a12cb205dc30a6e3d0ec50"
+    },
+    "competition/kitkat-f1-monza-competition-2026/index.html": {
+      "expected": "dbcfb01841c8fa64cb9f072cbd9434c6e82efcb2813209d4560fb1239c1279fa",
+      "actual": "28b30f921d2d268c4eb59cdbde7a537210dd32036e9f837e166d549a9c2e1246"
+    },
+    "competition/knorr-win-r5000-weekly-2026/index.html": {
+      "expected": "5fe6dd63d3f4ecd95cb04c244361f858d9c94043f85f71870ae76dfcdc62b38e",
+      "actual": "5f059e6ec10fcfe33a2fc1d9c866028b17ac4e860d199e8a2ecd7480b8b14c7f"
+    },
+    "competition/lewis-donna-mk2-sleigh-bed-2026/index.html": {
+      "expected": "05952544568331552fae574c5a8856dcfc6b620c52c8798c5241c7441bd2a4a3",
+      "actual": "4f01bcf4239af03fc85c5a72fd526df816e5ed95ea98705e5230d4aa80e7af86"
+    },
+    "competition/lewis-lg-cj44-hifi-2026/index.html": {
+      "expected": "ece8bd1429602b48537bf2e182d8e8cb12ef1c2bf5053e9f89019b9417d0b6bf",
+      "actual": "5c7d522116ec8ddd062036111b6e2e300c05ca4c4734cd3e9cb94ec36bfb8c58"
+    },
+    "competition/lg-ultimate-fan-zone-ps5-competition-2026/index.html": {
+      "expected": "9321cf5831f4b13893cbe667c74141baeef5de93d9a1d41038cf3fa5f0ae8627",
+      "actual": "7137023e2186c9279f60eedf286f6443f3c05a62704292e8f07e70a3bec8ff18"
+    },
+    "competition/looters-warehouse-toyota-vitz/index.html": {
+      "expected": "222d38b0901b5bf8981f2d18084de0ca407adf6495c22b92afc37f7c3b3f74af",
+      "actual": "67bf038c356f21f09f98ab3445713cfd960e28cd362f663e595a107a75a40c4d"
+    },
+    "competition/makro-oscal-pad-100-tablet-2026/index.html": {
+      "expected": "4cecad7c6f883eb9c1c75f14e718b8e2e63cb007e162fe91b76a635096759c4f",
+      "actual": "66e848ce8feb89c011afb36477f07f4625a6d5f6a5ce2ccf80eb4a3375f0440c"
+    },
+    "competition/makro-winter-competition-2026/index.html": {
+      "expected": "9261cf138b5e46c4d6f5d1b37eda1806f4e7809c09a6adbcd82b4ac1d614c47e",
+      "actual": "c2cd2d8801c36e60d057e8b5525a23463ec27354e25e884a1395d3ffebdfb2ac"
+    },
+    "competition/masterchef-sa-watch-and-win-competition-2026/index.html": {
+      "expected": "78f3f810090220133ce549ad0ce3daf376f99049b8c2b038ab9535f45704dafe",
+      "actual": "4d294cd47762d2fa1e03cabf644b42e700c19a4cd09dfdd0e99c8d3f061e0135"
+    },
+    "competition/mcdonalds-nazo-meals-airtime-data-rewards-2026/index.html": {
+      "expected": "6e53a1f5f89e9472ea5a5acaa2737bb638400ba460a9d9bd68a9e55dd05d76d3",
+      "actual": "d26006fc2ff042fde86f34704ac6f2237e48347a3a675a01dbd399bd1ab0b591"
+    },
+    "competition/metro-fm-nandos-taaaste-monials-challenge/index.html": {
+      "expected": "ac2847a9b9a66d46da23d61622b6002dede2c2293ed9546f431e7c735a867cc7",
+      "actual": "2d4f89f46c45e1d84b5d4e7c999254f66edfe44118998cb63a892814e5133de0"
+    },
+    "competition/miwaylife-sanlam-spl-fuel-vouchers/index.html": {
+      "expected": "2cb8542024c92ff314c4c84912cc70360ed839e4729044b2088e5d013a3202a3",
+      "actual": "aee6350608dd2de4a5d1c9d3bbbc9a4b5689124ea0f21ab64675dbf086ce9384"
+    },
+    "competition/mobile-world-live-satellite-ntn-survey-ipad-draw-2026/index.html": {
+      "expected": "c812332b5b768bd6e25b1543f74c02b4859a1a1a881ce98474c3af362b4c185f",
+      "actual": "714f2b305d75606d65eb12e98184debacee5810914f2790b66ef21b33d546fa1"
+    },
+    "competition/mr-price-sphokuhle-chery-tiggo4cross-2026/index.html": {
+      "expected": "8e5a8f6e6565f68e7b9cf96547fd96a5f4c050c6319bf98b517cda44e9dda3e6",
+      "actual": "f3096eb4a4fa770a0119a3256a732969e0f61681b73c4aa18aa74896eb2cd682"
+    },
+    "competition/mr-price-wardrobe-refresh-vouchers/index.html": {
+      "expected": "f48124fc12fa0a7b9f5fa49da9fba8c2897556d7e766d13e9d9259acc63bfe50",
+      "actual": "adbeee8a368440f628315a48e9e1677fd69e81fcb68ae382718e6d2200cfb8d5"
+    },
+    "competition/mtn-fc-world-cup-competition-2026/index.html": {
+      "expected": "b37a18629c6fcae6eee0639c63554bbe10c189706bd4d63228fcb980c0ea66f3",
+      "actual": "aa9d25a5fdabe8fff1dab901503557f01a3f89d2bbc8e622c27b63437ff17658"
+    },
+    "competition/mtn-momo-cash-sprint/index.html": {
+      "expected": "28b01fa7a2e2d7499094b22c889ec340ee93883dab8fee20badd066edbe59166",
+      "actual": "93b6e7193878eebd15b39a90ba37f76aef0b99cc5669050e9967edb9e1fadcaf"
+    },
+    "competition/mtn-promo-giveaway/index.html": {
+      "expected": "4aa0181a5542177f0131d5051a90b0a94edef02eaf0c76d92ee5927aa4316f71",
+      "actual": "3d9f6c2bf57b71b94422e5a34af7d07f3cb604ce5d2cca100a9d9bb8cfb8bd04"
+    },
+    "competition/mtn-shift-gaming-experience-cash-2026/index.html": {
+      "expected": "c2482cd855781dbd378625732fafa962470ac8412d7a0bb3d83a001540c27c5b",
+      "actual": "7b54cf7c3f5efc9f1cba6bf990e9c9a3b57e84332e75421a4a0632c4e1abaf10"
+    },
+    "competition/mtn-world-cup-bafana-goal-1gb-data-2026/index.html": {
+      "expected": "c96ee2814c9d903b11b9694c087a7b6cf8da80f15a51cd15d89b8484f2962dcc",
+      "actual": "5e41c68653a18fce4cb77ae2ae503c9a04c7be878fc0f4357ec08185c5f2f2cb"
+    },
+    "competition/ncwsa-refurbished-dell-laptop-2026/index.html": {
+      "expected": "7ca5ded8d02f5c2cd9e084b215c3eb108eeb87eb6ee897e604273a01df891542",
+      "actual": "807c9c43301d68e21fa2b90a8c80849007ca1fe163a49a82e19c55f325bed963"
+    },
+    "competition/nedbank-appventure-with-us-2026-2027/index.html": {
+      "expected": "e1e2b42fe5d55d6ae64dfe14bf35cb6d782622aca1f395ae97d0a90441bbf6f1",
+      "actual": "1d8905d6bf66ba2acdd039190366b60059b3f7c4b21cd0341e7848496bad646b"
+    },
+    "competition/nedbank-money-appventure-2026/index.html": {
+      "expected": "73e8f2f981ccb90c4f07a058b82c3c68cbcd2383c796cf6efffcf8c9a0fbfec1",
+      "actual": "f750d9347051f1ae1073ef7e522de1525957c05289515e83e7748a7db24f6449"
+    },
+    "competition/nedbank-we-love-nedbank-cash-2026/index.html": {
+      "expected": "fd6ef163e71d4ddd7310b9bf68d2cc55301aee80fdc1753a8653b2d471094cf8",
+      "actual": "188048a4f0c59f36ee05c92a91557cf9e130cbfaeb170802b1da91a562b2b8b3"
+    },
+    "competition/nedbank-we-love-nedbank-cash/index.html": {
+      "expected": "8d68ebf052554e43bf5f66960687388c2cf898978d999c65cfd6bfe4e22835b1",
+      "actual": "81bf7b7ecf9a8c6aa20c78f3e1a82be859a0754c1ec52d7a9b20cfc840cf250a"
+    },
+    "competition/nestle-milo-meet-the-champ-2026/index.html": {
+      "expected": "52db5e218975e85c3e9e8ae234d50f141c55cca3848795dc0cff4dab685268f2",
+      "actual": "6707bc80806f3dfbd423dc82be7be6f7d32bed956d11dadabfa6ca31f716c548"
+    },
+    "competition/nestle-nido-grow-with-love/index.html": {
+      "expected": "b8cd46a13b620d641983662f9749443cabb229d442c9f0f250d82a92dac86bfa",
+      "actual": "a3043a79074a31c05f3b88fc4b79f8ff61e4169035d949085ac3ffbb33885954"
+    },
+    "competition/nivea-men-real-madrid-cash-2026/index.html": {
+      "expected": "d9306989d644fea6e984dd8678e3d47e92b26b4630f426ea2cb2100544e12731",
+      "actual": "6c527eec2cfde6367df5c1e997c1d8bf6058d87a67501e0d7dad95c5f44943ec"
+    },
+    "competition/nu-metro-radisson-blu-durban-getaway-2026/index.html": {
+      "expected": "f4aa407221675b8f23c803cf90acedf9b14dbd15cdc9a17a96aec8c3da9dc99c",
+      "actual": "c2cfe72a5028e4b14c826d34056cbcfdbe9e898fba9bf2643cd26292bcb33043"
+    },
+    "competition/ofm-show-us-your-ofm-cash-2026/index.html": {
+      "expected": "f93571a0d42cd4255b32fc6ccbf3ceaf98d79d676c34088f3283249e14a8ed2a",
+      "actual": "ee21c11e47297222de9f3445cec5724829a12dbf8abc500e5e6f81a704a5815d"
+    },
+    "competition/ok-furniture-big-brands-toyota-vitz/index.html": {
+      "expected": "2e01a7faa60c35e0f8b925f728d76ff3b3996c1251799e77cbebfd513468eb21",
+      "actual": "99e0d3c4709c4313ce5108507ca0ad6cdf769d89d76e2757fc4b16475ae68818"
+    },
+    "competition/old-mutual-win-on-repeat-rewards/index.html": {
+      "expected": "39edb92778d1d406aa31ecc99a5a30dda55762c4ab099f2ba1eba7d64694435e",
+      "actual": "f08ae688d3d4937508dfb4033a7a8d57bda4316a1e39cbeb8bba682f52bb5554"
+    },
+    "competition/one-life-maize-meal-samsung-phones-2026/index.html": {
+      "expected": "081a7661b0e558740fcbac31ed466d43b22541c156ac336e210ece182731d7d1",
+      "actual": "e5f249266f5ff191dbf997b90b3a1ba29bc5274a8ae53537055f51e840f208ba"
+    },
+    "competition/one-life-winning-wednesday-cash-2026/index.html": {
+      "expected": "83d211c8dfde6807e98077ea6140ec5ef15731298e8506d13a1bbd4845b7dafc",
+      "actual": "3af8dd104f4219ac35c4ad19e099d6e82c5b9da37200f02c39135582181e3d35"
+    },
+    "competition/oreo-bts-promotion-2026/index.html": {
+      "expected": "16fcc8a3b7f0b25a9edf92ba580a090253fa3b154b3b872f2f3520e7e8134bd8",
+      "actual": "f92519db03690e41d8359ac847195419c09e512e044f3f5c468b940764ed6c85"
+    },
+    "competition/oxford-freshmarket-birthday-trolley-dash/index.html": {
+      "expected": "7c5b82bdfafa948e21c03e1e33b792bae0f77954e863df3a4f682826263c7135",
+      "actual": "570e4644c55225015c4661f7cf65b2a17e9f5d509e8ff3131dff148fdd6add55"
+    },
+    "competition/parmalat-everything-needs-cheese-2026/index.html": {
+      "expected": "35542edbc34c25d5ca97d5bd1eeec90c83bb079207de25d542be5c860656a752",
+      "actual": "bb2ffe8796ae822241fb4849fa4483639af61af220a8e84e3faf9a819a3c5f2b"
+    },
+    "competition/penguin-random-house-give-in-to-temptation-2026/index.html": {
+      "expected": "68135abaa6d625a0a04931d13e18c8450e09b85c9d0ac112cee7469984c452f8",
+      "actual": "c5c4302e8293a94352e954b89698c2a8f1182c2c57340c641e14eac5d1b3e3f6"
+    },
+    "competition/penguin-random-house-penguin-post-42-hamper/index.html": {
+      "expected": "9fea57555a3fbd02f577310bb645d4f5741762dc80251abd63bda42204dff108",
+      "actual": "09dcad12a75f40c81fc6f07a64b47d4522eb06dbbfc88a923e518c2cdf86a3f8"
+    },
+    "competition/penguin-random-house-penguin-post-43-book-hampers-2026/index.html": {
+      "expected": "ac60fc14ebe8a8614d24e41d1dd590f41d0630a87677a39eac16bea4d9440715",
+      "actual": "e628aa6ef348cf8c13e8b68ea2e8e26245a6365f8f25aed50b8c3930531accc7"
+    },
+    "competition/penguin-random-house-peppa-pig-hamper-2026/index.html": {
+      "expected": "ab54a6f34282ee5b93517b6d58b2a803ad75dff7418fb0b7f08e3cc5fc4d45a4",
+      "actual": "e3a9a5856e0d5e208d867d539d230b68def8f53722f6981c6e64975e0f4d3912"
+    },
+    "competition/penguin-random-house-vetplantjies-giveaway/index.html": {
+      "expected": "91064a74f1e719f31b6610e1f4056cb9de2fd0cc460ca5686f956922f5656c4d",
+      "actual": "b12e60046206816a853bc3a183707d04e7513525e6568f4188764197f89139aa"
+    },
+    "competition/pep-dstv-scan-play-win-2026/index.html": {
+      "expected": "a70fa60f64e2f2de51bd3b94ac12dd07c7437dc14c9a72ccf5cfd721cecb8b78",
+      "actual": "897cfff4d03ce601975fc57ebce4036aaf9eca1df6d08218f17d245def4cd2ac"
+    },
+    "competition/pep-plusmore-win-your-dream-2026/index.html": {
+      "expected": "1c993b543a09eab98c43be788b9198bf56661789065831fb5524bdb8831d2f48",
+      "actual": "21e0ab9c4076373840797b8e16f7a32d83b38913e0adcdf08837c32874f39247"
+    },
+    "competition/pick-n-pay-smart-shopper-tech-treats/index.html": {
+      "expected": "e2d03ad01a887006f06a5cc3ea78f31c02171c6ea90b096c5e61d53947bf4d64",
+      "actual": "162fbdf5d1cd4cf7a9002ae5201a07ccb0f0ef377829dfa4f8ae1d925918f580"
+    },
+    "competition/picknpay-voucher/index.html": {
+      "expected": "03d9562dd90fc4dc57ab326e9cc48d0c6c126ebae56f8bd4ed66a2b701803b1a",
+      "actual": "603068e2966f30b75d7f0d49a454b3109503c4349ebc761c92e4c1b83b6cd2b3"
+    },
+    "competition/plush-more-foam-more-fun-2026/index.html": {
+      "expected": "c70f4755206120519f40bff4d9dba84f33953326deb95c5dbdbe7461f3a4d150",
+      "actual": "69523f07c4f16b2544db83b0bae643589723cf946be9d1b3993a4bfddb51f144"
+    },
+    "competition/ram-couriers-vodacom-bulls/index.html": {
+      "expected": "0a00225f20c504da6571b39b895081c949e273237c4573e2cd0677363235adb0",
+      "actual": "3c8d23c0b2448dc3348e2bd388ff97d98492bf0ad4741390aff497b5bc38b15f"
+    },
+    "competition/red-bull-symphonic-be-the-maestro/index.html": {
+      "expected": "3215144509f9de7e02f750c165f5b36554c4dc9bd06f15152b0657c657d5e852",
+      "actual": "20ee15391dffb5ec85ece08275d70dbcd9490c45e75baffb32d857bf97cda7d0"
+    },
+    "competition/revlon-matric-dance-vouchers/index.html": {
+      "expected": "bfea7ae2e1ff2044d555b4c2001d6ab11488c5ac7f1aaa992b31989c51299b80",
+      "actual": "7cd45eb2e4cf9dc8b6388c8121a0ed4ad726bf1359fbadc384836aacc336211a"
+    },
+    "competition/rhodes-quality-win-your-share-of-r1-million-competition-2026/index.html": {
+      "expected": "7bd978f0adee8ebe2501b7fe962bf0d549f5aeefca74afab0a620d0d9f07ffc9",
+      "actual": "7f28d44290f5b0bdcc3afd931c51ed4ac157aa82b079d9c3f6f339cbb6445f98"
+    },
+    "competition/sanlam-reality-lekkeslaap-voucher-2026/index.html": {
+      "expected": "9b86bd24998310b4eca9624e974ff08fce66dcaac4b4c9540a87f446c8142373",
+      "actual": "aa05bc8480cfbfa57d7cf6acdbab353cde40d00ee09c828107e20cec65ae7208"
+    },
+    "competition/schweppes-icon-reimagined-2026/index.html": {
+      "expected": "2662efdab1803fbf5982fa1eba59c05329f6c9c76cb4a140b85c161bbf3c6926",
+      "actual": "fdabe94cfa397e5769da1210701e15696042e42520f8946541338f6f0b19df9a"
+    },
+    "competition/shell-fuel-your-joy-2026/index.html": {
+      "expected": "6a1f34485190217c2679321804a1c3ec68cc8507f9211bf88a63ea1f66c5a3a5",
+      "actual": "f169658186df1f11f1e5b54a1193f4491914f0a10f5984741c3525935da40636"
+    },
+    "competition/shoprite-low-duma-competition-2026/index.html": {
+      "expected": "f5fd888f86112a6bb01c3c0f71ecd604b4e1b18903507a95f9d1ce6fbbd57791",
+      "actual": "3feef215f1d096aeac641ca390ddc96d03271ec333ef084680734aea5f0d7770"
+    },
+    "competition/spar-clover-rewards-vouchers-2026/index.html": {
+      "expected": "c72df71cd157ac4808feeff994c5a0d6e67eb3e4f6a491f7cd9fb829e3a8d795",
+      "actual": "1724c90eee5a4447fc117894bcfaeaf2c5fa7511586b7bb8151d010a3da72a06"
+    },
+    "competition/spar-community-school-support-competition-2026/index.html": {
+      "expected": "ee84262a27f9a3f3a1ee0c880638ef06da7975a447287ae60d0bcfdcf9067be8",
+      "actual": "a65b7a67534d9dd18aa69479f2487d50879c84e438b7b2c13de42d440db5c5fe"
+    },
+    "competition/spar-melrose-back-to-school-vouchers-2026/index.html": {
+      "expected": "fe917175d41b0acd39e0d4764aae615cdd815230ba3ec0897eea341fc2a2c014",
+      "actual": "9f6255dadc9a21a038288f66328ee456cafa0ed2658da0e856f4b9b25488ea6f"
+    },
+    "competition/spar-polony-win-six-vw-polo-vivos-2026/index.html": {
+      "expected": "e71c0214b3d83a27b9fdc3a1ae4bb6fbfdb0ba59bddf3b52fdacd30ca042f78e",
+      "actual": "06841b092d0bd73de78f987538afa3b8c36db38668209c5d1cfd53a06240ed85"
+    },
+    "competition/spar-rewards-vaseline-cera-glow-competition-2026/index.html": {
+      "expected": "dcf2b4864dc2e3924a90698673a73081c02df4241ac1190a97f11bee176c202d",
+      "actual": "88b6e1ac51d5ecd898bee5face376b6fdb1e2dda40f8e263336542b825c3e8f7"
+    },
+    "competition/spar-rewards-vaseline-winter-drive-competition-2026/index.html": {
+      "expected": "9ec90b05396eb070154727c0c11f0237fb3af5aaba0ab97ac68147108c5f7978",
+      "actual": "45b887f13db4db740bf103b558a6c4e2980fdd13c4fb3f5c0d88e3b2863506c2"
+    },
+    "competition/spar-win-a-car/index.html": {
+      "expected": "6963f619bdd9c837932c20a1aca20340a2f8dfb0fd44d6bf1ed54cb04b00de66",
+      "actual": "406dd0dd9c4a43a8e0b891afb8d66f9c27695ea4bc1c838f0297e5b1ca632f28"
+    },
+    "competition/spur-family-cruises-with-spur-2026/index.html": {
+      "expected": "1684b4a1ca9dbf824cbb2f0189e946e922b5497361ba446825119b8074b1ff4a",
+      "actual": "9b1de918bfb53ac591783e2655e3d0ce8d3b0ed8c65da5dcaee1a70b74d51784"
+    },
+    "competition/spur-ultimate-springboks-match-day-experience-2026/index.html": {
+      "expected": "441705349d00d697cc70dad3b23ffe8189a4fbe4a4c5e6cffa533e58c3871c4a",
+      "actual": "972788f8f4628d8a140a34d6af55ad7f21407d9078798891e6eabd0ea59d192a"
+    },
+    "competition/standard-bank-credit-card-spend-back-april/index.html": {
+      "expected": "8ead421ddf17562a0890a7293e571921db18153368525a41f1a67df6717dbbad",
+      "actual": "2b6167b06430ee66eabcd3a62dc7071957f2d796c977b4b6a7d9ba5428ba690b"
+    },
+    "competition/standard-bank-first-time-buyers-home-loans-2026/index.html": {
+      "expected": "39ef1bcf816fab1c2df0aa8d4d007d8bb8e4798916b384fba4153a2dfcab0120",
+      "actual": "ae2f36bad30f6be62c173a65b9e8e575d2111ae943d987cee5127f1772750208"
+    },
+    "competition/standard-bank-game-day-everyday/index.html": {
+      "expected": "a969d0006c855e96e02a5adfba5ea51b15f9a0d3b7b1394b1d3bd43e0637ed55",
+      "actual": "beacd625a300406fdb64591cc4c6bf06aed6e28e0253f227dea32315d61b6426"
+    },
+    "competition/standard-bank-gen-z-virtual-credit-card-2026/index.html": {
+      "expected": "8b997ae6c6a98764ece018841977363b854dd91ac664458e112bf3a69edb8d8c",
+      "actual": "ac6c61443b6d4ebfb5e78e8f84f10ffa8518dbcef6e7ad4b284db6436b9b3fc1"
+    },
+    "competition/standard-bank-mastercard-grocery-fuel-vouchers-2026/index.html": {
+      "expected": "9ef07f04fddbc50c5dd1351c5353c6e60568484706fb1384832119bb26e3d2d8",
+      "actual": "8b77eb7185a0d523f91e3204f2d2e20aa88896785436461a5fbf41677ba2b052"
+    },
+    "competition/standard-bank-ucount-astron-energy-2026/index.html": {
+      "expected": "440442de990fe81391251b2a62aaff8adb5d77ec6146d51904f95fccfdf19837",
+      "actual": "ffb5681445b2af1028ed600e61aa8ede1ece3adff8f2e4cbb0bcead5803a1dd6"
+    },
+    "competition/starbaby-south-africa-monthly-competition-2026/index.html": {
+      "expected": "072e17f90c0c011bc385b6c46ea83dc36e283bf2b8acb7823d7b5186605e9732",
+      "actual": "0f6cd92fbb87cf6d88e9d66a61e2bb54ffffb3bfe8171cc249246c19c367b4a6"
+    },
+    "competition/ster-kinekor-sk-club-acquisitions-drive-2026/index.html": {
+      "expected": "6cb387355ba86229340200b87482a93c3e503847568ff31fe65604eea75ae76c",
+      "actual": "08e5994d993846a0b272b7697368d6cef9ff5f3c464050980206b96a329b03bf"
+    },
+    "competition/sunlight-kitchen-makeover-2026/index.html": {
+      "expected": "ffed852c8aa1d807469f8dd18af633d423bb90b1bdf5fd1dbd27cbe73cc55459",
+      "actual": "65c45c37ad44cce8ae98f4aa6a0cef9e776bc01615493de2e6a36ef1559468fd"
+    },
+    "competition/supersport-nba-finals-2026/index.html": {
+      "expected": "dfa82e2a8f94ed583523563f06466013277c2e53d02962d297ec333f529c7e73",
+      "actual": "2e4aa2e321351838142ca91d4071a182a9d8c690de53918e2f4e03179b79be51"
+    },
+    "competition/supersport-samsung-multisport/index.html": {
+      "expected": "ec29a3855a0e629185318c5ad014f6e2c95b46c0b897e2486bc39fc949be37da",
+      "actual": "ea44d46641f494bb97f1b0bbde80ce41eeb7da911a9a04881c4e35a063ba464e"
+    },
+    "competition/supersport-sportybet-laliga-samsung-a26/index.html": {
+      "expected": "fdaebc766fa1986e10ee66d99d1baf9d35e74135de9afcafa02e7d40cbdb3b82",
+      "actual": "929ad82ab02b84dddaa29e76f47553c0bf2006e1bd4b206d27a0548754f6a98f"
+    },
+    "competition/takealot-back-to-school-voucher-2026/index.html": {
+      "expected": "3aff35230dde2c1cfc2cd56ae6fcfc4d96720a9c1e0aa5551bfff13de633b4ea",
+      "actual": "95dce416167cea61906211e735275d3e762d70f94e7918b071554fbc2a67af28"
+    },
+    "competition/tekkie-town-football-frenzy-fifa-2026/index.html": {
+      "expected": "5104055a7366832551c285453c42ff6b652749badb7e72608e0f7aca2d37dc0b",
+      "actual": "80eea11762187642a8bd7fcd322ab46f28a92dae7fac81b7a7455b0cb3ce8e94"
+    },
+    "competition/telkom-mothers-month-vacuum-cleaner-2026/index.html": {
+      "expected": "187489d4078729fbfe962647274caa978755ffddb800f5d9942087d9971bcc76",
+      "actual": "f610ac5c3b5f5502cd9eb5406319a04b1d5a674fa2c6935f27eb481e5fd4d6ed"
+    },
+    "competition/telkom-winter-wifi-mesh-competition-2026/index.html": {
+      "expected": "2223db9cff3fc0367f031c23127cfa3944952e07134822a398c39a86a36bba52",
+      "actual": "b9874db993e22e703c31b132699cd5e167344452f2f4cc1d720c75bd66db64a8"
+    },
+    "competition/toyota-hilux-world-record-nampo/index.html": {
+      "expected": "fcea5f4097cb298935cca507ccfd7760d4ca4fee3f98e340315a4aecf8af40c3",
+      "actual": "81ac4394822f37bbd89cb2011b7c54faae52e637a1bdbf57d29a0253fca1f47a"
+    },
+    "competition/ultra-mel-christmas-in-july-2026/index.html": {
+      "expected": "315c9e20a700f62ed04b60222722d16cb88f888ad5b9374e8e538d703730f4b4",
+      "actual": "b9a57025543c6850049ca8a59997abd4e157fa8f3e6a6c17654383ebf78e1c12"
+    },
+    "competition/va-waterfront-mothers-day-winter-escape-2026/index.html": {
+      "expected": "4cac952009cd18cce6986b5b00f9d7facdaa69c1704667bde8ee8a7aad5c4f2a",
+      "actual": "733f33d67023f41653574f1ffbac75e62e3f76b0ace9ab6ddd9a9d3505ea00d4"
+    },
+    "competition/virgin-active-springbok-partner-2026/index.html": {
+      "expected": "c2b3eb7ae5e7723d01a5a980f1230d5bace38b071e402f7373343f96f9161bcd",
+      "actual": "76d9d40bac354061bf0d88549a088dc0b4aa25fbbe462b2450a852f8fe9fd5c5"
+    },
+    "competition/vodacom-core-fibre-soccer-jersey-2026/index.html": {
+      "expected": "627eeb6631b94e26dbc52e92e1cc0b8f44c258c3092587af264d5670a271bd73",
+      "actual": "efb4a8521eb045f6342327c91c9f21e47b54576a2cd74fb14b0aff2f90c53fd0"
+    },
+    "competition/vodacom-dankovodacom-adidas-voucher-2026/index.html": {
+      "expected": "2df026162af683773fbb384481a0f333a90b55200b2138e3382cde41a6155d19",
+      "actual": "b9cfde9f5c87ab79c5587aa7225343d0f4887d6bc1d5a2eb303ac96b2823b983"
+    },
+    "competition/vodacom-green-gold-fieldbar-cooler-competition/index.html": {
+      "expected": "70862a345f5e6af91d3ddc9887de5871cffd86bc58fa2a3c25d0d9b0d110d1d9",
+      "actual": "f46f8b151926e0bf3fe8e70389ba74cadb3f1c52a1e9e651873aba337ad810ee"
+    },
+    "competition/vodacom-mrp-gift-card-competition-2026/index.html": {
+      "expected": "31c8c2fc0223da3c712fd514f8a0df6f5095d2a0e5f4fc1337495e315ae82f5f",
+      "actual": "a6cb0b22b9c605ce5a0f8df6a23a1a268c1ccc66f7ec2515acea2af9d5f2b304"
+    },
+    "competition/vodacom-power-up-woolworths-vouchers-2026/index.html": {
+      "expected": "33f8dd0d8aec1566e3cd9edde921d312c2950d1b23e08bc06637e7de70b8566d",
+      "actual": "f3486b349d143646a9f2c4686aa46a4b03fe8f86b1c5eba5ee98b4fa0c96673c"
+    },
+    "competition/vodacom-prepaid-fibre-soccer-jersey-2026/index.html": {
+      "expected": "b5a6cabf6b072da03986ca83b6eedb832c2000bddb1b5aa8ec591871d2644aea",
+      "actual": "c02f4d6f033993a8e06c3ae56114a1f0b683d681e8b7332334d6e3925f24ceea"
+    },
+    "competition/vodacom-red-springboks-double-tickets-2026/index.html": {
+      "expected": "972a730a0bf52510af9ebc8f05977df003bd7d6f7d3beac32da2263eff81a2d0",
+      "actual": "ba8201d1298cdc90b0fd1f9f04624d31e31596afe9208191ee8af256bb6154e0"
+    },
+    "competition/vodacom-rewards/index.html": {
+      "expected": "1f5ffc03a09bad0f57c791695c13fc2af609e9736f8f775ca2d12c6c9c94d8ff",
+      "actual": "0e524e3cd6dd7ea9e7a4a4bab70256fcf4db2d657d9c189b8cf0171a923945a7"
+    },
+    "competition/vodacom-spend-and-recharge-tfg-vouchers/index.html": {
+      "expected": "c738f4d79a4dfa906d50eaefee85d827451d680a647f4e755f8579cf7cf1b6bc",
+      "actual": "25106a5476a76772f71f3dd748b451d7b1eb25471516eb1fb3bafb4b40e5cea7"
+    },
+    "competition/vodacom-spotify-premium-activate-rewarded-2026/index.html": {
+      "expected": "42e0b709f9fde0013a80bc3d9376fb05cab532fdeebe41307a2cbbf595ddbb28",
+      "actual": "1638989e9b5e8c8336872a86b31a9f148f0ade15ab8cd78ed884986bd3c32d63"
+    },
+    "competition/vodacom-tsamaya-pre-season-fan-tour-2026/index.html": {
+      "expected": "e9d94a1c936baec263809512c14080f9d42f17532ebb535f39ddfcb4585e21de",
+      "actual": "57a101588b23c1a98ac5b5e37e1da2b0983e16d6bfb5976f31b2ffccaa7bb82b"
+    },
+    "competition/vodacom4u-samsung-s26-tv-giveaway/index.html": {
+      "expected": "2817b99385cffa91b38eaf7909b65702c4469c6202df444a132a880353aa3118",
+      "actual": "9b381102e947a733ead74bdf5eb8cd9e97bc65e868af1ff2e35070905952b6cc"
+    },
+    "competition/volkswagen-easydrive-maintenance-plan-2026/index.html": {
+      "expected": "aef2a97b50da1b53090c800897bbcf3d2fa3dddce1df2b5252e907796e2a57ab",
+      "actual": "3da11ea0bfb4b258444301f324ecaf4700671f39c8522c795101e296c8a910cb"
+    },
+    "competition/volkswagen-group-africa-july-win-a-car-2026/index.html": {
+      "expected": "eefaf69d0ed19b663d2948e17c10efb3ea5585418bcf236d685b263ed1645173",
+      "actual": "2d05f19d9ebb04d331e543588b97bc70dc961c684ad51ba6dce1300f006c3b6d"
+    },
+    "competition/wanderlust-reader-travel-awards-prize-draw-2026/index.html": {
+      "expected": "9e8c57ba5fde372c88e963f7f6aa90c1b34ba3e0f15ab6e922caf96d43553076",
+      "actual": "1746882e14bc6cf87543fe76ec908abf155c4108b3996dc4e117a36221dbda22"
+    },
+    "competition/wanta-fanta-gaming-promotion-2026/index.html": {
+      "expected": "3a1d39b238aa36c8e1e5605db9db87b1eabeb809e96714a06af47cbe42c75ee2",
+      "actual": "e8dee656a2ba987fec6bb78d06a7edc616be24e0f8d2766861201b53386112fa"
+    },
+    "competition/witness-cape-town-trip-2026/index.html": {
+      "expected": "9b52ffd5ce85ac94bdf3b924fd27bdd50631a4a72c3e84da919ac33a16494e14",
+      "actual": "5c4e67476b31b14c5f4c7cabb65bf5003caf76ee950a97092b37fb1c169c8b79"
+    },
+    "competition/woolworths-mydifference-cash-boost/index.html": {
+      "expected": "12296c87e7802c7e5e1c45c82ead05abf007d9255ace97efe35fe5263e22229f",
+      "actual": "1e7d40fd6c2a85a95085de23b77d3c14acaca5dad689b8ee7afac9d906496859"
+    },
+    "competitions-ending-soon/index.html": {
+      "expected": "d45cc9d77ebe2fc529725c4c530e93e61b23351292d98a6b57d44d8e559b8c3e",
+      "actual": "f2be9b4ff3a52788ad0ae2477de77f0ae8fcdb8f5f21907b475e20a4f0998305"
+    },
+    "competitions/index.html": {
+      "expected": "d417840855600dd450e2940720782ed27aec34d676b4e77ceb46d577cdcaeaec",
+      "actual": "2a29455a7c109e2fd6deb72125c9309f098d036c547f5604c68a9aa0fdfe37fa"
+    },
+    "contact/index.html": {
+      "expected": "4f48bcdc8ab2ca8e0335cddf22af411841168725254adc7ae23b3ba0fc0df54e",
+      "actual": "b900b333ea03dbc0872e9602b8ffef4996db4f7932ac53de6e822ff69e50a66a"
+    },
+    "fake-competition-winner-messages/index.html": {
+      "expected": "6429e0f56d0090aed26c880fe81fdb2eb737249186f483cb12bd50704561591c",
+      "actual": "113113d4827f98348cb18ec06cfc0e3fa463ca01043f86f3a1b43a87cf9be126"
+    },
+    "free-childrens-books-south-africa/index.html": {
+      "expected": "045cbb1842553eb7360e3e7bf1415574e69efa6efc3ed0cfd5f75adc2a06bccd",
+      "actual": "03a21aa97c8cf845f732c84ee736925be354cb3cb37ac3745b68c8b91af1e301"
+    },
+    "free-competitions/index.html": {
+      "expected": "0fc5eecadc8a19f4bc32c54b12ead36804efc7bd5042b110915e82bfadffa78e",
+      "actual": "089e43e6f15acd53463171ae6964b717abb510e0adbe6ee79d540fd2dcabbaec"
+    },
+    "free-credit-report-south-africa/index.html": {
+      "expected": "970cd6278689c207aaf39dfc2c5427cae0f1e0144c2c745b3ba248ec1f8e859d",
+      "actual": "c715e220b7c672652911bf9ecc74cacc54f900b33cb7fc28cee6e8c46f0c5ff5"
+    },
+    "free-online-courses-south-africa/index.html": {
+      "expected": "5ebe05d8ce00700256bd3c2a58be7a82a23908a54c849c6c8cfda7a750d3c3b4",
+      "actual": "0683ca64ed08047a4b4aac8de662d3365667b9d18dab5aa4135bccc5e8aaefca"
+    },
+    "free-samples-south-africa/index.html": {
+      "expected": "679db80295c41c9c7e5681906332f81b46d71d436658a8a08779078ef277d69f",
+      "actual": "bd9baed1cd26279708fee4584471198ea827fc07a3dd7ad7f180122c63d8ea14"
+    },
+    "free-stuff-south-africa/index.html": {
+      "expected": "b91b8f9a46188adeef286f0f52ccc67849eaf6fec05177d1004d2f4b65fcd1d0",
+      "actual": "4ee0be383e880a17d3cd888851a07f6e67a06a2f5f7849167dc32fb5d05e44bb"
+    },
+    "freehub-account-benefits/index.html": {
+      "expected": "2a991cf6c4a5809304b690064c77cda45a312428a08c5ebac1fce97e3bea5086",
+      "actual": "03d69c63a43ac412154a1fc7dfcd6383f7d0fcd9ada3b3351cdcfb12c77ee879"
+    },
+    "guides/index.html": {
+      "expected": "45bb9268bd6b77576f3c12cec1f5c9a14285f917ebcc7d2e791b95f5018a59bb",
+      "actual": "612bf691b83c67f32a066513e37ec2da6682f54aa684b676e9b07ce9537a2220"
+    },
+    "how-to-enter-competitions-safely/index.html": {
+      "expected": "c8ca531d9d6686c74e8eb836d4cfbada09d82666286a84ac6ba2e294781ccbc2",
+      "actual": "5c8d2c31af1540f23b1462c07636ff84baa91f7891f593c6e3370731f105af7a"
+    },
+    "how-to-spot-a-scam-competition/index.html": {
+      "expected": "c5265d1157548398eec556c5f120ddc9c06e02a51b1524c359727e96a2b67691",
+      "actual": "443dbe7b65c8a6e65fb8dc54194971d17af09bbc94c6d03fb54070d9ef91fe87"
+    },
+    "how-we-verify-competitions/index.html": {
+      "expected": "9a8caa094c95805b2f518505a176753c76c159b2587664d94ba60462ecd4f7b1",
+      "actual": "17e5a4f643ce0cd4ca473fe58d946c3b429a153f82a0488a94462c61271b650d"
+    },
+    "index.html": {
+      "expected": "5ae666a71e5666f8f361585123d3e09c14c71cfd16d4247b36d811513b886402",
+      "actual": "e84be1bb3ff978cd788b0fe2916e380490f8ceff636defe5a9668e2ef703930e"
+    },
+    "legit-competitions-south-africa/index.html": {
+      "expected": "8d684d8a9ce71a86240750796f0306f241b15ca70378a19e79eda497d2793e57",
+      "actual": "858eebec75c3b7bf1953318561b63e9a152e10cc76ce62b2be0705debc160ad8"
+    },
+    "new-competitions-south-africa/index.html": {
+      "expected": "d72b10d30f83ed3374a8bc402f21ff53d685456570243d27d9d37aa7cf61948e",
+      "actual": "b824f925476ae8602e5c5bb0d22ec3d7acecf1501c5cfde29d74856aa3c9921f"
+    },
+    "online-competitions-south-africa/index.html": {
+      "expected": "fc77d89e3780cd98f8b06e11bbee1db8ba0cba3908a362cdb23a00d513f60dfc",
+      "actual": "bf4a918d738cc60545f3782a14dc84b7922129c693c9729b600102e8a5a72f20"
+    },
+    "out/aldo-football-club-competition-2026/index.html": {
+      "expected": "f5b96c5a1c46a27659505445a9d3271647b1c6f1a57e16e6b3d1bd07fcf63033",
+      "actual": "a9ddc335688e2c4cb5ed8734a78dd732a3597a9f680ef0e830448e1d1aacf4f6"
+    },
+    "out/alpha-pharm-alpha-52-cash-2026/index.html": {
+      "expected": "388243b94d6a86b6758c75b575176fd917495a16bb8317134d7cb14883651500",
+      "actual": "fe1ce6cbfbb00976c8e652b996f0d33881425786f38caabea1c111b7b74e65dc"
+    },
+    "out/boxer-nyama-battle-food-trailers-2026/index.html": {
+      "expected": "a03b698b47082898b106f1abe2152cbc0c9acf089f52b18703ae47eae093ee23",
+      "actual": "ed5eed8a63c1c4f596e14d311d2462e4f25d8e2c9cf4165fd2cbf8ea770d205f"
+    },
+    "out/capitec-tactical-flexi-voucher-2026/index.html": {
+      "expected": "b875655d1bd99f7731a3b60ba291ee7381ffcdca88b0f1bd1f1d8285307cbbdd",
+      "actual": "818909d98b91443f8809da503d03709fa93c8fc6cdf14cb50a3359ed0441f530"
+    },
+    "out/castle-lager-fifa-world-cup-cans-2026/index.html": {
+      "expected": "e8e40690163db41c8b7abe908b50026d7de85a64d9b4ee205cfbac20a90ad9d8",
+      "actual": "ff77e16b1559dea471782c6afaedec5148f3d10c5365554364ca562b0597200d"
+    },
+    "out/clicks-dark-and-lovely-best-for-braids-2026/index.html": {
+      "expected": "da4f4ee0465747ea1a0d9a351a0e3f685ca3a6182426fb333d6726bd25349dc3",
+      "actual": "0daf1aeee0c1ec57cf446f966ec4d299fe9125563b0f3fe5f8853d7ad5c7d52f"
+    },
+    "out/coca-cola-be-a-bok-voucher-prizes-2026/index.html": {
+      "expected": "59197060f8426e1a53ad5b8417681ba31a5249bc5c80c45f043dc1099d9f0457",
+      "actual": "4eefe97a93175f4b2537e80c4cc7589057f224840c930ae22686a59a7f5fd4a2"
+    },
+    "out/coca-cola-fan-can-be-a-bok-2026/index.html": {
+      "expected": "af0c959c554f9725696137d31671f60a6287ff439494b2f11870a274cc198c7a",
+      "actual": "c82c8d364366d5c7631ea05cd98e8acb53c31e30751a00a55eba4ed153317354"
+    },
+    "out/coca-cola-zwakala-neflava-2026/index.html": {
+      "expected": "0de525a194b7f4aad0475afc80585032d38ad152a8f12eddfaea9c76732f3686",
+      "actual": "5376c942107176e8191a156e364ecefea31f646cb706511b8707c9203b5a0368"
+    },
+    "out/colcacchio-alva-winter-pizza-oven-2026/index.html": {
+      "expected": "e6c92b30dea608656663769dea7ed9227ed108553704b022681b96673293e15a",
+      "actual": "c2bc0abc63e89be60a1daa39d3298f38a3ef0b95c5d2cfbd9146d0d0399bd123"
+    },
+    "out/ctm-pro-grip-win-toyota-hilux-2026/index.html": {
+      "expected": "d39ec485f8d578b1397d80b7f21d615c7a681e809e4794304717cd97d761af97",
+      "actual": "1c7f5eb308c2ea424935aa61b74cd05053183b76219cf2048a4360f023fb4323"
+    },
+    "out/denny-r100000-cash-competition-2026/index.html": {
+      "expected": "547be248c99977b11141f3e7d8375d41cc796e22b150ea29490dc3c6ec39f9a6",
+      "actual": "728052271a05eb4b976d803240ffb2981908ae066d1ac15ffdf2b152003213b1"
+    },
+    "out/dr-oetker-taste-the-upgrade-2026/index.html": {
+      "expected": "f1b22c848cf653eb24f5e8f6742b299061671491bdc0a114b67937e7b4b9658a",
+      "actual": "8b5e4f274c3b2f3920000514eabafdfecc5500c6ba3157f0f1cf2da9ba687c1a"
+    },
+    "out/first-battery-centre-win-a-car-2026/index.html": {
+      "expected": "d3a043f6c6d6ae96cbd96c0c08543d37633b6e11fde9dc7e2845f7eb9397d2e0",
+      "actual": "4efc66a9e2baeafccce2971ef0963c260c656edf8ef1937dab5d6758e1237f9e"
+    },
+    "out/fnb-family-banking-million-ebucks-makro-2026/index.html": {
+      "expected": "1c284314bd074f2cda4aa484a95a2523291d61a564e9235b3af81439500e59da",
+      "actual": "77620436ae3c43758e916a672c6602787c2535b98c775555452f911bbbd42b99"
+    },
+    "out/gardena-winter-pruning-giveaway-2026/index.html": {
+      "expected": "647c0b2c41ec531f378af95d2b20a7b2b870948feae6fb42720942eb3fa0be0d",
+      "actual": "7cfe2802b6975d0efb17bb3248cbbdc234bd3c39438d36565a3f73e2a73001d0"
+    },
+    "out/hadeco-80th-birthday-competition-2026/index.html": {
+      "expected": "3e9673d067b39b315f3a002219cc96b3df1cbdeb355b1d2b2cca85627d260308",
+      "actual": "d25421598674d0aff2c1f7e0c4fa4f40f56d53e96280f380cc376a024a423b1c"
+    },
+    "out/hisense-big-wash-no-drama-2026/index.html": {
+      "expected": "5054212b09a28f2007a7066de83a0d7b81b951c89008686211fdf2e31d830476",
+      "actual": "8c5b285b4f39f305bcc44c1258b7dc352148742a69531e9f3491a252c09d70c4"
+    },
+    "out/kaufmann-rugga-supporter-competition-2026/index.html": {
+      "expected": "450ad5e56e4e642e767336e17352fbd156dade0872661872680c48d7895950cb",
+      "actual": "c00ba5f484a83343f5fcf764833bfacb8e962422ebf741cf1c490a026bad8261"
+    },
+    "out/kelloggs-big-bowl-energy-2026/index.html": {
+      "expected": "f46c0018b43b1715ac15f2c79c632e17b4f5c7ced02802d331981de0f0b168ad",
+      "actual": "ff419f127da3d90956dcf825ec307b91f584946ca047d7751af5027adfc3a94d"
+    },
+    "out/knorr-win-r5000-weekly-2026/index.html": {
+      "expected": "0652d7a1548ccab90cdea57a19dde2bd61e62130516e4613e0dea4b2a59481a2",
+      "actual": "17ae69b76316ac8ab8b02b222dd32706525e56d25ee4a24c7f0ba56e695238ba"
+    },
+    "out/masterchef-sa-watch-and-win-competition-2026/index.html": {
+      "expected": "91cef9bb16005841b5217159608828d4bc8b5c1f67fc4a3c91272bd65714d958",
+      "actual": "45a010a72b1b1eef65c1e5b628cc3e4eb7c713ad582d38d68ce7083cb56b5d03"
+    },
+    "out/mcdonalds-nazo-meals-airtime-data-rewards-2026/index.html": {
+      "expected": "f3deacb9fbe37f64a1d3dc4c26614c988e2564812da75857c6f6aa80667304f4",
+      "actual": "f5bfc44e1a065816abf5d717542ef58c8cfe0a1a911f12c8672377726c5a2ab9"
+    },
+    "out/mtn-shift-gaming-experience-cash-2026/index.html": {
+      "expected": "c137fedd5f1a19a88a115b5f9b0eecb76903e13c1458f33271d0567052480b60",
+      "actual": "c271683e5e7bf318b31fbc4e28171e6092253560b563eac3e29b7c7040b0dae7"
+    },
+    "out/nedbank-appventure-with-us-2026-2027/index.html": {
+      "expected": "a7065646b5191809a740585e0f317394e9bc488a442505c57fe9dc86c82e904a",
+      "actual": "4b8132b0625ccebcf0dae72a07975254619b3cb0cad44d24c4994a8f3d583627"
+    },
+    "out/nedbank-money-appventure-2026/index.html": {
+      "expected": "d7b26fe6c1b454fdd772354e675e0957d2863f91dbce4a5c800ad5a87e6a7a8b",
+      "actual": "cda31af64b945cbfb8521ddb9678ec9368bef3de064db34e039696c6b0c76438"
+    },
+    "out/nestle-milo-meet-the-champ-2026/index.html": {
+      "expected": "729d33ab885be268a9e58b60458adffeb4aed5de9f3cc6233031f596acd5ccdd",
+      "actual": "d6ee03a4b64cbe505a3a026391dd93c3a76786157fa8d53006b1618399c5e720"
+    },
+    "out/old-mutual-win-on-repeat-rewards/index.html": {
+      "expected": "f6802c99cbcffca3705418a6620e4610014feecc60341552482985359b4fd898",
+      "actual": "917d3ab278034359a02dcffe4411a09fbaa86a18e39d2639e742cea373b8fd3d"
+    },
+    "out/one-life-winning-wednesday-cash-2026/index.html": {
+      "expected": "b1c08d582946929acf0b64faa554db7b435149b537f9bb620c2b9254bd009191",
+      "actual": "0e03a8feb219ac3bdd916d47ac4688950b16c744e2562f7e5aeab77fa5caa31d"
+    },
+    "out/oreo-bts-promotion-2026/index.html": {
+      "expected": "878ad3bbd103f24b7b522489305931ed11f56cc9ddea88ce741ac710e7238c30",
+      "actual": "521512b0c55a818709e1ffa405f06e9eb5043012726c5a18bdd7e4e5b30265e7"
+    },
+    "out/penguin-random-house-penguin-post-43-book-hampers-2026/index.html": {
+      "expected": "6383068d9fc63e8d0b56dfafe2ce82f124aa892b9e509358687e91f8f93a94d5",
+      "actual": "44c7a475f2a9dd6790ad6bfb9a8c1dd0ffe3a090e9e8ce11df2404c843eaa05f"
+    },
+    "out/spar-community-school-support-competition-2026/index.html": {
+      "expected": "c234a1cedf80b970aba9fa4a02a84fd3070e920c6896ad6305c725650ccf5c26",
+      "actual": "1f00a48c4621b6f90c225e66ee7d69aa95b44cd2586848a9114ca884a990c944"
+    },
+    "out/spar-melrose-back-to-school-vouchers-2026/index.html": {
+      "expected": "f2a6b2993d5ce71d71d8152f5b12f4b0737321a92f20d13eea0e3650496426bd",
+      "actual": "9c732932f028dbacfc8741333442bb9195ebc3f3a5a960273e5dc108c6c9d4f1"
+    },
+    "out/spar-polony-win-six-vw-polo-vivos-2026/index.html": {
+      "expected": "5573606acbc06cbd5b2cc942de59e88b7b047770eb22b6c275417d88c02c4b36",
+      "actual": "08ffbb67b6a8108a98017f5216116a624452484e8b9c18a3dd44f984ee03d359"
+    },
+    "out/standard-bank-first-time-buyers-home-loans-2026/index.html": {
+      "expected": "2dc36bbd312d133a08604155b48824ffbb2ef1d4a9563d9596007fac65434562",
+      "actual": "8ff5f5f9d391e523b573f1d14759a04588cd0865e25288a493b9d3896100ecd6"
+    },
+    "out/standard-bank-gen-z-virtual-credit-card-2026/index.html": {
+      "expected": "8e43f90e40dd75c3132df55800cbade2fa10dd95009b61e46120fffcbb2558ec",
+      "actual": "bd8685b434b44e21fa80a0e7e234e1ba83989e8920123d8e8df5a25d9cb8e839"
+    },
+    "out/standard-bank-ucount-astron-energy-2026/index.html": {
+      "expected": "89bd0451edf646b5fb87a34135edf404127e343368b385d3cd53f457bde6bd42",
+      "actual": "2cd60635029e5cc5e44383309329b3ad7875b230fa50c90bc241f17ad9a292cc"
+    },
+    "out/telkom-winter-wifi-mesh-competition-2026/index.html": {
+      "expected": "c0598063003fcffccafafc6e71406b9af65dba2495bceee6ac7e03edb5b3462d",
+      "actual": "c78a6d913f4a023c63f13346295684e87eb7d8b6df67c1f155ddb405931d9b5d"
+    },
+    "out/ultra-mel-christmas-in-july-2026/index.html": {
+      "expected": "4c44311c595af239674b176a7836f99b01f4907cfb36a1c8097c71ff2a719276",
+      "actual": "8376c6a4a7e2dec841f5e0b72f377fe63b910a3d24f71ee2f1d2d4d050945a3d"
+    },
+    "out/virgin-active-springbok-partner-2026/index.html": {
+      "expected": "d366800a19ff0655465e01d7293d7b1c2be4381ac47b27467732795d2525c72c",
+      "actual": "a26805b6be6121a976828c650ecc52478dec8e6892c6996f65194cac2076027f"
+    },
+    "out/vodacom-green-gold-fieldbar-cooler-competition/index.html": {
+      "expected": "f22a282712fe94e980399141b18df2bc3cc950a4297da1a588b6737d7a3b2498",
+      "actual": "13d5deb228a291184b35be26ee39c2354e8aaeacf34eed31b1b91a5d3afa0ba0"
+    },
+    "out/vodacom-red-springboks-double-tickets-2026/index.html": {
+      "expected": "7887842b109f2c79f5ad8c683d1890386225a91f1ce523338960865c9434e11e",
+      "actual": "b31c2e5ddf58e50f9ee9223ba3365809f50cbc4ff76ffd29d330576944327f93"
+    },
+    "out/volkswagen-easydrive-maintenance-plan-2026/index.html": {
+      "expected": "0bd7b3d75212832a6aad1158d01192d1602290ed813cc842655d0bfc223f3b62",
+      "actual": "6e013fe63729dca5d17a350334ad6f861b1363b68a62ac5db20152c6fc1d9829"
+    },
+    "out/wanderlust-reader-travel-awards-prize-draw-2026/index.html": {
+      "expected": "2679ec0a2052995699ab42016b92fd4c57adea60ef65f2e7d576c97424cd450b",
+      "actual": "0d7975ed6e04a541d956fe283cfc3c4a66c6126809dbbc25926a606e0605610f"
+    },
+    "out/wanta-fanta-gaming-promotion-2026/index.html": {
+      "expected": "8bf96d002f58ff4312607f20a04b76d0d050cf94642117db5fd607b3b6e6cf4b",
+      "actual": "4d59e46d8260ea72dc250086f3ed0ebe3d103a44f00b866d4b2a915707a1faee"
+    },
+    "out/witness-cape-town-trip-2026/index.html": {
+      "expected": "164e6d590b5653ba0248bc363abd6a228caa8e981a1856d886d522b16da3b088",
+      "actual": "e36231b2c2557609aef9a716d2fe1dcfa74c843a210b84f6758830b00628d36b"
+    },
+    "paid-entry-competitions-explained/index.html": {
+      "expected": "960bd983ce2c6008df90b8f8694c82df02dc96d29946d2b9d1a35daaf8e359e9",
+      "actual": "1b44b7ead5462ed0a576f6e3f5b63930abee35cdabf38294a7f4dc24a01d3152"
+    },
+    "paid-entry-competitions/index.html": {
+      "expected": "c450834873bf14b3ebb84ec704ce5b61a469a67a36f3f0e97b5aa5cd406c024f",
+      "actual": "5705b919c272075604ec434e7cc22d4652b7de5ce141a6429bdff951cb391bb5"
+    },
+    "privacy-policy/index.html": {
+      "expected": "729516b537939fa4c0e6bd836fe44887ab79073ccdab767995cbce38496ead33",
+      "actual": "eeaf26df0c2740768a4c1eee84c7f488b7a65a78ea7b834ccfc6b610e158114a"
+    },
+    "purchase-required-competitions-explained/index.html": {
+      "expected": "9932a209ccdc9efeec755605ff43247023be67a00655b6d1031208622856f761",
+      "actual": "a7ae92208400f8401a97f7ab2a38e2d9a283c2862ba8b324b2abc49507d3ac30"
+    },
+    "purchase-required-competitions/index.html": {
+      "expected": "3301e8d3322ed82277ecc1ccf466cba30a705392c4c4833f97d23490cfef5944",
+      "actual": "f700287bd238fa9ac385b220b2826ee21afaece94c0a5a8092ea57a7b001f61f"
+    },
+    "refer-and-win/index.html": {
+      "expected": "a25a69b5706f889abe3d5bc33fda64b45e3e317b45faeee779c807108f0c4f60",
+      "actual": "4f0d7e27562ab821a7133a4f9880be7fb1868fa61f252e89ad50fb3561378560"
+    },
+    "refer-and-win/terms/index.html": {
+      "expected": "76e70d7be66d3ac61c5b5bbfdc6806d3c3d3bc19c031fbf05fa16aaf6da9c4bf",
+      "actual": "191ef46b19ebab7995f2376fbe90b5dfa8886464a63819039d67edf668fbfd56"
+    },
+    "report-a-competition/index.html": {
+      "expected": "a88d399e009651bdf2eff430abe72f645a3c3528cfb9c4c8f256364c6c33ddab",
+      "actual": "2012eb1b4a06a65ebc12994b3518f31f3544b6d1b0cd93b588910a5d7a0db8d6"
+    },
+    "sitemap.xml": {
+      "expected": "91b553cc851ab7a728b56c719ae3d767458a4f7904a31f9c5738a3773a5adf26",
+      "actual": "359f2f3082627c2ad585c6e9451b4f9759cdf92c7abb3e36f0e2bf92bd211fb3"
+    },
+    "submit-a-competition/index.html": {
+      "expected": "fb9a2dec750a3f730734b780fad03f846bd9dadcfb3ef62da1b127a1d59ba3d5",
+      "actual": "5928040a4710a47d9ef925c14205d07945cc147211aea22e79544ec31d0cc801"
+    },
+    "supermarket-competitions-south-africa/index.html": {
+      "expected": "004db761f5d1eaf1675ac004574985b645394f6fdbadc7a8b3f4c09061577cb3",
+      "actual": "5fe12bf319105756567439d71a029e5ecbf18f8945eb3c0c96a78f9951b307c7"
+    },
+    "tag/free-entry/index.html": {
+      "expected": "27b8ff68af38365d4422f814e27b619109ca522a88c03d2d358f8c424a649d1c",
+      "actual": "1def10ec83732b8fca3cfcc6bc9ae5aad19c892f6730bd0bd04d6da752231dad"
+    },
+    "tag/high-value/index.html": {
+      "expected": "46950eece96a6f6d0c7061cae98fa8a04d68b57ee40acfabcbb38e03be1e34ea",
+      "actual": "fc1e1cd9db906488db27cedf0810a398f5309143cb3a4dc4632311eb77e145bf"
+    },
+    "tag/in-store-entry/index.html": {
+      "expected": "aa4e25fc3b46a8a9186ae66566389afbfbb9702a177894add2fa7653154fb972",
+      "actual": "a3faeb671e70fc2e353f94b75fa0c1847deb5847b505158a72a55b605ce99637"
+    },
+    "tag/online-entry/index.html": {
+      "expected": "23455a7d87747bcee52577f853d9b03e6ae0345c344bcee3041c2c9d750f97ef",
+      "actual": "aecbaba2bb4c8ee0643db5da5a176cfd29290438373af7ff2a16ace743562251"
+    },
+    "tag/purchase-required/index.html": {
+      "expected": "5532732b270f7b2e132b84e2f94d6399c364cdff491d7d3d4980cab0f435a211",
+      "actual": "895a6f9f314dcb7d5d55d57b2b74329807f4dafc765802ba7d26e38a8f1eace3"
+    },
+    "tag/regional/index.html": {
+      "expected": "c36acf5c1f3a79321f74b3067468ccdf5d0d03d1a64246b8094336517dbf97e2",
+      "actual": "edfd53dd7aea040fee1acfaa52cfee23719b513a4bfbe5d536ec48205fa4563e"
+    },
+    "tag/rugby/index.html": {
+      "expected": "6df8bcea51395927742639b0db25407dfac32fbd2ba987f12233b95e5f05c924",
+      "actual": "607a6ce67db7af361d02ebc6ade9d30e95f463589fdeed59ac310234af1fbe3d"
+    },
+    "tag/ussd-entry/index.html": {
+      "expected": "1fc21525a0c13cef27841021ac0640965d659ba52ce2d98ecade04058ae10c89",
+      "actual": "09b4d4d27036624d1dc70a6c2085e371e4e08bc329e7455e177d707390a57ea6"
+    },
+    "tag/whatsapp-entry/index.html": {
+      "expected": "6502304f4b5894a84be94bd0533c045d597ab2cf7c4998b2525de871d39f7e16",
+      "actual": "713df425bdb8b7cffc348cecd12e19c1bf51b1c71b1e2e84e874288ee74ca363"
+    },
+    "tag/win-a-car/index.html": {
+      "expected": "18a8e0b723cca7f1f1e9ce21ef9724ce07d60ed109312871bbd4318630a0e012",
+      "actual": "b9ad9df80a6c8e09f23561b975f34b5e3a4cf626a9830a74dff28d92423cc9bd"
+    },
+    "terms-of-use/index.html": {
+      "expected": "6f018b424a0606cdb7af0824c5eccdb292a474adc3488fff331ac6f91f4a6c68",
+      "actual": "3fadba911e01297744940a0bbccdac558c85074c3eb892c325f28cce56f44582"
+    },
+    "till-slip-competitions-south-africa/index.html": {
+      "expected": "30d303c48c31583353e838b2386ba78fb5fb54cb21cfbcf5870a54d252d632ba",
+      "actual": "a36312439883effa68853ad6c59e539725538b30909bbb5b975a81db639c9f22"
+    },
+    "whatsapp-competitions-south-africa/index.html": {
+      "expected": "f0bd352e39c3cc0ec67cccc77f0166cfa3bb82b89ca7da078553c9b3516facb6",
+      "actual": "a701a3240fe54d0ea3704e7da1ccc3b2eda7fd708d8ffba6475eec6ab6ef8430"
+    },
+    "win-a-car/index.html": {
+      "expected": "9f46c0ee2d81fe6017ad882eae3485ecb0bfe70dea36e1c120729f737b952240",
+      "actual": "71fa5b43b8e9314c54ccdc84fe16a1ed6e87119c3f36e9d7ef83e41e69d92850"
+    },
+    "win-airtime-competitions-south-africa/index.html": {
+      "expected": "0953d3760ae3b75943747628c5a53869bc0f12cdb38c089b7c0679a7595efd88",
+      "actual": "de56048a0192c6e7fd8f0c50ced0e74a0ac4b3fb89475a18465743b7fa7269cd"
+    },
+    "win-grocery-vouchers-south-africa/index.html": {
+      "expected": "ea8bcaf549b7160ef60b9358651265dece61db49152aef4fb17eb4198a5fc3ed",
+      "actual": "9bdf7164b842cd6e6d054748d6471cd599eb6559cf940e80d3abe17441d49d75"
+    }
+  }
+}

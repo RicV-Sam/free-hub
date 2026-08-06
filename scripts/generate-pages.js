@@ -14,8 +14,11 @@ const FREE_RESOURCES_PATH = path.join(ROOT_DIR, "data", "free-resources.json");
 const OPPORTUNITIES_PATH = path.join(ROOT_DIR, "data", "opportunities.json");
 const OPPORTUNITY_SOURCE_EVIDENCE_PATH = path.join(ROOT_DIR, "data", "opportunity-source-evidence.json");
 const RELATIVE_ASSET_PATH = "/";
-const ADSENSE_SCRIPT =
-  '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6084410613829318" crossorigin="anonymous"></script>';
+const RELEASE_ASSET_VERSION = "20260806-adsterra-evergreen-v1";
+const GUEST_ADS_SCRIPT_SRC = `/shared/guest-ads.js?v=${RELEASE_ASSET_VERSION}`;
+const OUTBOUND_HANDOFF_SCRIPT_SRC = `/shared/outbound-handoff.js?v=${RELEASE_ASSET_VERSION}`;
+const GUEST_ADS_SCRIPT = `<script type="module" src="${GUEST_ADS_SCRIPT_SRC}"></script>`;
+const OUTBOUND_HANDOFF_SCRIPT = `<script src="${OUTBOUND_HANDOFF_SCRIPT_SRC}"></script>`;
 const GOOGLE_TAG_MANAGER_ID = "GTM-W2M7PCR7";
 const META_PIXEL_ID = "2506912739756217";
 const WHATSAPP_CHANNEL_URL = "https://whatsapp.com/channel/0029Vb7mS1VE50UlOc2yOe2H";
@@ -24,6 +27,8 @@ const DATACOST_URL = "https://datacost.co.za/?utm_source=freehub&utm_medium=hous
 const DATACOST_USSD_URL = "https://datacost.co.za/ussd-codes/?utm_source=freehub&utm_medium=house_banner&utm_campaign=ussd_codes";
 const DATACOST_BANNER_IMAGE = "/assets/partners/datacost-data-airtime-banner.jpg";
 const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date());
+const LIFECYCLE_REFERENCE_DATE_ISO = process.env.FREEHUB_AS_OF_DATE || getLocalIsoDate(new Date());
+shared.setReferenceDate(LIFECYCLE_REFERENCE_DATE_ISO);
 const OPPORTUNITIES_ENABLED = opportunityData.isOpportunityFeatureEnabled(
   process.env.FREEHUB_ENABLE_OPPORTUNITIES
 );
@@ -41,7 +46,7 @@ const VOUCHER_DISCOVERY_RESOURCE_HOSTS = Object.freeze({
   "western-cape-jobseeker-travel-voucher": "www.westerncape.gov.za",
 });
 const VOUCHER_DISCOVERY_RESOURCE_IDS = Object.freeze(Object.keys(VOUCHER_DISCOVERY_RESOURCE_HOSTS));
-const CSS_ASSET_VERSION = "20260731-voucher-samples-v1";
+const CSS_ASSET_VERSION = RELEASE_ASSET_VERSION;
 const FREEHUB_REFER_WIN_CONFIG = {
   referWinCampaignEnabled: true,
   referWinLiveReady: true,
@@ -69,10 +74,19 @@ const FREEHUB_REFER_WIN_CONFIG = {
 const CATEGORY_LINKS = [
   { label: "All Competitions", href: "/" },
   ...shared.CATEGORY_SLUGS.map((slug) => ({
-    label: shared.CATEGORY_COPY[slug].category,
-    href: `/category/${slug}/`,
+    label: shared.CATEGORY_COPY[slug].navigationLabel || shared.CATEGORY_COPY[slug].category,
+    href: slug === "cars" ? "/win-a-car/" : `/category/${slug}/`,
   })),
 ];
+const EVERGREEN_PRIZE_LINKS = Object.freeze([
+  { label: "Win a Car", href: "/win-a-car/" },
+  { label: "Win Cash", href: "/category/cash/" },
+  { label: "Win Vouchers", href: "/category/vouchers/" },
+  { label: "Win Holidays & Travel", href: "/category/holidays/" },
+  { label: "Win Electronics", href: "/category/tech/" },
+  { label: "Win Groceries", href: "/category/groceries/" },
+  { label: "Win Experiences", href: "/category/experiences/" },
+]);
 const FREE_STUFF_CHILD_LINKS = Object.freeze([
   { label: "Free Samples", contentType: "free_samples", href: "/free-samples-south-africa/" },
   { label: "Free Courses", contentType: "free_courses", href: "/free-online-courses-south-africa/" },
@@ -98,6 +112,7 @@ const DUPLICATE_TAG_CANONICAL_PATHS = {
   "paid-entry": "/paid-entry-competitions/",
 };
 const MIN_INDEXABLE_COLLECTION_COMPETITIONS = 2;
+const EVERGREEN_HUB_SLUGS = new Set(["win-a-car"]);
 const MIN_INDEXABLE_VERTICAL_COMPETITIONS = 3;
 const VERTICAL_PAGE_SLUGS = [
   "whatsapp-competitions-south-africa",
@@ -265,7 +280,8 @@ const TRUST_PAGE_DEFINITIONS = [
         heading: "Cookies and analytics",
         paragraphs: [
           "The site may use cookies or similar technologies through analytics and measurement tools. These are used to understand site performance and user journeys.",
-          "Freehub may also use Google AdSense to display advertising. Google and its partners may use cookies or similar technologies to serve, limit, measure and personalise ads where permitted. Consent choices and applicable controls should be presented before advertising cookies are used where the law requires them.",
+          "Freehub may also use Adsterra Popunder and Social Bar advertising, but only after Firebase confirms that a visitor is signed out. Adsterra and its partners may use cookies or similar technologies to serve, limit and measure ads where permitted. Signed-in Freehub Club members are not served these Adsterra scripts or ad units.",
+          "Advertising is separate from Freehub's competition listings and does not mean that an advertiser runs, verifies or endorses a listed competition. Consent choices and applicable controls should be presented before advertising cookies are used where the law requires them.",
         ],
       },
       {
@@ -287,11 +303,18 @@ const TRUST_PAGE_DEFINITIONS = [
     slug: "freehub-account-benefits",
     title: "Why Sign Up for Freehub? | Saved and Hidden Competitions",
     description:
-      "See what a Freehub account adds, including saved competitions, hidden seen competitions, email alerts and optional Google or email-link sign-in.",
+      "See what a Freehub account adds, including no Adsterra ads while signed in, saved competitions, hidden seen competitions and optional email alerts.",
     heading: "Why Sign Up for Freehub?",
     intro:
       "Freehub stays open for browsing, but signing in gives regular competition hunters a cleaner, more personal way to track what matters.",
     sections: [
+      {
+        heading: "Browse without Adsterra ads while signed in",
+        paragraphs: [
+          "After Freehub confirms that you are signed in, it does not load the Adsterra Popunder or Social Bar scripts on eligible public pages.",
+          "Freehub editorial content, official promoter links and clearly identified house or partner links may still appear. This benefit is specifically about third-party Adsterra advertising.",
+        ],
+      },
       {
         heading: "Hide competitions you have already checked",
         paragraphs: [
@@ -341,7 +364,7 @@ const TRUST_PAGE_DEFINITIONS = [
       {
         heading: "Sponsored or affiliate content",
         paragraphs: [
-          "If Freehub adds sponsored placements or affiliate links in future, they should be labelled clearly. Competition cards and ads should not be presented in a way that confuses users.",
+          "Freehub may display third-party advertising and may add clearly labelled sponsored placements or affiliate links. Advertising is separate from competition listings and should not be presented in a way that suggests an advertiser runs, verifies or endorses a listed competition.",
         ],
       },
     ],
@@ -2659,6 +2682,7 @@ function getGeneratedRouteContexts(competitions, generatedBrandPages = []) {
     type: "category",
     slug,
     path: `/category/${slug}/`,
+    noindex: slug === "cars",
   }));
   const activeTagRouteContexts = shared.TAG_SLUGS
     .filter((slug) => shared.getTagFilteredCompetitions(competitions, slug).length > 0)
@@ -2679,7 +2703,9 @@ function getGeneratedRouteContexts(competitions, generatedBrandPages = []) {
     type: "hub",
     slug,
     path: `/${slug}/`,
-    noindex: shared.getHubFilteredCompetitions(competitions, slug).length < MIN_INDEXABLE_COLLECTION_COMPETITIONS,
+    noindex:
+      !EVERGREEN_HUB_SLUGS.has(slug) &&
+      shared.getHubFilteredCompetitions(competitions, slug).length < MIN_INDEXABLE_COLLECTION_COMPETITIONS,
   }));
   const brandRouteContexts = generatedBrandPages.map((brandPage) => ({
     type: "brand",
@@ -2712,7 +2738,12 @@ function getGeneratedRouteContexts(competitions, generatedBrandPages = []) {
 
 function renderSiteFooter(options = {}) {
   const { includeAuthPanel = true } = options;
+  const prizeLinksMarkup = EVERGREEN_PRIZE_LINKS.map(
+    (link) => `<a href="${escapeAttribute(link.href)}">${escapeHtml(link.label)}</a>`
+  ).join("\n              ");
+  const evergreenPrizePaths = new Set(EVERGREEN_PRIZE_LINKS.map((link) => link.href));
   const verticalLinksMarkup = generatedVerticalPagesForLinks
+    .filter((page) => !evergreenPrizePaths.has(page.path))
     .slice(0, 6)
     .map(
       (page) =>
@@ -2757,7 +2788,7 @@ function renderSiteFooter(options = {}) {
             <nav class="site-footer__links" aria-label="Explore competition hubs">
               <a href="/competitions/">All competitions</a>
               <a href="/new-competitions-south-africa/">New competitions</a>
-              <a href="/win-a-car/">Win a car</a>
+              ${prizeLinksMarkup}
               <a href="/free-competitions/">Free competitions</a>
               <a href="/competitions-ending-soon/">Ending soon</a>
               <a href="/purchase-required-competitions/">Purchase required</a>
@@ -2918,6 +2949,8 @@ const CATEGORY_FALLBACK_STYLES = {
   Holidays: { start: "#c2410c", end: "#fb923c", accent: "#ffedd5" },
   Tech: { start: "#4338ca", end: "#818cf8", accent: "#e0e7ff" },
   Vouchers: { start: "#be123c", end: "#fb7185", accent: "#ffe4e6" },
+  Groceries: { start: "#166534", end: "#4ade80", accent: "#dcfce7" },
+  Experiences: { start: "#7c3aed", end: "#c084fc", accent: "#f3e8ff" },
   Sports: { start: "#047857", end: "#34d399", accent: "#d1fae5" },
   Lifestyle: { start: "#7c2d12", end: "#fb923c", accent: "#ffedd5" },
 };
@@ -2927,6 +2960,8 @@ const CATEGORY_FALLBACK_IMAGES = {
   Holidays: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80",
   Tech: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1600&q=80",
   Vouchers: "https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=1600&q=80",
+  Groceries: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1600&q=80",
+  Experiences: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80",
   Sports: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1600&q=80",
   Lifestyle: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1600&q=80",
 };
@@ -3388,7 +3423,7 @@ function renderEndingSoonEditorial(routeContext) {
               <h3>Why ending-soon competitions matter</h3>
               <p>Competition entry forms often close at a fixed date and time, and some promoters remove the form as soon as the deadline passes. Checking closing-soon listings first helps you avoid missing current competitions while they are still open.</p>
               <p>This page keeps the focus on published, non-expired listings. For the full active index, browse the wider <a href="/competitions/">competitions</a> hub.</p>
-              <p>If you want a narrower starting point, compare <a href="/free-competitions/">free competitions</a>, <a href="/purchase-required-competitions/">purchase required competitions</a>, <a href="/win-a-car/">win-a-car competitions</a>, or category pages for <a href="/category/cars/">cars</a>, <a href="/category/cash/">cash</a>, <a href="/category/vouchers/">vouchers</a>, <a href="/category/holidays/">holidays</a> and <a href="/category/tech/">tech</a>.</p>
+              <p>If you want a narrower starting point, compare <a href="/free-competitions/">free competitions</a>, <a href="/purchase-required-competitions/">purchase required competitions</a>, <a href="/win-a-car/">win-a-car competitions</a>, or category pages for <a href="/category/cash/">cash</a>, <a href="/category/vouchers/">vouchers</a>, <a href="/category/holidays/">holidays</a> and <a href="/category/tech/">tech</a>.</p>
             </section>
             <section class="hub-editorial__section">
               <h3>What to check before entering</h3>
@@ -3456,7 +3491,7 @@ function renderWinACarEditorial(routeContext) {
             <section class="hub-editorial__section">
               <h3>Avoid unofficial winner fees</h3>
               <p>Be careful with messages that ask for unofficial release fees, banking passwords, card PINs, remote access apps or payment to claim a car prize. If you receive a winner message, verify it through the promoter's official website or support channel before responding.</p>
-              <p>You can also compare urgent vehicle listings on <a href="/competitions-ending-soon/">competitions ending soon</a>, browse all <a href="/competitions/">current competitions</a>, or use related prize categories such as <a href="/category/cars/">cars</a>, <a href="/category/cash/">cash</a> and <a href="/category/vouchers/">vouchers</a>.</p>
+              <p>You can also compare urgent vehicle listings on <a href="/competitions-ending-soon/">competitions ending soon</a>, browse all <a href="/competitions/">current competitions</a>, or use related prize categories such as <a href="/win-a-car/">cars</a>, <a href="/category/cash/">cash</a> and <a href="/category/vouchers/">vouchers</a>.</p>
             </section>
           </div>
         </section>`;
@@ -3846,6 +3881,11 @@ function getCategoryEditorial(slug, competitions) {
   const categoryName = shared.CATEGORY_COPY[slug] ? shared.CATEGORY_COPY[slug].category : "Competition";
   const liveCount = competitions.length;
   const liveCopy = liveCount === 1 ? "1 live listing" : `${liveCount} live listings`;
+  const supermarketCompetitionsHref = generatedVerticalPagesForLinks.some(
+    (page) => page.slug === "supermarket-competitions-south-africa"
+  )
+    ? "/supermarket-competitions-south-africa/"
+    : "/competitions/";
   const editorials = {
     cars: {
       ariaLabel: "Guide to car competitions in South Africa",
@@ -3935,7 +3975,7 @@ function getCategoryEditorial(slug, competitions) {
         {
           heading: "Freehub's role",
           paragraphs: [
-            `Freehub does not run holiday competitions, collect entries, choose winners, book travel or manage prize fulfilment. We organise active published listings and link to official promoter sources; you can also browse <a href="/competitions/">all current competitions</a>, <a href="/competitions-ending-soon/">competitions ending soon</a>, <a href="/category/cars/">car competitions</a>, <a href="/category/cash/">cash competitions</a>, <a href="/category/vouchers/">voucher competitions</a> and <a href="/category/tech/">tech competitions</a>.`,
+            `Freehub does not run holiday competitions, collect entries, choose winners, book travel or manage prize fulfilment. We organise active published listings and link to official promoter sources; you can also browse <a href="/competitions/">all current competitions</a>, <a href="/competitions-ending-soon/">competitions ending soon</a>, <a href="/win-a-car/">car competitions</a>, <a href="/category/cash/">cash competitions</a>, <a href="/category/vouchers/">voucher competitions</a> and <a href="/category/tech/">tech competitions</a>.`,
             "Always enter through the official promoter link and read the full terms before submitting details. Prize details can change, and travel prizes often include date, availability, route, partner or redemption conditions.",
           ],
         },
@@ -3978,6 +4018,60 @@ function getCategoryEditorial(slug, competitions) {
           paragraphs: [
             "Do not pay unofficial winner fees, delivery fees, release fees or admin fees to claim a gadget, phone, TV or electronics prize. Verify winner messages through the promoter's official website, app, social page or support channel before responding.",
             `Freehub does not run tech competitions, collect entries, choose winners, supply prizes or manage prize delivery. We organise active published listings and link to official promoter sources; you can also browse <a href="/competitions/">all current competitions</a>, <a href="/competitions-ending-soon/">competitions ending soon</a>, <a href="/win-a-car/">win-a-car competitions</a>, <a href="/category/cash/">cash competitions</a>, <a href="/category/vouchers/">voucher competitions</a> and <a href="/category/holidays/">holiday competitions</a>.`,
+          ],
+        },
+      ],
+    },
+    groceries: {
+      ariaLabel: "Guide to grocery competitions in South Africa",
+      title: "How to compare grocery prizes and vouchers",
+      sections: [
+        {
+          heading: "What belongs on this page",
+          paragraphs: [
+            `This page currently groups ${escapeHtml(liveCopy)} where the published prize clearly includes groceries, a grocery or supermarket voucher, a food-shopping gift card, a basket or a trolley-style reward. A competition is not included merely because entry requires buying something at a supermarket.`,
+            `For broader store promotions where the prize may be a car, cash or another item, use <a href="${supermarketCompetitionsHref}">supermarket competitions</a>. For every type of voucher, use <a href="/category/vouchers/">voucher competitions</a>.`,
+          ],
+        },
+        {
+          heading: "Check the real grocery value",
+          paragraphs: [
+            "Read the official terms for the voucher amount, eligible retailer, participating branches, product exclusions, expiry date and whether the prize arrives as a digital code, store card, account credit, basket or physical hamper.",
+            "If entry requires a purchase, loyalty-card swipe or receipt, confirm the qualifying product and campaign dates before spending money. Keep the original proof of purchase until the promoter has completed winner verification.",
+          ],
+        },
+        {
+          heading: "When there are no live grocery prizes",
+          paragraphs: [
+            `This guide stays available when the live count reaches zero, but an empty results section means Freehub has no active published match to recommend today. Browse <a href="/competitions/">all current competitions</a> or <a href="/competitions-ending-soon/">competitions ending soon</a> instead of relying on an expired offer.`,
+            "Freehub does not issue vouchers, fill baskets, accept entries or choose winners. The named promoter's current terms and contact channels control entry and prize fulfilment.",
+          ],
+        },
+      ],
+    },
+    experiences: {
+      ariaLabel: "Guide to experience competitions in South Africa",
+      title: "How to compare experience competitions",
+      sections: [
+        {
+          heading: "What counts as an experience prize",
+          paragraphs: [
+            `This page currently groups ${escapeHtml(liveCopy)} where the main prize is an activity or occasion, such as event tickets, a sporting experience, meet-and-greet, hosted day out or adventure. Physical products and ordinary shopping vouchers stay in their own categories.`,
+            `Travel-led prizes with flights or accommodation may also appear on <a href="/category/holidays/">holiday and travel competitions</a>; this page focuses on what the winner gets to attend or do.`,
+          ],
+        },
+        {
+          heading: "Dates, guests and travel costs matter",
+          paragraphs: [
+            "Check whether the event date is fixed, how many guests are included, whether tickets are transferable, where the experience takes place and what identification or age rules apply.",
+            "Do not assume transport, accommodation, meals, parking, insurance or spending money are included. The official prize description should state what the promoter covers and what the winner must arrange.",
+          ],
+        },
+        {
+          heading: "Use current listings only",
+          paragraphs: [
+            `Experience dates can pass quickly. Freehub removes expired matches from this live collection, while the evergreen guide and safety checks remain available. You can also compare <a href="/free-competitions/">free-entry competitions</a> and <a href="/purchase-required-competitions/">purchase-required competitions</a>.`,
+            "Freehub does not host events, sell tickets, accept entries or select winners. Enter through the official promoter route and use the promoter's terms to confirm the final itinerary and claim process.",
           ],
         },
       ],
@@ -4300,6 +4394,60 @@ function getCollectionFaqItems(routeContext) {
           "No. Freehub is a competition discovery site. The promoter runs the competition, accepts entries, chooses winners and supplies or fulfils tech prizes through its own official process.",
       },
     ],
+    groceries: [
+      {
+        question: "What counts as a grocery competition on Freehub?",
+        answer:
+          "The prize must clearly include groceries, a grocery or supermarket voucher, a food-shopping gift card, a basket, a trolley or another explicit grocery reward. A supermarket purchase requirement alone is not enough.",
+      },
+      {
+        question: "Are grocery competitions free to enter?",
+        answer:
+          "Some may be free entry, but many require a qualifying product, till slip, loyalty-card swipe, app or account. Check the cost label and official terms before buying anything.",
+      },
+      {
+        question: "What should I check on a grocery voucher?",
+        answer:
+          "Check the value, eligible retailer, participating stores, product exclusions, expiry date, delivery method and whether the voucher can be transferred or converted to cash.",
+      },
+      {
+        question: "Why can this page be empty?",
+        answer:
+          "Freehub shows active, published prize matches only. When no current competition qualifies, the page keeps its comparison and safety guidance without presenting an expired promotion as live.",
+      },
+      {
+        question: "Does Freehub provide the groceries or vouchers?",
+        answer:
+          "No. Freehub lists competitions and links to official promoter sources. The promoter accepts entries, chooses winners and fulfils the prize.",
+      },
+    ],
+    experiences: [
+      {
+        question: "What kinds of experience competitions appear here?",
+        answer:
+          "The page can include event tickets, sporting experiences, meet-and-greets, hosted activities, adventure days and other prizes where the main reward is something the winner attends or does.",
+      },
+      {
+        question: "Are travel and accommodation always included?",
+        answer:
+          "No. An experience may include only admission or the named activity. Check whether transport, flights, accommodation, meals, parking, insurance or spending money are included.",
+      },
+      {
+        question: "Can an experience prize have fixed dates?",
+        answer:
+          "Yes. Events, matches and hosted activities often use fixed dates and locations. Check guest limits, age rules, transferability and availability before entering.",
+      },
+      {
+        question: "What happens after an experience competition expires?",
+        answer:
+          "It is removed from this active collection so the page does not present a passed event or closed entry period as current. The evergreen guidance remains available.",
+      },
+      {
+        question: "Does Freehub run these experiences?",
+        answer:
+          "No. Freehub does not accept entries, host the experience or choose winners. The official promoter controls the competition and prize fulfilment.",
+      },
+    ],
     vouchers: [
       {
         question: "Are voucher competitions free to enter?",
@@ -4503,6 +4651,11 @@ function renderPage(routeContext, competitions) {
         JSON.stringify(collectionFaqStructuredData)
       )}</script>`
     : "";
+  const itemListScript = competitions.length > 0
+    ? `<script id="structured-data-itemlist" type="application/ld+json">${escapeScript(
+        JSON.stringify(structuredData)
+      )}</script>`
+    : "";
   const cardsMarkup = competitions
     .map((competition) => renderCompetitionCard(competition))
     .join("\n");
@@ -4530,11 +4683,9 @@ function renderPage(routeContext, competitions) {
     ${collectionPageScript}
     ${breadcrumbScript}
     ${collectionFaqScript}${voucherStructuredDataScripts ? `\n    ${voucherStructuredDataScripts}` : ""}
-    <script id="structured-data-itemlist" type="application/ld+json">${escapeScript(
-      JSON.stringify(structuredData)
-    )}</script>
+    ${itemListScript}
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref(RELATIVE_ASSET_PATH))}" />
-    ${ADSENSE_SCRIPT}
+    ${routeContext.noindex === true ? "" : GUEST_ADS_SCRIPT}
     ${renderGoogleTagManagerHead(`{ page_type: '${routeContext.type}'${routeContext.type === "hub" ? `, hub_slug: '${routeContext.slug}'` : ""}${routeContext.type === "brand" ? `, brand_slug: '${routeContext.slug}'` : ""} }`)}
     ${renderMetaPixelHead()}
   </head>
@@ -4574,8 +4725,6 @@ function renderPage(routeContext, competitions) {
           compact: routeContext.type === "tag",
           ussd: ["sms-competitions-south-africa", "win-airtime-competitions-south-africa", "win-data-competitions-south-africa"].includes(routeContext.slug),
         })}
-
-        ${renderAdZone("ad-top", "top")}
 
         <section class="controls" aria-label="Competition filters">
           <label class="search-field" for="searchInput">
@@ -4627,8 +4776,6 @@ function renderPage(routeContext, competitions) {
 
         ${renderThinPageTips(competitions)}
 
-        ${renderAdZone("ad-middle", "middle", true)}
-
         <section class="info-strip" aria-label="About this page">
           <div>
             <p class="info-strip__label">Verified listings</p>
@@ -4640,13 +4787,10 @@ function renderPage(routeContext, competitions) {
           </div>
         </section>
 
-        ${renderAdZone("ad-bottom", "bottom")}
       </main>
 
       ${renderSiteFooter()}
     </div>
-
-    <aside class="ad-sticky ad-sticky--reserved" id="ad-sticky" aria-hidden="true"></aside>
 
     <script src="${RELATIVE_ASSET_PATH}shared/page-data.js" defer></script>${routeContext.type === "category" && routeContext.slug === "vouchers" ? `\n    <script src="${RELATIVE_ASSET_PATH}shared/discovery-analytics.js" defer></script>` : ""}
     <script src="${RELATIVE_ASSET_PATH}app.js" defer></script>
@@ -4741,7 +4885,7 @@ function renderBrandIndexPage(brandPages) {
       JSON.stringify(structuredData)
     )}</script>
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref(RELATIVE_ASSET_PATH))}" />
-    ${ADSENSE_SCRIPT}
+    ${hasBrandPages ? GUEST_ADS_SCRIPT : ""}
     ${renderGoogleTagManagerHead("{ page_type: 'brand-index' }")}
     ${renderMetaPixelHead()}
   </head>
@@ -4969,14 +5113,6 @@ function renderCompetitionCard(competition, featured = false) {
             </article>`;
 }
 
-function renderAdZone(id, placement, compact = false) {
-  const className = compact ? "ad-slot ad-slot--compact ad-slot--reserved" : "ad-slot ad-slot--reserved";
-
-  return `<section class="${className}" id="${escapeAttribute(id)}" data-placement="${escapeAttribute(
-    placement
-  )}" aria-label="Sponsored placement"></section>`;
-}
-
 function renderDatacostPromo(options = {}) {
   const {
     placement = "sitewide",
@@ -5157,7 +5293,7 @@ function renderInternalLinksSection(routeContext, competitions) {
             title: "Explore Categories",
             links: [
               { label: "Cash competitions", href: "/category/cash/" },
-              { label: "Car competitions", href: "/category/cars/" },
+              { label: "Car competitions", href: "/win-a-car/" },
             ],
           }
         : null;
@@ -5264,7 +5400,7 @@ function getHubInternalLinks(slug) {
       { label: "Cash competitions", href: "/category/cash/" },
       { label: "Voucher competitions", href: "/category/vouchers/" },
       { label: "Browse competition brands", href: "/brands/" },
-      { label: "Cars category", href: "/category/cars/" },
+      { label: "Cars category", href: "/win-a-car/" },
       { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
       { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
       { label: "Legit competitions guide", href: "/legit-competitions-south-africa/" },
@@ -5288,7 +5424,7 @@ function getHubInternalLinks(slug) {
       { label: "Free competitions", href: "/free-competitions/" },
       { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
       { label: "Win a car competitions", href: "/win-a-car/" },
-      { label: "Car competitions", href: "/category/cars/" },
+      { label: "Car competitions", href: "/win-a-car/" },
       { label: "Cash competitions", href: "/category/cash/" },
       { label: "Voucher competitions", href: "/category/vouchers/" },
       { label: "Holiday competitions", href: "/category/holidays/" },
@@ -5350,9 +5486,13 @@ function getBrandInternalLinks(slug) {
 }
 
 function getCategoryInternalLinks(slug, competitions) {
+  const categoryName = shared.CATEGORY_COPY[slug]?.category;
+  const canonicalCategoryPath = categoryName
+    ? normalizeStaticPath(shared.getCategoryRoute(categoryName))
+    : `/category/${slug}/`;
   const firstCategoryCompetition = competitions[0]
     ? shared.getCompetitionPath(competitions[0])
-    : `/category/${slug}/`;
+    : canonicalCategoryPath;
   const byIdPath = (id) => {
     const target = competitions.find((competition) => shared.getCompetitionSlug(competition) === id);
     return target ? shared.getCompetitionPath(target) : firstCategoryCompetition;
@@ -5384,7 +5524,7 @@ function getCategoryInternalLinks(slug, competitions) {
         { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
         { label: "Free competitions", href: "/free-competitions/" },
         { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
-        { label: "Car competitions", href: "/category/cars/" },
+        { label: "Car competitions", href: "/win-a-car/" },
         { label: "Cash competitions", href: "/category/cash/" },
         { label: "Voucher competitions", href: "/category/vouchers/" },
         { label: "Tech competitions", href: "/category/tech/" },
@@ -5428,6 +5568,35 @@ function getCategoryInternalLinks(slug, competitions) {
         { label: "Voucher competitions", href: "/category/vouchers/" },
         { label: "Tech competitions", href: "/category/tech/" },
         { label: "Holiday competitions", href: "/category/holidays/" },
+      ],
+    };
+  }
+
+  if (slug === "groceries") {
+    return {
+      title: "Grocery Prize Searches",
+      links: [
+        { label: "Voucher competitions", href: "/category/vouchers/" },
+        { label: "Grocery voucher competitions", href: "/win-grocery-vouchers-south-africa/" },
+        { label: "Supermarket competitions", href: "/supermarket-competitions-south-africa/" },
+        { label: "Till slip competitions", href: "/till-slip-competitions-south-africa/" },
+        { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
+        { label: "Free competitions", href: "/free-competitions/" },
+        { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
+      ],
+    };
+  }
+
+  if (slug === "experiences") {
+    return {
+      title: "Experience Competition Searches",
+      links: [
+        { label: "Holiday and travel competitions", href: "/category/holidays/" },
+        { label: "Voucher competitions", href: "/category/vouchers/" },
+        { label: "Free competitions", href: "/free-competitions/" },
+        { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
+        { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
+        { label: "All current competitions", href: "/competitions/" },
       ],
     };
   }
@@ -5483,6 +5652,22 @@ function renderSupportSection(supportCopy) {
 }
 
 function getCollectionEmptyState(routeContext) {
+  if (routeContext.type === "category" && routeContext.slug === "groceries") {
+    return {
+      title: "No verified grocery prizes right now",
+      text:
+        "There are no active published competitions with a clearly stated grocery prize right now. The comparison guide below remains useful, or you can browse current voucher and supermarket competitions.",
+    };
+  }
+
+  if (routeContext.type === "category" && routeContext.slug === "experiences") {
+    return {
+      title: "No verified experience competitions right now",
+      text:
+        "There are no active published experience prizes right now. Use the date, guest and travel-cost checklist below, then check all current competitions for newly added listings.",
+    };
+  }
+
   if (routeContext.type === "category" && routeContext.slug === "holidays") {
     return {
       title: "No verified holiday competitions right now",
@@ -5777,18 +5962,20 @@ function renderTopPickCard(entry) {
 function renderIntentTilesSection() {
   const intentLinks = [
     { label: "Win a car", href: "/win-a-car/", text: "Vehicle prizes and car-focused campaigns" },
-    { label: "Free entry", href: "/free-competitions/", text: "No-purchase listings from verified sources" },
-    { label: "Ending soon", href: "/competitions-ending-soon/", text: "Deadlines to check before they close" },
-    { label: "WhatsApp", href: "/whatsapp-competitions-south-africa/", text: "Mobile-entry campaigns and till-slip routes" },
-    { label: "Till slip", href: "/till-slip-competitions-south-africa/", text: "Receipt and purchase-proof promotions" },
     { label: "Cash prizes", href: "/category/cash/", text: "Money prizes with clear cost labels" },
+    { label: "Vouchers", href: "/category/vouchers/", text: "Gift cards, store credit and reward prizes" },
+    { label: "Holidays & travel", href: "/category/holidays/", text: "Trips, getaways and accommodation prizes" },
+    { label: "Electronics", href: "/category/tech/", text: "Phones, gaming, TVs and gadget prizes" },
+    { label: "Groceries", href: "/category/groceries/", text: "Grocery vouchers, baskets and food-shopping prizes" },
+    { label: "Experiences", href: "/category/experiences/", text: "Tickets, events, adventures and meet-and-greets" },
+    { label: "All competitions", href: "/competitions/", text: "Every active, published Freehub listing" },
   ];
 
-  return `<section class="home-section home-section--intent" aria-label="Browse competitions by intent">
+  return `<section class="home-section home-section--intent" aria-label="Browse competitions by prize">
           <div class="home-section__header">
             <div>
-              <p class="section-kicker">Browse by Intent</p>
-              <h2 class="home-section__title">Choose the route that fits today</h2>
+              <p class="section-kicker">Browse by Prize</p>
+              <h2 class="home-section__title">What would you like to win?</h2>
             </div>
           </div>
           <div class="intent-tile-grid">
@@ -5879,7 +6066,7 @@ function renderHomepageClubSection() {
           <div>
             <p class="section-kicker">Freehub Club</p>
             <h2 class="home-cta__title">Save competitions and get reminders</h2>
-            <p class="home-section__intro">Create a free account to save listings, track what you entered or skipped, and keep useful competition alerts in one place.</p>
+            <p class="home-section__intro">Create a free account to save listings, track what you entered or skipped, and keep useful competition alerts in one place. Signed-in Club members also browse without Adsterra Popunder or Social Bar ads.</p>
           </div>
           <div class="home-cta__actions">
             <a class="btn btn--primary" href="/club/">Open Club</a>
@@ -6005,7 +6192,7 @@ function renderHomepage(competitions) {
     <meta name="twitter:image" content="${escapeAttribute(ogImage)}" />
     <script id="structured-data-itemlist" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
-    ${ADSENSE_SCRIPT}
+    ${GUEST_ADS_SCRIPT}
     ${renderGoogleTagManagerHead("{ page_type: 'home' }")}
     ${renderMetaPixelHead()}
   </head>
@@ -6068,8 +6255,6 @@ ${noscriptLinks}
 
       ${renderSiteFooter()}
     </div>
-
-    <aside class="ad-sticky ad-sticky--reserved" id="ad-sticky" aria-hidden="true"></aside>
 
     <script src="/shared/page-data.js" defer></script>
     <script src="/app.js" defer></script>
@@ -6182,7 +6367,7 @@ function renderFreeStuffParentPage(page) {
     ${opportunityStructuredData ? `<script id="structured-data-opportunities" type="application/ld+json">${escapeScript(JSON.stringify(opportunityStructuredData))}</script>` : ""}
     ${faqStructuredData ? `<script id="structured-data-faq" type="application/ld+json">${escapeScript(JSON.stringify(faqStructuredData))}</script>` : ""}
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
-    ${ADSENSE_SCRIPT}
+    ${GUEST_ADS_SCRIPT}
     ${renderGoogleTagManagerHead("{ page_type: 'free_stuff_parent', trust_page: 'free-stuff-south-africa' }")}
     ${renderMetaPixelHead()}
   </head>
@@ -6477,7 +6662,7 @@ function renderFreeSamplesPage(page) {
     ${productTestingStructuredData ? `<script id="structured-data-product-testing" type="application/ld+json">${escapeScript(JSON.stringify(productTestingStructuredData))}</script>` : ""}
     <script id="structured-data-faq" type="application/ld+json">${escapeScript(JSON.stringify(faqStructuredData))}</script>
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
-    ${ADSENSE_SCRIPT}
+    ${GUEST_ADS_SCRIPT}
     ${renderGoogleTagManagerHead("{ page_type: 'free_samples_vertical', trust_page: 'free-samples-south-africa' }")}
     ${renderMetaPixelHead()}
   </head>
@@ -6763,7 +6948,7 @@ function renderTrustPage(page) {
     ${faqStructuredDataScript}
     ${serviceStructuredDataScript}
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
-    ${ADSENSE_SCRIPT}
+    ${GUEST_ADS_SCRIPT}
     ${renderGoogleTagManagerHead(`{ page_type: 'trust', trust_page: ${escapeScript(JSON.stringify(page.slug))} }`)}
     ${renderMetaPixelHead()}
   </head>
@@ -6809,7 +6994,7 @@ function renderTrustPage(page) {
         ${page.slug === "freehub-account-benefits" ? renderGlobalAuthPanel({
           id: "account-benefits",
           title: "Try signed-in competition tracking",
-          text: "Sign in with Google or an email link to save competitions, hide ones you have seen and keep alert preferences with your account.",
+          text: "Sign in with Google or an email link to browse without Adsterra ads, save competitions, hide ones you have seen and keep alert preferences with your account.",
         }) : ""}
 
         ${freeResourceRenderer.renderFreeResourceSection({
@@ -6913,6 +7098,7 @@ function renderContentIndexPage(page) {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <script id="structured-data-content-index" type="application/ld+json">${escapeScript(JSON.stringify(jsonLd))}</script>
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
+    ${GUEST_ADS_SCRIPT}
     ${renderGoogleTagManagerHead(`{ page_type: '${escapeScript(page.slug)}' }`)}
     ${renderMetaPixelHead()}
   </head>
@@ -6990,6 +7176,7 @@ function renderMonthlyGuidePage(activeCompetitions) {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <script id="structured-data-article" type="application/ld+json">${escapeScript(JSON.stringify(jsonLd))}</script>
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
+    ${GUEST_ADS_SCRIPT}
     ${renderGoogleTagManagerHead("{ page_type: 'monthly_guide' }")}
     ${renderMetaPixelHead()}
   </head>
@@ -7105,7 +7292,7 @@ function renderClubLandingPage() {
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/club/`;
   const title = "Freehub Club | Save and Track South African Competitions";
   const description =
-    "Join Freehub Club to save South African competitions, track what you entered or skipped, and keep your own referral link ready for future Club rewards.";
+    "Join Freehub Club to browse without Adsterra ads while signed in, save South African competitions and track what you entered or skipped.";
   const faqItems = [
     {
       question: "Is Freehub Club free?",
@@ -7115,6 +7302,11 @@ function renderClubLandingPage() {
       question: "Does Freehub enter competitions for me?",
       answer:
         "No. Freehub helps you organise listings, but entries still happen on the official promoter website or entry channel.",
+    },
+    {
+      question: "Do signed-in Club members see Adsterra ads?",
+      answer:
+        "No. After Freehub confirms that you are signed in, it does not load the Adsterra Popunder or Social Bar scripts on eligible public pages. Freehub editorial, official-source and clearly identified house or partner links may still appear.",
     },
     {
       question: "Is Refer and Win live?",
@@ -7152,12 +7344,12 @@ function renderClubLandingPage() {
         eyebrow: "Freehub Club",
         heading: "Save and track South African competitions",
         intro:
-          "Create a free Freehub Club account to keep useful competitions together, mark what you entered, and copy your personal referral link for the first Refer & Win campaign.",
+          "Create a free Freehub Club account to browse without Adsterra ads while signed in, keep useful competitions together, and mark what you entered.",
         actions: [
           { label: "Continue with Google", href: "/club/dashboard/", className: "btn--primary" },
           { label: "Browse Competitions", href: "/competitions/", className: "btn--secondary" },
         ],
-        trustItems: ["Free account", "Official source links", "Refer & Win live"],
+        trustItems: ["Free account", "No Adsterra ads while signed in", "Official source links", "Refer & Win live"],
         previewMarkup: renderClubPreviewPanel(),
       })}
       <main id="main-content" class="main-content club-page">
@@ -7168,8 +7360,10 @@ function renderClubLandingPage() {
             <p>Freehub Club gives regular visitors a simple place to save listings, keep track of what they still want to enter, and come back before closing dates pass.</p>
           </article>
           <div class="club-feature-grid">
+            <article class="club-feature"><h3>No Adsterra ads while signed in</h3><p>Popunder and Social Bar advertising are not loaded after Freehub confirms your signed-in Club account.</p></article>
             <article class="club-feature"><h3>Save competitions</h3><p>Keep promising listings in one account instead of relying on screenshots, browser history or memory.</p></article>
             <article class="club-feature"><h3>Track your status</h3><p>Mark saved competitions as interested, entered or skipped so your dashboard stays useful.</p></article>
+            <article class="club-feature"><h3>Choose your alerts</h3><p>Competition alerts and occasional Freehub updates stay optional and can be kept with your account.</p></article>
             <article class="club-feature"><h3>Share your link</h3><p>Your referral link can be used for the current Refer &amp; Win campaign. Referrals only count after Freehub admin review.</p></article>
             <article class="club-feature"><h3>Stay private</h3><p>Freehub does not collect competition entries. Promoter forms, winner selection and prize fulfilment remain with the official promoter.</p></article>
           </div>
@@ -8047,7 +8241,7 @@ function renderReferAndWinShell({
     ${structuredDataScripts}
     ${renderReferWinConfigScript()}
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
-    ${ADSENSE_SCRIPT}
+    ${GUEST_ADS_SCRIPT}
     ${renderGoogleTagManagerHead(`{ page_type: ${escapeScript(JSON.stringify(pageType))} }`)}
     ${renderMetaPixelHead()}
   </head>
@@ -8188,7 +8382,6 @@ function renderClubShell({ title, description, canonicalUrl, robots, pageType, b
     ${structuredDataScripts}
     ${renderReferWinConfigScript()}
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
-    ${ADSENSE_SCRIPT}
     ${renderGoogleTagManagerHead(`{ page_type: ${escapeScript(JSON.stringify(pageType))} }`)}
     ${renderMetaPixelHead()}
   </head>
@@ -8437,7 +8630,7 @@ function getTrustPageUsefulLinks(page) {
   return [
     { label: "Browse competitions", href: "/" },
     { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
-    { label: "Car competitions", href: "/category/cars/" },
+    { label: "Car competitions", href: "/win-a-car/" },
     { label: "Free entry listings", href: "/tag/free-entry/" },
     { label: "Report a competition", href: "/report-a-competition/" },
   ];
@@ -8466,7 +8659,6 @@ function renderNotFoundPage() {
     <meta name="twitter:description" content="This Freehub page could not be found. Browse live South African competitions, categories, safety guidance and contact options." />
     <meta name="twitter:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
-    ${ADSENSE_SCRIPT}
     ${renderGoogleTagManagerHead("{ page_type: '404' }")}
     ${renderMetaPixelHead()}
   </head>
@@ -8492,7 +8684,7 @@ function renderNotFoundPage() {
           <p class="internal-links__title">Keep Browsing</p>
           <div class="internal-links__list">
             <a class="internal-links__link" href="/">All competitions</a>
-            <a class="internal-links__link" href="/category/cars/">Car competitions</a>
+            <a class="internal-links__link" href="/win-a-car/">Car competitions</a>
             <a class="internal-links__link" href="/category/cash/">Cash competitions</a>
             <a class="internal-links__link" href="/category/vouchers/">Voucher competitions</a>
             <a class="internal-links__link" href="/tag/free-entry/">Free entry listings</a>
@@ -8558,8 +8750,7 @@ function getFeaturedCompetitions(competitions, n) {
 }
 
 function getEndingSoonCompetitions(competitions, n) {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  const today = new Date(`${LIFECYCLE_REFERENCE_DATE_ISO}T00:00:00`);
 
   return competitions
     .filter((c) => new Date(c.closingDate) >= today)
@@ -8736,8 +8927,8 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   const ogImage = getMetadataImageUrl(competition);
   const expired = shared.isExpiredCompetition(competition);
   const noindexActive = !expired && shared.getCompetitionVisibility(competition) === "noindex";
-  const adsAllowed = !expired && shared.competitionAllowsAds(competition);
-  const adScriptMarkup = adsAllowed ? ADSENSE_SCRIPT : "";
+  const adsAllowed = shared.competitionAllowsAds(competition);
+  const adScriptMarkup = adsAllowed ? GUEST_ADS_SCRIPT : "";
   const fallbackDescription = expired
     ? `This ${competition.brand || "brand"} competition has closed. View the archived prize and closing-date details, then browse current South African competitions on Freehub.`
     : shared.buildCompetitionDescription(competition);
@@ -8748,7 +8939,9 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   const categorySlug = shared.CATEGORY_SLUGS.find(
     (key) => shared.CATEGORY_COPY[key].category === competition.category
   );
-  const categoryPath = categorySlug ? `/category/${categorySlug}/` : "/";
+  const categoryPath = categorySlug
+    ? normalizeStaticPath(shared.getCategoryRoute(competition.category))
+    : "/";
   const heroTitle = expired ? `${competition.title} -- Competition Closed` : competition.title;
   const robotsDirective = expired || noindexActive
     ? "noindex, follow"
@@ -8814,7 +9007,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${shared.CANONICAL_ORIGIN}/` },
       ...(categorySlug
-        ? [{ "@type": "ListItem", position: 2, name: competition.category, item: `${shared.CANONICAL_ORIGIN}/category/${categorySlug}/` }]
+        ? [{ "@type": "ListItem", position: 2, name: competition.category, item: `${shared.CANONICAL_ORIGIN}${categoryPath}` }]
         : []),
       { "@type": "ListItem", position: categorySlug ? 3 : 2, name: competition.title },
     ],
@@ -8988,12 +9181,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
           ussd: isTelecomOrMobileCompetition(competition),
         })}
 
-        ${adsAllowed ? renderAdZone("ad-top", "detail-top") : ""}
-        ${adsAllowed ? renderAdZone("ad-middle", "detail-inside", true) : ""}
-
         ${relatedSection}
-
-        ${adsAllowed ? renderAdZone("ad-bottom", "after-related") : ""}
 
         ${competition.brand ? `<section class="internal-links" aria-label="More from ${escapeAttribute(competition.brand)}">
           <p class="internal-links__title">More from ${escapeHtml(competition.brand)}</p>
@@ -9006,8 +9194,6 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
 
       ${renderSiteFooter()}
     </div>
-
-    ${adsAllowed ? '<aside class="ad-sticky ad-sticky--reserved" id="ad-sticky" aria-hidden="true"></aside>' : ""}
 
     <script src="${RELATIVE_ASSET_PATH}shared/page-data.js" defer></script>
     <script src="${RELATIVE_ASSET_PATH}app.js" defer></script>
@@ -9499,7 +9685,6 @@ function renderLegacyCompetitionPage(competition) {
     <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref(RELATIVE_ASSET_PATH))}" />
-    ${ADSENSE_SCRIPT}
     ${renderGoogleTagManagerHead(`{ page_type: 'inactive_competition', competition_slug: ${escapeScript(JSON.stringify(slug))}, competition_category: ${escapeScript(JSON.stringify(competition.category))} }`)}
     ${renderMetaPixelHead()}
   </head>
@@ -9632,6 +9817,8 @@ function renderOpportunityExitPage(opportunity) {
     <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
+    ${GUEST_ADS_SCRIPT}
+    ${OUTBOUND_HANDOFF_SCRIPT}
     ${renderGoogleTagManagerHead(`{ page_type: 'opportunity_exit', opportunity_id: ${escapeScript(JSON.stringify(opportunity.id))}, opportunity_type: ${escapeScript(JSON.stringify(opportunity.type))} }`)}
     ${renderMetaPixelHead()}
   </head>
@@ -9673,6 +9860,11 @@ function renderOutPage(competition) {
   const externalUrl = getOfficialSourceUrl(competition);
   const sourceDomain = getOfficialSourceDomain(competition);
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/out/${slug}/`;
+  const adScriptMarkup = shared.competitionAllowsAds(competition) ? GUEST_ADS_SCRIPT : "";
+  const handoffGateMarkup = adScriptMarkup ? OUTBOUND_HANDOFF_SCRIPT : "";
+  const redirectNotice = adScriptMarkup
+    ? `You will be taken to ${sourceDomain} shortly after Freehub checks whether you are signed in.`
+    : `You will be taken to ${sourceDomain} in 2 seconds.`;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -9684,6 +9876,8 @@ function renderOutPage(competition) {
     <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref(RELATIVE_ASSET_PATH))}" />
+    ${adScriptMarkup}
+    ${handoffGateMarkup}
     ${renderGoogleTagManagerHead(`{ page_type: 'outbound', competition_slug: ${escapeScript(JSON.stringify(slug))}, competition_category: ${escapeScript(JSON.stringify(competition.category))} }`)}
     ${renderMetaPixelHead()}
     <script>
@@ -9693,6 +9887,15 @@ function renderOutPage(competition) {
         var CATEGORY = ${escapeScript(JSON.stringify(competition.category))};
         var TARGET = ${escapeScript(JSON.stringify(externalUrl))};
         var SOURCE_DOMAIN = ${escapeScript(JSON.stringify(sourceDomain))};
+        var redirectTimer = null;
+        function beginRedirectCountdown() {
+          if (redirectTimer !== null) return;
+          document.documentElement.dataset.freehubHandoffState = 'countdown';
+          redirectTimer = setTimeout(function () {
+            document.documentElement.dataset.freehubHandoffState = 'redirecting';
+            window.location.replace(TARGET);
+          }, 2000);
+        }
         gtag('event', 'outbound_click', {
           competition_slug: SLUG,
           competition_title: TITLE,
@@ -9702,9 +9905,11 @@ function renderOutPage(competition) {
           page_type: 'out',
           transport_type: 'beacon',
         });
-        setTimeout(function () {
-          window.location.replace(TARGET);
-        }, 2000);
+        if (window.FreeHubOutboundHandoff) {
+          window.FreeHubOutboundHandoff.afterGuestAdDecision(beginRedirectCountdown, { maxWaitMs: 3000 });
+        } else {
+          beginRedirectCountdown();
+        }
       })();
     </script>
   </head>
@@ -9729,7 +9934,7 @@ function renderOutPage(competition) {
         <section class="state-card outbound-notice" aria-label="Redirect notice">
           <p class="state-card__title">Continue to the official promoter</p>
           <p class="state-card__text">
-            You will be taken to ${escapeHtml(sourceDomain)} in 2 seconds. Freehub does not run this competition or collect your entry.
+            ${escapeHtml(redirectNotice)} Freehub does not run this competition or collect your entry.
           </p>
           <p class="state-card__text">Always check the promoter's terms before entering.</p>
           <a class="competition-detail__cta" href="${escapeAttribute(externalUrl)}" rel="nofollow noopener" target="_blank">
@@ -9808,7 +10013,11 @@ function renderExpiredCompetitionActions(competition, categorySlug, generatedBra
   }
 
   if (categorySlug) {
-    links.push({ label: `Browse ${competition.category} competitions`, href: `/category/${categorySlug}/`, className: "btn btn--secondary" });
+    links.push({
+      label: `Browse ${competition.category} competitions`,
+      href: normalizeStaticPath(shared.getCategoryRoute(competition.category)),
+      className: "btn btn--secondary",
+    });
   }
 
   links.push(
@@ -10092,8 +10301,7 @@ function isPreviewOrStagingUrl(value) {
 }
 
 function isExpired(dateString) {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  const today = new Date(`${LIFECYCLE_REFERENCE_DATE_ISO}T00:00:00`);
   const closing = new Date(dateString);
   closing.setHours(0, 0, 0, 0);
   return closing < today;
@@ -10260,10 +10468,13 @@ function getRouteLastmod(routeContext, competitions) {
 
   const filteredCompetitions = getRouteCompetitions(competitions, routeContext);
   const listingLastmod = getCompetitionListLastmod(filteredCompetitions);
-  const contentLastmod =
+  const contentLastmod = normalizeIsoDateString(
     routeContext.type === "category"
-      ? normalizeIsoDateString(shared.CATEGORY_COPY[routeContext.slug]?.dateModified)
-      : "";
+      ? shared.CATEGORY_COPY[routeContext.slug]?.dateModified
+      : routeContext.type === "hub"
+        ? shared.HUB_COPY[routeContext.slug]?.dateModified
+        : ""
+  );
   const discoveryLastmod =
     routeContext.type === "category" && routeContext.slug === "vouchers"
       ? [
@@ -10574,6 +10785,27 @@ function runStaticSeoChecks(routeContexts = []) {
   const sitemap = fs.readFileSync(sitemapPath, "utf8");
   const locMatches = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1].trim());
 
+  routeContexts.forEach((routeContext) => {
+    const filePath = routeContext.path === "/"
+      ? path.join(ROOT_DIR, "index.html")
+      : path.join(ROOT_DIR, routeContext.path.replace(/^\//, "").replace(/\/$/, ""), "index.html");
+    const html = fs.readFileSync(filePath, "utf8");
+    const loaderCount = html.split(`src="${GUEST_ADS_SCRIPT_SRC}"`).length - 1;
+    const expectedCount = routeContext.noindex === true ? 0 : 1;
+
+    if (loaderCount !== expectedCount) {
+      errors.push(`Guest-ad loader count is ${loaderCount}; expected ${expectedCount} in: ${filePath}`);
+    }
+  });
+
+  getContentIndexFiles().forEach((filePath) => {
+    const html = fs.readFileSync(filePath, "utf8");
+    const loaderCount = html.split(`src="${GUEST_ADS_SCRIPT_SRC}"`).length - 1;
+    if (loaderCount !== 1) {
+      errors.push(`Public content index guest-ad loader count is ${loaderCount}; expected 1 in: ${filePath}`);
+    }
+  });
+
   if (locMatches.some((url) => url.includes("/out/"))) {
     errors.push("Sitemap contains /out/ URLs, which must stay non-indexable.");
   }
@@ -10619,6 +10851,13 @@ function runStaticSeoChecks(routeContexts = []) {
 
   htmlFiles.forEach((filePath) => {
     const html = fs.readFileSync(filePath, "utf8");
+    const guestAdLoaderCount = html.split(`src="${GUEST_ADS_SCRIPT_SRC}"`).length - 1;
+    if (guestAdLoaderCount > 1) {
+      errors.push(`Duplicate guest-ad loader found in: ${filePath}`);
+    }
+    if (html.includes("effectivecpmnetwork.com")) {
+      errors.push(`Adsterra vendor URL was emitted directly into generated HTML: ${filePath}`);
+    }
     const badStructuredDataUrl = html.match(/"url":"https:\/\/freehub\.co\.za\/competition\/[^"]*[^\/]"/);
     if (badStructuredDataUrl) {
       errors.push(`Structured data competition URL missing trailing slash in: ${filePath}`);
@@ -10770,6 +11009,7 @@ function runLifecycleStaticChecks(
   activeCompetitions.forEach((competition) => {
     const slug = shared.getCompetitionSlug(competition);
     const detailPath = path.join(ROOT_DIR, "competition", slug, "index.html");
+    const outPath = path.join(ROOT_DIR, "out", slug, "index.html");
 
     if (!sitemap.includes(`/competition/${slug}/`)) {
       errors.push(`Active published competition is missing from sitemap: ${slug}`);
@@ -10784,11 +11024,39 @@ function runLifecycleStaticChecks(
     if (!html.includes('name="robots" content="index, follow, max-image-preview:large"')) {
       errors.push(`Active published competition missing index robots directive: ${slug}`);
     }
+    const guestAdLoaderCount = html.split(`src="${GUEST_ADS_SCRIPT_SRC}"`).length - 1;
+    const expectedGuestAdLoaderCount = shared.competitionAllowsAds(competition) ? 1 : 0;
+    if (guestAdLoaderCount !== expectedGuestAdLoaderCount) {
+      errors.push(
+        `Active competition guest-ad loader count is ${guestAdLoaderCount}; expected ${expectedGuestAdLoaderCount}: ${slug}`
+      );
+    }
+    if (!fs.existsSync(outPath)) {
+      errors.push(`Active competition outbound page missing: ${slug}`);
+    } else {
+      const outHtml = fs.readFileSync(outPath, "utf8");
+      const outboundLoaderCount = outHtml.split(`src="${GUEST_ADS_SCRIPT_SRC}"`).length - 1;
+      const outboundHandoffGateCount = outHtml.split(`src="${OUTBOUND_HANDOFF_SCRIPT_SRC}"`).length - 1;
+      if (outboundLoaderCount !== expectedGuestAdLoaderCount) {
+        errors.push(
+          `Active competition outbound guest-ad loader count is ${outboundLoaderCount}; expected ${expectedGuestAdLoaderCount}: ${slug}`
+        );
+      }
+      if (outboundHandoffGateCount !== expectedGuestAdLoaderCount) {
+        errors.push(
+          `Active competition outbound handoff-gate count is ${outboundHandoffGateCount}; expected ${expectedGuestAdLoaderCount}: ${slug}`
+        );
+      }
+      if (outHtml.includes("effectivecpmnetwork.com")) {
+        errors.push(`Active competition outbound page emits an Adsterra vendor URL directly: ${slug}`);
+      }
+    }
   });
 
   noindexActiveCompetitions.forEach((competition) => {
     const slug = shared.getCompetitionSlug(competition);
     const detailPath = path.join(ROOT_DIR, "competition", slug, "index.html");
+    const outPath = path.join(ROOT_DIR, "out", slug, "index.html");
 
     if (sitemap.includes(`/competition/${slug}/`)) {
       errors.push(`Noindex competition page is included in sitemap: ${slug}`);
@@ -10803,8 +11071,22 @@ function runLifecycleStaticChecks(
     if (!html.includes('name="robots" content="noindex, follow"')) {
       errors.push(`Noindex active competition missing noindex robots directive: ${slug}`);
     }
-    if (html.includes("pagead2.googlesyndication.com") || html.includes("ad-slot")) {
+    if (
+      html.includes("/shared/guest-ads.js") ||
+      html.includes("effectivecpmnetwork.com") ||
+      html.includes("ad-slot")
+    ) {
       errors.push(`Noindex active competition includes ad markup: ${slug}`);
+    }
+    if (fs.existsSync(outPath)) {
+      const outHtml = fs.readFileSync(outPath, "utf8");
+      if (
+        outHtml.includes("/shared/guest-ads.js") ||
+        outHtml.includes("/shared/outbound-handoff.js") ||
+        outHtml.includes("effectivecpmnetwork.com")
+      ) {
+        errors.push(`Noindex active competition outbound page includes guest-ad markup: ${slug}`);
+      }
     }
   });
 
@@ -10825,6 +11107,16 @@ function runLifecycleStaticChecks(
     }
     if (!html.includes('name="robots" content="noindex, follow"')) {
       errors.push(`Expired competition page missing noindex, follow: ${slug}`);
+    }
+    const expiredLoaderCount = html.split(`src="${GUEST_ADS_SCRIPT_SRC}"`).length - 1;
+    const expectedExpiredLoaderCount = shared.competitionAllowsAds(competition) ? 1 : 0;
+    if (expiredLoaderCount !== expectedExpiredLoaderCount) {
+      errors.push(
+        `Expired competition guest-ad loader count is ${expiredLoaderCount}; expected ${expectedExpiredLoaderCount}: ${slug}`
+      );
+    }
+    if (html.includes("effectivecpmnetwork.com")) {
+      errors.push(`Expired competition page emits an Adsterra vendor URL directly: ${slug}`);
     }
     if (!html.includes("Current competitions you may like")) {
       errors.push(`Expired archive page missing active related section: ${slug}`);
@@ -10930,6 +11222,17 @@ function runLifecycleStaticChecks(
       }
       if (!html.includes(`href="${exitRoute}"`)) {
         errors.push(`Active Opportunity detail CTA bypasses exit route: ${opportunity.slug}`);
+      }
+      if (html.includes("/shared/guest-ads.js") || html.includes("effectivecpmnetwork.com")) {
+        errors.push(`Active Opportunity detail page includes guest-ad markup: ${opportunity.slug}`);
+      }
+    }
+    if (fs.existsSync(exitPath)) {
+      const exitHtml = fs.readFileSync(exitPath, "utf8");
+      const loaderCount = exitHtml.split(`src="${GUEST_ADS_SCRIPT_SRC}"`).length - 1;
+      const handoffGateCount = exitHtml.split(`src="${OUTBOUND_HANDOFF_SCRIPT_SRC}"`).length - 1;
+      if (loaderCount !== 1 || handoffGateCount !== 1 || exitHtml.includes("effectivecpmnetwork.com")) {
+        errors.push(`Active Opportunity exit page does not contain exactly one first-party guest-ad gate: ${opportunity.slug}`);
       }
     }
   });

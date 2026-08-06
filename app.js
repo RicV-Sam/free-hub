@@ -22,13 +22,6 @@ const {
   sortCompetitions,
 } = window.FreeHubShared;
 
-const SPONSORED_OFFER_URL = "";
-const STICKY_AD_URL = "";
-const PAGE_AD_PLACEMENTS = [
-  { id: "ad-top", placement: "top" },
-  { id: "ad-middle", placement: "middle" },
-  { id: "ad-bottom", placement: "bottom" },
-];
 const SEARCH_TRACK_DELAY_MS = 900;
 const MIN_SEARCH_TRACK_LENGTH = 2;
 
@@ -52,9 +45,6 @@ const elements = {
   loadingState: document.querySelector("#loadingState"),
   errorState: document.querySelector("#errorState"),
   emptyState: document.querySelector("#emptyState"),
-  stickyAd: document.querySelector("#ad-sticky"),
-  stickyAdClose: document.querySelector("#stickyAdClose"),
-  stickyAdCta: document.querySelector("#stickyAdCta"),
   pageTitle: document.querySelector("#pageTitle"),
   pageIntro: document.querySelector("#pageIntro"),
   metaDescription: document.querySelector('meta[name="description"]'),
@@ -73,8 +63,6 @@ window.FreeHubAnalytics = {
 document.addEventListener("DOMContentLoaded", () => {
   bindEvents();
   setupEngagementTracking();
-  setupPageAds();
-  setupStickyAd();
 
   if (state.routeContext.type === "competition") {
     trackDetailPageView();
@@ -120,59 +108,6 @@ function bindEvents() {
     link.addEventListener("click", () => {
       trackCategoryFilterClick(link.textContent.trim(), link.getAttribute("href") || "");
     });
-  });
-}
-
-function setupPageAds() {
-  PAGE_AD_PLACEMENTS.forEach(({ id, placement }) => {
-    const element = document.querySelector(`#${id}`);
-
-    if (!element) {
-      return;
-    }
-
-    element.addEventListener("click", () => trackAdClick(placement));
-  });
-
-  const observer = new IntersectionObserver(handleAdVisibility, {
-    threshold: 0.35,
-  });
-
-  PAGE_AD_PLACEMENTS.forEach(({ id, placement }) => {
-    const element = document.querySelector(`#${id}`);
-
-    if (!element) {
-      return;
-    }
-
-    element.dataset.placement = placement;
-    observer.observe(element);
-  });
-}
-
-function setupStickyAd() {
-  if (!elements.stickyAd || !STICKY_AD_URL) {
-    elements.stickyAd?.classList.add("ad-sticky--hidden");
-    elements.stickyAd?.setAttribute("aria-hidden", "true");
-    return;
-  }
-
-  if (!elements.stickyAdClose || !elements.stickyAdCta) {
-    elements.stickyAd.classList.add("ad-sticky--hidden");
-    elements.stickyAd.setAttribute("aria-hidden", "true");
-    return;
-  }
-
-  elements.stickyAdClose.addEventListener("click", () => {
-    elements.stickyAd.classList.add("ad-sticky--hidden");
-  });
-
-  elements.stickyAdCta.addEventListener("click", () => {
-    if (!STICKY_AD_URL) {
-      return;
-    }
-
-    openSponsoredOffer("sticky", STICKY_AD_URL);
   });
 }
 
@@ -547,26 +482,6 @@ function openCompetition(competition) {
   window.open(competition.url, "_blank", "noopener,noreferrer");
 }
 
-function handleAdVisibility(entries, observer) {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) {
-      return;
-    }
-
-    const placement = entry.target.dataset.placement;
-    trackAdView(placement);
-    observer.unobserve(entry.target);
-  });
-}
-
-function trackAdView(placement) {
-  sendGaEvent("ad_view", { placement });
-}
-
-function trackAdClick(placement) {
-  sendGaEvent("ad_click", { placement });
-}
-
 function trackDetailPageView() {
   sendGaEvent("detail_page_view", {
     competition_slug: getCurrentCompetitionSlug(),
@@ -674,16 +589,15 @@ function sendGaEvent(name, params) {
   });
 }
 
-function openSponsoredOffer(placement, url) {
-  trackAdClick(placement);
-  window.open(url, "_blank", "noopener,noreferrer");
-}
-
 function injectStructuredData(competitions) {
   const existingScript = document.querySelector("#structured-data-itemlist");
 
   if (existingScript) {
     existingScript.remove();
+  }
+
+  if (competitions.length === 0) {
+    return;
   }
 
   const script = document.createElement("script");

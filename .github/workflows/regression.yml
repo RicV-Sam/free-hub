@@ -9,6 +9,7 @@ permissions:
 
 env:
   FREEHUB_BUILD_DATE: "2026-07-31"
+  FREEHUB_AS_OF_DATE: "2026-08-06"
 
 jobs:
   baseline:
@@ -31,16 +32,17 @@ jobs:
         run: |
           base_dir="${RUNNER_TEMP}/freehub-base"
           candidate_absent_dir="${RUNNER_TEMP}/freehub-candidate-absent"
+          fixed_date_register="${GITHUB_WORKSPACE}/scripts/lib/fixed-date-register.js"
           cleanup() { git worktree remove --force "$base_dir" >/dev/null 2>&1 || true; }
           trap cleanup EXIT
           git worktree add --detach "$base_dir" "${{ github.event.pull_request.base.sha }}"
-          (cd "$base_dir" && FREEHUB_BUILD_DATE="$FREEHUB_BUILD_DATE" node scripts/generate-pages.js)
+          (cd "$base_dir" && NODE_OPTIONS="--require=$fixed_date_register" FREEHUB_BUILD_DATE="$FREEHUB_BUILD_DATE" FREEHUB_AS_OF_DATE="$FREEHUB_AS_OF_DATE" node scripts/generate-pages.js)
           node scripts/capture-generated-output.js --output-dir="$candidate_absent_dir"
           echo "Compare feature flag absent with PR base"
-          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-discovery-content-v1
+          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-adsterra-evergreen-v1
           echo "Compare feature flag explicitly disabled with PR base"
           FREEHUB_ENABLE_OPPORTUNITIES=false npm run build
-          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-discovery-content-v1
+          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-adsterra-evergreen-v1
           node scripts/compare-generated-output.js --base-dir="$candidate_absent_dir"
           echo "Compare enabled reviewed Opportunity pilot with flag-off candidate"
           FREEHUB_ENABLE_OPPORTUNITIES=true npm run build

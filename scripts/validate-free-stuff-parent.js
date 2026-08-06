@@ -11,8 +11,8 @@ const FREE_STUFF_NAV_INACTIVE = '          <a class="site-topbar__link" href="/f
 const FREE_STUFF_NAV_ACTIVE = '          <a class="site-topbar__link is-active" href="/free-stuff-south-africa/" aria-current="page">Free Stuff</a>';
 const expectedOpportunityCount = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true" ? 21 : 0;
 const expectedFeaturedOpportunityCount = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true" ? 2 : 0;
-const expectedGeneratedFiles = 314 + expectedOpportunityCount * 2;
-const expectedSitemapUrls = 92 + expectedOpportunityCount;
+const expectedGeneratedFiles = 316 + expectedOpportunityCount * 2;
+const expectedSitemapUrls = 93 + expectedOpportunityCount;
 const expectedActiveCompetitionCount = 43;
 
 function check(label, actual, expected) {

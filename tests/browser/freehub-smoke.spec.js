@@ -2,9 +2,155 @@ const { expect, test } = require("@playwright/test");
 const { createOpportunityRouteRenderer } = require("../../scripts/lib/opportunity-route-renderer.js");
 const opportunityFixture = require("../../data/opportunities.json")[0];
 const opportunitiesEnabled = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true";
+const usesReviewedPilotDate = process.env.FREEHUB_BUILD_DATE === "2026-07-31";
+const RELEASE_ASSET_VERSION = "20260806-adsterra-evergreen-v1";
+const GUEST_ADS_LOADER_SRC = `/shared/guest-ads.js?v=${RELEASE_ASSET_VERSION}`;
+const OUTBOUND_HANDOFF_SRC = `/shared/outbound-handoff.js?v=${RELEASE_ASSET_VERSION}`;
+
+const ADSTERRA_SCRIPTS = Object.freeze({
+  popunder: "https://pl30713595.effectivecpmnetwork.com/51/4f/11/514f11fd1c975eebb82034a3a019787a.js",
+  socialBar: "https://pl30713596.effectivecpmnetwork.com/5e/fa/1d/5efa1d12d7d4dfb40f2bf1a6ae3d645f.js",
+});
+
+const MOCK_MEMBER = Object.freeze({
+  uid: "freehub-test-member",
+  email: "member@example.test",
+  displayName: "Freehub Test Member",
+  photoURL: null,
+  providerData: [],
+});
 
 async function disableFirebase(page) {
   await page.route("**/firebase-config.json", (route) => route.fulfill({ status: 404, body: "Not configured in regression tests" }));
+}
+
+async function mockFirebaseAuth(
+  page,
+  { signedIn = false, enabledAuthProviders = [], providerSigninUser = null, authDelayMs = 0 } = {}
+) {
+  await page.unroute("**/firebase-config.json");
+  await page.addInitScript(({ initialUser, popupUser, callbackDelay }) => {
+    const persistedUser = window.sessionStorage.getItem("freehubTestAuthUser");
+    window.__freehubTestAuthUser = persistedUser ? JSON.parse(persistedUser) : initialUser;
+    window.__freehubProviderSigninUser = popupUser;
+    window.__freehubAuthDelayMs = callbackDelay;
+    window.__freehubAuthCallbacks = [];
+    window.__freehubFirestoreWrites = [];
+    window.__freehubEmitAuth = (user) => {
+      window.__freehubTestAuthUser = user;
+      if (user) {
+        window.sessionStorage.setItem("freehubTestAuthUser", JSON.stringify(user));
+      } else {
+        window.sessionStorage.removeItem("freehubTestAuthUser");
+      }
+      window.__freehubAuthCallbacks.slice().forEach((callback) => callback(user));
+    };
+  }, {
+    initialUser: signedIn ? MOCK_MEMBER : null,
+    popupUser: providerSigninUser,
+    callbackDelay: authDelayMs,
+  });
+
+  await page.route("**/firebase-config.json", (route) => route.fulfill({
+    contentType: "application/json",
+    body: JSON.stringify({
+      apiKey: "freehub-test-api-key",
+      authDomain: "freehub-test.firebaseapp.com",
+      projectId: "freehub-test",
+      appId: "freehub-test-app",
+      enabledAuthProviders,
+    }),
+  }));
+
+  const moduleHeaders = { "access-control-allow-origin": "*" };
+  await page.route("**/firebase-app.js", (route) => route.fulfill({
+    contentType: "application/javascript",
+    headers: moduleHeaders,
+    body: `
+      const apps = [];
+      export function getApps() { return apps; }
+      export function initializeApp(config) {
+        const app = { config };
+        apps.push(app);
+        return app;
+      }
+    `,
+  }));
+  await page.route("**/firebase-auth.js", (route) => route.fulfill({
+    contentType: "application/javascript",
+    headers: moduleHeaders,
+    body: `
+      export class GoogleAuthProvider { addScope() {} }
+      export class FacebookAuthProvider { addScope() {} }
+      export function getAuth(app) { return { app }; }
+      export function onAuthStateChanged(auth, callback) {
+        globalThis.__freehubAuthCallbacks.push(callback);
+        const delay = Number(globalThis.__freehubAuthDelayMs) || 0;
+        if (delay > 0) {
+          setTimeout(() => callback(globalThis.__freehubTestAuthUser), delay);
+        } else {
+          queueMicrotask(() => callback(globalThis.__freehubTestAuthUser));
+        }
+        return () => {
+          globalThis.__freehubAuthCallbacks = globalThis.__freehubAuthCallbacks.filter((item) => item !== callback);
+        };
+      }
+      export function isSignInWithEmailLink() { return false; }
+      export async function signInWithPopup() {
+        const user = globalThis.__freehubProviderSigninUser || globalThis.__freehubTestAuthUser;
+        if (user) globalThis.__freehubEmitAuth(user);
+        return { user };
+      }
+      export async function sendSignInLinkToEmail() {}
+      export async function signInWithEmailLink() { return { user: globalThis.__freehubTestAuthUser }; }
+      export async function signOut() { globalThis.__freehubEmitAuth(null); }
+    `,
+  }));
+  await page.route("**/firebase-firestore.js", (route) => route.fulfill({
+    contentType: "application/javascript",
+    headers: moduleHeaders,
+    body: `
+      const missingDocument = () => ({ exists: () => false, data: () => ({}) });
+      export function getFirestore(app) { return { app }; }
+      export function collection(...path) { return { path }; }
+      export function doc(...path) { return { path }; }
+      export async function deleteDoc() {}
+      export async function getDoc() { return missingDocument(); }
+      export async function getDocs() { return { docs: [] }; }
+      export function limit(value) { return { value }; }
+      export function query(...parts) { return { parts }; }
+      export async function runTransaction(db, update) {
+        return update({ get: async () => missingDocument(), set() {} });
+      }
+      export function serverTimestamp() { return "test-timestamp"; }
+      export async function setDoc(reference, data) {
+        globalThis.__freehubFirestoreWrites.push({
+          path: reference.path.filter((part) => typeof part === "string"),
+          data,
+        });
+      }
+      export function where(...parts) { return { parts }; }
+    `,
+  }));
+}
+
+async function stubAdsterra(page) {
+  const requests = { popunder: 0, socialBar: 0 };
+  await page.route(ADSTERRA_SCRIPTS.popunder, (route) => route.fulfill({
+    contentType: "application/javascript",
+    headers: { "access-control-allow-origin": "*" },
+    body: "globalThis.__freehubPopunderExecutions = (globalThis.__freehubPopunderExecutions || 0) + 1;",
+  }).finally(() => {
+    requests.popunder += 1;
+  }));
+  await page.route(ADSTERRA_SCRIPTS.socialBar, (route) => route.fulfill({
+    contentType: "application/javascript",
+    headers: { "access-control-allow-origin": "*" },
+    body: "globalThis.__freehubSocialBarExecutions = (globalThis.__freehubSocialBarExecutions || 0) + 1;",
+  }).finally(() => {
+    requests.socialBar += 1;
+  }));
+  return requests;
 }
 
 async function expectCanonical(page, route) {
@@ -42,6 +188,245 @@ test("homepage navigation reaches canonical pillar routes", async ({ page }) => 
   await expectCanonical(page, "/free-samples-south-africa/");
   await page.goto("/free-online-courses-south-africa/");
   await expectCanonical(page, "/free-online-courses-south-africa/");
+});
+
+test("generated pages contain one first-party ad gate and no raw Adsterra tags", async ({ page }) => {
+  const homepageHtml = await (await page.request.get("/")).text();
+  expect(homepageHtml.split(`src="${GUEST_ADS_LOADER_SRC}"`)).toHaveLength(2);
+  expect(homepageHtml).not.toContain("effectivecpmnetwork.com");
+
+  for (const route of ["/club/dashboard/"]) {
+    const html = await (await page.request.get(route)).text();
+    expect(html).not.toContain("/shared/guest-ads.js");
+    expect(html).not.toContain("effectivecpmnetwork.com");
+  }
+
+  for (const route of [
+    "/blog/",
+    "/guides/",
+    "/best-competitions-south-africa-this-month/",
+    "/out/one-life-winning-wednesday-cash-2026/",
+    "/competition/isuzu-win-a-new-x-rider-2026/",
+    ...(opportunitiesEnabled ? ["/out/opportunity/coloplast-speedicath-short-sample/"] : []),
+  ]) {
+    const html = await (await page.request.get(route)).text();
+    expect(html.split(`src="${GUEST_ADS_LOADER_SRC}"`)).toHaveLength(2);
+    expect(html).not.toContain("effectivecpmnetwork.com");
+  }
+
+  for (const route of [
+    "/out/one-life-winning-wednesday-cash-2026/",
+    ...(opportunitiesEnabled ? ["/out/opportunity/coloplast-speedicath-short-sample/"] : []),
+  ]) {
+    const html = await (await page.request.get(route)).text();
+    expect(html.split(`src="${OUTBOUND_HANDOFF_SRC}"`)).toHaveLength(2);
+  }
+});
+
+test("Adsterra fails closed when Firebase auth cannot be resolved", async ({ page }) => {
+  await stubAdsterra(page);
+  await page.goto("/");
+
+  await expect(page.locator('html[data-freehub-ad-state="unavailable"]')).toHaveCount(1);
+  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.popunder}"]`)).toHaveCount(0);
+  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.socialBar}"]`)).toHaveCount(0);
+});
+
+test("signed-out visitors receive each exact Adsterra script once", async ({ page }) => {
+  await mockFirebaseAuth(page);
+  const requests = await stubAdsterra(page);
+  await page.goto("/");
+
+  await expect(page.locator('html[data-freehub-ad-state="guest"]')).toHaveCount(1);
+  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.popunder}"]`)).toHaveCount(1);
+  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.socialBar}"]`)).toHaveCount(1);
+  await expect.poll(() => requests).toEqual({ popunder: 1, socialBar: 1 });
+  await expect.poll(() => page.evaluate(() => ({
+    popunder: window.__freehubPopunderExecutions || 0,
+    socialBar: window.__freehubSocialBarExecutions || 0,
+  }))).toEqual({ popunder: 1, socialBar: 1 });
+
+  await page.evaluate(() => {
+    window.__freehubEmitAuth(null);
+    window.__freehubEmitAuth(null);
+  });
+  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.popunder}"]`)).toHaveCount(1);
+  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.socialBar}"]`)).toHaveCount(1);
+  expect(requests).toEqual({ popunder: 1, socialBar: 1 });
+
+  await page.evaluate(() => {
+    document.querySelectorAll("script[data-freehub-guest-ad]").forEach((script) => script.remove());
+    window.__freehubEmitAuth(null);
+  });
+  await expect(page.locator("script[data-freehub-guest-ad]")).toHaveCount(0);
+  expect(requests).toEqual({ popunder: 1, socialBar: 1 });
+});
+
+test("signed-out visitors receive Adsterra on expired and outbound pages", async ({ page }) => {
+  await mockFirebaseAuth(page, { authDelayMs: 750 });
+  const requests = await stubAdsterra(page);
+  const routes = [
+    { route: "/competition/isuzu-win-a-new-x-rider-2026/", handoff: false },
+    { route: "/out/one-life-winning-wednesday-cash-2026/", handoff: true },
+    ...(opportunitiesEnabled
+      ? [{ route: "/out/opportunity/coloplast-speedicath-short-sample/", handoff: true }]
+      : []),
+  ];
+
+  for (const [index, { route, handoff }] of routes.entries()) {
+    await page.goto(route);
+    if (handoff) {
+      await expect(page.locator('html[data-freehub-handoff-state="waiting-for-ad-state"]')).toHaveCount(1);
+    }
+    await expect(page.locator('html[data-freehub-ad-state="guest"]')).toHaveCount(1);
+    await expect.poll(() => requests).toEqual({ popunder: index + 1, socialBar: index + 1 });
+    if (handoff) {
+      await expect(page.locator('html[data-freehub-handoff-auth-resolution="resolved"]')).toHaveCount(1);
+      await expect(page.locator('html[data-freehub-handoff-state="countdown"]')).toHaveCount(1);
+    }
+  }
+});
+
+test("signed-in members receive no external Adsterra scripts or executions", async ({ page }) => {
+  await mockFirebaseAuth(page, { signedIn: true, authDelayMs: 750 });
+  const requests = await stubAdsterra(page);
+  await page.goto("/");
+
+  await expect(page.locator('html[data-freehub-ad-state="member"]')).toHaveCount(1);
+  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.popunder}"]`)).toHaveCount(0);
+  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.socialBar}"]`)).toHaveCount(0);
+  expect(requests).toEqual({ popunder: 0, socialBar: 0 });
+  expect(await page.evaluate(() => ({
+    popunder: window.__freehubPopunderExecutions || 0,
+    socialBar: window.__freehubSocialBarExecutions || 0,
+  }))).toEqual({ popunder: 0, socialBar: 0 });
+
+  const memberRoutes = [
+    { route: "/competition/isuzu-win-a-new-x-rider-2026/", handoff: false },
+    { route: "/out/one-life-winning-wednesday-cash-2026/", handoff: true },
+    ...(opportunitiesEnabled
+      ? [{ route: "/out/opportunity/coloplast-speedicath-short-sample/", handoff: true }]
+      : []),
+  ];
+  for (const { route, handoff } of memberRoutes) {
+    await page.goto(route);
+    if (handoff) {
+      await expect(page.locator('html[data-freehub-handoff-state="waiting-for-ad-state"]')).toHaveCount(1);
+    }
+    await expect(page.locator('html[data-freehub-ad-state="member"]')).toHaveCount(1);
+    await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.popunder}"]`)).toHaveCount(0);
+    await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.socialBar}"]`)).toHaveCount(0);
+    if (handoff) {
+      await expect(page.locator('html[data-freehub-handoff-auth-resolution="resolved"]')).toHaveCount(1);
+      await expect(page.locator('html[data-freehub-handoff-state="countdown"]')).toHaveCount(1);
+    }
+  }
+  expect(requests).toEqual({ popunder: 0, socialBar: 0 });
+});
+
+test("a guest-to-member transition reloads into a clean ad-free document", async ({ page }) => {
+  await mockFirebaseAuth(page);
+  const requests = await stubAdsterra(page);
+  await page.goto("/");
+  await expect(page.locator('html[data-freehub-ad-state="guest"]')).toHaveCount(1);
+  await expect.poll(() => requests).toEqual({ popunder: 1, socialBar: 1 });
+
+  const navigation = page.waitForNavigation();
+  await page.evaluate((member) => {
+    window.FreeHubGuestAds.beginSignIn();
+    window.__freehubEmitAuth(member);
+    window.FreeHubGuestAds.completeSignIn();
+  }, MOCK_MEMBER);
+  await navigation;
+
+  await expect(page.locator('html[data-freehub-ad-state="member"]')).toHaveCount(1);
+  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.popunder}"]`)).toHaveCount(0);
+  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.socialBar}"]`)).toHaveCount(0);
+  expect(requests).toEqual({ popunder: 1, socialBar: 1 });
+});
+
+test("provider sign-in resumes the requested competition action after the clean reload", async ({ page }) => {
+  await mockFirebaseAuth(page, {
+    enabledAuthProviders: ["google"],
+    providerSigninUser: MOCK_MEMBER,
+  });
+  const requests = await stubAdsterra(page);
+  const competitionId = "one-life-winning-wednesday-cash-2026";
+  await page.goto(`/competition/${competitionId}/`);
+  await expect(page.locator('html[data-freehub-ad-state="guest"]')).toHaveCount(1);
+
+  await page.locator('[data-auth-action="signin"]').first().click();
+  await expect(page.getByText(/Club benefit:.*no Adsterra Popunder or Social Bar ads/)).toBeVisible();
+  await page.getByLabel(/I have read and agree to the Privacy Policy/).check();
+  const navigation = page.waitForNavigation();
+  await page.getByRole("button", { name: "Continue with Google" }).click();
+  await navigation;
+
+  await expect(page.locator('html[data-freehub-ad-state="member"]')).toHaveCount(1);
+  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.popunder}"]`)).toHaveCount(0);
+  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.socialBar}"]`)).toHaveCount(0);
+  await expect.poll(() => page.evaluate(({ id, uid }) => window.__freehubFirestoreWrites.some((write) =>
+    write.path.join("/") === `users/${uid}/savedCompetitions/${id}`
+  ), { id: competitionId, uid: MOCK_MEMBER.uid })).toBe(true);
+  expect(requests).toEqual({ popunder: 1, socialBar: 1 });
+});
+
+test("evergreen prize pages are indexable, useful and linked from discovery areas", async ({ page }) => {
+  const routes = [
+    ["/win-a-car/", "Win a Car Competitions in South Africa"],
+    ["/category/cash/", "Cash Competitions in South Africa"],
+    ["/category/vouchers/", "Free Voucher Giveaways and Competitions in South Africa"],
+    ["/category/holidays/", "Holiday Competitions in South Africa"],
+    ["/category/tech/", "Tech Competitions in South Africa"],
+    ["/category/groceries/", "Win Groceries in South Africa"],
+    ["/category/experiences/", "Win Experiences in South Africa"],
+  ];
+
+  await page.goto("/");
+  const prizeBrowser = page.getByRole("region", { name: "Browse competitions by prize" });
+  const footerBrowser = page.getByRole("navigation", { name: "Explore competition hubs" });
+  for (const [route] of routes) {
+    await expect(prizeBrowser.locator(`a[href="${route}"]`)).toHaveCount(1);
+    await expect(footerBrowser.locator(`a[href="${route}"]`)).toHaveCount(1);
+  }
+
+  for (const [route, heading] of routes) {
+    await page.goto(route);
+    await expectCanonical(page, route);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(heading);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
+      "content",
+      "index, follow, max-image-preview:large"
+    );
+    await expect(page.locator("#structured-data-collectionpage")).toHaveCount(1);
+    const collectionSchema = JSON.parse(await page.locator("#structured-data-collectionpage").textContent());
+    expect(collectionSchema.dateModified).toBeTruthy();
+    await expect(page.locator("#structured-data-breadcrumb")).toHaveCount(1);
+    await expect(page.locator("#structured-data-faq")).toHaveCount(1);
+
+    const cardCount = await page.locator("#competitionsGrid article.competition-card").count();
+    await expect(page.locator("#structured-data-itemlist")).toHaveCount(cardCount > 0 ? 1 : 0);
+    if (cardCount === 0) {
+      await expect(page.locator("#emptyState")).toBeVisible();
+    }
+  }
+
+  await page.goto("/category/cash/");
+  const categoryNavigation = page.getByRole("navigation", { name: "Competition categories" });
+  await expect(categoryNavigation.locator('a[href="/win-a-car/"]')).toHaveCount(1);
+  await expect(categoryNavigation.locator('a[href="/category/cars/"]')).toHaveCount(0);
+
+  await page.goto("/category/cars/");
+  await expectCanonical(page, "/win-a-car/");
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, follow");
+
+  await page.goto("/win-a-car/");
+  await expect(page.locator('[data-competition-slug="volkswagen-easydrive-maintenance-plan-2026"]')).toHaveCount(0);
+
+  await page.goto("/category/groceries/");
+  await expect(page.getByRole("heading", { name: "When there are no live grocery prizes" })).toBeVisible();
+  await page.goto("/category/experiences/");
+  await expect(page.getByRole("heading", { name: "Use current listings only" })).toBeVisible();
 });
 
 test("skip link is keyboard reachable and targets main content", async ({ page }) => {
@@ -271,11 +656,11 @@ test("voucher hub separates direct rewards, strict voucher prizes and creator ex
   await expect(page.locator('.hero-preview-panel a[href="/competition/clicks-babyclub-competition/"]')).toHaveCount(0);
 
   const voucherResources = page.locator("#current-voucher-offers article.free-resource-card");
-  await expect(voucherResources).toHaveCount(4);
+  await expect(voucherResources).toHaveCount(usesReviewedPilotDate ? 4 : 3);
   await expect(voucherResources.filter({ hasText: "Absa Advantage meal vouchers" })).toContainText("Account-linked meal vouchers");
   await expect(voucherResources.filter({ hasText: "Spur R50 birthday voucher" })).toContainText("not a no-purchase freebie");
   const voucherResourceSchema = await page.locator("#structured-data-voucher-resources").evaluate((script) => JSON.parse(script.textContent || "{}"));
-  expect(voucherResourceSchema.itemListElement).toHaveLength(4);
+  expect(voucherResourceSchema.itemListElement).toHaveLength(usesReviewedPilotDate ? 4 : 3);
 
   const freeEntryPicks = page.locator("#free-entry-vouchers .voucher-free-pick");
   await expect(freeEntryPicks).toHaveCount(0);
@@ -283,17 +668,16 @@ test("voucher hub separates direct rewards, strict voucher prizes and creator ex
   await expect(page.locator('#free-entry-vouchers a[href="/competition/clicks-babyclub-competition/"]')).toHaveCount(0);
   await expect(page.locator('#free-entry-vouchers a[href="/competition/clicks-clubcard-have-your-say-june-july-2026/"]')).toHaveCount(0);
   const accountLinkedPicks = page.locator("#account-linked-vouchers .voucher-free-pick");
-  await expect(accountLinkedPicks).toHaveCount(2);
+  await expect(accountLinkedPicks).toHaveCount(1);
   await expect(accountLinkedPicks.first()).toContainText("Account required");
-  expect((await accountLinkedPicks.evaluateAll((links) => links.map((link) => link.getAttribute("href")).sort()))).toEqual([
-    "/competition/capitec-moneyup-academy-competition-2026/",
+  expect(await accountLinkedPicks.evaluateAll((links) => links.map((link) => link.getAttribute("href")))).toEqual([
     "/competition/capitec-tactical-flexi-voucher-2026/",
-  ].sort());
+  ]);
   await expect(page.locator('a[href="/competition/clicks-clubcard-fragrance-giveaway-june-july-2026/"]')).toHaveCount(0);
   await expect(page.locator("#creator-voucher-exchanges article.opportunity-card")).toHaveCount(opportunitiesEnabled ? 2 : 0);
   await expect(page.locator("#structured-data-voucher-opportunities")).toHaveCount(opportunitiesEnabled ? 1 : 0);
   const voucherListings = page.locator("#competitionsGrid article.competition-card");
-  await expect(voucherListings).toHaveCount(15);
+  await expect(voucherListings).toHaveCount(9);
   await expect(voucherListings.first()).toBeVisible();
 });
 
@@ -364,7 +748,9 @@ test("Opportunity detail and measured exit flow remain flag-controlled", async (
   await expectCanonical(page, detailPath);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Coloplast SpeediCath Short free sample");
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index, follow, max-image-preview:large");
-  await expect(page.locator('script[src*="pagead2.googlesyndication.com"]')).toHaveCount(0);
+  await expect(page.locator(`script[src="${GUEST_ADS_LOADER_SRC}"]`)).toHaveCount(0);
+  await expect(page.locator(`script[src="${OUTBOUND_HANDOFF_SRC}"]`)).toHaveCount(0);
+  await expect(page.locator('script[src*="effectivecpmnetwork.com"]')).toHaveCount(0);
   await expect(page.getByText("Your information goes directly to Coloplast")).toBeVisible();
   await expect(page.getByText(/Freehub does not receive, store or assess your application/)).toBeVisible();
   const cta = page.getByRole("link", { name: "Continue to the official sample request" });
@@ -404,7 +790,11 @@ test("Opportunity detail and measured exit flow remain flag-controlled", async (
   await page.goto(exitPath);
   await expectCanonical(page, exitPath);
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, nofollow");
-  await expect(page.locator('script[src*="pagead2.googlesyndication.com"]')).toHaveCount(0);
+  await expect(page.locator(`script[src="${GUEST_ADS_LOADER_SRC}"]`)).toHaveCount(1);
+  await expect(page.locator(`script[src="${OUTBOUND_HANDOFF_SRC}"]`)).toHaveCount(1);
+  await expect(page.locator('script[src*="effectivecpmnetwork.com"]')).toHaveCount(0);
+  await expect(page.locator('html[data-freehub-handoff-auth-resolution="resolved"]')).toHaveCount(1);
+  await expect(page.locator('html[data-freehub-handoff-state="countdown"]')).toHaveCount(1);
   await expect(page.getByText(/Freehub does not receive, store or assess it/)).toBeVisible();
   expect((await readDataLayerEvents(page)).some((event) => event[1] === "opportunity_exit_view")).toBe(true);
   const manualEvents = [];
@@ -500,10 +890,26 @@ test("Opportunity tombstones keep historical context without application paths",
 test("competition collection cards are present in the static HTML", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
-  const response = await page.goto("/competitions/", { waitUntil: "domcontentloaded" });
+  let response = await page.goto("/competitions/", { waitUntil: "domcontentloaded" });
   expect(response.status()).toBe(200);
   expect(await page.locator("article.competition-card").count()).toBeGreaterThan(0);
   await expectCanonical(page, "/competitions/");
+
+  for (const [route, editorialHeading] of [
+    ["/category/groceries/", "How to compare grocery prizes and vouchers"],
+    ["/category/experiences/", "How to compare experience competitions"],
+  ]) {
+    response = await page.goto(route, { waitUntil: "domcontentloaded" });
+    expect(response.status()).toBe(200);
+    await expectCanonical(page, route);
+    await expect(page.getByRole("heading", { name: editorialHeading })).toBeVisible();
+    await expect(page.locator("#structured-data-faq")).toHaveCount(1);
+    const cardCount = await page.locator("article.competition-card").count();
+    await expect(page.locator("#structured-data-itemlist")).toHaveCount(cardCount > 0 ? 1 : 0);
+    if (cardCount === 0) {
+      await expect(page.locator("#emptyState")).toBeVisible();
+    }
+  }
   await context.close();
 });
 
@@ -577,7 +983,8 @@ test("active detail, outbound handoff, and expired detail retain lifecycle behav
   expect(response.status()).toBe(200);
   await expect(outPage.getByRole("heading", { level: 1 })).toHaveText("You are leaving Freehub");
   await expect(outPage.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, nofollow");
-  await expect(outPage.locator('script[src*="adsbygoogle"]')).toHaveCount(0);
+  await expect(outPage.locator(`script[src="${GUEST_ADS_LOADER_SRC}"]`)).toHaveCount(1);
+  await expect(outPage.locator('script[src*="effectivecpmnetwork.com"]')).toHaveCount(0);
   await expect(outPage.locator(".ad-slot")).toHaveCount(0);
   await noJavaScript.close();
 });
@@ -585,7 +992,9 @@ test("active detail, outbound handoff, and expired detail retain lifecycle behav
 test("privacy policy discloses advertising cookies", async ({ page }) => {
   await page.goto("/privacy-policy/");
   await expect(page.getByRole("heading", { level: 2, name: "Cookies and analytics" })).toBeVisible();
-  await expect(page.getByText(/Google AdSense to display advertising/)).toBeVisible();
+  await expect(page.getByText(/Adsterra Popunder and Social Bar advertising/)).toBeVisible();
+  await expect(page.getByText(/only after Firebase confirms that a visitor is signed out/)).toBeVisible();
+  await expect(page.getByText(/Signed-in Freehub Club members are not served these Adsterra scripts/)).toBeVisible();
   await expect(page.getByText(/Consent choices and applicable controls/)).toBeVisible();
 });
 
@@ -600,6 +1009,10 @@ test("Club public and private pages remain usable without Firebase credentials",
   await page.goto("/club/");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Save and track South African competitions");
   await expectCanonical(page, "/club/");
+  await expect(page.getByRole("heading", { name: "No Adsterra ads while signed in" })).toBeVisible();
+
+  await page.goto("/freehub-account-benefits/");
+  await expect(page.getByRole("heading", { name: "Browse without Adsterra ads while signed in" })).toBeVisible();
 
   await page.goto("/club/dashboard/");
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, follow");

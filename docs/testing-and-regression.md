@@ -2,7 +2,7 @@
 
 ## Purpose
 
-PR 1B established the repository-grounded Freehub baseline. Later releases added fail-closed cost, Opportunity and discovery-page contracts. The current reviewed snapshot uses build date `2026-07-31`: the flag-disabled build contains 137 sitemap URLs and 352 generated files, while the reviewed 21-record Opportunity build contains 158 sitemap URLs and 394 generated files.
+PR 1B established the repository-grounded Freehub baseline. Later releases added fail-closed cost, Opportunity and discovery-page contracts. The current reviewed snapshot uses build date `2026-07-31` and competition lifecycle date `2026-08-06`: the flag-disabled build contains 93 sitemap URLs and 316 generated files, while the reviewed 21-record Opportunity build contains 114 sitemap URLs and 358 generated files.
 
 ZA Comp Engine exports remain private review evidence. Passing these tests cannot approve a handoff row, change Freehub publication state or create a public page.
 
@@ -31,7 +31,7 @@ The npm interfaces are:
 
 ## SEO and generated-page baseline
 
-`tests/baselines/seo-baseline.json` fixes the audited origin, snapshot date, flag-disabled 137-URL sitemap count, canonical aliases, forbidden aliases and reviewed link-graph exceptions. `tests/baselines/generated-pages.json` records representative outputs for the homepage, voucher hub, collection hubs, taxonomy routes, active and expired detail pages, outbound redirect, evergreen pillars, Club, admin and 404. `tests/baselines/discovery-generated-output.json` pins the exact reviewed base-to-candidate hashes for this discovery release, while `tests/baselines/opportunity-generated-output.json` pins every reviewed flag-enabled detail, exit, discovery-surface and sitemap hash.
+`tests/baselines/seo-baseline.json` fixes the audited origin, snapshot date, flag-disabled 93-URL sitemap count, canonical aliases, forbidden aliases and reviewed link-graph exceptions. `tests/baselines/generated-pages.json` records representative outputs for the homepage, voucher hub, collection hubs, taxonomy routes, active and expired detail pages, outbound redirect, evergreen pillars, Club, admin and 404. `tests/baselines/adsterra-evergreen-generated-output.json` pins every exact base-to-candidate hash for the Adsterra and evergreen-category release. The older discovery manifest remains a review record for its release, while `tests/baselines/opportunity-generated-output.json` pins every reviewed flag-enabled detail, exit, discovery-surface and sitemap hash against the current shared templates.
 
 Hard failures include:
 
@@ -85,7 +85,7 @@ The pure `isPublicOpportunity()` gate requires an explicit `asOfDate` and offici
 
 The generator owns the publication boundary and passes only approved records to renderers. The explicit source allowlist contains only `brandadvisor.co.za`, `products.coloplast.co.za`, `www.blinddesigns.co.za` and `www.tena.co.za`; registry contents must never be used to infer or silently permit source hosts. Enabled opportunities create matching cards, structured data, detail routes and sitemap entries. Exit routes remain outside the sitemap and carry `noindex`.
 
-Generated-output parity permits only exact reviewed hashes for the feature-flag transition and the discovery release passed with `--allow-discovery-content-v1`. Version markers alone approve nothing. The discovery manifest pins every reviewed expected-to-actual hash, including held-page removals, while a narrow structural check permits only the exact removal of advertising from outbound handoff pages. Tampered or lookalike output fails.
+Generated-output parity permits only exact reviewed hashes. The current base-to-candidate release passes only with `--allow-adsterra-evergreen-v1`; the historical discovery release used `--allow-discovery-content-v1`, and the Opportunity transition uses `--allow-opportunity-detail-flow`. Version markers alone approve nothing. The release manifests pin reviewed expected-to-actual hashes, including new or removed files, while narrow structural checks remain limited to their named legacy transitions. Tampered, lookalike or unreviewed output fails.
 
 Browser tests preserve two named expected defects:
 
@@ -96,7 +96,7 @@ Playwright treats an unexpected pass as a failure so the expected-defect marker 
 
 ## CI and evidence limits
 
-The pull-request workflow separates deterministic baseline tests, live link checks and Chromium smoke tests. It builds base and candidate revisions with the same snapshot date and compares SHA-256 inventories of generated HTML and sitemap output. Browser tests serve local generated files and force Firebase configuration requests to return 404, so no deployed credentials or authenticated account are required.
+The pull-request workflow separates deterministic baseline tests, live link checks and Chromium smoke tests. It uses `FREEHUB_BUILD_DATE=2026-07-31` for the reviewed metadata and Opportunity evidence snapshot, and `FREEHUB_AS_OF_DATE=2026-08-06` for competition lifecycle and urgency calculations. It compares SHA-256 inventories of generated HTML and sitemap output. Browser tests serve local generated files and force Firebase configuration requests to return 404, so no deployed credentials or authenticated account are required.
 
 The harness does not estimate Lighthouse history, Core Web Vitals, Search Console, GA4, deployed Firestore rules or Cloudflare configuration. Those remain unavailable external evidence and require separate access and review.
 

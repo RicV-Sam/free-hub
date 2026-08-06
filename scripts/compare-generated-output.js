@@ -7,6 +7,7 @@ const { isExactReviewedDifference } = require("./lib/generated-output-review.js"
 const REPO_ROOT = path.resolve(__dirname, "..");
 const baseArg = process.argv.find((arg) => arg.startsWith("--base-dir="));
 const actualArg = process.argv.find((arg) => arg.startsWith("--actual-dir="));
+const allowAdsterraEvergreenV1 = process.argv.includes("--allow-adsterra-evergreen-v1");
 const allowDiscoveryContentV1 = process.argv.includes("--allow-discovery-content-v1");
 const allowOpportunityDetailFlow = process.argv.includes("--allow-opportunity-detail-flow");
 if (!baseArg) {
@@ -29,6 +30,15 @@ const OPPORTUNITY_OUTPUT_BASELINE = fs.existsSync(OPPORTUNITY_OUTPUT_BASELINE_PA
 const DISCOVERY_OUTPUT_BASELINE_PATH = path.join(REPO_ROOT, "tests", "baselines", "discovery-generated-output.json");
 const DISCOVERY_OUTPUT_BASELINE = fs.existsSync(DISCOVERY_OUTPUT_BASELINE_PATH)
   ? JSON.parse(fs.readFileSync(DISCOVERY_OUTPUT_BASELINE_PATH, "utf8"))
+  : { files: {} };
+const ADSTERRA_EVERGREEN_OUTPUT_BASELINE_PATH = path.join(
+  REPO_ROOT,
+  "tests",
+  "baselines",
+  "adsterra-evergreen-generated-output.json"
+);
+const ADSTERRA_EVERGREEN_OUTPUT_BASELINE = fs.existsSync(ADSTERRA_EVERGREEN_OUTPUT_BASELINE_PATH)
+  ? JSON.parse(fs.readFileSync(ADSTERRA_EVERGREEN_OUTPUT_BASELINE_PATH, "utf8"))
   : { files: {} };
 const FREE_STUFF_NAV_LINE = '          <a class="site-topbar__link" href="/free-stuff-south-africa/">Free Stuff</a>';
 const COMPETITION_NAV_LINES = [
@@ -67,6 +77,13 @@ const differences = [...paths]
   .filter(Boolean);
 
 function classifyDifference(filePath, expectedEntry, actualEntry) {
+  if (
+    allowAdsterraEvergreenV1 &&
+    isExactReviewedDifference(ADSTERRA_EVERGREEN_OUTPUT_BASELINE, filePath, expectedEntry, actualEntry)
+  ) {
+    approvedDifferences.push({ file: filePath, reason: "exact reviewed Adsterra and evergreen-category release output" });
+    return null;
+  }
   if (
     allowDiscoveryContentV1 &&
     isExactReviewedDifference(DISCOVERY_OUTPUT_BASELINE, filePath, expectedEntry, actualEntry)

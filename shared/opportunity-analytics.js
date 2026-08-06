@@ -44,6 +44,7 @@
     const targetUrl = body.dataset.opportunityTargetUrl;
     let handoffRecorded = false;
     let redirectTimer;
+    let cancelAdDecisionWait;
 
     function recordHandoff(method) {
       if (handoffRecorded) return;
@@ -61,6 +62,7 @@
       manualLink.addEventListener("click", (event) => {
         event.preventDefault();
         event.stopPropagation();
+        if (cancelAdDecisionWait) cancelAdDecisionWait();
         if (redirectTimer) global.clearTimeout(redirectTimer);
         sendEvent("official_source_click", {
           entity_kind: "opportunity",
@@ -76,10 +78,28 @@
       });
     }
 
-    redirectTimer = global.setTimeout(() => {
-      recordHandoff("automatic");
-      global.location.replace(targetUrl);
-    }, 2000);
+    const beginRedirectCountdown = () => {
+      if (redirectTimer) return;
+      if (global.document?.documentElement) {
+        global.document.documentElement.dataset.freehubHandoffState = "countdown";
+      }
+      redirectTimer = global.setTimeout(() => {
+        if (global.document?.documentElement) {
+          global.document.documentElement.dataset.freehubHandoffState = "redirecting";
+        }
+        recordHandoff("automatic");
+        global.location.replace(targetUrl);
+      }, 2000);
+    };
+
+    if (global.FreeHubOutboundHandoff?.afterGuestAdDecision) {
+      cancelAdDecisionWait = global.FreeHubOutboundHandoff.afterGuestAdDecision(
+        beginRedirectCountdown,
+        { maxWaitMs: 3000 }
+      );
+    } else {
+      beginRedirectCountdown();
+    }
   }
 
   if (global.document) {

@@ -2,6 +2,7 @@ import { getFirebaseClient } from "./firebase-client.js";
 
 const EMAIL_STORAGE_KEY = "freehubEmailForSignIn";
 const PENDING_ACTION_STORAGE_KEY = "freehubPendingAuthAction";
+const PENDING_COMPLETION_STORAGE_KEY = "freehubPendingAuthCompletion";
 const LOCAL_SAVED_COMPETITIONS_KEY = "freehubClubSavedCompetitions";
 
 const state = {
@@ -16,6 +17,7 @@ const state = {
   alerts: new Map(),
   showIgnored: false,
 };
+let pendingSigninCompletionPromise = null;
 
 document.addEventListener("DOMContentLoaded", initAuthUi);
 
@@ -40,6 +42,9 @@ async function initAuthUi() {
   state.panels.forEach((panel) => bindPanel(panel));
   state.client.onAuthStateChanged(async (user) => {
     state.user = user;
+    if (user && window.FreeHubGuestAds?.getState?.().reloadScheduled !== true) {
+      await completeStoredSignin(user);
+    }
     await refreshPanelState();
     renderPanels();
     applyIgnoredCompetitionsToPage();
@@ -265,6 +270,7 @@ function ensureModal() {
         <button class="auth-modal__close" type="button" data-auth-close aria-label="Close sign-in">x</button>
         <h2 class="auth-modal__title" id="freehubAuthTitle" data-auth-modal-title>Sign in to save</h2>
         <p class="auth-modal__text" data-auth-modal-message>Sign in to save this competition.</p>
+        <p class="auth-modal__text"><strong>Club benefit:</strong> no Adsterra Popunder or Social Bar ads while you are signed in.</p>
         <form class="auth-form" data-auth-form>
           <label class="auth-check">
             <input id="freehubPrivacyConsent" type="checkbox" name="privacy" required />
@@ -339,6 +345,8 @@ async function startProviderSignin(provider) {
   }
 
   const competition = getActiveCompetition();
+  storePendingSigninCompletion(provider, getConsent(form), competition);
+  window.FreeHubGuestAds?.beginSignIn();
   setModalBusy(true);
   setModalStatus(`Opening ${provider} sign-in...`);
   trackAuthEvent(
@@ -346,16 +354,27 @@ async function startProviderSignin(provider) {
     getCompetitionEventParams(competition)
   );
 
+  let result = null;
   try {
-    const result =
+    result =
       provider === "facebook"
         ? await state.client.signInWithFacebook()
         : await state.client.signInWithGoogle();
 
-    await handleSigninSuccess(result.user, provider, getConsent(form));
-    closeSignupModal();
+    const reloadScheduled = window.FreeHubGuestAds?.completeSignIn() === true;
+    if (!reloadScheduled) {
+      await completeStoredSignin(result.user);
+      closeSignupModal();
+    }
   } catch (error) {
-    setModalStatus("Sign-in was not completed. Please try again.");
+    if (result?.user) {
+      window.FreeHubGuestAds?.completeSignIn();
+      setModalStatus("Finishing your Freehub sign-in...");
+    } else {
+      clearPendingSigninCompletion();
+      window.FreeHubGuestAds?.cancelSignIn();
+      setModalStatus("Sign-in was not completed. Please try again.");
+    }
   } finally {
     setModalBusy(false);
   }
@@ -410,6 +429,7 @@ async function completeEmailLinkIfNeeded() {
   }
 
   if (!email) {
+    window.FreeHubGuestAds?.cancelSignIn();
     return;
   }
 
@@ -418,11 +438,14 @@ async function completeEmailLinkIfNeeded() {
     if (pending?.action) {
       state.pendingAction = pending.action;
     }
+    state.activeCompetition = pending?.competition || null;
     window.localStorage.removeItem(EMAIL_STORAGE_KEY);
     window.localStorage.removeItem(PENDING_ACTION_STORAGE_KEY);
     await handleSigninSuccess(result.user, "email", pending?.consent || { acceptedPrivacyPolicy: true });
     cleanEmailLinkUrl();
+    window.FreeHubGuestAds?.completeSignIn();
   } catch (error) {
+    window.FreeHubGuestAds?.cancelSignIn();
     console.warn("Unable to complete Freehub email sign-in:", error.message);
   }
 }
@@ -846,6 +869,66 @@ function getCompetitionEventParams(competition) {
     competition_title: competition.title,
     competition_category: competition.category,
   };
+}
+
+function storePendingSigninCompletion(provider, consent, competition) {
+  try {
+    window.sessionStorage.setItem(
+      PENDING_COMPLETION_STORAGE_KEY,
+      JSON.stringify({
+        provider,
+        consent,
+        action: state.pendingAction,
+        competition,
+      })
+    );
+  } catch (error) {
+    console.warn("Unable to preserve the pending Freehub sign-in action:", error.message);
+  }
+}
+
+function getPendingSigninCompletion() {
+  try {
+    return JSON.parse(window.sessionStorage.getItem(PENDING_COMPLETION_STORAGE_KEY) || "null");
+  } catch (error) {
+    return null;
+  }
+}
+
+function clearPendingSigninCompletion() {
+  try {
+    window.sessionStorage.removeItem(PENDING_COMPLETION_STORAGE_KEY);
+  } catch (error) {
+    // Storage can be unavailable in restricted browsing modes.
+  }
+}
+
+async function completeStoredSignin(user) {
+  if (pendingSigninCompletionPromise) {
+    return pendingSigninCompletionPromise;
+  }
+
+  const pending = getPendingSigninCompletion();
+
+  if (!pending || !user) {
+    return;
+  }
+
+  if (pending.action) {
+    state.pendingAction = pending.action;
+  }
+  state.activeCompetition = pending.competition || null;
+
+  pendingSigninCompletionPromise = handleSigninSuccess(
+    user,
+    pending.provider || "unknown",
+    pending.consent || { acceptedPrivacyPolicy: true }
+  ).finally(() => {
+    clearPendingSigninCompletion();
+    pendingSigninCompletionPromise = null;
+  });
+
+  return pendingSigninCompletionPromise;
 }
 
 function getStoredPendingAction() {

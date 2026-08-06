@@ -204,7 +204,11 @@ function validateMaintenanceState(options = {}) {
       if (!html.includes('name="robots" content="noindex, follow"')) {
         summary.noindexMissingNoindex.push(slug);
       }
-      if (html.includes("pagead2.googlesyndication.com") || html.includes("ad-slot")) {
+      if (
+        html.includes("/shared/guest-ads.js") ||
+        html.includes("effectivecpmnetwork.com") ||
+        html.includes("ad-slot")
+      ) {
         summary.noindexWithAds.push(slug);
       }
     }

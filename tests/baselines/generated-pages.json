@@ -57,6 +57,61 @@
       "inSitemap": true
     },
     {
+      "route": "/win-a-car/",
+      "file": "win-a-car/index.html",
+      "title": "Win a Car Competitions in South Africa | Freehub",
+      "description": "Find current South African car competitions, vehicle giveaways and win-a-car promotions. Compare closing dates, entry costs and official promoter links.",
+      "canonical": "https://freehub.co.za/win-a-car/",
+      "robots": "index, follow, max-image-preview:large",
+      "h1": "Win a Car Competitions in South Africa",
+      "schemaTypes": ["Answer", "BreadcrumbList", "CollectionPage", "FAQPage", "ItemList", "ListItem", "Question", "WebSite"],
+      "inSitemap": true
+    },
+    {
+      "route": "/category/holidays/",
+      "file": "category/holidays/index.html",
+      "title": "Holiday Competitions in South Africa | Win Trips, Getaways & Stays",
+      "description": "Find holiday, travel and getaway competitions in South Africa, including trips, hotel stays, accommodation vouchers and travel prizes. Updated with official entry links.",
+      "canonical": "https://freehub.co.za/category/holidays/",
+      "robots": "index, follow, max-image-preview:large",
+      "h1": "Holiday Competitions in South Africa",
+      "schemaTypes": ["Answer", "BreadcrumbList", "CollectionPage", "FAQPage", "ItemList", "ListItem", "Question", "WebSite"],
+      "inSitemap": true
+    },
+    {
+      "route": "/category/tech/",
+      "file": "category/tech/index.html",
+      "title": "Tech Competitions in South Africa | Win Phones, Gadgets & Electronics",
+      "description": "Find current South African tech competitions and electronics giveaways. Compare phone, TV, gadget and gaming prizes with closing dates, entry costs and official promoter links.",
+      "canonical": "https://freehub.co.za/category/tech/",
+      "robots": "index, follow, max-image-preview:large",
+      "h1": "Tech Competitions in South Africa",
+      "schemaTypes": ["Answer", "BreadcrumbList", "CollectionPage", "FAQPage", "ItemList", "ListItem", "Question", "WebSite"],
+      "inSitemap": true
+    },
+    {
+      "route": "/category/groceries/",
+      "file": "category/groceries/index.html",
+      "title": "Win Groceries South Africa | Grocery Prizes & Vouchers",
+      "description": "Find current South African competitions offering grocery vouchers, supermarket gift cards, food baskets and other clearly stated grocery prizes.",
+      "canonical": "https://freehub.co.za/category/groceries/",
+      "robots": "index, follow, max-image-preview:large",
+      "h1": "Win Groceries in South Africa",
+      "schemaTypes": ["Answer", "BreadcrumbList", "CollectionPage", "FAQPage", "ItemList", "ListItem", "Question", "WebSite"],
+      "inSitemap": true
+    },
+    {
+      "route": "/category/experiences/",
+      "file": "category/experiences/index.html",
+      "title": "Win Experiences South Africa | Tickets, Events & Adventures",
+      "description": "Browse current South African experience competitions, including event tickets, meet-and-greets, adventures and hosted prize experiences.",
+      "canonical": "https://freehub.co.za/category/experiences/",
+      "robots": "index, follow, max-image-preview:large",
+      "h1": "Win Experiences in South Africa",
+      "schemaTypes": ["Answer", "BreadcrumbList", "CollectionPage", "FAQPage", "ItemList", "ListItem", "Question", "WebSite"],
+      "inSitemap": true
+    },
+    {
       "route": "/tag/win-a-car/",
       "file": "tag/win-a-car/index.html",
       "title": "Win a Car Competitions South Africa",
@@ -164,7 +219,7 @@
       "route": "/club/",
       "file": "club/index.html",
       "title": "Freehub Club | Save and Track South African Competitions",
-      "description": "Join Freehub Club to save South African competitions, track what you entered or skipped, and keep your own referral link ready for future Club rewards.",
+      "description": "Join Freehub Club to browse without Adsterra ads while signed in, save South African competitions and track what you entered or skipped.",
       "canonical": "https://freehub.co.za/club/",
       "robots": "index, follow, max-image-preview:large",
       "h1": "Save and track South African competitions",

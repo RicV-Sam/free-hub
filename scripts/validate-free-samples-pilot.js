@@ -8,8 +8,8 @@ const expectedOpportunityCount = opportunitiesEnabled ? 21 : 0;
 const expectedSampleOpportunityCount = opportunitiesEnabled ? 7 : 0;
 const expectedTestingOpportunityCount = opportunitiesEnabled ? 14 : 0;
 const expectedParentOpportunityCount = opportunitiesEnabled ? 2 : 0;
-const expectedGeneratedFiles = 314 + expectedOpportunityCount * 2;
-const expectedSitemapUrls = 92 + expectedOpportunityCount;
+const expectedGeneratedFiles = 316 + expectedOpportunityCount * 2;
+const expectedSitemapUrls = 93 + expectedOpportunityCount;
 const expectedActiveCompetitionCount = 43;
 const expectedIds = [
   "blind-designs-free-fabric-samples",

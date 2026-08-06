@@ -15,6 +15,19 @@ test("active public competitions are published, public, and sitemap-eligible", (
   assert.equal(shared.isNoindexActiveCompetition(fixtures.activePublic), false);
 });
 
+test("an explicit reference date makes lifecycle checks deterministic", () => {
+  shared.setReferenceDate("2026-08-06");
+
+  try {
+    assert.equal(shared.getDaysUntilClosing("2026-08-06"), 0);
+    assert.equal(shared.getDaysUntilClosing("2026-08-07"), 1);
+    assert.equal(shared.isClosingWithinDays("2026-08-13", 7), true);
+    assert.equal(shared.isClosingWithinDays("2026-08-14", 7), false);
+  } finally {
+    shared.setReferenceDate();
+  }
+});
+
 test("active noindex and Club competitions stay outside public active collections", () => {
   assert.equal(shared.isPublishedCompetition(fixtures.activeNoindex), true);
   assert.equal(shared.isNoindexActiveCompetition(fixtures.activeNoindex), true);
@@ -70,4 +83,129 @@ test("voucher discovery accepts voucher value and rejects category-only hamper m
   assert.equal(shared.isVoucherPrizeCompetition({ prizeName: "R1,000 gift-card" }), true);
   assert.equal(shared.isVoucherPrizeCompetition({ prizeName: "Montblanc Explorer gift set" }), false);
   assert.equal(shared.isVoucherPrizeCompetition({ prizeName: "Beauty product hamper" }), false);
+});
+
+test("grocery discovery matches the prize rather than the entry retailer", () => {
+  assert.equal(
+    shared.isGroceryPrizeCompetition({ prizeName: "R500 digital SPAR voucher" }),
+    true
+  );
+  assert.equal(
+    shared.isGroceryPrizeCompetition({ prizeName: "Checkers vouchers and an air fryer" }),
+    true
+  );
+  assert.equal(
+    shared.isGroceryPrizeCompetition({ prizeName: "A trolley of groceries" }),
+    true
+  );
+  assert.equal(
+    shared.isGroceryPrizeCompetition({
+      brand: "Shoprite",
+      prizeName: "R1,500 UNIQ fashion voucher",
+      tags: ["purchase-required"],
+    }),
+    false
+  );
+  assert.equal(
+    shared.isGroceryPrizeCompetition({
+      brand: "Denny",
+      prizeName: "R100,000 cash",
+      tags: ["food", "purchase-required"],
+    }),
+    false
+  );
+});
+
+test("win-a-car discovery matches vehicle prizes rather than automotive entry context", () => {
+  assert.equal(shared.isVehicleRelatedCompetition({ prizeType: "car" }), true);
+  assert.equal(shared.isVehicleRelatedCompetition({ prizeName: "Toyota Hilux Single Cab bakkie" }), true);
+  assert.equal(
+    shared.isVehicleRelatedCompetition({
+      title: "Volkswagen EasyDrive Maintenance Plan Competition",
+      summary: "Buy a Volkswagen maintenance plan for a chance to win fuel and retailer vouchers.",
+      prizeName: "Fuel, merchandise, retailer, travel and spa vouchers",
+      prizeType: "voucher",
+      requiredProduct: "Volkswagen EasyDrive Maintenance Plan",
+      tags: ["vouchers", "cars", "purchase-required"],
+    }),
+    false
+  );
+});
+
+test("experience discovery uses explicit prize classification", () => {
+  assert.equal(shared.isExperiencePrizeCompetition({ prizeType: "experience" }), true);
+  assert.equal(shared.isExperiencePrizeCompetition({ tags: ["experience-prize"] }), true);
+  assert.equal(
+    shared.isExperiencePrizeCompetition({
+      prizeType: "voucher",
+      prizeName: "Travel voucher",
+      category: "Holidays",
+    }),
+    false
+  );
+});
+
+test("evergreen grocery and experience routes keep only active public prize matches", () => {
+  const activeBase = {
+    verificationStatus: "published",
+    closingDate: "2999-12-31",
+  };
+  const records = [
+    {
+      ...activeBase,
+      id: "active-groceries",
+      title: "Active groceries",
+      category: "Vouchers",
+      prizeName: "R1,000 Checkers voucher",
+    },
+    {
+      ...activeBase,
+      id: "active-experience",
+      title: "Active experience",
+      category: "Sports",
+      prizeType: "experience",
+    },
+    {
+      ...activeBase,
+      id: "held-groceries",
+      title: "Held groceries",
+      category: "Vouchers",
+      prizeName: "A grocery basket",
+      publicationStatus: "held",
+    },
+    {
+      ...activeBase,
+      id: "private-experience",
+      title: "Private experience",
+      category: "Lifestyle",
+      prizeType: "experience",
+      doNotPublish: true,
+    },
+    {
+      ...activeBase,
+      id: "expired-groceries",
+      title: "Expired groceries",
+      category: "Vouchers",
+      prizeName: "A supermarket voucher",
+      closingDate: "2000-01-01",
+    },
+  ];
+
+  const groceryRoute = shared.getRouteContext("/category/groceries/");
+  const experienceRoute = shared.getRouteContext("/category/experiences/");
+
+  assert.deepEqual(
+    shared.filterCompetitionsByRoute(records, groceryRoute).map((competition) => competition.id),
+    ["active-groceries"]
+  );
+  assert.deepEqual(
+    shared.filterCompetitionsByRoute(records, experienceRoute).map((competition) => competition.id),
+    ["active-experience"]
+  );
+  assert.equal(shared.getPageCopy(groceryRoute).canonical, "https://freehub.co.za/category/groceries/");
+  assert.equal(shared.getPageCopy(experienceRoute).canonical, "https://freehub.co.za/category/experiences/");
+  assert.equal(
+    shared.getPageCopy(shared.getRouteContext("/category/cars/")).canonical,
+    "https://freehub.co.za/win-a-car/"
+  );
 });

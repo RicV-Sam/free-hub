@@ -5,6 +5,7 @@
   const HOME_ROUTE = "/";
   const CLOSING_SOON_DAYS = 3;
   const ENDING_SOON_TAG_DAYS = 7;
+  let referenceDateIso = "";
   const LEGACY_ARCHIVE_COST_TYPE = Symbol.for("freehub.legacyArchiveCostType");
   const ENTRY_COST_CLASSIFICATIONS = Object.freeze({
     FREE_ENTRY: "free_entry",
@@ -37,6 +38,8 @@
     Holidays: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80",
     Tech: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1600&q=80",
     Vouchers: "https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=1600&q=80",
+    Groceries: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1600&q=80",
+    Experiences: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80",
     Sports: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1600&q=80",
     Lifestyle: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1600&q=80",
   };
@@ -44,10 +47,12 @@
   const CATEGORY_COPY = {
     cash: {
       category: "Cash",
+      navigationLabel: "Win Cash",
       title: "Cash Competitions in South Africa | Win Money & Cash Prizes",
       description:
         "Find current South African cash competitions and money giveaways. Compare prizes, closing dates, entry costs and official promoter links before entering.",
       heading: "Cash Competitions in South Africa",
+      dateModified: "2026-08-06",
       intro:
         "This page lists current cash-prize competitions in South Africa, including money giveaways, cash draws, instant cash rewards and other published cash-category promotions. Some cash competitions are free to enter, while others may require a purchase, receipt, app, account, rewards card, WhatsApp entry, USSD entry or qualifying action. Freehub does not run these competitions or collect entries; use the official promoter links to enter.",
       support:
@@ -55,10 +60,12 @@
     },
     cars: {
       category: "Cars",
+      navigationLabel: "Win a Car",
       title: "Win a Car Competitions South Africa | Current Car Giveaways",
       description:
         "Browse current win-a-car competitions in South Africa with clear closing dates, entry costs, purchase requirements and official source links.",
       heading: "Win a Car Competitions in South Africa",
+      dateModified: "2026-08-06",
       intro:
         "Browse current South African car competitions, including Toyota, Suzuki, Hyundai, Isuzu, Chery and other vehicle giveaways. Compare closing dates, entry costs, purchase requirements and official promoter links before you enter.",
       support:
@@ -66,10 +73,12 @@
     },
     holidays: {
       category: "Holidays",
+      navigationLabel: "Win Holidays & Travel",
       title: "Holiday Competitions in South Africa | Win Trips, Getaways & Stays",
       description:
         "Find holiday, travel and getaway competitions in South Africa, including trips, hotel stays, accommodation vouchers and travel prizes. Updated with official entry links.",
       heading: "Holiday Competitions in South Africa",
+      dateModified: "2026-08-06",
       intro:
         "Looking for holiday competitions in South Africa? This page lists current travel, getaway and accommodation-related competitions, including trips, hotel stays, weekend breaks, resort vouchers and travel prize draws. Freehub does not run these competitions; we list public competitions from official promoter pages and trusted sources, then link you to the official entry route. Always check the promoter's terms before entering, especially where a purchase, booking, loyalty account, app download or paid entry is required.",
       support:
@@ -77,10 +86,12 @@
     },
     tech: {
       category: "Tech",
+      navigationLabel: "Win Electronics",
       title: "Tech Competitions in South Africa | Win Phones, Gadgets & Electronics",
       description:
         "Find current South African tech competitions and electronics giveaways. Compare phone, TV, gadget and gaming prizes with closing dates, entry costs and official promoter links.",
       heading: "Tech Competitions in South Africa",
+      dateModified: "2026-08-06",
       intro:
         "This page lists current tech, gadget and electronics competitions in South Africa, including phone, TV, gaming console, electronics bundle, gadget and tech voucher prizes where the active listings support them. Some tech competitions are free to enter, while others may require a purchase, receipt, app, account, rewards card, WhatsApp entry, USSD entry or other qualifying action. Freehub does not run these competitions or collect entries; use the official promoter links to enter.",
       support:
@@ -88,6 +99,7 @@
     },
     vouchers: {
       category: "Vouchers",
+      navigationLabel: "Win Vouchers",
       title: "Free Voucher Giveaways South Africa | Offers & Competitions",
       description:
         "Find current free vouchers, rewards and voucher competitions in South Africa. Compare eligibility, costs, expiry dates and official source links.",
@@ -97,6 +109,32 @@
         "Looking for free vouchers in South Africa? Start with current rewards and public-service voucher routes, then compare free-entry voucher competitions and other shopping, grocery, fuel, airtime, data and retail voucher prizes. Each route shows what you must do before you open the official source.",
       support:
         "Use the quick answer to separate direct rewards, public-service vouchers, creator exchanges and prize draws. The full voucher competitions hub also includes purchase-required, app-based, account-linked, rewards-card, till-slip, WhatsApp, online and in-store promotions, each with a visible cost label and official source.",
+    },
+    groceries: {
+      category: "Groceries",
+      navigationLabel: "Win Groceries",
+      title: "Win Groceries South Africa | Grocery Prizes & Vouchers",
+      description:
+        "Find current South African competitions offering grocery vouchers, supermarket gift cards, food baskets and other clearly stated grocery prizes.",
+      heading: "Win Groceries in South Africa",
+      dateModified: "2026-08-06",
+      intro:
+        "Browse current South African competitions where the prize itself is groceries, a grocery or supermarket voucher, a food-shopping gift card, a basket or a trolley-style reward. Freehub keeps this page prize-focused: buying an item at a supermarket does not by itself make the competition a grocery giveaway.",
+      support:
+        "Compare the prize value, eligible store, voucher expiry, qualifying purchase, loyalty-card or receipt requirement and closing date before entering. Freehub links to the official promoter and does not issue grocery prizes or accept entries.",
+    },
+    experiences: {
+      category: "Experiences",
+      navigationLabel: "Win Experiences",
+      title: "Win Experiences South Africa | Tickets, Events & Adventures",
+      description:
+        "Browse current South African experience competitions, including event tickets, meet-and-greets, adventures and hosted prize experiences.",
+      heading: "Win Experiences in South Africa",
+      dateModified: "2026-08-06",
+      intro:
+        "Find competitions where the main prize is something to do rather than an item to own: event tickets, sporting experiences, meet-and-greets, hosted activities, adventure days and other clearly described experiences. Check what is included, who may attend and whether travel or spending money is part of the prize.",
+      support:
+        "Experience prizes can have fixed dates, age limits, guest rules, location restrictions and costs that are not included. Read the official terms before entering, especially when transport, accommodation or personal expenses are your responsibility.",
     },
   };
   const DEFAULT_COPY = {
@@ -306,6 +344,7 @@
       description:
         "Find current South African car competitions, vehicle giveaways and win-a-car promotions. Compare closing dates, entry costs and official promoter links.",
       heading: "Win a Car Competitions in South Africa",
+      dateModified: "2026-08-06",
       intro:
         "Find current South African car and vehicle competitions from official promoter sources. Freehub does not run these competitions or collect entries; use each listing to compare the basics, then enter through the official promoter link.",
       support:
@@ -555,6 +594,8 @@
     Holidays: { start: "#c2410c", end: "#fb923c", accent: "#ffedd5" },
     Tech: { start: "#4338ca", end: "#818cf8", accent: "#e0e7ff" },
     Vouchers: { start: "#be123c", end: "#fb7185", accent: "#ffe4e6" },
+    Groceries: { start: "#166534", end: "#4ade80", accent: "#dcfce7" },
+    Experiences: { start: "#7c3aed", end: "#c084fc", accent: "#f3e8ff" },
     Sports: { start: "#047857", end: "#34d399", accent: "#d1fae5" },
     Lifestyle: { start: "#7c2d12", end: "#fb923c", accent: "#ffedd5" },
   };
@@ -567,6 +608,27 @@
     }
 
     return trimmed;
+  }
+
+  function setReferenceDate(dateString = "") {
+    const value = String(dateString || "").trim();
+
+    if (!value) {
+      referenceDateIso = "";
+      return;
+    }
+
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(value) || Number.isNaN(new Date(`${value}T00:00:00`).getTime())) {
+      throw new Error(`Invalid reference date: ${value}`);
+    }
+
+    referenceDateIso = value;
+  }
+
+  function getReferenceToday() {
+    const today = referenceDateIso ? new Date(`${referenceDateIso}T00:00:00`) : new Date();
+    today.setHours(0, 0, 0, 0);
+    return today;
   }
 
   function formatDate(dateString) {
@@ -764,8 +826,7 @@
   }
 
   function isClosingWithinDays(dateString, days) {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    const today = getReferenceToday();
 
     const closingDate = new Date(dateString);
     closingDate.setHours(0, 0, 0, 0);
@@ -781,8 +842,7 @@
   }
 
   function getDaysUntilClosing(dateString) {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    const today = getReferenceToday();
 
     const closingDate = new Date(dateString);
     closingDate.setHours(0, 0, 0, 0);
@@ -1353,6 +1413,10 @@
 
     const slug = CATEGORY_SLUGS.find((key) => CATEGORY_COPY[key].category === category);
 
+    if (slug === "cars") {
+      return "/win-a-car";
+    }
+
     return slug ? `/category/${slug}` : HOME_ROUTE;
   }
 
@@ -1428,7 +1492,11 @@
         description: copy.description,
         heading: copy.heading,
         intro: copy.intro,
-        canonical: `${CANONICAL_ORIGIN}/category/${routeContext.slug}/`,
+        canonical:
+          routeContext.slug === "cars"
+            ? `${CANONICAL_ORIGIN}/win-a-car/`
+            : `${CANONICAL_ORIGIN}/category/${routeContext.slug}/`,
+        ...(copy.dateModified ? { dateModified: copy.dateModified } : {}),
       };
     }
 
@@ -1451,6 +1519,7 @@
         heading: copy.heading,
         intro: copy.intro,
         canonical: `${CANONICAL_ORIGIN}/${routeContext.slug}/`,
+        ...(copy.dateModified ? { dateModified: copy.dateModified } : {}),
       };
     }
 
@@ -1477,7 +1546,12 @@
 
     if (routeContext.type === "category") {
       const targetCategory = CATEGORY_COPY[routeContext.slug].category;
-      const categoryCompetitions = publishedCompetitions.filter((competition) => competition.category === targetCategory);
+      const categoryCompetitions =
+        routeContext.slug === "groceries"
+          ? publishedCompetitions.filter(isGroceryPrizeCompetition)
+          : routeContext.slug === "experiences"
+            ? publishedCompetitions.filter(isExperiencePrizeCompetition)
+            : publishedCompetitions.filter((competition) => competition.category === targetCategory);
       return sortCompetitions(
         routeContext.slug === "vouchers"
           ? categoryCompetitions.filter(isVoucherPrizeCompetition)
@@ -1505,6 +1579,65 @@
     const fallbackTitle = String(competition?.title || "").trim().toLowerCase();
     return /\b(vouchers?|e[-\s]?vouchers?|gift[-\s]+cards?|gift[-\s]+vouchers?|store[-\s]+credits?|cashback|airtime|data[-\s]+bundles?)\b/i.test(
       prizeName || fallbackTitle
+    );
+  }
+
+  function isGroceryPrizeCompetition(competition) {
+    const prizeType = String(competition?.prizeType || "").trim().toLowerCase();
+    const category = String(competition?.category || "").trim().toLowerCase();
+    const prizeText = [
+      competition?.prizeName,
+      competition?.prizeDescription,
+      competition?.prizeContext,
+    ]
+      .map((value) => String(value || "").trim().toLowerCase())
+      .filter(Boolean)
+      .join(" ");
+    const tags = new Set(
+      (Array.isArray(competition?.tags) ? competition.tags : [])
+        .map((tag) => String(tag).trim().toLowerCase())
+        .filter(Boolean)
+    );
+    const explicitPrizeTypes = new Set([
+      "groceries",
+      "grocery",
+      "grocery-voucher",
+      "food-voucher",
+      "supermarket-voucher",
+    ]);
+    const explicitTags = [
+      "grocery-prize",
+      "grocery-voucher",
+      "groceries-prize",
+      "food-voucher",
+      "supermarket-voucher",
+    ];
+    const groceryPrizePattern = /\b(?:grocer(?:y|ies)|supermarket|food[-\s]shopping)\s+(?:vouchers?|gift[-\s]?cards?|store\s+credits?|baskets?|hampers?)\b|\b(?:grocery|food)\s+(?:baskets?|trolleys?|hampers?)\b|\b(?:shopping|grocery)\s+trolleys?\b|\b(?:baskets?|trolleys?|hampers?)\s+of\s+groceries\b/i;
+    const namedGrocerVoucherPattern = /\b(?:checkers|shoprite|pick\s*n\s*pay|pnp|spar|boxer|woolworths(?:\s+food)?|food\s+lover(?:'s)?\s+market|ok\s+foods|sixty60)\b.{0,60}\b(?:vouchers?|gift[-\s]?cards?|store\s+credits?)\b/i;
+
+    return (
+      category === "groceries" ||
+      explicitPrizeTypes.has(prizeType) ||
+      explicitTags.some((tag) => tags.has(tag)) ||
+      groceryPrizePattern.test(prizeText) ||
+      namedGrocerVoucherPattern.test(prizeText)
+    );
+  }
+
+  function isExperiencePrizeCompetition(competition) {
+    const prizeType = String(competition?.prizeType || "").trim().toLowerCase();
+    const category = String(competition?.category || "").trim().toLowerCase();
+    const tags = new Set(
+      (Array.isArray(competition?.tags) ? competition.tags : [])
+        .map((tag) => String(tag).trim().toLowerCase())
+        .filter(Boolean)
+    );
+
+    return (
+      category === "experiences" ||
+      prizeType === "experience" ||
+      tags.has("experience") ||
+      tags.has("experience-prize")
     );
   }
 
@@ -1574,24 +1707,19 @@
   function isVehicleRelatedCompetition(competition) {
     const tags = Array.isArray(competition.tags) ? competition.tags : [];
     const prizeType = normalizePrizeType(competition.prizeType);
-    const searchableText = [
-      competition.title,
-      competition.summary,
-      competition.prizeName,
-      competition.requiredProduct,
-      tags.join(" "),
-    ]
+    const title = String(competition.title || "").toLowerCase();
+    const prizeText = [competition.prizeName, competition.prizeContext, competition.seoContext]
       .join(" ")
       .toLowerCase();
 
     return (
       competition.category === "Cars" ||
-      prizeType === "car" ||
+      ["car", "vehicle", "motor-vehicle"].includes(prizeType) ||
       tags.includes("win-a-car") ||
-      tags.includes("cars") ||
-      /\b(win a car|car competition|vehicle giveaway|vehicle prize|motor vehicle|suv competition|bakkie competition)\b/.test(
-        searchableText
-      )
+      tags.includes("car-prize") ||
+      tags.includes("vehicle-prize") ||
+      (!prizeType && /\b(car|motor vehicle|vehicle|suv|bakkie)\b/.test(prizeText)) ||
+      /\b(?:win|giveaway|prize)\b.{0,40}\b(?:car|motor vehicle|vehicle|suv|bakkie)\b/.test(title)
     );
   }
 
@@ -1677,8 +1805,7 @@
       return Number.POSITIVE_INFINITY;
     }
 
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    const today = getReferenceToday();
 
     const checkedDate = new Date(rawDate);
 
@@ -1829,6 +1956,7 @@
     SITE_ORIGIN,
     CANONICAL_ORIGIN,
     HOME_ROUTE,
+    setReferenceDate,
     DEFAULT_OG_IMAGE,
     getCompetitionImageUrl,
     getCompetitionPrimaryImageUrl,
@@ -1903,6 +2031,8 @@
     getPageSupportCopy,
     filterCompetitionsByRoute,
     isVoucherPrizeCompetition,
+    isGroceryPrizeCompetition,
+    isExperiencePrizeCompetition,
     buildStructuredData,
     getAllStaticRouteContexts,
     THIN_PAGE_TIPS,
