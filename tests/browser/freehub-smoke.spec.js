@@ -2,6 +2,7 @@ const { expect, test } = require("@playwright/test");
 const { createOpportunityRouteRenderer } = require("../../scripts/lib/opportunity-route-renderer.js");
 const opportunityFixture = require("../../data/opportunities.json")[0];
 const opportunitiesEnabled = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true";
+const offersEnabled = process.env.FREEHUB_ENABLE_OFFERS === "true";
 const usesReviewedPilotDate = process.env.FREEHUB_BUILD_DATE === "2026-07-31";
 const RELEASE_ASSET_VERSION = "20260806-adsterra-evergreen-v1";
 const GUEST_ADS_LOADER_SRC = `/shared/guest-ads.js?v=${RELEASE_ASSET_VERSION}`;
@@ -208,6 +209,7 @@ test("generated pages contain one first-party ad gate and no raw Adsterra tags",
     "/out/one-life-winning-wednesday-cash-2026/",
     "/competition/isuzu-win-a-new-x-rider-2026/",
     ...(opportunitiesEnabled ? ["/out/opportunity/coloplast-speedicath-short-sample/"] : []),
+    ...(offersEnabled ? ["/offers/", "/out/coupon/capitec-snappi-extra-15-percent/"] : []),
   ]) {
     const html = await (await page.request.get(route)).text();
     expect(html.split(`src="${GUEST_ADS_LOADER_SRC}"`)).toHaveLength(2);
@@ -217,6 +219,7 @@ test("generated pages contain one first-party ad gate and no raw Adsterra tags",
   for (const route of [
     "/out/one-life-winning-wednesday-cash-2026/",
     ...(opportunitiesEnabled ? ["/out/opportunity/coloplast-speedicath-short-sample/"] : []),
+    ...(offersEnabled ? ["/out/coupon/capitec-snappi-extra-15-percent/"] : []),
   ]) {
     const html = await (await page.request.get(route)).text();
     expect(html.split(`src="${OUTBOUND_HANDOFF_SRC}"`)).toHaveLength(2);
@@ -271,6 +274,9 @@ test("signed-out visitors receive Adsterra on expired and outbound pages", async
     ...(opportunitiesEnabled
       ? [{ route: "/out/opportunity/coloplast-speedicath-short-sample/", handoff: true }]
       : []),
+    ...(offersEnabled
+      ? [{ route: "/coupon/capitec-snappi-extra-15-percent/", handoff: false }]
+      : []),
   ];
 
   for (const [index, { route, handoff }] of routes.entries()) {
@@ -306,6 +312,9 @@ test("signed-in members receive no external Adsterra scripts or executions", asy
     { route: "/out/one-life-winning-wednesday-cash-2026/", handoff: true },
     ...(opportunitiesEnabled
       ? [{ route: "/out/opportunity/coloplast-speedicath-short-sample/", handoff: true }]
+      : []),
+    ...(offersEnabled
+      ? [{ route: "/coupon/capitec-snappi-extra-15-percent/", handoff: false }]
       : []),
   ];
   for (const { route, handoff } of memberRoutes) {
@@ -996,6 +1005,38 @@ test("privacy policy discloses advertising cookies", async ({ page }) => {
   await expect(page.getByText(/only after Firebase confirms that a visitor is signed out/)).toBeVisible();
   await expect(page.getByText(/Signed-in Freehub Club members are not served these Adsterra scripts/)).toBeVisible();
   await expect(page.getByText(/Consent choices and applicable controls/)).toBeVisible();
+});
+
+test("offers portal separates coupons and deals with honest indexability", async ({ page }) => {
+  test.skip(!offersEnabled, "Offers are feature flagged in this build.");
+
+  await page.goto("/offers/");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Coupons and Deals in South Africa");
+  await expectCanonical(page, "/offers/");
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index, follow, max-image-preview:large");
+  await expect(page.locator("article.offer-card")).toHaveCount(9);
+  const structuredData = (await page.locator('script[type="application/ld+json"]').allTextContents()).join("\n");
+  expect(structuredData).not.toContain('"@type":"Offer"');
+
+  await page.goto("/coupons/");
+  await expect(page.locator("article.offer-card")).toHaveCount(3);
+  await expect(page.getByText("CAPITEC15", { exact: true })).toBeVisible();
+
+  await page.goto("/deals/");
+  await expect(page.locator("article.offer-card")).toHaveCount(6);
+  await expect(page.getByText("No code needed", { exact: true }).first()).toBeVisible();
+
+  await page.goto("/offers/category/pets/");
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, follow");
+
+  await page.goto("/offers/category/travel/");
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index, follow, max-image-preview:large");
+
+  const outboundHtml = await (await page.request.get("/out/coupon/capitec-snappi-extra-15-percent/")).text();
+  expect(outboundHtml).toContain('content="noindex, nofollow"');
+  expect(outboundHtml).toContain(`src="${GUEST_ADS_LOADER_SRC}"`);
+  expect(outboundHtml).toContain(`src="${OUTBOUND_HANDOFF_SRC}"`);
+  expect(outboundHtml).not.toContain("effectivecpmnetwork.com");
 });
 
 test("unknown routes serve the generated 404 response", async ({ page }) => {

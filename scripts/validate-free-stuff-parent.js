@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const shared = require("../shared/page-data.js");
 const { parseHtml, walkHtmlFiles } = require("./lib/baseline-utils.js");
+const { getOfferBaselineCounts } = require("./lib/offer-baseline-counts.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const errors = [];
@@ -11,9 +12,22 @@ const FREE_STUFF_NAV_INACTIVE = '          <a class="site-topbar__link" href="/f
 const FREE_STUFF_NAV_ACTIVE = '          <a class="site-topbar__link is-active" href="/free-stuff-south-africa/" aria-current="page">Free Stuff</a>';
 const expectedOpportunityCount = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true" ? 21 : 0;
 const expectedFeaturedOpportunityCount = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true" ? 2 : 0;
-const expectedGeneratedFiles = 316 + expectedOpportunityCount * 2;
-const expectedSitemapUrls = 93 + expectedOpportunityCount;
+const offerBaseline = getOfferBaselineCounts({
+  offers: JSON.parse(fs.readFileSync(path.join(ROOT_DIR, "data", "offers.json"), "utf8")),
+  enabled: process.env.FREEHUB_ENABLE_OFFERS === "true",
+  asOfDate: process.env.FREEHUB_AS_OF_DATE || process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date()),
+});
+const expectedGeneratedFiles = 316 + expectedOpportunityCount * 2 + offerBaseline.generatedFileCount;
+const expectedSitemapUrls = 93 + expectedOpportunityCount + offerBaseline.sitemapUrlCount;
 const expectedActiveCompetitionCount = 43;
+
+function getLocalIsoDate(date) {
+  return [
+    date.getFullYear(),
+    String(date.getMonth() + 1).padStart(2, "0"),
+    String(date.getDate()).padStart(2, "0"),
+  ].join("-");
+}
 
 function check(label, actual, expected) {
   checks.push({ label, actual, expected });

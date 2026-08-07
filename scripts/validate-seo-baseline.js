@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const shared = require("../shared/page-data.js");
 const opportunityData = require("../shared/opportunity-data.js");
+const offerData = require("../shared/offer-data.js");
 const {
   SITE_ORIGIN,
   fileToRoute,
@@ -17,9 +18,12 @@ const CONFIG = readJson(path.join(BASELINE_DIR, "seo-baseline.json"));
 const MANIFEST = readJson(path.join(BASELINE_DIR, "generated-pages.json"));
 const COMPETITIONS = readJson(path.join(ROOT_DIR, "data", "competitions.json")).filter(Boolean);
 const OPPORTUNITIES = readJson(path.join(ROOT_DIR, "data", "opportunities.json")).filter(Boolean);
+const OFFERS = readJson(path.join(ROOT_DIR, "data", "offers.json")).filter(Boolean);
 const OPPORTUNITY_EVIDENCE = readJson(path.join(ROOT_DIR, "data", "opportunity-source-evidence.json")).filter(Boolean);
 const OPPORTUNITIES_ENABLED = opportunityData.isOpportunityFeatureEnabled(process.env.FREEHUB_ENABLE_OPPORTUNITIES);
+const OFFERS_ENABLED = offerData.isOfferFeatureEnabled(process.env.FREEHUB_ENABLE_OFFERS);
 const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date());
+const LIFECYCLE_REFERENCE_DATE_ISO = process.env.FREEHUB_AS_OF_DATE || BUILD_DATE_ISO;
 const OPPORTUNITY_GATE_OPTIONS = {
   asOfDate: BUILD_DATE_ISO,
   strictFreeOnly: false,
@@ -29,6 +33,9 @@ const OPPORTUNITY_GATE_OPTIONS = {
 };
 const ACTIVE_OPPORTUNITIES = OPPORTUNITIES_ENABLED
   ? OPPORTUNITIES.filter((opportunity) => opportunityData.isPublicOpportunity(opportunity, OPPORTUNITY_GATE_OPTIONS))
+  : [];
+const ACTIVE_OFFERS = OFFERS_ENABLED
+  ? OFFERS.filter((offer) => offerData.isPublicOffer(offer, { asOfDate: LIFECYCLE_REFERENCE_DATE_ISO }))
   : [];
 const TOMBSTONE_OPPORTUNITY_IDS = new Set(
   OPPORTUNITIES_ENABLED
@@ -88,6 +95,19 @@ function getPage(filePath) {
   return { html, ...parseHtml(html) };
 }
 
+function countIndexableOfferLandings(offers) {
+  if (offers.length === 0) return 0;
+  const typeHubs = offerData.OFFER_TYPES.filter((type) => offers.some((offer) => offer.type === type)).length;
+  const categoryLandings = [...new Set(offers.map((offer) => offer.category))]
+    .filter((category) => offerData.CATEGORY_DEFINITIONS[category]?.indexable !== false)
+    .filter((category) => offers.filter((offer) => offer.category === category).length >= 2)
+    .length;
+  const brandLandings = [...new Set(offers.map((offer) => offer.brandSlug))]
+    .filter((brandSlug) => offers.filter((offer) => offer.brandSlug === brandSlug).length >= 2)
+    .length;
+  return 1 + typeHubs + categoryLandings + brandLandings;
+}
+
 check(CONFIG.siteOrigin === SITE_ORIGIN, {
   file: path.relative(ROOT_DIR, path.join(BASELINE_DIR, "seo-baseline.json")),
   route: "(configuration)",
@@ -108,7 +128,10 @@ const sitemapUrls = fs.existsSync(SITEMAP_PATH) ? parseSitemap(fs.readFileSync(S
 const sitemapRoutes = sitemapUrls.map((url) => normalizeRoute(url));
 const sitemapSet = new Set(sitemapRoutes);
 
-const expectedSitemapUrlCount = CONFIG.sitemapUrlCount + ACTIVE_OPPORTUNITIES.length;
+const expectedSitemapUrlCount = CONFIG.sitemapUrlCount
+  + ACTIVE_OPPORTUNITIES.length
+  + ACTIVE_OFFERS.length
+  + countIndexableOfferLandings(ACTIVE_OFFERS);
 check(sitemapUrls.length === expectedSitemapUrlCount, {
   file: "sitemap.xml",
   route: "/sitemap.xml",

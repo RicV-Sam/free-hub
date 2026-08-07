@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { parseHtml, walkHtmlFiles } = require("./lib/baseline-utils.js");
+const { getOfferBaselineCounts } = require("./lib/offer-baseline-counts.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const opportunitiesEnabled = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true";
@@ -8,9 +9,22 @@ const expectedOpportunityCount = opportunitiesEnabled ? 21 : 0;
 const expectedSampleOpportunityCount = opportunitiesEnabled ? 7 : 0;
 const expectedTestingOpportunityCount = opportunitiesEnabled ? 14 : 0;
 const expectedParentOpportunityCount = opportunitiesEnabled ? 2 : 0;
-const expectedGeneratedFiles = 316 + expectedOpportunityCount * 2;
-const expectedSitemapUrls = 93 + expectedOpportunityCount;
+const offerBaseline = getOfferBaselineCounts({
+  offers: JSON.parse(fs.readFileSync(path.join(ROOT_DIR, "data", "offers.json"), "utf8")),
+  enabled: process.env.FREEHUB_ENABLE_OFFERS === "true",
+  asOfDate: process.env.FREEHUB_AS_OF_DATE || process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date()),
+});
+const expectedGeneratedFiles = 316 + expectedOpportunityCount * 2 + offerBaseline.generatedFileCount;
+const expectedSitemapUrls = 93 + expectedOpportunityCount + offerBaseline.sitemapUrlCount;
 const expectedActiveCompetitionCount = 43;
+
+function getLocalIsoDate(date) {
+  return [
+    date.getFullYear(),
+    String(date.getMonth() + 1).padStart(2, "0"),
+    String(date.getDate()).padStart(2, "0"),
+  ].join("-");
+}
 const expectedIds = [
   "blind-designs-free-fabric-samples",
   "brand-advisor-b-well-canola-oil-testing",

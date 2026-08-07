@@ -48,6 +48,10 @@ jobs:
           FREEHUB_ENABLE_OPPORTUNITIES=true npm run build
           FREEHUB_ENABLE_OPPORTUNITIES=true npm run test:seo
           node scripts/compare-generated-output.js --base-dir="$candidate_absent_dir" --allow-opportunity-detail-flow
+      - name: Validate the populated offers portal
+        run: |
+          FREEHUB_ENABLE_OFFERS=true npm run build
+          FREEHUB_ENABLE_OFFERS=true npm run test:seo
 
   links:
     name: Live link and warning baseline
@@ -77,6 +81,8 @@ jobs:
       - run: npm run test:browser
       - run: FREEHUB_ENABLE_OPPORTUNITIES=true npm run build
       - run: FREEHUB_ENABLE_OPPORTUNITIES=true npm run test:browser
+      - run: FREEHUB_ENABLE_OPPORTUNITIES=false FREEHUB_ENABLE_OFFERS=true npm run build
+      - run: FREEHUB_ENABLE_OPPORTUNITIES=false FREEHUB_ENABLE_OFFERS=true npm run test:browser
       - name: Upload Playwright artifacts
         if: always()
         uses: actions/upload-artifact@v4

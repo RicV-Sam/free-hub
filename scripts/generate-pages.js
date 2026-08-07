@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const shared = require("../shared/page-data.js");
 const opportunityData = require("../shared/opportunity-data.js");
+const offerData = require("../shared/offer-data.js");
 const { applyLegacyArchiveCostCompatibility } = require("./lib/legacy-archive-costs.js");
 const { createFreeResourceRenderer } = require("./lib/free-resource-renderer.js");
 const { createOpportunityRenderer } = require("./lib/opportunity-renderer.js");
@@ -13,6 +14,7 @@ const ARCHIVE_DATA_PATH = path.join(ROOT_DIR, "data", "archive", "competitions-e
 const FREE_RESOURCES_PATH = path.join(ROOT_DIR, "data", "free-resources.json");
 const OPPORTUNITIES_PATH = path.join(ROOT_DIR, "data", "opportunities.json");
 const OPPORTUNITY_SOURCE_EVIDENCE_PATH = path.join(ROOT_DIR, "data", "opportunity-source-evidence.json");
+const OFFERS_PATH = path.join(ROOT_DIR, "data", "offers.json");
 const RELATIVE_ASSET_PATH = "/";
 const RELEASE_ASSET_VERSION = "20260806-adsterra-evergreen-v1";
 const GUEST_ADS_SCRIPT_SRC = `/shared/guest-ads.js?v=${RELEASE_ASSET_VERSION}`;
@@ -32,6 +34,7 @@ shared.setReferenceDate(LIFECYCLE_REFERENCE_DATE_ISO);
 const OPPORTUNITIES_ENABLED = opportunityData.isOpportunityFeatureEnabled(
   process.env.FREEHUB_ENABLE_OPPORTUNITIES
 );
+const OFFERS_ENABLED = offerData.isOfferFeatureEnabled(process.env.FREEHUB_ENABLE_OFFERS);
 // Reviewed source allowlist. Never infer or permit hosts from registry contents.
 const OPPORTUNITY_ALLOWED_SOURCE_HOSTS = Object.freeze([
   "brandadvisor.co.za",
@@ -147,6 +150,7 @@ let generatedVerticalPagesForLinks = [];
 let approvedPublicOpportunities = [];
 let activeOpportunityRoutes = [];
 let opportunityTombstones = [];
+let publicOffers = [];
 const FREE_RESOURCES = JSON.parse(fs.readFileSync(FREE_RESOURCES_PATH, "utf8"));
 const freeResourceRenderer = createFreeResourceRenderer({
   escapeHtml,
@@ -2043,6 +2047,14 @@ const VERTICAL_PAGE_DEFINITIONS = [
 
 function main() {
   validateFreeResourceData();
+  const offerRegistry = JSON.parse(fs.readFileSync(OFFERS_PATH, "utf8"));
+  const offerValidation = offerData.validateOfferRegistry(offerRegistry);
+  if (!offerValidation.valid) {
+    throw new Error(`[Offer validation failed]\n${offerValidation.errors.map((error) => `- ${error}`).join("\n")}`);
+  }
+  publicOffers = OFFERS_ENABLED
+    ? offerRegistry.filter((offer) => offerData.isPublicOffer(offer, { asOfDate: LIFECYCLE_REFERENCE_DATE_ISO }))
+    : [];
   const opportunityPublication = loadOpportunityPublicationState();
   activeOpportunityRoutes = opportunityPublication.active;
   approvedPublicOpportunities = activeOpportunityRoutes.map((entry) => entry.opportunity);
@@ -2096,6 +2108,7 @@ function main() {
   removeStaleVerticalDirectories(generatedVerticalPagesForLinks);
   removeLegacyHomeDirectory();
   removeLegacyNestedSiteDirectory();
+  writeOfferPages(publicOffers);
 
   fs.writeFileSync(path.join(ROOT_DIR, "index.html"), renderHomepage(activeCompetitions));
   fs.writeFileSync(path.join(ROOT_DIR, "404.html"), renderNotFoundPage());
@@ -2160,7 +2173,8 @@ function main() {
       activeCompetitions,
       routeContexts,
       [...activeCompetitions, ...expiredArchiveCompetitions],
-      approvedPublicOpportunities
+      approvedPublicOpportunities,
+      publicOffers
     )
   );
   fs.writeFileSync(path.join(ROOT_DIR, "robots.txt"), renderRobotsTxt());
@@ -2776,6 +2790,7 @@ function renderSiteFooter(options = {}) {
               <a href="/free-online-courses-south-africa/">Free online courses</a>
               <a href="/free-childrens-books-south-africa/">Free children's books</a>
               <a href="/free-credit-report-south-africa/">Free credit report</a>
+              ${OFFERS_ENABLED ? '<a href="/offers/">Coupons &amp; Deals</a>\n              <a href="/coupons/">Coupon codes</a>\n              <a href="/deals/">Deals</a>' : ""}
               <a href="/submit-a-competition/">Submit a competition</a>
               <a href="/report-a-competition/">Report a competition</a>
               <a href="/freehub-account-benefits/">Account benefits</a>
@@ -2819,6 +2834,7 @@ function renderTopNavigation(options = {}) {
     { key: "home", label: "Home", href: "/" },
     { key: "competitions", label: "Competitions", href: "/competitions/" },
     { key: "free-stuff", label: "Free Stuff", href: "/free-stuff-south-africa/" },
+    ...(OFFERS_ENABLED ? [{ key: "offers", label: "Coupons & Deals", href: "/offers/" }] : []),
     { key: "ending", label: "Ending soon", href: "/competitions-ending-soon/" },
     { key: "whatsapp", label: "WhatsApp", href: WHATSAPP_CHANNEL_URL, target: "_blank", rel: "noopener noreferrer" },
     { key: "club", label: "Club", href: "/club/" },
@@ -2862,6 +2878,221 @@ function renderStatusPlaceholders() {
           class="state-card state-card--hidden state-card--error"
           aria-live="assertive"
         ></section>`;
+}
+
+const OFFER_CATEGORY_DEFINITIONS = offerData.CATEGORY_DEFINITIONS;
+const MIN_INDEXABLE_OFFER_LANDING_SIZE = 2;
+
+function getOfferCategoryDefinition(category) {
+  return OFFER_CATEGORY_DEFINITIONS[category] || OFFER_CATEGORY_DEFINITIONS.other;
+}
+
+function getOfferCategoryLabel(category) {
+  return getOfferCategoryDefinition(category).label;
+}
+
+function isIndexableOfferLanding(offers, options = {}) {
+  const { category = "", brandSlug = "" } = options;
+  if (offers.length === 0) return false;
+  if (category && getOfferCategoryDefinition(category).indexable === false) return false;
+  if ((category || brandSlug) && offers.length < MIN_INDEXABLE_OFFER_LANDING_SIZE) return false;
+  return true;
+}
+
+function writeOfferPages(offers) {
+  const managedRoots = [["offers"], ["coupons"], ["deals"], ["coupon"], ["deal"], ["out", "coupon"], ["out", "deal"]];
+  managedRoots.forEach((segments) => {
+    const target = path.join(ROOT_DIR, ...segments);
+    if (fs.existsSync(target)) fs.rmSync(target, { recursive: true, force: true });
+  });
+  if (!OFFERS_ENABLED) return;
+
+  const offersDirectory = path.join(ROOT_DIR, "offers");
+  fs.mkdirSync(offersDirectory, { recursive: true });
+  fs.writeFileSync(path.join(offersDirectory, "index.html"), renderOfferCollectionPage({ type: "all", offers }));
+
+  ["coupon", "deal"].forEach((type) => {
+    const typedOffers = offers.filter((offer) => offer.type === type);
+    const hubSlug = type === "coupon" ? "coupons" : "deals";
+    const hubDirectory = path.join(ROOT_DIR, hubSlug);
+    fs.mkdirSync(hubDirectory, { recursive: true });
+    fs.writeFileSync(path.join(hubDirectory, "index.html"), renderOfferCollectionPage({ type, offers: typedOffers }));
+  });
+
+  [...new Set(offers.map((offer) => offer.category))].sort().forEach((category) => {
+    const categoryDirectory = path.join(offersDirectory, "category", category);
+    fs.mkdirSync(categoryDirectory, { recursive: true });
+    fs.writeFileSync(path.join(categoryDirectory, "index.html"), renderOfferCollectionPage({
+      type: "all", offers: offers.filter((offer) => offer.category === category), category,
+    }));
+  });
+  [...new Set(offers.map((offer) => offer.brandSlug))].sort().forEach((brandSlug) => {
+    const brandOffers = offers.filter((offer) => offer.brandSlug === brandSlug);
+    const brandDirectory = path.join(offersDirectory, "brand", brandSlug);
+    fs.mkdirSync(brandDirectory, { recursive: true });
+    fs.writeFileSync(path.join(brandDirectory, "index.html"), renderOfferCollectionPage({
+      type: "all", offers: brandOffers, brandSlug, brand: brandOffers[0].brand,
+    }));
+  });
+
+  offers.forEach((offer) => {
+    const detailDirectory = path.join(ROOT_DIR, offer.type, offer.slug);
+    const exitDirectory = path.join(ROOT_DIR, "out", offer.type, offer.slug);
+    fs.mkdirSync(detailDirectory, { recursive: true });
+    fs.mkdirSync(exitDirectory, { recursive: true });
+    fs.writeFileSync(path.join(detailDirectory, "index.html"), renderOfferDetailPage(offer));
+    fs.writeFileSync(path.join(exitDirectory, "index.html"), renderOfferExitPage(offer));
+  });
+}
+
+function getOfferCollectionPath({ type, category, brandSlug }) {
+  if (category) return `/offers/category/${category}/`;
+  if (brandSlug) return `/offers/brand/${brandSlug}/`;
+  if (type === "coupon") return "/coupons/";
+  if (type === "deal") return "/deals/";
+  return "/offers/";
+}
+
+function renderOfferCard(offer) {
+  const detailPath = offerData.getOfferPath(offer);
+  const disclosure = offer.sponsored ? "Paid placement" : offer.affiliate ? "Affiliate link" : "Not sponsored";
+  return `<article class="offer-card">
+            <div class="offer-card__topline">
+              <span class="badge badge--verified">Verified</span>
+              <span>${escapeHtml(disclosure)}</span>
+            </div>
+            <p class="offer-card__brand">${escapeHtml(offer.brand)}</p>
+            <h2 class="offer-card__title"><a href="${escapeAttribute(detailPath)}">${escapeHtml(offer.title)}</a></h2>
+            <p class="offer-card__summary">${escapeHtml(offer.summary)}</p>
+            ${offer.type === "coupon" ? `<p class="offer-card__code"><span>Coupon code</span><strong>${escapeHtml(offer.couponCode)}</strong></p>` : '<p class="offer-card__code offer-card__code--deal"><span>No code needed</span><strong>Deal</strong></p>'}
+            <dl class="offer-card__facts">
+              <div><dt>Category</dt><dd><a href="${escapeAttribute(getOfferCollectionPath({ category: offer.category }))}">${escapeHtml(getOfferCategoryLabel(offer.category))}</a></dd></div>
+              <div><dt>${offer.expiresAt ? "Expires" : "Last checked"}</dt><dd>${escapeHtml(shared.formatDate(offer.expiresAt || offer.lastChecked))}</dd></div>
+            </dl>
+            <a class="offer-card__cta" href="${escapeAttribute(detailPath)}">View ${offer.type === "coupon" ? "coupon" : "deal"} details</a>
+          </article>`;
+}
+
+function buildOfferItemList(offers, name) {
+  if (offers.length === 0) return null;
+  return {
+    "@context": "https://schema.org", "@type": "ItemList", name,
+    numberOfItems: offers.length,
+    itemListElement: offers.map((offer, index) => ({
+      "@type": "ListItem", position: index + 1, name: offer.title,
+      url: `${shared.CANONICAL_ORIGIN}${offerData.getOfferPath(offer)}`,
+    })),
+  };
+}
+
+function renderOfferCollectionPage({ type, offers, category = "", brandSlug = "", brand = "" }) {
+  const isTypedHub = type === "coupon" || type === "deal";
+  const noun = type === "coupon" ? "Coupon Codes" : type === "deal" ? "Deals" : "Coupons and Deals";
+  const pathName = getOfferCollectionPath({ type, category, brandSlug });
+  const categoryDefinition = category ? getOfferCategoryDefinition(category) : null;
+  const qualifier = brand || (categoryDefinition ? categoryDefinition.label : "");
+  const heading = qualifier ? `${qualifier} Coupons and Deals` : `${noun} in South Africa`;
+  const description = categoryDefinition
+    ? `${categoryDefinition.description} Browse checked coupon codes and deals with clear terms, expiry dates and direct links to the source.`
+    : brand
+      ? `Browse checked ${brand} coupon codes and deals for South Africa, with clear terms, expiry dates and direct links to the source.`
+      : `Browse checked ${noun.toLowerCase()} for South Africa, with clear terms, expiry dates and direct links to the source.`;
+  const canonical = `${shared.CANONICAL_ORIGIN}${pathName}`;
+  const indexable = isIndexableOfferLanding(offers, { category, brandSlug });
+  const itemList = buildOfferItemList(offers, heading);
+  const collection = { "@context": "https://schema.org", "@type": "CollectionPage", name: heading, description, url: canonical, inLanguage: "en-ZA", isPartOf: { "@type": "WebSite", name: "Freehub", url: `${shared.CANONICAL_ORIGIN}/` } };
+  const breadcrumbItems = [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${shared.CANONICAL_ORIGIN}/` },
+    ...(category || brand ? [{ "@type": "ListItem", position: 2, name: "Offers", item: `${shared.CANONICAL_ORIGIN}/offers/` }] : []),
+    { "@type": "ListItem", position: category || brand ? 3 : 2, name: qualifier || noun, item: canonical },
+  ];
+  const breadcrumb = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: breadcrumbItems };
+  const heroActions = type === "coupon"
+    ? [{ label: "Browse all offers", href: "/offers/", className: "btn--secondary" }, { label: "Deals without codes", href: "/deals/", className: "btn--secondary" }]
+    : type === "deal"
+      ? [{ label: "Browse all offers", href: "/offers/", className: "btn--secondary" }, { label: "Coupon codes", href: "/coupons/", className: "btn--secondary" }]
+      : [{ label: "Coupon codes", href: "/coupons/", className: "btn--secondary" }, { label: "Deals without codes", href: "/deals/", className: "btn--secondary" }];
+  const resultLabel = isTypedHub ? (type === "coupon" ? "coupon code" : "deal") : "offer";
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${escapeHtml(heading)} | Freehub</title>
+    <meta name="description" content="${escapeAttribute(description)}" />
+    <meta name="robots" content="${indexable ? "index, follow, max-image-preview:large" : "noindex, follow"}" />
+    <link rel="canonical" href="${escapeAttribute(canonical)}" /><link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" /><meta property="og:title" content="${escapeAttribute(heading)}" /><meta property="og:description" content="${escapeAttribute(description)}" /><meta property="og:url" content="${escapeAttribute(canonical)}" />
+    <script type="application/ld+json">${escapeScript(JSON.stringify(collection))}</script>
+    <script type="application/ld+json">${escapeScript(JSON.stringify(breadcrumb))}</script>
+    ${itemList ? `<script type="application/ld+json">${escapeScript(JSON.stringify(itemList))}</script>` : ""}
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />${indexable ? GUEST_ADS_SCRIPT : ""}
+    ${renderGoogleTagManagerHead(`{ page_type: 'offer_collection', offer_type: '${type}' }`)}${renderMetaPixelHead()}
+  </head>
+  <body>${renderGoogleTagManagerNoScript()}${renderMetaPixelNoScript()}<div class="site-shell">
+    ${renderTopNavigation({ active: "offers" })}
+    ${renderModernHero({ className: "hero--utility hero--offers", eyebrow: type === "coupon" ? "Verified coupon codes" : type === "deal" ? "Checked deals" : "South African savings portal", heading, intro: description, actions: heroActions, trustItems: ["South Africa focused", "Checked regularly", "Clear link disclosures"] })}
+    <main id="main-content" class="main-content offer-page">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span>${category || brand ? '<a href="/offers/">Offers</a><span aria-hidden="true">/</span>' : ""}<span aria-current="page">${escapeHtml(qualifier || noun)}</span></nav>
+      <section class="offer-trust" aria-label="How coupons and deals are organised"><strong>Coupons use codes; deals do not.</strong> We separate code-based coupons from ordinary promotions, then link you to the source to check the final price and terms.</section>
+      ${offers.length ? `<p class="offer-results">Showing ${offers.length} verified ${offers.length === 1 ? resultLabel : `${resultLabel}s`}</p><div class="offer-grid">${offers.map(renderOfferCard).join("\n")}</div>` : `<section class="state-card"><p class="state-card__title">No verified ${noun.toLowerCase()} listed yet</p><p class="state-card__text">No offer is published until its source, terms and coupon code, when needed, have been checked.</p></section>`}
+      ${!category && !brand ? renderOfferTaxonomyLinks(offers) : ""}
+    </main>${renderSiteFooter()}</div><script type="module" src="/shared/auth-ui.js"></script>
+  </body>
+</html>`;
+}
+
+function renderOfferTaxonomyLinks(offers) {
+  const categories = [...new Set(offers.map((offer) => offer.category))].sort();
+  const brands = [...new Map(offers.map((offer) => [offer.brandSlug, offer.brand])).entries()].sort((a, b) => a[1].localeCompare(b[1]));
+  if (categories.length === 0 && brands.length === 0) return "";
+  return `<section class="offer-taxonomy" aria-label="Browse offers"><div><h2>Browse by category</h2>${categories.map((category) => `<a href="${escapeAttribute(getOfferCollectionPath({ category }))}">${escapeHtml(getOfferCategoryLabel(category))}</a>`).join("")}</div><div><h2>Browse by brand</h2>${brands.map(([brandSlug, brand]) => `<a href="${escapeAttribute(getOfferCollectionPath({ brandSlug }))}">${escapeHtml(brand)}</a>`).join("")}</div></section>`;
+}
+
+function renderOfferDetailPage(offer) {
+  const detailPath = offerData.getOfferPath(offer);
+  const canonical = `${shared.CANONICAL_ORIGIN}${detailPath}`;
+  const noun = offer.type === "coupon" ? "Coupon" : "Deal";
+  const disclosure = offer.sponsored ? "Paid placement" : offer.affiliate ? "Affiliate link" : "Not sponsored";
+  const pageSchema = { "@context": "https://schema.org", "@type": "WebPage", name: offer.title, description: offer.summary, url: canonical, inLanguage: "en-ZA", dateModified: offer.updatedAt, isPartOf: { "@type": "WebSite", name: "Freehub", url: `${shared.CANONICAL_ORIGIN}/` }, about: { "@type": "Thing", name: `${offer.brand} ${noun.toLowerCase()}` } };
+  const breadcrumb = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${shared.CANONICAL_ORIGIN}/` },
+    { "@type": "ListItem", position: 2, name: `${noun}s`, item: `${shared.CANONICAL_ORIGIN}/${offer.type === "coupon" ? "coupons" : "deals"}/` },
+    { "@type": "ListItem", position: 3, name: offer.title, item: canonical },
+  ] };
+  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${escapeHtml(offer.title)} | Freehub</title><meta name="description" content="${escapeAttribute(offer.summary)}" /><meta name="robots" content="index, follow, max-image-preview:large" /><link rel="canonical" href="${escapeAttribute(canonical)}" /><link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" /><meta property="og:title" content="${escapeAttribute(offer.title)}" /><meta property="og:description" content="${escapeAttribute(offer.summary)}" /><meta property="og:url" content="${escapeAttribute(canonical)}" />
+    <script type="application/ld+json">${escapeScript(JSON.stringify(pageSchema))}</script><script type="application/ld+json">${escapeScript(JSON.stringify(breadcrumb))}</script>
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />${GUEST_ADS_SCRIPT}${renderGoogleTagManagerHead(`{ page_type: 'offer_detail', offer_type: '${offer.type}', offer_id: ${escapeScript(JSON.stringify(offer.id))} }`)}${renderMetaPixelHead()}</head>
+    <body>${renderGoogleTagManagerNoScript()}${renderMetaPixelNoScript()}<div class="site-shell">${renderTopNavigation({ active: "offers" })}
+    ${renderModernHero({ className: "hero--utility hero--offers", eyebrow: `${offer.brand} ${noun.toLowerCase()}`, heading: offer.title, intro: offer.summary, trustItems: ["Source checked", `Checked ${shared.formatDate(offer.lastChecked)}`, disclosure] })}
+    <main id="main-content" class="main-content offer-page"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/${offer.type === "coupon" ? "coupons" : "deals"}/">${noun}s</a><span aria-hidden="true">/</span><span aria-current="page">${escapeHtml(offer.title)}</span></nav>
+      <article class="offer-detail"><div class="offer-detail__main"><p class="offer-card__brand">${escapeHtml(offer.brand)}</p><h2>${escapeHtml(offer.title)}</h2>${offer.type === "coupon" ? `<div class="offer-detail__code"><span>Coupon code</span><strong>${escapeHtml(offer.couponCode)}</strong></div>` : '<div class="offer-detail__code offer-detail__code--deal"><span>How to claim</span><strong>No code needed</strong></div>'}<p>${escapeHtml(offer.summary)}</p><h2>Terms to check</h2><p>${escapeHtml(offer.terms)}</p><p><a href="${escapeAttribute(offer.termsUrl || offer.sourceUrl)}" target="_blank" rel="noopener noreferrer">Read the verified source${offer.termsUrl ? " and full terms" : ""}</a></p><a class="competition-detail__cta" href="${escapeAttribute(offerData.getOfferExitPath(offer))}" target="_blank" rel="noopener noreferrer">Go to ${escapeHtml(offer.brand)}</a><p class="competition-detail__cta-note">You will leave Freehub. Confirm the code, price, availability and terms before buying.</p></div>
+      <aside class="offer-detail__facts"><h2>Offer details</h2><dl><div><dt>Type</dt><dd>${noun}</dd></div><div><dt>Category</dt><dd><a href="${escapeAttribute(getOfferCollectionPath({ category: offer.category }))}">${escapeHtml(getOfferCategoryLabel(offer.category))}</a></dd></div><div><dt>Last checked</dt><dd>${escapeHtml(shared.formatDate(offer.lastChecked))}</dd></div>${offer.expiresAt ? `<div><dt>Expires</dt><dd>${escapeHtml(shared.formatDate(offer.expiresAt))}</dd></div>` : ""}<div><dt>Link disclosure</dt><dd>${offer.sponsored ? "Paid placement" : offer.affiliate ? "Affiliate link" : "Not sponsored or affiliate"}</dd></div></dl></aside></article>
+      <section class="offer-trust"><strong>Last checked ${escapeHtml(shared.formatDate(offer.lastChecked))}.</strong> This offer linked to ${escapeHtml(offer.brand)}'s source when reviewed. Prices, availability and terms can change, so confirm them before buying.</section>
+    </main>${renderSiteFooter()}</div><script type="module" src="/shared/auth-ui.js"></script></body></html>`;
+}
+
+function renderOfferExitPage(offer) {
+  const destination = offer.destinationUrl;
+  const sourceDomain = getSafeHostname(destination);
+  const rel = `noopener noreferrer${offer.affiliate || offer.sponsored ? " sponsored" : ""}`;
+  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Continue to ${escapeHtml(offer.brand)} | Freehub</title><meta name="robots" content="noindex, nofollow" /><link rel="canonical" href="${escapeAttribute(`${shared.CANONICAL_ORIGIN}${offerData.getOfferExitPath(offer)}`)}" /><link rel="icon" type="image/svg+xml" href="/favicon.svg" /><link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />${GUEST_ADS_SCRIPT}${OUTBOUND_HANDOFF_SCRIPT}</head><body><div class="site-shell">${renderTopNavigation()}<main id="main-content" class="main-content"><section class="state-card offer-exit"><p class="state-card__title">You are leaving Freehub</p><p class="state-card__text">Continue to ${escapeHtml(sourceDomain)} to check the current price, availability and terms.${offer.affiliate ? " Freehub may earn a commission if you buy, at no extra cost to you." : ""}</p><a class="competition-detail__cta" href="${escapeAttribute(destination)}" rel="${rel}" data-offer-destination>Continue to ${escapeHtml(offer.brand)}</a><a href="${escapeAttribute(offerData.getOfferPath(offer))}">Back to offer details</a></section></main>${renderSiteFooter({ includeAuthPanel: false })}</div><script>window.FreeHubOutboundHandoff.afterGuestAdDecision(function(){var link=document.querySelector('[data-offer-destination]');if(link) window.location.replace(link.href);});</script></body></html>`;
+}
+
+function renderRelatedOffersForCompetition(competition) {
+  if (!OFFERS_ENABLED || publicOffers.length === 0) return "";
+  const brandSlug = shared.getBrandSlugForCompetition(competition);
+  const categoryMap = { Groceries: "groceries", Tech: "electronics-appliances", Holidays: "travel" };
+  const offerCategory = categoryMap[competition.category];
+  const matches = publicOffers
+    .filter((offer) => (brandSlug && offer.brandSlug === brandSlug) || (offerCategory && offer.category === offerCategory))
+    .slice(0, 3);
+  if (matches.length === 0) return "";
+  return `<section class="internal-links" aria-label="Related coupons and deals">
+          <p class="internal-links__title">Current coupons and deals you may find useful</p>
+          <div class="internal-links__list">${matches.map((offer) => `<a class="internal-links__link" href="${escapeAttribute(offerData.getOfferPath(offer))}">${escapeHtml(offer.brand)}: ${escapeHtml(offer.title)}</a>`).join("\n")}</div>
+        </section>`;
 }
 
 function writeClubPages(activeCompetitions = []) {
@@ -9175,6 +9406,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
         </section>
 
         ${renderCompetitionInternalLinks(competition, categoryPath, generatedBrandSlugs)}
+        ${renderRelatedOffersForCompetition(competition)}
         ${renderDatacostPromo({
           placement: `competition-${slug}`,
           compact: true,
@@ -10375,7 +10607,7 @@ function renderHowToEnterList(steps) {
             </section>`;
 }
 
-function generateSitemap(competitions, routeContexts, sitemapCompetitions = competitions, sitemapOpportunities = []) {
+function generateSitemap(competitions, routeContexts, sitemapCompetitions = competitions, sitemapOpportunities = [], sitemapOffers = []) {
   const origin = shared.CANONICAL_ORIGIN;
 
   const staticEntries = routeContexts
@@ -10434,9 +10666,30 @@ function generateSitemap(competitions, routeContexts, sitemapCompetitions = comp
     })
   );
 
+  const latestOfferUpdate = sitemapOffers.map((offer) => offer.updatedAt || offer.lastChecked).sort().pop() || BUILD_DATE_ISO;
+  const offerCollectionPaths = sitemapOffers.length === 0 ? [] : [
+    getOfferCollectionPath({ type: "all" }),
+    ...(sitemapOffers.some((offer) => offer.type === "coupon") ? [getOfferCollectionPath({ type: "coupon" })] : []),
+    ...(sitemapOffers.some((offer) => offer.type === "deal") ? [getOfferCollectionPath({ type: "deal" })] : []),
+    ...[...new Set(sitemapOffers.map((offer) => offer.category))]
+      .filter((category) => isIndexableOfferLanding(sitemapOffers.filter((offer) => offer.category === category), { category }))
+      .map((category) => getOfferCollectionPath({ category })),
+    ...[...new Set(sitemapOffers.map((offer) => offer.brandSlug))]
+      .filter((brandSlug) => isIndexableOfferLanding(sitemapOffers.filter((offer) => offer.brandSlug === brandSlug), { brandSlug }))
+      .map((brandSlug) => getOfferCollectionPath({ brandSlug })),
+  ];
+  const offerCollectionEntries = offerCollectionPaths.map((offerPath) => renderSitemapUrl({
+    loc: `${origin}${offerPath}`,
+    lastmod: latestOfferUpdate,
+  }));
+  const offerEntries = sitemapOffers.map((offer) => renderSitemapUrl({
+    loc: `${origin}${offerData.getOfferPath(offer)}`,
+    lastmod: offer.updatedAt || offer.lastChecked || BUILD_DATE_ISO,
+  }));
+
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-${[...staticEntries, ...trustPageEntries, ...contentPageEntries, ...clubEntries, ...referAndWinEntries, ...competitionEntries, ...opportunityEntries].join("\n")}
+${[...staticEntries, ...trustPageEntries, ...contentPageEntries, ...clubEntries, ...referAndWinEntries, ...competitionEntries, ...opportunityEntries, ...offerCollectionEntries, ...offerEntries].join("\n")}
 </urlset>
 `;
 }

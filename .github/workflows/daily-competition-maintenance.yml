@@ -26,6 +26,7 @@ jobs:
       INDEXNOW_API_KEY: ${{ secrets.INDEXNOW_API_KEY }}
       INDEXNOW_SITE_URL: https://freehub.co.za
       FREEHUB_ENABLE_OPPORTUNITIES: ${{ vars.FREEHUB_ENABLE_OPPORTUNITIES }}
+      FREEHUB_ENABLE_OFFERS: ${{ vars.FREEHUB_ENABLE_OFFERS || 'true' }}
 
     steps:
       - name: Checkout

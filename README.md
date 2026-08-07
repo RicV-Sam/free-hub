@@ -8,6 +8,7 @@ FreeHub is a static, data-driven South African competition discovery site.
 - Source data in `data/competitions.json`
 - Expired archive in `data/archive/competitions-expired.json`
 - Client enhancements/tracking in `app.js`
+- Verified coupon/deal registry in `data/offers.json` (fail-closed and feature flagged)
 
 ## Status
 Active production site on `https://freehub.co.za`.
@@ -77,6 +78,18 @@ After data/code changes, always run:
 1. `node scripts/generate-pages.js`
 2. verify output locally
 3. commit and push `main`
+
+## Coupons and deals
+
+The coupons/deals foundation uses one validated offer registry while keeping the public content types distinct:
+
+- central discovery portal: `/offers/`
+- coupon codes: `/coupons/` and `/coupon/{slug}/`
+- ordinary promotions with no code: `/deals/` and `/deal/{slug}/`
+- shared category pages: `/offers/category/{category}/`
+- shared brand pages: `/offers/brand/{brand}/`
+
+Public generation is disabled unless `FREEHUB_ENABLE_OFFERS=true`. Even when enabled, a record must be explicitly published, verified, current, and inside its review window. Empty hubs are generated with `noindex` and stay out of the sitemap; category, brand, detail and outbound routes are created only from eligible records. One-off category and brand pages remain `noindex` until a second verified offer supports them. Categories use the controlled taxonomy in `shared/offer-data.js`; do not create a public category page until verified inventory supports it. See `docs/coupons-and-deals-editorial-runbook.md` before adding data.
 
 ## Daily Automation
 The repo now includes `.github/workflows/daily-competition-maintenance.yml`, which runs every day and on manual dispatch. It:

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://freehub.co.za/schemas/offer.schema.json",
+  "title": "Freehub verified coupon or deal",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "slug", "type", "brand", "brandSlug", "title", "summary", "destinationUrl", "sourceUrl", "category", "lastChecked", "reviewDueAt", "terms", "publicationStatus", "verificationStatus", "country", "affiliate", "sponsored", "publishedAt", "updatedAt"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "type": { "enum": ["coupon", "deal"] },
+    "brand": { "type": "string", "minLength": 1 },
+    "brandSlug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "title": { "type": "string", "minLength": 1 },
+    "summary": { "type": "string", "minLength": 1 },
+    "couponCode": { "type": "string", "minLength": 1 },
+    "destinationUrl": { "type": "string", "format": "uri", "pattern": "^https?://" },
+    "sourceUrl": { "type": "string", "format": "uri", "pattern": "^https?://" },
+    "termsUrl": { "type": "string", "format": "uri", "pattern": "^https?://" },
+    "category": { "enum": ["groceries", "restaurants-takeaways", "fashion", "beauty-health", "electronics-appliances", "home-garden", "baby-kids", "pets", "travel", "entertainment", "mobile-data", "banking-rewards", "sports-outdoors", "other"] },
+    "startsAt": { "type": "string", "format": "date" },
+    "expiresAt": { "type": "string", "format": "date" },
+    "lastChecked": { "type": "string", "format": "date" },
+    "reviewDueAt": { "type": "string", "format": "date" },
+    "terms": { "type": "string", "minLength": 1 },
+    "publicationStatus": { "enum": ["draft", "review", "published", "expired", "withdrawn", "rejected"] },
+    "verificationStatus": { "enum": ["unverified", "verified", "verification_due", "source_changed", "expired", "withdrawn", "rejected"] },
+    "country": { "const": "ZA" },
+    "affiliate": { "type": "boolean" },
+    "sponsored": { "type": "boolean" },
+    "affiliateNetwork": { "type": "string", "minLength": 1 },
+    "publishedAt": { "type": "string", "format": "date" },
+    "updatedAt": { "type": "string", "format": "date" }
+  },
+  "allOf": [
+    { "if": { "properties": { "type": { "const": "coupon" } } }, "then": { "properties": { "couponCode": {} }, "required": ["couponCode"] } },
+    { "if": { "properties": { "type": { "const": "deal" } } }, "then": { "not": { "required": ["couponCode"] } } },
+    { "if": { "properties": { "affiliate": { "const": true } } }, "then": { "properties": { "affiliateNetwork": {} }, "required": ["affiliateNetwork"] } }
+  ]
+}
