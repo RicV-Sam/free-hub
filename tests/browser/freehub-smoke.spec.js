@@ -1039,6 +1039,49 @@ test("offers portal separates coupons and deals with honest indexability", async
   expect(outboundHtml).not.toContain("effectivecpmnetwork.com");
 });
 
+test("offer contributions stay private and require an explicit email send", async ({ page }) => {
+  test.skip(!offersEnabled, "Offers are feature flagged in this build.");
+
+  await page.goto("/coupon/capitec-snappi-extra-15-percent/");
+  const workedButton = page.getByRole("button", { name: "Yes, it worked" });
+  const changedButton = page.getByRole("button", { name: "No, something changed" });
+  await workedButton.click();
+  await expect(workedButton).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByText("Thanks — your feedback is saved on this device.")).toBeVisible();
+
+  await page.reload();
+  await expect(page.getByRole("button", { name: "Yes, it worked" })).toHaveAttribute("aria-pressed", "true");
+  await changedButton.click();
+  await expect(page.locator("[data-offer-report]")).toHaveAttribute("open", "");
+  await page.getByLabel("What changed?").selectOption("code-rejected");
+  await page.getByLabel("What did you notice? (optional)").fill("The checkout rejected the code.");
+  await page.getByRole("button", { name: "Prepare Email Report" }).click();
+  const reportActions = page.locator("[data-offer-report] [data-email-actions]");
+  await expect(reportActions).toBeVisible();
+  await expect(reportActions.getByRole("link", { name: "Open Email Draft" })).toHaveAttribute("href", /^mailto:hello@freehub\.co\.za\?/);
+  await expect(page).toHaveURL(/\/coupon\/capitec-snappi-extra-15-percent\/$/);
+
+  await page.goto("/submit-an-offer/");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Submit a Coupon or Deal");
+  await expectCanonical(page, "/submit-an-offer/");
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index, follow, max-image-preview:large");
+  await page.getByLabel("Your relationship to the offer").selectOption("customer");
+  await page.getByLabel("Offer type").selectOption("coupon");
+  await page.getByLabel("Brand or programme").fill("Example Brand");
+  await page.getByLabel("Offer title").fill("Example official-source offer");
+  await page.getByLabel("Coupon code (if there is one)").fill("EXAMPLE10");
+  await page.getByLabel("Category").selectOption("groceries");
+  await page.getByLabel("Official offer URL").fill("https://example.com/official-offer");
+  await page.getByLabel("How the saving works").fill("A development-only form test. This is not a public offer.");
+  await page.getByLabel(/I am sharing public offer information/).check();
+  await page.getByRole("button", { name: "Prepare Offer Email" }).click();
+  const submissionActions = page.locator(".submission-panel--offer [data-email-actions]");
+  await expect(submissionActions).toBeVisible();
+  await expect(submissionActions.getByRole("link", { name: "Open Email Draft" })).toHaveAttribute("href", /^mailto:hello@freehub\.co\.za\?/);
+  await expect(page.getByText("Your offer email is ready. Review it before choosing Send in your email app.")).toBeVisible();
+  await expect(page).toHaveURL(/\/submit-an-offer\/$/);
+});
+
 test("unknown routes serve the generated 404 response", async ({ page }) => {
   const response = await page.goto("/definitely-not-a-freehub-route/");
   expect(response.status()).toBe(404);

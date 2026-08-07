@@ -86,8 +86,8 @@ test("offer baseline counts distinguish generated routes from indexable routes",
   const registry = require("../../data/offers.json");
   const counts = getOfferBaselineCounts({ offers: registry, enabled: true, asOfDate: "2026-08-07" });
   assert.equal(counts.activeOffers.length, 9);
-  assert.equal(counts.generatedFileCount, 32);
-  assert.equal(counts.sitemapUrlCount, 16);
+  assert.equal(counts.generatedFileCount, 33);
+  assert.equal(counts.sitemapUrlCount, 17);
   assert.deepEqual(
     getOfferBaselineCounts({ offers: registry, enabled: false, asOfDate: "2026-08-07" }),
     { activeOffers: [], generatedFileCount: 0, sitemapUrlCount: 0 }

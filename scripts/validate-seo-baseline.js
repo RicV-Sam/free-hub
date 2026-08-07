@@ -131,7 +131,8 @@ const sitemapSet = new Set(sitemapRoutes);
 const expectedSitemapUrlCount = CONFIG.sitemapUrlCount
   + ACTIVE_OPPORTUNITIES.length
   + ACTIVE_OFFERS.length
-  + countIndexableOfferLandings(ACTIVE_OFFERS);
+  + countIndexableOfferLandings(ACTIVE_OFFERS)
+  + (OFFERS_ENABLED ? 1 : 0);
 check(sitemapUrls.length === expectedSitemapUrlCount, {
   file: "sitemap.xml",
   route: "/sitemap.xml",

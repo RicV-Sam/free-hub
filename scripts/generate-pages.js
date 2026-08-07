@@ -246,6 +246,14 @@ const TRUST_PAGE_DEFINITIONS = [
         ],
       },
       {
+        heading: "Offer tips, reports and feedback",
+        paragraphs: [
+          "Coupon and deal submission forms prepare an email on your device. Freehub receives the information only if you choose to send that email, together with the return address supplied by your email provider. Offer tips and problem reports are reviewed manually and never publish or change a listing automatically.",
+          "The worked or changed buttons on offer pages may store your selection in your browser and send a limited analytics event containing the Freehub offer ID, offer type and selected result. Freehub does not send coupon codes, report text or contact details in that analytics event.",
+          "Do not include passwords, card details, identity documents, private account information or customer records in an offer submission or report.",
+        ],
+      },
+      {
         heading: "Optional Freehub accounts",
         paragraphs: [
           "Freehub may offer optional account features, such as saving a competition, hiding ignored competitions or storing competition alert preferences. You do not need a Freehub account to browse listings, open competition detail pages or click through to official promoter pages.",
@@ -1476,6 +1484,70 @@ const TRUST_PAGE_DEFINITIONS = [
     ],
   },
   {
+    slug: "submit-an-offer",
+    requiresOffers: true,
+    title: "Submit a Coupon or Deal in South Africa | Freehub",
+    description:
+      "Send a South African coupon code or deal to Freehub for manual source checking and possible listing. Submission never guarantees publication.",
+    heading: "Submit a Coupon or Deal",
+    intro:
+      "Found a current South African saving? Send the official source and the details you can confirm. Freehub checks every tip manually before deciding whether it belongs in the coupons or deals portal.",
+    eyebrow: "Help improve the savings portal",
+    heroClassName: "hero--utility hero--offers",
+    dateModified: "2026-08-07",
+    actions: [
+      { label: "Prepare an Offer Email", href: "#offerSubmissionTitle", className: "btn--primary" },
+      { label: "Browse Current Offers", href: "/offers/", className: "btn--secondary" },
+    ],
+    trustItems: ["Manual review", "Official source required", "No automatic publishing"],
+    sections: [
+      {
+        heading: "What makes a useful tip",
+        paragraphs: [
+          "Start with a public page from the brand, retailer, bank, rewards programme or travel provider. Include the real coupon code when one is required, or explain how a code-free deal is claimed.",
+          "Expiry dates, eligibility, account or loyalty requirements, minimum spend and important exclusions help Freehub check the offer without guessing.",
+        ],
+      },
+      {
+        heading: "How the handoff works",
+        paragraphs: [
+          "The form prepares a structured message for your email app. You can review it before sending, and nothing is sent merely by completing the form.",
+          "Freehub treats every message as a private review tip. It does not create a public page, mark an offer verified or change the sitemap until the source and terms pass the normal editorial checks.",
+        ],
+      },
+      {
+        heading: "Customers, brands and agencies are welcome",
+        paragraphs: [
+          "Anyone may share public offer information. Brands and agencies should identify their relationship to the offer and provide a public source that confirms the saving.",
+          "Do not send customer records, payment information, passwords, one-time PINs, identity documents or private account screenshots.",
+        ],
+      },
+    ],
+    checklistTitle: "Details that speed up review",
+    checklist: [
+      "Official offer or terms URL from the named brand or programme.",
+      "Brand name, offer title and whether a coupon code is required.",
+      "The exact code, discount or saving shown by the source.",
+      "Expiry date or review date where the source provides one.",
+      "Minimum spend, account, loyalty, location or payment requirements.",
+      "Important exclusions and how the offer is claimed.",
+    ],
+    avoidTitle: "Tips Freehub cannot publish",
+    avoid: [
+      "Codes copied from another coupon directory without an official source.",
+      "Private, single-use, employee-only or personally issued codes.",
+      "Offers that hide payment, subscription, delivery or account requirements.",
+      "Expired promotions presented as current savings.",
+    ],
+    links: [
+      { label: "Browse coupons and deals", href: "/offers/" },
+      { label: "Coupon codes", href: "/coupons/" },
+      { label: "Deals without codes", href: "/deals/" },
+      { label: "How Freehub checks listings", href: "/how-we-verify-competitions/" },
+      { label: "Privacy policy", href: "/privacy-policy/" },
+    ],
+  },
+  {
     slug: "submit-a-competition",
     title: "Submit a Competition South Africa | Brand Review & Listing | Freehub",
     description:
@@ -2276,7 +2348,10 @@ function uniqueCompetitionsBySlug(competitions) {
 }
 
 function getPublicTrustPageDefinitions() {
-  return TRUST_PAGE_DEFINITIONS.filter((page) => !VERTICAL_PAGE_SLUG_SET.has(page.slug));
+  return TRUST_PAGE_DEFINITIONS.filter((page) => (
+    !VERTICAL_PAGE_SLUG_SET.has(page.slug)
+    && (page.requiresOffers !== true || OFFERS_ENABLED)
+  ));
 }
 
 function getVerticalCoverage(activeCompetitions) {
@@ -2790,7 +2865,7 @@ function renderSiteFooter(options = {}) {
               <a href="/free-online-courses-south-africa/">Free online courses</a>
               <a href="/free-childrens-books-south-africa/">Free children's books</a>
               <a href="/free-credit-report-south-africa/">Free credit report</a>
-              ${OFFERS_ENABLED ? '<a href="/offers/">Coupons &amp; Deals</a>\n              <a href="/coupons/">Coupon codes</a>\n              <a href="/deals/">Deals</a>' : ""}
+              ${OFFERS_ENABLED ? '<a href="/offers/">Coupons &amp; Deals</a>\n              <a href="/coupons/">Coupon codes</a>\n              <a href="/deals/">Deals</a>\n              <a href="/submit-an-offer/">Submit an offer</a>' : ""}
               <a href="/submit-a-competition/">Submit a competition</a>
               <a href="/report-a-competition/">Report a competition</a>
               <a href="/freehub-account-benefits/">Account benefits</a>
@@ -2900,7 +2975,7 @@ function isIndexableOfferLanding(offers, options = {}) {
 }
 
 function writeOfferPages(offers) {
-  const managedRoots = [["offers"], ["coupons"], ["deals"], ["coupon"], ["deal"], ["out", "coupon"], ["out", "deal"]];
+  const managedRoots = [["offers"], ["coupons"], ["deals"], ["coupon"], ["deal"], ["out", "coupon"], ["out", "deal"], ["submit-an-offer"]];
   managedRoots.forEach((segments) => {
     const target = path.join(ROOT_DIR, ...segments);
     if (fs.existsSync(target)) fs.rmSync(target, { recursive: true, force: true });
@@ -3036,6 +3111,7 @@ function renderOfferCollectionPage({ type, offers, category = "", brandSlug = ""
       <section class="offer-trust" aria-label="How coupons and deals are organised"><strong>Coupons use codes; deals do not.</strong> We separate code-based coupons from ordinary promotions, then link you to the source to check the final price and terms.</section>
       ${offers.length ? `<p class="offer-results">Showing ${offers.length} verified ${offers.length === 1 ? resultLabel : `${resultLabel}s`}</p><div class="offer-grid">${offers.map(renderOfferCard).join("\n")}</div>` : `<section class="state-card"><p class="state-card__title">No verified ${noun.toLowerCase()} listed yet</p><p class="state-card__text">No offer is published until its source, terms and coupon code, when needed, have been checked.</p></section>`}
       ${!category && !brand ? renderOfferTaxonomyLinks(offers) : ""}
+      ${!category && !brand ? renderOfferContributionPanel() : ""}
     </main>${renderSiteFooter()}</div><script type="module" src="/shared/auth-ui.js"></script>
   </body>
 </html>`;
@@ -3046,6 +3122,73 @@ function renderOfferTaxonomyLinks(offers) {
   const brands = [...new Map(offers.map((offer) => [offer.brandSlug, offer.brand])).entries()].sort((a, b) => a[1].localeCompare(b[1]));
   if (categories.length === 0 && brands.length === 0) return "";
   return `<section class="offer-taxonomy" aria-label="Browse offers"><div><h2>Browse by category</h2>${categories.map((category) => `<a href="${escapeAttribute(getOfferCollectionPath({ category }))}">${escapeHtml(getOfferCategoryLabel(category))}</a>`).join("")}</div><div><h2>Browse by brand</h2>${brands.map(([brandSlug, brand]) => `<a href="${escapeAttribute(getOfferCollectionPath({ brandSlug }))}">${escapeHtml(brand)}</a>`).join("")}</div></section>`;
+}
+
+function renderOfferContributionPanel() {
+  return `<section class="offer-contribute" aria-labelledby="offerContributeTitle">
+            <div>
+              <p class="section-kicker">Help keep Freehub current</p>
+              <h2 id="offerContributeTitle">Found a coupon or deal we should check?</h2>
+              <p>Send the official source and key conditions. Every tip stays private until Freehub has reviewed it.</p>
+            </div>
+            <a class="btn btn--primary" href="/submit-an-offer/">Submit an offer for review</a>
+          </section>`;
+}
+
+function renderOfferFeedbackPanel(offer) {
+  const prompt = offer.type === "coupon" ? "Did this coupon work?" : "Was this deal still available?";
+  const fallbackSubject = encodeURIComponent(`Offer report: ${offer.brand} - ${offer.title}`);
+  const fallbackBody = encodeURIComponent(`Offer: ${offer.title}\nFreehub page: ${shared.CANONICAL_ORIGIN}${offerData.getOfferPath(offer)}\n\nWhat changed:\n`);
+  return `<section class="offer-feedback" data-offer-feedback data-offer-id="${escapeAttribute(offer.id)}" data-offer-type="${escapeAttribute(offer.type)}" data-offer-brand="${escapeAttribute(offer.brand)}" data-offer-title="${escapeAttribute(offer.title)}" aria-labelledby="offerFeedbackTitle">
+            <div class="offer-feedback__intro">
+              <p class="section-kicker">Community check</p>
+              <h2 id="offerFeedbackTitle">${escapeHtml(prompt)}</h2>
+              <p>Your answer helps Freehub decide what to recheck. It does not change the public verification status automatically.</p>
+            </div>
+            <div class="offer-feedback__controls">
+              <div class="offer-feedback__votes" role="group" aria-label="${escapeAttribute(prompt)}">
+                <button class="btn btn--secondary offer-feedback__vote" type="button" data-offer-feedback-result="worked" aria-pressed="false">Yes, it worked</button>
+                <button class="btn btn--secondary offer-feedback__vote" type="button" data-offer-feedback-result="changed" aria-pressed="false">No, something changed</button>
+              </div>
+              <p class="submission-form__status" data-offer-feedback-status aria-live="polite"></p>
+              <details class="offer-feedback__report" data-offer-report>
+                <summary>Report a problem with this offer</summary>
+                <div class="offer-feedback__report-body">
+                  <form class="submission-form" data-offer-report-form>
+                    <label>
+                      <span>What changed?</span>
+                      <select name="issueType" required>
+                        <option value="">Select one</option>
+                        <option value="code-rejected">Coupon code was rejected</option>
+                        <option value="offer-ended">Offer appears to have ended</option>
+                        <option value="discount-changed">Discount or price changed</option>
+                        <option value="requirements-changed">Requirements or exclusions changed</option>
+                        <option value="broken-link">Official link is broken</option>
+                        <option value="other">Something else</option>
+                      </select>
+                    </label>
+                    <label>
+                      <span>What did you notice? <small>(optional)</small></span>
+                      <textarea name="details" rows="3" maxlength="800" placeholder="Please do not include account, payment or personal information."></textarea>
+                    </label>
+                    <div class="submission-form__actions">
+                      <button class="btn btn--primary" type="submit">Prepare Email Report</button>
+                      <p class="submission-form__status" data-contribution-status aria-live="polite"></p>
+                    </div>
+                  </form>
+                  <div class="offer-email-actions" data-email-actions hidden>
+                    <a class="btn btn--primary" data-email-draft href="mailto:hello@freehub.co.za">Open Email Draft</a>
+                    <button class="btn btn--secondary" type="button" data-copy-contribution>Copy Report</button>
+                    <label data-copy-fallback hidden>
+                      <span>Copy these report details</span>
+                      <textarea data-copy-text rows="8" readonly></textarea>
+                    </label>
+                  </div>
+                  <p class="offer-feedback__privacy">The report is prepared on your device and is sent only if you choose Send in your email app. <a href="mailto:hello@freehub.co.za?subject=${fallbackSubject}&amp;body=${fallbackBody}">Email Freehub directly</a>.</p>
+                </div>
+              </details>
+            </div>
+          </section>`;
 }
 
 function renderOfferDetailPage(offer) {
@@ -3069,8 +3212,9 @@ function renderOfferDetailPage(offer) {
     <main id="main-content" class="main-content offer-page"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/${offer.type === "coupon" ? "coupons" : "deals"}/">${noun}s</a><span aria-hidden="true">/</span><span aria-current="page">${escapeHtml(offer.title)}</span></nav>
       <article class="offer-detail"><div class="offer-detail__main"><p class="offer-card__brand">${escapeHtml(offer.brand)}</p><h2>${escapeHtml(offer.title)}</h2>${offer.type === "coupon" ? `<div class="offer-detail__code"><span>Coupon code</span><strong>${escapeHtml(offer.couponCode)}</strong></div>` : '<div class="offer-detail__code offer-detail__code--deal"><span>How to claim</span><strong>No code needed</strong></div>'}<p>${escapeHtml(offer.summary)}</p><h2>Terms to check</h2><p>${escapeHtml(offer.terms)}</p><p><a href="${escapeAttribute(offer.termsUrl || offer.sourceUrl)}" target="_blank" rel="noopener noreferrer">Read the verified source${offer.termsUrl ? " and full terms" : ""}</a></p><a class="competition-detail__cta" href="${escapeAttribute(offerData.getOfferExitPath(offer))}" target="_blank" rel="noopener noreferrer">Go to ${escapeHtml(offer.brand)}</a><p class="competition-detail__cta-note">You will leave Freehub. Confirm the code, price, availability and terms before buying.</p></div>
       <aside class="offer-detail__facts"><h2>Offer details</h2><dl><div><dt>Type</dt><dd>${noun}</dd></div><div><dt>Category</dt><dd><a href="${escapeAttribute(getOfferCollectionPath({ category: offer.category }))}">${escapeHtml(getOfferCategoryLabel(offer.category))}</a></dd></div><div><dt>Last checked</dt><dd>${escapeHtml(shared.formatDate(offer.lastChecked))}</dd></div>${offer.expiresAt ? `<div><dt>Expires</dt><dd>${escapeHtml(shared.formatDate(offer.expiresAt))}</dd></div>` : ""}<div><dt>Link disclosure</dt><dd>${offer.sponsored ? "Paid placement" : offer.affiliate ? "Affiliate link" : "Not sponsored or affiliate"}</dd></div></dl></aside></article>
+      ${renderOfferFeedbackPanel(offer)}
       <section class="offer-trust"><strong>Last checked ${escapeHtml(shared.formatDate(offer.lastChecked))}.</strong> This offer linked to ${escapeHtml(offer.brand)}'s source when reviewed. Prices, availability and terms can change, so confirm them before buying.</section>
-    </main>${renderSiteFooter()}</div><script type="module" src="/shared/auth-ui.js"></script></body></html>`;
+    </main>${renderSiteFooter()}</div><script type="module" src="/shared/offer-contribution-ui.js"></script><script type="module" src="/shared/auth-ui.js"></script></body></html>`;
 }
 
 function renderOfferExitPage(offer) {
@@ -7064,6 +7208,24 @@ function getFreeSamplesFaqItems() {
   ];
 }
 
+function renderTrustPageNavigation(page) {
+  if (page.requiresOffers === true) {
+    const links = [
+      { label: "All offers", href: "/offers/" },
+      { label: "Coupon codes", href: "/coupons/" },
+      { label: "Deals", href: "/deals/" },
+      { label: "Submit an offer", href: "/submit-an-offer/" },
+    ];
+    return `<nav class="category-nav" aria-label="Coupon and deal pages">
+          ${links.map((link) => renderNavLink(link, `/${page.slug}/`)).join("\n          ")}
+        </nav>`;
+  }
+
+  return `<nav class="category-nav" aria-label="Competition categories">
+          ${CATEGORY_LINKS.map((link) => renderNavLink(link, `/${page.slug}/`)).join("\n          ")}
+        </nav>`;
+}
+
 function renderTrustPage(page) {
   if (page.slug === "free-stuff-south-africa") {
     return renderFreeStuffParentPage(page);
@@ -7187,10 +7349,10 @@ function renderTrustPage(page) {
     ${renderGoogleTagManagerNoScript()}
     ${renderMetaPixelNoScript()}
     <div class="site-shell">
-      ${renderTopNavigation()}
+      ${renderTopNavigation({ active: page.requiresOffers === true ? "offers" : undefined })}
       ${renderModernHero({
-        className: "hero--utility hero--trust",
-        eyebrow: "Freehub trust",
+        className: page.heroClassName || "hero--utility hero--trust",
+        eyebrow: page.eyebrow || "Freehub trust",
         heading: page.heading,
         intro: page.intro,
         actions: page.actions || [
@@ -7201,9 +7363,9 @@ function renderTrustPage(page) {
       })}
 
       <main id="main-content" class="main-content trust-page">
-        <nav class="category-nav" aria-label="Competition categories">
-          ${CATEGORY_LINKS.map((link) => renderNavLink(link, `/${page.slug}/`)).join("\n          ")}
-        </nav>
+        ${renderTrustPageNavigation(page)}
+
+        ${page.slug === "submit-an-offer" ? renderOfferSubmissionForm() : ""}
 
         <section class="trust-page__content" aria-label="${escapeAttribute(page.heading)}">
           ${page.sections
@@ -7258,6 +7420,7 @@ function renderTrustPage(page) {
       ${renderSiteFooter()}
     </div>
     ${page.slug === "submit-a-competition" ? '<script type="module" src="/shared/submission-ui.js"></script>' : ""}
+    ${page.slug === "submit-an-offer" ? '<script type="module" src="/shared/offer-contribution-ui.js"></script>' : ""}
     <script type="module" src="/shared/auth-ui.js"></script>
   </body>
 </html>
@@ -8643,6 +8806,98 @@ function renderClubPreviewPanel() {
             </ul>
             <p class="hero-preview-panel__note">Referral records stay pending until a campaign is live.</p>
           </aside>`;
+}
+
+function renderOfferSubmissionForm() {
+  const categoryOptions = Object.entries(OFFER_CATEGORY_DEFINITIONS)
+    .map(([value, definition]) => `<option value="${escapeAttribute(value)}">${escapeHtml(definition.label)}</option>`)
+    .join("\n                  ");
+  return `<section class="submission-panel submission-panel--offer" aria-labelledby="offerSubmissionTitle">
+          <div class="submission-panel__header">
+            <p class="section-kicker">Send a private review tip</p>
+            <h2 class="anchor-target" id="offerSubmissionTitle">Offer details</h2>
+            <p>Complete what you can confirm. Freehub will prepare a structured email that you can review before choosing whether to send it.</p>
+          </div>
+          <form class="submission-form" data-offer-submission-form>
+            <div class="submission-form__grid">
+              <label>
+                <span>Your relationship to the offer</span>
+                <select name="submitterRole" required>
+                  <option value="">Select one</option>
+                  <option value="customer">Customer or community member</option>
+                  <option value="brand">Brand or retailer</option>
+                  <option value="agency">Agency or partner</option>
+                  <option value="other">Other</option>
+                </select>
+              </label>
+              <label>
+                <span>Offer type</span>
+                <select name="offerType" required>
+                  <option value="">Select one</option>
+                  <option value="coupon">Coupon code</option>
+                  <option value="deal">Deal without a code</option>
+                  <option value="unsure">Not sure</option>
+                </select>
+              </label>
+              <label>
+                <span>Brand or programme</span>
+                <input name="brand" type="text" autocomplete="organization" maxlength="120" required />
+              </label>
+              <label>
+                <span>Offer title</span>
+                <input name="offerTitle" type="text" maxlength="180" required />
+              </label>
+              <label>
+                <span>Coupon code <small>(if there is one)</small></span>
+                <input name="couponCode" type="text" autocapitalize="characters" autocomplete="off" maxlength="80" />
+              </label>
+              <label>
+                <span>Category</span>
+                <select name="category" required>
+                  <option value="">Select one</option>
+                  ${categoryOptions}
+                </select>
+              </label>
+              <label>
+                <span>Official offer URL</span>
+                <input name="officialUrl" type="url" inputmode="url" maxlength="500" required />
+              </label>
+              <label>
+                <span>Terms URL <small>(optional)</small></span>
+                <input name="termsUrl" type="url" inputmode="url" maxlength="500" />
+              </label>
+              <label>
+                <span>Expiry date <small>(if published)</small></span>
+                <input name="expiryDate" type="date" />
+              </label>
+            </div>
+            <label>
+              <span>How the saving works</span>
+              <textarea name="offerDetails" rows="5" maxlength="1200" required placeholder="Include the discount, minimum spend, eligibility and how it is claimed."></textarea>
+            </label>
+            <label>
+              <span>Extra source or review notes <small>(optional)</small></span>
+              <textarea name="notes" rows="3" maxlength="800" placeholder="For example: where you found the official source or the relationship between an agency and brand."></textarea>
+            </label>
+            <label class="submission-form__consent">
+              <input name="submissionConsent" type="checkbox" required />
+              <span>I am sharing public offer information for manual review. I will not include customer records, payment details, passwords, one-time PINs, identity documents or private account information.</span>
+            </label>
+            <div class="submission-form__actions">
+              <button class="btn btn--primary" type="submit">Prepare Offer Email</button>
+              <p class="submission-form__status" data-contribution-status aria-live="polite"></p>
+            </div>
+          </form>
+          <div class="offer-email-actions" data-email-actions hidden>
+            <a class="btn btn--primary" data-email-draft href="mailto:hello@freehub.co.za">Open Email Draft</a>
+            <button class="btn btn--secondary" type="button" data-copy-contribution>Copy Offer Details</button>
+            <label data-copy-fallback hidden>
+              <span>Copy these offer details</span>
+              <textarea data-copy-text rows="12" readonly></textarea>
+            </label>
+          </div>
+          <p class="submission-panel__privacy">Nothing is sent when you prepare the email. Your email app sends the information only after you choose Send. If the form is unavailable, email <a href="mailto:hello@freehub.co.za?subject=Coupon%20or%20deal%20for%20Freehub%20review">hello@freehub.co.za</a>.</p>
+        </section>`;
 }
 
 function renderCompetitionSubmissionForm() {

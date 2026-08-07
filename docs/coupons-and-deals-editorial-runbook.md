@@ -40,6 +40,22 @@ When an offer ends, change the lifecycle fields promptly. Expired/withdrawn tomb
 
 The full contract is in `data/schemas/offer.schema.json`. It includes brand, offer title and summary, coupon code when applicable, destination and source URLs, category, start/expiry dates, last-checked and review dates, terms, publication and verification states, South African country scope, and affiliate/sponsored metadata.
 
+## Visitor contributions
+
+`/submit-an-offer/` prepares a structured email for manual review. The page does not write to `data/offers.json`, Firestore or any public queue. Problem reports on offer detail pages use the same email handoff. Treat the sender, message and any return address as private correspondence.
+
+The worked/changed buttons store a device-local selection and emit only the Freehub offer ID, offer type and selected result to analytics. They do not send the coupon code, report text or contact details, and they never change `verificationStatus`, `publicationStatus`, `lastChecked` or `reviewDueAt`.
+
+For every tip or report:
+
+1. Open the official source independently; do not approve from the submitted summary alone.
+2. Reject aggregator-only, private, single-use or personally issued codes.
+3. Check the code or claim route, South African eligibility, expiry, minimum spend, account requirements and exclusions.
+4. Create or update a draft record only after the evidence is sufficient.
+5. Follow the normal record workflow before publication. Visitor volume or positive feedback is never verification evidence by itself.
+
+Do not copy personal details from an email into the public registry, generated page copy, analytics, logs or source evidence.
+
 ## Checks
 
 ```powershell

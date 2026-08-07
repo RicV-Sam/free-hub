@@ -194,6 +194,158 @@
   margin-inline: auto;
 }
 
+.offer-contribute {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.5rem;
+  align-items: center;
+  border-block: 1px solid #cddbd6;
+  padding: 1.35rem 0;
+}
+
+.offer-contribute h2,
+.offer-contribute p {
+  margin: 0;
+}
+
+.offer-contribute h2 {
+  margin-top: .3rem;
+}
+
+.offer-contribute p:not(.section-kicker) {
+  max-width: 68ch;
+  margin-top: .45rem;
+  color: #4e5754;
+}
+
+.offer-feedback {
+  display: grid;
+  grid-template-columns: minmax(15rem, .85fr) minmax(0, 1.15fr);
+  gap: 2rem;
+  border-block: 1px solid #cddbd6;
+  padding: 1.5rem 0;
+}
+
+.offer-feedback__intro h2,
+.offer-feedback__intro p {
+  margin: 0;
+}
+
+.offer-feedback__intro h2 {
+  margin-top: .3rem;
+}
+
+.offer-feedback__intro p:not(.section-kicker) {
+  margin-top: .55rem;
+  color: #4e5754;
+  line-height: 1.6;
+}
+
+.offer-feedback__controls {
+  display: grid;
+  gap: .8rem;
+}
+
+.offer-feedback__votes,
+.offer-email-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  align-items: center;
+}
+
+.offer-feedback .offer-feedback__vote,
+.offer-email-actions .btn--secondary {
+  border: 1px solid #176957;
+  background: #fff;
+  color: #12352f;
+  box-shadow: none;
+}
+
+.offer-feedback .offer-feedback__vote:hover,
+.offer-feedback .offer-feedback__vote:focus-visible,
+.offer-email-actions .btn--secondary:hover,
+.offer-email-actions .btn--secondary:focus-visible {
+  background: #dff3ec;
+  color: #12352f;
+}
+
+.offer-feedback .offer-feedback__vote[aria-pressed="true"] {
+  border-color: #176957;
+  background: #176957;
+  color: #fff;
+}
+
+.offer-feedback__report {
+  border-top: 1px solid #dce4e1;
+  padding-top: .7rem;
+}
+
+.offer-feedback__report summary {
+  width: fit-content;
+  min-height: 44px;
+  padding: .65rem 0;
+  color: #176957;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.offer-feedback__report-body {
+  display: grid;
+  gap: 1rem;
+  padding-top: .6rem;
+}
+
+.offer-feedback__privacy,
+.submission-panel__privacy {
+  margin: 0;
+  color: #59615f;
+  font-size: .9rem;
+  line-height: 1.55;
+}
+
+.offer-email-actions {
+  padding: .9rem;
+  border-left: 3px solid #176957;
+  background: #edf8f4;
+}
+
+.offer-email-actions label {
+  display: grid;
+  flex-basis: 100%;
+  gap: .4rem;
+  color: #12352f;
+  font-size: .9rem;
+  font-weight: 800;
+}
+
+.offer-email-actions textarea {
+  width: 100%;
+  padding: .7rem;
+  border: 1px solid #9cb9ae;
+  background: #fff;
+  color: #1f2933;
+  font: inherit;
+  line-height: 1.45;
+  resize: vertical;
+}
+
+.offer-email-actions[hidden],
+.offer-email-actions [hidden] {
+  display: none;
+}
+
+.submission-panel--offer {
+  border-top: 4px solid #176957;
+}
+
+.submission-panel small,
+.offer-feedback small {
+  color: #59615f;
+  font-size: .82em;
+  font-weight: 600;
+}
+
 @media (max-width: 850px) {
   .offer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -201,6 +353,11 @@
 
   .offer-detail {
     grid-template-columns: 1fr;
+  }
+
+  .offer-feedback {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }
 
@@ -214,6 +371,17 @@
   .offer-detail__code {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .offer-contribute {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .offer-contribute .btn,
+  .offer-feedback__votes .btn,
+  .offer-email-actions .btn {
+    width: 100%;
   }
 }
 
@@ -5548,6 +5716,8 @@ body {
 
 @media (max-width: 760px) {
   .site-topbar {
+    position: relative;
+    top: auto;
     width: min(calc(100% - 1rem), var(--max-width));
     grid-template-columns: 1fr auto;
     align-items: start;
@@ -5578,6 +5748,10 @@ body {
 
   .site-topbar__account-icon {
     display: none;
+  }
+
+  .submission-panel--offer .anchor-target {
+    scroll-margin-top: 1rem;
   }
 
   .home-hero-guide {
@@ -5636,6 +5810,15 @@ body {
   .club-tool-card input,
   .club-tool-card select {
     width: 100%;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-topbar__link {
+    padding-inline: 0.15rem;
+    font-size: 0.76rem;
+    overflow-wrap: normal;
+    word-break: normal;
   }
 }
 

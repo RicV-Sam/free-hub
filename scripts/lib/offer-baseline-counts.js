@@ -17,10 +17,12 @@ function getOfferBaselineCounts({ offers, enabled, asOfDate, minimumLandingSize 
 
   return {
     activeOffers,
-    generatedFileCount: enabled ? 3 + categories.length + brands.length + (activeOffers.length * 2) : 0,
-    sitemapUrlCount: activeOffers.length === 0
-      ? 0
-      : activeOffers.length + 1 + types.length + indexableCategories.length + indexableBrands.length,
+    generatedFileCount: enabled ? 4 + categories.length + brands.length + (activeOffers.length * 2) : 0,
+    sitemapUrlCount: enabled
+      ? 1 + (activeOffers.length === 0
+        ? 0
+        : activeOffers.length + 1 + types.length + indexableCategories.length + indexableBrands.length)
+      : 0,
   };
 }
 
