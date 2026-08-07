@@ -57,15 +57,19 @@ test("offer routes and exact feature flag are safe", () => {
 test("registry rejects duplicate identifiers and production records are validated", () => {
   assert.equal(offerData.validateOfferRegistry([fixture(), fixture()]).valid, false);
   const registry = require("../../data/offers.json");
-  assert.equal(registry.length, 9);
+  assert.equal(registry.length, 23);
   assert.equal(offerData.validateOfferRegistry(registry).valid, true);
   assert.deepEqual(
     registry.reduce((counts, offer) => ({ ...counts, [offer.type]: counts[offer.type] + 1 }), { coupon: 0, deal: 0 }),
-    { coupon: 3, deal: 6 }
+    { coupon: 4, deal: 19 }
   );
   const allowedSourceHosts = new Set([
     "www.capitecbank.co.za", "www.gadventures.com", "ucount.standardbank.co.za",
-    "www.discovery.co.za", "www.unionpayintl.com",
+    "www.discovery.co.za", "www.unionpayintl.com", "www.mrp.com",
+    "www.woolworths.co.za", "www.fnb.co.za", "www.1life.co.za",
+    "www.dischem.co.za", "support.multiply.co.za", "citylodgehotels.com",
+    "www.andbeyond.com", "www.bookmundi.com", "steers.co.za", "play.google.com",
+    "www.cellc.co.za", "www.hirschs.co.za",
   ]);
   assert.equal(registry.every((offer) => allowedSourceHosts.has(new URL(offer.sourceUrl).hostname)), true);
 });
@@ -85,9 +89,9 @@ test("the committed offer schema compiles and matches runtime code rules", () =>
 test("offer baseline counts distinguish generated routes from indexable routes", () => {
   const registry = require("../../data/offers.json");
   const counts = getOfferBaselineCounts({ offers: registry, enabled: true, asOfDate: "2026-08-07" });
-  assert.equal(counts.activeOffers.length, 9);
-  assert.equal(counts.generatedFileCount, 33);
-  assert.equal(counts.sitemapUrlCount, 17);
+  assert.equal(counts.activeOffers.length, 23);
+  assert.equal(counts.generatedFileCount, 79);
+  assert.equal(counts.sitemapUrlCount, 36);
   assert.deepEqual(
     getOfferBaselineCounts({ offers: registry, enabled: false, asOfDate: "2026-08-07" }),
     { activeOffers: [], generatedFileCount: 0, sitemapUrlCount: 0 }

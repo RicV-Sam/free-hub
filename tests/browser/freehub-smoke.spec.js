@@ -1014,16 +1014,16 @@ test("offers portal separates coupons and deals with honest indexability", async
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Coupons and Deals in South Africa");
   await expectCanonical(page, "/offers/");
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index, follow, max-image-preview:large");
-  await expect(page.locator("article.offer-card")).toHaveCount(9);
+  await expect(page.locator("article.offer-card")).toHaveCount(23);
   const structuredData = (await page.locator('script[type="application/ld+json"]').allTextContents()).join("\n");
   expect(structuredData).not.toContain('"@type":"Offer"');
 
   await page.goto("/coupons/");
-  await expect(page.locator("article.offer-card")).toHaveCount(3);
+  await expect(page.locator("article.offer-card")).toHaveCount(4);
   await expect(page.getByText("CAPITEC15", { exact: true })).toBeVisible();
 
   await page.goto("/deals/");
-  await expect(page.locator("article.offer-card")).toHaveCount(6);
+  await expect(page.locator("article.offer-card")).toHaveCount(19);
   await expect(page.getByText("No code needed", { exact: true }).first()).toBeVisible();
 
   await page.goto("/offers/category/pets/");
