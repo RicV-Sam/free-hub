@@ -16,7 +16,7 @@ const OPPORTUNITIES_PATH = path.join(ROOT_DIR, "data", "opportunities.json");
 const OPPORTUNITY_SOURCE_EVIDENCE_PATH = path.join(ROOT_DIR, "data", "opportunity-source-evidence.json");
 const OFFERS_PATH = path.join(ROOT_DIR, "data", "offers.json");
 const RELATIVE_ASSET_PATH = "/";
-const RELEASE_ASSET_VERSION = "20260806-adsterra-evergreen-v1";
+const RELEASE_ASSET_VERSION = "20260808-about-v1";
 const GUEST_ADS_SCRIPT_SRC = `/shared/guest-ads.js?v=${RELEASE_ASSET_VERSION}`;
 const OUTBOUND_HANDOFF_SCRIPT_SRC = `/shared/outbound-handoff.js?v=${RELEASE_ASSET_VERSION}`;
 const GUEST_ADS_SCRIPT = `<script type="module" src="${GUEST_ADS_SCRIPT_SRC}"></script>`;
@@ -51,10 +51,10 @@ const VOUCHER_DISCOVERY_RESOURCE_HOSTS = Object.freeze({
 const VOUCHER_DISCOVERY_RESOURCE_IDS = Object.freeze(Object.keys(VOUCHER_DISCOVERY_RESOURCE_HOSTS));
 const CSS_ASSET_VERSION = RELEASE_ASSET_VERSION;
 const FREEHUB_REFER_WIN_CONFIG = {
-  referWinCampaignEnabled: true,
-  referWinLiveReady: true,
+  referWinCampaignEnabled: false,
+  referWinLiveReady: false,
   referWinPrototypeEnabled: false,
-  campaignStatusLabel: "Live: 18 June to 31 July 2026",
+  campaignStatusLabel: "Ended: 31 July 2026",
   campaignMonth: "2026-07",
   campaignStartDate: "2026-06-18",
   campaignEndDate: "2026-07-31",
@@ -175,28 +175,13 @@ const opportunityRouteRenderer = createOpportunityRouteRenderer({
 const TRUST_PAGE_DEFINITIONS = [
   {
     slug: "about",
-    title: "About Freehub | South African Competition Discovery",
+    title: "What Is FreeHub? South African Competitions & Free Club",
     description:
-      "Learn what Freehub does, how it helps South Africans discover competitions, and why every listing points users to the official promoter.",
-    heading: "About Freehub",
+      "Learn how FreeHub finds and organises South African competitions, links to official promoter sources and helps members save and track entries with FreeHub Club.",
+    heading: "A simpler, safer way to find South African competitions",
     intro:
-      "Freehub is a South African competition discovery site. We help people find live competitions, giveaways, prize draws and brand promotions, then point them to the official promoter to enter.",
-    sections: [
-      {
-        heading: "What Freehub does",
-        paragraphs: [
-          "Freehub organises competition information so users can compare closing dates, entry methods, purchase requirements and source links before clicking through.",
-          "We list competitions from South African brands, retailers, media companies and official promotion pages where the listing has enough information to be useful.",
-        ],
-      },
-      {
-        heading: "What Freehub does not do",
-        paragraphs: [
-          "Freehub does not run the competitions listed on this site, choose winners, collect entries for promoters or guarantee that a promoter will accept an entry.",
-          "Competition details can change on official promoter pages, so users should always read the promoter's current terms before entering.",
-        ],
-      },
-    ],
+      "FreeHub brings current South African competitions, giveaways and prize draws into one place. Compare the prize, closing date, entry method and entry cost, then continue to the official promoter when you are ready to enter.",
+    sections: [],
   },
   {
     slug: "contact",
@@ -307,45 +292,6 @@ const TRUST_PAGE_DEFINITIONS = [
         heading: "Freehub is not the promoter",
         paragraphs: [
           "Freehub lists public competition information and links users to official promoter pages. The promoter remains responsible for entry forms, eligibility checks, winner selection, prize fulfilment and its own privacy notices.",
-        ],
-      },
-    ],
-  },
-  {
-    slug: "freehub-account-benefits",
-    title: "Why Sign Up for Freehub? | Saved and Hidden Competitions",
-    description:
-      "See what a Freehub account adds, including no Adsterra ads while signed in, saved competitions, hidden seen competitions and optional email alerts.",
-    heading: "Why Sign Up for Freehub?",
-    intro:
-      "Freehub stays open for browsing, but signing in gives regular competition hunters a cleaner, more personal way to track what matters.",
-    sections: [
-      {
-        heading: "Browse without Adsterra ads while signed in",
-        paragraphs: [
-          "After Freehub confirms that you are signed in, it does not load the Adsterra Popunder or Social Bar scripts on eligible public pages.",
-          "Freehub editorial content, official promoter links and clearly identified house or partner links may still appear. This benefit is specifically about third-party Adsterra advertising.",
-        ],
-      },
-      {
-        heading: "Hide competitions you have already checked",
-        paragraphs: [
-          "Signed-in users can hide competitions they have already seen or decided to skip. Freehub stores the competition ID in your account and hides matching cards while you browse.",
-          "Hidden competitions are not deleted from Freehub and you can show ignored competitions again if you want to review or undo the choice.",
-        ],
-      },
-      {
-        heading: "Save the competitions worth coming back to",
-        paragraphs: [
-          "Saving a competition keeps useful listings attached to your Freehub account instead of relying on browser history or screenshots.",
-          "This is helpful for competitions with purchase steps, closing dates, receipt uploads or official terms you want to check again before entering.",
-        ],
-      },
-      {
-        heading: "Keep alerts separate from browsing",
-        paragraphs: [
-          "Email alerts are optional. You can browse, search and open official promoter links without signing in.",
-          "When you do sign in, Google and email-link sign-in are available so Freehub does not need to store a password.",
         ],
       },
     ],
@@ -2234,6 +2180,8 @@ function main() {
     fs.writeFileSync(path.join(outputDirectory, "index.html"), renderTrustPage(page));
   });
 
+  writeLegacyRedirectPages();
+
   writeContentPages(activeCompetitions);
   writeClubPages(activeCompetitions);
   writeReferAndWinPages();
@@ -2868,7 +2816,6 @@ function renderSiteFooter(options = {}) {
               ${OFFERS_ENABLED ? '<a href="/offers/">Coupons &amp; Deals</a>\n              <a href="/coupons/">Coupon codes</a>\n              <a href="/deals/">Deals</a>\n              <a href="/submit-an-offer/">Submit an offer</a>' : ""}
               <a href="/submit-a-competition/">Submit a competition</a>
               <a href="/report-a-competition/">Report a competition</a>
-              <a href="/freehub-account-benefits/">Account benefits</a>
               <a href="/club/">Freehub Club</a>
               <a href="/refer-and-win/">Refer &amp; Win</a>
             </nav>
@@ -2891,7 +2838,7 @@ function renderSiteFooter(options = {}) {
           <div>
             <p class="site-footer__title">Site</p>
             <nav class="site-footer__links" aria-label="Site links">
-              <a href="/about/">About</a>
+              <a href="/about/">About Freehub</a>
               <a href="/contact/">Contact</a>
               <a href="/privacy-policy/">Privacy policy</a>
               <a href="/terms-of-use/">Terms of use</a>
@@ -5757,6 +5704,7 @@ function renderHubSupportLinks(routeContext, competitions) {
 function getHubInternalLinks(slug) {
   const linksBySlug = {
     competitions: [
+      { label: "Why Freehub links to official sources", href: "/about/" },
       { label: "Browse competition brands", href: "/brands/" },
       { label: "New competitions", href: "/new-competitions-south-africa/" },
       { label: "Win a car competitions", href: "/win-a-car/" },
@@ -6487,13 +6435,13 @@ function renderHomeTrustSection() {
               <p class="section-kicker">Why trust Freehub?</p>
               <h2 class="home-section__title">Built for safer competition discovery</h2>
             </div>
-            <a class="home-section__link" href="/how-we-verify-competitions/">How we check listings</a>
+            <a class="home-section__link" href="/about/">How Freehub works</a>
           </div>
           <div class="trust-grid">
             <article class="trust-card">
               <span class="trust-card__label">Official sources</span>
               <h3>Promoter links stay visible</h3>
-              <p>Freehub sends users to official promoter pages or campaign partners instead of collecting entries on our own site.</p>
+              <p>Freehub sends users to official promoter pages or campaign partners instead of collecting entries on our own site. <a href="/how-we-verify-competitions/">See what we check</a>.</p>
             </article>
             <article class="trust-card">
               <span class="trust-card__label">Freshness</span>
@@ -7226,7 +7174,261 @@ function renderTrustPageNavigation(page) {
         </nav>`;
 }
 
+function renderAboutPage(page) {
+  const canonicalUrl = `${shared.CANONICAL_ORIGIN}/about/`;
+  const aboutPageData = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": `${canonicalUrl}#aboutpage`,
+    name: page.heading,
+    description: page.description,
+    url: canonicalUrl,
+    inLanguage: "en-ZA",
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Freehub",
+      url: `${shared.CANONICAL_ORIGIN}/`,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Freehub",
+      url: `${shared.CANONICAL_ORIGIN}/`,
+      logo: {
+        "@type": "ImageObject",
+        url: `${shared.CANONICAL_ORIGIN}/FH%20logo.png`,
+      },
+    },
+  };
+  const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${shared.CANONICAL_ORIGIN}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "About Freehub",
+        item: canonicalUrl,
+      },
+    ],
+  };
+
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${escapeHtml(page.title)}</title>
+    <meta name="description" content="${escapeAttribute(page.description)}" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="${escapeAttribute(page.title)}" />
+    <meta property="og:description" content="${escapeAttribute(page.description)}" />
+    <meta property="og:url" content="${escapeAttribute(canonicalUrl)}" />
+    <meta property="og:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${escapeAttribute(page.title)}" />
+    <meta name="twitter:description" content="${escapeAttribute(page.description)}" />
+    <meta name="twitter:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
+    <script id="structured-data-aboutpage" type="application/ld+json">${escapeScript(JSON.stringify(aboutPageData))}</script>
+    <script id="structured-data-breadcrumb" type="application/ld+json">${escapeScript(JSON.stringify(breadcrumbData))}</script>
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
+    ${renderGoogleTagManagerHead("{ page_type: 'about', trust_page: 'about' }")}
+    ${renderMetaPixelHead()}
+  </head>
+  <body>
+    ${renderGoogleTagManagerNoScript()}
+    ${renderMetaPixelNoScript()}
+    <div class="site-shell">
+      ${renderTopNavigation()}
+      ${renderModernHero({
+        className: "hero--about hero--no-preview",
+        eyebrow: "About Freehub",
+        heading: page.heading,
+        intro: page.intro,
+        actions: [
+          { label: "Browse Live Competitions", href: "/competitions/", className: "btn--primary", attributes: 'data-about-event="about_browse_competitions_click" data-about-placement="hero"' },
+          { label: "Join Freehub Club", href: "/club/", className: "btn--secondary", attributes: 'data-about-event="about_join_club_click" data-about-placement="hero"' },
+          { label: "Follow on WhatsApp", href: WHATSAPP_CHANNEL_URL, className: "btn--whatsapp", target: "_blank", rel: "noopener noreferrer", attributes: 'data-about-event="about_whatsapp_click" data-about-placement="hero"' },
+        ],
+        trustItems: ["Official source links", "Clear entry-cost labels", "Free to browse", "Freehub does not collect entries"],
+      })}
+
+      <main id="main-content" class="main-content about-page">
+        <nav class="breadcrumb about-breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">About Freehub</span>
+        </nav>
+
+        <section class="about-intro about-section" aria-labelledby="about-why-heading">
+          <div>
+            <p class="section-kicker">Why Freehub exists</p>
+            <h2 id="about-why-heading">Competitions are everywhere. The useful details should not be hard to compare.</h2>
+          </div>
+          <div class="about-intro__copy">
+            <p>South African competitions are spread across promoter websites, apps, social posts, WhatsApp campaigns, till slips and store promotions. That makes it easy to miss a closing date, overlook a purchase requirement or lose the official entry route.</p>
+            <p>Freehub organises those public details into clear listings so you can decide what is worth opening. Browsing is free, and you do not need an account to view listings or continue to an official promoter source.</p>
+          </div>
+        </section>
+
+        <section class="about-section" aria-labelledby="about-how-heading">
+          <div class="about-section__header">
+            <p class="section-kicker">How Freehub works</p>
+            <h2 id="about-how-heading">From discovery to entry in four clear steps</h2>
+          </div>
+          <ol class="about-steps">
+            <li><span class="about-step__number" aria-hidden="true">01</span><div><h3>Discover</h3><p>Find public competitions from South African brands, retailers, media companies and campaign partners.</p></div></li>
+            <li><span class="about-step__number" aria-hidden="true">02</span><div><h3>Compare</h3><p>Check the prize, closing date, entry route, eligibility and whether entry is free, purchase-required, account-required or paid.</p></div></li>
+            <li><span class="about-step__number" aria-hidden="true">03</span><div><h3>Enter through the promoter</h3><p>Continue to the official website, app, WhatsApp number, USSD code, social page or other route named by the promoter.</p></div></li>
+            <li><span class="about-step__number" aria-hidden="true">04</span><div><h3>Save and track</h3><p>Freehub Club members can keep useful listings and mark them as interested, entered or skipped.</p></div></li>
+          </ol>
+        </section>
+
+        <section class="about-checks about-section" aria-labelledby="about-checks-heading">
+          <div class="about-checks__statement">
+            <p class="section-kicker">What Freehub checks</p>
+            <h2 id="about-checks-heading">Useful facts, checked against the public source where possible</h2>
+            <p>Before publishing, Freehub looks for enough information to help someone make an informed click. Unclear or incomplete records can be held back for further review.</p>
+            <a href="/how-we-verify-competitions/">Read the full listing-check process</a>
+          </div>
+          <ul class="about-check-list">
+            <li><strong>Promoter and source</strong><span>The named brand, retailer, publisher or campaign page.</span></li>
+            <li><strong>Prize and closing date</strong><span>What is advertised and when the entry period is due to end.</span></li>
+            <li><strong>Entry route</strong><span>The official website, app, WhatsApp, USSD, social or in-store mechanic.</span></li>
+            <li><strong>Eligibility</strong><span>Visible age, location, account or participation requirements.</span></li>
+            <li><strong>Cost and conditions</strong><span>Free entry, purchase, paid entry, receipt, loyalty or account requirements.</span></li>
+          </ul>
+          <p class="about-caveat"><strong>Important:</strong> a checked listing is not a Freehub guarantee. Promotion details can change, and the promoter's current terms and conditions remain the final source of truth.</p>
+        </section>
+
+        <section class="about-club about-section" aria-labelledby="about-club-heading">
+          <div class="about-club__copy">
+            <p class="section-kicker">Freehub Club</p>
+            <h2 id="about-club-heading">Enter more competitions without losing track</h2>
+            <p>Freehub Club is a free account for regular competition hunters. Use Google or an email sign-in link, so Freehub does not need to store a password.</p>
+            <div class="about-actions">
+              <a class="btn btn--primary" href="/club/" data-about-event="about_join_club_click" data-about-placement="club">Join Freehub Club Free</a>
+              <a class="btn btn--secondary" href="/club/">See all Club benefits</a>
+            </div>
+          </div>
+          <ul class="about-benefits">
+            <li><strong>Save competitions</strong><span>Keep promising listings attached to your account.</span></li>
+            <li><strong>Track your progress</strong><span>Mark listings as interested, entered or skipped.</span></li>
+            <li><strong>Choose your alerts</strong><span>Keep optional alert preferences with your account.</span></li>
+            <li><strong>Browse without Adsterra ads</strong><span>Popunder and Social Bar scripts are not loaded while you are signed in.</span></li>
+          </ul>
+        </section>
+
+        <section class="about-boundaries about-section" aria-labelledby="about-boundaries-heading">
+          <div>
+            <p class="section-kicker">Clear boundaries</p>
+            <h2 id="about-boundaries-heading">Freehub helps you find competitions — we do not run them</h2>
+            <p>Freehub is an independent discovery and information service. A listing does not mean Freehub or an advertiser is the promoter.</p>
+          </div>
+          <ul>
+            <li>We do not accept competition entries.</li>
+            <li>We do not choose or contact winners for promoters.</li>
+            <li>We do not supply or deliver prizes.</li>
+            <li>We do not guarantee that an entry will be accepted.</li>
+            <li>We do not replace the promoter's official terms.</li>
+          </ul>
+        </section>
+
+        <section class="about-safety about-section" aria-labelledby="about-safety-heading">
+          <div>
+            <p class="section-kicker">Safety and transparency</p>
+            <h2 id="about-safety-heading">Unexpected winner message? Pause before you pay or share details.</h2>
+            <p>Check the message independently with the named promoter. Be suspicious of unofficial accounts, changed contact details, urgent payment demands or requests for passwords, PINs and one-time codes.</p>
+          </div>
+          <div class="about-safety__actions">
+            <a class="btn btn--secondary" href="/how-to-enter-competitions-safely/" data-about-event="about_safety_guide_click" data-about-placement="safety">Read the competition safety guide</a>
+            <a href="/fake-competition-winner-messages/">How to check a winner message</a>
+            <a href="/report-a-competition/">Report a listing problem</a>
+          </div>
+        </section>
+
+        <section class="about-promoters about-section" aria-labelledby="about-promoters-heading">
+          <div>
+            <p class="section-kicker">Brands, agencies and promoters</p>
+            <h2 id="about-promoters-heading">Submit a public South African competition for review</h2>
+            <p>Send the official source, entry requirements, closing date and prize details. Every submission is reviewed manually; submitting does not guarantee publication.</p>
+          </div>
+          <a class="btn btn--primary" href="/submit-a-competition/" data-about-event="about_submit_competition_click" data-about-placement="promoters">Submit a Competition</a>
+        </section>
+
+        <section class="trust-faq about-faq" aria-labelledby="about-faq-heading">
+          <div class="about-section__header">
+            <p class="section-kicker">Questions about Freehub</p>
+            <h2 id="about-faq-heading">What first-time visitors usually want to know</h2>
+          </div>
+          <details class="trust-faq__item"><summary>Is Freehub free to use?</summary><p>Yes. Anyone can browse competition listings and open official promoter sources without creating an account. Freehub Club is also free.</p></details>
+          <details class="trust-faq__item"><summary>Does Freehub run the competitions it lists?</summary><p>No. Freehub organises public competition information and links to promoter sources. The named promoter controls entries, winner selection and prize fulfilment.</p></details>
+          <details class="trust-faq__item"><summary>What does a checked or verified listing mean?</summary><p>It means Freehub found enough public source information to review key details such as the promoter, prize, closing date, entry route and costs. It is not a guarantee, and the promoter's current terms remain final.</p></details>
+          <details class="trust-faq__item"><summary>Do I need a Club account to enter?</summary><p>No. Entries happen through official promoter routes. Club is an optional way to save listings, track your progress and keep alert preferences.</p></details>
+          <details class="trust-faq__item"><summary>How can I tell Freehub about a problem?</summary><p>Use the report page for broken links, expired listings, suspicious promotions or corrections. Include the Freehub page and official source URL where possible.</p></details>
+        </section>
+
+        <section class="home-cta about-final-cta" aria-labelledby="about-final-heading">
+          <p class="section-kicker">Ready when you are</p>
+          <h2 id="about-final-heading">Find a competition worth checking today</h2>
+          <p>Browse current listings, join the free Club to keep track, or follow the WhatsApp channel for Freehub updates.</p>
+          <div class="home-cta__actions">
+            <a class="btn btn--primary" href="/competitions/" data-about-event="about_browse_competitions_click" data-about-placement="final">Browse Live Competitions</a>
+            <a class="btn btn--secondary" href="/club/" data-about-event="about_join_club_click" data-about-placement="final">Join Freehub Club</a>
+            <a class="btn btn--whatsapp" href="${escapeAttribute(WHATSAPP_CHANNEL_URL)}" target="_blank" rel="noopener noreferrer" data-about-event="about_whatsapp_click" data-about-placement="final">Follow on WhatsApp</a>
+          </div>
+        </section>
+      </main>
+
+      ${renderSiteFooter()}
+    </div>
+    <script src="/shared/about-analytics.js" defer></script>
+    <script type="module" src="/shared/auth-ui.js"></script>
+  </body>
+</html>
+`;
+}
+
+function renderLegacyAccountBenefitsRedirect() {
+  const destination = `${shared.CANONICAL_ORIGIN}/club/`;
+
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Freehub Club Account Benefits</title>
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="${escapeAttribute(destination)}" />
+    <meta http-equiv="refresh" content="0; url=/club/" />
+    <script>window.location.replace('/club/');</script>
+  </head>
+  <body>
+    <main>
+      <h1>Freehub Club account benefits have moved</h1>
+      <p>Continue to <a href="/club/">Freehub Club</a> for current account benefits and sign-in options.</p>
+    </main>
+  </body>
+</html>
+`;
+}
+
+function writeLegacyRedirectPages() {
+  const outputDirectory = path.join(ROOT_DIR, "freehub-account-benefits");
+  fs.mkdirSync(outputDirectory, { recursive: true });
+  fs.writeFileSync(path.join(outputDirectory, "index.html"), renderLegacyAccountBenefitsRedirect());
+}
+
 function renderTrustPage(page) {
+  if (page.slug === "about") {
+    return renderAboutPage(page);
+  }
   if (page.slug === "free-stuff-south-africa") {
     return renderFreeStuffParentPage(page);
   }
@@ -7384,12 +7586,6 @@ function renderTrustPage(page) {
           title: "Want competition alerts instead?",
           text: "For alerts, sign in with Google or an email link. For company submissions, use the dedicated submission page.",
         }) : ""}
-        ${page.slug === "freehub-account-benefits" ? renderGlobalAuthPanel({
-          id: "account-benefits",
-          title: "Try signed-in competition tracking",
-          text: "Sign in with Google or an email link to browse without Adsterra ads, save competitions, hide ones you have seen and keep alert preferences with your account.",
-        }) : ""}
-
         ${freeResourceRenderer.renderFreeResourceSection({
           resources: pageResources,
           heading: page.resourceTitle || "Best free options right now",
@@ -7703,9 +7899,9 @@ function renderClubLandingPage() {
         "No. After Freehub confirms that you are signed in, it does not load the Adsterra Popunder or Social Bar scripts on eligible public pages. Freehub editorial, official-source and clearly identified house or partner links may still appear.",
     },
     {
-      question: "Is Refer and Win live?",
+      question: "What happened to the first Refer and Win campaign?",
       answer:
-        "Yes. The first Freehub Refer and Win campaign is live from 18 June 2026 to 31 July 2026, ending at 23:59 SAST on 31 July 2026, with R250 airtime as the prize and manual review required before referrals count.",
+        "The first Freehub Refer and Win campaign ended on 31 July 2026. Sign in to Freehub Club or follow the WhatsApp channel for future campaign announcements.",
     },
   ];
   const faqStructuredData = buildTrustPageFaqStructuredData(faqItems);
@@ -7743,7 +7939,7 @@ function renderClubLandingPage() {
           { label: "Continue with Google", href: "/club/dashboard/", className: "btn--primary" },
           { label: "Browse Competitions", href: "/competitions/", className: "btn--secondary" },
         ],
-        trustItems: ["Free account", "No Adsterra ads while signed in", "Official source links", "Refer & Win live"],
+        trustItems: ["Free account", "No Adsterra ads while signed in", "Official source links", "Optional alerts"],
         previewMarkup: renderClubPreviewPanel(),
       })}
       <main id="main-content" class="main-content club-page">
@@ -7758,22 +7954,36 @@ function renderClubLandingPage() {
             <article class="club-feature"><h3>Save competitions</h3><p>Keep promising listings in one account instead of relying on screenshots, browser history or memory.</p></article>
             <article class="club-feature"><h3>Track your status</h3><p>Mark saved competitions as interested, entered or skipped so your dashboard stays useful.</p></article>
             <article class="club-feature"><h3>Choose your alerts</h3><p>Competition alerts and occasional Freehub updates stay optional and can be kept with your account.</p></article>
-            <article class="club-feature"><h3>Share your link</h3><p>Your referral link can be used for the current Refer &amp; Win campaign. Referrals only count after Freehub admin review.</p></article>
+            <article class="club-feature"><h3>Hide listings you have checked</h3><p>Skip competitions you do not want to see, then show them again later if you change your mind.</p></article>
             <article class="club-feature"><h3>Stay private</h3><p>Freehub does not collect competition entries. Promoter forms, winner selection and prize fulfilment remain with the official promoter.</p></article>
           </div>
         </section>
 
         <section class="club-section club-section--notice" aria-label="Refer and Win status">
           <div>
-            <p class="section-kicker">First campaign</p>
-            <h2>Refer &amp; Win is live with a R250 airtime prize</h2>
-            <p>Club members can opt in, add a South African mobile number for prize fulfilment, accept the rules and share their referral link. The first campaign runs from 18 June 2026 to 31 July 2026, ending at 23:59 SAST on 31 July 2026.</p>
+            <p class="section-kicker">Campaign update</p>
+            <h2>The first Refer &amp; Win campaign has ended</h2>
+            <p>The first campaign closed at 23:59 SAST on 31 July 2026. Sign in to Freehub Club or follow the WhatsApp channel for future campaign announcements.</p>
           </div>
           <div class="club-section__actions">
             <a class="btn btn--primary" href="/refer-and-win/">Learn about Refer &amp; Win</a>
             <a class="btn btn--secondary" href="/refer-and-win/terms/">Campaign rules</a>
             <a class="btn btn--secondary" href="/club/dashboard/">Open Club dashboard</a>
+            <a class="btn btn--whatsapp" href="${escapeAttribute(WHATSAPP_CHANNEL_URL)}" target="_blank" rel="noopener noreferrer">Follow on WhatsApp</a>
           </div>
+        </section>
+
+        <section class="club-section club-section--split" aria-label="Freehub account and privacy details">
+          <article>
+            <p class="section-kicker">Simple sign-in</p>
+            <h2>Your account adds organisation, not a barrier to browsing</h2>
+            <p>You can browse, search and open official promoter links without signing in. Google and email-link sign-in are available, so Freehub does not need to store a password.</p>
+          </article>
+          <article class="club-feature">
+            <h3>Your choices stay reversible</h3>
+            <p>Saved and skipped listings stay attached to your account. Hidden competitions are not deleted from Freehub, and you can show or restore them again.</p>
+            <p><a href="/about/">Learn more about Freehub and how listings work</a></p>
+          </article>
         </section>
 
         <section class="trust-faq" aria-label="Freehub Club FAQ">
@@ -7824,7 +8034,7 @@ function renderClubDashboardPage(activeCompetitions = []) {
             <div>
               <p class="section-kicker">Referral link</p>
               <h2>Your Freehub Club link</h2>
-              <p>Refer &amp; Win is live with a R250 airtime prize. The first campaign runs from 18 June 2026 to 31 July 2026, ending at 23:59 SAST on 31 July 2026. You must opt in from your account and referrals only count after manual review.</p>
+              <p>The first Refer &amp; Win campaign ended on 31 July 2026. Referral records remain available for review, but no new referrals count toward that closed campaign.</p>
             </div>
             <div class="club-copy-row">
               <input type="text" readonly data-club-referral-link aria-label="Your Freehub Club referral link" />
@@ -9114,6 +9324,7 @@ function getTrustPageUsefulLinks(page) {
   }
 
   return [
+    { label: "How Freehub works", href: "/about/" },
     { label: "Browse competitions", href: "/" },
     { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
     { label: "Car competitions", href: "/win-a-car/" },
@@ -9754,6 +9965,7 @@ function renderCompetitionTrustStrip(competition, officialSource, lastChecked) {
 
   return `<div class="detail-trust-strip" aria-label="Listing trust details">
               ${items.map((item) => `<span>${escapeHtml(item)}</span>`).join("\n              ")}
+              <a href="/about/">How Freehub checks and lists competitions</a>
             </div>`;
 }
 

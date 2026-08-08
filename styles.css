@@ -5822,6 +5822,318 @@ body {
   }
 }
 
+/* About Freehub marketing and explainer page */
+.hero--about {
+  background:
+    radial-gradient(circle at 88% 18%, rgba(219, 39, 119, 0.14), transparent 25rem),
+    linear-gradient(145deg, #f0fdfa 0%, #ffffff 58%, #fff7ed 100%);
+}
+
+.hero--about .hero__copy {
+  max-width: 54rem;
+}
+
+.about-page {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+.about-breadcrumb {
+  margin-bottom: calc(clamp(2rem, 5vw, 4.5rem) * -0.55);
+}
+
+.about-section {
+  min-width: 0;
+}
+
+.about-section h2,
+.about-faq h2,
+.about-final-cta h2 {
+  margin: 0;
+  max-width: 20ch;
+  font-size: clamp(1.65rem, 3.2vw, 2.65rem);
+  line-height: 1.08;
+}
+
+.about-section__header {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 1.35rem;
+}
+
+.about-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(1.5rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.about-intro__copy {
+  display: grid;
+  gap: 1rem;
+  color: var(--muted);
+  font-size: 1.06rem;
+  line-height: 1.75;
+}
+
+.about-intro__copy p,
+.about-checks p,
+.about-club p,
+.about-boundaries p,
+.about-safety p,
+.about-promoters p {
+  margin: 0;
+}
+
+.about-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 2px solid var(--accent);
+}
+
+.about-steps li {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+  padding: 1.4rem clamp(1rem, 2.2vw, 1.5rem) 0;
+  border-left: 1px solid rgba(17, 24, 39, 0.12);
+}
+
+.about-steps li:first-child {
+  border-left: 0;
+}
+
+.about-step__number {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.about-steps h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.08rem;
+}
+
+.about-steps p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.91rem;
+  line-height: 1.55;
+}
+
+.about-checks {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  padding: clamp(1.4rem, 4vw, 3rem);
+  border-radius: var(--radius-lg);
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.about-checks__statement {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.about-checks__statement p {
+  color: #cbd5e1;
+  line-height: 1.65;
+}
+
+.about-checks__statement a,
+.about-safety a,
+.about-club a:not(.btn) {
+  color: inherit;
+  font-weight: 800;
+}
+
+.about-check-list,
+.about-benefits {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-check-list li,
+.about-benefits li {
+  display: grid;
+  grid-template-columns: minmax(8rem, 0.7fr) minmax(0, 1.3fr);
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.about-check-list span {
+  color: #cbd5e1;
+}
+
+.about-caveat {
+  grid-column: 1 / -1;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.about-club {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: start;
+}
+
+.about-club__copy {
+  display: grid;
+  gap: 1rem;
+}
+
+.about-club__copy > p:not(.section-kicker) {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.about-actions,
+.about-safety__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.about-benefits li {
+  border-bottom-color: rgba(17, 24, 39, 0.12);
+}
+
+.about-benefits span {
+  color: var(--muted);
+}
+
+.about-boundaries {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  padding-block: clamp(1.5rem, 4vw, 3rem);
+  border-block: 1px solid rgba(17, 24, 39, 0.14);
+}
+
+.about-boundaries > div {
+  display: grid;
+  gap: 1rem;
+}
+
+.about-boundaries p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.about-boundaries ul {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  padding-left: 1.3rem;
+  font-weight: 750;
+}
+
+.about-safety,
+.about-promoters {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(15rem, 0.8fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.about-safety > div:first-child,
+.about-promoters > div {
+  display: grid;
+  gap: 1rem;
+}
+
+.about-safety p,
+.about-promoters p {
+  max-width: 65ch;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.about-safety__actions {
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.about-promoters {
+  padding: clamp(1.3rem, 3.5vw, 2.5rem);
+  border-left: 0.35rem solid var(--accent);
+  background: rgba(15, 118, 110, 0.07);
+}
+
+.about-promoters > .btn {
+  justify-self: end;
+}
+
+.about-final-cta {
+  text-align: left;
+  justify-items: start;
+}
+
+.about-final-cta p:not(.section-kicker) {
+  max-width: 62ch;
+}
+
+@media (max-width: 900px) {
+  .about-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-steps li:nth-child(3) {
+    border-left: 0;
+  }
+
+  .about-steps li:nth-child(n + 3) {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .about-intro,
+  .about-checks,
+  .about-club,
+  .about-boundaries,
+  .about-safety,
+  .about-promoters {
+    grid-template-columns: 1fr;
+  }
+
+  .about-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .about-steps li,
+  .about-steps li:nth-child(3) {
+    margin-top: 0;
+    padding-block: 1rem;
+    border-left: 0;
+    border-bottom: 1px solid rgba(17, 24, 39, 0.12);
+  }
+
+  .about-check-list li,
+  .about-benefits li {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+
+  .about-promoters > .btn {
+    justify-self: start;
+  }
+}
+
 [hidden] {
   display: none !important;
 }

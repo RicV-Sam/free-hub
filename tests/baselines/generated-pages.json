@@ -216,6 +216,17 @@
       "inSitemap": true
     },
     {
+      "route": "/about/",
+      "file": "about/index.html",
+      "title": "What Is FreeHub? South African Competitions & Free Club",
+      "description": "Learn how FreeHub finds and organises South African competitions, links to official promoter sources and helps members save and track entries with FreeHub Club.",
+      "canonical": "https://freehub.co.za/about/",
+      "robots": "index, follow, max-image-preview:large",
+      "h1": "A simpler, safer way to find South African competitions",
+      "schemaTypes": ["AboutPage", "BreadcrumbList", "ImageObject", "ListItem", "Organization", "WebSite"],
+      "inSitemap": true
+    },
+    {
       "route": "/club/",
       "file": "club/index.html",
       "title": "Freehub Club | Save and Track South African Competitions",

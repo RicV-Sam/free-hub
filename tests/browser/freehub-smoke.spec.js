@@ -4,7 +4,7 @@ const opportunityFixture = require("../../data/opportunities.json")[0];
 const opportunitiesEnabled = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true";
 const offersEnabled = process.env.FREEHUB_ENABLE_OFFERS === "true";
 const usesReviewedPilotDate = process.env.FREEHUB_BUILD_DATE === "2026-07-31";
-const RELEASE_ASSET_VERSION = "20260806-adsterra-evergreen-v1";
+const RELEASE_ASSET_VERSION = "20260808-about-v1";
 const GUEST_ADS_LOADER_SRC = `/shared/guest-ads.js?v=${RELEASE_ASSET_VERSION}`;
 const OUTBOUND_HANDOFF_SRC = `/shared/outbound-handoff.js?v=${RELEASE_ASSET_VERSION}`;
 
@@ -196,7 +196,7 @@ test("generated pages contain one first-party ad gate and no raw Adsterra tags",
   expect(homepageHtml.split(`src="${GUEST_ADS_LOADER_SRC}"`)).toHaveLength(2);
   expect(homepageHtml).not.toContain("effectivecpmnetwork.com");
 
-  for (const route of ["/club/dashboard/"]) {
+  for (const route of ["/about/", "/club/dashboard/"]) {
     const html = await (await page.request.get(route)).text();
     expect(html).not.toContain("/shared/guest-ads.js");
     expect(html).not.toContain("effectivecpmnetwork.com");
@@ -1096,7 +1096,8 @@ test("Club public and private pages remain usable without Firebase credentials",
   await expect(page.getByRole("heading", { name: "No Adsterra ads while signed in" })).toBeVisible();
 
   await page.goto("/freehub-account-benefits/");
-  await expect(page.getByRole("heading", { name: "Browse without Adsterra ads while signed in" })).toBeVisible();
+  await expect(page).toHaveURL(/\/club\/$/);
+  await expectCanonical(page, "/club/");
 
   await page.goto("/club/dashboard/");
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, follow");
@@ -1108,4 +1109,40 @@ test("Club public and private pages remain usable without Firebase credentials",
 
   await page.goto("/competitions/");
   await expect(page.locator("article.competition-card").first()).toBeVisible();
+});
+
+test("About page explains Freehub, suppresses guest ads and tracks its primary journeys", async ({ page }) => {
+  const requests = await stubAdsterra(page);
+  await mockFirebaseAuth(page, { signedIn: false });
+  await page.goto("/about/");
+
+  await expect(page).toHaveTitle("What Is FreeHub? South African Competitions & Free Club");
+  await expectCanonical(page, "/about/");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("A simpler, safer way to find South African competitions");
+  await expect(page.getByRole("heading", { name: "From discovery to entry in four clear steps" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Freehub helps you find competitions — we do not run them" })).toBeVisible();
+  await expect(page.locator('#structured-data-aboutpage')).toHaveCount(1);
+  await expect(page.locator('#structured-data-breadcrumb')).toHaveCount(1);
+  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.popunder}"]`)).toHaveCount(0);
+  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.socialBar}"]`)).toHaveCount(0);
+  expect(requests).toEqual({ popunder: 0, socialBar: 0 });
+
+  const trackedLinks = [
+    ["about_browse_competitions_click", "hero"],
+    ["about_join_club_click", "hero"],
+    ["about_whatsapp_click", "hero"],
+    ["about_safety_guide_click", "safety"],
+    ["about_submit_competition_click", "promoters"],
+  ];
+
+  for (const [eventName, placement] of trackedLinks) {
+    const link = page.locator(`a[data-about-event="${eventName}"][data-about-placement="${placement}"]`).first();
+    await link.evaluate((element) => element.addEventListener("click", (event) => event.preventDefault(), { once: true }));
+    await link.click();
+  }
+
+  const events = await readDataLayerEvents(page);
+  for (const [eventName] of trackedLinks) {
+    expect(events.some((entry) => entry[1] === eventName)).toBe(true);
+  }
 });

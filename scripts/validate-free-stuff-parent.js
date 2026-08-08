@@ -18,7 +18,7 @@ const offerBaseline = getOfferBaselineCounts({
   asOfDate: process.env.FREEHUB_AS_OF_DATE || process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date()),
 });
 const expectedGeneratedFiles = 316 + expectedOpportunityCount * 2 + offerBaseline.generatedFileCount;
-const expectedSitemapUrls = 93 + expectedOpportunityCount + offerBaseline.sitemapUrlCount;
+const expectedSitemapUrls = 92 + expectedOpportunityCount + offerBaseline.sitemapUrlCount;
 const expectedActiveCompetitionCount = 43;
 
 function getLocalIsoDate(date) {
@@ -102,6 +102,7 @@ check(
 
 htmlFiles.forEach((filePath) => {
   const relative = path.relative(ROOT_DIR, filePath).replace(/\\/g, "/");
+  if (relative === "freehub-account-benefits/index.html") return;
   const html = fs.readFileSync(filePath, "utf8");
   const expectedLine = relative === "free-stuff-south-africa/index.html" ? FREE_STUFF_NAV_ACTIVE : FREE_STUFF_NAV_INACTIVE;
   const occurrences = html.split(expectedLine).length - 1;
