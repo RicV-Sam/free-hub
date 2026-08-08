@@ -1,1 +1,1 @@
-[Opportunity publication] 21 records validated; 3 active; 18 retained tombstones.
+[Opportunity publication] 21 records validated; 0 active; 21 retained tombstones.
