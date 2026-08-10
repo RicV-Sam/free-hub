@@ -1,14 +1,14 @@
 === Competition Maintenance Report ===
-Date: 2026-08-09
+Date: 2026-08-10
 Mode: archive-expired
-Total competitions: 283
-Active published count: 46
+Total competitions: 287
+Active published count: 50
 Expired archive page count: 138
 Low-value expired noindex count: 0
 Held/private count: 99
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 5
+Closing in next 14 days: 7
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -151,11 +151,13 @@ Expired competition IDs:
 - fnb-scroll-to-score-springbok-gamification-2026 (2026-08-02)
 
 Closing soon (next 14 days):
-- boxer-nyama-battle-food-trailers-2026 (1 days)
-- clicks-dark-and-lovely-best-for-braids-2026 (6 days)
-- virgin-active-springbok-partner-2026 (7 days)
-- masterchef-sa-watch-and-win-competition-2026 (8 days)
-- spar-melrose-back-to-school-vouchers-2026 (14 days)
+- boxer-nyama-battle-food-trailers-2026 (0 days)
+- radio-2000-1life-win-at-life-2026 (4 days)
+- clicks-dark-and-lovely-best-for-braids-2026 (5 days)
+- virgin-active-springbok-partner-2026 (6 days)
+- masterchef-sa-watch-and-win-competition-2026 (7 days)
+- spar-melrose-back-to-school-vouchers-2026 (13 days)
+- kaufmann-rugga-supporter-competition-2026 (14 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present

@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-08-09
+Generated: 2026-08-10
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
@@ -31,13 +31,14 @@ Recommended normalisation:
 ## SMS Competitions in South Africa
 
 - URL: /sms-competitions-south-africa/
-- Matching active public competitions: 1
+- Matching active public competitions: 2
 - Publication threshold: 3
 - Safe to publish: no
-- Status: held; Only 1 active public match; requires 3.
+- Status: held; Only 2 active public matches; requires 3.
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
+| Radio 2000 Win at Life with 1LIFE (radio-2000-1life-win-at-life-2026) | 2026-08-14 | conditional | yes | yes | SMS entry tag; SMS or shortcode mentioned in entry text | none |
 | SPAR Melrose Back-to-School Voucher Competition (spar-melrose-back-to-school-vouchers-2026) | 2026-08-23 | purchase-required | yes | yes | SMS or shortcode mentioned in entry text | none |
 
 Recommended normalisation:
@@ -76,13 +77,14 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 7
+- Matching active public competitions: 8
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
+| Radio 2000 Win at Life with 1LIFE (radio-2000-1life-win-at-life-2026) | 2026-08-14 | conditional | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Dark & Lovely Best For Braids Competition (clicks-dark-and-lovely-best-for-braids-2026) | 2026-08-15 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | GARDENA Winter Pruning Giveaway 2026 (gardena-winter-pruning-giveaway-2026) | 2026-08-25 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Col'Cacchio x Alva Winter Pizza Oven Giveaway (colcacchio-alva-winter-pizza-oven-2026) | 2026-08-31 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
