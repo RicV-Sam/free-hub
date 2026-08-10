@@ -528,5 +528,30 @@
     "sponsored": false,
     "publishedAt": "2026-08-07",
     "updatedAt": "2026-08-07"
+  },
+  {
+    "id": "samsung-omo-wash-days-2026",
+    "slug": "samsung-omo-wash-days-2026",
+    "type": "deal",
+    "brand": "Makro",
+    "brandSlug": "makro",
+    "title": "Free OMO bundle with selected Samsung washing machines",
+    "summary": "Buy a qualifying Samsung washing machine and redeem an OMO washing-liquid and capsule bundle, while promotional stock lasts.",
+    "destinationUrl": "https://www.makro.co.za/pages/samsung-omo-08",
+    "sourceUrl": "https://www.makro.co.za/pages/samsung-omo-08",
+    "termsUrl": "https://www.makro.co.za/pages/samsung-omo-08",
+    "category": "electronics-appliances",
+    "startsAt": "2026-07-12",
+    "expiresAt": "2026-08-30",
+    "lastChecked": "2026-08-10",
+    "reviewDueAt": "2026-08-17",
+    "terms": "Samsung Electronics South Africa runs this promotion. South African residents aged 18 or older must buy one of the Samsung washing-machine models listed in the official Makro terms from a participating retailer by 30 August 2026 and keep valid proof of purchase. Redeem during the same period by scanning the in-store QR code or sending SAMSUNG to +27 87 265 2228 on WhatsApp, then upload the invoice or till slip. After verification, Samsung sends an SMS coupon for the matching bundle: 4L, 10L or 16L of OMO Auto Washing Liquid plus 20 OMO Auto Capsules. The offer is first come, first served while promotional stock lasts; data charges may apply, and Samsung may reclaim the offer value if the qualifying appliance is returned or exchanged after redemption.",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "affiliate": false,
+    "sponsored": false,
+    "publishedAt": "2026-08-10",
+    "updatedAt": "2026-08-10"
   }
 ]
