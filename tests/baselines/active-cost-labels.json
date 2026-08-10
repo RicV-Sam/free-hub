@@ -1,13 +1,13 @@
 {
   "version": 1,
   "buildDate": "2026-08-10",
-  "activeCount": 47,
+  "activeCount": 48,
   "labelCounts": {
-    "Purchase required": 31,
+    "Purchase required": 32,
     "Free entry": 10,
     "Account required": 4,
     "Membership required": 1,
     "SMS/data rates may apply": 1
   },
-  "sha256": "b1a443b7960fee77a6668ca41aec019dc9df5cd7ea843614e33a3a35e48282ae"
+  "sha256": "bbd24343f1b6dc7f48e5e6c89313b892076b25814f1eb9e759862b913f76f93d"
 }
