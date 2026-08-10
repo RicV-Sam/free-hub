@@ -486,12 +486,26 @@ Crawler changes deploy independently and must preserve a private handoff. A craw
 - Generated and validated Discovery handoff version 1 with 12 rows, reviewer notes on every row and zero validation warnings.
 - Confirmed no forms were submitted, no coupon checkout test was attempted and no FreeHub verification or publication state changed.
 
+### Completed in the FreeHub private editorial intake
+
+- Added a FreeHub-side reader for Discovery handoff contract version 1 covering Promotions, Coupons, Free Samples and Product Testing.
+- Added recursive rejection of crawler-supplied publication and verification authority, HTTPS/source-shape validation, duplicate candidate-key checks and South Africa scope validation.
+- Added a private editorial register at `.research/discovery-editorial-review.json`; the path is excluded from source control and is not read by the page generator.
+- Kept the import dry-run by default and required an explicit `--write` to update the private review register.
+- Mapped every imported candidate to `pending_review` with `publicationDecision: false`; crawler approval remains evidence for editorial review, not a FreeHub verification or publication decision.
+- Added exact source/destination URL reconciliation against current public Offers and Opportunities.
+- Preserved FreeHub editorial status, assignment and notes across re-imports while refreshing source evidence and fingerprints.
+- Ran the first real intake on 10 August 2026: all 12 handoff records were accepted into private review, with 7 new candidates and 5 exact public-record matches; the vertical split is 5 Promotions, 1 Coupon, 1 Free Sample and 5 Product Testing.
+- Confirmed the intake changed no public data, routes, sitemap entries or feature flags.
+- Added operator documentation and three targeted lifecycle tests; the full FreeHub suite passed all 78 tests, and lint passed.
+
 ### Next implementation slice
 
-1. Add cross-type duplicate and relationship warnings to the Discovery projection.
-2. Extract offer route/render helpers from the monolithic generator only where tests make the move mechanical.
-3. Add a FreeHub-side private handoff reader and editorial review adapter; keep crawler approval distinct from verification and publication.
-4. Add sources one at a time after measuring the first-run review effort, retaining exact-page dry-run and private-review boundaries.
+1. Review the 7 new candidates and reconcile the 5 exact public matches; record accept/reject/duplicate decisions in the private editorial register.
+2. Add cross-type duplicate and relationship warnings to the Discovery projection, informed by the first reconciliation results.
+3. Curate accepted candidates into the existing Offer or Opportunity contracts one at a time, requiring fresh expiry, terms, privacy and official-source evidence checks before any public state is considered.
+4. Extract offer route/render helpers from the monolithic generator only where tests make the move mechanical.
+5. Add sources one at a time after measuring the first-run review effort, retaining exact-page dry-run and private-review boundaries.
 
 ## Final deliverables
 
