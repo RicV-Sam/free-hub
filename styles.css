@@ -2885,6 +2885,58 @@ button {
   margin-top: 0.35rem;
 }
 
+.competition-detail__entry-accounts {
+  display: grid;
+  gap: 0.65rem;
+  padding: 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.competition-detail__entry-accounts p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.competition-detail__entry-accounts-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.competition-detail__entry-accounts-list a {
+  display: grid;
+  gap: 0.1rem;
+  min-height: 58px;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-strong);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.competition-detail__entry-accounts-list a:hover,
+.competition-detail__entry-accounts-list a:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.competition-detail__entry-accounts-list span {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.competition-detail__entry-accounts-note {
+  font-weight: 700;
+}
+
 /* ── Competition detail: repeat CTA section ─────────────────────────── */
 
 .competition-cta-repeat {

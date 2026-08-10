@@ -9681,6 +9681,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   const beforeYouEnterMarkup = expired ? "" : renderBeforeYouEnterBlock(competition);
   const brandPrizeContextMarkup = expired ? "" : renderBrandPrizeContextSection(competition);
   const entryCostEligibilityMarkup = expired ? "" : renderEntryCostEligibilityNotes(competition);
+  const officialEntryAccountsMarkup = expired ? "" : renderOfficialEntryAccounts(competition);
   const sourceBlockMarkup = renderCompetitionSourceBlock(competition, officialSource, officialSourceUrl, lastChecked, expired);
   const faqItems = buildCompetitionFaqItems(competition, officialSource, ctaLabel, expired);
   const faqMarkup = renderCompetitionFaq(faqItems);
@@ -9811,6 +9812,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
             ${renderCompetitionQuickAnswer(competition, expired)}
             ${entryCostEligibilityMarkup}
             ${entryStepsMarkup}
+            ${officialEntryAccountsMarkup}
             ${beforeYouEnterMarkup}
             ${authPanelMarkup}
             <div class="competition-detail__summary">
@@ -11071,6 +11073,32 @@ function renderHowToEnterList(steps) {
               <ol class="competition-detail__steps-list">
                 ${steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("\n                ")}
               </ol>
+            </section>`;
+}
+
+function renderOfficialEntryAccounts(competition) {
+  const accounts = Array.isArray(competition.officialEntryAccounts)
+    ? competition.officialEntryAccounts.filter(
+        (account) => account && account.platform && account.account && account.url
+      )
+    : [];
+
+  if (accounts.length === 0) {
+    return "";
+  }
+
+  return `<section class="competition-detail__entry-accounts" aria-labelledby="official-entry-accounts-heading">
+              <h2 class="competition-detail__steps-title" id="official-entry-accounts-heading">Official VNN accounts</h2>
+              <p>Use the latest VNN episode post on one of these Vodacom accounts:</p>
+              <ul class="competition-detail__entry-accounts-list">
+                ${accounts
+                  .map(
+                    (account) =>
+                      `<li><a href="${escapeAttribute(account.url)}" rel="nofollow noopener" target="_blank"><strong>${escapeHtml(account.platform)}</strong><span>${escapeHtml(account.account)}</span></a></li>`
+                  )
+                  .join("\n                ")}
+              </ul>
+              <p class="competition-detail__entry-accounts-note">Check the episode post for its question and episode-specific deadline before entering.</p>
             </section>`;
 }
 

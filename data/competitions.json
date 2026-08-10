@@ -13434,6 +13434,38 @@
       "Answer the question related to the current episode and include #VNN in your entry.",
       "Enter within the episode-specific period shown in that episode or post; the overall campaign ends on 12 December 2026."
     ],
+    "officialEntryAccounts": [
+      {
+        "platform": "TikTok",
+        "account": "@vodacom",
+        "url": "https://www.tiktok.com/@vodacom"
+      },
+      {
+        "platform": "Facebook",
+        "account": "Vodacom",
+        "url": "https://www.facebook.com/Vodacom/"
+      },
+      {
+        "platform": "Instagram",
+        "account": "@vodacom",
+        "url": "https://www.instagram.com/vodacom/"
+      },
+      {
+        "platform": "X",
+        "account": "@Vodacom",
+        "url": "https://x.com/Vodacom"
+      },
+      {
+        "platform": "LinkedIn",
+        "account": "Vodacom",
+        "url": "https://www.linkedin.com/company/vodacom/"
+      },
+      {
+        "platform": "YouTube",
+        "account": "Vodacom SA",
+        "url": "https://www.youtube.com/@VodacomSouthAfrica"
+      }
+    ],
     "closingDate": "2026-12-12",
     "category": "Tech",
     "prizeName": "iPhone 17, earbuds, powerbanks, fitness tracker and smartwatches",
@@ -13479,7 +13511,7 @@
     "sourceHandoffId": "weekly-20260810-vodacom-vnn",
     "sourceReviewStatus": "publication-approved",
     "sourceReport": "Freehub weekly new competition scan completed on 10 August 2026.",
-    "evidenceNotes": "The official Vodacom terms confirm the 28 May to 12 December 2026 overall period, ten episode-specific entry opportunities, listed tech prizes worth R33,991 in total, South African residency and RICA eligibility, social following, episode-question answers with #VNN and standard data costs only. Each episode's closing date and question are communicated in the current episode or accompanying official social post, so no fixed standalone entry page exists.",
+    "evidenceNotes": "The official Vodacom terms confirm the 28 May to 12 December 2026 overall period, ten episode-specific entry opportunities, listed tech prizes worth R33,991 in total, South African residency and RICA eligibility, social following, episode-question answers with #VNN and standard data costs only. The terms name TikTok, Facebook, Instagram, X, LinkedIn and YouTube as eligible channels; Freehub lists Vodacom's corresponding official accounts. Each episode's closing date and question are communicated in the current episode or accompanying official social post, so no fixed standalone entry page exists.",
     "riskFlags": [
       "social_media_entry",
       "rica_registered_sim_required",
