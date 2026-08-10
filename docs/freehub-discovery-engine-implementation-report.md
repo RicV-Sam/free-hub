@@ -360,6 +360,7 @@ Remaining:
 - Preserved the existing competition tables, review flow and handoff exporter unchanged.
 - Added a robots-aware exact-page Promotions pilot using Mr Price's official Promotions page; broad or recursive crawling remains disabled.
 - The first private write run created five `needs_review` Promotion candidates and an HTML evidence snapshot.
+- Rechecked the official listing and all five detail pages on 10 August 2026, recorded limited-time/no-shared-expiry caveats and approved all five for private handoff review.
 
 Remaining:
 
@@ -379,12 +380,14 @@ Remaining:
 - The first private write run created one Coupon, one Free Sample and five Product Testing candidates, all in `needs_review`, with one HTML evidence snapshot per source.
 - The coupon remains `merchant_stated`, not transaction-tested; the sample form was detected but not read or submitted; selection-based Product Testing remains explicitly non-guaranteed.
 - A sensitive alcohol-related Product Testing project was skipped automatically and recorded as a warning.
+- Rechecked the Coupon, Free Sample, Brand Advisor live listing and five exact Product Testing pages on 10 August 2026 and recorded merchant-code, privacy, selection, content-obligation, fulfilment and no-closing-date caveats.
+- Approved the one Coupon, one Free Sample and five Product Testing records for private handoff review; this does not verify or publish them in FreeHub.
 
 Remaining:
 
 - Add source-quality and false-positive measurement before expanding crawl coverage.
 - Keep samples and selection-based product testing visibly distinct through review and public projection.
-- Manually review the first 12 private candidates before any `approved_for_handoff` decision.
+- Import the validated private handoff into a FreeHub-side review adapter without bypassing existing vertical publication gates.
 
 ### Phase 5 - Mixed discovery and Club
 
@@ -478,15 +481,17 @@ Crawler changes deploy independently and must preserve a private handoff. A craw
 - Kept the existing competition candidate table, review flow and handoff exporter unchanged.
 - Added a four-source, dry-run-first pilot that fetches only configured official pages, respects robots policy and supports an opt-in non-interactive exact-page browser fallback.
 - Passed ZA Competition Engine typechecking, health checks, targeted contract/repository/handoff/pilot tests and all 368 tests.
-- Completed the first private write run on 10 August 2026: 12 `needs_review` records (5 Promotions, 1 Coupon, 1 Free Sample and 5 Product Testing) plus four HTML snapshots.
-- Confirmed no candidates were approved for handoff, no handoff was generated, no forms were submitted and no FreeHub publication state changed.
+- Completed the first private write run on 10 August 2026: 12 records (5 Promotions, 1 Coupon, 1 Free Sample and 5 Product Testing) plus four HTML snapshots.
+- Manually rechecked all 12 records against current official evidence, previewed every decision, recorded append-only reviewer actions and moved all 12 to `approved_for_handoff` with explicit caveats.
+- Generated and validated Discovery handoff version 1 with 12 rows, reviewer notes on every row and zero validation warnings.
+- Confirmed no forms were submitted, no coupon checkout test was attempted and no FreeHub verification or publication state changed.
 
 ### Next implementation slice
 
 1. Add cross-type duplicate and relationship warnings to the Discovery projection.
 2. Extract offer route/render helpers from the monolithic generator only where tests make the move mechanical.
-3. Manually review the 12 first-run candidates and record false positives, missing evidence and editorial effort.
-4. Add sources one at a time only after the first-run quality review, retaining exact-page dry-run and private-review boundaries.
+3. Add a FreeHub-side private handoff reader and editorial review adapter; keep crawler approval distinct from verification and publication.
+4. Add sources one at a time after measuring the first-run review effort, retaining exact-page dry-run and private-review boundaries.
 
 ## Final deliverables
 
