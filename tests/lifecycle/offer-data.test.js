@@ -51,6 +51,10 @@ test("offer routes and exact feature flag are safe", () => {
   assert.equal(offerData.getOfferExitPath(fixture()), "/out/coupon/fixture-coupon/");
   assert.equal(offerData.isOfferFeatureEnabled("true"), true);
   assert.equal(offerData.isOfferFeatureEnabled("TRUE"), false);
+  assert.equal(offerData.getOfferContentType(fixture()), "coupon");
+  const deal = fixture({ id: "fixture-deal", slug: "fixture-deal", type: "deal" });
+  delete deal.couponCode;
+  assert.equal(offerData.getOfferContentType(deal), "promotion");
   assert.throws(() => offerData.getOfferPath("../unsafe"), /valid offer/);
 });
 

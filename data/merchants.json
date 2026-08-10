@@ -1,0 +1,20 @@
+[
+  { "id": "1lifestyle", "name": "1LifeStyle", "kind": "loyalty_program", "officialUrl": "https://www.1life.co.za/", "country": "ZA", "active": true },
+  { "id": "andbeyond", "name": "&Beyond", "kind": "travel_provider", "officialUrl": "https://www.andbeyond.com/", "country": "ZA", "active": true },
+  { "id": "bookmundi", "name": "Bookmundi", "kind": "travel_provider", "officialUrl": "https://www.bookmundi.com/", "country": "ZA", "active": true },
+  { "id": "burger-king-south-africa", "name": "Burger King South Africa", "kind": "merchant", "officialUrl": "https://www.burgerking.co.za/", "country": "ZA", "active": true },
+  { "id": "capitec", "name": "Capitec", "kind": "financial_provider", "officialUrl": "https://www.capitecbank.co.za/", "country": "ZA", "active": true },
+  { "id": "cell-c", "name": "Cell C", "kind": "merchant", "officialUrl": "https://www.cellc.co.za/", "country": "ZA", "active": true },
+  { "id": "city-lodge-hotels", "name": "City Lodge Hotels", "kind": "travel_provider", "officialUrl": "https://citylodgehotels.com/", "country": "ZA", "active": true },
+  { "id": "dis-chem-better-rewards", "name": "Dis-Chem Better Rewards", "kind": "loyalty_program", "officialUrl": "https://www.dischem.co.za/", "country": "ZA", "active": true },
+  { "id": "discovery-vitality", "name": "Discovery Vitality", "kind": "loyalty_program", "officialUrl": "https://www.discovery.co.za/vitality", "country": "ZA", "active": true },
+  { "id": "fnb-easy", "name": "FNB Easy", "kind": "financial_provider", "officialUrl": "https://www.fnb.co.za/", "country": "ZA", "active": true },
+  { "id": "g-adventures", "name": "G Adventures", "kind": "travel_provider", "officialUrl": "https://www.gadventures.com/", "country": "ZA", "active": true },
+  { "id": "hirschs", "name": "Hirsch's", "kind": "merchant", "officialUrl": "https://www.hirschs.co.za/", "country": "ZA", "active": true },
+  { "id": "momentum-multiply", "name": "Momentum Multiply", "kind": "loyalty_program", "officialUrl": "https://www.multiply.co.za/", "country": "ZA", "active": true },
+  { "id": "mr-price", "name": "Mr Price", "kind": "merchant", "officialUrl": "https://www.mrp.com/en_za/", "country": "ZA", "active": true },
+  { "id": "standard-bank-ucount", "name": "Standard Bank UCount", "kind": "loyalty_program", "officialUrl": "https://ucount.standardbank.co.za/", "country": "ZA", "active": true },
+  { "id": "steers", "name": "Steers", "kind": "merchant", "officialUrl": "https://steers.co.za/", "country": "ZA", "active": true },
+  { "id": "unionpay", "name": "UnionPay", "kind": "financial_provider", "officialUrl": "https://www.unionpayintl.com/", "country": "ZA", "active": true },
+  { "id": "woolworths", "name": "Woolworths", "kind": "merchant", "officialUrl": "https://www.woolworths.co.za/", "country": "ZA", "active": true }
+]

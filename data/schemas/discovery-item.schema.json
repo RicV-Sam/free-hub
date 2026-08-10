@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://freehub.co.za/schemas/discovery-item.schema.json",
+  "title": "Freehub cross-vertical Discovery summary",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "entityKind", "contentType", "title", "summary", "path", "labels"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "entityKind": { "enum": ["competition", "offer", "opportunity", "resource"] },
+    "contentType": { "enum": ["competition", "promotion", "coupon", "free_sample", "product_testing", "birthday_freebie", "free_course", "free_resource"] },
+    "title": { "type": "string", "minLength": 1 },
+    "summary": { "type": "string", "minLength": 1 },
+    "path": { "type": "string", "pattern": "^/(?!/)[^?#]*$" },
+    "labels": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "imageUrl": { "type": "string", "format": "uri", "pattern": "^https?://" },
+    "merchantId": { "type": "string", "minLength": 1 },
+    "category": { "type": "string", "minLength": 1 },
+    "startsAt": { "$ref": "#/$defs/date" },
+    "expiresAt": { "$ref": "#/$defs/date" },
+    "lastVerifiedAt": { "$ref": "#/$defs/date" }
+  },
+  "$defs": {
+    "date": { "type": "string", "format": "date" }
+  }
+}

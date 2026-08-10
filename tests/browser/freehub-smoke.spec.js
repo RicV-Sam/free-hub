@@ -1007,7 +1007,7 @@ test("privacy policy discloses advertising cookies", async ({ page }) => {
   await expect(page.getByText(/Consent choices and applicable controls/)).toBeVisible();
 });
 
-test("offers portal separates coupons and deals with honest indexability", async ({ page }) => {
+test("offers portal separates coupons and promotions with honest indexability", async ({ page }) => {
   test.skip(!offersEnabled, "Offers are feature flagged in this build.");
 
   await page.goto("/offers/");
@@ -1023,7 +1023,12 @@ test("offers portal separates coupons and deals with honest indexability", async
   await expect(page.getByText("CAPITEC15", { exact: true })).toBeVisible();
 
   await page.goto("/deals/");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Promotions and Deals in South Africa");
+  await expectCanonical(page, "/deals/");
   await expect(page.locator("article.offer-card")).toHaveCount(19);
+  await expect(page.locator('article.offer-card[data-content-type="promotion"][data-merchant-id]').first()).toBeVisible();
+  const dealContext = await page.evaluate(() => window.dataLayer.find((entry) => entry?.page_type === "offer_collection"));
+  expect(dealContext.content_type).toBe("promotion");
   await expect(page.getByText("No code needed", { exact: true }).first()).toBeVisible();
 
   await page.goto("/offers/category/pets/");
@@ -1036,6 +1041,9 @@ test("offers portal separates coupons and deals with honest indexability", async
   expect(outboundHtml).toContain('content="noindex, nofollow"');
   expect(outboundHtml).toContain(`src="${GUEST_ADS_LOADER_SRC}"`);
   expect(outboundHtml).toContain(`src="${OUTBOUND_HANDOFF_SRC}"`);
+  expect(outboundHtml).toContain('content_type:"coupon"');
+  expect(outboundHtml).toContain("merchant_id:\"capitec\"");
+  expect(outboundHtml).toContain("gtag('event','outbound_click'");
   expect(outboundHtml).not.toContain("effectivecpmnetwork.com");
 });
 

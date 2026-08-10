@@ -5,7 +5,7 @@
 Freehub separates offers that require a real coupon code from ordinary deals:
 
 - `type: "coupon"` requires `couponCode` and publishes under `/coupons/` and `/coupon/`.
-- `type: "deal"` must not contain `couponCode` and publishes under `/deals/` and `/deal/`.
+- `type: "deal"` must not contain `couponCode` and publishes under `/deals/` and `/deal/`. Public copy describes these records as promotions and deals; the established route and stored type remain stable.
 - `/offers/` is the central discovery portal. Shared category pages live under `/offers/category/` and shared brand pages under `/offers/brand/`.
 
 Do not copy codes from voucher aggregators or invent development offers in `data/offers.json`. Use only a retailer, brand, network or campaign source that the editor has manually checked.

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://freehub.co.za/schemas/merchant.schema.json",
+  "title": "Freehub merchant entity",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "kind", "officialUrl", "country", "active"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "name": { "type": "string", "minLength": 1 },
+    "kind": { "enum": ["merchant", "loyalty_program", "financial_provider", "travel_provider"] },
+    "officialUrl": { "type": "string", "format": "uri", "pattern": "^https?://" },
+    "country": { "const": "ZA" },
+    "active": { "type": "boolean" }
+  }
+}

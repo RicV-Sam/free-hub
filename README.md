@@ -5,6 +5,7 @@ FreeHub is a static, data-driven South African competition discovery site.
 ## Current Architecture
 - Static HTML generation via `scripts/generate-pages.js`
 - Shared routing/content logic in `shared/page-data.js`
+- Read-only cross-vertical Discovery summaries in `shared/discovery-data.js`, projected only after each vertical's existing public gate passes
 - Source data in `data/competitions.json`
 - Expired archive in `data/archive/competitions-expired.json`
 - Client enhancements/tracking in `app.js`
@@ -85,9 +86,13 @@ The coupons/deals foundation uses one validated offer registry while keeping the
 
 - central discovery portal: `/offers/`
 - coupon codes: `/coupons/` and `/coupon/{slug}/`
-- ordinary promotions with no code: `/deals/` and `/deal/{slug}/`
+- promotions/deals with no code: `/deals/` and `/deal/{slug}/`; `/deals/` is retained as the stable canonical while its SEO and visible copy target South African promotions and deals
 - shared category pages: `/offers/category/{category}/`
 - shared brand pages: `/offers/brand/{brand}/`
+
+Offer brands are backed by the validated merchant/entity registry in `data/merchants.json`. The existing `brandSlug` is the stable entity key, so merchant identity can be shared without rewriting published offer URLs.
+
+The build also validates a read-only Discovery projection across active public competitions, current offers and current Opportunities. This projection cannot publish records or override vertical lifecycle decisions; it provides a safe contract for future mixed navigation, internal linking and reporting.
 
 Public generation is disabled unless `FREEHUB_ENABLE_OFFERS=true`. Even when enabled, a record must be explicitly published, verified, current, and inside its review window. Empty hubs are generated with `noindex` and stay out of the sitemap; category, brand, detail and outbound routes are created only from eligible records. One-off category and brand pages remain `noindex` until a second verified offer supports them. Categories use the controlled taxonomy in `shared/offer-data.js`; do not create a public category page until verified inventory supports it. See `docs/coupons-and-deals-editorial-runbook.md` before adding data.
 

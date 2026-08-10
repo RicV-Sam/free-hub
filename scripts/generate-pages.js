@@ -3,6 +3,8 @@ const path = require("path");
 const shared = require("../shared/page-data.js");
 const opportunityData = require("../shared/opportunity-data.js");
 const offerData = require("../shared/offer-data.js");
+const merchantData = require("../shared/merchant-data.js");
+const discoveryAdapters = require("./lib/discovery-adapters.js");
 const { applyLegacyArchiveCostCompatibility } = require("./lib/legacy-archive-costs.js");
 const { createFreeResourceRenderer } = require("./lib/free-resource-renderer.js");
 const { createOpportunityRenderer } = require("./lib/opportunity-renderer.js");
@@ -15,6 +17,7 @@ const FREE_RESOURCES_PATH = path.join(ROOT_DIR, "data", "free-resources.json");
 const OPPORTUNITIES_PATH = path.join(ROOT_DIR, "data", "opportunities.json");
 const OPPORTUNITY_SOURCE_EVIDENCE_PATH = path.join(ROOT_DIR, "data", "opportunity-source-evidence.json");
 const OFFERS_PATH = path.join(ROOT_DIR, "data", "offers.json");
+const MERCHANTS_PATH = path.join(ROOT_DIR, "data", "merchants.json");
 const RELATIVE_ASSET_PATH = "/";
 const RELEASE_ASSET_VERSION = "20260808-about-v1";
 const GUEST_ADS_SCRIPT_SRC = `/shared/guest-ads.js?v=${RELEASE_ASSET_VERSION}`;
@@ -1488,7 +1491,7 @@ const TRUST_PAGE_DEFINITIONS = [
     links: [
       { label: "Browse coupons and deals", href: "/offers/" },
       { label: "Coupon codes", href: "/coupons/" },
-      { label: "Deals without codes", href: "/deals/" },
+      { label: "Promotions & Deals", href: "/deals/" },
       { label: "How Freehub checks listings", href: "/how-we-verify-competitions/" },
       { label: "Privacy policy", href: "/privacy-policy/" },
     ],
@@ -2070,6 +2073,12 @@ function main() {
   if (!offerValidation.valid) {
     throw new Error(`[Offer validation failed]\n${offerValidation.errors.map((error) => `- ${error}`).join("\n")}`);
   }
+  const merchantRegistry = JSON.parse(fs.readFileSync(MERCHANTS_PATH, "utf8"));
+  const merchantValidation = merchantData.validateMerchantRegistry(merchantRegistry);
+  const merchantReferenceValidation = merchantData.validateOfferMerchantReferences(offerRegistry, merchantRegistry);
+  if (!merchantValidation.valid || !merchantReferenceValidation.valid) {
+    throw new Error(`[Merchant validation failed]\n${[...merchantValidation.errors, ...merchantReferenceValidation.errors].map((error) => `- ${error}`).join("\n")}`);
+  }
   publicOffers = OFFERS_ENABLED
     ? offerRegistry.filter((offer) => offerData.isPublicOffer(offer, { asOfDate: LIFECYCLE_REFERENCE_DATE_ISO }))
     : [];
@@ -2089,6 +2098,13 @@ function main() {
   );
   runDataSafetyChecks(validCompetitions);
   const activeCompetitions = shared.getPublishedActiveCompetitions(validCompetitions);
+  discoveryAdapters.createDiscoveryProjection({
+    competitions: activeCompetitions,
+    offers: publicOffers,
+    opportunities: approvedPublicOpportunities,
+    offerOptions: { asOfDate: LIFECYCLE_REFERENCE_DATE_ISO },
+    opportunityOptions: opportunityPublication.gateOptions,
+  });
   const noindexActiveCompetitions = shared.getNoindexActiveCompetitions(validCompetitions);
   const expiredArchiveCompetitions = uniqueCompetitionsBySlug(
     shared.getExpiredArchiveCompetitions([...validCompetitions, ...validArchiveCompetitions])
@@ -2232,7 +2248,6 @@ function loadOpportunityPublicationState() {
       `[Opportunity validation failed]\n${errors.map((error) => `- ${error}`).join("\n")}`
     );
   }
-  if (!OPPORTUNITIES_ENABLED) return { active: [], tombstones: [] };
   const gateOptions = {
       asOfDate: BUILD_DATE_ISO,
       strictFreeOnly: false,
@@ -2240,6 +2255,7 @@ function loadOpportunityPublicationState() {
       sourceEvidence,
       requireSourceEvidence: true,
   };
+  if (!OPPORTUNITIES_ENABLED) return { active: [], tombstones: [], gateOptions };
   const classified = opportunities.map((opportunity) => ({
     opportunity,
     lifecycleState: opportunityData.getOpportunityLifecycleState(opportunity, gateOptions),
@@ -2254,7 +2270,7 @@ function loadOpportunityPublicationState() {
   console.log(
     `[Opportunity publication] ${opportunities.length} records validated; ${active.length} active; ${tombstones.length} retained tombstones.`
   );
-  return { active, tombstones };
+  return { active, tombstones, gateOptions };
 }
 
 function validateFreeResourceData() {
@@ -2813,7 +2829,7 @@ function renderSiteFooter(options = {}) {
               <a href="/free-online-courses-south-africa/">Free online courses</a>
               <a href="/free-childrens-books-south-africa/">Free children's books</a>
               <a href="/free-credit-report-south-africa/">Free credit report</a>
-              ${OFFERS_ENABLED ? '<a href="/offers/">Coupons &amp; Deals</a>\n              <a href="/coupons/">Coupon codes</a>\n              <a href="/deals/">Deals</a>\n              <a href="/submit-an-offer/">Submit an offer</a>' : ""}
+              ${OFFERS_ENABLED ? '<a href="/offers/">Coupons &amp; Deals</a>\n              <a href="/coupons/">Coupon codes</a>\n              <a href="/deals/">Promotions &amp; Deals</a>\n              <a href="/submit-an-offer/">Submit an offer</a>' : ""}
               <a href="/submit-a-competition/">Submit a competition</a>
               <a href="/report-a-competition/">Report a competition</a>
               <a href="/club/">Freehub Club</a>
@@ -2977,8 +2993,9 @@ function getOfferCollectionPath({ type, category, brandSlug }) {
 
 function renderOfferCard(offer) {
   const detailPath = offerData.getOfferPath(offer);
+  const contentType = offerData.getOfferContentType(offer);
   const disclosure = offer.sponsored ? "Paid placement" : offer.affiliate ? "Affiliate link" : "Not sponsored";
-  return `<article class="offer-card">
+  return `<article class="offer-card" data-offer-card data-content-type="${escapeAttribute(contentType)}" data-content-id="${escapeAttribute(offer.id)}" data-merchant-id="${escapeAttribute(offer.brandSlug)}" data-category="${escapeAttribute(offer.category)}">
             <div class="offer-card__topline">
               <span class="badge badge--verified">Verified</span>
               <span>${escapeHtml(disclosure)}</span>
@@ -2986,12 +3003,12 @@ function renderOfferCard(offer) {
             <p class="offer-card__brand">${escapeHtml(offer.brand)}</p>
             <h2 class="offer-card__title"><a href="${escapeAttribute(detailPath)}">${escapeHtml(offer.title)}</a></h2>
             <p class="offer-card__summary">${escapeHtml(offer.summary)}</p>
-            ${offer.type === "coupon" ? `<p class="offer-card__code"><span>Coupon code</span><strong>${escapeHtml(offer.couponCode)}</strong></p>` : '<p class="offer-card__code offer-card__code--deal"><span>No code needed</span><strong>Deal</strong></p>'}
+            ${offer.type === "coupon" ? `<p class="offer-card__code"><span>Coupon code</span><strong>${escapeHtml(offer.couponCode)}</strong></p>` : '<p class="offer-card__code offer-card__code--deal"><span>No code needed</span><strong>Promotion</strong></p>'}
             <dl class="offer-card__facts">
               <div><dt>Category</dt><dd><a href="${escapeAttribute(getOfferCollectionPath({ category: offer.category }))}">${escapeHtml(getOfferCategoryLabel(offer.category))}</a></dd></div>
               <div><dt>${offer.expiresAt ? "Expires" : "Last checked"}</dt><dd>${escapeHtml(shared.formatDate(offer.expiresAt || offer.lastChecked))}</dd></div>
             </dl>
-            <a class="offer-card__cta" href="${escapeAttribute(detailPath)}">View ${offer.type === "coupon" ? "coupon" : "deal"} details</a>
+            <a class="offer-card__cta" href="${escapeAttribute(detailPath)}">View ${offer.type === "coupon" ? "coupon" : "promotion"} details</a>
           </article>`;
 }
 
@@ -3009,7 +3026,7 @@ function buildOfferItemList(offers, name) {
 
 function renderOfferCollectionPage({ type, offers, category = "", brandSlug = "", brand = "" }) {
   const isTypedHub = type === "coupon" || type === "deal";
-  const noun = type === "coupon" ? "Coupon Codes" : type === "deal" ? "Deals" : "Coupons and Deals";
+  const noun = type === "coupon" ? "Coupon Codes" : type === "deal" ? "Promotions and Deals" : "Coupons and Deals";
   const pathName = getOfferCollectionPath({ type, category, brandSlug });
   const categoryDefinition = category ? getOfferCategoryDefinition(category) : null;
   const qualifier = brand || (categoryDefinition ? categoryDefinition.label : "");
@@ -3018,7 +3035,9 @@ function renderOfferCollectionPage({ type, offers, category = "", brandSlug = ""
     ? `${categoryDefinition.description} Browse checked coupon codes and deals with clear terms, expiry dates and direct links to the source.`
     : brand
       ? `Browse checked ${brand} coupon codes and deals for South Africa, with clear terms, expiry dates and direct links to the source.`
-      : `Browse checked ${noun.toLowerCase()} for South Africa, with clear terms, expiry dates and direct links to the source.`;
+      : type === "deal"
+        ? "Browse verified South African promotions and deals that do not need a coupon code, with clear terms, expiry dates and direct links to official sources."
+        : `Browse checked ${noun.toLowerCase()} for South Africa, with clear terms, expiry dates and direct links to the source.`;
   const canonical = `${shared.CANONICAL_ORIGIN}${pathName}`;
   const indexable = isIndexableOfferLanding(offers, { category, brandSlug });
   const itemList = buildOfferItemList(offers, heading);
@@ -3030,11 +3049,12 @@ function renderOfferCollectionPage({ type, offers, category = "", brandSlug = ""
   ];
   const breadcrumb = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: breadcrumbItems };
   const heroActions = type === "coupon"
-    ? [{ label: "Browse all offers", href: "/offers/", className: "btn--secondary" }, { label: "Deals without codes", href: "/deals/", className: "btn--secondary" }]
+    ? [{ label: "Browse all offers", href: "/offers/", className: "btn--secondary" }, { label: "Promotions without codes", href: "/deals/", className: "btn--secondary" }]
     : type === "deal"
       ? [{ label: "Browse all offers", href: "/offers/", className: "btn--secondary" }, { label: "Coupon codes", href: "/coupons/", className: "btn--secondary" }]
-      : [{ label: "Coupon codes", href: "/coupons/", className: "btn--secondary" }, { label: "Deals without codes", href: "/deals/", className: "btn--secondary" }];
-  const resultLabel = isTypedHub ? (type === "coupon" ? "coupon code" : "deal") : "offer";
+      : [{ label: "Coupon codes", href: "/coupons/", className: "btn--secondary" }, { label: "Promotions without codes", href: "/deals/", className: "btn--secondary" }];
+  const resultLabel = isTypedHub ? (type === "coupon" ? "coupon code" : "promotion") : "offer";
+  const contentType = type === "deal" ? "promotion" : type;
   return `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -3048,18 +3068,18 @@ function renderOfferCollectionPage({ type, offers, category = "", brandSlug = ""
     <script type="application/ld+json">${escapeScript(JSON.stringify(breadcrumb))}</script>
     ${itemList ? `<script type="application/ld+json">${escapeScript(JSON.stringify(itemList))}</script>` : ""}
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />${indexable ? GUEST_ADS_SCRIPT : ""}
-    ${renderGoogleTagManagerHead(`{ page_type: 'offer_collection', offer_type: '${type}' }`)}${renderMetaPixelHead()}
+    ${renderGoogleTagManagerHead(`{ page_type: 'offer_collection', offer_type: '${type}', content_type: '${contentType}', merchant_id: ${escapeScript(JSON.stringify(brandSlug || ""))}, category: ${escapeScript(JSON.stringify(category || ""))} }`)}${renderMetaPixelHead()}
   </head>
   <body>${renderGoogleTagManagerNoScript()}${renderMetaPixelNoScript()}<div class="site-shell">
     ${renderTopNavigation({ active: "offers" })}
-    ${renderModernHero({ className: "hero--utility hero--offers", eyebrow: type === "coupon" ? "Verified coupon codes" : type === "deal" ? "Checked deals" : "South African savings portal", heading, intro: description, actions: heroActions, trustItems: ["South Africa focused", "Checked regularly", "Clear link disclosures"] })}
+    ${renderModernHero({ className: "hero--utility hero--offers", eyebrow: type === "coupon" ? "Verified coupon codes" : type === "deal" ? "Verified promotions" : "South African savings portal", heading, intro: description, actions: heroActions, trustItems: ["South Africa focused", "Checked regularly", "Clear link disclosures"] })}
     <main id="main-content" class="main-content offer-page">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span>${category || brand ? '<a href="/offers/">Offers</a><span aria-hidden="true">/</span>' : ""}<span aria-current="page">${escapeHtml(qualifier || noun)}</span></nav>
       <section class="offer-trust" aria-label="How coupons and deals are organised"><strong>Coupons use codes; deals do not.</strong> We separate code-based coupons from ordinary promotions, then link you to the source to check the final price and terms.</section>
       ${offers.length ? `<p class="offer-results">Showing ${offers.length} verified ${offers.length === 1 ? resultLabel : `${resultLabel}s`}</p><div class="offer-grid">${offers.map(renderOfferCard).join("\n")}</div>` : `<section class="state-card"><p class="state-card__title">No verified ${noun.toLowerCase()} listed yet</p><p class="state-card__text">No offer is published until its source, terms and coupon code, when needed, have been checked.</p></section>`}
       ${!category && !brand ? renderOfferTaxonomyLinks(offers) : ""}
       ${!category && !brand ? renderOfferContributionPanel() : ""}
-    </main>${renderSiteFooter()}</div><script type="module" src="/shared/auth-ui.js"></script>
+    </main>${renderSiteFooter()}</div><script src="/shared/offer-analytics.js" defer></script><script type="module" src="/shared/auth-ui.js"></script>
   </body>
 </html>`;
 }
@@ -3086,7 +3106,7 @@ function renderOfferFeedbackPanel(offer) {
   const prompt = offer.type === "coupon" ? "Did this coupon work?" : "Was this deal still available?";
   const fallbackSubject = encodeURIComponent(`Offer report: ${offer.brand} - ${offer.title}`);
   const fallbackBody = encodeURIComponent(`Offer: ${offer.title}\nFreehub page: ${shared.CANONICAL_ORIGIN}${offerData.getOfferPath(offer)}\n\nWhat changed:\n`);
-  return `<section class="offer-feedback" data-offer-feedback data-offer-id="${escapeAttribute(offer.id)}" data-offer-type="${escapeAttribute(offer.type)}" data-offer-brand="${escapeAttribute(offer.brand)}" data-offer-title="${escapeAttribute(offer.title)}" aria-labelledby="offerFeedbackTitle">
+  return `<section class="offer-feedback" data-offer-feedback data-offer-id="${escapeAttribute(offer.id)}" data-offer-type="${escapeAttribute(offer.type)}" data-content-type="${escapeAttribute(offerData.getOfferContentType(offer))}" data-merchant-id="${escapeAttribute(offer.brandSlug)}" data-offer-category="${escapeAttribute(offer.category)}" data-offer-brand="${escapeAttribute(offer.brand)}" data-offer-title="${escapeAttribute(offer.title)}" aria-labelledby="offerFeedbackTitle">
             <div class="offer-feedback__intro">
               <p class="section-kicker">Community check</p>
               <h2 id="offerFeedbackTitle">${escapeHtml(prompt)}</h2>
@@ -3141,7 +3161,7 @@ function renderOfferFeedbackPanel(offer) {
 function renderOfferDetailPage(offer) {
   const detailPath = offerData.getOfferPath(offer);
   const canonical = `${shared.CANONICAL_ORIGIN}${detailPath}`;
-  const noun = offer.type === "coupon" ? "Coupon" : "Deal";
+  const noun = offer.type === "coupon" ? "Coupon" : "Promotion";
   const disclosure = offer.sponsored ? "Paid placement" : offer.affiliate ? "Affiliate link" : "Not sponsored";
   const pageSchema = { "@context": "https://schema.org", "@type": "WebPage", name: offer.title, description: offer.summary, url: canonical, inLanguage: "en-ZA", dateModified: offer.updatedAt, isPartOf: { "@type": "WebSite", name: "Freehub", url: `${shared.CANONICAL_ORIGIN}/` }, about: { "@type": "Thing", name: `${offer.brand} ${noun.toLowerCase()}` } };
   const breadcrumb = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
@@ -3153,7 +3173,7 @@ function renderOfferDetailPage(offer) {
     <title>${escapeHtml(offer.title)} | Freehub</title><meta name="description" content="${escapeAttribute(offer.summary)}" /><meta name="robots" content="index, follow, max-image-preview:large" /><link rel="canonical" href="${escapeAttribute(canonical)}" /><link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" /><meta property="og:title" content="${escapeAttribute(offer.title)}" /><meta property="og:description" content="${escapeAttribute(offer.summary)}" /><meta property="og:url" content="${escapeAttribute(canonical)}" />
     <script type="application/ld+json">${escapeScript(JSON.stringify(pageSchema))}</script><script type="application/ld+json">${escapeScript(JSON.stringify(breadcrumb))}</script>
-    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />${GUEST_ADS_SCRIPT}${renderGoogleTagManagerHead(`{ page_type: 'offer_detail', offer_type: '${offer.type}', offer_id: ${escapeScript(JSON.stringify(offer.id))} }`)}${renderMetaPixelHead()}</head>
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />${GUEST_ADS_SCRIPT}${renderGoogleTagManagerHead(`{ page_type: 'offer_detail', offer_type: '${offer.type}', offer_id: ${escapeScript(JSON.stringify(offer.id))}, content_type: '${offerData.getOfferContentType(offer)}', content_id: ${escapeScript(JSON.stringify(offer.id))}, merchant_id: ${escapeScript(JSON.stringify(offer.brandSlug))}, category: ${escapeScript(JSON.stringify(offer.category))}, affiliate: ${offer.affiliate}, sponsored: ${offer.sponsored} }`)}${renderMetaPixelHead()}</head>
     <body>${renderGoogleTagManagerNoScript()}${renderMetaPixelNoScript()}<div class="site-shell">${renderTopNavigation({ active: "offers" })}
     ${renderModernHero({ className: "hero--utility hero--offers", eyebrow: `${offer.brand} ${noun.toLowerCase()}`, heading: offer.title, intro: offer.summary, trustItems: ["Source checked", `Checked ${shared.formatDate(offer.lastChecked)}`, disclosure] })}
     <main id="main-content" class="main-content offer-page"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/${offer.type === "coupon" ? "coupons" : "deals"}/">${noun}s</a><span aria-hidden="true">/</span><span aria-current="page">${escapeHtml(offer.title)}</span></nav>
@@ -3168,7 +3188,8 @@ function renderOfferExitPage(offer) {
   const destination = offer.destinationUrl;
   const sourceDomain = getSafeHostname(destination);
   const rel = `noopener noreferrer${offer.affiliate || offer.sponsored ? " sponsored" : ""}`;
-  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Continue to ${escapeHtml(offer.brand)} | Freehub</title><meta name="robots" content="noindex, nofollow" /><link rel="canonical" href="${escapeAttribute(`${shared.CANONICAL_ORIGIN}${offerData.getOfferExitPath(offer)}`)}" /><link rel="icon" type="image/svg+xml" href="/favicon.svg" /><link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />${GUEST_ADS_SCRIPT}${OUTBOUND_HANDOFF_SCRIPT}</head><body><div class="site-shell">${renderTopNavigation()}<main id="main-content" class="main-content"><section class="state-card offer-exit"><p class="state-card__title">You are leaving Freehub</p><p class="state-card__text">Continue to ${escapeHtml(sourceDomain)} to check the current price, availability and terms.${offer.affiliate ? " Freehub may earn a commission if you buy, at no extra cost to you." : ""}</p><a class="competition-detail__cta" href="${escapeAttribute(destination)}" rel="${rel}" data-offer-destination>Continue to ${escapeHtml(offer.brand)}</a><a href="${escapeAttribute(offerData.getOfferPath(offer))}">Back to offer details</a></section></main>${renderSiteFooter({ includeAuthPanel: false })}</div><script>window.FreeHubOutboundHandoff.afterGuestAdDecision(function(){var link=document.querySelector('[data-offer-destination]');if(link) window.location.replace(link.href);});</script></body></html>`;
+  const analyticsContext = `{ page_type: 'offer_outbound', offer_type: '${offer.type}', offer_id: ${escapeScript(JSON.stringify(offer.id))}, content_type: '${offerData.getOfferContentType(offer)}', content_id: ${escapeScript(JSON.stringify(offer.id))}, merchant_id: ${escapeScript(JSON.stringify(offer.brandSlug))}, category: ${escapeScript(JSON.stringify(offer.category))}, affiliate: ${offer.affiliate}, sponsored: ${offer.sponsored} }`;
+  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Continue to ${escapeHtml(offer.brand)} | Freehub</title><meta name="robots" content="noindex, nofollow" /><link rel="canonical" href="${escapeAttribute(`${shared.CANONICAL_ORIGIN}${offerData.getOfferExitPath(offer)}`)}" /><link rel="icon" type="image/svg+xml" href="/favicon.svg" /><link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />${GUEST_ADS_SCRIPT}${OUTBOUND_HANDOFF_SCRIPT}${renderGoogleTagManagerHead(analyticsContext)}${renderMetaPixelHead()}</head><body>${renderGoogleTagManagerNoScript()}${renderMetaPixelNoScript()}<div class="site-shell">${renderTopNavigation()}<main id="main-content" class="main-content"><section class="state-card offer-exit"><p class="state-card__title">You are leaving Freehub</p><p class="state-card__text">Continue to ${escapeHtml(sourceDomain)} to check the current price, availability and terms.${offer.affiliate ? " Freehub may earn a commission if you buy, at no extra cost to you." : ""}</p><a class="competition-detail__cta" href="${escapeAttribute(destination)}" rel="${rel}" data-offer-destination>Continue to ${escapeHtml(offer.brand)}</a><a href="${escapeAttribute(offerData.getOfferPath(offer))}">Back to offer details</a></section></main>${renderSiteFooter({ includeAuthPanel: false })}</div><script>gtag('event','outbound_click',{content_type:${escapeScript(JSON.stringify(offerData.getOfferContentType(offer)))},content_id:${escapeScript(JSON.stringify(offer.id))},merchant_id:${escapeScript(JSON.stringify(offer.brandSlug))},category:${escapeScript(JSON.stringify(offer.category))},source_domain:${escapeScript(JSON.stringify(sourceDomain))},destination_url:${escapeScript(JSON.stringify(destination))},page_type:'offer_outbound',transport_type:'beacon'});window.FreeHubOutboundHandoff.afterGuestAdDecision(function(){var link=document.querySelector('[data-offer-destination]');if(link) window.location.replace(link.href);});</script></body></html>`;
 }
 
 function renderRelatedOffersForCompetition(competition) {

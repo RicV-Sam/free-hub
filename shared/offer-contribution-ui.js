@@ -15,6 +15,9 @@ document.querySelectorAll("[data-copy-contribution]").forEach((button) => {
 function initOfferFeedback(container) {
   const offerId = String(container.dataset.offerId || "").trim();
   const offerType = String(container.dataset.offerType || "").trim();
+  const contentType = String(container.dataset.contentType || "").trim();
+  const merchantId = String(container.dataset.merchantId || "").trim();
+  const category = String(container.dataset.offerCategory || "").trim();
   const buttons = Array.from(container.querySelectorAll("[data-offer-feedback-result]"));
   const status = container.querySelector("[data-offer-feedback-status]");
   const reportDetails = container.querySelector("[data-offer-report]");
@@ -43,6 +46,10 @@ function initOfferFeedback(container) {
       trackContributionEvent("offer_feedback_submitted", {
         offer_id: offerId,
         offer_type: offerType,
+        content_type: contentType,
+        content_id: offerId,
+        merchant_id: merchantId,
+        category,
         feedback_result: result,
       });
 
@@ -120,6 +127,9 @@ function prepareOfferReport(event, container) {
   const values = getFormValues(form);
   const offerId = String(container.dataset.offerId || "").trim();
   const offerType = String(container.dataset.offerType || "").trim();
+  const contentType = String(container.dataset.contentType || "").trim();
+  const merchantId = String(container.dataset.merchantId || "").trim();
+  const category = String(container.dataset.offerCategory || "").trim();
   const brand = String(container.dataset.offerBrand || "").trim();
   const title = String(container.dataset.offerTitle || "").trim();
   const pageUrl = `${window.location.origin}${window.location.pathname}`;
@@ -145,6 +155,10 @@ function prepareOfferReport(event, container) {
   trackContributionEvent("offer_report_prepared", {
     offer_id: offerId,
     offer_type: offerType,
+    content_type: contentType,
+    content_id: offerId,
+    merchant_id: merchantId,
+    category,
     issue_type: values.issueType,
     has_details: Boolean(values.details),
   });
