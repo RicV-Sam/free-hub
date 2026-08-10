@@ -351,29 +351,35 @@ Remaining:
 
 ### Phase 3 - Promotions discovery pilot
 
-**Status: private contract foundation complete; persistence and crawling remain inactive.**
+**Status: private contract, persistence, review and evidence-handoff foundation complete; automated crawling remains inactive.**
 
 - Added a parallel typed Promotion candidate contract with a mandatory `vertical: promotion` discriminator; `competition_candidates` remains unchanged.
 - Added strict private-field validation that explicitly rejects FreeHub-controlled publication fields.
 - Added conservative duplicate identity using official URLs or merchant/title plus overlapping validity windows; title alone is insufficient.
-- Documented the inactive boundary in ZA Competition Engine. No database table, crawler, review queue or exporter has been activated.
+- Added isolated shared Discovery candidate and action tables, a validated repository, dry-run-first import/review commands and a private evidence handoff.
+- Preserved the existing competition tables, review flow and handoff exporter unchanged.
 
 Remaining:
 
-- Add an isolated `promotion_candidates` migration and repository after lifecycle/review design is approved.
 - Reuse source fetching, robots, snapshots and source-health infrastructure.
 - Add promotion-specific extraction, validation, dedupe and review UI filters.
-- Export private evidence only; do not export FreeHub publication fields.
 - Pilot targeted official sources before any broad crawl.
 
 ### Phase 4 - Coupons and free-sample discovery
 
-**Status: planned.**
+**Status: private contract, persistence, review and evidence-handoff foundation complete; automated crawling remains inactive.**
 
-- Add coupon-code validation and coupon-specific expiry checks.
-- Add free-sample/product-testing classification with stock, selection, delivery, privacy and medical controls.
-- Keep samples and product testing visibly distinct.
-- Reuse the Opportunity publication boundary already in FreeHub.
+- Added a typed Coupon candidate contract covering codes, discount type/value, minimum spend, customer/member/channel restrictions, expiry and verification evidence.
+- Added distinct Free Sample and Product Testing candidate contracts covering stock, selection, fulfilment, delivery cost, privacy and medical sensitivity.
+- Added shared vertical dispatch, isolated Discovery persistence and append-only review actions without altering `competition_candidates`.
+- Added a private approved-evidence handoff that rejects FreeHub publication fields and treats `approved_for_handoff` as evidence readiness only.
+- Reused the existing Opportunity boundary in the design; no crawler row can publish a FreeHub page.
+
+Remaining:
+
+- Build small official-source crawlers and vertical-specific extraction for Coupons, Free Samples and Product Testing.
+- Add source-quality and false-positive measurement before expanding crawl coverage.
+- Keep samples and selection-based product testing visibly distinct through review and public projection.
 
 ### Phase 5 - Mixed discovery and Club
 
@@ -459,17 +465,21 @@ Crawler changes deploy independently and must preserve a private handoff. A craw
 ### Completed in the private crawler foundation
 
 - Added the typed Promotion candidate contract in ZA Competition Engine.
-- Added validator and dedupe tests without touching crawler storage or operational state.
-- Explicitly prohibited FreeHub publication fields from Promotion candidates.
+- Added typed Coupon, Free Sample and Product Testing contracts with vertical-specific validation and conservative controls.
+- Added a shared private Discovery candidate union and validator while keeping the competition contract separate.
+- Added isolated `discovery_candidates` and append-only `discovery_candidate_actions` tables; the local migration created empty tables and inserted no candidate records.
+- Added validated repository, dry-run-first import/review commands, private summary reporting and versioned evidence-handoff generation/validation.
+- Explicitly prohibited FreeHub publication fields from all private Discovery candidates and handoff payloads.
 - Kept the existing competition candidate table, review flow and handoff exporter unchanged.
-- Passed ZA Competition Engine typechecking and all 351 tests.
+- Passed ZA Competition Engine typechecking, health checks, targeted contract/repository/handoff tests and all 360 tests.
+- Confirmed the private Discovery store contains zero records after migration; automated vertical crawling remains disabled.
 
 ### Next implementation slice
 
 1. Add cross-type duplicate and relationship warnings to the Discovery projection.
 2. Extract offer route/render helpers from the monolithic generator only where tests make the move mechanical.
-3. Design the isolated Promotion candidate migration, review ledger and private exporter before activating persistence.
-4. Pilot a small official promotion-source set and measure yield, review effort and false positives.
+3. Pilot a small official promotion-source set and measure yield, review effort and false positives.
+4. Add equally bounded official-source pilots for Coupons, Free Samples and Product Testing through the shared private workflow.
 
 ## Final deliverables
 
