@@ -1,9 +1,9 @@
 === Competition Maintenance Report ===
-Date: 2026-08-10
+Date: 2026-08-11
 Mode: archive-expired
-Total competitions: 287
+Total competitions: 288
 Active published count: 50
-Expired archive page count: 138
+Expired archive page count: 139
 Low-value expired noindex count: 0
 Held/private count: 99
 Expired records still leaking into active listings: 0
@@ -149,15 +149,16 @@ Expired competition IDs:
 - spar-rewards-vaseline-winter-drive-competition-2026 (2026-08-02)
 - checkers-vaseline-winter-shoprite-checkers-competition-2026 (2026-08-02)
 - fnb-scroll-to-score-springbok-gamification-2026 (2026-08-02)
+- boxer-nyama-battle-food-trailers-2026 (2026-08-10)
 
 Closing soon (next 14 days):
-- boxer-nyama-battle-food-trailers-2026 (0 days)
-- radio-2000-1life-win-at-life-2026 (4 days)
-- clicks-dark-and-lovely-best-for-braids-2026 (5 days)
-- virgin-active-springbok-partner-2026 (6 days)
-- masterchef-sa-watch-and-win-competition-2026 (7 days)
-- spar-melrose-back-to-school-vouchers-2026 (13 days)
-- kaufmann-rugga-supporter-competition-2026 (14 days)
+- radio-2000-1life-win-at-life-2026 (3 days)
+- clicks-dark-and-lovely-best-for-braids-2026 (4 days)
+- virgin-active-springbok-partner-2026 (5 days)
+- masterchef-sa-watch-and-win-competition-2026 (6 days)
+- spar-melrose-back-to-school-vouchers-2026 (12 days)
+- kaufmann-rugga-supporter-competition-2026 (13 days)
+- gardena-winter-pruning-giveaway-2026 (14 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
