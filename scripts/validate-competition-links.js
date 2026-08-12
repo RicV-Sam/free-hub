@@ -37,6 +37,22 @@ const APPROVED_MANUAL_OK_URLS = new Map([
     "https://www.facebook.com/Takealot/posts/pfbid0XYY5E79N56xE1UxiMHXZixeKfLSKxSH1bCAnSKtx1CKGU6CphEUW6uGp81Ypd6mvl",
   ],
   [
+    "takealot-shop-automotive-win-big-2026",
+    "https://www.takealot.com/competitions/shop-automotive-win-big-competition-terms-conditions-2",
+  ],
+  [
+    "honor-takealot-bafana-bafana-jersey-2026",
+    "https://www.takealot.com/competitions/honor-technologies-africa-pty-ltd-terms-conditions-honor-takealot-bafana-bafana-signed-jersey-campaign",
+  ],
+  [
+    "domestos-power-foam-win-suzuki-jimny-2026",
+    "https://www.takealot.com/competitions/domestos-power-foam-win-a-suzuki-jimny-campaign-terms-conditions-august-2026",
+  ],
+  [
+    "centrum-takealot-womens-month-2026",
+    "https://www.takealot.com/competitions/centrum-takealot-womens-month-competition-terms-and-conditions-august-2026",
+  ],
+  [
     "vodacom-green-gold-fieldbar-cooler-competition",
     "https://www.facebook.com/Vodacom/posts/pfbid0GKoPb7hGXeGiaZtnUsayHgLxYorcRoJkpgywHoFtJarnE7EC3ybvW8tJfW948aEPl",
   ],
