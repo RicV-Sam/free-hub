@@ -578,5 +578,28 @@
     "sponsored": false,
     "publishedAt": "2026-08-12",
     "updatedAt": "2026-08-12"
+  },
+  {
+    "id": "clarins-three-free-samples-with-order",
+    "slug": "clarins-three-free-samples-with-order",
+    "type": "deal",
+    "brand": "Clarins South Africa",
+    "brandSlug": "clarins-south-africa",
+    "title": "Choose three free Clarins samples with an online order",
+    "summary": "Clarins South Africa lets online shoppers choose up to three complimentary skincare or make-up samples at checkout with any paid order, subject to availability.",
+    "destinationUrl": "https://www.clarins.co.za/trymeloveme/",
+    "sourceUrl": "https://www.clarins.co.za/trymeloveme/",
+    "termsUrl": "https://www.clarins.co.za/trymeloveme/",
+    "category": "beauty-health",
+    "lastChecked": "2026-08-12",
+    "reviewDueAt": "2026-08-19",
+    "terms": "A paid online order from the Clarins South Africa store is required. After shopping, open the bag at checkout and select up to three complimentary skincare or make-up samples from the available sample catalogue. Clarins says the catalogue can contain more than 120 sample-sized products and that each sample generally provides one to five uses. Selection is subject to availability, samples cannot be requested separately by post, and normal product prices, checkout and delivery conditions for the paid order still apply.",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "affiliate": false,
+    "sponsored": false,
+    "publishedAt": "2026-08-12",
+    "updatedAt": "2026-08-12"
   }
 ]
