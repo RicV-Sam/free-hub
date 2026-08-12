@@ -57,11 +57,11 @@ test("offer routes and exact feature flag are safe", () => {
 test("registry rejects duplicate identifiers and production records are validated", () => {
   assert.equal(offerData.validateOfferRegistry([fixture(), fixture()]).valid, false);
   const registry = require("../../data/offers.json");
-  assert.equal(registry.length, 27);
+  assert.equal(registry.length, 28);
   assert.equal(offerData.validateOfferRegistry(registry).valid, true);
   assert.deepEqual(
     registry.reduce((counts, offer) => ({ ...counts, [offer.type]: counts[offer.type] + 1 }), { coupon: 0, deal: 0 }),
-    { coupon: 4, deal: 23 }
+    { coupon: 4, deal: 24 }
   );
   const allowedSourceHosts = new Set([
     "www.capitecbank.co.za", "www.gadventures.com", "ucount.standardbank.co.za",
@@ -71,6 +71,7 @@ test("registry rejects duplicate identifiers and production records are validate
     "www.andbeyond.com", "www.bookmundi.com", "steers.co.za", "play.google.com",
     "www.cellc.co.za", "www.hirschs.co.za", "www.makro.co.za",
     "www.dunloptyres.co.za", "www.clarins.co.za", "bellas.co.za",
+    "metrocosmetics.co.za",
   ]);
   assert.equal(registry.every((offer) => allowedSourceHosts.has(new URL(offer.sourceUrl).hostname)), true);
 });

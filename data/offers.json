@@ -624,5 +624,28 @@
     "sponsored": false,
     "publishedAt": "2026-08-12",
     "updatedAt": "2026-08-12"
+  },
+  {
+    "id": "metropolitain-complimentary-samples-with-order",
+    "slug": "metropolitain-complimentary-samples-with-order",
+    "type": "deal",
+    "brand": "Metropolitain Cosmetics",
+    "brandSlug": "metropolitain-cosmetics",
+    "title": "Complimentary beauty samples with every online order",
+    "summary": "Metropolitain Cosmetics includes complimentary beauty sample selections with every paid online order, chosen according to the shopper's interests and current availability.",
+    "destinationUrl": "https://metrocosmetics.co.za/content/19-samples",
+    "sourceUrl": "https://metrocosmetics.co.za/content/19-samples",
+    "termsUrl": "https://metrocosmetics.co.za/content/1-delivery",
+    "category": "beauty-health",
+    "lastChecked": "2026-08-12",
+    "reviewDueAt": "2026-08-19",
+    "terms": "A paid online order from Metropolitain Cosmetics is required. During the order, shoppers are asked what type of samples they would like included, but Metropolitain selects the complimentary sample or samples according to the shopper's stated needs or interests and what is available at the time; no fixed quantity, brand or product is promised. Delivery is limited to South African street addresses and excludes PO boxes. The official delivery page states that orders below R700 carry a R150 shipping fee and orders over R700 receive free shipping, excluding weekends and public holidays.",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "affiliate": false,
+    "sponsored": false,
+    "publishedAt": "2026-08-12",
+    "updatedAt": "2026-08-12"
   }
 ]
