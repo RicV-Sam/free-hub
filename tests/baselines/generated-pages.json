@@ -117,10 +117,10 @@
       "title": "Win a Car Competitions South Africa",
       "description": "Browse verified South African win-a-car competitions with official source links, closing dates and entry requirements.",
       "canonical": "https://freehub.co.za/tag/win-a-car/",
-      "robots": "noindex, follow",
+      "robots": "index, follow, max-image-preview:large",
       "h1": "Win a Car Competitions",
       "schemaTypes": ["BreadcrumbList", "CollectionPage", "ItemList", "ListItem", "WebSite"],
-      "inSitemap": false
+      "inSitemap": true
     },
     {
       "route": "/competition/one-life-winning-wednesday-cash-2026/",
