@@ -553,5 +553,30 @@
     "sponsored": false,
     "publishedAt": "2026-08-10",
     "updatedAt": "2026-08-10"
+  },
+  {
+    "id": "dunlop-grandtrek-r800-checkers-voucher-2026",
+    "slug": "dunlop-grandtrek-r800-checkers-voucher-2026",
+    "type": "deal",
+    "brand": "Dunlop Tyres South Africa",
+    "brandSlug": "dunlop-tyres-south-africa",
+    "title": "R800 Checkers voucher with four Dunlop Grandtrek tyres",
+    "summary": "Buy four qualifying Dunlop Grandtrek tyres and register for Dunlop Sure tyre insurance to receive an R800 Checkers voucher after validation, while voucher stock lasts.",
+    "destinationUrl": "https://www.dunloptyres.co.za/promotions/grandtrek-promotion-2026",
+    "sourceUrl": "https://www.dunloptyres.co.za/promotions/grandtrek-promotion-2026",
+    "termsUrl": "https://www.dunloptyres.co.za/Promotions/grandtrek-promotion-2026-terms-and-conditions",
+    "category": "other",
+    "startsAt": "2026-08-12",
+    "expiresAt": "2026-09-11",
+    "lastChecked": "2026-08-12",
+    "reviewDueAt": "2026-08-19",
+    "terms": "South African customers aged 18 or older must buy four qualifying Dunlop Grandtrek tyres during the campaign at a participating authorised Dunlop Branded Store and register the purchase for free 18-month Dunlop Sure tyre insurance at purchase or within seven days. Dunlop validates the purchase, registration and customer details before sending the R800 Checkers voucher to the participant's WhatsApp-enabled number, normally within 7 to 14 working days. A South African ID, vehicle and purchase details are required. The promotion runs from 12 August to 11 September 2026 but is first come, first served and can end earlier when the available vouchers are exhausted; purchase and successful validation do not guarantee a voucher after stock runs out.",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "affiliate": false,
+    "sponsored": false,
+    "publishedAt": "2026-08-12",
+    "updatedAt": "2026-08-12"
   }
 ]
