@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-08-11
+Generated: 2026-08-12
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 

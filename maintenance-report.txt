@@ -1,5 +1,5 @@
 === Competition Maintenance Report ===
-Date: 2026-08-11
+Date: 2026-08-12
 Mode: archive-expired
 Total competitions: 288
 Active published count: 50
@@ -152,13 +152,13 @@ Expired competition IDs:
 - boxer-nyama-battle-food-trailers-2026 (2026-08-10)
 
 Closing soon (next 14 days):
-- radio-2000-1life-win-at-life-2026 (3 days)
-- clicks-dark-and-lovely-best-for-braids-2026 (4 days)
-- virgin-active-springbok-partner-2026 (5 days)
-- masterchef-sa-watch-and-win-competition-2026 (6 days)
-- spar-melrose-back-to-school-vouchers-2026 (12 days)
-- kaufmann-rugga-supporter-competition-2026 (13 days)
-- gardena-winter-pruning-giveaway-2026 (14 days)
+- radio-2000-1life-win-at-life-2026 (2 days)
+- clicks-dark-and-lovely-best-for-braids-2026 (3 days)
+- virgin-active-springbok-partner-2026 (4 days)
+- masterchef-sa-watch-and-win-competition-2026 (5 days)
+- spar-melrose-back-to-school-vouchers-2026 (11 days)
+- kaufmann-rugga-supporter-competition-2026 (12 days)
+- gardena-winter-pruning-giveaway-2026 (13 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
