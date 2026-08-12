@@ -601,5 +601,28 @@
     "sponsored": false,
     "publishedAt": "2026-08-12",
     "updatedAt": "2026-08-12"
+  },
+  {
+    "id": "bellas-surprise-free-sample-with-order",
+    "slug": "bellas-surprise-free-sample-with-order",
+    "type": "deal",
+    "brand": "Bellas South Africa",
+    "brandSlug": "bellas-south-africa",
+    "title": "Free surprise Bellas sample with a paid online order",
+    "summary": "Add Bellas' free-gift item to a paid online order to receive one surprise skincare, bath, hair or beauty sample, while stocks last.",
+    "destinationUrl": "https://bellas.co.za/shop/free-gift/",
+    "sourceUrl": "https://bellas.co.za/shop/free-gift/",
+    "termsUrl": "https://bellas.co.za/policies/",
+    "category": "beauty-health",
+    "lastChecked": "2026-08-12",
+    "reviewDueAt": "2026-08-19",
+    "terms": "A paid Bellas online order is required, and the R0 surprise-gift item must be added to the cart before checkout. The offer is limited to one gift per paid order, online orders only and available stock. Bellas chooses the surprise sample according to availability; it may be a mini skincare, bath, hair or beauty product and arrives with the purchased order. The current offer page also displays an undated 'orders must be placed and paid before midnight' condition, so confirm it before paying. Bellas states that South African orders above R600 and qualifying promotional combo packs receive free delivery; otherwise a delivery charge is calculated at checkout. Product prices and delivery charges therefore still apply to the qualifying order.",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "affiliate": false,
+    "sponsored": false,
+    "publishedAt": "2026-08-12",
+    "updatedAt": "2026-08-12"
   }
 ]
