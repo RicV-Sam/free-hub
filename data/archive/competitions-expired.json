@@ -8408,5 +8408,68 @@
     "imageReviewCheckedAt": "2026-07-10",
     "archivedAt": "2026-08-16",
     "archiveReason": "expired"
+  },
+  {
+    "id": "virgin-active-springbok-partner-2026",
+    "title": "Virgin Active Springbok Competition 2026",
+    "brand": "Virgin Active South Africa",
+    "summary": "Active Virgin Active members can meet their weekly visit goal and claim an app entry for a chance to win a premium Springbok match experience for two in Johannesburg.",
+    "entrySteps": [
+      "Be an active Virgin Active member in good standing and use the Virgin Active app.",
+      "Meet the weekly fitness visit goal; only one qualifying club visit per day is counted.",
+      "Claim the competition entry from the weekly rewards pool in the app before 16 August 2026."
+    ],
+    "closingDate": "2026-08-16",
+    "category": "Holidays",
+    "prizeName": "Springbok match experience for two in Johannesburg with hotel, jerseys and R10,000 spending money",
+    "prizeType": "experience",
+    "prizeValueAmount": null,
+    "prizeValueCurrency": "ZAR",
+    "numberOfPrizes": "1",
+    "entryType": "Virgin Active App Fitness Goal",
+    "tags": [
+      "holidays",
+      "rugby",
+      "app-required",
+      "membership-required",
+      "fitness",
+      "johannesburg"
+    ],
+    "url": "https://hello.virginactive.co.za/support/solutions/articles/201000130252-springbok-competition-2026-terms-and-conditions",
+    "sourceUrl": "https://hello.virginactive.co.za/support/solutions/articles/201000130252-springbok-competition-2026-terms-and-conditions",
+    "termsUrl": "https://hello.virginactive.co.za/support/solutions/articles/201000130252-springbok-competition-2026-terms-and-conditions",
+    "sourceDomain": "hello.virginactive.co.za",
+    "lastChecked": "2026-07-20",
+    "verificationStatus": "published",
+    "publicationStatus": "published",
+    "doNotPublish": false,
+    "entryCostType": "membership-required",
+    "entryFeeLabel": "No separate competition fee; an active Virgin Active membership, app access and qualifying club visits are required",
+    "purchaseRequired": false,
+    "requiredProduct": "Active Virgin Active membership in good standing",
+    "entryChannel": "Virgin Active app weekly rewards pool",
+    "eligibility": "Permanent South African residents aged 18 or older with an active Virgin Active membership in good standing, the Virgin Active app and a claimed qualifying entry.",
+    "region": "South Africa / prize event in Johannesburg",
+    "verificationNote": "Official Virgin Active South Africa competition terms reviewed and approved for Freehub publication on 20 July 2026.",
+    "sourceSystem": "weekly-direct-discovery",
+    "sourceHandoffId": "weekly-20260720-virgin-active-springbok",
+    "sourceReviewStatus": "publication-approved",
+    "sourceReport": "Freehub weekly new competition scan completed on 20 July 2026.",
+    "evidenceNotes": "Official Virgin Active terms confirm the 8 July to 16 August 2026 period, active-member and app requirements, weekly visit-goal mechanic and a Springbok Johannesburg prize for two including tickets, two hotel nights, jerseys, R10,000 spending money and domestic flights when the winner lives outside Gauteng.",
+    "riskFlags": [
+      "paid_membership_required",
+      "app_required",
+      "fitness_activity_required",
+      "age_restriction",
+      "travel_exclusions"
+    ],
+    "validationWarnings": [
+      "food_drinks_and_daily_local_transport_excluded"
+    ],
+    "seoTitle": "Virgin Active Springbok Competition 2026 | Freehub",
+    "seoDescription": "Virgin Active Springbok competition 2026: active members can meet their weekly visit goal and claim an app entry by 16 August to win a match trip for two.",
+    "quickAnswer": "The Virgin Active Springbok competition 2026 is for active members in good standing. Meet the weekly club-visit goal, claim the entry in the Virgin Active app by 16 August 2026, and you could win a Johannesburg Springbok match experience for two with tickets, hotel, jerseys and R10,000 spending money.",
+    "archivedAt": "2026-08-17",
+    "archiveReason": "expired"
   }
 ]
