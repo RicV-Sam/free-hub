@@ -153,6 +153,16 @@ function createOpportunityRenderer({ escapeHtml, escapeAttribute, formatDate, ca
 }
 
 function getOpportunityCardCopy(opportunity) {
+  if (opportunity.type === "birthday_freebie") {
+    return {
+      compactType: "Birthday freebie",
+      requirementCue: getBirthdayRequirementCue(opportunity),
+      availabilityCue: getBirthdayAvailabilityCue(opportunity),
+      fullEligibilityCue: `${getBirthdayRequirementCue(opportunity)}. ${getBirthdayAvailabilityCue(opportunity)}. Check the official source before travelling.`,
+      ctaLabel: "View birthday freebie details",
+    };
+  }
+
   if (opportunity.type === "product_testing") {
     return {
       compactType: "Product-testing application",
@@ -190,7 +200,13 @@ function buildOpportunityFacts(opportunity, costLabel, required, formatDate) {
   const details = opportunity.details || {};
   const facts = [{ label: "Cost", value: costLabel }];
 
-  if (opportunity.type === "product_testing") {
+  if (opportunity.type === "birthday_freebie") {
+    facts.push(
+      { label: "Birthday window", value: getBirthdayAvailabilityCue(opportunity) },
+      { label: "Sign-up", value: opportunity.details.signupLeadDays > 0 ? `At least ${opportunity.details.signupLeadDays} day${opportunity.details.signupLeadDays === 1 ? "" : "s"} before` : "No advance sign-up stated" },
+      { label: "Voucher", value: formatToken(opportunity.details.voucherDelivery) }
+    );
+  } else if (opportunity.type === "product_testing") {
     facts.push(
       { label: "Fulfilment", value: formatToken(details.fulfilmentMethod) },
       { label: "Selection", value: formatToken(details.selectionMethod) },
@@ -228,6 +244,9 @@ function getPrivacyNotice(opportunity) {
 }
 
 function getProviderBoundary(opportunity) {
+  if (opportunity.type === "birthday_freebie") {
+    return `${opportunity.provider}, not Freehub, issues the birthday benefit and controls identification, availability and redemption. Check the official source before travelling.`;
+  }
   if (opportunity.type === "product_testing") {
     return `${opportunity.provider}, not Freehub, selects participants and sets the creator tasks. Freehub does not receive applications or guarantee selection.`;
   }
@@ -235,6 +254,24 @@ function getProviderBoundary(opportunity) {
     return `${opportunity.provider}, not Freehub, assesses product suitability. Freehub does not provide medical suitability advice.`;
   }
   return `${opportunity.provider}, not Freehub, owns the sample stock, request limits and fulfilment. Freehub does not receive the request.`;
+}
+
+function getBirthdayRequirementCue(opportunity) {
+  const details = opportunity.details || {};
+  if (details.appRequired) return "App profile required";
+  if (details.membershipRequired) return "Free membership or club profile required";
+  if (details.identityRequired) return "Birthday identification required";
+  return "Provider redemption rules apply";
+}
+
+function getBirthdayAvailabilityCue(opportunity) {
+  const details = opportunity.details || {};
+  const window = details.birthdayWindow || {};
+  if (window.beforeDays === 0 && window.afterDays === 0) return "Valid on the actual birthday only";
+  if (window.beforeDays === 0 && window.afterDays > 0) return `Valid from the birthday for ${window.afterDays} days`;
+  if (window.beforeDays === 7 && window.afterDays === 21) return "Valid from one week before to three weeks after the birthday";
+  if (window.beforeDays >= 28 && window.afterDays >= 28) return "Valid during the calendar birthday month";
+  return `Valid within ${window.beforeDays} days before and ${window.afterDays} days after the birthday`;
 }
 
 function isMedicalSample(opportunity) {

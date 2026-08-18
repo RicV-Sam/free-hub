@@ -41,12 +41,27 @@ const OPPORTUNITY_ALLOWED_SOURCE_HOSTS = Object.freeze([
   "products.coloplast.co.za",
   "www.blinddesigns.co.za",
   "www.tena.co.za",
+  "www.tablemountain.net",
+  "www.aquarium.co.za",
+  "capewheel.co.za",
+  "zeitzmocaa.museum",
+  "www.robben-island.org.za",
+  "lionandsafaripark.com",
+  "citysightseeing.co.za",
+  "upcycles.co.za",
+  "www.waterfront.co.za",
+  "www.sterkinekor.com",
+  "www.mcdonalds.co.za",
+  "www.spursteakranches.com",
+  "muggandbean.co.za",
+  "rubybox.co.za",
 ]);
 const VOUCHER_DISCOVERY_RESOURCE_HOSTS = Object.freeze({
   "absa-advantage-meal-vouchers": "www.absa.co.za",
   "kauai-app-birthday-reward": "kauai.co.za",
   "spur-r50-birthday-voucher": "www.spursteakranches.com",
   "western-cape-jobseeker-travel-voucher": "www.westerncape.gov.za",
+  "bootlegger-app-registration-coffee": "www.bootlegger.coffee",
 });
 const VOUCHER_DISCOVERY_RESOURCE_IDS = Object.freeze(Object.keys(VOUCHER_DISCOVERY_RESOURCE_HOSTS));
 const CSS_ASSET_VERSION = RELEASE_ASSET_VERSION;
@@ -91,6 +106,7 @@ const EVERGREEN_PRIZE_LINKS = Object.freeze([
   { label: "Win Experiences", href: "/category/experiences/" },
 ]);
 const FREE_STUFF_CHILD_LINKS = Object.freeze([
+  { label: "Birthday Freebies", contentType: "birthday_freebies", href: "/birthday-freebies/" },
   { label: "Free Samples", contentType: "free_samples", href: "/free-samples-south-africa/" },
   { label: "Free Courses", contentType: "free_courses", href: "/free-online-courses-south-africa/" },
   { label: "Children's Books", contentType: "childrens_books", href: "/free-childrens-books-south-africa/" },
@@ -1337,6 +1353,66 @@ const TRUST_PAGE_DEFINITIONS = [
       { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
       { label: "Free competitions", href: "/free-competitions/" },
     ],
+  },
+  {
+    slug: "birthday-freebies",
+    title: "Birthday Freebies South Africa | Free Meals, Tickets & Experiences",
+    description:
+      "Find verified birthday freebies in South Africa, including free attraction tickets, meals, movies and experiences with clear app, membership, ID and timing rules.",
+    heading: "Birthday Freebies in South Africa",
+    intro:
+      "Compare recurring South African birthday benefits that Freehub has checked against official provider sources. Every listing explains whether you need an app, club membership, prior activity, identification or advance registration before travelling.",
+    article: true,
+    datePublished: "2026-08-18",
+    dateModified: "2026-08-18",
+    sections: [
+      {
+        heading: "Quick answer: the best birthday freebies",
+        paragraphs: [
+          "Current verified options include attraction tickets, museum access, a safari, a bicycle ride, cinema entry and selected food rewards. Some work throughout the birthday month, while others are valid only on the actual birthday.",
+          "A birthday freebie is not automatically no-strings-attached. Freehub keeps advance registration, membership, app, identification, previous transaction and venue-availability requirements visible on every card."
+        ]
+      },
+      {
+        heading: "Register before your birthday",
+        paragraphs: [
+          "Club and app rewards often need a correct date of birth before the birthday. City Sightseeing asks for registration at least two weeks ahead, while the Cape Wheel issues its voucher only to people already registered for the Birthday Club.",
+          "Do not create duplicate profiles or change a birth date to trigger a reward. Providers can refuse or cancel benefits where the profile or identification does not match."
+        ]
+      },
+      {
+        heading: "Check timing and availability",
+        paragraphs: [
+          "Birthday month, birthday week and actual-birthday offers are different. Weather, operating schedules, screening availability, tour capacity and participating locations can still affect redemption.",
+          "Open the official source shortly before travelling and take the identification, voucher, app or membership details stated by the provider."
+        ]
+      }
+    ],
+    checklistTitle: "Before claiming a birthday freebie",
+    checklist: [
+      "Confirm whether the benefit is valid on the day, during a week or throughout the birthday month.",
+      "Register early enough and enter the correct date of birth.",
+      "Take the accepted identification and any printed or in-app voucher.",
+      "Check operating hours, weather, capacity and participating locations before travelling."
+    ],
+    avoidTitle: "Do not rely on",
+    avoid: [
+      "Old birthday lists that do not link to current provider terms.",
+      "A screenshot or forwarded voucher issued to someone else.",
+      "Claims that hide a previous-spend or transaction requirement.",
+      "A birthday-month description when the official provider says actual birthday only."
+    ],
+    faq: [
+      { question: "Do I need my ID for birthday freebies?", answer: "Many attraction and experience providers require identification showing your birth date. App and loyalty rewards may instead verify the date stored in your profile." },
+      { question: "Are birthday freebies completely free?", answer: "Some are completely free, while others require a free membership, an app, advance registration or previous loyalty activity. Freehub labels those conditions separately." },
+      { question: "Can I claim a birthday freebie after my birthday?", answer: "Only when the provider gives a wider window. Some offers last 30 days or the full birthday month, while others work only on the actual birth date." }
+    ],
+    links: [
+      { label: "Free stuff South Africa", href: "/free-stuff-south-africa/" },
+      { label: "Where to get free samples", href: "/free-samples-south-africa/" },
+      { label: "Free competitions", href: "/free-competitions/" },
+      { label: "How Freehub checks listings", href: "/how-we-verify-competitions/" }
+    ]
   },
   {
     slug: "free-samples-south-africa",
@@ -6594,6 +6670,7 @@ function renderFreeStuffParentPage(page) {
   const featuredOpportunities = [
     ...approvedPublicOpportunities.filter((opportunity) => opportunity.type === "free_sample").slice(0, 1),
     ...approvedPublicOpportunities.filter((opportunity) => opportunity.type === "product_testing").slice(-1),
+    ...approvedPublicOpportunities.filter((opportunity) => opportunity.type === "birthday_freebie").slice(0, 1),
   ];
   const faqItems = Array.isArray(page.faq) ? page.faq : [];
   const resourceStructuredData = freeResourceRenderer.buildFreeResourceItemList({
@@ -7438,10 +7515,17 @@ function renderTrustPage(page) {
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/${page.slug}/`;
   const usefulLinks = getTrustPageUsefulLinks(page);
   const pageResources = getTrustPageResources(page);
+  const birthdayOpportunities = page.slug === "birthday-freebies"
+    ? approvedPublicOpportunities.filter((opportunity) => opportunity.type === "birthday_freebie")
+    : [];
   const faqItems = Array.isArray(page.faq) ? page.faq : [];
   const resourceStructuredData = freeResourceRenderer.buildFreeResourceItemList({
     resources: pageResources,
     name: page.resourceTitle || page.heading,
+  });
+  const birthdayStructuredData = opportunityRenderer.buildOpportunityItemList({
+    opportunities: birthdayOpportunities,
+    name: "Verified birthday freebies in South Africa",
   });
   const faqStructuredData = buildTrustPageFaqStructuredData(faqItems);
   const serviceStructuredData = buildTrustPageServiceStructuredData(page, canonicalUrl);
@@ -7540,6 +7624,7 @@ function renderTrustPage(page) {
     <script id="structured-data-breadcrumb" type="application/ld+json">${escapeScript(JSON.stringify(breadcrumbData))}</script>
     ${articleData ? `<script id="structured-data-article" type="application/ld+json">${escapeScript(JSON.stringify(articleData))}</script>` : ""}
     ${resourceStructuredDataScript}
+    ${birthdayStructuredData ? `<script id="structured-data-opportunities" type="application/ld+json">${escapeScript(JSON.stringify(birthdayStructuredData))}</script>` : ""}
     ${faqStructuredDataScript}
     ${serviceStructuredDataScript}
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
@@ -7579,6 +7664,15 @@ function renderTrustPage(page) {
             )
             .join("\n          ")}
         </section>
+
+        ${opportunityRenderer.renderOpportunitySection({
+          opportunities: birthdayOpportunities,
+          heading: "Current verified birthday freebies",
+          pageType: "birthday_freebies",
+          cardVariant: "full",
+          kicker: "Official provider terms checked",
+          description: "Compare timing, identification, membership, app and prior-activity rules before travelling or redeeming.",
+        })}
 
         ${page.slug === "submit-a-competition" ? renderCompetitionSubmissionForm() : ""}
         ${page.slug === "contact" ? renderGlobalAuthPanel({
@@ -9209,7 +9303,7 @@ function getTrustPageLastmod(page) {
       resource.dateModified,
       resource.lastReviewed,
     ]),
-    ...(page.slug === "free-samples-south-africa"
+    ...(["free-samples-south-africa", "birthday-freebies"].includes(page.slug)
       ? approvedPublicOpportunities.flatMap((opportunity) => [
           opportunity.lastVerifiedAt,
           opportunity.updatedAt,
@@ -10430,6 +10524,9 @@ function renderOpportunityDetailPage(opportunity, lifecycleState) {
   const robots = active ? "index, follow, max-image-preview:large" : "noindex, follow";
   const eyebrow = active ? "Verified opportunity" : "Opportunity status";
   const productTesting = opportunity.type === "product_testing";
+  const opportunityParent = opportunity.type === "birthday_freebie"
+    ? { label: "Birthday Freebies", href: "/birthday-freebies/" }
+    : { label: "Free Samples", href: "/free-samples-south-africa/" };
   const detailTrustItems = productTesting
     ? ["Verified official source", "Selection required", "Creator tasks stated"]
     : ["Verified official source", "Costs stated clearly", "Provider approval required"];
@@ -10473,7 +10570,7 @@ function renderOpportunityDetailPage(opportunity, lifecycleState) {
           ? "Check the provider, selection rules, required tasks, privacy and current verification facts before continuing to the official application."
           : "This noindex trust page records why the opportunity is not currently available.",
         actions: [
-          { label: "Browse Sample Options", href: "/free-samples-south-africa/", className: "btn--secondary" },
+          { label: `Browse ${opportunityParent.label}`, href: opportunityParent.href, className: "btn--secondary" },
         ],
         trustItems: active
           ? detailTrustItems
@@ -10483,7 +10580,7 @@ function renderOpportunityDetailPage(opportunity, lifecycleState) {
       <main id="main-content" class="main-content opportunity-detail-page">
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="/">Home</a><span aria-hidden="true">/</span>
-          <a href="/free-samples-south-africa/">Free Samples</a><span aria-hidden="true">/</span>
+          <a href="${escapeAttribute(opportunityParent.href)}">${escapeHtml(opportunityParent.label)}</a><span aria-hidden="true">/</span>
           <span aria-current="page">${escapeHtml(opportunity.title)}</span>
         </nav>
         ${opportunityRouteRenderer.renderDetailContent(opportunity, lifecycleState)}

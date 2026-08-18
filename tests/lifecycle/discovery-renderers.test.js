@@ -130,6 +130,34 @@ test("product-testing Opportunity cards expose selection and creator-task bounda
   assert.doesNotMatch(html, /medical suitability|health-related information/i);
 });
 
+test("birthday Opportunity cards and routes expose timing, membership and redemption boundaries", () => {
+  const cardHtml = opportunities.renderOpportunitySection({
+    opportunities: [fixtures.publishedBirthday],
+    heading: "Current verified birthday freebies",
+    pageType: "birthday_freebies",
+    cardVariant: "full",
+  });
+  assert.match(cardHtml, /Birthday freebie/);
+  assert.match(cardHtml, /Birthday window/);
+  assert.match(cardHtml, /Birthday identity check/i);
+  assert.match(cardHtml, /issues the birthday benefit/i);
+  assert.match(cardHtml, /data-page-type="birthday_freebies"/);
+
+  const detailHtml = opportunityRoutes.renderDetailContent(fixtures.publishedBirthday, "active");
+  assert.match(detailHtml, /Recurring birthday benefit/);
+  assert.match(detailHtml, /Continue to the official birthday offer/);
+  assert.match(detailHtml, /does not collect your date of birth/i);
+  assert.match(detailHtml, /href="\/birthday-freebies\/"/);
+  assert.doesNotMatch(detailHtml, /guaranteed free sample|before applying/i);
+
+  const metadata = opportunityRoutes.getMetadata(fixtures.publishedBirthday, "active");
+  assert.match(metadata.description, /birthday window/i);
+  assert.doesNotMatch(metadata.description, /delivery, privacy|before applying/i);
+  const exitHtml = opportunityRoutes.renderExitContent(fixtures.publishedBirthday);
+  assert.match(exitHtml, /controls registration, availability and redemption/i);
+  assert.doesNotMatch(exitHtml, /decides selection/i);
+});
+
 test("Opportunity renderer asserts approved publication state without importing the public gate", () => {
   assert.throws(
     () => opportunities.renderOpportunitySection({ opportunities: [fixtures.unsupportedDraft], heading: "Current", pageType: "free_stuff_parent" }),
@@ -145,6 +173,8 @@ test("Opportunity controller uses only the reviewed provider hosts and owns elig
   assert.match(source, /"products\.coloplast\.co\.za"/);
   assert.match(source, /"www\.blinddesigns\.co\.za"/);
   assert.match(source, /"www\.tena\.co\.za"/);
+  assert.match(source, /"www\.tablemountain\.net"/);
+  assert.match(source, /"rubybox\.co\.za"/);
   assert.match(source, /opportunityData\.isPublicOpportunity/);
   assert.match(source, /allowedSourceHosts: OPPORTUNITY_ALLOWED_SOURCE_HOSTS/);
 });
