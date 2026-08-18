@@ -16,7 +16,7 @@ const OPPORTUNITIES_PATH = path.join(ROOT_DIR, "data", "opportunities.json");
 const OPPORTUNITY_SOURCE_EVIDENCE_PATH = path.join(ROOT_DIR, "data", "opportunity-source-evidence.json");
 const OFFERS_PATH = path.join(ROOT_DIR, "data", "offers.json");
 const RELATIVE_ASSET_PATH = "/";
-const RELEASE_ASSET_VERSION = "20260808-about-v1";
+const RELEASE_ASSET_VERSION = "20260818-video-v1";
 const GUEST_ADS_SCRIPT_SRC = `/shared/guest-ads.js?v=${RELEASE_ASSET_VERSION}`;
 const OUTBOUND_HANDOFF_SCRIPT_SRC = `/shared/outbound-handoff.js?v=${RELEASE_ASSET_VERSION}`;
 const GUEST_ADS_SCRIPT = `<script type="module" src="${GUEST_ADS_SCRIPT_SRC}"></script>`;
@@ -25,12 +25,30 @@ const GOOGLE_TAG_MANAGER_ID = "GTM-W2M7PCR7";
 const META_PIXEL_ID = "2506912739756217";
 const WHATSAPP_CHANNEL_URL = "https://whatsapp.com/channel/0029Vb7mS1VE50UlOc2yOe2H";
 const FACEBOOK_PAGE_URL = "https://www.facebook.com/FreeHubZA/";
+const YOUTUBE_CHANNEL_URL = "https://www.youtube.com/@freehubza";
 const DATACOST_URL = "https://datacost.co.za/?utm_source=freehub&utm_medium=house_banner&utm_campaign=freehub_cross_promo";
 const DATACOST_USSD_URL = "https://datacost.co.za/ussd-codes/?utm_source=freehub&utm_medium=house_banner&utm_campaign=ussd_codes";
 const DATACOST_BANNER_IMAGE = "/assets/partners/datacost-data-airtime-banner.jpg";
 const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date());
 const LIFECYCLE_REFERENCE_DATE_ISO = process.env.FREEHUB_AS_OF_DATE || getLocalIsoDate(new Date());
 shared.setReferenceDate(LIFECYCLE_REFERENCE_DATE_ISO);
+const BIRTHDAY_FREEBIES_VIDEO = Object.freeze({
+  id: "FYhppNNEU0M",
+  slug: "birthday-freebies-south-africa",
+  title: "Birthday freebies in South Africa",
+  description:
+    "A 24-second Freehub guide to finding verified South African birthday freebies, including movies, food, attractions and experiences.",
+  uploadDate: "2026-08-18",
+  durationSeconds: 24,
+  durationIso: "PT24S",
+  thumbnailUrl: "https://i.ytimg.com/vi/FYhppNNEU0M/maxresdefault.jpg",
+  watchUrl: "https://www.youtube.com/watch?v=FYhppNNEU0M",
+  embedUrl: "https://www.youtube.com/embed/FYhppNNEU0M",
+  privacyEmbedUrl:
+    "https://www.youtube-nocookie.com/embed/FYhppNNEU0M?rel=0&cc_load_policy=1&cc_lang_pref=en",
+  transcript:
+    "It’s your birthday. Before you spend a cent, check what you can get free: movies, food, attractions, experiences and more. Find South Africa’s verified birthday freebies on Freehub. Free it, you win it. There’s a crazy bird flying around.",
+});
 const OPPORTUNITIES_ENABLED = opportunityData.isOpportunityFeatureEnabled(
   process.env.FREEHUB_ENABLE_OPPORTUNITIES
 );
@@ -2256,6 +2274,8 @@ function main() {
     fs.writeFileSync(path.join(outputDirectory, "index.html"), renderTrustPage(page));
   });
 
+  writeVideoPages();
+
   writeLegacyRedirectPages();
 
   writeContentPages(activeCompetitions);
@@ -2274,6 +2294,7 @@ function main() {
     )
   );
   fs.writeFileSync(path.join(ROOT_DIR, "robots.txt"), renderRobotsTxt());
+  runVideoPageStaticChecks();
   runLifecycleStaticChecks(
     validCompetitions,
     activeCompetitions,
@@ -7502,6 +7523,188 @@ function writeLegacyRedirectPages() {
   fs.writeFileSync(path.join(outputDirectory, "index.html"), renderLegacyAccountBenefitsRedirect());
 }
 
+function renderBirthdayVideoFeature() {
+  const video = BIRTHDAY_FREEBIES_VIDEO;
+  const videoPath = `/videos/${video.slug}/`;
+
+  return `<section class="featured-video" aria-labelledby="birthday-video-heading">
+          <div class="featured-video__copy">
+            <p class="section-kicker">24-second Freehub video</p>
+            <h2 id="birthday-video-heading">Watch: birthday freebies in South Africa</h2>
+            <p>See the types of birthday rewards you can find, then use the verified listings below to check identification, membership, app and timing requirements.</p>
+            <a class="btn btn--primary" href="${escapeAttribute(videoPath)}">Watch the birthday freebies video</a>
+          </div>
+          <a class="featured-video__poster" href="${escapeAttribute(videoPath)}" aria-label="Watch Birthday freebies in South Africa, 24 seconds">
+            <img src="${escapeAttribute(video.thumbnailUrl)}" width="1280" height="720" loading="lazy" decoding="async" alt="Freehub birthday freebies video preview" />
+          </a>
+        </section>`;
+}
+
+function buildBirthdayVideoStructuredData() {
+  const video = BIRTHDAY_FREEBIES_VIDEO;
+  const canonicalUrl = `${shared.CANONICAL_ORIGIN}/videos/${video.slug}/`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "@id": `${canonicalUrl}#video`,
+    name: video.title,
+    description: video.description,
+    thumbnailUrl: [video.thumbnailUrl],
+    uploadDate: video.uploadDate,
+    duration: video.durationIso,
+    embedUrl: video.embedUrl,
+    inLanguage: "en-ZA",
+    transcript: video.transcript,
+    publisher: {
+      "@type": "Organization",
+      name: "Freehub",
+      url: `${shared.CANONICAL_ORIGIN}/`,
+    },
+  };
+}
+
+function renderBirthdayVideoPage() {
+  const video = BIRTHDAY_FREEBIES_VIDEO;
+  const canonicalUrl = `${shared.CANONICAL_ORIGIN}/videos/${video.slug}/`;
+  const pageTitle = "Birthday Freebies in South Africa Video | Freehub";
+  const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${shared.CANONICAL_ORIGIN}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Birthday Freebies",
+        item: `${shared.CANONICAL_ORIGIN}/birthday-freebies/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: video.title,
+        item: canonicalUrl,
+      },
+    ],
+  };
+  const videoStructuredData = buildBirthdayVideoStructuredData();
+  const webPageStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: video.title,
+    description: video.description,
+    url: canonicalUrl,
+    inLanguage: "en-ZA",
+    datePublished: video.uploadDate,
+    dateModified: video.uploadDate,
+    mainEntity: { "@id": videoStructuredData["@id"] },
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Freehub",
+      url: `${shared.CANONICAL_ORIGIN}/`,
+    },
+  };
+
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${escapeHtml(pageTitle)}</title>
+    <meta name="description" content="${escapeAttribute(video.description)}" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="video.other" />
+    <meta property="og:title" content="${escapeAttribute(pageTitle)}" />
+    <meta property="og:description" content="${escapeAttribute(video.description)}" />
+    <meta property="og:url" content="${escapeAttribute(canonicalUrl)}" />
+    <meta property="og:image" content="${escapeAttribute(video.thumbnailUrl)}" />
+    <meta property="og:video" content="${escapeAttribute(video.embedUrl)}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${escapeAttribute(pageTitle)}" />
+    <meta name="twitter:description" content="${escapeAttribute(video.description)}" />
+    <meta name="twitter:image" content="${escapeAttribute(video.thumbnailUrl)}" />
+    <script id="structured-data-webpage" type="application/ld+json">${escapeScript(JSON.stringify(webPageStructuredData))}</script>
+    <script id="structured-data-breadcrumb" type="application/ld+json">${escapeScript(JSON.stringify(breadcrumbData))}</script>
+    <script id="structured-data-video" type="application/ld+json">${escapeScript(JSON.stringify(videoStructuredData))}</script>
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
+    ${GUEST_ADS_SCRIPT}
+    ${renderGoogleTagManagerHead(`{ page_type: 'video', video_id: ${escapeScript(JSON.stringify(video.id))} }`)}
+    ${renderMetaPixelHead()}
+  </head>
+  <body>
+    ${renderGoogleTagManagerNoScript()}
+    ${renderMetaPixelNoScript()}
+    <div class="site-shell">
+      ${renderTopNavigation()}
+      <main id="main-content">
+        <header class="video-watch-hero">
+          <div class="video-watch-hero__copy">
+            <p class="eyebrow">Freehub video · 24 seconds</p>
+            <h1>${escapeHtml(video.title)}</h1>
+            <p>Before you spend on your birthday, see what you may be able to claim free—then check the current provider rules on Freehub.</p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="/birthday-freebies/">View verified birthday freebies</a>
+              <a class="btn btn--secondary" href="${escapeAttribute(YOUTUBE_CHANNEL_URL)}" target="_blank" rel="noopener noreferrer">Visit Freehub on YouTube</a>
+            </div>
+          </div>
+          <div class="video-watch-hero__player">
+            <iframe
+              src="${escapeAttribute(video.privacyEmbedUrl)}"
+              title="${escapeAttribute(video.title)}"
+              width="315"
+              height="560"
+              loading="eager"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+        </header>
+
+        <div class="main-content video-watch-page">
+          <section class="trust-page__section" aria-labelledby="video-transcript-heading">
+            <p class="section-kicker">Accessible text version</p>
+            <h2 id="video-transcript-heading">Video transcript</h2>
+            <p>${escapeHtml(video.transcript)}</p>
+          </section>
+
+          <section class="trust-page__section" aria-labelledby="video-next-step-heading">
+            <p class="section-kicker">Check before claiming</p>
+            <h2 id="video-next-step-heading">The video is the introduction—the listings contain the rules</h2>
+            <p>Birthday rewards can require identification, an app, club membership, previous loyalty activity or advance registration. Availability and redemption windows vary by provider.</p>
+            <a class="btn btn--primary" href="/birthday-freebies/">Compare current birthday freebies</a>
+          </section>
+
+          <nav class="internal-links" aria-label="Related Freehub pages">
+            <p class="internal-links__title">Explore more Freehub guides</p>
+            <div class="internal-links__list">
+              <a class="internal-links__link" href="/free-stuff-south-africa/">Free stuff South Africa</a>
+              <a class="internal-links__link" href="/free-samples-south-africa/">Free samples South Africa</a>
+              <a class="internal-links__link" href="/free-competitions/">Free competitions</a>
+            </div>
+          </nav>
+        </div>
+      </main>
+
+      ${renderSiteFooter()}
+    </div>
+  </body>
+</html>
+`;
+}
+
+function writeVideoPages() {
+  const outputDirectory = path.join(ROOT_DIR, "videos", BIRTHDAY_FREEBIES_VIDEO.slug);
+  fs.mkdirSync(outputDirectory, { recursive: true });
+  fs.writeFileSync(path.join(outputDirectory, "index.html"), renderBirthdayVideoPage());
+}
+
 function renderTrustPage(page) {
   if (page.slug === "about") {
     return renderAboutPage(page);
@@ -7664,6 +7867,8 @@ function renderTrustPage(page) {
             )
             .join("\n          ")}
         </section>
+
+        ${page.slug === "birthday-freebies" ? renderBirthdayVideoFeature() : ""}
 
         ${opportunityRenderer.renderOpportunitySection({
           opportunities: birthdayOpportunities,
@@ -11239,6 +11444,13 @@ function generateSitemap(competitions, routeContexts, sitemapCompetitions = comp
       lastmod: BUILD_DATE_ISO,
     }),
   ];
+  const videoEntries = [
+    renderSitemapUrl({
+      loc: `${origin}/videos/${BIRTHDAY_FREEBIES_VIDEO.slug}/`,
+      lastmod: BIRTHDAY_FREEBIES_VIDEO.uploadDate,
+      video: BIRTHDAY_FREEBIES_VIDEO,
+    }),
+  ];
 
   const competitionEntries = sitemapCompetitions
     .filter((competition) => shared.isActiveCompetition(competition))
@@ -11280,8 +11492,8 @@ function generateSitemap(competitions, routeContexts, sitemapCompetitions = comp
   }));
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-${[...staticEntries, ...trustPageEntries, ...contentPageEntries, ...clubEntries, ...referAndWinEntries, ...competitionEntries, ...opportunityEntries, ...offerCollectionEntries, ...offerEntries].join("\n")}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+${[...staticEntries, ...trustPageEntries, ...contentPageEntries, ...clubEntries, ...referAndWinEntries, ...videoEntries, ...competitionEntries, ...opportunityEntries, ...offerCollectionEntries, ...offerEntries].join("\n")}
 </urlset>
 `;
 }
@@ -11297,13 +11509,16 @@ function getContentSitemapEntries() {
   return [...CONTENT_INDEX_PAGES, { slug: MONTHLY_GUIDE_SLUG }];
 }
 
-function renderSitemapUrl({ loc, lastmod, images = [] }) {
+function renderSitemapUrl({ loc, lastmod, images = [], video = null }) {
   const imageMarkup = images
     .map((imageUrl) => `\n    <image:image>\n      <image:loc>${escapeXml(imageUrl)}</image:loc>\n    </image:image>`)
     .join("");
   const lastmodMarkup = lastmod ? `\n    <lastmod>${escapeXml(lastmod)}</lastmod>` : "";
+  const videoMarkup = video
+    ? `\n    <video:video>\n      <video:thumbnail_loc>${escapeXml(video.thumbnailUrl)}</video:thumbnail_loc>\n      <video:title>${escapeXml(video.title)}</video:title>\n      <video:description>${escapeXml(video.description)}</video:description>\n      <video:player_loc>${escapeXml(video.embedUrl)}</video:player_loc>\n      <video:duration>${escapeXml(video.durationSeconds)}</video:duration>\n      <video:publication_date>${escapeXml(video.uploadDate)}</video:publication_date>\n    </video:video>`
+    : "";
 
-  return `  <url>\n    <loc>${escapeXml(loc)}</loc>${lastmodMarkup}${imageMarkup}\n  </url>`;
+  return `  <url>\n    <loc>${escapeXml(loc)}</loc>${lastmodMarkup}${imageMarkup}${videoMarkup}\n  </url>`;
 }
 
 function getRouteLastmod(routeContext, competitions) {
@@ -11382,6 +11597,54 @@ Allow: /
 
 Sitemap: ${shared.CANONICAL_ORIGIN}/sitemap.xml
 `;
+}
+
+function runVideoPageStaticChecks() {
+  const video = BIRTHDAY_FREEBIES_VIDEO;
+  const relativePath = path.join("videos", video.slug, "index.html");
+  const videoPagePath = path.join(ROOT_DIR, relativePath);
+  const birthdayPagePath = path.join(ROOT_DIR, "birthday-freebies", "index.html");
+  const sitemapPath = path.join(ROOT_DIR, "sitemap.xml");
+  const expectedCanonical = `${shared.CANONICAL_ORIGIN}/videos/${video.slug}/`;
+  const errors = [];
+
+  if (!fs.existsSync(videoPagePath)) {
+    errors.push(`Video watch page was not generated: ${relativePath}`);
+  } else {
+    const html = fs.readFileSync(videoPagePath, "utf8");
+    if (!html.includes(`<link rel="canonical" href="${expectedCanonical}"`)) {
+      errors.push("Video watch page canonical is missing or incorrect.");
+    }
+    if (!html.includes('id="structured-data-video"') || !html.includes('"@type":"VideoObject"')) {
+      errors.push("Video watch page is missing VideoObject structured data.");
+    }
+    if (!html.includes(escapeAttribute(video.privacyEmbedUrl))) {
+      errors.push("Video watch page is missing the privacy-enhanced YouTube embed.");
+    }
+    if (!html.includes(video.transcript)) {
+      errors.push("Video watch page is missing the visible transcript.");
+    }
+  }
+
+  if (!fs.existsSync(birthdayPagePath) || !fs.readFileSync(birthdayPagePath, "utf8").includes(`/videos/${video.slug}/`)) {
+    errors.push("Birthday freebies page is missing the internal video link.");
+  }
+
+  if (!fs.existsSync(sitemapPath)) {
+    errors.push("Sitemap was not generated for video validation.");
+  } else {
+    const sitemap = fs.readFileSync(sitemapPath, "utf8");
+    if (!sitemap.includes(`<loc>${expectedCanonical}</loc>`)) {
+      errors.push("Video watch page is missing from the sitemap.");
+    }
+    if (!sitemap.includes(`<video:player_loc>${escapeXml(video.embedUrl)}</video:player_loc>`)) {
+      errors.push("Video sitemap metadata is missing the player URL.");
+    }
+  }
+
+  if (errors.length > 0) {
+    throw new Error(`[Video page checks failed]\n${errors.map((error) => `- ${error}`).join("\n")}`);
+  }
 }
 
 function getSafeHostname(url) {
