@@ -134,7 +134,12 @@
     return `/out${path}`;
   }
 
-  const api = { OFFER_TYPES, CATEGORY_DEFINITIONS, CATEGORIES, PUBLICATION_STATUSES, VERIFICATION_STATUSES, validateOffer, validateOfferRegistry, isOfferFeatureEnabled, isPublicOffer, getOfferPath, getOfferExitPath };
+  function getOfferContentType(offer) {
+    if (!offer || !OFFER_TYPES.includes(offer.type)) throw new Error("A valid offer is required.");
+    return offer.type === "coupon" ? "coupon" : "promotion";
+  }
+
+  const api = { OFFER_TYPES, CATEGORY_DEFINITIONS, CATEGORIES, PUBLICATION_STATUSES, VERIFICATION_STATUSES, validateOffer, validateOfferRegistry, isOfferFeatureEnabled, isPublicOffer, getOfferPath, getOfferExitPath, getOfferContentType };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   global.FreeHubOfferData = api;
 })(typeof window !== "undefined" ? window : globalThis);
