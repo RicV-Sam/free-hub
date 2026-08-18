@@ -1,14 +1,14 @@
 === Competition Maintenance Report ===
-Date: 2026-08-17
+Date: 2026-08-18
 Mode: archive-expired
-Total competitions: 294
-Active published count: 53
-Expired archive page count: 142
+Total competitions: 297
+Active published count: 55
+Expired archive page count: 143
 Low-value expired noindex count: 0
 Held/private count: 99
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 30
+Closing in next 14 days: 32
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -153,38 +153,41 @@ Expired competition IDs:
 - radio-2000-1life-win-at-life-2026 (2026-08-14)
 - clicks-dark-and-lovely-best-for-braids-2026 (2026-08-15)
 - virgin-active-springbok-partner-2026 (2026-08-16)
+- masterchef-sa-watch-and-win-competition-2026 (2026-08-17)
 
 Closing soon (next 14 days):
-- masterchef-sa-watch-and-win-competition-2026 (0 days)
-- takealot-shop-automotive-win-big-2026 (3 days)
-- spar-melrose-back-to-school-vouchers-2026 (6 days)
-- kaufmann-rugga-supporter-competition-2026 (7 days)
-- gardena-winter-pruning-giveaway-2026 (8 days)
-- nedbank-thank-greenbacks-friday-august-2026 (11 days)
-- ultra-mel-christmas-in-july-2026 (13 days)
-- witness-cape-town-trip-2026 (13 days)
-- mtn-shift-gaming-experience-cash-2026 (13 days)
-- makro-aeg-win-this-winter-2026 (13 days)
-- centrum-takealot-womens-month-2026 (13 days)
-- coca-cola-zwakala-neflava-2026 (14 days)
-- hisense-big-wash-no-drama-2026 (14 days)
-- wanta-fanta-gaming-promotion-2026 (14 days)
-- kelloggs-big-bowl-energy-2026 (14 days)
-- vodacom-red-springboks-double-tickets-2026 (14 days)
-- nestle-milo-meet-the-champ-2026 (14 days)
-- dr-oetker-taste-the-upgrade-2026 (14 days)
-- castle-lager-fifa-world-cup-cans-2026 (14 days)
-- first-battery-centre-win-a-car-2026 (14 days)
-- ctm-pro-grip-win-toyota-hilux-2026 (14 days)
-- standard-bank-ucount-astron-energy-2026 (14 days)
-- aldo-football-club-competition-2026 (14 days)
-- colcacchio-alva-winter-pizza-oven-2026 (14 days)
-- penguin-random-house-penguin-post-43-book-hampers-2026 (14 days)
-- vodacom-green-gold-fieldbar-cooler-competition (14 days)
-- ster-kinekor-double-feature-combo-2026 (14 days)
-- nescafe-stand-a-chance-to-be-a-millionaire-2026 (14 days)
-- honor-takealot-bafana-bafana-jersey-2026 (14 days)
-- domestos-power-foam-win-suzuki-jimny-2026 (14 days)
+- takealot-shop-automotive-win-big-2026 (2 days)
+- spar-melrose-back-to-school-vouchers-2026 (5 days)
+- kaufmann-rugga-supporter-competition-2026 (6 days)
+- gardena-winter-pruning-giveaway-2026 (7 days)
+- nedbank-thank-greenbacks-friday-august-2026 (10 days)
+- ultra-mel-christmas-in-july-2026 (12 days)
+- witness-cape-town-trip-2026 (12 days)
+- mtn-shift-gaming-experience-cash-2026 (12 days)
+- makro-aeg-win-this-winter-2026 (12 days)
+- centrum-takealot-womens-month-2026 (12 days)
+- coca-cola-zwakala-neflava-2026 (13 days)
+- hisense-big-wash-no-drama-2026 (13 days)
+- wanta-fanta-gaming-promotion-2026 (13 days)
+- kelloggs-big-bowl-energy-2026 (13 days)
+- vodacom-red-springboks-double-tickets-2026 (13 days)
+- nestle-milo-meet-the-champ-2026 (13 days)
+- dr-oetker-taste-the-upgrade-2026 (13 days)
+- castle-lager-fifa-world-cup-cans-2026 (13 days)
+- first-battery-centre-win-a-car-2026 (13 days)
+- ctm-pro-grip-win-toyota-hilux-2026 (13 days)
+- standard-bank-ucount-astron-energy-2026 (13 days)
+- aldo-football-club-competition-2026 (13 days)
+- colcacchio-alva-winter-pizza-oven-2026 (13 days)
+- penguin-random-house-penguin-post-43-book-hampers-2026 (13 days)
+- vodacom-green-gold-fieldbar-cooler-competition (13 days)
+- ster-kinekor-double-feature-combo-2026 (13 days)
+- nescafe-stand-a-chance-to-be-a-millionaire-2026 (13 days)
+- honor-takealot-bafana-bafana-jersey-2026 (13 days)
+- domestos-power-foam-win-suzuki-jimny-2026 (13 days)
+- beares-hisense-50-tv-facebook-2026 (13 days)
+- beares-medispine-royal-crown-bed-set-2026 (13 days)
+- hadeco-80th-birthday-competition-2026 (14 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
