@@ -413,5 +413,23 @@
     "manualOkCheckedAt": "2026-07-31",
     "manualOkAllowedDomain": "spursteakranches.com",
     "manualOkEvidence": "Spur's official Legal page and current App Terms route were rechecked on 2026-07-31. The linked terms state the R1,000 prior-spend threshold, R50 birthday voucher, profile loading on the birthday, 31-day validity and non-transferability."
+  },
+  {
+    "id": "bootlegger-app-registration-coffee",
+    "name": "Bootlegger app registration coffee",
+    "resourceType": "programme",
+    "category": "rewards",
+    "categoryLabel": "App registration reward",
+    "officialUrl": "https://www.bootlegger.coffee/blogs/news/earn-2-back-in-app-every-time-you-order-online",
+    "bestFor": "New Bootlegger Coffee Company app users near a participating cafe",
+    "freeDetails": "Bootlegger's official loyalty-app guide states that new users receive a free coffee on registration.",
+    "requirements": "Download the Bootlegger app, create a new account and redeem the registration reward under the current in-app conditions.",
+    "watchOut": "Check the reward's product choice, validity period and participating cafe availability in the app before travelling. The separate stamp reward requires ten purchases.",
+    "availability": "active",
+    "verificationStatus": "verified",
+    "datePublished": "2026-08-18",
+    "lastReviewed": "2026-08-18",
+    "reviewDueAt": "2026-11-16",
+    "dateModified": "2026-08-18"
   }
 ]

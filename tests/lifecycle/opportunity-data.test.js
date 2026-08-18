@@ -105,7 +105,7 @@ test("runtime validators enforce strict contracts and legacy FreeResource compat
   assert.equal(unsupported.typeSupported, false);
 
   const legacyResources = JSON.parse(fs.readFileSync(path.join(rootDir, "data", "free-resources.json"), "utf8"));
-  assert.equal(legacyResources.length, 24);
+  assert.equal(legacyResources.length, 25);
   assert.equal(opportunityData.validateFreeResourceRegistry(legacyResources, { legacy: true }).valid, true);
   assert.equal(opportunityData.validateFreeResource(legacyResources[0]).valid, false);
 
@@ -395,17 +395,38 @@ test("the tracked Opportunity registry contains the reviewed sample and product-
       "tena-women-free-sample-pack",
       "tena-men-free-sample-pack",
       "blind-designs-free-fabric-samples",
+      "brand-advisor-eskort-ribs-testing",
+      "brand-advisor-danup-testing",
+      "table-mountain-cableway-birthday-ticket",
+      "two-oceans-aquarium-birthday-entry",
+      "cape-wheel-birthday-club-ride",
+      "zeitz-mocaa-free-access",
+      "robben-island-museum-birthday-tour",
+      "lion-safari-park-birthday-safari",
+      "city-sightseeing-young-explorers-birthday-tickets",
+      "upcycles-free-birthday-bike-ride",
+      "va-waterfront-pedal-boat-birthday-ride",
+      "ster-kinekor-sk-club-birthday-ticket",
+      "mcdonalds-app-birthday-ice-cream",
+      "spur-kids-free-birthday-meal",
+      "mugg-and-bean-birthday-cake",
+      "rubybox-beauty-product-testing",
     ]
   );
   assert.equal(opportunityData.validateOpportunityRegistry(registry).valid, true);
   assert.equal(registry.filter((record) => record.type === "free_sample").length, 7);
-  assert.equal(registry.filter((record) => record.type === "product_testing").length, 14);
+  assert.equal(registry.filter((record) => record.type === "product_testing").length, 17);
+  assert.equal(registry.filter((record) => record.type === "birthday_freebie").length, 13);
 
   const generatedOutput = JSON.parse(
     fs.readFileSync(path.join(rootDir, "tests", "baselines", "opportunity-generated-output.json"), "utf8")
   );
-  assert.deepEqual(generatedOutput.opportunityIds, registry.map((record) => record.id).sort());
-  assert.equal(Object.keys(generatedOutput.files).length, registry.length * 2);
+  const publishedIds = registry
+    .filter((record) => record.publicationStatus === "published")
+    .map((record) => record.id)
+    .sort();
+  assert.deepEqual(generatedOutput.opportunityIds, publishedIds);
+  assert.equal(Object.keys(generatedOutput.files).length, publishedIds.length * 2);
 });
 
 test("manual evidence is exact, fresh, append-only data and cannot match another URL", () => {

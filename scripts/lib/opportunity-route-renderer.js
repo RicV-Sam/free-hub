@@ -51,9 +51,11 @@ function createOpportunityRouteRenderer({
     const title = active
       ? `${opportunity.title} | Freehub`
       : `${opportunity.title} - ${stateLabel || "Unavailable"} | Freehub`;
-    const activeDescription = opportunity.type === "product_testing"
-      ? `${opportunity.summary} Check selection, requirements and the current official-source verification before applying.`
-      : `${opportunity.summary} Check eligibility, delivery, privacy and the current official-source verification before applying.`;
+    const activeDescription = opportunity.type === "birthday_freebie"
+      ? `${opportunity.summary} Check the birthday window, registration rules and current official-source verification before claiming.`
+      : opportunity.type === "product_testing"
+        ? `${opportunity.summary} Check selection, requirements and the current official-source verification before applying.`
+        : `${opportunity.summary} Check eligibility, delivery, privacy and the current official-source verification before applying.`;
     const description = active
       ? activeDescription
       : `${opportunity.title} is not currently available. Freehub retains this noindex trust reference without an application link.`;
@@ -64,12 +66,13 @@ function createOpportunityRouteRenderer({
     const detailPath = getDetailPath(opportunity);
     const canonicalUrl = `${canonicalOrigin}${detailPath}`;
     const metadata = getMetadata(opportunity, lifecycleState);
+    const parent = getOpportunityParent(opportunity);
     const breadcrumb = {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: `${canonicalOrigin}/` },
-        { "@type": "ListItem", position: 2, name: "Free Samples", item: `${canonicalOrigin}/free-samples-south-africa/` },
+        { "@type": "ListItem", position: 2, name: parent.name, item: `${canonicalOrigin}${parent.path}` },
         { "@type": "ListItem", position: 3, name: opportunity.title, item: canonicalUrl },
       ],
     };
@@ -115,7 +118,7 @@ function createOpportunityRouteRenderer({
           <p>No campaign or application link is available from this page.</p>
         </article>
 
-        ${renderReturnLinks()}`;
+        ${renderReturnLinks(opportunity)}`;
   }
 
   function renderActiveDetail(opportunity) {
@@ -156,12 +159,12 @@ function createOpportunityRouteRenderer({
           <dl class="opportunity-card__facts opportunity-detail__facts">
             ${facts.map((fact) => `<div><dt>${escapeHtml(fact.label)}</dt><dd>${escapeHtml(fact.value)}</dd></div>`).join("\n            ")}
           </dl>
-          <section class="opportunity-detail__requirements" aria-label="Application requirements">
+          <section class="opportunity-detail__requirements" aria-label="Provider requirements">
             <h2>What ${escapeHtml(opportunity.provider)} requires</h2>
             <ul>${required.map((requirement) => `<li>${escapeHtml(requirement.label)}</li>`).join("")}</ul>
             <p>${escapeHtml(routeCopy.selectionBoundary)}</p>
           </section>
-          <section class="state-card" aria-label="Application and privacy boundary">
+          <section class="state-card" aria-label="Provider and privacy boundary">
             <p class="state-card__title">${escapeHtml(routeCopy.privacyHeading)}</p>
             <p class="state-card__text">${escapeHtml(routeCopy.privacyText)}</p>
           </section>
@@ -170,7 +173,7 @@ function createOpportunityRouteRenderer({
           ${references.length > 0 ? `<nav class="opportunity-detail__references" aria-label="Official terms and privacy">${references.join("\n            ")}</nav>` : ""}
         </article>
 
-        ${renderReturnLinks()}`;
+        ${renderReturnLinks(opportunity)}`;
   }
 
   function renderExitContent(opportunity) {
@@ -188,18 +191,19 @@ function createOpportunityRouteRenderer({
     ].join(" ");
     return `<section class="state-card outbound-notice opportunity-exit" aria-label="Official provider handoff">
           <p class="state-card__title">${escapeHtml(routeCopy.exitHeading)}</p>
-          <p class="state-card__text">You will be sent to ${escapeHtml(target.hostname)} shortly after Freehub checks whether you are signed in. ${escapeHtml(opportunity.provider)} owns the application and decides selection or fulfilment.</p>
+          <p class="state-card__text">${escapeHtml(getExitOwnershipText(opportunity, target.hostname))}</p>
           <p class="state-card__text">${escapeHtml(routeCopy.exitPrivacyText)}</p>
           <a class="competition-detail__cta" href="${escapeAttribute(opportunity.sourceUrl)}" data-opportunity-action="handoff" ${analytics}>Continue now</a>
           <p class="competition-detail__cta-note">Use this manual fallback if the automatic handoff does not start.</p>
         </section>`;
   }
 
-  function renderReturnLinks() {
+  function renderReturnLinks(opportunity) {
+    const parent = getOpportunityParent(opportunity);
     return `<nav class="internal-links" aria-label="More Freehub resources">
           <p class="internal-links__title">Browse current Freehub resources</p>
           <div class="internal-links__list">
-            <a class="internal-links__link" href="/free-samples-south-africa/">Free Samples South Africa</a>
+            <a class="internal-links__link" href="${escapeAttribute(parent.path)}">${escapeHtml(parent.name)}</a>
             <a class="internal-links__link" href="/free-stuff-south-africa/">Free Stuff South Africa</a>
           </div>
         </nav>`;
@@ -214,6 +218,20 @@ function createOpportunityRouteRenderer({
 }
 
 function getRouteCopy(opportunity) {
+  if (opportunity.type === "birthday_freebie") {
+    return {
+      statusLabel: "Recurring birthday benefit",
+      eligibilityCue: "This birthday benefit has provider-specific timing, identification, membership, app or prior-activity rules. Read every requirement before travelling.",
+      selectionBoundary: `${opportunity.provider}, not Freehub, issues and redeems the birthday benefit and controls venue, stock, screening or operating availability.`,
+      privacyHeading: `Your claim goes directly to ${opportunity.provider}`,
+      privacyText: `Freehub does not collect your date of birth, identification, membership details or voucher. ${opportunity.provider} controls registration and redemption.`,
+      ctaLabel: "Continue to the official birthday offer",
+      termsLabel: "Read the official birthday-offer terms",
+      exitHeading: `Continue to the official ${opportunity.provider} birthday offer`,
+      exitPrivacyText: "Freehub does not receive or store your date of birth, identification, membership details or voucher.",
+    };
+  }
+
   if (opportunity.type === "product_testing") {
     return {
       statusLabel: "Selection required",
@@ -264,7 +282,24 @@ function buildDetailFacts(opportunity, costLabel, formatDate) {
   const details = opportunity.details || {};
   const facts = [{ label: "Cost", value: costLabel }];
 
-  if (opportunity.type === "product_testing") {
+  if (opportunity.type === "birthday_freebie") {
+    const window = details.birthdayWindow || {};
+    const birthdayWindow = window.beforeDays === 0 && window.afterDays === 0
+      ? "Actual birthday only"
+      : window.beforeDays >= 28 && window.afterDays >= 28
+        ? "Calendar birthday month"
+        : window.beforeDays === 0
+          ? `Birthday and ${window.afterDays} days after`
+          : `${window.beforeDays} days before to ${window.afterDays} days after`;
+    facts.push(
+      { label: "Birthday window", value: birthdayWindow },
+      { label: "Advance sign-up", value: details.signupLeadDays > 0 ? `${details.signupLeadDays} day${details.signupLeadDays === 1 ? "" : "s"}` : "Not stated" },
+      { label: "Membership", value: details.membershipRequired ? "Required" : "Not required" },
+      { label: "App", value: details.appRequired ? "Required" : "Not required" },
+      { label: "Identification", value: details.identityRequired ? "Required" : "Not stated as required" },
+      { label: "Voucher delivery", value: formatToken(details.voucherDelivery) }
+    );
+  } else if (opportunity.type === "product_testing") {
     facts.push(
       { label: "Fulfilment", value: formatToken(details.fulfilmentMethod) },
       { label: "Selection", value: formatToken(details.selectionMethod) },
@@ -288,6 +323,19 @@ function buildDetailFacts(opportunity, costLabel, formatDate) {
     { label: "Review due", value: formatDate(opportunity.reviewDueAt) }
   );
   return facts;
+}
+
+function getExitOwnershipText(opportunity, hostname) {
+  if (opportunity.type === "birthday_freebie") {
+    return `You will be sent to ${hostname} shortly after Freehub checks whether you are signed in. ${opportunity.provider} controls registration, availability and redemption.`;
+  }
+  return `You will be sent to ${hostname} shortly after Freehub checks whether you are signed in. ${opportunity.provider} owns the application and decides selection or fulfilment.`;
+}
+
+function getOpportunityParent(opportunity) {
+  return opportunity.type === "birthday_freebie"
+    ? { name: "Birthday Freebies", path: "/birthday-freebies/" }
+    : { name: "Free Samples", path: "/free-samples-south-africa/" };
 }
 
 function isMedicalSample(opportunity) {
