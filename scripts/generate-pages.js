@@ -1020,15 +1020,15 @@ const TRUST_PAGE_DEFINITIONS = [
   },
   {
     slug: "free-stuff-south-africa",
-    title: "Free Stuff South Africa | Legit Freebies, Samples, Competitions",
+    title: "Where to Find Free Stuff in South Africa | Legit Freebies",
     description:
-      "Find free stuff South Africa searchers actually want, including legit freebies, free samples, competitions, credit reports, courses and safe official links.",
-    heading: "Free Stuff South Africa",
+      "Find legit free stuff in South Africa through official sources, including free samples, competitions, courses, credit reports and clearly explained sign-up costs.",
+    heading: "Where to Find Free Stuff in South Africa",
     intro:
-      "Use this free stuff South Africa guide when you want legitimate no-cost options beyond a single giveaway. It brings together free competitions, cautious sample routes, learning resources, reading options and credit-report checks so users can compare official-source options before they click.",
+      "Wondering where to find free stuff in South Africa without getting trapped by fake vouchers or hidden costs? Use this guide to compare official-source free competitions, cautious sample routes, learning resources, reading options and credit-report checks before you sign up.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: "2026-07-09",
+    dateModified: "2026-08-20",
     resourceCategories: [
       "online-courses",
       "childrens-books",
@@ -1043,9 +1043,9 @@ const TRUST_PAGE_DEFINITIONS = [
       "Start with resources that have clear ownership, official websites and a realistic explanation of what is actually free.",
     sections: [
       {
-        heading: "Quick answer: free stuff South Africa",
+        heading: "Quick answer: where to find free stuff",
         paragraphs: [
-          "The safest free stuff South Africa options usually come from official websites that explain exactly what is free and what still costs money. Start with free-entry competitions, public learning platforms, open reading resources, free credit-report tools and carefully checked sample offers.",
+          "The safest places to find free stuff in South Africa are official websites that explain exactly what is free and what may still cost money. Start with free-entry competitions, public learning platforms, open reading resources, free credit-report tools and carefully checked sample offers.",
           "If you mainly want current prize draws, start with Competitions South Africa on the homepage for broader discovery. If you want product-led offers, compare where to get free samples, free voucher giveaways and free credit report routes before sharing any personal details.",
         ],
       },
@@ -6503,6 +6503,7 @@ function renderHomepageClubSection() {
 function renderHomepageGuidesSection() {
   const guides = [
     { label: "Best competitions this month", href: "/best-competitions-south-africa-this-month/" },
+    { label: "Where to find free stuff", href: "/free-stuff-south-africa/" },
     { label: "Win a car competitions", href: "/win-a-car/" },
     { label: "Free entry competitions", href: "/free-competitions/" },
     { label: "Enter safely", href: "/how-to-enter-competitions-safely/" },

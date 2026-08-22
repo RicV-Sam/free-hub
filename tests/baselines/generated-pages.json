@@ -184,11 +184,11 @@
     {
       "route": "/free-stuff-south-africa/",
       "file": "free-stuff-south-africa/index.html",
-      "title": "Free Stuff South Africa | Legit Freebies, Samples, Competitions",
-      "description": "Find free stuff South Africa searchers actually want, including legit freebies, free samples, competitions, credit reports, courses and safe official links.",
+      "title": "Where to Find Free Stuff in South Africa | Legit Freebies",
+      "description": "Find legit free stuff in South Africa through official sources, including free samples, competitions, courses, credit reports and clearly explained sign-up costs.",
       "canonical": "https://freehub.co.za/free-stuff-south-africa/",
       "robots": "index, follow, max-image-preview:large",
-      "h1": "Free Stuff South Africa",
+      "h1": "Where to Find Free Stuff in South Africa",
       "schemaTypes": ["Answer", "Article", "BreadcrumbList", "FAQPage", "ImageObject", "ItemList", "ListItem", "Organization", "Question", "WebPage", "WebSite"],
       "inSitemap": true
     },

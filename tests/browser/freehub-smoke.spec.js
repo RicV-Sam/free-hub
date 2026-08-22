@@ -497,19 +497,19 @@ test("competition detail shows entry facts before discovery and partner content"
 
 test("Free Stuff parent preserves intent and separates durable resources from opportunities", async ({ page }) => {
   await page.goto("/free-stuff-south-africa/");
-  await expect(page).toHaveTitle("Free Stuff South Africa | Legit Freebies, Samples, Competitions");
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Free Stuff South Africa");
+  await expect(page).toHaveTitle("Where to Find Free Stuff in South Africa | Legit Freebies");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Where to Find Free Stuff in South Africa");
   await expectCanonical(page, "/free-stuff-south-africa/");
   await expect(page.locator('body[data-free-stuff-parent-version="3"]')).toHaveCount(1);
 
   const childNavigation = page.getByRole("navigation", { name: "Free Stuff categories" });
-  await expect(childNavigation.getByRole("link")).toHaveCount(4);
+  await expect(childNavigation.getByRole("link")).toHaveCount(5);
   await expect(childNavigation.getByRole("link", { name: "Free Samples" })).toHaveAttribute("href", "/free-samples-south-africa/");
   await expect(childNavigation.getByRole("link", { name: "Free Courses" })).toHaveAttribute("href", "/free-online-courses-south-africa/");
   await expect(childNavigation.getByRole("link", { name: "Children's Books" })).toHaveAttribute("href", "/free-childrens-books-south-africa/");
   await expect(childNavigation.getByRole("link", { name: "Credit Reports" })).toHaveAttribute("href", "/free-credit-report-south-africa/");
 
-  await expect(page.locator("article.free-resource-card")).toHaveCount(24);
+  await expect(page.locator("article.free-resource-card")).toHaveCount(25);
   await expect(page.locator("article.opportunity-card")).toHaveCount(opportunitiesEnabled ? 2 : 0);
   await expect(page.locator("section.opportunity-section")).toHaveCount(opportunitiesEnabled ? 1 : 0);
   await expect(page.locator("#structured-data-opportunities")).toHaveCount(opportunitiesEnabled ? 1 : 0);
