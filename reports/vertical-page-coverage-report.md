@@ -48,7 +48,7 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 19
+- Matching active public competitions: 20
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -70,6 +70,7 @@ Recommended normalisation:
 | OREO BTS Promotion 2026 (oreo-bts-promotion-2026) | 2026-09-30 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Denny Win Your Share of R100,000 Cash Competition (denny-r100000-cash-competition-2026) | 2026-09-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Knorr Soup Competition 2026 - Win R5,000 Weekly (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
+| SPAR Colgate-Palmolive Win Your Share of R150,000 Competition (spar-colgate-palmolive-r150k-2026) | 2026-10-17 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | SPAR Community School Support Competition (spar-community-school-support-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Coca-Cola Be a Bok Competition 2026 (coca-cola-fan-can-be-a-bok-2026) | 2026-11-30 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Montego Classic Win a Toyota Hilux Competition (montego-classic-win-toyota-hilux-2026) | 2026-11-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
@@ -81,7 +82,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 8
+- Matching active public competitions: 9
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -94,6 +95,7 @@ Recommended normalisation:
 | Win a Green & Gold Fieldbar Cooler with Vodacom (vodacom-green-gold-fieldbar-cooler-competition) | 2026-08-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Beares Hisense 50-inch TV Facebook Competition (beares-hisense-50-tv-facebook-2026) | 2026-08-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Beares Medi+Spine Royal Crown Bed Set Competition (beares-medispine-royal-crown-bed-set-2026) | 2026-08-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| Nedbank YouthX Awards 2026 (nedbank-youthx-awards-2026) | 2026-10-09 | account-required | yes | yes | Online entry tag | none |
 | Wanderlust Reader Travel Awards 2026 Prize Draw (wanderlust-reader-travel-awards-prize-draw-2026) | 2026-10-27 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 
@@ -138,7 +140,7 @@ Recommended normalisation:
 ## Win Grocery Vouchers in South Africa
 
 - URL: /win-grocery-vouchers-south-africa/
-- Matching active public competitions: 3
+- Matching active public competitions: 4
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -148,6 +150,7 @@ Recommended normalisation:
 | SPAR Melrose Back-to-School Voucher Competition (spar-melrose-back-to-school-vouchers-2026) | 2026-08-23 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Ultra Mel Christmas in July Competition (ultra-mel-christmas-in-july-2026) | 2026-08-30 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Coca-Cola Get Together Zwakala neFlava Promotion (coca-cola-zwakala-neflava-2026) | 2026-08-31 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
+| SPAR Colgate-Palmolive Win Your Share of R150,000 Competition (spar-colgate-palmolive-r150k-2026) | 2026-10-17 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 
 Recommended normalisation:
 - Keep grocery voucher intent separate from generic voucher competitions.
@@ -155,7 +158,7 @@ Recommended normalisation:
 ## Supermarket Competitions in South Africa
 
 - URL: /supermarket-competitions-south-africa/
-- Matching active public competitions: 4
+- Matching active public competitions: 6
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -165,7 +168,9 @@ Recommended normalisation:
 | SPAR Melrose Back-to-School Voucher Competition (spar-melrose-back-to-school-vouchers-2026) | 2026-08-23 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Ultra Mel Christmas in July Competition (ultra-mel-christmas-in-july-2026) | 2026-08-30 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | SPAR Polony Win One of Six VW Polo Vivos (spar-polony-win-six-vw-polo-vivos-2026) | 2026-09-21 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
+| SPAR Colgate-Palmolive Win Your Share of R150,000 Competition (spar-colgate-palmolive-r150k-2026) | 2026-10-17 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | SPAR Community School Support Competition (spar-community-school-support-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Supermarket brand or retail partner | none |
+| Nedbank Greenbacks Checkers Trolley Dash Competition (nedbank-greenbacks-checkers-launch-2026) | 2026-11-30 | account-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 
 Recommended normalisation:
 - Inventory is strong enough; keep lastChecked and source/terms links fresh.
