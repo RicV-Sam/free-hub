@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-08-23
+Generated: 2026-08-24
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
@@ -32,14 +32,12 @@ Recommended normalisation:
 ## SMS Competitions in South Africa
 
 - URL: /sms-competitions-south-africa/
-- Matching active public competitions: 1
+- Matching active public competitions: 0
 - Publication threshold: 3
 - Safe to publish: no
-- Status: held; Only 1 active public match; requires 3.
+- Status: held; Only 0 active public matches; requires 3.
 
-| Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
-|---|---:|---|---|---|---|---|
-| SPAR Melrose Back-to-School Voucher Competition (spar-melrose-back-to-school-vouchers-2026) | 2026-08-23 | purchase-required | yes | yes | SMS or shortcode mentioned in entry text | none |
+No active public matches were found.
 
 Recommended normalisation:
 - Do not generate or sitemap this page until active verified inventory improves.
@@ -141,14 +139,13 @@ Recommended normalisation:
 ## Win Grocery Vouchers in South Africa
 
 - URL: /win-grocery-vouchers-south-africa/
-- Matching active public competitions: 4
+- Matching active public competitions: 3
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| SPAR Melrose Back-to-School Voucher Competition (spar-melrose-back-to-school-vouchers-2026) | 2026-08-23 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Ultra Mel Christmas in July Competition (ultra-mel-christmas-in-july-2026) | 2026-08-30 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Coca-Cola Get Together Zwakala neFlava Promotion (coca-cola-zwakala-neflava-2026) | 2026-08-31 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | SPAR Colgate-Palmolive Win Your Share of R150,000 Competition (spar-colgate-palmolive-r150k-2026) | 2026-10-17 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
@@ -159,14 +156,13 @@ Recommended normalisation:
 ## Supermarket Competitions in South Africa
 
 - URL: /supermarket-competitions-south-africa/
-- Matching active public competitions: 6
+- Matching active public competitions: 5
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| SPAR Melrose Back-to-School Voucher Competition (spar-melrose-back-to-school-vouchers-2026) | 2026-08-23 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Ultra Mel Christmas in July Competition (ultra-mel-christmas-in-july-2026) | 2026-08-30 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | SPAR Polony Win One of Six VW Polo Vivos (spar-polony-win-six-vw-polo-vivos-2026) | 2026-09-21 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | SPAR Colgate-Palmolive Win Your Share of R150,000 Competition (spar-colgate-palmolive-r150k-2026) | 2026-10-17 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
