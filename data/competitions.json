@@ -15078,7 +15078,9 @@
     "seoDescription": "Post your dance video from a Coca-Cola activation stand with #CocacolaAsiyeni for a chance to win a weekly smartphone by 18 October 2026.",
     "quickAnswer": "South African citizens and permanent residents aged 18 or older can record a dance video at a Coca-Cola activation stand and post it with #CocacolaAsiyeni for a weekly smartphone draw before 18 October 2026.",
     "summary": "Create a dance video at a Coca-Cola activation stand and post it with #CocacolaAsiyeni for a chance to win a smartphone in a weekly draw.",
-    "imageFallback": "https://freehub.co.za/FH%20logo.png",
+    "image": "https://freehub.co.za/assets/competitions/coca-cola-brand-family-2026.png",
+    "imageAlt": "Coca-Cola South Africa brand artwork showing Coca-Cola Original Taste and No Sugar variants",
+    "imageLayout": "landscape",
     "entrySteps": [
       "Visit a participating Coca-Cola activation stand during the campaign period.",
       "Record your dance video at the activation stand.",
@@ -15141,8 +15143,8 @@
       "smartphone_make_model_and_value_not_stated",
       "campaign_specific_image_not_available"
     ],
-    "imageReviewNote": "The terms page exposes only Coca-Cola's generic default image, so Freehub's neutral fallback is used instead of unrelated campaign artwork.",
-    "imageReviewStatus": "neutral-fallback",
+    "imageReviewNote": "User-supplied Coca-Cola brand-family artwork reviewed on 26 August 2026. It is suitable as brand-level listing imagery but is not presented as campaign-specific creative.",
+    "imageReviewStatus": "user-supplied-brand-artwork",
     "imageReviewCheckedAt": "2026-08-26"
   }
 ]
