@@ -29,6 +29,10 @@ const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 FreeHubValidator/1.0";
 const APPROVED_MANUAL_OK_URLS = new Map([
   [
+    "mybroadband-pre-black-friday-survey-r2000-2026",
+    "https://mybroadband.co.za/news/industrynews/663847-win-r2000-complete-the-mybroadband-2026-pre-black-friday-survey.html",
+  ],
+  [
     "aldo-football-club-competition-2026",
     "https://www.aldoshoes.co.za/in-store-ts-cs/",
   ],
