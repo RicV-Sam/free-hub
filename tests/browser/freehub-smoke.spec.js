@@ -4,7 +4,7 @@ const opportunityFixture = require("../../data/opportunities.json")[0];
 const opportunitiesEnabled = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true";
 const offersEnabled = process.env.FREEHUB_ENABLE_OFFERS === "true";
 const usesReviewedPilotDate = process.env.FREEHUB_BUILD_DATE === "2026-07-31";
-const RELEASE_ASSET_VERSION = "20260808-about-v1";
+const RELEASE_ASSET_VERSION = "20260818-video-v1";
 const GUEST_ADS_LOADER_SRC = `/shared/guest-ads.js?v=${RELEASE_ASSET_VERSION}`;
 const OUTBOUND_HANDOFF_SRC = `/shared/outbound-handoff.js?v=${RELEASE_ASSET_VERSION}`;
 
@@ -1014,25 +1014,25 @@ test("offers portal separates coupons and deals with honest indexability", async
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Coupons and Deals in South Africa");
   await expectCanonical(page, "/offers/");
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index, follow, max-image-preview:large");
-  await expect(page.locator("article.offer-card")).toHaveCount(23);
+  await expect(page.locator("article.offer-card")).toHaveCount(3);
   const structuredData = (await page.locator('script[type="application/ld+json"]').allTextContents()).join("\n");
   expect(structuredData).not.toContain('"@type":"Offer"');
 
   await page.goto("/coupons/");
-  await expect(page.locator("article.offer-card")).toHaveCount(4);
-  await expect(page.getByText("CAPITEC15", { exact: true })).toBeVisible();
+  await expect(page.locator("article.offer-card")).toHaveCount(0);
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, follow");
 
   await page.goto("/deals/");
-  await expect(page.locator("article.offer-card")).toHaveCount(19);
+  await expect(page.locator("article.offer-card")).toHaveCount(3);
   await expect(page.getByText("No code needed", { exact: true }).first()).toBeVisible();
 
   await page.goto("/offers/category/pets/");
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, follow");
 
-  await page.goto("/offers/category/travel/");
+  await page.goto("/offers/category/baby-kids/");
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index, follow, max-image-preview:large");
 
-  const outboundHtml = await (await page.request.get("/out/coupon/capitec-snappi-extra-15-percent/")).text();
+  const outboundHtml = await (await page.request.get("/out/deal/mr-price-girls-7-14-denim-shorts-r50-off/")).text();
   expect(outboundHtml).toContain('content="noindex, nofollow"');
   expect(outboundHtml).toContain(`src="${GUEST_ADS_LOADER_SRC}"`);
   expect(outboundHtml).toContain(`src="${OUTBOUND_HANDOFF_SRC}"`);
@@ -1042,7 +1042,7 @@ test("offers portal separates coupons and deals with honest indexability", async
 test("offer contributions stay private and require an explicit email send", async ({ page }) => {
   test.skip(!offersEnabled, "Offers are feature flagged in this build.");
 
-  await page.goto("/coupon/capitec-snappi-extra-15-percent/");
+  await page.goto("/deal/mr-price-girls-7-14-denim-shorts-r50-off/");
   const workedButton = page.getByRole("button", { name: "Yes, it worked" });
   const changedButton = page.getByRole("button", { name: "No, something changed" });
   await workedButton.click();
@@ -1059,7 +1059,7 @@ test("offer contributions stay private and require an explicit email send", asyn
   const reportActions = page.locator("[data-offer-report] [data-email-actions]");
   await expect(reportActions).toBeVisible();
   await expect(reportActions.getByRole("link", { name: "Open Email Draft" })).toHaveAttribute("href", /^mailto:hello@freehub\.co\.za\?/);
-  await expect(page).toHaveURL(/\/coupon\/capitec-snappi-extra-15-percent\/$/);
+  await expect(page).toHaveURL(/\/deal\/mr-price-girls-7-14-denim-shorts-r50-off\/$/);
 
   await page.goto("/submit-an-offer/");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Submit a Coupon or Deal");
