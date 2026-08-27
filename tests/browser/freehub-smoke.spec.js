@@ -495,6 +495,43 @@ test("competition detail shows entry facts before discovery and partner content"
   expect(order).toBe(true);
 });
 
+test("paid-entry competition video has one primary embed and an ad-free watch page", async ({ page }) => {
+  await page.route("https://www.youtube-nocookie.com/**", (route) =>
+    route.fulfill({ contentType: "text/html", body: "<!doctype html><title>YouTube embed stub</title>" })
+  );
+
+  await page.goto("/competition/sa-guide-dogs-suzuki-across-car-raffle-2026/");
+  const competitionVideo = page.locator(".competition-video");
+  await expect(competitionVideo).toBeVisible();
+  await expect(competitionVideo.locator("iframe")).toHaveCount(1);
+  await expect(competitionVideo.locator("iframe")).toHaveAttribute("src", /0WipIiXfMtM/);
+  await expect(competitionVideo.getByRole("link", { name: "Open the dedicated video page" })).toHaveAttribute(
+    "href",
+    "/videos/sa-guide-dogs-suzuki-across-raffle-video/"
+  );
+  await expect(page.locator(`script[src="${GUEST_ADS_LOADER_SRC}"]`)).toHaveCount(0);
+
+  await page.goto("/videos/sa-guide-dogs-suzuki-across-raffle-video/");
+  await expect(page).toHaveTitle("Could a R150 Ticket Win You a Suzuki Across and Safari? | Freehub Video");
+  await expectCanonical(page, "/videos/sa-guide-dogs-suzuki-across-raffle-video/");
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /max-video-preview:-1/);
+  await expect(page.locator(".video-watch-hero__player iframe")).toHaveCount(1);
+  await expect(page.locator(".video-watch-hero__player iframe")).toHaveAttribute("src", /0WipIiXfMtM/);
+  await expect(page.locator(`iframe[src*="GtieTMjWGN0"]`)).toHaveCount(0);
+  await expect(page.getByRole("link", { name: "Watch the alternative cut on YouTube" })).toHaveAttribute(
+    "href",
+    "https://youtube.com/shorts/GtieTMjWGN0"
+  );
+  await expect(page.locator(`script[src="${GUEST_ADS_LOADER_SRC}"]`)).toHaveCount(0);
+
+  const videoObject = await page.locator("#structured-data-video").evaluate((script) =>
+    JSON.parse(script.textContent || "{}")
+  );
+  expect(videoObject["@type"]).toBe("VideoObject");
+  expect(videoObject.embedUrl).toBe("https://www.youtube.com/embed/0WipIiXfMtM");
+  expect(videoObject.duration).toBe("PT27S");
+});
+
 test("Free Stuff parent preserves intent and separates durable resources from opportunities", async ({ page }) => {
   await page.goto("/free-stuff-south-africa/");
   await expect(page).toHaveTitle("Where to Find Free Stuff in South Africa | Legit Freebies");

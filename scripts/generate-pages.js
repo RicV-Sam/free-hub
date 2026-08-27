@@ -2275,7 +2275,7 @@ function main() {
     fs.writeFileSync(path.join(outputDirectory, "index.html"), renderTrustPage(page));
   });
 
-  writeVideoPages();
+  writeVideoPages(activeCompetitions);
 
   writeLegacyRedirectPages();
 
@@ -2295,7 +2295,7 @@ function main() {
     )
   );
   fs.writeFileSync(path.join(ROOT_DIR, "robots.txt"), renderRobotsTxt());
-  runVideoPageStaticChecks();
+  runVideoPageStaticChecks(activeCompetitions);
   runLifecycleStaticChecks(
     validCompetitions,
     activeCompetitions,
@@ -7529,6 +7529,59 @@ function writeLegacyRedirectPages() {
   fs.writeFileSync(path.join(outputDirectory, "index.html"), renderLegacyAccountBenefitsRedirect());
 }
 
+function getCompetitionFeaturedVideo(competition) {
+  const source = competition && competition.featuredVideo;
+
+  if (!source || typeof source !== "object") {
+    return null;
+  }
+
+  const youtubeId = String(source.youtubeId || "").trim();
+  const durationSeconds = Number(source.durationSeconds);
+
+  if (!youtubeId || !Number.isFinite(durationSeconds)) {
+    return null;
+  }
+
+  return {
+    ...source,
+    id: youtubeId,
+    durationSeconds,
+    durationIso: `PT${durationSeconds}S`,
+    watchUrl: `https://www.youtube.com/shorts/${youtubeId}`,
+    embedUrl: `https://www.youtube.com/embed/${youtubeId}`,
+    privacyEmbedUrl: `https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0&cc_load_policy=1&cc_lang_pref=en`,
+    competitionSlug: shared.getCompetitionSlug(competition),
+  };
+}
+
+function getCompetitionFeaturedVideos(competitions) {
+  return (Array.isArray(competitions) ? competitions : [])
+    .map((competition) => ({ competition, video: getCompetitionFeaturedVideo(competition) }))
+    .filter((entry) => entry.video);
+}
+
+function buildVideoStructuredData(video, canonicalUrl) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "@id": `${canonicalUrl}#video`,
+    name: video.title,
+    description: video.description,
+    thumbnailUrl: [video.thumbnailUrl],
+    uploadDate: video.uploadDate,
+    duration: video.durationIso,
+    embedUrl: video.embedUrl,
+    inLanguage: "en-ZA",
+    ...(video.transcript ? { transcript: video.transcript } : {}),
+    publisher: {
+      "@type": "Organization",
+      name: "Freehub",
+      url: `${shared.CANONICAL_ORIGIN}/`,
+    },
+  };
+}
+
 function renderBirthdayVideoFeature() {
   const video = BIRTHDAY_FREEBIES_VIDEO;
   const videoPath = `/videos/${video.slug}/`;
@@ -7549,25 +7602,7 @@ function renderBirthdayVideoFeature() {
 function buildBirthdayVideoStructuredData() {
   const video = BIRTHDAY_FREEBIES_VIDEO;
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/videos/${video.slug}/`;
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "@id": `${canonicalUrl}#video`,
-    name: video.title,
-    description: video.description,
-    thumbnailUrl: [video.thumbnailUrl],
-    uploadDate: video.uploadDate,
-    duration: video.durationIso,
-    embedUrl: video.embedUrl,
-    inLanguage: "en-ZA",
-    transcript: video.transcript,
-    publisher: {
-      "@type": "Organization",
-      name: "Freehub",
-      url: `${shared.CANONICAL_ORIGIN}/`,
-    },
-  };
+  return buildVideoStructuredData(video, canonicalUrl);
 }
 
 function renderBirthdayVideoPage() {
@@ -7705,10 +7740,186 @@ function renderBirthdayVideoPage() {
 `;
 }
 
-function writeVideoPages() {
-  const outputDirectory = path.join(ROOT_DIR, "videos", BIRTHDAY_FREEBIES_VIDEO.slug);
-  fs.mkdirSync(outputDirectory, { recursive: true });
-  fs.writeFileSync(path.join(outputDirectory, "index.html"), renderBirthdayVideoPage());
+function renderCompetitionVideoFeature(competition) {
+  const video = getCompetitionFeaturedVideo(competition);
+
+  if (!video) {
+    return "";
+  }
+
+  const watchPath = `/videos/${video.slug}/`;
+
+  return `<section class="competition-video" aria-labelledby="competition-video-heading">
+              <div class="competition-video__copy">
+                <p class="section-kicker">${escapeHtml(video.durationSeconds)}-second Freehub video</p>
+                <h2 id="competition-video-heading">Watch: ${escapeHtml(video.title)}</h2>
+                <p>${escapeHtml(video.description)}</p>
+                <a class="internal-links__link" href="${escapeAttribute(watchPath)}">Open the dedicated video page</a>
+              </div>
+              <div class="competition-video__player">
+                <iframe
+                  src="${escapeAttribute(video.privacyEmbedUrl)}"
+                  title="${escapeAttribute(video.title)}"
+                  width="315"
+                  height="560"
+                  loading="lazy"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+            </section>`;
+}
+
+function renderCompetitionVideoPage(competition, video) {
+  const canonicalUrl = `${shared.CANONICAL_ORIGIN}/videos/${video.slug}/`;
+  const competitionPath = `/competition/${video.competitionSlug}/`;
+  const pageTitle = `${video.title} | Freehub Video`;
+  const videoStructuredData = buildVideoStructuredData(video, canonicalUrl);
+  const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${shared.CANONICAL_ORIGIN}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Verified Paid-Entry Competitions",
+        item: `${shared.CANONICAL_ORIGIN}/paid-entry-competitions/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: competition.title,
+        item: `${shared.CANONICAL_ORIGIN}${competitionPath}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: video.title,
+        item: canonicalUrl,
+      },
+    ],
+  };
+  const webPageStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: video.title,
+    description: video.description,
+    url: canonicalUrl,
+    inLanguage: "en-ZA",
+    datePublished: video.uploadDate,
+    dateModified: video.uploadDate,
+    mainEntity: { "@id": videoStructuredData["@id"] },
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Freehub",
+      url: `${shared.CANONICAL_ORIGIN}/`,
+    },
+  };
+
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${escapeHtml(pageTitle)}</title>
+    <meta name="description" content="${escapeAttribute(video.description)}" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="video.other" />
+    <meta property="og:title" content="${escapeAttribute(pageTitle)}" />
+    <meta property="og:description" content="${escapeAttribute(video.description)}" />
+    <meta property="og:url" content="${escapeAttribute(canonicalUrl)}" />
+    <meta property="og:image" content="${escapeAttribute(video.thumbnailUrl)}" />
+    <meta property="og:video" content="${escapeAttribute(video.embedUrl)}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${escapeAttribute(pageTitle)}" />
+    <meta name="twitter:description" content="${escapeAttribute(video.description)}" />
+    <meta name="twitter:image" content="${escapeAttribute(video.thumbnailUrl)}" />
+    <script id="structured-data-webpage" type="application/ld+json">${escapeScript(JSON.stringify(webPageStructuredData))}</script>
+    <script id="structured-data-breadcrumb" type="application/ld+json">${escapeScript(JSON.stringify(breadcrumbData))}</script>
+    <script id="structured-data-video" type="application/ld+json">${escapeScript(JSON.stringify(videoStructuredData))}</script>
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
+    ${renderGoogleTagManagerHead(`{ page_type: 'video', video_id: ${escapeScript(JSON.stringify(video.id))}, competition_slug: ${escapeScript(JSON.stringify(video.competitionSlug))} }`)}
+    ${renderMetaPixelHead()}
+  </head>
+  <body>
+    ${renderGoogleTagManagerNoScript()}
+    ${renderMetaPixelNoScript()}
+    <div class="site-shell">
+      ${renderTopNavigation({ active: "paid-entry" })}
+      <main id="main-content">
+        <header class="video-watch-hero">
+          <div class="video-watch-hero__copy">
+            <p class="eyebrow">Freehub competition video · ${escapeHtml(video.durationSeconds)} seconds</p>
+            <h1>${escapeHtml(video.title)}</h1>
+            <p>This video introduces the prize and ticket cost. Check Freehub's reviewed listing and the promoter's official rules before buying a ticket.</p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="${escapeAttribute(competitionPath)}">Check the raffle details</a>
+              <a class="btn btn--secondary" href="${escapeAttribute(video.watchUrl)}" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+            </div>
+          </div>
+          <div class="video-watch-hero__player">
+            <iframe
+              src="${escapeAttribute(video.privacyEmbedUrl)}"
+              title="${escapeAttribute(video.title)}"
+              width="315"
+              height="560"
+              loading="eager"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+        </header>
+
+        <div class="main-content video-watch-page">
+          <section class="trust-page__section" aria-labelledby="video-summary-heading">
+            <p class="section-kicker">Video summary</p>
+            <h2 id="video-summary-heading">What the 27-second video covers</h2>
+            <p>${escapeHtml(video.summary)}</p>
+          </section>
+
+          <section class="trust-page__section" aria-labelledby="paid-entry-check-heading">
+            <p class="section-kicker">Before buying a ticket</p>
+            <h2 id="paid-entry-check-heading">Use the reviewed competition page for the full entry details</h2>
+            <p>This is a paid-entry charity raffle at R150 per ticket. Freehub does not sell tickets or process payments. The promoter's campaign artwork states the society lottery scheme is registered with the National Lotteries Commission under reference ${escapeHtml(competition.paidEntryRegulatoryReference || "shown on the official campaign artwork")}.</p>
+            <a class="btn btn--primary" href="${escapeAttribute(competitionPath)}">View the verified paid-entry listing</a>
+          </section>
+
+          <nav class="internal-links" aria-label="Related video and competition links">
+            <p class="internal-links__title">Continue on Freehub or YouTube</p>
+            <div class="internal-links__list">
+              <a class="internal-links__link" href="/paid-entry-competitions/">Verified paid-entry competitions</a>
+              <a class="internal-links__link" href="${escapeAttribute(competitionPath)}">SA Guide-Dogs raffle details</a>
+              ${video.alternateWatchUrl ? `<a class="internal-links__link" href="${escapeAttribute(video.alternateWatchUrl)}" target="_blank" rel="noopener noreferrer">Watch the alternative cut on YouTube</a>` : ""}
+            </div>
+          </nav>
+        </div>
+      </main>
+
+      ${renderSiteFooter()}
+    </div>
+  </body>
+</html>
+`;
+}
+
+function writeVideoPages(activeCompetitions = []) {
+  const birthdayOutputDirectory = path.join(ROOT_DIR, "videos", BIRTHDAY_FREEBIES_VIDEO.slug);
+  fs.mkdirSync(birthdayOutputDirectory, { recursive: true });
+  fs.writeFileSync(path.join(birthdayOutputDirectory, "index.html"), renderBirthdayVideoPage());
+
+  getCompetitionFeaturedVideos(activeCompetitions).forEach(({ competition, video }) => {
+    const outputDirectory = path.join(ROOT_DIR, "videos", video.slug);
+    fs.mkdirSync(outputDirectory, { recursive: true });
+    fs.writeFileSync(path.join(outputDirectory, "index.html"), renderCompetitionVideoPage(competition, video));
+  });
 }
 
 function renderTrustPage(page) {
@@ -10115,6 +10326,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
             ${trustStripMarkup}
             ${detailFactsMarkup}
             ${renderCompetitionQuickAnswer(competition, expired)}
+            ${expired ? "" : renderCompetitionVideoFeature(competition)}
             ${entryCostEligibilityMarkup}
             ${entryStepsMarkup}
             ${officialEntryAccountsMarkup}
@@ -11201,6 +11413,7 @@ function runDataSafetyChecks(competitions) {
   const errors = [];
   const warnings = [];
   const seenSlugs = new Map();
+  const seenVideoSlugs = new Map();
 
   competitions.forEach((competition) => {
     const slug = shared.getCompetitionSlug(competition);
@@ -11215,6 +11428,42 @@ function runDataSafetyChecks(competitions) {
       errors.push(`Duplicate competition slug "${slug}" for "${seenSlugs.get(slug)}" and "${competition.title}".`);
     } else {
       seenSlugs.set(slug, competition.title);
+    }
+
+    if (competition.featuredVideo) {
+      const video = competition.featuredVideo;
+      const videoSlug = String(video.slug || "").trim();
+      const requiredVideoFields = ["youtubeId", "slug", "title", "description", "uploadDate", "durationSeconds", "thumbnailUrl", "summary"];
+      const missingVideoFields = requiredVideoFields.filter((field) => {
+        const value = video[field];
+        return value === undefined || value === null || String(value).trim() === "";
+      });
+
+      if (missingVideoFields.length > 0) {
+        errors.push(`Featured video is missing required fields for ${label}: ${missingVideoFields.join(", ")}.`);
+      }
+      if (!/^[A-Za-z0-9_-]{11}$/.test(String(video.youtubeId || ""))) {
+        errors.push(`Featured video has an invalid YouTube ID for ${label}.`);
+      }
+      if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(videoSlug)) {
+        errors.push(`Featured video has an invalid slug for ${label}: ${videoSlug || "missing"}.`);
+      } else if (seenVideoSlugs.has(videoSlug)) {
+        errors.push(`Duplicate featured video slug "${videoSlug}" for "${seenVideoSlugs.get(videoSlug)}" and "${competition.title}".`);
+      } else {
+        seenVideoSlugs.set(videoSlug, competition.title);
+      }
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(String(video.uploadDate || ""))) {
+        errors.push(`Featured video has an invalid uploadDate for ${label}.`);
+      }
+      if (!Number.isInteger(Number(video.durationSeconds)) || Number(video.durationSeconds) < 1 || Number(video.durationSeconds) > 28800) {
+        errors.push(`Featured video has an invalid durationSeconds for ${label}.`);
+      }
+      if (!/^https:\/\/i\.ytimg\.com\/vi\//.test(String(video.thumbnailUrl || ""))) {
+        errors.push(`Featured video must use a stable YouTube thumbnail URL for ${label}.`);
+      }
+      if (shared.isPaidEntryCompetition(competition) && competition.adsAllowed !== false) {
+        errors.push(`Paid-entry competition with a featured video must set adsAllowed=false: ${label}.`);
+      }
     }
 
     if (previewUrlFields.length > 0 && competition.verificationStatus === "published") {
@@ -11493,6 +11742,13 @@ function generateSitemap(competitions, routeContexts, sitemapCompetitions = comp
       lastmod: BIRTHDAY_FREEBIES_VIDEO.uploadDate,
       video: BIRTHDAY_FREEBIES_VIDEO,
     }),
+    ...getCompetitionFeaturedVideos(competitions).map(({ video }) =>
+      renderSitemapUrl({
+        loc: `${origin}/videos/${video.slug}/`,
+        lastmod: video.uploadDate,
+        video,
+      })
+    ),
   ];
 
   const competitionEntries = sitemapCompetitions
@@ -11642,7 +11898,7 @@ Sitemap: ${shared.CANONICAL_ORIGIN}/sitemap.xml
 `;
 }
 
-function runVideoPageStaticChecks() {
+function runVideoPageStaticChecks(activeCompetitions = []) {
   const video = BIRTHDAY_FREEBIES_VIDEO;
   const relativePath = path.join("videos", video.slug, "index.html");
   const videoPagePath = path.join(ROOT_DIR, relativePath);
@@ -11684,6 +11940,69 @@ function runVideoPageStaticChecks() {
       errors.push("Video sitemap metadata is missing the player URL.");
     }
   }
+
+  getCompetitionFeaturedVideos(activeCompetitions).forEach(({ competition, video: competitionVideo }) => {
+    const competitionVideoRelativePath = path.join("videos", competitionVideo.slug, "index.html");
+    const competitionVideoPagePath = path.join(ROOT_DIR, competitionVideoRelativePath);
+    const competitionPagePath = path.join(ROOT_DIR, "competition", competitionVideo.competitionSlug, "index.html");
+    const competitionVideoCanonical = `${shared.CANONICAL_ORIGIN}/videos/${competitionVideo.slug}/`;
+
+    if (!fs.existsSync(competitionVideoPagePath)) {
+      errors.push(`Competition video watch page was not generated: ${competitionVideoRelativePath}`);
+      return;
+    }
+
+    const videoHtml = fs.readFileSync(competitionVideoPagePath, "utf8");
+    if (!videoHtml.includes(`<link rel="canonical" href="${competitionVideoCanonical}"`)) {
+      errors.push(`Competition video canonical is missing or incorrect: ${competitionVideo.slug}.`);
+    }
+    if (!videoHtml.includes('id="structured-data-video"') || !videoHtml.includes('"@type":"VideoObject"')) {
+      errors.push(`Competition video page is missing VideoObject structured data: ${competitionVideo.slug}.`);
+    }
+    if (!videoHtml.includes(escapeAttribute(competitionVideo.privacyEmbedUrl))) {
+      errors.push(`Competition video page is missing its privacy-enhanced YouTube embed: ${competitionVideo.slug}.`);
+    }
+    if (!videoHtml.includes(escapeHtml(competitionVideo.summary))) {
+      errors.push(`Competition video page is missing its visible summary: ${competitionVideo.slug}.`);
+    }
+    if (videoHtml.includes(GUEST_ADS_SCRIPT_SRC)) {
+      errors.push(`Paid-entry competition video page must remain ad-free: ${competitionVideo.slug}.`);
+    }
+    if (!videoHtml.includes('href="/paid-entry-competitions/" aria-current="page"')) {
+      errors.push(`Competition video page is missing the active Paid Entry navigation state: ${competitionVideo.slug}.`);
+    }
+    if (competitionVideo.alternateWatchUrl) {
+      const alternateId = String(competitionVideo.alternateWatchUrl).split("/").filter(Boolean).pop();
+      if (alternateId && videoHtml.includes(`/embed/${alternateId}`)) {
+        errors.push(`Competition video page must embed only the primary video: ${competitionVideo.slug}.`);
+      }
+    }
+
+    if (!fs.existsSync(competitionPagePath)) {
+      errors.push(`Competition source page is missing for video: ${competitionVideo.competitionSlug}.`);
+    } else {
+      const competitionHtml = fs.readFileSync(competitionPagePath, "utf8");
+      if (!competitionHtml.includes(`/videos/${competitionVideo.slug}/`)) {
+        errors.push(`Competition page is missing its dedicated video link: ${competitionVideo.competitionSlug}.`);
+      }
+      if (!competitionHtml.includes(escapeAttribute(competitionVideo.privacyEmbedUrl))) {
+        errors.push(`Competition page is missing its primary video embed: ${competitionVideo.competitionSlug}.`);
+      }
+      if (competitionHtml.includes(GUEST_ADS_SCRIPT_SRC) || competition.adsAllowed !== false) {
+        errors.push(`Paid-entry competition page with video must remain ad-free: ${competitionVideo.competitionSlug}.`);
+      }
+    }
+
+    if (fs.existsSync(sitemapPath)) {
+      const sitemap = fs.readFileSync(sitemapPath, "utf8");
+      if (!sitemap.includes(`<loc>${competitionVideoCanonical}</loc>`)) {
+        errors.push(`Competition video page is missing from the sitemap: ${competitionVideo.slug}.`);
+      }
+      if (!sitemap.includes(`<video:player_loc>${escapeXml(competitionVideo.embedUrl)}</video:player_loc>`)) {
+        errors.push(`Competition video sitemap metadata is missing the player URL: ${competitionVideo.slug}.`);
+      }
+    }
+  });
 
   if (errors.length > 0) {
     throw new Error(`[Video page checks failed]\n${errors.map((error) => `- ${error}`).join("\n")}`);

@@ -6199,7 +6199,14 @@ body {
 .video-watch-hero__copy h1{color:#fff;font-size:clamp(2rem,6vw,4.5rem);line-height:1.02}
 .video-watch-hero__player{justify-self:center;width:min(100%,315px);overflow:hidden;border:2px solid #d99a16;border-radius:1.25rem}
 .video-watch-hero__player iframe{display:block;width:100%;height:auto;aspect-ratio:9/16;border:0}
-@media (max-width:760px){.featured-video,.video-watch-hero{grid-template-columns:1fr}.featured-video__poster{grid-row:1}}
+.competition-video{display:grid;grid-template-columns:minmax(0,1fr) minmax(190px,240px);gap:1rem;align-items:center;margin:1rem 0;padding:1rem;border:1px solid rgba(17,24,39,.12);border-radius:var(--radius-md);background:linear-gradient(145deg,#f7fbff,#fff8e8)}
+.competition-video__copy{display:grid;gap:.65rem}
+.competition-video__copy :is(h2,p){margin:0}
+.competition-video__copy h2{font-size:clamp(1.25rem,3vw,1.7rem);line-height:1.15}
+.competition-video__copy p:not(.section-kicker){color:var(--text-muted);line-height:1.6}
+.competition-video__player{justify-self:center;width:min(100%,220px);overflow:hidden;border:2px solid #d99a16;border-radius:1rem;background:#0b172a}
+.competition-video__player iframe{display:block;width:100%;height:auto;aspect-ratio:9/16;border:0}
+@media (max-width:760px){.featured-video,.video-watch-hero,.competition-video{grid-template-columns:1fr}.featured-video__poster{grid-row:1}.competition-video__player{width:min(100%,260px)}}
 
 [hidden] {
   display: none !important;

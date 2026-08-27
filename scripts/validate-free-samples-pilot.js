@@ -14,8 +14,8 @@ const offerBaseline = getOfferBaselineCounts({
   enabled: process.env.FREEHUB_ENABLE_OFFERS === "true",
   asOfDate: process.env.FREEHUB_AS_OF_DATE || process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date()),
 });
-const expectedGeneratedFiles = 374 + expectedOpportunityCount * 2 + offerBaseline.generatedFileCount;
-const expectedSitemapUrls = 123 + expectedOpportunityCount + offerBaseline.sitemapUrlCount;
+const expectedGeneratedFiles = 375 + expectedOpportunityCount * 2 + offerBaseline.generatedFileCount;
+const expectedSitemapUrls = 124 + expectedOpportunityCount + offerBaseline.sitemapUrlCount;
 const expectedCoreCompetitionCount = 63;
 
 function getLocalIsoDate(date) {
