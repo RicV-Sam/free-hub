@@ -45,6 +45,14 @@ const APPROVED_MANUAL_OK_URLS = new Map([
     "https://www.instagram.com/p/DcMISmcsqlc/",
   ],
   [
+    "onedayonly-elephant-walk-tented-camp-getaway-2026",
+    "https://www.instagram.com/p/Db-eUj6ILOq/",
+  ],
+  [
+    "sa-guide-dogs-suzuki-across-car-raffle-2026",
+    "https://guidedog.org.za/product/south-african-guide-dogs-association-for-the-blind-car-raffle/",
+  ],
+  [
     "silvercap-defy-6l-colour-airfryer-giveaway-2026",
     "https://www.instagram.com/p/DbfJWTZjMuH/",
   ],

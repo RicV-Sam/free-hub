@@ -14,9 +14,9 @@ const offerBaseline = getOfferBaselineCounts({
   enabled: process.env.FREEHUB_ENABLE_OFFERS === "true",
   asOfDate: process.env.FREEHUB_AS_OF_DATE || process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date()),
 });
-const expectedGeneratedFiles = 357 + expectedOpportunityCount * 2 + offerBaseline.generatedFileCount;
-const expectedSitemapUrls = 114 + expectedOpportunityCount + offerBaseline.sitemapUrlCount;
-const expectedActiveCompetitionCount = 56;
+const expectedGeneratedFiles = 374 + expectedOpportunityCount * 2 + offerBaseline.generatedFileCount;
+const expectedSitemapUrls = 123 + expectedOpportunityCount + offerBaseline.sitemapUrlCount;
+const expectedCoreCompetitionCount = 63;
 
 function getLocalIsoDate(date) {
   return [
@@ -96,8 +96,8 @@ const htmlFiles = walkHtmlFiles(ROOT_DIR);
 
 check("Generated files", htmlFiles.length + 1, expectedGeneratedFiles);
 check("Sitemap URLs", count(sitemap, /<loc>/g), expectedSitemapUrls);
-check("Active competition cards", count(competitions, /<article class="competition-card\b/g), expectedActiveCompetitionCount);
-check("Competition schema items", competitionSchema?.itemListElement?.length || 0, expectedActiveCompetitionCount);
+check("Core competition cards", count(competitions, /<article class="competition-card\b/g), expectedCoreCompetitionCount);
+check("Core competition schema items", competitionSchema?.itemListElement?.length || 0, expectedCoreCompetitionCount);
 check("Samples page marker", samples.includes('data-free-samples-page-version="4"'), true);
 check("Samples title", samplePage.title, "Where to Get Free Samples in South Africa | Current Offers");
 check("Samples H1 count", samplePage.h1.length, 1);

@@ -149,7 +149,7 @@ const DUPLICATE_TAG_CANONICAL_PATHS = {
   "paid-entry": "/paid-entry-competitions/",
 };
 const MIN_INDEXABLE_COLLECTION_COMPETITIONS = 2;
-const EVERGREEN_HUB_SLUGS = new Set(["win-a-car"]);
+const EVERGREEN_HUB_SLUGS = new Set(["win-a-car", "paid-entry-competitions"]);
 const MIN_INDEXABLE_VERTICAL_COMPETITIONS = 3;
 const VERTICAL_PAGE_SLUGS = [
   "whatsapp-competitions-south-africa",
@@ -2183,6 +2183,7 @@ function main() {
   );
   runDataSafetyChecks(validCompetitions);
   const activeCompetitions = shared.getPublishedActiveCompetitions(validCompetitions);
+  const coreActiveCompetitions = shared.getPublishedCoreActiveCompetitions(validCompetitions);
   const noindexActiveCompetitions = shared.getNoindexActiveCompetitions(validCompetitions);
   const expiredArchiveCompetitions = uniqueCompetitionsBySlug(
     shared.getExpiredArchiveCompetitions([...validCompetitions, ...validArchiveCompetitions])
@@ -2194,7 +2195,7 @@ function main() {
     ...expiredArchiveCompetitions,
     ...expiredLowValueCompetitions,
   ]);
-  brandImageLookup = buildBrandImageLookup(activeCompetitions);
+  brandImageLookup = buildBrandImageLookup(coreActiveCompetitions);
   const validCompetitionSlugs = new Set(detailCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
   const outCompetitions = [...activeCompetitions, ...noindexActiveCompetitions];
   const validOutSlugs = new Set(outCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
@@ -2203,9 +2204,9 @@ function main() {
     new Set([...activeOpportunityRoutes, ...opportunityTombstones].map((entry) => entry.opportunity.slug)),
     new Set(activeOpportunityRoutes.map((entry) => entry.opportunity.slug))
   );
-  const generatedBrandPages = shared.getGeneratedBrandPageDefinitions(activeCompetitions);
+  const generatedBrandPages = shared.getGeneratedBrandPageDefinitions(coreActiveCompetitions);
   const generatedBrandSlugs = generatedBrandPages.map((brandPage) => brandPage.slug);
-  const verticalCoverage = getVerticalCoverage(activeCompetitions);
+  const verticalCoverage = getVerticalCoverage(coreActiveCompetitions);
   generatedVerticalPagesForLinks = verticalCoverage
     .filter((entry) => entry.safeToPublish)
     .map((entry) => ({
@@ -2222,7 +2223,7 @@ function main() {
   removeLegacyNestedSiteDirectory();
   writeOfferPages(publicOffers);
 
-  fs.writeFileSync(path.join(ROOT_DIR, "index.html"), renderHomepage(activeCompetitions));
+  fs.writeFileSync(path.join(ROOT_DIR, "index.html"), renderHomepage(coreActiveCompetitions));
   fs.writeFileSync(path.join(ROOT_DIR, "404.html"), renderNotFoundPage());
 
   routeContexts.filter((routeContext) => routeContext.type !== "home").forEach((routeContext) => {
@@ -2238,7 +2239,7 @@ function main() {
   });
 
   detailCompetitions.forEach((competition) => {
-    const html = renderCompetitionPage(competition, activeCompetitions, generatedBrandSlugs);
+    const html = renderCompetitionPage(competition, coreActiveCompetitions, generatedBrandSlugs);
     const slug = shared.getCompetitionSlug(competition);
     const outputDirectory = path.join(ROOT_DIR, "competition", slug);
 
@@ -2278,8 +2279,8 @@ function main() {
 
   writeLegacyRedirectPages();
 
-  writeContentPages(activeCompetitions);
-  writeClubPages(activeCompetitions);
+  writeContentPages(coreActiveCompetitions);
+  writeClubPages(coreActiveCompetitions);
   writeReferAndWinPages();
   writeAdminPages();
 
@@ -2909,8 +2910,7 @@ function renderSiteFooter(options = {}) {
               <a href="/free-stuff-south-africa/">Free stuff guide</a>
               <a href="/free-online-courses-south-africa/">Free online courses</a>
               <a href="/free-childrens-books-south-africa/">Free children's books</a>
-              <a href="/free-credit-report-south-africa/">Free credit report</a>
-              ${OFFERS_ENABLED ? '<a href="/offers/">Coupons &amp; Deals</a>\n              <a href="/coupons/">Coupon codes</a>\n              <a href="/deals/">Deals</a>\n              <a href="/submit-an-offer/">Submit an offer</a>' : ""}
+              <a href="/free-credit-report-south-africa/">Free credit report</a>${OFFERS_ENABLED ? '\n              <a href="/offers/">Coupons &amp; Deals</a>\n              <a href="/coupons/">Coupon codes</a>\n              <a href="/deals/">Deals</a>\n              <a href="/submit-an-offer/">Submit an offer</a>' : ""}
               <a href="/submit-a-competition/">Submit a competition</a>
               <a href="/report-a-competition/">Report a competition</a>
               <a href="/club/">Freehub Club</a>
@@ -2952,6 +2952,7 @@ function renderTopNavigation(options = {}) {
   const links = [
     { key: "home", label: "Home", href: "/" },
     { key: "competitions", label: "Competitions", href: "/competitions/" },
+    { key: "paid-entry", label: "Paid Entry", href: "/paid-entry-competitions/" },
     { key: "free-stuff", label: "Free Stuff", href: "/free-stuff-south-africa/" },
     ...(OFFERS_ENABLED ? [{ key: "offers", label: "Coupons & Deals", href: "/offers/" }] : []),
     { key: "ending", label: "Ending soon", href: "/competitions-ending-soon/" },
@@ -5104,7 +5105,7 @@ function renderPage(routeContext, competitions) {
     ${collectionFaqScript}${voucherStructuredDataScripts ? `\n    ${voucherStructuredDataScripts}` : ""}
     ${itemListScript}
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref(RELATIVE_ASSET_PATH))}" />
-    ${routeContext.noindex === true ? "" : GUEST_ADS_SCRIPT}
+    ${routeContext.noindex === true || (routeContext.type === "hub" && routeContext.slug === "paid-entry-competitions") ? "" : GUEST_ADS_SCRIPT}
     ${renderGoogleTagManagerHead(`{ page_type: '${routeContext.type}'${routeContext.type === "hub" ? `, hub_slug: '${routeContext.slug}'` : ""}${routeContext.type === "brand" ? `, brand_slug: '${routeContext.slug}'` : ""} }`)}
     ${renderMetaPixelHead()}
   </head>
@@ -5112,7 +5113,11 @@ function renderPage(routeContext, competitions) {
     ${renderGoogleTagManagerNoScript()}
     ${renderMetaPixelNoScript()}
     <div class="site-shell">
-      ${renderTopNavigation({ active: "competitions" })}
+      ${renderTopNavigation({
+        active: routeContext.type === "hub" && routeContext.slug === "paid-entry-competitions"
+          ? "paid-entry"
+          : "competitions",
+      })}
       ${renderCollectionHero(routeContext, pageCopy, competitions)}
 
       <main id="main-content" class="main-content">
@@ -10076,7 +10081,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
     ${renderGoogleTagManagerNoScript()}
     ${renderMetaPixelNoScript()}
     <div class="site-shell">
-      ${renderTopNavigation({ active: "competitions" })}
+      ${renderTopNavigation({ active: shared.isVerifiedPaidEntryCompetition(competition) ? "paid-entry" : "competitions" })}
       ${renderCompetitionDetailHero({
         competition,
         heroTitle,
@@ -10249,6 +10254,10 @@ function renderCompetitionBreadcrumb(competition, categorySlug, categoryPath) {
 function renderCompetitionTrustStrip(competition, officialSource, lastChecked) {
   const items = [];
 
+  if (shared.isVerifiedPaidEntryCompetition(competition)) {
+    items.push("Verified paid-entry listing");
+  }
+
   if (competition.verificationStatus === "published") {
     items.push("Verified listing");
   }
@@ -10326,8 +10335,14 @@ function renderBeforeYouEnterBlock(competition) {
   }
 
   if (hasPaidEntrySignal(competition) || costLabel === "Paid entry") {
+    if (shared.isVerifiedPaidEntryCompetition(competition)) {
+      items.push("This listing passed Freehub's additional paid-entry evidence review.");
+    }
     items.push("Check the ticket price and official payment flow.");
     items.push("Only buy through the official promoter or ticketing page.");
+    if (competition.paidEntryRegulatoryReference) {
+      items.push(`Check the promoter's stated regulatory reference: ${competition.paidEntryRegulatoryReference}.`);
+    }
     helpLinks.push({ label: "Paid entry guide", href: "/paid-entry-competitions-explained/" });
   }
 
@@ -10344,7 +10359,7 @@ function renderBeforeYouEnterBlock(competition) {
               <p class="detail-section-title">Before you enter</p>
               <p>Check the promoter's official terms, closing date and entry requirements before entering. Freehub summarises competitions to help users compare them, but the promoter's official page is the source of truth.</p>
               <ul>
-                ${items.slice(0, 7).map((item) => `<li>${escapeHtml(item)}</li>`).join("\n                ")}
+                ${items.slice(0, 8).map((item) => `<li>${escapeHtml(item)}</li>`).join("\n                ")}
               </ul>
               <div class="internal-links__list">
                 ${helpLinks
@@ -10693,7 +10708,7 @@ function renderLegacyCompetitionPage(competition) {
     ${renderGoogleTagManagerNoScript()}
     ${renderMetaPixelNoScript()}
     <div class="site-shell">
-      ${renderTopNavigation({ active: "competitions" })}
+      ${renderTopNavigation({ active: shared.isVerifiedPaidEntryCompetition(competition) ? "paid-entry" : "competitions" })}
       ${renderModernHero({
         className: "hero--utility hero--closed-listing",
         eyebrow: "Inactive listing",
@@ -10921,7 +10936,7 @@ function renderOutPage(competition) {
     ${renderGoogleTagManagerNoScript()}
     ${renderMetaPixelNoScript()}
     <div class="site-shell">
-      ${renderTopNavigation({ active: "competitions" })}
+      ${renderTopNavigation({ active: shared.isVerifiedPaidEntryCompetition(competition) ? "paid-entry" : "competitions" })}
       ${renderModernHero({
         className: "hero--utility hero--outbound",
         eyebrow: "Official source",
@@ -11238,6 +11253,33 @@ function runDataSafetyChecks(competitions) {
 
     if (competition.requiresAgeGate !== undefined && typeof competition.requiresAgeGate !== "boolean") {
       errors.push(`requiresAgeGate must be boolean when present: ${label}.`);
+    }
+
+    if (
+      String(competition.visibility || "").trim().toLowerCase() === "public" &&
+      shared.isPaidEntryCompetition(competition)
+    ) {
+      if (!shared.isVerifiedPaidEntryCompetition(competition)) {
+        errors.push(`Public paid-entry listing is missing paidEntryReviewStatus=approved: ${label}.`);
+      }
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(String(competition.paidEntryReviewCheckedAt || ""))) {
+        errors.push(`Public paid-entry listing is missing a valid paidEntryReviewCheckedAt date: ${label}.`);
+      }
+      if (competition.adsAllowed !== false) {
+        errors.push(`Public paid-entry listing must set adsAllowed=false: ${label}.`);
+      }
+      if (!competition.entryFeeLabel && !competition.entryFeeAmount) {
+        errors.push(`Public paid-entry listing is missing its entry price: ${label}.`);
+      }
+      if (!competition.termsUrl) {
+        errors.push(`Public paid-entry listing is missing official terms: ${label}.`);
+      }
+      if (
+        (tags.includes("raffle") || tags.includes("charity-raffle")) &&
+        !competition.paidEntryRegulatoryReference
+      ) {
+        errors.push(`Public raffle listing is missing a regulatory reference: ${label}.`);
+      }
     }
 
     if (competition.verificationStatus !== "published") {
@@ -11900,7 +11942,8 @@ function runStaticSeoChecks(routeContexts = []) {
       : path.join(ROOT_DIR, routeContext.path.replace(/^\//, "").replace(/\/$/, ""), "index.html");
     const html = fs.readFileSync(filePath, "utf8");
     const loaderCount = html.split(`src="${GUEST_ADS_SCRIPT_SRC}"`).length - 1;
-    const expectedCount = routeContext.noindex === true ? 0 : 1;
+    const paidEntryHub = routeContext.type === "hub" && routeContext.slug === "paid-entry-competitions";
+    const expectedCount = routeContext.noindex === true || paidEntryHub ? 0 : 1;
 
     if (loaderCount !== expectedCount) {
       errors.push(`Guest-ad loader count is ${loaderCount}; expected ${expectedCount} in: ${filePath}`);

@@ -17,9 +17,10 @@ const offerBaseline = getOfferBaselineCounts({
   enabled: process.env.FREEHUB_ENABLE_OFFERS === "true",
   asOfDate: process.env.FREEHUB_AS_OF_DATE || process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date()),
 });
-const expectedGeneratedFiles = 357 + expectedOpportunityCount * 2 + offerBaseline.generatedFileCount;
-const expectedSitemapUrls = 114 + expectedOpportunityCount + offerBaseline.sitemapUrlCount;
-const expectedActiveCompetitionCount = 56;
+const expectedGeneratedFiles = 374 + expectedOpportunityCount * 2 + offerBaseline.generatedFileCount;
+const expectedSitemapUrls = 123 + expectedOpportunityCount + offerBaseline.sitemapUrlCount;
+const expectedActiveCompetitionCount = 64;
+const expectedCoreCompetitionCount = 63;
 
 function getLocalIsoDate(date) {
   return [
@@ -67,8 +68,8 @@ const activeCompetitions = shared.getPublishedActiveCompetitions(
 
 check("Generated files", htmlFiles.length + 1, expectedGeneratedFiles);
 check("Sitemap URLs", count(sitemap, /<loc>/g), expectedSitemapUrls);
-check("Active competition cards", count(competitions, /<article class="competition-card\b/g), expectedActiveCompetitionCount);
-check("Competition schema items", competitionItemList?.itemListElement?.length || 0, expectedActiveCompetitionCount);
+check("Core competition cards", count(competitions, /<article class="competition-card\b/g), expectedCoreCompetitionCount);
+check("Core competition schema items", competitionItemList?.itemListElement?.length || 0, expectedCoreCompetitionCount);
 check("Active competition records", activeCompetitions.length, expectedActiveCompetitionCount);
 check("Opportunity records rendered", new Set([...parent.matchAll(/data-opportunity-id="([^"]+)"/g)].map((match) => match[1])).size, expectedFeaturedOpportunityCount);
 check("Opportunity cards rendered", count(parent, /<article class="opportunity-card\b/g), expectedFeaturedOpportunityCount);

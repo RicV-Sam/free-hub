@@ -391,14 +391,15 @@
         "Purchase-required competitions are not free-entry listings. Check qualifying products, participating stores, minimum spend and promoter terms before entering.",
     },
     "paid-entry-competitions": {
-      title: "Paid Entry Competitions South Africa | Freehub",
+      title: "Verified Paid-Entry Competitions South Africa | Freehub",
       description:
-        "Browse South African competitions that require a paid ticket or paid entry. Check the cost, official promoter and terms before entering.",
-      heading: "Paid Entry Competitions in South Africa",
+        "Browse manually verified South African paid-entry competitions and charity raffles with clear costs, official rules and promoter links.",
+      heading: "Verified Paid-Entry Competitions in South Africa",
+      dateModified: "2026-08-27",
       intro:
-        "These listings require a paid ticket or paid entry flow. Compare the prize, fee and source details before paying.",
+        "This separate Freehub section contains paid tickets and charity raffles that passed an additional manual review. Each listing must disclose the entry price, official payment route, closing date, prize details and any applicable regulatory evidence before it can be indexed.",
       support:
-        "Only pay through the official promoter or official ticketing route. Freehub does not process payments or sell entries.",
+        "Verified means Freehub checked the available official evidence; it is not a guarantee that you will win or a recommendation to pay. Freehub does not process payments, sell entries or display advertising on approved paid-entry pages. Only pay through the official promoter or official ticketing route.",
     },
   };
   const BRAND_PAGE_MIN_COMPETITIONS = 3;
@@ -1217,6 +1218,34 @@
     return "public";
   }
 
+  function isPaidEntryCompetition(competition) {
+    if (!competition) {
+      return false;
+    }
+
+    const tags = Array.isArray(competition.tags) ? competition.tags : [];
+    const entryCostType = normalizeEntryCostType(competition.entryCostType);
+
+    return (
+      entryCostType === "paid-entry" ||
+      Number(competition.entryFeeAmount) > 0 ||
+      tags.includes("paid-entry") ||
+      tags.includes("raffle") ||
+      tags.includes("charity-raffle")
+    );
+  }
+
+  function isVerifiedPaidEntryCompetition(competition) {
+    return (
+      isPaidEntryCompetition(competition) &&
+      String((competition && competition.paidEntryReviewStatus) || "").trim().toLowerCase() === "approved"
+    );
+  }
+
+  function isCoreCompetition(competition) {
+    return !isVerifiedPaidEntryCompetition(competition);
+  }
+
   function getCompetitionRiskLevel(competition) {
     const explicitRiskLevel = String((competition && competition.riskLevel) || "").trim().toLowerCase();
 
@@ -1265,17 +1294,25 @@
     ]
       .join(" ")
       .toLowerCase();
+    const freeNewsletterSignup =
+      entryCostType === "free-entry" &&
+      /\bnewsletter\b/.test(searchableText) &&
+      !tags.includes("subscription") &&
+      !tags.includes("subscription-required") &&
+      !isPaidEntryCompetition(competition);
+    const subscriptionRisk =
+      !freeNewsletterSignup &&
+      (tags.includes("subscription") ||
+        tags.includes("subscription-required") ||
+        /\b(subscription|subscription-required|paid subscription|subscription fee)\b/.test(searchableText));
 
     return (
-      entryCostType === "paid-entry" ||
-      Number(competition.entryFeeAmount) > 0 ||
-      tags.includes("paid-entry") ||
-      tags.includes("raffle") ||
+      isPaidEntryCompetition(competition) ||
       tags.includes("premium-sms") ||
-      tags.includes("subscription") ||
       tags.includes("alcohol") ||
       tags.includes("finance") ||
-      /\b(raffle|paid ticket|ticket purchase|premium sms|subscription|subscribe & win|alcohol|beer|wine|spirits|finance|loan|account-opening)\b/.test(
+      subscriptionRisk ||
+      /\b(raffle|paid ticket|ticket purchase|premium sms|alcohol|beer|wine|spirits|finance|loan|account-opening)\b/.test(
         searchableText
       )
     );
@@ -1297,6 +1334,10 @@
 
   function getPublishedActiveCompetitions(competitions) {
     return competitions.filter(isActiveCompetition);
+  }
+
+  function getPublishedCoreActiveCompetitions(competitions) {
+    return getPublishedActiveCompetitions(competitions).filter(isCoreCompetition);
   }
 
   function isNoindexActiveCompetition(competition) {
@@ -1543,15 +1584,16 @@
 
   function filterCompetitionsByRoute(competitions, routeContext) {
     const publishedCompetitions = getPublishedActiveCompetitions(competitions);
+    const coreCompetitions = publishedCompetitions.filter(isCoreCompetition);
 
     if (routeContext.type === "category") {
       const targetCategory = CATEGORY_COPY[routeContext.slug].category;
       const categoryCompetitions =
         routeContext.slug === "groceries"
-          ? publishedCompetitions.filter(isGroceryPrizeCompetition)
+          ? coreCompetitions.filter(isGroceryPrizeCompetition)
           : routeContext.slug === "experiences"
-            ? publishedCompetitions.filter(isExperiencePrizeCompetition)
-            : publishedCompetitions.filter((competition) => competition.category === targetCategory);
+            ? coreCompetitions.filter(isExperiencePrizeCompetition)
+            : coreCompetitions.filter((competition) => competition.category === targetCategory);
       return sortCompetitions(
         routeContext.slug === "vouchers"
           ? categoryCompetitions.filter(isVoucherPrizeCompetition)
@@ -1560,7 +1602,10 @@
     }
 
     if (routeContext.type === "tag") {
-      return getTagFilteredCompetitions(publishedCompetitions, routeContext.slug);
+      return getTagFilteredCompetitions(
+        routeContext.slug === "paid-entry" ? publishedCompetitions : coreCompetitions,
+        routeContext.slug
+      );
     }
 
     if (routeContext.type === "hub") {
@@ -1568,10 +1613,10 @@
     }
 
     if (routeContext.type === "brand") {
-      return getBrandFilteredCompetitions(publishedCompetitions, routeContext.slug);
+      return getBrandFilteredCompetitions(coreCompetitions, routeContext.slug);
     }
 
-    return publishedCompetitions;
+    return coreCompetitions;
   }
 
   function isVoucherPrizeCompetition(competition) {
@@ -1643,7 +1688,10 @@
 
   function getHubFilteredCompetitions(competitions, slug) {
     const publishedCompetitions = getPublishedActiveCompetitions(competitions);
-    const sortedCompetitions = sortCompetitions(publishedCompetitions);
+    const coreCompetitions = publishedCompetitions.filter(isCoreCompetition);
+    const sortedCompetitions = sortCompetitions(
+      slug === "paid-entry-competitions" ? publishedCompetitions : coreCompetitions
+    );
 
     if (slug === "competitions") {
       return sortedCompetitions;
@@ -1997,6 +2045,9 @@
     formatRandAmount,
     getCardTagLabels,
     getCompetitionVisibility,
+    isPaidEntryCompetition,
+    isVerifiedPaidEntryCompetition,
+    isCoreCompetition,
     getCompetitionRiskLevel,
     competitionRequiresAgeGate,
     competitionAllowsAds,
@@ -2006,6 +2057,7 @@
     getPublishedCompetitions,
     isActiveCompetition,
     getPublishedActiveCompetitions,
+    getPublishedCoreActiveCompetitions,
     isNoindexActiveCompetition,
     getNoindexActiveCompetitions,
     isClubOnlyCompetition,

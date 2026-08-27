@@ -209,3 +209,88 @@ test("evergreen grocery and experience routes keep only active public prize matc
     "https://freehub.co.za/win-a-car/"
   );
 });
+
+test("unapproved paid-entry records stay noindex", () => {
+  const raffle = {
+    id: "unapproved-raffle",
+    title: "Unapproved raffle",
+    verificationStatus: "published",
+    closingDate: "2999-12-31",
+    entryCostType: "paid-entry",
+    entryFeeLabel: "R100 per ticket",
+    tags: ["paid-entry", "raffle"],
+  };
+
+  assert.equal(shared.isPaidEntryCompetition(raffle), true);
+  assert.equal(shared.isVerifiedPaidEntryCompetition(raffle), false);
+  assert.equal(shared.getCompetitionVisibility(raffle), "noindex");
+  assert.equal(shared.isActiveCompetition(raffle), false);
+});
+
+test("approved paid-entry records are indexed only in the verified paid-entry collection", () => {
+  const raffle = {
+    id: "approved-raffle",
+    title: "Approved raffle",
+    verificationStatus: "published",
+    closingDate: "2999-12-31",
+    visibility: "public",
+    entryCostType: "paid-entry",
+    entryFeeLabel: "R100 per ticket",
+    tags: ["paid-entry", "raffle"],
+    paidEntryReviewStatus: "approved",
+  };
+  const freeCompetition = {
+    id: "free-competition",
+    title: "Free competition",
+    verificationStatus: "published",
+    closingDate: "2999-12-31",
+    entryCostType: "free-entry",
+  };
+  const records = [raffle, freeCompetition];
+
+  assert.equal(shared.isVerifiedPaidEntryCompetition(raffle), true);
+  assert.equal(shared.isCoreCompetition(raffle), false);
+  assert.equal(shared.isActiveCompetition(raffle), true);
+  assert.deepEqual(
+    shared.getPublishedCoreActiveCompetitions(records).map((competition) => competition.id),
+    ["free-competition"]
+  );
+  assert.deepEqual(
+    shared
+      .filterCompetitionsByRoute(records, shared.getRouteContext("/paid-entry-competitions/"))
+      .map((competition) => competition.id),
+    ["approved-raffle"]
+  );
+  assert.deepEqual(
+    shared
+      .filterCompetitionsByRoute(records, shared.getRouteContext("/competitions/"))
+      .map((competition) => competition.id),
+    ["free-competition"]
+  );
+  assert.match(
+    shared.getPageCopy(shared.getRouteContext("/paid-entry-competitions/")).heading,
+    /Verified Paid-Entry/
+  );
+});
+
+test("a free newsletter signup is not treated as a paid subscription", () => {
+  const newsletterCompetition = {
+    title: "Newsletter getaway",
+    verificationStatus: "published",
+    closingDate: "2999-12-31",
+    entryCostType: "free-entry",
+    entryFeeLabel: "No fee; newsletter subscription required",
+    entryChannel: "Subscribe to the free newsletter",
+    tags: [],
+  };
+  const paidSubscriptionCompetition = {
+    ...newsletterCompetition,
+    title: "Paid subscription prize",
+    tags: ["subscription-required"],
+  };
+
+  assert.equal(shared.isGreyAreaCompetition(newsletterCompetition), false);
+  assert.equal(shared.getCompetitionVisibility(newsletterCompetition), "public");
+  assert.equal(shared.isGreyAreaCompetition(paidSubscriptionCompetition), true);
+  assert.equal(shared.getCompetitionVisibility(paidSubscriptionCompetition), "noindex");
+});
