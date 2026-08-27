@@ -38,7 +38,7 @@ const BIRTHDAY_FREEBIES_VIDEO = Object.freeze({
   title: "Birthday freebies in South Africa",
   description:
     "A 24-second Freehub guide to finding verified South African birthday freebies, including movies, food, attractions and experiences.",
-  uploadDate: "2026-08-18",
+  uploadDate: "2026-08-18T03:29:58-07:00",
   durationSeconds: 24,
   durationIso: "PT24S",
   thumbnailUrl: "https://i.ytimg.com/vi/FYhppNNEU0M/maxresdefault.jpg",
@@ -11452,8 +11452,8 @@ function runDataSafetyChecks(competitions) {
       } else {
         seenVideoSlugs.set(videoSlug, competition.title);
       }
-      if (!/^\d{4}-\d{2}-\d{2}$/.test(String(video.uploadDate || ""))) {
-        errors.push(`Featured video has an invalid uploadDate for ${label}.`);
+      if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,3})?(?:Z|[+-]\d{2}:\d{2})$/.test(String(video.uploadDate || ""))) {
+        errors.push(`Featured video uploadDate must be an ISO 8601 datetime with a time zone for ${label}.`);
       }
       if (!Number.isInteger(Number(video.durationSeconds)) || Number(video.durationSeconds) < 1 || Number(video.durationSeconds) > 28800) {
         errors.push(`Featured video has an invalid durationSeconds for ${label}.`);

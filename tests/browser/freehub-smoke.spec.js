@@ -530,6 +530,7 @@ test("paid-entry competition video has one primary embed and an ad-free watch pa
   expect(videoObject["@type"]).toBe("VideoObject");
   expect(videoObject.embedUrl).toBe("https://www.youtube.com/embed/0WipIiXfMtM");
   expect(videoObject.duration).toBe("PT27S");
+  expect(videoObject.uploadDate).toBe("2026-08-27T09:04:45-07:00");
 });
 
 test("Free Stuff parent preserves intent and separates durable resources from opportunities", async ({ page }) => {
