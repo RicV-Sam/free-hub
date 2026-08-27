@@ -29,6 +29,30 @@ const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 FreeHubValidator/1.0";
 const APPROVED_MANUAL_OK_URLS = new Map([
   [
+    "curaprox-house-of-mouth-competition-2026",
+    "https://enjoy.curaprox.com/en-za/curaprox-house-of-mouth-competition",
+  ],
+  [
+    "easylife-kitchens-smeg-coffee-hamper-giveaway-2026",
+    "https://www.instagram.com/p/Dac2X2RAIpp/",
+  ],
+  [
+    "etr-construction-bathroom-renovation-giveaway-2026",
+    "https://www.instagram.com/p/DcaXmRKlp6w/",
+  ],
+  [
+    "mukango-safaris-kruger-living-nyati-giveaway-2026",
+    "https://www.instagram.com/p/DcMISmcsqlc/",
+  ],
+  [
+    "silvercap-defy-6l-colour-airfryer-giveaway-2026",
+    "https://www.instagram.com/p/DbfJWTZjMuH/",
+  ],
+  [
+    "wanderout-south-african-conservation-safari-giveaway-2026",
+    "https://www.instagram.com/p/Db8kM_gjZ1j/",
+  ],
+  [
     "mybroadband-pre-black-friday-survey-r2000-2026",
     "https://mybroadband.co.za/news/industrynews/663847-win-r2000-complete-the-mybroadband-2026-pre-black-friday-survey.html",
   ],
