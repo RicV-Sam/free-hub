@@ -1,14 +1,14 @@
 === Competition Maintenance Report ===
-Date: 2026-08-26
+Date: 2026-08-27
 Mode: archive-expired
-Total competitions: 303
-Active published count: 56
+Total competitions: 314
+Active published count: 67
 Expired archive page count: 147
 Low-value expired noindex count: 0
 Held/private count: 100
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 29
+Closing in next 14 days: 35
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -160,35 +160,41 @@ Expired competition IDs:
 - gardena-winter-pruning-giveaway-2026 (2026-08-25)
 
 Closing soon (next 14 days):
-- nedbank-thank-greenbacks-friday-august-2026 (2 days)
-- ofm-emerald-resort-family-getaway-2026 (2 days)
-- ultra-mel-christmas-in-july-2026 (4 days)
-- witness-cape-town-trip-2026 (4 days)
-- mtn-shift-gaming-experience-cash-2026 (4 days)
-- makro-aeg-win-this-winter-2026 (4 days)
-- centrum-takealot-womens-month-2026 (4 days)
-- coca-cola-zwakala-neflava-2026 (5 days)
-- hisense-big-wash-no-drama-2026 (5 days)
-- wanta-fanta-gaming-promotion-2026 (5 days)
-- kelloggs-big-bowl-energy-2026 (5 days)
-- vodacom-red-springboks-double-tickets-2026 (5 days)
-- nestle-milo-meet-the-champ-2026 (5 days)
-- dr-oetker-taste-the-upgrade-2026 (5 days)
-- castle-lager-fifa-world-cup-cans-2026 (5 days)
-- first-battery-centre-win-a-car-2026 (5 days)
-- ctm-pro-grip-win-toyota-hilux-2026 (5 days)
-- standard-bank-ucount-astron-energy-2026 (5 days)
-- aldo-football-club-competition-2026 (5 days)
-- colcacchio-alva-winter-pizza-oven-2026 (5 days)
-- penguin-random-house-penguin-post-43-book-hampers-2026 (5 days)
-- vodacom-green-gold-fieldbar-cooler-competition (5 days)
-- ster-kinekor-double-feature-combo-2026 (5 days)
-- nescafe-stand-a-chance-to-be-a-millionaire-2026 (5 days)
-- honor-takealot-bafana-bafana-jersey-2026 (5 days)
-- domestos-power-foam-win-suzuki-jimny-2026 (5 days)
-- beares-hisense-50-tv-facebook-2026 (5 days)
-- beares-medispine-royal-crown-bed-set-2026 (5 days)
-- hadeco-80th-birthday-competition-2026 (6 days)
+- nedbank-thank-greenbacks-friday-august-2026 (1 days)
+- ofm-emerald-resort-family-getaway-2026 (1 days)
+- ultra-mel-christmas-in-july-2026 (3 days)
+- witness-cape-town-trip-2026 (3 days)
+- mtn-shift-gaming-experience-cash-2026 (3 days)
+- makro-aeg-win-this-winter-2026 (3 days)
+- centrum-takealot-womens-month-2026 (3 days)
+- etr-construction-bathroom-renovation-giveaway-2026 (3 days)
+- coca-cola-zwakala-neflava-2026 (4 days)
+- hisense-big-wash-no-drama-2026 (4 days)
+- wanta-fanta-gaming-promotion-2026 (4 days)
+- kelloggs-big-bowl-energy-2026 (4 days)
+- vodacom-red-springboks-double-tickets-2026 (4 days)
+- nestle-milo-meet-the-champ-2026 (4 days)
+- dr-oetker-taste-the-upgrade-2026 (4 days)
+- castle-lager-fifa-world-cup-cans-2026 (4 days)
+- first-battery-centre-win-a-car-2026 (4 days)
+- ctm-pro-grip-win-toyota-hilux-2026 (4 days)
+- standard-bank-ucount-astron-energy-2026 (4 days)
+- aldo-football-club-competition-2026 (4 days)
+- colcacchio-alva-winter-pizza-oven-2026 (4 days)
+- penguin-random-house-penguin-post-43-book-hampers-2026 (4 days)
+- vodacom-green-gold-fieldbar-cooler-competition (4 days)
+- ster-kinekor-double-feature-combo-2026 (4 days)
+- nescafe-stand-a-chance-to-be-a-millionaire-2026 (4 days)
+- honor-takealot-bafana-bafana-jersey-2026 (4 days)
+- domestos-power-foam-win-suzuki-jimny-2026 (4 days)
+- beares-hisense-50-tv-facebook-2026 (4 days)
+- beares-medispine-royal-crown-bed-set-2026 (4 days)
+- easylife-kitchens-smeg-coffee-hamper-giveaway-2026 (4 days)
+- silvercap-defy-6l-colour-airfryer-giveaway-2026 (4 days)
+- hadeco-80th-birthday-competition-2026 (5 days)
+- mukango-safaris-kruger-living-nyati-giveaway-2026 (9 days)
+- mybroadband-pre-black-friday-survey-r2000-2026 (11 days)
+- onedayonly-elephant-walk-tented-camp-getaway-2026 (11 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
