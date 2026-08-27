@@ -16,12 +16,20 @@ const OFFICIAL_DOMAINS = {
   Capitec: ["capitecbank.co.za", "moneyup.co.za"],
   Checkers: ["termsconditions.co.za"],
   Clover: ["clover.co.za"],
+  "Curaprox South Africa / Curaden South Africa": ["curaprox.com", "mcusercontent.com"],
   "Dis-Chem": ["dischem.co.za"],
+  "Easylife Kitchens": ["instagram.com"],
+  "ETR Construction": ["instagram.com", "docs.google.com"],
   Makro: ["makro.co.za"],
   "MTN South Africa": ["mtn.co.za"],
+  "Mukango Safaris / Kruger Living on Nyati": ["instagram.com"],
+  "OneDayOnly / Elephant Walk Tented Camp": ["instagram.com", "onedayonly.co.za"],
   "Rhodes Quality": ["rhodesquality.com"],
+  "Silvercap Trading PE": ["instagram.com"],
+  "South African Guide-Dogs Association": ["guidedog.org.za"],
   "SPAR South Africa": ["spar.co.za"],
   "Standard Bank": ["standardbank.co.za"],
+  "Wander Out Expeditions": ["instagram.com"],
 };
 
 const FORBIDDEN_SOURCE_FIELDS = [
@@ -41,6 +49,7 @@ function parseArgs(argv) {
     inputPath: DEFAULT_HANDOFF_PATH,
     validationPath: null,
     dataPath: DATA_PATH,
+    candidateIds: [],
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -70,6 +79,17 @@ function parseArgs(argv) {
 
     if (arg.startsWith("--validation=")) {
       options.validationPath = path.resolve(arg.split("=").slice(1).join("="));
+      continue;
+    }
+
+    if (arg === "--candidate-id" || arg === "--candidate-ids") {
+      options.candidateIds.push(...asString(argv[index + 1]).split(",").map((value) => value.trim()).filter(Boolean));
+      index += 1;
+      continue;
+    }
+
+    if (arg.startsWith("--candidate-id=") || arg.startsWith("--candidate-ids=")) {
+      options.candidateIds.push(...arg.split("=").slice(1).join("=").split(",").map((value) => value.trim()).filter(Boolean));
       continue;
     }
 
@@ -443,6 +463,18 @@ function main() {
   const validation = readJson(options.validationPath);
   validateHandoff(handoff, validation);
 
+  const requestedCandidateIds = new Set(options.candidateIds);
+  const rows = requestedCandidateIds.size > 0
+    ? handoff.rows.filter((row) => requestedCandidateIds.has(getRowId(row)))
+    : handoff.rows;
+  if (requestedCandidateIds.size > 0) {
+    const foundCandidateIds = new Set(rows.map(getRowId));
+    const missingCandidateIds = [...requestedCandidateIds].filter((candidateId) => !foundCandidateIds.has(candidateId));
+    if (missingCandidateIds.length > 0) {
+      throw new Error(`Requested candidate IDs are missing from the handoff: ${missingCandidateIds.join(", ")}`);
+    }
+  }
+
   const competitions = readJson(options.dataPath);
   if (!Array.isArray(competitions)) {
     throw new Error("Freehub competitions data must be a JSON array.");
@@ -476,7 +508,7 @@ function main() {
   let skipped = 0;
   const skippedPublishedMatches = [];
 
-  handoff.rows.forEach((row) => {
+  rows.forEach((row) => {
     errors.push(...validateSourceRow(row, handoff));
     const warningCodes = getWarningCodes(validation, row);
     const existingByHandoff = byHandoffId.get(getRowId(row));
@@ -532,7 +564,9 @@ function main() {
     validationPath: options.validationPath,
     dataPath: options.dataPath,
     backupPath,
-    rowsRead: handoff.rows.length,
+    rowsRead: rows.length,
+    handoffRowsAvailable: handoff.rows.length,
+    candidateIds: [...requestedCandidateIds],
     rowsImported: imported,
     rowsUpdated: updated,
     rowsSkipped: skipped,
