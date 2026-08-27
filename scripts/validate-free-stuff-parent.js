@@ -80,13 +80,13 @@ check("Durable resources on parent", count(parent, /<article class="free-resourc
 check("Durable resource schema items", resourceItemList?.itemListElement?.length || 0, 24);
 check("Permanent Free Stuff child links", count(parent, /class="free-stuff-child-nav__link"/g), 4);
 check("Parent H1 count", parentPage.h1.length, 1);
-check("Parent H1", parentPage.h1[0], "Free Stuff South Africa");
-check("Parent title", parentPage.title, "Free Stuff South Africa | Legit Freebies, Samples, Competitions");
+check("Parent H1", parentPage.h1[0], "Where to Find Free Stuff in South Africa");
+check("Parent title", parentPage.title, "Where to Find Free Stuff in South Africa | Legit Freebies");
 check("Parent canonical", parentPage.canonical, "https://freehub.co.za/free-stuff-south-africa/");
 check("Homepage title", homepagePage.title, "South African Competitions Worth Entering Today | Freehub");
 check("Homepage H1", homepagePage.h1[0], "Find South African competitions worth entering today");
 const orderedParentMarkers = [
-  "Quick answer: free stuff South Africa",
+  "Quick answer: where to find free stuff",
   'class="free-stuff-child-nav"',
   "<h2>Official programmes, services and directories</h2>",
   'class="free-stuff-competition-callout"',

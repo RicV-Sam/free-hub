@@ -497,8 +497,8 @@ test("competition detail shows entry facts before discovery and partner content"
 
 test("Free Stuff parent preserves intent and separates durable resources from opportunities", async ({ page }) => {
   await page.goto("/free-stuff-south-africa/");
-  await expect(page).toHaveTitle("Free Stuff South Africa | Legit Freebies, Samples, Competitions");
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Free Stuff South Africa");
+  await expect(page).toHaveTitle("Where to Find Free Stuff in South Africa | Legit Freebies");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Where to Find Free Stuff in South Africa");
   await expectCanonical(page, "/free-stuff-south-africa/");
   await expect(page.locator('body[data-free-stuff-parent-version="3"]')).toHaveCount(1);
 

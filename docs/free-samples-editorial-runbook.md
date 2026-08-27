@@ -64,6 +64,18 @@ Append one reviewed entry to `data/opportunity-source-evidence.json` for each so
 
 Never edit or remove older evidence rows. Each entry must match the record, field, hostname and exact URL, and must expire no later than seven days after verification. Current evidence is required separately for every present `sourceUrl` and `termsUrl`. Opportunity URLs may use only `brandadvisor.co.za`, `products.coloplast.co.za`, `www.blinddesigns.co.za` or `www.tena.co.za`; voucher-resource domains do not expand that allowlist. Manual evidence cannot override a 404, 410, soft-404, redirect, mismatched URL, stale review or any other publication failure.
 
+## Analytics evidence
+
+GA4 is supporting evidence only. It must not block an evidence refresh, route validation run, or publication rollback decision for Opportunities.
+
+Use repository-grounded checks as the release bar:
+
+- deterministic Opportunity, SEO, lifecycle, maintenance, parity, and browser tests;
+- raw event-name coverage in code and smoke tests for `discovery_card_click`, `opportunity_detail_view`, `opportunity_exit_click`, `opportunity_exit_view`, and `opportunity_exit_handoff`;
+- current official-source and terms evidence in the Opportunity ledger.
+
+If GA4 review is needed, treat it as a manual follow-up. Prefer Realtime, DebugView, or an exploration date range that explicitly includes the current review date. A saved exploration window that excludes the current day, delayed processing, missing custom-dimension registration, or UI filter drift must be recorded as an analytics review limitation, not as a publication blocker by itself.
+
 ## Monthly durable-resource review
 
 Recheck all seven durable resources on `/free-samples-south-africa/` within 30 days. Confirm the stable ID, subtype, official URL, availability, verification state, review dates and visible description. Product-testing resources must retain the no-guarantee distinction; the international ReviewClub guide must not be presented as a current South African offer. Kalley must disclose the current R69 delivery charge and must not be counted as completely free.

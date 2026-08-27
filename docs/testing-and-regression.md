@@ -31,7 +31,7 @@ The npm interfaces are:
 
 ## SEO and generated-page baseline
 
-`tests/baselines/seo-baseline.json` fixes the audited origin, snapshot date, flag-disabled 93-URL sitemap count, canonical aliases, forbidden aliases and reviewed link-graph exceptions. `tests/baselines/generated-pages.json` records representative outputs for the homepage, voucher hub, collection hubs, taxonomy routes, active and expired detail pages, outbound redirect, evergreen pillars, Club, admin and 404. `tests/baselines/adsterra-evergreen-generated-output.json` pins every exact base-to-candidate hash for the Adsterra and evergreen-category release. The older discovery manifest remains a review record for its release, while `tests/baselines/opportunity-generated-output.json` pins every reviewed flag-enabled detail, exit, discovery-surface and sitemap hash against the current shared templates.
+`tests/baselines/seo-baseline.json` fixes the audited origin, snapshot date, flag-disabled 93-URL sitemap count, canonical aliases, forbidden aliases and reviewed link-graph exceptions. The validator adds only lifecycle-eligible Opportunity and offer detail/collection routes to that count when their exact feature flags are enabled; offer category and brand additions must also meet the two-record indexability threshold. `tests/baselines/generated-pages.json` records representative outputs for the homepage, voucher hub, collection hubs, taxonomy routes, active and expired detail pages, outbound redirect, evergreen pillars, Club, admin and 404. `tests/baselines/adsterra-evergreen-generated-output.json` pins every exact base-to-candidate hash for the Adsterra and evergreen-category release. The older discovery manifest remains a review record for its release, while `tests/baselines/opportunity-generated-output.json` pins every reviewed flag-enabled detail, exit, discovery-surface and sitemap hash against the current shared templates.
 
 Hard failures include:
 
@@ -99,6 +99,8 @@ Playwright treats an unexpected pass as a failure so the expected-defect marker 
 The pull-request workflow separates deterministic baseline tests, live link checks and Chromium smoke tests. It uses `FREEHUB_BUILD_DATE=2026-07-31` for the reviewed metadata and Opportunity evidence snapshot, and `FREEHUB_AS_OF_DATE=2026-08-06` for competition lifecycle and urgency calculations. It compares SHA-256 inventories of generated HTML and sitemap output. Browser tests serve local generated files and force Firebase configuration requests to return 404, so no deployed credentials or authenticated account are required.
 
 The harness does not estimate Lighthouse history, Core Web Vitals, Search Console, GA4, deployed Firestore rules or Cloudflare configuration. Those remain unavailable external evidence and require separate access and review.
+
+GA4 review is intentionally non-blocking for repository validation. Event receipt in GA4 can be hidden by saved-date windows, same-day processing lag, exploration filter drift, or missing property-side custom definitions even when local event wiring and browser flow are correct. Use GA4 as corroborating evidence, not as a merge or refresh gate.
 
 ## Samples and vouchers discovery release
 
