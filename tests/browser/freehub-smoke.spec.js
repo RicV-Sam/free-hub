@@ -616,10 +616,11 @@ test("Free Stuff discovery analytics separates pillar and official-source events
   }
 });
 
-test("Free Samples v4 preserves its canonical and separates current offers from reviewed routes", async ({ page }) => {
+test("Free Samples v4 preserves its canonical and separates official sites from current offers", async ({ page }) => {
   await page.goto("/free-samples-south-africa/");
-  await expect(page).toHaveTitle("Where to Get Free Samples in South Africa | Current Offers");
+  await expect(page).toHaveTitle("Where to Get Free Samples in South Africa | Official Sites");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Where to Get Free Samples in South Africa");
+  await expect(page.locator(".hero__text")).toContainText("where to get free samples in South Africa");
   await expectCanonical(page, "/free-samples-south-africa/");
   await expect(page.locator('body[data-free-samples-page-version="4"]')).toHaveCount(1);
   await expect(

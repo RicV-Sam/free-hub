@@ -1434,15 +1434,15 @@ const TRUST_PAGE_DEFINITIONS = [
   },
   {
     slug: "free-samples-south-africa",
-    title: "Where to Get Free Samples in South Africa | Current Offers",
+    title: "Where to Get Free Samples in South Africa | Official Sites",
     description:
-      "Find current free samples in South Africa, product-testing applications and reviewed official sites. Compare eligibility, delivery, costs and verification dates.",
+      "Where to get free samples in South Africa: compare official brand sites, sample offers and product-testing panels, with costs and eligibility explained.",
     heading: "Where to Get Free Samples in South Africa",
     intro:
-      "Find current free sample requests, recognised product-testing panels and official brand programmes available to South Africans. Each route explains what is free, who may qualify, what work is required and where your details go.",
+      "This guide shows where to get free samples in South Africa through current requests, recognised product-testing panels and official brand programmes. Each route explains what is free, who may qualify, what work is required and where your details go.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: "2026-07-31",
+    dateModified: "2026-08-26",
     resourceCategories: ["samples"],
     resourceTitle: "Sample and product-testing routes",
     resourceIntro:
@@ -7012,7 +7012,7 @@ function renderFreeSamplesPage(page) {
   const pageDescription = sampleOpportunities.length + testingOpportunities.length > 0
     ? `See ${sampleOpportunities.length} verified sample requests and ${testingOpportunities.length} current product-testing opportunities in South Africa, with costs, eligibility, delivery and last-checked dates.`
     : page.description;
-  const heroIntro = "Freehub separates direct sample requests from selected product tests and reviewed programmes. Completely free means no purchase or delivery fee; provider limits or selection may still apply.";
+  const heroIntro = "This guide shows where to get free samples in South Africa by separating direct requests, selected product tests and reviewed official programmes. Completely free means no purchase or delivery fee; provider limits or selection may still apply.";
   const faqItems = getFreeSamplesFaqItems();
   const resourceStructuredData = freeResourceRenderer.buildFreeResourceItemList({
     resources: pageResources,
