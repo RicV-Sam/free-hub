@@ -79,7 +79,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 12
+- Matching active public competitions: 13
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -94,6 +94,7 @@ Recommended normalisation:
 | Beares Medi+Spine Royal Crown Bed Set Competition (beares-medispine-royal-crown-bed-set-2026) | 2026-08-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Win R2,000 – Complete the MyBroadband 2026 Pre-Black Friday Survey (mybroadband-pre-black-friday-survey-r2000-2026) | 2026-09-07 | free-entry | yes | yes | Online entry tag | none |
 | OneDayOnly Elephant Walk Tented Camp Getaway 2026 (onedayonly-elephant-walk-tented-camp-getaway-2026) | 2026-09-07 | free-entry | yes | yes | Online entry mentioned in entry text | none |
+| Go South Africa Great Karkloof Escape Competition 2026 (go-south-africa-great-karkloof-escape-2026) | 2026-09-20 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Curaprox House of Mouth Competition 2026 (curaprox-house-of-mouth-competition-2026) | 2026-09-28 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Nedbank YouthX Awards 2026 (nedbank-youthx-awards-2026) | 2026-10-09 | account-required | yes | yes | Online entry tag | none |
 | Wanderlust Reader Travel Awards 2026 Prize Draw (wanderlust-reader-travel-awards-prize-draw-2026) | 2026-10-27 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
@@ -105,7 +106,7 @@ Recommended normalisation:
 ## Win Airtime Competitions in South Africa
 
 - URL: /win-airtime-competitions-south-africa/
-- Matching active public competitions: 4
+- Matching active public competitions: 5
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -116,6 +117,7 @@ Recommended normalisation:
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | Airtime tag; Airtime prize text | none |
 | Coca-Cola Be a Bok Competition 2026 (coca-cola-fan-can-be-a-bok-2026) | 2026-11-30 | purchase-required | yes | yes | Airtime prize text | consider airtime or recharge tag if prize terms confirm |
 | McDonald's Nazo Meals Airtime and Data Rewards (mcdonalds-nazo-meals-airtime-data-rewards-2026) | 2026-12-20 | purchase-required | yes | yes | Airtime tag; Airtime prize text | none |
+| ERA Bin It to Win It Competition 2026 (era-bin-it-to-win-it-2026) | 2026-12-31 | free-entry | yes | yes | Airtime tag; Airtime prize text | none |
 
 Recommended normalisation:
 - Inventory is strong enough; keep lastChecked and source/terms links fresh.

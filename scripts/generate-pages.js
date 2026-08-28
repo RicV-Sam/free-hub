@@ -1019,6 +1019,122 @@ const TRUST_PAGE_DEFINITIONS = [
     ],
   },
   {
+    slug: "south-african-lottery",
+    title: "South African Lottery Guide 2026 | Official Results & Safety",
+    description:
+      "Use the official South African National Lottery results, understand the current Sizekhaya operator, and check age, cost, scam and responsible-play basics.",
+    heading: "South African National Lottery: Official Links and Safety Guide",
+    intro:
+      "Freehub does not sell lottery tickets, publish live winning numbers or promise better odds. This guide points South Africans to the current official operator and results while keeping paid play, age limits and scam checks clear.",
+    eyebrow: "Official-source lottery guide",
+    heroClassName: "hero--utility hero--trust",
+    article: true,
+    adsAllowed: false,
+    datePublished: "2026-08-28",
+    dateModified: "2026-08-28",
+    actions: [
+      { label: "Official Lottery Results", href: "https://www.nationallottery.co.za/results", className: "btn--primary" },
+      { label: "Paid-entry Safety Guide", href: "/paid-entry-competitions-explained/", className: "btn--secondary" },
+    ],
+    trustItems: ["18+ only", "No affiliate link", "Use official results"],
+    sections: [
+      {
+        heading: "Who operates the National Lottery now?",
+        paragraphs: [
+          "Sizekhaya Holdings became South Africa's fourth National Lottery and Sports Pools operator on 1 June 2026. The National Lotteries Commission regulates the National Lottery and also oversees registered society lotteries.",
+          "Older Ithuba pages, manuals and search results can still appear online. Check the current National Lottery website and Sizekhaya before relying on an old operator page, draw rule or retailer document.",
+        ],
+      },
+      {
+        heading: "Where to check official results",
+        paragraphs: [
+          "Use the results section on nationallottery.co.za or the current official National Lottery app. Freehub deliberately does not copy live numbers, jackpots or draw countdowns because stale results can cause expensive mistakes.",
+          "Keep the original ticket or the ticket record in the official app or bank channel. The operator's official system and game rules remain the source of truth for validation and prize claims.",
+        ],
+      },
+      {
+        heading: "Lottery tickets are paid gambling, not free competitions",
+        paragraphs: [
+          "National Lottery games require a paid wager and are restricted to players aged 18 or older. Buying more tickets increases spending and does not create a guaranteed return or reliable income strategy.",
+          "Decide on a firm entertainment budget before playing, never borrow to buy tickets, and stop if play is affecting bills, savings, relationships or wellbeing. Use the official player-protection and support resources when you need help.",
+        ],
+      },
+      {
+        heading: "No verified public affiliate programme",
+        paragraphs: [
+          "As of 28 August 2026, Freehub could not verify a public affiliate or publisher-referral programme on the current Sizekhaya or National Lottery websites. The current retailer portal is for registered retail businesses managing lottery terminals and sites; it is not presented as a normal content-publisher affiliate programme.",
+          "Freehub therefore does not use an affiliate link on this page. If the operator launches a documented public partner programme later, it should be reviewed for licence, advertising, age-gating, disclosure and responsible-gambling requirements before any commercial link is added.",
+        ],
+      },
+      {
+        heading: "National Lottery versus charity raffles",
+        paragraphs: [
+          "The National Lottery is different from a charity raffle or society lottery. South African non-profit organisations may run society lotteries, but the National Lotteries Commission says the society and lottery scheme must be registered before tickets are offered for sale.",
+          "For a paid charity raffle, look for the organiser, ticket price, NLC reference, closing and draw dates, prize details and official payment route. A charity name by itself is not enough evidence that a raffle is approved or current.",
+        ],
+      },
+      {
+        heading: "Avoid fake lottery winner messages",
+        paragraphs: [
+          "A genuine result does not make an unsolicited message safe. Do not pay a release fee, courier fee, tax clearance fee or verification charge to a person who contacts you on WhatsApp, SMS, email or social media.",
+          "Do not share a card PIN, banking password, one-time PIN or remote-access code. Verify any claim through the official operator contact route you found independently, not the number or link inside the winner message.",
+        ],
+      },
+    ],
+    checklistTitle: "Before playing or checking a ticket",
+    checklist: [
+      "Confirm you are using nationallottery.co.za, the current official app, an authorised bank channel or a participating retailer.",
+      "Check the game rules, ticket price, sales cut-off and draw date before paying.",
+      "Set a spending limit that does not touch bills, debt repayments or savings.",
+      "Keep the original or official digital ticket until the result and claim are settled.",
+      "Verify prize claims through an independently found official contact route.",
+    ],
+    avoidTitle: "Lottery red flags",
+    avoid: [
+      "Guaranteed-win systems, number predictions or claims that a payment improves the draw odds.",
+      "Winner messages for a draw you did not enter.",
+      "Requests for release, courier, tax or verification fees before a prize is paid.",
+      "Old Ithuba pages presented as the current operator without checking the 2026 transition.",
+      "A charity raffle that cannot show its organiser, ticket rules, draw date or regulatory basis.",
+    ],
+    faq: [
+      {
+        question: "Who runs the South African National Lottery in 2026?",
+        answer:
+          "Sizekhaya Holdings became the fourth National Lottery and Sports Pools operator on 1 June 2026. The National Lotteries Commission is the regulator.",
+      },
+      {
+        question: "Where should I check South African lottery results?",
+        answer:
+          "Use the current official National Lottery results page, official app or an authorised ticket channel. Freehub does not republish live numbers or jackpots.",
+      },
+      {
+        question: "Does the South African National Lottery have an affiliate programme?",
+        answer:
+          "Freehub could not verify a public publisher-affiliate programme as of 28 August 2026. The retailer portal appears to be for registered lottery retail operations, not ordinary referral links.",
+      },
+      {
+        question: "Is a charity raffle the same as the National Lottery?",
+        answer:
+          "No. A society lottery is a separate fundraising lottery run for a qualifying non-profit purpose and is subject to National Lotteries Commission registration requirements.",
+      },
+      {
+        question: "Can someone under 18 buy a National Lottery ticket?",
+        answer:
+          "No. The current official National Lottery website states that players must be 18 or older.",
+      },
+    ],
+    links: [
+      { label: "Official National Lottery results", href: "https://www.nationallottery.co.za/results" },
+      { label: "Current operator: Sizekhaya", href: "https://sizekhaya.co.za/" },
+      { label: "NLC society lottery guidance", href: "https://www.nlcsa.org.za/society-lotteries/" },
+      { label: "Paid-entry competitions", href: "/paid-entry-competitions/" },
+      { label: "Paid-entry safety guide", href: "/paid-entry-competitions-explained/" },
+      { label: "SA Guide-Dogs raffle", href: "/competition/sa-guide-dogs-suzuki-across-car-raffle-2026/" },
+      { label: "Fake winner message guide", href: "/fake-competition-winner-messages/" },
+    ],
+  },
+  {
     slug: "free-stuff-south-africa",
     title: "Where to Find Free Stuff in South Africa | Legit Freebies",
     description:
@@ -2907,6 +3023,7 @@ function renderSiteFooter(options = {}) {
               <a href="/fake-competition-winner-messages/">Fake winner messages</a>
               <a href="/purchase-required-competitions-explained/">Purchase required guide</a>
               <a href="/paid-entry-competitions-explained/">Paid entry guide</a>
+              <a href="/south-african-lottery/">National Lottery guide</a>
               <a href="/free-stuff-south-africa/">Free stuff guide</a>
               <a href="/free-online-courses-south-africa/">Free online courses</a>
               <a href="/free-childrens-books-south-africa/">Free children's books</a>
@@ -8048,7 +8165,7 @@ function renderTrustPage(page) {
     ${faqStructuredDataScript}
     ${serviceStructuredDataScript}
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
-    ${GUEST_ADS_SCRIPT}
+    ${page.adsAllowed === false ? "" : GUEST_ADS_SCRIPT}
     ${renderGoogleTagManagerHead(`{ page_type: 'trust', trust_page: ${escapeScript(JSON.stringify(page.slug))} }`)}
     ${renderMetaPixelHead()}
   </head>
@@ -8177,6 +8294,11 @@ function getGuideCards() {
       title: "Purchase required competitions explained",
       href: "/purchase-required-competitions-explained/",
       text: "What to check before buying a product, keeping a receipt or using a loyalty-card route.",
+    },
+    {
+      title: "South African National Lottery guide",
+      href: "/south-african-lottery/",
+      text: "Official results links, the current operator, responsible-play checks and the difference between the National Lottery and charity raffles.",
     },
   ];
 }
