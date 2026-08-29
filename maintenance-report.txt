@@ -1,14 +1,14 @@
 === Competition Maintenance Report ===
-Date: 2026-08-28
+Date: 2026-08-29
 Mode: archive-expired
 Total competitions: 321
-Active published count: 70
-Expired archive page count: 147
+Active published count: 68
+Expired archive page count: 149
 Low-value expired noindex count: 0
 Held/private count: 104
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 36
+Closing in next 14 days: 34
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -158,44 +158,44 @@ Expired competition IDs:
 - spar-melrose-back-to-school-vouchers-2026 (2026-08-23)
 - kaufmann-rugga-supporter-competition-2026 (2026-08-24)
 - gardena-winter-pruning-giveaway-2026 (2026-08-25)
+- nedbank-thank-greenbacks-friday-august-2026 (2026-08-28)
+- ofm-emerald-resort-family-getaway-2026 (2026-08-28)
 
 Closing soon (next 14 days):
-- nedbank-thank-greenbacks-friday-august-2026 (0 days)
-- ofm-emerald-resort-family-getaway-2026 (0 days)
-- ultra-mel-christmas-in-july-2026 (2 days)
-- witness-cape-town-trip-2026 (2 days)
-- mtn-shift-gaming-experience-cash-2026 (2 days)
-- makro-aeg-win-this-winter-2026 (2 days)
-- centrum-takealot-womens-month-2026 (2 days)
-- etr-construction-bathroom-renovation-giveaway-2026 (2 days)
-- coca-cola-zwakala-neflava-2026 (3 days)
-- hisense-big-wash-no-drama-2026 (3 days)
-- wanta-fanta-gaming-promotion-2026 (3 days)
-- kelloggs-big-bowl-energy-2026 (3 days)
-- vodacom-red-springboks-double-tickets-2026 (3 days)
-- nestle-milo-meet-the-champ-2026 (3 days)
-- dr-oetker-taste-the-upgrade-2026 (3 days)
-- castle-lager-fifa-world-cup-cans-2026 (3 days)
-- first-battery-centre-win-a-car-2026 (3 days)
-- ctm-pro-grip-win-toyota-hilux-2026 (3 days)
-- standard-bank-ucount-astron-energy-2026 (3 days)
-- aldo-football-club-competition-2026 (3 days)
-- colcacchio-alva-winter-pizza-oven-2026 (3 days)
-- penguin-random-house-penguin-post-43-book-hampers-2026 (3 days)
-- vodacom-green-gold-fieldbar-cooler-competition (3 days)
-- ster-kinekor-double-feature-combo-2026 (3 days)
-- nescafe-stand-a-chance-to-be-a-millionaire-2026 (3 days)
-- honor-takealot-bafana-bafana-jersey-2026 (3 days)
-- domestos-power-foam-win-suzuki-jimny-2026 (3 days)
-- beares-hisense-50-tv-facebook-2026 (3 days)
-- beares-medispine-royal-crown-bed-set-2026 (3 days)
-- easylife-kitchens-smeg-coffee-hamper-giveaway-2026 (3 days)
-- silvercap-defy-6l-colour-airfryer-giveaway-2026 (3 days)
-- hadeco-80th-birthday-competition-2026 (4 days)
-- mukango-safaris-kruger-living-nyati-giveaway-2026 (8 days)
-- mybroadband-pre-black-friday-survey-r2000-2026 (10 days)
-- onedayonly-elephant-walk-tented-camp-getaway-2026 (10 days)
-- wanderout-south-african-conservation-safari-giveaway-2026 (14 days)
+- ultra-mel-christmas-in-july-2026 (1 days)
+- witness-cape-town-trip-2026 (1 days)
+- mtn-shift-gaming-experience-cash-2026 (1 days)
+- makro-aeg-win-this-winter-2026 (1 days)
+- centrum-takealot-womens-month-2026 (1 days)
+- etr-construction-bathroom-renovation-giveaway-2026 (1 days)
+- coca-cola-zwakala-neflava-2026 (2 days)
+- hisense-big-wash-no-drama-2026 (2 days)
+- wanta-fanta-gaming-promotion-2026 (2 days)
+- kelloggs-big-bowl-energy-2026 (2 days)
+- vodacom-red-springboks-double-tickets-2026 (2 days)
+- nestle-milo-meet-the-champ-2026 (2 days)
+- dr-oetker-taste-the-upgrade-2026 (2 days)
+- castle-lager-fifa-world-cup-cans-2026 (2 days)
+- first-battery-centre-win-a-car-2026 (2 days)
+- ctm-pro-grip-win-toyota-hilux-2026 (2 days)
+- standard-bank-ucount-astron-energy-2026 (2 days)
+- aldo-football-club-competition-2026 (2 days)
+- colcacchio-alva-winter-pizza-oven-2026 (2 days)
+- penguin-random-house-penguin-post-43-book-hampers-2026 (2 days)
+- vodacom-green-gold-fieldbar-cooler-competition (2 days)
+- ster-kinekor-double-feature-combo-2026 (2 days)
+- nescafe-stand-a-chance-to-be-a-millionaire-2026 (2 days)
+- honor-takealot-bafana-bafana-jersey-2026 (2 days)
+- domestos-power-foam-win-suzuki-jimny-2026 (2 days)
+- beares-hisense-50-tv-facebook-2026 (2 days)
+- beares-medispine-royal-crown-bed-set-2026 (2 days)
+- easylife-kitchens-smeg-coffee-hamper-giveaway-2026 (2 days)
+- silvercap-defy-6l-colour-airfryer-giveaway-2026 (2 days)
+- hadeco-80th-birthday-competition-2026 (3 days)
+- mukango-safaris-kruger-living-nyati-giveaway-2026 (7 days)
+- mybroadband-pre-black-friday-survey-r2000-2026 (9 days)
+- onedayonly-elephant-walk-tented-camp-getaway-2026 (9 days)
+- wanderout-south-african-conservation-safari-giveaway-2026 (13 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present

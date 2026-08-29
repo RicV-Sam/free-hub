@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-08-28
+Generated: 2026-08-29
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
@@ -79,14 +79,13 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 13
+- Matching active public competitions: 12
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| OFM Emerald Resort Family Getaway Competition (ofm-emerald-resort-family-getaway-2026) | 2026-08-28 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Col'Cacchio x Alva Winter Pizza Oven Giveaway (colcacchio-alva-winter-pizza-oven-2026) | 2026-08-31 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | Penguin Random House Penguin Post 43 Book Hamper Competition (penguin-random-house-penguin-post-43-book-hampers-2026) | 2026-08-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Win a Green & Gold Fieldbar Cooler with Vodacom (vodacom-green-gold-fieldbar-cooler-competition) | 2026-08-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
