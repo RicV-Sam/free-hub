@@ -1,0 +1,269 @@
+{
+  "schemaVersion": 1,
+  "asOfDate": "2026-08-30",
+  "count": 16,
+  "counts": {
+    "freeStuff": 16,
+    "resources": 16,
+    "opportunities": 0,
+    "offers": 0
+  },
+  "items": [
+    {
+      "id": "resource-online-courses-google-digital-skills-for-africa",
+      "kind": "resource",
+      "title": "Google Digital Skills for Africa",
+      "provider": "Google Digital Skills for Africa",
+      "summary": "Free digital marketing and online business learning from Google.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://learndigital.withgoogle.com/digitalskills",
+      "bestFor": "Beginners, jobseekers and small business owners",
+      "requirements": [
+        "Google account may be needed for progress tracking and certificates."
+      ],
+      "watchOut": "Check the course page before promising a certificate because course availability can change.",
+      "lastChecked": "2026-05-27"
+    },
+    {
+      "id": "resource-online-courses-microsoft-learn-south-africa",
+      "kind": "resource",
+      "title": "Microsoft Learn South Africa",
+      "provider": "Microsoft Learn South Africa",
+      "summary": "Free learning paths, product training and selected virtual training events from Microsoft.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://www.microsoft.com/en-za/microsoft-learn",
+      "bestFor": "Students, IT beginners and people building technical skills",
+      "requirements": [
+        "Microsoft account is useful for saving progress; some certifications or exams may cost money."
+      ],
+      "watchOut": "Free learning content is not always the same as a free certification exam.",
+      "lastChecked": "2026-05-27"
+    },
+    {
+      "id": "resource-online-courses-vodacom-digital-skills-hub",
+      "kind": "resource",
+      "title": "Vodacom Digital Skills Hub",
+      "provider": "Vodacom Digital Skills Hub",
+      "summary": "Free digital-skills courses, with some learning routes promoted as zero-rated for Vodacom users.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://vodacom.com/digital-skills.php",
+      "bestFor": "Young people and jobseekers looking for digital skills",
+      "requirements": [
+        "Registration is usually required; data benefits may depend on network and current programme rules."
+      ],
+      "watchOut": "Confirm the current course catalogue and any zero-rated data wording on Vodacom's own page.",
+      "lastChecked": "2026-05-27"
+    },
+    {
+      "id": "resource-childrens-books-book-dash",
+      "kind": "resource",
+      "title": "Book Dash",
+      "provider": "Book Dash",
+      "summary": "Free African children's picture books that can be read, downloaded, printed and shared under an open model.",
+      "category": "childrens-books",
+      "categoryLabel": "Free children's books",
+      "officialUrl": "https://bookdash.org/",
+      "bestFor": "Parents, teachers, libraries and reading clubs",
+      "requirements": [
+        "No purchase needed for digital books; printing or data may still have normal user costs."
+      ],
+      "watchOut": "Use the official Book Dash library rather than third-party download mirrors.",
+      "lastChecked": "2026-05-27"
+    },
+    {
+      "id": "resource-childrens-books-nal-ibali",
+      "kind": "resource",
+      "title": "Nal'ibali",
+      "provider": "Nal'ibali",
+      "summary": "Free stories, audio stories, printables and reading resources in South African languages.",
+      "category": "childrens-books",
+      "categoryLabel": "Free children's books",
+      "officialUrl": "https://nalibali.org/",
+      "bestFor": "Families, teachers and caregivers of children aged 0-12",
+      "requirements": [
+        "No purchase needed for online resources; downloads and printing may use data or paper."
+      ],
+      "watchOut": "Choose the language and age level that fits the child instead of downloading random PDFs.",
+      "lastChecked": "2026-05-27"
+    },
+    {
+      "id": "resource-childrens-books-fundza",
+      "kind": "resource",
+      "title": "FunDza",
+      "provider": "FunDza",
+      "summary": "Mobile-friendly South African stories, reading content and literacy resources.",
+      "category": "childrens-books",
+      "categoryLabel": "Free children's books",
+      "officialUrl": "https://live.fundza.mobi/",
+      "bestFor": "Teens, young adults and mobile readers",
+      "requirements": [
+        "Works best online or on mobile; account features may vary by current platform setup."
+      ],
+      "watchOut": "It is stronger for teen and young-adult reading than preschool picture books.",
+      "lastChecked": "2026-05-27"
+    },
+    {
+      "id": "resource-credit-report-experian-south-africa",
+      "kind": "resource",
+      "title": "Experian South Africa",
+      "provider": "Experian South Africa",
+      "summary": "Free access to Experian personal credit report and credit score through Experian's consumer platform.",
+      "category": "credit-report",
+      "categoryLabel": "Free credit reports",
+      "officialUrl": "https://www.experian.co.za/consumer/my-free-credit-check-and-your-free-credit-report",
+      "bestFor": "Consumers checking their credit report and score",
+      "requirements": [
+        "Valid South African ID details and identity verification are expected."
+      ],
+      "watchOut": "Use Experian's official site and never share banking passwords or card PINs.",
+      "lastChecked": "2026-06-26"
+    },
+    {
+      "id": "resource-credit-report-transunion-south-africa",
+      "kind": "resource",
+      "title": "TransUnion South Africa",
+      "provider": "TransUnion South Africa",
+      "summary": "Free annual credit report access from TransUnion South Africa.",
+      "category": "credit-report",
+      "categoryLabel": "Free credit reports",
+      "officialUrl": "https://www.transunion.co.za/product/annual-free-credit-report",
+      "bestFor": "Consumers using their free annual bureau report right",
+      "requirements": [
+        "Identity verification is required before report access."
+      ],
+      "watchOut": "A free credit report is not the same as guaranteed credit approval.",
+      "lastChecked": "2026-07-27"
+    },
+    {
+      "id": "resource-credit-report-clearscore-south-africa",
+      "kind": "resource",
+      "title": "ClearScore South Africa",
+      "provider": "ClearScore South Africa",
+      "summary": "Free credit score and report access, with personalised financial offers shown separately.",
+      "category": "credit-report",
+      "categoryLabel": "Free credit reports",
+      "officialUrl": "https://www.clearscore.com/za/",
+      "bestFor": "Consumers who want ongoing score and report visibility",
+      "requirements": [
+        "Sign-up and identity checks are required."
+      ],
+      "watchOut": "Treat loan and credit offers as advertising or eligibility guidance, not approval.",
+      "lastChecked": "2026-07-27"
+    },
+    {
+      "id": "kalley-free-flooring-samples",
+      "kind": "resource",
+      "title": "Kalley free flooring samples",
+      "provider": "Kalley free flooring samples",
+      "summary": "Kalley offers the flooring sample pieces at no product charge before you choose a floor.",
+      "category": "samples",
+      "categoryLabel": "Free samples and product testing",
+      "officialUrl": "https://www.kalleyflooring.co.za/",
+      "bestFor": "Homeowners and renovators comparing flooring before buying",
+      "requirements": [
+        "Sample choices, contact details and delivery information are required. Kalley currently states a R69 shipping charge for delivery."
+      ],
+      "watchOut": "The samples are not completely free once delivery is included. Confirm the current R69 shipping charge and service area on Kalley's official site before requesting.",
+      "lastChecked": "2026-07-31"
+    },
+    {
+      "id": "resource-consumer-support-national-consumer-commission-complaints-portal",
+      "kind": "resource",
+      "title": "National Consumer Commission complaints portal",
+      "provider": "National Consumer Commission complaints portal",
+      "summary": "Official National Consumer Commission information and complaint route for eligible consumer complaints.",
+      "category": "consumer-support",
+      "categoryLabel": "Consumer support",
+      "officialUrl": "https://thencc.org.za/",
+      "bestFor": "Consumers who need an official complaint route under the Consumer Protection Act",
+      "requirements": [
+        "A registered e-Services profile, complaint details and supporting proof may be required."
+      ],
+      "watchOut": "This is not a giveaway. Use it for consumer-rights support and keep copies of complaint references and evidence.",
+      "lastChecked": "2026-06-27"
+    },
+    {
+      "id": "resource-consumer-support-free-basic-municipal-services",
+      "kind": "resource",
+      "title": "Free basic municipal services",
+      "provider": "Free basic municipal services",
+      "summary": "Government guidance on free basic water, electricity, sanitation or other municipal support for qualifying households.",
+      "category": "consumer-support",
+      "categoryLabel": "Consumer support",
+      "officialUrl": "https://www.gov.za/services/place-live/municipal-services",
+      "bestFor": "Low-income households checking whether they qualify for municipal indigent support",
+      "requirements": [
+        "Usually means-tested through the local municipality; extra usage can still be billed."
+      ],
+      "watchOut": "Rules differ by municipality, so confirm eligibility, documents and limits with your own local municipality.",
+      "lastChecked": "2026-07-31"
+    },
+    {
+      "id": "absa-advantage-meal-vouchers",
+      "kind": "resource",
+      "title": "Absa Advantage meal vouchers",
+      "provider": "Absa Advantage meal vouchers",
+      "summary": "Absa Advantage offers meal vouchers for completing eligible in-app banking challenges. The official programme page says the vouchers have no minimum spend and can be shared with friends or family.",
+      "category": "rewards",
+      "categoryLabel": "Account-linked meal vouchers",
+      "officialUrl": "https://www.absa.co.za/personal/bank/absa-advantage/",
+      "bestFor": "Adult Absa Personal Banking clients who use the latest Absa Banking App and receive an Advantage challenge",
+      "requirements": [
+        "Be a South African citizen or resident aged 18 or older, use the latest Absa Banking App for personal banking, keep the qualifying account in good standing, enable NotifyMe, and accept and complete the displayed challenge within its deadline."
+      ],
+      "watchOut": "Challenges differ between clients. After a successful challenge, the official terms allow five calendar days to select a reward and 14 calendar days to use the voucher. Restaurant choice, voucher value and regional availability can vary.",
+      "lastChecked": "2026-07-31"
+    },
+    {
+      "id": "kauai-app-birthday-reward",
+      "kind": "resource",
+      "title": "Kauai app birthday reward",
+      "provider": "Kauai app birthday reward",
+      "summary": "Kauai lists an annual tier-based birthday reward: Green members get any small smoothie, Gold members get any wrap, and Black members get any meal plus any small smoothie.",
+      "category": "rewards",
+      "categoryLabel": "App-linked birthday reward",
+      "officialUrl": "https://kauai.co.za/app-terms-and-conditions/",
+      "bestFor": "South African adults who use the Kauai App and complete their date of birth before their birthday",
+      "requirements": [
+        "Kauai App registration is required for South African citizens aged 18 or older. Complete the profile and date of birth and link a valid payment card; the terms state that a temporary R1 card-verification deduction is reversed."
+      ],
+      "watchOut": "The public terms do not state the birthday reward's redemption window. Check the validity shown in My Vouchers before travelling. Participating-store and product exclusions apply.",
+      "lastChecked": "2026-07-31"
+    },
+    {
+      "id": "spur-r50-birthday-voucher",
+      "kind": "resource",
+      "title": "Spur R50 birthday voucher",
+      "provider": "Spur R50 birthday voucher",
+      "summary": "A registered member who spent at least R1,000 at Spur in the 12 months before their birthday receives a R50 birthday voucher in their profile on the birthday.",
+      "category": "rewards",
+      "categoryLabel": "Spend-linked birthday voucher",
+      "officialUrl": "https://www.spursteakranches.com/view-document/9",
+      "bestFor": "Registered Spur Family members who already spend regularly at Spur",
+      "requirements": [
+        "Register a Spur Family profile in the app and reach R1,000 cumulative qualifying Spur spend during the 12 months before the birthday."
+      ],
+      "watchOut": "This is a spend-linked loyalty voucher, not a no-purchase freebie. It is valid for 31 days, is non-transferable and can only be used by the registered member under the current redemption rules.",
+      "lastChecked": "2026-07-31"
+    },
+    {
+      "id": "bootlegger-app-registration-coffee",
+      "kind": "resource",
+      "title": "Bootlegger app registration coffee",
+      "provider": "Bootlegger app registration coffee",
+      "summary": "Bootlegger's official loyalty-app guide states that new users receive a free coffee on registration.",
+      "category": "rewards",
+      "categoryLabel": "App registration reward",
+      "officialUrl": "https://www.bootlegger.coffee/blogs/news/earn-2-back-in-app-every-time-you-order-online",
+      "bestFor": "New Bootlegger Coffee Company app users near a participating cafe",
+      "requirements": [
+        "Download the Bootlegger app, create a new account and redeem the registration reward under the current in-app conditions."
+      ],
+      "watchOut": "Check the reward's product choice, validity period and participating cafe availability in the app before travelling. The separate stamp reward requires ten purchases.",
+      "lastChecked": "2026-08-18"
+    }
+  ]
+}

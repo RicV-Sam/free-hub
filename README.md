@@ -33,6 +33,7 @@ Active production site on `https://freehub.co.za`.
   - Real sends require Firebase Admin credentials, Firebase Trigger Email, and `--send`; see `docs/firebase-email-alerts.md`
 - Regenerate all static pages:
   - `node scripts/generate-pages.js`
+  - This also writes the allowlisted, ad-free native app feeds to `app-data/competitions.json` and `app-data/catalog.json`.
 
 ## Public Generation Rule
 - Only records with `verificationStatus: "published"` are public.

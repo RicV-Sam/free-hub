@@ -7,6 +7,7 @@ const { applyLegacyArchiveCostCompatibility } = require("./lib/legacy-archive-co
 const { createFreeResourceRenderer } = require("./lib/free-resource-renderer.js");
 const { createOpportunityRenderer } = require("./lib/opportunity-renderer.js");
 const { createOpportunityRouteRenderer } = require("./lib/opportunity-route-renderer.js");
+const { writeMobileCatalog, writeMobileFeed } = require("./lib/mobile-feed.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
@@ -219,6 +220,7 @@ const TRUST_PAGE_DEFINITIONS = [
   },
   {
     slug: "contact",
+    adsAllowed: false,
     title: "Contact Freehub | Report Competition Issues",
     description:
       "Contact Freehub about broken links, expired competitions, suspicious listings, corrections, or brand removal requests.",
@@ -243,6 +245,7 @@ const TRUST_PAGE_DEFINITIONS = [
   },
   {
     slug: "privacy-policy",
+    adsAllowed: false,
     title: "Privacy Policy | Freehub",
     description:
       "Read Freehub's privacy policy, including optional accounts, saved competitions, alerts, analytics, outbound links and competition entry responsibility.",
@@ -2314,6 +2317,14 @@ function main() {
   brandImageLookup = buildBrandImageLookup(coreActiveCompetitions);
   const validCompetitionSlugs = new Set(detailCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
   const outCompetitions = [...activeCompetitions, ...noindexActiveCompetitions];
+  writeMobileFeed(path.join(ROOT_DIR, "app-data", "competitions.json"), validCompetitions, {
+    asOfDate: LIFECYCLE_REFERENCE_DATE_ISO,
+  });
+  writeMobileCatalog(path.join(ROOT_DIR, "app-data", "catalog.json"), {
+    resources: FREE_RESOURCES,
+    opportunities: approvedPublicOpportunities,
+    offers: publicOffers,
+  }, { asOfDate: LIFECYCLE_REFERENCE_DATE_ISO });
   const validOutSlugs = new Set(outCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
   removeStaleCompetitionDirectories(validCompetitionSlugs, validOutSlugs);
   removeStaleOpportunityDirectories(
