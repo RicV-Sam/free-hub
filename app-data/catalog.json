@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-08-30",
-  "count": 16,
+  "asOfDate": "2026-08-31",
+  "count": 12,
   "counts": {
-    "freeStuff": 16,
-    "resources": 16,
+    "freeStuff": 12,
+    "resources": 12,
     "opportunities": 0,
     "offers": 0
   },
@@ -154,22 +154,6 @@
       "lastChecked": "2026-07-27"
     },
     {
-      "id": "kalley-free-flooring-samples",
-      "kind": "resource",
-      "title": "Kalley free flooring samples",
-      "provider": "Kalley free flooring samples",
-      "summary": "Kalley offers the flooring sample pieces at no product charge before you choose a floor.",
-      "category": "samples",
-      "categoryLabel": "Free samples and product testing",
-      "officialUrl": "https://www.kalleyflooring.co.za/",
-      "bestFor": "Homeowners and renovators comparing flooring before buying",
-      "requirements": [
-        "Sample choices, contact details and delivery information are required. Kalley currently states a R69 shipping charge for delivery."
-      ],
-      "watchOut": "The samples are not completely free once delivery is included. Confirm the current R69 shipping charge and service area on Kalley's official site before requesting.",
-      "lastChecked": "2026-07-31"
-    },
-    {
       "id": "resource-consumer-support-national-consumer-commission-complaints-portal",
       "kind": "resource",
       "title": "National Consumer Commission complaints portal",
@@ -199,54 +183,6 @@
         "Usually means-tested through the local municipality; extra usage can still be billed."
       ],
       "watchOut": "Rules differ by municipality, so confirm eligibility, documents and limits with your own local municipality.",
-      "lastChecked": "2026-07-31"
-    },
-    {
-      "id": "absa-advantage-meal-vouchers",
-      "kind": "resource",
-      "title": "Absa Advantage meal vouchers",
-      "provider": "Absa Advantage meal vouchers",
-      "summary": "Absa Advantage offers meal vouchers for completing eligible in-app banking challenges. The official programme page says the vouchers have no minimum spend and can be shared with friends or family.",
-      "category": "rewards",
-      "categoryLabel": "Account-linked meal vouchers",
-      "officialUrl": "https://www.absa.co.za/personal/bank/absa-advantage/",
-      "bestFor": "Adult Absa Personal Banking clients who use the latest Absa Banking App and receive an Advantage challenge",
-      "requirements": [
-        "Be a South African citizen or resident aged 18 or older, use the latest Absa Banking App for personal banking, keep the qualifying account in good standing, enable NotifyMe, and accept and complete the displayed challenge within its deadline."
-      ],
-      "watchOut": "Challenges differ between clients. After a successful challenge, the official terms allow five calendar days to select a reward and 14 calendar days to use the voucher. Restaurant choice, voucher value and regional availability can vary.",
-      "lastChecked": "2026-07-31"
-    },
-    {
-      "id": "kauai-app-birthday-reward",
-      "kind": "resource",
-      "title": "Kauai app birthday reward",
-      "provider": "Kauai app birthday reward",
-      "summary": "Kauai lists an annual tier-based birthday reward: Green members get any small smoothie, Gold members get any wrap, and Black members get any meal plus any small smoothie.",
-      "category": "rewards",
-      "categoryLabel": "App-linked birthday reward",
-      "officialUrl": "https://kauai.co.za/app-terms-and-conditions/",
-      "bestFor": "South African adults who use the Kauai App and complete their date of birth before their birthday",
-      "requirements": [
-        "Kauai App registration is required for South African citizens aged 18 or older. Complete the profile and date of birth and link a valid payment card; the terms state that a temporary R1 card-verification deduction is reversed."
-      ],
-      "watchOut": "The public terms do not state the birthday reward's redemption window. Check the validity shown in My Vouchers before travelling. Participating-store and product exclusions apply.",
-      "lastChecked": "2026-07-31"
-    },
-    {
-      "id": "spur-r50-birthday-voucher",
-      "kind": "resource",
-      "title": "Spur R50 birthday voucher",
-      "provider": "Spur R50 birthday voucher",
-      "summary": "A registered member who spent at least R1,000 at Spur in the 12 months before their birthday receives a R50 birthday voucher in their profile on the birthday.",
-      "category": "rewards",
-      "categoryLabel": "Spend-linked birthday voucher",
-      "officialUrl": "https://www.spursteakranches.com/view-document/9",
-      "bestFor": "Registered Spur Family members who already spend regularly at Spur",
-      "requirements": [
-        "Register a Spur Family profile in the app and reach R1,000 cumulative qualifying Spur spend during the 12 months before the birthday."
-      ],
-      "watchOut": "This is a spend-linked loyalty voucher, not a no-purchase freebie. It is valid for 31 days, is non-transferable and can only be used by the registered member under the current redemption rules.",
       "lastChecked": "2026-07-31"
     },
     {

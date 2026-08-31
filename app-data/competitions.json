@@ -1,133 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-08-30",
-  "count": 68,
+  "asOfDate": "2026-08-31",
+  "count": 63,
   "competitions": [
-    {
-      "id": "ultra-mel-christmas-in-july-2026",
-      "title": "Ultra Mel Christmas in July Competition",
-      "brand": "Ultra Mel / Shoprite Checkers",
-      "summary": "Buy qualifying Ultra Mel products using Xtra Savings at participating Checkers, Shoprite or Sixty60 channels for a chance to win a R1,500 UNIQ voucher.",
-      "closingDate": "2026-08-30",
-      "category": "Vouchers",
-      "prizeName": "R1,500 UNIQ Winter Fashion voucher",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Xtra Savings Automatic Entry",
-      "eligibility": "South African residents aged 18 or older with valid identity or residence documentation and active Xtra Savings membership.",
-      "entrySteps": [
-        "Be an active Xtra Savings member.",
-        "Buy the qualifying Ultra Mel custard and Delight multipack combination through an eligible channel.",
-        "Swipe Xtra Savings in-store or use the linked Sixty60 account before 30 August 2026."
-      ],
-      "officialUrl": "https://corporate.danone.co.za/content/dam/corp/local/zaf/2025/2026-new-images-/UltraMel_15.05.26%20.pdf",
-      "termsUrl": "https://corporate.danone.co.za/content/dam/corp/local/zaf/2025/2026-new-images-/UltraMel_15.05.26%20.pdf",
-      "lastChecked": "2026-07-11",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "mtn-shift-gaming-experience-cash-2026",
-      "title": "MTN Shift Gaming Experience Cash Competition",
-      "brand": "Hyprop / MTN South Africa",
-      "summary": "Complete an eligible MTN activity at a participating mall gaming event for a chance to win one of five R10,000 cash prizes or equal-value mall gift cards.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/mtn-shift-gaming-experience-cash-2026.png",
-      "closingDate": "2026-08-30",
-      "category": "Cash",
-      "prizeName": "1 of 5 R10,000 cash prizes or equal-value mall gift cards",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "People residing in South Africa; minors require a parent or legal guardian to be present and valid identity documentation is required.",
-      "entrySteps": [
-        "Visit an MTN Shift Gaming Experience mall event or pop-up at a participating Hyprop shopping centre.",
-        "Complete an eligible activity: sign up for or show MTN Battle Plus, register on the new MTN App ZA, MTN ONE TV or MTN Pulse, or spend at least R100 at an MTN Store.",
-        "Complete the digital competition form at the event before 30 August 2026."
-      ],
-      "officialUrl": "https://cdn.hyprop.co.za/document/2026/4/23/d6e838c8-8ab8-4d64-ac3b-3de21668823d/f5ebd71e-2405-4276-a189-280fc8d50b25.pdf",
-      "termsUrl": "https://cdn.hyprop.co.za/document/2026/4/23/d6e838c8-8ab8-4d64-ac3b-3de21668823d/f5ebd71e-2405-4276-a189-280fc8d50b25.pdf",
-      "lastChecked": "2026-07-13",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
-    {
-      "id": "makro-aeg-win-this-winter-2026",
-      "title": "Makro AEG Win This Winter Competition",
-      "brand": "AEG / Tevo / Makro",
-      "summary": "Purchase a qualifying AEG appliance from a participating retailer and complete the official AEG warranty registration to enter the Win This Winter draw for three AEG product prizes worth R100,000 in total.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/makro-aeg-win-this-winter-2026.png",
-      "closingDate": "2026-08-30",
-      "category": "Shopping",
-      "prizeName": "AEG product prizes worth R50,000, R30,000 and R20,000",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Qualifying Purchase and Warranty Registration",
-      "eligibility": "Entrants must be aged 18 or older and be South African citizens or qualifying permanent or temporary residents, with proof available for winner verification.",
-      "entrySteps": [
-        "Purchase a qualifying AEG appliance from Makro or another participating retailer between 1 July and 30 August 2026.",
-        "Keep the invoice or till slip as proof of purchase.",
-        "Open the official AEG warranty-registration platform and register the purchased appliance with complete and accurate product and contact details.",
-        "Keep the warranty-registration confirmation because a valid registration serves as the competition entry."
-      ],
-      "officialUrl": "https://www.makro.co.za/pages/aeg-competition-aug",
-      "termsUrl": "https://www.makro.co.za/pages/aeg-competition-aug",
-      "lastChecked": "2026-08-10",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
-    {
-      "id": "centrum-takealot-womens-month-2026",
-      "title": "Centrum and Takealot Women's Month Competition",
-      "brand": "Centrum / Haleon South Africa / Takealot",
-      "summary": "Purchase a qualifying Centrum Women product through Takealot during August for automatic entry into the draw for ten restaurant vouchers.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/takealot-logo-2026.png",
-      "closingDate": "2026-08-30",
-      "category": "Vouchers",
-      "prizeName": "Restaurant voucher worth R1,200",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Automatic Entry with Qualifying Purchase",
-      "eligibility": "Entrants must be South African citizens or permanent residents aged 18 or older with valid identity documentation and a Takealot account in good standing.",
-      "entrySteps": [
-        "Log in to a valid Takealot account with accurate contact and delivery details.",
-        "Browse the Centrum Women's product range on Takealot.",
-        "Purchase any qualifying Centrum Women product between 1 and 30 August 2026.",
-        "Keep the order active and monitor the contact details linked to the Takealot account after the draw."
-      ],
-      "officialUrl": "https://www.takealot.com/competitions/centrum-takealot-womens-month-competition-terms-and-conditions-august-2026",
-      "termsUrl": "https://www.takealot.com/competitions/centrum-takealot-womens-month-competition-terms-and-conditions-august-2026",
-      "lastChecked": "2026-08-12",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "etr-construction-bathroom-renovation-giveaway-2026",
-      "title": "ETR Construction 20th Anniversary Bathroom Renovation Giveaway 2026",
-      "brand": "ETR Construction",
-      "summary": "Gauteng property owners or authorised residents can follow ETR, tag a friend and upload current-bathroom and inspiration images with a motivation for a chance to win a bathroom renovation worth up to R100,000.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/etr-construction-bathroom-renovation-giveaway-2026.png",
-      "closingDate": "2026-08-30",
-      "category": "Lifestyle",
-      "prizeName": "One bathroom renovation in Gauteng including materials and labour up to a maximum value of R100,000; costs above R100,000 are for the winner's account.",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "Open to South African legal residents aged 18 or older who live in Gauteng, own or have written authority to renovate the entered residential property, and hold a genuine Facebook or Instagram account. One entry per person, household, property or social account.",
-      "entrySteps": [
-        "Follow ETR Construction on Facebook or Instagram, tag one friend on the official launch post, and submit the official Google Form with contact and address details, a current bathroom photo, an AI-generated mockup or Pinterest inspiration image, and a motivation.",
-        "Submit one complete entry per person, household, property and social account before 30 August 2026."
-      ],
-      "officialUrl": "https://www.instagram.com/p/DcaXmRKlp6w/",
-      "termsUrl": "https://docs.google.com/document/d/1QxZpNGgK3ac71sRktVeKyLH9-sk6lzCM/edit?usp=sharing",
-      "lastChecked": "2026-08-27",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
     {
       "id": "coca-cola-zwakala-neflava-2026",
       "title": "Coca-Cola Get Together Zwakala neFlava Promotion",
@@ -757,7 +632,7 @@
       "termsUrl": "https://mybroadband.co.za/news/industrynews/663847-win-r2000-complete-the-mybroadband-2026-pre-black-friday-survey.html",
       "lastChecked": "2026-08-26",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "onedayonly-elephant-walk-tented-camp-getaway-2026",
@@ -781,7 +656,7 @@
       "termsUrl": "https://help.onedayonly.co.za/hc/en-us/articles/52157018202516-WIN-a-trip-for-2-to-Elephant-Walk-Tented-Camp-Terms-Conditions",
       "lastChecked": "2026-08-27",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "wanderout-south-african-conservation-safari-giveaway-2026",
