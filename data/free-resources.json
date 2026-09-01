@@ -431,5 +431,23 @@
     "lastReviewed": "2026-08-18",
     "reviewDueAt": "2026-11-16",
     "dateModified": "2026-08-18"
+  },
+  {
+    "id": "telkom-customer-referral-credit",
+    "name": "Telkom R550 customer referral credit",
+    "resourceType": "programme",
+    "category": "rewards",
+    "categoryLabel": "Customer referral account credit",
+    "officialUrl": "https://group.telkom.co.za/documents/regulatory/terms-and-conditions/Customer%20Referral%20Program%20Terms%20and%20Conditions.pdf",
+    "bestFor": "Existing Telkom customers with an active fixed or mobile service who know someone considering a new Telkom fibre contract",
+    "freeDetails": "Telkom's current customer-referral terms offer the referrer R550 account credit after a successful referred order is put into service.",
+    "requirements": "The referrer must be an existing Telkom customer with an active fixed or mobile service. Referrals are limited to friends or family, up to 30 contacts per day, and the referred person must not already have an active Telkom fibre service.",
+    "watchOut": "This is Telkom account credit, not cash, a prize draw or a public publisher-affiliate programme. The referred person takes out a paid fibre contract and may face early-termination penalties. Mo'Nice is a separate personalised prepaid promotion, not part of this referral reward.",
+    "availability": "active",
+    "verificationStatus": "verified",
+    "datePublished": "2026-09-01",
+    "lastReviewed": "2026-09-01",
+    "reviewDueAt": "2026-10-01",
+    "dateModified": "2026-09-01"
   }
 ]

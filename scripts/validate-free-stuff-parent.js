@@ -17,10 +17,10 @@ const offerBaseline = getOfferBaselineCounts({
   enabled: process.env.FREEHUB_ENABLE_OFFERS === "true",
   asOfDate: process.env.FREEHUB_AS_OF_DATE || process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date()),
 });
-const expectedGeneratedFiles = 386 + expectedOpportunityCount * 2 + offerBaseline.generatedFileCount;
-const expectedSitemapUrls = 129 + expectedOpportunityCount + offerBaseline.sitemapUrlCount;
-const expectedActiveCompetitionCount = 68;
-const expectedCoreCompetitionCount = 66;
+const expectedGeneratedFiles = 353 + expectedOpportunityCount * 2 + offerBaseline.generatedFileCount;
+const expectedSitemapUrls = 97 + expectedOpportunityCount + offerBaseline.sitemapUrlCount;
+const expectedActiveCompetitionCount = 41;
+const expectedCoreCompetitionCount = 39;
 
 function getLocalIsoDate(date) {
   return [
@@ -77,8 +77,8 @@ check("Opportunity schema items", opportunitySchema?.itemListElement?.length || 
 check("Opportunity routes generated", countGeneratedRoutes("opportunity"), expectedOpportunityCount);
 check("Opportunity exit routes generated", countGeneratedRoutes(path.join("out", "opportunity")), expectedOpportunityCount);
 check("Opportunity sitemap entries", count(sitemap, /<loc>https:\/\/freehub\.co\.za\/opportunity\//g), expectedOpportunityCount);
-check("Durable resources on parent", count(parent, /<article class="free-resource-card">/g), 25);
-check("Durable resource schema items", resourceItemList?.itemListElement?.length || 0, 25);
+check("Durable resources on parent", count(parent, /<article class="free-resource-card">/g), 26);
+check("Durable resource schema items", resourceItemList?.itemListElement?.length || 0, 26);
 check("Permanent Free Stuff child links", count(parent, /class="free-stuff-child-nav__link"/g), 5);
 check("Parent H1 count", parentPage.h1.length, 1);
 check("Parent H1", parentPage.h1[0], "Where to Find Free Stuff in South Africa");

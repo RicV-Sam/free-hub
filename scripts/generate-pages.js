@@ -81,6 +81,7 @@ const VOUCHER_DISCOVERY_RESOURCE_HOSTS = Object.freeze({
   "spur-r50-birthday-voucher": "www.spursteakranches.com",
   "western-cape-jobseeker-travel-voucher": "www.westerncape.gov.za",
   "bootlegger-app-registration-coffee": "www.bootlegger.coffee",
+  "telkom-customer-referral-credit": "group.telkom.co.za",
 });
 const VOUCHER_DISCOVERY_RESOURCE_IDS = Object.freeze(Object.keys(VOUCHER_DISCOVERY_RESOURCE_HOSTS));
 const CSS_ASSET_VERSION = RELEASE_ASSET_VERSION;
