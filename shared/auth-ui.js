@@ -270,7 +270,7 @@ function ensureModal() {
         <button class="auth-modal__close" type="button" data-auth-close aria-label="Close sign-in">x</button>
         <h2 class="auth-modal__title" id="freehubAuthTitle" data-auth-modal-title>Sign in to save</h2>
         <p class="auth-modal__text" data-auth-modal-message>Sign in to save this competition.</p>
-        <p class="auth-modal__text"><strong>Club benefit:</strong> no Adsterra Popunder or Social Bar ads while you are signed in.</p>
+        <p class="auth-modal__text"><strong>Club benefit:</strong> no Adsterra ads while you are signed in.</p>
         <form class="auth-form" data-auth-form>
           <label class="auth-check">
             <input id="freehubPrivacyConsent" type="checkbox" name="privacy" required />

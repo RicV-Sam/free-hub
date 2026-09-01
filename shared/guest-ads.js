@@ -1,16 +1,26 @@
 import { getFirebaseClient } from "./firebase-client.js";
 
-const ADSTERRA_SCRIPTS = Object.freeze([
+const ADSTERRA_NATIVE_BANNER = Object.freeze({
+  id: "freehub-adsterra-native-banner",
+  format: "native-banner",
+  src: "https://pl31128445.profitableratecpmnetwork.com/c58e199012d4b578b7353f3e72a231f7/invoke.js",
+  containerId: "container-c58e199012d4b578b7353f3e72a231f7",
+});
+const ADSTERRA_ARCHIVE_SCRIPTS = Object.freeze([
   Object.freeze({
-    id: "freehub-adsterra-popunder",
-    format: "popunder",
+    id: "freehub-adsterra-archive-popunder",
+    format: "archive-popunder",
     src: "https://pl30713595.effectivecpmnetwork.com/51/4f/11/514f11fd1c975eebb82034a3a019787a.js",
   }),
   Object.freeze({
-    id: "freehub-adsterra-social-bar",
-    format: "social-bar",
+    id: "freehub-adsterra-archive-social-bar",
+    format: "archive-social-bar",
     src: "https://pl30713596.effectivecpmnetwork.com/5e/fa/1d/5efa1d12d7d4dfb40f2bf1a6ae3d645f.js",
   }),
+]);
+const ADSTERRA_SCRIPTS = Object.freeze([
+  ADSTERRA_NATIVE_BANNER,
+  ...ADSTERRA_ARCHIVE_SCRIPTS,
 ]);
 
 const state = {
@@ -123,32 +133,49 @@ function completeSignIn() {
 }
 
 function injectProviderScripts() {
+  const isArchivePage = document.body?.dataset.freehubAdSurface === "archive";
+
+  if (isArchivePage) {
+    ADSTERRA_ARCHIVE_SCRIPTS.forEach(injectScriptDefinition);
+    state.scriptsInjected = requestedSources.size > 0;
+    return;
+  }
+
+  const placement = document.querySelector("[data-freehub-ad-slot]");
+  const providerContainer = document.getElementById(ADSTERRA_NATIVE_BANNER.containerId);
+
+  if (!placement || !providerContainer) {
+    return;
+  }
+
+  injectScriptDefinition(ADSTERRA_NATIVE_BANNER);
+  state.scriptsInjected = requestedSources.size > 0;
+}
+
+function injectScriptDefinition(definition) {
   const parent = document.body || document.head;
 
-  ADSTERRA_SCRIPTS.forEach((definition) => {
-    if (requestedSources.has(definition.src)) {
-      return;
-    }
+  if (requestedSources.has(definition.src)) {
+    return;
+  }
 
-    const existing = Array.from(document.scripts).find(
-      (script) => script.id === definition.id || script.src === definition.src
-    );
+  const existing = Array.from(document.scripts).find(
+    (script) => script.id === definition.id || script.src === definition.src
+  );
 
-    if (existing) {
-      requestedSources.add(definition.src);
-      return;
-    }
-
-    const script = document.createElement("script");
-    script.id = definition.id;
-    script.src = definition.src;
-    script.async = false;
-    script.dataset.freehubGuestAd = definition.format;
+  if (existing) {
     requestedSources.add(definition.src);
-    parent.appendChild(script);
-  });
+    return;
+  }
 
-  state.scriptsInjected = requestedSources.size > 0;
+  const script = document.createElement("script");
+  script.id = definition.id;
+  script.src = definition.src;
+  script.async = true;
+  script.dataset.cfasync = "false";
+  script.dataset.freehubGuestAd = definition.format;
+  requestedSources.add(definition.src);
+  parent.appendChild(script);
 }
 
 function removeProviderScripts() {

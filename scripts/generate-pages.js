@@ -17,11 +17,15 @@ const OPPORTUNITIES_PATH = path.join(ROOT_DIR, "data", "opportunities.json");
 const OPPORTUNITY_SOURCE_EVIDENCE_PATH = path.join(ROOT_DIR, "data", "opportunity-source-evidence.json");
 const OFFERS_PATH = path.join(ROOT_DIR, "data", "offers.json");
 const RELATIVE_ASSET_PATH = "/";
-const RELEASE_ASSET_VERSION = "20260818-video-v1";
+const RELEASE_ASSET_VERSION = "20260901-native-ads-v1";
 const GUEST_ADS_SCRIPT_SRC = `/shared/guest-ads.js?v=${RELEASE_ASSET_VERSION}`;
 const OUTBOUND_HANDOFF_SCRIPT_SRC = `/shared/outbound-handoff.js?v=${RELEASE_ASSET_VERSION}`;
 const GUEST_ADS_SCRIPT = `<script type="module" src="${GUEST_ADS_SCRIPT_SRC}"></script>`;
 const OUTBOUND_HANDOFF_SCRIPT = `<script src="${OUTBOUND_HANDOFF_SCRIPT_SRC}"></script>`;
+const ADSTERRA_VENDOR_HOSTS = Object.freeze([
+  "effectivecpmnetwork.com",
+  "profitableratecpmnetwork.com",
+]);
 const GOOGLE_TAG_MANAGER_ID = "GTM-W2M7PCR7";
 const META_PIXEL_ID = "2506912739756217";
 const WHATSAPP_CHANNEL_URL = "https://whatsapp.com/channel/0029Vb7mS1VE50UlOc2yOe2H";
@@ -33,6 +37,10 @@ const DATACOST_BANNER_IMAGE = "/assets/partners/datacost-data-airtime-banner.jpg
 const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date());
 const LIFECYCLE_REFERENCE_DATE_ISO = process.env.FREEHUB_AS_OF_DATE || getLocalIsoDate(new Date());
 shared.setReferenceDate(LIFECYCLE_REFERENCE_DATE_ISO);
+
+function containsAdsterraVendorUrl(value) {
+  return ADSTERRA_VENDOR_HOSTS.some((host) => String(value || "").includes(host));
+}
 const BIRTHDAY_FREEBIES_VIDEO = Object.freeze({
   id: "FYhppNNEU0M",
   slug: "birthday-freebies-south-africa",
@@ -315,7 +323,7 @@ const TRUST_PAGE_DEFINITIONS = [
         heading: "Cookies and analytics",
         paragraphs: [
           "The site may use cookies or similar technologies through analytics and measurement tools. These are used to understand site performance and user journeys.",
-          "Freehub may also use Adsterra Popunder and Social Bar advertising, but only after Firebase confirms that a visitor is signed out. Adsterra and its partners may use cookies or similar technologies to serve, limit and measure ads where permitted. Signed-in Freehub Club members are not served these Adsterra scripts or ad units.",
+          "Freehub may show one clearly labelled Adsterra Native Banner on selected competition-browsing pages, but only after Firebase confirms that a visitor is signed out. Legacy Popunder and Social Bar formats are limited to closed, noindex competition archive pages. Adsterra and its partners may use cookies or similar technologies to serve, limit and measure ads where permitted. Signed-in Freehub Club members are not served these Adsterra formats.",
           "Advertising is separate from Freehub's competition listings and does not mean that an advertiser runs, verifies or endorses a listed competition. Consent choices and applicable controls should be presented before advertising cookies are used where the law requires them.",
         ],
       },
@@ -3629,6 +3637,13 @@ function renderUpdatedNotice() {
   return `<p class="hero__updated">Updated: ${escapeHtml(shared.formatDate(BUILD_DATE_ISO))}</p>`;
 }
 
+function renderGuestAdSlot(placement) {
+  return `<aside class="ad-slot ad-slot--native" data-freehub-ad-slot data-placement="${escapeAttribute(placement)}" aria-label="Sponsored advertisement">
+          <p class="ad-slot__label">Sponsored</p>
+          <div class="ad-slot__content" id="container-c58e199012d4b578b7353f3e72a231f7"></div>
+        </aside>`;
+}
+
 function renderHeroActions(actions = []) {
   if (!Array.isArray(actions) || actions.length === 0) {
     return "";
@@ -5311,6 +5326,8 @@ function renderPage(routeContext, competitions) {
           ${renderCollectionEmptyState(routeContext, competitions)}
         </section>
 
+        ${routeContext.noindex === true || (routeContext.type === "hub" && routeContext.slug === "paid-entry-competitions") ? "" : renderGuestAdSlot(`${routeContext.type}-${routeContext.slug || "index"}-results`)}
+
         ${isPrimaryCompetitionHub ? renderHubIntroEditorial(routeContext) : ""}
         ${isPrimaryCompetitionHub ? renderInternalLinksSection(routeContext, competitions) : ""}
         ${isPrimaryCompetitionHub ? renderVerticalDiscoveryLinks() : ""}
@@ -6620,7 +6637,7 @@ function renderHomepageClubSection() {
           <div>
             <p class="section-kicker">Freehub Club</p>
             <h2 class="home-cta__title">Save competitions and get reminders</h2>
-            <p class="home-section__intro">Create a free account to save listings, track what you entered or skipped, and keep useful competition alerts in one place. Signed-in Club members also browse without Adsterra Popunder or Social Bar ads.</p>
+            <p class="home-section__intro">Create a free account to save listings, track what you entered or skipped, and keep useful competition alerts in one place. Signed-in Club members also browse without Adsterra ads.</p>
           </div>
           <div class="home-cta__actions">
             <a class="btn btn--primary" href="/club/">Open Club</a>
@@ -6803,6 +6820,7 @@ ${noscriptLinks}
         })}
         ${renderIntentTilesSection()}
         ${renderLatestRowsSection(latestAdded)}
+        ${renderGuestAdSlot("home-latest")}
         ${renderHomeTrustSection()}
         ${renderHomepageClubSection()}
         ${renderHomepageGuidesSection()}
@@ -7554,7 +7572,7 @@ function renderAboutPage(page) {
             <li><strong>Save competitions</strong><span>Keep promising listings attached to your account.</span></li>
             <li><strong>Track your progress</strong><span>Mark listings as interested, entered or skipped.</span></li>
             <li><strong>Choose your alerts</strong><span>Keep optional alert preferences with your account.</span></li>
-            <li><strong>Browse without Adsterra ads</strong><span>Popunder and Social Bar scripts are not loaded while you are signed in.</span></li>
+            <li><strong>Browse without Adsterra ads</strong><span>Native Banner, Popunder and Social Bar formats are not loaded while you are signed in.</span></li>
           </ul>
         </section>
 
@@ -8546,7 +8564,7 @@ function renderClubLandingPage() {
     {
       question: "Do signed-in Club members see Adsterra ads?",
       answer:
-        "No. After Freehub confirms that you are signed in, it does not load the Adsterra Popunder or Social Bar scripts on eligible public pages. Freehub editorial, official-source and clearly identified house or partner links may still appear.",
+        "No. After Freehub confirms that you are signed in, it does not load Adsterra Native Banner, Popunder or Social Bar formats. Freehub editorial, official-source and clearly identified house or partner links may still appear.",
     },
     {
       question: "What happened to the first Refer and Win campaign?",
@@ -8600,7 +8618,7 @@ function renderClubLandingPage() {
             <p>Freehub Club gives regular visitors a simple place to save listings, keep track of what they still want to enter, and come back before closing dates pass.</p>
           </article>
           <div class="club-feature-grid">
-            <article class="club-feature"><h3>No Adsterra ads while signed in</h3><p>Popunder and Social Bar advertising are not loaded after Freehub confirms your signed-in Club account.</p></article>
+            <article class="club-feature"><h3>No Adsterra ads while signed in</h3><p>Native Banner, Popunder and Social Bar formats are not loaded after Freehub confirms your signed-in Club account.</p></article>
             <article class="club-feature"><h3>Save competitions</h3><p>Keep promising listings in one account instead of relying on screenshots, browser history or memory.</p></article>
             <article class="club-feature"><h3>Track your status</h3><p>Mark saved competitions as interested, entered or skipped so your dashboard stays useful.</p></article>
             <article class="club-feature"><h3>Choose your alerts</h3><p>Competition alerts and occasional Freehub updates stay optional and can be kept with your account.</p></article>
@@ -10422,7 +10440,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
     ${renderGoogleTagManagerHead(`{ page_type: 'competition', competition_slug: ${escapeScript(JSON.stringify(slug))}, competition_category: ${escapeScript(JSON.stringify(competition.category))} }`)}
     ${renderMetaPixelHead()}
   </head>
-  <body>
+  <body data-freehub-ad-surface="${expired ? "archive" : "none"}">
     ${renderGoogleTagManagerNoScript()}
     ${renderMetaPixelNoScript()}
     <div class="site-shell">
@@ -12460,7 +12478,7 @@ function runStaticSeoChecks(routeContexts = []) {
     if (guestAdLoaderCount > 1) {
       errors.push(`Duplicate guest-ad loader found in: ${filePath}`);
     }
-    if (html.includes("effectivecpmnetwork.com")) {
+    if (containsAdsterraVendorUrl(html)) {
       errors.push(`Adsterra vendor URL was emitted directly into generated HTML: ${filePath}`);
     }
     const badStructuredDataUrl = html.match(/"url":"https:\/\/freehub\.co\.za\/competition\/[^"]*[^\/]"/);
@@ -12652,7 +12670,7 @@ function runLifecycleStaticChecks(
           `Active competition outbound handoff-gate count is ${outboundHandoffGateCount}; expected ${expectedGuestAdLoaderCount}: ${slug}`
         );
       }
-      if (outHtml.includes("effectivecpmnetwork.com")) {
+      if (containsAdsterraVendorUrl(outHtml)) {
         errors.push(`Active competition outbound page emits an Adsterra vendor URL directly: ${slug}`);
       }
     }
@@ -12678,7 +12696,7 @@ function runLifecycleStaticChecks(
     }
     if (
       html.includes("/shared/guest-ads.js") ||
-      html.includes("effectivecpmnetwork.com") ||
+      containsAdsterraVendorUrl(html) ||
       html.includes("ad-slot")
     ) {
       errors.push(`Noindex active competition includes ad markup: ${slug}`);
@@ -12688,7 +12706,7 @@ function runLifecycleStaticChecks(
       if (
         outHtml.includes("/shared/guest-ads.js") ||
         outHtml.includes("/shared/outbound-handoff.js") ||
-        outHtml.includes("effectivecpmnetwork.com")
+        containsAdsterraVendorUrl(outHtml)
       ) {
         errors.push(`Noindex active competition outbound page includes guest-ad markup: ${slug}`);
       }
@@ -12720,7 +12738,7 @@ function runLifecycleStaticChecks(
         `Expired competition guest-ad loader count is ${expiredLoaderCount}; expected ${expectedExpiredLoaderCount}: ${slug}`
       );
     }
-    if (html.includes("effectivecpmnetwork.com")) {
+    if (containsAdsterraVendorUrl(html)) {
       errors.push(`Expired competition page emits an Adsterra vendor URL directly: ${slug}`);
     }
     if (!html.includes("Current competitions you may like")) {
@@ -12828,7 +12846,7 @@ function runLifecycleStaticChecks(
       if (!html.includes(`href="${exitRoute}"`)) {
         errors.push(`Active Opportunity detail CTA bypasses exit route: ${opportunity.slug}`);
       }
-      if (html.includes("/shared/guest-ads.js") || html.includes("effectivecpmnetwork.com")) {
+      if (html.includes("/shared/guest-ads.js") || containsAdsterraVendorUrl(html)) {
         errors.push(`Active Opportunity detail page includes guest-ad markup: ${opportunity.slug}`);
       }
     }
@@ -12836,7 +12854,7 @@ function runLifecycleStaticChecks(
       const exitHtml = fs.readFileSync(exitPath, "utf8");
       const loaderCount = exitHtml.split(`src="${GUEST_ADS_SCRIPT_SRC}"`).length - 1;
       const handoffGateCount = exitHtml.split(`src="${OUTBOUND_HANDOFF_SCRIPT_SRC}"`).length - 1;
-      if (loaderCount !== 1 || handoffGateCount !== 1 || exitHtml.includes("effectivecpmnetwork.com")) {
+      if (loaderCount !== 1 || handoffGateCount !== 1 || containsAdsterraVendorUrl(exitHtml)) {
         errors.push(`Active Opportunity exit page does not contain exactly one first-party guest-ad gate: ${opportunity.slug}`);
       }
     }

@@ -4,11 +4,13 @@ const opportunityFixture = require("../../data/opportunities.json")[0];
 const opportunitiesEnabled = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true";
 const offersEnabled = process.env.FREEHUB_ENABLE_OFFERS === "true";
 const usesReviewedPilotDate = process.env.FREEHUB_BUILD_DATE === "2026-07-31";
-const RELEASE_ASSET_VERSION = "20260818-video-v1";
+const RELEASE_ASSET_VERSION = "20260901-native-ads-v1";
 const GUEST_ADS_LOADER_SRC = `/shared/guest-ads.js?v=${RELEASE_ASSET_VERSION}`;
 const OUTBOUND_HANDOFF_SRC = `/shared/outbound-handoff.js?v=${RELEASE_ASSET_VERSION}`;
 
-const ADSTERRA_SCRIPTS = Object.freeze({
+const ADSTERRA_NATIVE_BANNER_SRC = "https://pl31128445.profitableratecpmnetwork.com/c58e199012d4b578b7353f3e72a231f7/invoke.js";
+const ADSTERRA_NATIVE_BANNER_CONTAINER = "container-c58e199012d4b578b7353f3e72a231f7";
+const ADSTERRA_ARCHIVE_SCRIPTS = Object.freeze({
   popunder: "https://pl30713595.effectivecpmnetwork.com/51/4f/11/514f11fd1c975eebb82034a3a019787a.js",
   socialBar: "https://pl30713596.effectivecpmnetwork.com/5e/fa/1d/5efa1d12d7d4dfb40f2bf1a6ae3d645f.js",
 });
@@ -136,15 +138,22 @@ async function mockFirebaseAuth(
 }
 
 async function stubAdsterra(page) {
-  const requests = { popunder: 0, socialBar: 0 };
-  await page.route(ADSTERRA_SCRIPTS.popunder, (route) => route.fulfill({
+  const requests = { nativeBanner: 0, popunder: 0, socialBar: 0 };
+  await page.route(ADSTERRA_NATIVE_BANNER_SRC, (route) => route.fulfill({
+    contentType: "application/javascript",
+    headers: { "access-control-allow-origin": "*" },
+    body: "globalThis.__freehubNativeBannerExecutions = (globalThis.__freehubNativeBannerExecutions || 0) + 1;",
+  }).finally(() => {
+    requests.nativeBanner += 1;
+  }));
+  await page.route(ADSTERRA_ARCHIVE_SCRIPTS.popunder, (route) => route.fulfill({
     contentType: "application/javascript",
     headers: { "access-control-allow-origin": "*" },
     body: "globalThis.__freehubPopunderExecutions = (globalThis.__freehubPopunderExecutions || 0) + 1;",
   }).finally(() => {
     requests.popunder += 1;
   }));
-  await page.route(ADSTERRA_SCRIPTS.socialBar, (route) => route.fulfill({
+  await page.route(ADSTERRA_ARCHIVE_SCRIPTS.socialBar, (route) => route.fulfill({
     contentType: "application/javascript",
     headers: { "access-control-allow-origin": "*" },
     body: "globalThis.__freehubSocialBarExecutions = (globalThis.__freehubSocialBarExecutions || 0) + 1;",
@@ -195,11 +204,13 @@ test("generated pages contain one first-party ad gate and no raw Adsterra tags",
   const homepageHtml = await (await page.request.get("/")).text();
   expect(homepageHtml.split(`src="${GUEST_ADS_LOADER_SRC}"`)).toHaveLength(2);
   expect(homepageHtml).not.toContain("effectivecpmnetwork.com");
+  expect(homepageHtml).not.toContain("profitableratecpmnetwork.com");
 
   for (const route of ["/about/", "/club/dashboard/"]) {
     const html = await (await page.request.get(route)).text();
     expect(html).not.toContain("/shared/guest-ads.js");
     expect(html).not.toContain("effectivecpmnetwork.com");
+    expect(html).not.toContain("profitableratecpmnetwork.com");
   }
 
   for (const route of [
@@ -214,6 +225,7 @@ test("generated pages contain one first-party ad gate and no raw Adsterra tags",
     const html = await (await page.request.get(route)).text();
     expect(html.split(`src="${GUEST_ADS_LOADER_SRC}"`)).toHaveLength(2);
     expect(html).not.toContain("effectivecpmnetwork.com");
+    expect(html).not.toContain("profitableratecpmnetwork.com");
   }
 
   for (const route of [
@@ -231,45 +243,47 @@ test("Adsterra fails closed when Firebase auth cannot be resolved", async ({ pag
   await page.goto("/");
 
   await expect(page.locator('html[data-freehub-ad-state="unavailable"]')).toHaveCount(1);
-  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.popunder}"]`)).toHaveCount(0);
-  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.socialBar}"]`)).toHaveCount(0);
+  await expect(page.locator(`script[src="${ADSTERRA_NATIVE_BANNER_SRC}"]`)).toHaveCount(0);
 });
 
-test("signed-out visitors receive each exact Adsterra script once", async ({ page }) => {
+test("signed-out visitors receive one native banner on an eligible browsing page", async ({ page }) => {
   await mockFirebaseAuth(page);
   const requests = await stubAdsterra(page);
   await page.goto("/");
 
   await expect(page.locator('html[data-freehub-ad-state="guest"]')).toHaveCount(1);
-  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.popunder}"]`)).toHaveCount(1);
-  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.socialBar}"]`)).toHaveCount(1);
-  await expect.poll(() => requests).toEqual({ popunder: 1, socialBar: 1 });
-  await expect.poll(() => page.evaluate(() => ({
-    popunder: window.__freehubPopunderExecutions || 0,
-    socialBar: window.__freehubSocialBarExecutions || 0,
-  }))).toEqual({ popunder: 1, socialBar: 1 });
+  await expect(page.locator(`script[src="${ADSTERRA_NATIVE_BANNER_SRC}"]`)).toHaveCount(1);
+  await expect(page.locator(`#${ADSTERRA_NATIVE_BANNER_CONTAINER}`)).toHaveCount(1);
+  await expect.poll(() => requests).toEqual({ nativeBanner: 1, popunder: 0, socialBar: 0 });
+  await expect.poll(() => page.evaluate(() => window.__freehubNativeBannerExecutions || 0)).toBe(1);
 
   await page.evaluate(() => {
     window.__freehubEmitAuth(null);
     window.__freehubEmitAuth(null);
   });
-  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.popunder}"]`)).toHaveCount(1);
-  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.socialBar}"]`)).toHaveCount(1);
-  expect(requests).toEqual({ popunder: 1, socialBar: 1 });
+  await expect(page.locator(`script[src="${ADSTERRA_NATIVE_BANNER_SRC}"]`)).toHaveCount(1);
+  expect(requests).toEqual({ nativeBanner: 1, popunder: 0, socialBar: 0 });
 
   await page.evaluate(() => {
     document.querySelectorAll("script[data-freehub-guest-ad]").forEach((script) => script.remove());
     window.__freehubEmitAuth(null);
   });
   await expect(page.locator("script[data-freehub-guest-ad]")).toHaveCount(0);
-  expect(requests).toEqual({ popunder: 1, socialBar: 1 });
+  expect(requests).toEqual({ nativeBanner: 1, popunder: 0, socialBar: 0 });
 });
 
-test("signed-out visitors receive Adsterra on expired and outbound pages", async ({ page }) => {
+test("expired archive pages retain legacy ads while active detail and outbound pages stay protected", async ({ page }) => {
   await mockFirebaseAuth(page, { authDelayMs: 750 });
   const requests = await stubAdsterra(page);
-  const routes = [
-    { route: "/competition/isuzu-win-a-new-x-rider-2026/", handoff: false },
+  await page.goto("/competition/isuzu-win-a-new-x-rider-2026/");
+  await expect(page.locator('html[data-freehub-ad-state="guest"]')).toHaveCount(1);
+  await expect(page.locator(`script[src="${ADSTERRA_NATIVE_BANNER_SRC}"]`)).toHaveCount(0);
+  await expect(page.locator(`script[src="${ADSTERRA_ARCHIVE_SCRIPTS.popunder}"]`)).toHaveCount(1);
+  await expect(page.locator(`script[src="${ADSTERRA_ARCHIVE_SCRIPTS.socialBar}"]`)).toHaveCount(1);
+  await expect.poll(() => requests).toEqual({ nativeBanner: 0, popunder: 1, socialBar: 1 });
+
+  const protectedRoutes = [
+    { route: "/competition/one-life-winning-wednesday-cash-2026/", handoff: false },
     { route: "/out/one-life-winning-wednesday-cash-2026/", handoff: true },
     ...(opportunitiesEnabled
       ? [{ route: "/out/opportunity/coloplast-speedicath-short-sample/", handoff: true }]
@@ -279,13 +293,16 @@ test("signed-out visitors receive Adsterra on expired and outbound pages", async
       : []),
   ];
 
-  for (const [index, { route, handoff }] of routes.entries()) {
+  for (const { route, handoff } of protectedRoutes) {
     await page.goto(route);
     if (handoff) {
       await expect(page.locator('html[data-freehub-handoff-state="waiting-for-ad-state"]')).toHaveCount(1);
     }
     await expect(page.locator('html[data-freehub-ad-state="guest"]')).toHaveCount(1);
-    await expect.poll(() => requests).toEqual({ popunder: index + 1, socialBar: index + 1 });
+    await expect(page.locator(`script[src="${ADSTERRA_NATIVE_BANNER_SRC}"]`)).toHaveCount(0);
+    await expect(page.locator(`script[src="${ADSTERRA_ARCHIVE_SCRIPTS.popunder}"]`)).toHaveCount(0);
+    await expect(page.locator(`script[src="${ADSTERRA_ARCHIVE_SCRIPTS.socialBar}"]`)).toHaveCount(0);
+    expect(requests).toEqual({ nativeBanner: 0, popunder: 1, socialBar: 1 });
     if (handoff) {
       await expect(page.locator('html[data-freehub-handoff-auth-resolution="resolved"]')).toHaveCount(1);
       await expect(page.locator('html[data-freehub-handoff-state="countdown"]')).toHaveCount(1);
@@ -299,13 +316,9 @@ test("signed-in members receive no external Adsterra scripts or executions", asy
   await page.goto("/");
 
   await expect(page.locator('html[data-freehub-ad-state="member"]')).toHaveCount(1);
-  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.popunder}"]`)).toHaveCount(0);
-  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.socialBar}"]`)).toHaveCount(0);
-  expect(requests).toEqual({ popunder: 0, socialBar: 0 });
-  expect(await page.evaluate(() => ({
-    popunder: window.__freehubPopunderExecutions || 0,
-    socialBar: window.__freehubSocialBarExecutions || 0,
-  }))).toEqual({ popunder: 0, socialBar: 0 });
+  await expect(page.locator(`script[src="${ADSTERRA_NATIVE_BANNER_SRC}"]`)).toHaveCount(0);
+  expect(requests).toEqual({ nativeBanner: 0, popunder: 0, socialBar: 0 });
+  expect(await page.evaluate(() => window.__freehubNativeBannerExecutions || 0)).toBe(0);
 
   const memberRoutes = [
     { route: "/competition/isuzu-win-a-new-x-rider-2026/", handoff: false },
@@ -323,14 +336,13 @@ test("signed-in members receive no external Adsterra scripts or executions", asy
       await expect(page.locator('html[data-freehub-handoff-state="waiting-for-ad-state"]')).toHaveCount(1);
     }
     await expect(page.locator('html[data-freehub-ad-state="member"]')).toHaveCount(1);
-    await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.popunder}"]`)).toHaveCount(0);
-    await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.socialBar}"]`)).toHaveCount(0);
+    await expect(page.locator(`script[src="${ADSTERRA_NATIVE_BANNER_SRC}"]`)).toHaveCount(0);
     if (handoff) {
       await expect(page.locator('html[data-freehub-handoff-auth-resolution="resolved"]')).toHaveCount(1);
       await expect(page.locator('html[data-freehub-handoff-state="countdown"]')).toHaveCount(1);
     }
   }
-  expect(requests).toEqual({ popunder: 0, socialBar: 0 });
+  expect(requests).toEqual({ nativeBanner: 0, popunder: 0, socialBar: 0 });
 });
 
 test("a guest-to-member transition reloads into a clean ad-free document", async ({ page }) => {
@@ -338,7 +350,7 @@ test("a guest-to-member transition reloads into a clean ad-free document", async
   const requests = await stubAdsterra(page);
   await page.goto("/");
   await expect(page.locator('html[data-freehub-ad-state="guest"]')).toHaveCount(1);
-  await expect.poll(() => requests).toEqual({ popunder: 1, socialBar: 1 });
+  await expect.poll(() => requests).toEqual({ nativeBanner: 1, popunder: 0, socialBar: 0 });
 
   const navigation = page.waitForNavigation();
   await page.evaluate((member) => {
@@ -349,12 +361,11 @@ test("a guest-to-member transition reloads into a clean ad-free document", async
   await navigation;
 
   await expect(page.locator('html[data-freehub-ad-state="member"]')).toHaveCount(1);
-  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.popunder}"]`)).toHaveCount(0);
-  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.socialBar}"]`)).toHaveCount(0);
-  expect(requests).toEqual({ popunder: 1, socialBar: 1 });
+  await expect(page.locator(`script[src="${ADSTERRA_NATIVE_BANNER_SRC}"]`)).toHaveCount(0);
+  expect(requests).toEqual({ nativeBanner: 1, popunder: 0, socialBar: 0 });
 });
 
-test("provider sign-in resumes the requested competition action after the clean reload", async ({ page }) => {
+test("provider sign-in resumes the requested competition action on an ad-free detail page", async ({ page }) => {
   await mockFirebaseAuth(page, {
     enabledAuthProviders: ["google"],
     providerSigninUser: MOCK_MEMBER,
@@ -365,19 +376,16 @@ test("provider sign-in resumes the requested competition action after the clean 
   await expect(page.locator('html[data-freehub-ad-state="guest"]')).toHaveCount(1);
 
   await page.locator('[data-auth-action="signin"]').first().click();
-  await expect(page.getByText(/Club benefit:.*no Adsterra Popunder or Social Bar ads/)).toBeVisible();
+  await expect(page.getByText(/Club benefit:.*no Adsterra ads/)).toBeVisible();
   await page.getByLabel(/I have read and agree to the Privacy Policy/).check();
-  const navigation = page.waitForNavigation();
   await page.getByRole("button", { name: "Continue with Google" }).click();
-  await navigation;
 
   await expect(page.locator('html[data-freehub-ad-state="member"]')).toHaveCount(1);
-  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.popunder}"]`)).toHaveCount(0);
-  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.socialBar}"]`)).toHaveCount(0);
+  await expect(page.locator(`script[src="${ADSTERRA_NATIVE_BANNER_SRC}"]`)).toHaveCount(0);
   await expect.poll(() => page.evaluate(({ id, uid }) => window.__freehubFirestoreWrites.some((write) =>
     write.path.join("/") === `users/${uid}/savedCompetitions/${id}`
   ), { id: competitionId, uid: MOCK_MEMBER.uid })).toBe(true);
-  expect(requests).toEqual({ popunder: 1, socialBar: 1 });
+  expect(requests).toEqual({ nativeBanner: 0, popunder: 0, socialBar: 0 });
 });
 
 test("evergreen prize pages are indexable, useful and linked from discovery areas", async ({ page }) => {
@@ -798,7 +806,7 @@ test("Opportunity detail and measured exit flow remain flag-controlled", async (
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index, follow, max-image-preview:large");
   await expect(page.locator(`script[src="${GUEST_ADS_LOADER_SRC}"]`)).toHaveCount(0);
   await expect(page.locator(`script[src="${OUTBOUND_HANDOFF_SRC}"]`)).toHaveCount(0);
-  await expect(page.locator('script[src*="effectivecpmnetwork.com"]')).toHaveCount(0);
+  await expect(page.locator('script[src*="effectivecpmnetwork.com"], script[src*="profitableratecpmnetwork.com"]')).toHaveCount(0);
   await expect(page.getByText("Your information goes directly to Coloplast")).toBeVisible();
   await expect(page.getByText(/Freehub does not receive, store or assess your application/)).toBeVisible();
   const cta = page.getByRole("link", { name: "Continue to the official sample request" });
@@ -840,7 +848,7 @@ test("Opportunity detail and measured exit flow remain flag-controlled", async (
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, nofollow");
   await expect(page.locator(`script[src="${GUEST_ADS_LOADER_SRC}"]`)).toHaveCount(1);
   await expect(page.locator(`script[src="${OUTBOUND_HANDOFF_SRC}"]`)).toHaveCount(1);
-  await expect(page.locator('script[src*="effectivecpmnetwork.com"]')).toHaveCount(0);
+  await expect(page.locator('script[src*="effectivecpmnetwork.com"], script[src*="profitableratecpmnetwork.com"]')).toHaveCount(0);
   await expect(page.locator('html[data-freehub-handoff-auth-resolution="resolved"]')).toHaveCount(1);
   await expect(page.locator('html[data-freehub-handoff-state="countdown"]')).toHaveCount(1);
   await expect(page.getByText(/Freehub does not receive, store or assess it/)).toBeVisible();
@@ -1032,7 +1040,7 @@ test("active detail, outbound handoff, and expired detail retain lifecycle behav
   await expect(outPage.getByRole("heading", { level: 1 })).toHaveText("You are leaving Freehub");
   await expect(outPage.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, nofollow");
   await expect(outPage.locator(`script[src="${GUEST_ADS_LOADER_SRC}"]`)).toHaveCount(1);
-  await expect(outPage.locator('script[src*="effectivecpmnetwork.com"]')).toHaveCount(0);
+  await expect(outPage.locator('script[src*="effectivecpmnetwork.com"], script[src*="profitableratecpmnetwork.com"]')).toHaveCount(0);
   await expect(outPage.locator(".ad-slot")).toHaveCount(0);
   await noJavaScript.close();
 });
@@ -1040,9 +1048,9 @@ test("active detail, outbound handoff, and expired detail retain lifecycle behav
 test("privacy policy discloses advertising cookies", async ({ page }) => {
   await page.goto("/privacy-policy/");
   await expect(page.getByRole("heading", { level: 2, name: "Cookies and analytics" })).toBeVisible();
-  await expect(page.getByText(/Adsterra Popunder and Social Bar advertising/)).toBeVisible();
+  await expect(page.getByText(/Adsterra Native Banner/)).toBeVisible();
   await expect(page.getByText(/only after Firebase confirms that a visitor is signed out/)).toBeVisible();
-  await expect(page.getByText(/Signed-in Freehub Club members are not served these Adsterra scripts/)).toBeVisible();
+  await expect(page.getByText(/Signed-in Freehub Club members are not served these Adsterra formats/)).toBeVisible();
   await expect(page.getByText(/Consent choices and applicable controls/)).toBeVisible();
 });
 
@@ -1076,6 +1084,7 @@ test("offers portal separates coupons and deals with honest indexability", async
   expect(outboundHtml).toContain(`src="${GUEST_ADS_LOADER_SRC}"`);
   expect(outboundHtml).toContain(`src="${OUTBOUND_HANDOFF_SRC}"`);
   expect(outboundHtml).not.toContain("effectivecpmnetwork.com");
+  expect(outboundHtml).not.toContain("profitableratecpmnetwork.com");
 });
 
 test("offer contributions stay private and require an explicit email send", async ({ page }) => {
@@ -1162,9 +1171,8 @@ test("About page explains Freehub, suppresses guest ads and tracks its primary j
   await expect(page.getByRole("heading", { name: "Freehub helps you find competitions — we do not run them" })).toBeVisible();
   await expect(page.locator('#structured-data-aboutpage')).toHaveCount(1);
   await expect(page.locator('#structured-data-breadcrumb')).toHaveCount(1);
-  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.popunder}"]`)).toHaveCount(0);
-  await expect(page.locator(`script[src="${ADSTERRA_SCRIPTS.socialBar}"]`)).toHaveCount(0);
-  expect(requests).toEqual({ popunder: 0, socialBar: 0 });
+  await expect(page.locator(`script[src="${ADSTERRA_NATIVE_BANNER_SRC}"]`)).toHaveCount(0);
+  expect(requests).toEqual({ nativeBanner: 0, popunder: 0, socialBar: 0 });
 
   const trackedLinks = [
     ["about_browse_competitions_click", "hero"],

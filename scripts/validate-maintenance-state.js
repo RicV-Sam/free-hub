@@ -207,6 +207,7 @@ function validateMaintenanceState(options = {}) {
       if (
         html.includes("/shared/guest-ads.js") ||
         html.includes("effectivecpmnetwork.com") ||
+        html.includes("profitableratecpmnetwork.com") ||
         html.includes("ad-slot")
       ) {
         summary.noindexWithAds.push(slug);
