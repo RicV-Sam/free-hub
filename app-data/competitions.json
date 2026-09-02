@@ -1,32 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-01",
-  "count": 41,
+  "asOfDate": "2026-09-02",
+  "count": 40,
   "competitions": [
-    {
-      "id": "hadeco-80th-birthday-competition-2026",
-      "title": "Hadeco 80th Birthday Competition",
-      "brand": "Hadeco / Black Horse Brewery",
-      "summary": "Share a Hadeco garden memory or growing story and tag seven guests for a chance to win a private flowering-fields experience for eight.",
-      "closingDate": "2026-09-01",
-      "category": "Lifestyle",
-      "prizeName": "Hadeco Flowering Fields experience for 8 people",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Social",
-      "eligibility": "Legal residents of South Africa aged 18 or older; travel to the Magaliesberg and accommodation are for the winner's account.",
-      "entrySteps": [
-        "Follow Hadeco and Black Horse Brewery's official social accounts and like the competition post.",
-        "Share a Hadeco memory, garden photo or growing story on a public profile.",
-        "Tag seven guests and answer the competition question before 1 September 2026."
-      ],
-      "officialUrl": "https://hadeco.co.za/pages/hadeco-80th-birthday-competition-terms-conditions",
-      "termsUrl": "https://hadeco.co.za/pages/hadeco-80th-birthday-competition-terms-conditions",
-      "lastChecked": "2026-07-11",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "mukango-safaris-kruger-living-nyati-giveaway-2026",
       "title": "Mukango Safaris Kruger Living on Nyati Giveaway 2026",

@@ -11021,5 +11021,63 @@
     "importedAt": "2026-08-27T08:33:56.214Z",
     "archivedAt": "2026-09-01",
     "archiveReason": "expired"
+  },
+  {
+    "id": "hadeco-80th-birthday-competition-2026",
+    "title": "Hadeco 80th Birthday Competition",
+    "brand": "Hadeco / Black Horse Brewery",
+    "summary": "Share a Hadeco garden memory or growing story and tag seven guests for a chance to win a private flowering-fields experience for eight.",
+    "entrySteps": [
+      "Follow Hadeco and Black Horse Brewery's official social accounts and like the competition post.",
+      "Share a Hadeco memory, garden photo or growing story on a public profile.",
+      "Tag seven guests and answer the competition question before 1 September 2026."
+    ],
+    "closingDate": "2026-09-01",
+    "category": "Lifestyle",
+    "prizeName": "Hadeco Flowering Fields experience for 8 people",
+    "prizeType": "experience",
+    "prizeValueAmount": null,
+    "prizeValueCurrency": "ZAR",
+    "numberOfPrizes": "1",
+    "entryType": "Social Media Post",
+    "tags": [
+      "free-entry",
+      "experience",
+      "social-media",
+      "gauteng"
+    ],
+    "url": "https://hadeco.co.za/pages/hadeco-80th-birthday-competition-terms-conditions",
+    "sourceUrl": "https://hadeco.co.za/pages/hadeco-80th-birthday-competition-terms-conditions",
+    "termsUrl": "https://hadeco.co.za/pages/hadeco-80th-birthday-competition-terms-conditions",
+    "sourceDomain": "hadeco.co.za",
+    "lastChecked": "2026-07-11",
+    "verificationStatus": "published",
+    "publicationStatus": "published",
+    "doNotPublish": false,
+    "entryCostType": "free-entry",
+    "entryFeeLabel": "No purchase required; travel and accommodation are excluded from the prize",
+    "purchaseRequired": false,
+    "entryChannel": "Official Hadeco social media competition post",
+    "eligibility": "Legal residents of South Africa aged 18 or older; travel to the Magaliesberg and accommodation are for the winner's account.",
+    "region": "South Africa / prize experience in Gauteng",
+    "verificationNote": "Direct official-source research candidate. Keep held until final Freehub publication review.",
+    "sourceSystem": "za-comp-engine",
+    "sourceHandoffId": "direct-20260711-hadeco-80",
+    "sourceReviewStatus": "publication-approved",
+    "sourceReport": "Direct official-source validation performed for Freehub on 11 July 2026.",
+    "evidenceNotes": "Official Hadeco terms confirm dates, social entry steps, eligibility, experience components and travel/accommodation exclusions.",
+    "imageReviewNote": "Official campaign image not yet selected.",
+    "riskFlags": [
+      "travel_excluded",
+      "alcohol_tasting",
+      "age_18_plus",
+      "image_unresolved"
+    ],
+    "validationWarnings": [
+      "travel_excluded",
+      "image_unresolved"
+    ],
+    "archivedAt": "2026-09-02",
+    "archiveReason": "expired"
   }
 ]
