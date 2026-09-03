@@ -1,5 +1,5 @@
 === Competition Maintenance Report ===
-Date: 2026-09-02
+Date: 2026-09-03
 Mode: archive-expired
 Total competitions: 324
 Active published count: 41
@@ -192,11 +192,11 @@ Expired competition IDs:
 - hadeco-80th-birthday-competition-2026 (2026-09-01)
 
 Closing soon (next 14 days):
-- mukango-safaris-kruger-living-nyati-giveaway-2026 (3 days)
-- mybroadband-pre-black-friday-survey-r2000-2026 (5 days)
-- onedayonly-elephant-walk-tented-camp-getaway-2026 (5 days)
-- wanderout-south-african-conservation-safari-giveaway-2026 (9 days)
-- edgars-win-jaecoo-j5-family-car-2026 (13 days)
+- mukango-safaris-kruger-living-nyati-giveaway-2026 (2 days)
+- mybroadband-pre-black-friday-survey-r2000-2026 (4 days)
+- onedayonly-elephant-walk-tented-camp-getaway-2026 (4 days)
+- wanderout-south-african-conservation-safari-giveaway-2026 (8 days)
+- edgars-win-jaecoo-j5-family-car-2026 (12 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
