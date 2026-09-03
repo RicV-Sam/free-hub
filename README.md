@@ -44,6 +44,7 @@ Active production site on `https://freehub.co.za`.
   - sitemap URLs
   - public ItemList entries
 - Held review workflows remain in private/admin tooling and are not part of the public static site output.
+- A separate, explicitly curated discovery registry at `data/unverified-competitions.json` may generate only `/unverified-competitions/`. These records remain blocked from verified listings, individual detail pages, `/out/` redirects, mobile feeds and competition ItemList schema. See `docs/unverified-competition-editorial-policy.md` for the publication and promotion rules.
 
 ## Image Strategy (Current)
 Visual fallback order for cards/heroes:

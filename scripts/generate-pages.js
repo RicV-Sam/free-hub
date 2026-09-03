@@ -3,6 +3,7 @@ const path = require("path");
 const shared = require("../shared/page-data.js");
 const opportunityData = require("../shared/opportunity-data.js");
 const offerData = require("../shared/offer-data.js");
+const unverifiedCompetitionData = require("../shared/unverified-competition-data.js");
 const { applyLegacyArchiveCostCompatibility } = require("./lib/legacy-archive-costs.js");
 const { createFreeResourceRenderer } = require("./lib/free-resource-renderer.js");
 const { createOpportunityRenderer } = require("./lib/opportunity-renderer.js");
@@ -16,6 +17,7 @@ const FREE_RESOURCES_PATH = path.join(ROOT_DIR, "data", "free-resources.json");
 const OPPORTUNITIES_PATH = path.join(ROOT_DIR, "data", "opportunities.json");
 const OPPORTUNITY_SOURCE_EVIDENCE_PATH = path.join(ROOT_DIR, "data", "opportunity-source-evidence.json");
 const OFFERS_PATH = path.join(ROOT_DIR, "data", "offers.json");
+const UNVERIFIED_COMPETITIONS_PATH = path.join(ROOT_DIR, "data", "unverified-competitions.json");
 const RELATIVE_ASSET_PATH = "/";
 const RELEASE_ASSET_VERSION = "20260901-native-ads-v1";
 const GUEST_ADS_SCRIPT_SRC = `/shared/guest-ads.js?v=${RELEASE_ASSET_VERSION}`;
@@ -195,6 +197,7 @@ let approvedPublicOpportunities = [];
 let activeOpportunityRoutes = [];
 let opportunityTombstones = [];
 let publicOffers = [];
+let publicUnderReviewCompetitions = [];
 const FREE_RESOURCES = JSON.parse(fs.readFileSync(FREE_RESOURCES_PATH, "utf8"));
 const freeResourceRenderer = createFreeResourceRenderer({
   escapeHtml,
@@ -2287,6 +2290,16 @@ const VERTICAL_PAGE_DEFINITIONS = [
 
 function main() {
   validateFreeResourceData();
+  const unverifiedRegistry = JSON.parse(fs.readFileSync(UNVERIFIED_COMPETITIONS_PATH, "utf8"));
+  const unverifiedValidation = unverifiedCompetitionData.validateRegistry(unverifiedRegistry);
+  if (!unverifiedValidation.valid) {
+    throw new Error(
+      `[Unverified competition validation failed]\n${unverifiedValidation.errors.map((error) => `- ${error}`).join("\n")}`
+    );
+  }
+  publicUnderReviewCompetitions = unverifiedCompetitionData.getPublicUnderReview(unverifiedRegistry, {
+    asOfDate: LIFECYCLE_REFERENCE_DATE_ISO,
+  });
   const offerRegistry = JSON.parse(fs.readFileSync(OFFERS_PATH, "utf8"));
   const offerValidation = offerData.validateOfferRegistry(offerRegistry);
   if (!offerValidation.valid) {
@@ -2361,6 +2374,7 @@ function main() {
 
   fs.writeFileSync(path.join(ROOT_DIR, "index.html"), renderHomepage(coreActiveCompetitions));
   fs.writeFileSync(path.join(ROOT_DIR, "404.html"), renderNotFoundPage());
+  writeUnverifiedCompetitionPage(publicUnderReviewCompetitions);
 
   routeContexts.filter((routeContext) => routeContext.type !== "home").forEach((routeContext) => {
     const filteredCompetitions = getRouteCompetitions(activeCompetitions, routeContext);
@@ -3082,6 +3096,157 @@ function renderSiteFooter(options = {}) {
           </div>
         </div>
       </footer>`;
+}
+
+const MIN_INDEXABLE_UNVERIFIED_COMPETITIONS = 3;
+
+function getUnverifiedPageLastmod(records) {
+  return records.map((record) => record.lastChecked).sort().pop() || BUILD_DATE_ISO;
+}
+
+function renderUnderReviewCallout() {
+  const count = publicUnderReviewCompetitions.length;
+  return `<aside class="under-review-callout" aria-labelledby="under-review-callout-title">
+          <div>
+            <p class="under-review-callout__eyebrow">Separate from verified listings</p>
+            <h2 id="under-review-callout-title">See competitions still under review</h2>
+            <p>We found ${count} current lead${count === 1 ? "" : "s"} that may be useful, but the available terms leave important questions unanswered. See the exact evidence gap before deciding whether to visit the promoter.</p>
+          </div>
+          <a class="under-review-callout__link" href="${unverifiedCompetitionData.PUBLIC_PATH}">View the under-review list</a>
+        </aside>`;
+}
+
+function renderUnverifiedCompetitionCard(record) {
+  const sourceHost = getSafeHostname(record.officialSourceUrl);
+  return `<article class="unverified-card" data-review-id="${escapeAttribute(record.id)}">
+          <div class="unverified-card__heading">
+            <div>
+              <p class="unverified-card__brand">${escapeHtml(record.brand)}</p>
+              <h2>${escapeHtml(record.title)}</h2>
+            </div>
+            <span class="unverified-card__status">Not verified</span>
+          </div>
+          <dl class="unverified-card__facts">
+            <div><dt>Prize shown</dt><dd>${escapeHtml(record.prize)}</dd></div>
+            <div><dt>Closing date shown</dt><dd>${escapeHtml(shared.formatDate(record.closingDate))}</dd></div>
+            <div><dt>How it appears to work</dt><dd>${escapeHtml(record.entrySummary)}</dd></div>
+            <div><dt>Cost to consider</dt><dd>${escapeHtml(record.costSummary)}</dd></div>
+          </dl>
+          <div class="unverified-card__gap">
+            <p class="unverified-card__gap-label">Why Freehub has not verified it</p>
+            <p>${escapeHtml(record.reviewGap)}</p>
+          </div>
+          <div class="unverified-card__footer">
+            <p>Checked ${escapeHtml(shared.formatDate(record.lastChecked))}</p>
+            <a href="${escapeAttribute(record.officialSourceUrl)}" target="_blank" rel="nofollow noopener noreferrer">Open source on ${escapeHtml(sourceHost)}</a>
+          </div>
+        </article>`;
+}
+
+function renderUnverifiedCompetitionPage(records) {
+  const canonicalUrl = `${shared.CANONICAL_ORIGIN}${unverifiedCompetitionData.PUBLIC_PATH}`;
+  const indexable = records.length >= MIN_INDEXABLE_UNVERIFIED_COMPETITIONS;
+  const title = "Unverified Competitions South Africa | Check Before Entering";
+  const description = "See current South African competition leads Freehub has not verified, with the missing evidence, possible costs, dates and direct promoter-source links clearly disclosed.";
+  const pageData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Competitions under review in South Africa",
+    description,
+    url: canonicalUrl,
+    inLanguage: "en-ZA",
+    dateModified: getUnverifiedPageLastmod(records),
+    isPartOf: { "@type": "WebSite", name: "Freehub", url: `${shared.CANONICAL_ORIGIN}/` },
+  };
+  const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${shared.CANONICAL_ORIGIN}/` },
+      { "@type": "ListItem", position: 2, name: "Competitions", item: `${shared.CANONICAL_ORIGIN}/competitions/` },
+      { "@type": "ListItem", position: 3, name: "Competitions under review", item: canonicalUrl },
+    ],
+  };
+  const listMarkup = records.length > 0
+    ? `<div class="unverified-list">${records.map(renderUnverifiedCompetitionCard).join("\n")}</div>`
+    : `<section class="state-card"><p class="state-card__title">No current leads under review</p><p class="state-card__text">We remove entries once the stated closing date passes. Browse verified competitions while we review new sources.</p><a href="/competitions/">Browse verified competitions</a></section>`;
+
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${escapeHtml(title)}</title>
+    <meta name="description" content="${escapeAttribute(description)}" />
+    <meta name="robots" content="${indexable ? "index, follow, max-image-preview:large" : "noindex, follow"}" />
+    <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="${escapeAttribute(title)}" />
+    <meta property="og:description" content="${escapeAttribute(description)}" />
+    <meta property="og:url" content="${escapeAttribute(canonicalUrl)}" />
+    <meta property="og:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${escapeAttribute(title)}" />
+    <meta name="twitter:description" content="${escapeAttribute(description)}" />
+    <meta name="twitter:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
+    <script id="structured-data-collectionpage" type="application/ld+json">${escapeScript(JSON.stringify(pageData))}</script>
+    <script id="structured-data-breadcrumb" type="application/ld+json">${escapeScript(JSON.stringify(breadcrumbData))}</script>
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
+    ${indexable ? GUEST_ADS_SCRIPT : ""}
+    ${renderGoogleTagManagerHead("{ page_type: 'unverified_competitions' }")}
+    ${renderMetaPixelHead()}
+  </head>
+  <body>
+    ${renderGoogleTagManagerNoScript()}
+    ${renderMetaPixelNoScript()}
+    <div class="site-shell">
+      ${renderTopNavigation({ active: "competitions" })}
+      ${renderModernHero({
+        className: "hero--utility hero--under-review",
+        eyebrow: "Discovery with disclosure",
+        heading: "Competitions under review in South Africa",
+        intro: "These competition leads have not passed Freehub's verification checks. We show what we found, what is still missing and the direct source so you can make your own judgement.",
+        actions: [
+          { label: "Browse verified competitions", href: "/competitions/", className: "btn--primary" },
+          { label: "How Freehub verifies", href: "/how-we-verify-competitions/", className: "btn--secondary" },
+        ],
+        trustItems: ["Not endorsed by Freehub", "Evidence gaps disclosed", "Direct source links"],
+      })}
+      <main id="main-content" class="main-content unverified-page">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/competitions/">Competitions</a><span aria-hidden="true">/</span><span aria-current="page">Under review</span></nav>
+        <section class="unverified-disclosure" aria-labelledby="unverified-disclosure-title">
+          <p class="unverified-disclosure__eyebrow">Important</p>
+          <h2 id="unverified-disclosure-title">Use these leads for discovery, not as a Freehub recommendation</h2>
+          <p>Freehub has not confirmed every material term for the competitions below. A listing here does not mean the competition is legitimate, complete, safe or suitable for you, and Freehub does not run it or collect entries.</p>
+          <ul>
+            <li>Check that the web address and social account belong to the named promoter.</li>
+            <li>Read the full terms for eligibility, costs, renewal clauses, privacy and closing dates.</li>
+            <li>Never pay an unexpected fee to claim a prize or share banking passwords or one-time PINs.</li>
+          </ul>
+        </section>
+        <section class="unverified-page__intro" aria-labelledby="under-review-list-title">
+          <div><p class="unverified-page__kicker">Current watchlist</p><h2 id="under-review-list-title">${records.length} lead${records.length === 1 ? "" : "s"} with unresolved checks</h2></div>
+          <p>Items disappear automatically after their stated closing date. If stronger evidence becomes available, an item can move into Freehub's separate verified listings.</p>
+        </section>
+        ${listMarkup}
+        <section class="unverified-method" aria-labelledby="unverified-method-title">
+          <h2 id="unverified-method-title">What “not verified” means here</h2>
+          <p>We found an apparently relevant promoter or campaign source, but could not confirm one or more important facts such as the complete terms, exact entry route, eligibility, cost or internally consistent dates. We publish no individual Freehub competition page, verified badge or Freehub redirect for these leads.</p>
+          <a href="/report-a-competition/">Report a concern or send better source evidence</a>
+        </section>
+      </main>
+      ${renderSiteFooter()}
+    </div>
+    <script type="module" src="/shared/auth-ui.js"></script>
+  </body>
+</html>`;
+}
+
+function writeUnverifiedCompetitionPage(records) {
+  const outputDirectory = path.join(ROOT_DIR, unverifiedCompetitionData.PUBLIC_PATH.replace(/^\//, "").replace(/\/$/, ""));
+  fs.mkdirSync(outputDirectory, { recursive: true });
+  fs.writeFileSync(path.join(outputDirectory, "index.html"), renderUnverifiedCompetitionPage(records));
 }
 
 function renderTopNavigation(options = {}) {
@@ -5330,6 +5495,7 @@ function renderPage(routeContext, competitions) {
 
         ${isPrimaryCompetitionHub ? renderHubIntroEditorial(routeContext) : ""}
         ${isPrimaryCompetitionHub ? renderInternalLinksSection(routeContext, competitions) : ""}
+        ${isPrimaryCompetitionHub ? renderUnderReviewCallout() : ""}
         ${isPrimaryCompetitionHub ? renderVerticalDiscoveryLinks() : ""}
         ${isPrimaryCompetitionHub ? renderHubSupportLinks(routeContext, competitions) : ""}
         ${isPrimaryCompetitionHub ? renderWhatsAppChannelCta(routeContext) : ""}
@@ -11851,6 +12017,13 @@ function renderOfficialEntryAccounts(competition) {
 function generateSitemap(competitions, routeContexts, sitemapCompetitions = competitions, sitemapOpportunities = [], sitemapOffers = []) {
   const origin = shared.CANONICAL_ORIGIN;
 
+  const unverifiedEntries = publicUnderReviewCompetitions.length >= MIN_INDEXABLE_UNVERIFIED_COMPETITIONS
+    ? [renderSitemapUrl({
+        loc: `${origin}${unverifiedCompetitionData.PUBLIC_PATH}`,
+        lastmod: getUnverifiedPageLastmod(publicUnderReviewCompetitions),
+      })]
+    : [];
+
   const staticEntries = routeContexts
     .filter((routeContext) => routeContext.noindex !== true)
     .map((routeContext) => {
@@ -11944,7 +12117,7 @@ function generateSitemap(competitions, routeContexts, sitemapCompetitions = comp
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-${[...staticEntries, ...trustPageEntries, ...contentPageEntries, ...clubEntries, ...referAndWinEntries, ...videoEntries, ...competitionEntries, ...opportunityEntries, ...offerCollectionEntries, ...offerEntries].join("\n")}
+${[...staticEntries, ...unverifiedEntries, ...trustPageEntries, ...contentPageEntries, ...clubEntries, ...referAndWinEntries, ...videoEntries, ...competitionEntries, ...opportunityEntries, ...offerCollectionEntries, ...offerEntries].join("\n")}
 </urlset>
 `;
 }
