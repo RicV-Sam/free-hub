@@ -29,6 +29,22 @@ const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 FreeHubValidator/1.0";
 const APPROVED_MANUAL_OK_URLS = new Map([
   [
+    "ackermans-account-summer-wardrobe-competition-2026",
+    "https://www.ackermans.co.za/blogs/financial-services/win-a-wardrobe-competition-south-africa",
+  ],
+  [
+    "ackermans-samsung-device-cash-competition-2026",
+    "https://www.ackermans.co.za/blogs/cellular/samsung-deals-stand-a-chance-to-win-r10-000-ts-cs",
+  ],
+  [
+    "cameraland-68th-birthday-om-system-camera-2026",
+    "https://cameraland.co.za/pages/promotional-page",
+  ],
+  [
+    "lite-glo-braai-day-weber-giveaway-2026",
+    "https://www.liteglo.co.za/competitions/",
+  ],
+  [
     "curaprox-house-of-mouth-competition-2026",
     "https://enjoy.curaprox.com/en-za/curaprox-house-of-mouth-competition",
   ],

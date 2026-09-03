@@ -1,8 +1,33 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-09-03",
-  "count": 40,
+  "count": 44,
   "competitions": [
+    {
+      "id": "cameraland-68th-birthday-om-system-camera-2026",
+      "title": "Cameraland 68th Birthday Camera Giveaway 2026",
+      "brand": "Cameraland",
+      "summary": "Complete a qualifying purchase from the Cameraland 68th Birthday Sale for a chance to win an OM System Tough TG-7 camera worth R11,500.",
+      "closingDate": "2026-09-04",
+      "category": "Tech",
+      "prizeName": "OM System Tough TG-7 camera",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Qualifying Birthday Sale Purchase",
+      "eligibility": "Open to South African residents aged 18 or older who complete a qualifying birthday-sale purchase.",
+      "entrySteps": [
+        "Choose a qualifying product from the official Cameraland 68th Birthday Sale collection linked on the campaign page.",
+        "Complete and pay for the qualifying purchase during the promotion period.",
+        "Keep the order and payment record for winner verification.",
+        "Complete the purchase before 23:59 on 4 September 2026; cancelled, returned or unpaid orders do not qualify."
+      ],
+      "officialUrl": "https://cameraland.co.za/pages/promotional-page",
+      "termsUrl": "https://cameraland.co.za/pages/promotional-page",
+      "lastChecked": "2026-09-03",
+      "isHighValue": true,
+      "isClosingSoon": true
+    },
     {
       "id": "mukango-safaris-kruger-living-nyati-giveaway-2026",
       "title": "Mukango Safaris Kruger Living on Nyati Giveaway 2026",
@@ -25,6 +50,31 @@
       "termsUrl": "https://www.instagram.com/p/DcMISmcsqlc/",
       "lastChecked": "2026-08-27",
       "isHighValue": false,
+      "isClosingSoon": true
+    },
+    {
+      "id": "ackermans-samsung-device-cash-competition-2026",
+      "title": "Ackermans Samsung Device R10,000 Cash Competition 2026",
+      "brand": "Ackermans / Samsung",
+      "summary": "Buy a Samsung device early at one of ten participating Ackermans stores and be among that store's first ten qualifying customers for a chance to win R10,000 cash.",
+      "closingDate": "2026-09-06",
+      "category": "Cash",
+      "prizeName": "R10,000 cash",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "In-store",
+      "eligibility": "Open to qualifying South African citizens and permanent residents among the first ten Samsung-device buyers at each participating store.",
+      "entrySteps": [
+        "Visit one of the ten participating Ackermans stores listed in the official terms.",
+        "Purchase a Samsung device during the promotion period.",
+        "Be among the first ten qualifying Samsung-device customers recorded at that store.",
+        "Retain the purchase record and valid South African identity or permanent-residence documentation for verification."
+      ],
+      "officialUrl": "https://www.ackermans.co.za/blogs/cellular/samsung-deals-stand-a-chance-to-win-r10-000-ts-cs",
+      "termsUrl": "https://www.ackermans.co.za/blogs/cellular/samsung-deals-stand-a-chance-to-win-r10-000-ts-cs",
+      "lastChecked": "2026-09-03",
+      "isHighValue": true,
       "isClosingSoon": true
     },
     {
@@ -148,6 +198,31 @@
       "officialUrl": "https://gosouthafrica.co.za/comp/karkloof-1786787263825",
       "termsUrl": "https://gosouthafrica.co.za/comp/karkloof-1786787263825",
       "lastChecked": "2026-08-28",
+      "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "lite-glo-braai-day-weber-giveaway-2026",
+      "title": "Lite-Glo Braai Day Weber Giveaway 2026",
+      "brand": "Lite-Glo",
+      "summary": "Shop online at Lite-Glo and receive one automatic entry for every cumulative R2,000 of qualifying completed purchases for a chance to win a Weber Spirit E-325 GBS gas braai.",
+      "closingDate": "2026-09-20",
+      "category": "Lifestyle",
+      "prizeName": "Weber Spirit E-325 GBS gas braai",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Online",
+      "eligibility": "Open to South African residents aged 18 or older who complete sufficient qualifying online purchases.",
+      "entrySteps": [
+        "Purchase goods through the official Lite-Glo online store during the promotion period.",
+        "Accumulate R2,000 in qualifying completed online purchases to receive one automatic entry.",
+        "Receive another entry for each additional cumulative R2,000, with no stated entry cap.",
+        "Complete qualifying orders before 23:59 on 20 September 2026; counter sales, delivery charges, returns and cancelled orders do not count."
+      ],
+      "officialUrl": "https://www.liteglo.co.za/competitions/",
+      "termsUrl": "https://www.liteglo.co.za/competitions/",
+      "lastChecked": "2026-09-03",
       "isHighValue": true,
       "isClosingSoon": false
     },
@@ -373,6 +448,31 @@
       "officialUrl": "https://www.fnb.co.za/about-fnb/legal-matters/promo-terms/Win-a-Million-eBucks-%26-a-Makro-Voucher-Code-Family-Banking-Competition.pdf",
       "termsUrl": "https://www.fnb.co.za/about-fnb/legal-matters/promo-terms/Win-a-Million-eBucks-%26-a-Makro-Voucher-Code-Family-Banking-Competition.pdf",
       "lastChecked": "2026-07-27",
+      "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "ackermans-account-summer-wardrobe-competition-2026",
+      "title": "Ackermans Account Summer Wardrobe Competition 2026",
+      "brand": "Ackermans",
+      "summary": "Make a purchase on an Ackermans account and complete the official USSD registration for a chance to win one of ten R20,000 digital summer-wardrobe vouchers.",
+      "closingDate": "2026-09-30",
+      "category": "Vouchers",
+      "prizeName": "R20,000 Ackermans digital summer-wardrobe voucher",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "USSD",
+      "eligibility": "Limited to qualifying existing or newly opened Ackermans account holders who complete both the purchase and USSD steps.",
+      "entrySteps": [
+        "Be an existing Ackermans account holder or open a qualifying Ackermans account.",
+        "Purchase any item of any value at an Ackermans store using that account.",
+        "Dial the official campaign USSD code displayed on the Ackermans terms page and follow the prompts.",
+        "Repeat the purchase and USSD process for additional entries before 30 September 2026."
+      ],
+      "officialUrl": "https://www.ackermans.co.za/blogs/financial-services/win-a-wardrobe-competition-south-africa",
+      "termsUrl": "https://www.ackermans.co.za/blogs/financial-services/win-a-wardrobe-competition-south-africa",
+      "lastChecked": "2026-09-03",
       "isHighValue": true,
       "isClosingSoon": false
     },
