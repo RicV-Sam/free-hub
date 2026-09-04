@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-03",
-  "count": 13,
+  "asOfDate": "2026-09-04",
+  "count": 14,
   "counts": {
-    "freeStuff": 13,
+    "freeStuff": 14,
     "resources": 13,
-    "opportunities": 0,
+    "opportunities": 1,
     "offers": 0
   },
   "items": [
@@ -216,6 +216,23 @@
       ],
       "watchOut": "This is Telkom account credit, not cash, a prize draw or a public publisher-affiliate programme. The referred person takes out a paid fibre contract and may face early-termination penalties. Mo'Nice is a separate personalised prepaid promotion, not part of this referral reward.",
       "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "cape-wheel-birthday-club-ride",
+      "kind": "opportunity",
+      "title": "Cape Wheel Birthday Club Free Ride",
+      "provider": "Cape Wheel",
+      "summary": "Cape Wheel Birthday Club members get one free ride.",
+      "category": "birthday_freebie",
+      "categoryLabel": "Birthday freebies",
+      "officialUrl": "https://capewheel.co.za/clubs/",
+      "requirements": [
+        "Free Birthday Club registration before the birthday required",
+        "Identification showing date of birth required",
+        "Printed emailed voucher required for redemption after the actual birthday"
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-09-04"
     }
   ]
 }

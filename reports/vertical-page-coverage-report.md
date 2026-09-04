@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-09-03
+Generated: 2026-09-04
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
@@ -47,7 +47,7 @@ Recommended normalisation:
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| SPAR Polony Win One of Six VW Polo Vivos (spar-polony-win-six-vw-polo-vivos-2026) | 2026-09-21 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
+| SPAR Polony Competition 2026: Win 1 of 6 VW Polo Vivos (spar-polony-win-six-vw-polo-vivos-2026) | 2026-09-21 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | IMANA SUPERSPAR Polofields Potjie Dash Competition 2026 (imana-superspar-polofields-potjie-dash-2026) | 2026-09-25 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | OREO BTS Promotion 2026 (oreo-bts-promotion-2026) | 2026-09-30 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Denny Win Your Share of R100,000 Cash Competition (denny-r100000-cash-competition-2026) | 2026-09-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
@@ -145,7 +145,7 @@ Recommended normalisation:
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| SPAR Polony Win One of Six VW Polo Vivos (spar-polony-win-six-vw-polo-vivos-2026) | 2026-09-21 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
+| SPAR Polony Competition 2026: Win 1 of 6 VW Polo Vivos (spar-polony-win-six-vw-polo-vivos-2026) | 2026-09-21 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | IMANA SUPERSPAR Polofields Potjie Dash Competition 2026 (imana-superspar-polofields-potjie-dash-2026) | 2026-09-25 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery tag; Supermarket or grocery entry text | none |
 | SPAR Colgate-Palmolive Win Your Share of R150,000 Competition (spar-colgate-palmolive-r150k-2026) | 2026-10-17 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Tinkies Distraction Levels Tech Competition 2026 (tinkies-distraction-levels-competition-2026) | 2026-10-19 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |

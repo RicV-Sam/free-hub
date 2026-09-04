@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-03",
+  "asOfDate": "2026-09-04",
   "count": 44,
   "competitions": [
     {
@@ -149,7 +149,7 @@
       "termsUrl": "https://www.instagram.com/p/Db8kM_gjZ1j/",
       "lastChecked": "2026-08-27",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "edgars-win-jaecoo-j5-family-car-2026",
@@ -228,7 +228,7 @@
     },
     {
       "id": "spar-polony-win-six-vw-polo-vivos-2026",
-      "title": "SPAR Polony Win One of Six VW Polo Vivos",
+      "title": "SPAR Polony Competition 2026: Win 1 of 6 VW Polo Vivos",
       "brand": "SPAR South Africa / SPAR Polony",
       "summary": "Buy qualifying SPAR Polony at a participating SUPERSPAR and swipe a SPAR Rewards card for automatic entry to win one of six new Volkswagen Polo Vivo vehicles.",
       "imageUrl": "https://www.spar.co.za/getattachment/27ec621c-bafb-4fb9-b03a-89a1bad17870/Win-One-of-Six-VW-Polo-Vivos-Competition.aspx",
@@ -248,7 +248,7 @@
       ],
       "officialUrl": "https://www.spar.co.za/SPAR-Win-One-of-Six-VW-Polo-Vivos-Competition",
       "termsUrl": "https://www.spar.co.za/SPAR-Win-One-of-Six-VW-Polo-Vivos-Competition",
-      "lastChecked": "2026-08-03",
+      "lastChecked": "2026-09-04",
       "isHighValue": true,
       "isClosingSoon": false
     },
