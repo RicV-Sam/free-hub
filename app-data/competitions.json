@@ -1,33 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-04",
-  "count": 44,
+  "asOfDate": "2026-09-05",
+  "count": 43,
   "competitions": [
-    {
-      "id": "cameraland-68th-birthday-om-system-camera-2026",
-      "title": "Cameraland 68th Birthday Camera Giveaway 2026",
-      "brand": "Cameraland",
-      "summary": "Complete a qualifying purchase from the Cameraland 68th Birthday Sale for a chance to win an OM System Tough TG-7 camera worth R11,500.",
-      "closingDate": "2026-09-04",
-      "category": "Tech",
-      "prizeName": "OM System Tough TG-7 camera",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Qualifying Birthday Sale Purchase",
-      "eligibility": "Open to South African residents aged 18 or older who complete a qualifying birthday-sale purchase.",
-      "entrySteps": [
-        "Choose a qualifying product from the official Cameraland 68th Birthday Sale collection linked on the campaign page.",
-        "Complete and pay for the qualifying purchase during the promotion period.",
-        "Keep the order and payment record for winner verification.",
-        "Complete the purchase before 23:59 on 4 September 2026; cancelled, returned or unpaid orders do not qualify."
-      ],
-      "officialUrl": "https://cameraland.co.za/pages/promotional-page",
-      "termsUrl": "https://cameraland.co.za/pages/promotional-page",
-      "lastChecked": "2026-09-03",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
     {
       "id": "mukango-safaris-kruger-living-nyati-giveaway-2026",
       "title": "Mukango Safaris Kruger Living on Nyati Giveaway 2026",

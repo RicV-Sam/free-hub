@@ -1,14 +1,14 @@
 === Competition Maintenance Report ===
-Date: 2026-09-04
+Date: 2026-09-05
 Mode: archive-expired
 Total competitions: 328
-Active published count: 45
-Expired archive page count: 179
+Active published count: 44
+Expired archive page count: 180
 Low-value expired noindex count: 0
 Held/private count: 104
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 7
+Closing in next 14 days: 6
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -190,15 +190,15 @@ Expired competition IDs:
 - easylife-kitchens-smeg-coffee-hamper-giveaway-2026 (2026-08-31)
 - silvercap-defy-6l-colour-airfryer-giveaway-2026 (2026-08-31)
 - hadeco-80th-birthday-competition-2026 (2026-09-01)
+- cameraland-68th-birthday-om-system-camera-2026 (2026-09-04)
 
 Closing soon (next 14 days):
-- cameraland-68th-birthday-om-system-camera-2026 (0 days)
-- mukango-safaris-kruger-living-nyati-giveaway-2026 (1 days)
-- ackermans-samsung-device-cash-competition-2026 (2 days)
-- mybroadband-pre-black-friday-survey-r2000-2026 (3 days)
-- onedayonly-elephant-walk-tented-camp-getaway-2026 (3 days)
-- wanderout-south-african-conservation-safari-giveaway-2026 (7 days)
-- edgars-win-jaecoo-j5-family-car-2026 (11 days)
+- mukango-safaris-kruger-living-nyati-giveaway-2026 (0 days)
+- ackermans-samsung-device-cash-competition-2026 (1 days)
+- mybroadband-pre-black-friday-survey-r2000-2026 (2 days)
+- onedayonly-elephant-walk-tented-camp-getaway-2026 (2 days)
+- wanderout-south-african-conservation-safari-giveaway-2026 (6 days)
+- edgars-win-jaecoo-j5-family-car-2026 (10 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
