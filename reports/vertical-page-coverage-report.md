@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-09-05
+Generated: 2026-09-06
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
@@ -26,12 +26,14 @@ Recommended normalisation:
 ## SMS Competitions in South Africa
 
 - URL: /sms-competitions-south-africa/
-- Matching active public competitions: 0
+- Matching active public competitions: 1
 - Publication threshold: 3
 - Safe to publish: no
-- Status: held; Only 0 active public matches; requires 3.
+- Status: held; Only 1 active public match; requires 3.
 
-No active public matches were found.
+| Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
+|---|---:|---|---|---|---|---|
+| 1Life Be The 1 to Win Funeral Competition (1life-be-the-1-to-win-funeral-2026) | 2026-11-30 | free-entry | yes | yes | SMS entry tag; SMS or shortcode mentioned in entry text | none |
 
 Recommended normalisation:
 - Do not generate or sitemap this page until active verified inventory improves.
@@ -65,7 +67,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 7
+- Matching active public competitions: 13
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -74,8 +76,14 @@ Recommended normalisation:
 |---|---:|---|---|---|---|---|
 | Win R2,000 – Complete the MyBroadband 2026 Pre-Black Friday Survey (mybroadband-pre-black-friday-survey-r2000-2026) | 2026-09-07 | free-entry | yes | yes | Online entry tag | none |
 | OneDayOnly Elephant Walk Tented Camp Getaway 2026 (onedayonly-elephant-walk-tented-camp-getaway-2026) | 2026-09-07 | free-entry | yes | yes | Online entry mentioned in entry text | none |
+| Samsung August Rate and Review Competition (samsung-august-rate-and-review-2026) | 2026-09-18 | purchase-required | yes | yes | Online entry tag | none |
+| Samsung Rugby's Greatest Rivalry Competition (samsung-supersport-rugbys-greatest-rivalry-2026) | 2026-09-19 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Go South Africa Great Karkloof Escape Competition 2026 (go-south-africa-great-karkloof-escape-2026) | 2026-09-20 | free-entry | yes | yes | Online entry mentioned in entry text | none |
+| Food Lover's Market Heritage Day Competition (food-lovers-market-supersport-heritage-day-2026) | 2026-09-24 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Curaprox House of Mouth Competition 2026 (curaprox-house-of-mouth-competition-2026) | 2026-09-28 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| Penguin Random House Grandest Games Competition (penguin-random-house-grandest-games-2026) | 2026-09-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| Beares Corduroy Couch Competition (beares-corduroy-couch-2026) | 2026-09-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| Beares Russell Hobbs Fridge Competition (beares-russell-hobbs-fridge-2026) | 2026-09-30 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Nedbank YouthX Awards 2026 (nedbank-youthx-awards-2026) | 2026-10-09 | account-required | yes | yes | Online entry tag | none |
 | Wanderlust Reader Travel Awards 2026 Prize Draw (wanderlust-reader-travel-awards-prize-draw-2026) | 2026-10-27 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
@@ -138,7 +146,7 @@ Recommended normalisation:
 ## Supermarket Competitions in South Africa
 
 - URL: /supermarket-competitions-south-africa/
-- Matching active public competitions: 7
+- Matching active public competitions: 9
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -146,7 +154,9 @@ Recommended normalisation:
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
 | SPAR Polony Competition 2026: Win 1 of 6 VW Polo Vivos (spar-polony-win-six-vw-polo-vivos-2026) | 2026-09-21 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
+| Food Lover's Market Heritage Day Competition (food-lovers-market-supersport-heritage-day-2026) | 2026-09-24 | free-entry | yes | yes | Supermarket brand or retail partner | none |
 | IMANA SUPERSPAR Polofields Potjie Dash Competition 2026 (imana-superspar-polofields-potjie-dash-2026) | 2026-09-25 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery tag; Supermarket or grocery entry text | none |
+| SPAR Nutrifresh Spin & Win Competition (spar-nutrifresh-spin-and-win-2026) | 2026-10-02 | free-entry | yes | yes | Supermarket brand or retail partner | none |
 | SPAR Colgate-Palmolive Win Your Share of R150,000 Competition (spar-colgate-palmolive-r150k-2026) | 2026-10-17 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Tinkies Distraction Levels Tech Competition 2026 (tinkies-distraction-levels-competition-2026) | 2026-10-19 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | SPAR Community School Support Competition (spar-community-school-support-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Supermarket brand or retail partner | none |

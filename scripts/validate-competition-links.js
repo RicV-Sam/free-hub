@@ -29,6 +29,54 @@ const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 FreeHubValidator/1.0";
 const APPROVED_MANUAL_OK_URLS = new Map([
   [
+    "1life-be-the-1-to-win-funeral-2026",
+    "https://www.1life.co.za/competitions/be-the-1-to-win-sept-funeral",
+  ],
+  [
+    "beares-corduroy-couch-2026",
+    "https://www.beares.co.za/facebook-competition",
+  ],
+  [
+    "beares-russell-hobbs-fridge-2026",
+    "https://www.beares.co.za/facebook-competition",
+  ],
+  [
+    "food-lovers-market-supersport-heritage-day-2026",
+    "https://campaigns.supersport.com/competitions/3584",
+  ],
+  [
+    "jetour-win-your-way-to-brazil-2026",
+    "https://jetour.co.za/win-your-way-to-brazil-ts-and-cs/",
+  ],
+  [
+    "nedbank-appventure-map-your-future-2026",
+    "https://personal.nedbank.co.za/legal/terms-and-conditions/appventure-map-your-future-competition.html",
+  ],
+  [
+    "penguin-random-house-grandest-games-2026",
+    "https://www.penguinrandomhouse.co.za/tos/tscs-win-the-grandest-games-competition/",
+  ],
+  [
+    "samsung-august-rate-and-review-2026",
+    "https://www.samsung.com/za/offer/rate-and-review/",
+  ],
+  [
+    "samsung-supersport-rugbys-greatest-rivalry-2026",
+    "https://campaigns.supersport.com/competitions/3554",
+  ],
+  [
+    "spar-nutrifresh-spin-and-win-2026",
+    "https://www.spar.co.za/SPAR-Nutrifresh-Competition",
+  ],
+  [
+    "sprite-summer-music-festivals-2026",
+    "https://www.coca-cola.com/za/en/legal/terms-and-conditions-sprite-summer-music-festivals-2026",
+  ],
+  [
+    "ster-kinekor-spa-weekend-watch-and-win-2026",
+    "https://www.sterkinekor.com/competition/spa-weekend-watch-and-win-competition",
+  ],
+  [
     "ackermans-account-summer-wardrobe-competition-2026",
     "https://www.ackermans.co.za/blogs/financial-services/win-a-wardrobe-competition-south-africa",
   ],

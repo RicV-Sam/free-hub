@@ -29,10 +29,10 @@
       "title": "Free Competitions in South Africa | No Purchase Required Giveaways",
       "description": "Find current free-to-enter South African competitions with no purchase required. Compare prizes, closing dates, entry methods and official promoter links.",
       "canonical": "https://freehub.co.za/free-competitions/",
-      "robots": "noindex, follow",
+      "robots": "index, follow, max-image-preview:large",
       "h1": "Free Competitions in South Africa",
       "schemaTypes": ["Answer", "BreadcrumbList", "CollectionPage", "FAQPage", "ListItem", "Question", "WebSite"],
-      "inSitemap": false
+      "inSitemap": true
     },
     {
       "route": "/category/cash/",
