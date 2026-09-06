@@ -4548,6 +4548,14 @@ body {
   gap: 0.4rem;
 }
 
+.competition-image-disclosure {
+  margin: 0;
+  color: rgba(248, 250, 252, 0.74);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
 .competition-hero-card__facts span {
   display: inline-flex;
   align-items: center;

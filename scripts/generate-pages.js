@@ -5747,6 +5747,14 @@ function renderCardStatusBadges(competition, options = {}) {
     .join("\n                  ");
 }
 
+function renderEditorialImageDisclosure(competition) {
+  if (competition?.imageReviewStatus !== "editorial-generated") {
+    return "";
+  }
+
+  return '<p class="competition-image-disclosure">Freehub-created editorial illustration — not official promoter artwork.</p>';
+}
+
 function getCompetitionMediaLayoutClass(competition) {
   const layout = String(competition?.imageLayout || "").toLowerCase();
   return ["portrait", "square", "landscape"].includes(layout) ? ` competition-media--${layout}` : "";
@@ -10416,6 +10424,7 @@ function renderCompetitionDetailHero({
               <div class="competition-hero-card__status-row">
                 ${renderCardStatusBadges(competition, { expired })}
               </div>
+              ${renderEditorialImageDisclosure(competition)}
               <div class="competition-hero-card__facts">
                 <span>${escapeHtml(shared.getPrizeCue(competition))}</span>
                 <span>${escapeHtml(shared.getEntryCostLabel(competition))}</span>

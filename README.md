@@ -46,11 +46,16 @@ Active production site on `https://freehub.co.za`.
 - Held review workflows remain in private/admin tooling and are not part of the public static site output.
 - A separate, explicitly curated discovery registry at `data/unverified-competitions.json` may generate only `/unverified-competitions/`. These records remain blocked from verified listings, individual detail pages, `/out/` redirects, mobile feeds and competition ItemList schema. See `docs/unverified-competition-editorial-policy.md` for the publication and promotion rules.
 
-## Image Strategy (Current)
-Visual fallback order for cards/heroes:
-1. `competition.image` (if present)
-2. Brand/domain-associated image from other known competition entries
-3. Category fallback photo (`Cars`, `Cash`, `Holidays`, `Tech`, `Vouchers`)
+## Competition Image Strategy
+Visual priority for competition cards and heroes:
+1. Accurate, reusable, campaign-specific artwork from the official promoter
+2. A Freehub-created editorial hero based only on verified competition facts
+3. Brand/domain-associated artwork from another known entry as a temporary fallback
+4. A category fallback photo as a temporary last resort
+
+When official campaign artwork is unavailable, create a competition-specific editorial hero before considering the listing complete. Generated artwork must not invent or overstate prizes, entry mechanics, costs, dates, eligibility, product models or endorsements. Review every claim against the approved listing and official source, optimize the image for the web, supply useful alt text, and mark it as `imageReviewStatus: editorial-generated` so the page displays the editorial-artwork disclosure.
+
+See `docs/editorial-competition-image-policy.md` for the production and review checklist.
 
 Metadata fallback (`og:image`, `twitter:image`) may still use the global default image when no explicit/brand image exists.
 
