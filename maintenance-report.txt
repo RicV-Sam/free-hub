@@ -1,14 +1,14 @@
 === Competition Maintenance Report ===
-Date: 2026-09-05
+Date: 2026-09-06
 Mode: archive-expired
-Total competitions: 328
-Active published count: 44
-Expired archive page count: 180
+Total competitions: 340
+Active published count: 55
+Expired archive page count: 181
 Low-value expired noindex count: 0
 Held/private count: 104
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 6
+Closing in next 14 days: 10
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -191,14 +191,19 @@ Expired competition IDs:
 - silvercap-defy-6l-colour-airfryer-giveaway-2026 (2026-08-31)
 - hadeco-80th-birthday-competition-2026 (2026-09-01)
 - cameraland-68th-birthday-om-system-camera-2026 (2026-09-04)
+- mukango-safaris-kruger-living-nyati-giveaway-2026 (2026-09-05)
 
 Closing soon (next 14 days):
-- mukango-safaris-kruger-living-nyati-giveaway-2026 (0 days)
-- ackermans-samsung-device-cash-competition-2026 (1 days)
-- mybroadband-pre-black-friday-survey-r2000-2026 (2 days)
-- onedayonly-elephant-walk-tented-camp-getaway-2026 (2 days)
-- wanderout-south-african-conservation-safari-giveaway-2026 (6 days)
-- edgars-win-jaecoo-j5-family-car-2026 (10 days)
+- ackermans-samsung-device-cash-competition-2026 (0 days)
+- mybroadband-pre-black-friday-survey-r2000-2026 (1 days)
+- onedayonly-elephant-walk-tented-camp-getaway-2026 (1 days)
+- wanderout-south-african-conservation-safari-giveaway-2026 (5 days)
+- ster-kinekor-spa-weekend-watch-and-win-2026 (7 days)
+- edgars-win-jaecoo-j5-family-car-2026 (9 days)
+- samsung-august-rate-and-review-2026 (12 days)
+- samsung-supersport-rugbys-greatest-rivalry-2026 (13 days)
+- go-south-africa-great-karkloof-escape-2026 (14 days)
+- lite-glo-braai-day-weber-giveaway-2026 (14 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
