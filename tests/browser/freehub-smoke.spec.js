@@ -541,6 +541,45 @@ test("paid-entry competition video has one primary embed and an ad-free watch pa
   expect(videoObject.uploadDate).toBe("2026-08-27T09:04:45-07:00");
 });
 
+test("JETOUR competition video links its verified listing and dedicated watch page", async ({ page }) => {
+  await page.route("https://www.youtube-nocookie.com/**", (route) =>
+    route.fulfill({ contentType: "text/html", body: "<!doctype html><title>YouTube embed stub</title>" })
+  );
+
+  await page.goto("/competition/jetour-win-your-way-to-brazil-2026/");
+  const competitionVideo = page.locator(".competition-video");
+  await expect(competitionVideo).toBeVisible();
+  await expect(competitionVideo.locator("iframe")).toHaveAttribute("src", /a7ZElZAkv2A/);
+  await expect(competitionVideo.getByRole("link", { name: "Open the dedicated video page" })).toHaveAttribute(
+    "href",
+    "/videos/jetour-win-your-way-to-brazil-competition/"
+  );
+
+  await page.goto("/videos/jetour-win-your-way-to-brazil-competition/");
+  await expect(page).toHaveTitle("Win a Trip to Brazil with JETOUR | Freehub Video");
+  await expectCanonical(page, "/videos/jetour-win-your-way-to-brazil-competition/");
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /max-video-preview:-1/);
+  await expect(page.locator(".video-watch-hero__player iframe")).toHaveAttribute("src", /a7ZElZAkv2A/);
+  await expect(page.getByRole("heading", { level: 2, name: "Video transcript" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Check the competition details" })).toHaveAttribute(
+    "href",
+    "/competition/jetour-win-your-way-to-brazil-2026/"
+  );
+  await expect(page.getByRole("link", { name: "Competitions", exact: true }).first()).toHaveAttribute(
+    "aria-current",
+    "page"
+  );
+  await expect(page.locator(`script[src="${GUEST_ADS_LOADER_SRC}"]`)).toHaveCount(0);
+
+  const videoObject = await page.locator("#structured-data-video").evaluate((script) =>
+    JSON.parse(script.textContent || "{}")
+  );
+  expect(videoObject["@type"]).toBe("VideoObject");
+  expect(videoObject.embedUrl).toBe("https://www.youtube.com/embed/a7ZElZAkv2A");
+  expect(videoObject.duration).toBe("PT28S");
+  expect(videoObject.uploadDate).toBe("2026-09-06T02:58:59-07:00");
+});
+
 test("Free Stuff parent preserves intent and separates durable resources from opportunities", async ({ page }) => {
   await page.goto("/free-stuff-south-africa/");
   await expect(page).toHaveTitle("Where to Find Free Stuff in South Africa | Legit Freebies");

@@ -8095,6 +8095,25 @@ function renderCompetitionVideoPage(competition, video) {
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/videos/${video.slug}/`;
   const competitionPath = `/competition/${video.competitionSlug}/`;
   const pageTitle = `${video.title} | Freehub Video`;
+  const paidEntry = shared.isPaidEntryCompetition(competition);
+  const collectionPath = paidEntry ? "/paid-entry-competitions/" : "/competitions/";
+  const collectionName = paidEntry ? "Verified Paid-Entry Competitions" : "Competitions";
+  const activeNavigation = paidEntry ? "paid-entry" : "competitions";
+  const detailCtaLabel = paidEntry ? "Check the raffle details" : "Check the competition details";
+  const heroIntro = video.heroIntro || (paidEntry
+    ? "This video introduces the prize and ticket cost. Check Freehub's reviewed listing and the promoter's official rules before buying a ticket."
+    : "This video introduces the competition prize. Check Freehub's reviewed listing and the promoter's official rules before entering.");
+  const guidanceKicker = paidEntry ? "Before buying a ticket" : "Before entering";
+  const guidanceText = paidEntry
+    ? `This is a paid-entry charity raffle at ${competition.entryFeeLabel || shared.getEntryCostLabel(competition)}. Freehub does not sell tickets or process payments. The promoter's campaign artwork states the society lottery scheme is registered with the National Lotteries Commission under reference ${competition.paidEntryRegulatoryReference || "shown on the official campaign artwork"}.`
+    : `${competition.entryCostSummary || shared.getEntryCostLabel(competition)} Freehub does not run this competition or collect entries. Check the promoter's official rules for every qualifying action, deadline and exclusion.`;
+  const transcriptMarkup = video.transcript
+    ? `<section class="trust-page__section" aria-labelledby="competition-video-transcript-heading">
+            <p class="section-kicker">Accessible text version</p>
+            <h2 id="competition-video-transcript-heading">Video transcript</h2>
+            <p>${escapeHtml(video.transcript)}</p>
+          </section>`
+    : "";
   const videoStructuredData = buildVideoStructuredData(video, canonicalUrl);
   const breadcrumbData = {
     "@context": "https://schema.org",
@@ -8109,8 +8128,8 @@ function renderCompetitionVideoPage(competition, video) {
       {
         "@type": "ListItem",
         position: 2,
-        name: "Verified Paid-Entry Competitions",
-        item: `${shared.CANONICAL_ORIGIN}/paid-entry-competitions/`,
+        name: collectionName,
+        item: `${shared.CANONICAL_ORIGIN}${collectionPath}`,
       },
       {
         "@type": "ListItem",
@@ -8174,15 +8193,15 @@ function renderCompetitionVideoPage(competition, video) {
     ${renderGoogleTagManagerNoScript()}
     ${renderMetaPixelNoScript()}
     <div class="site-shell">
-      ${renderTopNavigation({ active: "paid-entry" })}
+      ${renderTopNavigation({ active: activeNavigation })}
       <main id="main-content">
         <header class="video-watch-hero">
           <div class="video-watch-hero__copy">
             <p class="eyebrow">Freehub competition video · ${escapeHtml(video.durationSeconds)} seconds</p>
             <h1>${escapeHtml(video.title)}</h1>
-            <p>This video introduces the prize and ticket cost. Check Freehub's reviewed listing and the promoter's official rules before buying a ticket.</p>
+            <p>${escapeHtml(heroIntro)}</p>
             <div class="hero__actions">
-              <a class="btn btn--primary" href="${escapeAttribute(competitionPath)}">Check the raffle details</a>
+              <a class="btn btn--primary" href="${escapeAttribute(competitionPath)}">${escapeHtml(detailCtaLabel)}</a>
               <a class="btn btn--secondary" href="${escapeAttribute(video.watchUrl)}" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
             </div>
           </div>
@@ -8202,22 +8221,24 @@ function renderCompetitionVideoPage(competition, video) {
         <div class="main-content video-watch-page">
           <section class="trust-page__section" aria-labelledby="video-summary-heading">
             <p class="section-kicker">Video summary</p>
-            <h2 id="video-summary-heading">What the 27-second video covers</h2>
+            <h2 id="video-summary-heading">What the ${escapeHtml(video.durationSeconds)}-second video covers</h2>
             <p>${escapeHtml(video.summary)}</p>
           </section>
 
-          <section class="trust-page__section" aria-labelledby="paid-entry-check-heading">
-            <p class="section-kicker">Before buying a ticket</p>
-            <h2 id="paid-entry-check-heading">Use the reviewed competition page for the full entry details</h2>
-            <p>This is a paid-entry charity raffle at R150 per ticket. Freehub does not sell tickets or process payments. The promoter's campaign artwork states the society lottery scheme is registered with the National Lotteries Commission under reference ${escapeHtml(competition.paidEntryRegulatoryReference || "shown on the official campaign artwork")}.</p>
-            <a class="btn btn--primary" href="${escapeAttribute(competitionPath)}">View the verified paid-entry listing</a>
+          ${transcriptMarkup}
+
+          <section class="trust-page__section" aria-labelledby="competition-entry-check-heading">
+            <p class="section-kicker">${escapeHtml(guidanceKicker)}</p>
+            <h2 id="competition-entry-check-heading">Use the reviewed competition page for the full entry details</h2>
+            <p>${escapeHtml(guidanceText)}</p>
+            <a class="btn btn--primary" href="${escapeAttribute(competitionPath)}">View the verified competition listing</a>
           </section>
 
           <nav class="internal-links" aria-label="Related video and competition links">
             <p class="internal-links__title">Continue on Freehub or YouTube</p>
             <div class="internal-links__list">
-              <a class="internal-links__link" href="/paid-entry-competitions/">Verified paid-entry competitions</a>
-              <a class="internal-links__link" href="${escapeAttribute(competitionPath)}">SA Guide-Dogs raffle details</a>
+              <a class="internal-links__link" href="${escapeAttribute(collectionPath)}">${escapeHtml(collectionName)}</a>
+              <a class="internal-links__link" href="${escapeAttribute(competitionPath)}">${escapeHtml(competition.brand || "Competition")} competition details</a>
               ${video.alternateWatchUrl ? `<a class="internal-links__link" href="${escapeAttribute(video.alternateWatchUrl)}" target="_blank" rel="noopener noreferrer">Watch the alternative cut on YouTube</a>` : ""}
             </div>
           </nav>
@@ -12300,10 +12321,13 @@ function runVideoPageStaticChecks(activeCompetitions = []) {
       errors.push(`Competition video page is missing its visible summary: ${competitionVideo.slug}.`);
     }
     if (videoHtml.includes(GUEST_ADS_SCRIPT_SRC)) {
-      errors.push(`Paid-entry competition video page must remain ad-free: ${competitionVideo.slug}.`);
+      errors.push(`Competition video page must remain ad-free: ${competitionVideo.slug}.`);
     }
-    if (!videoHtml.includes('href="/paid-entry-competitions/" aria-current="page"')) {
-      errors.push(`Competition video page is missing the active Paid Entry navigation state: ${competitionVideo.slug}.`);
+    const expectedActiveNavigationPath = shared.isPaidEntryCompetition(competition)
+      ? "/paid-entry-competitions/"
+      : "/competitions/";
+    if (!videoHtml.includes(`href="${expectedActiveNavigationPath}" aria-current="page"`)) {
+      errors.push(`Competition video page is missing the expected active navigation state: ${competitionVideo.slug}.`);
     }
     if (competitionVideo.alternateWatchUrl) {
       const alternateId = String(competitionVideo.alternateWatchUrl).split("/").filter(Boolean).pop();
@@ -12322,7 +12346,7 @@ function runVideoPageStaticChecks(activeCompetitions = []) {
       if (!competitionHtml.includes(escapeAttribute(competitionVideo.privacyEmbedUrl))) {
         errors.push(`Competition page is missing its primary video embed: ${competitionVideo.competitionSlug}.`);
       }
-      if (competitionHtml.includes(GUEST_ADS_SCRIPT_SRC) || competition.adsAllowed !== false) {
+      if (shared.isPaidEntryCompetition(competition) && (competitionHtml.includes(GUEST_ADS_SCRIPT_SRC) || competition.adsAllowed !== false)) {
         errors.push(`Paid-entry competition page with video must remain ad-free: ${competitionVideo.competitionSlug}.`);
       }
     }
