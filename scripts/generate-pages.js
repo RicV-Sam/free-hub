@@ -198,6 +198,10 @@ const CONTENT_INDEX_PAGES = [
   },
 ];
 const MONTHLY_GUIDE_SLUG = "best-competitions-south-africa-this-month";
+const EDITORIAL_BANNER_GUIDES = new Set([
+  "free-stuff-south-africa", "birthday-freebies", "free-online-courses-south-africa",
+  "free-samples-south-africa", MONTHLY_GUIDE_SLUG,
+]);
 let brandImageLookup = new Map();
 let generatedVerticalPagesForLinks = [];
 let approvedPublicOpportunities = [];
@@ -357,7 +361,7 @@ const TRUST_PAGE_DEFINITIONS = [
         heading: "Cookies and analytics",
         paragraphs: [
           "The site may use cookies or similar technologies through analytics and measurement tools. These are used to understand site performance and user journeys.",
-          "Freehub may show one clearly labelled Adsterra Native Banner on selected competition-browsing pages and the Free Stuff, Birthday Freebies, Free Courses and student guides. The student guide may also show a separate labelled display banner. These placements load as readers approach them, only after Firebase confirms that a visitor is signed out. Legacy Popunder and Social Bar formats are limited to closed, noindex competition archive pages. Adsterra and its partners may use cookies or similar technologies to serve, limit and measure ads where permitted. Signed-in Freehub Club members are not served these Adsterra formats.",
+          "Freehub may show one clearly labelled Adsterra Native Banner on selected competition-browsing pages and the Free Stuff, Birthday Freebies, Free Courses and student guides. A separate labelled display banner may appear on these guides, Free Samples and the monthly competition guide. These placements load as readers approach them, only after Firebase confirms that a visitor is signed out. Legacy Popunder and Social Bar formats are limited to closed, noindex competition archive pages. Adsterra and its partners may use cookies or similar technologies to serve, limit and measure ads where permitted. Signed-in Freehub Club members are not served these Adsterra formats.",
           "Advertising is separate from Freehub's competition listings and does not mean that an advertiser runs, verifies or endorses a listed competition. Consent choices and applicable controls should be presented before advertising cookies are used where the law requires them.",
         ],
       },
@@ -3843,6 +3847,17 @@ function renderStudentAdBreak(categoryId) {
   return "";
 }
 
+function renderEditorialBanner(slug) {
+  if (!EDITORIAL_BANNER_GUIDES.has(slug)) return "";
+  return `<div class="guide-ad-region"><aside class="student-ad student-ad--display" data-freehub-display-slot data-freehub-ad-lazy data-placement="guide-${escapeAttribute(slug)}" aria-label="Advertisement">
+    <p class="ad-slot__label">Advertisement</p><div class="student-ad__banner"></div>
+  </aside></div>`;
+}
+
+function renderEditorialAdStyles(slug) {
+  return EDITORIAL_BANNER_GUIDES.has(slug) ? '<link rel="stylesheet" href="/assets/editorial-guide-ads.css?v=20260907" />' : "";
+}
+
 function renderGuestAdSlot(placement) {
   return `<aside class="ad-slot ad-slot--native" data-freehub-ad-slot data-freehub-ad-lazy data-placement="${escapeAttribute(placement)}" aria-label="Sponsored advertisement">
           <p class="ad-slot__label">Sponsored</p>
@@ -7156,6 +7171,7 @@ function renderFreeStuffParentPage(page) {
     ${opportunityStructuredData ? `<script id="structured-data-opportunities" type="application/ld+json">${escapeScript(JSON.stringify(opportunityStructuredData))}</script>` : ""}
     ${faqStructuredData ? `<script id="structured-data-faq" type="application/ld+json">${escapeScript(JSON.stringify(faqStructuredData))}</script>` : ""}
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
+    ${renderEditorialAdStyles(page.slug)}
     ${GUEST_ADS_SCRIPT}
     ${renderGoogleTagManagerHead("{ page_type: 'free_stuff_parent', trust_page: 'free-stuff-south-africa' }")}
     ${renderMetaPixelHead()}
@@ -7214,6 +7230,8 @@ function renderFreeStuffParentContent({ page, pageResources, featuredOpportuniti
           pageType: "free_stuff_parent",
           kicker: "Durable resources",
         })}
+
+        ${renderEditorialBanner(page.slug)}
 
         ${renderFreeStuffCompetitionCallout()}
 
@@ -7453,6 +7471,7 @@ function renderFreeSamplesPage(page) {
     ${productTestingStructuredData ? `<script id="structured-data-product-testing" type="application/ld+json">${escapeScript(JSON.stringify(productTestingStructuredData))}</script>` : ""}
     <script id="structured-data-faq" type="application/ld+json">${escapeScript(JSON.stringify(faqStructuredData))}</script>
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
+    ${renderEditorialAdStyles(page.slug)}
     ${GUEST_ADS_SCRIPT}
     ${renderGoogleTagManagerHead("{ page_type: 'free_samples_vertical', trust_page: 'free-samples-south-africa' }")}
     ${renderMetaPixelHead()}
@@ -7541,6 +7560,8 @@ function renderFreeSamplesPage(page) {
           kicker: "Brand sources",
         })}
         </div>
+
+        ${renderEditorialBanner(page.slug)}
 
         <div id="product-testing-panels" class="anchor-target">
         ${freeResourceRenderer.renderFreeResourceSection({
@@ -8436,6 +8457,7 @@ function renderTrustPage(page) {
     ${faqStructuredDataScript}
     ${serviceStructuredDataScript}
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
+    ${renderEditorialAdStyles(page.slug)}
     ${(isStudentGuide || page.studentOffer) ? '<link rel="stylesheet" href="/assets/student-guide.css?v=20260907-ads" />\n    ' : ""}${page.adsAllowed === false ? "" : GUEST_ADS_SCRIPT}
     ${renderGoogleTagManagerHead(`{ page_type: 'trust', trust_page: ${escapeScript(JSON.stringify(page.slug))} }`)}
     ${renderMetaPixelHead()}
@@ -8497,6 +8519,7 @@ function renderTrustPage(page) {
           description: page.resourceIntro || "Use official source links and check what is actually free before signing up.",
           pageType: "trust",
         })}
+        ${renderEditorialBanner(page.slug)}
         ${renderTrustChecklist(page)}
         ${renderTrustFaqSection(faqItems)}
         ${page.studentOffer ? "" : renderDatacostPromo({
@@ -8722,6 +8745,7 @@ function renderMonthlyGuidePage(activeCompetitions) {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <script id="structured-data-article" type="application/ld+json">${escapeScript(JSON.stringify(jsonLd))}</script>
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
+    ${renderEditorialAdStyles(MONTHLY_GUIDE_SLUG)}
     ${GUEST_ADS_SCRIPT}
     ${renderGoogleTagManagerHead("{ page_type: 'monthly_guide' }")}
     ${renderMetaPixelHead()}
@@ -8760,6 +8784,7 @@ function renderMonthlyGuidePage(activeCompetitions) {
         </section>
 
         ${renderMonthlyGuideTable(featuredCompetitions)}
+        ${renderEditorialBanner(MONTHLY_GUIDE_SLUG)}
 
         <section class="seo-copy-block" aria-label="Safety checklist">
           <h2 class="seo-copy-block__title">Safety checklist</h2>

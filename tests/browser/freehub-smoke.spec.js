@@ -1326,3 +1326,37 @@ test('content advertising remains absent for members and protected pages', async
     expect(html).not.toContain('data-freehub-display-slot');
   }
 });
+
+for(const route of ['/free-stuff-south-africa/','/birthday-freebies/','/free-online-courses-south-africa/','/free-samples-south-africa/','/best-competitions-south-africa-this-month/']) {
+  test(`editorial display banner is lazy, responsive and member-free: ${route}`,async({page})=>{
+    await mockFirebaseAuth(page);
+    await stubAdsterra(page);
+    const display=await stubStudentDisplay(page);
+    await page.setViewportSize({width:320,height:844});
+    await page.goto(route);
+    await expect(page.locator('html')).toHaveAttribute('data-freehub-ad-state','guest');
+    const slot=page.locator('[data-freehub-display-slot]');
+    await expect(slot).toHaveCount(1);
+    await expect(slot).toBeHidden();
+    expect(display.count).toBe(0);
+    await page.setViewportSize({width:390,height:844});
+    await slot.scrollIntoViewIfNeeded();
+    await expect.poll(()=>display.count).toBe(1);
+    await expect(page.frameLocator('iframe[data-freehub-display-ad]').getByText('Test display banner')).toBeVisible();
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+    await page.screenshot({path:'output/playwright/editorial-banner-'+route.split('/')[1]+'.png'});
+    for(const width of [768,1440]){
+      await page.setViewportSize({width,height:900});
+      expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+    }
+    await page.setViewportSize({width:1280,height:900});
+    await page.addStyleTag({content:'html { zoom: 2; }'});
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+    const navigation=page.waitForNavigation();
+    await page.evaluate(member=>window.__freehubEmitAuth(member),MOCK_MEMBER);
+    await navigation;
+    await expect(page.locator('html')).toHaveAttribute('data-freehub-ad-state','member');
+    await expect(slot).toBeHidden();
+    expect(display.count).toBe(1);
+  });
+}

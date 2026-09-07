@@ -1,0 +1,9 @@
+/* Fixed-size display ads occupy their own labelled space between guide sections. */
+.guide-ad-region { container-type: inline-size; width: 100%; min-width: 0; }
+.guide-ad-region .student-ad--display { display: none; max-width: 360px; margin: 2rem auto; padding: .65rem; border: 1px solid #d8dfdc; border-radius: 8px; background: #fff; }
+html[data-freehub-ad-state="guest"] .guide-ad-region .student-ad--display { display: block; }
+.guide-ad-region .student-ad__banner { width: 320px; height: 50px; margin: 0 auto; }
+.guide-ad-region iframe { display: block; width: 320px; height: 50px; border: 0; }
+@container (max-width: 344px) {
+  html[data-freehub-ad-state="guest"] .guide-ad-region .student-ad--display { display: none; }
+}

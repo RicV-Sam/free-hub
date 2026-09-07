@@ -48,3 +48,11 @@ The browser coverage verifies the format split, fail-closed auth behaviour and p
 Native units now load when a confirmed guest approaches the placement (200 px preload margin). One native unit per page remains the limit. The display banner remains exclusive to the student guide. Protected entry, account and safety pages have no placements. The privacy disclosure names the expanded content pages and the separate display format. Existing archive-only formats are unchanged.
 
 Validation for this expansion: build passed; all 17 selected browser tests passed (three new content pages, competition browsing, existing student flows, member suppression, guest-to-member cleanup and disclosure). All 30 generated native placements have lazy-loading markers, with no duplicate native units on a page; only the student guide has a display placement. Broader checks retain the pre-existing competition snapshot failure (97 lifecycle tests pass) and the two existing SEO failures (sitemap baseline count and Free Samples description). No baseline expectations were relaxed for this change.
+
+## Longer editorial guides — 7 September 2026
+
+The separate 320x50 display placement now also appears on Free Stuff, Birthday Freebies, Free Courses, Free Samples and the monthly competition guide. Each has exactly one labelled display placement between content blocks. This supersedes the student-only display scope above. The existing student placement and native units are unchanged.
+
+The shared loader waits for confirmed guest status and proximity to the placement. The banner is hidden when its content container is too narrow for the fixed 320px creative. Safety, children’s, credit-report, account and outbound pages remain outside this explicit allowlist.
+
+Validation: production-flag build passed; all 15 selected browser tests passed, covering all five new placements, student regressions and privacy disclosure. The new cases check 320/390/768/1440px layouts, 200% zoom, one request per placement and member cleanup. A mobile screenshot was visually inspected. Existing broader baseline failures documented above were not altered.
