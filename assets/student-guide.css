@@ -52,3 +52,13 @@
   .student-jump ul { display: block; }
   .student-jump li { margin: .25rem 0; }
 }
+/* Keep advertising distinct from verified offer entries. */
+.student-ad { max-width: 360px; margin: 2.5rem auto; border-radius: 8px; }
+.student-ad--display { display: none; padding: .65rem; border: 1px solid #d8dfdc; background: #fff; }
+html[data-freehub-ad-state="guest"] .student-ad--display { display: block; }
+.student-ad__banner { width: 320px; height: 50px; margin: 0 auto; }
+.student-ad__banner iframe { display: block; width: 320px; height: 50px; border: 0; }
+.student-guide { container-type: inline-size; }
+@container (max-width: 344px) {
+  html[data-freehub-ad-state="guest"] .student-ad--display { display: none; }
+}

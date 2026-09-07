@@ -43,7 +43,7 @@ const LIFECYCLE_REFERENCE_DATE_ISO = process.env.FREEHUB_AS_OF_DATE || getLocalI
 shared.setReferenceDate(LIFECYCLE_REFERENCE_DATE_ISO);
 // Validate before any generated files are written. Use the lifecycle clock, not SEO snapshot dates.
 validateStudentGuide(STUDENT_GUIDE, LIFECYCLE_REFERENCE_DATE_ISO);
-const renderStudentGuide = createStudentGuideRenderer({ escapeHtml, escapeAttribute, formatDate: shared.formatDate });
+const renderStudentGuide = createStudentGuideRenderer({ escapeHtml, escapeAttribute, formatDate: shared.formatDate, renderAdBreak: renderStudentAdBreak });
 const renderStudentOffer = createStudentOfferRenderer({ escapeHtml, escapeAttribute, formatDate: shared.formatDate });
 
 function containsAdsterraVendorUrl(value) {
@@ -3832,6 +3832,15 @@ function isFlagshipSeoHub(routeContext) {
 
 function renderUpdatedNotice() {
   return `<p class="hero__updated">Updated: ${escapeHtml(shared.formatDate(BUILD_DATE_ISO))}</p>`;
+}
+
+function renderStudentAdBreak(categoryId) {
+  if (categoryId === "everyday") return renderGuestAdSlot("student-after-software")
+    .replace('class="ad-slot ad-slot--native"', 'class="ad-slot ad-slot--native student-ad" data-freehub-ad-lazy');
+  if (categoryId === "attractions") return `<aside class="student-ad student-ad--display" data-freehub-display-slot data-freehub-ad-lazy aria-label="Advertisement">
+    <p class="ad-slot__label">Advertisement</p><div class="student-ad__banner"></div>
+  </aside>`;
+  return "";
 }
 
 function renderGuestAdSlot(placement) {
@@ -8425,7 +8434,7 @@ function renderTrustPage(page) {
     ${faqStructuredDataScript}
     ${serviceStructuredDataScript}
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
-    ${(isStudentGuide || page.studentOffer) ? '<link rel="stylesheet" href="/assets/student-guide.css?v=20260907" />\n    ' : ""}${page.adsAllowed === false ? "" : GUEST_ADS_SCRIPT}
+    ${(isStudentGuide || page.studentOffer) ? '<link rel="stylesheet" href="/assets/student-guide.css?v=20260907-ads" />\n    ' : ""}${page.adsAllowed === false ? "" : isStudentGuide ? GUEST_ADS_SCRIPT.replace(RELEASE_ASSET_VERSION, "20260907-student-ads-v1") : GUEST_ADS_SCRIPT}
     ${renderGoogleTagManagerHead(`{ page_type: 'trust', trust_page: ${escapeScript(JSON.stringify(page.slug))} }`)}
     ${renderMetaPixelHead()}
   </head>

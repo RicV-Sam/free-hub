@@ -86,3 +86,11 @@ Publication was explicitly authorised by the user. The release was assembled in 
 - Baseline increments cover only the new guide, 22 notices and one discovery link. Existing failures were not hidden by relaxing expectations.
 
 The earlier local-checkout results above remain historical evidence; these release checks apply to the current production branch. Live availability will be checked after the deployment workflow completes.
+
+## Two advertising placements — 7 September 2026
+
+Following Adsterra support's recommendation against multiple native units, this update adds one existing 1x1 native placement after software/AI and a separate 320x50 display banner before attractions. The display code was obtained from FreeHub's Adsterra dashboard and independently supplied by the user. Adult ads were disabled when requesting the unit.
+
+Both placements are labelled and load near the viewport only after Firebase confirms a guest. Signed-in, pending-authentication and unavailable-authentication states remain ad-free. Member sign-in removes the display frame and reloads into the existing clean member document. The fixed-width banner is hidden when the guide's available width cannot fit it. The banner snippet runs in a sandboxed frame so document-writing code cannot replace the guide. No additional ads were added to provider notices.
+
+Validation: build and 17 student lifecycle tests passed; 11 selected browser checks passed, including all seven editorial checks, both new ad tests, the homepage native-ad check and guest-to-member cleanup. Two older competition-ad tests failed on both this build and the unchanged production baseline. Performance validation had no hard failures and retained the existing shared-CSS warning. Provider network responses are stubbed in regression tests; those tests verify integration and authentication boundaries, not paid impressions or revenue.

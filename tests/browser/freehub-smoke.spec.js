@@ -1232,3 +1232,59 @@ test("About page explains Freehub, suppresses guest ads and tracks its primary j
     expect(events.some((entry) => entry[1] === eventName)).toBe(true);
   }
 });
+
+const STUDENT_DISPLAY_SRC = 'https://www.highrevenueformat.com/d6fbe29ea96be9bee8e66b507c1f3d55/invoke.js';
+async function stubStudentDisplay(page) {
+  const requests = { count: 0 };
+  await page.route(STUDENT_DISPLAY_SRC, route => {
+    requests.count++;
+    return route.fulfill({ contentType: 'application/javascript', body: `document.write('<div style="width:320px;height:50px;background:#e8eee9;text-align:center">Test display banner</div>');` });
+  });
+  return requests;
+}
+
+test('student ads load once near their placements and clear on member sign-in', async ({page}) => {
+  await page.setViewportSize({width:390,height:844});
+  await mockFirebaseAuth(page);
+  const native = await stubAdsterra(page);
+  const display = await stubStudentDisplay(page);
+  await page.goto('/student-freebies-discounts-south-africa/');
+  await expect(page.locator('html')).toHaveAttribute('data-freehub-ad-state','guest');
+  expect(native.nativeBanner).toBe(0);
+  expect(display.count).toBe(0);
+  await expect(page.locator('#software + .student-ad + #everyday')).toHaveCount(1);
+  await expect(page.locator('.student-ad--display + #attractions')).toHaveCount(1);
+  await page.locator('.student-ad--display').scrollIntoViewIfNeeded();
+  await expect.poll(()=>display.count).toBe(1);
+  await expect(page.frameLocator('iframe[data-freehub-display-ad]').getByText('Test display banner')).toBeVisible();
+  await page.locator('[data-placement="student-after-software"]').scrollIntoViewIfNeeded();
+  await expect.poll(()=>native.nativeBanner).toBe(1);
+  await page.evaluate(()=>{window.__freehubEmitAuth(null);window.__freehubEmitAuth(null)});
+  await page.locator('.student-ad--display').scrollIntoViewIfNeeded();
+  expect(display.count).toBe(1);
+  expect(native).toEqual({nativeBanner:1,popunder:0,socialBar:0});
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await page.screenshot({path:'output/playwright/student-display-mobile.png'});
+  const navigation=page.waitForNavigation();
+  await page.evaluate(member=>window.__freehubEmitAuth(member),MOCK_MEMBER);
+  await navigation;
+  await expect(page.locator('html')).toHaveAttribute('data-freehub-ad-state','member');
+  await expect(page.locator('iframe[data-freehub-display-ad]')).toHaveCount(0);
+  await expect(page.locator('.student-ad--display')).toBeHidden();
+  expect(display.count).toBe(1);
+});
+
+test('student ads remain suppressed for members, pending auth and narrow banners', async ({page})=>{
+  await mockFirebaseAuth(page,{signedIn:true,authDelayMs:750});
+  const native=await stubAdsterra(page), display=await stubStudentDisplay(page);
+  await page.goto('/student-freebies-discounts-south-africa/');
+  await page.locator('#attractions').scrollIntoViewIfNeeded();
+  await expect(page.locator('html')).toHaveAttribute('data-freehub-ad-state','member');
+  expect(native.nativeBanner+display.count).toBe(0);
+  await page.setViewportSize({width:320,height:900});
+  await page.evaluate(()=>window.__freehubEmitAuth(null));
+  await expect(page.locator('html')).toHaveAttribute('data-freehub-ad-state','guest');
+  await expect(page.locator('.student-ad--display')).toBeHidden();
+  expect(display.count).toBe(0);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
