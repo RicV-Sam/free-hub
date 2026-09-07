@@ -4,18 +4,21 @@
 
 Freehub keeps Adsterra as a controlled secondary monetisation layer instead of using aggressive formats across the public site.
 
-- Homepage and indexable competition collection pages: one clearly labelled Native Banner placement.
+- Homepage and indexable competition collection pages: one clearly labelled, lazy-loaded Native Banner placement.
+- Free Stuff, Birthday Freebies and Free Courses: one clearly labelled, lazy-loaded Native Banner each.
+- Student guide: one native unit after software and one separate 320x50 display unit before attractions, both lazy-loaded.
 - Closed, noindex competition archive pages: legacy Popunder and Social Bar formats may load for signed-out visitors.
-- Active competition details, outbound handoffs, trust/editorial pages, Club/account pages and other pages without an explicit placement: no external Adsterra unit.
+- Active competition details, outbound handoffs, other trust/editorial pages, Club/account pages and other pages without an explicit placement: no external Adsterra unit.
 - Signed-in Freehub Club members: no Adsterra formats on any page.
 
 ## Adsterra dashboard
 
-The `freehub.co.za` website has three active units:
+The original three units remain; the student display banner was added on 7 September 2026:
 
 - `Browse_Native_1x1`: Native Banner, one-card 1:1 layout, adult ads disabled.
 - `Archive_Popunder`: legacy Popunder retained for archive pages only.
 - `Archive_SocialBar`: legacy Social Bar retained for archive pages only.
+- Student display banner: approved 320x50 unit, key `d6fbe29ea96be9bee8e66b507c1f3d55`; adult ads were disabled when requesting it.
 
 The dashboard does not enforce page scope. `shared/guest-ads.js` owns that routing and must remain the only place containing provider URLs.
 
@@ -39,3 +42,9 @@ npx playwright test tests/browser/freehub-smoke.spec.js --grep "native banner|ar
 ```
 
 The browser coverage verifies the format split, fail-closed auth behaviour and protected pages.
+
+## Content-page expansion — 7 September 2026
+
+Native units now load when a confirmed guest approaches the placement (200 px preload margin). One native unit per page remains the limit. The display banner remains exclusive to the student guide. Protected entry, account and safety pages have no placements. The privacy disclosure names the expanded content pages and the separate display format. Existing archive-only formats are unchanged.
+
+Validation for this expansion: build passed; all 17 selected browser tests passed (three new content pages, competition browsing, existing student flows, member suppression, guest-to-member cleanup and disclosure). All 30 generated native placements have lazy-loading markers, with no duplicate native units on a page; only the student guide has a display placement. Broader checks retain the pre-existing competition snapshot failure (97 lifecycle tests pass) and the two existing SEO failures (sitemap baseline count and Free Samples description). No baseline expectations were relaxed for this change.

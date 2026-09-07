@@ -5,7 +5,7 @@ const opportunitiesEnabled = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true"
 const offersEnabled = process.env.FREEHUB_ENABLE_OFFERS === "true";
 const usesReviewedPilotDate = process.env.FREEHUB_BUILD_DATE === "2026-07-31";
 const RELEASE_ASSET_VERSION = "20260901-native-ads-v1";
-const GUEST_ADS_LOADER_SRC = `/shared/guest-ads.js?v=${RELEASE_ASSET_VERSION}`;
+const GUEST_ADS_LOADER_SRC = "/shared/guest-ads.js?v=20260907-content-ads-v1";
 const OUTBOUND_HANDOFF_SRC = `/shared/outbound-handoff.js?v=${RELEASE_ASSET_VERSION}`;
 
 const ADSTERRA_NATIVE_BANNER_SRC = "https://pl31128445.profitableratecpmnetwork.com/c58e199012d4b578b7353f3e72a231f7/invoke.js";
@@ -252,6 +252,7 @@ test("signed-out visitors receive one native banner on an eligible browsing page
   await page.goto("/");
 
   await expect(page.locator('html[data-freehub-ad-state="guest"]')).toHaveCount(1);
+  await page.locator("[data-freehub-ad-slot]").scrollIntoViewIfNeeded();
   await expect(page.locator(`script[src="${ADSTERRA_NATIVE_BANNER_SRC}"]`)).toHaveCount(1);
   await expect(page.locator(`#${ADSTERRA_NATIVE_BANNER_CONTAINER}`)).toHaveCount(1);
   await expect.poll(() => requests).toEqual({ nativeBanner: 1, popunder: 0, socialBar: 0 });
@@ -350,6 +351,7 @@ test("a guest-to-member transition reloads into a clean ad-free document", async
   const requests = await stubAdsterra(page);
   await page.goto("/");
   await expect(page.locator('html[data-freehub-ad-state="guest"]')).toHaveCount(1);
+  await page.locator("[data-freehub-ad-slot]").scrollIntoViewIfNeeded();
   await expect.poll(() => requests).toEqual({ nativeBanner: 1, popunder: 0, socialBar: 0 });
 
   const navigation = page.waitForNavigation();
@@ -1287,4 +1289,40 @@ test('student ads remain suppressed for members, pending auth and narrow banners
   await expect(page.locator('.student-ad--display')).toBeHidden();
   expect(display.count).toBe(0);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
+
+for (const route of ['/free-stuff-south-africa/','/birthday-freebies/','/free-online-courses-south-africa/','/competitions/']) {
+  test(`content advertising loads once on approach: ${route}`, async ({page})=>{
+    await page.setViewportSize({width:390,height:844});
+    await mockFirebaseAuth(page);
+    const requests=await stubAdsterra(page);
+    await page.goto(route);
+    await expect(page.locator('html')).toHaveAttribute('data-freehub-ad-state','guest');
+    const slot=page.locator('[data-freehub-ad-slot]');
+    await expect(slot).toHaveCount(1);
+    await expect(slot).toHaveAttribute('data-freehub-ad-lazy','');
+    expect(requests.nativeBanner).toBe(0);
+    await slot.scrollIntoViewIfNeeded();
+    await expect.poll(()=>requests.nativeBanner).toBe(1);
+    await page.evaluate(()=>{window.__freehubEmitAuth(null);window.__freehubEmitAuth(null)});
+    expect(requests).toEqual({nativeBanner:1,popunder:0,socialBar:0});
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+    await page.screenshot({path:'output/playwright/content-ads-'+route.split('/')[1]+'.png'});
+  });
+}
+
+test('content advertising remains absent for members and protected pages', async ({page,request})=>{
+  await mockFirebaseAuth(page,{signedIn:true});
+  const requests=await stubAdsterra(page);
+  for(const route of ['/free-stuff-south-africa/','/birthday-freebies/','/free-online-courses-south-africa/']){
+    await page.goto(route);
+    await expect(page.locator('html')).toHaveAttribute('data-freehub-ad-state','member');
+    await expect(page.locator('[data-freehub-ad-slot]')).toBeHidden();
+  }
+  expect(requests).toEqual({nativeBanner:0,popunder:0,socialBar:0});
+  for(const route of ['/privacy-policy/','/about/','/how-to-enter-competitions-safely/','/club/','/out/student/spotify-student/']) {
+    const html=await (await request.get(route)).text();
+    expect(html).not.toContain('data-freehub-ad-slot');
+    expect(html).not.toContain('data-freehub-display-slot');
+  }
 });

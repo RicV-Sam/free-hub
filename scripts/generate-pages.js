@@ -22,7 +22,7 @@ const OFFERS_PATH = path.join(ROOT_DIR, "data", "offers.json");
 const UNVERIFIED_COMPETITIONS_PATH = path.join(ROOT_DIR, "data", "unverified-competitions.json");
 const RELATIVE_ASSET_PATH = "/";
 const RELEASE_ASSET_VERSION = "20260901-native-ads-v1";
-const GUEST_ADS_SCRIPT_SRC = `/shared/guest-ads.js?v=${RELEASE_ASSET_VERSION}`;
+const GUEST_ADS_SCRIPT_SRC = "/shared/guest-ads.js?v=20260907-content-ads-v1";
 const OUTBOUND_HANDOFF_SCRIPT_SRC = `/shared/outbound-handoff.js?v=${RELEASE_ASSET_VERSION}`;
 const GUEST_ADS_SCRIPT = `<script type="module" src="${GUEST_ADS_SCRIPT_SRC}"></script>`;
 const OUTBOUND_HANDOFF_SCRIPT = `<script src="${OUTBOUND_HANDOFF_SCRIPT_SRC}"></script>`;
@@ -357,7 +357,7 @@ const TRUST_PAGE_DEFINITIONS = [
         heading: "Cookies and analytics",
         paragraphs: [
           "The site may use cookies or similar technologies through analytics and measurement tools. These are used to understand site performance and user journeys.",
-          "Freehub may show one clearly labelled Adsterra Native Banner on selected competition-browsing pages, but only after Firebase confirms that a visitor is signed out. Legacy Popunder and Social Bar formats are limited to closed, noindex competition archive pages. Adsterra and its partners may use cookies or similar technologies to serve, limit and measure ads where permitted. Signed-in Freehub Club members are not served these Adsterra formats.",
+          "Freehub may show one clearly labelled Adsterra Native Banner on selected competition-browsing pages and the Free Stuff, Birthday Freebies, Free Courses and student guides. The student guide may also show a separate labelled display banner. These placements load as readers approach them, only after Firebase confirms that a visitor is signed out. Legacy Popunder and Social Bar formats are limited to closed, noindex competition archive pages. Adsterra and its partners may use cookies or similar technologies to serve, limit and measure ads where permitted. Signed-in Freehub Club members are not served these Adsterra formats.",
           "Advertising is separate from Freehub's competition listings and does not mean that an advertiser runs, verifies or endorses a listed competition. Consent choices and applicable controls should be presented before advertising cookies are used where the law requires them.",
         ],
       },
@@ -3836,7 +3836,7 @@ function renderUpdatedNotice() {
 
 function renderStudentAdBreak(categoryId) {
   if (categoryId === "everyday") return renderGuestAdSlot("student-after-software")
-    .replace('class="ad-slot ad-slot--native"', 'class="ad-slot ad-slot--native student-ad" data-freehub-ad-lazy');
+    .replace('class="ad-slot ad-slot--native"', 'class="ad-slot ad-slot--native student-ad"');
   if (categoryId === "attractions") return `<aside class="student-ad student-ad--display" data-freehub-display-slot data-freehub-ad-lazy aria-label="Advertisement">
     <p class="ad-slot__label">Advertisement</p><div class="student-ad__banner"></div>
   </aside>`;
@@ -3844,7 +3844,7 @@ function renderStudentAdBreak(categoryId) {
 }
 
 function renderGuestAdSlot(placement) {
-  return `<aside class="ad-slot ad-slot--native" data-freehub-ad-slot data-placement="${escapeAttribute(placement)}" aria-label="Sponsored advertisement">
+  return `<aside class="ad-slot ad-slot--native" data-freehub-ad-slot data-freehub-ad-lazy data-placement="${escapeAttribute(placement)}" aria-label="Sponsored advertisement">
           <p class="ad-slot__label">Sponsored</p>
           <div class="ad-slot__content" id="container-c58e199012d4b578b7353f3e72a231f7"></div>
         </aside>`;
@@ -7198,6 +7198,8 @@ function renderFreeStuffParentContent({ page, pageResources, featuredOpportuniti
 
         ${renderFreeStuffChildNavigation()}
 
+        ${renderGuestAdSlot("free-stuff-before-resources")}
+
         ${opportunityRenderer.renderOpportunitySection({
           opportunities: featuredOpportunities,
           heading: "Current verified opportunities",
@@ -8434,7 +8436,7 @@ function renderTrustPage(page) {
     ${faqStructuredDataScript}
     ${serviceStructuredDataScript}
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
-    ${(isStudentGuide || page.studentOffer) ? '<link rel="stylesheet" href="/assets/student-guide.css?v=20260907-ads" />\n    ' : ""}${page.adsAllowed === false ? "" : isStudentGuide ? GUEST_ADS_SCRIPT.replace(RELEASE_ASSET_VERSION, "20260907-student-ads-v2") : GUEST_ADS_SCRIPT}
+    ${(isStudentGuide || page.studentOffer) ? '<link rel="stylesheet" href="/assets/student-guide.css?v=20260907-ads" />\n    ' : ""}${page.adsAllowed === false ? "" : GUEST_ADS_SCRIPT}
     ${renderGoogleTagManagerHead(`{ page_type: 'trust', trust_page: ${escapeScript(JSON.stringify(page.slug))} }`)}
     ${renderMetaPixelHead()}
   </head>
@@ -8471,7 +8473,8 @@ function renderTrustPage(page) {
             .join("\n          ")}
         </section>`}
 
-        ${page.slug === "birthday-freebies" ? renderBirthdayVideoFeature() : ""}
+        ${page.slug === "birthday-freebies" ? renderBirthdayVideoFeature() + renderGuestAdSlot("birthday-before-offers") : ""}
+        ${page.slug === "free-online-courses-south-africa" ? renderGuestAdSlot("courses-before-resources") : ""}
 
         ${opportunityRenderer.renderOpportunitySection({
           opportunities: birthdayOpportunities,
