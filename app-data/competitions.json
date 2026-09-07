@@ -1,33 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-06",
-  "count": 54,
+  "asOfDate": "2026-09-07",
+  "count": 53,
   "competitions": [
-    {
-      "id": "ackermans-samsung-device-cash-competition-2026",
-      "title": "Ackermans Samsung Device R10,000 Cash Competition 2026",
-      "brand": "Ackermans / Samsung",
-      "summary": "Buy a Samsung device early at one of ten participating Ackermans stores and be among that store's first ten qualifying customers for a chance to win R10,000 cash.",
-      "closingDate": "2026-09-06",
-      "category": "Cash",
-      "prizeName": "R10,000 cash",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "In-store",
-      "eligibility": "Open to qualifying South African citizens and permanent residents among the first ten Samsung-device buyers at each participating store.",
-      "entrySteps": [
-        "Visit one of the ten participating Ackermans stores listed in the official terms.",
-        "Purchase a Samsung device during the promotion period.",
-        "Be among the first ten qualifying Samsung-device customers recorded at that store.",
-        "Retain the purchase record and valid South African identity or permanent-residence documentation for verification."
-      ],
-      "officialUrl": "https://www.ackermans.co.za/blogs/cellular/samsung-deals-stand-a-chance-to-win-r10-000-ts-cs",
-      "termsUrl": "https://www.ackermans.co.za/blogs/cellular/samsung-deals-stand-a-chance-to-win-r10-000-ts-cs",
-      "lastChecked": "2026-09-03",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
     {
       "id": "mybroadband-pre-black-friday-survey-r2000-2026",
       "title": "Win R2,000 – Complete the MyBroadband 2026 Pre-Black Friday Survey",
