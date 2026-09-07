@@ -164,7 +164,7 @@ function injectProviderScripts() {
     frame.width = "320";
     frame.height = "50";
     frame.dataset.freehubDisplayAd = "";
-    frame.setAttribute("sandbox", "allow-scripts allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation");
+    frame.setAttribute("sandbox", "allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation");
     // Keep the provider's document-writing snippet isolated from the guide.
     frame.srcdoc = `<!doctype html><html><head><style>html,body{margin:0;padding:0;overflow:hidden}</style></head><body><script>
   atOptions = {

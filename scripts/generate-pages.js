@@ -8434,7 +8434,7 @@ function renderTrustPage(page) {
     ${faqStructuredDataScript}
     ${serviceStructuredDataScript}
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
-    ${(isStudentGuide || page.studentOffer) ? '<link rel="stylesheet" href="/assets/student-guide.css?v=20260907-ads" />\n    ' : ""}${page.adsAllowed === false ? "" : isStudentGuide ? GUEST_ADS_SCRIPT.replace(RELEASE_ASSET_VERSION, "20260907-student-ads-v1") : GUEST_ADS_SCRIPT}
+    ${(isStudentGuide || page.studentOffer) ? '<link rel="stylesheet" href="/assets/student-guide.css?v=20260907-ads" />\n    ' : ""}${page.adsAllowed === false ? "" : isStudentGuide ? GUEST_ADS_SCRIPT.replace(RELEASE_ASSET_VERSION, "20260907-student-ads-v2") : GUEST_ADS_SCRIPT}
     ${renderGoogleTagManagerHead(`{ page_type: 'trust', trust_page: ${escapeScript(JSON.stringify(page.slug))} }`)}
     ${renderMetaPixelHead()}
   </head>

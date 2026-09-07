@@ -1238,7 +1238,7 @@ async function stubStudentDisplay(page) {
   const requests = { count: 0 };
   await page.route(STUDENT_DISPLAY_SRC, route => {
     requests.count++;
-    return route.fulfill({ contentType: 'application/javascript', body: `document.write('<div style="width:320px;height:50px;background:#e8eee9;text-align:center">Test display banner</div>');` });
+    return route.fulfill({ contentType: 'application/javascript', body: `void document.cookie; document.write('<div style="width:320px;height:50px;background:#e8eee9;text-align:center">Test display banner</div>');` });
   });
   return requests;
 }
