@@ -1,0 +1,706 @@
+{
+  "slug": "student-freebies-discounts-south-africa",
+  "heading": "Student Freebies & Discounts in South Africa 2026",
+  "description": "Compare verified student software, AI trials, travel discounts and everyday benefits in South Africa, with eligibility, claim steps, costs and official sources.",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "intro": "Start with student tools you can use for free, then compare travel, tech and everyday savings. Each entry explains the published benefit, who can apply, how to claim and what it costs.",
+  "categories": [
+    {
+      "id": "software",
+      "heading": "Free software, AI & connectivity",
+      "intro": "Your institution can unlock useful tools. Free education access usually depends on continued eligibility; a subscription trial is different."
+    },
+    {
+      "id": "everyday",
+      "heading": "Food & everyday savings",
+      "intro": "The Uber One student trial below has public renewal terms. For other food and retail deals, check Varsity Vibe’s free tier. We have not counted individual partner discounts whose detailed redemption terms require sign-in. Check the participating branch, membership tier, minimum spend and exclusions before ordering."
+    },
+    {
+      "id": "tech",
+      "heading": "Tech & devices",
+      "intro": "Compare the same model and specification against public promotions before buying. Education pricing is not a guarantee of the lowest price."
+    },
+    {
+      "id": "transport",
+      "heading": "Transport",
+      "intro": "Check the route and ticket product, not just the headline percentage."
+    },
+    {
+      "id": "streaming",
+      "heading": "Entertainment & streaming",
+      "intro": "These are paid subscriptions or trials that lead to charges. Check renewal dates before signing up."
+    },
+    {
+      "id": "banking",
+      "heading": "Banking perks",
+      "intro": "Account benefits have conditions. Compare the account’s full fees and requirements before switching banks for a perk."
+    },
+    {
+      "id": "attractions",
+      "heading": "Attractions & experiences",
+      "intro": "These Cape Town options require student identification. Keep travel costs and ticket conditions in mind."
+    },
+    {
+      "id": "platforms",
+      "heading": "Student discount platforms",
+      "intro": "Free membership gives access to offers; it does not make the things you buy free."
+    }
+  ],
+  "bestPicks": [
+    "microsoft-education",
+    "github-student",
+    "eduvpn",
+    "varsity-vibe"
+  ],
+  "offers": [
+    {
+      "id": "microsoft-education",
+      "name": "Microsoft Office 365 Education",
+      "category": "software",
+      "type": "completely_free",
+      "deal": "Office 365 A1 education access at no charge for eligible students, including web-based study tools.",
+      "eligibility": "Students at qualifying educational institutions with an eligible institution email address. Your institution must qualify; an .ac.za address alone is not approval.",
+      "claim": [
+        "Open Microsoft’s education page and use the eligibility sign-up link with your institution email.",
+        "If your institution manages accounts, ask its IT desk which licence is assigned to you."
+      ],
+      "limitations": "Access depends on enrolment and can be reverified. Do not assume desktop Office or a particular storage allowance is included. Microsoft also offers free Word, Excel and PowerPoint on the web to everyone: that is a fallback, not an extra student offer.",
+      "region": "Online; qualifying institutions",
+      "lastChecked": "2026-09-07",
+      "sources": [
+        {
+          "label": "Microsoft education eligibility",
+          "url": "https://www.microsoft.com/en-us/education/products/office"
+        }
+      ],
+      "destination": {
+        "label": "Microsoft education eligibility",
+        "url": "https://www.microsoft.com/en-us/education/products/office"
+      }
+    },
+    {
+      "id": "google-ai-plus",
+      "name": "Google AI Plus student trial",
+      "category": "software",
+      "type": "free_trial",
+      "deal": "12 months at no charge for eligible students, with expanded AI access and 400 GB of storage.",
+      "eligibility": "Higher-education students who pass SheerID verification using a valid school email, with a personal Google Account and qualifying payment method. South Africa is supported; feature age restrictions apply.",
+      "claim": [
+        "Visit Google’s student offer page and select the 12-month AI Plus trial.",
+        "Complete student verification and read the price and renewal date before adding payment details."
+      ],
+      "limitations": "Google describes this as a trial. Family-group members and some third-party subscriptions are excluded. Switching to a paid plan ends trial eligibility.",
+      "renewal": "Converts to a regular paid plan when the offer ends, except where consent is legally required. Check the renewal amount shown to you and cancel through Google One before charging if you do not want to continue.",
+      "region": "Online; South Africa included",
+      "lastChecked": "2026-09-07",
+      "sources": [
+        {
+          "label": "Google student offer page",
+          "url": "https://one.google.com/ai-student"
+        },
+        {
+          "label": "Eligibility and renewal terms",
+          "url": "https://support.google.com/googleone/answer/17422238?hl=en"
+        },
+        {
+          "label": "South African Google AI page",
+          "url": "https://one.google.com/intl/en_za/about/google-ai-plans/"
+        }
+      ],
+      "destination": {
+        "label": "Claim Google’s student offer",
+        "url": "https://one.google.com/ai-student"
+      }
+    },
+    {
+      "id": "autodesk-education",
+      "name": "Autodesk Education",
+      "category": "software",
+      "type": "completely_free",
+      "deal": "One year of free individual education access to Autodesk software, renewable while eligible. Useful for courses using tools such as AutoCAD.",
+      "eligibility": "Students whose enrolment at a qualified institution is verified by Autodesk. Student documents may be requested; the country and institution are checked in the application.",
+      "claim": [
+        "Choose your software on Autodesk’s education page and create or sign in to your account.",
+        "Select Student, enter your institution details and provide dated enrolment evidence if requested."
+      ],
+      "limitations": "For education, training and research only, not commercial or paid professional work. Renew eligibility annually; a school email by itself does not guarantee access.",
+      "region": "Online; qualified institutions worldwide",
+      "lastChecked": "2026-09-07",
+      "sources": [
+        {
+          "label": "Autodesk student access",
+          "url": "https://www.autodesk.com/education/students"
+        },
+        {
+          "label": "Verification instructions",
+          "url": "https://help.autodesk.com/view/ACADWEB/ENU/?caas=caas/sfdcarticles/sfdcarticles/How-to-verify-your-student-eligibility.html"
+        }
+      ],
+      "destination": {
+        "label": "Autodesk student access",
+        "url": "https://www.autodesk.com/education/students"
+      }
+    },
+    {
+      "id": "github-student",
+      "name": "GitHub Student Developer Pack",
+      "category": "software",
+      "type": "completely_free",
+      "deal": "Free GitHub Pro, Copilot Student and access to partner developer benefits for verified learners.",
+      "eligibility": "Students aged 13 or older enrolled in a degree- or diploma-granting course, with an institution email and/or official dated proof of enrolment.",
+      "claim": [
+        "Open GitHub Education and choose the student verification application.",
+        "After approval, activate the benefits you need from the Student Developer Pack."
+      ],
+      "limitations": "Partner offers have their own limits and activation terms. The pack is not unlimited credit or a cash award. Tools also listed separately here are not additional copies or a second saving.",
+      "region": "Online; verification required",
+      "lastChecked": "2026-09-07",
+      "sources": [
+        {
+          "label": "GitHub student programme",
+          "url": "https://github.com/education/students"
+        }
+      ],
+      "destination": {
+        "label": "GitHub student programme",
+        "url": "https://github.com/education/students"
+      }
+    },
+    {
+      "id": "notion-education",
+      "name": "Notion Education",
+      "category": "software",
+      "type": "completely_free",
+      "deal": "Free individual Education plan for organising notes and coursework, with unlimited uploads and 30-day page history.",
+      "eligibility": "Students at accredited colleges or universities listed in the World Higher Education Database, using their institution email as the main Notion account address.",
+      "claim": [
+        "Use Notion on desktop or web with a one-member workspace on the Free plan.",
+        "In Settings, select Upgrade plan, then Get free education plan."
+      ],
+      "limitations": "One workspace member; guests are different from members. Student ID alone is not accepted. Reverify your email annually. If verification ends, the workspace moves to the Free plan.",
+      "region": "Online; recognised higher-education institutions",
+      "lastChecked": "2026-09-07",
+      "sources": [
+        {
+          "label": "Notion education requirements",
+          "url": "https://www.notion.com/help/notion-for-education"
+        }
+      ],
+      "destination": {
+        "label": "Notion education requirements",
+        "url": "https://www.notion.com/help/notion-for-education"
+      }
+    },
+    {
+      "id": "jetbrains-student",
+      "name": "JetBrains Student Pack",
+      "category": "software",
+      "type": "completely_free",
+      "deal": "Free JetBrains IDEs and .NET tools for learning and academic work.",
+      "eligibility": "Full-time students in accredited one-year or multi-year programmes involving programming courses or majors. JetBrains must verify your student status.",
+      "claim": [
+        "Open the JetBrains Student Pack page and follow its application process.",
+        "Use an accepted verification route and renew through your JetBrains account while still eligible."
+      ],
+      "limitations": "The educational licence cannot be used for paid work, freelance projects or a commercial internship. Do not assume a paid AI subscription is included.",
+      "region": "Online; eligible academic programmes",
+      "lastChecked": "2026-09-07",
+      "sources": [
+        {
+          "label": "JetBrains Student Pack",
+          "url": "https://www.jetbrains.com/academy/student-pack/"
+        },
+        {
+          "label": "Free licence and usage terms",
+          "url": "https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers"
+        },
+        {
+          "label": "Programme eligibility",
+          "url": "https://www.jetbrains.com/lp/edu-program-user-flow/"
+        }
+      ],
+      "destination": {
+        "label": "JetBrains Student Pack",
+        "url": "https://www.jetbrains.com/academy/student-pack/"
+      }
+    },
+    {
+      "id": "miro-education",
+      "name": "Miro Education",
+      "category": "software",
+      "type": "completely_free",
+      "deal": "Free education workspace with unlimited active boards for visual coursework and collaboration.",
+      "eligibility": "Students at qualifying accredited schools, colleges, universities or technical institutions. Non-accredited training programmes do not qualify.",
+      "claim": [
+        "Follow the application link in Miro’s Education plan help page.",
+        "Provide your educational email and a link to supporting student documentation; alternative affiliation evidence is possible without a school email."
+      ],
+      "limitations": "Student plans last two years and allow 10 team members. Applications can take up to 10 days. AI functionality is limited; business-plan features are not all included.",
+      "region": "Online; accredited institutions",
+      "lastChecked": "2026-09-07",
+      "sources": [
+        {
+          "label": "Miro education application and limits",
+          "url": "https://help.miro.com/hc/en-us/articles/360017730473-Education-plan"
+        }
+      ],
+      "destination": {
+        "label": "Miro education application and limits",
+        "url": "https://help.miro.com/hc/en-us/articles/360017730473-Education-plan"
+      }
+    },
+    {
+      "id": "eduvpn",
+      "name": "eduVPN through your institution",
+      "category": "software",
+      "type": "completely_free",
+      "deal": "VPN access at no charge to students at participating South African institutions, at home or abroad.",
+      "eligibility": "An active account at an institution participating in the South African Identity Federation (SAFIRE).",
+      "claim": [
+        "Follow TENET’s official app link, choose South Africa and sign in through your institution.",
+        "Select the available profile and connect. Ask your campus IT desk if your institution login is unavailable."
+      ],
+      "limitations": "This protects an existing internet connection; it does not supply free mobile data. Institutional acceptable-use rules apply, and internal campus access depends on your institution’s setup.",
+      "region": "Participating South African institutions; usable abroad",
+      "lastChecked": "2026-09-07",
+      "sources": [
+        {
+          "label": "TENET eduVPN setup and eligibility",
+          "url": "https://www.tenet.ac.za/services/eduvpn"
+        }
+      ],
+      "destination": {
+        "label": "TENET eduVPN setup and eligibility",
+        "url": "https://www.tenet.ac.za/services/eduvpn"
+      }
+    },
+    {
+      "id": "eduroam",
+      "name": "eduroam Wi-Fi",
+      "category": "software",
+      "type": "completely_free",
+      "deal": "No-charge Wi-Fi roaming at participating hotspots using your home institution account, including participating airport locations.",
+      "eligibility": "Students with working eduroam credentials from a participating institution. A student card by itself is not a Wi-Fi login.",
+      "claim": [
+        "Set up eduroam using your institution’s IT instructions before travelling.",
+        "Use your institution credentials at participating hotspots; check the coverage map linked by TENET."
+      ],
+      "limitations": "Coverage is location-dependent. TENET documents rollout at ACSA-operated public airports, but this does not mean every airport or every part of a terminal has coverage.",
+      "region": "Participating campuses and hotspots in South Africa and abroad",
+      "lastChecked": "2026-09-07",
+      "sources": [
+        {
+          "label": "TENET eduroam coverage",
+          "url": "https://www.tenet.ac.za/services/eduroam"
+        },
+        {
+          "label": "Airport rollout",
+          "url": "https://www.tenet.ac.za/news/eduroam-rollout-in-airports"
+        }
+      ],
+      "destination": {
+        "label": "TENET eduroam coverage",
+        "url": "https://www.tenet.ac.za/services/eduroam"
+      }
+    },
+    {
+      "id": "samsung-education",
+      "name": "Samsung Education Store South Africa",
+      "category": "tech",
+      "type": "student_discount",
+      "deal": "Access to education-store prices on Samsung products, with free delivery on selected items.",
+      "eligibility": "Current or newly accepted full-time or part-time students at eligible accredited South African institutions, with a valid .ac.za email and Samsung Account.",
+      "claim": [
+        "Use the student sign-up link on Samsung’s South African education page.",
+        "Verify your institution email, then compare the exact product against the public store price."
+      ],
+      "limitations": "No blanket discount percentage. Purchases are for individual use, not resale; the benefit is non-transferable and delivery must be within South Africa.",
+      "region": "South Africa",
+      "lastChecked": "2026-09-07",
+      "sources": [
+        {
+          "label": "Samsung ZA education store and terms",
+          "url": "https://www.samsung.com/za/offer/student-discounts/"
+        }
+      ],
+      "destination": {
+        "label": "Samsung ZA education store and terms",
+        "url": "https://www.samsung.com/za/offer/student-discounts/"
+      }
+    },
+    {
+      "id": "istore-education",
+      "name": "iStore education discount",
+      "category": "tech",
+      "type": "student_discount",
+      "deal": "5% off Mac and 2% off iPad through iStore’s education offer.",
+      "eligibility": "Higher-education students aged 18+ at accredited South African institutions, on a course lasting at least 12 months. ID/passport and a current student card or registration evidence are required.",
+      "claim": [
+        "Complete the education application on iStore’s website with the required documents.",
+        "Allow 48 working hours for the team to respond and process the application."
+      ],
+      "limitations": "Cannot be combined with another offer or promotion. One Mac per eligible student per year; custom-to-order models are excluded. Compare public sale prices before applying.",
+      "region": "South Africa",
+      "lastChecked": "2026-09-07",
+      "sources": [
+        {
+          "label": "iStore education application and terms",
+          "url": "https://www.istore.co.za/education-discount"
+        }
+      ],
+      "destination": {
+        "label": "iStore education application and terms",
+        "url": "https://www.istore.co.za/education-discount"
+      }
+    },
+    {
+      "id": "gautrain-student",
+      "name": "Gautrain Student Product",
+      "category": "transport",
+      "type": "student_discount",
+      "deal": "50% off qualifying weekly and monthly train products between two pre-selected stations.",
+      "eligibility": "Full-time students at accredited higher-education institutions in Gauteng, aged 25 or younger when registering. Valid identification is needed to collect the Student Card.",
+      "claim": [
+        "Follow the student registration process on My Gautrain, including Varsity Vibe verification.",
+        "Use your allocated Student Card to buy the selected product through Gautrain’s listed sales channels."
+      ],
+      "limitations": "Excludes OR Tambo station trips, buses, midi-buses and parking. Weekly means 10 trips valid for 10 days; monthly means 44 trips valid for 44 days. Cannot be doubled with Rider Rewards.",
+      "region": "Gauteng; selected station pair",
+      "lastChecked": "2026-09-07",
+      "expiresOn": "2026-12-31",
+      "sources": [
+        {
+          "label": "Gautrain student terms and registration",
+          "url": "https://www.mygautrain.co.za/promotions/hey-students-ridewiththeg-and-save-50"
+        },
+        {
+          "label": "Promotion validity dates",
+          "url": "https://www.mygautrain.co.za/"
+        }
+      ],
+      "destination": {
+        "label": "Gautrain student terms and registration",
+        "url": "https://www.mygautrain.co.za/promotions/hey-students-ridewiththeg-and-save-50"
+      }
+    },
+    {
+      "id": "intercape-student",
+      "name": "Intercape student discount",
+      "category": "transport",
+      "type": "student_discount",
+      "deal": "5% student discount on eligible Intercape bookings.",
+      "eligibility": "Registered tertiary students with a current student ID, required when purchasing the ticket.",
+      "claim": [
+        "Ask for the student discount through Intercape’s booking or sales service before paying.",
+        "Have your student ID ready and confirm that the selected fare qualifies."
+      ],
+      "limitations": "A modest saving, not a reason to choose a more expensive fare. Check the final price, luggage and amendment terms. The public headline does not establish eligibility for every ticket class.",
+      "region": "Eligible Intercape routes and fares",
+      "lastChecked": "2026-09-07",
+      "sources": [
+        {
+          "label": "Intercape current discount",
+          "url": "https://www.intercape.co.za/"
+        },
+        {
+          "label": "Ticketing partner’s student requirements",
+          "url": "https://secure.ticketpros.co.za/portal/web/index.php?page_id=intercape_faq"
+        }
+      ],
+      "destination": {
+        "label": "Intercape current discount",
+        "url": "https://www.intercape.co.za/"
+      }
+    },
+    {
+      "id": "spotify-student",
+      "name": "Spotify Premium Student",
+      "category": "streaming",
+      "type": "free_trial",
+      "deal": "One month free for eligible first-time Premium users, then R37.99 per month on the student plan.",
+      "eligibility": "Students above 18 at eligible accredited colleges or universities, verified by SheerID. The trial is for people who have not already tried Premium.",
+      "claim": [
+        "Open Spotify’s South African student page and complete SheerID verification.",
+        "Check the trial eligibility, payment terms and next billing date before subscribing."
+      ],
+      "limitations": "Student pricing is available for up to four years, with continuing eligibility checks. This is one offer, not separate free and discounted subscriptions.",
+      "renewal": "R37.99/month after the trial. When student eligibility ends, the plan switches to the then-current Standard price unless cancelled. Cancel through Spotify before renewal to avoid the next charge.",
+      "region": "South Africa",
+      "lastChecked": "2026-09-07",
+      "sources": [
+        {
+          "label": "Spotify ZA student price and terms",
+          "url": "https://www.spotify.com/za-en/student/"
+        }
+      ],
+      "destination": {
+        "label": "Spotify ZA student price and terms",
+        "url": "https://www.spotify.com/za-en/student/"
+      }
+    },
+    {
+      "id": "uber-one-student",
+      "name": "Uber One for Students via Varsity Vibe",
+      "category": "everyday",
+      "type": "free_trial",
+      "deal": "Three months of membership free, then R25 per month, including delivery-fee benefits on eligible Uber Eats orders.",
+      "eligibility": "Varsity Vibe members aged 18+ who pass student verification and qualify for the offer shown during sign-up.",
+      "claim": [
+        "Find Uber One for Students through Varsity Vibe and follow the claim instructions.",
+        "Review the offer in Uber before confirming your payment method."
+      ],
+      "limitations": "The subscription does not provide free meals or rides. Order and ride benefits apply only where eligible; check minimums and charges in the app.",
+      "renewal": "Auto-renews at R25/month after three months. In Uber, open Uber One, Manage Membership, then End Membership. Cancelling less than 24 hours before renewal may trigger a charge that is automatically refunded. Once a billing cycle begins, the charge is generally non-refundable except where law requires otherwise.",
+      "region": "South Africa; eligible Uber services",
+      "lastChecked": "2026-09-07",
+      "sources": [
+        {
+          "label": "Varsity Vibe offer and Uber renewal terms",
+          "url": "https://info.varsityvibe.co.za/news/welcome-uber/"
+        }
+      ],
+      "destination": {
+        "label": "Varsity Vibe offer and Uber renewal terms",
+        "url": "https://info.varsityvibe.co.za/news/welcome-uber/"
+      }
+    },
+    {
+      "id": "youtube-student",
+      "name": "YouTube Premium student membership",
+      "category": "streaming",
+      "type": "student_discount",
+      "deal": "Discounted YouTube Premium or Music Premium membership; South Africa is an eligible location.",
+      "eligibility": "Students enrolled at a higher-education institution accepted by SheerID and successfully verified as students.",
+      "claim": [
+        "Follow the student-plan link in YouTube’s official instructions.",
+        "Find your institution, verify your status and check the South African price displayed before subscribing."
+      ],
+      "limitations": "Reverification is annual, for up to four consecutive years. We have not verified a public rand price or a universal free trial, so neither is quoted. Existing paid members must follow YouTube’s switching instructions.",
+      "renewal": "This is a paid recurring membership. Review the billing terms at sign-up and manage or cancel it through YouTube’s paid memberships settings.",
+      "region": "South Africa included",
+      "lastChecked": "2026-09-07",
+      "sources": [
+        {
+          "label": "YouTube student eligibility and sign-up",
+          "url": "https://support.google.com/youtube/answer/9158808?hl=en"
+        }
+      ],
+      "destination": {
+        "label": "YouTube student eligibility and sign-up",
+        "url": "https://support.google.com/youtube/answer/9158808?hl=en"
+      }
+    },
+    {
+      "id": "absa-student",
+      "name": "Absa Student Account benefits",
+      "category": "banking",
+      "type": "account_benefit",
+      "deal": "R0 monthly account fee, free Absa Rewards membership and a R50 voucher tied to completing an Absa Advantage challenge.",
+      "eligibility": "Full-time tertiary students aged 18–27 on a qualification lasting at least a year. ID or passport, recent proof of residence and proof of registration are required.",
+      "claim": [
+        "Apply through Absa’s official student-account page if the account suits your needs.",
+        "In the banking app, check the Rewards tile, accept an available challenge and complete its tasks within the stated time."
+      ],
+      "limitations": "The voucher is not an unconditional sign-up gift. Check the challenge’s spending, timing and retailer conditions and the full account fee schedule. Do not assume every banking service is free.",
+      "accountCosts": "The advertised monthly account fee is R0; transaction and challenge conditions still apply.",
+      "region": "South Africa",
+      "lastChecked": "2026-09-07",
+      "sources": [
+        {
+          "label": "Absa student account and challenge conditions",
+          "url": "https://www.absa.co.za/personal/bank/youth-student-banking/student-account/"
+        }
+      ],
+      "destination": {
+        "label": "Absa student account and challenge conditions",
+        "url": "https://www.absa.co.za/personal/bank/youth-student-banking/student-account/"
+      }
+    },
+    {
+      "id": "standard-bank-vibe",
+      "name": "Varsity Vibe Premium through Standard Bank",
+      "category": "banking",
+      "type": "account_benefit",
+      "deal": "Qualifying Standard Bank customers aged 16–25 can receive Varsity Vibe Premium without a separate membership fee.",
+      "eligibility": "Qualifying South African Standard Bank customers aged 16–25. Varsity Vibe says student status is not required for this banking route.",
+      "claim": [
+        "In Varsity Vibe, create your account and select the Standard Bank button.",
+        "Follow the identity check using your ID or passport number on the official service."
+      ],
+      "limitations": "This is a youth banking benefit, included here as an alternative way to access student-oriented deals. It does not make your bank account free, and partner discounts still have conditions.",
+      "accountCosts": "The 2026 Student Achiever guide lists a R12 monthly administration fee and a R70 fee for ages 24 and older. Check your specific account’s pricing before switching.",
+      "region": "South Africa",
+      "lastChecked": "2026-09-07",
+      "sources": [
+        {
+          "label": "Standard Bank 2026 pricing guide",
+          "url": "https://www.standardbank.co.za/static_file/South%20Africa/PDF/Personal%20Pricing/2026/Student_Achiever_Account_Pricing_Guide_2026"
+        },
+        {
+          "label": "Varsity Vibe eligibility",
+          "url": "https://info.varsityvibe.co.za/news/faqs/can-access-varsity-vibe-free/"
+        }
+      ],
+      "destination": {
+        "label": "Varsity Vibe eligibility",
+        "url": "https://info.varsityvibe.co.za/news/faqs/can-access-varsity-vibe-free/"
+      }
+    },
+    {
+      "id": "table-mountain",
+      "name": "Table Mountain Cableway student ticket",
+      "category": "attractions",
+      "type": "student_discount",
+      "deal": "R320 for a student return ticket, valid under the published July 2026–June 2027 tariff.",
+      "eligibility": "Local and international students with a valid student card.",
+      "claim": [
+        "Bring your valid student card to the ticket office at the Lower Station.",
+        "Ask for the student return ticket; the student special is not sold online."
+      ],
+      "limitations": "Check operating conditions before travelling. Compare any current local promotion before buying: a public special may be cheaper than the student tariff. We have not included a saving against an unverified promotion.",
+      "region": "Cape Town",
+      "lastChecked": "2026-09-07",
+      "expiresOn": "2027-06-30",
+      "sources": [
+        {
+          "label": "Cableway student special and validity",
+          "url": "https://www.tablemountain.net/plan-your-visit/specials/"
+        }
+      ],
+      "destination": {
+        "label": "Cableway student special and validity",
+        "url": "https://www.tablemountain.net/plan-your-visit/specials/"
+      }
+    },
+    {
+      "id": "kirstenbosch",
+      "name": "Kirstenbosch student entry",
+      "category": "attractions",
+      "type": "student_discount",
+      "deal": "R60 entry for eligible students at the published 2026–2027 tariff.",
+      "eligibility": "Students or learners aged 18+ from a South African institution, with a student card.",
+      "claim": [
+        "Use the ticket link on SANBI’s official visitor page or buy at the garden.",
+        "Select the applicable student ticket and bring your student card."
+      ],
+      "limitations": "The garden does not accept cash. The comparison is with the SA/SADC adult tariff, not the international rate. Check separate event ticket conditions.",
+      "region": "Cape Town",
+      "lastChecked": "2026-09-07",
+      "sources": [
+        {
+          "label": "SANBI 2026–2027 admission rates",
+          "url": "https://www.sanbi.org/gardens/kirstenboch/visitor-information/information/"
+        }
+      ],
+      "comparison": {
+        "text": "R60 entry for eligible students, compared with the R110 South African/SADC adult rate.",
+        "reviewBy": "2026-10-07",
+        "source": {
+          "label": "SANBI 2026–2027 admission rates",
+          "url": "https://www.sanbi.org/gardens/kirstenboch/visitor-information/information/"
+        }
+      },
+      "destination": {
+        "label": "SANBI 2026–2027 admission rates",
+        "url": "https://www.sanbi.org/gardens/kirstenboch/visitor-information/information/"
+      }
+    },
+    {
+      "id": "two-oceans",
+      "name": "Two Oceans Aquarium student ticket",
+      "category": "attractions",
+      "type": "student_discount",
+      "deal": "R210 for a South African student day ticket.",
+      "eligibility": "A valid South African student card is required for the student ticket.",
+      "claim": [
+        "Choose Day Ticket – South African Student in the Aquarium’s official ticket shop.",
+        "Bring your valid student card when visiting."
+      ],
+      "limitations": "Day tickets are non-refundable and must be used within 90 days of purchase. The student annual membership is a separate paid product; do not confuse it with the day ticket.",
+      "region": "V&A Waterfront, Cape Town",
+      "lastChecked": "2026-09-07",
+      "sources": [
+        {
+          "label": "Aquarium official day-ticket shop",
+          "url": "https://shop.aquarium.co.za/day-tickets-and-memberships"
+        }
+      ],
+      "comparison": {
+        "text": "R210 for a South African student day ticket, versus R280 for an adult day ticket.",
+        "reviewBy": "2026-10-07",
+        "source": {
+          "label": "Aquarium official day-ticket shop",
+          "url": "https://shop.aquarium.co.za/day-tickets-and-memberships"
+        }
+      },
+      "destination": {
+        "label": "Aquarium official day-ticket shop",
+        "url": "https://shop.aquarium.co.za/day-tickets-and-memberships"
+      }
+    },
+    {
+      "id": "varsity-vibe",
+      "name": "Varsity Vibe Freemium",
+      "category": "platforms",
+      "type": "completely_free",
+      "deal": "Free membership giving verified students access to the Freemium selection of deals.",
+      "eligibility": "Students who successfully verify their student status with Varsity Vibe.",
+      "claim": [
+        "Join through Varsity Vibe’s official website or app and complete student verification.",
+        "Start with the Freemium deals and read each offer’s conditions before redeeming."
+      ],
+      "limitations": "Freemium does not unlock every Premium deal. Food, products and services still cost money. Detailed partner terms require sign-in; do not rely on an old partner list or percentage.",
+      "region": "South Africa; participating merchants",
+      "lastChecked": "2026-09-07",
+      "sources": [
+        {
+          "label": "Varsity Vibe free-access rules",
+          "url": "https://info.varsityvibe.co.za/news/faqs/can-access-varsity-vibe-free/"
+        },
+        {
+          "label": "Join and browse current deals",
+          "url": "https://varsityvibe.co.za/"
+        }
+      ],
+      "destination": {
+        "label": "Join and browse current deals",
+        "url": "https://varsityvibe.co.za/"
+      }
+    }
+  ],
+  "corrections": [
+    {
+      "heading": "Canva premium access is not automatic",
+      "text": "University students can use Canva Free. Premium access may be provided through a university’s Canva for Campus arrangement; a student email alone is not a promise of Canva Pro.",
+      "source": {
+        "label": "Canva’s student guidance",
+        "url": "https://www.canva.com/education/students/"
+      }
+    },
+    {
+      "heading": "A year at no charge can still be a trial",
+      "text": "Google explicitly describes its AI Plus student offer as a 12-month trial with a payment method and a transition to a paid plan. We separate it from ongoing free education licences.",
+      "source": {
+        "label": "Google’s student offer terms",
+        "url": "https://support.google.com/googleone/answer/17422238?hl=en"
+      }
+    },
+    {
+      "heading": "Education-store savings vary",
+      "text": "Samsung advertises exclusive education pricing, not one percentage off everything. Compare the model you actually want with current public promotions.",
+      "source": {
+        "label": "Samsung South Africa’s terms",
+        "url": "https://www.samsung.com/za/offer/student-discounts/"
+      }
+    },
+    {
+      "heading": "Some global programmes still need a local check",
+      "text": "Figma’s current education help limits availability to selected regions without confirming South Africa in the page we checked. UNiDAYS has a ZA registration route, but we did not establish a specific local saving and complete account-cost evidence. Neither is counted here; this is unresolved verification, not proof that either programme is unavailable.",
+      "source": {
+        "label": "Figma’s regional eligibility notice",
+        "url": "https://help.figma.com/hc/en-us/articles/360041061214-Figma-for-Education"
+      }
+    }
+  ]
+}

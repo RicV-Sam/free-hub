@@ -269,6 +269,20 @@
       "h1": "Page not found",
       "schemaTypes": [],
       "inSitemap": false
+    },
+    {
+      "route": "/student-freebies-discounts-south-africa/",
+      "file": "student-freebies-discounts-south-africa/index.html",
+      "title": "Student Freebies & Discounts in South Africa 2026 | FreeHub",
+      "description": "Compare verified student software, AI trials, travel discounts and everyday benefits in South Africa, with eligibility, claim steps, costs and official sources.",
+      "canonical": "https://freehub.co.za/student-freebies-discounts-south-africa/",
+      "robots": "index, follow, max-image-preview:large",
+      "h1": "Student Freebies & Discounts in South Africa 2026",
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "inSitemap": true
     }
   ]
 }

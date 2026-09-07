@@ -588,7 +588,7 @@ test("Free Stuff parent preserves intent and separates durable resources from op
   await expect(page.locator('body[data-free-stuff-parent-version="3"]')).toHaveCount(1);
 
   const childNavigation = page.getByRole("navigation", { name: "Free Stuff categories" });
-  await expect(childNavigation.getByRole("link")).toHaveCount(5);
+  await expect(childNavigation.getByRole("link")).toHaveCount(6);
   await expect(childNavigation.getByRole("link", { name: "Free Samples" })).toHaveAttribute("href", "/free-samples-south-africa/");
   await expect(childNavigation.getByRole("link", { name: "Free Courses" })).toHaveAttribute("href", "/free-online-courses-south-africa/");
   await expect(childNavigation.getByRole("link", { name: "Children's Books" })).toHaveAttribute("href", "/free-childrens-books-south-africa/");

@@ -6,6 +6,8 @@ const offerData = require("../shared/offer-data.js");
 const unverifiedCompetitionData = require("../shared/unverified-competition-data.js");
 const { applyLegacyArchiveCostCompatibility } = require("./lib/legacy-archive-costs.js");
 const { createFreeResourceRenderer } = require("./lib/free-resource-renderer.js");
+const { validateStudentGuide, createStudentGuideRenderer, createStudentOfferRenderer, getStudentNoticePath } = require("./lib/student-guide.js");
+const STUDENT_GUIDE = require("../data/student-guide.json");
 const { createOpportunityRenderer } = require("./lib/opportunity-renderer.js");
 const { createOpportunityRouteRenderer } = require("./lib/opportunity-route-renderer.js");
 const { writeMobileCatalog, writeMobileFeed } = require("./lib/mobile-feed.js");
@@ -39,6 +41,10 @@ const DATACOST_BANNER_IMAGE = "/assets/partners/datacost-data-airtime-banner.jpg
 const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date());
 const LIFECYCLE_REFERENCE_DATE_ISO = process.env.FREEHUB_AS_OF_DATE || getLocalIsoDate(new Date());
 shared.setReferenceDate(LIFECYCLE_REFERENCE_DATE_ISO);
+// Validate before any generated files are written. Use the lifecycle clock, not SEO snapshot dates.
+validateStudentGuide(STUDENT_GUIDE, LIFECYCLE_REFERENCE_DATE_ISO);
+const renderStudentGuide = createStudentGuideRenderer({ escapeHtml, escapeAttribute, formatDate: shared.formatDate });
+const renderStudentOffer = createStudentOfferRenderer({ escapeHtml, escapeAttribute, formatDate: shared.formatDate });
 
 function containsAdsterraVendorUrl(value) {
   return ADSTERRA_VENDOR_HOSTS.some((host) => String(value || "").includes(host));
@@ -136,6 +142,7 @@ const EVERGREEN_PRIZE_LINKS = Object.freeze([
   { label: "Win Experiences", href: "/category/experiences/" },
 ]);
 const FREE_STUFF_CHILD_LINKS = Object.freeze([
+  { label: "Student Freebies & Discounts", contentType: "student_guide", href: "/student-freebies-discounts-south-africa/" },
   { label: "Birthday Freebies", contentType: "birthday_freebies", href: "/birthday-freebies/" },
   { label: "Free Samples", contentType: "free_samples", href: "/free-samples-south-africa/" },
   { label: "Free Courses", contentType: "free_courses", href: "/free-online-courses-south-africa/" },
@@ -178,9 +185,9 @@ const CONTENT_INDEX_PAGES = [
   {
     slug: "guides",
     title: "Freehub Guides",
-    description: "Guides for finding, checking and entering South African competitions safely.",
-    heading: "Competition guides for South Africa",
-    intro: "Use these guides to compare entry costs, deadlines, free-entry routes and safety checks before you open an official promoter page.",
+    description: "Practical South African guides to student benefits, free resources and entering competitions safely.",
+    heading: "FreeHub guides for South Africa",
+    intro: "Find useful student benefits and compare competition entry costs, deadlines and safety checks, with links to official sources.",
   },
   {
     slug: "blog",
@@ -220,6 +227,30 @@ const opportunityRouteRenderer = createOpportunityRouteRenderer({
   getExitPath: opportunityData.getOpportunityExitPath,
 });
 const TRUST_PAGE_DEFINITIONS = [
+  {
+    slug: STUDENT_GUIDE.slug,
+    title: `${STUDENT_GUIDE.heading} | FreeHub`,
+    heading: STUDENT_GUIDE.heading,
+    description: STUDENT_GUIDE.description,
+    intro: STUDENT_GUIDE.intro,
+    datePublished: STUDENT_GUIDE.datePublished,
+    dateModified: STUDENT_GUIDE.dateModified,
+    article: true,
+    eyebrow: "FreeHub student guide",
+    heroClassName: "hero--utility hero--trust hero--student",
+    trustItems: ["Official sources checked", "Costs and conditions explained", "South African eligibility"],
+    actions: [
+      { label: "Start with the free benefits", href: "#student-best", className: "btn--primary" },
+      { label: "Browse categories", href: "#student-types", className: "btn--secondary" },
+    ],
+    sections: [],
+    links: [
+      { label: "Free stuff guide", href: "/free-stuff-south-africa/" },
+      { label: "Birthday freebies", href: "/birthday-freebies/" },
+      { label: "Free online courses", href: "/free-online-courses-south-africa/" },
+      { label: "All guides", href: "/guides/" },
+    ],
+  },
   {
     slug: "about",
     title: "What Is FreeHub? South African Competitions & Free Club",
@@ -2429,6 +2460,7 @@ function main() {
 
   writeLegacyRedirectPages();
 
+  writeStudentNoticePages();
   writeContentPages(coreActiveCompetitions);
   writeClubPages(coreActiveCompetitions);
   writeReferAndWinPages();
@@ -7582,6 +7614,7 @@ function getFreeSamplesFaqItems() {
 }
 
 function renderTrustPageNavigation(page) {
+  if (page.slug === STUDENT_GUIDE.slug) return "";
   if (page.requiresOffers === true) {
     const links = [
       { label: "All offers", href: "/offers/" },
@@ -8274,6 +8307,8 @@ function renderTrustPage(page) {
   if (page.slug === "free-samples-south-africa") {
     return renderFreeSamplesPage(page);
   }
+  const isStudentGuide = page.slug === STUDENT_GUIDE.slug;
+  const socialImageUrl = isStudentGuide ? `${shared.CANONICAL_ORIGIN}/assets/student-guide/campus-study-1200.jpg` : shared.DEFAULT_OG_IMAGE;
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/${page.slug}/`;
   const usefulLinks = getTrustPageUsefulLinks(page);
   const pageResources = getTrustPageResources(page);
@@ -8297,13 +8332,13 @@ function renderTrustPage(page) {
         "@type": "Article",
         headline: page.heading,
         description: page.description,
-        image: shared.DEFAULT_OG_IMAGE,
+        image: socialImageUrl,
         datePublished: page.datePublished || getTrustPageLastmod(page),
         dateModified: getTrustPageLastmod(page),
         author: {
           "@type": "Organization",
           name: "Freehub",
-          url: `${shared.CANONICAL_ORIGIN}/`,
+          url: `${shared.CANONICAL_ORIGIN}/${isStudentGuide ? "about/" : ""}`,
         },
         publisher: {
           "@type": "Organization",
@@ -8370,18 +8405,18 @@ function renderTrustPage(page) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${escapeHtml(page.title)}</title>
     <meta name="description" content="${escapeAttribute(page.description)}" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="robots" content="${page.studentOffer ? "noindex, nofollow" : "index, follow, max-image-preview:large"}" />
     <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="${isStudentGuide ? "article" : "website"}" />
     <meta property="og:title" content="${escapeAttribute(page.title)}" />
     <meta property="og:description" content="${escapeAttribute(page.description)}" />
     <meta property="og:url" content="${escapeAttribute(canonicalUrl)}" />
-    <meta property="og:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:image" content="${escapeAttribute(socialImageUrl)}" />
+    ${isStudentGuide ? `<meta property="og:image:width" content="1200" /><meta property="og:image:height" content="675" /><meta property="og:image:alt" content="Illustration of university students studying together on campus" /><meta property="article:published_time" content="${escapeAttribute(STUDENT_GUIDE.datePublished)}" /><meta property="article:modified_time" content="${escapeAttribute(STUDENT_GUIDE.dateModified)}" />\n    ` : ""}<meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${escapeAttribute(page.title)}" />
     <meta name="twitter:description" content="${escapeAttribute(page.description)}" />
-    <meta name="twitter:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
+    <meta name="twitter:image" content="${escapeAttribute(socialImageUrl)}" />
     <script id="structured-data-webpage" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
     <script id="structured-data-breadcrumb" type="application/ld+json">${escapeScript(JSON.stringify(breadcrumbData))}</script>
     ${articleData ? `<script id="structured-data-article" type="application/ld+json">${escapeScript(JSON.stringify(articleData))}</script>` : ""}
@@ -8390,7 +8425,7 @@ function renderTrustPage(page) {
     ${faqStructuredDataScript}
     ${serviceStructuredDataScript}
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
-    ${page.adsAllowed === false ? "" : GUEST_ADS_SCRIPT}
+    ${(isStudentGuide || page.studentOffer) ? '<link rel="stylesheet" href="/assets/student-guide.css?v=20260907" />\n    ' : ""}${page.adsAllowed === false ? "" : GUEST_ADS_SCRIPT}
     ${renderGoogleTagManagerHead(`{ page_type: 'trust', trust_page: ${escapeScript(JSON.stringify(page.slug))} }`)}
     ${renderMetaPixelHead()}
   </head>
@@ -8412,11 +8447,11 @@ function renderTrustPage(page) {
       })}
 
       <main id="main-content" class="main-content trust-page">
-        ${renderTrustPageNavigation(page)}
+        ${page.studentOffer ? "" : renderTrustPageNavigation(page)}
 
         ${page.slug === "submit-an-offer" ? renderOfferSubmissionForm() : ""}
 
-        <section class="trust-page__content" aria-label="${escapeAttribute(page.heading)}">
+        ${page.studentOffer ? renderStudentNotice(page.studentOffer) : page.slug === STUDENT_GUIDE.slug ? renderStudentGuide(STUDENT_GUIDE) : `<section class="trust-page__content" aria-label="${escapeAttribute(page.heading)}">
           ${page.sections
             .map(
               (section) => `<article class="trust-page__section">
@@ -8425,7 +8460,7 @@ function renderTrustPage(page) {
           </article>`
             )
             .join("\n          ")}
-        </section>
+        </section>`}
 
         ${page.slug === "birthday-freebies" ? renderBirthdayVideoFeature() : ""}
 
@@ -8452,7 +8487,7 @@ function renderTrustPage(page) {
         })}
         ${renderTrustChecklist(page)}
         ${renderTrustFaqSection(faqItems)}
-        ${renderDatacostPromo({
+        ${page.studentOffer ? "" : renderDatacostPromo({
           placement: `trust-${page.slug}`,
           compact: true,
           ussd: ["free-data-south-africa", "free-stuff-south-africa", "app-competitions-south-africa"].includes(page.slug),
@@ -8481,6 +8516,47 @@ function renderTrustPage(page) {
 `;
 }
 
+function writeStudentNoticePages() {
+  const directory = path.join(ROOT_DIR, "out", "student");
+  removeStaleSlugDirectories(directory, new Set(STUDENT_GUIDE.offers.map((o) => o.id)), "student notice");
+  for (const offer of STUDENT_GUIDE.offers) {
+    const noticePath = getStudentNoticePath(offer.id);
+    const page = {
+      slug: noticePath.slice(1, -1),
+      studentOffer: offer,
+      title: offer.name + " — before you continue | FreeHub",
+      heading: offer.name + ": before you continue",
+      description: "Review eligibility, costs and claim steps before opening the official provider information for " + offer.name + ".",
+      intro: "You are leaving FreeHub for " + new URL(offer.destination.url).hostname + ". Read the offer details below, then choose whether to continue.",
+      eyebrow: "Official provider notice",
+      heroClassName: "hero--utility hero--trust hero--student",
+      trustItems: ["Offer conditions explained", "You choose when to continue", "Provider handles applications"],
+      actions: [{ label: "Review offer details", href: "#student-notice-details", className: "btn--primary" }],
+      adsAllowed: false,
+      sections: [],
+      links: [{ label: "Back to this offer in the student guide", href: "/" + STUDENT_GUIDE.slug + "/#" + offer.id }],
+    };
+    const outputDirectory = path.join(directory, offer.id);
+    fs.mkdirSync(outputDirectory, { recursive: true });
+    fs.writeFileSync(path.join(outputDirectory, "index.html"), renderTrustPage(page));
+  }
+}
+
+function renderStudentNotice(offer) {
+  return `<section class="student-guide student-notice" id="student-notice-details" aria-labelledby="student-notice-title">
+    <h2 id="student-notice-title">Offer details and conditions</h2>
+    ${renderStudentOffer(offer, { showClaimButton: false })}
+    <section class="student-destination" aria-label="Official destination">
+      <h2>Continue to the provider</h2>
+      <p>You will open <strong>${escapeHtml(new URL(offer.destination.url).hostname)}</strong>: ${escapeHtml(offer.destination.label)}. This may be an information page with further application steps; it is not confirmation of eligibility or a completed claim.</p>
+      <p>FreeHub does not provide this benefit, verify your student identity or collect applications or payments. Recheck the provider’s current terms before sharing documents or subscribing.</p>
+      <p class="student-destination-url">${escapeHtml(offer.destination.url)}</p>
+      <a class="btn btn--primary student-continue" href="${escapeAttribute(offer.destination.url)}" rel="nofollow noopener">Continue to provider</a>
+      <p><a href="/${escapeAttribute(STUDENT_GUIDE.slug)}/#${escapeAttribute(offer.id)}">Back to the student guide</a></p>
+    </section>
+  </section>`;
+}
+
 function writeContentPages(activeCompetitions) {
   CONTENT_INDEX_PAGES.forEach((page) => {
     const outputDirectory = path.join(ROOT_DIR, page.slug);
@@ -8495,6 +8571,11 @@ function writeContentPages(activeCompetitions) {
 
 function getGuideCards() {
   return [
+    {
+      title: STUDENT_GUIDE.heading,
+      href: `/${STUDENT_GUIDE.slug}/`,
+      text: "Free education tools, subscription trials and student savings, with eligibility, costs and official claim links.",
+    },
     {
       title: "Best competitions to enter in South Africa this month",
       href: `/${MONTHLY_GUIDE_SLUG}/`,
@@ -12473,7 +12554,7 @@ function renderDetailCtaDataAttributes(competition, outPath, sourceDomain) {
 function removeStaleCompetitionDirectories(validCompetitionSlugs, validOutSlugs) {
   removeStaleSlugDirectories(path.join(ROOT_DIR, "competition"), validCompetitionSlugs, "competition");
   removeStaleSlugDirectories(path.join(ROOT_DIR, "out"), validOutSlugs, "out", {
-    preservedSlugs: new Set(["opportunity"]),
+    preservedSlugs: new Set(["opportunity", "student"]),
   });
 }
 
