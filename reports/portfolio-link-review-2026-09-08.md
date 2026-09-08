@@ -1,5 +1,7 @@
 # Portfolio release link review - 8 September 2026
 
+Later follow-up: [Chrome source review](chrome-source-review-2026-09-08.md) resolves the three current-listing decisions below: Spur reverified, McDonald's held after an official missing-page response, and Review Club withheld after Chrome's certificate error. This document preserves the earlier release snapshot.
+
 The recovered code passes its deterministic, lifecycle and browser checks. The full live-link audit also checks older content; it is not an all-clear for that content. Its remaining failures must stay visible rather than receiving invented verification dates.
 
 ## Official sources rechecked

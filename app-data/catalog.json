@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-09-08",
-  "count": 14,
+  "count": 15,
   "counts": {
-    "freeStuff": 14,
-    "resources": 13,
+    "freeStuff": 15,
+    "resources": 14,
     "opportunities": 1,
     "offers": 0
   },
@@ -184,6 +184,22 @@
       ],
       "watchOut": "Rules differ by municipality, so confirm eligibility, documents and limits with your own local municipality.",
       "lastChecked": "2026-07-31"
+    },
+    {
+      "id": "spur-r50-birthday-voucher",
+      "kind": "resource",
+      "title": "Spur R50 birthday voucher",
+      "provider": "Spur R50 birthday voucher",
+      "summary": "A registered member who spent at least R1,000 at Spur in the 12 months before their birthday receives a R50 birthday voucher in their profile on the birthday.",
+      "category": "rewards",
+      "categoryLabel": "Spend-linked birthday voucher",
+      "officialUrl": "https://www.spursteakranches.com/view-document/9",
+      "bestFor": "Registered Spur Family members who already spend regularly at Spur",
+      "requirements": [
+        "Register a Spur Family profile in the app and reach R1,000 cumulative qualifying Spur spend during the 12 months before the birthday."
+      ],
+      "watchOut": "This is a spend-linked loyalty voucher, not a no-purchase freebie. It is valid for 31 days, is non-transferable and can only be used by the registered member under the current redemption rules.",
+      "lastChecked": "2026-09-08"
     },
     {
       "id": "bootlegger-app-registration-coffee",

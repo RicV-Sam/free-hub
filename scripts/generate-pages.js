@@ -6,6 +6,7 @@ const offerData = require("../shared/offer-data.js");
 const unverifiedCompetitionData = require("../shared/unverified-competition-data.js");
 const { applyLegacyArchiveCostCompatibility } = require("./lib/legacy-archive-costs.js");
 const { createFreeResourceRenderer } = require("./lib/free-resource-renderer.js");
+const { isPublishedFreeResource } = require("./lib/free-resource-publication.js");
 const { validateStudentGuide, createStudentGuideRenderer, createStudentOfferRenderer, getStudentNoticePath } = require("./lib/student-guide.js");
 const STUDENT_GUIDE = require("../data/student-guide.json");
 const { createOpportunityRenderer } = require("./lib/opportunity-renderer.js");
@@ -210,7 +211,8 @@ let activeOpportunityRoutes = [];
 let opportunityTombstones = [];
 let publicOffers = [];
 let publicUnderReviewCompetitions = [];
-const FREE_RESOURCES = JSON.parse(fs.readFileSync(FREE_RESOURCES_PATH, "utf8"));
+const ALL_FREE_RESOURCES = JSON.parse(fs.readFileSync(FREE_RESOURCES_PATH, "utf8"));
+const FREE_RESOURCES = ALL_FREE_RESOURCES.filter(isPublishedFreeResource);
 const freeResourceRenderer = createFreeResourceRenderer({
   escapeHtml,
   escapeAttribute,
@@ -2546,11 +2548,11 @@ function loadOpportunityPublicationState() {
 }
 
 function validateFreeResourceData() {
-  const strictSamples = FREE_RESOURCES.filter((resource) => resource.category === "samples");
-  const legacyResources = FREE_RESOURCES.filter((resource) => resource.category !== "samples");
+  const strictSamples = ALL_FREE_RESOURCES.filter((resource) => resource.category === "samples");
+  const legacyResources = ALL_FREE_RESOURCES.filter((resource) => resource.category !== "samples");
   const strictValidation = opportunityData.validateFreeResourceRegistry(strictSamples);
   const legacyValidation = opportunityData.validateFreeResourceRegistry(legacyResources, { legacy: true });
-  const names = FREE_RESOURCES.map((resource) => String(resource.name || "").trim().toLowerCase()).filter(Boolean);
+  const names = ALL_FREE_RESOURCES.map((resource) => String(resource.name || "").trim().toLowerCase()).filter(Boolean);
   const duplicateNames = names.filter((name, index) => names.indexOf(name) !== index);
   const errors = [...strictValidation.errors, ...legacyValidation.errors];
   [...new Set(duplicateNames)].forEach((name) => errors.push(`free resource name is duplicated across validation modes: ${name}`));

@@ -80,8 +80,9 @@ check("Opportunity schema items", opportunitySchema?.itemListElement?.length || 
 check("Opportunity routes generated", countGeneratedRoutes("opportunity"), current.detailOpportunities.length);
 check("Opportunity exit routes generated", countGeneratedRoutes(path.join("out", "opportunity")), expectedOpportunityCount);
 check("Opportunity sitemap entries", count(sitemap, /<loc>https:\/\/freehub\.co\.za\/opportunity\//g), expectedOpportunityCount);
-check("Durable resources on parent", count(parent, /<article class="free-resource-card">/g), 26);
-check("Durable resource schema items", resourceItemList?.itemListElement?.length || 0, 26);
+check("Durable resources on parent", count(parent, /<article class="free-resource-card">/g), 25);
+check("Durable resource schema items", resourceItemList?.itemListElement?.length || 0, 25);
+check("Unverified Review Club resource excluded", parent.includes("https://reviewclub.co.za/how-it-works/"), false);
 check("Permanent Free Stuff child links", count(parent, /class="free-stuff-child-nav__link"/g), 6);
 check("Parent H1 count", parentPage.h1.length, 1);
 check("Parent H1", parentPage.h1[0], "Where to Find Free Stuff in South Africa");

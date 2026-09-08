@@ -7831,7 +7831,7 @@
     "linkValidationCheckedAt": "2026-07-04",
     "linkValidationAllowedDomain": "mcdonalds.co.za",
     "linkValidationEvidence": "Official McDonald's Airtime & Data Rewards terms page loaded on 2026-07-04 and showed the Nazo Meals Rewards Campaign title, airtime/data reward mechanic, app redemption flow, standard data charges note and 20 December 2026 last entry date.",
-    "verificationStatus": "published",
+    "verificationStatus": "needs-verification",
     "entryCostType": "purchase-required",
     "entryFeeLabel": "Qualifying McDonald's Nazo Meals Value Meal and app reward flow required",
     "purchaseRequired": true,
@@ -7847,7 +7847,11 @@
     "evidenceNotes": "Official McDonald's terms state the Nazo Meals Rewards Campaign, South African resident eligibility, reward voucher mechanic, app loyalty points flow, last entry date of 20 December 2026 and reward validity until 15 January 2027, subject to stock and terms changes.",
     "imageFallback": "https://freehub.co.za/FH%20logo.png",
     "imageReviewStatus": "neutral-fallback",
-    "imageReviewCheckedAt": "2026-07-10"
+    "imageReviewCheckedAt": "2026-07-10",
+    "publicationStatus": "held",
+    "doNotPublish": true,
+    "sourceReviewStatus": "manual-review-required",
+    "verificationNote": "Held on 2026-09-08 after Chrome displayed the official page-not-found screen at the saved campaign terms URL. The current Deals & Our App page did not establish a replacement Nazo airtime/data campaign. Previous July evidence and campaign dates are retained as historical information, not renewed approval."
   },
   {
     "id": "clicks-protex-protect-their-future-2026",

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-09-08",
-  "count": 51,
+  "count": 50,
   "competitions": [
     {
       "id": "wanderout-south-african-conservation-safari-giveaway-2026",
@@ -1033,31 +1033,6 @@
       "termsUrl": "https://www.vodacom.co.za/vodacom/terms/competition/value-news-network",
       "lastChecked": "2026-08-10",
       "isHighValue": true,
-      "isClosingSoon": false
-    },
-    {
-      "id": "mcdonalds-nazo-meals-airtime-data-rewards-2026",
-      "title": "McDonald's Nazo Meals Airtime and Data Rewards",
-      "brand": "McDonald's South Africa",
-      "summary": "Buy a participating McDonald's Nazo Meals Value Meal while reward vouchers are available, then use loyalty points in the McDonald's app to unlock airtime or data bundle rewards.",
-      "closingDate": "2026-12-20",
-      "category": "Vouchers",
-      "prizeName": "Airtime and data bundle rewards",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "App",
-      "eligibility": "The record states that South African residents with a valid ID number may participate, subject to the official terms.",
-      "entrySteps": [
-        "Buy a participating McDonald's Nazo Meals Value Meal from a participating restaurant while reward vouchers are available.",
-        "Use the official McDonald's app and loyalty points flow to unlock the airtime or data reward.",
-        "Follow the voucher redemption instructions shown by McDonald's.",
-        "Check the official terms for stock availability, entry and reward redemption deadlines."
-      ],
-      "officialUrl": "https://www.mcdonalds.co.za/airtime-data-rewards-ts-cs",
-      "termsUrl": "https://www.mcdonalds.co.za/airtime-data-rewards-ts-cs",
-      "lastChecked": "2026-07-04",
-      "isHighValue": false,
       "isClosingSoon": false
     },
     {

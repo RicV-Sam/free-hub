@@ -618,7 +618,7 @@ test("Free Stuff parent preserves intent and separates durable resources from op
   await expect(childNavigation.getByRole("link", { name: "Children's Books" })).toHaveAttribute("href", "/free-childrens-books-south-africa/");
   await expect(childNavigation.getByRole("link", { name: "Credit Reports" })).toHaveAttribute("href", "/free-credit-report-south-africa/");
 
-  await expect(page.locator("article.free-resource-card")).toHaveCount(26);
+  await expect(page.locator("article.free-resource-card")).toHaveCount(25);
   await expect(page.locator("article.opportunity-card")).toHaveCount(current.featured.length);
   await expect(page.locator("section.opportunity-section")).toHaveCount(current.featured.length ? 1 : 0);
   await expect(page.locator("#structured-data-opportunities")).toHaveCount(current.featured.length ? 1 : 0);
@@ -692,12 +692,12 @@ test("Free Samples v4 preserves its canonical and separates official sites from 
   await expect(
     page.getByRole("region", {
       name: currentSamplesCount
-        ? `7 reviewed routes plus ${currentSamplesCount} current opportunities`
-        : "7 reviewed sample routes, clearly separated",
+        ? `6 reviewed routes plus ${currentSamplesCount} current opportunities`
+        : "6 reviewed sample routes, clearly separated",
     })
   ).toBeVisible();
-  await expect(page.locator("article.free-resource-card")).toHaveCount(7);
-  await expect(page.locator('[data-content-type="product_testing_panel"]')).toHaveCount(4);
+  await expect(page.locator("article.free-resource-card")).toHaveCount(6);
+  await expect(page.locator('[data-content-type="product_testing_panel"]')).toHaveCount(3);
   await expect(page.locator('[data-content-type="brand_sample_programme"]')).toHaveCount(2);
   await expect(page.locator('[data-content-type="editorial_guide"]')).toHaveCount(1);
   await expect(page.locator("#brand-sample-programmes")).toContainText("Official brand sample programmes");
@@ -710,7 +710,7 @@ test("Free Samples v4 preserves its canonical and separates official sites from 
   if (medicalSampleActive) {
     await expect(page.getByText("7 current sample requests", { exact: true })).toBeVisible();
     await expect(page.getByText("14 current product tests", { exact: true })).toBeVisible();
-    await expect(page.getByText("7 reviewed sites and programmes", { exact: true })).toBeVisible();
+    await expect(page.getByText("6 reviewed sites and programmes", { exact: true })).toBeVisible();
     await expect(page.locator("#current-samples article.opportunity-card")).toHaveCount(7);
     const card = page.locator('[data-opportunity-id="coloplast-speedicath-short-sample"]');
     await expect(card).toHaveAttribute("data-card-variant", "full");
@@ -770,13 +770,13 @@ test("voucher hub separates direct rewards, strict voucher prizes and creator ex
   await expect(page.locator('.hero-preview-panel a[href="/competition/clicks-babyclub-competition/"]')).toHaveCount(0);
 
   const voucherResources = page.locator("#current-voucher-offers article.free-resource-card");
-  await expect(voucherResources).toHaveCount(2);
+  await expect(voucherResources).toHaveCount(3);
   await expect(voucherResources.filter({ hasText: "Telkom R550 customer referral credit" })).toContainText("Customer referral account credit");
   await expect(voucherResources.filter({ hasText: "Bootlegger" })).toContainText("app");
   await expect(voucherResources.filter({ hasText: "Absa Advantage meal vouchers" })).toHaveCount(0);
-  await expect(voucherResources.filter({ hasText: "Spur R50 birthday voucher" })).toHaveCount(0);
+  await expect(voucherResources.filter({ hasText: "Spur R50 birthday voucher" })).toContainText("R1,000");
   const voucherResourceSchema = await page.locator("#structured-data-voucher-resources").evaluate((script) => JSON.parse(script.textContent || "{}"));
-  expect(voucherResourceSchema.itemListElement).toHaveLength(2);
+  expect(voucherResourceSchema.itemListElement).toHaveLength(3);
 
   const freeEntryPicks = page.locator("#free-entry-vouchers .voucher-free-pick");
   await expect(freeEntryPicks).toHaveCount(1);
@@ -795,7 +795,7 @@ test("voucher hub separates direct rewards, strict voucher prizes and creator ex
   await expect(page.locator("#creator-voucher-exchanges article.opportunity-card")).toHaveCount(0);
   await expect(page.locator("#structured-data-voucher-opportunities")).toHaveCount(0);
   const voucherListings = page.locator("#competitionsGrid article.competition-card");
-  await expect(voucherListings).toHaveCount(9);
+  await expect(voucherListings).toHaveCount(8);
   await expect(voucherListings.first()).toBeVisible();
 });
 

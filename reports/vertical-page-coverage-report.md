@@ -92,7 +92,7 @@ Recommended normalisation:
 ## Win Airtime Competitions in South Africa
 
 - URL: /win-airtime-competitions-south-africa/
-- Matching active public competitions: 4
+- Matching active public competitions: 3
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -101,7 +101,6 @@ Recommended normalisation:
 |---|---:|---|---|---|---|---|
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | Airtime tag; Airtime prize text | none |
 | Coca-Cola Be a Bok Competition 2026 (coca-cola-fan-can-be-a-bok-2026) | 2026-11-30 | purchase-required | yes | yes | Airtime prize text | consider airtime or recharge tag if prize terms confirm |
-| McDonald's Nazo Meals Airtime and Data Rewards (mcdonalds-nazo-meals-airtime-data-rewards-2026) | 2026-12-20 | purchase-required | yes | yes | Airtime tag; Airtime prize text | none |
 | ERA Bin It to Win It Competition 2026 (era-bin-it-to-win-it-2026) | 2026-12-31 | free-entry | yes | yes | Airtime tag; Airtime prize text | none |
 
 Recommended normalisation:
@@ -110,15 +109,14 @@ Recommended normalisation:
 ## Win Data Competitions in South Africa
 
 - URL: /win-data-competitions-south-africa/
-- Matching active public competitions: 2
+- Matching active public competitions: 1
 - Publication threshold: 3
 - Safe to publish: no
-- Status: held; Only 2 active public matches; requires 3.
+- Status: held; Only 1 active public match; requires 3.
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | Data or connectivity tag | none |
-| McDonald's Nazo Meals Airtime and Data Rewards (mcdonalds-nazo-meals-airtime-data-rewards-2026) | 2026-12-20 | purchase-required | yes | yes | Data or connectivity tag; Data or connectivity prize text | none |
 
 Recommended normalisation:
 - Do not generate or sitemap this page until active verified inventory improves.
