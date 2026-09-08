@@ -13,6 +13,7 @@ Run the generator before tests when working from a fresh checkout:
 ```powershell
 $env:FREEHUB_BUILD_DATE = "2026-09-08"
 $env:FREEHUB_AS_OF_DATE = "2026-09-08"
+$env:TZ = "UTC"
 npm run build
 npm test
 npm run lint
@@ -118,5 +119,7 @@ The pull-request workflow tests Chromium with opportunities disabled, enabled, a
 Editorial review, activation, rollback, privacy, and evidence-retention procedures are in `docs/free-samples-editorial-runbook.md`.
 
 ## Opportunity health evidence
+
+Exact generated-output manifests use Node 24.19.0 and `TZ=UTC`, matching the hosted runner. The timezone matters to legacy date-only urgency arithmetic; use the same timezone for both base and candidate rather than accepting broad hash exceptions.
 
 `npm run report:opportunity-health` checks both flag states, restores the caller's original flag state, writes ignored JSON/Markdown artifacts, and exits unsuccessfully when source evidence requires review. `--deployment-check` checks publication boundaries while retaining every evidence issue in the artifacts and keeping `ok: false`. This allows deployment of safely closed pages without treating stale evidence as verified. CI retains these artifacts; source verification dates are not changed automatically.

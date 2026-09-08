@@ -94,5 +94,7 @@
       "flagOff": "c8ad2bd571ba3eb15b39b1c0a16f239c3a1ef912710d864d19ad331e46e9936e",
       "flagOn": "53ac128f9c0a0b4ba9d0ce2250e132d67e8eb839e621f15445a66e6b93564420"
     }
-  }
+  },
+  "timezone": "UTC",
+  "nodeVersion": "24.19.0"
 }

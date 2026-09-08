@@ -37,14 +37,15 @@ async function disableFirebase(page) {
 
 async function mockFirebaseAuth(
   page,
-  { signedIn = false, enabledAuthProviders = [], providerSigninUser = null, authDelayMs = 0 } = {}
+  { signedIn = false, enabledAuthProviders = [], providerSigninUser = null, authDelayMs = 0, manualAuth = false } = {}
 ) {
   await page.unroute("**/firebase-config.json");
-  await page.addInitScript(({ initialUser, popupUser, callbackDelay }) => {
+  await page.addInitScript(({ initialUser, popupUser, callbackDelay, manualResolution }) => {
     const persistedUser = window.sessionStorage.getItem("freehubTestAuthUser");
     window.__freehubTestAuthUser = persistedUser ? JSON.parse(persistedUser) : initialUser;
     window.__freehubProviderSigninUser = popupUser;
     window.__freehubAuthDelayMs = callbackDelay;
+    window.__freehubManualAuth = manualResolution;
     window.__freehubAuthCallbacks = [];
     window.__freehubFirestoreWrites = [];
     window.__freehubEmitAuth = (user) => {
@@ -60,6 +61,7 @@ async function mockFirebaseAuth(
     initialUser: signedIn ? MOCK_MEMBER : null,
     popupUser: providerSigninUser,
     callbackDelay: authDelayMs,
+    manualResolution: manualAuth,
   });
 
   await page.route("**/firebase-config.json", (route) => route.fulfill({
@@ -97,7 +99,9 @@ async function mockFirebaseAuth(
       export function onAuthStateChanged(auth, callback) {
         globalThis.__freehubAuthCallbacks.push(callback);
         const delay = Number(globalThis.__freehubAuthDelayMs) || 0;
-        if (delay > 0) {
+        if (globalThis.__freehubManualAuth) {
+          // The test resolves auth after checking the pending state, independent of CI scheduling.
+        } else if (delay > 0) {
           setTimeout(() => callback(globalThis.__freehubTestAuthUser), delay);
         } else {
           queueMicrotask(() => callback(globalThis.__freehubTestAuthUser));
@@ -143,6 +147,11 @@ async function mockFirebaseAuth(
       export function where(...parts) { return { parts }; }
     `,
   }));
+}
+
+async function resolveTestAuth(page, user) {
+  await expect.poll(() => page.evaluate(() => window.__freehubAuthCallbacks?.length || 0)).toBeGreaterThan(0);
+  await page.evaluate((value) => window.__freehubEmitAuth(value), user);
 }
 
 async function stubAdsterra(page) {
@@ -283,9 +292,10 @@ test("signed-out visitors receive one native banner on an eligible browsing page
 });
 
 test("expired archive pages retain legacy ads while active detail and outbound pages stay protected", async ({ page }) => {
-  await mockFirebaseAuth(page, { authDelayMs: 750 });
+  await mockFirebaseAuth(page, { manualAuth: true });
   const requests = await stubAdsterra(page);
-  await page.goto("/competition/isuzu-win-a-new-x-rider-2026/");
+  await page.goto("/competition/isuzu-win-a-new-x-rider-2026/", { waitUntil: "domcontentloaded" });
+  await resolveTestAuth(page, null);
   await expect(page.locator('html[data-freehub-ad-state="guest"]')).toHaveCount(1);
   await expect(page.locator(`script[src="${ADSTERRA_NATIVE_BANNER_SRC}"]`)).toHaveCount(0);
   await expect(page.locator(`script[src="${ADSTERRA_ARCHIVE_SCRIPTS.popunder}"]`)).toHaveCount(1);
@@ -304,10 +314,11 @@ test("expired archive pages retain legacy ads while active detail and outbound p
   ];
 
   for (const { route, handoff } of protectedRoutes) {
-    await page.goto(route);
+    await page.goto(route, { waitUntil: "domcontentloaded" });
     if (handoff) {
       await expect(page.locator('html[data-freehub-handoff-state="waiting-for-ad-state"]')).toHaveCount(1);
     }
+    await resolveTestAuth(page, null);
     await expect(page.locator('html[data-freehub-ad-state="guest"]')).toHaveCount(1);
     await expect(page.locator(`script[src="${ADSTERRA_NATIVE_BANNER_SRC}"]`)).toHaveCount(0);
     await expect(page.locator(`script[src="${ADSTERRA_ARCHIVE_SCRIPTS.popunder}"]`)).toHaveCount(0);
@@ -321,9 +332,10 @@ test("expired archive pages retain legacy ads while active detail and outbound p
 });
 
 test("signed-in members receive no external Adsterra scripts or executions", async ({ page }) => {
-  await mockFirebaseAuth(page, { signedIn: true, authDelayMs: 750 });
+  await mockFirebaseAuth(page, { signedIn: true, manualAuth: true });
   const requests = await stubAdsterra(page);
-  await page.goto("/");
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  await resolveTestAuth(page, MOCK_MEMBER);
 
   await expect(page.locator('html[data-freehub-ad-state="member"]')).toHaveCount(1);
   await expect(page.locator(`script[src="${ADSTERRA_NATIVE_BANNER_SRC}"]`)).toHaveCount(0);
@@ -341,10 +353,11 @@ test("signed-in members receive no external Adsterra scripts or executions", asy
       : []),
   ];
   for (const { route, handoff } of memberRoutes) {
-    await page.goto(route);
+    await page.goto(route, { waitUntil: "domcontentloaded" });
     if (handoff) {
       await expect(page.locator('html[data-freehub-handoff-state="waiting-for-ad-state"]')).toHaveCount(1);
     }
+    await resolveTestAuth(page, MOCK_MEMBER);
     await expect(page.locator('html[data-freehub-ad-state="member"]')).toHaveCount(1);
     await expect(page.locator(`script[src="${ADSTERRA_NATIVE_BANNER_SRC}"]`)).toHaveCount(0);
     if (handoff) {
