@@ -283,14 +283,7 @@ function buildDetailFacts(opportunity, costLabel, formatDate) {
   const facts = [{ label: "Cost", value: costLabel }];
 
   if (opportunity.type === "birthday_freebie") {
-    const window = details.birthdayWindow || {};
-    const birthdayWindow = window.beforeDays === 0 && window.afterDays === 0
-      ? "Actual birthday only"
-      : window.beforeDays >= 28 && window.afterDays >= 28
-        ? "Calendar birthday month"
-        : window.beforeDays === 0
-          ? `Birthday and ${window.afterDays} days after`
-          : `${window.beforeDays} days before to ${window.afterDays} days after`;
+    const birthdayWindow = require("./birthday-window.js").describeBirthdayWindow(details.birthdayWindow);
     facts.push(
       { label: "Birthday window", value: birthdayWindow },
       { label: "Advance sign-up", value: details.signupLeadDays > 0 ? `${details.signupLeadDays} day${details.signupLeadDays === 1 ? "" : "s"}` : "Not stated" },

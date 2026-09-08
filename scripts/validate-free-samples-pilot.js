@@ -120,7 +120,12 @@ if (opportunitiesEnabled && expectedIds.length > 0) {
   );
   check("Privacy boundary on both surfaces", [samples, parent].every((html) => html.includes("Freehub does not receive or assess your application")), true);
   check("Official consent link on both surfaces", [samples, parent].every((html) => html.includes("https://www.coloplast.co.za/global/declaration-of-consent/")), true);
-  check("Selection boundary", samples.includes("Applying does not guarantee selection or a product"), true);
+  if (expectedTestingOpportunityCount > 0) {
+    check("Creator selection boundary", samples.includes("Applying does not guarantee selection or a product"), true);
+  }
+  if (current.samples.some(record => record.details.selectionStatus === "selected_participants")) {
+    check("Sample selection boundary", samples.includes("Application only; fulfilment is not guaranteed"), true);
+  }
 }
 
 const orderedMarkers = [

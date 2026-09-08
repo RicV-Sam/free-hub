@@ -188,6 +188,8 @@
     "type",
     "updatedAt",
     "verificationStatus",
+    "withdrawnAt",
+    "withdrawalReason",
   ]);
 
   function isPlainObject(value) {
@@ -446,6 +448,9 @@
     }
     if (!isPlainObject(details.birthdayWindow)) {
       errors.push("birthdayWindow must be an object.");
+    } else if (details.birthdayWindow.kind !== undefined) {
+      addUnexpectedFieldErrors(details.birthdayWindow, ["kind"], errors, "details.birthdayWindow");
+      requireEnum(details.birthdayWindow, "kind", ["calendar_month", "birthday_week", "three_months"], errors);
     } else {
       addUnexpectedFieldErrors(details.birthdayWindow, ["beforeDays", "afterDays"], errors, "details.birthdayWindow");
       ["beforeDays", "afterDays"].forEach((field) => {
@@ -535,6 +540,16 @@
     }
     if ((opportunity.publicationStatus === "withdrawn") !== (opportunity.verificationStatus === "withdrawn")) {
       errors.push("withdrawn publication and verification statuses must be paired.");
+    }
+    if (opportunity.withdrawnAt !== undefined || opportunity.withdrawalReason !== undefined) {
+      requireDate(opportunity, "withdrawnAt", errors);
+      requireString(opportunity, "withdrawalReason", errors);
+      if (opportunity.publicationStatus !== "withdrawn" || opportunity.verificationStatus !== "withdrawn") {
+        errors.push("withdrawal metadata is only allowed for paired withdrawn statuses.");
+      }
+      if (opportunity.withdrawnAt > opportunity.updatedAt || opportunity.withdrawnAt < opportunity.lastVerifiedAt) {
+        errors.push("withdrawnAt must be between lastVerifiedAt and updatedAt.");
+      }
     }
     if (
       opportunity.type === "free_sample" &&
@@ -650,6 +665,24 @@
         entry.verifiedAt <= asOfDate &&
         entry.expiresAt >= asOfDate
       );
+    });
+  }
+
+  // The ledger is also URL history. A later review of the replacement URL
+  // preserves earlier evidence without letting it authorize the current URL.
+  function validateSourceEvidenceReferences(opportunities, entries) {
+    const byId = new Map(opportunities.map((record) => [record.id, record]));
+    return entries.flatMap((entry, index) => {
+      const record = byId.get(entry.recordId);
+      if (!record) return [`sourceEvidence[${index}] references an unknown Opportunity.`];
+      if (!record[entry.field]) return [`sourceEvidence[${index}] references a missing ${entry.field}.`];
+      if (entry.url === record[entry.field]) return [];
+      const replacement = entries.some((later) =>
+        later.recordId === entry.recordId && later.field === entry.field &&
+        later.url === record[entry.field] && later.verifiedAt > entry.verifiedAt &&
+        validateSourceEvidenceEntry(later).valid
+      );
+      return replacement ? [] : [`sourceEvidence[${index}] URL changed without a later review of the current URL.`];
     });
   }
 
@@ -956,6 +989,7 @@
     validateRequirement,
     validateSourceEvidenceEntry,
     validateSourceEvidenceLedger,
+    validateSourceEvidenceReferences,
   };
 
   if (typeof module !== "undefined" && module.exports) {

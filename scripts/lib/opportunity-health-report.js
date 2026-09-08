@@ -185,7 +185,9 @@ function inspectGeneratedState(rootDir, records, gateOptions, featureEnabled) {
   const sitemap = fs.existsSync(sitemapPath) ? fs.readFileSync(sitemapPath, "utf8") : "";
   const sampleHtml = samplePage.html;
   const parentHtml = parentPage.html;
-  const renderedIds = [...sampleHtml.matchAll(/data-opportunity-id="([^"]+)"/g), ...parentHtml.matchAll(/data-opportunity-id="([^"]+)"/g)].map(
+  const birthdayHtml = readPageInfo(rootDir, path.join("birthday-freebies", "index.html")).html;
+  const discoveryHtml = [sampleHtml, parentHtml, birthdayHtml];
+  const renderedIds = discoveryHtml.flatMap(html => [...html.matchAll(/data-opportunity-id="([^"]+)"/g)]).map(
     (match) => match[1]
   );
   const counts = {
@@ -200,7 +202,7 @@ function inspectGeneratedState(rootDir, records, gateOptions, featureEnabled) {
     sitemapOpportunityEntries: [...sitemap.matchAll(/<loc>https:\/\/freehub\.co\.za\/opportunity\//g)].length,
     renderedCards: renderedIds.length,
     uniqueRenderedRecords: new Set(renderedIds).size,
-    discoverySurfacesWithCards: [sampleHtml, parentHtml].filter((html) => html.includes('data-opportunity-id="')).length,
+    discoverySurfacesWithCards: discoveryHtml.filter((html) => html.includes('data-opportunity-id="')).length,
   };
 
   const routeChecks = records.map((record) => {
@@ -209,6 +211,7 @@ function inspectGeneratedState(rootDir, records, gateOptions, featureEnabled) {
     const exitRoute = opportunityData.getOpportunityExitPath(record);
     const detailFile = path.join(rootDir, detailRoute.replace(/^\//, ""), "index.html");
     const exitFile = path.join(rootDir, exitRoute.replace(/^\//, ""), "index.html");
+    const detailHtml = fs.existsSync(detailFile) ? fs.readFileSync(detailFile, "utf8") : "";
     return {
       id: record.id,
       lifecycle: getLifecycleClassification(record, gateOptions).lifecycle,
@@ -218,6 +221,8 @@ function inspectGeneratedState(rootDir, records, gateOptions, featureEnabled) {
         exitRoute,
         detailFileExists: fs.existsSync(detailFile),
         exitFileExists: fs.existsSync(exitFile),
+        detailNoindex: parseHtml(detailHtml).robots.split(/[,\s]+/).includes("noindex"),
+        detailHasClaimLink: detailHtml.includes(`href="${exitRoute}"`),
         detailInSitemap: sitemap.includes(`<loc>https://freehub.co.za${detailRoute}</loc>`),
         exitInSitemap: sitemap.includes(`<loc>https://freehub.co.za${exitRoute}</loc>`),
         renderedOnSamples: sampleHtml.includes(`data-opportunity-id="${record.id}"`),
@@ -267,6 +272,8 @@ function buildOpportunityHealthReport(options = {}) {
       type: record.type,
       publicationStatus: record.publicationStatus,
       verificationStatus: record.verificationStatus,
+      withdrawnAt: record.withdrawnAt,
+      withdrawalReason: record.withdrawalReason,
       lifecycle,
       expected: getExpectedRoutes(record, gateOptions, featureFlag.parsedEnabled),
       evidence,
@@ -275,6 +282,9 @@ function buildOpportunityHealthReport(options = {}) {
 
   const actionableErrors = [];
   const reviewedWarnings = [];
+  actionableErrors.push(...opportunityData.validateOpportunityRegistry(opportunities).errors);
+  actionableErrors.push(...opportunityData.validateSourceEvidenceLedger(ledger).errors);
+  actionableErrors.push(...opportunityData.validateSourceEvidenceReferences(opportunities, ledger));
 
   if (featureFlag.parserMatrix.find((entry) => entry.label === "absent").parsedEnabled !== false) {
     actionableErrors.push("Feature flag parser no longer fail-closes when the value is absent.");
@@ -288,8 +298,21 @@ function buildOpportunityHealthReport(options = {}) {
 
   const evidenceReviewRequired = [];
   records.forEach((recordReport) => {
+    const reviewedWithdrawal = recordReport.lifecycle.lifecycle === "withdrawn" &&
+      recordReport.withdrawnAt && recordReport.withdrawnAt <= asOfDate && recordReport.withdrawalReason;
+    const privateDraft = recordReport.publicationStatus === "draft" &&
+      !opportunities.find((record) => record.id === recordReport.id).publishedAt;
+    if (recordReport.lifecycle.lifecycle === "withdrawn" && !reviewedWithdrawal) {
+      evidenceReviewRequired.push(`${recordReport.id} withdrawal needs a dated review and reason.`);
+    }
     REQUIRED_EVIDENCE_FIELDS.forEach((field) => {
-      evidenceReviewRequired.push(...recordReport.evidence[field].actionableErrors);
+      if (reviewedWithdrawal || privateDraft) {
+        // Keep historical/missing proof visible; it can never authorize publication.
+        reviewedWarnings.push(...recordReport.evidence[field].actionableErrors.map((error) =>
+          `${error} ${reviewedWithdrawal ? "Reviewed withdrawal; fresh proof is required before republication." : "Private draft; not ready for publication."}`));
+      } else {
+        evidenceReviewRequired.push(...recordReport.evidence[field].actionableErrors);
+      }
       reviewedWarnings.push(...recordReport.evidence[field].reviewedWarnings);
     });
   });
@@ -317,6 +340,12 @@ function buildOpportunityHealthReport(options = {}) {
     }
     if (generated.exitInSitemap) {
       actionableErrors.push(`${routeCheck.id} exit route is present in sitemap.`);
+    }
+    if (expected.tombstoneEligible && generated.detailFileExists && !generated.detailNoindex) {
+      actionableErrors.push(`${routeCheck.id} closed detail page is missing noindex.`);
+    }
+    if (expected.exitExcluded && generated.detailHasClaimLink) {
+      actionableErrors.push(`${routeCheck.id} closed detail page still has its claim link.`);
     }
   });
 
@@ -378,6 +407,7 @@ function renderOpportunityHealthMarkdown(report, heading) {
     lines.push(`### ${record.id}`);
     lines.push("");
     lines.push(`- Lifecycle: ${record.lifecycle.lifecycle}`);
+    if (record.withdrawalReason) lines.push(`- Withdrawn on ${record.withdrawnAt}: ${record.withdrawalReason}`);
     lines.push(`- Tombstone eligible: ${record.lifecycle.tombstoneEligible ? "yes" : "no"}`);
     lines.push(`- Review state: ${record.lifecycle.reviewState.label}`);
     lines.push(`- Review due: ${record.expected.sitemapEligible || record.lifecycle.tombstoneEligible ? "reviewed" : "private/ineligible"}`);

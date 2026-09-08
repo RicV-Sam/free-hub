@@ -75,6 +75,62 @@
     },
     {
       "sourceType": "competition",
+      "recordId": "mtn-fc-world-cup-competition-2026",
+      "field": "url",
+      "reason": "timeout",
+      "url": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn-fc-world-cup",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "mtn-momo-cash-sprint",
+      "field": "url",
+      "reason": "timeout",
+      "url": "https://www.mtn.co.za/home/terms-and-conditions/content/momo-cash-sprint-2026",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "mtn-world-cup-bafana-goal-1gb-data-2026",
+      "field": "url",
+      "reason": "timeout",
+      "url": "https://www.mtn.co.za/home/help/content/how-will-customers-qualify-for-the-free-1-gb-anytime-data-",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "nivea-men-real-madrid-cash-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.nivea.co.za/articles/engage/real-madrid-competition/terms-and-conditions",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "ofm-emerald-resort-family-getaway-2026",
+      "field": "url",
+      "reason": "redirected_to_error_like_url",
+      "url": "https://www.ofm.co.za/competition/3670/win-family-getaway-at-emerald-resort-",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "ofm-show-us-your-ofm-cash-2026",
+      "field": "url",
+      "reason": "redirected_to_error_like_url",
+      "url": "https://www.ofm.co.za/competition/3663/show-us-your-ofm-win-r40-000-cash-",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "onedayonly-elephant-walk-tented-camp-getaway-2026",
+      "field": "termsUrl",
+      "reason": "expired_archive_403",
+      "url": "https://help.onedayonly.co.za/hc/en-us/articles/52157018202516-WIN-a-trip-for-2-to-Elephant-Walk-Tented-Camp-Terms-Conditions",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
       "recordId": "oxford-freshmarket-birthday-trolley-dash",
       "field": "url",
       "reason": "expired_archive_404",
@@ -87,6 +143,14 @@
       "field": "url",
       "reason": "expired_archive_404",
       "url": "https://www.penguinrandomhouse.co.za/competitions/win-with-the-penguin-post-42/",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "penguin-random-house-penguin-post-43-book-hampers-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.penguinrandomhouse.co.za/competitions/win-with-the-penguin-post-43/",
       "lifecycle": "expired-archive"
     },
     {
@@ -131,6 +195,14 @@
     },
     {
       "sourceType": "competition",
+      "recordId": "spar-melrose-back-to-school-vouchers-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.spar.co.za/SPAR-Melrose-Competition",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
       "recordId": "spar-rewards-vaseline-cera-glow-competition-2026",
       "field": "url",
       "reason": "expired_archive_404",
@@ -151,6 +223,22 @@
       "field": "url",
       "reason": "expired_archive_404",
       "url": "https://www.standardbank.co.za/southafrica/personal/campaigns/game-day-everyday",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "sunlight-kitchen-makeover-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.sunlight.co.za/win-a-kitchen-makeover.html",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "va-waterfront-mothers-day-winter-escape-2026",
+      "field": "url",
+      "reason": "expired_archive_429",
+      "url": "https://www.waterfront.co.za/mothers-day-2026-ts-cs/",
       "lifecycle": "expired-archive"
     },
     {
@@ -215,6 +303,14 @@
       "field": "officialUrl",
       "reason": "manual_check_http_403",
       "url": "https://www.spursteakranches.com/view-document/9",
+      "lifecycle": "active-manual-check"
+    },
+    {
+      "sourceType": "free-resource",
+      "recordId": "free-resource:samples:brand-advisor",
+      "field": "officialUrl",
+      "reason": "manual_check_http_403",
+      "url": "https://brandadvisor.co.za/how-it-works/",
       "lifecycle": "active-manual-check"
     },
     {

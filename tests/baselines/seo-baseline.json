@@ -21,7 +21,9 @@
     "www.mcdonalds.co.za",
     "www.spursteakranches.com",
     "muggandbean.co.za",
-    "rubybox.co.za"
+    "rubybox.co.za",
+    "www.muggandbean.co.za",
+    "res.cloudinary.com"
   ],
   "canonicalAliases": {
     "/category/cars/": "/win-a-car/",

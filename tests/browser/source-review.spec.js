@@ -1,4 +1,5 @@
 const { test, expect } = require("@playwright/test");
+const withdrawn = require("../../data/opportunities.json").filter(record => record.publicationStatus === "withdrawn");
 
 for (const width of [320, 1365]) {
   test(`reviewed source holds reach public pages at ${width}px`, async ({ page, request }) => {
@@ -19,10 +20,24 @@ for (const width of [320, 1365]) {
     }
     const sitemap = await (await request.get("/sitemap.xml")).text();
     expect(sitemap).not.toContain("mcdonalds-nazo-meals-airtime-data-rewards-2026");
+    for (const record of withdrawn) {
+      expect(sitemap).not.toContain(`/opportunity/${record.slug}/`);
+      expect((await request.get(`/out/opportunity/${record.slug}/`)).status()).toBe(404);
+      const detail = await request.get(`/opportunity/${record.slug}/`);
+      if (process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true") {
+        expect(detail.status()).toBe(200);
+        const html = await detail.text();
+        expect(html).toMatch(/name="robots" content="noindex/);
+        expect(html).not.toContain(`href="/out/opportunity/${record.slug}/"`);
+      } else {
+        expect(detail.status()).toBe(404);
+      }
+    }
     for (const path of ["/app-data/catalog.json", "/app-data/competitions.json"]) {
       const feed = await (await request.get(path)).text();
       expect(feed).not.toContain("mcdonalds-nazo-meals-airtime-data-rewards-2026");
       expect(feed).not.toContain("reviewclub.co.za");
+      for (const record of withdrawn) expect(feed).not.toContain(record.id);
     }
   });
 }

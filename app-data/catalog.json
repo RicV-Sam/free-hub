@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-09-08",
-  "count": 15,
+  "count": 32,
   "counts": {
-    "freeStuff": 15,
-    "resources": 14,
-    "opportunities": 1,
+    "freeStuff": 32,
+    "resources": 15,
+    "opportunities": 17,
     "offers": 0
   },
   "items": [
@@ -154,6 +154,22 @@
       "lastChecked": "2026-07-27"
     },
     {
+      "id": "brand-advisor",
+      "kind": "resource",
+      "title": "Brand Advisor",
+      "provider": "Brand Advisor",
+      "summary": "Product exchange and trial opportunities may be available when campaigns are open.",
+      "category": "samples",
+      "categoryLabel": "Free samples and product testing",
+      "officialUrl": "https://brandadvisor.co.za/how-it-works/",
+      "bestFor": "Consumers interested in product testing and honest feedback",
+      "requirements": [
+        "Application, profile details and content or feedback may be required."
+      ],
+      "watchOut": "Campaigns are limited and not every application gets selected.",
+      "lastChecked": "2026-09-08"
+    },
+    {
       "id": "resource-consumer-support-national-consumer-commission-complaints-portal",
       "kind": "resource",
       "title": "National Consumer Commission complaints portal",
@@ -234,6 +250,128 @@
       "lastChecked": "2026-09-01"
     },
     {
+      "id": "coloplast-speedicath-short-sample",
+      "kind": "opportunity",
+      "title": "Coloplast SpeediCath Short free sample",
+      "provider": "Coloplast South Africa",
+      "summary": "People who currently use, or have been prescribed, an intermittent catheter can request a free SpeediCath Short sample for Coloplast suitability review.",
+      "category": "free_sample",
+      "categoryLabel": "Free samples",
+      "officialUrl": "https://products.coloplast.co.za/global-campaigns/speedicath-short/",
+      "requirements": [
+        "South African delivery address required",
+        "Contact details required",
+        "Product-suitability information required",
+        "Coloplast Care Advisor approval required"
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-09-08"
+    },
+    {
+      "id": "coloplast-sensura-mio-free-sample",
+      "kind": "opportunity",
+      "title": "Coloplast SenSura Mio free sample",
+      "provider": "Coloplast South Africa",
+      "summary": "People with a relevant ostomy-product need can request a free SenSura Mio sample for Coloplast suitability review.",
+      "category": "free_sample",
+      "categoryLabel": "Free samples",
+      "officialUrl": "https://products.coloplast.co.za/global-campaigns/sensura-mio-consumer-what-comes-naturally/",
+      "requirements": [
+        "South African delivery address required",
+        "Contact details required",
+        "Product-suitability information required",
+        "Coloplast Care Advisor approval required"
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-09-08"
+    },
+    {
+      "id": "coloplast-brava-elastic-tape-free-sample",
+      "kind": "opportunity",
+      "title": "Coloplast Brava Elastic Tape free sample",
+      "provider": "Coloplast South Africa",
+      "summary": "People with a relevant ostomy-product need can request a free Brava Elastic Tape sample for Coloplast suitability review.",
+      "category": "free_sample",
+      "categoryLabel": "Free samples",
+      "officialUrl": "https://products.coloplast.co.za/global-campaigns/brava-elastic-tape/",
+      "requirements": [
+        "South African delivery address required",
+        "Contact details required",
+        "Product-suitability information required",
+        "Coloplast Care Advisor approval required"
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-09-08"
+    },
+    {
+      "id": "coloplast-sensura-mio-click-free-sample",
+      "kind": "opportunity",
+      "title": "Coloplast SenSura Mio Click free sample",
+      "provider": "Coloplast South Africa",
+      "summary": "People with a relevant ostomy-product need can request a free SenSura Mio Click sample for Coloplast suitability review.",
+      "category": "free_sample",
+      "categoryLabel": "Free samples",
+      "officialUrl": "https://products.coloplast.co.za/global-campaigns/sensura-mio-click-coupling/",
+      "requirements": [
+        "South African delivery address required",
+        "Contact details required",
+        "Product-suitability information required",
+        "Coloplast Care Advisor approval required"
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-09-08"
+    },
+    {
+      "id": "blind-designs-free-fabric-samples",
+      "kind": "opportunity",
+      "title": "Blind Designs free fabric samples",
+      "provider": "Blind Designs",
+      "summary": "People in South Africa can order up to five Blind Designs blind or curtain fabric sample pieces per delivery with free delivery to a South African address.",
+      "category": "free_sample",
+      "categoryLabel": "Free samples",
+      "officialUrl": "https://www.blinddesigns.co.za/view-blind-type/",
+      "requirements": [
+        "South African delivery address required",
+        "Contact and delivery details required",
+        "Select a blind or curtain range and up to five fabric pieces per delivery"
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-09-08"
+    },
+    {
+      "id": "table-mountain-cableway-birthday-ticket",
+      "kind": "opportunity",
+      "title": "Table Mountain Cableway free birthday ticket",
+      "provider": "Table Mountain Aerial Cableway",
+      "summary": "South African citizens can collect a free Cableway birthday ticket during their calendar birthday month by showing accepted South African identification in person at the ticket office or Visitor Information Centre.",
+      "category": "birthday_freebie",
+      "categoryLabel": "Birthday freebies",
+      "officialUrl": "https://www.tablemountain.net/plan-your-visit/specials",
+      "requirements": [
+        "Valid South African ID, driver's licence or birth certificate required",
+        "Collect in person during the calendar month of your birthday"
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-09-08"
+    },
+    {
+      "id": "two-oceans-aquarium-birthday-entry",
+      "kind": "opportunity",
+      "title": "Two Oceans Aquarium free birthday-month entry",
+      "provider": "Two Oceans Aquarium",
+      "summary": "South African citizens and permanent residents aged four or older can claim one complimentary Aquarium visit during their birthday month at the onsite ticket office.",
+      "category": "birthday_freebie",
+      "categoryLabel": "Birthday freebies",
+      "officialUrl": "https://www.aquarium.co.za/specials/free-entry-on-your-birthday",
+      "requirements": [
+        "Accepted identification showing a South African ID number and birth date required",
+        "Collect and use the ticket in person on the same day during your birthday month",
+        "Children aged 13 or younger must be accompanied by an adult ticket-holder"
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-09-08"
+    },
+    {
       "id": "cape-wheel-birthday-club-ride",
       "kind": "opportunity",
       "title": "Cape Wheel Birthday Club Free Ride",
@@ -245,10 +383,164 @@
       "requirements": [
         "Free Birthday Club registration before the birthday required",
         "Identification showing date of birth required",
-        "Printed emailed voucher required for redemption after the actual birthday"
+        "Printed emailed voucher required for redemption after the actual birthday",
+        "Birthday Club is for people over 12; younger children have a separate Kids Club"
       ],
       "watchOut": "Availability and provider approval can change.",
-      "lastChecked": "2026-09-04"
+      "lastChecked": "2026-09-08"
+    },
+    {
+      "id": "zeitz-mocaa-free-access",
+      "kind": "opportunity",
+      "title": "Zeitz MOCAA free birthday and Wednesday access",
+      "provider": "Zeitz MOCAA",
+      "summary": "Visitors with accepted South African or African identification can visit free during their birthday month; African citizens also receive free entry every Wednesday from 10:00 to 13:00, and under-18s enter free year-round.",
+      "category": "birthday_freebie",
+      "categoryLabel": "Birthday freebies",
+      "officialUrl": "https://zeitzmocaa.museum/pricing/option-3/",
+      "requirements": [
+        "Valid South African ID or African passport reflecting the birth date required",
+        "Birthday access is available Tuesdays to Sundays; Wednesday access runs 10:00 to 13:00"
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-09-08"
+    },
+    {
+      "id": "robben-island-museum-birthday-tour",
+      "kind": "opportunity",
+      "title": "Robben Island Museum free birthday tour",
+      "provider": "Robben Island Museum",
+      "summary": "A complimentary standard Robben Island tour is available on the visitor's actual birthday, subject to tour capacity and operations, with valid identification required.",
+      "category": "birthday_freebie",
+      "categoryLabel": "Birthday freebies",
+      "officialUrl": "https://www.robben-island.org.za/frequently-asked-questions/",
+      "requirements": [
+        "Valid identification showing the birth date required",
+        "Birthday ticket is valid on the actual birth date and remains subject to tour availability",
+        "If tours are cancelled on the birthdate, the official FAQ permits an alternative visit date"
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-09-08"
+    },
+    {
+      "id": "city-sightseeing-young-explorers-birthday-tickets",
+      "kind": "opportunity",
+      "title": "City Sightseeing free kids' birthday bus tickets",
+      "provider": "City Sightseeing South Africa",
+      "summary": "Young Explorers Club members aged four to 17 receive a free one-day Classic bus ticket for themselves and one friend, valid from one week before to three weeks after the birthday.",
+      "category": "birthday_freebie",
+      "categoryLabel": "Birthday freebies",
+      "officialUrl": "https://citysightseeing.co.za/en/cape-town/kidsclub-info",
+      "requirements": [
+        "Free Young Explorers Club registration at least two weeks before the birthday required",
+        "Birthday member and friend must each be aged four to 17",
+        "One child may be registered per email address with parent or guardian knowledge"
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-09-08"
+    },
+    {
+      "id": "upcycles-free-birthday-bike-ride",
+      "kind": "opportunity",
+      "title": "UpCycles free birthday bike ride",
+      "provider": "UpCycles",
+      "summary": "UpCycles offers a complimentary one-hour bicycle ride on the visitor's actual birthday, with proof of birth date required at an operating Up Station.",
+      "category": "birthday_freebie",
+      "categoryLabel": "Birthday freebies",
+      "officialUrl": "https://upcycles.co.za/rentals/",
+      "requirements": [
+        "Proof of birth date required",
+        "Redeem at an operating Up Station on the actual birthday",
+        "Minors must be accompanied by a legal guardian"
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-09-08"
+    },
+    {
+      "id": "va-waterfront-pedal-boat-birthday-ride",
+      "kind": "opportunity",
+      "title": "V&A Waterfront free birthday pedal-boat ride",
+      "provider": "V&A Waterfront / Pedal Boat Cape Town",
+      "summary": "The V&A Waterfront's current birthday guide lists a complimentary pedal-boat ride before noon on the birthday or during the birthday week, with identification showing the birth date required.",
+      "category": "birthday_freebie",
+      "categoryLabel": "Birthday freebies",
+      "officialUrl": "https://www.waterfront.co.za/articles/free-birthday-celebrations",
+      "requirements": [
+        "Valid identification showing the birth date required",
+        "Ride must start before noon during the stated birthday week"
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-09-08"
+    },
+    {
+      "id": "ster-kinekor-sk-club-birthday-ticket",
+      "kind": "opportunity",
+      "title": "Ster-Kinekor SK Club free birthday movie ticket",
+      "provider": "Ster-Kinekor",
+      "summary": "SK Club members receive one free 2D or 3D birthday ticket valid for 30 days from their birth date after completing at least one SK Club transaction since joining.",
+      "category": "birthday_freebie",
+      "categoryLabel": "Birthday freebies",
+      "officialUrl": "https://www.sterkinekor.com/ster-kinekor-club-terms-and-conditions",
+      "requirements": [
+        "Free SK Club membership required",
+        "At least one SK Club transaction since joining required",
+        "Ticket is limited to eligible 2D or 3D films and seat availability"
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-09-08"
+    },
+    {
+      "id": "mcdonalds-app-birthday-ice-cream",
+      "kind": "opportunity",
+      "title": "McDonald's app free birthday ice-cream cone",
+      "provider": "McDonald's South Africa",
+      "summary": "McDonald's South Africa app members who provide the correct date of birth receive a free ice-cream cone reward on their birthday for redemption at a participating restaurant.",
+      "category": "birthday_freebie",
+      "categoryLabel": "Birthday freebies",
+      "officialUrl": "https://www.mcdonalds.co.za/deals-our-app",
+      "requirements": [
+        "McDonald's app membership required",
+        "McDonald's South Africa app registration required",
+        "Correct date of birth must be stored in the app profile",
+        "Redeem the in-app reward at a participating restaurant"
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-09-08"
+    },
+    {
+      "id": "spur-kids-free-birthday-meal",
+      "kind": "opportunity",
+      "title": "Spur kids' free birthday meal and ice cream",
+      "provider": "Spur Steak Ranches",
+      "summary": "Children aged zero to 12 linked to a parent or guardian's Spur Family profile receive a free Kids' Menu meal and Chico the Clown ice cream birthday voucher, valid for three months.",
+      "category": "birthday_freebie",
+      "categoryLabel": "Birthday freebies",
+      "officialUrl": "https://www.spursteakranches.com/za/family-card-benefits-for-kids",
+      "requirements": [
+        "Child must be linked to a parent or guardian's free Spur Family profile",
+        "Child must be aged zero to 12",
+        "Child must be present for restaurant or Call & Collect redemption"
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-09-08"
+    },
+    {
+      "id": "mugg-and-bean-birthday-cake",
+      "kind": "opportunity",
+      "title": "Mugg & Bean free birthday cake slice",
+      "provider": "Mugg & Bean",
+      "summary": "Qualifying Mugg & Bean Loyalty App members receive a birthday voucher for a cake slice at a Sit-Down restaurant or a bundt cake at On-The-Move. From 1 September 2026 it is issued on the actual birthday and is valid for 30 days. Two qualifying app uses in the preceding 12 months are required.",
+      "category": "birthday_freebie",
+      "categoryLabel": "Birthday freebies",
+      "officialUrl": "https://www.muggandbean.co.za/rewards/loyalty-app-faqs/",
+      "requirements": [
+        "Mugg & Bean loyalty membership required",
+        "Mugg & Bean Loyalty App registration required",
+        "Use the app payment or receipt-scan feature at least twice in the preceding 12 months",
+        "Voucher must be used within its 30-day validity period"
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-09-08"
     }
   ]
 }

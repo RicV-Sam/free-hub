@@ -71,6 +71,8 @@
     "reviewDueAt": { "$ref": "#/$defs/date" },
     "publishedAt": { "$ref": "#/$defs/date" },
     "updatedAt": { "$ref": "#/$defs/date" },
+    "withdrawnAt": { "$ref": "#/$defs/date" },
+    "withdrawalReason": { "type": "string", "minLength": 1 },
     "availabilityKind": { "enum": ["fixed_window", "stock_limited", "recurring", "ongoing"] },
     "costClassification": {
       "enum": [
@@ -142,13 +144,20 @@
       "properties": {
         "signupLeadDays": { "type": "integer", "minimum": 0 },
         "birthdayWindow": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["beforeDays", "afterDays"],
-          "properties": {
-            "beforeDays": { "type": "integer", "minimum": 0 },
-            "afterDays": { "type": "integer", "minimum": 0 }
-          }
+          "oneOf": [
+            {
+              "type": "object", "additionalProperties": false,
+              "required": ["beforeDays", "afterDays"],
+              "properties": {
+                "beforeDays": { "type": "integer", "minimum": 0 },
+                "afterDays": { "type": "integer", "minimum": 0 }
+              }
+            },
+            {
+              "type": "object", "additionalProperties": false, "required": ["kind"],
+              "properties": { "kind": { "enum": ["calendar_month", "birthday_week", "three_months"] } }
+            }
+          ]
         },
         "membershipRequired": { "type": "boolean" },
         "appRequired": { "type": "boolean" },

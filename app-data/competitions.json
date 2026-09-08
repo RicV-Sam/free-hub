@@ -736,10 +736,10 @@
       "id": "wanderlust-reader-travel-awards-prize-draw-2026",
       "title": "Wanderlust Reader Travel Awards 2026 Prize Draw",
       "brand": "Wanderlust Travel Media",
-      "summary": "Wanderlust Travel Media is running a free prize draw alongside the 2026 Reader Travel Awards. Ten winners receive one of ten travel prizes from travel partners, with international entrants allowed under the master terms but some prizes carrying UK departure points or prize-specific eligibility limits.",
+      "summary": "Wanderlust Travel Media is running a free prize draw alongside the 2026 Reader Travel Awards. Eleven winners receive one of eleven travel prizes from travel partners, with international entrants allowed under the master terms but some prizes carrying UK departure points or prize-specific eligibility limits.",
       "closingDate": "2026-10-27",
       "category": "Holidays",
-      "prizeName": "One of ten international travel prizes",
+      "prizeName": "One of eleven international travel prizes",
       "entryCostType": "free_entry",
       "entryCostLabel": "Free entry",
       "purchaseRequired": false,
@@ -748,12 +748,12 @@
       "entrySteps": [
         "Open the official Wanderlust Reader Travel Awards voting page and review the prize draw terms.",
         "Submit your Reader Travel Awards votes through the official online entry route.",
-        "Follow @wanderlustmag on Instagram or Wanderlust Travel Magazine on Facebook for the duration of the draw.",
+        "Follow @wanderlustmag on Instagram or Wanderlust Travel Magazine on Facebook for the duration of the draw. The terms provide an active-subscriber exception for entrants without a social-media account.",
         "Opt into any prize-provider requirements that apply to the specific prize you want to be eligible for, then enter before 27 October 2026 at 23:59 UK time."
       ],
       "officialUrl": "https://wanderlusttravelawards.com/",
       "termsUrl": "https://www.wanderlustmagazine.com/wanderlust-reader-travel-awards-2026-prize-draw-terms-and-conditions/",
-      "lastChecked": "2026-07-08",
+      "lastChecked": "2026-09-08",
       "isHighValue": true,
       "isClosingSoon": false
     },

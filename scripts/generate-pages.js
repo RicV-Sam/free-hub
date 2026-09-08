@@ -90,6 +90,8 @@ const OPPORTUNITY_ALLOWED_SOURCE_HOSTS = Object.freeze([
   "www.mcdonalds.co.za",
   "www.spursteakranches.com",
   "muggandbean.co.za",
+  "www.muggandbean.co.za",
+  "res.cloudinary.com",
   "rubybox.co.za",
 ]);
 const VOUCHER_DISCOVERY_RESOURCE_HOSTS = Object.freeze({
@@ -2562,14 +2564,7 @@ function validateFreeResourceData() {
 }
 
 function validateOpportunityEvidenceReferences(opportunities, sourceEvidence) {
-  const byId = new Map(opportunities.map((opportunity) => [opportunity.id, opportunity]));
-  return sourceEvidence.flatMap((entry, index) => {
-    const opportunity = byId.get(entry.recordId);
-    if (!opportunity) return [`sourceEvidence[${index}] references an unknown Opportunity.`];
-    if (!opportunity[entry.field]) return [`sourceEvidence[${index}] references a missing ${entry.field}.`];
-    if (opportunity[entry.field] !== entry.url) return [`sourceEvidence[${index}] URL does not exactly match the Opportunity.`];
-    return [];
-  });
+  return opportunityData.validateSourceEvidenceReferences(opportunities, sourceEvidence);
 }
 
 function uniqueCompetitionsBySlug(competitions) {

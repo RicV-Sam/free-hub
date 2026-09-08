@@ -83,7 +83,7 @@ Fifteen retained expired records predate `entryCostType`. `data/archive/legacy-c
 
 The pure `isPublicOpportunity()` gate requires an explicit `asOfDate` and official-source host allowlist. It rejects non-published, non-verified, future, overdue, expired, unsupported-type, invalid-source, unclear-cost and requirement-mismatch records. Strict free-only use accepts only `completely_free`. Supported type-specific details are currently limited to direct samples, product-testing campaigns, birthday freebies and free courses; other declared types may be stored as drafts but cannot become public.
 
-`FREEHUB_ENABLE_OPPORTUNITIES` is false unless its exact value is `true`. On the reviewed 8 September snapshot, only the Cape Wheel birthday record has current publication evidence; 34 other valid detail routes are closed and noindex. Absent and explicit-false builds produce no Opportunity cards, details, exits or Opportunity schema. No flag state creates Club state.
+`FREEHUB_ENABLE_OPPORTUNITIES` is false unless its exact value is `true`. On the reviewed 8 September snapshot, 17 opportunities have renewed source evidence and active exits; 18 documented withdrawals retain closed noindex detail pages. Two drafts remain private. Absent and explicit-false builds produce no Opportunity cards, details, exits or Opportunity schema. No flag state creates Club state.
 
 The generator owns the publication boundary and passes only approved records to renderers. The explicit official-source allowlist is maintained in `tests/baselines/seo-baseline.json`; registry contents must never silently permit source hosts. Current opportunities create matching cards, structured data, detail routes and sitemap entries. Exit routes remain outside the sitemap and carry `noindex`. Stale and otherwise ineligible records never retain an active exit.
 
@@ -108,13 +108,13 @@ GA4 review is intentionally non-blocking for repository validation. Event receip
 
 The Samples inventory checks absent/false and enabled flag states. Current publication gates determine which records appear; expired evidence is never refreshed by a test. Samples and product-testing groups can honestly be empty while durable editorial resources remain available.
 
-In the 8 September snapshot, there are no current sample or product-testing applications. The Free Stuff parent has 26 durable resources and one current birthday opportunity. The voucher hub has two checked reward resources, one unrestricted airtime prize, and two account-linked draws. Birthday vouchers are excluded from the creator-exchange section.
+In the 8 September snapshot, five sample requests and twelve birthday opportunities have current evidence; no individual product-testing campaign is currently published. The Free Stuff directory retains 25 public resources; Review Club remains withheld. The voucher hub has two checked reward resources, one unrestricted airtime prize, and two account-linked draws. Birthday vouchers are excluded from the creator-exchange section.
 
 `node scripts/validate-free-samples-pilot.js` checks the canonical, title, H1, seven classified durable resources, six visible/schema-matched FAQs, current Opportunity IDs, direct-versus-selected grouping, card/schema equality, section order, privacy boundary and route inclusion. The script reads the same fail-closed flag value as the build; the reviewed static sitemap count and current source records determine expected totals.
 
 `node scripts/validate-opportunity-links.js` validates the Opportunity source and terms independently of the ordinary warning baseline. A current exact manual-evidence entry can cover an automated access block. It cannot cover a 404, 410, redirect, confirmed soft-404, mismatched URL, or stale evidence.
 
-The pull-request workflow tests Chromium with opportunities disabled, enabled, and with the offers portal enabled. Browser assertions cover current active or empty states and retain isolated active-fixture checks where live records have expired. Flag-absent and explicit-false HTML must be byte-identical. Enabled output permits only the exact reviewed 36 detail/exit files, three discovery surfaces and sitemap.
+The pull-request workflow tests Chromium with opportunities disabled, enabled, and with the offers portal enabled. Browser assertions cover current active or empty states and retain isolated active-fixture checks where live records have expired. Flag-absent and explicit-false HTML must be byte-identical. Enabled output permits only the exact reviewed 52 detail/exit files, three discovery surfaces and sitemap.
 
 Editorial review, activation, rollback, privacy, and evidence-retention procedures are in `docs/free-samples-editorial-runbook.md`.
 
@@ -123,3 +123,5 @@ Editorial review, activation, rollback, privacy, and evidence-retention procedur
 Exact generated-output manifests use Node 24.19.0 and `TZ=UTC`, matching the hosted runner. The timezone matters to legacy date-only urgency arithmetic; use the same timezone for both base and candidate rather than accepting broad hash exceptions.
 
 `npm run report:opportunity-health` checks both flag states, restores the caller's original flag state, writes ignored JSON/Markdown artifacts, and exits unsuccessfully when source evidence requires review. `--deployment-check` checks publication boundaries while retaining every evidence issue in the artifacts and keeping `ok: false`. This allows deployment of safely closed pages without treating stale evidence as verified. CI retains these artifacts; source verification dates are not changed automatically.
+
+A dated withdrawal with a recorded reason resolves an active-source alert only when the listing is absent from discovery, feeds, exits and the sitemap and any retained detail page is noindex without its claim link. Historical evidence is retained and cannot authorize republication. Private drafts are reported as unpublished; stale evidence on any published opportunity remains a hard failure. The full link audit now includes these evidence and publication checks.

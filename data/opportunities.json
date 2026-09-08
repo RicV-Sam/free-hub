@@ -12,17 +12,33 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["National"],
-    "lastVerifiedAt": "2026-07-27",
-    "reviewDueAt": "2026-08-03",
+    "lastVerifiedAt": "2026-09-08",
+    "reviewDueAt": "2026-09-15",
     "publishedAt": "2026-07-14",
-    "updatedAt": "2026-07-27",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "ongoing",
     "costClassification": "completely_free",
     "requirements": [
-      { "kind": "location", "required": true, "label": "South African delivery address required" },
-      { "kind": "identity", "required": true, "label": "Contact details required" },
-      { "kind": "questionnaire", "required": true, "label": "Product-suitability information required" },
-      { "kind": "other", "required": true, "label": "Coloplast Care Advisor approval required" }
+      {
+        "kind": "location",
+        "required": true,
+        "label": "South African delivery address required"
+      },
+      {
+        "kind": "identity",
+        "required": true,
+        "label": "Contact details required"
+      },
+      {
+        "kind": "questionnaire",
+        "required": true,
+        "label": "Product-suitability information required"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Coloplast Care Advisor approval required"
+      }
     ],
     "categories": ["samples", "medical-product-samples"],
     "tags": ["medical-product-sample", "suitability-approval-required", "free-delivery"],
@@ -44,14 +60,14 @@
     "summary": "Brand Advisor is recruiting 150 Instagram creators to receive a Parmalat EasyGest hamper in exchange for two Instagram reels. Applying does not guarantee selection.",
     "provider": "Brand Advisor",
     "sourceUrl": "https://brandadvisor.co.za/parmalat-easygest-fb-event-landing-page/",
-    "publicationStatus": "published",
-    "verificationStatus": "verified",
+    "publicationStatus": "withdrawn",
+    "verificationStatus": "withdrawn",
     "country": "ZA",
     "regions": ["National"],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-23",
-    "updatedAt": "2026-07-27",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "stock_limited",
     "costClassification": "account_required",
     "requirements": [
@@ -84,7 +100,9 @@
       "stockState": "open",
       "questionnaireRequired": true,
       "reviewRequired": false
-    }
+    },
+    "withdrawnAt": "2026-09-08",
+    "withdrawalReason": "Reviewed 8 September 2026 against https://brandadvisor.co.za/apply-to-projects/: this campaign is absent from the current recruitment list. Old landing pages or surveys can remain accessible, so accessibility alone is insufficient evidence of current recruitment. Withdrawn from Freehub pending renewed official confirmation; historical evidence retained."
   },
   {
     "id": "brand-advisor-kinder-testing",
@@ -94,14 +112,14 @@
     "summary": "Brand Advisor is recruiting 100 Instagram creators to receive a Kinder hamper in exchange for one family-focused Instagram reel. Applying does not guarantee selection.",
     "provider": "Brand Advisor",
     "sourceUrl": "https://brandadvisor.co.za/kinder-fb-event-landing-page/",
-    "publicationStatus": "published",
-    "verificationStatus": "verified",
+    "publicationStatus": "withdrawn",
+    "verificationStatus": "withdrawn",
     "country": "ZA",
     "regions": ["National"],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-23",
-    "updatedAt": "2026-07-27",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "stock_limited",
     "costClassification": "account_required",
     "requirements": [
@@ -134,7 +152,9 @@
       "stockState": "open",
       "questionnaireRequired": true,
       "reviewRequired": false
-    }
+    },
+    "withdrawnAt": "2026-09-08",
+    "withdrawalReason": "Reviewed 8 September 2026 against https://brandadvisor.co.za/apply-to-projects/: this campaign is absent from the current recruitment list. Old landing pages or surveys can remain accessible, so accessibility alone is insufficient evidence of current recruitment. Withdrawn from Freehub pending renewed official confirmation; historical evidence retained."
   },
   {
     "id": "brand-advisor-sunlight-dishwashing-testing",
@@ -144,14 +164,14 @@
     "summary": "Brand Advisor is recruiting 250 TikTok creators to receive a Sunlight hamper in exchange for two TikTok videos. Applying does not guarantee selection.",
     "provider": "Brand Advisor",
     "sourceUrl": "https://brandadvisor.co.za/sunlight-dishwashing-liquid-fb-event-landing-page/",
-    "publicationStatus": "published",
-    "verificationStatus": "verified",
+    "publicationStatus": "withdrawn",
+    "verificationStatus": "withdrawn",
     "country": "ZA",
     "regions": ["National"],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-23",
-    "updatedAt": "2026-07-27",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "stock_limited",
     "costClassification": "account_required",
     "requirements": [
@@ -184,7 +204,9 @@
       "stockState": "open",
       "questionnaireRequired": true,
       "reviewRequired": false
-    }
+    },
+    "withdrawnAt": "2026-09-08",
+    "withdrawalReason": "Reviewed 8 September 2026 against https://brandadvisor.co.za/apply-to-projects/: this campaign is absent from the current recruitment list. Old landing pages or surveys can remain accessible, so accessibility alone is insufficient evidence of current recruitment. Withdrawn from Freehub pending renewed official confirmation; historical evidence retained."
   },
   {
     "id": "brand-advisor-clover-krush-testing",
@@ -194,14 +216,14 @@
     "summary": "Brand Advisor is inviting Instagram creators to receive a Clover Krush hamper in exchange for two Instagram posts, with an optional review. Applying does not guarantee selection.",
     "provider": "Brand Advisor",
     "sourceUrl": "https://brandadvisor.co.za/clover-krush-fb-event-landing-page/",
-    "publicationStatus": "published",
-    "verificationStatus": "verified",
+    "publicationStatus": "withdrawn",
+    "verificationStatus": "withdrawn",
     "country": "ZA",
     "regions": ["National"],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-23",
-    "updatedAt": "2026-07-27",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "stock_limited",
     "costClassification": "account_required",
     "requirements": [
@@ -234,7 +256,9 @@
       "stockState": "open",
       "questionnaireRequired": true,
       "reviewRequired": false
-    }
+    },
+    "withdrawnAt": "2026-09-08",
+    "withdrawalReason": "Reviewed 8 September 2026 against https://brandadvisor.co.za/apply-to-projects/: this campaign is absent from the current recruitment list. Old landing pages or surveys can remain accessible, so accessibility alone is insufficient evidence of current recruitment. Withdrawn from Freehub pending renewed official confirmation; historical evidence retained."
   },
   {
     "id": "brand-advisor-sta-soft-parfum-testing",
@@ -244,14 +268,14 @@
     "summary": "Brand Advisor is inviting eligible Instagram and TikTok creators to apply for a Sta-Soft Parfum voucher trade in exchange for one social video. Applying does not guarantee selection.",
     "provider": "Brand Advisor",
     "sourceUrl": "https://brandadvisor.co.za/sta-soft-parfum-project/",
-    "publicationStatus": "published",
-    "verificationStatus": "verified",
+    "publicationStatus": "withdrawn",
+    "verificationStatus": "withdrawn",
     "country": "ZA",
     "regions": ["National"],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-27",
-    "updatedAt": "2026-07-27",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "stock_limited",
     "costClassification": "account_required",
     "requirements": [
@@ -284,7 +308,9 @@
       "stockState": "open",
       "questionnaireRequired": true,
       "reviewRequired": false
-    }
+    },
+    "withdrawnAt": "2026-09-08",
+    "withdrawalReason": "Reviewed 8 September 2026: still listed at https://brandadvisor.co.za/apply-to-projects/, but a usable current application destination could not be confirmed. Campaign landing-page AGREE links reviewed in Chrome or source text pointed to a page fragment. Withdrawn from Freehub pending a verified application route; this does not claim that the provider ended the campaign."
   },
   {
     "id": "brand-advisor-clover-nolac-testing",
@@ -294,14 +320,14 @@
     "summary": "Brand Advisor is inviting eligible TikTok creators who are lactose intolerant or experience dairy discomfort to apply for a Clover Nolac hamper in exchange for one video. Applying does not guarantee selection.",
     "provider": "Brand Advisor",
     "sourceUrl": "https://brandadvisor.co.za/clover-nolac-project-2/",
-    "publicationStatus": "published",
-    "verificationStatus": "verified",
+    "publicationStatus": "withdrawn",
+    "verificationStatus": "withdrawn",
     "country": "ZA",
     "regions": ["National"],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-27",
-    "updatedAt": "2026-07-27",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "stock_limited",
     "costClassification": "account_required",
     "requirements": [
@@ -334,7 +360,9 @@
       "stockState": "open",
       "questionnaireRequired": true,
       "reviewRequired": false
-    }
+    },
+    "withdrawnAt": "2026-09-08",
+    "withdrawalReason": "Reviewed 8 September 2026: still listed at https://brandadvisor.co.za/apply-to-projects/, but a usable current application destination could not be confirmed. Campaign landing-page AGREE links reviewed in Chrome or source text pointed to a page fragment. Withdrawn from Freehub pending a verified application route; this does not claim that the provider ended the campaign."
   },
   {
     "id": "brand-advisor-clover-barley-milk-testing",
@@ -344,14 +372,14 @@
     "summary": "Brand Advisor is inviting eligible TikTok creators to apply for a Clover Barley Milk hamper in exchange for one TikTok post. Applying does not guarantee selection.",
     "provider": "Brand Advisor",
     "sourceUrl": "https://brandadvisor.co.za/clover-barley-milk-project/",
-    "publicationStatus": "published",
-    "verificationStatus": "verified",
+    "publicationStatus": "withdrawn",
+    "verificationStatus": "withdrawn",
     "country": "ZA",
     "regions": ["National"],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-27",
-    "updatedAt": "2026-07-27",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "stock_limited",
     "costClassification": "account_required",
     "requirements": [
@@ -384,7 +412,9 @@
       "stockState": "open",
       "questionnaireRequired": true,
       "reviewRequired": false
-    }
+    },
+    "withdrawnAt": "2026-09-08",
+    "withdrawalReason": "Reviewed 8 September 2026 against https://brandadvisor.co.za/apply-to-projects/: this campaign is absent from the current recruitment list. Old landing pages or surveys can remain accessible, so accessibility alone is insufficient evidence of current recruitment. Withdrawn from Freehub pending renewed official confirmation; historical evidence retained."
   },
   {
     "id": "brand-advisor-super-c-sweets-testing",
@@ -394,14 +424,14 @@
     "summary": "Brand Advisor is inviting active TikTok creators to apply for a Super C hamper in exchange for one TikTok post. Applying does not guarantee selection.",
     "provider": "Brand Advisor",
     "sourceUrl": "https://brandadvisor.co.za/super-c-sweets-project/",
-    "publicationStatus": "published",
-    "verificationStatus": "verified",
+    "publicationStatus": "withdrawn",
+    "verificationStatus": "withdrawn",
     "country": "ZA",
     "regions": ["National"],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-27",
-    "updatedAt": "2026-07-27",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "stock_limited",
     "costClassification": "account_required",
     "requirements": [
@@ -434,7 +464,9 @@
       "stockState": "open",
       "questionnaireRequired": true,
       "reviewRequired": false
-    }
+    },
+    "withdrawnAt": "2026-09-08",
+    "withdrawalReason": "Reviewed 8 September 2026: still listed at https://brandadvisor.co.za/apply-to-projects/, but a usable current application destination could not be confirmed. Campaign landing-page AGREE links reviewed in Chrome or source text pointed to a page fragment. Withdrawn from Freehub pending a verified application route; this does not claim that the provider ended the campaign."
   },
   {
     "id": "brand-advisor-clover-onion-slices-testing",
@@ -444,14 +476,14 @@
     "summary": "Brand Advisor is inviting eligible TikTok creators to apply to try Clover Onion Flavoured Cheese Slices and create one TikTok post. Applying does not guarantee selection.",
     "provider": "Brand Advisor",
     "sourceUrl": "https://brandadvisor.co.za/clover-onion-project/",
-    "publicationStatus": "published",
-    "verificationStatus": "verified",
+    "publicationStatus": "withdrawn",
+    "verificationStatus": "withdrawn",
     "country": "ZA",
     "regions": ["National"],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-27",
-    "updatedAt": "2026-07-27",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "stock_limited",
     "costClassification": "account_required",
     "requirements": [
@@ -484,7 +516,9 @@
       "stockState": "open",
       "questionnaireRequired": true,
       "reviewRequired": false
-    }
+    },
+    "withdrawnAt": "2026-09-08",
+    "withdrawalReason": "Reviewed 8 September 2026 against https://brandadvisor.co.za/apply-to-projects/: this campaign is absent from the current recruitment list. Old landing pages or surveys can remain accessible, so accessibility alone is insufficient evidence of current recruitment. Withdrawn from Freehub pending renewed official confirmation; historical evidence retained."
   },
   {
     "id": "brand-advisor-speckled-eggs-testing",
@@ -494,14 +528,14 @@
     "summary": "Brand Advisor is inviting eligible TikTok creators to apply for a Speckled Eggs hamper in exchange for two TikTok videos. Applying does not guarantee selection.",
     "provider": "Brand Advisor",
     "sourceUrl": "https://brandadvisor.co.za/speckled-eggs-project/",
-    "publicationStatus": "published",
-    "verificationStatus": "verified",
+    "publicationStatus": "withdrawn",
+    "verificationStatus": "withdrawn",
     "country": "ZA",
     "regions": ["National"],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-27",
-    "updatedAt": "2026-07-27",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "stock_limited",
     "costClassification": "account_required",
     "requirements": [
@@ -529,7 +563,9 @@
       "stockState": "open",
       "questionnaireRequired": true,
       "reviewRequired": false
-    }
+    },
+    "withdrawnAt": "2026-09-08",
+    "withdrawalReason": "Reviewed 8 September 2026: still listed at https://brandadvisor.co.za/apply-to-projects/, but a usable current application destination could not be confirmed. Campaign landing-page AGREE links reviewed in Chrome or source text pointed to a page fragment. Withdrawn from Freehub pending a verified application route; this does not claim that the provider ended the campaign."
   },
   {
     "id": "brand-advisor-steri-stumpie-200ml-testing",
@@ -539,14 +575,14 @@
     "summary": "Brand Advisor is inviting eligible parents on TikTok to apply for a Steri Stumpie hamper in exchange for one lunchbox-focused video. Applying does not guarantee selection.",
     "provider": "Brand Advisor",
     "sourceUrl": "https://brandadvisor.co.za/steri-stumpie-200ml-project/",
-    "publicationStatus": "published",
-    "verificationStatus": "verified",
+    "publicationStatus": "withdrawn",
+    "verificationStatus": "withdrawn",
     "country": "ZA",
     "regions": ["National"],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-27",
-    "updatedAt": "2026-07-27",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "stock_limited",
     "costClassification": "account_required",
     "requirements": [
@@ -579,7 +615,9 @@
       "stockState": "open",
       "questionnaireRequired": true,
       "reviewRequired": false
-    }
+    },
+    "withdrawnAt": "2026-09-08",
+    "withdrawalReason": "Reviewed 8 September 2026 against https://brandadvisor.co.za/apply-to-projects/: this campaign is absent from the current recruitment list. Old landing pages or surveys can remain accessible, so accessibility alone is insufficient evidence of current recruitment. Withdrawn from Freehub pending renewed official confirmation; historical evidence retained."
   },
   {
     "id": "brand-advisor-b-well-canola-oil-testing",
@@ -589,14 +627,14 @@
     "summary": "Brand Advisor is inviting home cooks on TikTok to apply for a B-well hamper in exchange for one cooking post. Applying does not guarantee selection.",
     "provider": "Brand Advisor",
     "sourceUrl": "https://brandadvisor.co.za/b-well-canola-oil-project/",
-    "publicationStatus": "published",
-    "verificationStatus": "verified",
+    "publicationStatus": "withdrawn",
+    "verificationStatus": "withdrawn",
     "country": "ZA",
     "regions": ["National"],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-27",
-    "updatedAt": "2026-07-27",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "stock_limited",
     "costClassification": "account_required",
     "requirements": [
@@ -629,7 +667,9 @@
       "stockState": "open",
       "questionnaireRequired": true,
       "reviewRequired": false
-    }
+    },
+    "withdrawnAt": "2026-09-08",
+    "withdrawalReason": "Reviewed 8 September 2026 against https://brandadvisor.co.za/apply-to-projects/: this campaign is absent from the current recruitment list. Old landing pages or surveys can remain accessible, so accessibility alone is insufficient evidence of current recruitment. Withdrawn from Freehub pending renewed official confirmation; historical evidence retained."
   },
   {
     "id": "brand-advisor-simba-voucher-testing",
@@ -639,14 +679,14 @@
     "summary": "Brand Advisor is inviting eligible TikTok creators to apply for a Simba voucher in exchange for one snack-focused video. Applying does not guarantee selection.",
     "provider": "Brand Advisor",
     "sourceUrl": "https://brandadvisor.co.za/simba-project/",
-    "publicationStatus": "published",
-    "verificationStatus": "verified",
+    "publicationStatus": "withdrawn",
+    "verificationStatus": "withdrawn",
     "country": "ZA",
     "regions": ["National"],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-27",
-    "updatedAt": "2026-07-27",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "stock_limited",
     "costClassification": "account_required",
     "requirements": [
@@ -674,7 +714,9 @@
       "stockState": "open",
       "questionnaireRequired": true,
       "reviewRequired": false
-    }
+    },
+    "withdrawnAt": "2026-09-08",
+    "withdrawalReason": "Reviewed 8 September 2026 against https://brandadvisor.co.za/apply-to-projects/: this campaign is absent from the current recruitment list. Old landing pages or surveys can remain accessible, so accessibility alone is insufficient evidence of current recruitment. Withdrawn from Freehub pending renewed official confirmation; historical evidence retained."
   },
   {
     "id": "brand-advisor-vicks-vapolozenges-testing",
@@ -684,14 +726,14 @@
     "summary": "Brand Advisor is inviting eligible adult TikTok creators to apply for a Vicks VapoLozenges hamper in exchange for one video. Applying does not guarantee selection.",
     "provider": "Brand Advisor",
     "sourceUrl": "https://brandadvisor.co.za/vicks-project/",
-    "publicationStatus": "published",
-    "verificationStatus": "verified",
+    "publicationStatus": "withdrawn",
+    "verificationStatus": "withdrawn",
     "country": "ZA",
     "regions": ["National"],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-27",
-    "updatedAt": "2026-07-27",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "stock_limited",
     "costClassification": "account_required",
     "requirements": [
@@ -724,7 +766,9 @@
       "stockState": "open",
       "questionnaireRequired": true,
       "reviewRequired": false
-    }
+    },
+    "withdrawnAt": "2026-09-08",
+    "withdrawalReason": "Reviewed 8 September 2026 against https://brandadvisor.co.za/apply-to-projects/: this campaign is absent from the current recruitment list. Old landing pages or surveys can remain accessible, so accessibility alone is insufficient evidence of current recruitment. Withdrawn from Freehub pending renewed official confirmation; historical evidence retained."
   },
   {
     "id": "coloplast-sensura-mio-free-sample",
@@ -739,17 +783,33 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["National"],
-    "lastVerifiedAt": "2026-07-27",
-    "reviewDueAt": "2026-08-03",
+    "lastVerifiedAt": "2026-09-08",
+    "reviewDueAt": "2026-09-15",
     "publishedAt": "2026-07-27",
-    "updatedAt": "2026-07-27",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "ongoing",
     "costClassification": "completely_free",
     "requirements": [
-      { "kind": "location", "required": true, "label": "South African delivery address required" },
-      { "kind": "identity", "required": true, "label": "Contact details required" },
-      { "kind": "questionnaire", "required": true, "label": "Product-suitability information required" },
-      { "kind": "other", "required": true, "label": "Coloplast Care Advisor approval required" }
+      {
+        "kind": "location",
+        "required": true,
+        "label": "South African delivery address required"
+      },
+      {
+        "kind": "identity",
+        "required": true,
+        "label": "Contact details required"
+      },
+      {
+        "kind": "questionnaire",
+        "required": true,
+        "label": "Product-suitability information required"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Coloplast Care Advisor approval required"
+      }
     ],
     "categories": ["samples", "medical-product-samples"],
     "tags": ["medical-product-sample", "suitability-approval-required", "free-delivery"],
@@ -776,17 +836,33 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["National"],
-    "lastVerifiedAt": "2026-07-27",
-    "reviewDueAt": "2026-08-03",
+    "lastVerifiedAt": "2026-09-08",
+    "reviewDueAt": "2026-09-15",
     "publishedAt": "2026-07-27",
-    "updatedAt": "2026-07-27",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "ongoing",
     "costClassification": "completely_free",
     "requirements": [
-      { "kind": "location", "required": true, "label": "South African delivery address required" },
-      { "kind": "identity", "required": true, "label": "Contact details required" },
-      { "kind": "questionnaire", "required": true, "label": "Product-suitability information required" },
-      { "kind": "other", "required": true, "label": "Coloplast Care Advisor approval required" }
+      {
+        "kind": "location",
+        "required": true,
+        "label": "South African delivery address required"
+      },
+      {
+        "kind": "identity",
+        "required": true,
+        "label": "Contact details required"
+      },
+      {
+        "kind": "questionnaire",
+        "required": true,
+        "label": "Product-suitability information required"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Coloplast Care Advisor approval required"
+      }
     ],
     "categories": ["samples", "medical-product-samples"],
     "tags": ["medical-product-sample", "suitability-approval-required", "free-delivery"],
@@ -813,17 +889,33 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["National"],
-    "lastVerifiedAt": "2026-07-27",
-    "reviewDueAt": "2026-08-03",
+    "lastVerifiedAt": "2026-09-08",
+    "reviewDueAt": "2026-09-15",
     "publishedAt": "2026-07-27",
-    "updatedAt": "2026-07-27",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "ongoing",
     "costClassification": "completely_free",
     "requirements": [
-      { "kind": "location", "required": true, "label": "South African delivery address required" },
-      { "kind": "identity", "required": true, "label": "Contact details required" },
-      { "kind": "questionnaire", "required": true, "label": "Product-suitability information required" },
-      { "kind": "other", "required": true, "label": "Coloplast Care Advisor approval required" }
+      {
+        "kind": "location",
+        "required": true,
+        "label": "South African delivery address required"
+      },
+      {
+        "kind": "identity",
+        "required": true,
+        "label": "Contact details required"
+      },
+      {
+        "kind": "questionnaire",
+        "required": true,
+        "label": "Product-suitability information required"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Coloplast Care Advisor approval required"
+      }
     ],
     "categories": ["samples", "medical-product-samples"],
     "tags": ["medical-product-sample", "suitability-approval-required", "free-delivery"],
@@ -845,14 +937,14 @@
     "summary": "People in South Africa can choose a TENA Women product sample and request one free sample pack for discreet delivery to a physical home address.",
     "provider": "TENA South Africa",
     "sourceUrl": "https://www.tena.co.za/women/products/free-sample",
-    "publicationStatus": "published",
-    "verificationStatus": "verified",
+    "publicationStatus": "withdrawn",
+    "verificationStatus": "withdrawn",
     "country": "ZA",
     "regions": ["National"],
     "lastVerifiedAt": "2026-07-31",
     "reviewDueAt": "2026-08-07",
     "publishedAt": "2026-07-31",
-    "updatedAt": "2026-07-31",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "ongoing",
     "costClassification": "completely_free",
     "requirements": [
@@ -862,9 +954,21 @@
         "label": "South African physical delivery address required",
         "detail": "TENA does not deliver sample packs to PO boxes."
       },
-      { "kind": "identity", "required": true, "label": "Contact and delivery details required" },
-      { "kind": "other", "required": true, "label": "Choose a sample product in TENA's three-step form" },
-      { "kind": "other", "required": true, "label": "One sample pack per person, family or address every six months" }
+      {
+        "kind": "identity",
+        "required": true,
+        "label": "Contact and delivery details required"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Choose a sample product in TENA's three-step form"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "One sample pack per person, family or address every six months"
+      }
     ],
     "categories": ["samples", "personal-care-samples"],
     "tags": ["incontinence-care", "discreet-delivery", "free-delivery", "six-month-limit"],
@@ -876,7 +980,9 @@
       "selectionStatus": "guaranteed",
       "expectedFulfilmentWindow": "TENA does not state a delivery timeframe; the official page says the pack is delivered discreetly to the supplied home address.",
       "privacyUrl": "https://www.tena.co.za/women/privacy-policy"
-    }
+    },
+    "withdrawnAt": "2026-09-08",
+    "withdrawalReason": "Reviewed 8 September 2026 in Chrome and official page text: the free-sample description remains, but Step 1 showed no selectable sample products, including after necessary-cookie selection. A usable request could not be verified. Withdrawn from Freehub; no claim that the programme has permanently ended."
   },
   {
     "id": "tena-men-free-sample-pack",
@@ -886,14 +992,14 @@
     "summary": "People in South Africa can choose a TENA Men product sample and request one free Keep Control sample pack for discreet delivery to a physical home address.",
     "provider": "TENA South Africa",
     "sourceUrl": "https://www.tena.co.za/men/products/free-sample",
-    "publicationStatus": "published",
-    "verificationStatus": "verified",
+    "publicationStatus": "withdrawn",
+    "verificationStatus": "withdrawn",
     "country": "ZA",
     "regions": ["National"],
     "lastVerifiedAt": "2026-07-31",
     "reviewDueAt": "2026-08-07",
     "publishedAt": "2026-07-31",
-    "updatedAt": "2026-07-31",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "ongoing",
     "costClassification": "completely_free",
     "requirements": [
@@ -903,9 +1009,21 @@
         "label": "South African physical delivery address required",
         "detail": "TENA does not deliver sample packs to PO boxes."
       },
-      { "kind": "identity", "required": true, "label": "Contact and delivery details required" },
-      { "kind": "other", "required": true, "label": "Choose a sample product in TENA's three-step form" },
-      { "kind": "other", "required": true, "label": "One sample pack per person, family or address every six months" }
+      {
+        "kind": "identity",
+        "required": true,
+        "label": "Contact and delivery details required"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Choose a sample product in TENA's three-step form"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "One sample pack per person, family or address every six months"
+      }
     ],
     "categories": ["samples", "personal-care-samples"],
     "tags": ["incontinence-care", "discreet-delivery", "free-delivery", "six-month-limit"],
@@ -917,7 +1035,9 @@
       "selectionStatus": "guaranteed",
       "expectedFulfilmentWindow": "TENA does not state a delivery timeframe; the official page says the pack is delivered discreetly to the supplied home address.",
       "privacyUrl": "https://www.tena.co.za/men/privacy-policy"
-    }
+    },
+    "withdrawnAt": "2026-09-08",
+    "withdrawalReason": "Reviewed 8 September 2026 in Chrome and official page text: the free-sample description remains, but Step 1 showed no selectable sample products, including after necessary-cookie selection. A usable request could not be verified. Withdrawn from Freehub; no claim that the programme has permanently ended."
   },
   {
     "id": "blind-designs-free-fabric-samples",
@@ -931,16 +1051,28 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["National"],
-    "lastVerifiedAt": "2026-07-31",
-    "reviewDueAt": "2026-08-07",
+    "lastVerifiedAt": "2026-09-08",
+    "reviewDueAt": "2026-09-15",
     "publishedAt": "2026-07-31",
-    "updatedAt": "2026-07-31",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "ongoing",
     "costClassification": "completely_free",
     "requirements": [
-      { "kind": "location", "required": true, "label": "South African delivery address required" },
-      { "kind": "identity", "required": true, "label": "Contact and delivery details required" },
-      { "kind": "other", "required": true, "label": "Select a blind or curtain range and up to five fabric pieces per delivery" }
+      {
+        "kind": "location",
+        "required": true,
+        "label": "South African delivery address required"
+      },
+      {
+        "kind": "identity",
+        "required": true,
+        "label": "Contact and delivery details required"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Select a blind or curtain range and up to five fabric pieces per delivery"
+      }
     ],
     "categories": ["samples", "home-improvement-samples"],
     "tags": ["fabric-samples", "blind-samples", "curtain-samples", "free-delivery", "up-to-five-samples"],
@@ -1056,26 +1188,45 @@
     "slug": "table-mountain-cableway-birthday-ticket",
     "type": "birthday_freebie",
     "title": "Table Mountain Cableway free birthday ticket",
-    "summary": "South African citizens aged four or older can collect one free Cableway ticket on any day during their birthday month by showing accepted South African identification at the ticket office.",
+    "summary": "South African citizens can collect a free Cableway birthday ticket during their calendar birthday month by showing accepted South African identification in person at the ticket office or Visitor Information Centre.",
     "provider": "Table Mountain Aerial Cableway",
-    "sourceUrl": "https://www.tablemountain.net/plan-your-visit/specials/",
+    "sourceUrl": "https://www.tablemountain.net/plan-your-visit/specials",
     "publicationStatus": "published",
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["Cape Town, Western Cape"],
-    "lastVerifiedAt": "2026-08-18",
-    "reviewDueAt": "2026-11-16",
+    "lastVerifiedAt": "2026-09-08",
+    "reviewDueAt": "2026-09-15",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-08-18",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "recurring",
     "costClassification": "completely_free",
     "requirements": [
-      { "kind": "identity", "required": true, "label": "Valid South African ID, driver's licence or birth certificate required" },
-      { "kind": "location", "required": true, "label": "Collect in person during the calendar month of your birthday" }
+      {
+        "kind": "identity",
+        "required": true,
+        "label": "Valid South African ID, driver's licence or birth certificate required"
+      },
+      {
+        "kind": "location",
+        "required": true,
+        "label": "Collect in person during the calendar month of your birthday"
+      }
     ],
     "categories": ["birthday-freebies", "free-experiences"],
     "tags": ["cape-town", "cableway", "birthday-month", "south-african-citizens"],
-    "details": { "signupLeadDays": 0, "birthdayWindow": { "beforeDays": 31, "afterDays": 31 }, "membershipRequired": false, "appRequired": false, "identityRequired": true, "branchAvailability": "participating_branches", "recurrence": "annual", "voucherDelivery": "in_store" }
+    "details": {
+      "signupLeadDays": 0,
+      "birthdayWindow": {
+        "kind": "calendar_month"
+      },
+      "membershipRequired": false,
+      "appRequired": false,
+      "identityRequired": true,
+      "branchAvailability": "participating_branches",
+      "recurrence": "annual",
+      "voucherDelivery": "in_store"
+    }
   },
   {
     "id": "two-oceans-aquarium-birthday-entry",
@@ -1089,19 +1240,43 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["Cape Town, Western Cape"],
-    "lastVerifiedAt": "2026-08-18",
-    "reviewDueAt": "2026-11-16",
+    "lastVerifiedAt": "2026-09-08",
+    "reviewDueAt": "2026-09-15",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-08-18",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "recurring",
     "costClassification": "completely_free",
     "requirements": [
-      { "kind": "identity", "required": true, "label": "Accepted identification showing a South African ID number and birth date required" },
-      { "kind": "location", "required": true, "label": "Collect and use the ticket in person on the same day during your birthday month" }
+      {
+        "kind": "identity",
+        "required": true,
+        "label": "Accepted identification showing a South African ID number and birth date required"
+      },
+      {
+        "kind": "location",
+        "required": true,
+        "label": "Collect and use the ticket in person on the same day during your birthday month"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Children aged 13 or younger must be accompanied by an adult ticket-holder"
+      }
     ],
     "categories": ["birthday-freebies", "free-experiences"],
     "tags": ["cape-town", "aquarium", "birthday-month", "citizens-and-permanent-residents"],
-    "details": { "signupLeadDays": 0, "birthdayWindow": { "beforeDays": 31, "afterDays": 31 }, "membershipRequired": false, "appRequired": false, "identityRequired": true, "branchAvailability": "participating_branches", "recurrence": "annual", "voucherDelivery": "in_store" }
+    "details": {
+      "signupLeadDays": 0,
+      "birthdayWindow": {
+        "kind": "calendar_month"
+      },
+      "membershipRequired": false,
+      "appRequired": false,
+      "identityRequired": true,
+      "branchAvailability": "participating_branches",
+      "recurrence": "annual",
+      "voucherDelivery": "in_store"
+    }
   },
   {
     "id": "cape-wheel-birthday-club-ride",
@@ -1115,20 +1290,49 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["Cape Town, Western Cape"],
-    "lastVerifiedAt": "2026-09-04",
-    "reviewDueAt": "2026-12-03",
+    "lastVerifiedAt": "2026-09-08",
+    "reviewDueAt": "2026-09-15",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-09-04",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "recurring",
     "costClassification": "membership_required",
     "requirements": [
-      { "kind": "membership", "required": true, "label": "Free Birthday Club registration before the birthday required" },
-      { "kind": "identity", "required": true, "label": "Identification showing date of birth required" },
-      { "kind": "other", "required": true, "label": "Printed emailed voucher required for redemption after the actual birthday" }
+      {
+        "kind": "membership",
+        "required": true,
+        "label": "Free Birthday Club registration before the birthday required"
+      },
+      {
+        "kind": "identity",
+        "required": true,
+        "label": "Identification showing date of birth required"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Printed emailed voucher required for redemption after the actual birthday"
+      },
+      {
+        "kind": "age",
+        "required": true,
+        "label": "Birthday Club is for people over 12; younger children have a separate Kids Club"
+      }
     ],
     "categories": ["birthday-freebies", "free-experiences"],
     "tags": ["cape-town", "va-waterfront", "birthday-club", "email-voucher"],
-    "details": { "signupLeadDays": 1, "birthdayWindow": { "beforeDays": 0, "afterDays": 30 }, "membershipRequired": true, "appRequired": false, "identityRequired": true, "branchAvailability": "participating_branches", "recurrence": "annual", "voucherDelivery": "email" }
+    "details": {
+      "signupLeadDays": 1,
+      "birthdayWindow": {
+        "beforeDays": 0,
+        "afterDays": 30
+      },
+      "membershipRequired": true,
+      "appRequired": false,
+      "identityRequired": true,
+      "branchAvailability": "participating_branches",
+      "recurrence": "annual",
+      "voucherDelivery": "email"
+    }
   },
   {
     "id": "zeitz-mocaa-free-access",
@@ -1142,19 +1346,38 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["Cape Town, Western Cape"],
-    "lastVerifiedAt": "2026-08-18",
-    "reviewDueAt": "2026-11-16",
+    "lastVerifiedAt": "2026-09-08",
+    "reviewDueAt": "2026-09-15",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-08-18",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "recurring",
     "costClassification": "completely_free",
     "requirements": [
-      { "kind": "identity", "required": true, "label": "Valid South African ID or African passport reflecting the birth date required" },
-      { "kind": "location", "required": true, "label": "Birthday access is available Tuesdays to Sundays; Wednesday access runs 10:00 to 13:00" }
+      {
+        "kind": "identity",
+        "required": true,
+        "label": "Valid South African ID or African passport reflecting the birth date required"
+      },
+      {
+        "kind": "location",
+        "required": true,
+        "label": "Birthday access is available Tuesdays to Sundays; Wednesday access runs 10:00 to 13:00"
+      }
     ],
     "categories": ["birthday-freebies", "free-experiences"],
     "tags": ["cape-town", "museum", "birthday-month", "free-wednesdays", "under-18-free"],
-    "details": { "signupLeadDays": 0, "birthdayWindow": { "beforeDays": 31, "afterDays": 31 }, "membershipRequired": false, "appRequired": false, "identityRequired": true, "branchAvailability": "participating_branches", "recurrence": "annual", "voucherDelivery": "in_store" }
+    "details": {
+      "signupLeadDays": 0,
+      "birthdayWindow": {
+        "kind": "calendar_month"
+      },
+      "membershipRequired": false,
+      "appRequired": false,
+      "identityRequired": true,
+      "branchAvailability": "participating_branches",
+      "recurrence": "annual",
+      "voucherDelivery": "in_store"
+    }
   },
   {
     "id": "robben-island-museum-birthday-tour",
@@ -1168,19 +1391,44 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["Cape Town, Western Cape"],
-    "lastVerifiedAt": "2026-08-18",
-    "reviewDueAt": "2026-11-16",
+    "lastVerifiedAt": "2026-09-08",
+    "reviewDueAt": "2026-09-15",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-08-18",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "recurring",
     "costClassification": "completely_free",
     "requirements": [
-      { "kind": "identity", "required": true, "label": "Valid identification showing the birth date required" },
-      { "kind": "location", "required": true, "label": "Birthday ticket is valid on the actual birth date and remains subject to tour availability" }
+      {
+        "kind": "identity",
+        "required": true,
+        "label": "Valid identification showing the birth date required"
+      },
+      {
+        "kind": "location",
+        "required": true,
+        "label": "Birthday ticket is valid on the actual birth date and remains subject to tour availability"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "If tours are cancelled on the birthdate, the official FAQ permits an alternative visit date"
+      }
     ],
     "categories": ["birthday-freebies", "free-experiences"],
     "tags": ["cape-town", "robben-island", "actual-birthday", "guided-tour"],
-    "details": { "signupLeadDays": 0, "birthdayWindow": { "beforeDays": 0, "afterDays": 0 }, "membershipRequired": false, "appRequired": false, "identityRequired": true, "branchAvailability": "participating_branches", "recurrence": "annual", "voucherDelivery": "in_store" }
+    "details": {
+      "signupLeadDays": 0,
+      "birthdayWindow": {
+        "beforeDays": 0,
+        "afterDays": 0
+      },
+      "membershipRequired": false,
+      "appRequired": false,
+      "identityRequired": true,
+      "branchAvailability": "participating_branches",
+      "recurrence": "annual",
+      "voucherDelivery": "in_store"
+    }
   },
   {
     "id": "lion-safari-park-birthday-safari",
@@ -1190,23 +1438,45 @@
     "summary": "Visitors can choose a complimentary one-hour guided safari or self-drive experience on their actual birthday by presenting identification at the ticket office.",
     "provider": "Lion & Safari Park",
     "sourceUrl": "https://lionandsafaripark.com/lets-go-wild-on-your-birthday/",
-    "publicationStatus": "published",
-    "verificationStatus": "verified",
+    "publicationStatus": "withdrawn",
+    "verificationStatus": "withdrawn",
     "country": "ZA",
     "regions": ["Broederstroom, North West"],
     "lastVerifiedAt": "2026-08-18",
     "reviewDueAt": "2026-11-16",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-08-18",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "recurring",
     "costClassification": "completely_free",
     "requirements": [
-      { "kind": "identity", "required": true, "label": "Identification showing the birthday required" },
-      { "kind": "location", "required": true, "label": "Redeem at the park ticket office on the actual birthday" }
+      {
+        "kind": "identity",
+        "required": true,
+        "label": "Identification showing the birthday required"
+      },
+      {
+        "kind": "location",
+        "required": true,
+        "label": "Redeem at the park ticket office on the actual birthday"
+      }
     ],
     "categories": ["birthday-freebies", "free-experiences"],
     "tags": ["north-west", "safari", "actual-birthday", "guided-or-self-drive"],
-    "details": { "signupLeadDays": 0, "birthdayWindow": { "beforeDays": 0, "afterDays": 0 }, "membershipRequired": false, "appRequired": false, "identityRequired": true, "branchAvailability": "participating_branches", "recurrence": "annual", "voucherDelivery": "in_store" }
+    "details": {
+      "signupLeadDays": 0,
+      "birthdayWindow": {
+        "beforeDays": 0,
+        "afterDays": 0
+      },
+      "membershipRequired": false,
+      "appRequired": false,
+      "identityRequired": true,
+      "branchAvailability": "participating_branches",
+      "recurrence": "annual",
+      "voucherDelivery": "in_store"
+    },
+    "withdrawnAt": "2026-09-08",
+    "withdrawalReason": "Reviewed 8 September 2026: saved birthday URL shows a missing page in Chrome. Current official https://lionandsafaripark.com/specials/ lists paid safari specials, without confirming the historical free birthday safari. Withdrawn from Freehub; no replacement offer invented."
   },
   {
     "id": "city-sightseeing-young-explorers-birthday-tickets",
@@ -1220,20 +1490,44 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["Cape Town", "Johannesburg"],
-    "lastVerifiedAt": "2026-08-18",
-    "reviewDueAt": "2026-11-16",
+    "lastVerifiedAt": "2026-09-08",
+    "reviewDueAt": "2026-09-15",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-08-18",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "recurring",
     "costClassification": "membership_required",
     "requirements": [
-      { "kind": "membership", "required": true, "label": "Free Young Explorers Club registration at least two weeks before the birthday required" },
-      { "kind": "age", "required": true, "label": "Birthday member and friend must each be aged four to 17" },
-      { "kind": "other", "required": true, "label": "One child may be registered per email address with parent or guardian knowledge" }
+      {
+        "kind": "membership",
+        "required": true,
+        "label": "Free Young Explorers Club registration at least two weeks before the birthday required"
+      },
+      {
+        "kind": "age",
+        "required": true,
+        "label": "Birthday member and friend must each be aged four to 17"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "One child may be registered per email address with parent or guardian knowledge"
+      }
     ],
     "categories": ["birthday-freebies", "free-experiences", "kids-freebies"],
     "tags": ["cape-town", "johannesburg", "kids-club", "friend-ticket"],
-    "details": { "signupLeadDays": 14, "birthdayWindow": { "beforeDays": 7, "afterDays": 21 }, "membershipRequired": true, "appRequired": false, "identityRequired": false, "branchAvailability": "participating_branches", "recurrence": "annual", "voucherDelivery": "email" }
+    "details": {
+      "signupLeadDays": 14,
+      "birthdayWindow": {
+        "beforeDays": 7,
+        "afterDays": 21
+      },
+      "membershipRequired": true,
+      "appRequired": false,
+      "identityRequired": false,
+      "branchAvailability": "participating_branches",
+      "recurrence": "annual",
+      "voucherDelivery": "email"
+    }
   },
   {
     "id": "upcycles-free-birthday-bike-ride",
@@ -1247,19 +1541,44 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["Cape Town, Western Cape"],
-    "lastVerifiedAt": "2026-08-18",
-    "reviewDueAt": "2026-11-16",
+    "lastVerifiedAt": "2026-09-08",
+    "reviewDueAt": "2026-09-15",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-08-18",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "recurring",
     "costClassification": "completely_free",
     "requirements": [
-      { "kind": "identity", "required": true, "label": "Proof of birth date required" },
-      { "kind": "location", "required": true, "label": "Redeem at an operating Up Station on the actual birthday" }
+      {
+        "kind": "identity",
+        "required": true,
+        "label": "Proof of birth date required"
+      },
+      {
+        "kind": "location",
+        "required": true,
+        "label": "Redeem at an operating Up Station on the actual birthday"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Minors must be accompanied by a legal guardian"
+      }
     ],
     "categories": ["birthday-freebies", "free-experiences"],
     "tags": ["cape-town", "cycling", "one-hour-ride", "actual-birthday"],
-    "details": { "signupLeadDays": 0, "birthdayWindow": { "beforeDays": 0, "afterDays": 0 }, "membershipRequired": false, "appRequired": false, "identityRequired": true, "branchAvailability": "participating_branches", "recurrence": "annual", "voucherDelivery": "in_store" }
+    "details": {
+      "signupLeadDays": 0,
+      "birthdayWindow": {
+        "beforeDays": 0,
+        "afterDays": 0
+      },
+      "membershipRequired": false,
+      "appRequired": false,
+      "identityRequired": true,
+      "branchAvailability": "participating_branches",
+      "recurrence": "annual",
+      "voucherDelivery": "in_store"
+    }
   },
   {
     "id": "va-waterfront-pedal-boat-birthday-ride",
@@ -1273,19 +1592,38 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["Cape Town, Western Cape"],
-    "lastVerifiedAt": "2026-08-18",
-    "reviewDueAt": "2026-11-16",
+    "lastVerifiedAt": "2026-09-08",
+    "reviewDueAt": "2026-09-15",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-08-18",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "recurring",
     "costClassification": "completely_free",
     "requirements": [
-      { "kind": "identity", "required": true, "label": "Valid identification showing the birth date required" },
-      { "kind": "location", "required": true, "label": "Ride must start before noon during the stated birthday week" }
+      {
+        "kind": "identity",
+        "required": true,
+        "label": "Valid identification showing the birth date required"
+      },
+      {
+        "kind": "location",
+        "required": true,
+        "label": "Ride must start before noon during the stated birthday week"
+      }
     ],
     "categories": ["birthday-freebies", "free-experiences"],
     "tags": ["cape-town", "va-waterfront", "pedal-boat", "birthday-week", "before-noon"],
-    "details": { "signupLeadDays": 0, "birthdayWindow": { "beforeDays": 3, "afterDays": 3 }, "membershipRequired": false, "appRequired": false, "identityRequired": true, "branchAvailability": "participating_branches", "recurrence": "annual", "voucherDelivery": "in_store" }
+    "details": {
+      "signupLeadDays": 0,
+      "birthdayWindow": {
+        "kind": "birthday_week"
+      },
+      "membershipRequired": false,
+      "appRequired": false,
+      "identityRequired": true,
+      "branchAvailability": "participating_branches",
+      "recurrence": "annual",
+      "voucherDelivery": "in_store"
+    }
   },
   {
     "id": "ster-kinekor-sk-club-birthday-ticket",
@@ -1299,20 +1637,44 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["Participating Ster-Kinekor cinemas in South Africa"],
-    "lastVerifiedAt": "2026-08-18",
-    "reviewDueAt": "2026-11-16",
+    "lastVerifiedAt": "2026-09-08",
+    "reviewDueAt": "2026-09-15",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-08-18",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "recurring",
     "costClassification": "membership_required",
     "requirements": [
-      { "kind": "membership", "required": true, "label": "Free SK Club membership required" },
-      { "kind": "purchase", "required": true, "label": "At least one SK Club transaction since joining required" },
-      { "kind": "other", "required": true, "label": "Ticket is limited to eligible 2D or 3D films and seat availability" }
+      {
+        "kind": "membership",
+        "required": true,
+        "label": "Free SK Club membership required"
+      },
+      {
+        "kind": "purchase",
+        "required": true,
+        "label": "At least one SK Club transaction since joining required"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Ticket is limited to eligible 2D or 3D films and seat availability"
+      }
     ],
     "categories": ["birthday-freebies", "free-entertainment"],
     "tags": ["national", "cinema", "sk-club", "prior-transaction"],
-    "details": { "signupLeadDays": 1, "birthdayWindow": { "beforeDays": 0, "afterDays": 30 }, "membershipRequired": true, "appRequired": false, "identityRequired": false, "branchAvailability": "participating_branches", "recurrence": "annual", "voucherDelivery": "account" }
+    "details": {
+      "signupLeadDays": 0,
+      "birthdayWindow": {
+        "beforeDays": 0,
+        "afterDays": 30
+      },
+      "membershipRequired": true,
+      "appRequired": false,
+      "identityRequired": false,
+      "branchAvailability": "participating_branches",
+      "recurrence": "annual",
+      "voucherDelivery": "account"
+    }
   },
   {
     "id": "mcdonalds-app-birthday-ice-cream",
@@ -1326,21 +1688,49 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["Participating McDonald's restaurants in South Africa"],
-    "lastVerifiedAt": "2026-08-18",
-    "reviewDueAt": "2026-11-16",
+    "lastVerifiedAt": "2026-09-08",
+    "reviewDueAt": "2026-09-15",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-08-18",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "recurring",
     "costClassification": "app_required",
     "requirements": [
-      { "kind": "membership", "required": true, "label": "McDonald's app membership required" },
-      { "kind": "app", "required": true, "label": "McDonald's South Africa app registration required" },
-      { "kind": "other", "required": true, "label": "Correct date of birth must be stored in the app profile" },
-      { "kind": "location", "required": true, "label": "Redeem the in-app reward at a participating restaurant" }
+      {
+        "kind": "membership",
+        "required": true,
+        "label": "McDonald's app membership required"
+      },
+      {
+        "kind": "app",
+        "required": true,
+        "label": "McDonald's South Africa app registration required"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Correct date of birth must be stored in the app profile"
+      },
+      {
+        "kind": "location",
+        "required": true,
+        "label": "Redeem the in-app reward at a participating restaurant"
+      }
     ],
     "categories": ["birthday-freebies", "free-food-and-drink"],
     "tags": ["national", "app-required", "ice-cream", "actual-birthday"],
-    "details": { "signupLeadDays": 1, "birthdayWindow": { "beforeDays": 0, "afterDays": 0 }, "membershipRequired": true, "appRequired": true, "identityRequired": false, "branchAvailability": "participating_branches", "recurrence": "annual", "voucherDelivery": "app" }
+    "details": {
+      "signupLeadDays": 0,
+      "birthdayWindow": {
+        "beforeDays": 0,
+        "afterDays": 0
+      },
+      "membershipRequired": true,
+      "appRequired": true,
+      "identityRequired": false,
+      "branchAvailability": "participating_branches",
+      "recurrence": "annual",
+      "voucherDelivery": "app"
+    }
   },
   {
     "id": "spur-kids-free-birthday-meal",
@@ -1350,53 +1740,105 @@
     "summary": "Children aged zero to 12 linked to a parent or guardian's Spur Family profile receive a free Kids' Menu meal and Chico the Clown ice cream birthday voucher, valid for three months.",
     "provider": "Spur Steak Ranches",
     "sourceUrl": "https://www.spursteakranches.com/za/family-card-benefits-for-kids",
-    "termsUrl": "https://www.spursteakranches.com/uploads/policies_documents/Spur-Loyalty-Programme-and-App-Terms-and-Conditions-clean-July-2025-002-i9F.pdf",
+    "termsUrl": "https://res.cloudinary.com/spur-group/image/upload/uploads/documents/policies/Spur-Loyalty-Programme-and-App-Terms-and-Conditions-clean-July-2025-002-oOH.pdf",
     "publicationStatus": "published",
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["Participating Spur restaurants in South Africa"],
-    "lastVerifiedAt": "2026-08-18",
-    "reviewDueAt": "2026-11-16",
+    "lastVerifiedAt": "2026-09-08",
+    "reviewDueAt": "2026-09-15",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-08-18",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "recurring",
     "costClassification": "membership_required",
     "requirements": [
-      { "kind": "membership", "required": true, "label": "Child must be linked to a parent or guardian's free Spur Family profile" },
-      { "kind": "age", "required": true, "label": "Child must be aged zero to 12" },
-      { "kind": "location", "required": true, "label": "Child must be present for restaurant or Call & Collect redemption" }
+      {
+        "kind": "membership",
+        "required": true,
+        "label": "Child must be linked to a parent or guardian's free Spur Family profile"
+      },
+      {
+        "kind": "age",
+        "required": true,
+        "label": "Child must be aged zero to 12"
+      },
+      {
+        "kind": "location",
+        "required": true,
+        "label": "Child must be present for restaurant or Call & Collect redemption"
+      }
     ],
     "categories": ["birthday-freebies", "free-food-and-drink", "kids-freebies"],
     "tags": ["national", "kids-meal", "ice-cream", "family-club"],
-    "details": { "signupLeadDays": 1, "birthdayWindow": { "beforeDays": 0, "afterDays": 90 }, "membershipRequired": true, "appRequired": false, "identityRequired": false, "branchAvailability": "participating_branches", "recurrence": "annual", "voucherDelivery": "account" }
+    "details": {
+      "signupLeadDays": 0,
+      "birthdayWindow": {
+        "kind": "three_months"
+      },
+      "membershipRequired": true,
+      "appRequired": false,
+      "identityRequired": false,
+      "branchAvailability": "participating_branches",
+      "recurrence": "annual",
+      "voucherDelivery": "account"
+    }
   },
   {
     "id": "mugg-and-bean-birthday-cake",
     "slug": "mugg-and-bean-birthday-cake",
     "type": "birthday_freebie",
     "title": "Mugg & Bean free birthday cake slice",
-    "summary": "Qualifying Mugg & Bean Loyalty App customers receive a voucher for a complimentary cake slice, Sweet Square or eligible On-The-Move alternative at the start of their birthday month, valid for 30 days.",
+    "summary": "Qualifying Mugg & Bean Loyalty App members receive a birthday voucher for a cake slice at a Sit-Down restaurant or a bundt cake at On-The-Move. From 1 September 2026 it is issued on the actual birthday and is valid for 30 days. Two qualifying app uses in the preceding 12 months are required.",
     "provider": "Mugg & Bean",
-    "sourceUrl": "https://muggandbean.co.za/rewards/loyalty-app-faqs/",
+    "sourceUrl": "https://www.muggandbean.co.za/rewards/loyalty-app-faqs/",
     "publicationStatus": "published",
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["Participating Mugg & Bean locations in South Africa"],
-    "lastVerifiedAt": "2026-08-18",
-    "reviewDueAt": "2026-11-16",
+    "lastVerifiedAt": "2026-09-08",
+    "reviewDueAt": "2026-09-15",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-08-18",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "recurring",
     "costClassification": "app_required",
     "requirements": [
-      { "kind": "membership", "required": true, "label": "Mugg & Bean loyalty membership required" },
-      { "kind": "app", "required": true, "label": "Mugg & Bean Loyalty App registration required" },
-      { "kind": "purchase", "required": true, "label": "Use the app payment or receipt-scan feature at least twice in the preceding 12 months" },
-      { "kind": "other", "required": true, "label": "Voucher must be used within its 30-day validity period" }
+      {
+        "kind": "membership",
+        "required": true,
+        "label": "Mugg & Bean loyalty membership required"
+      },
+      {
+        "kind": "app",
+        "required": true,
+        "label": "Mugg & Bean Loyalty App registration required"
+      },
+      {
+        "kind": "purchase",
+        "required": true,
+        "label": "Use the app payment or receipt-scan feature at least twice in the preceding 12 months"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Voucher must be used within its 30-day validity period"
+      }
     ],
     "categories": ["birthday-freebies", "free-food-and-drink"],
     "tags": ["national", "cake", "loyalty-app", "prior-activity"],
-    "details": { "signupLeadDays": 1, "birthdayWindow": { "beforeDays": 0, "afterDays": 30 }, "membershipRequired": true, "appRequired": true, "identityRequired": false, "branchAvailability": "participating_branches", "recurrence": "annual", "voucherDelivery": "app" }
+    "details": {
+      "signupLeadDays": 0,
+      "birthdayWindow": {
+        "beforeDays": 0,
+        "afterDays": 30
+      },
+      "membershipRequired": true,
+      "appRequired": true,
+      "identityRequired": false,
+      "branchAvailability": "participating_branches",
+      "recurrence": "annual",
+      "voucherDelivery": "app"
+    },
+    "termsUrl": "https://www.muggandbean.co.za/terms-and-conditions/"
   },
   {
     "id": "rubybox-beauty-product-testing",
@@ -1406,24 +1848,48 @@
     "summary": "South African rubybox members can opt in to rotating beauty test-and-review campaigns; matched and selected members receive products free in exchange for an honest rating and review.",
     "provider": "rubybox South Africa",
     "sourceUrl": "https://rubybox.co.za/faq/",
-    "publicationStatus": "published",
-    "verificationStatus": "verified",
+    "publicationStatus": "withdrawn",
+    "verificationStatus": "withdrawn",
     "country": "ZA",
     "regions": ["National"],
     "lastVerifiedAt": "2026-08-18",
     "reviewDueAt": "2026-09-01",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-08-18",
+    "updatedAt": "2026-09-08",
     "availabilityKind": "ongoing",
     "costClassification": "account_required",
     "requirements": [
-      { "kind": "account", "required": true, "label": "Free rubybox membership, completed beauty profile and valid email address required" },
-      { "kind": "questionnaire", "required": true, "label": "Campaign opt-in survey may be required" },
-      { "kind": "review", "required": true, "label": "Honest website rating and review required if selected" },
-      { "kind": "location", "required": true, "label": "Available only to South African residents" }
+      {
+        "kind": "account",
+        "required": true,
+        "label": "Free rubybox membership, completed beauty profile and valid email address required"
+      },
+      {
+        "kind": "questionnaire",
+        "required": true,
+        "label": "Campaign opt-in survey may be required"
+      },
+      {
+        "kind": "review",
+        "required": true,
+        "label": "Honest website rating and review required if selected"
+      },
+      {
+        "kind": "location",
+        "required": true,
+        "label": "Available only to South African residents"
+      }
     ],
     "categories": ["samples", "product-testing", "beauty"],
     "tags": ["selection-required", "beauty-profile", "south-africa-only", "review-required"],
-    "details": { "fulfilmentMethod": "delivery", "selectionMethod": "provider_selection", "stockState": "open", "questionnaireRequired": true, "reviewRequired": true }
+    "details": {
+      "fulfilmentMethod": "delivery",
+      "selectionMethod": "provider_selection",
+      "stockState": "open",
+      "questionnaireRequired": true,
+      "reviewRequired": true
+    },
+    "withdrawnAt": "2026-09-08",
+    "withdrawalReason": "Reviewed 8 September 2026: official FAQ returned 403 Forbidden in Chrome as well as automated access. Current product-testing eligibility could not be verified. Withdrawn from Freehub pending renewed source evidence."
   }
 ]

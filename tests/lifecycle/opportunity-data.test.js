@@ -19,6 +19,34 @@ function clone(value) {
   return JSON.parse(JSON.stringify(value));
 }
 
+test("URL history preserves old proof but cannot authorize a replacement source", () => {
+  const record = clone(fixtures.publishedSample);
+  const previous = evidenceFor(record);
+  const oldUrl = record.sourceUrl;
+  record.sourceUrl = "https://samples.example.org/replacement";
+  assert.ok(opportunityData.validateSourceEvidenceReferences([record], previous).length > 0);
+  assert.equal(opportunityData.hasCurrentSourceEvidence(record, "sourceUrl", previous, record.lastVerifiedAt), false);
+  const renewal = { ...previous[0], url: record.sourceUrl, verifiedAt: "2026-07-15", expiresAt: "2026-07-22" };
+  const ledger = [...previous, renewal];
+  assert.deepEqual(opportunityData.validateSourceEvidenceReferences([record], ledger), []);
+  assert.equal(previous[0].url, oldUrl);
+  assert.equal(opportunityData.hasCurrentSourceEvidence(record, "sourceUrl", ledger, "2026-07-15"), true);
+  assert.equal(opportunityData.hasCurrentSourceEvidence(record, "sourceUrl", ledger, "2026-07-23"), false);
+  assert.ok(opportunityData.validateSourceEvidenceReferences([record], [...previous, {...renewal, verifiedAt:previous[0].verifiedAt}]).length > 0);
+});
+
+test("calendar and provider-defined birthday windows do not invent numeric limits", () => {
+  const { describeBirthdayWindow } = require("../../scripts/lib/birthday-window.js");
+  for (const kind of ["birthday_week", "calendar_month", "three_months"]) {
+    const record = clone(fixtures.publishedBirthday);
+    record.details.birthdayWindow = {kind};
+    assert.equal(opportunityData.validateOpportunity(record).valid, true);
+    assert.doesNotMatch(describeBirthdayWindow(record.details.birthdayWindow), /undefined|90 days|3 days/);
+    record.details.birthdayWindow.beforeDays = 3;
+    assert.equal(opportunityData.validateOpportunity(record).valid, false);
+  }
+});
+
 function loadSchema(name) {
   return JSON.parse(fs.readFileSync(path.join(rootDir, "data", "schemas", name), "utf8"));
 }
@@ -57,6 +85,8 @@ test("committed JSON schemas compile and accept every strict contract fixture", 
   ].forEach((fixture) => assert.equal(ajv.getSchema(opportunitySchema.$id)(fixture), true));
   const evidenceLedger = JSON.parse(fs.readFileSync(path.join(rootDir, "data", "opportunity-source-evidence.json"), "utf8"));
   assert.equal(ajv.getSchema(evidenceSchema.$id)(evidenceLedger), true);
+  const registry = JSON.parse(fs.readFileSync(path.join(rootDir, "data", "opportunities.json"), "utf8"));
+  registry.forEach(record => assert.equal(ajv.getSchema(opportunitySchema.$id)(record), true, record.id));
 
   const summary = opportunityData.createDiscoverySummary({
     id: "fixture-summary",
@@ -442,7 +472,10 @@ test("the tracked Opportunity registry contains the reviewed sample and product-
     ];
   });
   assert.deepEqual(Object.keys(generatedOutput.files).sort(), expectedFiles.sort());
-  assert.equal(generatedOutput.files["out/opportunity/coloplast-speedicath-short-sample/index.html"], undefined);
+  assert.equal(typeof generatedOutput.files["out/opportunity/coloplast-speedicath-short-sample/index.html"], "string");
+  for (const record of registry.filter(record => record.publicationStatus === "withdrawn")) {
+    assert.equal(generatedOutput.files[`out/opportunity/${record.slug}/index.html`], undefined);
+  }
 });
 
 test("manual evidence is exact, fresh, append-only data and cannot match another URL", () => {

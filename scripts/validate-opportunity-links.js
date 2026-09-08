@@ -19,6 +19,8 @@ async function main() {
   const reviewedBlocks = [];
   let ok = 0;
   const published = opportunities.filter((record) => record.publicationStatus === "published");
+  failures.push(...opportunityData.validateOpportunityRegistry(opportunities).errors.map(reason => ({recordId:"registry",field:"record",reason})));
+  failures.push(...opportunityData.validateSourceEvidenceReferences(opportunities, evidence).map(reason => ({recordId:"evidence-ledger",field:"reference",reason})));
 
   const ledgerValidation = opportunityData.validateSourceEvidenceLedger(evidence);
   if (!ledgerValidation.valid) {
@@ -45,6 +47,7 @@ async function main() {
 
   console.log("=== Opportunity Source Link Validation ===");
   console.log(`Published records: ${published.length}`);
+  console.log(`Withdrawn records retained in the health report: ${opportunities.filter(record => record.publicationStatus === "withdrawn").length}`);
   console.log(`Live URLs: ${ok}`);
   console.log(`Reviewed automated-access blocks: ${reviewedBlocks.length}`);
   console.log(`Hard failures: ${failures.length}`);

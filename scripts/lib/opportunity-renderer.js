@@ -188,7 +188,7 @@ function getOpportunityCardCopy(opportunity) {
           : "Provider approval may be required",
     availabilityCue: getSampleAvailabilityCue(opportunity),
     fullEligibilityCue: suitabilityReview
-      ? "This medical-product sample is intended for people who meet the provider's suitability requirements."
+      ? "This medical-product sample is intended for people who meet the provider's suitability requirements. Application only; fulfilment is not guaranteed."
       : directRequest
         ? "This is a direct sample request. Availability still depends on the provider's stock, delivery area and stated request limits."
         : "Availability and fulfilment depend on the provider's current stock and approval rules.",
@@ -265,13 +265,7 @@ function getBirthdayRequirementCue(opportunity) {
 }
 
 function getBirthdayAvailabilityCue(opportunity) {
-  const details = opportunity.details || {};
-  const window = details.birthdayWindow || {};
-  if (window.beforeDays === 0 && window.afterDays === 0) return "Valid on the actual birthday only";
-  if (window.beforeDays === 0 && window.afterDays > 0) return `Valid from the birthday for ${window.afterDays} days`;
-  if (window.beforeDays === 7 && window.afterDays === 21) return "Valid from one week before to three weeks after the birthday";
-  if (window.beforeDays >= 28 && window.afterDays >= 28) return "Valid during the calendar birthday month";
-  return `Valid within ${window.beforeDays} days before and ${window.afterDays} days after the birthday`;
+  return require("./birthday-window.js").describeBirthdayWindow(opportunity.details?.birthdayWindow);
 }
 
 function isMedicalSample(opportunity) {

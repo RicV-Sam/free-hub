@@ -7,6 +7,8 @@ const {
   printWarningComparison,
 } = require("./lib/warning-baseline.js");
 const { getCiNetworkInconclusiveReason } = require("./lib/ci-network-policy.js");
+const { isPublishedFreeResource } = require("./lib/free-resource-publication.js");
+const { validateFreeResourceRegistry } = require("../shared/opportunity-data.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const DATA_PATH = path.join(ROOT_DIR, "data", "free-resources.json");
@@ -27,14 +29,26 @@ async function main() {
   const failures = [];
   const warnings = [];
   const inconclusive = [];
+  const withheld = [];
   let okCount = 0;
-  const manualOkResources = resources.filter((resource) => resource.manualOk);
+  const manualOkResources = resources.filter((resource) => isPublishedFreeResource(resource) && resource.manualOk);
+  const registryErrors = [
+    ...validateFreeResourceRegistry(resources.filter(resource => resource.category === "samples")).errors,
+    ...validateFreeResourceRegistry(resources.filter(resource => resource.category !== "samples"), { legacy: true }).errors,
+  ];
+  failures.push(...registryErrors.map(reason => ({ name: "Resource registry", reason })));
 
   for (const resource of resources) {
     const metadataFailures = validateResourceMetadata(resource);
     failures.push(...metadataFailures);
 
     if (metadataFailures.length > 0) {
+      continue;
+    }
+
+    if (!isPublishedFreeResource(resource)) {
+      withheld.push({ name: resource.name, url: resource.officialUrl, status: resource.verificationStatus,
+        reviewedAt: resource.dateModified, reason: resource.watchOut });
       continue;
     }
 
@@ -65,10 +79,12 @@ async function main() {
       warning: warnings.length,
       inconclusive: inconclusive.length,
       error: failures.length,
+      withheld: withheld.length,
     },
     failures,
     warnings,
     inconclusive,
+    withheld,
     normalizedWarnings,
     warningComparison,
   };
@@ -83,6 +99,8 @@ async function main() {
     console.log(`Warnings: ${warnings.length}`);
     console.log(`Inconclusive CI network checks: ${inconclusive.length}`);
     console.log(`Errors: ${failures.length}`);
+    console.log(`Withheld from publication (not counted as live or verified): ${withheld.length}`);
+    withheld.forEach(item => console.log(`- withheld: ${item.name} (${item.status}; ${item.reason})`));
 
     if (manualOkResources.length > 0) {
       console.log("");
@@ -161,7 +179,7 @@ function validateResourceMetadata(resource) {
     }
   });
 
-  if (resource.manualOk) {
+  if (resource.manualOk && isPublishedFreeResource(resource)) {
     failures.push(...validateManualOk(resource));
   }
 

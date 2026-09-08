@@ -141,9 +141,14 @@
     "availability": "active",
     "verificationStatus": "verified",
     "datePublished": "2026-05-27",
-    "lastReviewed": "2026-07-14",
-    "reviewDueAt": "2026-08-13",
-    "dateModified": "2026-07-14"
+    "lastReviewed": "2026-09-08",
+    "reviewDueAt": "2026-10-08",
+    "dateModified": "2026-09-08",
+    "manualOk": true,
+    "manualOkCheckedAt": "2026-09-08",
+    "manualOkAllowedDomain": "brandadvisor.co.za",
+    "manualOkReason": "Automated check returned HTTP 403; the exact official programme page was reviewed successfully in Chrome on 8 September 2026.",
+    "manualOkEvidence": "The official How it works page explains applications, provider selection, product trade exchange and required social content. This verifies the durable programme only; individual campaign recruitment remains separately gated."
   },
   {
     "id": "review-club-south-africa",

@@ -708,10 +708,10 @@ test("Free Samples v4 preserves its canonical and separates official sites from 
   await expect(page.locator("#structured-data-product-testing")).toHaveCount(current.testing.length ? 1 : 0);
 
   if (medicalSampleActive) {
-    await expect(page.getByText("7 current sample requests", { exact: true })).toBeVisible();
-    await expect(page.getByText("14 current product tests", { exact: true })).toBeVisible();
+    await expect(page.getByText(`${current.samples.length} current sample requests`, { exact: true })).toBeVisible();
+    await expect(page.getByText(`${current.testing.length} current product tests`, { exact: true })).toBeVisible();
     await expect(page.getByText("6 reviewed sites and programmes", { exact: true })).toBeVisible();
-    await expect(page.locator("#current-samples article.opportunity-card")).toHaveCount(7);
+    await expect(page.locator("#current-samples article.opportunity-card")).toHaveCount(current.samples.length);
     const card = page.locator('[data-opportunity-id="coloplast-speedicath-short-sample"]');
     await expect(card).toHaveAttribute("data-card-variant", "full");
     await expect(card).toContainText("Application only");
@@ -727,21 +727,15 @@ test("Free Samples v4 preserves its canonical and separates official sites from 
       "/opportunity/coloplast-speedicath-short-sample/"
     );
     const tena = page.locator('[data-opportunity-id="tena-women-free-sample-pack"]');
-    await expect(tena).toContainText("Direct request under the provider's stated limits");
-    await expect(tena).toContainText("One sample pack per person, family or address every six months");
-    await expect(tena.getByRole("link", { name: "View verified sample details" })).toHaveAttribute(
-      "href",
-      "/opportunity/tena-women-free-sample-pack/"
-    );
+    await expect(tena).toHaveCount(0);
     const blindDesigns = page.locator('[data-opportunity-id="blind-designs-free-fabric-samples"]');
     await expect(blindDesigns).toContainText("up to five");
     await expect(blindDesigns).toContainText("No delivery charge");
     await expect(blindDesigns).not.toContainText(/medical|health-related|suitability/i);
     const testingCards = page.locator('[data-content-type="product_testing"]');
-    await expect(testingCards).toHaveCount(14);
+    await expect(testingCards).toHaveCount(current.testing.length);
     const sunlight = page.locator('[data-opportunity-id="brand-advisor-sunlight-dishwashing-testing"]');
-    await expect(sunlight).toContainText("two TikTok videos");
-    await expect(sunlight).toContainText("does not guarantee selection");
+    await expect(sunlight).toHaveCount(0);
   } else {
     await expect(page.getByText("0 current sample requests", { exact: true })).toHaveCount(0);
     await expect(page.getByText("0 current product tests", { exact: true })).toHaveCount(0);
