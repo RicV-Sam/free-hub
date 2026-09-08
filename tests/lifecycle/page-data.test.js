@@ -43,6 +43,46 @@ test("expired published records retain verified detail eligibility but not activ
   assert.equal(shared.isExpiredArchiveEligibleCompetition(fixtures.expiredMissingEvidence), false);
 });
 
+test("only complete official result evidence makes an expired page indexable", () => {
+  assert.equal(shared.hasVerifiedCompetitionResult(fixtures.expiredConfirmedResult), true);
+  assert.equal(shared.isIndexableConfirmedResultCompetition(fixtures.expiredConfirmedResult), true);
+
+  assert.equal(
+    shared.hasVerifiedCompetitionResult({
+      ...fixtures.expiredConfirmedResult,
+      resultSourceUrl: "https://news.example.net/winner-announced",
+    }),
+    false
+  );
+  assert.equal(
+    shared.hasVerifiedCompetitionResult({
+      ...fixtures.expiredConfirmedResult,
+      resultSummary: "Winner announced.",
+    }),
+    false
+  );
+  assert.equal(
+    shared.hasVerifiedCompetitionResult({
+      ...fixtures.expiredConfirmedResult,
+      resultFulfilmentStatus: "unknown",
+    }),
+    false
+  );
+});
+
+test("confirmed results reject invalid, rollover and future review dates", () => {
+  shared.setReferenceDate("2026-09-08");
+  try {
+    for (const resultCheckedAt of ["", "2026-99-99", "2026-02-30", "2026-09-09", "2099-01-01"]) {
+      assert.equal(shared.hasVerifiedCompetitionResult({ ...fixtures.expiredConfirmedResult, resultCheckedAt }), false, resultCheckedAt);
+    }
+    assert.equal(shared.hasVerifiedCompetitionResult({ ...fixtures.expiredConfirmedResult, resultCheckedAt: "2026-09-08" }), true);
+    assert.equal(shared.hasVerifiedCompetitionResult({ ...fixtures.expiredConfirmedResult, resultSourceUrl: fixtures.expiredConfirmedResult.resultSourceUrl.replace("https://", "https://user:password@") }), false);
+  } finally {
+    shared.setReferenceDate();
+  }
+});
+
 test("archived-low-value, held, rejected, and doNotPublish states remain isolated", () => {
   assert.equal(shared.isArchivedLowValueCompetition(fixtures.archivedLowValue), true);
   assert.equal(shared.isPublishedCompetition(fixtures.archivedLowValue), false);

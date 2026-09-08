@@ -10,6 +10,7 @@ const actualArg = process.argv.find((arg) => arg.startsWith("--actual-dir="));
 const allowAdsterraEvergreenV1 = process.argv.includes("--allow-adsterra-evergreen-v1");
 const allowDiscoveryContentV1 = process.argv.includes("--allow-discovery-content-v1");
 const allowOpportunityDetailFlow = process.argv.includes("--allow-opportunity-detail-flow");
+const allowPortfolioRecovery = process.argv.includes("--allow-portfolio-recovery");
 if (!baseArg) {
   console.error("Usage: node scripts/compare-generated-output.js --base-dir=/path/to/built/base");
   process.exit(1);
@@ -18,6 +19,7 @@ const BASE_DIR = path.resolve(baseArg.slice("--base-dir=".length));
 const ROOT_DIR = actualArg ? path.resolve(actualArg.slice("--actual-dir=".length)) : REPO_ROOT;
 
 const FREE_STUFF_PARENT_FILE = "free-stuff-south-africa/index.html";
+const PORTFOLIO_RECOVERY_OUTPUT_BASELINE = require("../tests/baselines/portfolio-recovery-generated-output.json");
 const DISCOVERY_LASTMOD_ROUTES = Object.freeze([
   "/category/vouchers/",
   "/free-samples-south-africa/",
@@ -77,6 +79,10 @@ const differences = [...paths]
   .filter(Boolean);
 
 function classifyDifference(filePath, expectedEntry, actualEntry) {
+  if (allowPortfolioRecovery && isExactReviewedDifference(PORTFOLIO_RECOVERY_OUTPUT_BASELINE, filePath, expectedEntry, actualEntry)) {
+    approvedDifferences.push({ file: filePath, reason: "exact reviewed confirmed-result release output" });
+    return null;
+  }
   if (
     allowAdsterraEvergreenV1 &&
     isExactReviewedDifference(ADSTERRA_EVERGREEN_OUTPUT_BASELINE, filePath, expectedEntry, actualEntry)

@@ -4,23 +4,26 @@ const shared = require("../shared/page-data.js");
 const { parseHtml, walkHtmlFiles } = require("./lib/baseline-utils.js");
 const { getOfferBaselineCounts } = require("./lib/offer-baseline-counts.js");
 
+const { getCurrentContentBaseline } = require("./lib/current-content-baseline.js");
+const current = getCurrentContentBaseline();
+
 const ROOT_DIR = path.resolve(__dirname, "..");
 const errors = [];
 const checks = [];
 const FREE_STUFF_ROUTE = "/free-stuff-south-africa/";
 const FREE_STUFF_NAV_INACTIVE = '          <a class="site-topbar__link" href="/free-stuff-south-africa/">Free Stuff</a>';
 const FREE_STUFF_NAV_ACTIVE = '          <a class="site-topbar__link is-active" href="/free-stuff-south-africa/" aria-current="page">Free Stuff</a>';
-const expectedOpportunityCount = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true" ? 21 : 0;
-const expectedFeaturedOpportunityCount = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true" ? 2 : 0;
+const expectedOpportunityCount = current.publicOpportunities.length;
+const expectedFeaturedOpportunityCount = current.featured.length;
 const offerBaseline = getOfferBaselineCounts({
   offers: JSON.parse(fs.readFileSync(path.join(ROOT_DIR, "data", "offers.json"), "utf8")),
   enabled: process.env.FREEHUB_ENABLE_OFFERS === "true",
   asOfDate: process.env.FREEHUB_AS_OF_DATE || process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date()),
 });
-const expectedGeneratedFiles = 385 + require("../data/student-guide.json").offers.length + expectedOpportunityCount * 2 + offerBaseline.generatedFileCount;
-const expectedSitemapUrls = 115 + expectedOpportunityCount + offerBaseline.sitemapUrlCount;
-const expectedActiveCompetitionCount = 54;
-const expectedCoreCompetitionCount = 52;
+const expectedGeneratedFiles = current.generatedFileCount + offerBaseline.generatedFileCount;
+const expectedSitemapUrls = current.sitemapUrlCount + offerBaseline.sitemapUrlCount;
+const expectedActiveCompetitionCount = current.active.length;
+const expectedCoreCompetitionCount = current.core.length;
 
 function getLocalIsoDate(date) {
   return [
@@ -74,7 +77,7 @@ check("Active competition records", activeCompetitions.length, expectedActiveCom
 check("Opportunity records rendered", new Set([...parent.matchAll(/data-opportunity-id="([^"]+)"/g)].map((match) => match[1])).size, expectedFeaturedOpportunityCount);
 check("Opportunity cards rendered", count(parent, /<article class="opportunity-card\b/g), expectedFeaturedOpportunityCount);
 check("Opportunity schema items", opportunitySchema?.itemListElement?.length || 0, expectedFeaturedOpportunityCount);
-check("Opportunity routes generated", countGeneratedRoutes("opportunity"), expectedOpportunityCount);
+check("Opportunity routes generated", countGeneratedRoutes("opportunity"), current.detailOpportunities.length);
 check("Opportunity exit routes generated", countGeneratedRoutes(path.join("out", "opportunity")), expectedOpportunityCount);
 check("Opportunity sitemap entries", count(sitemap, /<loc>https:\/\/freehub\.co\.za\/opportunity\//g), expectedOpportunityCount);
 check("Durable resources on parent", count(parent, /<article class="free-resource-card">/g), 26);

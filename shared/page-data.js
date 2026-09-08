@@ -1382,6 +1382,59 @@
     );
   }
 
+  function hasVerifiedCompetitionResult(competition) {
+    if (!isExpiredArchiveEligibleCompetition(competition)) {
+      return false;
+    }
+
+    if (String(competition.resultStatus || "").trim().toLowerCase() !== "confirmed") {
+      return false;
+    }
+
+    const resultSourceUrl = String(competition.resultSourceUrl || "").trim();
+    const resultCheckedAt = String(competition.resultCheckedAt || "").trim();
+    const resultSummary = String(competition.resultSummary || "").trim();
+    const resultPrize = String(competition.resultPrize || "").trim();
+    const winnerDisplayName = String(competition.winnerDisplayName || "").trim();
+    const fulfilmentStatus = String(competition.resultFulfilmentStatus || "").trim().toLowerCase();
+    const checkedDate = new Date(`${resultCheckedAt}T00:00:00Z`);
+    const today = getReferenceToday();
+    const todayIso = [today.getFullYear(), String(today.getMonth() + 1).padStart(2, "0"), String(today.getDate()).padStart(2, "0")].join("-");
+
+    if (
+      !/^\d{4}-\d{2}-\d{2}$/.test(resultCheckedAt) ||
+      Number.isNaN(checkedDate.getTime()) ||
+      checkedDate.toISOString().slice(0, 10) !== resultCheckedAt ||
+      resultCheckedAt > todayIso ||
+      resultSummary.length < 40 ||
+      !resultPrize ||
+      !winnerDisplayName ||
+      !["announced", "fulfilled"].includes(fulfilmentStatus)
+    ) {
+      return false;
+    }
+
+    try {
+      const resultUrl = new URL(resultSourceUrl);
+      if (resultUrl.protocol !== "https:" || resultUrl.username || resultUrl.password) {
+        return false;
+      }
+
+      const officialHosts = [competition.termsUrl, competition.sourceUrl, competition.url]
+        .filter(Boolean)
+        .map((value) => new URL(value).hostname.toLowerCase().replace(/^www\./, ""));
+      const resultHost = resultUrl.hostname.toLowerCase().replace(/^www\./, "");
+
+      return officialHosts.includes(resultHost);
+    } catch (_error) {
+      return false;
+    }
+  }
+
+  function isIndexableConfirmedResultCompetition(competition) {
+    return hasVerifiedCompetitionResult(competition);
+  }
+
   function isArchivedLowValueCompetition(competition) {
     return (
       competition &&
@@ -2064,6 +2117,8 @@
     isExpiredCompetition,
     hasVerifiedArchiveSource,
     isExpiredArchiveEligibleCompetition,
+    hasVerifiedCompetitionResult,
+    isIndexableConfirmedResultCompetition,
     isArchivedLowValueCompetition,
     getExpiredArchiveCompetitions,
     getArchivedLowValueCompetitions,

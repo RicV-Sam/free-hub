@@ -1,58 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-07",
-  "count": 53,
+  "asOfDate": "2026-09-08",
+  "count": 51,
   "competitions": [
-    {
-      "id": "mybroadband-pre-black-friday-survey-r2000-2026",
-      "title": "Win R2,000 – Complete the MyBroadband 2026 Pre-Black Friday Survey",
-      "brand": "MyBroadband",
-      "summary": "Complete MyBroadband's short 2026 Pre-Black Friday shopping survey and provide a Forum username or email address for a chance to win R2,000 cash.",
-      "imageUrl": "https://mybroadband.co.za/news/wp-content/uploads/2026/08/Black-Friday-Survey-2026-Headline-2-1200x675.jpg",
-      "closingDate": "2026-09-07",
-      "category": "Cash",
-      "prizeName": "R2,000 cash",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "The campaign is presented to South African consumers, but the public article does not state a minimum age or full eligibility rules.",
-      "entrySteps": [
-        "Open the official MyBroadband 2026 Pre-Black Friday Survey article.",
-        "Follow the article's link to the official Broad Media survey form and complete the shopping survey.",
-        "Enter your MyBroadband Forum username or email address when prompted so the entry can be submitted automatically.",
-        "Submit the survey before the competition closes on 7 September 2026."
-      ],
-      "officialUrl": "https://mybroadband.co.za/news/industrynews/663847-win-r2000-complete-the-mybroadband-2026-pre-black-friday-survey.html",
-      "termsUrl": "https://mybroadband.co.za/news/industrynews/663847-win-r2000-complete-the-mybroadband-2026-pre-black-friday-survey.html",
-      "lastChecked": "2026-08-26",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "onedayonly-elephant-walk-tented-camp-getaway-2026",
-      "title": "OneDayOnly Elephant Walk Tented Camp Getaway 2026",
-      "brand": "OneDayOnly / Elephant Walk Tented Camp",
-      "summary": "New OneDayOnly newsletter subscribers can complete the official entry form, follow both promoters and tag a travel companion for a chance to win a two-night Elephant Walk safari for two.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/onedayonly-elephant-walk-tented-camp-getaway-2026.png",
-      "closingDate": "2026-09-07",
-      "category": "Holidays",
-      "prizeName": "One R20,000 trip for two including flights, airport transfers, two nights in a Deluxe Tent at Elephant Walk Tented Camp, listed meals and two game drives per day. Park fees, insurance, additional food and personal expenses are excluded.",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "Open to South African residents aged 18 or older who are new OneDayOnly newsletter subscribers and hold a passport valid for at least six months after return with two blank pages. Existing subscribers and promoter-related parties are excluded.",
-      "entrySteps": [
-        "Complete the official OneDayOnly entry form, sign up to the newsletter, follow @onedayonlycoza and @elephantwalktentedandretreat, and tag the person you would take.",
-        "Use the earlier 7 September 2026 deadline shown in the official post because the post and terms disagree."
-      ],
-      "officialUrl": "https://www.instagram.com/p/Db-eUj6ILOq/",
-      "termsUrl": "https://help.onedayonly.co.za/hc/en-us/articles/52157018202516-WIN-a-trip-for-2-to-Elephant-Walk-Tented-Camp-Terms-Conditions",
-      "lastChecked": "2026-08-27",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
     {
       "id": "wanderout-south-african-conservation-safari-giveaway-2026",
       "title": "Wander Out South African Conservation Safari Giveaway 2026",
@@ -126,7 +76,7 @@
       "termsUrl": "https://www.edgars.co.za/pages/competition-terms-conditions",
       "lastChecked": "2026-08-23",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "samsung-august-rate-and-review-2026",
