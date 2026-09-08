@@ -103,6 +103,22 @@ jobs:
         run: node scripts/submit-bing.js --sitemap=https://freehub.co.za/sitemap.xml
 
       - name: Submit sitemap URLs to IndexNow
+        id: indexnow
         if: env.INDEXNOW_API_KEY != ''
-        continue-on-error: true
         run: node scripts/submit-indexnow.js --sitemap=https://freehub.co.za/sitemap.xml
+
+      - name: Record IndexNow outcome
+        if: ${{ always() }}
+        env:
+          SUBMISSION_OUTCOME: ${{ steps.indexnow.outcome }}
+        run: node scripts/lib/indexnow-client.mjs finalize freehub.co.za "$SUBMISSION_OUTCOME"
+
+      - name: Save IndexNow receipt
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: indexnow-status
+          path: .indexnow-status.json
+          include-hidden-files: true
+          retention-days: 90
+          if-no-files-found: warn

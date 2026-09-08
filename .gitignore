@@ -43,3 +43,5 @@ storage/exports/
 # Private research notes and lead discovery
 .research/
 *.research.json
+.indexnow-status.json
+.indexnow-status.json.tmp
