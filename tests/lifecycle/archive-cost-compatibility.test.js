@@ -40,7 +40,13 @@ test("archive compatibility is explicit, complete, and serialization-neutral", (
 test("all active competition labels match the reviewed compact snapshot", () => {
   const baseline = JSON.parse(fs.readFileSync(path.join(rootDir, "tests", "baselines", "active-cost-labels.json"), "utf8"));
   const competitions = JSON.parse(fs.readFileSync(path.join(rootDir, "data", "competitions.json"), "utf8"));
-  const active = shared.getPublishedActiveCompetitions(competitions);
+  let active;
+  shared.setReferenceDate(baseline.buildDate);
+  try {
+    active = shared.getPublishedActiveCompetitions(competitions);
+  } finally {
+    shared.setReferenceDate();
+  }
   const pairs = active.map((record) => `${record.id}\t${shared.getEntryCostLabel(record)}`).sort();
   const labelCounts = active.reduce((counts, record) => {
     const label = shared.getEntryCostLabel(record);

@@ -105,8 +105,9 @@ Default expansion rule: retain `/free-stuff-south-africa/`, `/free-samples-south
 
 - Only active records that pass publication and public-visibility checks enter active hubs and sitemap.
 - Noindex active records can retain detail and outbound pages but do not enter public collections or sitemap.
-- Expired records leave active collections, `/out/`, and sitemap.
+- Expired records leave active collections and `/out/`. They leave the sitemap unless a same-domain official promoter announcement passes the confirmed-result evidence gate.
 - Useful expired details remain accessible with a closed state; low-value legacy references are noindex.
+- A confirmed-result page may be indexable and return to the sitemap when it names the publicly announced winner and prize, links the official result, records the review date and distinguishes winner announcement from completed fulfilment. It remains closed and never restores an entry CTA.
 - Expired details are not automatically redirected to the homepage.
 
 ### Evergreen resources and future opportunities

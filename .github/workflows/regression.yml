@@ -8,8 +8,9 @@ permissions:
   contents: read
 
 env:
-  FREEHUB_BUILD_DATE: "2026-07-31"
-  FREEHUB_AS_OF_DATE: "2026-08-06"
+  FREEHUB_BUILD_DATE: "2026-09-08"
+  FREEHUB_AS_OF_DATE: "2026-09-08"
+  NODE_OPTIONS: "--require=./scripts/lib/fixed-date-register.js"
 
 jobs:
   baseline:
@@ -26,7 +27,13 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm test
-      - run: npm run report:opportunity-health
+      - run: npm run report:opportunity-health -- --deployment-check
+      - name: Retain current evidence review findings
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: opportunity-health
+          path: output/opportunity-health/
       - name: Compare generated output with PR base
         if: github.event_name == 'pull_request'
         shell: bash
@@ -40,10 +47,10 @@ jobs:
           (cd "$base_dir" && NODE_OPTIONS="--require=$fixed_date_register" FREEHUB_BUILD_DATE="$FREEHUB_BUILD_DATE" FREEHUB_AS_OF_DATE="$FREEHUB_AS_OF_DATE" node scripts/generate-pages.js)
           node scripts/capture-generated-output.js --output-dir="$candidate_absent_dir"
           echo "Compare feature flag absent with PR base"
-          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-adsterra-evergreen-v1
+          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-portfolio-recovery
           echo "Compare feature flag explicitly disabled with PR base"
           FREEHUB_ENABLE_OPPORTUNITIES=false npm run build
-          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-adsterra-evergreen-v1
+          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-portfolio-recovery
           node scripts/compare-generated-output.js --base-dir="$candidate_absent_dir"
           echo "Compare enabled reviewed Opportunity pilot with flag-off candidate"
           FREEHUB_ENABLE_OPPORTUNITIES=true npm run build

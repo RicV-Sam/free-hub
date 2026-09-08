@@ -106,6 +106,7 @@ function validateMaintenanceState(options = {}) {
   const sitemap = fs.existsSync(SITEMAP_PATH) ? fs.readFileSync(SITEMAP_PATH, "utf8") : "";
   const publicListingFiles = walkPublicListingFiles(ROOT_DIR);
   const archiveIds = new Set(archivedCompetitions.map((competition) => competition.id));
+  const archiveById = new Map(archivedCompetitions.map((competition) => [competition.id, competition]));
 
   const expiredPublishedCompetitions = competitions.filter((competition) => {
     if (!shared.isPublishedCompetition(competition) || !competition.closingDate) {
@@ -133,6 +134,7 @@ function validateMaintenanceState(options = {}) {
     sitemapContainsOutUrls: sitemap.includes("/out/"),
     expiredMissingFromArchive: [],
     expiredInSitemap: [],
+    confirmedResultMissingFromSitemap: [],
     expiredInPublicListings: [],
     expiredMissingDetailPage: [],
     expiredMissingClosedBanner: [],
@@ -152,6 +154,7 @@ function validateMaintenanceState(options = {}) {
 
   expiredPublishedCompetitions.forEach((competition) => {
     const slug = getCompetitionSlug(competition);
+    const confirmedResult = shared.isIndexableConfirmedResultCompetition(archiveById.get(competition.id) || competition);
     const detailPath = path.join(ROOT_DIR, "competition", slug, "index.html");
     const outPath = path.join(ROOT_DIR, "out", slug, "index.html");
 
@@ -159,8 +162,11 @@ function validateMaintenanceState(options = {}) {
       summary.expiredMissingFromArchive.push(slug);
     }
 
-    if (sitemap.includes(`/competition/${slug}/`)) {
+    if (!confirmedResult && sitemap.includes(`/competition/${slug}/`)) {
       summary.expiredInSitemap.push(slug);
+    }
+    if (confirmedResult && !sitemap.includes(`/competition/${slug}/`)) {
+      summary.confirmedResultMissingFromSitemap.push(slug);
     }
 
     if (!fs.existsSync(detailPath)) {
@@ -170,7 +176,10 @@ function validateMaintenanceState(options = {}) {
       if (!html.includes("This competition has closed.")) {
         summary.expiredMissingClosedBanner.push(slug);
       }
-      if (!html.includes('name="robots" content="noindex, follow"')) {
+      const expectedRobots = confirmedResult
+        ? 'name="robots" content="index, follow, max-image-preview:large"'
+        : 'name="robots" content="noindex, follow"';
+      if (!html.includes(expectedRobots)) {
         summary.expiredMissingNoindex.push(slug);
       }
     }
@@ -233,6 +242,10 @@ function validateMaintenanceState(options = {}) {
     expiredPublishedCompetitions.forEach((competition) => {
       const slug = getCompetitionSlug(competition);
       if (html.includes(`/competition/${slug}/`)) {
+        const confirmedResult = shared.isIndexableConfirmedResultCompetition(archiveById.get(competition.id) || competition);
+        if (confirmedResult && relativePath === "competitions/index.html") {
+          return;
+        }
         summary.expiredInPublicListings.push({ page: relativePath, slug });
       }
     });
@@ -270,6 +283,9 @@ function validateMaintenanceState(options = {}) {
   }
   if (summary.expiredInSitemap.length > 0) {
     errors.push(`Expired competitions still in sitemap: ${summary.expiredInSitemap.join(", ")}`);
+  }
+  if (summary.confirmedResultMissingFromSitemap.length > 0) {
+    errors.push(`Confirmed result pages missing from sitemap: ${summary.confirmedResultMissingFromSitemap.join(", ")}`);
   }
   if (summary.expiredInPublicListings.length > 0) {
     errors.push("Expired competitions still appear in public listing pages.");

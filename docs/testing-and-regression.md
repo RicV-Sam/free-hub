@@ -2,7 +2,7 @@
 
 ## Purpose
 
-PR 1B established the repository-grounded Freehub baseline. Later releases added fail-closed cost, Opportunity and discovery-page contracts. The current reviewed snapshot uses build date `2026-07-31` and competition lifecycle date `2026-08-06`: the flag-disabled build contains 93 sitemap URLs and 316 generated files, while the reviewed 21-record Opportunity build contains 114 sitemap URLs and 358 generated files.
+PR 1B established the repository-grounded Freehub baseline. The September recovery uses build and lifecycle date `2026-09-08` for repeatable CI output. Counts are calculated from the current source records and publication gates; old campaign counts are not treated as permanently active.
 
 ZA Comp Engine exports remain private review evidence. Passing these tests cannot approve a handoff row, change Freehub publication state or create a public page.
 
@@ -11,7 +11,8 @@ ZA Comp Engine exports remain private review evidence. Passing these tests canno
 Run the generator before tests when working from a fresh checkout:
 
 ```powershell
-$env:FREEHUB_BUILD_DATE = "2026-07-31"
+$env:FREEHUB_BUILD_DATE = "2026-09-08"
+$env:FREEHUB_AS_OF_DATE = "2026-09-08"
 npm run build
 npm test
 npm run lint
@@ -69,9 +70,9 @@ The update command performs live requests and intentionally contains no generate
 
 ## Lifecycle and known defects
 
-Fixtures cover active public, active noindex, Club-only, expired published, missing archive evidence, archived low-value, held, rejected/`doNotPublish`, free, purchase-required, paid, explicit unknown, missing and unrecognized cost states.
+Fixtures cover active public, active noindex, Club-only, expired published, confirmed-result evidence, missing archive evidence, archived low-value, held, rejected/`doNotPublish`, free, purchase-required, paid, explicit unknown, missing and unrecognized cost states. Closed pages remain noindex unless a complete result record uses the same official promoter domain and supplies a result check date, substantive summary, public winner wording, confirmed prize and explicit announcement-versus-fulfilment status.
 
-Missing, explicit `unknown` and unrecognized cost fixtures now fail closed to `unclear` / `Entry requirements unclear`. A missing type may classify only from affirmative evidence such as a purchase boolean, paid amount, standard-rate tag, exact free-entry tag or explicit fee label; absence never implies free. The active `{id, label}` inventory is protected by a compact hash covering all 80 public competitions in the 31 July 2026 snapshot.
+Missing, explicit `unknown` and unrecognized cost fixtures fail closed to `unclear` / `Entry requirements unclear`. A missing type may classify only from affirmative evidence such as a purchase boolean, paid amount, standard-rate tag, exact free-entry tag or explicit fee label; absence never implies free. The reviewed active cost-label inventory remains fixed to the 6 September 2026 snapshot (54 records) so routine expiry cannot silently change those assertions.
 
 Fifteen retained expired records predate `entryCostType`. `data/archive/legacy-cost-classifications.json` records their reviewed display compatibility. The generator applies those values through a non-serializable archive-only marker, so it cannot modify source data, active filtering, `/out/` eligibility, sitemap inclusion or generated attributes. Tests require the manifest to match exactly the current published expired records with missing types; a new record is never added automatically.
 
@@ -81,11 +82,11 @@ Fifteen retained expired records predate `entryCostType`. `data/archive/legacy-c
 
 The pure `isPublicOpportunity()` gate requires an explicit `asOfDate` and official-source host allowlist. It rejects non-published, non-verified, future, overdue, expired, unsupported-type, invalid-source, unclear-cost and requirement-mismatch records. Strict free-only use accepts only `completely_free`. Supported type-specific details are currently limited to direct samples, product-testing campaigns, birthday freebies and free courses; other declared types may be stored as drafts but cannot become public.
 
-`FREEHUB_ENABLE_OPPORTUNITIES` is false unless its exact value is `true`. The enabled build publishes seven reviewed direct sample requests and 14 reviewed product-testing applications, while absent and explicit-false builds still produce no Opportunity cards or Opportunity schema. No flag state creates Club state.
+`FREEHUB_ENABLE_OPPORTUNITIES` is false unless its exact value is `true`. On the reviewed 8 September snapshot, only the Cape Wheel birthday record has current publication evidence; 34 other valid detail routes are closed and noindex. Absent and explicit-false builds produce no Opportunity cards, details, exits or Opportunity schema. No flag state creates Club state.
 
-The generator owns the publication boundary and passes only approved records to renderers. The explicit source allowlist contains only `brandadvisor.co.za`, `products.coloplast.co.za`, `www.blinddesigns.co.za` and `www.tena.co.za`; registry contents must never be used to infer or silently permit source hosts. Enabled opportunities create matching cards, structured data, detail routes and sitemap entries. Exit routes remain outside the sitemap and carry `noindex`.
+The generator owns the publication boundary and passes only approved records to renderers. The explicit official-source allowlist is maintained in `tests/baselines/seo-baseline.json`; registry contents must never silently permit source hosts. Current opportunities create matching cards, structured data, detail routes and sitemap entries. Exit routes remain outside the sitemap and carry `noindex`. Stale and otherwise ineligible records never retain an active exit.
 
-Generated-output parity permits only exact reviewed hashes. The current base-to-candidate release passes only with `--allow-adsterra-evergreen-v1`; the historical discovery release used `--allow-discovery-content-v1`, and the Opportunity transition uses `--allow-opportunity-detail-flow`. Version markers alone approve nothing. The release manifests pin reviewed expected-to-actual hashes, including new or removed files, while narrow structural checks remain limited to their named legacy transitions. Tampered, lookalike or unreviewed output fails.
+Generated-output parity permits only exact reviewed hashes. This release uses `--allow-portfolio-recovery` for the confirmed-result page, competition-hub link and sitemap entry; all other flag-off HTML matches the PR base. The Opportunity transition uses `--allow-opportunity-detail-flow` with the 8 September manifest. Version markers alone approve nothing. Unreviewed or tampered output fails.
 
 Browser tests preserve two named expected defects:
 
@@ -96,7 +97,7 @@ Playwright treats an unexpected pass as a failure so the expected-defect marker 
 
 ## CI and evidence limits
 
-The pull-request workflow separates deterministic baseline tests, live link checks and Chromium smoke tests. It uses `FREEHUB_BUILD_DATE=2026-07-31` for the reviewed metadata and Opportunity evidence snapshot, and `FREEHUB_AS_OF_DATE=2026-08-06` for competition lifecycle and urgency calculations. It compares SHA-256 inventories of generated HTML and sitemap output. Browser tests serve local generated files and force Firebase configuration requests to return 404, so no deployed credentials or authenticated account are required.
+The pull-request workflow separates deterministic baseline tests, live link checks and Chromium smoke tests. Both build and lifecycle dates are `2026-09-08`, with the fixed-date register pinning legacy Date-based rendering. It compares SHA-256 inventories of generated HTML and sitemap output. Browser tests serve local generated files and force Firebase configuration requests to return 404, so no deployed credentials or authenticated account are required. Production builds continue to use the actual date.
 
 The harness does not estimate Lighthouse history, Core Web Vitals, Search Console, GA4, deployed Firestore rules or Cloudflare configuration. Those remain unavailable external evidence and require separate access and review.
 
@@ -104,14 +105,18 @@ GA4 review is intentionally non-blocking for repository validation. Event receip
 
 ## Samples and vouchers discovery release
 
-The Samples inventory adds a deterministic two-state check. With `FREEHUB_ENABLE_OPPORTUNITIES` absent or set to any value other than the exact string `true`, the approved discovery pages contain zero Opportunity cards and zero Opportunity ItemLists. With the flag set to `true`, seven reviewed direct sample requests and 14 reviewed product-testing applications appear on `/free-samples-south-africa/`; the Free Stuff parent features the reviewed subset, and the voucher hub shows only voucher-relevant creator exchanges. Every published record also produces a detail route and sitemap entry; its exit route remains `noindex` and outside the sitemap.
+The Samples inventory checks absent/false and enabled flag states. Current publication gates determine which records appear; expired evidence is never refreshed by a test. Samples and product-testing groups can honestly be empty while durable editorial resources remain available.
 
-The generated Samples hub contains 21 cards split into ItemLists of seven direct requests and 14 selected product tests. The Free Stuff parent contains all 24 durable resources and two featured Opportunity cards. The voucher hub contains four checked reward or public-service resources, an honest empty state for unrestricted free-entry voucher prizes, two no-purchase draws that require an eligible Capitec account, 15 strict voucher/gift-card/cashback competition listings and—only when the flag is enabled—two creator voucher exchanges.
+In the 8 September snapshot, there are no current sample or product-testing applications. The Free Stuff parent has 26 durable resources and one current birthday opportunity. The voucher hub has two checked reward resources, one unrestricted airtime prize, and two account-linked draws. Birthday vouchers are excluded from the creator-exchange section.
 
-`node scripts/validate-free-samples-pilot.js` checks the canonical, current-offers title, H1, seven classified durable resources, six visible/schema-matched FAQs, 21 Opportunity IDs, direct-versus-selected grouping, card/schema equality, section order, privacy boundary, route inclusion and unchanged competition counts. The script reads the exact same fail-closed flag value as the build.
+`node scripts/validate-free-samples-pilot.js` checks the canonical, title, H1, seven classified durable resources, six visible/schema-matched FAQs, current Opportunity IDs, direct-versus-selected grouping, card/schema equality, section order, privacy boundary and route inclusion. The script reads the same fail-closed flag value as the build; the reviewed static sitemap count and current source records determine expected totals.
 
 `node scripts/validate-opportunity-links.js` validates the Opportunity source and terms independently of the ordinary warning baseline. A current exact manual-evidence entry can cover an automated access block. It cannot cover a 404, 410, redirect, confirmed soft-404, mismatched URL, or stale evidence.
 
-The pull-request workflow builds and tests Chromium once with the flag disabled and again with the flag enabled. Flag-absent and explicit-false HTML must be byte-identical. The enabled comparison permits only exact reviewed Opportunity hashes for the 42 detail and exit files, three discovery surfaces and sitemap; lookalike or partially changed output fails.
+The pull-request workflow tests Chromium with opportunities disabled, enabled, and with the offers portal enabled. Browser assertions cover current active or empty states and retain isolated active-fixture checks where live records have expired. Flag-absent and explicit-false HTML must be byte-identical. Enabled output permits only the exact reviewed 36 detail/exit files, three discovery surfaces and sitemap.
 
 Editorial review, activation, rollback, privacy, and evidence-retention procedures are in `docs/free-samples-editorial-runbook.md`.
+
+## Opportunity health evidence
+
+`npm run report:opportunity-health` checks both flag states, restores the caller's original flag state, writes ignored JSON/Markdown artifacts, and exits unsuccessfully when source evidence requires review. `--deployment-check` checks publication boundaries while retaining every evidence issue in the artifacts and keeping `ok: false`. This allows deployment of safely closed pages without treating stale evidence as verified. CI retains these artifacts; source verification dates are not changed automatically.

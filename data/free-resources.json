@@ -104,9 +104,9 @@
     "dateModified": "2026-07-27",
     "manualOk": true,
     "manualOkReason": "Official credit-bureau site can return automated-check 403 responses.",
-    "manualOkCheckedAt": "2026-07-27",
+    "manualOkCheckedAt": "2026-09-08",
     "manualOkAllowedDomain": "transunion.co.za",
-    "manualOkEvidence": "Official TransUnion South Africa annual free credit report page was manually rechecked on 2026-07-27 and still states that consumers can access their TransUnion credit report once a year for free."
+    "manualOkEvidence": "Official annual free credit report page rechecked on 2026-09-08; it confirms one free credit report per year and links to the official access service."
   },
   {
     "name": "ClearScore South Africa",
@@ -122,9 +122,9 @@
     "dateModified": "2026-07-27",
     "manualOk": true,
     "manualOkReason": "Official site can return automated-check 403 responses.",
-    "manualOkCheckedAt": "2026-07-27",
+    "manualOkCheckedAt": "2026-09-08",
     "manualOkAllowedDomain": "clearscore.com",
-    "manualOkEvidence": "Official ClearScore South Africa page was manually rechecked on 2026-07-27 and still advertises a free South African credit score and report with no credit-card trial requirement."
+    "manualOkEvidence": "Official South African page rechecked on 2026-09-08; it still describes a free credit score and report without a trial or credit-card signup requirement."
   },
   {
     "id": "brand-advisor",
@@ -246,10 +246,10 @@
     "dateModified": "2026-07-14",
     "manualOk": true,
     "manualOkReason": "Official Coloplast South Africa sampling site returns HTTP 403 to the Freehub link checker but was manually rechecked in a browser-style request.",
-    "manualOkCheckedAt": "2026-07-14",
+    "manualOkCheckedAt": "2026-09-08",
     "manualOkAllowedDomain": "products.coloplast.co.za",
     "manualOkAllowGenericHomepage": true,
-    "manualOkEvidence": "Official Coloplast ZA sampling site was manually rechecked on 2026-07-14. The page identifies South Africa as the country, has category Sampling Site, and includes product and sample-request navigation for ostomy, continence and wound-care products."
+    "manualOkEvidence": "Official Coloplast ZA directory rechecked on 2026-09-08; product categories and Requesting samples navigation are present. This confirms the durable directory, not availability of any individual sample campaign."
   },
   {
     "id": "kalley-free-flooring-samples",
@@ -297,9 +297,9 @@
     "dateModified": "2026-07-31",
     "manualOk": true,
     "manualOkReason": "Official gov.za municipal-services page can time out during automated link checks.",
-    "manualOkCheckedAt": "2026-07-31",
+    "manualOkCheckedAt": "2026-09-08",
     "manualOkAllowedDomain": "gov.za",
-    "manualOkEvidence": "Official gov.za municipal-services guidance was manually rechecked on 2026-07-31. It confirms minimum free basic electricity, water and sanitation for qualifying poor households, notes that availability differs by municipality and directs applicants to their local municipality."
+    "manualOkEvidence": "Official gov.za municipal-services page returned HTTP 200 and was read on 2026-09-08. It describes free basic electricity, water and sanitation for qualifying poor households, subject to municipality availability."
   },
   {
     "id": "krispy-kreme-sa-app-registration-doughnut",

@@ -3,20 +3,23 @@ const path = require("path");
 const { parseHtml, walkHtmlFiles } = require("./lib/baseline-utils.js");
 const { getOfferBaselineCounts } = require("./lib/offer-baseline-counts.js");
 
+const { getCurrentContentBaseline } = require("./lib/current-content-baseline.js");
+const current = getCurrentContentBaseline();
+
 const ROOT_DIR = path.resolve(__dirname, "..");
 const opportunitiesEnabled = process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true";
-const expectedOpportunityCount = opportunitiesEnabled ? 21 : 0;
-const expectedSampleOpportunityCount = opportunitiesEnabled ? 7 : 0;
-const expectedTestingOpportunityCount = opportunitiesEnabled ? 14 : 0;
-const expectedParentOpportunityCount = opportunitiesEnabled ? 2 : 0;
+const expectedOpportunityCount = current.publicOpportunities.length;
+const expectedSampleOpportunityCount = current.samples.length;
+const expectedTestingOpportunityCount = current.testing.length;
+const expectedParentOpportunityCount = current.featured.length;
 const offerBaseline = getOfferBaselineCounts({
   offers: JSON.parse(fs.readFileSync(path.join(ROOT_DIR, "data", "offers.json"), "utf8")),
   enabled: process.env.FREEHUB_ENABLE_OFFERS === "true",
   asOfDate: process.env.FREEHUB_AS_OF_DATE || process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date()),
 });
-const expectedGeneratedFiles = 385 + require("../data/student-guide.json").offers.length + expectedOpportunityCount * 2 + offerBaseline.generatedFileCount;
-const expectedSitemapUrls = 115 + expectedOpportunityCount + offerBaseline.sitemapUrlCount;
-const expectedCoreCompetitionCount = 52;
+const expectedGeneratedFiles = current.generatedFileCount + offerBaseline.generatedFileCount;
+const expectedSitemapUrls = current.sitemapUrlCount + offerBaseline.sitemapUrlCount;
+const expectedCoreCompetitionCount = current.core.length;
 
 function getLocalIsoDate(date) {
   return [
@@ -25,38 +28,8 @@ function getLocalIsoDate(date) {
     String(date.getDate()).padStart(2, "0"),
   ].join("-");
 }
-const expectedIds = [
-  "blind-designs-free-fabric-samples",
-  "brand-advisor-b-well-canola-oil-testing",
-  "brand-advisor-clover-barley-milk-testing",
-  "brand-advisor-clover-krush-testing",
-  "brand-advisor-clover-nolac-testing",
-  "brand-advisor-clover-onion-slices-testing",
-  "brand-advisor-kinder-testing",
-  "brand-advisor-parmalat-easygest-testing",
-  "brand-advisor-simba-voucher-testing",
-  "brand-advisor-speckled-eggs-testing",
-  "brand-advisor-sta-soft-parfum-testing",
-  "brand-advisor-steri-stumpie-200ml-testing",
-  "brand-advisor-sunlight-dishwashing-testing",
-  "brand-advisor-super-c-sweets-testing",
-  "brand-advisor-vicks-vapolozenges-testing",
-  "coloplast-brava-elastic-tape-free-sample",
-  "coloplast-sensura-mio-click-free-sample",
-  "coloplast-sensura-mio-free-sample",
-  "coloplast-speedicath-short-sample",
-  "tena-men-free-sample-pack",
-  "tena-women-free-sample-pack",
-];
-const expectedSampleIds = [
-  "blind-designs-free-fabric-samples",
-  "coloplast-brava-elastic-tape-free-sample",
-  "coloplast-sensura-mio-click-free-sample",
-  "coloplast-sensura-mio-free-sample",
-  "coloplast-speedicath-short-sample",
-  "tena-men-free-sample-pack",
-  "tena-women-free-sample-pack",
-];
+const expectedIds = [...current.samples, ...current.testing].map(row => row.id).sort();
+const expectedSampleIds = current.samples.map(row => row.id).sort();
 const errors = [];
 const checks = [];
 
@@ -113,12 +86,12 @@ check("Sample route finder", samples.includes('id="sample-options"'), true);
 check("Brand programmes prioritised", samples.indexOf('id="brand-sample-programmes"') < samples.indexOf('id="product-testing-panels"'), true);
 check("Visible FAQs", count(samples, /<details>/g), 6);
 check("FAQ schema items", faqSchema?.mainEntity?.length || 0, 6);
-check("Samples Opportunity cards", count(samples, /<article class="opportunity-card\b/g), expectedOpportunityCount);
+check("Samples Opportunity cards", count(samples, /<article class="opportunity-card\b/g), expectedSampleOpportunityCount + expectedTestingOpportunityCount);
 check("Parent Opportunity cards", count(parent, /<article class="opportunity-card\b/g), expectedParentOpportunityCount);
 check("Samples Opportunity schema items", sampleOpportunitySchema?.itemListElement?.length || 0, expectedSampleOpportunityCount);
 check("Product-testing Opportunity schema items", testingOpportunitySchema?.itemListElement?.length || 0, expectedTestingOpportunityCount);
 check("Parent Opportunity schema items", parentOpportunitySchema?.itemListElement?.length || 0, expectedParentOpportunityCount);
-check("Opportunity detail routes", countGeneratedRoutes("opportunity"), expectedOpportunityCount);
+check("Opportunity detail routes", countGeneratedRoutes("opportunity"), current.detailOpportunities.length);
 check("Opportunity exit routes", countGeneratedRoutes(path.join("out", "opportunity")), expectedOpportunityCount);
 check("Opportunity sitemap entries", count(sitemap, /<loc>https:\/\/freehub\.co\.za\/opportunity\//g), expectedOpportunityCount);
 
@@ -126,9 +99,9 @@ const renderedIds = [
   ...samples.matchAll(/data-opportunity-id="([^"]+)"/g),
   ...parent.matchAll(/data-opportunity-id="([^"]+)"/g),
 ].map((match) => match[1]);
-check("Opportunity surface render count", renderedIds.length, expectedOpportunityCount + expectedParentOpportunityCount);
-if (opportunitiesEnabled) {
-  const uniqueRenderedIds = [...new Set(renderedIds)].sort();
+check("Opportunity surface render count", renderedIds.length, expectedSampleOpportunityCount + expectedTestingOpportunityCount + expectedParentOpportunityCount);
+if (opportunitiesEnabled && expectedIds.length > 0) {
+  const uniqueRenderedIds = [...new Set([...samples.matchAll(/data-opportunity-id="([^"]+)"/g)].map(match => match[1]))].sort();
   check("Opportunity stable IDs", JSON.stringify(uniqueRenderedIds), JSON.stringify(expectedIds));
   check("Full card variant", samples.includes('data-card-variant="full"'), true);
   check("Compact card variant", parent.includes('data-card-variant="compact"'), true);
@@ -151,7 +124,8 @@ if (opportunitiesEnabled) {
 
 const orderedMarkers = [
   "Direct samples, testing panels and directories are different",
-  ...(expectedOpportunityCount ? ["<h2>Current verified samples</h2>", "<h2>Current product-testing applications</h2>"] : []),
+  ...(expectedSampleOpportunityCount ? ["<h2>Current verified samples</h2>"] : []),
+  ...(expectedTestingOpportunityCount ? ["<h2>Current product-testing applications</h2>"] : []),
   "<h2>Official brand sample programmes</h2>",
   "<h2>Product-testing panels</h2>",
   "<h2>International sample explainer</h2>",

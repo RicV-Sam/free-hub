@@ -195,4 +195,16 @@ test("Opportunity health report accepts a clean active enabled state", () => {
   assert.equal(report.records[0].lifecycle.lifecycle, "active");
   assert.equal(report.ok, true);
   assert.match(report.reviewedWarnings.join("\n"), /manual evidence/);
+  // Expired evidence must still be reported, while safe closed pages remain deployable.
+  writeText(path.join(rootDir, "free-samples-south-africa", "index.html"), "<html></html>");
+  writeText(path.join(rootDir, "free-stuff-south-africa", "index.html"), "<html></html>");
+  writeText(path.join(rootDir, "sitemap.xml"), "<urlset></urlset>");
+  fs.unlinkSync(path.join(rootDir, "out", "opportunity", "fixture-current-sample", "index.html"));
+  const expired = buildOpportunityHealthReport({ rootDir, asOfDate: "2026-07-28", rawFeatureValue: "true", allowedSourceHosts: ["samples.example.org"] });
+  assert.equal(expired.ok, false);
+  assert.equal(expired.evidenceReviewRequired.length, 2);
+  assert.equal(expired.deploymentSafe, true);
+  writeText(path.join(rootDir, "sitemap.xml"), "<urlset><loc>https://freehub.co.za/opportunity/fixture-current-sample/</loc></urlset>");
+  const leaked = buildOpportunityHealthReport({ rootDir, asOfDate: "2026-07-28", rawFeatureValue: "true", allowedSourceHosts: ["samples.example.org"] });
+  assert.equal(leaked.deploymentSafe, false);
 });

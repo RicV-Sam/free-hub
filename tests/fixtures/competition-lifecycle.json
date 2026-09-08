@@ -38,6 +38,23 @@
     "verificationStatus": "published",
     "publicationStatus": "published"
   },
+  "expiredConfirmedResult": {
+    "id": "fixture-expired-confirmed-result",
+    "title": "Expired confirmed result fixture",
+    "brand": "Fixture Brand",
+    "url": "https://example.com/competition",
+    "sourceUrl": "https://www.example.com/competition",
+    "closingDate": "2000-01-01",
+    "verificationStatus": "published",
+    "publicationStatus": "published",
+    "resultStatus": "confirmed",
+    "resultSourceUrl": "https://example.com/news/winner-announced",
+    "resultCheckedAt": "2026-09-03",
+    "resultSummary": "The official promoter announcement names the verified winner and confirms the prize awarded.",
+    "resultPrize": "Fixture prize",
+    "winnerDisplayName": "Public Winner",
+    "resultFulfilmentStatus": "announced"
+  },
   "expiredMissingEvidence": {
     "id": "fixture-expired-missing-evidence",
     "title": "Expired missing evidence fixture",

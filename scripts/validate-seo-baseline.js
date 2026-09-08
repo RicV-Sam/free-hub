@@ -17,6 +17,7 @@ const BASELINE_DIR = path.join(ROOT_DIR, "tests", "baselines");
 const CONFIG = readJson(path.join(BASELINE_DIR, "seo-baseline.json"));
 const MANIFEST = readJson(path.join(BASELINE_DIR, "generated-pages.json"));
 const COMPETITIONS = readJson(path.join(ROOT_DIR, "data", "competitions.json")).filter(Boolean);
+const ARCHIVED_COMPETITIONS = readJson(path.join(ROOT_DIR, "data", "archive", "competitions-expired.json")).filter(Boolean);
 const OPPORTUNITIES = readJson(path.join(ROOT_DIR, "data", "opportunities.json")).filter(Boolean);
 const OFFERS = readJson(path.join(ROOT_DIR, "data", "offers.json")).filter(Boolean);
 const OPPORTUNITY_EVIDENCE = readJson(path.join(ROOT_DIR, "data", "opportunity-source-evidence.json")).filter(Boolean);
@@ -24,6 +25,10 @@ const OPPORTUNITIES_ENABLED = opportunityData.isOpportunityFeatureEnabled(proces
 const OFFERS_ENABLED = offerData.isOfferFeatureEnabled(process.env.FREEHUB_ENABLE_OFFERS);
 const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date());
 const LIFECYCLE_REFERENCE_DATE_ISO = process.env.FREEHUB_AS_OF_DATE || BUILD_DATE_ISO;
+shared.setReferenceDate(LIFECYCLE_REFERENCE_DATE_ISO);
+const activePublicSlugs = new Set(shared.getPublishedActiveCompetitions(COMPETITIONS).map(shared.getCompetitionSlug));
+const confirmedResultSlugs = new Set([...COMPETITIONS, ...ARCHIVED_COMPETITIONS].filter(shared.hasVerifiedCompetitionResult).map(shared.getCompetitionSlug));
+const indexableCompetitionSlugs = new Set([...activePublicSlugs, ...confirmedResultSlugs]);
 const OPPORTUNITY_GATE_OPTIONS = {
   asOfDate: BUILD_DATE_ISO,
   strictFreeOnly: false,
@@ -128,7 +133,8 @@ const sitemapUrls = fs.existsSync(SITEMAP_PATH) ? parseSitemap(fs.readFileSync(S
 const sitemapRoutes = sitemapUrls.map((url) => normalizeRoute(url));
 const sitemapSet = new Set(sitemapRoutes);
 
-const expectedSitemapUrlCount = CONFIG.sitemapUrlCount
+const expectedSitemapUrlCount = CONFIG.staticSitemapUrlCount
+  + indexableCompetitionSlugs.size
   + ACTIVE_OPPORTUNITIES.length
   + ACTIVE_OFFERS.length
   + countIndexableOfferLandings(ACTIVE_OFFERS)
@@ -279,19 +285,18 @@ for (const [description, routes] of descriptionRoutes) {
   });
 }
 
-const activePublicSlugs = new Set(shared.getPublishedActiveCompetitions(COMPETITIONS).map(shared.getCompetitionSlug));
 sitemapRoutes.filter((route) => route.startsWith("/competition/")).forEach((route) => {
   const slug = route.split("/").filter(Boolean)[1];
-  check(activePublicSlugs.has(slug), {
+  check(indexableCompetitionSlugs.has(slug), {
     file: "sitemap.xml",
     route,
-    rule: "competition sitemap entry is active, published, public, and indexable",
-    expected: "active public competition",
+    rule: "competition sitemap entry is active and public or has a verified official result",
+    expected: "active public competition or confirmed result",
     actual: slug,
   });
 });
 
-COMPETITIONS.filter((competition) => !activePublicSlugs.has(shared.getCompetitionSlug(competition))).forEach((competition) => {
+[...COMPETITIONS, ...ARCHIVED_COMPETITIONS].filter((competition) => !indexableCompetitionSlugs.has(shared.getCompetitionSlug(competition))).forEach((competition) => {
   const route = `/competition/${shared.getCompetitionSlug(competition)}/`;
   check(!sitemapSet.has(route), {
     file: "sitemap.xml",
@@ -480,8 +485,10 @@ MANIFEST.pages.forEach((expectedPage) => {
     actual: page.jsonLdErrors,
   });
   ["title", "description", "canonical", "robots"].forEach((field) => {
-    const expectedValue = field === "description" && OPPORTUNITIES_ENABLED && expectedPage.descriptionWhenOpportunitiesEnabled
-      ? expectedPage.descriptionWhenOpportunitiesEnabled
+    const currentSamples = ACTIVE_OPPORTUNITIES.filter(row => row.type === "free_sample").length;
+    const currentTesting = ACTIVE_OPPORTUNITIES.filter(row => row.type === "product_testing").length;
+    const expectedValue = field === "description" && route === "/free-samples-south-africa/" && currentSamples + currentTesting > 0
+      ? `See ${currentSamples} verified sample requests and ${currentTesting} current product-testing opportunities in South Africa, with costs, eligibility, delivery and last-checked dates.`
       : expectedPage[field];
     check(page[field] === expectedValue, {
       file: expectedPage.file,

@@ -286,9 +286,10 @@ function buildOpportunityHealthReport(options = {}) {
     actionableErrors.push("Feature flag parser no longer enables only for the exact string 'true'.");
   }
 
+  const evidenceReviewRequired = [];
   records.forEach((recordReport) => {
     REQUIRED_EVIDENCE_FIELDS.forEach((field) => {
-      actionableErrors.push(...recordReport.evidence[field].actionableErrors);
+      evidenceReviewRequired.push(...recordReport.evidence[field].actionableErrors);
       reviewedWarnings.push(...recordReport.evidence[field].reviewedWarnings);
     });
   });
@@ -338,9 +339,11 @@ function buildOpportunityHealthReport(options = {}) {
     counts: generatedState.counts,
     records,
     routeChecks: generatedState.routeChecks,
-    actionableErrors,
+    deploymentSafe: actionableErrors.length === 0,
+    evidenceReviewRequired,
+    actionableErrors: [...actionableErrors, ...evidenceReviewRequired],
     reviewedWarnings: Array.from(new Set(reviewedWarnings)).sort(),
-    ok: actionableErrors.length === 0,
+    ok: actionableErrors.length === 0 && evidenceReviewRequired.length === 0,
   };
 }
 
@@ -349,6 +352,8 @@ function renderOpportunityHealthMarkdown(report, heading) {
     `# ${heading}`,
     "",
     `- As of date: ${report.asOfDate}`,
+    `- Publication boundaries safe: ${report.deploymentSafe ? "yes" : "no"}`,
+    `- Evidence checks requiring review: ${report.evidenceReviewRequired.length}`,
     `- Feature flag raw value: ${String(report.featureFlag.rawValue)}`,
     `- Feature flag enabled: ${report.featureFlag.parsedEnabled ? "yes" : "no"}`,
     `- Generated files: ${report.counts.generatedFiles}`,

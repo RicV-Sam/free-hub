@@ -13,7 +13,7 @@ const STATES = Object.freeze([
 
 function parseArgs(argv) {
   const options = {
-    asOfDate: process.env.FREEHUB_BUILD_DATE || null,
+    asOfDate: process.env.FREEHUB_AS_OF_DATE || process.env.FREEHUB_BUILD_DATE || null,
   };
   argv.forEach((arg) => {
     if (arg.startsWith("--as-of-date=")) {
@@ -39,6 +39,7 @@ function ensureDirectory(directoryPath) {
 }
 
 const options = parseArgs(process.argv.slice(2));
+const deploymentCheck = process.argv.includes("--deployment-check");
 ensureDirectory(OUTPUT_DIR);
 ensureDirectory(path.dirname(REPORT_PATH));
 
@@ -46,6 +47,7 @@ const reports = STATES.map((state) => {
   runNodeScript(path.join(ROOT_DIR, "scripts", "generate-pages.js"), {
     ...process.env,
     FREEHUB_BUILD_DATE: options.asOfDate || process.env.FREEHUB_BUILD_DATE,
+    FREEHUB_AS_OF_DATE: options.asOfDate || process.env.FREEHUB_AS_OF_DATE,
     FREEHUB_ENABLE_OPPORTUNITIES: state.rawFeatureValue,
   });
   const report = buildOpportunityHealthReport({
@@ -61,10 +63,12 @@ const reports = STATES.map((state) => {
 });
 
 const summary = {
-  asOfDate: options.asOfDate || process.env.FREEHUB_BUILD_DATE || null,
+  asOfDate: reports[0].report.asOfDate,
   states: reports.map(({ state, report }) => ({
     state,
     ok: report.ok,
+    deploymentSafe: report.deploymentSafe,
+    evidenceReviewRequired: report.evidenceReviewRequired.length,
     actionableErrors: report.actionableErrors.length,
     reviewedWarnings: report.reviewedWarnings.length,
     counts: report.counts,
@@ -78,6 +82,8 @@ const markdown = [
     `## ${state}`,
     "",
     `- OK: ${report.ok ? "yes" : "no"}`,
+    `- Publication boundaries safe: ${report.deploymentSafe ? "yes" : "no"}`,
+    `- Evidence checks requiring review: ${report.evidenceReviewRequired.length}`,
     `- Feature enabled: ${report.featureFlag.parsedEnabled ? "yes" : "no"}`,
     `- Generated files: ${report.counts.generatedFiles}`,
     `- Sitemap URLs: ${report.counts.sitemapUrls}`,
@@ -96,6 +102,9 @@ fs.writeFileSync(SUMMARY_JSON_PATH, `${JSON.stringify(summary, null, 2)}\n`);
 
 console.log(JSON.stringify(summary, null, 2));
 
-if (reports.some(({ report }) => !report.ok)) {
+// Leave the caller's selected feature flags in the generated site.
+runNodeScript(path.join(ROOT_DIR, "scripts", "generate-pages.js"), process.env);
+
+if (reports.some(({ report }) => deploymentCheck ? !report.deploymentSafe : !report.ok)) {
   process.exitCode = 1;
 }

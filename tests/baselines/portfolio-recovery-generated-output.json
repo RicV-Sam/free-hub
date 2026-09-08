@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "buildDate": "2026-09-08",
+  "review": "Official Comrades winner record, competition hub result link and sitemap entry only; other flag-off HTML is byte-identical to 6c30a33.",
+  "files": {
+    "competition/comrades-toyota-corolla-cross/index.html": {
+      "expected": "623fcedd977ea362c1f47b7718c52b06b409ee0b170196b3a38000ddd511eab0",
+      "actual": "92ee901ca81a4da0b0d08d41f48516d9fd3a13aea56c7e837a0b5413678145b5"
+    },
+    "competitions/index.html": {
+      "expected": "6170b5409e453f0a978fc9ddf33e4fe3771c16c8f788bdbd7e858bbd129ddc9e",
+      "actual": "9b7668efda759b2379807f8e9410a9133e03ae3cd79e487778440eb9634f5fcf"
+    },
+    "sitemap.xml": {
+      "expected": "3f277ae16b396f19abd26e619d602242d76a1904139ddfae33aacfa79ab73d33",
+      "actual": "c8ad2bd571ba3eb15b39b1c0a16f239c3a1ef912710d864d19ad331e46e9936e"
+    }
+  }
+}

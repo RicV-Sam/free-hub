@@ -426,7 +426,23 @@ test("the tracked Opportunity registry contains the reviewed sample and product-
     .map((record) => record.id)
     .sort();
   assert.deepEqual(generatedOutput.opportunityIds, publishedIds);
-  assert.equal(Object.keys(generatedOutput.files).length, publishedIds.length * 2);
+  const gateOptions = {
+    asOfDate: generatedOutput.buildDate,
+    strictFreeOnly: false,
+    requireSourceEvidence: true,
+    sourceEvidence: JSON.parse(fs.readFileSync(path.join(rootDir, "data/opportunity-source-evidence.json"), "utf8")),
+    allowedSourceHosts: JSON.parse(fs.readFileSync(path.join(rootDir, "tests/baselines/seo-baseline.json"), "utf8")).opportunityAllowedSourceHosts,
+  };
+  const expectedFiles = registry.flatMap((record) => {
+    const active = opportunityData.isPublicOpportunity(record, gateOptions);
+    const detail = active || opportunityData.isOpportunityTombstoneAllowed(record, gateOptions);
+    return [
+      ...(detail ? [`opportunity/${record.slug}/index.html`] : []),
+      ...(active ? [`out/opportunity/${record.slug}/index.html`] : []),
+    ];
+  });
+  assert.deepEqual(Object.keys(generatedOutput.files).sort(), expectedFiles.sort());
+  assert.equal(generatedOutput.files["out/opportunity/coloplast-speedicath-short-sample/index.html"], undefined);
 });
 
 test("manual evidence is exact, fresh, append-only data and cannot match another URL", () => {
