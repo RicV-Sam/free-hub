@@ -50,7 +50,9 @@ jobs:
           fixed_date_register="${GITHUB_WORKSPACE}/scripts/lib/fixed-date-register.js"
           cleanup() { git worktree remove --force "$base_dir" >/dev/null 2>&1 || true; }
           trap cleanup EXIT
-          git worktree add --detach "$base_dir" "${{ github.event.pull_request.base.sha }}"
+          # Compare with the actual base in GitHub's checked-out PR merge, including newer main commits.
+          # An older PR's event base SHA can still describe its original target snapshot.
+          git worktree add --detach "$base_dir" "$(git rev-parse HEAD^1)"
           (cd "$base_dir" && NODE_OPTIONS="--require=$fixed_date_register" FREEHUB_BUILD_DATE="$FREEHUB_BUILD_DATE" FREEHUB_AS_OF_DATE="$FREEHUB_AS_OF_DATE" node scripts/generate-pages.js)
           node scripts/capture-generated-output.js --output-dir="$candidate_absent_dir"
           echo "Compare feature flag absent with PR base"
