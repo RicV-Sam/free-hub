@@ -20,7 +20,7 @@
   });
   const CATEGORIES = Object.freeze(Object.keys(CATEGORY_DEFINITIONS));
   const CORE_FIELDS = Object.freeze([
-    "id", "slug", "type", "brand", "brandSlug", "title", "summary", "couponCode",
+    "id", "slug", "type", "brand", "brandSlug", "title", "summary", "couponCode", "couponInstructions",
     "destinationUrl", "sourceUrl", "termsUrl", "category", "startsAt", "expiresAt",
     "lastChecked", "reviewDueAt", "terms", "publicationStatus", "verificationStatus",
     "country", "affiliate", "sponsored", "affiliateNetwork", "publishedAt", "updatedAt",
@@ -79,8 +79,10 @@
     ["startsAt", "expiresAt", "publishedAt"].forEach((field) => {
       if (offer[field] !== undefined && !isIsoDate(offer[field])) errors.push(`${field} must be a valid YYYY-MM-DD date when present.`);
     });
-    if (offer.type === "coupon" && !isNonEmptyString(offer.couponCode)) errors.push("coupon offers require couponCode.");
-    if (offer.type === "deal" && offer.couponCode !== undefined) errors.push("deal offers must not include couponCode.");
+    if (offer.type === "coupon" && (isNonEmptyString(offer.couponCode) === isNonEmptyString(offer.couponInstructions))) errors.push("coupon offers require exactly one of couponCode or couponInstructions.");
+    if (offer.couponCode !== undefined && !isNonEmptyString(offer.couponCode)) errors.push("couponCode must be a non-empty string.");
+    if (offer.couponInstructions !== undefined && !isNonEmptyString(offer.couponInstructions)) errors.push("couponInstructions must be a non-empty string.");
+    if (offer.type === "deal" && (offer.couponCode !== undefined || offer.couponInstructions !== undefined)) errors.push("deal offers must not include couponCode or couponInstructions.");
     if (typeof offer.affiliate !== "boolean") errors.push("affiliate must be a boolean.");
     if (typeof offer.sponsored !== "boolean") errors.push("sponsored must be a boolean.");
     if (offer.affiliate === true && !isNonEmptyString(offer.affiliateNetwork)) errors.push("affiliateNetwork is required for affiliate offers.");

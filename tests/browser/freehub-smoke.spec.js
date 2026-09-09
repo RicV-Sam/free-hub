@@ -618,7 +618,7 @@ test("Free Stuff parent preserves intent and separates durable resources from op
   await expect(childNavigation.getByRole("link", { name: "Children's Books" })).toHaveAttribute("href", "/free-childrens-books-south-africa/");
   await expect(childNavigation.getByRole("link", { name: "Credit Reports" })).toHaveAttribute("href", "/free-credit-report-south-africa/");
 
-  await expect(page.locator("article.free-resource-card")).toHaveCount(25);
+  await expect(page.locator("article.free-resource-card")).toHaveCount(26);
   await expect(page.locator("article.opportunity-card")).toHaveCount(current.featured.length);
   await expect(page.locator("section.opportunity-section")).toHaveCount(current.featured.length ? 1 : 0);
   await expect(page.locator("#structured-data-opportunities")).toHaveCount(current.featured.length ? 1 : 0);

@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-08",
-  "count": 32,
+  "asOfDate": "2026-09-09",
+  "count": 37,
   "counts": {
-    "freeStuff": 32,
-    "resources": 15,
+    "freeStuff": 33,
+    "resources": 16,
     "opportunities": 17,
-    "offers": 0
+    "offers": 4
   },
   "items": [
     {
@@ -248,6 +248,22 @@
       ],
       "watchOut": "This is Telkom account credit, not cash, a prize draw or a public publisher-affiliate programme. The referred person takes out a paid fibre contract and may face early-termination penalties. Mo'Nice is a separate personalised prepaid promotion, not part of this referral reward.",
       "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "sa-youth-work-learning-support",
+      "kind": "resource",
+      "title": "SA Youth work and learning support",
+      "provider": "SA Youth work and learning support",
+      "summary": "Free access to the SA Youth network and work-readiness support. Harambee advertises zero-rated access to sayouth.mobi on participating South African networks.",
+      "category": "family-support",
+      "categoryLabel": "Work and learning support",
+      "officialUrl": "https://www.harambee.co.za/work-seekers/",
+      "bestFor": "Young unemployed South Africans seeking work and learning opportunities",
+      "requirements": [
+        "Register with SA Youth and check each opportunity’s eligibility. Existing Harambee users can use their existing login."
+      ],
+      "watchOut": "External application websites may use data. Initial loading and background apps may consume data. Registration does not guarantee employment or a place on a programme.",
+      "lastChecked": "2026-09-09"
     },
     {
       "id": "coloplast-speedicath-short-sample",
@@ -541,6 +557,82 @@
       ],
       "watchOut": "Availability and provider approval can change.",
       "lastChecked": "2026-09-08"
+    },
+    {
+      "id": "capitec-snappi-extra-15-percent",
+      "kind": "coupon",
+      "title": "Extra 15% off at Snappi with Capitec Live Better",
+      "provider": "Capitec",
+      "summary": "Capitec Live Better clients can use CAPITEC15 for an extra 15% off already discounted items at Snappi.",
+      "category": "banking-rewards",
+      "categoryLabel": "Banking & Rewards",
+      "officialUrl": "https://getsnappi.com/",
+      "termsUrl": "https://www.capitecbank.co.za/rewards/spend-better/snappi/",
+      "couponCode": "CAPITEC15",
+      "requirements": [
+        "Capitec says the code is limited to one voucher per person per month, applies to one sitewide purchase excluding liquor, and has no minimum spend. A Snappi account is required."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-09-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "akis-september-2026-personal-coupon",
+      "kind": "coupon",
+      "title": "10% off regular-price AKIS clothing in September",
+      "provider": "AKIS",
+      "summary": "Confirm your email to receive a personal 10% coupon for eligible regular-price clothing at AKIS. Sign into the account with the same email address to redeem it.",
+      "category": "baby-kids",
+      "categoryLabel": "Baby & Kids",
+      "officialUrl": "https://akis.co.za/september-coupon-terms/",
+      "termsUrl": "https://akis.co.za/september-coupon-terms/",
+      "requirements": [
+        "Valid 1–30 September 2026 until 23:59 SAST. Personal, non-transferable code issued after email confirmation; use an AKIS account with the same email. Reusable on eligible orders during September, with no minimum order or maximum monetary discount. Sale and promotional-price products, delivery and non-product charges are excluded. Cannot combine with another coupon. Freehub has verified the advertised terms, not redeemed the coupon."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-09-30",
+      "lastChecked": "2026-09-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "sanparks-week-2026-weekday-parks",
+      "kind": "deal",
+      "title": "Free day entry at Kruger, West Coast and Augrabies: 7–11 September",
+      "provider": "SANParks",
+      "summary": "South African citizens can visit these three national parks without a day-entry fee during their shorter SANParks Week window.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://www.sanparks.org/events/sa-national-parks-week-2026",
+      "termsUrl": "https://www.sanparks.org/news/sa-national-parks-week-set-for-week-of-07-september-2026",
+      "requirements": [
+        "7–11 September 2026 only; the weekend is excluded. Bring South African identification, including valid identification for children. Park capacity and access conditions apply. Accommodation, guided activities, game drives and other paid activities remain chargeable. Transport and meals are not included. Confirm park-specific conditions before travelling."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-09-11",
+      "lastChecked": "2026-09-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "sanparks-week-2026-participating-parks",
+      "kind": "deal",
+      "title": "Free day entry at participating national parks: 7–13 September",
+      "provider": "SANParks",
+      "summary": "Use SANParks Week for a day visit at participating parks including Addo Elephant, Garden Route, Golden Gate Highlands and Mokala.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://www.sanparks.org/events/sa-national-parks-week-2026",
+      "termsUrl": "https://www.sanparks.org/news/sa-national-parks-week-set-for-week-of-07-september-2026",
+      "requirements": [
+        "South African citizens must bring identification; children also need valid identification. Use the official park list: Kruger, West Coast and Augrabies end on 11 September. Namaqua, Boulders Penguin Colony and the Table Mountain Aerial Cableway are excluded. Accommodation and paid activities are excluded; transport and food still cost money. Admission remains subject to each park’s conditions and visitor limits."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-09-13",
+      "lastChecked": "2026-09-09",
+      "isAffiliate": false,
+      "isSponsored": false
     }
   ]
 }

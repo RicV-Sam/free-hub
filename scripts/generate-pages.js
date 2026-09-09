@@ -8,6 +8,7 @@ const { applyLegacyArchiveCostCompatibility } = require("./lib/legacy-archive-co
 const { createFreeResourceRenderer } = require("./lib/free-resource-renderer.js");
 const { isPublishedFreeResource } = require("./lib/free-resource-publication.js");
 const { validateStudentGuide, createStudentGuideRenderer, createStudentOfferRenderer, getStudentNoticePath } = require("./lib/student-guide.js");
+const { PARKS_GUIDE } = require("./lib/parks-guide.js");
 const STUDENT_GUIDE = require("../data/student-guide.json");
 const { createOpportunityRenderer } = require("./lib/opportunity-renderer.js");
 const { createOpportunityRouteRenderer } = require("./lib/opportunity-route-renderer.js");
@@ -236,6 +237,7 @@ const opportunityRouteRenderer = createOpportunityRouteRenderer({
   getExitPath: opportunityData.getOpportunityExitPath,
 });
 const TRUST_PAGE_DEFINITIONS = [
+  PARKS_GUIDE,
   {
     slug: STUDENT_GUIDE.slug,
     title: `${STUDENT_GUIDE.heading} | FreeHub`,
@@ -1279,6 +1281,7 @@ const TRUST_PAGE_DEFINITIONS = [
       },
     ],
     links: [
+      { label: "September 2026 free park entry dates", href: "/free-parks-entry-south-africa-september-2026/" },
       { label: "Competitions South Africa", href: "/" },
       { label: "Free competitions", href: "/free-competitions/" },
       { label: "Free voucher giveaways", href: "/category/vouchers/" },
@@ -3424,7 +3427,7 @@ function renderOfferCard(offer) {
             <p class="offer-card__brand">${escapeHtml(offer.brand)}</p>
             <h2 class="offer-card__title"><a href="${escapeAttribute(detailPath)}">${escapeHtml(offer.title)}</a></h2>
             <p class="offer-card__summary">${escapeHtml(offer.summary)}</p>
-            ${offer.type === "coupon" ? `<p class="offer-card__code"><span>Coupon code</span><strong>${escapeHtml(offer.couponCode)}</strong></p>` : '<p class="offer-card__code offer-card__code--deal"><span>No code needed</span><strong>Deal</strong></p>'}
+            ${offer.type === "coupon" ? `<p class="offer-card__code"><span>${offer.couponCode ? "Coupon code" : "Personal coupon"}</span><strong>${escapeHtml(offer.couponCode || offer.couponInstructions)}</strong></p>` : '<p class="offer-card__code offer-card__code--deal"><span>No code needed</span><strong>Deal</strong></p>'}
             <dl class="offer-card__facts">
               <div><dt>Category</dt><dd><a href="${escapeAttribute(getOfferCollectionPath({ category: offer.category }))}">${escapeHtml(getOfferCategoryLabel(offer.category))}</a></dd></div>
               <div><dt>${offer.expiresAt ? "Expires" : "Last checked"}</dt><dd>${escapeHtml(shared.formatDate(offer.expiresAt || offer.lastChecked))}</dd></div>
@@ -3595,7 +3598,7 @@ function renderOfferDetailPage(offer) {
     <body>${renderGoogleTagManagerNoScript()}${renderMetaPixelNoScript()}<div class="site-shell">${renderTopNavigation({ active: "offers" })}
     ${renderModernHero({ className: "hero--utility hero--offers", eyebrow: `${offer.brand} ${noun.toLowerCase()}`, heading: offer.title, intro: offer.summary, trustItems: ["Source checked", `Checked ${shared.formatDate(offer.lastChecked)}`, disclosure] })}
     <main id="main-content" class="main-content offer-page"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/${offer.type === "coupon" ? "coupons" : "deals"}/">${noun}s</a><span aria-hidden="true">/</span><span aria-current="page">${escapeHtml(offer.title)}</span></nav>
-      <article class="offer-detail"><div class="offer-detail__main"><p class="offer-card__brand">${escapeHtml(offer.brand)}</p><h2>${escapeHtml(offer.title)}</h2>${offer.type === "coupon" ? `<div class="offer-detail__code"><span>Coupon code</span><strong>${escapeHtml(offer.couponCode)}</strong></div>` : '<div class="offer-detail__code offer-detail__code--deal"><span>How to claim</span><strong>No code needed</strong></div>'}<p>${escapeHtml(offer.summary)}</p><h2>Terms to check</h2><p>${escapeHtml(offer.terms)}</p><p><a href="${escapeAttribute(offer.termsUrl || offer.sourceUrl)}" target="_blank" rel="noopener noreferrer">Read the verified source${offer.termsUrl ? " and full terms" : ""}</a></p><a class="competition-detail__cta" href="${escapeAttribute(offerData.getOfferExitPath(offer))}" target="_blank" rel="noopener noreferrer">Go to ${escapeHtml(offer.brand)}</a><p class="competition-detail__cta-note">You will leave Freehub. Confirm the code, price, availability and terms before buying.</p></div>
+      <article class="offer-detail"><div class="offer-detail__main"><p class="offer-card__brand">${escapeHtml(offer.brand)}</p><h2>${escapeHtml(offer.title)}</h2>${offer.type === "coupon" ? `<div class="offer-detail__code"><span>${offer.couponCode ? "Coupon code" : "Personal coupon"}</span><strong>${escapeHtml(offer.couponCode || offer.couponInstructions)}</strong></div>` : '<div class="offer-detail__code offer-detail__code--deal"><span>How to claim</span><strong>No code needed</strong></div>'}<p>${escapeHtml(offer.summary)}</p><h2>Terms to check</h2><p>${escapeHtml(offer.terms)}</p><p><a href="${escapeAttribute(offer.termsUrl || offer.sourceUrl)}" target="_blank" rel="noopener noreferrer">Read the verified source${offer.termsUrl ? " and full terms" : ""}</a></p><a class="competition-detail__cta" href="${escapeAttribute(offerData.getOfferExitPath(offer))}" target="_blank" rel="noopener noreferrer">Go to ${escapeHtml(offer.brand)}</a><p class="competition-detail__cta-note">You will leave Freehub. Confirm the code, price, availability and terms before buying.</p></div>
       <aside class="offer-detail__facts"><h2>Offer details</h2><dl><div><dt>Type</dt><dd>${noun}</dd></div><div><dt>Category</dt><dd><a href="${escapeAttribute(getOfferCollectionPath({ category: offer.category }))}">${escapeHtml(getOfferCategoryLabel(offer.category))}</a></dd></div><div><dt>Last checked</dt><dd>${escapeHtml(shared.formatDate(offer.lastChecked))}</dd></div>${offer.expiresAt ? `<div><dt>Expires</dt><dd>${escapeHtml(shared.formatDate(offer.expiresAt))}</dd></div>` : ""}<div><dt>Link disclosure</dt><dd>${offer.sponsored ? "Paid placement" : offer.affiliate ? "Affiliate link" : "Not sponsored or affiliate"}</dd></div></dl></aside></article>
       ${renderOfferFeedbackPanel(offer)}
       <section class="offer-trust"><strong>Last checked ${escapeHtml(shared.formatDate(offer.lastChecked))}.</strong> This offer linked to ${escapeHtml(offer.brand)}'s source when reviewed. Prices, availability and terms can change, so confirm them before buying.</section>
@@ -7218,6 +7221,7 @@ function renderFreeStuffParentPage(page) {
       })}
 
       <main id="main-content" class="main-content trust-page free-stuff-parent">
+        <section class="state-card" aria-label="Free park entry dates"><h2>Planning a September day out?</h2><p>SANParks Week and CapeNature Access Week have different dates and entry rules. Check the 2026 calendar before travelling.</p><a class="btn btn--secondary" href="/free-parks-entry-south-africa-september-2026/">See September 2026 park dates</a></section>
 ${renderFreeStuffParentContent({ page, pageResources, featuredOpportunities, usefulLinks, faqItems })}
       </main>
 
@@ -8514,6 +8518,7 @@ function renderTrustPage(page) {
               (section) => `<article class="trust-page__section">
             <h2>${escapeHtml(section.heading)}</h2>
             ${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("\n            ")}
+            ${(section.sources || []).map((source) => `<p><a href="${escapeAttribute(source.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)}</a></p>`).join("\n            ")}
           </article>`
             )
             .join("\n          ")}

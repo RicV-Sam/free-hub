@@ -14,6 +14,7 @@
     "title": { "type": "string", "minLength": 1 },
     "summary": { "type": "string", "minLength": 1 },
     "couponCode": { "type": "string", "minLength": 1 },
+    "couponInstructions": { "type": "string", "minLength": 1 },
     "destinationUrl": { "type": "string", "format": "uri", "pattern": "^https?://" },
     "sourceUrl": { "type": "string", "format": "uri", "pattern": "^https?://" },
     "termsUrl": { "type": "string", "format": "uri", "pattern": "^https?://" },
@@ -33,8 +34,8 @@
     "updatedAt": { "type": "string", "format": "date" }
   },
   "allOf": [
-    { "if": { "properties": { "type": { "const": "coupon" } } }, "then": { "properties": { "couponCode": {} }, "required": ["couponCode"] } },
-    { "if": { "properties": { "type": { "const": "deal" } } }, "then": { "not": { "required": ["couponCode"] } } },
+    { "if": { "properties": { "type": { "const": "coupon" } } }, "then": { "properties": { "couponCode": {}, "couponInstructions": {} }, "oneOf": [{ "properties": { "couponCode": {} }, "required": ["couponCode"] }, { "properties": { "couponInstructions": {} }, "required": ["couponInstructions"] }] } },
+    { "if": { "properties": { "type": { "const": "deal" } } }, "then": { "properties": { "couponCode": {}, "couponInstructions": {} }, "not": { "anyOf": [{ "properties": { "couponCode": {} }, "required": ["couponCode"] }, { "properties": { "couponInstructions": {} }, "required": ["couponInstructions"] }] } } },
     { "if": { "properties": { "affiliate": { "const": true } } }, "then": { "properties": { "affiliateNetwork": {} }, "required": ["affiliateNetwork"] } }
   ]
 }

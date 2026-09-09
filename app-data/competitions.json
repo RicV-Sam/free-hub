@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-08",
-  "count": 50,
+  "asOfDate": "2026-09-09",
+  "count": 51,
   "competitions": [
     {
       "id": "wanderout-south-african-conservation-safari-giveaway-2026",
@@ -576,6 +576,31 @@
       "termsUrl": "https://www.beares.co.za/beares-social-media-competition-terms-conditions-rsa-russel-hobbs-frost-free-stainless-stell-fridge",
       "lastChecked": "2026-09-06",
       "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "penguin-random-house-hyatt-great-escapes-2026",
+      "title": "Penguin Random House and Hyatt Reading Escape Competition",
+      "brand": "Penguin Random House South Africa / Hyatt",
+      "summary": "Two readers each win a two-night Hyatt hotel stay for two and seven selected books. Choose your city and reading list before entering; travel to and from the hotel is excluded.",
+      "closingDate": "2026-09-30",
+      "category": "Travel",
+      "prizeName": "Two-night Hyatt stay for two and seven selected books",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "SA residents aged 18+; one entry per person, subject to promoter-related exclusions.",
+      "entrySteps": [
+        "Open the official Great Stories. Great Escapes entry page.",
+        "Choose Cape Town or Johannesburg; this determines your draw and cannot be changed after submission.",
+        "Select exactly seven books from the competition reading list and complete your details.",
+        "Confirm eligibility and acceptance of the terms, then submit one entry by 23:59 SAST on 30 September 2026."
+      ],
+      "officialUrl": "https://www.penguinrandomhouse.co.za/competitions/win-great-stories-great-escapes/",
+      "termsUrl": "https://www.penguinrandomhouse.co.za/tos/tscs-win-great-stories-great-escapes/",
+      "lastChecked": "2026-09-09",
+      "isHighValue": false,
       "isClosingSoon": false
     },
     {

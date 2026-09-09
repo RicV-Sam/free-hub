@@ -454,5 +454,23 @@
     "lastReviewed": "2026-09-01",
     "reviewDueAt": "2026-10-01",
     "dateModified": "2026-09-01"
+  },
+  {
+    "id": "sa-youth-work-learning-support",
+    "name": "SA Youth work and learning support",
+    "resourceType": "public_service",
+    "category": "family-support",
+    "categoryLabel": "Work and learning support",
+    "officialUrl": "https://www.harambee.co.za/work-seekers/",
+    "bestFor": "Young unemployed South Africans seeking work and learning opportunities",
+    "freeDetails": "Free access to the SA Youth network and work-readiness support. Harambee advertises zero-rated access to sayouth.mobi on participating South African networks.",
+    "requirements": "Register with SA Youth and check each opportunity’s eligibility. Existing Harambee users can use their existing login.",
+    "watchOut": "External application websites may use data. Initial loading and background apps may consume data. Registration does not guarantee employment or a place on a programme.",
+    "availability": "active",
+    "verificationStatus": "verified",
+    "datePublished": "2026-09-09",
+    "lastReviewed": "2026-09-09",
+    "reviewDueAt": "2026-10-09",
+    "dateModified": "2026-09-09"
   }
 ]

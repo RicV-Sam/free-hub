@@ -61,11 +61,11 @@ test("offer routes and exact feature flag are safe", () => {
 test("registry rejects duplicate identifiers and production records are validated", () => {
   assert.equal(offerData.validateOfferRegistry([fixture(), fixture()]).valid, false);
   const registry = require("../../data/offers.json");
-  assert.equal(registry.length, 31);
+  assert.equal(registry.length, 35);
   assert.equal(offerData.validateOfferRegistry(registry).valid, true);
   assert.deepEqual(
     registry.reduce((counts, offer) => ({ ...counts, [offer.type]: counts[offer.type] + 1 }), { coupon: 0, deal: 0 }),
-    { coupon: 4, deal: 27 }
+    { coupon: 5, deal: 30 }
   );
   const allowedSourceHosts = new Set([
     "www.capitecbank.co.za", "www.gadventures.com", "ucount.standardbank.co.za",
@@ -75,7 +75,7 @@ test("registry rejects duplicate identifiers and production records are validate
     "www.andbeyond.com", "www.bookmundi.com", "steers.co.za", "play.google.com",
     "www.cellc.co.za", "www.hirschs.co.za", "www.makro.co.za",
     "www.dunloptyres.co.za", "www.clarins.co.za", "bellas.co.za",
-    "metrocosmetics.co.za",
+    "metrocosmetics.co.za", "akis.co.za", "www.sanparks.org", "www.capenature.co.za",
   ]);
   assert.equal(registry.every((offer) => allowedSourceHosts.has(new URL(offer.sourceUrl).hostname)), true);
 });
@@ -90,6 +90,31 @@ test("the committed offer schema compiles and matches runtime code rules", () =>
   delete deal.couponCode;
   assert.equal(validate(deal), true);
   assert.equal(validate({ ...deal, couponCode: "NOT-ALLOWED" }), false);
+  const personal = fixture({ couponInstructions: "Confirm your email to receive a personal code." });
+  delete personal.couponCode;
+  for (const [record, expected] of [
+    [personal, true],
+    [{ ...personal, couponCode: "BOTH" }, false],
+    [{ ...personal, couponCode: "" }, false],
+    [{ ...personal, couponInstructions: "" }, false],
+    [{ ...deal, couponInstructions: "Not a coupon" }, false],
+  ]) {
+    assert.equal(validate(record), expected, JSON.stringify(validate.errors));
+    assert.equal(offerData.validateOffer(record).valid, expected);
+  }
+});
+
+test("September parks offers respect different start and end dates", () => {
+  const registry = require("../../data/offers.json");
+  const active = (id, date) => offerData.isPublicOffer(registry.find((offer) => offer.id === id), { asOfDate: date });
+  assert.equal(active("sanparks-week-2026-weekday-parks", "2026-09-11"), true);
+  assert.equal(active("sanparks-week-2026-weekday-parks", "2026-09-12"), false);
+  assert.equal(active("sanparks-week-2026-participating-parks", "2026-09-13"), true);
+  assert.equal(active("sanparks-week-2026-participating-parks", "2026-09-14"), false);
+  assert.equal(active("capenature-access-week-2026", "2026-09-18"), false);
+  assert.equal(active("capenature-access-week-2026", "2026-09-19"), true);
+  assert.equal(active("capenature-access-week-2026", "2026-09-25"), true);
+  assert.equal(active("capenature-access-week-2026", "2026-09-26"), false);
 });
 
 test("offer baseline counts distinguish generated routes from indexable routes", () => {

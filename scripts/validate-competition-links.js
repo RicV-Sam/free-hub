@@ -28,6 +28,8 @@ const manualRecheckDays = 30;
 const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 FreeHubValidator/1.0";
 const APPROVED_MANUAL_OK_URLS = new Map([
+  ["edgars-win-jaecoo-j5-family-car-2026", "https://www.edgars.co.za/pages/edgars-account"],
+  ["penguin-random-house-hyatt-great-escapes-2026", "https://www.penguinrandomhouse.co.za/competitions/win-great-stories-great-escapes/"],
   ["wanderlust-reader-travel-awards-prize-draw-2026", "https://wanderlusttravelawards.com/"],
   ["astron-energy-own-golf-8-gti-2026", "https://www.astronenergy.co.za/win-a-gti"],
   ["imana-superspar-polofields-potjie-dash-2026", "https://www.imana.co.za/superspar-polofields-potjie-dash-competition"],

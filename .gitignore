@@ -46,3 +46,5 @@ storage/exports/
 *.research.json
 .indexnow-status.json
 .indexnow-status.json.tmp
+
+/free-parks-entry-south-africa-september-2026/
