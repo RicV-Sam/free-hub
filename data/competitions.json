@@ -17562,7 +17562,13 @@
     "linkValidationCheckedAt": "2026-09-09",
     "linkValidationAllowedDomain": "clicks.co.za",
     "linkValidationReason": "Official promotion and linked Woobox rules reviewed; entry access limitations are disclosed.",
-    "linkValidationEvidence": "Rules confirm 1 September–1 November 2026, one winner, hamper worth over R4,000, adult SA-resident ClubCard eligibility, previous magazine-issue winner exclusion and the magazine-to-Woobox route. Browser review of woobox.com/f65xbp displayed instructions but no entry fields. The FreeHub publisher confirmed on 9 September that ClubCard members must sign in on Clicks to enter. Authenticated submission was not tested."
+    "linkValidationEvidence": "Rules confirm 1 September–1 November 2026, one winner, hamper worth over R4,000, adult SA-resident ClubCard eligibility, previous magazine-issue winner exclusion and the magazine-to-Woobox route. Browser review of woobox.com/f65xbp displayed instructions but no entry fields. The FreeHub publisher confirmed on 9 September that ClubCard members must sign in on Clicks to enter. Authenticated submission was not tested.",
+    "image": "https://freehub.co.za/assets/competitions/clicks-baby-essentials-editorial-2026.png",
+    "imageAlt": "FreeHub editorial illustration of a closed gift hamper for the Clicks Baby Essentials competition; nursery props are illustrative, not confirmed prize contents",
+    "imageLayout": "landscape",
+    "imageReviewStatus": "editorial-generated",
+    "imageReviewCheckedAt": "2026-09-09",
+    "imageReviewNote": "Generated using the built-in image-generation skill for FreeHub. The image is labelled editorial illustration, not official promoter artwork. Illustrated props and rewards-card design do not represent confirmed prize contents or an actual ClubCard."
   },
   {
     "brand": "Clicks",
@@ -17629,7 +17635,13 @@
     "linkValidationCheckedAt": "2026-09-09",
     "linkValidationAllowedDomain": "clicks.co.za",
     "linkValidationReason": "Official promotion and linked Woobox rules reviewed; entry access limitations are disclosed.",
-    "linkValidationEvidence": "Rules confirm 31 August–14 September 2026, five R500 ClubCard cashback prizes, SA residents aged 18+, ClubCard membership, full survey submission and selected participants. Rules identify Alida as the survey tool. Browser review of woobox.com/qofi5d displayed instructions without survey fields. The FreeHub publisher confirmed on 9 September that ClubCard members must sign in on Clicks to enter. Authenticated submission was not tested."
+    "linkValidationEvidence": "Rules confirm 31 August–14 September 2026, five R500 ClubCard cashback prizes, SA residents aged 18+, ClubCard membership, full survey submission and selected participants. Rules identify Alida as the survey tool. Browser review of woobox.com/qofi5d displayed instructions without survey fields. The FreeHub publisher confirmed on 9 September that ClubCard members must sign in on Clicks to enter. Authenticated submission was not tested.",
+    "image": "https://freehub.co.za/assets/competitions/clicks-bath-body-survey-editorial-2026.png",
+    "imageAlt": "FreeHub editorial illustration for the Clicks Bath and Body survey competition: five eligible participants can win R500 cashback each",
+    "imageLayout": "landscape",
+    "imageReviewStatus": "editorial-generated",
+    "imageReviewCheckedAt": "2026-09-09",
+    "imageReviewNote": "Generated using the built-in image-generation skill for FreeHub. The image is labelled editorial illustration, not official promoter artwork. Illustrated props and rewards-card design do not represent confirmed prize contents or an actual ClubCard."
   },
   {
     "id": "penguin-random-house-roald-dahl-day-2026",
