@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-09-09",
-  "count": 51,
+  "count": 54,
   "competitions": [
     {
       "id": "wanderout-south-african-conservation-safari-giveaway-2026",
@@ -49,6 +49,32 @@
       "officialUrl": "https://www.sterkinekor.com/competition/spa-weekend-watch-and-win-competition",
       "termsUrl": "https://www.sterkinekor.com/competition/spa-weekend-watch-and-win-competition",
       "lastChecked": "2026-09-06",
+      "isHighValue": false,
+      "isClosingSoon": true
+    },
+    {
+      "id": "clicks-bath-body-survey-cashback-2026",
+      "title": "Clicks Bath and Body Survey Cashback Competition",
+      "brand": "Clicks",
+      "summary": "Five eligible Clicks ClubCard survey participants each win R500 cashback. Complete the selected-participant survey in full by 14 September 2026; access is not confirmed for every member.",
+      "closingDate": "2026-09-14",
+      "category": "Shopping",
+      "prizeName": "R500 Clicks ClubCard cashback per winner",
+      "entryCostType": "account_required",
+      "entryCostLabel": "Account required",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "ClubCard members aged 18+ in South Africa; selected-participant survey access and full submission required. Entry contact details are used to update your ClubCard record and consent to marketing emails under clause 24.",
+      "entrySteps": [
+        "Be a South African resident aged 18 or older and a Clicks ClubCard member, subject to the exclusions in the rules.",
+        "Sign in to your ClubCard member account on Clicks before following the entry route.",
+        "Use the Bath & Body survey access supplied by Clicks if you are a selected participant.",
+        "Complete every survey question and successfully submit through the online survey tool by 14 September 2026.",
+        "Keep your ClubCard contact details current. Do not assume you have entered by visiting the competition page; the rules require a completed survey."
+      ],
+      "officialUrl": "https://www.clicks.co.za/clubcard/competitions/clicks-bath-and-body-survey-competition",
+      "termsUrl": "https://woobox.com/qofi5d/rules",
+      "lastChecked": "2026-09-09",
       "isHighValue": false,
       "isClosingSoon": true
     },
@@ -604,6 +630,31 @@
       "isClosingSoon": false
     },
     {
+      "id": "penguin-random-house-roald-dahl-day-2026",
+      "title": "Penguin Random House Roald Dahl Day Competition",
+      "brand": "Penguin Random House South Africa",
+      "summary": "Two readers each win a R750 Matilda book and bookend hamper. Complete the free official entry form by 30 September 2026; open to South African residents aged 18+.",
+      "closingDate": "2026-09-30",
+      "category": "Shopping",
+      "prizeName": "R750 Matilda clothbound book and bookend hamper",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "SA residents aged 18+; one entry per person and the promoter-related exclusions apply.",
+      "entrySteps": [
+        "Open the official Roald Dahl Day competition entry page.",
+        "Complete your name, surname, email address and province.",
+        "Confirm South African residency and acceptance of the terms. Choose whether to receive the optional newsletter.",
+        "Submit one entry before 23:59 SAST on 30 September 2026. No purchase is required."
+      ],
+      "officialUrl": "https://www.penguinrandomhouse.co.za/competitions/win-roald-dahl-day-competition/",
+      "termsUrl": "https://www.penguinrandomhouse.co.za/tos/tscs-win-roald-dahl-day-competition/",
+      "lastChecked": "2026-09-09",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "spar-nutrifresh-spin-and-win-2026",
       "title": "SPAR Nutrifresh Spin & Win Competition",
       "brand": "SPAR KZN / Nutrifresh",
@@ -879,6 +930,31 @@
       "officialUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/appventure-map-your-future-competition.html",
       "termsUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/appventure-map-your-future-competition.html",
       "lastChecked": "2026-09-06",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "clicks-baby-essentials-hamper-2026",
+      "title": "Clicks Baby Essentials Hamper Competition",
+      "brand": "Clicks",
+      "summary": "A newborn essentials hamper worth over R4,000 for one eligible Clicks ClubCard member. Enter through the online BabyClub magazine route; closes 1 November 2026.",
+      "closingDate": "2026-11-01",
+      "category": "Shopping",
+      "prizeName": "Newborn essentials hamper worth over R4,000",
+      "entryCostType": "account_required",
+      "entryCostLabel": "Account required",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "ClubCard members aged 18+ in South Africa; previous magazine-issue winners and specified promoter-related parties excluded.",
+      "entrySteps": [
+        "Check that you are a South African resident aged 18 or older and a Clicks ClubCard member.",
+        "Sign in to your ClubCard member account on Clicks before following the entry route.",
+        "Open the official Clicks competition page and follow the link from the online BabyClub magazine to the Woobox entry form.",
+        "Complete all required boxes and submit by 1 November 2026."
+      ],
+      "officialUrl": "https://www.clicks.co.za/clubcard/competitions/babyclub-magazine-september-issue-of-2026",
+      "termsUrl": "https://woobox.com/f65xbp/rules",
+      "lastChecked": "2026-09-09",
       "isHighValue": false,
       "isClosingSoon": false
     },
