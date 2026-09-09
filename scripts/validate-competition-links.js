@@ -28,6 +28,10 @@ const manualRecheckDays = 30;
 const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 FreeHubValidator/1.0";
 const APPROVED_MANUAL_OK_URLS = new Map([
+  ["bargain-books-kitsie-2026", "https://bargainbooks.co.za/competitions"],
+  ["bargain-books-taipei-story-2026", "https://bargainbooks.co.za/competitions"],
+  ["bargain-books-gruffalo-granny-2026", "https://bargainbooks.co.za/competitions"],
+  ["bargain-books-20-minute-meals-2026", "https://bargainbooks.co.za/competitions"],
   ["clicks-baby-essentials-hamper-2026", "https://www.clicks.co.za/clubcard/competitions/babyclub-magazine-september-issue-of-2026"],
   ["clicks-bath-body-survey-cashback-2026", "https://www.clicks.co.za/clubcard/competitions/clicks-bath-and-body-survey-competition"],
   ["penguin-random-house-roald-dahl-day-2026", "https://www.penguinrandomhouse.co.za/competitions/win-roald-dahl-day-competition/"],
