@@ -2,10 +2,10 @@
   "ok": true,
   "errors": [],
   "summary": {
-    "today": "2026-09-08",
+    "today": "2026-09-09",
     "expiredPublishedCount": 184,
     "archivedCompetitionCount": 210,
-    "publicListingFilesScanned": 107,
+    "publicListingFilesScanned": 118,
     "sitemapContainsOutUrls": false,
     "expiredMissingFromArchive": [],
     "expiredInSitemap": [],

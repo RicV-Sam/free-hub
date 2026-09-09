@@ -1,14 +1,14 @@
 === Competition Maintenance Report ===
-Date: 2026-09-08
+Date: 2026-09-09
 Mode: archive-expired
-Total competitions: 340
-Active published count: 51
+Total competitions: 348
+Active published count: 59
 Expired archive page count: 184
 Low-value expired noindex count: 0
 Held/private count: 105
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 9
+Closing in next 14 days: 10
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -197,15 +197,16 @@ Expired competition IDs:
 - onedayonly-elephant-walk-tented-camp-getaway-2026 (2026-09-07)
 
 Closing soon (next 14 days):
-- wanderout-south-african-conservation-safari-giveaway-2026 (3 days)
-- ster-kinekor-spa-weekend-watch-and-win-2026 (5 days)
-- edgars-win-jaecoo-j5-family-car-2026 (7 days)
-- samsung-august-rate-and-review-2026 (10 days)
-- samsung-supersport-rugbys-greatest-rivalry-2026 (11 days)
-- go-south-africa-great-karkloof-escape-2026 (12 days)
-- lite-glo-braai-day-weber-giveaway-2026 (12 days)
-- spar-polony-win-six-vw-polo-vivos-2026 (13 days)
-- standard-bank-gen-z-virtual-credit-card-2026 (14 days)
+- wanderout-south-african-conservation-safari-giveaway-2026 (2 days)
+- ster-kinekor-spa-weekend-watch-and-win-2026 (4 days)
+- clicks-bath-body-survey-cashback-2026 (5 days)
+- edgars-win-jaecoo-j5-family-car-2026 (6 days)
+- samsung-august-rate-and-review-2026 (9 days)
+- samsung-supersport-rugbys-greatest-rivalry-2026 (10 days)
+- go-south-africa-great-karkloof-escape-2026 (11 days)
+- lite-glo-braai-day-weber-giveaway-2026 (11 days)
+- spar-polony-win-six-vw-polo-vivos-2026 (12 days)
+- standard-bank-gen-z-virtual-credit-card-2026 (13 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
