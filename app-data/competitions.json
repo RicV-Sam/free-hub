@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-09",
+  "asOfDate": "2026-09-11",
   "count": 58,
   "competitions": [
     {
@@ -128,7 +128,7 @@
       "termsUrl": "https://www.samsung.com/za/offer/general-competition-terms/",
       "lastChecked": "2026-09-06",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "samsung-supersport-rugbys-greatest-rivalry-2026",
