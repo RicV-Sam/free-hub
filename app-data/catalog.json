@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-11",
-  "count": 37,
+  "asOfDate": "2026-09-12",
+  "count": 36,
   "counts": {
     "freeStuff": 33,
     "resources": 16,
     "opportunities": 17,
-    "offers": 4
+    "offers": 3
   },
   "items": [
     {
@@ -592,25 +592,6 @@
       ],
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "expiresAt": "2026-09-30",
-      "lastChecked": "2026-09-09",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "sanparks-week-2026-weekday-parks",
-      "kind": "deal",
-      "title": "Free day entry at Kruger, West Coast and Augrabies: 7–11 September",
-      "provider": "SANParks",
-      "summary": "South African citizens can visit these three national parks without a day-entry fee during their shorter SANParks Week window.",
-      "category": "entertainment",
-      "categoryLabel": "Entertainment",
-      "officialUrl": "https://www.sanparks.org/events/sa-national-parks-week-2026",
-      "termsUrl": "https://www.sanparks.org/news/sa-national-parks-week-set-for-week-of-07-september-2026",
-      "requirements": [
-        "7–11 September 2026 only; the weekend is excluded. Bring South African identification, including valid identification for children. Park capacity and access conditions apply. Accommodation, guided activities, game drives and other paid activities remain chargeable. Transport and meals are not included. Confirm park-specific conditions before travelling."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2026-09-11",
       "lastChecked": "2026-09-09",
       "isAffiliate": false,
       "isSponsored": false

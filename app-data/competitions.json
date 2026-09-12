@@ -1,32 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-11",
-  "count": 58,
+  "asOfDate": "2026-09-12",
+  "count": 57,
   "competitions": [
-    {
-      "id": "wanderout-south-african-conservation-safari-giveaway-2026",
-      "title": "Wander Out South African Conservation Safari Giveaway 2026",
-      "brand": "Wander Out Expeditions",
-      "summary": "Follow Wander Out Expeditions and its two trip leaders, like the official post, tag three friends and optionally share it to a story for a chance to join the September 2027 conservation expedition.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/wanderout-south-african-conservation-safari-giveaway-2026.png",
-      "closingDate": "2026-09-11",
-      "category": "Holidays",
-      "prizeName": "One place on a 10-day South African conservation safari from 12 to 21 September 2027, advertised as worth US$5,650 and including Kruger game drives, rhino-conservation work, cheetah tracking and a wildlife-veterinary experience. International flights, visas, travel insurance and personal spending are excluded.",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "The official giveaway post does not state a minimum age or residency restriction. The promoter's public website confirms the South African expedition and itinerary context but does not expose separate giveaway rules.",
-      "entrySteps": [
-        "Follow @wanderoutexpeditions, @kelseywilliamson and @leahbellleask, like the post and tag three different friends. Sharing the post to a story earns an extra chance.",
-        "Confirm you can cover international flights, visas, insurance and personal spending before entering."
-      ],
-      "officialUrl": "https://www.instagram.com/p/Db8kM_gjZ1j/",
-      "termsUrl": "https://www.instagram.com/p/Db8kM_gjZ1j/",
-      "lastChecked": "2026-08-27",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
     {
       "id": "ster-kinekor-spa-weekend-watch-and-win-2026",
       "title": "Ster-Kinekor SPA WEEKEND Watch and Win Competition",
@@ -153,7 +129,7 @@
       "termsUrl": "https://campaigns.supersport.com/competitions/3554",
       "lastChecked": "2026-09-06",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "go-south-africa-great-karkloof-escape-2026",
