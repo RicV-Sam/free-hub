@@ -581,8 +581,8 @@
   };
   const BRAND_PAGE_SLUGS = Object.keys(APPROVED_BRAND_PAGES);
   const THIN_PAGE_TIPS = [
-    "Enter daily competitions regularly to build more chances over time.",
-    "Focus on lower-profile competitions where fewer people are likely to enter.",
+    "Check the permitted entry frequency; submit again only when the official rules allow it.",
+    "Choose prizes and entry requirements that suit you; entrant numbers and winning odds may not be published.",
     "Check closing dates carefully so you do not miss last-minute deadlines.",
     "Follow South African brands on social media to spot fresh giveaways early.",
   ];

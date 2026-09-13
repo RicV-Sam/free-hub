@@ -6594,8 +6594,8 @@ function renderThinPageTips(competitions) {
     return "";
   }
 
-  return `<section class="state-card" aria-label="Winning tips">
-          <p class="state-card__title">Tips to improve your chances of winning</p>
+  return `<section class="state-card" aria-label="Entry checklist">
+          <p class="state-card__title">Before choosing a competition</p>
           <ul class="state-card__list">
             ${shared.THIN_PAGE_TIPS.map((tip) => `<li>${escapeHtml(tip)}</li>`).join("\n            ")}
           </ul>
@@ -12157,7 +12157,7 @@ function isExpired(dateString) {
 }
 
 function buildHowToEnterSteps(competition) {
-  if (shared.hasVerifiedCompetitionResult(competition)) {
+  if (shared.isExpiredCompetition(competition) || shared.hasVerifiedCompetitionResult(competition)) {
     const historicalSteps = Array.isArray(competition.entrySteps) ? competition.entrySteps : [];
     return historicalSteps.length ? renderHowToEnterList(historicalSteps, true) : "";
   }
