@@ -291,16 +291,16 @@ test("signed-out visitors receive one native banner on an eligible browsing page
   expect(requests).toEqual({ nativeBanner: 1, popunder: 0, socialBar: 0 });
 });
 
-test("expired archive pages retain legacy ads while active detail and outbound pages stay protected", async ({ page }) => {
+test("expired archive pages remain ad-free while active detail and outbound pages stay protected", async ({ page }) => {
   await mockFirebaseAuth(page, { manualAuth: true });
   const requests = await stubAdsterra(page);
   await page.goto("/competition/isuzu-win-a-new-x-rider-2026/", { waitUntil: "domcontentloaded" });
   await resolveTestAuth(page, null);
   await expect(page.locator('html[data-freehub-ad-state="guest"]')).toHaveCount(1);
   await expect(page.locator(`script[src="${ADSTERRA_NATIVE_BANNER_SRC}"]`)).toHaveCount(0);
-  await expect(page.locator(`script[src="${ADSTERRA_ARCHIVE_SCRIPTS.popunder}"]`)).toHaveCount(1);
-  await expect(page.locator(`script[src="${ADSTERRA_ARCHIVE_SCRIPTS.socialBar}"]`)).toHaveCount(1);
-  await expect.poll(() => requests).toEqual({ nativeBanner: 0, popunder: 1, socialBar: 1 });
+  await expect(page.locator(`script[src="${ADSTERRA_ARCHIVE_SCRIPTS.popunder}"]`)).toHaveCount(0);
+  await expect(page.locator(`script[src="${ADSTERRA_ARCHIVE_SCRIPTS.socialBar}"]`)).toHaveCount(0);
+  await expect.poll(() => requests).toEqual({ nativeBanner: 0, popunder: 0, socialBar: 0 });
 
   const protectedRoutes = [
     { route: "/competition/one-life-winning-wednesday-cash-2026/", handoff: false },
@@ -323,7 +323,7 @@ test("expired archive pages retain legacy ads while active detail and outbound p
     await expect(page.locator(`script[src="${ADSTERRA_NATIVE_BANNER_SRC}"]`)).toHaveCount(0);
     await expect(page.locator(`script[src="${ADSTERRA_ARCHIVE_SCRIPTS.popunder}"]`)).toHaveCount(0);
     await expect(page.locator(`script[src="${ADSTERRA_ARCHIVE_SCRIPTS.socialBar}"]`)).toHaveCount(0);
-    expect(requests).toEqual({ nativeBanner: 0, popunder: 1, socialBar: 1 });
+    expect(requests).toEqual({ nativeBanner: 0, popunder: 0, socialBar: 0 });
     if (handoff) {
       await expect(page.locator('html[data-freehub-handoff-auth-resolution="resolved"]')).toHaveCount(1);
       await expect(page.locator('html[data-freehub-handoff-state="countdown"]')).toHaveCount(1);

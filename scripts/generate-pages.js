@@ -368,7 +368,7 @@ const TRUST_PAGE_DEFINITIONS = [
         heading: "Cookies and analytics",
         paragraphs: [
           "The site may use cookies or similar technologies through analytics and measurement tools. These are used to understand site performance and user journeys.",
-          "Freehub may show one clearly labelled Adsterra Native Banner on selected competition-browsing pages and the Free Stuff, Birthday Freebies, Free Courses and student guides. A separate labelled display banner may appear on these guides, Free Samples and the monthly competition guide. These placements load as readers approach them, only after Firebase confirms that a visitor is signed out. Legacy Popunder and Social Bar formats are limited to closed, noindex competition archive pages. Adsterra and its partners may use cookies or similar technologies to serve, limit and measure ads where permitted. Signed-in Freehub Club members are not served these Adsterra formats.",
+          "Freehub may show one clearly labelled Adsterra Native Banner on selected competition-browsing pages and the Free Stuff, Birthday Freebies, Free Courses and student guides. A separate labelled display banner may appear on these guides, Free Samples and the monthly competition guide. These placements load as readers approach them, only after Firebase confirms that a visitor is signed out. Closed competition archive pages do not load Adsterra ads. Adsterra and its partners may use cookies or similar technologies to serve, limit and measure ads where permitted. Signed-in Freehub Club members are not served these Adsterra formats.",
           "Advertising is separate from Freehub's competition listings and does not mean that an advertiser runs, verifies or endorses a listed competition. Consent choices and applicable controls should be presented before advertising cookies are used where the law requires them.",
         ],
       },
@@ -7839,7 +7839,7 @@ function renderAboutPage(page) {
             <li><strong>Save competitions</strong><span>Keep promising listings attached to your account.</span></li>
             <li><strong>Track your progress</strong><span>Mark listings as interested, entered or skipped.</span></li>
             <li><strong>Choose your alerts</strong><span>Keep optional alert preferences with your account.</span></li>
-            <li><strong>Browse without Adsterra ads</strong><span>Native Banner, Popunder and Social Bar formats are not loaded while you are signed in.</span></li>
+            <li><strong>Browse without Adsterra ads</strong><span>Adsterra advertising formats are not loaded while you are signed in.</span></li>
           </ul>
         </section>
 
@@ -8805,13 +8805,14 @@ function renderMonthlyGuidePage(activeCompetitions) {
 
       <main id="main-content" class="main-content">
         <section class="seo-copy-block seo-copy-block--intro" aria-label="Monthly competition guide">
-          <h2 class="seo-copy-block__title">Current picks from Freehub inventory</h2>
+          <h2 class="seo-copy-block__title">How to choose from this month’s shortlist</h2>
           <div class="seo-copy-block__content">
-            <p>This guide is generated from active public Freehub listings. It favours competitions with clear source links, cost labels, entry methods and closing dates.</p>
+            <p>This shortlist updates from active listings with prize, cost and entry details. The selection gives priority to high-value prizes, available images and linked terms, then earlier deadlines. It is not a ranking of your chances of winning: entrant totals are not available.</p>
             <p>Freehub does not run these competitions or collect entries. Open the detail page first, then confirm the latest rules on the official promoter source before entering.</p>
           </div>
         </section>
 
+        ${renderMonthlyDecisionGuide(featuredCompetitions)}
         ${renderMonthlyGuideTable(featuredCompetitions)}
         ${renderEditorialBanner(MONTHLY_GUIDE_SLUG)}
 
@@ -8846,6 +8847,29 @@ function getMonthlyGuideCompetitions(activeCompetitions) {
     .slice()
     .sort(compareHomepageCandidateScore)
     .slice(0, 12);
+}
+
+function renderMonthlyDecisionGuide(competitions) {
+  const choices = [
+    { title: "Start with no-purchase entry", match: (item) => shared.getEntryCostLabel(item) === "Free entry", advice: "A useful starting point if you want to avoid a qualifying purchase. Check the entry limit and the information the form requests before submitting." },
+    { title: "Use a purchase you already planned", match: (item) => item.purchaseRequired === true, advice: "Consider this route when the qualifying product is already on your shopping list. Check the exact product, retailer and receipt requirements; extra spending does not guarantee a prize." },
+    { title: "Check whether your existing account qualifies", match: (item) => shared.getEntryCostLabel(item) === "Account required", advice: "Account-linked entry may suit existing customers, but eligibility alone may not be enough. Read the qualifying transaction or activation conditions before making a decision." },
+  ];
+  return choices.map((choice) => {
+    const item = competitions.find(choice.match);
+    if (!item) return "";
+    return `<section class="seo-copy-block">
+      <h2 class="seo-copy-block__title">${escapeHtml(choice.title)}</h2>
+      <div class="seo-copy-block__content">
+        <h3><a href="${escapeAttribute(shared.getCompetitionPath(item))}">${escapeHtml(item.title)}</a></h3>
+        <p>${escapeHtml(choice.advice)}</p>
+        <p>${escapeHtml(item.quickAnswer || item.summary || item.entryFeeLabel)}</p>
+        ${item.entryCostSummary ? `<p><strong>Cost conditions:</strong> ${escapeHtml(item.entryCostSummary)}</p>` : ""}
+        ${item.prizeContext ? `<p><strong>Prize details:</strong> ${escapeHtml(item.prizeContext)}</p>` : ""}
+        <p>Compare the remaining options below if this entry route does not fit your circumstances.</p>
+      </div>
+    </section>`;
+  }).join("\n");
 }
 
 function renderMonthlyGuideTable(competitions) {
@@ -8960,7 +8984,7 @@ function renderClubLandingPage() {
             <p>Freehub Club gives regular visitors a simple place to save listings, keep track of what they still want to enter, and come back before closing dates pass.</p>
           </article>
           <div class="club-feature-grid">
-            <article class="club-feature"><h3>No Adsterra ads while signed in</h3><p>Native Banner, Popunder and Social Bar formats are not loaded after Freehub confirms your signed-in Club account.</p></article>
+            <article class="club-feature"><h3>No Adsterra ads while signed in</h3><p>Adsterra advertising formats are not loaded after Freehub confirms your signed-in Club account.</p></article>
             <article class="club-feature"><h3>Save competitions</h3><p>Keep promising listings in one account instead of relying on screenshots, browser history or memory.</p></article>
             <article class="club-feature"><h3>Track your status</h3><p>Mark saved competitions as interested, entered or skipped so your dashboard stays useful.</p></article>
             <article class="club-feature"><h3>Choose your alerts</h3><p>Competition alerts and occasional Freehub updates stay optional and can be kept with your account.</p></article>
@@ -11187,38 +11211,12 @@ function renderEntryCostEligibilityNotes(competition) {
 }
 
 function renderBrandPrizeContextSection(competition) {
-  const brandContext = competition.brandContext
-    || `${competition.brand || "The named brand"} is the named brand or promoter for this competition. This Freehub page summarises the available prize, entry, closing date and official source information so users can check the promotion before entering.`;
-  const prizeContext = competition.prizeContext
-    || `${competition.prizeName || competition.prize || "The prize"} is listed from the verified competition data available to Freehub, with the closing date and official source shown on this page.`;
-  const seoItems = parseSeoContextItems(competition.seoContext);
-
+  const paragraphs = [competition.brandContext, competition.prizeContext].filter(Boolean);
+  if (!paragraphs.length) return "";
   return `<section class="detail-context" aria-label="Brand and competition context">
-              <p class="detail-section-title">About the brand and this competition</p>
-              <p>${escapeHtml(brandContext)}</p>
-              <p>${escapeHtml(prizeContext)}</p>
-              ${seoItems.length > 0 ? `<div class="detail-checklist detail-checklist--compact">
-                <p class="detail-section-title">Why this may interest users</p>
-                <ul>
-                  ${seoItems.map((item) => `<li>${escapeHtml(item)}</li>`).join("\n                  ")}
-                </ul>
-              </div>` : ""}
-            </section>`;
-}
-
-function parseSeoContextItems(seoContext) {
-  const raw = String(seoContext || "").trim();
-
-  if (!raw) {
-    return [];
-  }
-
-  return raw
-    .replace(/^Useful for users searching for\s+/i, "")
-    .split(/,\s*|\s+and\s+/)
-    .map((item) => item.replace(/\.$/, "").trim())
-    .filter(Boolean)
-    .slice(0, 5);
+    <h2 class="detail-section-title">About this competition</h2>
+    ${paragraphs.map((text) => `<p>${escapeHtml(text)}</p>`).join("\n")}
+  </section>`;
 }
 
 function renderCompetitionSourceBlock(competition, officialSource, officialSourceUrl, lastChecked, expired = false) {
@@ -11320,11 +11318,11 @@ function buildCompetitionFaqItems(competition, officialSource, ctaLabel, expired
   } else if (officialSource) {
     items.push({
       question: "Where do I enter?",
-      answer: `${ctaLabel} through Freehub's tracked outbound page, then complete your entry on ${officialSource}.`,
+      answer: `Use the official entry link on this page to enter on ${officialSource}.`,
     });
   }
 
-  if (competition.category === "Cars" || competition.driverLicenceRequired) {
+  if (competition.driverLicenceRequired) {
     items.push({
       question: "Do I need a driver's licence?",
       answer: buildDriverLicenceAnswer(competition),
@@ -11340,6 +11338,8 @@ function buildCompetitionFaqItems(competition, officialSource, ctaLabel, expired
 }
 
 function buildFreeEntryAnswer(competition, costLabel) {
+  if (competition.entryCostSummary) return competition.entryCostSummary;
+
   if (competition.purchaseRequired === true) {
     return "No. This listing requires a qualifying purchase before entry. There may be no separate entry fee, but it is not a free-entry competition.";
   }
@@ -11372,6 +11372,8 @@ function buildFreeEntryAnswer(competition, costLabel) {
 }
 
 function buildPurchaseRequirementAnswer(competition) {
+  if (competition.entryCostSummary) return competition.entryCostSummary;
+
   if (competition.purchaseRequired === true) {
     const parts = ["Yes. This competition requires a qualifying purchase"];
     if (competition.requiredProduct) {
@@ -11866,7 +11868,9 @@ function renderCompetitionDetailFacts(competition, formattedDate, officialSource
         typeof competition.purchaseRequired === "boolean"
           ? competition.purchaseRequired
             ? "Yes"
-            : "No"
+            : ["account-required", "membership-required"].includes(competition.entryCostType)
+              ? (competition.entryCostSummary || "Check the qualifying account or membership conditions below")
+              : "No"
           : "",
     },
     { label: "Minimum spend", value: competition.minimumSpend },

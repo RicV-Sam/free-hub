@@ -6,22 +6,7 @@ const ADSTERRA_NATIVE_BANNER = Object.freeze({
   src: "https://pl31128445.profitableratecpmnetwork.com/c58e199012d4b578b7353f3e72a231f7/invoke.js",
   containerId: "container-c58e199012d4b578b7353f3e72a231f7",
 });
-const ADSTERRA_ARCHIVE_SCRIPTS = Object.freeze([
-  Object.freeze({
-    id: "freehub-adsterra-archive-popunder",
-    format: "archive-popunder",
-    src: "https://pl30713595.effectivecpmnetwork.com/51/4f/11/514f11fd1c975eebb82034a3a019787a.js",
-  }),
-  Object.freeze({
-    id: "freehub-adsterra-archive-social-bar",
-    format: "archive-social-bar",
-    src: "https://pl30713596.effectivecpmnetwork.com/5e/fa/1d/5efa1d12d7d4dfb40f2bf1a6ae3d645f.js",
-  }),
-]);
-const ADSTERRA_SCRIPTS = Object.freeze([
-  ADSTERRA_NATIVE_BANNER,
-  ...ADSTERRA_ARCHIVE_SCRIPTS,
-]);
+const ADSTERRA_SCRIPTS = Object.freeze([ADSTERRA_NATIVE_BANNER]);
 
 const state = {
   auth: "pending",
@@ -139,8 +124,7 @@ function injectProviderScripts() {
   const isArchivePage = document.body?.dataset.freehubAdSurface === "archive";
 
   if (isArchivePage) {
-    ADSTERRA_ARCHIVE_SCRIPTS.forEach(injectScriptDefinition);
-    state.scriptsInjected = requestedSources.size > 0;
+    // Historical pages remain available without disruptive advertising.
     return;
   }
 
