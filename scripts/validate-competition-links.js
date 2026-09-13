@@ -28,6 +28,7 @@ const manualRecheckDays = 30;
 const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 FreeHubValidator/1.0";
 const APPROVED_MANUAL_OK_URLS = new Map([
+  ["flight-centre-new-york-flights-2026", "https://www.flightcentre.co.za/deals/spiderman-adventure"],
   ["bargain-books-kitsie-2026", "https://bargainbooks.co.za/competitions"],
   ["bargain-books-taipei-story-2026", "https://bargainbooks.co.za/competitions"],
   ["bargain-books-gruffalo-granny-2026", "https://bargainbooks.co.za/competitions"],

@@ -27,8 +27,8 @@ function getCurrentContentBaseline() {
   const testing = publicOpportunities.filter(row => row.type === 'product_testing');
   const featured = [samples[0], testing.at(-1), publicOpportunities.find(row => row.type === 'birthday_freebie')].filter(Boolean);
   return { active, core, publicOpportunities, detailOpportunities, samples, testing, featured,
-    // Reviewed 9 September base: includes four additional Bargain Books details; active counts exit routes.
-    generatedFileCount: 339 + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    // Reviewed 13 September base: adds the Flight Centre detail; active counts exit routes.
+    generatedFileCount: 340 + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
     sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length,
   };
 }

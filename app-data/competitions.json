@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-09-13",
-  "count": 57,
+  "count": 58,
   "competitions": [
     {
       "id": "ster-kinekor-spa-weekend-watch-and-win-2026",
@@ -732,6 +732,32 @@
       "officialUrl": "https://bargainbooks.co.za/competitions",
       "termsUrl": "https://bargainbooks.co.za/competitions#terms",
       "lastChecked": "2026-09-09",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "flight-centre-new-york-flights-2026",
+      "title": "Flight Centre Win Return Flights to New York for Two",
+      "brand": "Flight Centre Travel Group",
+      "summary": "A qualifying paid holiday booking gives you a chance to win two economy return flights to New York. Accommodation and other travel expenses are excluded.",
+      "imageUrl": "https://freehub.co.za/assets/competitions/flight-centre-new-york-2026.jpg",
+      "closingDate": "2026-09-30",
+      "category": "Travel",
+      "prizeName": "Two economy return flights to New York for one winner and a companion",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Qualifying Holiday Booking",
+      "eligibility": "South African permanent residents and citizens over 18 with a valid South African ID and passport, excluding promoter employees, directors, agents, related parties and their immediate families. The family-package route requires at least one adult and one child under 12 when booked. One entry per person.",
+      "entrySteps": [
+        "Read the official campaign terms and choose a qualifying family holiday package at a participating Flight Centre store, or a qualifying deal listed on the campaign page.",
+        "Book and pay during 3 July to 30 September 2026. The family-package option must include flights and accommodation, a tour or a cruise, with at least one adult and one child under 12 at booking.",
+        "Keep your booking confirmation and contact details current. Only one entry per person is permitted.",
+        "If selected, respond within 48 hours of the prize letter. Prize flights must be booked at least 60 days before travel and all travel completed by 13 October 2027."
+      ],
+      "officialUrl": "https://www.flightcentre.co.za/deals/spiderman-adventure",
+      "termsUrl": "https://www.flightcentre.co.za/deals/spiderman-adventure",
+      "lastChecked": "2026-09-13",
       "isHighValue": false,
       "isClosingSoon": false
     },
