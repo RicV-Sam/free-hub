@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-12",
+  "asOfDate": "2026-09-13",
   "count": 57,
   "competitions": [
     {
@@ -153,7 +153,7 @@
       "termsUrl": "https://gosouthafrica.co.za/comp/karkloof-1786787263825",
       "lastChecked": "2026-08-28",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "lite-glo-braai-day-weber-giveaway-2026",
@@ -178,7 +178,7 @@
       "termsUrl": "https://www.liteglo.co.za/competitions/",
       "lastChecked": "2026-09-03",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "spar-polony-win-six-vw-polo-vivos-2026",
