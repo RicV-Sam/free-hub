@@ -2993,6 +2993,8 @@ function getDataVerticalMatchReasons(competition) {
 }
 
 function getGroceryVoucherVerticalMatchReasons(competition) {
+  // A supermarket purchase does not turn a travel voucher into a grocery prize.
+  if (competition.prizeType === "holiday" && !shared.isGroceryPrizeCompetition(competition)) return [];
   const tags = getCompetitionTagSet(competition);
   const text = getPrizeVerticalText(competition);
   const brand = String(competition.brand || "").toLowerCase();
@@ -12684,6 +12686,8 @@ function getLocalIsoDate(date) {
 }
 
 function getDetailCtaLabel(competition) {
+  if (competition.officialDestinationType === "terms") return "View official terms";
+  if (competition.officialDestinationType === "instructions") return "View official entry instructions";
   const entryCostType = String(competition.entryCostType || "").toLowerCase();
   const entryText = [competition.entryType, competition.entryChannel, ...(competition.tags || [])].join(" ").toLowerCase();
 

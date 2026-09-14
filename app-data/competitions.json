@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-09-14",
-  "count": 57,
+  "count": 62,
   "competitions": [
     {
       "id": "clicks-bath-body-survey-cashback-2026",
@@ -762,6 +762,32 @@
       "isClosingSoon": false
     },
     {
+      "id": "huletts-heritage-2026",
+      "title": "Huletts Heritage Recipe and Story Competition",
+      "brand": "Huletts / Tongaat Hulett",
+      "summary": "Share the family story behind a heritage recipe made with a Huletts product in the comments of an official competition post for a chance to win R5,000.",
+      "imageUrl": "https://freehub.co.za/assets/competitions/huletts-heritage-2026.jpg",
+      "closingDate": "2026-10-03",
+      "category": "Cash",
+      "prizeName": "R5,000 for each of ten winners",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Facebook or Instagram Comment",
+      "eligibility": "South African citizens living in South Africa; guardian assistance and consent are required for under-18s.",
+      "entrySteps": [
+        "Open the official Huletts Heritage campaign page and use its Facebook or Instagram link to reach a competition post.",
+        "In the comments of that post, share your favourite heritage recipe made with a Huletts product and tell the special story behind it.",
+        "Submit before 23:59 on 3 October 2026. Multiple entries are allowed only when each entry is unique.",
+        "If you are under 18, enter with your guardian’s assistance and consent. Winners must provide identification and contact details."
+      ],
+      "officialUrl": "https://www.hulettssugar.co.za/competitions/huletts-heritage-2026/",
+      "termsUrl": "https://www.hulettssugar.co.za/competitions/huletts-heritage-2026-competition-rules/",
+      "lastChecked": "2026-09-14",
+      "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
       "id": "nedbank-youthx-awards-2026",
       "title": "Nedbank YouthX Awards 2026",
       "brand": "YouthX by Nedbank",
@@ -887,6 +913,58 @@
       "officialUrl": "https://www.spar.co.za/My-SPAR/Competitions/View/Tinkies-Distraction-Levels-Competition",
       "termsUrl": "https://www.spar.co.za/My-SPAR/Competitions/View/Tinkies-Distraction-Levels-Competition",
       "lastChecked": "2026-08-30",
+      "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "sasol-magpie-2026",
+      "title": "Sasol Delight and Magpie Rewards Competition",
+      "brand": "Sasol Delight / Magpie",
+      "summary": "Buy a participating Magpie pie at Sasol Delight, scan or swipe Sasol Rewards and submit your receipt for a chance to win R1,000 in rewards points.",
+      "imageUrl": "https://freehub.co.za/assets/competitions/sasol-magpie-2026.jpg",
+      "closingDate": "2026-10-21",
+      "category": "Vouchers",
+      "prizeName": "One of fifty R1,000 rewards-point prizes redeemable at participating Sasol Convenience Centres",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "WhatsApp",
+      "eligibility": "Sasol Rewards members aged 18 or older with the citizenship or residence documentation required in the rules; prior-winner exclusions apply.",
+      "entrySteps": [
+        "Buy a participating MagPie Classic Pie or MagPie Sausage Roll Pie at a participating Sasol Delight store during the competition period.",
+        "Scan or swipe your Sasol Rewards card with the purchase.",
+        "Take a clear photo of your till slip and WhatsApp it to 0860 335 444, or upload it in the Sasol Rewards app.",
+        "Submit before 23:59:59 on 21 October 2026. Each new entry needs a separate qualifying purchase; duplicate entries for the same purchase are disqualified."
+      ],
+      "officialUrl": "https://www.sasol.com/our-businesses/energy/mobility/sasol-competitions/spring-into-a-classic-bite-with-sasol-delight-and-magpie",
+      "termsUrl": "https://www.sasol.com/sites/default/files/2026-09/Sasol%20Delight%20Terms%20%26%20Conditions%20-%20MagPie%20Competition.pdf",
+      "lastChecked": "2026-09-14",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "heinz-heritage-spar-2026",
+      "title": "Heinz Heritage SPAR Rewards Braai Competition",
+      "brand": "Heinz / Diplomat Distributors / SPAR",
+      "summary": "Buy two participating Heinz products and swipe SPAR Rewards for a chance to win a Red Outback four-burner Jupiter hybrid gas and charcoal braai with a chopping board.",
+      "imageUrl": "https://freehub.co.za/assets/competitions/heinz-heritage-spar-2026.jpg",
+      "closingDate": "2026-10-25",
+      "category": "Lifestyle",
+      "prizeName": "Red Outback 4 Burner Jupiter Hybrid Gas and Charcoal Braai with chopping board",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Purchase and SPAR Rewards Card Swipe",
+      "eligibility": "South African citizens aged 18 or older with valid identification and a SPAR Rewards card.",
+      "entrySteps": [
+        "Check the participating product list on the official SPAR campaign page.",
+        "Buy any two participating products and swipe your SPAR Rewards card for automatic entry.",
+        "Complete your qualifying purchase between 14 September and 25 October 2026.",
+        "Keep your SPAR Rewards contact details current. The winner must provide valid South African identification."
+      ],
+      "officialUrl": "https://www.spar.co.za/Heinz-Heritage-SPAR-Rewards-Competition",
+      "termsUrl": "https://www.spar.co.za/Heinz-Heritage-SPAR-Rewards-Competition",
+      "lastChecked": "2026-09-14",
       "isHighValue": true,
       "isClosingSoon": false
     },
@@ -1039,6 +1117,57 @@
       "termsUrl": "https://woobox.com/f65xbp/rules",
       "lastChecked": "2026-09-09",
       "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "nedbank-moyaapp-consumer-education-2026",
+      "title": "Nedbank MoyaApp Consumer Education Competition",
+      "brand": "Nedbank",
+      "summary": "Complete the NedFinHealth survey through MoyaApp and provide your email for a personalised report for a chance to win a R250 AVO voucher.",
+      "closingDate": "2026-11-05",
+      "category": "Vouchers",
+      "prizeName": "One of twenty R250 AVO vouchers",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "App",
+      "eligibility": "Age 18 or older with a South African ID; January–July 2026 Nedbank competition winners are excluded.",
+      "entrySteps": [
+        "Read Nedbank’s official competition rules, then open MoyaApp and find the NedFinHealth survey.",
+        "Complete all survey questions, including the option to receive your personalised NedFinHealth report by supplying your email address.",
+        "Submit your own entry by 23:59 on 5 November 2026. Only one entry per person is accepted; multiple entries are disqualified.",
+        "If selected, follow Nedbank’s email instructions and provide the identity and eligibility documents requested."
+      ],
+      "officialUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/consumer-education-competition-with-money-app.html",
+      "termsUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/consumer-education-competition-with-money-app.html",
+      "lastChecked": "2026-09-14",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "nescafe-gold-rush-spar-2026",
+      "title": "NESCAFÉ Gold Rush SPAR Rewards Competition",
+      "brand": "NESCAFÉ / Nestlé South Africa / SPAR",
+      "summary": "Buy a participating NESCAFÉ GOLD or Cappuccino product at SPAR and swipe your SPAR Rewards card for a chance to win one of five R100,000 travel vouchers.",
+      "imageUrl": "https://freehub.co.za/assets/competitions/nescafe-gold-rush-spar-2026.jpg",
+      "closingDate": "2026-11-08",
+      "category": "Holidays",
+      "prizeName": "One of five R100,000 Flight Centre travel vouchers issued by Corporate Traveller",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Purchase and SPAR Rewards Card Swipe",
+      "eligibility": "South African residents aged 18 or older; a valid SPAR Rewards card and qualifying purchase are required.",
+      "entrySteps": [
+        "Check the exact participating NESCAFÉ GOLD and Cappuccino products in the official SPAR rules; single-serve sticks are excluded in the campaign artwork.",
+        "Buy a qualifying product during the competition period and swipe your valid SPAR Rewards card at the same checkout.",
+        "Entry is automatic. Check the entry confirmation on your till slip and keep the original receipt for winner verification.",
+        "Enter by 8 November 2026. The terms describe the cut-off as 12am midnight on that date; enter earlier to avoid ambiguity."
+      ],
+      "officialUrl": "https://www.spar.co.za/Nescafe-Gold-Rush-SPAR-Rewards-Competition",
+      "termsUrl": "https://www.spar.co.za/Nescafe-Gold-Rush-SPAR-Rewards-Competition",
+      "lastChecked": "2026-09-14",
+      "isHighValue": true,
       "isClosingSoon": false
     },
     {
