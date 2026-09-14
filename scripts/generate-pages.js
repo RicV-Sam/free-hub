@@ -48,6 +48,7 @@ const ADSTERRA_VENDOR_HOSTS = Object.freeze([
   "profitableratecpmnetwork.com",
 ]);
 const GOOGLE_TAG_MANAGER_ID = "GTM-W2M7PCR7";
+const JOURNEY_GA4_MEASUREMENT_ID = "G-P13C4QZYRG";
 const META_PIXEL_ID = "2506912739756217";
 const WHATSAPP_CHANNEL_URL = "https://whatsapp.com/channel/0029Vb7mS1VE50UlOc2yOe2H";
 const FACEBOOK_PAGE_URL = "https://www.facebook.com/FreeHubZA/";
@@ -3700,13 +3701,17 @@ function renderGoogleTagManagerHead(contextExpression = "{}") {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push(${contextExpression});
       function gtag(){dataLayer.push(arguments);}
+      // Separate New York reporting property for Journey; retain existing GTM analytics.
+      gtag('js', new Date());
+      gtag('config', '${JOURNEY_GA4_MEASUREMENT_ID}');
       (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
       })(window,document,'script','dataLayer','${GOOGLE_TAG_MANAGER_ID}');
     </script>
-    <!-- End Google Tag Manager -->`;
+    <!-- End Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=${JOURNEY_GA4_MEASUREMENT_ID}"></script>`;
 }
 
 function renderGoogleTagManagerNoScript() {
