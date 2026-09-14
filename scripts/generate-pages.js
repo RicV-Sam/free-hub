@@ -300,6 +300,7 @@ const TRUST_PAGE_DEFINITIONS = [
   {
     slug: "privacy-policy",
     adsAllowed: false,
+    dateModified: "2026-09-14",
     title: "Privacy Policy | Freehub",
     description:
       "Read Freehub's privacy policy, including optional accounts, saved competitions, alerts, analytics, outbound links and competition entry responsibility.",
@@ -370,6 +371,20 @@ const TRUST_PAGE_DEFINITIONS = [
           "The site may use cookies or similar technologies through analytics and measurement tools. These are used to understand site performance and user journeys.",
           "Freehub may show one clearly labelled Adsterra Native Banner on selected competition-browsing pages and the Free Stuff, Birthday Freebies, Free Courses and student guides. A separate labelled display banner may appear on these guides, Free Samples and the monthly competition guide. These placements load as readers approach them, only after Firebase confirms that a visitor is signed out. Closed competition archive pages do not load Adsterra ads. Adsterra and its partners may use cookies or similar technologies to serve, limit and measure ads where permitted. Signed-in Freehub Club members are not served these Adsterra formats.",
           "Advertising is separate from Freehub's competition listings and does not mean that an advertiser runs, verifies or endorses a listed competition. Consent choices and applicable controls should be presented before advertising cookies are used where the law requires them.",
+        ],
+      },
+      {
+        heading: "Google advertising and your choices",
+        paragraphs: [
+          "Freehub may use Google AdSense. If Google ads are displayed, third-party vendors, including Google, use cookies to serve ads based on your previous visits to Freehub or other websites. Google's advertising cookies allow Google and its partners to personalise ads using those visits.",
+          "You can opt out of personalised Google advertising through Google Ads Settings. You can also use WebChoices to opt out of interest-based advertising from participating third-party companies. These choices do not remove all advertising: you may still see ads that are not personalised.",
+          "The links below explain Google's advertising technologies, provide advertising choices and identify Adsterra's privacy policy for the other advertising network described above.",
+        ],
+        sources: [
+          { label: "Google advertising cookies and technologies", href: "https://policies.google.com/technologies/ads" },
+          { label: "Google Ads Settings: manage personalised advertising", href: "https://www.google.com/settings/ads" },
+          { label: "WebChoices: opt out for participating advertising companies", href: "https://optout.aboutads.info/" },
+          { label: "Adsterra privacy policy", href: "https://adsterra.com/privacy-policy-managed/" },
         ],
       },
       {
