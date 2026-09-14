@@ -24,10 +24,25 @@ const OFFERS_PATH = path.join(ROOT_DIR, "data", "offers.json");
 const UNVERIFIED_COMPETITIONS_PATH = path.join(ROOT_DIR, "data", "unverified-competitions.json");
 const RELATIVE_ASSET_PATH = "/";
 const RELEASE_ASSET_VERSION = "20260901-native-ads-v1";
-const GUEST_ADS_SCRIPT_SRC = "/shared/guest-ads.js?v=20260907-content-ads-v1";
+const GUEST_ADS_SCRIPT_SRC = "/shared/guest-ads.js?v=20260914-mediavine-v1";
 const OUTBOUND_HANDOFF_SCRIPT_SRC = `/shared/outbound-handoff.js?v=${RELEASE_ASSET_VERSION}`;
 const GUEST_ADS_SCRIPT = `<script type="module" src="${GUEST_ADS_SCRIPT_SRC}"></script>`;
 const OUTBOUND_HANDOFF_SCRIPT = `<script src="${OUTBOUND_HANDOFF_SCRIPT_SRC}"></script>`;
+const MEDIAVINE_SCRIPT = '<script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="//scripts.scriptwrapper.com/tags/db39d7ff-ec0e-46b2-9797-bad57ea1954f.js"></script>';
+
+// Keep provider installation consistent across generated pages and existing ad exclusions.
+function writeGeneratedFile(filePath, content, ...options) {
+  if (path.extname(filePath) === ".html" && typeof content === "string") {
+    const eligible = content.includes(GUEST_ADS_SCRIPT_SRC)
+      && !/<meta[^>]+name="robots"[^>]+content="[^"]*noindex/i.test(content)
+      && !content.includes('data-freehub-ad-surface="archive"');
+    if (eligible) {
+      content = content.replace(/\s*<\/head>/i, '\n    ' + MEDIAVINE_SCRIPT + '\n  </head>');
+    }
+  }
+  fs.writeFileSync(filePath, content, ...options);
+}
+
 const ADSTERRA_VENDOR_HOSTS = Object.freeze([
   "effectivecpmnetwork.com",
   "profitableratecpmnetwork.com",
@@ -369,7 +384,7 @@ const TRUST_PAGE_DEFINITIONS = [
         heading: "Cookies and analytics",
         paragraphs: [
           "The site may use cookies or similar technologies through analytics and measurement tools. These are used to understand site performance and user journeys.",
-          "Freehub may show one clearly labelled Adsterra Native Banner on selected competition-browsing pages and the Free Stuff, Birthday Freebies, Free Courses and student guides. A separate labelled display banner may appear on these guides, Free Samples and the monthly competition guide. These placements load as readers approach them, only after Firebase confirms that a visitor is signed out. Closed competition archive pages do not load Adsterra ads. Adsterra and its partners may use cookies or similar technologies to serve, limit and measure ads where permitted. Signed-in Freehub Club members are not served these Adsterra formats.",
+          "Freehub uses Mediavine to manage programmatic advertising on eligible pages. Mediavine and its advertising partners may use cookies and similar technologies to deliver and measure advertising. Closed competition archive pages do not load these ads.",
           "Advertising is separate from Freehub's competition listings and does not mean that an advertiser runs, verifies or endorses a listed competition. Consent choices and applicable controls should be presented before advertising cookies are used where the law requires them.",
         ],
       },
@@ -378,13 +393,13 @@ const TRUST_PAGE_DEFINITIONS = [
         paragraphs: [
           "Freehub may use Google AdSense. If Google ads are displayed, third-party vendors, including Google, use cookies to serve ads based on your previous visits to Freehub or other websites. Google's advertising cookies allow Google and its partners to personalise ads using those visits.",
           "You can opt out of personalised Google advertising through Google Ads Settings. You can also use WebChoices to opt out of interest-based advertising from participating third-party companies. These choices do not remove all advertising: you may still see ads that are not personalised.",
-          "The links below explain Google's advertising technologies, provide advertising choices and identify Adsterra's privacy policy for the other advertising network described above.",
+          "The links below explain Google's advertising technologies, provide advertising choices and identify Mediavine's privacy policy for the advertising service described above.",
         ],
         sources: [
           { label: "Google advertising cookies and technologies", href: "https://policies.google.com/technologies/ads" },
           { label: "Google Ads Settings: manage personalised advertising", href: "https://www.google.com/settings/ads" },
           { label: "WebChoices: opt out for participating advertising companies", href: "https://optout.aboutads.info/" },
-          { label: "Adsterra privacy policy", href: "https://adsterra.com/privacy-policy-managed/" },
+          { label: "Mediavine privacy policy", href: "https://www.mediavine.com/privacy-policy/" },
         ],
       },
       {
@@ -2433,8 +2448,8 @@ function main() {
   removeLegacyNestedSiteDirectory();
   writeOfferPages(publicOffers);
 
-  fs.writeFileSync(path.join(ROOT_DIR, "index.html"), renderHomepage(coreActiveCompetitions));
-  fs.writeFileSync(path.join(ROOT_DIR, "404.html"), renderNotFoundPage());
+  writeGeneratedFile(path.join(ROOT_DIR, "index.html"), renderHomepage(coreActiveCompetitions));
+  writeGeneratedFile(path.join(ROOT_DIR, "404.html"), renderNotFoundPage());
   writeUnverifiedCompetitionPage(publicUnderReviewCompetitions);
 
   routeContexts.filter((routeContext) => routeContext.type !== "home").forEach((routeContext) => {
@@ -2446,7 +2461,7 @@ function main() {
     const outputDirectory = path.join(ROOT_DIR, routeContext.path.replace(/^\//, "").replace(/\/$/, ""));
 
     fs.mkdirSync(outputDirectory, { recursive: true });
-    fs.writeFileSync(path.join(outputDirectory, "index.html"), html);
+    writeGeneratedFile(path.join(outputDirectory, "index.html"), html);
   });
 
   detailCompetitions.forEach((competition) => {
@@ -2455,7 +2470,7 @@ function main() {
     const outputDirectory = path.join(ROOT_DIR, "competition", slug);
 
     fs.mkdirSync(outputDirectory, { recursive: true });
-    fs.writeFileSync(path.join(outputDirectory, "index.html"), html);
+    writeGeneratedFile(path.join(outputDirectory, "index.html"), html);
   });
 
   outCompetitions.forEach((competition) => {
@@ -2464,26 +2479,26 @@ function main() {
     const outputDirectory = path.join(ROOT_DIR, "out", slug);
 
     fs.mkdirSync(outputDirectory, { recursive: true });
-    fs.writeFileSync(path.join(outputDirectory, "index.html"), html);
+    writeGeneratedFile(path.join(outputDirectory, "index.html"), html);
   });
 
   [...activeOpportunityRoutes, ...opportunityTombstones].forEach(({ opportunity, lifecycleState }) => {
     const outputDirectory = path.join(ROOT_DIR, "opportunity", opportunity.slug);
     fs.mkdirSync(outputDirectory, { recursive: true });
-    fs.writeFileSync(path.join(outputDirectory, "index.html"), renderOpportunityDetailPage(opportunity, lifecycleState));
+    writeGeneratedFile(path.join(outputDirectory, "index.html"), renderOpportunityDetailPage(opportunity, lifecycleState));
   });
 
   activeOpportunityRoutes.forEach(({ opportunity }) => {
     const outputDirectory = path.join(ROOT_DIR, "out", "opportunity", opportunity.slug);
     fs.mkdirSync(outputDirectory, { recursive: true });
-    fs.writeFileSync(path.join(outputDirectory, "index.html"), renderOpportunityExitPage(opportunity));
+    writeGeneratedFile(path.join(outputDirectory, "index.html"), renderOpportunityExitPage(opportunity));
   });
 
   getPublicTrustPageDefinitions().forEach((page) => {
     const outputDirectory = path.join(ROOT_DIR, page.slug);
 
     fs.mkdirSync(outputDirectory, { recursive: true });
-    fs.writeFileSync(path.join(outputDirectory, "index.html"), renderTrustPage(page));
+    writeGeneratedFile(path.join(outputDirectory, "index.html"), renderTrustPage(page));
   });
 
   writeVideoPages(activeCompetitions);
@@ -2496,7 +2511,7 @@ function main() {
   writeReferAndWinPages();
   writeAdminPages();
 
-  fs.writeFileSync(
+  writeGeneratedFile(
     path.join(ROOT_DIR, "sitemap.xml"),
     generateSitemap(
       activeCompetitions,
@@ -2506,7 +2521,7 @@ function main() {
       publicOffers
     )
   );
-  fs.writeFileSync(path.join(ROOT_DIR, "robots.txt"), renderRobotsTxt());
+  writeGeneratedFile(path.join(ROOT_DIR, "robots.txt"), renderRobotsTxt());
   runVideoPageStaticChecks(activeCompetitions);
   runLifecycleStaticChecks(
     validCompetitions,
@@ -2747,7 +2762,7 @@ function writeVerticalCoverageReport(coverage) {
     lines.push("");
   });
 
-  fs.writeFileSync(reportPath, `${lines.join("\n")}\n`);
+  writeGeneratedFile(reportPath, `${lines.join("\n")}\n`);
 }
 
 function getVerticalDataNotes(definition, competition) {
@@ -3302,7 +3317,7 @@ function renderUnverifiedCompetitionPage(records) {
 function writeUnverifiedCompetitionPage(records) {
   const outputDirectory = path.join(ROOT_DIR, unverifiedCompetitionData.PUBLIC_PATH.replace(/^\//, "").replace(/\/$/, ""));
   fs.mkdirSync(outputDirectory, { recursive: true });
-  fs.writeFileSync(path.join(outputDirectory, "index.html"), renderUnverifiedCompetitionPage(records));
+  writeGeneratedFile(path.join(outputDirectory, "index.html"), renderUnverifiedCompetitionPage(records));
 }
 
 function renderTopNavigation(options = {}) {
@@ -3387,20 +3402,20 @@ function writeOfferPages(offers) {
 
   const offersDirectory = path.join(ROOT_DIR, "offers");
   fs.mkdirSync(offersDirectory, { recursive: true });
-  fs.writeFileSync(path.join(offersDirectory, "index.html"), renderOfferCollectionPage({ type: "all", offers }));
+  writeGeneratedFile(path.join(offersDirectory, "index.html"), renderOfferCollectionPage({ type: "all", offers }));
 
   ["coupon", "deal"].forEach((type) => {
     const typedOffers = offers.filter((offer) => offer.type === type);
     const hubSlug = type === "coupon" ? "coupons" : "deals";
     const hubDirectory = path.join(ROOT_DIR, hubSlug);
     fs.mkdirSync(hubDirectory, { recursive: true });
-    fs.writeFileSync(path.join(hubDirectory, "index.html"), renderOfferCollectionPage({ type, offers: typedOffers }));
+    writeGeneratedFile(path.join(hubDirectory, "index.html"), renderOfferCollectionPage({ type, offers: typedOffers }));
   });
 
   [...new Set(offers.map((offer) => offer.category))].sort().forEach((category) => {
     const categoryDirectory = path.join(offersDirectory, "category", category);
     fs.mkdirSync(categoryDirectory, { recursive: true });
-    fs.writeFileSync(path.join(categoryDirectory, "index.html"), renderOfferCollectionPage({
+    writeGeneratedFile(path.join(categoryDirectory, "index.html"), renderOfferCollectionPage({
       type: "all", offers: offers.filter((offer) => offer.category === category), category,
     }));
   });
@@ -3408,7 +3423,7 @@ function writeOfferPages(offers) {
     const brandOffers = offers.filter((offer) => offer.brandSlug === brandSlug);
     const brandDirectory = path.join(offersDirectory, "brand", brandSlug);
     fs.mkdirSync(brandDirectory, { recursive: true });
-    fs.writeFileSync(path.join(brandDirectory, "index.html"), renderOfferCollectionPage({
+    writeGeneratedFile(path.join(brandDirectory, "index.html"), renderOfferCollectionPage({
       type: "all", offers: brandOffers, brandSlug, brand: brandOffers[0].brand,
     }));
   });
@@ -3418,8 +3433,8 @@ function writeOfferPages(offers) {
     const exitDirectory = path.join(ROOT_DIR, "out", offer.type, offer.slug);
     fs.mkdirSync(detailDirectory, { recursive: true });
     fs.mkdirSync(exitDirectory, { recursive: true });
-    fs.writeFileSync(path.join(detailDirectory, "index.html"), renderOfferDetailPage(offer));
-    fs.writeFileSync(path.join(exitDirectory, "index.html"), renderOfferExitPage(offer));
+    writeGeneratedFile(path.join(detailDirectory, "index.html"), renderOfferDetailPage(offer));
+    writeGeneratedFile(path.join(exitDirectory, "index.html"), renderOfferExitPage(offer));
   });
 }
 
@@ -3650,7 +3665,7 @@ function writeClubPages(activeCompetitions = []) {
   ].forEach((page) => {
     const outputDirectory = path.join(ROOT_DIR, page.slug);
     fs.mkdirSync(outputDirectory, { recursive: true });
-    fs.writeFileSync(path.join(outputDirectory, "index.html"), page.html);
+    writeGeneratedFile(path.join(outputDirectory, "index.html"), page.html);
   });
 }
 
@@ -3660,7 +3675,7 @@ function writeAdminPages() {
   ].forEach((page) => {
     const outputDirectory = path.join(ROOT_DIR, page.slug);
     fs.mkdirSync(outputDirectory, { recursive: true });
-    fs.writeFileSync(path.join(outputDirectory, "index.html"), page.html);
+    writeGeneratedFile(path.join(outputDirectory, "index.html"), page.html);
   });
 }
 
@@ -3671,7 +3686,7 @@ function writeReferAndWinPages() {
   ].forEach((page) => {
     const outputDirectory = path.join(ROOT_DIR, page.slug);
     fs.mkdirSync(outputDirectory, { recursive: true });
-    fs.writeFileSync(path.join(outputDirectory, "index.html"), page.html);
+    writeGeneratedFile(path.join(outputDirectory, "index.html"), page.html);
   });
 }
 
@@ -3858,31 +3873,23 @@ function renderUpdatedNotice() {
   return `<p class="hero__updated">Updated: ${escapeHtml(shared.formatDate(BUILD_DATE_ISO))}</p>`;
 }
 
-function renderStudentAdBreak(categoryId) {
-  if (categoryId === "everyday") return renderGuestAdSlot("student-after-software")
-    .replace('class="ad-slot ad-slot--native"', 'class="ad-slot ad-slot--native student-ad"');
-  if (categoryId === "attractions") return `<aside class="student-ad student-ad--display" data-freehub-display-slot data-freehub-ad-lazy aria-label="Advertisement">
-    <p class="ad-slot__label">Advertisement</p><div class="student-ad__banner"></div>
-  </aside>`;
+function renderStudentAdBreak() {
+  // Mediavine manages placements; previous provider containers are retired.
   return "";
 }
 
-function renderEditorialBanner(slug) {
-  if (!EDITORIAL_BANNER_GUIDES.has(slug)) return "";
-  return `<div class="guide-ad-region"><aside class="student-ad student-ad--display" data-freehub-display-slot data-freehub-ad-lazy data-placement="guide-${escapeAttribute(slug)}" aria-label="Advertisement">
-    <p class="ad-slot__label">Advertisement</p><div class="student-ad__banner"></div>
-  </aside></div>`;
+function renderEditorialBanner() {
+  // Mediavine manages placements; previous provider containers are retired.
+  return "";
 }
 
 function renderEditorialAdStyles(slug) {
   return EDITORIAL_BANNER_GUIDES.has(slug) ? '<link rel="stylesheet" href="/assets/editorial-guide-ads.css?v=20260907" />' : "";
 }
 
-function renderGuestAdSlot(placement) {
-  return `<aside class="ad-slot ad-slot--native" data-freehub-ad-slot data-freehub-ad-lazy data-placement="${escapeAttribute(placement)}" aria-label="Sponsored advertisement">
-          <p class="ad-slot__label">Sponsored</p>
-          <div class="ad-slot__content" id="container-c58e199012d4b578b7353f3e72a231f7"></div>
-        </aside>`;
+function renderGuestAdSlot() {
+  // Mediavine manages placements; previous provider containers are retired.
+  return "";
 }
 
 function renderHeroActions(actions = []) {
@@ -7996,7 +8003,7 @@ function renderLegacyAccountBenefitsRedirect() {
 function writeLegacyRedirectPages() {
   const outputDirectory = path.join(ROOT_DIR, "freehub-account-benefits");
   fs.mkdirSync(outputDirectory, { recursive: true });
-  fs.writeFileSync(path.join(outputDirectory, "index.html"), renderLegacyAccountBenefitsRedirect());
+  writeGeneratedFile(path.join(outputDirectory, "index.html"), renderLegacyAccountBenefitsRedirect());
 }
 
 function getCompetitionFeaturedVideo(competition) {
@@ -8404,12 +8411,12 @@ function renderCompetitionVideoPage(competition, video) {
 function writeVideoPages(activeCompetitions = []) {
   const birthdayOutputDirectory = path.join(ROOT_DIR, "videos", BIRTHDAY_FREEBIES_VIDEO.slug);
   fs.mkdirSync(birthdayOutputDirectory, { recursive: true });
-  fs.writeFileSync(path.join(birthdayOutputDirectory, "index.html"), renderBirthdayVideoPage());
+  writeGeneratedFile(path.join(birthdayOutputDirectory, "index.html"), renderBirthdayVideoPage());
 
   getCompetitionFeaturedVideos(activeCompetitions).forEach(({ competition, video }) => {
     const outputDirectory = path.join(ROOT_DIR, "videos", video.slug);
     fs.mkdirSync(outputDirectory, { recursive: true });
-    fs.writeFileSync(path.join(outputDirectory, "index.html"), renderCompetitionVideoPage(competition, video));
+    writeGeneratedFile(path.join(outputDirectory, "index.html"), renderCompetitionVideoPage(competition, video));
   });
 }
 
@@ -8658,7 +8665,7 @@ function writeStudentNoticePages() {
     };
     const outputDirectory = path.join(directory, offer.id);
     fs.mkdirSync(outputDirectory, { recursive: true });
-    fs.writeFileSync(path.join(outputDirectory, "index.html"), renderTrustPage(page));
+    writeGeneratedFile(path.join(outputDirectory, "index.html"), renderTrustPage(page));
   }
 }
 
@@ -8681,12 +8688,12 @@ function writeContentPages(activeCompetitions) {
   CONTENT_INDEX_PAGES.forEach((page) => {
     const outputDirectory = path.join(ROOT_DIR, page.slug);
     fs.mkdirSync(outputDirectory, { recursive: true });
-    fs.writeFileSync(path.join(outputDirectory, "index.html"), renderContentIndexPage(page));
+    writeGeneratedFile(path.join(outputDirectory, "index.html"), renderContentIndexPage(page));
   });
 
   const monthlyGuideDirectory = path.join(ROOT_DIR, MONTHLY_GUIDE_SLUG);
   fs.mkdirSync(monthlyGuideDirectory, { recursive: true });
-  fs.writeFileSync(path.join(monthlyGuideDirectory, "index.html"), renderMonthlyGuidePage(activeCompetitions));
+  writeGeneratedFile(path.join(monthlyGuideDirectory, "index.html"), renderMonthlyGuidePage(activeCompetitions));
 }
 
 function getGuideCards() {
