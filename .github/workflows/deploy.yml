@@ -40,6 +40,9 @@ jobs:
         with:
           node-version: '24'
 
+      - name: Refresh Journey ads.txt
+        run: node scripts/sync-journey-ads-txt.js
+
       - name: Generate static pages
         run: node scripts/generate-pages.js
 
