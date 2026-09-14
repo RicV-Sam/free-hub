@@ -23,6 +23,9 @@
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ page_type: '404' });
       function gtag(){dataLayer.push(arguments);}
+      // Separate New York reporting property for Journey; retain existing GTM analytics.
+      gtag('js', new Date());
+      gtag('config', 'G-P13C4QZYRG');
       (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -30,6 +33,7 @@
       })(window,document,'script','dataLayer','GTM-W2M7PCR7');
     </script>
     <!-- End Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P13C4QZYRG"></script>
     <!-- Facebook Pixel Code -->
     <script>
       !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -117,7 +121,7 @@
           <div>
             <p class="site-footer__title">Freehub</p>
             <p class="site-footer__text">
-              Freehub lists South African competitions and links users to official promoter pages. We do not run the competitions or collect entries.
+              Freehub helps South Africans find free resources, rewards, savings and competitions, with links to official sources. We do not run the competitions, collect entries or supply the listed benefits.
             </p>
           </div>
           <div>

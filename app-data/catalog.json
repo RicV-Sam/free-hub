@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-13",
-  "count": 36,
+  "asOfDate": "2026-09-14",
+  "count": 35,
   "counts": {
     "freeStuff": 33,
     "resources": 16,
     "opportunities": 17,
-    "offers": 3
+    "offers": 2
   },
   "items": [
     {
@@ -592,25 +592,6 @@
       ],
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "expiresAt": "2026-09-30",
-      "lastChecked": "2026-09-09",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "sanparks-week-2026-participating-parks",
-      "kind": "deal",
-      "title": "Free day entry at participating national parks: 7–13 September",
-      "provider": "SANParks",
-      "summary": "Use SANParks Week for a day visit at participating parks including Addo Elephant, Garden Route, Golden Gate Highlands and Mokala.",
-      "category": "entertainment",
-      "categoryLabel": "Entertainment",
-      "officialUrl": "https://www.sanparks.org/events/sa-national-parks-week-2026",
-      "termsUrl": "https://www.sanparks.org/news/sa-national-parks-week-set-for-week-of-07-september-2026",
-      "requirements": [
-        "South African citizens must bring identification; children also need valid identification. Use the official park list: Kruger, West Coast and Augrabies end on 11 September. Namaqua, Boulders Penguin Colony and the Table Mountain Aerial Cableway are excluded. Accommodation and paid activities are excluded; transport and food still cost money. Admission remains subject to each park’s conditions and visitor limits."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2026-09-13",
       "lastChecked": "2026-09-09",
       "isAffiliate": false,
       "isSponsored": false

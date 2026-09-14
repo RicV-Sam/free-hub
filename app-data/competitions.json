@@ -1,33 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-13",
-  "count": 58,
+  "asOfDate": "2026-09-14",
+  "count": 57,
   "competitions": [
-    {
-      "id": "ster-kinekor-spa-weekend-watch-and-win-2026",
-      "title": "Ster-Kinekor SPA WEEKEND Watch and Win Competition",
-      "brand": "Ster-Kinekor",
-      "summary": "Book SPA WEEKEND using an eligible membership number for a chance to win one of three luxury SPA WEEKEND robes.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/ster-kinekor-spa-weekend-watch-and-win-2026.webp",
-      "closingDate": "2026-09-13",
-      "category": "Lifestyle",
-      "prizeName": "SPA WEEKEND robe",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Qualifying Movie Booking",
-      "eligibility": "Open in South Africa, Namibia and Zambia to eligible members who make the qualifying booking.",
-      "entrySteps": [
-        "Hold an eligible Discovery Vitality, SK Club or affiliated membership.",
-        "Book SPA WEEKEND through Ster-Kinekor's website, app, Ticket Line or self-service terminal using the membership number.",
-        "Complete the qualifying booking by 13 September 2026."
-      ],
-      "officialUrl": "https://www.sterkinekor.com/competition/spa-weekend-watch-and-win-competition",
-      "termsUrl": "https://www.sterkinekor.com/competition/spa-weekend-watch-and-win-competition",
-      "lastChecked": "2026-09-06",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "clicks-bath-body-survey-cashback-2026",
       "title": "Clicks Bath and Body Survey Cashback Competition",
@@ -204,7 +179,7 @@
       "termsUrl": "https://www.spar.co.za/SPAR-Win-One-of-Six-VW-Polo-Vivos-Competition",
       "lastChecked": "2026-09-04",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "standard-bank-gen-z-virtual-credit-card-2026",
