@@ -198,8 +198,22 @@ test.beforeEach(async ({ page }) => {
 
 test("homepage navigation reaches canonical pillar routes", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Find South African competitions worth entering today");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Find free stuff, savings and competitions in South Africa");
   await expectCanonical(page, "/");
+
+  const startHere = page.getByRole("complementary", { name: "Explore Freehub", exact: true });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(startHere).toBeVisible();
+  await expect(startHere.getByRole("link", { name: /^Free Stuff/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Worth exploring", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Featured competitions", exact: true })).toBeVisible();
+  await startHere.getByRole("link", { name: /^Free Stuff/ }).evaluate((link) => {
+    link.addEventListener("click", (event) => event.preventDefault(), { once: true });
+    link.click();
+  });
+  expect(await readDataLayerEvents(page)).toEqual(expect.arrayContaining([
+    ["event", "homepage_discovery_click", expect.objectContaining({ destination_path: "/free-stuff-south-africa/", placement: "start_here" })],
+  ]));
 
   await page.getByRole("navigation", { name: "Primary navigation" }).getByRole("link", { name: "Competitions" }).click();
   await expect(page).toHaveURL(/\/competitions\/$/);
@@ -1230,11 +1244,11 @@ test("About page explains Freehub, suppresses guest ads and tracks its primary j
   await mockFirebaseAuth(page, { signedIn: false });
   await page.goto("/about/");
 
-  await expect(page).toHaveTitle("What Is FreeHub? South African Competitions & Free Club");
+  await expect(page).toHaveTitle("About Freehub | Free Stuff, Savings & Competitions");
   await expectCanonical(page, "/about/");
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("A simpler, safer way to find South African competitions");
-  await expect(page.getByRole("heading", { name: "From discovery to entry in four clear steps" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Freehub helps you find competitions — we do not run them" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Helping South Africans find useful freebies, savings and competitions");
+  await expect(page.getByRole("heading", { name: "From discovery to the official source" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Freehub helps you discover; the provider delivers" })).toBeVisible();
   await expect(page.locator('#structured-data-aboutpage')).toHaveCount(1);
   await expect(page.locator('#structured-data-breadcrumb')).toHaveCount(1);
   await expect(page.locator(`script[src="${ADSTERRA_NATIVE_BANNER_SRC}"]`)).toHaveCount(0);

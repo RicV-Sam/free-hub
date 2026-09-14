@@ -74,6 +74,18 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function bindEvents() {
+  if (state.routeContext.type === "home") {
+    document.addEventListener("click", (event) => {
+      const link = event.target.closest(".hero--home a, .home-section a");
+      if (!link || !link.getAttribute("href")?.startsWith("/")) return;
+      const destination = new URL(link.href);
+      sendGaEvent("homepage_discovery_click", {
+        destination_path: destination.pathname,
+        placement: link.closest(".home-hero-guide") ? "start_here" : link.closest(".hero--home") ? "hero" : "content",
+      });
+    });
+  }
+
   if (elements.searchInput && elements.competitionsGrid) {
     elements.searchInput.addEventListener("input", (event) => {
       state.searchQuery = event.target.value.trim().toLowerCase();

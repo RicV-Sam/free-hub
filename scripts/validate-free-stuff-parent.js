@@ -88,8 +88,8 @@ check("Parent H1 count", parentPage.h1.length, 1);
 check("Parent H1", parentPage.h1[0], "Where to Find Free Stuff in South Africa");
 check("Parent title", parentPage.title, "Where to Find Free Stuff in South Africa | Legit Freebies");
 check("Parent canonical", parentPage.canonical, "https://freehub.co.za/free-stuff-south-africa/");
-check("Homepage title", homepagePage.title, "South African Competitions Worth Entering Today | Freehub");
-check("Homepage H1", homepagePage.h1[0], "Find South African competitions worth entering today");
+check("Homepage title", homepagePage.title, "South African Competitions, Free Stuff & Savings | Freehub");
+check("Homepage H1", homepagePage.h1[0], "Find free stuff, savings and competitions in South Africa");
 const orderedParentMarkers = [
   "Quick answer: where to find free stuff",
   'class="free-stuff-child-nav"',

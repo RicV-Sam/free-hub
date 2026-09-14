@@ -4,11 +4,11 @@
     {
       "route": "/",
       "file": "index.html",
-      "title": "South African Competitions Worth Entering Today | Freehub",
-      "description": "Find South African competitions worth checking today, with curated picks, clear closing dates, entry-cost labels and official promoter links.",
+      "title": "South African Competitions, Free Stuff & Savings | Freehub",
+      "description": "Explore free resources, rewards, coupons, deals and South African competitions, with official links and clear costs, eligibility and requirements.",
       "canonical": "https://freehub.co.za/",
       "robots": "index, follow, max-image-preview:large",
-      "h1": "Find South African competitions worth entering today",
+      "h1": "Find free stuff, savings and competitions in South Africa",
       "schemaTypes": ["ItemList", "ListItem"],
       "inSitemap": true
     },
@@ -218,11 +218,11 @@
     {
       "route": "/about/",
       "file": "about/index.html",
-      "title": "What Is FreeHub? South African Competitions & Free Club",
-      "description": "Learn how FreeHub finds and organises South African competitions, links to official promoter sources and helps members save and track entries with FreeHub Club.",
+      "title": "About Freehub | Free Stuff, Savings & Competitions",
+      "description": "Learn how Freehub helps South Africans explore free resources, rewards, savings and competitions, understand requirements and find official sources.",
       "canonical": "https://freehub.co.za/about/",
       "robots": "index, follow, max-image-preview:large",
-      "h1": "A simpler, safer way to find South African competitions",
+      "h1": "Helping South Africans find useful freebies, savings and competitions",
       "schemaTypes": ["AboutPage", "BreadcrumbList", "ImageObject", "ListItem", "Organization", "WebSite"],
       "inSitemap": true
     },

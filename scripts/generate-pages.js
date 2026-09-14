@@ -264,12 +264,12 @@ const TRUST_PAGE_DEFINITIONS = [
   },
   {
     slug: "about",
-    title: "What Is FreeHub? South African Competitions & Free Club",
+    title: "About Freehub | Free Stuff, Savings & Competitions",
     description:
-      "Learn how FreeHub finds and organises South African competitions, links to official promoter sources and helps members save and track entries with FreeHub Club.",
-    heading: "A simpler, safer way to find South African competitions",
+      "Learn how Freehub helps South Africans explore free resources, rewards, savings and competitions, understand requirements and find official sources.",
+    heading: "Helping South Africans find useful freebies, savings and competitions",
     intro:
-      "FreeHub brings current South African competitions, giveaways and prize draws into one place. Compare the prize, closing date, entry method and entry cost, then continue to the official promoter when you are ready to enter.",
+      "Freehub brings together free resources, rewards, coupons, deals and competitions for South Africans. Understand what is offered, who qualifies and any costs before continuing to the official provider or promoter.",
     sections: [],
   },
   {
@@ -3097,7 +3097,7 @@ function renderSiteFooter(options = {}) {
           <div>
             <p class="site-footer__title">Freehub</p>
             <p class="site-footer__text">
-              Freehub lists South African competitions and links users to official promoter pages. We do not run the competitions or collect entries.
+              Freehub helps South Africans find free resources, rewards, savings and competitions, with links to official sources. We do not run the competitions, collect entries or supply the listed benefits.
             </p>
           </div>
           <div>
@@ -6765,14 +6765,22 @@ function renderTopPicksSection(topPicks) {
   return `<section class="home-section home-section--top-picks" aria-label="Today's top competition picks">
           <div class="home-section__header">
             <div>
-              <p class="section-kicker">Today's Top Picks</p>
-              <h2 class="home-section__title">Open these first</h2>
+              <p class="section-kicker">South African competitions</p>
+              <h2 class="home-section__title">Featured competitions</h2>
             </div>
             <a class="home-section__link" href="/competitions/">View all live competitions</a>
           </div>
           <div class="top-picks-grid">
             ${topPicks.map((entry) => renderTopPickCard(entry)).join("\n            ")}
           </div>
+          <nav class="home-competition-links" aria-label="More competition options">
+            <a href="/free-competitions/">Free entry</a>
+            <a href="/competitions-ending-soon/">Closing soon</a>
+            <a href="/win-a-car/">Win a car</a>
+            <a href="/category/cash/">Cash prizes</a>
+            <a href="/new-competitions-south-africa/">Recently added</a>
+            <a href="/best-competitions-south-africa-this-month/">This month's guide</a>
+          </nav>
         </section>`;
 }
 
@@ -6862,35 +6870,20 @@ function renderLatestCompetitionRow(competition) {
 }
 
 function renderHomepageHeroGuide(competitions) {
-  const freeEntryCount = competitions.filter(
-    (competition) => shared.getEntryCostLabel(competition) === "Free entry"
-  ).length;
-  const endingSoonCount = competitions.filter(
-    (competition) => shared.isClosingWithinDays(competition.closingDate, 14)
-  ).length;
-
   const links = [
+    { label: "Free Stuff", value: "Resources, samples and rewards", href: "/free-stuff-south-africa/" },
+    ...(OFFERS_ENABLED ? [{ label: "Coupons & Deals", value: "Discounts with the conditions explained", href: "/offers/" }] : []),
     {
-      label: "Browse all",
-      value: `${competitions.length} current listings`,
+      label: "Competitions",
+      value: `${competitions.length} current prize draws and giveaways`,
       href: "/competitions/",
-    },
-    {
-      label: "Free entry",
-      value: `${freeEntryCount} no-purchase listings`,
-      href: "/free-competitions/",
-    },
-    {
-      label: "Closing soon",
-      value: `${endingSoonCount} deadlines within 14 days`,
-      href: "/competitions-ending-soon/",
     },
   ];
 
-  return `<aside class="home-hero-guide" aria-label="Start browsing competitions">
+  return `<aside class="home-hero-guide" aria-label="Explore Freehub">
             <p class="home-hero-guide__kicker">Start here</p>
             <h2>Choose what matters today</h2>
-            <p class="home-hero-guide__intro">Go straight to the listings that fit your time and entry budget.</p>
+            <p class="home-hero-guide__intro">Something useful, a saving or a chance to win.</p>
             <div class="home-hero-guide__links">
               ${links
                 .map(
@@ -6902,6 +6895,55 @@ function renderHomepageHeroGuide(competitions) {
                 .join("\n              ")}
             </div>
           </aside>`;
+}
+
+function renderHomepageValueSection() {
+  // Reuse the public catalogues: held, expired and overdue offers stay excluded.
+  const bookDash = FREE_RESOURCES.find((resource) => resource.name === "Book Dash");
+  const offer = publicOffers.find((item) => item.id === "capitec-snappi-extra-15-percent") || publicOffers[0];
+  const picks = [
+    ...(bookDash ? [{
+      type: "Free reading", title: "Read and download children's books",
+      text: "Book Dash shares African picture books online. Start with digital reading; printing and mobile data can still cost money.",
+      href: "/free-childrens-books-south-africa/", action: "Explore free books",
+    }] : []),
+    ...(offer ? [{
+      type: offer.type === "coupon" ? "Conditional discount" : "Deal · check requirements",
+      title: offer.title, text: `${offer.summary} ${offer.terms}`,
+      href: offerData.getOfferPath(offer), action: "Check offer details",
+    }] : []),
+  ];
+  if (!picks.length) return "";
+  return `<section class="home-section home-section--value" aria-labelledby="home-value-title">
+          <div class="home-section__header"><div>
+            <p class="section-kicker">Beyond the prize draw</p>
+            <h2 class="home-section__title" id="home-value-title">Worth exploring</h2>
+          </div><a class="home-section__link" href="/free-stuff-south-africa/">Explore free stuff</a></div>
+          <p class="home-section__intro">A free resource gives you something to use. A discount reduces a qualifying purchase. A competition offers a chance to win. Check which applies before signing up or spending.</p>
+          <div class="home-value-grid">${picks.map((pick) => `<article class="home-value-item">
+            <p class="section-kicker">${escapeHtml(pick.type)}</p>
+            <h3><a href="${escapeAttribute(pick.href)}">${escapeHtml(pick.title)}</a></h3>
+            <p>${escapeHtml(pick.text)}</p>
+            <a class="home-section__link" href="${escapeAttribute(pick.href)}">${escapeHtml(pick.action)}</a>
+          </article>`).join("\n")}</div>
+        </section>`;
+}
+
+function renderHomepageResourcesSection() {
+  const guides = [
+    { title: "Learn a useful skill", text: "Find free learning options and check whether certificates or exams cost extra.", href: "/free-online-courses-south-africa/" },
+    { title: "Find children's stories", text: "Explore reading libraries and downloadable books for families and classrooms.", href: "/free-childrens-books-south-africa/" },
+    { title: "Understand sample offers", text: "Check delivery charges and the difference between a sample request and selection for product testing.", href: "/free-samples-south-africa/" },
+    { title: "Explore student resources", text: "Use our student guide to compare useful resources and their requirements.", href: "/student-freebies-discounts-south-africa/" },
+  ];
+  return `<section class="home-section" aria-labelledby="home-resources-title">
+          <div class="home-section__header"><div><p class="section-kicker">Practical guides</p>
+            <h2 class="home-section__title" id="home-resources-title">Useful beyond today</h2></div>
+            <a class="home-section__link" href="/guides/">All guides</a></div>
+          <div class="home-resource-grid">${guides.map((guide) => `<article>
+            <h3><a href="${guide.href}">${guide.title}</a></h3><p>${guide.text}</p>
+          </article>`).join("\n")}</div>
+        </section>`;
 }
 
 function renderHomepageClubSection() {
@@ -6954,25 +6996,25 @@ function renderHomeTrustSection() {
           <div class="home-section__header">
             <div>
               <p class="section-kicker">Why trust Freehub?</p>
-              <h2 class="home-section__title">Built for safer competition discovery</h2>
+              <h2 class="home-section__title">Know what you are opening</h2>
             </div>
             <a class="home-section__link" href="/about/">How Freehub works</a>
           </div>
           <div class="trust-grid">
             <article class="trust-card">
               <span class="trust-card__label">Official sources</span>
-              <h3>Promoter links stay visible</h3>
-              <p>Freehub sends users to official promoter pages or campaign partners instead of collecting entries on our own site. <a href="/how-we-verify-competitions/">See what we check</a>.</p>
+              <h3>Go to the source</h3>
+              <p>Read the details on Freehub, then follow the source link to the provider or promoter. We do not collect competition entries or supply the listed benefits. <a href="/how-we-verify-competitions/">How we check competitions</a>.</p>
             </article>
             <article class="trust-card">
               <span class="trust-card__label">Freshness</span>
-              <h3>Active listings first</h3>
-              <p>Hub pages use active published data, with closing dates and updated timestamps where the page is generated.</p>
+              <h3>Check dates and availability</h3>
+              <p>Look for the listing's checked date and any deadline. Stock, places and provider terms can change; confirm availability before travelling, signing up or paying.</p>
             </article>
             <article class="trust-card">
               <span class="trust-card__label">Transparency</span>
               <h3>Costs and requirements are labelled</h3>
-              <p>Cards surface free entry, purchase, paid entry, app and receipt-style requirements before users click through.</p>
+              <p>A free-entry draw is not a guaranteed free item. Discounts may require spending, rewards may need an account, and sample requests may involve selection or delivery costs.</p>
             </article>
           </div>
         </section>`;
@@ -7000,11 +7042,10 @@ function renderVerticalDiscoveryLinks() {
 
 function renderHomepage(competitions) {
   const homeRouteContext = { type: "home", slug: null, path: "/" };
-  const structuredData = shared.buildStructuredData(competitions, homeRouteContext);
-  const ogImage = getCollectionMetadataImageUrl(competitions);
+  const ogImage = shared.DEFAULT_OG_IMAGE;
   const topPicks = getHomepageTopPicks(competitions);
-  const topPickSlugs = new Set(topPicks.map((entry) => shared.getCompetitionSlug(entry.competition)));
-  const latestAdded = excludeCompetitionsBySlug(getLatestAddedCompetitions(competitions, 12), topPickSlugs, 6);
+  const structuredData = shared.buildStructuredData(topPicks.map((entry) => entry.competition), homeRouteContext);
+  structuredData.name = "Featured competitions";
   const heroGuideMarkup = renderHomepageHeroGuide(competitions);
 
   const noscriptLinks = competitions
@@ -7020,19 +7061,19 @@ function renderHomepage(competitions) {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>South African Competitions Worth Entering Today | Freehub</title>
-    <meta name="description" content="Find South African competitions worth checking today, with curated picks, clear closing dates, entry-cost labels and official promoter links." />
+    <title>South African Competitions, Free Stuff & Savings | Freehub</title>
+    <meta name="description" content="Explore free resources, rewards, coupons, deals and South African competitions, with official links and clear costs, eligibility and requirements." />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="${escapeAttribute(shared.CANONICAL_ORIGIN)}/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="South African Competitions Worth Entering Today | Freehub" />
-    <meta property="og:description" content="Find active South African competitions with curated picks, clear costs, closing dates and official promoter links." />
+    <meta property="og:title" content="South African Competitions, Free Stuff & Savings | Freehub" />
+    <meta property="og:description" content="Explore free resources, rewards, savings and South African competitions. Check costs and requirements, then continue to the official source." />
     <meta property="og:url" content="${escapeAttribute(shared.CANONICAL_ORIGIN)}/" />
     <meta property="og:image" content="${escapeAttribute(ogImage)}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="South African Competitions Worth Entering Today | Freehub" />
-    <meta name="twitter:description" content="Find active South African competitions with curated picks, clear costs, closing dates and official promoter links." />
+    <meta name="twitter:title" content="South African Competitions, Free Stuff & Savings | Freehub" />
+    <meta name="twitter:description" content="Explore free resources, rewards, savings and South African competitions. Check costs and requirements, then continue to the official source." />
     <meta name="twitter:image" content="${escapeAttribute(ogImage)}" />
     <script id="structured-data-itemlist" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
@@ -7053,7 +7094,7 @@ ${noscriptLinks}
       </section>
     </noscript>
 
-    <div class="site-shell">
+    <div class="site-shell site-shell--home">
       ${renderTopNavigation({ active: "home" })}
       <header class="hero hero--home">
         <div class="hero__layout">
@@ -7062,17 +7103,16 @@ ${noscriptLinks}
               <span class="hero__brand-mark" aria-hidden="true">FH</span>
               <span class="hero__brand-name">Freehub</span>
             </div>
-            <h1 id="pageTitle">Find South African competitions worth entering today</h1>
-            <p class="hero__text" id="pageIntro">Verified competition listings from official promoter sources. Compare prizes, closing dates and entry costs before you click through.</p>
+            <h1 id="pageTitle">Find free stuff, savings and competitions in South Africa</h1>
+            <p class="hero__text" id="pageIntro">Explore free resources, rewards, coupons, deals and competitions—with official links and clear information about costs and requirements.</p>
             ${renderUpdatedNotice()}
             <div class="hero__actions">
-              <a class="btn btn--primary" href="/competitions/">View today&apos;s picks</a>
-              <a class="btn btn--secondary" href="/win-a-car/">Win a car</a>
-              <a class="btn btn--secondary" href="/free-competitions/">Free entry competitions</a>
-              <a class="btn btn--whatsapp" href="${escapeAttribute(WHATSAPP_CHANNEL_URL)}" target="_blank" rel="noopener noreferrer">Follow on WhatsApp</a>
+              <a class="btn btn--primary" href="/free-stuff-south-africa/">Explore free stuff</a>
+              ${OFFERS_ENABLED ? '<a class="btn btn--secondary" href="/offers/">Coupons &amp; Deals</a>' : ""}
+              <a class="btn btn--secondary" href="/competitions/">Browse competitions</a>
             </div>
             <div class="trust-row" aria-label="Trust signals">
-              <span class="trust-row__item">Verified listings</span>
+              <span class="trust-row__item">Free to browse</span>
               <span class="trust-row__item">Official source links</span>
               <span class="trust-row__item">Cost labels</span>
               <span class="trust-row__item">Freehub is not the promoter</span>
@@ -7083,19 +7123,18 @@ ${noscriptLinks}
       </header>
 
       <main id="main-content" class="main-content">
+        ${renderHomepageValueSection()}
         ${renderTopPicksSection(topPicks)}
+        ${renderHomepageResourcesSection()}
+        ${renderHomeTrustSection()}
         ${renderDatacostPromo({
           placement: "home-after-featured",
           compact: true,
-          heading: "Compare data deals before you enter",
-          text: "DataCost.co.za helps you check South African data and airtime deals quickly, so prize browsing and everyday mobile costs stay in one place.",
+          heading: "Make sense of your mobile costs",
+          text: "Compare South African data and airtime options on our partner site, DataCost.co.za. Check prices and validity before choosing a bundle.",
         })}
-        ${renderIntentTilesSection()}
-        ${renderLatestRowsSection(latestAdded)}
         ${renderGuestAdSlot("home-latest")}
-        ${renderHomeTrustSection()}
         ${renderHomepageClubSection()}
-        ${renderHomepageGuidesSection()}
       </main>
 
       ${renderSiteFooter()}
@@ -7787,6 +7826,8 @@ function renderAboutPage(page) {
         heading: page.heading,
         intro: page.intro,
         actions: [
+          { label: "Explore Free Stuff", href: "/free-stuff-south-africa/", className: "btn--secondary" },
+          ...(OFFERS_ENABLED ? [{ label: "Coupons & Deals", href: "/offers/", className: "btn--secondary" }] : []),
           { label: "Browse Live Competitions", href: "/competitions/", className: "btn--primary", attributes: 'data-about-event="about_browse_competitions_click" data-about-placement="hero"' },
           { label: "Join Freehub Club", href: "/club/", className: "btn--secondary", attributes: 'data-about-event="about_join_club_click" data-about-placement="hero"' },
           { label: "Follow on WhatsApp", href: WHATSAPP_CHANNEL_URL, className: "btn--whatsapp", target: "_blank", rel: "noopener noreferrer", attributes: 'data-about-event="about_whatsapp_click" data-about-placement="hero"' },
@@ -7802,24 +7843,24 @@ function renderAboutPage(page) {
         <section class="about-intro about-section" aria-labelledby="about-why-heading">
           <div>
             <p class="section-kicker">Why Freehub exists</p>
-            <h2 id="about-why-heading">Competitions are everywhere. The useful details should not be hard to compare.</h2>
+            <h2 id="about-why-heading">Useful opportunities are scattered. The conditions should be easier to understand.</h2>
           </div>
           <div class="about-intro__copy">
-            <p>South African competitions are spread across promoter websites, apps, social posts, WhatsApp campaigns, till slips and store promotions. That makes it easy to miss a closing date, overlook a purchase requirement or lose the official entry route.</p>
-            <p>Freehub organises those public details into clear listings so you can decide what is worth opening. Browsing is free, and you do not need an account to view listings or continue to an official promoter source.</p>
+            <p>Free resources, discounts, rewards and competitions appear across provider websites, apps and store promotions. A headline can hide an account requirement, delivery charge, purchase condition or closing date.</p>
+            <p>Freehub organises the useful details so you can decide whether an opportunity suits you. Free Stuff covers resources, samples and rewards; Coupons & Deals explains conditional savings; Competitions covers prize draws. Browsing and source links are available without a Freehub account.</p>
           </div>
         </section>
 
         <section class="about-section" aria-labelledby="about-how-heading">
           <div class="about-section__header">
             <p class="section-kicker">How Freehub works</p>
-            <h2 id="about-how-heading">From discovery to entry in four clear steps</h2>
+            <h2 id="about-how-heading">From discovery to the official source</h2>
           </div>
           <ol class="about-steps">
-            <li><span class="about-step__number" aria-hidden="true">01</span><div><h3>Discover</h3><p>Find public competitions from South African brands, retailers, media companies and campaign partners.</p></div></li>
-            <li><span class="about-step__number" aria-hidden="true">02</span><div><h3>Compare</h3><p>Check the prize, closing date, entry route, eligibility and whether entry is free, purchase-required, account-required or paid.</p></div></li>
-            <li><span class="about-step__number" aria-hidden="true">03</span><div><h3>Enter through the promoter</h3><p>Continue to the official website, app, WhatsApp number, USSD code, social page or other route named by the promoter.</p></div></li>
-            <li><span class="about-step__number" aria-hidden="true">04</span><div><h3>Save and track</h3><p>Freehub Club members can keep useful listings and mark them as interested, entered or skipped.</p></div></li>
+            <li><span class="about-step__number" aria-hidden="true">01</span><div><h3>Discover</h3><p>Explore free resources, rewards and competitions, plus published coupons and deals from named providers.</p></div></li>
+            <li><span class="about-step__number" aria-hidden="true">02</span><div><h3>Compare</h3><p>Check what you receive or could win, who qualifies, any deadline, and whether a purchase, account or other cost is involved.</p></div></li>
+            <li><span class="about-step__number" aria-hidden="true">03</span><div><h3>Continue to the provider</h3><p>Continue to the official website, app, WhatsApp number, USSD code, social page or other route named by the promoter.</p></div></li>
+            <li><span class="about-step__number" aria-hidden="true">04</span><div><h3>Save and track</h3><p>For competitions, Freehub Club members can save listings and mark them as interested, entered or skipped.</p></div></li>
           </ol>
         </section>
 
@@ -7861,7 +7902,7 @@ function renderAboutPage(page) {
         <section class="about-boundaries about-section" aria-labelledby="about-boundaries-heading">
           <div>
             <p class="section-kicker">Clear boundaries</p>
-            <h2 id="about-boundaries-heading">Freehub helps you find competitions — we do not run them</h2>
+            <h2 id="about-boundaries-heading">Freehub helps you discover; the provider delivers</h2>
             <p>Freehub is an independent discovery and information service. A listing does not mean Freehub or an advertiser is the promoter.</p>
           </div>
           <ul>
