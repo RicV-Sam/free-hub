@@ -1,35 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-14",
-  "count": 62,
+  "asOfDate": "2026-09-15",
+  "count": 61,
   "competitions": [
-    {
-      "id": "clicks-bath-body-survey-cashback-2026",
-      "title": "Clicks Bath and Body Survey Cashback Competition",
-      "brand": "Clicks",
-      "summary": "Five eligible Clicks ClubCard survey participants each win R500 cashback. Complete the selected-participant survey in full by 14 September 2026; access is not confirmed for every member.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/clicks-bath-body-survey-editorial-2026.png",
-      "closingDate": "2026-09-14",
-      "category": "Shopping",
-      "prizeName": "R500 Clicks ClubCard cashback per winner",
-      "entryCostType": "account_required",
-      "entryCostLabel": "Account required",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "ClubCard members aged 18+ in South Africa; selected-participant survey access and full submission required. Entry contact details are used to update your ClubCard record and consent to marketing emails under clause 24.",
-      "entrySteps": [
-        "Be a South African resident aged 18 or older and a Clicks ClubCard member, subject to the exclusions in the rules.",
-        "Sign in to your ClubCard member account on Clicks before following the entry route.",
-        "Use the Bath & Body survey access supplied by Clicks if you are a selected participant.",
-        "Complete every survey question and successfully submit through the online survey tool by 14 September 2026.",
-        "Keep your ClubCard contact details current. Do not assume you have entered by visiting the competition page; the rules require a completed survey."
-      ],
-      "officialUrl": "https://www.clicks.co.za/clubcard/competitions/clicks-bath-and-body-survey-competition",
-      "termsUrl": "https://woobox.com/qofi5d/rules",
-      "lastChecked": "2026-09-09",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "edgars-win-jaecoo-j5-family-car-2026",
       "title": "Edgars Win a JAECOO J5 Family Car Competition",
@@ -204,7 +177,7 @@
       "termsUrl": "https://www.standardbank.co.za/static_file/South%20Africa/PDF/Campaigns%20Ts%20and%20Cs/SBSA_GenZ_Virtual_Credit_Card_Campaign_terms_and_conditions.pdf",
       "lastChecked": "2026-07-20",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "food-lovers-market-supersport-heritage-day-2026",
