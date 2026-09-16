@@ -1,34 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-15",
-  "count": 61,
+  "asOfDate": "2026-09-16",
+  "count": 60,
   "competitions": [
-    {
-      "id": "edgars-win-jaecoo-j5-family-car-2026",
-      "title": "Edgars Win a JAECOO J5 Family Car Competition",
-      "brand": "Edgars / JAECOO",
-      "summary": "Open and activate a new Edgars account, or spend R500 or more in one transaction on an existing Edgars account, for a chance to win a 2026 JAECOO J5 CORE.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/edgars-jaecoo-j5-family-car-2026.png",
-      "closingDate": "2026-09-15",
-      "category": "Cars",
-      "prizeName": "2026 JAECOO J5 CORE",
-      "entryCostType": "account_required",
-      "entryCostLabel": "Account required",
-      "purchaseRequired": false,
-      "entryMethod": "Edgars Account Activation or R500 Account Purchase",
-      "eligibility": "Open to South African residents aged 18 or older with valid identification, subject to the official exclusions.",
-      "entrySteps": [
-        "Be a South African resident aged 18 or older with valid identification.",
-        "Choose one official route: open and activate a new Edgars or RCS account during the competition period, or use an existing Edgars account.",
-        "New account holders receive an entry when the account is opened and activated; additional entries require a single purchase of R500 or more on the account.",
-        "Existing account holders enter by spending R500 or more in a single transaction on the account before 15 September 2026."
-      ],
-      "officialUrl": "https://www.edgars.co.za/pages/edgars-account",
-      "termsUrl": "https://www.edgars.co.za/pages/competition-terms-conditions",
-      "lastChecked": "2026-08-23",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
     {
       "id": "samsung-august-rate-and-review-2026",
       "title": "Samsung August Rate and Review Competition",
