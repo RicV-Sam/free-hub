@@ -57,6 +57,6 @@ function render({ url, escapeHtml: e, stylesheet, navigation, footer, trackingHe
     </section>
     <section class="wa-finish"><p class="wa-eyebrow">YOUR NEXT FIND STARTS HERE</p><h2>Make room for a little possibility.</h2><p>Follow FreeHub for new South African competition updates, free on WhatsApp.</p>${join()}<p class="wa-small">You choose which competitions to explore. Each promoter’s terms apply.</p></section>
     <nav class="wa-related" aria-label="More from FreeHub"><a href="/new-competitions-south-africa/">Browse new competitions →</a><a href="/free-competitions/">Find no-purchase competitions →</a><a href="/whatsapp-competitions-south-africa/">How WhatsApp competition entries work →</a></nav>
-  </main>${footer}</div><script type="module" src="/shared/auth-ui.js"></script></body></html>`;
+  </main>${footer}</div><script type="module" src="/shared/auth-ui.js?v=20260917-account-save-v2"></script></body></html>`;
 }
 module.exports = { page, render };

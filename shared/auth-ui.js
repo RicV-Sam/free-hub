@@ -1,4 +1,4 @@
-import { getFirebaseClient } from "./firebase-client.js";
+import { getFirebaseClient } from "./firebase-client.js?v=20260917-account-save-v2";
 
 const EMAIL_STORAGE_KEY = "freehubEmailForSignIn";
 const PENDING_ACTION_STORAGE_KEY = "freehubPendingAuthAction";

@@ -1,4 +1,4 @@
-import { getFirebaseClient } from "./firebase-client.js";
+import { getFirebaseClient } from "./firebase-client.js?v=20260917-account-save-v2";
 
 const LOCAL_SAVED_COMPETITIONS_KEY = "freehubClubSavedCompetitions";
 const REFERRAL_ATTRIBUTION_KEY = "freehubReferralAttribution";

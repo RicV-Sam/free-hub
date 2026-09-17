@@ -25,7 +25,7 @@ const OFFERS_PATH = path.join(ROOT_DIR, "data", "offers.json");
 const UNVERIFIED_COMPETITIONS_PATH = path.join(ROOT_DIR, "data", "unverified-competitions.json");
 const RELATIVE_ASSET_PATH = "/";
 const RELEASE_ASSET_VERSION = "20260901-native-ads-v1";
-const GUEST_ADS_SCRIPT_SRC = "/shared/guest-ads.js?v=20260914-mediavine-v1";
+const GUEST_ADS_SCRIPT_SRC = "/shared/guest-ads.js?v=20260917-account-save-v2";
 const OUTBOUND_HANDOFF_SCRIPT_SRC = `/shared/outbound-handoff.js?v=${RELEASE_ASSET_VERSION}`;
 const GUEST_ADS_SCRIPT = `<script type="module" src="${GUEST_ADS_SCRIPT_SRC}"></script>`;
 const OUTBOUND_HANDOFF_SCRIPT = `<script src="${OUTBOUND_HANDOFF_SCRIPT_SRC}"></script>`;
@@ -3315,7 +3315,7 @@ function renderUnverifiedCompetitionPage(records) {
       </main>
       ${renderSiteFooter()}
     </div>
-    <script type="module" src="/shared/auth-ui.js"></script>
+    <script type="module" src="/shared/auth-ui.js?v=20260917-account-save-v2"></script>
   </body>
 </html>`;
 }
@@ -3536,7 +3536,7 @@ function renderOfferCollectionPage({ type, offers, category = "", brandSlug = ""
       ${offers.length ? `<p class="offer-results">Showing ${offers.length} verified ${offers.length === 1 ? resultLabel : `${resultLabel}s`}</p><div class="offer-grid">${offers.map(renderOfferCard).join("\n")}</div>` : `<section class="state-card"><p class="state-card__title">No verified ${noun.toLowerCase()} listed yet</p><p class="state-card__text">No offer is published until its source, terms and coupon code, when needed, have been checked.</p></section>`}
       ${!category && !brand ? renderOfferTaxonomyLinks(offers) : ""}
       ${!category && !brand ? renderOfferContributionPanel() : ""}
-    </main>${renderSiteFooter()}</div><script type="module" src="/shared/auth-ui.js"></script>
+    </main>${renderSiteFooter()}</div><script type="module" src="/shared/auth-ui.js?v=20260917-account-save-v2"></script>
   </body>
 </html>`;
 }
@@ -3638,7 +3638,7 @@ function renderOfferDetailPage(offer) {
       <aside class="offer-detail__facts"><h2>Offer details</h2><dl><div><dt>Type</dt><dd>${noun}</dd></div><div><dt>Category</dt><dd><a href="${escapeAttribute(getOfferCollectionPath({ category: offer.category }))}">${escapeHtml(getOfferCategoryLabel(offer.category))}</a></dd></div><div><dt>Last checked</dt><dd>${escapeHtml(shared.formatDate(offer.lastChecked))}</dd></div>${offer.expiresAt ? `<div><dt>Expires</dt><dd>${escapeHtml(shared.formatDate(offer.expiresAt))}</dd></div>` : ""}<div><dt>Link disclosure</dt><dd>${offer.sponsored ? "Paid placement" : offer.affiliate ? "Affiliate link" : "Not sponsored or affiliate"}</dd></div></dl></aside></article>
       ${renderOfferFeedbackPanel(offer)}
       <section class="offer-trust"><strong>Last checked ${escapeHtml(shared.formatDate(offer.lastChecked))}.</strong> This offer linked to ${escapeHtml(offer.brand)}'s source when reviewed. Prices, availability and terms can change, so confirm them before buying.</section>
-    </main>${renderSiteFooter()}</div><script type="module" src="/shared/offer-contribution-ui.js"></script><script type="module" src="/shared/auth-ui.js"></script></body></html>`;
+    </main>${renderSiteFooter()}</div><script type="module" src="/shared/offer-contribution-ui.js"></script><script type="module" src="/shared/auth-ui.js?v=20260917-account-save-v2"></script></body></html>`;
 }
 
 function renderOfferExitPage(offer) {
@@ -5645,7 +5645,7 @@ ${confirmedResultsMarkup ? `\n        ${confirmedResultsMarkup}\n` : ""}
 
     <script src="${RELATIVE_ASSET_PATH}shared/page-data.js" defer></script>${routeContext.type === "category" && routeContext.slug === "vouchers" ? `\n    <script src="${RELATIVE_ASSET_PATH}shared/discovery-analytics.js" defer></script>` : ""}
     <script src="${RELATIVE_ASSET_PATH}app.js" defer></script>
-    <script type="module" src="${RELATIVE_ASSET_PATH}shared/auth-ui.js"></script>
+    <script type="module" src="${RELATIVE_ASSET_PATH}shared/auth-ui.js?v=20260917-account-save-v2"></script>
   </body>
 </html>
 `;
@@ -5785,7 +5785,7 @@ function renderBrandIndexPage(brandPages) {
 
       ${renderSiteFooter()}
     </div>
-    <script type="module" src="/shared/auth-ui.js"></script>
+    <script type="module" src="/shared/auth-ui.js?v=20260917-account-save-v2"></script>
   </body>
 </html>
 `;
@@ -7159,7 +7159,7 @@ ${noscriptLinks}
 
     <script src="/shared/page-data.js" defer></script>
     <script src="/app.js" defer></script>
-    <script type="module" src="/shared/auth-ui.js"></script>
+    <script type="module" src="/shared/auth-ui.js?v=20260917-account-save-v2"></script>
   </body>
 </html>
 `;
@@ -7299,7 +7299,7 @@ ${renderFreeStuffParentContent({ page, pageResources, featuredOpportunities, use
       ${renderSiteFooter()}
     </div>
     <script src="/shared/discovery-analytics.js"></script>
-    <script type="module" src="/shared/auth-ui.js"></script>
+    <script type="module" src="/shared/auth-ui.js?v=20260917-account-save-v2"></script>
   </body>
 </html>
 `;
@@ -7709,7 +7709,7 @@ function renderFreeSamplesPage(page) {
       ${renderSiteFooter()}
     </div>
     <script src="/shared/discovery-analytics.js"></script>
-    <script type="module" src="/shared/auth-ui.js"></script>
+    <script type="module" src="/shared/auth-ui.js?v=20260917-account-save-v2"></script>
   </body>
 </html>
 `;
@@ -7980,7 +7980,7 @@ function renderAboutPage(page) {
       ${renderSiteFooter()}
     </div>
     <script src="/shared/about-analytics.js" defer></script>
-    <script type="module" src="/shared/auth-ui.js"></script>
+    <script type="module" src="/shared/auth-ui.js?v=20260917-account-save-v2"></script>
   </body>
 </html>
 `;
@@ -8654,9 +8654,9 @@ function renderTrustPage(page) {
 
       ${renderSiteFooter()}
     </div>
-    ${page.slug === "submit-a-competition" ? '<script type="module" src="/shared/submission-ui.js"></script>' : ""}
+    ${page.slug === "submit-a-competition" ? '<script type="module" src="/shared/submission-ui.js?v=20260917-account-save-v2"></script>' : ""}
     ${page.slug === "submit-an-offer" ? '<script type="module" src="/shared/offer-contribution-ui.js"></script>' : ""}
-    <script type="module" src="/shared/auth-ui.js"></script>
+    <script type="module" src="/shared/auth-ui.js?v=20260917-account-save-v2"></script>
   </body>
 </html>
 `;
@@ -8816,7 +8816,7 @@ function renderContentIndexPage(page) {
       ${renderSiteFooter()}
     </div>
     <script src="/shared/page-data.js" defer></script>
-    <script type="module" src="/shared/auth-ui.js"></script>
+    <script type="module" src="/shared/auth-ui.js?v=20260917-account-save-v2"></script>
   </body>
 </html>
 `;
@@ -8917,7 +8917,7 @@ function renderMonthlyGuidePage(activeCompetitions) {
       ${renderSiteFooter()}
     </div>
     <script src="/shared/page-data.js" defer></script>
-    <script type="module" src="/shared/auth-ui.js"></script>
+    <script type="module" src="/shared/auth-ui.js?v=20260917-account-save-v2"></script>
   </body>
 </html>
 `;
@@ -9548,7 +9548,7 @@ function renderReferralAdminPage() {
       </main>
       ${renderSiteFooter({ includeAuthPanel: false })}
     </div>
-    <script type="module" src="/shared/referral-admin-ui.js"></script>
+    <script type="module" src="/shared/referral-admin-ui.js?v=20260917-account-save-v2"></script>
   </body>
 </html>
 `;
@@ -10005,8 +10005,8 @@ function renderReferAndWinShell({
       ${body}
       ${renderSiteFooter()}
     </div>
-    <script type="module" src="/shared/auth-ui.js"></script>
-    <script type="module" src="/shared/refer-win-ui.js"></script>
+    <script type="module" src="/shared/auth-ui.js?v=20260917-account-save-v2"></script>
+    <script type="module" src="/shared/refer-win-ui.js?v=20260917-account-save-v2"></script>
   </body>
 </html>
 `;
@@ -10145,9 +10145,9 @@ function renderClubShell({ title, description, canonicalUrl, robots, pageType, b
       ${body}
       ${renderSiteFooter({ includeAuthPanel: false })}
     </div>
-    <script type="module" src="/shared/club-ui.js"></script>
+    <script type="module" src="/shared/club-ui.js?v=20260917-account-save-v2"></script>
     <script type="module" src="/shared/club-tools.js"></script>
-    <script type="module" src="/shared/auth-ui.js"></script>
+    <script type="module" src="/shared/auth-ui.js?v=20260917-account-save-v2"></script>
   </body>
 </html>
 `;
@@ -10549,7 +10549,7 @@ function renderNotFoundPage() {
 
     <script src="/shared/page-data.js" defer></script>
     <script src="/app.js" defer></script>
-    <script type="module" src="/shared/auth-ui.js"></script>
+    <script type="module" src="/shared/auth-ui.js?v=20260917-account-save-v2"></script>
   </body>
 </html>
 `;
@@ -11058,7 +11058,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
 
     <script src="${RELATIVE_ASSET_PATH}shared/page-data.js" defer></script>
     <script src="${RELATIVE_ASSET_PATH}app.js" defer></script>
-    <script type="module" src="${RELATIVE_ASSET_PATH}shared/auth-ui.js"></script>
+    <script type="module" src="${RELATIVE_ASSET_PATH}shared/auth-ui.js?v=20260917-account-save-v2"></script>
   </body>
 </html>
 `;
@@ -11689,7 +11689,7 @@ function renderOpportunityDetailPage(opportunity, lifecycleState) {
     </div>
     <script src="/shared/discovery-analytics.js"></script>
     <script src="/shared/opportunity-analytics.js"></script>
-    <script type="module" src="/shared/auth-ui.js"></script>
+    <script type="module" src="/shared/auth-ui.js?v=20260917-account-save-v2"></script>
   </body>
 </html>
 `;
