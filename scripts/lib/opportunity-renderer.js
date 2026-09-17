@@ -258,6 +258,7 @@ function getProviderBoundary(opportunity) {
 
 function getBirthdayRequirementCue(opportunity) {
   const details = opportunity.details || {};
+  if (opportunity.requirements.some((requirement) => requirement.required && requirement.kind === "purchase")) return "Previous qualifying spend or activity required";
   if (details.appRequired) return "App profile required";
   if (details.membershipRequired) return "Free membership or club profile required";
   if (details.identityRequired) return "Birthday identification required";

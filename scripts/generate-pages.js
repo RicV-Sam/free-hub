@@ -111,6 +111,8 @@ const OPPORTUNITY_ALLOWED_SOURCE_HOSTS = Object.freeze([
   "www.muggandbean.co.za",
   "res.cloudinary.com",
   "rubybox.co.za",
+  "za.oceanbasket.com",
+  "www.starbucks.co.za",
 ]);
 const VOUCHER_DISCOVERY_RESOURCE_HOSTS = Object.freeze({
   "absa-advantage-meal-vouchers": "www.absa.co.za",
@@ -1595,7 +1597,7 @@ const TRUST_PAGE_DEFINITIONS = [
       {
         heading: "Quick answer: the best birthday freebies",
         paragraphs: [
-          "Current verified options include attraction tickets, museum access, a safari, a bicycle ride, cinema entry and selected food rewards. Some work throughout the birthday month, while others are valid only on the actual birthday.",
+          "Compare the birthday rewards currently listed below, including food and drink benefits for qualifying app and loyalty members. Check each reward’s validity window: some start on the actual birthday, while others allow later redemption.",
           "A birthday freebie is not automatically no-strings-attached. Freehub keeps advance registration, membership, app, identification, previous transaction and venue-availability requirements visible on every card."
         ]
       },

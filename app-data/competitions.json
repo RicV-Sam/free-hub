@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-09-17",
-  "count": 60,
+  "count": 70,
   "competitions": [
     {
       "id": "samsung-august-rate-and-review-2026",
@@ -129,6 +129,31 @@
       "isClosingSoon": true
     },
     {
+      "id": "timeout-proteas-australia-tickets-2026",
+      "title": "Time Out Proteas vs Australia Ticket Giveaway",
+      "brand": "Time Out Durban",
+      "summary": "Enter Time Out Durban’s newsletter giveaway by 10am on 21 September 2026 for five East Stand tickets to the Heritage Day Proteas match.",
+      "closingDate": "2026-09-21",
+      "category": "Experiences",
+      "prizeName": "Five East Stand tickets for one winner",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "South African residents aged 18 or older with valid ID. Promoter-related parties are excluded, and a person may not win another Time Out prize within three months of a previous win.",
+      "entrySteps": [
+        "Open the organiser’s giveaway page and complete its entry form.",
+        "Entry signs you up to the city newsletter; existing subscribers can also enter through the form.",
+        "Submit once per email address before the stated 10am deadline. Do not use automated entries.",
+        "Watch for winner contact and make your own travel arrangements if selected."
+      ],
+      "officialUrl": "https://www.timeout.com/durban/news/win-tickets-to-watch-the-proteas-on-heritage-day-091526",
+      "termsUrl": "https://www.timeout.com/south-africa/competition-terms-and-conditions",
+      "lastChecked": "2026-09-17",
+      "isHighValue": false,
+      "isClosingSoon": true
+    },
+    {
       "id": "standard-bank-gen-z-virtual-credit-card-2026",
       "title": "Standard Bank Gen Z Virtual Credit Card Competition",
       "brand": "Standard Bank",
@@ -154,6 +179,31 @@
       "isClosingSoon": true
     },
     {
+      "id": "timeout-joy-of-jazz-tickets-2026",
+      "title": "Time Out Standard Bank Joy of Jazz Giveaway",
+      "brand": "Time Out Johannesburg",
+      "summary": "Enter Time Out Johannesburg’s newsletter giveaway by 10am on 22 September 2026 for a pair of Standard Bank Joy of Jazz tickets.",
+      "closingDate": "2026-09-22",
+      "category": "Experiences",
+      "prizeName": "One of ten pairs of Joy of Jazz tickets",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "South African residents aged 18 or older with valid ID. Promoter-related parties are excluded, and a person may not win another Time Out prize within three months of a previous win.",
+      "entrySteps": [
+        "Open the organiser’s giveaway page and complete its entry form.",
+        "Entry signs you up to the city newsletter; existing subscribers can also enter through the form.",
+        "Submit once per email address before the stated 10am deadline. Do not use automated entries.",
+        "Watch for winner contact and make your own travel arrangements if selected."
+      ],
+      "officialUrl": "https://www.timeout.com/johannesburg/news/win-tickets-to-standard-bank-joy-of-jazz-2026-090226",
+      "termsUrl": "https://www.timeout.com/south-africa/competition-terms-and-conditions",
+      "lastChecked": "2026-09-17",
+      "isHighValue": false,
+      "isClosingSoon": true
+    },
+    {
       "id": "food-lovers-market-supersport-heritage-day-2026",
       "title": "Food Lover's Market Heritage Day Competition",
       "brand": "Food Lover's Market / SuperSport",
@@ -175,6 +225,31 @@
       "officialUrl": "https://campaigns.supersport.com/competitions/3584",
       "termsUrl": "https://campaigns.supersport.com/competitions/3584",
       "lastChecked": "2026-09-06",
+      "isHighValue": false,
+      "isClosingSoon": true
+    },
+    {
+      "id": "takealot-heritage-design-challenge-2026",
+      "title": "Takealot Heritage Design Challenge 2026",
+      "brand": "Takealot",
+      "summary": "Submit your own original Heritage Day delivery-box design through Takealot’s WhatsApp process by 23:59 on 24 September 2026. AI-created work is not allowed.",
+      "closingDate": "2026-09-24",
+      "category": "Vouchers",
+      "prizeName": "R100,000 first-place and R20,000 second-place Takealot vouchers",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "WhatsApp",
+      "eligibility": "South African natural persons aged 18 or older residing in South Africa. Takealot group employees, suppliers and related parties are excluded.",
+      "entrySteps": [
+        "Read both parts of the official rules; design submissions and voting have different dates.",
+        "Send Hi to Takealot’s designated WhatsApp number, +27 62 116 8262, and download the design guide.",
+        "Create an original design using the specified South African flag colours and Takealot blue. Upload an image or video plus your heritage motivation through WhatsApp.",
+        "Enter once. Shortlisted entrants must verify identity and authorship; winners must sign copyright assignment documents."
+      ],
+      "officialUrl": "https://www.takealot.com/competitions/takealot-heritage-design-challenge-2026-terms-conditions",
+      "termsUrl": "https://www.takealot.com/competitions/takealot-heritage-design-challenge-2026-terms-conditions",
+      "lastChecked": "2026-09-17",
       "isHighValue": false,
       "isClosingSoon": true
     },
@@ -684,6 +759,81 @@
       "isClosingSoon": false
     },
     {
+      "id": "ackermans-hisense-tech-vouchers-2026",
+      "title": "Ackermans Hisense Tech Voucher Competition",
+      "brand": "Ackermans / Hisense",
+      "summary": "Buy any Hisense handset at Ackermans or Ackermans Connect and scan +more Rewards by 30 September 2026 for a chance to win a R200 tech-accessory voucher.",
+      "closingDate": "2026-09-30",
+      "category": "Vouchers",
+      "prizeName": "One of 750 R200 tech-accessory vouchers",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "In-store",
+      "eligibility": "South African citizens or permanent residents within South Africa with valid ID or permanent-residency documentation. Pepkor employees, suppliers and related parties are excluded.",
+      "entrySteps": [
+        "Read the official rules before buying a handset.",
+        "Buy a Hisense handset at Ackermans or Ackermans Connect during the promotion.",
+        "Scan your +more Rewards card to enter automatically. Only one entry and one prize per participant are allowed.",
+        "Keep your telephone details current for winner contact after the 2 October draw."
+      ],
+      "officialUrl": "https://www.ackermans.co.za/blogs/cellular/win-your-share-of-r150k-in-tech-accessories-ts-cs",
+      "termsUrl": "https://www.ackermans.co.za/blogs/cellular/win-your-share-of-r150k-in-tech-accessories-ts-cs",
+      "lastChecked": "2026-09-17",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "woman-home-husky-prime-cuts-2026",
+      "title": "Woman & Home Husky Prime Cuts Hamper",
+      "brand": "Woman & Home / Husky",
+      "summary": "Complete Woman & Home’s online form by 30 September 2026 for a chance to win a Husky Prime Cuts hamper worth R3,000. Entry includes newsletter signup.",
+      "closingDate": "2026-09-30",
+      "category": "Lifestyle",
+      "prizeName": "Husky Prime Cuts hamper worth R3,000",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "South African residents. Publisher employees and their immediate families, sponsors and associated advertising or PR companies cannot enter. The website-entry rules do not state an age threshold.",
+      "entrySteps": [
+        "Open the official Husky competition page.",
+        "Complete the form with your name, email, address and phone number.",
+        "Submit one entry per person before 30 September and check the linked website competition rules.",
+        "Respond within 72 hours if the publisher contacts you about winning."
+      ],
+      "officialUrl": "https://www.womanandhomemagazine.co.za/competitions/win-a-husky-prime-cuts-hamper-worth-r3000/",
+      "termsUrl": "https://www.womanandhomemagazine.co.za/competition-tcs/",
+      "lastChecked": "2026-09-17",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "takealot-delivered-in-your-language-2026",
+      "title": "Takealot Delivered In Your Language Competition",
+      "brand": "Takealot",
+      "summary": "Post an original photo or video featuring a Takealot heritage-edition box, tag Takealot and use #DeliveredInYourLanguage by 4pm SAST on 30 September 2026.",
+      "closingDate": "2026-09-30",
+      "category": "Vouchers",
+      "prizeName": "A R1,000 Takealot voucher",
+      "entryCostType": "unclear",
+      "entryCostLabel": "Entry requirements unclear",
+      "purchaseRequired": false,
+      "entryMethod": "Social",
+      "eligibility": "South African residents aged 18 or older. Businesses, promoter employees, contractors, immediate families and involved suppliers or partners are excluded.",
+      "entrySteps": [
+        "Read the official rules and ensure you have access to a Takealot heritage-edition box.",
+        "Post your photo or video on TikTok, Instagram, Facebook or X, tag Takealot and include #DeliveredInYourLanguage.",
+        "Keep the post public through the competition and winner announcement. Every additional entry must feature a different heritage-edition box.",
+        "Monitor direct messages and comments. Winners must verify age and residency and provide an email for voucher delivery."
+      ],
+      "officialUrl": "https://www.takealot.com/competitions/11943",
+      "termsUrl": "https://www.takealot.com/competitions/11943",
+      "lastChecked": "2026-09-17",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "spar-nutrifresh-spin-and-win-2026",
       "title": "SPAR Nutrifresh Spin & Win Competition",
       "brand": "SPAR KZN / Nutrifresh",
@@ -732,6 +882,31 @@
       "termsUrl": "https://www.hulettssugar.co.za/competitions/huletts-heritage-2026-competition-rules/",
       "lastChecked": "2026-09-14",
       "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "clicks-tresemme-extraordinary-wins-2026",
+      "title": "Clicks TRESemmé Extraordinary Hair, Extraordinary Wins",
+      "brand": "Clicks / TRESemmé",
+      "summary": "Buy any two TRESemmé products in one Clicks transaction and swipe ClubCard by midnight on 5 October 2026 for a chance to win a R1,500 mall gift card.",
+      "closingDate": "2026-10-05",
+      "category": "Vouchers",
+      "prizeName": "One of 36 R1,500 mall gift cards",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Automatic ClubCard entry",
+      "eligibility": "South African residents aged 18 or older who are Clicks ClubCard members. Clicks, Unilever and agency employees and related parties are excluded.",
+      "entrySteps": [
+        "Buy two TRESemmé products in a single transaction at a South African Clicks store.",
+        "Swipe ClubCard during payment. Each qualifying transaction enters automatically.",
+        "Keep your membership contact details current and read the marketing-consent clause.",
+        "Respond within one working day to winner contact and provide the requested identity documentation."
+      ],
+      "officialUrl": "https://www.clicks.co.za/clubcard/competitions/tresemme-extraordinary-hair-extraordinary-wins-competition",
+      "termsUrl": "https://woobox.com/g3m8ut/rules",
+      "lastChecked": "2026-09-17",
+      "isHighValue": false,
       "isClosingSoon": false
     },
     {
@@ -941,6 +1116,31 @@
       "isClosingSoon": false
     },
     {
+      "id": "ackermans-baby-of-the-year-2026",
+      "title": "Ackermans Baby of the Year 2026",
+      "brand": "Ackermans",
+      "summary": "Enter a photograph of your child wearing Ackermans clothing by 30 October 2026. Six winners each receive R10,000 cash, R12,000 in vouchers and a photoshoot.",
+      "closingDate": "2026-10-30",
+      "category": "Cash",
+      "prizeName": "Cash, Ackermans vouchers and a photoshoot for six winners",
+      "entryCostType": "unclear",
+      "entryCostLabel": "Entry requirements unclear",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "Parent or legal guardian aged 18 or older; South African citizens or permanent residents living in South Africa with valid documentation. The child must be no older than 36 months on 30 October. Promoter-related parties are excluded.",
+      "entrySteps": [
+        "Check the age categories and photograph requirements in Ackermans’ rules.",
+        "Use the official entry form linked from the rules, or post on Facebook or Instagram and tag @ackermans_za.",
+        "Show only the child, fully dressed in Ackermans clothing, without props, sunglasses or a pacifier. Social profiles must remain public during entry and verification.",
+        "Submit only one entry per child. The parent or legal guardian must be able to prove eligibility."
+      ],
+      "officialUrl": "https://www.ackermans.co.za/blogs/baby/ackermans-baby-of-the-year-2026-ts-cs",
+      "termsUrl": "https://www.ackermans.co.za/blogs/baby/ackermans-baby-of-the-year-2026-ts-cs",
+      "lastChecked": "2026-09-17",
+      "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
       "id": "spar-community-school-support-competition-2026",
       "title": "SPAR Community School Support Competition",
       "brand": "SPAR South Africa",
@@ -1114,6 +1314,31 @@
       "officialUrl": "https://www.spar.co.za/Nescafe-Gold-Rush-SPAR-Rewards-Competition",
       "termsUrl": "https://www.spar.co.za/Nescafe-Gold-Rush-SPAR-Rewards-Competition",
       "lastChecked": "2026-09-14",
+      "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "clicks-amka-deo2rands-2026",
+      "title": "Clicks AMKA Deo2Rands Competition",
+      "brand": "Clicks / AMKA",
+      "summary": "Buy two participating deodorant or roll-on products in one Clicks transaction and swipe ClubCard by 12 November 2026 to enter the AMKA Deo2Rands draw.",
+      "closingDate": "2026-11-12",
+      "category": "Cash",
+      "prizeName": "R5,000 Clicks cashback or R40,000 cash",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Automatic ClubCard entry",
+      "eligibility": "South African residents aged 18 or older who belong to Clicks ClubCard. Clicks, supplier and agency employees and related parties are excluded.",
+      "entrySteps": [
+        "Choose participating Playboy, Playgirl, Shower to Shower, Shower to Shower Men or Status deodorant and roll-on variants.",
+        "Buy any two qualifying products in one transaction at a South African Clicks store and swipe your ClubCard. Entry is automatic.",
+        "Keep your ClubCard contact details current and read the marketing-consent terms.",
+        "If selected, respond promptly and supply identity verification; the cash winner needs a verified bank account."
+      ],
+      "officialUrl": "https://clicks.co.za/clubcard/competitions/amka-deo2rands-competition",
+      "termsUrl": "https://woobox.com/bua49d/rules",
+      "lastChecked": "2026-09-17",
       "isHighValue": true,
       "isClosingSoon": false
     },
@@ -1417,6 +1642,31 @@
       "termsUrl": "https://donate.four-paws.org.za/s/terms-and-conditions",
       "lastChecked": "2026-08-28",
       "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "builders-ratings-reviews-2026",
+      "title": "Builders Ratings and Reviews Competition 2026",
+      "brand": "Builders",
+      "summary": "Buy a product online from Builders and submit a review through the follow-up email for a chance to win one of five monthly R1,000 vouchers. Runs to 31 December 2026.",
+      "closingDate": "2026-12-31",
+      "category": "Vouchers",
+      "prizeName": "A R1,000 Builders voucher",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Post-purchase email review",
+      "eligibility": "South African citizens, temporary residents or permanent residents aged 18 or older with the specified ID or passport and residency documents. Promoter-related parties are excluded.",
+      "entrySteps": [
+        "Make a qualifying online product purchase from Builders.",
+        "Use the review link in the email sent after your purchase and submit your own product review.",
+        "A new purchased product is required for each additional entry. Returning the product withdraws its entry.",
+        "Submit reviews during the stated 07:00–18:00 entry hours rather than relying on the later online-purchase cutoff."
+      ],
+      "officialUrl": "https://www.builders.co.za/ratings-reviews-terms-conditions",
+      "termsUrl": "https://www.builders.co.za/ratings-reviews-terms-conditions",
+      "lastChecked": "2026-09-17",
+      "isHighValue": false,
       "isClosingSoon": false
     },
     {

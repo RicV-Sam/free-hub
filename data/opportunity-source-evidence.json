@@ -594,5 +594,95 @@
     "verifiedAt": "2026-09-08",
     "expiresAt": "2026-09-15",
     "evidenceSummary": "Official current FAQ and Terms and Conditions birthday section checked. From 1 September 2026, qualifying members receive their voucher on their actual birthday, valid 30 days, for a cake slice at Sit-Down or bundt cake at On-The-Move. Two qualifying app payment/receipt-scan uses in prior 12 months required. Removed older month-start/Sweet Square claim."
+  },
+  {
+    "recordId": "ocean-basket-app-birthday-treat",
+    "field": "sourceUrl",
+    "hostname": "za.oceanbasket.com",
+    "url": "https://za.oceanbasket.com/app-terms-and-conditions/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-09-17",
+    "expiresAt": "2026-09-24",
+    "evidenceSummary": "Ocean Basket app members may receive one complimentary birthday treat per year, redeemable for 30 days from their recorded birthday. The item varies by restaurant and availability; check your Rewards Wallet before visiting."
+  },
+  {
+    "recordId": "ocean-basket-app-birthday-treat",
+    "field": "termsUrl",
+    "hostname": "za.oceanbasket.com",
+    "url": "https://za.oceanbasket.com/app-terms-and-conditions/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-09-17",
+    "expiresAt": "2026-09-24",
+    "evidenceSummary": "Ocean Basket app members may receive one complimentary birthday treat per year, redeemable for 30 days from their recorded birthday. The item varies by restaurant and availability; check your Rewards Wallet before visiting."
+  },
+  {
+    "recordId": "starbucks-gold-birthday-drink",
+    "field": "sourceUrl",
+    "hostname": "www.starbucks.co.za",
+    "url": "https://www.starbucks.co.za/rewards/ts-and-cs",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-09-17",
+    "expiresAt": "2026-09-24",
+    "evidenceSummary": "Starbucks South Africa Gold members receive a birthday Free Drink Reward valid for 30 days. Gold requires 750 Stars earned within 12 months, so this is a benefit for qualifying loyalty customers, not a drink for every new signup."
+  },
+  {
+    "recordId": "starbucks-gold-birthday-drink",
+    "field": "termsUrl",
+    "hostname": "www.starbucks.co.za",
+    "url": "https://www.starbucks.co.za/rewards/ts-and-cs",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-09-17",
+    "expiresAt": "2026-09-24",
+    "evidenceSummary": "Starbucks South Africa Gold members receive a birthday Free Drink Reward valid for 30 days. Gold requires 750 Stars earned within 12 months, so this is a benefit for qualifying loyalty customers, not a drink for every new signup."
+  },
+  {
+    "recordId": "mcdonalds-app-birthday-ice-cream",
+    "field": "sourceUrl",
+    "url": "https://www.mcdonalds.co.za/deals-our-app",
+    "hostname": "www.mcdonalds.co.za",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-09-17",
+    "expiresAt": "2026-09-24",
+    "evidenceSummary": "McDonald's South Africa app members who provide the correct date of birth receive a free ice-cream cone reward on their birthday for redemption at a participating restaurant."
+  },
+  {
+    "recordId": "mugg-and-bean-birthday-cake",
+    "field": "sourceUrl",
+    "url": "https://www.muggandbean.co.za/rewards/loyalty-app-faqs/",
+    "hostname": "www.muggandbean.co.za",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-09-17",
+    "expiresAt": "2026-09-24",
+    "evidenceSummary": "Qualifying Mugg & Bean Loyalty App members receive a birthday voucher for a cake slice at a Sit-Down restaurant or a bundt cake at On-The-Move. From 1 September 2026 it is issued on the actual birthday and is valid for 30 days. Two qualifying app uses in the preceding 12 months are required."
+  },
+  {
+    "recordId": "mugg-and-bean-birthday-cake",
+    "field": "termsUrl",
+    "url": "https://www.muggandbean.co.za/terms-and-conditions/",
+    "hostname": "www.muggandbean.co.za",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-09-17",
+    "expiresAt": "2026-09-24",
+    "evidenceSummary": "Qualifying Mugg & Bean Loyalty App members receive a birthday voucher for a cake slice at a Sit-Down restaurant or a bundt cake at On-The-Move. From 1 September 2026 it is issued on the actual birthday and is valid for 30 days. Two qualifying app uses in the preceding 12 months are required."
+  },
+  {
+    "recordId": "spur-kids-free-birthday-meal",
+    "field": "sourceUrl",
+    "url": "https://www.spursteakranches.com/za/family-card-benefits-for-kids",
+    "hostname": "www.spursteakranches.com",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-09-17",
+    "expiresAt": "2026-09-24",
+    "evidenceSummary": "Official kids benefits page and linked loyalty terms confirm a free Kids Menu meal and Chico the Clown ice cream for children aged zero to 12 linked to a parent or guardian profile; birthday voucher lasts three months and the child must be present for restaurant or Call & Collect redemption."
+  },
+  {
+    "recordId": "spur-kids-free-birthday-meal",
+    "field": "termsUrl",
+    "url": "https://res.cloudinary.com/spur-group/image/upload/uploads/documents/policies/Spur-Loyalty-Programme-and-App-Terms-and-Conditions-clean-July-2025-002-oOH.pdf",
+    "hostname": "res.cloudinary.com",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-09-17",
+    "expiresAt": "2026-09-24",
+    "evidenceSummary": "Official kids benefits page and linked loyalty terms confirm a free Kids Menu meal and Chico the Clown ice cream for children aged zero to 12 linked to a parent or guardian profile; birthday voucher lasts three months and the child must be present for restaurant or Call & Collect redemption."
   }
 ]

@@ -2,7 +2,7 @@
   "version": 1,
   "buildDate": "2026-09-06",
   "siteOrigin": "https://freehub.co.za",
-  "staticSitemapUrlCount": 62,
+  "staticSitemapUrlCount": 65,
   "opportunityAllowedSourceHosts": [
     "brandadvisor.co.za",
     "products.coloplast.co.za",
@@ -23,7 +23,9 @@
     "muggandbean.co.za",
     "rubybox.co.za",
     "www.muggandbean.co.za",
-    "res.cloudinary.com"
+    "res.cloudinary.com",
+    "za.oceanbasket.com",
+    "www.starbucks.co.za"
   ],
   "canonicalAliases": {
     "/category/cars/": "/win-a-car/",

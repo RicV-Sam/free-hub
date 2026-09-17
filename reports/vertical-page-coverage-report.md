@@ -7,13 +7,14 @@ Only active, published, public-safe competitions are counted. Held, unverified, 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 6
+- Matching active public competitions: 7
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
+| Takealot Heritage Design Challenge 2026 (takealot-heritage-design-challenge-2026) | 2026-09-24 | free-entry | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Knorr Soup Competition 2026 - Win R5,000 Weekly (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Sasol Delight and Magpie Rewards Competition (sasol-magpie-2026) | 2026-10-21 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Astron Energy Own a Golf 8 GTI Competition 2026 (astron-energy-own-golf-8-gti-2026) | 2026-10-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
@@ -71,7 +72,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 18
+- Matching active public competitions: 23
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -81,6 +82,8 @@ Recommended normalisation:
 | Samsung August Rate and Review Competition (samsung-august-rate-and-review-2026) | 2026-09-18 | purchase-required | yes | yes | Online entry tag | none |
 | Samsung Rugby's Greatest Rivalry Competition (samsung-supersport-rugbys-greatest-rivalry-2026) | 2026-09-19 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Go South Africa Great Karkloof Escape Competition 2026 (go-south-africa-great-karkloof-escape-2026) | 2026-09-20 | free-entry | yes | yes | Online entry mentioned in entry text | none |
+| Time Out Proteas vs Australia Ticket Giveaway (timeout-proteas-australia-tickets-2026) | 2026-09-21 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| Time Out Standard Bank Joy of Jazz Giveaway (timeout-joy-of-jazz-tickets-2026) | 2026-09-22 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Food Lover's Market Heritage Day Competition (food-lovers-market-supersport-heritage-day-2026) | 2026-09-24 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Curaprox House of Mouth Competition 2026 (curaprox-house-of-mouth-competition-2026) | 2026-09-28 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Penguin Random House Grandest Games Competition (penguin-random-house-grandest-games-2026) | 2026-09-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
@@ -92,10 +95,13 @@ Recommended normalisation:
 | Bargain Books Taipei Story Competition (bargain-books-taipei-story-2026) | 2026-09-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Bargain Books Gruffalo Granny Competition (bargain-books-gruffalo-granny-2026) | 2026-09-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Bargain Books 20 Minute Meals Competition (bargain-books-20-minute-meals-2026) | 2026-09-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| Woman & Home Husky Prime Cuts Hamper (woman-home-husky-prime-cuts-2026) | 2026-09-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Nedbank YouthX Awards 2026 (nedbank-youthx-awards-2026) | 2026-10-09 | account-required | yes | yes | Online entry tag | none |
 | Wanderlust Reader Travel Awards 2026 Prize Draw (wanderlust-reader-travel-awards-prize-draw-2026) | 2026-10-27 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| Ackermans Baby of the Year 2026 (ackermans-baby-of-the-year-2026) | 2026-10-30 | conditional | yes | yes | Online entry mentioned in entry text | none |
 | Clicks Baby Essentials Hamper Competition (clicks-baby-essentials-hamper-2026) | 2026-11-01 | account-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| Builders Ratings and Reviews Competition 2026 (builders-ratings-reviews-2026) | 2026-12-31 | purchase-required | yes | yes | Online entry tag | none |
 
 Recommended normalisation:
 - Inventory is strong enough; keep lastChecked and source/terms links fresh.

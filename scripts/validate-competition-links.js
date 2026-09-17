@@ -28,6 +28,10 @@ const manualRecheckDays = 30;
 const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 FreeHubValidator/1.0";
 const APPROVED_MANUAL_OK_URLS = new Map([
+  ["ackermans-baby-of-the-year-2026", "https://www.ackermans.co.za/blogs/baby/ackermans-baby-of-the-year-2026-ts-cs"],
+  ["ackermans-hisense-tech-vouchers-2026", "https://www.ackermans.co.za/blogs/cellular/win-your-share-of-r150k-in-tech-accessories-ts-cs"],
+  ["takealot-heritage-design-challenge-2026", "https://www.takealot.com/competitions/takealot-heritage-design-challenge-2026-terms-conditions"],
+  ["takealot-delivered-in-your-language-2026", "https://www.takealot.com/competitions/11943"],
   ["flight-centre-new-york-flights-2026", "https://www.flightcentre.co.za/deals/spiderman-adventure"],
   ["bargain-books-kitsie-2026", "https://bargainbooks.co.za/competitions"],
   ["bargain-books-taipei-story-2026", "https://bargainbooks.co.za/competitions"],

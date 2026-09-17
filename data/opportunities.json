@@ -1687,11 +1687,13 @@
     "publicationStatus": "published",
     "verificationStatus": "verified",
     "country": "ZA",
-    "regions": ["Participating McDonald's restaurants in South Africa"],
-    "lastVerifiedAt": "2026-09-08",
-    "reviewDueAt": "2026-09-15",
+    "regions": [
+      "Participating McDonald's restaurants in South Africa"
+    ],
+    "lastVerifiedAt": "2026-09-17",
+    "reviewDueAt": "2026-09-24",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-09-08",
+    "updatedAt": "2026-09-17",
     "availabilityKind": "recurring",
     "costClassification": "app_required",
     "requirements": [
@@ -1716,8 +1718,16 @@
         "label": "Redeem the in-app reward at a participating restaurant"
       }
     ],
-    "categories": ["birthday-freebies", "free-food-and-drink"],
-    "tags": ["national", "app-required", "ice-cream", "actual-birthday"],
+    "categories": [
+      "birthday-freebies",
+      "free-food-and-drink"
+    ],
+    "tags": [
+      "national",
+      "app-required",
+      "ice-cream",
+      "actual-birthday"
+    ],
     "details": {
       "signupLeadDays": 0,
       "birthdayWindow": {
@@ -1744,11 +1754,13 @@
     "publicationStatus": "published",
     "verificationStatus": "verified",
     "country": "ZA",
-    "regions": ["Participating Spur restaurants in South Africa"],
-    "lastVerifiedAt": "2026-09-08",
-    "reviewDueAt": "2026-09-15",
+    "regions": [
+      "Participating Spur restaurants in South Africa"
+    ],
+    "lastVerifiedAt": "2026-09-17",
+    "reviewDueAt": "2026-09-24",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-09-08",
+    "updatedAt": "2026-09-17",
     "availabilityKind": "recurring",
     "costClassification": "membership_required",
     "requirements": [
@@ -1768,8 +1780,17 @@
         "label": "Child must be present for restaurant or Call & Collect redemption"
       }
     ],
-    "categories": ["birthday-freebies", "free-food-and-drink", "kids-freebies"],
-    "tags": ["national", "kids-meal", "ice-cream", "family-club"],
+    "categories": [
+      "birthday-freebies",
+      "free-food-and-drink",
+      "kids-freebies"
+    ],
+    "tags": [
+      "national",
+      "kids-meal",
+      "ice-cream",
+      "family-club"
+    ],
     "details": {
       "signupLeadDays": 0,
       "birthdayWindow": {
@@ -1794,13 +1815,15 @@
     "publicationStatus": "published",
     "verificationStatus": "verified",
     "country": "ZA",
-    "regions": ["Participating Mugg & Bean locations in South Africa"],
-    "lastVerifiedAt": "2026-09-08",
-    "reviewDueAt": "2026-09-15",
+    "regions": [
+      "Participating Mugg & Bean locations in South Africa"
+    ],
+    "lastVerifiedAt": "2026-09-17",
+    "reviewDueAt": "2026-09-24",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-09-08",
+    "updatedAt": "2026-09-17",
     "availabilityKind": "recurring",
-    "costClassification": "app_required",
+    "costClassification": "purchase_required",
     "requirements": [
       {
         "kind": "membership",
@@ -1823,8 +1846,16 @@
         "label": "Voucher must be used within its 30-day validity period"
       }
     ],
-    "categories": ["birthday-freebies", "free-food-and-drink"],
-    "tags": ["national", "cake", "loyalty-app", "prior-activity"],
+    "categories": [
+      "birthday-freebies",
+      "free-food-and-drink"
+    ],
+    "tags": [
+      "national",
+      "cake",
+      "loyalty-app",
+      "prior-activity"
+    ],
     "details": {
       "signupLeadDays": 0,
       "birthdayWindow": {
@@ -1891,5 +1922,140 @@
     },
     "withdrawnAt": "2026-09-08",
     "withdrawalReason": "Reviewed 8 September 2026: official FAQ returned 403 Forbidden in Chrome as well as automated access. Current product-testing eligibility could not be verified. Withdrawn from Freehub pending renewed source evidence."
+  },
+  {
+    "id": "ocean-basket-app-birthday-treat",
+    "slug": "ocean-basket-app-birthday-treat",
+    "type": "birthday_freebie",
+    "title": "Ocean Basket app birthday treat",
+    "summary": "Ocean Basket app members may receive one complimentary birthday treat per year, redeemable for 30 days from their recorded birthday. The item varies by restaurant and availability; check your Rewards Wallet before visiting.",
+    "provider": "Ocean Basket",
+    "sourceUrl": "https://za.oceanbasket.com/app-terms-and-conditions/",
+    "termsUrl": "https://za.oceanbasket.com/app-terms-and-conditions/",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": [
+      "Participating South African restaurants"
+    ],
+    "lastVerifiedAt": "2026-09-17",
+    "reviewDueAt": "2026-09-24",
+    "publishedAt": "2026-09-17",
+    "updatedAt": "2026-09-17",
+    "availabilityKind": "recurring",
+    "costClassification": "app_required",
+    "requirements": [
+      {
+        "kind": "membership",
+        "required": true,
+        "label": "Ocean Basket app membership required"
+      },
+      {
+        "kind": "age",
+        "required": true,
+        "label": "App membership is for people aged 18 or older"
+      },
+      {
+        "kind": "app",
+        "required": true,
+        "label": "Register in the Ocean Basket app with a valid mobile number and email"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Record your correct birthday; corrections require support"
+      },
+      {
+        "kind": "location",
+        "required": true,
+        "label": "Confirm the item and conditions shown in your Rewards Wallet with the participating restaurant"
+      }
+    ],
+    "categories": [
+      "birthday-freebies",
+      "free-food-and-drink"
+    ],
+    "tags": [
+      "national",
+      "birthday-reward"
+    ],
+    "details": {
+      "signupLeadDays": 0,
+      "birthdayWindow": {
+        "beforeDays": 0,
+        "afterDays": 30
+      },
+      "membershipRequired": true,
+      "appRequired": true,
+      "identityRequired": false,
+      "branchAvailability": "participating_branches",
+      "recurrence": "annual",
+      "voucherDelivery": "app"
+    }
+  },
+  {
+    "id": "starbucks-gold-birthday-drink",
+    "slug": "starbucks-gold-birthday-drink",
+    "type": "birthday_freebie",
+    "title": "Starbucks Gold birthday drink",
+    "summary": "Starbucks South Africa Gold members receive a birthday Free Drink Reward valid for 30 days. Gold requires 750 Stars earned within 12 months, so this is a benefit for qualifying loyalty customers, not a drink for every new signup.",
+    "provider": "Starbucks South Africa",
+    "sourceUrl": "https://www.starbucks.co.za/rewards/ts-and-cs",
+    "termsUrl": "https://www.starbucks.co.za/rewards/ts-and-cs",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": [
+      "Participating South African restaurants"
+    ],
+    "lastVerifiedAt": "2026-09-17",
+    "reviewDueAt": "2026-09-24",
+    "publishedAt": "2026-09-17",
+    "updatedAt": "2026-09-17",
+    "availabilityKind": "recurring",
+    "costClassification": "purchase_required",
+    "requirements": [
+      {
+        "kind": "membership",
+        "required": true,
+        "label": "Gold-level Starbucks Rewards membership required"
+      },
+      {
+        "kind": "purchase",
+        "required": true,
+        "label": "Earn 750 Stars in 12 months through qualifying activity; another 750 Stars maintains Gold for the next year"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Provide your birthday in your member profile and check the reward in your account"
+      },
+      {
+        "kind": "location",
+        "required": true,
+        "label": "Redeem only at participating South African Starbucks stores"
+      }
+    ],
+    "categories": [
+      "birthday-freebies",
+      "free-food-and-drink"
+    ],
+    "tags": [
+      "national",
+      "birthday-reward"
+    ],
+    "details": {
+      "signupLeadDays": 0,
+      "birthdayWindow": {
+        "beforeDays": 0,
+        "afterDays": 30
+      },
+      "membershipRequired": true,
+      "appRequired": false,
+      "identityRequired": false,
+      "branchAvailability": "participating_branches",
+      "recurrence": "annual",
+      "voucherDelivery": "account"
+    }
   }
 ]

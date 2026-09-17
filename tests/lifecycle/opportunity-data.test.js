@@ -441,12 +441,14 @@ test("the tracked Opportunity registry contains the reviewed sample and product-
       "spur-kids-free-birthday-meal",
       "mugg-and-bean-birthday-cake",
       "rubybox-beauty-product-testing",
+      "ocean-basket-app-birthday-treat",
+      "starbucks-gold-birthday-drink",
     ]
   );
   assert.equal(opportunityData.validateOpportunityRegistry(registry).valid, true);
   assert.equal(registry.filter((record) => record.type === "free_sample").length, 7);
   assert.equal(registry.filter((record) => record.type === "product_testing").length, 17);
-  assert.equal(registry.filter((record) => record.type === "birthday_freebie").length, 13);
+  assert.equal(registry.filter((record) => record.type === "birthday_freebie").length, 15);
 
   const generatedOutput = JSON.parse(
     fs.readFileSync(path.join(rootDir, "tests", "baselines", "opportunity-generated-output.json"), "utf8")
@@ -472,7 +474,7 @@ test("the tracked Opportunity registry contains the reviewed sample and product-
     ];
   });
   assert.deepEqual(Object.keys(generatedOutput.files).sort(), expectedFiles.sort());
-  assert.equal(typeof generatedOutput.files["out/opportunity/coloplast-speedicath-short-sample/index.html"], "string");
+  assert.equal(typeof generatedOutput.files["out/opportunity/mcdonalds-app-birthday-ice-cream/index.html"], "string");
   for (const record of registry.filter(record => record.publicationStatus === "withdrawn")) {
     assert.equal(generatedOutput.files[`out/opportunity/${record.slug}/index.html`], undefined);
   }
