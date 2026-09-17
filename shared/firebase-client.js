@@ -128,7 +128,6 @@ export function buildFirestoreHelpers(db, firestore) {
     runTransaction,
     serverTimestamp,
     setDoc,
-    writeBatch,
     where,
   } = firestore;
 
@@ -157,6 +156,10 @@ export function buildFirestoreHelpers(db, firestore) {
           throw error;
         }
         transaction.set(userRef, {
+          // Deployed rules read this flag directly, including for ordinary
+          // accounts. Fill only an absent flag; never reset a participant.
+          ...(!Object.hasOwn(existing.data() || {}, "referWinParticipant")
+            ? { referWinParticipant: false } : {}),
           ...(!existing.exists() ? {
             createdAt: serverTimestamp(),
             acceptedPrivacyPolicy: true,
@@ -361,26 +364,30 @@ export function buildFirestoreHelpers(db, firestore) {
     },
 
     async setAlertPreferences(userId, preferences = {}) {
+      const userRef = doc(db, "users", userId);
       const preferenceRef = doc(db, "users", userId, "alertPreferences", "main");
       const subscribed = preferences.competitionAlerts === true && preferences.marketingOptIn === true;
-      const batch = writeBatch(db);
-      batch.set(doc(db, "users", userId), {
-        alertsMarketingConsent: subscribed,
-        marketingConsent: subscribed,
-        marketingConsentUpdatedAt: serverTimestamp(),
-        updatedAt: serverTimestamp(),
-      }, { merge: true });
-      batch.set(
-        preferenceRef,
-        {
-          competitionAlerts: subscribed,
-          marketingOptIn: subscribed,
-          source: preferences.source || "competition-detail",
+      await runTransaction(db, async (transaction) => {
+        const existing = await transaction.get(userRef);
+        transaction.set(userRef, {
+          ...(!Object.hasOwn(existing.data() || {}, "referWinParticipant")
+            ? { referWinParticipant: false } : {}),
+          alertsMarketingConsent: subscribed,
+          marketingConsent: subscribed,
+          marketingConsentUpdatedAt: serverTimestamp(),
           updatedAt: serverTimestamp(),
-        },
-        { merge: true }
-      );
-      await batch.commit();
+        }, { merge: true });
+        transaction.set(
+          preferenceRef,
+          {
+            competitionAlerts: subscribed,
+            marketingOptIn: subscribed,
+            source: preferences.source || "competition-detail",
+            updatedAt: serverTimestamp(),
+          },
+          { merge: true }
+        );
+      });
     },
 
     async getAlertPreferences(userId) {

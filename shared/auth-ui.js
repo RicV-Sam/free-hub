@@ -505,6 +505,9 @@ async function handleSigninSuccess(user, provider, consent) {
     ...getCompetitionEventParams(competition),
   });
   document.dispatchEvent(new CustomEvent("freehub:signin-complete", { detail: { provider } }));
+  // All completion paths (popup, email link and resumed sign-in) close only
+  // after the essential profile and preference writes have succeeded.
+  closeSignupModal();
 
   if (state.pendingAction === "save" && competition?.id) {
     try {

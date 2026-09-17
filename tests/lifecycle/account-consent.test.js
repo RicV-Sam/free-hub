@@ -17,6 +17,7 @@ async function fixture(initial = {}) {
     for (const [ref, data] of writes) {
       const next = { ...records.get(ref), ...data };
       if (ref === userPath && (next.userId !== user.uid || next.acceptedPrivacyPolicy !== true)) throw Error('Documented owner/privacy rule denied write');
+      if (ref === userPath && !Object.hasOwn(next, 'referWinParticipant')) throw Error('Deployed campaign rule requires referWinParticipant');
     }
   };
   const apply = (ref, data) => records.set(ref, { ...records.get(ref), ...data });
@@ -53,6 +54,7 @@ test('returning sign-in preserves a previous opt-in and its timestamp', async ()
   assert.equal(f.records.get(userPath).alertsMarketingConsent, true);
   assert.equal(f.records.get(userPath).marketingConsentUpdatedAt, 'original');
   assert.equal(f.records.get(userPath).acceptedPrivacyPolicy, true);
+  assert.equal(f.records.get(userPath).referWinParticipant, false);
 });
 
 test('new account defaults off; sign-in itself never implies subscription', async () => {
@@ -109,6 +111,25 @@ test('auth hydration does not create an unaccepted profile or campaign records',
   const f = await fixture();
   assert.equal(await f.helpers.ensureClubProfile(user), null);
   assert.equal(f.records.size, 0);
+});
+
+test('ordinary new and legacy accounts get the required non-participant default', async () => {
+  for (const initial of [{}, { [userPath]: { alertsMarketingConsent: true } }]) {
+    const f = await fixture(initial);
+    await f.helpers.upsertUserProfile(user, { acceptedPrivacyPolicy: true });
+    assert.equal(f.records.get(userPath).referWinParticipant, false);
+    assert.equal(f.records.get(userPath).referWinTermsAccepted, undefined);
+    assert.equal(f.records.get(userPath).alertsMarketingConsent, initial[userPath]?.alertsMarketingConsent || false);
+  }
+});
+
+test('sign-in and email preference updates preserve existing campaign participation', async () => {
+  const f = await fixture({ [userPath]: { referWinParticipant: true, referWinTermsAccepted: true, referralCode: 'FHABCDE' } });
+  await f.helpers.upsertUserProfile(user);
+  await f.helpers.setAlertPreferences(user.uid, { competitionAlerts: true, marketingOptIn: true });
+  assert.equal(f.records.get(userPath).referWinParticipant, true);
+  assert.equal(f.records.get(userPath).referWinTermsAccepted, true);
+  assert.equal(f.records.get(userPath).referralCode, 'FHABCDE');
 });
 
 test('missing or unaccepted profile requires explicit privacy acceptance before any write', async () => {
