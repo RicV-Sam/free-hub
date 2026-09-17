@@ -121,7 +121,7 @@ const VOUCHER_DISCOVERY_RESOURCE_HOSTS = Object.freeze({
   "telkom-customer-referral-credit": "group.telkom.co.za",
 });
 const VOUCHER_DISCOVERY_RESOURCE_IDS = Object.freeze(Object.keys(VOUCHER_DISCOVERY_RESOURCE_HOSTS));
-const CSS_ASSET_VERSION = "20260917-home-spacing-v1";
+const CSS_ASSET_VERSION = "20260917-guide-cards-v1";
 const FREEHUB_REFER_WIN_CONFIG = {
   referWinCampaignEnabled: false,
   referWinLiveReady: false,
@@ -6948,17 +6948,21 @@ function renderHomepageValueSection() {
 
 function renderHomepageResourcesSection() {
   const guides = [
-    { title: "Learn a useful skill", text: "Find free learning options and check whether certificates or exams cost extra.", href: "/free-online-courses-south-africa/" },
-    { title: "Find children's stories", text: "Explore reading libraries and downloadable books for families and classrooms.", href: "/free-childrens-books-south-africa/" },
-    { title: "Understand sample offers", text: "Check delivery charges and the difference between a sample request and selection for product testing.", href: "/free-samples-south-africa/" },
-    { title: "Explore student resources", text: "Use our student guide to compare useful resources and their requirements.", href: "/student-freebies-discounts-south-africa/" },
+    { image: "learning", title: "Free online courses", text: "Compare learning options, entry requirements and any certificate or exam fees before you enrol.", action: "Explore courses", href: "/free-online-courses-south-africa/" },
+    { image: "stories", title: "Children’s books & stories", text: "Find picture books, audio stories and reading resources in South African languages.", action: "Find a story", href: "/free-childrens-books-south-africa/" },
+    { image: "samples", title: "Samples & product testing", text: "See how sample requests and product testing work, including delivery costs and selection rules.", action: "Check sample options", href: "/free-samples-south-africa/" },
+    { image: "students", title: "Student tools & discounts", text: "Explore software, study tools and student discounts, with eligibility and renewal costs explained.", action: "See student resources", href: "/student-freebies-discounts-south-africa/" },
   ];
   return `<section class="home-section" aria-labelledby="home-resources-title">
           <div class="home-section__header"><div><p class="section-kicker">Practical guides</p>
             <h2 class="home-section__title" id="home-resources-title">Useful beyond today</h2></div>
             <a class="home-section__link" href="/guides/">All guides</a></div>
           <div class="home-resource-grid">${guides.map((guide) => `<article>
-            <h3><a href="${guide.href}">${guide.title}</a></h3><p>${guide.text}</p>
+            <a class="home-resource-card" href="${guide.href}" aria-labelledby="home-guide-${guide.image}">
+              <img src="/assets/home-guides/${guide.image}-v1-480.webp" srcset="/assets/home-guides/${guide.image}-v1-480.webp 480w, /assets/home-guides/${guide.image}-v1-960.webp 960w" sizes="(max-width: 600px) 96px, (max-width: 1099px) calc((100vw - 6rem) / 2), 270px" width="480" height="320" alt="" loading="lazy" decoding="async">
+              <div class="home-resource-card__body"><h3 id="home-guide-${guide.image}">${escapeHtml(guide.title)}</h3><p>${escapeHtml(guide.text)}</p>
+              <span class="home-resource-card__action">${guide.action} <span aria-hidden="true">→</span></span></div>
+            </a>
           </article>`).join("\n")}</div>
         </section>`;
 }
