@@ -577,9 +577,9 @@ button {
 }
 
 .home-hero-guide {
-  align-self: stretch;
+  align-self: center;
   display: grid;
-  align-content: center;
+  align-content: start;
   gap: 0.8rem;
   padding: clamp(1rem, 2.5vw, 1.35rem);
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -652,6 +652,10 @@ button {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
+}
+
+.home-value-grid > :only-child {
+  grid-column: 1 / -1;
 }
 
 .home-value-item {
@@ -5052,7 +5056,7 @@ body {
   }
 
   .hero--home h1 {
-    font-size: 3.25rem;
+    font-size: 2.65rem;
   }
 
   .hero--collection.hero--modern,
@@ -5115,7 +5119,9 @@ body {
   }
 
   .hero--home h1 {
-    font-size: clamp(3.4rem, 4.4vw, 4.1rem);
+    max-width: 21ch;
+    font-size: clamp(2.65rem, 3.6vw, 3.25rem);
+    line-height: 1.08;
   }
 
   .competition-grid,

@@ -197,6 +197,8 @@ test.beforeEach(async ({ page }) => {
 });
 
 test("homepage navigation reaches canonical pillar routes", async ({ page }) => {
+  // Keep site navigation checks independent of the external cookie dialog.
+  await page.route("**/scripts.scriptwrapper.com/**", (route) => route.abort());
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Find free stuff, savings and competitions in South Africa");
   await expectCanonical(page, "/");
@@ -215,7 +217,7 @@ test("homepage navigation reaches canonical pillar routes", async ({ page }) => 
     ["event", "homepage_discovery_click", expect.objectContaining({ destination_path: "/free-stuff-south-africa/", placement: "start_here" })],
   ]));
 
-  await page.getByRole("navigation", { name: "Primary navigation" }).getByRole("link", { name: "Competitions" }).click();
+  await page.getByRole("navigation", { name: "Primary navigation" }).getByRole("link", { name: "Competitions", exact: true }).click();
   await expect(page).toHaveURL(/\/competitions\/$/);
   await expectCanonical(page, "/competitions/");
   await page.goto("/competitions/?utm_source=regression-test&filter=free");
