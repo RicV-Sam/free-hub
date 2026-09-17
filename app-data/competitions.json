@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-16",
+  "asOfDate": "2026-09-17",
   "count": 60,
   "competitions": [
     {
@@ -176,7 +176,7 @@
       "termsUrl": "https://campaigns.supersport.com/competitions/3584",
       "lastChecked": "2026-09-06",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "imana-superspar-polofields-potjie-dash-2026",

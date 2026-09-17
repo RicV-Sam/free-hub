@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-16",
-  "count": 18,
+  "asOfDate": "2026-09-17",
+  "count": 16,
   "counts": {
     "freeStuff": 16,
     "resources": 16,
     "opportunities": 0,
-    "offers": 2
+    "offers": 0
   },
   "items": [
     {
@@ -264,44 +264,6 @@
       ],
       "watchOut": "External application websites may use data. Initial loading and background apps may consume data. Registration does not guarantee employment or a place on a programme.",
       "lastChecked": "2026-09-09"
-    },
-    {
-      "id": "capitec-snappi-extra-15-percent",
-      "kind": "coupon",
-      "title": "Extra 15% off at Snappi with Capitec Live Better",
-      "provider": "Capitec",
-      "summary": "Capitec Live Better clients can use CAPITEC15 for an extra 15% off already discounted items at Snappi.",
-      "category": "banking-rewards",
-      "categoryLabel": "Banking & Rewards",
-      "officialUrl": "https://getsnappi.com/",
-      "termsUrl": "https://www.capitecbank.co.za/rewards/spend-better/snappi/",
-      "couponCode": "CAPITEC15",
-      "requirements": [
-        "Capitec says the code is limited to one voucher per person per month, applies to one sitewide purchase excluding liquor, and has no minimum spend. A Snappi account is required."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "lastChecked": "2026-09-09",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "akis-september-2026-personal-coupon",
-      "kind": "coupon",
-      "title": "10% off regular-price AKIS clothing in September",
-      "provider": "AKIS",
-      "summary": "Confirm your email to receive a personal 10% coupon for eligible regular-price clothing at AKIS. Sign into the account with the same email address to redeem it.",
-      "category": "baby-kids",
-      "categoryLabel": "Baby & Kids",
-      "officialUrl": "https://akis.co.za/september-coupon-terms/",
-      "termsUrl": "https://akis.co.za/september-coupon-terms/",
-      "requirements": [
-        "Valid 1–30 September 2026 until 23:59 SAST. Personal, non-transferable code issued after email confirmation; use an AKIS account with the same email. Reusable on eligible orders during September, with no minimum order or maximum monetary discount. Sale and promotional-price products, delivery and non-product charges are excluded. Cannot combine with another coupon. Freehub has verified the advertised terms, not redeemed the coupon."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2026-09-30",
-      "lastChecked": "2026-09-09",
-      "isAffiliate": false,
-      "isSponsored": false
     }
   ]
 }
