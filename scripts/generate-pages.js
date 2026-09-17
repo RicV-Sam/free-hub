@@ -1,4 +1,5 @@
 const fs = require("fs");
+const whatsappChannel = require("./lib/whatsapp-channel.js");
 const path = require("path");
 const shared = require("../shared/page-data.js");
 const opportunityData = require("../shared/opportunity-data.js");
@@ -253,6 +254,7 @@ const opportunityRouteRenderer = createOpportunityRouteRenderer({
   getExitPath: opportunityData.getOpportunityExitPath,
 });
 const TRUST_PAGE_DEFINITIONS = [
+  whatsappChannel.page,
   PARKS_GUIDE,
   {
     slug: STUDENT_GUIDE.slug,
@@ -847,6 +849,7 @@ const TRUST_PAGE_DEFINITIONS = [
       },
     ],
     links: [
+      { label: "Follow FreeHub’s free WhatsApp channel", href: "/whatsapp-channel/" },
       { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
       { label: "Purchase required competitions", href: "/purchase-required-competitions/" },
       { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
@@ -3152,7 +3155,7 @@ function renderSiteFooter(options = {}) {
               <a href="/competitions-ending-soon/">Ending soon</a>
               <a href="/purchase-required-competitions/">Purchase required</a>
               ${verticalLinksMarkup}
-              <a href="${escapeAttribute(WHATSAPP_CHANNEL_URL)}" target="_blank" rel="noopener noreferrer">WhatsApp channel</a>
+              <a href="/whatsapp-channel/">Free WhatsApp competition updates</a>
               <a href="${escapeAttribute(FACEBOOK_PAGE_URL)}" target="_blank" rel="noopener noreferrer">Facebook page</a>
               <a href="/brands/">Browse by brand</a>
             </nav>
@@ -8428,6 +8431,15 @@ function writeVideoPages(activeCompetitions = []) {
 }
 
 function renderTrustPage(page) {
+  if (page.slug === whatsappChannel.page.slug) {
+    return whatsappChannel.render({
+      url: WHATSAPP_CHANNEL_URL, escapeHtml,
+      stylesheet: getStylesheetHref("/"),
+      navigation: renderTopNavigation({}), footer: renderSiteFooter(),
+      trackingHead: renderGoogleTagManagerHead("{ page_type: 'whatsapp_channel' }") + renderMetaPixelHead(),
+      trackingBody: renderGoogleTagManagerNoScript() + renderMetaPixelNoScript(),
+    });
+  }
   if (page.slug === "about") {
     return renderAboutPage(page);
   }
