@@ -229,8 +229,8 @@
     {
       "route": "/club/",
       "file": "club/index.html",
-      "title": "Freehub Club | Save and Track South African Competitions",
-      "description": "Join Freehub Club to browse without Adsterra ads while signed in, save South African competitions and track what you entered or skipped.",
+      "title": "My Competitions | Free Account | Freehub",
+      "description": "Create a free account to save South African competitions, track your entries and choose optional competition emails.",
       "canonical": "https://freehub.co.za/club/",
       "robots": "index, follow, max-image-preview:large",
       "h1": "Save and track South African competitions",
@@ -240,11 +240,11 @@
     {
       "route": "/club/dashboard/",
       "file": "club/dashboard/index.html",
-      "title": "Freehub Club Dashboard | Saved Competitions",
-      "description": "View saved Freehub competitions, update statuses and copy your Club referral link.",
+      "title": "My Competitions | Freehub",
+      "description": "View saved Freehub competitions, update statuses and manage your email preferences.",
       "canonical": "https://freehub.co.za/club/dashboard/",
       "robots": "noindex, follow",
-      "h1": "Dashboard",
+      "h1": "My competitions",
       "schemaTypes": [],
       "inSitemap": false
     },

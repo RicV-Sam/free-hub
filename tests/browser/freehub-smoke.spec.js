@@ -404,6 +404,8 @@ test("a guest-to-member transition reloads into a clean ad-free document", async
 });
 
 test("provider sign-in resumes the requested competition action on an ad-free detail page", async ({ page }) => {
+  // Keep this auth regression independent of the external Journey consent banner.
+  await page.route("**/scripts.scriptwrapper.com/**", (route) => route.abort());
   await mockFirebaseAuth(page, {
     enabledAuthProviders: ["google"],
     providerSigninUser: MOCK_MEMBER,
@@ -414,7 +416,7 @@ test("provider sign-in resumes the requested competition action on an ad-free de
   await expect(page.locator('html[data-freehub-ad-state="guest"]')).toHaveCount(1);
 
   await page.locator('[data-auth-action="signin"]').first().click();
-  await expect(page.getByText(/Club benefit:.*no Adsterra ads/)).toBeVisible();
+  await expect(page.getByText(/Free and optional. Unsubscribe in your account anytime/)).toBeVisible();
   await page.getByLabel(/I have read and agree to the Privacy Policy/).check();
   await page.getByRole("button", { name: "Continue with Google" }).click();
 
@@ -1217,11 +1219,11 @@ test("unknown routes serve the generated 404 response", async ({ page }) => {
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, follow");
 });
 
-test("Club public and private pages remain usable without Firebase credentials", async ({ page }) => {
+test("Account public and private pages remain usable without Firebase credentials", async ({ page }) => {
   await page.goto("/club/");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Save and track South African competitions");
   await expectCanonical(page, "/club/");
-  await expect(page.getByRole("heading", { name: "No Adsterra ads while signed in" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Pick up where you left off" })).toBeVisible();
 
   await page.goto("/freehub-account-benefits/");
   await expect(page).toHaveURL(/\/club\/$/);
@@ -1229,7 +1231,7 @@ test("Club public and private pages remain usable without Firebase credentials",
 
   await page.goto("/club/dashboard/");
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, follow");
-  await expect(page.getByText(/Freehub Club sign-in is unavailable right now/)).toBeVisible();
+  await expect(page.getByText(/Freehub account sign-in is unavailable right now/)).toBeVisible();
   await expect(page.getByText(/local saves on this device/)).toBeVisible();
 
   await page.goto("/admin/referrals/");

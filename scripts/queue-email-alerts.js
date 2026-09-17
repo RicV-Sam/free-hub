@@ -207,8 +207,8 @@ function buildEmail(competitions) {
 
   return {
     subject,
-    html: `<p>Hi from Freehub,</p><p>We added ${competitions.length} new ${plural} you may want to check:</p><ul>${htmlItems}</ul><p>Freehub lists competitions only. Always confirm details on the official promoter source before entering.</p><p>You are receiving this because you signed in and opted into Freehub competition alerts.</p>`,
-    text: `Hi from Freehub,\n\nWe added ${competitions.length} new ${plural} you may want to check:\n\n${textItems}\n\nFreehub lists competitions only. Always confirm details on the official promoter source before entering.\n\nYou are receiving this because you signed in and opted into Freehub competition alerts.`,
+    html: `<p>Hi from Freehub,</p><p>We added ${competitions.length} new ${plural} you may want to check:</p><ul>${htmlItems}</ul><p>Freehub lists competitions only. Always confirm details on the official promoter source before entering.</p><p>You are receiving this because you signed in and opted into Freehub competition alerts.</p><p><a href="${CANONICAL_ORIGIN}/club/account/#email-preferences">Unsubscribe or manage email preferences</a> (sign in, untick email alerts and save).</p>`,
+    text: `Hi from Freehub,\n\nWe added ${competitions.length} new ${plural} you may want to check:\n\n${textItems}\n\nFreehub lists competitions only. Always confirm details on the official promoter source before entering.\n\nYou are receiving this because you signed in and opted into Freehub competition alerts.\n\nUnsubscribe or manage email preferences: ${CANONICAL_ORIGIN}/club/account/#email-preferences (sign in, untick email alerts and save).`,
   };
 }
 

@@ -3141,7 +3141,7 @@ function renderSiteFooter(options = {}) {
               <a href="/free-credit-report-south-africa/">Free credit report</a>${OFFERS_ENABLED ? '\n              <a href="/offers/">Coupons &amp; Deals</a>\n              <a href="/coupons/">Coupon codes</a>\n              <a href="/deals/">Deals</a>\n              <a href="/submit-an-offer/">Submit an offer</a>' : ""}
               <a href="/submit-a-competition/">Submit a competition</a>
               <a href="/report-a-competition/">Report a competition</a>
-              <a href="/club/">Freehub Club</a>
+              <a href="/club/">My competitions</a>
               <a href="/refer-and-win/">Refer &amp; Win</a>
             </nav>
           </div>
@@ -3336,7 +3336,7 @@ function renderTopNavigation(options = {}) {
     ...(OFFERS_ENABLED ? [{ key: "offers", label: "Coupons & Deals", href: "/offers/" }] : []),
     { key: "ending", label: "Ending soon", href: "/competitions-ending-soon/" },
     { key: "whatsapp", label: "WhatsApp", href: WHATSAPP_CHANNEL_URL, target: "_blank", rel: "noopener noreferrer" },
-    { key: "club", label: "Club", href: "/club/" },
+    { key: "club", label: "My competitions", href: "/club/" },
   ];
 
   return `<a class="skip-link" href="#main-content">Skip to content</a>
@@ -3362,7 +3362,7 @@ function renderTopNavigation(options = {}) {
             })
             .join("\n          ")}
         </nav>
-        <a class="site-topbar__account" href="/club/dashboard/" aria-label="Open Freehub Club account">
+        <a class="site-topbar__account" href="/club/dashboard/" aria-label="Open Freehub account">
           <span class="site-topbar__account-icon" aria-hidden="true">FH</span>
           <span>Account</span>
         </a>
@@ -6593,7 +6593,7 @@ function renderGlobalAuthPanel(options = {}) {
     id = "global",
     compact = false,
     title = "Get Freehub email alerts",
-    text = "Sign in with Google or an email link to save alert preferences. Browsing and entry links stay open.",
+    text = "Get South African competitions, prizes and closing dates by email. Free and optional; unsubscribe in your account anytime.",
   } = options;
   const className = compact
     ? "competition-auth competition-auth--global competition-auth--compact"
@@ -6964,20 +6964,20 @@ function renderHomepageResourcesSection() {
 }
 
 function renderHomepageClubSection() {
-  return `<section class="home-cta home-cta--club" aria-label="Freehub Club and alerts">
+  return `<section class="home-cta home-cta--club" aria-label="My competitions and alerts">
           <div>
-            <p class="section-kicker">Freehub Club</p>
+            <p class="section-kicker">My competitions</p>
             <h2 class="home-cta__title">Save competitions and get reminders</h2>
-            <p class="home-section__intro">Create a free account to save listings, track what you entered or skipped, and keep useful competition alerts in one place. Signed-in Club members also browse without Adsterra ads.</p>
+            <p class="home-section__intro">Create a free account to save listings, track what you entered or skipped, and keep useful competition alerts in one place. Email competition alerts are optional.</p>
           </div>
           <div class="home-cta__actions">
-            <a class="btn btn--primary" href="/club/">Open Club</a>
+            <a class="btn btn--primary" href="/club/">My competitions</a>
             <a class="btn btn--secondary" href="/competitions-ending-soon/">See deadlines</a>
           </div>
           ${renderGlobalAuthPanel({
             id: "home-club",
             title: "Get email alerts",
-            text: "Optional Freehub account: sign in with Google or an email link to save alert preferences.",
+            text: "Choose free competition emails when you sign in. You can unsubscribe in your account anytime.",
           })}
         </section>`;
 }
@@ -7846,7 +7846,7 @@ function renderAboutPage(page) {
           { label: "Explore Free Stuff", href: "/free-stuff-south-africa/", className: "btn--secondary" },
           ...(OFFERS_ENABLED ? [{ label: "Coupons & Deals", href: "/offers/", className: "btn--secondary" }] : []),
           { label: "Browse Live Competitions", href: "/competitions/", className: "btn--primary", attributes: 'data-about-event="about_browse_competitions_click" data-about-placement="hero"' },
-          { label: "Join Freehub Club", href: "/club/", className: "btn--secondary", attributes: 'data-about-event="about_join_club_click" data-about-placement="hero"' },
+          { label: "Create a Freehub account", href: "/club/", className: "btn--secondary", attributes: 'data-about-event="about_join_club_click" data-about-placement="hero"' },
           { label: "Follow on WhatsApp", href: WHATSAPP_CHANNEL_URL, className: "btn--whatsapp", target: "_blank", rel: "noopener noreferrer", attributes: 'data-about-event="about_whatsapp_click" data-about-placement="hero"' },
         ],
         trustItems: ["Official source links", "Clear entry-cost labels", "Free to browse", "Freehub does not collect entries"],
@@ -7877,7 +7877,7 @@ function renderAboutPage(page) {
             <li><span class="about-step__number" aria-hidden="true">01</span><div><h3>Discover</h3><p>Explore free resources, rewards and competitions, plus published coupons and deals from named providers.</p></div></li>
             <li><span class="about-step__number" aria-hidden="true">02</span><div><h3>Compare</h3><p>Check what you receive or could win, who qualifies, any deadline, and whether a purchase, account or other cost is involved.</p></div></li>
             <li><span class="about-step__number" aria-hidden="true">03</span><div><h3>Continue to the provider</h3><p>Continue to the official website, app, WhatsApp number, USSD code, social page or other route named by the promoter.</p></div></li>
-            <li><span class="about-step__number" aria-hidden="true">04</span><div><h3>Save and track</h3><p>For competitions, Freehub Club members can save listings and mark them as interested, entered or skipped.</p></div></li>
+            <li><span class="about-step__number" aria-hidden="true">04</span><div><h3>Save and track</h3><p>For competitions, signed-in users can save listings and mark them as interested, entered or skipped.</p></div></li>
           </ol>
         </section>
 
@@ -7900,19 +7900,19 @@ function renderAboutPage(page) {
 
         <section class="about-club about-section" aria-labelledby="about-club-heading">
           <div class="about-club__copy">
-            <p class="section-kicker">Freehub Club</p>
+            <p class="section-kicker">My competitions</p>
             <h2 id="about-club-heading">Enter more competitions without losing track</h2>
-            <p>Freehub Club is a free account for regular competition hunters. Use Google or an email sign-in link, so Freehub does not need to store a password.</p>
+            <p>Your free account keeps your competition shortlist and entry status together. Use Google or an email sign-in link, so Freehub does not need to store a password.</p>
             <div class="about-actions">
-              <a class="btn btn--primary" href="/club/" data-about-event="about_join_club_click" data-about-placement="club">Join Freehub Club Free</a>
-              <a class="btn btn--secondary" href="/club/">See all Club benefits</a>
+              <a class="btn btn--primary" href="/club/" data-about-event="about_join_club_click" data-about-placement="club">Create a free account</a>
+              <a class="btn btn--secondary" href="/club/">See all account features</a>
             </div>
           </div>
           <ul class="about-benefits">
             <li><strong>Save competitions</strong><span>Keep promising listings attached to your account.</span></li>
             <li><strong>Track your progress</strong><span>Mark listings as interested, entered or skipped.</span></li>
             <li><strong>Choose your alerts</strong><span>Keep optional alert preferences with your account.</span></li>
-            <li><strong>Browse without Adsterra ads</strong><span>Adsterra advertising formats are not loaded while you are signed in.</span></li>
+            <li><strong>Use across devices</strong><span>Sign in to pick up your competition shortlist wherever you browse.</span></li>
           </ul>
         </section>
 
@@ -7958,20 +7958,20 @@ function renderAboutPage(page) {
             <p class="section-kicker">Questions about Freehub</p>
             <h2 id="about-faq-heading">What first-time visitors usually want to know</h2>
           </div>
-          <details class="trust-faq__item"><summary>Is Freehub free to use?</summary><p>Yes. Anyone can browse competition listings and open official promoter sources without creating an account. Freehub Club is also free.</p></details>
+          <details class="trust-faq__item"><summary>Is Freehub free to use?</summary><p>Yes. Anyone can browse competition listings and open official promoter sources without creating an account. My competitions is also free.</p></details>
           <details class="trust-faq__item"><summary>Does Freehub run the competitions it lists?</summary><p>No. Freehub organises public competition information and links to promoter sources. The named promoter controls entries, winner selection and prize fulfilment.</p></details>
           <details class="trust-faq__item"><summary>What does a checked or verified listing mean?</summary><p>It means Freehub found enough public source information to review key details such as the promoter, prize, closing date, entry route and costs. It is not a guarantee, and the promoter's current terms remain final.</p></details>
-          <details class="trust-faq__item"><summary>Do I need a Club account to enter?</summary><p>No. Entries happen through official promoter routes. Club is an optional way to save listings, track your progress and keep alert preferences.</p></details>
+          <details class="trust-faq__item"><summary>Do I need a Freehub account to enter?</summary><p>No. Entries happen through official promoter routes. A free account is an optional way to save listings, track your progress and keep alert preferences.</p></details>
           <details class="trust-faq__item"><summary>How can I tell Freehub about a problem?</summary><p>Use the report page for broken links, expired listings, suspicious promotions or corrections. Include the Freehub page and official source URL where possible.</p></details>
         </section>
 
         <section class="home-cta about-final-cta" aria-labelledby="about-final-heading">
           <p class="section-kicker">Ready when you are</p>
           <h2 id="about-final-heading">Find a competition worth checking today</h2>
-          <p>Browse current listings, join the free Club to keep track, or follow the WhatsApp channel for Freehub updates.</p>
+          <p>Browse current listings, join a free account to keep track, or follow the WhatsApp channel for Freehub updates.</p>
           <div class="home-cta__actions">
             <a class="btn btn--primary" href="/competitions/" data-about-event="about_browse_competitions_click" data-about-placement="final">Browse Live Competitions</a>
-            <a class="btn btn--secondary" href="/club/" data-about-event="about_join_club_click" data-about-placement="final">Join Freehub Club</a>
+            <a class="btn btn--secondary" href="/club/" data-about-event="about_join_club_click" data-about-placement="final">Create a Freehub account</a>
             <a class="btn btn--whatsapp" href="${escapeAttribute(WHATSAPP_CHANNEL_URL)}" target="_blank" rel="noopener noreferrer" data-about-event="about_whatsapp_click" data-about-placement="final">Follow on WhatsApp</a>
           </div>
         </section>
@@ -7994,7 +7994,7 @@ function renderLegacyAccountBenefitsRedirect() {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Freehub Club Account Benefits</title>
+    <title>Freehub Account Benefits</title>
     <meta name="robots" content="noindex, follow" />
     <link rel="canonical" href="${escapeAttribute(destination)}" />
     <meta http-equiv="refresh" content="0; url=/club/" />
@@ -8002,8 +8002,8 @@ function renderLegacyAccountBenefitsRedirect() {
   </head>
   <body>
     <main>
-      <h1>Freehub Club account benefits have moved</h1>
-      <p>Continue to <a href="/club/">Freehub Club</a> for current account benefits and sign-in options.</p>
+      <h1>Freehub account benefits have moved</h1>
+      <p>Continue to <a href="/club/">My competitions</a> for current account benefits and sign-in options.</p>
     </main>
   </body>
 </html>
@@ -8996,13 +8996,13 @@ function renderMonthlyGuideTable(competitions) {
 
 function renderClubLandingPage() {
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/club/`;
-  const title = "Freehub Club | Save and Track South African Competitions";
+  const title = "My Competitions | Free Account | Freehub";
   const description =
-    "Join Freehub Club to browse without Adsterra ads while signed in, save South African competitions and track what you entered or skipped.";
+    "Create a free account to save South African competitions, track your entries and choose optional competition emails.";
   const faqItems = [
     {
-      question: "Is Freehub Club free?",
-      answer: "Yes. Freehub Club is a free account feature for saving and tracking competition listings on Freehub.",
+      question: "Is My competitions free?",
+      answer: "Yes. My competitions is a free account feature for saving and tracking competition listings on Freehub.",
     },
     {
       question: "Does Freehub enter competitions for me?",
@@ -9010,21 +9010,21 @@ function renderClubLandingPage() {
         "No. Freehub helps you organise listings, but entries still happen on the official promoter website or entry channel.",
     },
     {
-      question: "Do signed-in Club members see Adsterra ads?",
+      question: "Does creating an account subscribe me to emails?",
       answer:
-        "No. After Freehub confirms that you are signed in, it does not load Adsterra Native Banner, Popunder or Social Bar formats. Freehub editorial, official-source and clearly identified house or partner links may still appear.",
+        "No. Email alerts are optional. Choose them when signing in or in your account. You can turn them off in your account at any time.",
     },
     {
       question: "What happened to the first Refer and Win campaign?",
       answer:
-        "The first Freehub Refer and Win campaign ended on 31 July 2026. Sign in to Freehub Club or follow the WhatsApp channel for future campaign announcements.",
+        "The first Freehub Refer and Win campaign ended on 31 July 2026. Sign in to My competitions or follow the WhatsApp channel for future campaign announcements.",
     },
   ];
   const faqStructuredData = buildTrustPageFaqStructuredData(faqItems);
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "Freehub Club",
+    name: "My competitions",
     description,
     url: canonicalUrl,
     inLanguage: "en-ZA",
@@ -9047,26 +9047,26 @@ function renderClubLandingPage() {
     body: `
       ${renderModernHero({
         className: "hero--club hero--with-preview",
-        eyebrow: "Freehub Club",
+        eyebrow: "My competitions",
         heading: "Save and track South African competitions",
         intro:
-          "Create a free Freehub Club account to browse without Adsterra ads while signed in, keep useful competitions together, and mark what you entered.",
+          "Keep competitions you want to enter together, track your entries and choose free email alerts. Your shortlist, ready whenever you return.",
         actions: [
-          { label: "Continue with Google", href: "/club/dashboard/", className: "btn--primary" },
+          { label: "Open My competitions", href: "/club/dashboard/", className: "btn--primary" },
           { label: "Browse Competitions", href: "/competitions/", className: "btn--secondary" },
         ],
-        trustItems: ["Free account", "No Adsterra ads while signed in", "Official source links", "Optional alerts"],
+        trustItems: ["Free account", "Save and track entries", "Official source links", "Optional emails"],
         previewMarkup: renderClubPreviewPanel(),
       })}
       <main id="main-content" class="main-content club-page">
-        <section class="club-section club-section--split" aria-label="Freehub Club benefits">
+        <section class="club-section club-section--split" aria-label="My competitions benefits">
           <article>
-            <p class="section-kicker">What Club does</p>
+            <p class="section-kicker">Your competition shortlist</p>
             <h2>Keep your competition hunting organised</h2>
-            <p>Freehub Club gives regular visitors a simple place to save listings, keep track of what they still want to enter, and come back before closing dates pass.</p>
+            <p>My competitions gives regular visitors a simple place to save listings, keep track of what they still want to enter, and come back before closing dates pass.</p>
           </article>
           <div class="club-feature-grid">
-            <article class="club-feature"><h3>No Adsterra ads while signed in</h3><p>Adsterra advertising formats are not loaded after Freehub confirms your signed-in Club account.</p></article>
+            <article class="club-feature"><h3>Pick up where you left off</h3><p>Sign in to keep your competition shortlist available across devices.</p></article>
             <article class="club-feature"><h3>Save competitions</h3><p>Keep promising listings in one account instead of relying on screenshots, browser history or memory.</p></article>
             <article class="club-feature"><h3>Track your status</h3><p>Mark saved competitions as interested, entered or skipped so your dashboard stays useful.</p></article>
             <article class="club-feature"><h3>Choose your alerts</h3><p>Competition alerts and occasional Freehub updates stay optional and can be kept with your account.</p></article>
@@ -9075,19 +9075,19 @@ function renderClubLandingPage() {
           </div>
         </section>
 
-        <section class="club-section club-section--notice" aria-label="Refer and Win status">
+        <details class="club-section club-collapsible" aria-label="Refer and Win status"><summary>Past Refer &amp; Win campaign</summary>
           <div>
             <p class="section-kicker">Campaign update</p>
             <h2>The first Refer &amp; Win campaign has ended</h2>
-            <p>The first campaign closed at 23:59 SAST on 31 July 2026. Sign in to Freehub Club or follow the WhatsApp channel for future campaign announcements.</p>
+            <p>The first campaign closed at 23:59 SAST on 31 July 2026. Sign in to My competitions or follow the WhatsApp channel for future campaign announcements.</p>
           </div>
           <div class="club-section__actions">
             <a class="btn btn--primary" href="/refer-and-win/">Learn about Refer &amp; Win</a>
             <a class="btn btn--secondary" href="/refer-and-win/terms/">Campaign rules</a>
-            <a class="btn btn--secondary" href="/club/dashboard/">Open Club dashboard</a>
+            <a class="btn btn--secondary" href="/club/dashboard/">Open My competitions</a>
             <a class="btn btn--whatsapp" href="${escapeAttribute(WHATSAPP_CHANNEL_URL)}" target="_blank" rel="noopener noreferrer">Follow on WhatsApp</a>
           </div>
-        </section>
+        </details>
 
         <section class="club-section club-section--split" aria-label="Freehub account and privacy details">
           <article>
@@ -9102,11 +9102,11 @@ function renderClubLandingPage() {
           </article>
         </section>
 
-        <section class="trust-faq" aria-label="Freehub Club FAQ">
+        <section class="trust-faq" aria-label="My competitions FAQ">
           <div class="home-section__header">
             <div>
               <p class="section-kicker">FAQ</p>
-              <h2 class="home-section__title">Freehub Club questions</h2>
+              <h2 class="home-section__title">Account questions</h2>
             </div>
           </div>
           ${faqItems
@@ -9122,50 +9122,80 @@ function renderClubLandingPage() {
   });
 }
 
+function renderClubEmailPreferences() {
+  return `<section id="email-preferences" class="club-saved-panel club-email-preferences" data-club-email-preferences hidden aria-labelledby="clubEmailTitle">
+    <p class="section-kicker">Your choice</p>
+    <h2 id="clubEmailTitle">Get competitions in your inbox</h2>
+    <p>Discover South African competitions, prizes, closing dates and links to enter.</p>
+    <p data-club-email-state aria-live="polite">Loading your email preference...</p>
+    <label class="club-checkbox-row"><input type="checkbox" data-club-email-optin disabled /><span>Yes, email me competition alerts and occasional Freehub updates.</span></label>
+    <p class="club-status">Free and optional. To unsubscribe, untick the box and save. Your account and saved competitions stay available.</p>
+    <button class="btn btn--primary" type="button" data-club-action="save-email-preferences" disabled>Save email preference</button>
+    <p data-club-email-status role="status"></p>
+  </section>`;
+}
+
 function renderClubDashboardPage(activeCompetitions = []) {
   const dashboardCompetitions = getClubDashboardCompetitions(activeCompetitions);
 
   return renderClubShell({
-    title: "Freehub Club Dashboard | Saved Competitions",
-    description: "View saved Freehub competitions, update statuses and copy your Club referral link.",
+    title: "My Competitions | Freehub",
+    description: "View saved Freehub competitions, update statuses and manage your email preferences.",
     canonicalUrl: `${shared.CANONICAL_ORIGIN}/club/dashboard/`,
     robots: "noindex, follow",
     pageType: "club_dashboard",
     body: `
       <script>window.FREEHUB_CLUB_COMPETITIONS = ${escapeScript(JSON.stringify(dashboardCompetitions))};</script>
       <main id="main-content" class="main-content club-page club-dashboard" data-club-page="dashboard">
-        <section class="club-app-shell" aria-label="Freehub Club dashboard">
+        <section class="club-app-shell" aria-label="My competitions dashboard">
           <div class="club-app-header">
             <div>
-              <p class="section-kicker">Freehub Club</p>
-              <h1>Dashboard</h1>
-              <p data-club-welcome>Sign in with Google to keep your saved competitions synced to your Freehub Club account.</p>
+              <p class="section-kicker">Your free account</p>
+              <h1>My competitions</h1>
+              <p data-club-welcome>Save competitions on this device, or sign in to keep your shortlist across devices. Email alerts are your choice.</p>
             </div>
             <div class="club-app-actions">
-              <button class="btn btn--primary" type="button" data-club-action="signin">Continue with Google</button>
+              <button class="btn btn--primary" type="button" data-club-action="signin">Sign in / Create account</button>
               <button class="btn btn--secondary" type="button" data-club-action="signout" hidden>Sign out</button>
             </div>
           </div>
-          <section class="club-referral-card" data-club-referral hidden>
-            <div>
-              <p class="section-kicker">Referral link</p>
-              <h2>Your Freehub Club link</h2>
-              <p>The first Refer &amp; Win campaign ended on 31 July 2026. Referral records remain available for review, but no new referrals count toward that closed campaign.</p>
+          <nav class="club-task-nav" aria-label="Account navigation">
+            <a href="/club/dashboard/">My competitions</a>
+            <a href="/club/account/#email-preferences">Email preferences</a>
+            <a href="/club/account/">My account</a>
+          </nav>
+          <p class="club-status" data-club-status-message role="status"></p>
+          <details class="club-saved-panel club-collapsible" aria-label="Saved competitions" open>
+            <summary class="club-panel-header">
+              <div>
+                <h2>Tracked competitions</h2>
+                <p data-club-saved-summary>Saved competitions from this browser or your Freehub account will appear here.</p>
+              </div>
+              <span class="club-panel-header__toggle"><span data-open-label>Open</span><span data-close-label>Close</span></span>
+            </summary>
+            <div class="club-panel-actions">
+              <button class="btn btn--secondary" type="button" data-club-action="clear-local">Clear local saves</button>
             </div>
-            <div class="club-copy-row">
-              <input type="text" readonly data-club-referral-link aria-label="Your Freehub Club referral link" />
-              <button class="btn btn--secondary" type="button" data-club-action="copy-referral">Copy</button>
-              <button class="btn btn--secondary" type="button" data-club-action="share-referral">Share</button>
-              <a class="btn btn--secondary" href="/refer-and-win/">Refer &amp; Win</a>
-              <a class="btn btn--secondary" href="/refer-and-win/terms/">Rules</a>
+            <div class="club-saved-list" data-club-saved-list></div>
+          </details>
+          <details class="club-saved-panel club-collapsible" aria-label="All active competitions">
+            <summary class="club-panel-header">
+              <div>
+                <h2>All active competitions</h2>
+                <p data-club-all-summary>Listed by nearest closing date so you can work through entries before they expire.</p>
+              </div>
+              <span class="club-panel-header__toggle"><span data-open-label>Open</span><span data-close-label>Close</span></span>
+            </summary>
+            <div class="club-panel-actions">
+              <a class="btn btn--secondary" href="/competitions/">Public listings</a>
             </div>
-            <p class="club-status">Approved referrals are confirmed by admin review after sign-ups are checked.</p>
-            <p class="club-status" data-club-referral-status aria-live="polite"></p>
-          </section>
-          <section class="club-saved-panel club-tools" aria-label="Freehub member tools" data-club-tools>
+            <div class="club-all-list" data-club-all-list></div>
+          </details>
+          ${renderClubEmailPreferences()}
+          <details class="club-saved-panel club-tools club-collapsible" aria-label="Competition tools" data-club-tools><summary>Extra tools: entry costs, prize messages and notes</summary>
             <div class="club-panel-header club-tools__header">
               <div>
-                <h2>Member tools</h2>
+                <h2>Competition tools</h2>
                 <p>Quick utilities for tracking entries, checking prize messages and keeping competition admin tidy.</p>
               </div>
             </div>
@@ -9229,35 +9259,25 @@ function renderClubDashboardPage(activeCompetitions = []) {
               <div class="club-tool-list club-proof-list" data-proof-vault-list></div>
               <p class="club-status" data-proof-status aria-live="polite"></p>
             </article>
-          </section>
-          <details class="club-saved-panel club-collapsible" aria-label="Saved competitions" open>
-            <summary class="club-panel-header">
-              <div>
-                <h2>Tracked competitions</h2>
-                <p data-club-saved-summary>Saved competitions from this browser or your Freehub Club account will appear here.</p>
-              </div>
-              <span class="club-panel-header__toggle"><span data-open-label>Open</span><span data-close-label>Close</span></span>
-            </summary>
-            <div class="club-panel-actions">
-              <button class="btn btn--secondary" type="button" data-club-action="clear-local">Clear local saves</button>
-            </div>
-            <div class="club-saved-list" data-club-saved-list></div>
           </details>
-          <details class="club-saved-panel club-collapsible" aria-label="All active competitions">
-            <summary class="club-panel-header">
-              <div>
-                <h2>All active competitions</h2>
-                <p data-club-all-summary>Listed by nearest closing date so members can work through entries before they expire.</p>
-              </div>
-              <span class="club-panel-header__toggle"><span data-open-label>Open</span><span data-close-label>Close</span></span>
-            </summary>
-            <div class="club-panel-actions">
-              <a class="btn btn--secondary" href="/competitions/">Public listings</a>
+          <details class="club-saved-panel club-collapsible" data-club-referral hidden><summary>Referral link and past campaign</summary>
+            <div>
+              <p class="section-kicker">Referral link</p>
+              <h2>Your My competitions link</h2>
+              <p>The first Refer &amp; Win campaign ended on 31 July 2026. Referral records remain available for review, but no new referrals count toward that closed campaign.</p>
             </div>
-            <div class="club-all-list" data-club-all-list></div>
+            <div class="club-copy-row">
+              <input type="text" readonly data-club-referral-link aria-label="Your My competitions referral link" />
+              <button class="btn btn--secondary" type="button" data-club-action="copy-referral">Copy</button>
+              <button class="btn btn--secondary" type="button" data-club-action="share-referral">Share</button>
+              <a class="btn btn--secondary" href="/refer-and-win/">Refer &amp; Win</a>
+              <a class="btn btn--secondary" href="/refer-and-win/terms/">Rules</a>
+            </div>
+            <p class="club-status">Approved referrals are confirmed by admin review after sign-ups are checked.</p>
+            <p class="club-status" data-club-referral-status aria-live="polite"></p>
           </details>
           <section class="club-section club-section--notice">
-            <div><h2>Account settings</h2><p>Check your email, member details, saved count and Club consent records.</p></div>
+            <div><h2>Account settings</h2><p>Manage your email subscription and check your account details.</p></div>
             <a class="btn btn--primary" href="/club/account/">Your account details</a>
           </section>
         </section>
@@ -9288,55 +9308,62 @@ function getClubDashboardCompetitions(activeCompetitions = []) {
 
 function renderClubAccountPage() {
   return renderClubShell({
-    title: "Freehub Club Account | Profile and Referral Link",
-    description: "View your Freehub Club account details, referral code and saved competition count.",
+    title: "My Account | Email Preferences | Freehub",
+    description: "Manage your email preferences, profile and saved competitions.",
     canonicalUrl: `${shared.CANONICAL_ORIGIN}/club/account/`,
     robots: "noindex, follow",
     pageType: "club_account",
     body: `
       <main id="main-content" class="main-content club-page club-account" data-club-page="account">
-        <section class="club-app-shell" aria-label="Freehub Club account">
+        <section class="club-app-shell" aria-label="Freehub account">
           <div class="club-app-header">
             <div>
-              <p class="section-kicker">Freehub Club</p>
+              <p class="section-kicker">My competitions</p>
               <h1>Account</h1>
-              <p data-club-welcome>Sign in with Google to view your Freehub Club account.</p>
+              <p data-club-welcome>Sign in to see your account details and manage your email preferences.</p>
             </div>
             <div class="club-app-actions">
               <a class="club-back-link" href="/club/dashboard/">Back to dashboard</a>
-              <button class="btn btn--primary" type="button" data-club-action="signin">Continue with Google</button>
+              <button class="btn btn--primary" type="button" data-club-action="signin">Sign in / Create account</button>
               <button class="btn btn--secondary" type="button" data-club-action="signout" hidden>Sign out</button>
             </div>
           </div>
+          <nav class="club-task-nav" aria-label="Account navigation">
+            <a href="/club/dashboard/">My competitions</a>
+            <a href="/club/account/#email-preferences">Email preferences</a>
+            <a href="/club/account/">My account</a>
+          </nav>
+          <p class="club-status" data-club-status-message role="status"></p>
+          ${renderClubEmailPreferences()}
           <section class="club-account-grid" data-club-account>
             <article class="club-account-card">
-              <p class="section-kicker">Profile</p>
+              <h2>Account details</h2>
               <dl class="club-definition-list">
                 <div><dt>Name</dt><dd data-club-field="displayName">Not signed in</dd></div>
                 <div><dt>Email</dt><dd data-club-field="email">Not signed in</dd></div>
-                <div><dt>Member since</dt><dd data-club-field="createdAt">Not available</dd></div>
+                <div><dt>Account created</dt><dd data-club-field="createdAt">Not available</dd></div>
                 <div><dt>Saved competitions</dt><dd data-club-field="savedCount">0</dd></div>
               </dl>
             </article>
-            <article class="club-account-card">
-              <p class="section-kicker">Referral</p>
+            <details class="club-account-card club-collapsible" data-club-referral hidden>
+              <summary>Referral records</summary>
               <dl class="club-definition-list">
                 <div><dt>Code</dt><dd data-club-field="referralCode">Not available</dd></div>
-                <div><dt>Link</dt><dd><input type="text" readonly data-club-referral-link aria-label="Your Freehub Club referral link" /></dd></div>
+                <div><dt>Link</dt><dd><input type="text" readonly data-club-referral-link aria-label="Your My competitions referral link" /></dd></div>
                 <div><dt>Refer &amp; Win terms</dt><dd data-club-field="referWinTermsAccepted">Not accepted</dd></div>
                 <div><dt>Refer &amp; Win mobile</dt><dd data-club-field="mobileNumberMasked">Not provided</dd></div>
-                <div><dt>Marketing consent</dt><dd data-club-field="marketingConsent">Not opted in</dd></div>
+
               </dl>
               <button class="btn btn--secondary" type="button" data-club-action="copy-referral">Copy referral link</button>
               <p class="club-status" data-club-referral-status aria-live="polite"></p>
-            </article>
+            </details>
           </section>
-          <section class="club-section club-refer-participation" aria-label="Refer and Win participation">
+          ${FREEHUB_REFER_WIN_CONFIG.referWinCampaignEnabled ? `          <section class="club-section club-refer-participation" aria-label="Refer and Win participation">
             <div class="club-section--split">
               <div>
                 <p class="section-kicker">Refer &amp; Win first campaign</p>
                 <h2>Join the R250 airtime referral campaign</h2>
-                <p>Freehub Club remains free. A South African mobile number is only required if you want to participate in Refer &amp; Win because airtime fulfilment needs a valid number.</p>
+                <p>My competitions remains free. A South African mobile number is only required if you want to participate in Refer &amp; Win because airtime fulfilment needs a valid number.</p>
                 <dl class="club-definition-list club-readiness-list">
                   <div><dt>Participation</dt><dd data-club-field="referWinParticipant">Not joined</dd></div>
                   <div><dt>Prize</dt><dd>${escapeHtml(FREEHUB_REFER_WIN_CONFIG.monthlyPrizeLabel)}</dd></div>
@@ -9381,7 +9408,12 @@ function renderClubAccountPage() {
                 </div>
               </form>
             </div>
-          </section>
+          </section>` : `
+          <details class="club-saved-panel club-collapsible">
+            <summary>Past Refer &amp; Win campaign</summary>
+            <p>The first campaign ended on 31 July 2026. Entries are closed. Your existing participation records are retained.</p>
+            <a href="/refer-and-win/">Campaign information</a> &middot; <a href="/refer-and-win/terms/">Campaign rules</a>
+          </details>`}
         </section>
       </main>`,
   });
@@ -9413,7 +9445,7 @@ function renderReferralAdminPage() {
             <div>
               <p class="section-kicker">Private admin</p>
               <h1>Referral review</h1>
-              <p>Manual review for Freehub Club referral attribution. Refer &amp; Win is live from 18 June 2026 to 31 July 2026, but admin approval is still required before any referral counts.</p>
+              <p>Manual review for My competitions referral attribution. Refer &amp; Win is live from 18 June 2026 to 31 July 2026, but admin approval is still required before any referral counts.</p>
             </div>
             <div class="club-app-actions">
               <a class="club-back-link" href="/club/dashboard/">Back to dashboard</a>
@@ -9507,7 +9539,7 @@ function renderReferralAdminPage() {
               <div class="admin-panel__header">
                 <p class="section-kicker">Low-friction growth</p>
                 <h2>Public quick referral leads</h2>
-                <p>These records are created when a visitor enters a WhatsApp number or email to get a share link without full Club registration. They support traffic attribution, but prize eligibility still needs review.</p>
+                <p>These records are created when a visitor enters a WhatsApp number or email to get a share link without a full account. They support traffic attribution, but prize eligibility still needs review.</p>
               </div>
               <div class="admin-referral-list" data-public-referral-lead-list></div>
             </section>
@@ -9526,7 +9558,7 @@ function renderReferAndWinPage() {
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/refer-and-win/`;
   const title = "Refer Friends and Win R250 Airtime | Freehub Refer & Win";
   const description =
-    "Join the first Freehub Refer & Win campaign from 18 June to 31 July 2026. Freehub Club members can share a referral link and stand a chance to win R250 airtime after approved referrals are reviewed.";
+    "Join the first Freehub Refer & Win campaign from 18 June to 31 July 2026. Signed-in users can share a referral link and stand a chance to win R250 airtime after approved referrals are reviewed.";
   const faqItems = [
     {
       question: "Is Refer & Win live now?",
@@ -9534,13 +9566,13 @@ function renderReferAndWinPage() {
         "Yes. The first Freehub Refer & Win campaign runs from 18 June 2026 to 31 July 2026, ending at 23:59 SAST on 31 July 2026. It is free to enter, no purchase is required, and referrals only count after manual review.",
     },
     {
-      question: "How do I join Freehub Club?",
-      answer: "Join through the Freehub Club page using Google sign-in. Club membership is free, and the quick referral link on this page is available if you want to share before creating a full account.",
+      question: "How do I join My competitions?",
+      answer: "Join through the My competitions page using Google sign-in. An account is free, and the quick referral link on this page is available if you want to share before creating a full account.",
     },
     {
       question: "How do I get a referral link?",
       answer:
-        "Use the quick referral form on this page with a WhatsApp number or email, or sign into Freehub Club and use the referral link in your Club dashboard.",
+        "Use the quick referral form on this page with a WhatsApp number or email, or sign into My competitions and use the referral link in My competitions.",
     },
     {
       question: "What is the first campaign prize?",
@@ -9574,7 +9606,7 @@ function renderReferAndWinPage() {
     {
       question: "Do I have to accept marketing messages?",
       answer:
-        "No. Marketing consent is optional and separate from Freehub Club and the Refer & Win campaign.",
+        "No. Marketing consent is optional and separate from My competitions and the Refer & Win campaign.",
     },
     {
       question: "Where can I read the rules?",
@@ -9610,11 +9642,11 @@ function renderReferAndWinPage() {
         eyebrow: "Freehub Refer & Win",
         heading: "Refer friends. Stand a chance to win R250 airtime.",
         intro:
-          "Freehub Refer & Win is live for its first campaign from 18 June 2026 to 31 July 2026. Freehub Club members in South Africa can opt in, share their personal referral link, and compete for a R250 airtime prize based on approved referrals.",
+          "Freehub Refer & Win is live for its first campaign from 18 June 2026 to 31 July 2026. Signed-in users in South Africa can opt in, share their personal referral link, and compete for a R250 airtime prize based on approved referrals.",
         updatedMarkup: renderReferWinStatusPill(),
         actions: [
-          { label: "Join Freehub Club", href: "/club/", className: "btn--primary" },
-          { label: "View your Club dashboard", href: "/club/dashboard/", className: "btn--secondary" },
+          { label: "Create a Freehub account", href: "/club/", className: "btn--primary" },
+          { label: "View My competitions", href: "/club/dashboard/", className: "btn--secondary" },
           { label: "Read the campaign rules", href: "/refer-and-win/terms/", className: "btn--secondary" },
         ],
         trustItems: ["Free to enter", "Approved referrals only", "Marketing consent is optional"],
@@ -9636,10 +9668,10 @@ function renderReferAndWinPage() {
           <p class="section-kicker">How it works</p>
           <h2>Five steps</h2>
           <ol class="refer-steps">
-            <li><strong>Create your referral link</strong><span>Enter a WhatsApp number or email on this page, or sign into Freehub Club for the full account version.</span></li>
+            <li><strong>Create your referral link</strong><span>Enter a WhatsApp number or email on this page, or sign into My competitions for the full account version.</span></li>
             <li><strong>Share on WhatsApp</strong><span>Use the WhatsApp share button or copy your link for friends and family.</span></li>
             <li><strong>Friends visit Freehub</strong><span>Referral attribution may be captured when someone arrives from your valid referral link.</span></li>
-            <li><strong>Friends join or follow</strong><span>Friends can create their own quick link, join Freehub Club or follow the WhatsApp channel.</span></li>
+            <li><strong>Friends join or follow</strong><span>Friends can create their own quick link, join My competitions or follow the WhatsApp channel.</span></li>
             <li><strong>Approved referrals count</strong><span>Only referrals approved through manual review count towards the July campaign.</span></li>
           </ol>
           <p class="refer-note">Only approved referrals count. Approval is subject to manual review. No purchase is required.</p>
@@ -9656,9 +9688,9 @@ function renderReferAndWinPage() {
             <p class="section-kicker">Approved referrals</p>
             <h2>What may count</h2>
             <ul class="refer-check-list">
-              <li>The referred person is new to Freehub Club.</li>
+              <li>The referred person is new to My competitions.</li>
               <li>The referred person arrives through a valid referral link or referral code.</li>
-              <li>The referred person joins the Club, follows the WhatsApp channel, or creates a quick referral lead that can be reviewed.</li>
+              <li>The referred person joins Freehub, follows the WhatsApp channel, or creates a quick referral lead that can be reviewed.</li>
               <li>The referral is not a self-referral.</li>
               <li>The referral is not duplicate, fake, automated or suspicious.</li>
               <li>The referral is approved through manual review.</li>
@@ -9697,7 +9729,7 @@ function renderReferAndWinPage() {
           <article>
             <p class="section-kicker">Privacy</p>
             <h2>Personal details stay private</h2>
-            <p>Freehub uses account and referral information to manage Freehub Club, referral tracking, campaign administration, fraud prevention, and prize fulfilment where applicable.</p>
+            <p>Freehub uses account and referral information to manage My competitions, referral tracking, campaign administration, fraud prevention, and prize fulfilment where applicable.</p>
             <p>Marketing messages are optional and require separate consent. Personal information is not shown publicly, and users can unsubscribe from marketing messages later if they opted in.</p>
           </article>
         </section>
@@ -9742,9 +9774,9 @@ function renderReferAndWinTermsPage() {
       list: [
         "Open to South African residents.",
         "Participants must be 18 years or older.",
-        "Participants can create a quick referral link with a WhatsApp number or email, or use a valid Freehub Club account.",
+        "Participants can create a quick referral link with a WhatsApp number or email, or use a valid Freehub account.",
         "Participants must accept these rules and provide a valid contact route for campaign administration and airtime fulfilment.",
-        "Freehub may require a selected quick-link participant to confirm details or create/verify a Freehub Club account before prize fulfilment.",
+        "Freehub may require a selected quick-link participant to confirm details or create/verify a Freehub account before prize fulfilment.",
         "Participants must comply with the rules.",
         "Freehub may exclude accounts involved in fraud, abuse, duplicate registrations or misleading referral activity.",
       ],
@@ -9770,11 +9802,11 @@ function renderReferAndWinTermsPage() {
       heading: "8. How to participate",
       paragraphs: ["To participate in the first Refer & Win campaign:"],
       list: [
-        "Create a quick referral link on the public Refer & Win page with a WhatsApp number or email, or join Freehub Club and use your Club referral link.",
+        "Create a quick referral link on the public Refer & Win page with a WhatsApp number or email, or join My competitions and use your referral link.",
         "Accept the Freehub Refer & Win rules and prize-contact consent.",
         "Get your referral link.",
         "Share your referral link.",
-        "Referred users visit Freehub, follow the WhatsApp channel, create their own quick link or join Freehub Club through that link.",
+        "Referred users visit Freehub, follow the WhatsApp channel, create their own quick link or join My competitions through that link.",
         "Referrals are reviewed.",
         "Approved referrals count towards the active campaign period.",
       ],
@@ -9782,7 +9814,7 @@ function renderReferAndWinTermsPage() {
     {
       heading: "9. Referral link mechanic",
       paragraphs: [
-        "Each quick-link participant or Freehub Club member receives a unique referral code. Referral links may look like /refer-and-win/?ref=FHXXXXX or /club/?ref=FHXXXXX.",
+        "Each quick-link participant or Freehub account holder receives a unique referral code. Referral links may look like /refer-and-win/?ref=FHXXXXX or /club/?ref=FHXXXXX.",
         "Referral attribution may be stored for a limited period. Only valid referral codes can be considered, and a click alone does not create an approved referral.",
       ],
     },
@@ -9909,7 +9941,7 @@ function renderReferAndWinTermsPage() {
         updatedMarkup: renderReferWinStatusPill(),
         actions: [
           { label: "Back to Refer & Win", href: "/refer-and-win/", className: "btn--primary" },
-          { label: "Join Freehub Club", href: "/club/", className: "btn--secondary" },
+          { label: "Create a Freehub account", href: "/club/", className: "btn--secondary" },
         ],
         trustItems: ["Free to enter", "R250 airtime", "Manual review required"],
       })}
@@ -9920,7 +9952,7 @@ function renderReferAndWinTermsPage() {
             <h2>Live now</h2>
             <p>The first campaign period is ${escapeHtml(FREEHUB_REFER_WIN_CONFIG.campaignPeriodLabel)}. The next campaign is planned for ${escapeHtml(FREEHUB_REFER_WIN_CONFIG.nextCampaignPeriodLabel)}. Referrals stay pending until reviewed by an authorised Freehub admin. No public leaderboard, automatic winner selection, SMS billing or shortcode entry is enabled.</p>
           </div>
-          <a class="btn btn--primary" href="/club/dashboard/">View Club dashboard</a>
+          <a class="btn btn--primary" href="/club/dashboard/">View My competitions</a>
         </section>
 
         <section class="club-section refer-terms">
@@ -10005,7 +10037,7 @@ function renderReferAndWinPreviewPanel() {
   return `<aside class="hero-preview-panel hero-preview-panel--refer" aria-label="Refer and Win status preview">
             <p class="hero-preview-panel__kicker">First campaign</p>
             <h2 class="hero-preview-panel__title">${escapeHtml(FREEHUB_REFER_WIN_CONFIG.monthlyPrizeLabel)}</h2>
-            <p class="hero-preview-panel__intro">Free-to-enter monthly challenge for approved Freehub Club referrals.</p>
+            <p class="hero-preview-panel__intro">Free-to-enter monthly challenge for approved My competitions referrals.</p>
             <ul class="hero-preview-panel__list">
               <li><span>Mechanic</span><strong>Most approved referrals</strong></li>
               <li><span>Review</span><strong>Manual approval required</strong></li>
@@ -10021,7 +10053,7 @@ function renderPublicReferralSignup() {
             <div>
               <p class="section-kicker">Quick referral link</p>
               <h2>Get your link without creating a full account</h2>
-              <p>Enter a WhatsApp number or email so Freehub can contact you if your referral entries are selected. Your friends can use your link to join the Club or follow the WhatsApp channel.</p>
+              <p>Enter a WhatsApp number or email so Freehub can contact you if your referral entries are selected. Your friends can use your link to join Freehub or follow the WhatsApp channel.</p>
             </div>
             <a class="btn btn--whatsapp" href="${escapeAttribute(WHATSAPP_CHANNEL_URL)}" target="_blank" rel="noopener noreferrer">Follow on WhatsApp</a>
           </div>
@@ -10059,7 +10091,7 @@ function renderPublicReferralSignup() {
               <button class="btn btn--whatsapp" type="button" data-public-referral-action="whatsapp">Share on WhatsApp</button>
               <a class="btn btn--secondary" href="${escapeAttribute(WHATSAPP_CHANNEL_URL)}" target="_blank" rel="noopener noreferrer" data-public-referral-channel-link data-public-referral-action="channel">Join channel</a>
             </div>
-            <p class="refer-note">For stronger prize eligibility, you can still create a full Freehub Club account later using the same referral journey.</p>
+            <p class="refer-note">For stronger prize eligibility, you can still create a full Freehub account later using the same referral journey.</p>
           </article>
         </section>`;
 }
@@ -10122,8 +10154,8 @@ function renderClubShell({ title, description, canonicalUrl, robots, pageType, b
 }
 
 function renderClubPreviewPanel() {
-  return `<aside class="hero-preview-panel hero-preview-panel--club" aria-label="Freehub Club preview">
-            <p class="hero-preview-panel__eyebrow">Member toolkit</p>
+  return `<aside class="hero-preview-panel hero-preview-panel--club" aria-label="My competitions preview">
+            <p class="hero-preview-panel__eyebrow">Your shortlist</p>
             <h2 class="hero-preview-panel__title">Your competition shortlist</h2>
             <ul class="hero-preview-panel__list">
               <li><span>Interested</span><strong>Save before you enter</strong></li>

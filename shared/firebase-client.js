@@ -116,7 +116,7 @@ function sendEmailSignInLink(auth, authModule, email) {
   return authModule.sendSignInLinkToEmail(auth, email, actionCodeSettings);
 }
 
-function buildFirestoreHelpers(db, firestore) {
+export function buildFirestoreHelpers(db, firestore) {
   const {
     collection,
     deleteDoc,
@@ -128,13 +128,13 @@ function buildFirestoreHelpers(db, firestore) {
     runTransaction,
     serverTimestamp,
     setDoc,
+    writeBatch,
     where,
   } = firestore;
 
   return {
     async upsertUserProfile(user, consent = {}) {
       const userRef = doc(db, "users", user.uid);
-      const existing = await getDoc(userRef);
       const providerIds = user.providerData.map((provider) => provider.providerId);
       const profile = {
         userId: user.uid,
@@ -142,18 +142,30 @@ function buildFirestoreHelpers(db, firestore) {
         displayName: user.displayName || null,
         photoURL: user.photoURL || null,
         providerIds,
-        acceptedPrivacyPolicy: consent.acceptedPrivacyPolicy === true,
-        alertsMarketingConsent: consent.alertsMarketingConsent === true,
-        marketingConsent: consent.alertsMarketingConsent === true,
-        marketingConsentUpdatedAt: serverTimestamp(),
         updatedAt: serverTimestamp(),
       };
-
-      if (!existing.exists()) {
-        profile.createdAt = serverTimestamp();
+      if (consent.acceptedPrivacyPolicy === true) {
+        profile.acceptedPrivacyPolicy = true;
       }
-
-      await setDoc(userRef, profile, { merge: true });
+      // Sign-in refreshes identity, never revokes or grants an email subscription.
+      // A transaction protects new-profile defaults from concurrent Club hydration.
+      await runTransaction(db, async (transaction) => {
+        const existing = await transaction.get(userRef);
+        if (consent.acceptedPrivacyPolicy !== true && existing.data()?.acceptedPrivacyPolicy !== true) {
+          const error = new Error("Please review and accept the Privacy Policy to finish setting up your account.");
+          error.code = "freehub/privacy-required";
+          throw error;
+        }
+        transaction.set(userRef, {
+          ...(!existing.exists() ? {
+            createdAt: serverTimestamp(),
+            acceptedPrivacyPolicy: true,
+            alertsMarketingConsent: false,
+            marketingConsent: false,
+          } : {}),
+          ...profile,
+        }, { merge: true });
+      });
     },
 
     async getUserProfile(userId) {
@@ -211,26 +223,17 @@ function buildFirestoreHelpers(db, firestore) {
 
     async ensureClubProfile(user, consent = {}) {
       const userRef = doc(db, "users", user.uid);
+      // Auth hydration can run before the explicit signup completion. Do not
+      // create a profile or assume acceptance merely because Google signed in.
+      if (consent.acceptedPrivacyPolicy === true) await this.upsertUserProfile(user, consent);
       const existing = await getDoc(userRef);
-      let profile = existing.exists() ? existing.data() : {};
+      if (!existing.exists() || existing.data().acceptedPrivacyPolicy !== true) return null;
+      let profile = existing.data();
 
-      if (!existing.exists()) {
-        await this.upsertUserProfile(user, {
-          acceptedPrivacyPolicy: consent.acceptedPrivacyPolicy !== false,
-          alertsMarketingConsent: consent.alertsMarketingConsent === true,
-        });
-      } else {
-        await setDoc(
-          userRef,
-          {
-            email: user.email || profile.email || null,
-            displayName: user.displayName || profile.displayName || null,
-            photoURL: user.photoURL || profile.photoURL || null,
-            providerIds: user.providerData.map((provider) => provider.providerId),
-            updatedAt: serverTimestamp(),
-          },
-          { merge: true }
-        );
+      // Closed campaigns must not allocate referral codes or record terms acceptance.
+      // Existing referral links and participation records remain untouched.
+      if (window.FREEHUB_REFER_WIN_CONFIG?.referWinCampaignEnabled !== true) {
+        return profile;
       }
 
       if (!profile.referralCode) {
@@ -359,16 +362,25 @@ function buildFirestoreHelpers(db, firestore) {
 
     async setAlertPreferences(userId, preferences = {}) {
       const preferenceRef = doc(db, "users", userId, "alertPreferences", "main");
-      await setDoc(
+      const subscribed = preferences.competitionAlerts === true && preferences.marketingOptIn === true;
+      const batch = writeBatch(db);
+      batch.set(doc(db, "users", userId), {
+        alertsMarketingConsent: subscribed,
+        marketingConsent: subscribed,
+        marketingConsentUpdatedAt: serverTimestamp(),
+        updatedAt: serverTimestamp(),
+      }, { merge: true });
+      batch.set(
         preferenceRef,
         {
-          competitionAlerts: preferences.competitionAlerts === true,
-          marketingOptIn: preferences.marketingOptIn === true,
-          source: "competition-detail",
+          competitionAlerts: subscribed,
+          marketingOptIn: subscribed,
+          source: preferences.source || "competition-detail",
           updatedAt: serverTimestamp(),
         },
         { merge: true }
       );
+      await batch.commit();
     },
 
     async getAlertPreferences(userId) {

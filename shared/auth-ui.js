@@ -18,6 +18,8 @@ const state = {
   showIgnored: false,
 };
 let pendingSigninCompletionPromise = null;
+let modalTrigger = null;
+const localImportPromises = new Map();
 
 document.addEventListener("DOMContentLoaded", initAuthUi);
 
@@ -37,13 +39,17 @@ async function initAuthUi() {
 
   document.documentElement.classList.add("freehub-auth-ready");
   ensureModal();
+  window.FreeHubAuth = buildPublicAuthApi();
   await completeEmailLinkIfNeeded();
 
   state.panels.forEach((panel) => bindPanel(panel));
   state.client.onAuthStateChanged(async (user) => {
     state.user = user;
     if (user && window.FreeHubGuestAds?.getState?.().reloadScheduled !== true) {
-      await completeStoredSignin(user);
+      await completeStoredSignin(user).catch(() => {
+        getModal().hidden = false;
+        setModalStatus("You are signed in, but we could not save your choices. Try again or manage email preferences in your account.");
+      });
     }
     await refreshPanelState();
     renderPanels();
@@ -106,7 +112,7 @@ async function handleSaveClick(panel) {
     saveCompetitionLocally(competition);
     state.saved.set(competition.id, true);
     trackAuthEvent("save_competition_local", getCompetitionEventParams(competition));
-    setPanelMessage(panel, "Saved on this device. Sign in to keep it in your Freehub Club account.");
+    setPanelMessage(panel, "Saved on this device. Sign in to keep it in your Freehub account.");
     renderPanel(panel);
     return;
   }
@@ -146,18 +152,25 @@ async function handleAlertsClick(panel) {
 
   setPanelBusy(panel, true);
   try {
+    await state.client.helpers.upsertUserProfile(state.user);
     await state.client.helpers.setAlertPreferences(state.user.uid, {
       competitionAlerts: !alertsOn,
       marketingOptIn: !alertsOn,
     });
-    state.alerts.set(alertKey, !alertsOn);
+    state.panels.forEach((item) => state.alerts.set(getAlertKey(getPanelCompetition(item)), !alertsOn));
+    document.dispatchEvent(new CustomEvent("freehub:preferences-changed"));
     trackAuthEvent(alertsOn ? "alert_opt_out" : "alert_opt_in", getCompetitionEventParams(competition));
     setPanelMessage(panel, alertsOn ? "Competition alerts are off." : "Competition alerts are on.");
   } catch (error) {
+    if (error.code === "freehub/privacy-required") {
+      openSignupModal(panel, "alerts");
+      setModalStatus("Please review the Privacy Policy and choose your email preference to finish setting up your account.");
+      return;
+    }
     setPanelMessage(panel, "We could not update alert preferences right now.");
   } finally {
     setPanelBusy(panel, false);
-    renderPanel(panel);
+    renderPanels();
   }
 }
 
@@ -223,6 +236,7 @@ async function handleIgnoreClick(sourceElement) {
 }
 
 function openSignupModal(panel, action, competitionOverride = null) {
+  modalTrigger = document.activeElement;
   state.activePanel = panel;
   state.activeCompetition = competitionOverride;
   state.pendingAction = action;
@@ -234,26 +248,30 @@ function openSignupModal(panel, action, competitionOverride = null) {
   const competition = competitionOverride || getPanelCompetition(panel);
 
   form.reset();
+  setModalStatus("");
   title.textContent =
     action === "alerts"
       ? "Sign in for competition alerts"
       : action === "ignore"
         ? "Sign in to hide competitions"
-        : "Sign in to save";
+        : action === "club" ? "Your free Freehub account" : "Sign in to save";
   message.textContent =
     action === "alerts"
-      ? "Use Google or an email sign-in link to store competition alert preferences for your Freehub account."
+      ? "Discover South African competitions, prizes, closing dates and links to enter. Choose email alerts below, then sign in."
       : action === "ignore"
         ? `Sign in to hide ${competition?.title || "competitions you have already seen"}.`
-        : `Sign in to save ${competition?.title || "this competition"}.`;
+        : action === "club" ? "Keep your saved competitions together and track what you enter. Sign in with Google or an email link." : `Sign in to save ${competition?.title || "this competition"}.`;
 
   modal.hidden = false;
+  document.body.classList.add("auth-modal-open");
   modal.querySelector("#freehubPrivacyConsent").focus();
   trackAuthEvent("signup_modal_open", getCompetitionEventParams(competition));
 }
 
 function closeSignupModal() {
   getModal().hidden = true;
+  document.body.classList.remove("auth-modal-open");
+  modalTrigger?.focus();
 }
 
 function ensureModal() {
@@ -270,7 +288,6 @@ function ensureModal() {
         <button class="auth-modal__close" type="button" data-auth-close aria-label="Close sign-in">x</button>
         <h2 class="auth-modal__title" id="freehubAuthTitle" data-auth-modal-title>Sign in to save</h2>
         <p class="auth-modal__text" data-auth-modal-message>Sign in to save this competition.</p>
-        <p class="auth-modal__text"><strong>Club benefit:</strong> no Adsterra ads while you are signed in.</p>
         <form class="auth-form" data-auth-form>
           <label class="auth-check">
             <input id="freehubPrivacyConsent" type="checkbox" name="privacy" required />
@@ -278,8 +295,9 @@ function ensureModal() {
           </label>
           <label class="auth-check">
             <input type="checkbox" name="alertsMarketing" />
-            <span>Email me competition alerts and occasional Freehub updates.</span>
+            <span><strong>Get competitions in your inbox</strong><br />Yes, email me competition alerts and occasional Freehub updates.</span>
           </label>
+          <p class="auth-modal__text">Free and optional. Unsubscribe in your account anytime. Leaving this unticked keeps your existing email preference if you already have an account.</p>
           <div class="auth-provider-list">
             <button class="auth-provider" type="button" data-auth-provider="google">Continue with Google</button>
             <button class="auth-provider" type="button" data-auth-provider="facebook">Continue with Facebook</button>
@@ -321,6 +339,12 @@ function bindModal() {
   });
 
   document.addEventListener("keydown", (event) => {
+    if (event.key === "Tab" && !modal.hidden) {
+      const controls = Array.from(modal.querySelectorAll('button, input, a[href]')).filter((item) => !item.disabled && item.getClientRects().length);
+      const first = controls[0], last = controls[controls.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+    }
     if (event.key === "Escape" && !modal.hidden) {
       closeSignupModal();
     }
@@ -369,7 +393,7 @@ async function startProviderSignin(provider) {
   } catch (error) {
     if (result?.user) {
       window.FreeHubGuestAds?.completeSignIn();
-      setModalStatus("Finishing your Freehub sign-in...");
+      setModalStatus("You are signed in, but we could not save your choices. Try again or manage email preferences in your account.");
     } else {
       clearPendingSigninCompletion();
       window.FreeHubGuestAds?.cancelSignIn();
@@ -441,20 +465,31 @@ async function completeEmailLinkIfNeeded() {
     state.activeCompetition = pending?.competition || null;
     window.localStorage.removeItem(EMAIL_STORAGE_KEY);
     window.localStorage.removeItem(PENDING_ACTION_STORAGE_KEY);
-    await handleSigninSuccess(result.user, "email", pending?.consent || { acceptedPrivacyPolicy: true });
+    await handleSigninSuccess(result.user, "email", pending?.consent || {});
     cleanEmailLinkUrl();
     window.FreeHubGuestAds?.completeSignIn();
   } catch (error) {
     window.FreeHubGuestAds?.cancelSignIn();
+    getModal().hidden = false;
+    setModalStatus("We could not finish saving your account choices. Sign in again or manage email preferences in your account.");
     console.warn("Unable to complete Freehub email sign-in:", error.message);
   }
 }
 
 async function handleSigninSuccess(user, provider, consent) {
   const competition = getActiveCompetition();
-
+  await state.client.helpers.upsertUserProfile(user, consent);
+  if (consent.alertsMarketingConsent === true) {
+    await state.client.helpers.setAlertPreferences(user.uid, {
+      competitionAlerts: true,
+      marketingOptIn: true,
+      source: "signup",
+    });
+    state.alerts.set(getAlertKey(competition), true);
+    trackAuthEvent("alert_opt_in", getCompetitionEventParams(competition));
+  }
+  document.dispatchEvent(new CustomEvent("freehub:preferences-changed"));
   try {
-    await state.client.helpers.upsertUserProfile(user, consent);
     await state.client.helpers.recordSignupEvent(user, {
       provider,
       competitionId: competition?.id,
@@ -469,19 +504,7 @@ async function handleSigninSuccess(user, provider, consent) {
     provider,
     ...getCompetitionEventParams(competition),
   });
-
-  if (consent.alertsMarketingConsent === true) {
-    try {
-      await state.client.helpers.setAlertPreferences(user.uid, {
-        competitionAlerts: true,
-        marketingOptIn: true,
-      });
-      state.alerts.set(getAlertKey(competition), true);
-      trackAuthEvent("alert_opt_in", getCompetitionEventParams(competition));
-    } catch (error) {
-      console.warn("Freehub alert preference writes are unavailable:", error.message);
-    }
-  }
+  document.dispatchEvent(new CustomEvent("freehub:signin-complete", { detail: { provider } }));
 
   if (state.pendingAction === "save" && competition?.id) {
     try {
@@ -517,6 +540,7 @@ async function refreshPanelState() {
     return;
   }
 
+  const profile = await state.client.helpers.getUserProfile(state.user.uid).catch(() => null);
   const ignoredCompetitions = await state.client.helpers
     .getIgnoredCompetitions(state.user.uid)
     .catch(() => []);
@@ -544,7 +568,7 @@ async function refreshPanelState() {
         state.saved.set(competition.id, Boolean(saved));
         state.ignored.set(competition.id, Boolean(ignored) || state.ignored.get(competition.id) === true);
       }
-      state.alerts.set(getAlertKey(competition), alerts?.competitionAlerts === true);
+      state.alerts.set(getAlertKey(competition), profile?.alertsMarketingConsent === true && alerts?.competitionAlerts === true && alerts?.marketingOptIn === true);
     })
   );
 }
@@ -806,16 +830,24 @@ function getLocalSavedCompetitions() {
 }
 
 async function importLocalSavedCompetitions(userId) {
+  if (localImportPromises.has(userId)) return localImportPromises.get(userId);
+  const promise = importLocalSavedCompetitionsOnce(userId).finally(() => localImportPromises.delete(userId));
+  localImportPromises.set(userId, promise);
+  return promise;
+}
+
+async function importLocalSavedCompetitionsOnce(userId) {
   if (!state.client || !userId) {
     return 0;
   }
 
   const saved = getLocalSavedCompetitions();
   let importedCount = 0;
+  const importedIds = new Set();
 
   for (const competition of saved) {
     try {
-      await state.client.helpers.saveCompetition(userId, {
+      const payload = {
         id: competition.competitionId,
         slug: competition.slug || competition.competitionId,
         title: competition.title,
@@ -824,15 +856,21 @@ async function importLocalSavedCompetitions(userId) {
         closingDate: competition.closingDate,
         path: competition.path,
         status: competition.status,
-      });
+      };
+      if (competition.status === "skipped") {
+        await state.client.helpers.ignoreCompetition(userId, payload);
+      } else {
+        await state.client.helpers.saveCompetition(userId, payload);
+      }
       importedCount += 1;
+      importedIds.add(competition.competitionId);
     } catch (error) {
       console.warn("Unable to import local Freehub saved competition:", error.message);
     }
   }
 
   if (importedCount > 0) {
-    window.localStorage.removeItem(LOCAL_SAVED_COMPETITIONS_KEY);
+    window.localStorage.setItem(LOCAL_SAVED_COMPETITIONS_KEY, JSON.stringify(getLocalSavedCompetitions().filter((item) => !importedIds.has(item.competitionId))));
   }
 
   return importedCount;
@@ -922,7 +960,7 @@ async function completeStoredSignin(user) {
   pendingSigninCompletionPromise = handleSigninSuccess(
     user,
     pending.provider || "unknown",
-    pending.consent || { acceptedPrivacyPolicy: true }
+    pending.consent || {}
   ).finally(() => {
     clearPendingSigninCompletion();
     pendingSigninCompletionPromise = null;

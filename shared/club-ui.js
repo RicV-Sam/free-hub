@@ -9,11 +9,14 @@ const state = {
   client: null,
   user: null,
   profile: null,
+  preferences: null,
+  preferencesLoaded: false,
   savedCompetitions: [],
   ignoredCompetitions: [],
   allCompetitions: [],
   page: null,
 };
+let accountLoadVersion = 0;
 
 document.addEventListener("DOMContentLoaded", initClubUi);
 
@@ -30,7 +33,7 @@ async function initClubUi() {
   }
 
   if (!state.client) {
-    renderSignedOutState("Freehub Club sign-in is unavailable right now. You can still save competitions on this device.");
+    renderSignedOutState("Freehub account sign-in is unavailable right now. You can still save competitions on this device.");
     return;
   }
 
@@ -39,18 +42,41 @@ async function initClubUi() {
 
     if (!user) {
       state.profile = null;
+      state.preferences = null;
+      state.preferencesLoaded = false;
       state.savedCompetitions = getLocalSavedCompetitions();
       state.ignoredCompetitions = [];
       renderSignedOutState();
       return;
     }
 
-    await loadClubState(user);
-    renderSignedInState();
+    try {
+      await loadClubState(user);
+      if (state.user?.uid === user.uid) renderSignedInState();
+    } catch (error) {
+      if (state.user?.uid !== user.uid) return;
+      toggleAuthButtons(true);
+      setWelcomeText("You are signed in, but your account could not load. Reload to try again. Your saved data has not been cleared.");
+    }
+  });
+  document.addEventListener("freehub:preferences-changed", async () => {
+    if (!state.user) return;
+    await loadEmailPreferences();
+    renderEmailPreferences();
   });
 }
 
 function bindClubActions() {
+  document.addEventListener("freehub:signin-complete", async (event) => {
+    trackClubEvent("club_signin_success", { provider: event.detail.provider, club_page: state.page });
+    if (!state.user) return;
+    try {
+      await loadClubState(state.user);
+      if (state.user) renderSignedInState();
+    } catch (error) {
+      setClubStatus("Your sign-in is complete, but account details could not load. Reload to try again.");
+    }
+  });
   document.addEventListener("click", async (event) => {
     const actionElement = event.target.closest("[data-club-action]");
 
@@ -61,8 +87,12 @@ function bindClubActions() {
     const action = actionElement.dataset.clubAction;
 
     if (action === "signin") {
-      trackClubEvent("club_signin_start", { provider: "google", club_page: state.page });
-      await signInWithGoogle(actionElement);
+      trackClubEvent("club_signin_start", { club_page: state.page });
+      if (window.FreeHubAuth?.openSignupModal) {
+        window.FreeHubAuth.openSignupModal(null, "club");
+      } else {
+        setClubStatus("Sign-in is still loading or unavailable. Please try again shortly.");
+      }
     } else if (action === "signout") {
       await signOut(actionElement);
     } else if (action === "copy-referral") {
@@ -71,6 +101,7 @@ function bindClubActions() {
       await shareReferralLink();
     } else if (action === "clear-local") {
       const localCount = getLocalSavedCompetitions().length;
+      if (!localCount || !window.confirm(`Remove ${localCount} saved items from this device? This cannot be undone. Cloud saves will remain.`)) return;
       clearLocalSavedCompetitions();
       state.savedCompetitions = state.user ? state.savedCompetitions : [];
       renderSavedCompetitions();
@@ -79,6 +110,8 @@ function bindClubActions() {
       await removeSavedCompetition(actionElement.dataset.competitionId);
     } else if (action === "save-refer-win") {
       await saveReferWinParticipation(actionElement);
+    } else if (action === "save-email-preferences") {
+      await saveEmailPreferences(actionElement);
     }
   });
 
@@ -89,29 +122,17 @@ function bindClubActions() {
       return;
     }
 
-    await updateSavedStatus(statusControl.dataset.competitionId, statusControl.value);
+    const previous = getCompetitionStatus(statusControl.dataset.competitionId);
+    statusControl.disabled = true;
+    try {
+      await updateSavedStatus(statusControl.dataset.competitionId, statusControl.value);
+    } catch (error) {
+      statusControl.value = previous;
+      setClubStatus("We could not save that change. Please try again.");
+    } finally {
+      statusControl.disabled = false;
+    }
   });
-}
-
-async function signInWithGoogle(button) {
-  if (!state.client) {
-    setClubStatus("Freehub Club sign-in is unavailable right now.");
-    return;
-  }
-
-  setBusy(button, true);
-  setClubStatus("Opening Google sign-in...");
-
-  try {
-    const result = await state.client.signInWithGoogle();
-    await loadClubState(result.user);
-    renderSignedInState();
-    trackClubEvent("club_signin_success", { provider: "google", club_page: state.page });
-  } catch (error) {
-    setClubStatus("Google sign-in was not completed. Please try again.");
-  } finally {
-    setBusy(button, false);
-  }
 }
 
 async function signOut(button) {
@@ -132,15 +153,28 @@ async function signOut(button) {
 }
 
 async function loadClubState(user) {
-  state.user = user;
-  state.profile = await state.client.helpers.ensureClubProfile(user, {
-    acceptedPrivacyPolicy: true,
-    alertsMarketingConsent: false,
-  });
-  await writePendingReferralAttribution(user, state.profile);
-  await importLocalSavedCompetitions(user.uid);
-  state.savedCompetitions = await state.client.helpers.getSavedCompetitions(user.uid).catch(() => []);
-  state.ignoredCompetitions = await state.client.helpers.getIgnoredCompetitions(user.uid).catch(() => []);
+  const version = ++accountLoadVersion;
+  const profile = await state.client.helpers.ensureClubProfile(user);
+  if (state.user?.uid !== user.uid || version !== accountLoadVersion) return;
+  if (!profile) {
+    state.profile = null;
+    state.preferences = null;
+    state.preferencesLoaded = false;
+    state.savedCompetitions = getLocalSavedCompetitions();
+    state.ignoredCompetitions = [];
+    return;
+  }
+  await writePendingReferralAttribution(user, profile);
+  await window.FreeHubAuth?.importLocalSavedCompetitions();
+  const [saved, ignored] = await Promise.all([
+    state.client.helpers.getSavedCompetitions(user.uid),
+    state.client.helpers.getIgnoredCompetitions(user.uid),
+  ]);
+  if (state.user?.uid !== user.uid || version !== accountLoadVersion) return;
+  state.profile = profile;
+  state.savedCompetitions = saved;
+  state.ignoredCompetitions = ignored;
+  await loadEmailPreferences();
 }
 
 async function writePendingReferralAttribution(user, profile) {
@@ -161,85 +195,102 @@ async function writePendingReferralAttribution(user, profile) {
   }
 }
 
-async function importLocalSavedCompetitions(userId) {
-  const localSaved = getLocalSavedCompetitions();
-
-  if (localSaved.length === 0) {
-    return 0;
-  }
-
-  let imported = 0;
-
-  for (const competition of localSaved) {
-    try {
-      if (normalizeSavedStatus(competition.status) === "skipped") {
-        await state.client.helpers.ignoreCompetition(userId, {
-          id: competition.competitionId,
-          title: competition.title,
-          category: competition.category,
-          path: competition.path,
-        });
-      } else {
-        await state.client.helpers.saveCompetition(userId, {
-          id: competition.competitionId,
-          slug: competition.slug || competition.competitionId,
-          title: competition.title,
-          brand: competition.brand,
-          category: competition.category,
-          closingDate: competition.closingDate,
-          path: competition.path,
-          status: competition.status,
-        });
-      }
-      imported += 1;
-    } catch (error) {
-      console.warn("Unable to import local saved competition:", error.message);
-    }
-  }
-
-  if (imported > 0) {
-    clearLocalSavedCompetitions();
-    trackClubEvent("club_local_saves_imported", {
-      imported_count: imported,
-      club_page: state.page,
-    });
-  }
-
-  return imported;
-}
-
 function renderSignedOutState(message = "") {
   toggleAuthButtons(false);
-  setWelcomeText(message || "Sign in with Google to sync saved competitions to your Freehub Club account.");
+  setWelcomeText(message || "Sign in to sync saved competitions to your Freehub account.");
   document.querySelectorAll("[data-club-referral]").forEach((element) => {
     element.hidden = true;
   });
   state.savedCompetitions = getLocalSavedCompetitions();
+  document.querySelectorAll("[data-club-referral-link]").forEach((input) => { input.value = ""; });
   renderSavedCompetitions();
   renderAllCompetitions();
   renderAccountFields();
   renderReferWinParticipationForm();
+  renderEmailPreferences();
   publishClubState();
 }
 
 function renderSignedInState() {
   toggleAuthButtons(true);
-  setWelcomeText(`Welcome${state.profile?.displayName ? `, ${state.profile.displayName}` : ""}. Your Club account is ready.`);
+  const ready = state.profile?.acceptedPrivacyPolicy === true;
+  document.querySelectorAll('[data-club-action="signin"]').forEach((button) => {
+    button.hidden = ready;
+    button.textContent = ready ? "Sign in / Create account" : "Finish account setup";
+  });
+  setWelcomeText(ready ? `Welcome${state.profile?.displayName ? `, ${state.profile.displayName}` : ""}. Your account is ready.` : "You are signed in. Finish account setup to review the Privacy Policy and choose whether to receive emails.");
   renderReferralLink();
   renderSavedCompetitions();
   renderAllCompetitions();
   renderAccountFields();
   renderReferWinParticipationForm();
+  renderEmailPreferences();
   publishClubState();
 }
 
 function toggleAuthButtons(isSignedIn) {
   document.querySelectorAll('[data-club-action="signin"]').forEach((button) => {
     button.hidden = isSignedIn;
+    if (!isSignedIn) button.textContent = "Sign in / Create account";
   });
   document.querySelectorAll('[data-club-action="signout"]').forEach((button) => {
     button.hidden = !isSignedIn;
   });
+}
+
+async function loadEmailPreferences() {
+  const userId = state.user?.uid;
+  if (!userId) return;
+  state.preferencesLoaded = false;
+  try {
+    const [profile, preferences] = await Promise.all([
+      state.client.helpers.getUserProfile(userId),
+      state.client.helpers.getAlertPreferences(userId),
+    ]);
+    if (state.user?.uid !== userId) return;
+    state.profile = profile;
+    state.preferences = preferences;
+    state.preferencesLoaded = true;
+  } catch (error) {
+    if (state.user?.uid !== userId) return;
+    setClubStatus("We could not load email preferences. Reload before changing them.");
+  }
+}
+
+function renderEmailPreferences() {
+  const subscribed = state.profile?.alertsMarketingConsent === true && state.preferences?.competitionAlerts === true && state.preferences?.marketingOptIn === true;
+  document.querySelectorAll("[data-club-email-preferences]").forEach((section) => { section.hidden = !state.user || state.profile?.acceptedPrivacyPolicy !== true; });
+  document.querySelectorAll("[data-club-email-optin]").forEach((input) => {
+    input.checked = subscribed;
+    input.disabled = !state.preferencesLoaded;
+  });
+  document.querySelectorAll('[data-club-action="save-email-preferences"]').forEach((button) => { button.disabled = !state.preferencesLoaded; });
+  document.querySelectorAll("[data-club-email-state]").forEach((element) => {
+    element.textContent = !state.preferencesLoaded ? "Preferences unavailable. Reload to try again." : subscribed ? "Email alerts are on." : "Email alerts are off.";
+  });
+}
+
+async function saveEmailPreferences(button) {
+  if (!state.user || !state.preferencesLoaded) return;
+  const section = button.closest("[data-club-email-preferences]");
+  const input = section.querySelector("[data-club-email-optin]");
+  const status = section.querySelector("[data-club-email-status]");
+  const subscribed = input.checked;
+  setBusy(button, true);
+  input.disabled = true;
+  status.textContent = "Saving your choice…";
+  try {
+    await state.client.helpers.setAlertPreferences(state.user.uid, { competitionAlerts: subscribed, marketingOptIn: subscribed, source: "club-account" });
+    await loadEmailPreferences();
+    renderEmailPreferences();
+    status.textContent = subscribed ? "Saved. You are subscribed to Freehub competition emails." : "Saved. You are unsubscribed from Freehub competition emails.";
+    trackClubEvent(subscribed ? "alert_opt_in" : "alert_opt_out", { club_page: state.page });
+    document.dispatchEvent(new CustomEvent("freehub:preferences-changed"));
+  } catch (error) {
+    status.textContent = "We could not save your email choice. Please try again.";
+  } finally {
+    button.disabled = input.disabled = !state.preferencesLoaded;
+  }
 }
 
 function setWelcomeText(message) {
@@ -272,6 +323,9 @@ function renderSavedCompetitions() {
   if (!list) {
     return;
   }
+  document.querySelectorAll('[data-club-action="clear-local"]').forEach((button) => {
+    button.hidden = getLocalSavedCompetitions().length === 0;
+  });
 
   const saved = normalizeSavedCompetitionList(state.savedCompetitions).filter(
     (competition) => competition.status !== "skipped"
@@ -279,7 +333,7 @@ function renderSavedCompetitions() {
 
   if (summary) {
     summary.textContent = state.user
-      ? `${saved.length} saved ${saved.length === 1 ? "competition" : "competitions"} in your Freehub Club account.`
+      ? `${saved.length} saved ${saved.length === 1 ? "competition" : "competitions"} in your Freehub account.`
       : `${saved.length} local ${saved.length === 1 ? "save" : "saves"} on this device. Sign in to sync them.`;
   }
 
@@ -478,25 +532,23 @@ async function updateSavedStatus(competitionId, status) {
   if (state.user) {
     if (nextStatus === "untracked") {
       await Promise.all([
-        state.client.helpers.unsaveCompetition(state.user.uid, competitionId).catch(() => null),
-        state.client.helpers.unignoreCompetition(state.user.uid, competitionId).catch(() => null),
+        state.client.helpers.unsaveCompetition(state.user.uid, competitionId),
+        state.client.helpers.unignoreCompetition(state.user.uid, competitionId),
       ]);
       state.savedCompetitions = state.savedCompetitions.filter((entry) => entry.competitionId !== competitionId);
       state.ignoredCompetitions = state.ignoredCompetitions.filter((entry) => entry.competitionId !== competitionId);
     } else if (nextStatus === "skipped") {
       await Promise.all([
-        state.client.helpers.ignoreCompetition(state.user.uid, toFirestoreCompetition(competition, nextStatus)).catch(() => null),
-        state.client.helpers.unsaveCompetition(state.user.uid, competitionId).catch(() => null),
+        state.client.helpers.ignoreCompetition(state.user.uid, toFirestoreCompetition(competition, nextStatus)),
+        state.client.helpers.unsaveCompetition(state.user.uid, competitionId),
       ]);
       state.savedCompetitions = state.savedCompetitions.filter((entry) => entry.competitionId !== competitionId);
       state.ignoredCompetitions = upsertStateCompetition(state.ignoredCompetitions, toStateCompetition(competition, nextStatus));
     } else {
       await Promise.all([
         state.client.helpers.saveCompetition(state.user.uid, toFirestoreCompetition(competition, nextStatus)),
-        state.client.helpers.unignoreCompetition(state.user.uid, competitionId).catch(() => null),
-      ]).catch(() => {
-        setClubStatus("We could not update that competition right now.");
-      });
+        state.client.helpers.unignoreCompetition(state.user.uid, competitionId),
+      ]);
       state.savedCompetitions = upsertStateCompetition(state.savedCompetitions, toStateCompetition(competition, nextStatus));
       state.ignoredCompetitions = state.ignoredCompetitions.filter((entry) => entry.competitionId !== competitionId);
     }
@@ -527,9 +579,12 @@ async function removeSavedCompetition(competitionId) {
   }
 
   if (state.user) {
-    await state.client.helpers.unsaveCompetition(state.user.uid, competitionId).catch(() => {
+    try {
+      await state.client.helpers.unsaveCompetition(state.user.uid, competitionId);
+    } catch (error) {
       setClubStatus("We could not remove that saved competition right now.");
-    });
+      return;
+    }
     state.savedCompetitions = state.savedCompetitions.filter((competition) => competition.competitionId !== competitionId);
   } else {
     const saved = getLocalSavedCompetitions().filter((competition) => competition.competitionId !== competitionId);
@@ -549,6 +604,10 @@ async function removeSavedCompetition(competitionId) {
 }
 
 async function saveReferWinParticipation(button) {
+  if (window.FREEHUB_REFER_WIN_CONFIG?.referWinCampaignEnabled !== true) {
+    setReferWinStatus("This campaign is closed. New participation details cannot be saved.", "error");
+    return;
+  }
   if (!state.user || !state.client) {
     setReferWinStatus("Sign in with Google before joining Refer & Win.", "error");
     return;
@@ -614,9 +673,13 @@ async function copyReferralLink() {
     return;
   }
 
-  await navigator.clipboard.writeText(link);
-  setClubStatus("Referral link copied.");
-  trackClubEvent("referral_link_copy", { club_page: state.page });
+  try {
+    await navigator.clipboard.writeText(link);
+    setClubStatus("Referral link copied.");
+    trackClubEvent("referral_link_copy", { club_page: state.page });
+  } catch (error) {
+    setClubStatus("Copy is unavailable. Select the referral link and copy it manually.");
+  }
 }
 
 async function shareReferralLink() {
@@ -628,12 +691,16 @@ async function shareReferralLink() {
   }
 
   if (navigator.share) {
-    await navigator.share({
-      title: "Freehub Club",
-      text: "Join Freehub Club to save and track South African competitions.",
-      url: link,
-    });
-    trackClubEvent("referral_link_share", { club_page: state.page, share_method: "native" });
+    try {
+      await navigator.share({
+        title: "My competitions on Freehub",
+        text: "Create a free account to save and track South African competitions.",
+        url: link,
+      });
+      trackClubEvent("referral_link_share", { club_page: state.page, share_method: "native" });
+    } catch (error) {
+      if (error.name !== "AbortError") setClubStatus("Sharing is unavailable. You can copy your referral link instead.");
+    }
   } else {
     await copyReferralLink();
     trackClubEvent("referral_link_share", { club_page: state.page, share_method: "clipboard_fallback" });
@@ -645,7 +712,7 @@ function getCurrentReferralLink() {
 }
 
 function setClubStatus(message) {
-  document.querySelectorAll("[data-club-referral-status], .club-status").forEach((element) => {
+  document.querySelectorAll("[data-club-status-message]").forEach((element) => {
     element.textContent = message;
   });
 }

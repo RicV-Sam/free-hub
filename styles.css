@@ -2935,6 +2935,46 @@ button {
   padding: 1rem;
 }
 
+body.auth-modal-open {
+  overflow: hidden;
+}
+
+.club-task-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  padding-block: 0.75rem;
+  border-block: 1px solid #d8e5e2;
+}
+
+.club-task-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.club-email-preferences .club-checkbox-row {
+  padding-block: 0.75rem;
+  cursor: pointer;
+}
+
+.club-email-preferences button {
+  justify-self: start;
+}
+
+.club-collapsible > summary:not(.club-panel-header) {
+  padding-block: 0.5rem;
+  min-height: 44px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.club-definition-list dd {
+  overflow-wrap: anywhere;
+}
+
 .auth-modal__backdrop {
   position: absolute;
   inset: 0;
@@ -2959,8 +2999,8 @@ button {
   position: absolute;
   top: 0.75rem;
   right: 0.75rem;
-  width: 34px;
-  height: 34px;
+  width: 44px;
+  height: 44px;
   border-radius: 999px;
   background: #e5e7eb;
   color: #111827;
@@ -5530,6 +5570,33 @@ body {
   display: grid;
   gap: 1rem;
   padding: 1rem;
+}
+
+.club-page .btn--secondary {
+  background: #fff;
+  color: var(--accent);
+  border: 1px solid #b7cfca;
+}
+
+.club-page .btn--secondary:hover,
+.club-page .btn--secondary:focus-visible {
+  background: #eaf5f1;
+}
+
+.club-email-preferences {
+  gap: 0.85rem;
+  border-left: 4px solid var(--accent);
+  background: #f5faf8;
+}
+
+.club-email-preferences > p,
+.club-email-preferences > h2 {
+  margin: 0;
+}
+
+.club-account-grid {
+  align-items: start;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .club-saved-list,
