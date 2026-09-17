@@ -1991,7 +1991,8 @@
       "branchAvailability": "participating_branches",
       "recurrence": "annual",
       "voucherDelivery": "app"
-    }
+    },
+    "imageUrl": "https://freehub.co.za/assets/listings/ocean-basket-app-birthday-treat.webp"
   },
   {
     "id": "starbucks-gold-birthday-drink",
@@ -2056,6 +2057,7 @@
       "branchAvailability": "participating_branches",
       "recurrence": "annual",
       "voucherDelivery": "account"
-    }
+    },
+    "imageUrl": "https://freehub.co.za/assets/listings/starbucks-gold-birthday-drink.webp"
   }
 ]

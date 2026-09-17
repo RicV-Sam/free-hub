@@ -18472,9 +18472,9 @@
     "region": "South Africa",
     "verificationNote": "Official campaign and entry conditions reviewed on 17 September 2026.",
     "evidenceNotes": "Direct editorial review of the official source and linked terms on 17 September 2026. No entry was submitted.",
-    "imageReviewStatus": "neutral-fallback",
+    "imageReviewStatus": "official-source",
     "imageReviewCheckedAt": "2026-09-17",
-    "imageReviewNote": "Uses the existing FreeHub logo; this is not promoter campaign artwork.",
+    "imageReviewNote": "Image from the official listing source.",
     "riskFlags": [
       "clothing_required",
       "child_photo",
@@ -18487,7 +18487,11 @@
     "linkValidationReason": "Official campaign terms read directly; subsequent automated link audit returned rate limiting.",
     "linkValidationCheckedAt": "2026-09-17",
     "linkValidationAllowedDomain": "ackermans.co.za",
-    "linkValidationEvidence": "Enter a photograph of your child wearing Ackermans clothing by 30 October 2026. Six winners each receive R10,000 cash, R12,000 in vouchers and a photoshoot. Official terms also checked for eligibility and entry steps on 17 September 2026."
+    "linkValidationEvidence": "Enter a photograph of your child wearing Ackermans clothing by 30 October 2026. Six winners each receive R10,000 cash, R12,000 in vouchers and a photoshoot. Official terms also checked for eligibility and entry steps on 17 September 2026.",
+    "image": "https://freehub.co.za/assets/listings/ackermans-baby-of-the-year-2026.webp",
+    "imageLayout": "landscape",
+    "imageSourceUrl": "https://www.ackermans.co.za/blogs/baby/ackermans-baby-of-the-year-2026-ts-cs",
+    "imageAlt": "Official artwork for ackermans baby of the year 2026"
   },
   {
     "id": "clicks-amka-deo2rands-2026",
@@ -18537,14 +18541,18 @@
     "region": "South Africa",
     "verificationNote": "Official campaign and entry conditions reviewed on 17 September 2026.",
     "evidenceNotes": "Direct editorial review of the official source and linked terms on 17 September 2026. No entry was submitted.",
-    "imageReviewStatus": "neutral-fallback",
+    "imageReviewStatus": "official-source",
     "imageReviewCheckedAt": "2026-09-17",
-    "imageReviewNote": "Uses the existing FreeHub logo; this is not promoter campaign artwork.",
+    "imageReviewNote": "Image from the official listing source.",
     "riskFlags": [],
     "validationWarnings": [],
     "requiredAccount": "Clicks ClubCard",
     "requiredProduct": "Two participating deodorant or roll-on variants in one transaction",
-    "numberOfPrizes": "33"
+    "numberOfPrizes": "33",
+    "image": "https://freehub.co.za/assets/listings/clicks-amka-deo2rands-2026.webp",
+    "imageLayout": "landscape",
+    "imageSourceUrl": "https://clicks.co.za/clubcard/competitions/amka-deo2rands-competition",
+    "imageAlt": "Official artwork for clicks amka deo2rands 2026"
   },
   {
     "id": "ackermans-hisense-tech-vouchers-2026",
@@ -18594,9 +18602,9 @@
     "region": "South Africa",
     "verificationNote": "Official campaign and entry conditions reviewed on 17 September 2026.",
     "evidenceNotes": "Direct editorial review of the official source and linked terms on 17 September 2026. No entry was submitted.",
-    "imageReviewStatus": "neutral-fallback",
+    "imageReviewStatus": "official-source",
     "imageReviewCheckedAt": "2026-09-17",
-    "imageReviewNote": "Uses the existing FreeHub logo; this is not promoter campaign artwork.",
+    "imageReviewNote": "Image from the official listing source.",
     "riskFlags": [],
     "validationWarnings": [],
     "requiredAccount": "+more Rewards",
@@ -18608,7 +18616,11 @@
     "linkValidationReason": "Official campaign terms read directly; subsequent automated link audit returned rate limiting.",
     "linkValidationCheckedAt": "2026-09-17",
     "linkValidationAllowedDomain": "ackermans.co.za",
-    "linkValidationEvidence": "Buy any Hisense handset at Ackermans or Ackermans Connect and scan +more Rewards by 30 September 2026 for a chance to win a R200 tech-accessory voucher. Official terms also checked for eligibility and entry steps on 17 September 2026."
+    "linkValidationEvidence": "Buy any Hisense handset at Ackermans or Ackermans Connect and scan +more Rewards by 30 September 2026 for a chance to win a R200 tech-accessory voucher. Official terms also checked for eligibility and entry steps on 17 September 2026.",
+    "image": "https://freehub.co.za/assets/listings/ackermans-hisense-tech-vouchers-2026.webp",
+    "imageLayout": "landscape",
+    "imageSourceUrl": "https://www.ackermans.co.za/blogs/cellular/win-your-share-of-r150k-in-tech-accessories-ts-cs",
+    "imageAlt": "Official artwork for ackermans hisense tech vouchers 2026"
   },
   {
     "id": "timeout-proteas-australia-tickets-2026",
@@ -18658,13 +18670,17 @@
     "region": "South Africa",
     "verificationNote": "Official campaign and entry conditions reviewed on 17 September 2026.",
     "evidenceNotes": "Direct editorial review of the official source and linked terms on 17 September 2026. No entry was submitted.",
-    "imageReviewStatus": "neutral-fallback",
+    "imageReviewStatus": "official-source",
     "imageReviewCheckedAt": "2026-09-17",
-    "imageReviewNote": "Uses the existing FreeHub logo; this is not promoter campaign artwork.",
+    "imageReviewNote": "Image from the official listing source.",
     "riskFlags": [],
     "validationWarnings": [],
     "requiredAccount": "Email address and Time Out newsletter signup",
-    "numberOfPrizes": "1"
+    "numberOfPrizes": "1",
+    "image": "https://freehub.co.za/assets/listings/timeout-proteas-australia-tickets-2026.webp",
+    "imageLayout": "landscape",
+    "imageSourceUrl": "https://www.timeout.com/durban/news/win-tickets-to-watch-the-proteas-on-heritage-day-091526",
+    "imageAlt": "Official artwork for timeout proteas australia tickets 2026"
   },
   {
     "id": "timeout-joy-of-jazz-tickets-2026",
@@ -18714,13 +18730,17 @@
     "region": "South Africa",
     "verificationNote": "Official campaign and entry conditions reviewed on 17 September 2026.",
     "evidenceNotes": "Direct editorial review of the official source and linked terms on 17 September 2026. No entry was submitted.",
-    "imageReviewStatus": "neutral-fallback",
+    "imageReviewStatus": "official-source",
     "imageReviewCheckedAt": "2026-09-17",
-    "imageReviewNote": "Uses the existing FreeHub logo; this is not promoter campaign artwork.",
+    "imageReviewNote": "Image from the official listing source.",
     "riskFlags": [],
     "validationWarnings": [],
     "requiredAccount": "Email address and Time Out newsletter signup",
-    "numberOfPrizes": "10"
+    "numberOfPrizes": "10",
+    "image": "https://freehub.co.za/assets/listings/timeout-joy-of-jazz-tickets-2026.webp",
+    "imageLayout": "landscape",
+    "imageSourceUrl": "https://www.timeout.com/johannesburg/news/win-tickets-to-standard-bank-joy-of-jazz-2026-090226",
+    "imageAlt": "Official artwork for timeout joy of jazz tickets 2026"
   },
   {
     "id": "woman-home-husky-prime-cuts-2026",
@@ -18770,14 +18790,18 @@
     "region": "South Africa",
     "verificationNote": "Official campaign and entry conditions reviewed on 17 September 2026.",
     "evidenceNotes": "Direct editorial review of the official source and linked terms on 17 September 2026. No entry was submitted.",
-    "imageReviewStatus": "neutral-fallback",
+    "imageReviewStatus": "official-source",
     "imageReviewCheckedAt": "2026-09-17",
-    "imageReviewNote": "Uses the existing FreeHub logo; this is not promoter campaign artwork.",
+    "imageReviewNote": "Image from the official listing source.",
     "riskFlags": [],
     "validationWarnings": [],
     "numberOfPrizes": "1",
     "prizeValueAmount": 3000,
-    "prizeValueCurrency": "ZAR"
+    "prizeValueCurrency": "ZAR",
+    "image": "https://freehub.co.za/assets/listings/woman-home-husky-prime-cuts-2026.webp",
+    "imageLayout": "landscape",
+    "imageSourceUrl": "https://www.womanandhomemagazine.co.za/competitions/win-a-husky-prime-cuts-hamper-worth-r3000/",
+    "imageAlt": "Official artwork for woman home husky prime cuts 2026"
   },
   {
     "id": "takealot-heritage-design-challenge-2026",
@@ -18828,9 +18852,9 @@
     "region": "South Africa",
     "verificationNote": "Official campaign and entry conditions reviewed on 17 September 2026.",
     "evidenceNotes": "Direct editorial review of the official source and linked terms on 17 September 2026. No entry was submitted.",
-    "imageReviewStatus": "neutral-fallback",
+    "imageReviewStatus": "editorial-generated",
     "imageReviewCheckedAt": "2026-09-17",
-    "imageReviewNote": "Uses the existing FreeHub logo; this is not promoter campaign artwork.",
+    "imageReviewNote": "FreeHub-created editorial illustration; not official promoter artwork or a depiction of the exact prize.",
     "riskFlags": [
       "no_ai_artwork",
       "copyright_assignment_required",
@@ -18845,7 +18869,11 @@
     "linkValidationReason": "Official campaign rules verified in a normal browser; automated HTTP access returns 403.",
     "linkValidationCheckedAt": "2026-09-17",
     "linkValidationAllowedDomain": "takealot.com",
-    "linkValidationEvidence": "Submit your own original Heritage Day delivery-box design through Takealot’s WhatsApp process by 23:59 on 24 September 2026. AI-created work is not allowed. Official terms also checked for eligibility and entry steps on 17 September 2026."
+    "linkValidationEvidence": "Submit your own original Heritage Day delivery-box design through Takealot’s WhatsApp process by 23:59 on 24 September 2026. AI-created work is not allowed. Official terms also checked for eligibility and entry steps on 17 September 2026.",
+    "image": "https://freehub.co.za/assets/listings/takealot-heritage-design-challenge-2026.webp",
+    "imageLayout": "landscape",
+    "imageSourceUrl": "https://freehub.co.za",
+    "imageAlt": "FreeHub illustration of a blank parcel and art supplies, not a competition entry"
   },
   {
     "id": "takealot-delivered-in-your-language-2026",
@@ -18895,9 +18923,9 @@
     "region": "South Africa",
     "verificationNote": "Official campaign and entry conditions reviewed on 17 September 2026.",
     "evidenceNotes": "Direct editorial review of the official source and linked terms on 17 September 2026. No entry was submitted.",
-    "imageReviewStatus": "neutral-fallback",
+    "imageReviewStatus": "editorial-generated",
     "imageReviewCheckedAt": "2026-09-17",
-    "imageReviewNote": "Uses the existing FreeHub logo; this is not promoter campaign artwork.",
+    "imageReviewNote": "FreeHub-created editorial illustration; not official promoter artwork or a depiction of the exact prize.",
     "riskFlags": [],
     "validationWarnings": [],
     "requiredProduct": "Access to a Takealot heritage-edition box",
@@ -18909,7 +18937,11 @@
     "linkValidationReason": "Official campaign rules verified in a normal browser; automated HTTP access returns 403.",
     "linkValidationCheckedAt": "2026-09-17",
     "linkValidationAllowedDomain": "takealot.com",
-    "linkValidationEvidence": "Post an original photo or video featuring a Takealot heritage-edition box, tag Takealot and use #DeliveredInYourLanguage by 4pm SAST on 30 September 2026. Official terms also checked for eligibility and entry steps on 17 September 2026."
+    "linkValidationEvidence": "Post an original photo or video featuring a Takealot heritage-edition box, tag Takealot and use #DeliveredInYourLanguage by 4pm SAST on 30 September 2026. Official terms also checked for eligibility and entry steps on 17 September 2026.",
+    "image": "https://freehub.co.za/assets/listings/takealot-delivered-in-your-language-2026.webp",
+    "imageLayout": "landscape",
+    "imageSourceUrl": "https://freehub.co.za",
+    "imageAlt": "FreeHub illustration of a phone photographing an unbranded parcel"
   },
   {
     "id": "builders-ratings-reviews-2026",
@@ -18959,15 +18991,19 @@
     "region": "South Africa",
     "verificationNote": "Official campaign and entry conditions reviewed on 17 September 2026.",
     "evidenceNotes": "Direct editorial review of the official source and linked terms on 17 September 2026. No entry was submitted.",
-    "imageReviewStatus": "neutral-fallback",
+    "imageReviewStatus": "editorial-generated",
     "imageReviewCheckedAt": "2026-09-17",
-    "imageReviewNote": "Uses the existing FreeHub logo; this is not promoter campaign artwork.",
+    "imageReviewNote": "FreeHub-created editorial illustration; not official promoter artwork or a depiction of the exact prize.",
     "riskFlags": [],
     "validationWarnings": [],
     "requiredProduct": "A product purchased online from Builders",
     "numberOfPrizes": "5 per month",
     "prizeValueAmount": 1000,
-    "prizeValueCurrency": "ZAR"
+    "prizeValueCurrency": "ZAR",
+    "image": "https://freehub.co.za/assets/listings/builders-ratings-reviews-2026.webp",
+    "imageLayout": "landscape",
+    "imageSourceUrl": "https://freehub.co.za",
+    "imageAlt": "FreeHub illustration of tools and a product-review screen"
   },
   {
     "id": "clicks-tresemme-extraordinary-wins-2026",
@@ -19017,15 +19053,19 @@
     "region": "South Africa",
     "verificationNote": "Official campaign and entry conditions reviewed on 17 September 2026.",
     "evidenceNotes": "Direct editorial review of the official source and linked terms on 17 September 2026. No entry was submitted.",
-    "imageReviewStatus": "neutral-fallback",
+    "imageReviewStatus": "official-source",
     "imageReviewCheckedAt": "2026-09-17",
-    "imageReviewNote": "Uses the existing FreeHub logo; this is not promoter campaign artwork.",
+    "imageReviewNote": "Image from the official listing source.",
     "riskFlags": [],
     "validationWarnings": [],
     "requiredAccount": "Clicks ClubCard",
     "requiredProduct": "Any two TRESemmé products in one transaction",
     "numberOfPrizes": "36",
     "prizeValueAmount": 1500,
-    "prizeValueCurrency": "ZAR"
+    "prizeValueCurrency": "ZAR",
+    "image": "https://freehub.co.za/assets/listings/clicks-tresemme-extraordinary-wins-2026.webp",
+    "imageLayout": "landscape",
+    "imageSourceUrl": "https://woobox.com/g3m8ut",
+    "imageAlt": "Official artwork for clicks tresemme extraordinary wins 2026"
   }
 ]

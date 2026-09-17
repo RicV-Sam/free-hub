@@ -4,6 +4,7 @@ const path = require("path");
 const shared = require("../shared/page-data.js");
 const opportunityData = require("../shared/opportunity-data.js");
 const offerData = require("../shared/offer-data.js");
+const listingImages = require("../data/listing-images.json");
 const unverifiedCompetitionData = require("../shared/unverified-competition-data.js");
 const { applyLegacyArchiveCostCompatibility } = require("./lib/legacy-archive-costs.js");
 const { createFreeResourceRenderer } = require("./lib/free-resource-renderer.js");
@@ -3617,6 +3618,12 @@ function renderOfferFeedbackPanel(offer) {
           </section>`;
 }
 
+function renderListingHeroImage(listing) {
+  const image = listingImages[listing.id];
+  if (!image) return "";
+  return `<figure class="listing-hero-image"><img src="${escapeAttribute(image.src)}" width="${image.width}" height="${image.height}" alt="${escapeAttribute(image.alt)}" loading="lazy" decoding="async" /><figcaption>${escapeHtml(image.caption)}${image.sourcePage ? ` <a href="${escapeAttribute(image.sourcePage)}" target="_blank" rel="noopener noreferrer">Image source</a>` : ""}</figcaption></figure>`;
+}
+
 function renderOfferDetailPage(offer) {
   const detailPath = offerData.getOfferPath(offer);
   const canonical = `${shared.CANONICAL_ORIGIN}${detailPath}`;
@@ -3631,11 +3638,13 @@ function renderOfferDetailPage(offer) {
   return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${escapeHtml(offer.title)} | Freehub</title><meta name="description" content="${escapeAttribute(offer.summary)}" /><meta name="robots" content="index, follow, max-image-preview:large" /><link rel="canonical" href="${escapeAttribute(canonical)}" /><link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" /><meta property="og:title" content="${escapeAttribute(offer.title)}" /><meta property="og:description" content="${escapeAttribute(offer.summary)}" /><meta property="og:url" content="${escapeAttribute(canonical)}" />
+    ${listingImages[offer.id] ? `<meta property="og:image" content="${escapeAttribute(shared.CANONICAL_ORIGIN + listingImages[offer.id].src)}" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:image" content="${escapeAttribute(shared.CANONICAL_ORIGIN + listingImages[offer.id].src)}" />` : ""}
     <script type="application/ld+json">${escapeScript(JSON.stringify(pageSchema))}</script><script type="application/ld+json">${escapeScript(JSON.stringify(breadcrumb))}</script>
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />${GUEST_ADS_SCRIPT}${renderGoogleTagManagerHead(`{ page_type: 'offer_detail', offer_type: '${offer.type}', offer_id: ${escapeScript(JSON.stringify(offer.id))} }`)}${renderMetaPixelHead()}</head>
     <body>${renderGoogleTagManagerNoScript()}${renderMetaPixelNoScript()}<div class="site-shell">${renderTopNavigation({ active: "offers" })}
     ${renderModernHero({ className: "hero--utility hero--offers", eyebrow: `${offer.brand} ${noun.toLowerCase()}`, heading: offer.title, intro: offer.summary, trustItems: ["Source checked", `Checked ${shared.formatDate(offer.lastChecked)}`, disclosure] })}
     <main id="main-content" class="main-content offer-page"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/${offer.type === "coupon" ? "coupons" : "deals"}/">${noun}s</a><span aria-hidden="true">/</span><span aria-current="page">${escapeHtml(offer.title)}</span></nav>
+      ${renderListingHeroImage(offer)}
       <article class="offer-detail"><div class="offer-detail__main"><p class="offer-card__brand">${escapeHtml(offer.brand)}</p><h2>${escapeHtml(offer.title)}</h2>${offer.type === "coupon" ? `<div class="offer-detail__code"><span>${offer.couponCode ? "Coupon code" : "Personal coupon"}</span><strong>${escapeHtml(offer.couponCode || offer.couponInstructions)}</strong></div>` : '<div class="offer-detail__code offer-detail__code--deal"><span>How to claim</span><strong>No code needed</strong></div>'}<p>${escapeHtml(offer.summary)}</p><h2>Terms to check</h2><p>${escapeHtml(offer.terms)}</p><p><a href="${escapeAttribute(offer.termsUrl || offer.sourceUrl)}" target="_blank" rel="noopener noreferrer">Read the verified source${offer.termsUrl ? " and full terms" : ""}</a></p><a class="competition-detail__cta" href="${escapeAttribute(offerData.getOfferExitPath(offer))}" target="_blank" rel="noopener noreferrer">Go to ${escapeHtml(offer.brand)}</a><p class="competition-detail__cta-note">You will leave Freehub. Confirm the code, price, availability and terms before buying.</p></div>
       <aside class="offer-detail__facts"><h2>Offer details</h2><dl><div><dt>Type</dt><dd>${noun}</dd></div><div><dt>Category</dt><dd><a href="${escapeAttribute(getOfferCollectionPath({ category: offer.category }))}">${escapeHtml(getOfferCategoryLabel(offer.category))}</a></dd></div><div><dt>Last checked</dt><dd>${escapeHtml(shared.formatDate(offer.lastChecked))}</dd></div>${offer.expiresAt ? `<div><dt>Expires</dt><dd>${escapeHtml(shared.formatDate(offer.expiresAt))}</dd></div>` : ""}<div><dt>Link disclosure</dt><dd>${offer.sponsored ? "Paid placement" : offer.affiliate ? "Affiliate link" : "Not sponsored or affiliate"}</dd></div></dl></aside></article>
       ${renderOfferFeedbackPanel(offer)}
@@ -5865,6 +5874,8 @@ function renderCardStatusBadges(competition, options = {}) {
 }
 
 function renderEditorialImageDisclosure(competition) {
+  const image = listingImages[competition.id];
+  if (image) return `<p class="competition-image-disclosure">${escapeHtml(image.caption)}${image.sourcePage ? ` <a href="${escapeAttribute(image.sourcePage)}" target="_blank" rel="noopener noreferrer">Image source</a>` : ""}</p>`;
   if (competition?.imageReviewStatus !== "editorial-generated") {
     return "";
   }
@@ -11304,6 +11315,7 @@ function buildCompetitionHeroSubline(competition) {
 }
 
 function buildCompetitionImageAltText(competition, expired = false) {
+  if (listingImages[competition.id]) return listingImages[competition.id].alt;
   const parts = [
     competition.title,
     competition.prizeName || competition.prize,
@@ -11650,11 +11662,11 @@ function renderOpportunityDetailPage(opportunity, lifecycleState) {
     <meta property="og:title" content="${escapeAttribute(metadata.title)}" />
     <meta property="og:description" content="${escapeAttribute(metadata.description)}" />
     <meta property="og:url" content="${escapeAttribute(canonicalUrl)}" />
-    <meta property="og:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
+    <meta property="og:image" content="${escapeAttribute(active && listingImages[opportunity.id] ? `${shared.CANONICAL_ORIGIN}${listingImages[opportunity.id].src}` : shared.DEFAULT_OG_IMAGE)}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${escapeAttribute(metadata.title)}" />
     <meta name="twitter:description" content="${escapeAttribute(metadata.description)}" />
-    <meta name="twitter:image" content="${escapeAttribute(shared.DEFAULT_OG_IMAGE)}" />
+    <meta name="twitter:image" content="${escapeAttribute(active && listingImages[opportunity.id] ? `${shared.CANONICAL_ORIGIN}${listingImages[opportunity.id].src}` : shared.DEFAULT_OG_IMAGE)}" />
     <script id="structured-data-webpage" type="application/ld+json">${escapeScript(JSON.stringify(structuredData.webPage))}</script>
     <script id="structured-data-breadcrumb" type="application/ld+json">${escapeScript(JSON.stringify(structuredData.breadcrumb))}</script>
     ${structuredData.thing ? `<script id="structured-data-opportunity" type="application/ld+json">${escapeScript(JSON.stringify(structuredData.thing))}</script>` : ""}
@@ -11688,6 +11700,7 @@ function renderOpportunityDetailPage(opportunity, lifecycleState) {
           <a href="${escapeAttribute(opportunityParent.href)}">${escapeHtml(opportunityParent.label)}</a><span aria-hidden="true">/</span>
           <span aria-current="page">${escapeHtml(opportunity.title)}</span>
         </nav>
+        ${active ? renderListingHeroImage(opportunity) : ""}
         ${opportunityRouteRenderer.renderDetailContent(opportunity, lifecycleState)}
       </main>
 

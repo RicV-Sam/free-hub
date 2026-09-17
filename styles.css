@@ -4751,6 +4751,25 @@ body {
   gap: 0.4rem;
 }
 
+.listing-hero-image {
+  margin: 0 auto 1.5rem;
+  max-width: 960px;
+}
+
+.listing-hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+.listing-hero-image figcaption {
+  margin-top: 0.65rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #475569;
+}
+
 .competition-image-disclosure {
   margin: 0;
   color: rgba(248, 250, 252, 0.74);
