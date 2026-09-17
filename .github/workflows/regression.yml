@@ -54,7 +54,7 @@ jobs:
           # Compare with the actual base in GitHub's checked-out PR merge, including newer main commits.
           # An older PR's event base SHA can still describe its original target snapshot.
           git worktree add --detach "$base_dir" "$(git rev-parse HEAD^1)"
-          (cd "$base_dir" && NODE_OPTIONS="--require=$fixed_date_register" FREEHUB_BUILD_DATE="$FREEHUB_BUILD_DATE" FREEHUB_AS_OF_DATE="$FREEHUB_AS_OF_DATE" node scripts/generate-pages.js)
+          (cd "$base_dir" && npm ci --ignore-scripts && NODE_OPTIONS="--require=$fixed_date_register" FREEHUB_BUILD_DATE="$FREEHUB_BUILD_DATE" FREEHUB_AS_OF_DATE="$FREEHUB_AS_OF_DATE" node scripts/generate-pages.js)
           node scripts/capture-generated-output.js --output-dir="$candidate_absent_dir"
           echo "Compare feature flag absent with PR base"
           node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-portfolio-recovery

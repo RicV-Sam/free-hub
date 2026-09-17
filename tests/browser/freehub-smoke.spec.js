@@ -500,16 +500,26 @@ test("skip link is keyboard reachable and targets main content", async ({ page }
 });
 
 test("mobile navigation remains fully visible without a horizontal strip", async ({ page }) => {
+  await page.route("**/scripts.scriptwrapper.com/**", (route) => route.abort());
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
   const navigation = page.getByRole("navigation", { name: "Primary navigation" });
   await expect(navigation).toBeVisible();
-  await expect(navigation.getByRole("link", { name: "Competitions" })).toBeVisible();
+  await expect(navigation.getByRole("link", { name: "Competitions", exact: true })).toBeVisible();
   await navigation.getByRole("link", { name: "Free Stuff" }).scrollIntoViewIfNeeded();
   await expect(navigation.getByRole("link", { name: "Free Stuff" })).toBeVisible();
   const dimensions = await navigation.evaluate((element) => ({ clientWidth: element.clientWidth, scrollWidth: element.scrollWidth }));
   expect(dimensions.scrollWidth).toBeLessThanOrEqual(dimensions.clientWidth + 1);
-  await expect(page.getByRole("link", { name: "Open Freehub Club account" })).toContainText("Account");
+  await expect(page.getByRole("link", { name: "Open Freehub account" })).toContainText("Account");
+  for (const width of [320, 390, 768, 1280]) {
+    await page.setViewportSize({ width, height: 844 });
+    const layout = await page.locator(".home-hero-guide__links a").evaluateAll(links => links.map(link => {
+      const label = link.querySelector("span").getBoundingClientRect();
+      const detail = link.querySelector("strong").getBoundingClientRect();
+      return { overlap: label.right > detail.left && detail.right > label.left && label.bottom > detail.top && detail.bottom > label.top };
+    }));
+    expect(layout.every(link => !link.overlap)).toBe(true);
+  }
 });
 
 test("competition hub search filters prerendered listings and updates the result count", async ({ page }) => {

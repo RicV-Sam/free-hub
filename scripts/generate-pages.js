@@ -1,6 +1,7 @@
 const fs = require("fs");
 const whatsappChannel = require("./lib/whatsapp-channel.js");
 const path = require("path");
+const { createLocalImageDimensionWriter } = require("./lib/local-image-dimensions.js");
 const shared = require("../shared/page-data.js");
 const opportunityData = require("../shared/opportunity-data.js");
 const offerData = require("../shared/offer-data.js");
@@ -17,6 +18,7 @@ const { createOpportunityRouteRenderer } = require("./lib/opportunity-route-rend
 const { writeMobileCatalog, writeMobileFeed } = require("./lib/mobile-feed.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
+const addLocalImageDimensions = createLocalImageDimensionWriter(ROOT_DIR, shared.CANONICAL_ORIGIN);
 const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
 const ARCHIVE_DATA_PATH = path.join(ROOT_DIR, "data", "archive", "competitions-expired.json");
 const FREE_RESOURCES_PATH = path.join(ROOT_DIR, "data", "free-resources.json");
@@ -30,11 +32,12 @@ const GUEST_ADS_SCRIPT_SRC = "/shared/guest-ads.js?v=20260917-account-save-v2";
 const OUTBOUND_HANDOFF_SCRIPT_SRC = `/shared/outbound-handoff.js?v=${RELEASE_ASSET_VERSION}`;
 const GUEST_ADS_SCRIPT = `<script type="module" src="${GUEST_ADS_SCRIPT_SRC}"></script>`;
 const OUTBOUND_HANDOFF_SCRIPT = `<script src="${OUTBOUND_HANDOFF_SCRIPT_SRC}"></script>`;
-const MEDIAVINE_SCRIPT = '<script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="//scripts.scriptwrapper.com/tags/db39d7ff-ec0e-46b2-9797-bad57ea1954f.js"></script>';
+const MEDIAVINE_SCRIPT = '<script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="https://scripts.scriptwrapper.com/tags/db39d7ff-ec0e-46b2-9797-bad57ea1954f.js"></script>';
 
 // Keep provider installation consistent across generated pages and existing ad exclusions.
 function writeGeneratedFile(filePath, content, ...options) {
   if (path.extname(filePath) === ".html" && typeof content === "string") {
+    content = addLocalImageDimensions(content, filePath);
     const eligible = content.includes(GUEST_ADS_SCRIPT_SRC)
       && !/<meta[^>]+name="robots"[^>]+content="[^"]*noindex/i.test(content)
       && !content.includes('data-freehub-ad-surface="archive"');
@@ -124,7 +127,7 @@ const VOUCHER_DISCOVERY_RESOURCE_HOSTS = Object.freeze({
   "telkom-customer-referral-credit": "group.telkom.co.za",
 });
 const VOUCHER_DISCOVERY_RESOURCE_IDS = Object.freeze(Object.keys(VOUCHER_DISCOVERY_RESOURCE_HOSTS));
-const CSS_ASSET_VERSION = "20260917-guide-cards-v1";
+const CSS_ASSET_VERSION = "20260917-audit-fixes-v1";
 const FREEHUB_REFER_WIN_CONFIG = {
   referWinCampaignEnabled: false,
   referWinLiveReady: false,
@@ -4687,7 +4690,7 @@ function renderVoucherIntentSection(routeContext, competitions) {
               <h3>Voucher shortcuts</h3>
               <p>Use these routes to narrow grocery vouchers, fuel rewards, airtime or data prizes, no-purchase draws and purchase-required campaigns before opening a listing.</p>
               <div class="popular-searches__links">
-                ${shortcutLinks
+                ${filterPublishedInternalLinks(shortcutLinks)
                   .map(
                     (link) => `<a class="popular-searches__link" href="${escapeAttribute(link.href)}">${escapeHtml(link.label)}${link.count ? ` (${link.count})` : ""}</a>`
                   )
@@ -7109,6 +7112,15 @@ function renderHomepage(competitions) {
     <meta name="twitter:title" content="South African Competitions, Free Stuff & Savings | Freehub" />
     <meta name="twitter:description" content="Explore free resources, rewards, savings and South African competitions. Check costs and requirements, then continue to the official source." />
     <meta name="twitter:image" content="${escapeAttribute(ogImage)}" />
+    <script id="structured-data-organization" type="application/ld+json">${escapeScript(JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": `${shared.CANONICAL_ORIGIN}/#organization`,
+      name: "Freehub",
+      url: `${shared.CANONICAL_ORIGIN}/`,
+      logo: `${shared.CANONICAL_ORIGIN}/FH%20logo.png`,
+      sameAs: [FACEBOOK_PAGE_URL],
+    }))}</script>
     <script id="structured-data-itemlist" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
     ${GUEST_ADS_SCRIPT}
@@ -7118,15 +7130,6 @@ function renderHomepage(competitions) {
   <body>
     ${renderGoogleTagManagerNoScript()}
     ${renderMetaPixelNoScript()}
-    <noscript>
-      <section class="noscript-shell" aria-label="Competition links">
-        <h2>Competition links</h2>
-        <p>Browse a quick set of competition pages if JavaScript is unavailable.</p>
-        <ul class="noscript-links">
-${noscriptLinks}
-        </ul>
-      </section>
-    </noscript>
 
     <div class="site-shell site-shell--home">
       ${renderTopNavigation({ active: "home" })}
@@ -7157,6 +7160,15 @@ ${noscriptLinks}
       </header>
 
       <main id="main-content" class="main-content">
+        <noscript>
+          <section class="noscript-shell" aria-label="Competition links">
+            <h2>Competition links</h2>
+            <p>Browse a quick set of competition pages if JavaScript is unavailable.</p>
+            <ul class="noscript-links">
+${noscriptLinks}
+            </ul>
+          </section>
+        </noscript>
         ${renderHomepageValueSection()}
         ${renderTopPicksSection(topPicks)}
         ${renderHomepageResourcesSection()}

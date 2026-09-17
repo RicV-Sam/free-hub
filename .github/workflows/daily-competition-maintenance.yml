@@ -42,6 +42,9 @@ jobs:
         with:
           node-version: "24"
 
+      - name: Install build dependencies
+        run: npm ci --ignore-scripts
+
       - name: Refresh Journey ads.txt
         run: node scripts/sync-journey-ads-txt.js
 
@@ -174,6 +177,9 @@ jobs:
       - name: Write IndexNow key file
         if: steps.diff.outputs.has_changes == 'true' && env.INDEXNOW_API_KEY != ''
         run: node scripts/write-indexnow-key.js
+
+      - name: Remove build dependencies from publication directory
+        run: rm -rf node_modules
 
       - name: Upload static site artifact
         if: steps.diff.outputs.has_changes == 'true'

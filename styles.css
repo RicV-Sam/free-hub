@@ -647,6 +647,13 @@ button {
   line-height: 1.35;
 }
 
+@media (max-width: 600px) {
+  .home-hero-guide__links a {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}
+
 .home-value-grid,
 .home-resource-grid {
   display: grid;
