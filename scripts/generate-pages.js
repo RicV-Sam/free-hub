@@ -121,7 +121,7 @@ const VOUCHER_DISCOVERY_RESOURCE_HOSTS = Object.freeze({
   "telkom-customer-referral-credit": "group.telkom.co.za",
 });
 const VOUCHER_DISCOVERY_RESOURCE_IDS = Object.freeze(Object.keys(VOUCHER_DISCOVERY_RESOURCE_HOSTS));
-const CSS_ASSET_VERSION = RELEASE_ASSET_VERSION;
+const CSS_ASSET_VERSION = "20260917-mobile-search-v1";
 const FREEHUB_REFER_WIN_CONFIG = {
   referWinCampaignEnabled: false,
   referWinLiveReady: false,

@@ -5046,12 +5046,6 @@ body {
   flex: 0 1 auto;
 }
 
-.controls {
-  position: sticky;
-  top: 0.5rem;
-  z-index: 10;
-}
-
 @media (min-width: 700px) {
   .hero h1 {
     font-size: 2.55rem;
@@ -5103,10 +5097,6 @@ body {
   .filter-list {
     flex-wrap: wrap;
     overflow-x: visible;
-  }
-
-  .controls {
-    position: static;
   }
 
   .competition-grid,
