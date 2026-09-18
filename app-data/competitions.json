@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-09-18",
-  "count": 72,
+  "count": 80,
   "competitions": [
     {
       "id": "samsung-august-rate-and-review-2026",
@@ -151,6 +151,32 @@
       "officialUrl": "https://www.timeout.com/durban/news/win-tickets-to-watch-the-proteas-on-heritage-day-091526",
       "termsUrl": "https://www.timeout.com/south-africa/competition-terms-and-conditions",
       "lastChecked": "2026-09-17",
+      "isHighValue": false,
+      "isClosingSoon": true
+    },
+    {
+      "id": "sorbet-turns-21-vouchers-2026",
+      "title": "Sorbet Turns 21: Win a R2,100 Voucher",
+      "brand": "Sorbet Group",
+      "summary": "The final Sorbet Turns 21 round runs from 14 to 21 September. The full rules add a treatment-booking requirement that is not included in the short Instagram caption.",
+      "imageUrl": "https://freehub.co.za/assets/listings/sorbet-turns-21-vouchers-2026.webp",
+      "closingDate": "2026-09-21",
+      "category": "Vouchers",
+      "prizeName": "Four R2,100 Sorbet vouchers in the final weekly round",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Social",
+      "eligibility": "SA residents aged 18+, Sorbet Society members with a qualifying treatment booking.",
+      "entrySteps": [
+        "Read section 36 of Sorbet’s terms and confirm that you are a registered Sorbet Society member with a qualifying treatment booking between 1 July and 21 September 2026.",
+        "Follow at least one of the official Sorbet Group, Sorbet Man or Sorbet Hairbar accounts specified in the rules.",
+        "On the official final-round post, share your best Sorbet memory. Include #SorbetTurns21 from the post and the key emoji 🗝️ required by the terms.",
+        "Enter by 21 September 2026. Only one entry per weekly round counts, and a person may win only once during the campaign. Check direct messages and replies for winner contact."
+      ],
+      "officialUrl": "https://www.instagram.com/reel/DdUHZv1nSoO/",
+      "termsUrl": "https://www.sorbet.co.za/terms-conditions/",
+      "lastChecked": "2026-09-18",
       "isHighValue": false,
       "isClosingSoon": true
     },
@@ -866,6 +892,58 @@
       "isClosingSoon": false
     },
     {
+      "id": "cashbuild-lasher-vouchers-september-2026",
+      "title": "Cashbuild Lasher R1,000 Voucher Competition",
+      "brand": "Cashbuild / Lasher",
+      "summary": "Ten R1,000 Cashbuild vouchers are available across the September Lasher purchase promotion. Only products listed in Annexure A of the terms qualify, and online purchases are excluded.",
+      "imageUrl": "https://freehub.co.za/assets/listings/cashbuild-lasher-vouchers-september-2026.webp",
+      "closingDate": "2026-09-30",
+      "category": "Vouchers",
+      "prizeName": "Ten R1,000 Cashbuild vouchers across weekly draws",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "In-store",
+      "eligibility": "SA citizens or residents aged 18+, registered for Cashbuild Shopper, buying a listed Lasher product in store.",
+      "entrySteps": [
+        "Read the Lasher terms on Cashbuild’s competition page and check the qualifying product codes in Annexure A before buying.",
+        "Register for Cashbuild Shopper, or use your existing registered cellphone number. Registration can be completed when purchasing.",
+        "Buy a qualifying Lasher product in store during September and give the cashier your registered number. Keep your proof of purchase. Online shopping does not qualify.",
+        "Enter by 30 September 2026 and keep your registered phone reachable. Separate qualifying purchases can provide additional entries."
+      ],
+      "officialUrl": "https://www.cashbuild.co.za/articles/cashbuild-competition-tc-s",
+      "termsUrl": "https://www.cashbuild.co.za/module/smartblog/download?id=443",
+      "lastChecked": "2026-09-18",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "limp-bizkit-workout-challenge-2026",
+      "title": "Limp Bizkit Workout Challenge Ticket Competition",
+      "brand": "Big Concerts",
+      "summary": "Big Concerts offers five double-ticket prizes and one fly-in experience for Limp Bizkit’s Johannesburg concert. Posting the video alone is not a complete entry: the website form is also required.",
+      "imageUrl": "https://freehub.co.za/assets/listings/limp-bizkit-workout-challenge-2026.webp",
+      "closingDate": "2026-09-30",
+      "category": "Entertainment",
+      "prizeName": "Five double-ticket prizes and one fly-in prize for two",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "SA residents. The fly-in prize is for a winner outside Gauteng using the specified Cape Town or Durban departure routes.",
+      "entrySteps": [
+        "Watch the official challenge instructions on Big Concerts’ competition page and read the competition terms.",
+        "Create and film your own version, ensuring you have permission for any other people or material appearing in it.",
+        "Post your video on social media, tag @BigConcerts and include #LimpBizkitWorkoutChallenge.",
+        "Complete the official Big Concerts entry form with your video link before the 30 September 2026 midnight deadline. Follow the general one-entry limit unless the promoter expressly states otherwise."
+      ],
+      "officialUrl": "https://www.bigconcerts.co.za/competition/limp-bizkit-workout-challenge",
+      "termsUrl": "https://www.bigconcerts.co.za/competition/terms",
+      "lastChecked": "2026-09-18",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "spar-nutrifresh-spin-and-win-2026",
       "title": "SPAR Nutrifresh Spin & Win Competition",
       "brand": "SPAR KZN / Nutrifresh",
@@ -939,6 +1017,32 @@
       "officialUrl": "https://www.clicks.co.za/clubcard/competitions/tresemme-extraordinary-hair-extraordinary-wins-competition",
       "termsUrl": "https://woobox.com/g3m8ut/rules",
       "lastChecked": "2026-09-17",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "makro-spring-trolley-dash-2026",
+      "title": "Makro Spring Trolley Dash Competition",
+      "brand": "Makro",
+      "summary": "Makro’s purchase-and-comment competition runs from 16 September to 6 October 2026. Keep your invoice and include both campaign hashtags in your Facebook entry.",
+      "imageUrl": "https://freehub.co.za/assets/listings/makro-spring-trolley-dash-2026.webp",
+      "closingDate": "2026-10-06",
+      "category": "Shopping",
+      "prizeName": "A two-minute trolley dash worth up to R10,000",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Purchase and Facebook comment",
+      "eligibility": "Registered Makro customers older than 18 with the required South African identity or residency documents.",
+      "entrySteps": [
+        "Read the rules and make sure your Makro customer registration is valid. Shop for at least R650 in store or online during the campaign period.",
+        "Swipe your Makro card for an in-store purchase and retain your invoice as proof.",
+        "Find and like the Spring Trolley Dash competition post on Makro’s official Facebook page. Comment on how you would celebrate Spring or Heritage Month and name one Makro item you cannot celebrate without.",
+        "Include #MakroSpringintoSavings and #MakroHeritageMonth. Complete your entry by 6 October 2026; online entries close at 23:59 and stores close at their normal times."
+      ],
+      "officialUrl": "https://www.facebook.com/share/1cGrX7RLzA/?mibextid=wwXIfr",
+      "termsUrl": "https://www.makro.co.za/pages/spring-trolley-dash-2026",
+      "lastChecked": "2026-09-18",
       "isHighValue": false,
       "isClosingSoon": false
     },
@@ -1095,6 +1199,32 @@
       "termsUrl": "https://www.sasol.com/sites/default/files/2026-09/Sasol%20Delight%20Terms%20%26%20Conditions%20-%20MagPie%20Competition.pdf",
       "lastChecked": "2026-09-14",
       "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "telkom-radio-awards-my-station-2026",
+      "title": "Telkom Radio Awards My Station R40,000 Competition",
+      "brand": "Telkom Radio Awards / Arena Events",
+      "summary": "The My Station audience competition offers one R40,000 cash prize. Kaya 959 promoted the draw, but the official form lets you choose your favourite participating station.",
+      "imageUrl": "https://freehub.co.za/assets/listings/telkom-radio-awards-my-station-2026.webp",
+      "closingDate": "2026-10-23",
+      "category": "Cash",
+      "prizeName": "R40,000 cash",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "SA citizens or permanent residents with valid SA identification; the entry form is for ages 18 and over.",
+      "entrySteps": [
+        "Open the official My Station voting form and read its competition terms and privacy information.",
+        "Enter the required name, email, cellphone number, age and province information accurately, then select your favourite radio station.",
+        "Review the form’s consent wording and submit your vote yourself before 23 October 2026. The rules allow unlimited votes.",
+        "Keep the phone number and email you supplied active so the organiser can contact you if drawn. Valid identification is needed to verify a potential winner."
+      ],
+      "officialUrl": "https://upload.radioawards.co.za/MyStation",
+      "termsUrl": "https://upload.radioawards.co.za/MyStation/css/RA-My-Station-competiton_terms-and-conditions_2026.pdf",
+      "lastChecked": "2026-09-18",
+      "isHighValue": true,
       "isClosingSoon": false
     },
     {
@@ -1404,6 +1534,32 @@
       "isClosingSoon": false
     },
     {
+      "id": "pizza-perfect-oom-freddy-legacy-2026",
+      "title": "Pizza Perfect Oom Freddy’s Legacy Hamper Competition",
+      "brand": "Pizza Perfect",
+      "summary": "Pizza Perfect’s Legacy promotion awards weekly rugby-themed hampers. A qualifying food-and-drink purchase and receipt submission are both required.",
+      "imageUrl": "https://freehub.co.za/assets/listings/pizza-perfect-oom-freddy-legacy-2026.webp",
+      "closingDate": "2026-11-14",
+      "category": "Food & Drink",
+      "prizeName": "Weekly rugby and Oom Freddy’s Legacy hampers",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Qualifying purchase and Facebook direct message",
+      "eligibility": "South African residents who make the qualifying purchase and submit the required receipt details.",
+      "entrySteps": [
+        "Read the official Legacy PDF and choose a qualifying Oom Freddy’s Legacy 30 cm pizza, 20 cm sub, chicken wings, or chicken or beef burger.",
+        "Add a Coca-Cola can, buddy or 2-litre product to the purchase. Orders may be made through the app, website or in store under the rules.",
+        "Keep the receipt and send a clear photograph of it, your name and your cellphone number by direct message to Pizza Perfect’s official Facebook account, linked from its website.",
+        "Submit during the campaign period ending at midnight on 14 November 2026. Keep your receipt and be able to collect the prize from the store where you purchased."
+      ],
+      "officialUrl": "https://pizzaperfect.co.za/promos/",
+      "termsUrl": "https://pizzaperfect.co.za/wp-content/uploads/2026/07/Terms-and-Conditions-Legacy.pdf",
+      "lastChecked": "2026-09-18",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "coca-cola-be-a-bok-voucher-prizes-2026",
       "title": "Coca-Cola Be A Bok Voucher Prizes",
       "brand": "Coca-Cola South Africa",
@@ -1553,6 +1709,58 @@
       "termsUrl": "https://www.1life.co.za/competitions/be-the-1-to-win-sept-funeral",
       "lastChecked": "2026-09-06",
       "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "miway-micover-conversation-2026",
+      "title": "Miway Micover Conversation Voucher Competition",
+      "brand": "Miway Insurance",
+      "summary": "Miway’s car, pet and home scenarios offer chances to win fuel, pet or Checkers vouchers. Commenting alone does not qualify: you must also complete the matching insurance quote.",
+      "imageUrl": "https://freehub.co.za/assets/listings/miway-micover-conversation-2026.webp",
+      "closingDate": "2026-11-30",
+      "category": "Vouchers",
+      "prizeName": "Fuel, pet or Checkers vouchers in fortnightly draws",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Social",
+      "eligibility": "SA citizens or permanent residents aged 18+ who complete both the social activity and the matching quote.",
+      "entrySteps": [
+        "Read the Micover Conversation terms and choose a current official Miway campaign post.",
+        "Comment, vote, debate or answer the scenario as instructed. The linked home post asks about storm damage.",
+        "Complete an obligation-free Miway quote for the product featured in that post, using your genuine details. Car, pet and home insurance are named in the terms.",
+        "Complete both actions within the campaign period ending 30 November 2026. Monitor the contact details supplied for your quote and your social messages."
+      ],
+      "officialUrl": "https://www.instagram.com/p/Dda9Mj1jUbv/",
+      "termsUrl": "https://www.miway.co.za/micover-conversation-competition-terms-and-conditions",
+      "lastChecked": "2026-09-18",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "miway-friday-is-miday-2026",
+      "title": "Miway Friday Is MiDay Cash Competition",
+      "brand": "Miway / Jacaranda FM",
+      "summary": "Miway and Jacaranda FM invite original Friday-themed voice notes. Entries are judged for creativity, originality, relevance and broadcast suitability. The campaign closes on 30 November 2026.",
+      "imageUrl": "https://freehub.co.za/assets/listings/miway-friday-is-miday-2026.webp",
+      "closingDate": "2026-11-30",
+      "category": "Cash",
+      "prizeName": "R1,000 weekly, plus R1,000 for a verified active Miway policyholder",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Original voice note",
+      "eligibility": "SA residents aged 18+. An active Miway policy is needed only for the additional R1,000 bonus.",
+      "entrySteps": [
+        "Read Miway’s Friday Is MiDay rules and Jacaranda FM’s current on-air instructions.",
+        "Record your own voice note explaining why Friday is your day. Keep it suitable for public broadcast and avoid unnecessary private information about yourself or others.",
+        "Send it to 084 850 0942 during the competition period. Selected notes may feature on Breakfast with Martin Bester on Fridays between 06:00 and 09:00.",
+        "Keep your contact details available for verification. Multiple entries are allowed, but the same person can win only once during the campaign."
+      ],
+      "officialUrl": "https://www.miway.co.za/friday-is-miday-terms-of-use",
+      "termsUrl": "https://www.miway.co.za/friday-is-miday-terms-of-use",
+      "lastChecked": "2026-09-18",
+      "isHighValue": true,
       "isClosingSoon": false
     },
     {

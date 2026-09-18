@@ -45,7 +45,7 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 15
+- Matching active public competitions: 18
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -56,7 +56,9 @@ Recommended normalisation:
 | IMANA SUPERSPAR Polofields Potjie Dash Competition 2026 (imana-superspar-polofields-potjie-dash-2026) | 2026-09-25 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | OREO BTS Promotion 2026 (oreo-bts-promotion-2026) | 2026-09-30 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Denny Win Your Share of R100,000 Cash Competition (denny-r100000-cash-competition-2026) | 2026-09-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
+| Cashbuild Lasher R1,000 Voucher Competition (cashbuild-lasher-vouchers-september-2026) | 2026-09-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Huletts Heritage Recipe and Story Competition (huletts-heritage-2026) | 2026-10-03 | free-entry | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
+| Makro Spring Trolley Dash Competition (makro-spring-trolley-dash-2026) | 2026-10-06 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Knorr Soup Competition 2026 - Win R5,000 Weekly (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | SPAR Colgate-Palmolive Win Your Share of R150,000 Competition (spar-colgate-palmolive-r150k-2026) | 2026-10-17 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Sasol Delight and Magpie Rewards Competition (sasol-magpie-2026) | 2026-10-21 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
@@ -64,6 +66,7 @@ Recommended normalisation:
 | SPAR Community School Support Competition (spar-community-school-support-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Astron Energy Own a Golf 8 GTI Competition 2026 (astron-energy-own-golf-8-gti-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | NESCAFÉ Gold Rush SPAR Rewards Competition (nescafe-gold-rush-spar-2026) | 2026-11-08 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
+| Pizza Perfect Oom Freddy’s Legacy Hamper Competition (pizza-perfect-oom-freddy-legacy-2026) | 2026-11-14 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Coca-Cola Be a Bok Competition 2026 (coca-cola-fan-can-be-a-bok-2026) | 2026-11-30 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Montego Classic Win a Toyota Hilux Competition (montego-classic-win-toyota-hilux-2026) | 2026-11-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
@@ -74,7 +77,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 24
+- Matching active public competitions: 26
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -98,7 +101,9 @@ Recommended normalisation:
 | Bargain Books Gruffalo Granny Competition (bargain-books-gruffalo-granny-2026) | 2026-09-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Bargain Books 20 Minute Meals Competition (bargain-books-20-minute-meals-2026) | 2026-09-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Woman & Home Husky Prime Cuts Hamper (woman-home-husky-prime-cuts-2026) | 2026-09-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| Limp Bizkit Workout Challenge Ticket Competition (limp-bizkit-workout-challenge-2026) | 2026-09-30 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Nedbank YouthX Awards 2026 (nedbank-youthx-awards-2026) | 2026-10-09 | account-required | yes | yes | Online entry tag | none |
+| Telkom Radio Awards My Station R40,000 Competition (telkom-radio-awards-my-station-2026) | 2026-10-23 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Ster-Kinekor Silas Watch and Win Competition (ster-kinekor-silas-watch-and-win-2026) | 2026-10-25 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | Wanderlust Reader Travel Awards 2026 Prize Draw (wanderlust-reader-travel-awards-prize-draw-2026) | 2026-10-27 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Ackermans Baby of the Year 2026 (ackermans-baby-of-the-year-2026) | 2026-10-30 | conditional | yes | yes | Online entry mentioned in entry text | none |
@@ -162,7 +167,7 @@ Recommended normalisation:
 ## Supermarket Competitions in South Africa
 
 - URL: /supermarket-competitions-south-africa/
-- Matching active public competitions: 11
+- Matching active public competitions: 12
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -173,6 +178,7 @@ Recommended normalisation:
 | Food Lover's Market Heritage Day Competition (food-lovers-market-supersport-heritage-day-2026) | 2026-09-24 | free-entry | yes | yes | Supermarket brand or retail partner | none |
 | IMANA SUPERSPAR Polofields Potjie Dash Competition 2026 (imana-superspar-polofields-potjie-dash-2026) | 2026-09-25 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery tag; Supermarket or grocery entry text | none |
 | SPAR Nutrifresh Spin & Win Competition (spar-nutrifresh-spin-and-win-2026) | 2026-10-02 | free-entry | yes | yes | Supermarket brand or retail partner | none |
+| Makro Spring Trolley Dash Competition (makro-spring-trolley-dash-2026) | 2026-10-06 | purchase-required | yes | yes | Supermarket or grocery entry text | none |
 | SPAR Colgate-Palmolive Win Your Share of R150,000 Competition (spar-colgate-palmolive-r150k-2026) | 2026-10-17 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Tinkies Distraction Levels Tech Competition 2026 (tinkies-distraction-levels-competition-2026) | 2026-10-19 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Heinz Heritage SPAR Rewards Braai Competition (heinz-heritage-spar-2026) | 2026-10-25 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
