@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-09-18",
-  "count": 80,
+  "count": 81,
   "competitions": [
     {
       "id": "samsung-august-rate-and-review-2026",
@@ -1557,6 +1557,32 @@
       "termsUrl": "https://pizzaperfect.co.za/wp-content/uploads/2026/07/Terms-and-Conditions-Legacy.pdf",
       "lastChecked": "2026-09-18",
       "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "eskort-braai-lux-2026",
+      "title": "Eskort Braai-Lux Toyota Hilux Competition",
+      "brand": "Eskort",
+      "summary": "Eskort is giving away a customised 2026 Toyota Hilux 2.8 GD-6 4×4 Raider 6AT. Entry requires a qualifying purchase, and the winner takes on insurance costs plus two-year branding and resale restrictions.",
+      "imageUrl": "https://freehub.co.za/assets/listings/eskort-braai-lux-2026.webp",
+      "closingDate": "2026-11-22",
+      "category": "Cars",
+      "prizeName": "Customised Toyota Hilux Braai-Lux and a handover-event braai with Bongi Mbonambi",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Qualifying purchase with your own Checkers Xtra Savings card",
+      "eligibility": "SA residents older than 18, with valid identification and a valid SA driver’s licence.",
+      "entrySteps": [
+        "Read the official terms and check that you meet the age, residency and South African driving-licence requirements.",
+        "Register your own Checkers Xtra Savings card and ensure the contact details are current. Registration is free and must be completed before or at purchase.",
+        "Buy any Eskort product at a South African Checkers store or through Checkers Sixty60 during the campaign. Swipe or correctly link your own card to the purchase.",
+        "Keep the original receipt. Each qualifying transaction earns one entry; several Eskort products in one basket still count as one entry. Separate qualifying transactions can earn additional entries."
+      ],
+      "officialUrl": "https://eskort.com/braai-lux-competition-terms-conditions/",
+      "termsUrl": "https://eskort.com/braai-lux-competition-terms-conditions/",
+      "lastChecked": "2026-09-18",
+      "isHighValue": true,
       "isClosingSoon": false
     },
     {
