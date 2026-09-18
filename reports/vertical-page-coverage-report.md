@@ -1,13 +1,13 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-09-17
+Generated: 2026-09-18
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 7
+- Matching active public competitions: 8
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -17,6 +17,7 @@ Only active, published, public-safe competitions are counted. Held, unverified, 
 | Takealot Heritage Design Challenge 2026 (takealot-heritage-design-challenge-2026) | 2026-09-24 | free-entry | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Knorr Soup Competition 2026 - Win R5,000 Weekly (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Sasol Delight and Magpie Rewards Competition (sasol-magpie-2026) | 2026-10-21 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
+| Ster-Kinekor Silas Watch and Win Competition (ster-kinekor-silas-watch-and-win-2026) | 2026-10-25 | purchase-required | yes | yes | WhatsApp mentioned in entry text | none |
 | Astron Energy Own a Golf 8 GTI Competition 2026 (astron-energy-own-golf-8-gti-2026) | 2026-10-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Coca-Cola Be a Bok Competition 2026 (coca-cola-fan-can-be-a-bok-2026) | 2026-11-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
@@ -44,7 +45,7 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 14
+- Matching active public competitions: 15
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -59,6 +60,7 @@ Recommended normalisation:
 | Knorr Soup Competition 2026 - Win R5,000 Weekly (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | SPAR Colgate-Palmolive Win Your Share of R150,000 Competition (spar-colgate-palmolive-r150k-2026) | 2026-10-17 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Sasol Delight and Magpie Rewards Competition (sasol-magpie-2026) | 2026-10-21 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
+| Ster-Kinekor Silas Watch and Win Competition (ster-kinekor-silas-watch-and-win-2026) | 2026-10-25 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | SPAR Community School Support Competition (spar-community-school-support-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Astron Energy Own a Golf 8 GTI Competition 2026 (astron-energy-own-golf-8-gti-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | NESCAFÉ Gold Rush SPAR Rewards Competition (nescafe-gold-rush-spar-2026) | 2026-11-08 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
@@ -72,7 +74,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 23
+- Matching active public competitions: 24
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -97,6 +99,7 @@ Recommended normalisation:
 | Bargain Books 20 Minute Meals Competition (bargain-books-20-minute-meals-2026) | 2026-09-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Woman & Home Husky Prime Cuts Hamper (woman-home-husky-prime-cuts-2026) | 2026-09-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Nedbank YouthX Awards 2026 (nedbank-youthx-awards-2026) | 2026-10-09 | account-required | yes | yes | Online entry tag | none |
+| Ster-Kinekor Silas Watch and Win Competition (ster-kinekor-silas-watch-and-win-2026) | 2026-10-25 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | Wanderlust Reader Travel Awards 2026 Prize Draw (wanderlust-reader-travel-awards-prize-draw-2026) | 2026-10-27 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Ackermans Baby of the Year 2026 (ackermans-baby-of-the-year-2026) | 2026-10-30 | conditional | yes | yes | Online entry mentioned in entry text | none |
 | Clicks Baby Essentials Hamper Competition (clicks-baby-essentials-hamper-2026) | 2026-11-01 | account-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |

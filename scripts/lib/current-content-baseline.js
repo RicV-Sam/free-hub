@@ -27,9 +27,9 @@ function getCurrentContentBaseline() {
   const testing = publicOpportunities.filter(row => row.type === 'product_testing');
   const featured = [samples[0], testing.at(-1), publicOpportunities.find(row => row.type === 'birthday_freebie')].filter(Boolean);
   return { active, core, publicOpportunities, detailOpportunities, samples, testing, featured,
-    // Reviewed 17 September base includes competition details and qualifying brand pages;
+    // Reviewed 18 September base adds Goldi and Ster-Kinekor Silas detail pages;
     // active counts add the corresponding exit routes.
-    generatedFileCount: 358 + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    generatedFileCount: 360 + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
     sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length,
   };
 }

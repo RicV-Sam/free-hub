@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-17",
-  "count": 70,
+  "asOfDate": "2026-09-18",
+  "count": 72,
   "competitions": [
     {
       "id": "samsung-august-rate-and-review-2026",
@@ -279,7 +279,7 @@
       "termsUrl": "https://www.imana.co.za/superspar-polofields-potjie-dash-competition",
       "lastChecked": "2026-08-30",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "old-mutual-win-on-repeat-rewards",
@@ -840,6 +840,32 @@
       "isClosingSoon": false
     },
     {
+      "id": "goldi-flavours-of-the-nation-2026",
+      "title": "Goldi Flavours of the Nation Competition",
+      "brand": "Goldi Chicken / Astral Operations Limited",
+      "summary": "Share how Goldi Chicken has been part of your family’s heritage or traditional meals in a comment on an official campaign post. Ten winners each receive a R500 voucher; a public social account is required.",
+      "imageUrl": "https://freehub.co.za/assets/listings/goldi-flavours-of-the-nation-2026.webp",
+      "closingDate": "2026-09-30",
+      "category": "Vouchers",
+      "prizeName": "One of ten R500 vouchers",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Social",
+      "eligibility": "South African legal residents aged 18+. Your social account must be public, and you must not have won a Goldi competition in the previous 12 months.",
+      "entrySteps": [
+        "Read the Goldi terms and check eligibility, including the exclusion for anyone who won a Goldi competition in the previous 12 months.",
+        "Open Goldi’s official Flavours of the Nation campaign post on Instagram, or the corresponding campaign post on its Facebook, TikTok or X account.",
+        "Comment with your own story about how Goldi Chicken has been part of your family’s heritage or traditional meals. Enter directly yourself and keep your social account public throughout the competition.",
+        "Submit before 23:59 SAST on 30 September 2026. Monitor direct messages: potential winners must respond and provide the requested identity verification within 48 hours."
+      ],
+      "officialUrl": "https://www.instagram.com/p/DdTuGnMlqP9/",
+      "termsUrl": "https://goldichicken.co.za/goldi-chicken-home/about/competition-terms-and-conditions/goldi-flavours-of-the-nation-terms-and-conditions-2026/",
+      "lastChecked": "2026-09-18",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "spar-nutrifresh-spin-and-win-2026",
       "title": "SPAR Nutrifresh Spin & Win Competition",
       "brand": "SPAR KZN / Nutrifresh",
@@ -1095,6 +1121,32 @@
       "termsUrl": "https://www.spar.co.za/Heinz-Heritage-SPAR-Rewards-Competition",
       "lastChecked": "2026-09-14",
       "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "ster-kinekor-silas-watch-and-win-2026",
+      "title": "Ster-Kinekor Silas Watch and Win Competition",
+      "brand": "Ster-Kinekor",
+      "summary": "A qualifying booking for Silas en die Ysbeer op Tafelberg using your SK Club or Discovery Vitality membership number enters you automatically. Three winners each receive a picture book, a self-read book and a Silas plush toy.",
+      "imageUrl": "https://freehub.co.za/assets/listings/ster-kinekor-silas-watch-and-win-2026.webp",
+      "closingDate": "2026-10-25",
+      "category": "Other",
+      "prizeName": "Silas picture book, self-read book and plush-toy prize pack",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Automatic loyalty booking entry",
+      "eligibility": "Open to legal residents of South Africa, Namibia and Zambia with a qualifying SK Club/affiliated club or Discovery Vitality membership.",
+      "entrySteps": [
+        "Read the official watch-and-win rules and confirm that you hold a qualifying SK Club, affiliated club or Discovery Vitality membership.",
+        "Book Silas en die Ysbeer op Tafelberg through the Ster-Kinekor website, app, Ticket Line or cinema self-service terminals during 18 September–25 October 2026.",
+        "Use your qualifying membership number when booking. The rules say this creates an automatic competition entry; a separate social-media comment is not the stated entry method.",
+        "Keep your membership contact details current. The draw is scheduled for 26 October, with winners contacted by email, phone or WhatsApp by 30 October. Complete any winner declaration and prize receipt requirements."
+      ],
+      "officialUrl": "https://www.sterkinekor.com/competition/silas-en-die-ysbeer-op-tafelberg-watch-and-win-competition-sk-club-and-discovery-vitality",
+      "termsUrl": "https://www.sterkinekor.com/competition/silas-en-die-ysbeer-op-tafelberg-watch-and-win-competition-sk-club-and-discovery-vitality",
+      "lastChecked": "2026-09-18",
+      "isHighValue": false,
       "isClosingSoon": false
     },
     {

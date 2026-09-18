@@ -133,5 +133,49 @@
     "kind": "editorial-generated",
     "caption": "FreeHub-created editorial illustration; not official promoter artwork or a depiction of the exact prize.",
     "reviewedAt": "2026-09-17"
+  },
+  "goldi-flavours-of-the-nation-2026": {
+    "src": "/assets/listings/goldi-flavours-of-the-nation-2026.webp",
+    "width": 864,
+    "height": 1080,
+    "alt": "Goldi Flavours of the Nation campaign artwork showing shared chicken meals and the invitation to share your heritage",
+    "kind": "official-source",
+    "caption": "Official Goldi campaign artwork.",
+    "reviewedAt": "2026-09-18",
+    "sourcePage": "https://www.instagram.com/p/DdTuGnMlqP9/",
+    "sourceImage": "https://scontent-lhr11-1.cdninstagram.com/v/t39.30808-6/811266905_1509613547864553_1122041378359443999_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ig_cache_key=Mzk4NjczMjg0NTM5Mzk1NDUxNw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTA4MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=u2fk8feZZJQQ7kNvwH4D3Hb&_nc_oc=AdohMZBD6lr9hTtg8i6d8nXKfYjF88n6h1BAGVQEbwQaIcYl3uOQKD_vDWQ0dXMYfwI&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-lhr11-1.cdninstagram.com&_nc_gid=ZJ5Fy8JpbGqnFi7uP_3x8g&_nc_ss=7a22e&oh=00_AQIhPbRbDtw13-Gk3xRTsekiMp5LZAvHmn6BalsAuFBTjQ&oe=6AB2F91E"
+  },
+  "ster-kinekor-silas-watch-and-win-2026": {
+    "src": "/assets/listings/ster-kinekor-silas-watch-and-win-2026.webp",
+    "width": 1200,
+    "height": 410,
+    "alt": "Official Silas en die Ysbeer op Tafelberg artwork showing Table Mountain, two books and a Silas plush toy",
+    "kind": "official-source",
+    "caption": "Official Ster-Kinekor competition artwork showing the book and plush-toy prize pack.",
+    "reviewedAt": "2026-09-18",
+    "sourcePage": "https://www.sterkinekor.com/competition/silas-en-die-ysbeer-op-tafelberg-watch-and-win-competition-sk-club-and-discovery-vitality",
+    "sourceImage": "https://images.filmgrail.com/1789028360767-Silas&ThePolarBearOnTableMountain_PromoBannerMYCC1200x410.jpg?optimizer=image&width=1200"
+  },
+  "mr-price-essential-tees-two-for-r120": {
+    "src": "/assets/listings/mr-price-essential-tees-two-for-r120.webp",
+    "width": 900,
+    "height": 1350,
+    "alt": "Mr Price product photograph of a model wearing a red slim T-shirt",
+    "kind": "official-source",
+    "caption": "Official Mr Price product photo from the selected essential tees offer. Check current eligible colours, sizes and stock.",
+    "reviewedAt": "2026-09-18",
+    "sourcePage": "https://www.mrp.com/en_za/catalog/category/view/id/19146?promo=selected-essential-tees-take-2-for-r120",
+    "sourceImage": "https://cdn.media.amplience.net/i/mrpricegroup/01_107674106_SI_00?$preset$&w=960&fmt=auto"
+  },
+  "mr-price-sleepwear-separates-two-for-r130": {
+    "src": "/assets/listings/mr-price-sleepwear-separates-two-for-r130.webp",
+    "width": 900,
+    "height": 1350,
+    "alt": "Mr Price product photograph of a model wearing a mint sleep top and checked sleep shorts",
+    "kind": "official-source",
+    "caption": "Official Mr Price product photo from the sleepwear offer. Tops and shorts are separate items; check which pieces qualify.",
+    "reviewedAt": "2026-09-18",
+    "sourcePage": "https://www.mrp.com/en_za/catalog/category/view/id/18544?promo=selected-sleepwear-separates-take-2-for-r130",
+    "sourceImage": "https://cdn.media.amplience.net/i/mrpricegroup/01_107683584_SI_00?$preset$&w=960&fmt=auto"
   }
 }

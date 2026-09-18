@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-17",
-  "count": 22,
+  "asOfDate": "2026-09-18",
+  "count": 24,
   "counts": {
     "freeStuff": 21,
     "resources": 16,
     "opportunities": 5,
-    "offers": 1
+    "offers": 3
   },
   "items": [
     {
@@ -372,6 +372,42 @@
       ],
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "lastChecked": "2026-09-17",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "mr-price-sleepwear-separates-two-for-r130",
+      "kind": "deal",
+      "title": "Two selected Mr Price sleepwear separates for R130",
+      "provider": "Mr Price",
+      "summary": "Buy two qualifying sleepwear separates for R130 at Mr Price, online or in store. Tops and shorts count as separate items; selected styles and stock only.",
+      "category": "fashion",
+      "categoryLabel": "Fashion",
+      "officialUrl": "https://www.mrp.com/en_za/catalog/category/view/id/18544?promo=selected-sleepwear-separates-take-2-for-r130",
+      "termsUrl": "https://www.mrp.com/en_za/promos",
+      "requirements": [
+        "Choose two eligible pieces from the official sleepwear promotion. A top and a pair of shorts are separate items, not two complete sleepwear sets. Mr Price advertises this offer online and in store for a limited time, with the discount applied at checkout. The selected-product page showed available listings when checked on 18 September 2026; sizes, colours and stock can change. No fixed end date is stated. Check that both chosen pieces qualify and that the combined promotional price appears before paying. Delivery charges and normal shopping conditions remain separate. FreeHub checked the merchant page but did not place an order or test checkout."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-09-18",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "mr-price-essential-tees-two-for-r120",
+      "kind": "deal",
+      "title": "Two selected Mr Price essential tees for R120",
+      "provider": "Mr Price",
+      "summary": "Buy two qualifying men’s essential tees for R120 at Mr Price, online or in store. The promotion applies only to selected products, with the discount at checkout.",
+      "category": "fashion",
+      "categoryLabel": "Fashion",
+      "officialUrl": "https://www.mrp.com/en_za/catalog/category/view/id/19146?promo=selected-essential-tees-take-2-for-r120",
+      "termsUrl": "https://www.mrp.com/en_za/promos",
+      "requirements": [
+        "Choose two eligible men’s essential tees from the official selected-product page. This is a two-item purchase offer, not a R120 price for every T-shirt pair in the store. Mr Price advertises the promotion online and in store for a limited time and says the discount applies at checkout. The qualifying collection contained product listings when checked on 18 September 2026; individual product prices can appear higher before the multibuy is applied. Sizes, colours and stock vary. No fixed end date is stated. Confirm that both items qualify and that the combined promotional price appears before paying. Delivery charges are separate. FreeHub did not place an order or test checkout."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-09-18",
       "isAffiliate": false,
       "isSponsored": false
     }
