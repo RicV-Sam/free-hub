@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-09-18
+Generated: 2026-09-19
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
@@ -78,14 +78,13 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 26
+- Matching active public competitions: 25
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Samsung August Rate and Review Competition (samsung-august-rate-and-review-2026) | 2026-09-18 | purchase-required | yes | yes | Online entry tag | none |
 | Samsung Rugby's Greatest Rivalry Competition (samsung-supersport-rugbys-greatest-rivalry-2026) | 2026-09-19 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Go South Africa Great Karkloof Escape Competition 2026 (go-south-africa-great-karkloof-escape-2026) | 2026-09-20 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Time Out Proteas vs Australia Ticket Giveaway (timeout-proteas-australia-tickets-2026) | 2026-09-21 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |

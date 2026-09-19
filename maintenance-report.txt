@@ -1,14 +1,14 @@
 === Competition Maintenance Report ===
-Date: 2026-09-18
+Date: 2026-09-19
 Mode: archive-expired
-Total competitions: 366
-Active published count: 73
-Expired archive page count: 188
+Total competitions: 375
+Active published count: 81
+Expired archive page count: 189
 Low-value expired noindex count: 0
 Held/private count: 105
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 35
+Closing in next 14 days: 38
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -199,43 +199,47 @@ Expired competition IDs:
 - ster-kinekor-spa-weekend-watch-and-win-2026 (2026-09-13)
 - clicks-bath-body-survey-cashback-2026 (2026-09-14)
 - edgars-win-jaecoo-j5-family-car-2026 (2026-09-15)
+- samsung-august-rate-and-review-2026 (2026-09-18)
 
 Closing soon (next 14 days):
-- samsung-august-rate-and-review-2026 (0 days)
-- samsung-supersport-rugbys-greatest-rivalry-2026 (1 days)
-- go-south-africa-great-karkloof-escape-2026 (2 days)
-- lite-glo-braai-day-weber-giveaway-2026 (2 days)
-- spar-polony-win-six-vw-polo-vivos-2026 (3 days)
-- timeout-proteas-australia-tickets-2026 (3 days)
-- standard-bank-gen-z-virtual-credit-card-2026 (4 days)
-- timeout-joy-of-jazz-tickets-2026 (4 days)
-- food-lovers-market-supersport-heritage-day-2026 (6 days)
-- takealot-heritage-design-challenge-2026 (6 days)
-- imana-superspar-polofields-potjie-dash-2026 (7 days)
-- old-mutual-win-on-repeat-rewards (9 days)
-- curaprox-house-of-mouth-competition-2026 (10 days)
-- oreo-bts-promotion-2026 (12 days)
-- denny-r100000-cash-competition-2026 (12 days)
-- telkom-winter-wifi-mesh-competition-2026 (12 days)
-- fnb-family-banking-million-ebucks-makro-2026 (12 days)
-- ackermans-account-summer-wardrobe-competition-2026 (12 days)
-- jetour-win-your-way-to-brazil-2026 (12 days)
-- sprite-summer-music-festivals-2026 (12 days)
-- penguin-random-house-grandest-games-2026 (12 days)
-- beares-corduroy-couch-2026 (12 days)
-- beares-russell-hobbs-fridge-2026 (12 days)
-- penguin-random-house-hyatt-great-escapes-2026 (12 days)
-- penguin-random-house-roald-dahl-day-2026 (12 days)
-- bargain-books-kitsie-2026 (12 days)
-- bargain-books-taipei-story-2026 (12 days)
-- bargain-books-gruffalo-granny-2026 (12 days)
-- bargain-books-20-minute-meals-2026 (12 days)
-- flight-centre-new-york-flights-2026 (12 days)
-- ackermans-hisense-tech-vouchers-2026 (12 days)
-- woman-home-husky-prime-cuts-2026 (12 days)
-- takealot-delivered-in-your-language-2026 (12 days)
-- goldi-flavours-of-the-nation-2026 (12 days)
-- spar-nutrifresh-spin-and-win-2026 (14 days)
+- samsung-supersport-rugbys-greatest-rivalry-2026 (0 days)
+- go-south-africa-great-karkloof-escape-2026 (1 days)
+- lite-glo-braai-day-weber-giveaway-2026 (1 days)
+- spar-polony-win-six-vw-polo-vivos-2026 (2 days)
+- timeout-proteas-australia-tickets-2026 (2 days)
+- sorbet-turns-21-vouchers-2026 (2 days)
+- standard-bank-gen-z-virtual-credit-card-2026 (3 days)
+- timeout-joy-of-jazz-tickets-2026 (3 days)
+- food-lovers-market-supersport-heritage-day-2026 (5 days)
+- takealot-heritage-design-challenge-2026 (5 days)
+- imana-superspar-polofields-potjie-dash-2026 (6 days)
+- old-mutual-win-on-repeat-rewards (8 days)
+- curaprox-house-of-mouth-competition-2026 (9 days)
+- oreo-bts-promotion-2026 (11 days)
+- denny-r100000-cash-competition-2026 (11 days)
+- telkom-winter-wifi-mesh-competition-2026 (11 days)
+- fnb-family-banking-million-ebucks-makro-2026 (11 days)
+- ackermans-account-summer-wardrobe-competition-2026 (11 days)
+- jetour-win-your-way-to-brazil-2026 (11 days)
+- sprite-summer-music-festivals-2026 (11 days)
+- penguin-random-house-grandest-games-2026 (11 days)
+- beares-corduroy-couch-2026 (11 days)
+- beares-russell-hobbs-fridge-2026 (11 days)
+- penguin-random-house-hyatt-great-escapes-2026 (11 days)
+- penguin-random-house-roald-dahl-day-2026 (11 days)
+- bargain-books-kitsie-2026 (11 days)
+- bargain-books-taipei-story-2026 (11 days)
+- bargain-books-gruffalo-granny-2026 (11 days)
+- bargain-books-20-minute-meals-2026 (11 days)
+- flight-centre-new-york-flights-2026 (11 days)
+- ackermans-hisense-tech-vouchers-2026 (11 days)
+- woman-home-husky-prime-cuts-2026 (11 days)
+- takealot-delivered-in-your-language-2026 (11 days)
+- goldi-flavours-of-the-nation-2026 (11 days)
+- cashbuild-lasher-vouchers-september-2026 (11 days)
+- limp-bizkit-workout-challenge-2026 (11 days)
+- spar-nutrifresh-spin-and-win-2026 (13 days)
+- huletts-heritage-2026 (14 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
