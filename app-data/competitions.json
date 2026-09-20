@@ -1,33 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-19",
-  "count": 80,
+  "asOfDate": "2026-09-20",
+  "count": 82,
   "competitions": [
-    {
-      "id": "samsung-supersport-rugbys-greatest-rivalry-2026",
-      "title": "Samsung Rugby's Greatest Rivalry Competition",
-      "brand": "Samsung / SuperSport",
-      "summary": "Vote for each match's Moment of the Match for chances to win one of four Samsung Galaxy device prizes.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/samsung-supersport-rugbys-greatest-rivalry-2026.webp",
-      "closingDate": "2026-09-19",
-      "category": "Tech",
-      "prizeName": "Samsung Galaxy smartphones and watches",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "Open to South African residents aged 18 or older, with one entry per day per match.",
-      "entrySteps": [
-        "Open the official SuperSport Rugby's Greatest Rivalry competition page.",
-        "Select the Moment of the Match and complete the online form.",
-        "Submit no more than one entry per person per day for each match before 19 September 2026."
-      ],
-      "officialUrl": "https://campaigns.supersport.com/competitions/3554",
-      "termsUrl": "https://campaigns.supersport.com/competitions/3554",
-      "lastChecked": "2026-09-06",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
     {
       "id": "go-south-africa-great-karkloof-escape-2026",
       "title": "Go South Africa Great Karkloof Escape Competition 2026",
@@ -305,7 +280,7 @@
       "termsUrl": "https://proxy.my.oldmutual.co.za/contentstack-mobile/bltf9ffa14017dbad8a/WinonRepeat_TsCs.pdf",
       "lastChecked": "2026-07-10",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "curaprox-house-of-mouth-competition-2026",
@@ -919,6 +894,32 @@
       "isClosingSoon": false
     },
     {
+      "id": "penguin-random-house-terbodore-100k-2026",
+      "title": "Penguin Random House and Terbodore Coffee Hamper Giveaway",
+      "brand": "Penguin Random House South Africa",
+      "summary": "Celebrate Penguin Random House’s 100K milestone with a free draw for a Terbodore coffee hamper and Penguin books. One South African resident aged 18+ wins; enter by 30 September 2026.",
+      "imageUrl": "https://freehub.co.za/assets/competitions/penguin-random-house-terbodore-100k-2026.webp",
+      "closingDate": "2026-09-30",
+      "category": "Shopping",
+      "prizeName": "R2,000 Terbodore coffee hamper plus a Penguin book hamper",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "SA residents aged 18+; one personal entry per person. Promoter-related exclusions apply; valid identification required to redeem.",
+      "entrySteps": [
+        "Open the official competition page using the entry link.",
+        "Complete your name, surname, email address and province.",
+        "Confirm South African residency and acceptance of the competition rules. Select your optional newsletter preferences; these can be declined.",
+        "Submit one entry before 23:59 SAST on 30 September 2026. No purchase is required."
+      ],
+      "officialUrl": "https://www.penguinrandomhouse.co.za/competitions/win-100k-giveaway-with-terbodore-x-penguin/",
+      "termsUrl": "https://www.penguinrandomhouse.co.za/tos/tscs-win-100k-giveaway-with-terbodore-x-penguin/",
+      "lastChecked": "2026-09-20",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "spar-nutrifresh-spin-and-win-2026",
       "title": "SPAR Nutrifresh Spin & Win Competition",
       "brand": "SPAR KZN / Nutrifresh",
@@ -1402,6 +1403,58 @@
       "officialUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/appventure-map-your-future-competition.html",
       "termsUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/appventure-map-your-future-competition.html",
       "lastChecked": "2026-09-06",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "penguin-random-house-art-of-hosting-2026",
+      "title": "Penguin Random House Art of Hosting and Cape Island Hamper Competition",
+      "brand": "Penguin Random House South Africa",
+      "summary": "One reader wins The Art of Hosting and a Cape Island home-fragrance hamper, together valued at over R2,700. Enter the free Penguin Random House form by 31 October 2026.",
+      "imageUrl": "https://freehub.co.za/assets/competitions/penguin-random-house-art-of-hosting-2026.webp",
+      "closingDate": "2026-10-31",
+      "category": "Shopping",
+      "prizeName": "The Art of Hosting book and Cape Island hamper, together worth over R2,700",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "SA residents aged 18+; one personal entry per person. Promoter-related exclusions apply; valid identification required to redeem.",
+      "entrySteps": [
+        "Open the official competition page using the entry link.",
+        "Complete your name, surname, email address and province.",
+        "Confirm South African residency and acceptance of the competition rules. Select your optional newsletter preferences; these can be declined.",
+        "Submit one entry before 23:59 SAST on 31 October 2026. No purchase is required."
+      ],
+      "officialUrl": "https://www.penguinrandomhouse.co.za/competitions/win-set-the-table-set-the-mood-the-art-of-hosting/",
+      "termsUrl": "https://www.penguinrandomhouse.co.za/tos/tscs-win-set-the-table-set-the-mood-the-art-of-hosting/",
+      "lastChecked": "2026-09-20",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "penguin-random-house-penguin-post-44-2026",
+      "title": "Penguin Random House Penguin Post 44 Book Hamper Competition",
+      "brand": "Penguin Random House South Africa",
+      "summary": "Enter Penguin Random House’s free issue 44 competition for a chance to win one R1,500 book hamper. Open to South African residents aged 18+ until 31 October 2026.",
+      "imageUrl": "https://freehub.co.za/assets/competitions/penguin-random-house-penguin-post-44-2026.webp",
+      "closingDate": "2026-10-31",
+      "category": "Shopping",
+      "prizeName": "Penguin Post issue 44 book hamper valued at R1,500",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "SA residents aged 18+; one personal entry per person. Promoter-related exclusions apply; valid identification required to redeem.",
+      "entrySteps": [
+        "Open the official competition page using the entry link.",
+        "Complete your name, surname, email address and province.",
+        "Confirm South African residency and acceptance of the competition rules. Select your optional newsletter preferences; these can be declined.",
+        "Submit one entry before 23:59 SAST on 31 October 2026. No purchase is required."
+      ],
+      "officialUrl": "https://www.penguinrandomhouse.co.za/competitions/win-penguin-post-44-competition/",
+      "termsUrl": "https://www.penguinrandomhouse.co.za/tos/tscs-win-penguin-post-44-competition/",
+      "lastChecked": "2026-09-20",
       "isHighValue": false,
       "isClosingSoon": false
     },

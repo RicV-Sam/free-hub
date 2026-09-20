@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-09-19
+Generated: 2026-09-20
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
@@ -78,14 +78,13 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 25
+- Matching active public competitions: 27
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Samsung Rugby's Greatest Rivalry Competition (samsung-supersport-rugbys-greatest-rivalry-2026) | 2026-09-19 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Go South Africa Great Karkloof Escape Competition 2026 (go-south-africa-great-karkloof-escape-2026) | 2026-09-20 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Time Out Proteas vs Australia Ticket Giveaway (timeout-proteas-australia-tickets-2026) | 2026-09-21 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Time Out Standard Bank Joy of Jazz Giveaway (timeout-joy-of-jazz-tickets-2026) | 2026-09-22 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
@@ -102,11 +101,14 @@ Recommended normalisation:
 | Bargain Books 20 Minute Meals Competition (bargain-books-20-minute-meals-2026) | 2026-09-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Woman & Home Husky Prime Cuts Hamper (woman-home-husky-prime-cuts-2026) | 2026-09-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Limp Bizkit Workout Challenge Ticket Competition (limp-bizkit-workout-challenge-2026) | 2026-09-30 | free-entry | yes | yes | Online entry mentioned in entry text | none |
+| Penguin Random House and Terbodore Coffee Hamper Giveaway (penguin-random-house-terbodore-100k-2026) | 2026-09-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Nedbank YouthX Awards 2026 (nedbank-youthx-awards-2026) | 2026-10-09 | account-required | yes | yes | Online entry tag | none |
 | Telkom Radio Awards My Station R40,000 Competition (telkom-radio-awards-my-station-2026) | 2026-10-23 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Ster-Kinekor Silas Watch and Win Competition (ster-kinekor-silas-watch-and-win-2026) | 2026-10-25 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | Wanderlust Reader Travel Awards 2026 Prize Draw (wanderlust-reader-travel-awards-prize-draw-2026) | 2026-10-27 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Ackermans Baby of the Year 2026 (ackermans-baby-of-the-year-2026) | 2026-10-30 | conditional | yes | yes | Online entry mentioned in entry text | none |
+| Penguin Random House Art of Hosting and Cape Island Hamper Competition (penguin-random-house-art-of-hosting-2026) | 2026-10-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| Penguin Random House Penguin Post 44 Book Hamper Competition (penguin-random-house-penguin-post-44-2026) | 2026-10-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Clicks Baby Essentials Hamper Competition (clicks-baby-essentials-hamper-2026) | 2026-11-01 | account-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Builders Ratings and Reviews Competition 2026 (builders-ratings-reviews-2026) | 2026-12-31 | purchase-required | yes | yes | Online entry tag | none |

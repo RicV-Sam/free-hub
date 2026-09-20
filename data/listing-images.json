@@ -276,5 +276,38 @@
     "reviewedAt": "2026-09-18",
     "sourcePage": "https://eskort.com/",
     "sourceImage": "https://eskort.com/wp-content/uploads/2026/08/the_anatomy_of_braai_lux.png"
+  },
+  "penguin-random-house-terbodore-100k-2026": {
+    "src": "/assets/competitions/penguin-random-house-terbodore-100k-2026.webp",
+    "width": 500,
+    "height": 500,
+    "kind": "official-source",
+    "caption": "Image from the official competition source.",
+    "reviewedAt": "2026-09-20",
+    "sourcePage": "https://www.penguinrandomhouse.co.za/competitions/win-100k-giveaway-with-terbodore-x-penguin/",
+    "sourceImage": "https://www.penguinrandomhouse.co.za/wp-content/uploads/Penguin-Terbodore-100k-PRH-mobile-comp-thumbnail-500x500-1.jpg",
+    "alt": "Official Penguin and Terbodore 100K milestone giveaway artwork showing coffee, mugs, cookies, a cap and a book; not a R100,000 cash prize"
+  },
+  "penguin-random-house-art-of-hosting-2026": {
+    "src": "/assets/competitions/penguin-random-house-art-of-hosting-2026.webp",
+    "width": 500,
+    "height": 500,
+    "kind": "official-source",
+    "caption": "Image from the official competition source.",
+    "reviewedAt": "2026-09-20",
+    "sourcePage": "https://www.penguinrandomhouse.co.za/competitions/win-set-the-table-set-the-mood-the-art-of-hosting/",
+    "sourceImage": "https://www.penguinrandomhouse.co.za/wp-content/uploads/The-Art-of-Hosting-Cape-Island-PRH-mobile-comp-thumbnail-500x500-1.jpg",
+    "alt": "Official Cape Island and Penguin Random House artwork for The Art of Hosting book and home-fragrance hamper giveaway"
+  },
+  "penguin-random-house-penguin-post-44-2026": {
+    "src": "/assets/competitions/penguin-random-house-penguin-post-44-2026.webp",
+    "width": 500,
+    "height": 500,
+    "kind": "official-source",
+    "caption": "Image from the official competition source.",
+    "reviewedAt": "2026-09-20",
+    "sourcePage": "https://www.penguinrandomhouse.co.za/competitions/win-penguin-post-44-competition/",
+    "sourceImage": "https://www.penguinrandomhouse.co.za/wp-content/uploads/Penguin-Post-44-comp-500x500_1.jpg",
+    "alt": "Official Penguin Post volume 44 book-hamper competition artwork showing its magazine cover and illustrated books; the pictured tablet is not a prize"
   }
 }

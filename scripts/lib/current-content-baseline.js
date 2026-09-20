@@ -27,9 +27,9 @@ function getCurrentContentBaseline() {
   const testing = publicOpportunities.filter(row => row.type === 'product_testing');
   const featured = [samples[0], testing.at(-1), publicOpportunities.find(row => row.type === 'birthday_freebie')].filter(Boolean);
   return { active, core, publicOpportunities, detailOpportunities, samples, testing, featured,
-    // Reviewed 18 September base includes the two website and nine Instagram additions;
+    // Reviewed 20 September base includes the three approved Penguin Random House additions;
     // active counts add the corresponding exit routes.
-    generatedFileCount: 369 + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    generatedFileCount: 372 + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
     sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length,
   };
 }
