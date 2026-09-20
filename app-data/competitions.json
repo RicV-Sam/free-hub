@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-09-20",
-  "count": 82,
+  "count": 83,
   "competitions": [
     {
       "id": "go-south-africa-great-karkloof-escape-2026",
@@ -1456,6 +1456,33 @@
       "termsUrl": "https://www.penguinrandomhouse.co.za/tos/tscs-win-penguin-post-44-competition/",
       "lastChecked": "2026-09-20",
       "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "cadbury-made-to-share-2026",
+      "title": "Cadbury Made to Share: Win R20,000 Weekly",
+      "brand": "Cadbury / Mondelez South Africa",
+      "summary": "Complete Cadbury’s Slab Settler experience online and register for the weekly R20,000 cash draw. Website entry has no required purchase; a separate in-store purchase route also exists.",
+      "imageUrl": "https://freehub.co.za/assets/competitions/cadbury-made-to-share-2026.webp",
+      "closingDate": "2026-10-31",
+      "category": "Cash",
+      "prizeName": "Weekly R20,000 cash prize",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "SA citizens/legal residents aged 18+ with qualifying ID and own RICA-registered mobile number; location and promoter-related exclusions apply.",
+      "entrySteps": [
+        "Visit the official campaign website and select Start Settling for the online route.",
+        "Choose your sharing occasion or theme, name your squad and complete the Slab Settler questions to create your personalised digital slab.",
+        "Complete the registration prompts using your own details, including full name, email and your own RICA-registered South African mobile number. Follow any address or image prompts shown by the current form.",
+        "Review the terms and privacy choices and submit your completed entry during the promotion period, ending 31 October 2026. Each unique completed submission qualifies for its corresponding weekly draw.",
+        "For the separate purchase route, buy a participating 80g or 150g Cadbury Dairy Milk slab, retain the till slip and enter its last four barcode digits through *120*8826# or the campaign WhatsApp QR code. USSD costs 20c per 20 seconds; WhatsApp/data rates apply."
+      ],
+      "officialUrl": "https://cadbury-made-to-share.co.za/",
+      "termsUrl": "https://www.cadbury.co.za/terms/terms-and-conditions-made-share",
+      "lastChecked": "2026-09-20",
+      "isHighValue": true,
       "isClosingSoon": false
     },
     {

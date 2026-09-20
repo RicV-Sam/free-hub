@@ -309,5 +309,16 @@
     "sourcePage": "https://www.penguinrandomhouse.co.za/competitions/win-penguin-post-44-competition/",
     "sourceImage": "https://www.penguinrandomhouse.co.za/wp-content/uploads/Penguin-Post-44-comp-500x500_1.jpg",
     "alt": "Official Penguin Post volume 44 book-hamper competition artwork showing its magazine cover and illustrated books; the pictured tablet is not a prize"
+  },
+  "cadbury-made-to-share-2026": {
+    "src": "/assets/competitions/cadbury-made-to-share-2026.webp",
+    "width": 1200,
+    "height": 630,
+    "alt": "Official Cadbury Made to Share campaign artwork showing three friends holding a personalised chocolate slab",
+    "kind": "official-source",
+    "caption": "Official Cadbury campaign artwork; the promoter identifies its imagery as AI-enhanced.",
+    "reviewedAt": "2026-09-20",
+    "sourcePage": "https://cadbury-made-to-share.co.za/",
+    "sourceImage": "https://cadburywinter2026.ogilvyexperience.co.za//social-share.png"
   }
 }
