@@ -320,5 +320,17 @@
     "reviewedAt": "2026-09-20",
     "sourcePage": "https://cadbury-made-to-share.co.za/",
     "sourceImage": "https://cadburywinter2026.ogilvyexperience.co.za//social-share.png"
+  },
+  "dis-chem-oral-b-apple-combo-2026": {
+    "src": "/assets/competitions/dis-chem-oral-b-apple-combo-2026.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "FreeHub editorial illustration of a generic electric toothbrush, loyalty card and receipt",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration; not official promoter artwork or an exact product or prize depiction.",
+    "reviewedAt": "2026-09-21",
+    "sourcePage": "https://www.dischem.co.za/oral-b-september-2026-competition",
+    "generationTool": "Built-in image_gen",
+    "generationPrompt": "Create a polished landscape 1536x1024 editorial illustration for FreeHub's listing of a Dis-Chem Oral-B in-store purchase competition. Show one stylized generic electric toothbrush with a round brush head, alongside a plain generic loyalty card and a small receipt on a clean bathroom-blue surface. Modern tasteful editorial still life, soft blue and white, subtle dimensional paper-cut style, spacious balanced composition. Do not depict phones, watches, prize models, product packaging, logos, endorsements, prices, dates, amounts or entry instructions. The generic brush is illustrative, not a specific product model. Include a small readable footer exactly: 'FreeHub editorial illustration'. No other text."
   }
 }

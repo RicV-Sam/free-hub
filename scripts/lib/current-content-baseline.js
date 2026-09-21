@@ -27,9 +27,9 @@ function getCurrentContentBaseline() {
   const testing = publicOpportunities.filter(row => row.type === 'product_testing');
   const featured = [samples[0], testing.at(-1), publicOpportunities.find(row => row.type === 'birthday_freebie')].filter(Boolean);
   return { active, core, publicOpportunities, detailOpportunities, samples, testing, featured,
-    // Reviewed 20 September base includes three Penguin Random House additions and Cadbury;
+    // Reviewed 21 September base includes the Dis-Chem Oral-B detail page;
     // active counts add the corresponding exit routes.
-    generatedFileCount: 373 + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    generatedFileCount: 374 + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
     sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length,
   };
 }

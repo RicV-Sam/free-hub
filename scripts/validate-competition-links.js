@@ -28,6 +28,7 @@ const manualRecheckDays = 30;
 const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 FreeHubValidator/1.0";
 const APPROVED_MANUAL_OK_URLS = new Map([
+  ["dis-chem-oral-b-apple-combo-2026", "https://www.dischem.co.za/oral-b-september-2026-competition"],
   ["cadbury-made-to-share-2026", "https://cadbury-made-to-share.co.za/"],
   ["penguin-random-house-terbodore-100k-2026", "https://www.penguinrandomhouse.co.za/competitions/win-100k-giveaway-with-terbodore-x-penguin/"],
   ["penguin-random-house-art-of-hosting-2026", "https://www.penguinrandomhouse.co.za/competitions/win-set-the-table-set-the-mood-the-art-of-hosting/"],
