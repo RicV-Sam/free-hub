@@ -1,59 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-22",
-  "count": 79,
+  "asOfDate": "2026-09-23",
+  "count": 77,
   "competitions": [
-    {
-      "id": "standard-bank-gen-z-virtual-credit-card-2026",
-      "title": "Standard Bank Gen Z Virtual Credit Card Competition",
-      "brand": "Standard Bank",
-      "summary": "Qualifying Standard Bank clients aged 18 to 29 can activate a virtual credit card and complete eligible card transactions for a chance to win Apple, Samsung or Amazon prizes.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/standard-bank-gen-z-virtual-credit-card-2026.png",
-      "closingDate": "2026-09-22",
-      "category": "Tech",
-      "prizeName": "MacBook Pro, Samsung Galaxy S26 Ultra or R3,500 Amazon voucher",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Virtual Credit Card Activation and Spend",
-      "eligibility": "South African citizens or residents aged 18 to 29 who meet the qualifying Standard Bank credit-card and virtual-card requirements.",
-      "entrySteps": [
-        "Hold or obtain a qualifying Standard Bank credit card and create a Standard Bank virtual credit card during the promotion period.",
-        "Make the first qualifying virtual-card transaction of at least R100 to earn an entry.",
-        "Earn additional entries through the qualifying R300 spend and monthly transaction activity described in the official terms, up to three entries."
-      ],
-      "officialUrl": "https://www.standardbank.co.za/static_file/South%20Africa/PDF/Campaigns%20Ts%20and%20Cs/SBSA_GenZ_Virtual_Credit_Card_Campaign_terms_and_conditions.pdf",
-      "termsUrl": "https://www.standardbank.co.za/static_file/South%20Africa/PDF/Campaigns%20Ts%20and%20Cs/SBSA_GenZ_Virtual_Credit_Card_Campaign_terms_and_conditions.pdf",
-      "lastChecked": "2026-07-20",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "timeout-joy-of-jazz-tickets-2026",
-      "title": "Time Out Standard Bank Joy of Jazz Giveaway",
-      "brand": "Time Out Johannesburg",
-      "summary": "Enter Time Out Johannesburg’s newsletter giveaway by 10am on 22 September 2026 for a pair of Standard Bank Joy of Jazz tickets.",
-      "imageUrl": "https://freehub.co.za/assets/listings/timeout-joy-of-jazz-tickets-2026.webp",
-      "closingDate": "2026-09-22",
-      "category": "Experiences",
-      "prizeName": "One of ten pairs of Joy of Jazz tickets",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "South African residents aged 18 or older with valid ID. Promoter-related parties are excluded, and a person may not win another Time Out prize within three months of a previous win.",
-      "entrySteps": [
-        "Open the organiser’s giveaway page and complete its entry form.",
-        "Entry signs you up to the city newsletter; existing subscribers can also enter through the form.",
-        "Submit once per email address before the stated 10am deadline. Do not use automated entries.",
-        "Watch for winner contact and make your own travel arrangements if selected."
-      ],
-      "officialUrl": "https://www.timeout.com/johannesburg/news/win-tickets-to-standard-bank-joy-of-jazz-2026-090226",
-      "termsUrl": "https://www.timeout.com/south-africa/competition-terms-and-conditions",
-      "lastChecked": "2026-09-17",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "food-lovers-market-supersport-heritage-day-2026",
       "title": "Food Lover's Market Heritage Day Competition",
@@ -202,7 +151,7 @@
       "termsUrl": "https://oreo.co.za/terms-and-conditions/",
       "lastChecked": "2026-07-08",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "denny-r100000-cash-competition-2026",
@@ -227,7 +176,7 @@
       "termsUrl": "https://denny.co.za/competition-terms-conditions/",
       "lastChecked": "2026-07-27",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "telkom-winter-wifi-mesh-competition-2026",
@@ -252,7 +201,7 @@
       "termsUrl": "https://group.telkom.co.za/documents/regulatory/terms-and-conditions/Winter-Campaign-Competition-TsCs.pdf",
       "lastChecked": "2026-07-27",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "fnb-family-banking-million-ebucks-makro-2026",
@@ -277,7 +226,7 @@
       "termsUrl": "https://www.fnb.co.za/about-fnb/legal-matters/promo-terms/Win-a-Million-eBucks-%26-a-Makro-Voucher-Code-Family-Banking-Competition.pdf",
       "lastChecked": "2026-07-27",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "ackermans-account-summer-wardrobe-competition-2026",
@@ -302,7 +251,7 @@
       "termsUrl": "https://www.ackermans.co.za/blogs/financial-services/win-a-wardrobe-competition-south-africa",
       "lastChecked": "2026-09-03",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "jetour-win-your-way-to-brazil-2026",
@@ -328,7 +277,7 @@
       "termsUrl": "https://jetour.co.za/win-your-way-to-brazil-ts-and-cs/",
       "lastChecked": "2026-09-06",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "sprite-summer-music-festivals-2026",
@@ -353,7 +302,7 @@
       "termsUrl": "https://www.coca-cola.com/za/en/legal/terms-and-conditions-sprite-summer-music-festivals-2026",
       "lastChecked": "2026-09-06",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "penguin-random-house-grandest-games-2026",
@@ -378,7 +327,7 @@
       "termsUrl": "https://www.penguinrandomhouse.co.za/tos/tscs-win-the-grandest-games-competition/",
       "lastChecked": "2026-09-06",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "beares-corduroy-couch-2026",
@@ -403,7 +352,7 @@
       "termsUrl": "https://www.beares.co.za/beares-social-media-competition-terms-conditions-rsa-corduroy-seater-couch-with-backrest",
       "lastChecked": "2026-09-06",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "beares-russell-hobbs-fridge-2026",
@@ -428,7 +377,7 @@
       "termsUrl": "https://www.beares.co.za/beares-social-media-competition-terms-conditions-rsa-russel-hobbs-frost-free-stainless-stell-fridge",
       "lastChecked": "2026-09-06",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "penguin-random-house-hyatt-great-escapes-2026",
@@ -453,7 +402,7 @@
       "termsUrl": "https://www.penguinrandomhouse.co.za/tos/tscs-win-great-stories-great-escapes/",
       "lastChecked": "2026-09-09",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "penguin-random-house-roald-dahl-day-2026",
@@ -478,7 +427,7 @@
       "termsUrl": "https://www.penguinrandomhouse.co.za/tos/tscs-win-roald-dahl-day-competition/",
       "lastChecked": "2026-09-09",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "bargain-books-kitsie-2026",
@@ -504,7 +453,7 @@
       "termsUrl": "https://bargainbooks.co.za/competitions#terms",
       "lastChecked": "2026-09-09",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "bargain-books-taipei-story-2026",
@@ -530,7 +479,7 @@
       "termsUrl": "https://bargainbooks.co.za/competitions#terms",
       "lastChecked": "2026-09-09",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "bargain-books-gruffalo-granny-2026",
@@ -556,7 +505,7 @@
       "termsUrl": "https://bargainbooks.co.za/competitions#terms",
       "lastChecked": "2026-09-09",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "bargain-books-20-minute-meals-2026",
@@ -582,7 +531,7 @@
       "termsUrl": "https://bargainbooks.co.za/competitions#terms",
       "lastChecked": "2026-09-09",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "flight-centre-new-york-flights-2026",
@@ -608,7 +557,7 @@
       "termsUrl": "https://www.flightcentre.co.za/deals/spiderman-adventure",
       "lastChecked": "2026-09-13",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "ackermans-hisense-tech-vouchers-2026",
@@ -634,7 +583,7 @@
       "termsUrl": "https://www.ackermans.co.za/blogs/cellular/win-your-share-of-r150k-in-tech-accessories-ts-cs",
       "lastChecked": "2026-09-17",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "woman-home-husky-prime-cuts-2026",
@@ -660,7 +609,7 @@
       "termsUrl": "https://www.womanandhomemagazine.co.za/competition-tcs/",
       "lastChecked": "2026-09-17",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "takealot-delivered-in-your-language-2026",
@@ -686,7 +635,7 @@
       "termsUrl": "https://www.takealot.com/competitions/11943",
       "lastChecked": "2026-09-17",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "goldi-flavours-of-the-nation-2026",
@@ -712,7 +661,7 @@
       "termsUrl": "https://goldichicken.co.za/goldi-chicken-home/about/competition-terms-and-conditions/goldi-flavours-of-the-nation-terms-and-conditions-2026/",
       "lastChecked": "2026-09-18",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "cashbuild-lasher-vouchers-september-2026",
@@ -738,7 +687,7 @@
       "termsUrl": "https://www.cashbuild.co.za/module/smartblog/download?id=443",
       "lastChecked": "2026-09-18",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "limp-bizkit-workout-challenge-2026",
@@ -764,7 +713,7 @@
       "termsUrl": "https://www.bigconcerts.co.za/competition/terms",
       "lastChecked": "2026-09-18",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "penguin-random-house-terbodore-100k-2026",
@@ -790,7 +739,7 @@
       "termsUrl": "https://www.penguinrandomhouse.co.za/tos/tscs-win-100k-giveaway-with-terbodore-x-penguin/",
       "lastChecked": "2026-09-20",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "spar-nutrifresh-spin-and-win-2026",
