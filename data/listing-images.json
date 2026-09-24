@@ -442,5 +442,62 @@
     "generationTool": "Built-in image_gen",
     "generationPrompt": "Create one wide 3:2 editorial illustration for FreeHub, a South African competition listing about invitation-only grocery rewards for qualifying bank card customers. Premium warm paper-cut illustration: a reusable grocery bag with ordinary unbranded vegetables, bread and pantry items on a kitchen counter, small abstract blank reward card alongside. Forest green, cream and gentle orange palette. No people, no logos, no bank card numbers, no currency, no prize amounts, no words, no invented product brands, no suggestion of endorsement. This is illustrative grocery shopping, not a literal depiction of a prize hamper. Polished textured editorial art with generous margins.",
     "officialArtworkCheck": "Official legal page contains no suitable campaign hero; generic bank logo not used as hero."
+  },
+  "wellness-sportrx-electrolyte-giveaway-2026": {
+    "src": "/assets/listings/wellness-sportrx-electrolyte-giveaway-2026.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "FreeHub editorial illustration of a sports bottle, berry-coloured drink, berries and towel",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration — not official promoter artwork or a depiction of the prize.",
+    "reviewedAt": "2026-09-24",
+    "generationTool": "Built-in image_gen",
+    "generationPrompt": "Create a refined landscape 3:2 editorial illustration for a FreeHub article about a SportRX electrolyte giveaway. Still life of an unbranded sports water bottle, a glass of berry pink water, a few raspberries and blackberries, a folded towel on a soft teal and cream background. Clean contemporary editorial, subtly textured realistic illustration, natural soft light. No sachets, no product packaging, no logos, no text, no prize quantities or health claims. This is a conceptual illustration, not a product photograph.",
+    "officialArtworkCheck": "Official Instagram preview inspected: crop cuts campaign title, logos and products. General rules page has no suitable campaign hero."
+  },
+  "wellness-cycle-harmony-giveaway-2026": {
+    "src": "/assets/listings/wellness-cycle-harmony-giveaway-2026.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "FreeHub editorial illustration of a self-care journal, mug, plant and folded blanket",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration — not official promoter artwork or a depiction of the prize.",
+    "reviewedAt": "2026-09-24",
+    "generationTool": "Built-in image_gen",
+    "generationPrompt": "Landscape 3:2 refined editorial illustration for FreeHub about a Cycle Harmony wellness giveaway. Peaceful self-care still life: blank journal open with curved abstract blue and rose page tabs suggesting a repeating cycle, warm ceramic mug, folded cotton cloth, small leafy plant. Cream, sage and dusty rose palette, tactile painterly realistic style, soft natural light. No text, no labels, no brands, no pills, no supplements, no packaging, no clinical symbols, no medical or efficacy claims. Conceptual self-care illustration only, not a depiction of a prize.",
+    "officialArtworkCheck": "Official Instagram preview inspected: crop cuts campaign title, logos and products. General rules page has no suitable campaign hero."
+  },
+  "gwm-haval-h7-travel-fund-2026": {
+    "src": "/assets/listings/gwm-haval-h7-travel-fund-2026.webp",
+    "width": 1200,
+    "height": 600,
+    "alt": "Official GWM photo of a HAVAL H7 outside a modern building; the prize is a cash travel fund",
+    "kind": "official-source",
+    "caption": "Official provider artwork. Vehicle purchase required; the prize is cash, not a vehicle.",
+    "reviewedAt": "2026-09-24",
+    "sourcePage": "https://www.gwm.co.za/models/haval-h7",
+    "sourceImage": "https://www.gwm.co.za/content/dam/gwm/pages/za/en/models/h7/haval_h7_Sep_26/HERO_BANNER_GWM_WEB_H7_DESKTOP.jpg"
+  },
+  "ufo-newsletter-voucher-2026": {
+    "src": "/assets/listings/ufo-newsletter-voucher-2026.webp",
+    "width": 1000,
+    "height": 1000,
+    "alt": "Official UFO Subscribe and Win R10,000 voucher artwork",
+    "kind": "official-source",
+    "caption": "Image from the official campaign source.",
+    "reviewedAt": "2026-09-24",
+    "sourcePage": "https://www.unitedfurnitureoutlets.co.za/competitions",
+    "sourceImage": "https://www.unitedfurnitureoutlets.co.za/api/.renditions/wysiwyg/Subscriber_1080x1080_px_1_.png"
+  },
+  "nedbank-old-mutual-budget-speech-2026": {
+    "src": "/assets/listings/nedbank-old-mutual-budget-speech-2026.webp",
+    "width": 1120,
+    "height": 1000,
+    "alt": "Official Budget Speech Competition website artwork showing a student",
+    "kind": "official-source",
+    "caption": "Image from the official campaign source.",
+    "reviewedAt": "2026-09-24",
+    "sourcePage": "https://www.budgetspeechcompetition.co.za/home/",
+    "sourceImage": "https://www.budgetspeechcompetition.co.za/media/liljupzi/banner-img1.png"
   }
 }

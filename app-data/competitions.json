@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-09-24",
-  "count": 85,
+  "count": 90,
   "competitions": [
     {
       "id": "food-lovers-market-supersport-heritage-day-2026",
@@ -847,6 +847,34 @@
       "isClosingSoon": true
     },
     {
+      "id": "wellness-sportrx-electrolyte-giveaway-2026",
+      "title": "Wellness Warehouse SportRX Electrolyte RX Giveaway",
+      "brand": "Wellness Warehouse / SportRX",
+      "summary": "Comment on the official Wellness Warehouse post for a chance to win a box of SportRX Electrolyte RX Berry Burst with 30 sachets. Follow both accounts and like the post.",
+      "imageUrl": "https://freehub.co.za/assets/listings/wellness-sportrx-electrolyte-giveaway-2026.webp",
+      "closingDate": "2026-09-30",
+      "category": "Wellness",
+      "prizeName": "One box of SportRX Electrolyte RX Berry Burst containing 30 sachets",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Instagram Follow, Like and Comment",
+      "eligibility": "South African residents over 18, under Wellness Warehouse general competition terms.",
+      "entrySteps": [
+        "Be a South African resident over 18 and use your Instagram account.",
+        "Follow @wellnesswarehouse and @sportrx_sa.",
+        "Like the official competition post.",
+        "Tag someone you would love to get moving with in its comments.",
+        "Sharing the post to your Stories earns an extra entry.",
+        "Enter by 2026-09-30. The post does not state a closing time."
+      ],
+      "officialUrl": "https://www.instagram.com/p/DdVzmwOAAs4",
+      "termsUrl": "https://wellnesswarehouse.com/pages/policies-information",
+      "lastChecked": "2026-09-24",
+      "isHighValue": false,
+      "isClosingSoon": true
+    },
+    {
       "id": "spar-nutrifresh-spin-and-win-2026",
       "title": "SPAR Nutrifresh Spin & Win Competition",
       "brand": "SPAR KZN / Nutrifresh",
@@ -920,6 +948,34 @@
       "officialUrl": "https://www.clicks.co.za/clubcard/competitions/tresemme-extraordinary-hair-extraordinary-wins-competition",
       "termsUrl": "https://woobox.com/g3m8ut/rules",
       "lastChecked": "2026-09-17",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "wellness-cycle-harmony-giveaway-2026",
+      "title": "Wellness Warehouse Cycle Harmony Giveaway",
+      "brand": "Wellness Warehouse / Soaring Free",
+      "summary": "Follow both accounts, like the official post and share a self-care comment for a chance to win the Cycle Harmony FLOW and RISE two-phase system.",
+      "imageUrl": "https://freehub.co.za/assets/listings/wellness-cycle-harmony-giveaway-2026.webp",
+      "closingDate": "2026-10-05",
+      "category": "Wellness",
+      "prizeName": "One Cycle Harmony two-phase system with FLOW and RISE blends from Soaring Free",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Instagram Follow, Like and Comment",
+      "eligibility": "South African residents over 18, under Wellness Warehouse general competition terms.",
+      "entrySteps": [
+        "Be a South African resident over 18 and use your Instagram account.",
+        "Follow @wellnesswarehouse and @soaringfreesuperfoods.",
+        "Like the official competition post.",
+        "Comment on one thing you do to support yourself during your menstrual cycle.",
+        "Sharing the post to your Stories earns an extra entry.",
+        "Enter by 2026-10-05. The post does not state a closing time."
+      ],
+      "officialUrl": "https://www.instagram.com/p/Ddn1Lj1DevY",
+      "termsUrl": "https://wellnesswarehouse.com/pages/policies-information",
+      "lastChecked": "2026-09-24",
       "isHighValue": false,
       "isClosingSoon": false
     },
@@ -1049,6 +1105,31 @@
       "termsUrl": "https://www.vaultbook.co.za/mr-muscle-competition/",
       "lastChecked": "2026-09-24",
       "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "gwm-haval-h7-travel-fund-2026",
+      "title": "GWM All-New HAVAL H7 Pre-Sale Travel Fund Draw",
+      "brand": "GWM South Africa",
+      "summary": "Purchase required: place a qualifying HAVAL H7 pre-sale order by 17 October and complete the vehicle purchase by 25 November for a chance to win a R30,000 or R50,000 cash travel fund.",
+      "imageUrl": "https://freehub.co.za/assets/listings/gwm-haval-h7-travel-fund-2026.webp",
+      "closingDate": "2026-10-17",
+      "category": "Travel",
+      "prizeName": "Seven R50,000 and seventy R30,000 cash travel-fund prizes; R2,450,000 total.",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Vehicle Pre-Sale and Purchase",
+      "eligibility": "South African residents aged 18 or older; promoter-related exclusions apply.",
+      "entrySteps": [
+        "Place a valid HAVAL H7 pre-sale order at a participating GWM dealership by 23:59 on 17 October 2026; the rules do not explicitly state a timezone.",
+        "Retain the system-generated order number and pass verification.",
+        "Complete the vehicle purchase and required documentation by 25 November."
+      ],
+      "officialUrl": "https://www.gwm.co.za/models/haval-h7",
+      "termsUrl": "https://www.gwm.co.za/terms-and-conditions/all-new-haval-h7-pre-sale-campaign",
+      "lastChecked": "2026-09-24",
+      "isHighValue": true,
       "isClosingSoon": false
     },
     {
@@ -1512,6 +1593,56 @@
       "termsUrl": "https://www.dischem.co.za/garnier-soft-life-competition",
       "lastChecked": "2026-09-24",
       "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "ufo-newsletter-voucher-2026",
+      "title": "UFO Newsletter R10,000 Voucher Draw",
+      "brand": "UFO / United Furniture Outlets",
+      "summary": "Subscribe to UFO newsletter and marketing emails for a chance to win a R10,000 furniture voucher. Open to eligible adults in South African provinces with UFO stores.",
+      "imageUrl": "https://freehub.co.za/assets/listings/ufo-newsletter-voucher-2026.webp",
+      "closingDate": "2026-10-31",
+      "category": "Shopping",
+      "prizeName": "One R10,000 UFO voucher",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Newsletter Subscription",
+      "eligibility": "South African residents aged 18 or older, living in a province with a UFO store. Promoter-related persons excluded. No UFO prize winners from preceding three months.",
+      "entrySteps": [
+        "Complete the official newsletter competition form with genuine contact details.",
+        "Subscribe to UFO newsletter/email marketing. One entry per person.",
+        "Enter during 1 September–31 October 2026. No closing hour is stated. Keep your contact details accurate for winner notification."
+      ],
+      "officialUrl": "https://www.unitedfurnitureoutlets.co.za/newsletter_subscribe_competition",
+      "termsUrl": "https://www.unitedfurnitureoutlets.co.za/newsletter-terms-and-conditions",
+      "lastChecked": "2026-09-24",
+      "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "nedbank-old-mutual-budget-speech-2026",
+      "title": "55th Nedbank and Old Mutual Budget Speech Competition",
+      "brand": "Nedbank / Old Mutual",
+      "summary": "Eligible economics-course students can enter an original essay in the 55th Budget Speech Competition. Six undergraduate and postgraduate prizes total R630,000.",
+      "imageUrl": "https://freehub.co.za/assets/listings/nedbank-old-mutual-budget-speech-2026.webp",
+      "closingDate": "2026-10-31",
+      "category": "Education",
+      "prizeName": "Undergraduate prizes R100,000, R80,000 and R60,000; postgraduate prizes R180,000, R130,000 and R80,000",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Academic Essay",
+      "eligibility": "Full/part-time students registered for an economics course at a recognised South African higher-education institution; postgraduate category limited to Honours or first-time Masters. Citizens of SA, Botswana, eSwatini, Ghana, Kenya, Malawi, Namibia, Nigeria, Rwanda, South Sudan, Tanzania, Uganda or Zimbabwe. Prior category winners cannot re-enter that category; qualifying undergraduate winners may enter postgraduate. Promoter staff and related-person exclusions apply.",
+      "entrySteps": [
+        "Register personally on the official competition site and provide required eligibility documents.",
+        "Use the official 2026 category question and prepare an original English essay within the published format requirements.",
+        "Submit through the competition platform before 31 October and complete any mandatory competition phases."
+      ],
+      "officialUrl": "https://www.budgetspeechcompetition.co.za/student-registration-login/",
+      "termsUrl": "https://www.budgetspeechcompetition.co.za/terms-and-conditions/",
+      "lastChecked": "2026-09-24",
+      "isHighValue": true,
       "isClosingSoon": false
     },
     {
