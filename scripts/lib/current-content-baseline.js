@@ -29,7 +29,7 @@ function getCurrentContentBaseline() {
   return { active, core, publicOpportunities, detailOpportunities, samples, testing, featured,
     // Reviewed 21 September base includes the Dis-Chem Oral-B detail page;
     // active counts add the corresponding exit routes.
-    generatedFileCount: 374 + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    generatedFileCount: 375 + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
     sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length,
   };
 }

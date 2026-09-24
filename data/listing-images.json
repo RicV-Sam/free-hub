@@ -332,5 +332,25 @@
     "sourcePage": "https://www.dischem.co.za/oral-b-september-2026-competition",
     "generationTool": "Built-in image_gen",
     "generationPrompt": "Create a polished landscape 1536x1024 editorial illustration for FreeHub's listing of a Dis-Chem Oral-B in-store purchase competition. Show one stylized generic electric toothbrush with a round brush head, alongside a plain generic loyalty card and a small receipt on a clean bathroom-blue surface. Modern tasteful editorial still life, soft blue and white, subtle dimensional paper-cut style, spacious balanced composition. Do not depict phones, watches, prize models, product packaging, logos, endorsements, prices, dates, amounts or entry instructions. The generic brush is illustrative, not a specific product model. Include a small readable footer exactly: 'FreeHub editorial illustration'. No other text."
+  },
+  "mr-muscle-2026-consumer-promotion": {
+    "src": "/assets/listings/mr-muscle-2026-consumer-promotion.webp",
+    "width": 600,
+    "height": 600,
+    "kind": "generated-editorial",
+    "caption": "FreeHub-created editorial illustration — not official Mr Muscle campaign artwork.",
+    "reviewedAt": "2026-09-24",
+    "generationPrompt": "Create a square editorial illustration for FreeHub.co.za's listing of a South African household cleaning product competition. Show two plainly generic household cleaning spray bottles and a small paper till slip on a bright, tidy kitchen countertop. Crisp modern product photography style, light neutral background, energetic blue accents, ample breathing room. No brand logos, no words, no prize imagery, no people. This is a FreeHub editorial illustration, not official campaign artwork. Output as a single square raster image.",
+    "alt": "Two generic cleaning products and a till slip on a kitchen counter"
+  },
+  "dis-chem-garnier-soft-life-2026": {
+    "src": "/assets/listings/dis-chem-garnier-soft-life-2026.webp",
+    "width": 600,
+    "height": 600,
+    "kind": "generated-editorial",
+    "caption": "FreeHub-created editorial illustration — not official Garnier or Dis-Chem campaign artwork.",
+    "reviewedAt": "2026-09-24",
+    "generationPrompt": "Square editorial still-life photograph for FreeHub.co.za: one unbranded skin moisturiser jar and one unbranded green tube on a light cream vanity surface, soft green botanical shadows, tasteful fresh look, no words, no logos, no faces, no vouchers or prizes. Represent a skincare purchase competition without implying exact product model or official sponsorship. Single clean raster image.",
+    "alt": "Generic skincare jar and green tube on a vanity"
   }
 }

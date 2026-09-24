@@ -472,5 +472,23 @@
     "lastReviewed": "2026-09-09",
     "reviewDueAt": "2026-10-09",
     "dateModified": "2026-09-09"
+  },
+  {
+    "id": "western-cape-government-ecentres",
+    "name": "Western Cape Government eCentres",
+    "resourceType": "programme",
+    "category": "online-courses",
+    "categoryLabel": "Free online courses",
+    "officialUrl": "https://www.westerncape.gov.za/wcg-ecentres",
+    "bestFor": "Western Cape residents needing public internet access and basic computer training",
+    "freeDetails": "Participating eCentres provide free computer and internet use, up to ten printed pages per person per day, and training options.",
+    "requirements": "Visit a participating eCentre; course places, opening times and services depend on the local facility.",
+    "watchOut": "Western Cape locations only. Check the official facility listing before travelling; free training availability can vary.",
+    "availability": "active",
+    "verificationStatus": "verified",
+    "datePublished": "2026-09-24",
+    "lastReviewed": "2026-09-24",
+    "reviewDueAt": "2026-10-24",
+    "dateModified": "2026-09-24"
   }
 ]
