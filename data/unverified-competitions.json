@@ -30,21 +30,6 @@
     "doNotPublish": true
   },
   {
-    "id": "bob-box-find-and-win-2026",
-    "brand": "Bob Box",
-    "title": "Find & Win with Bob Box",
-    "prize": "R3,000 Bob Shop voucher",
-    "closingDate": "2026-09-30",
-    "entrySummary": "Take a selfie at a Bob Box locker and follow the social-entry steps described by the promoter.",
-    "costSummary": "No purchase stated; mobile data and travel costs may apply.",
-    "officialSourceUrl": "https://www.bobgo.co.za/post/find-win-with-bob-box-competition-terms-and-conditions",
-    "reviewGap": "The terms refer to a social post that Freehub could not match confidently to the complete entry instructions.",
-    "lastChecked": "2026-09-03",
-    "publicationStatus": "public-under-review",
-    "verificationStatus": "not-verified",
-    "doNotPublish": true
-  },
-  {
     "id": "easypay-easywin-ussd-2026",
     "brand": "EasyPay Everywhere",
     "title": "EasyWin USSD competition",

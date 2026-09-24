@@ -352,5 +352,38 @@
     "reviewedAt": "2026-09-24",
     "generationPrompt": "Square editorial still-life photograph for FreeHub.co.za: one unbranded skin moisturiser jar and one unbranded green tube on a light cream vanity surface, soft green botanical shadows, tasteful fresh look, no words, no logos, no faces, no vouchers or prizes. Represent a skincare purchase competition without implying exact product model or official sponsorship. Single clean raster image.",
     "alt": "Generic skincare jar and green tube on a vanity"
+  },
+  "bob-box-find-and-win-2026": {
+    "src": "/assets/listings/bob-box-find-and-win-2026.webp",
+    "width": 600,
+    "height": 600,
+    "kind": "generated-editorial",
+    "caption": "FreeHub-created editorial illustration — not official Bob Go campaign artwork.",
+    "reviewedAt": "2026-09-24",
+    "generationTool": "Built-in image_gen",
+    "generationPrompt": "Create a square 1024x1024 editorial illustration for FreeHub South Africa's listing of the Bob Box Find & Win competition. Show a generic blue parcel locker wall in a safe public setting, with a person holding a phone at arm's length for a selfie from behind, face not visible. No legible text, no logos, no Bob Box brand imitation, no depicted prize or vouchers. Bright, crisp documentary editorial style. This is an independent FreeHub editorial illustration, not official campaign artwork.",
+    "alt": "Person taking a selfie beside a generic blue parcel locker"
+  },
+  "asus-cash-dash-2026": {
+    "src": "/assets/listings/asus-cash-dash-2026.webp",
+    "width": 1200,
+    "height": 432,
+    "kind": "official",
+    "caption": "Official ASUS Cash Dash promotional artwork.",
+    "reviewedAt": "2026-09-24",
+    "sourcePage": "https://promotion.asus.com/en-za/asus-cash-dash-2026/",
+    "sourceImage": "https://promotion.asus.com/wp-content/uploads/assets/back-to-school-2026/en_za/img/herobanner-en_za.jpg",
+    "alt": "ASUS Cash Dash banner advertising up to R12,912 combined cashback on selected products"
+  },
+  "mtn-app-first-login-1gb-2026": {
+    "src": "/assets/listings/mtn-app-first-login-1gb-2026.webp",
+    "width": 600,
+    "height": 600,
+    "kind": "generated-editorial",
+    "caption": "FreeHub-created editorial illustration — not official MTN campaign artwork.",
+    "reviewedAt": "2026-09-24",
+    "generationTool": "Built-in image_gen",
+    "generationPrompt": "Create a square 1024x1024 editorial illustration for FreeHub South Africa's listing of MTN's first-login 1 GB data gift. Show a generic modern smartphone with an abstract gift icon and subtle data signal arcs against clean yellow and cream background, visual suggestion of digital mobile data. No logos, no readable words, no fabricated app interface, no real screenshots, no people, no terms or claim buttons. Independent FreeHub editorial illustration; not MTN promotional art.",
+    "alt": "Generic phone with digital gift icon and signal arcs on yellow background"
   }
 }
