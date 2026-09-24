@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-23",
-  "count": 77,
+  "asOfDate": "2026-09-24",
+  "count": 85,
   "competitions": [
     {
       "id": "food-lovers-market-supersport-heritage-day-2026",
@@ -742,6 +742,111 @@
       "isClosingSoon": true
     },
     {
+      "id": "bob-box-find-and-win-2026",
+      "title": "Find & Win with Bob Box 2026",
+      "brand": "Bob Go / Bob Box",
+      "summary": "Share a selfie at a Bob Box locker in the official Bob Go competition comments for a chance to win a R3,000 Bob Shop voucher.",
+      "imageUrl": "https://freehub.co.za/assets/listings/bob-box-find-and-win-2026.webp",
+      "closingDate": "2026-09-30",
+      "category": "Shopping",
+      "prizeName": "R3,000 Bob Shop voucher",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Social",
+      "eligibility": "SA residents aged 18 or older; promoter-related exclusions apply.",
+      "entrySteps": [
+        "Find a Bob Box locker and take an original selfie with it.",
+        "Comment with the selfie and #ISpottedBobBox on Bob Go’s matching competition post.",
+        "For one bonus entry, share the selfie to an Instagram or Facebook Story, tag the official Bob Go account and add #ISpottedBobBox plus the locker name hashtag."
+      ],
+      "officialUrl": "https://www.facebook.com/bobgocoza/posts/want-to-score-a-r3000-bob-shop-voucher-spot-a-bob-box-locker-nearby-take-a-selfi/1736119475182610/",
+      "termsUrl": "https://www.bobgo.co.za/post/find-win-with-bob-box-competition-terms-and-conditions",
+      "lastChecked": "2026-09-24",
+      "isHighValue": false,
+      "isClosingSoon": true
+    },
+    {
+      "id": "babyyumyum-first-choice-custard-hamper-2026",
+      "title": "First Choice Custard and LEGO DUPLO Hamper Competition",
+      "brand": "BabyYumYum / First Choice",
+      "summary": "Complete the BabyYumYum competition form for a chance to win one of two R1,000 First Choice flavoured custard and LEGO DUPLO hampers.",
+      "imageUrl": "https://freehub.co.za/assets/listings/babyyumyum-first-choice-custard-hamper-2026.webp",
+      "closingDate": "2026-09-30",
+      "category": "Family",
+      "prizeName": "First Choice custard and LEGO DUPLO hamper worth R1,000",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "South African residents aged 18 or older. Employees of BabyYumYum, First Choice, their associated agencies or suppliers and immediate family members may not enter.",
+      "entrySteps": [
+        "Check that you are a South African resident aged 18 or older and meet the promoter exclusions.",
+        "Open the official BabyYumYum campaign page and complete its competition entry form.",
+        "Provide valid contact details and identify the First Choice Flavoured Custard competition in the competition field.",
+        "Submit before 23:59 on 30 September 2026. No purchase step is specified in the published entry rules."
+      ],
+      "officialUrl": "https://babyyumyum.com/win-r1000-first-choice-flavoured-custard-hamper/",
+      "termsUrl": "https://babyyumyum.com/win-r1000-first-choice-flavoured-custard-hamper/",
+      "lastChecked": "2026-09-24",
+      "isHighValue": false,
+      "isClosingSoon": true
+    },
+    {
+      "id": "wellness-warehouse-metagenics-story-2026",
+      "title": "Wellness Warehouse Metagenics Story Competition",
+      "brand": "Wellness Warehouse / Metagenics",
+      "summary": "Share an original photo or short video explaining why you love Metagenics for a chance to win a personalised R10,000 hamper. No purchase is required.",
+      "imageUrl": "https://freehub.co.za/assets/listings/wellness-warehouse-metagenics-story-2026.webp",
+      "closingDate": "2026-09-30",
+      "category": "Wellness",
+      "prizeName": "Personalised Metagenics hamper worth R10,000",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Social",
+      "eligibility": "South African residents aged 18 or older able to provide proof of identity and residence. Promoter directors, staff, contractors, agents, involved administrators and their immediate families are excluded.",
+      "entrySteps": [
+        "Be a South African resident aged 18 or older and check the promoter-related exclusions.",
+        "Create an original photo or short video sharing your wellness story and why you love Metagenics; avoid misleading health claims.",
+        "Post on Instagram, Facebook or TikTok, tag @WellnessWarehouse and @metagenicssa, and include #ILoveMetagenics.",
+        "Each qualifying post is one entry. Content created in a Wellness Warehouse store earns one bonus entry.",
+        "Enter before 23:59 SAST on 30 September 2026. Keep proof of identity and residence available for winner verification."
+      ],
+      "officialUrl": "https://www.instagram.com/p/DcuwRMZgXPi",
+      "termsUrl": "https://wellnesswarehouse.com/pages/policies-information",
+      "lastChecked": "2026-09-24",
+      "isHighValue": true,
+      "isClosingSoon": true
+    },
+    {
+      "id": "nedbank-greenbacks-checkers-grocery-2026",
+      "title": "Nedbank Greenbacks Grocery Rewards — Invited Clients",
+      "brand": "Nedbank Greenbacks / Checkers",
+      "summary": "Invitation-only: eligible Greenbacks clients earn entries through qualifying Nedbank American Express spending. Twenty-one winners receive R5,000 in Checkers vouchers monthly for a year.",
+      "imageUrl": "https://freehub.co.za/assets/listings/nedbank-greenbacks-checkers-grocery-2026.webp",
+      "closingDate": "2026-09-30",
+      "category": "Shopping",
+      "prizeName": "R5,000 Checkers vouchers monthly for 12 months",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Invited Clients: Qualifying Card Spend",
+      "eligibility": "Invited Greenbacks clients aged 18 or older who permanently reside in South Africa and can prove citizenship, permanent residence or lawful residence. Qualifying linked Amex card and accounts in good standing required. Nedbank staff, associated companies, agents, contractors and sponsors excluded.",
+      "entrySteps": [
+        "Only participate if Nedbank has invited you by email or a Money App push notification. An account or card alone does not qualify you.",
+        "Be 18 or older, permanently reside lawfully in South Africa, be a Greenbacks client with a linked Nedbank American Express debit or credit card, and keep your accounts in good standing.",
+        "Use the qualifying card at Checkers, Checkers Hyper, UNIQ, Checkers Outdoor, LittleMe or Petshop Science during September. Online purchases qualify where available.",
+        "Every cumulative R2,500 spent earns one entry with a qualifying debit card or two entries with a qualifying credit card.",
+        "Complete qualifying spending by 30 September 2026. The rules do not state a specific closing hour."
+      ],
+      "officialUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/greenbacks-checkers-grocery-competition.html",
+      "termsUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/greenbacks-checkers-grocery-competition.html",
+      "lastChecked": "2026-09-24",
+      "isHighValue": true,
+      "isClosingSoon": true
+    },
+    {
       "id": "spar-nutrifresh-spin-and-win-2026",
       "title": "SPAR Nutrifresh Spin & Win Competition",
       "brand": "SPAR KZN / Nutrifresh",
@@ -922,6 +1027,31 @@
       "isClosingSoon": false
     },
     {
+      "id": "mr-muscle-2026-consumer-promotion",
+      "title": "Mr Muscle 2026 Consumer Promotion",
+      "brand": "Mr Muscle / S.C. Johnson",
+      "summary": "Buy two participating Mr Muscle products and enter by WhatsApp for one of 13 robot vacuum, air purifier or Sorbet voucher prizes.",
+      "imageUrl": "https://freehub.co.za/assets/listings/mr-muscle-2026-consumer-promotion.webp",
+      "closingDate": "2026-10-17",
+      "category": "Home",
+      "prizeName": "Three Xiaomi Robot Vacuum 5 Pro, five Xiaomi Smart Air Purifier 4 Pro and five R4,000 Sorbet vouchers",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "WhatsApp",
+      "eligibility": "SA residents over 18 with a valid ID; promoter-related exclusions apply.",
+      "entrySteps": [
+        "Buy any two Mr Muscle products listed in Annexure A of the official rules in one qualifying purchase.",
+        "WhatsApp a clear full-length photo of the till slip to 078 760 4132 and follow the prompts.",
+        "Keep the original till slip for winner verification; each new entry needs a separate qualifying purchase and unique slip."
+      ],
+      "officialUrl": "https://www.vaultbook.co.za/mr-muscle-competition/",
+      "termsUrl": "https://www.vaultbook.co.za/mr-muscle-competition/",
+      "lastChecked": "2026-09-24",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "coca-cola-400ml-social-media-competition-2026",
       "title": "Coca-Cola 400ml Social Media Competition 2026",
       "brand": "Coca-Cola South Africa",
@@ -1022,6 +1152,32 @@
       "officialUrl": "https://www.sasol.com/our-businesses/energy/mobility/sasol-competitions/spring-into-a-classic-bite-with-sasol-delight-and-magpie",
       "termsUrl": "https://www.sasol.com/sites/default/files/2026-09/Sasol%20Delight%20Terms%20%26%20Conditions%20-%20MagPie%20Competition.pdf",
       "lastChecked": "2026-09-14",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "clicks-rimmel-hydration-hamper-2026",
+      "title": "Clicks Rimmel Hydration Hamper Competition",
+      "brand": "Clicks / Rimmel",
+      "summary": "Buy two Rimmel cosmetic products in one transaction at a South African Clicks store and swipe your ClubCard for automatic entry into the hamper draw.",
+      "imageUrl": "https://freehub.co.za/assets/listings/clicks-rimmel-hydration-hamper-2026.webp",
+      "closingDate": "2026-10-21",
+      "category": "Beauty",
+      "prizeName": "Rimmel Hydration hamper worth R1,500",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Purchase and ClubCard Swipe",
+      "eligibility": "South African residents aged 18 or older with a Clicks ClubCard. Clicks, supplier and agency-related parties and their families or business partners are excluded under the official rules.",
+      "entrySteps": [
+        "Be a Clicks ClubCard member aged 18 or older residing in South Africa.",
+        "Buy any two Rimmel cosmetic products in one transaction at a Clicks store in South Africa between 23 September and 21 October 2026.",
+        "Swipe your ClubCard during that purchase. Eligible purchases are entered automatically.",
+        "Keep your ClubCard contact details current for winner contact and identity verification."
+      ],
+      "officialUrl": "https://www.clicks.co.za/clubcard/competitions/rimmel-hydration-hamper-competition",
+      "termsUrl": "https://woobox.com/gtn7w7/rules",
+      "lastChecked": "2026-09-24",
       "isHighValue": false,
       "isClosingSoon": false
     },
@@ -1334,6 +1490,31 @@
       "isClosingSoon": false
     },
     {
+      "id": "dis-chem-garnier-soft-life-2026",
+      "title": "Dis-Chem Garnier Soft Life Competition 2026",
+      "brand": "Dis-Chem / Garnier",
+      "summary": "Buy a Garnier Hydration cream in a Dis-Chem store and swipe Better Rewards for a chance to win one of 20 prizes valued at R500 each.",
+      "imageUrl": "https://freehub.co.za/assets/listings/dis-chem-garnier-soft-life-2026.webp",
+      "closingDate": "2026-10-31",
+      "category": "Shopping",
+      "prizeName": "20 prizes valued at R500 each",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "In-store",
+      "eligibility": "SA residents or citizens over 18 with valid ID; previous Dis-Chem competition winners in the last six months are excluded.",
+      "entrySteps": [
+        "Buy any Garnier Hydration cream at a Dis-Chem store during the campaign period.",
+        "Swipe your Dis-Chem Better Rewards card at the till.",
+        "Keep your purchase and account details for possible winner validation."
+      ],
+      "officialUrl": "https://www.dischem.co.za/garnier-soft-life-competition",
+      "termsUrl": "https://www.dischem.co.za/garnier-soft-life-competition",
+      "lastChecked": "2026-09-24",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "clicks-baby-essentials-hamper-2026",
       "title": "Clicks Baby Essentials Hamper Competition",
       "brand": "Clicks",
@@ -1460,6 +1641,33 @@
       "termsUrl": "https://pizzaperfect.co.za/wp-content/uploads/2026/07/Terms-and-Conditions-Legacy.pdf",
       "lastChecked": "2026-09-18",
       "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "edgars-at-our-school-2026",
+      "title": "Edgars At Our School Competition",
+      "brand": "Edgars / SuperSport Schools",
+      "summary": "Share a public post celebrating an eligible school. Six R50,000 school-initiative prizes and twenty R500 individual Edgars vouchers are available; no purchase is required.",
+      "imageUrl": "https://freehub.co.za/assets/listings/edgars-at-our-school-2026.webp",
+      "closingDate": "2026-11-20",
+      "category": "Community",
+      "prizeName": "R50,000 school-initiative prize or R500 individual Edgars voucher",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Social",
+      "eligibility": "Eligible recognised schools and natural persons ordinarily resident in South Africa, Botswana, Namibia, Eswatini or Lesotho, subject to country rules and identity verification. Under-18 entrants need prior guardian consent. School accounts require school authorisation and cannot win individual vouchers. Promoter-related persons cannot win individual prizes.",
+      "entrySteps": [
+        "Choose a lawfully recognised school in South Africa, Botswana, Namibia, Eswatini or Lesotho. Check the individual or authorised school-account eligibility rules.",
+        "Publish an original permanent public feed post, reel, photo or video celebrating the school on Facebook, Instagram or TikTok. Temporary Stories do not qualify.",
+        "Identify the school and country, tag @EdgarsFashion and @SuperSportSchools, and include #AtOurSchool plus a hashtag identifying your school.",
+        "Get parental or guardian consent for entrants under 18 and permission for identifiable children in the content. Keep the post publicly viewable for verification.",
+        "Post by 23:59 SAST on 20 November 2026. Each valid post supports the school draw; qualifying individual posts also enter the individual voucher draw."
+      ],
+      "officialUrl": "https://www.edgars.co.za/pages/supersport-schools",
+      "termsUrl": "https://www.edgars.co.za/pages/competition-terms-conditions",
+      "lastChecked": "2026-09-24",
+      "isHighValue": true,
       "isClosingSoon": false
     },
     {

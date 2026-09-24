@@ -27,9 +27,9 @@ function getCurrentContentBaseline() {
   const testing = publicOpportunities.filter(row => row.type === 'product_testing');
   const featured = [samples[0], testing.at(-1), publicOpportunities.find(row => row.type === 'birthday_freebie')].filter(Boolean);
   return { active, core, publicOpportunities, detailOpportunities, samples, testing, featured,
-    // Reviewed 21 September base includes the Dis-Chem Oral-B detail page;
+    // Reviewed 24 September base includes five reviewed competition pages and the qualifying grocery hub;
     // active counts add the corresponding exit routes.
-    generatedFileCount: 376 + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    generatedFileCount: 382 + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
     sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length,
   };
 }

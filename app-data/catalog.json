@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-23",
-  "count": 23,
+  "asOfDate": "2026-09-24",
+  "count": 26,
   "counts": {
-    "freeStuff": 21,
-    "resources": 16,
+    "freeStuff": 22,
+    "resources": 17,
     "opportunities": 5,
-    "offers": 2
+    "offers": 4
   },
   "items": [
     {
@@ -266,6 +266,22 @@
       "lastChecked": "2026-09-09"
     },
     {
+      "id": "western-cape-government-ecentres",
+      "kind": "resource",
+      "title": "Western Cape Government eCentres",
+      "provider": "Western Cape Government eCentres",
+      "summary": "Participating eCentres provide free computer and internet use, up to ten printed pages per person per day, and training options.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://www.westerncape.gov.za/wcg-ecentres",
+      "bestFor": "Western Cape residents needing public internet access and basic computer training",
+      "requirements": [
+        "Visit a participating eCentre; course places, opening times and services depend on the local facility."
+      ],
+      "watchOut": "Western Cape locations only. Check the official facility listing before travelling; free training availability can vary.",
+      "lastChecked": "2026-09-24"
+    },
+    {
       "id": "mcdonalds-app-birthday-ice-cream",
       "kind": "opportunity",
       "title": "McDonald's app free birthday ice-cream cone",
@@ -391,6 +407,44 @@
       ],
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "lastChecked": "2026-09-17",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "asus-cash-dash-2026",
+      "kind": "deal",
+      "title": "ASUS Cash Dash 2026: cashback on eligible tech",
+      "provider": "ASUS",
+      "summary": "Buy an eligible ASUS product from a listed South African dealer by 28 September 2026 and claim the model-specific cashback through ASUS by 12 October. R12,912 is the combined maximum across one item from each product line, not the cashback on a single item.",
+      "category": "electronics-appliances",
+      "categoryLabel": "Electronics & Appliances",
+      "officialUrl": "https://promotion.asus.com/en-za/asus-cash-dash-2026/",
+      "termsUrl": "https://promotion.asus.com/en-za/asus-cash-dash-2026/tac/",
+      "requirements": [
+        "Qualifying product purchase period: 18 August–28 September 2026; redemption: 1 September–12 October 2026, CET. South African resident, participating dealer, listed model and part number, matching purchase invoice and ASUS VIP registration required. Claim through the official ASUS campaign page, which currently routes to an ASUS login. Cashback varies by product; the advertised R12,912 is an aggregate maximum across categories. The terms introduction mistakenly says Q3 2025, while its title, detailed dates and campaign page say 2026. After 28 September, only people who already made a qualifying purchase can still submit a claim."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-10-12",
+      "lastChecked": "2026-09-24",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "mtn-app-first-login-1gb-2026",
+      "kind": "deal",
+      "title": "Free 1 GB for first login to the new MTN App",
+      "provider": "MTN South Africa",
+      "summary": "Eligible MTN customers logging into the new MTN App for the first time can claim a free 1 GB bundle from My Gifts within 24 hours of notification; the redeemed data lasts 24 hours.",
+      "category": "mobile-data",
+      "categoryLabel": "Mobile & Data",
+      "officialUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/2025-mtn-app-free-1-gb-download-and-login-incentive",
+      "termsUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/2025-mtn-app-free-1-gb-download-and-login-incentive",
+      "requirements": [
+        "New MTN App, MTN customer and successful first authenticated login required; MTN decides eligibility using its records, mobile number and/or device. Check the My Gifts menu and claim within 24 hours of being notified. The 1 GB bundle expires 24 hours after redemption. The promotion is listed through 31 December 2026 but may change or be withdrawn. Download or network data costs may apply, though MTN says the app can be used without data once downloaded. No purchase is stated in these terms."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-12-31",
+      "lastChecked": "2026-09-24",
       "isAffiliate": false,
       "isSponsored": false
     }

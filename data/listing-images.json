@@ -385,5 +385,62 @@
     "generationTool": "Built-in image_gen",
     "generationPrompt": "Create a square 1024x1024 editorial illustration for FreeHub South Africa's listing of MTN's first-login 1 GB data gift. Show a generic modern smartphone with an abstract gift icon and subtle data signal arcs against clean yellow and cream background, visual suggestion of digital mobile data. No logos, no readable words, no fabricated app interface, no real screenshots, no people, no terms or claim buttons. Independent FreeHub editorial illustration; not MTN promotional art.",
     "alt": "Generic phone with digital gift icon and signal arcs on yellow background"
+  },
+  "clicks-rimmel-hydration-hamper-2026": {
+    "src": "/assets/listings/clicks-rimmel-hydration-hamper-2026.webp",
+    "width": 1200,
+    "height": 810,
+    "alt": "Official Clicks Rimmel Hydration competition artwork showing the hampers and purchase requirement",
+    "kind": "official-source",
+    "caption": "Image from the official campaign source.",
+    "reviewedAt": "2026-09-24",
+    "sourcePage": "https://www.clicks.co.za/clubcard/competitions/rimmel-hydration-hamper-competition",
+    "sourceImage": "https://offertabs.s3.amazonaws.com/offer/gtn7w7/6ab2385a5c3ad8.40528741.jpg"
+  },
+  "babyyumyum-first-choice-custard-hamper-2026": {
+    "src": "/assets/listings/babyyumyum-first-choice-custard-hamper-2026.webp",
+    "width": 1000,
+    "height": 1000,
+    "alt": "Official campaign photo of two children holding First Choice flavoured custard pouches",
+    "kind": "official-source",
+    "caption": "Image from the official campaign source.",
+    "reviewedAt": "2026-09-24",
+    "sourcePage": "https://babyyumyum.com/win-r1000-first-choice-flavoured-custard-hamper/",
+    "sourceImage": "https://babyyumyum.com/wp-content/uploads/Woodlands-Dairy-Flavoured-custard_2-kid-4.jpg"
+  },
+  "edgars-at-our-school-2026": {
+    "src": "/assets/listings/edgars-at-our-school-2026.webp",
+    "width": 1200,
+    "height": 313,
+    "alt": "Official Edgars and SuperSport Schools partnership banner",
+    "kind": "official-source",
+    "caption": "Image from the official campaign source.",
+    "reviewedAt": "2026-09-24",
+    "sourcePage": "https://www.edgars.co.za/pages/supersport-schools",
+    "sourceImage": "https://www.edgars.co.za/cdn/shop/files/SSS_WEB_LP_Banner.jpg?v=1789726589&width=1200"
+  },
+  "wellness-warehouse-metagenics-story-2026": {
+    "src": "/assets/listings/wellness-warehouse-metagenics-story-2026.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "FreeHub editorial illustration of a notebook and phone for sharing a wellness story",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration — not official promoter artwork or a depiction of the prize.",
+    "reviewedAt": "2026-09-24",
+    "generationTool": "Built-in image_gen",
+    "generationPrompt": "Create one polished wide 3:2 FreeHub editorial illustration for a social storytelling wellness competition. A simple open notebook with blank pages, a phone on a small tabletop tripod with a blank screen, a leafy plant and a soft blue ceramic mug in a bright peaceful room, visually suggesting sharing a personal wellness story. Paper-cut texture with warm cream, sage green and dusty blue. No text, no logos, no supplement bottles, no medical symbols, no health claims, no prize amounts, no people. Must be clearly illustrative and not a depiction of the actual prize hamper or official promoter artwork.",
+    "officialArtworkCheck": "Official rules page has no campaign hero. Instagram preview is cropped through the prize text and full image could not be obtained."
+  },
+  "nedbank-greenbacks-checkers-grocery-2026": {
+    "src": "/assets/listings/nedbank-greenbacks-checkers-grocery-2026.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "FreeHub editorial illustration of unbranded groceries and an abstract reward card",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration — not official promoter artwork or a depiction of the prize.",
+    "reviewedAt": "2026-09-24",
+    "generationTool": "Built-in image_gen",
+    "generationPrompt": "Create one wide 3:2 editorial illustration for FreeHub, a South African competition listing about invitation-only grocery rewards for qualifying bank card customers. Premium warm paper-cut illustration: a reusable grocery bag with ordinary unbranded vegetables, bread and pantry items on a kitchen counter, small abstract blank reward card alongside. Forest green, cream and gentle orange palette. No people, no logos, no bank card numbers, no currency, no prize amounts, no words, no invented product brands, no suggestion of endorsement. This is illustrative grocery shopping, not a literal depiction of a prize hamper. Polished textured editorial art with generous margins.",
+    "officialArtworkCheck": "Official legal page contains no suitable campaign hero; generic bank logo not used as hero."
   }
 }
