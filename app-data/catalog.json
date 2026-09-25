@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-24",
-  "count": 26,
+  "asOfDate": "2026-09-25",
+  "count": 20,
   "counts": {
-    "freeStuff": 22,
+    "freeStuff": 17,
     "resources": 17,
-    "opportunities": 5,
-    "offers": 4
+    "opportunities": 0,
+    "offers": 3
   },
   "items": [
     {
@@ -282,98 +282,6 @@
       "lastChecked": "2026-09-24"
     },
     {
-      "id": "mcdonalds-app-birthday-ice-cream",
-      "kind": "opportunity",
-      "title": "McDonald's app free birthday ice-cream cone",
-      "provider": "McDonald's South Africa",
-      "summary": "McDonald's South Africa app members who provide the correct date of birth receive a free ice-cream cone reward on their birthday for redemption at a participating restaurant.",
-      "category": "birthday_freebie",
-      "categoryLabel": "Birthday freebies",
-      "officialUrl": "https://www.mcdonalds.co.za/deals-our-app",
-      "requirements": [
-        "McDonald's app membership required",
-        "McDonald's South Africa app registration required",
-        "Correct date of birth must be stored in the app profile",
-        "Redeem the in-app reward at a participating restaurant"
-      ],
-      "watchOut": "Availability and provider approval can change.",
-      "lastChecked": "2026-09-17"
-    },
-    {
-      "id": "spur-kids-free-birthday-meal",
-      "kind": "opportunity",
-      "title": "Spur kids' free birthday meal and ice cream",
-      "provider": "Spur Steak Ranches",
-      "summary": "Children aged zero to 12 linked to a parent or guardian's Spur Family profile receive a free Kids' Menu meal and Chico the Clown ice cream birthday voucher, valid for three months.",
-      "category": "birthday_freebie",
-      "categoryLabel": "Birthday freebies",
-      "officialUrl": "https://www.spursteakranches.com/za/family-card-benefits-for-kids",
-      "requirements": [
-        "Child must be linked to a parent or guardian's free Spur Family profile",
-        "Child must be aged zero to 12",
-        "Child must be present for restaurant or Call & Collect redemption"
-      ],
-      "watchOut": "Availability and provider approval can change.",
-      "lastChecked": "2026-09-17"
-    },
-    {
-      "id": "mugg-and-bean-birthday-cake",
-      "kind": "opportunity",
-      "title": "Mugg & Bean free birthday cake slice",
-      "provider": "Mugg & Bean",
-      "summary": "Qualifying Mugg & Bean Loyalty App members receive a birthday voucher for a cake slice at a Sit-Down restaurant or a bundt cake at On-The-Move. From 1 September 2026 it is issued on the actual birthday and is valid for 30 days. Two qualifying app uses in the preceding 12 months are required.",
-      "category": "birthday_freebie",
-      "categoryLabel": "Birthday freebies",
-      "officialUrl": "https://www.muggandbean.co.za/rewards/loyalty-app-faqs/",
-      "requirements": [
-        "Mugg & Bean loyalty membership required",
-        "Mugg & Bean Loyalty App registration required",
-        "Use the app payment or receipt-scan feature at least twice in the preceding 12 months",
-        "Voucher must be used within its 30-day validity period"
-      ],
-      "watchOut": "Availability and provider approval can change.",
-      "lastChecked": "2026-09-17"
-    },
-    {
-      "id": "ocean-basket-app-birthday-treat",
-      "kind": "opportunity",
-      "title": "Ocean Basket app birthday treat",
-      "provider": "Ocean Basket",
-      "summary": "Ocean Basket app members may receive one complimentary birthday treat per year, redeemable for 30 days from their recorded birthday. The item varies by restaurant and availability; check your Rewards Wallet before visiting.",
-      "category": "birthday_freebie",
-      "categoryLabel": "Birthday freebies",
-      "officialUrl": "https://za.oceanbasket.com/app-terms-and-conditions/",
-      "imageUrl": "https://freehub.co.za/assets/listings/ocean-basket-app-birthday-treat.webp",
-      "requirements": [
-        "Ocean Basket app membership required",
-        "App membership is for people aged 18 or older",
-        "Register in the Ocean Basket app with a valid mobile number and email",
-        "Record your correct birthday; corrections require support",
-        "Confirm the item and conditions shown in your Rewards Wallet with the participating restaurant"
-      ],
-      "watchOut": "Availability and provider approval can change.",
-      "lastChecked": "2026-09-17"
-    },
-    {
-      "id": "starbucks-gold-birthday-drink",
-      "kind": "opportunity",
-      "title": "Starbucks Gold birthday drink",
-      "provider": "Starbucks South Africa",
-      "summary": "Starbucks South Africa Gold members receive a birthday Free Drink Reward valid for 30 days. Gold requires 750 Stars earned within 12 months, so this is a benefit for qualifying loyalty customers, not a drink for every new signup.",
-      "category": "birthday_freebie",
-      "categoryLabel": "Birthday freebies",
-      "officialUrl": "https://www.starbucks.co.za/rewards/ts-and-cs",
-      "imageUrl": "https://freehub.co.za/assets/listings/starbucks-gold-birthday-drink.webp",
-      "requirements": [
-        "Gold-level Starbucks Rewards membership required",
-        "Earn 750 Stars in 12 months through qualifying activity; another 750 Stars maintains Gold for the next year",
-        "Provide your birthday in your member profile and check the reward in your account",
-        "Redeem only at participating South African Starbucks stores"
-      ],
-      "watchOut": "Availability and provider approval can change.",
-      "lastChecked": "2026-09-17"
-    },
-    {
       "id": "capenature-access-week-2026",
       "kind": "deal",
       "title": "CapeNature free walk-in day access: 19–25 September",
@@ -389,24 +297,6 @@
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "expiresAt": "2026-09-25",
       "lastChecked": "2026-09-09",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "mugg-bean-new-app-cappuccino",
-      "kind": "deal",
-      "title": "Mugg & Bean new-app cappuccino after qualifying spend",
-      "provider": "Mugg & Bean",
-      "summary": "New Mugg & Bean app users who spend over R50 in their first month qualify for one complimentary Easy Cappuccino voucher.",
-      "category": "restaurants-takeaways",
-      "categoryLabel": "Restaurants & Takeaways",
-      "officialUrl": "https://www.muggandbean.co.za/rewards/loyalty-app-faqs/",
-      "termsUrl": "https://www.muggandbean.co.za/terms-and-conditions/",
-      "requirements": [
-        "App registration and spending over R50 in the first month are required. One Easy Cappuccino voucher is issued to qualifying new users; no loyalty is earned when redeeming it. The public clause does not specify its redemption expiry, so check the voucher in the app before visiting. This welcome reward is separate from the birthday cake benefit."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "lastChecked": "2026-09-17",
       "isAffiliate": false,
       "isSponsored": false
     },

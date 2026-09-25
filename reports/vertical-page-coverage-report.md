@@ -1,20 +1,19 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-09-24
+Generated: 2026-09-25
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 10
+- Matching active public competitions: 9
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Takealot Heritage Design Challenge 2026 (takealot-heritage-design-challenge-2026) | 2026-09-24 | free-entry | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Knorr Soup Competition 2026 - Win R5,000 Weekly (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Mr Muscle 2026 Consumer Promotion (mr-muscle-2026-consumer-promotion) | 2026-10-17 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Sasol Delight and Magpie Rewards Competition (sasol-magpie-2026) | 2026-10-21 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
@@ -72,7 +71,7 @@ Recommended normalisation:
 | Pizza Perfect Oom Freddy’s Legacy Hamper Competition (pizza-perfect-oom-freddy-legacy-2026) | 2026-11-14 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Eskort Braai-Lux Toyota Hilux Competition (eskort-braai-lux-2026) | 2026-11-22 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Coca-Cola Be a Bok Competition 2026 (coca-cola-fan-can-be-a-bok-2026) | 2026-11-30 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
-| Montego Classic Win a Toyota Hilux Competition (montego-classic-win-toyota-hilux-2026) | 2026-11-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
+| Montego Classic Competition 2026 - Win a Toyota Hilux (montego-classic-win-toyota-hilux-2026) | 2026-11-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 
 Recommended normalisation:
@@ -81,14 +80,13 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 26
+- Matching active public competitions: 25
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Food Lover's Market Heritage Day Competition (food-lovers-market-supersport-heritage-day-2026) | 2026-09-24 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Curaprox House of Mouth Competition 2026 (curaprox-house-of-mouth-competition-2026) | 2026-09-28 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Penguin Random House Grandest Games Competition (penguin-random-house-grandest-games-2026) | 2026-09-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Beares Corduroy Couch Competition (beares-corduroy-couch-2026) | 2026-09-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
@@ -171,14 +169,13 @@ Recommended normalisation:
 ## Supermarket Competitions in South Africa
 
 - URL: /supermarket-competitions-south-africa/
-- Matching active public competitions: 13
+- Matching active public competitions: 12
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Food Lover's Market Heritage Day Competition (food-lovers-market-supersport-heritage-day-2026) | 2026-09-24 | free-entry | yes | yes | Supermarket brand or retail partner | none |
 | IMANA SUPERSPAR Polofields Potjie Dash Competition 2026 (imana-superspar-polofields-potjie-dash-2026) | 2026-09-25 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery tag; Supermarket or grocery entry text | none |
 | Nedbank Greenbacks Grocery Rewards — Invited Clients (nedbank-greenbacks-checkers-grocery-2026) | 2026-09-30 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | SPAR Nutrifresh Spin & Win Competition (spar-nutrifresh-spin-and-win-2026) | 2026-10-02 | free-entry | yes | yes | Supermarket brand or retail partner | none |

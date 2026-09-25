@@ -1,59 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-24",
-  "count": 90,
+  "asOfDate": "2026-09-25",
+  "count": 88,
   "competitions": [
-    {
-      "id": "food-lovers-market-supersport-heritage-day-2026",
-      "title": "Food Lover's Market Heritage Day Competition",
-      "brand": "Food Lover's Market / SuperSport",
-      "summary": "Vote for your favourite sporting moment once per day for a chance to win a weekly R5,000 cash prize.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/food-lovers-market-supersport-heritage-day-2026.webp",
-      "closingDate": "2026-09-24",
-      "category": "Cash",
-      "prizeName": "R5,000 cash",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "Open to South African residents aged 18 or older, with one entry per day.",
-      "entrySteps": [
-        "Open the official SuperSport Heritage Day competition page.",
-        "Choose your favourite sporting moment and complete the online form.",
-        "Submit up to one entry per day before 24 September 2026."
-      ],
-      "officialUrl": "https://campaigns.supersport.com/competitions/3584",
-      "termsUrl": "https://campaigns.supersport.com/competitions/3584",
-      "lastChecked": "2026-09-06",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "takealot-heritage-design-challenge-2026",
-      "title": "Takealot Heritage Design Challenge 2026",
-      "brand": "Takealot",
-      "summary": "Submit your own original Heritage Day delivery-box design through Takealot’s WhatsApp process by 23:59 on 24 September 2026. AI-created work is not allowed.",
-      "imageUrl": "https://freehub.co.za/assets/listings/takealot-heritage-design-challenge-2026.webp",
-      "closingDate": "2026-09-24",
-      "category": "Vouchers",
-      "prizeName": "R100,000 first-place and R20,000 second-place Takealot vouchers",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "WhatsApp",
-      "eligibility": "South African natural persons aged 18 or older residing in South Africa. Takealot group employees, suppliers and related parties are excluded.",
-      "entrySteps": [
-        "Read both parts of the official rules; design submissions and voting have different dates.",
-        "Send Hi to Takealot’s designated WhatsApp number, +27 62 116 8262, and download the design guide.",
-        "Create an original design using the specified South African flag colours and Takealot blue. Upload an image or video plus your heritage motivation through WhatsApp.",
-        "Enter once. Shortlisted entrants must verify identity and authorship; winners must sign copyright assignment documents."
-      ],
-      "officialUrl": "https://www.takealot.com/competitions/takealot-heritage-design-challenge-2026-terms-conditions",
-      "termsUrl": "https://www.takealot.com/competitions/takealot-heritage-design-challenge-2026-terms-conditions",
-      "lastChecked": "2026-09-17",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "imana-superspar-polofields-potjie-dash-2026",
       "title": "IMANA SUPERSPAR Polofields Potjie Dash Competition 2026",
@@ -897,7 +846,7 @@
       "termsUrl": "https://www.spar.co.za/SPAR-Nutrifresh-Competition",
       "lastChecked": "2026-09-06",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "huletts-heritage-2026",
@@ -1878,7 +1827,7 @@
     },
     {
       "id": "montego-classic-win-toyota-hilux-2026",
-      "title": "Montego Classic Win a Toyota Hilux Competition",
+      "title": "Montego Classic Competition 2026 - Win a Toyota Hilux",
       "brand": "Montego Pet Nutrition",
       "summary": "Buy qualifying Montego Classic Dry Food and complete the QR-code or USSD entry for a chance to win a new-generation Toyota Hilux Raider.",
       "imageUrl": "https://www.montego.co.za/wp-content/uploads/2026/07/5005-MTGO-CLASS-HILUX-26-BLOG-ARTICLE-BANNER-IMGS-V1_OUR-NEWS-IMG.jpg",
@@ -1898,7 +1847,7 @@
       ],
       "officialUrl": "https://www.montego.co.za/2026/07/31/stand-a-chance-to-win-the-new-generation-hilux/",
       "termsUrl": "https://www.montego.co.za/2026/07/31/stand-a-chance-to-win-the-new-generation-hilux/#terms-and-conditions",
-      "lastChecked": "2026-08-12",
+      "lastChecked": "2026-09-25",
       "isHighValue": true,
       "isClosingSoon": false
     },
