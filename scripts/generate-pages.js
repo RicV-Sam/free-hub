@@ -299,6 +299,7 @@ const TRUST_PAGE_DEFINITIONS = [
   {
     slug: "contact",
     adsAllowed: false,
+    dateModified: "2026-09-25",
     title: "Contact Freehub | Report Competition Issues",
     description:
       "Contact Freehub about broken links, expired competitions, suspicious listings, corrections, or brand removal requests.",
@@ -314,6 +315,19 @@ const TRUST_PAGE_DEFINITIONS = [
         ],
       },
       {
+        heading: "Prize-message concerns and company reviews",
+        paragraphs: [
+          "Consumers: use the subject 'Suspicious competition claim' and send the claimed brand, campaign, public URLs and a short explanation. Redact personal details and private codes from any screenshot. Freehub reviews public campaign information; the promoter must confirm individual wins through its official channels.",
+          "Companies: use the subject 'Campaign information review' and send official campaign and terms URLs, business contact details, any authorised agency and the published winner-contact and claim process. We check public information for clarity and consistency; submission does not guarantee publication or certification.",
+          "Do not send identity documents, banking details, passwords, OTPs, private redemption codes, customer lists or winner records. Reviews are manual with no guaranteed response time. If money or account access is at risk, contact your bank or provider immediately instead of waiting for us.",
+        ],
+        sources: [
+          { label: "Consumer safety guide", href: "/fake-competition-winner-messages/" },
+          { label: "Email a campaign concern", href: "mailto:hello@freehub.co.za?subject=Suspicious%20competition%20claim" },
+          { label: "Email a company review request", href: "mailto:hello@freehub.co.za?subject=Campaign%20information%20review" },
+        ],
+      },
+      {
         heading: "Before you enter",
         paragraphs: [
           "Freehub does not accept competition entries by email. To enter a competition, open the listing and follow the official promoter link.",
@@ -324,7 +338,7 @@ const TRUST_PAGE_DEFINITIONS = [
   {
     slug: "privacy-policy",
     adsAllowed: false,
-    dateModified: "2026-09-14",
+    dateModified: "2026-09-25",
     title: "Privacy Policy | Freehub",
     description:
       "Read Freehub's privacy policy, including optional accounts, saved competitions, alerts, analytics, outbound links and competition entry responsibility.",
@@ -352,6 +366,14 @@ const TRUST_PAGE_DEFINITIONS = [
           "Coupon and deal submission forms prepare an email on your device. Freehub receives the information only if you choose to send that email, together with the return address supplied by your email provider. Offer tips and problem reports are reviewed manually and never publish or change a listing automatically.",
           "The worked or changed buttons on offer pages may store your selection in your browser and send a limited analytics event containing the Freehub offer ID, offer type and selected result. Freehub does not send coupon codes, report text or contact details in that analytics event.",
           "Do not include passwords, card details, identity documents, private account information or customer records in an offer submission or report.",
+        ],
+      },
+      {
+        heading: "Campaign concerns and information reviews",
+        paragraphs: [
+          "If you email a suspicious-claim report or campaign review request, Freehub receives your email address and the message, public URLs and attachments you choose to send. Email links open your own mail app; nothing is sent by clicking the link alone. These requests are reviewed manually and do not automatically change or publish a listing.",
+          "We use this information to assess public campaign details, respond to the concern and record editorial decisions. Send only what is needed: redact personal details and private codes from screenshots. Do not send identity documents, bank or card details, passwords, OTPs, customer lists, entries or private winner records.",
+          "A correction may be published using public campaign facts, without publishing your contact details or private correspondence. You can contact hello@freehub.co.za about information you have sent or to request its deletion. Do not use Freehub email to submit documents for a prize claim; use the independently verified promoter process.",
         ],
       },
       {
@@ -386,7 +408,7 @@ const TRUST_PAGE_DEFINITIONS = [
         heading: "Competition entries",
         paragraphs: [
           "Freehub does not collect or process entries for the competitions listed on the site. When you click through, the promoter's own privacy policy and terms apply.",
-          "Do not send identity numbers, banking details, passwords or competition entries to Freehub unless we have specifically requested information for a listing correction.",
+          "Do not send identity numbers, identity documents, banking details, passwords, OTPs, private redemption codes or competition entries to Freehub for a listing correction or campaign review.",
         ],
       },
       {
@@ -905,40 +927,109 @@ const TRUST_PAGE_DEFINITIONS = [
   },
   {
     slug: "fake-competition-winner-messages",
-    title: "Fake Competition Winner Messages South Africa | Freehub",
+    title: "Is Your Competition Win Real? South Africa Safety Guide | Freehub",
     description:
-      "Learn how to spot fake competition winner messages, suspicious prize claims, upfront-fee scams and unsafe requests in South Africa.",
-    heading: "How to Spot Fake Competition Winner Messages",
+      "Check a prize call, SMS, WhatsApp or email safely: questions to ask, official verification steps, scam warning signs and what to do if you already acted.",
+    heading: "Someone Says You've Won: How to Check Safely",
     intro:
-      "A real competition win should be verifiable through the promoter's official channels and should not require unsafe payments or sensitive passwords.",
+      "Pause before paying, sharing information or following instructions. Check the campaign and the person contacting you through the promoter's independently found official channels.",
+    actions: [
+      { label: "Check a prize claim", href: "#verify-a-win", className: "btn--primary" },
+      { label: "Already shared details or paid?", href: "#already-acted", className: "btn--secondary" },
+    ],
     article: true,
     datePublished: "2026-05-10",
-    dateModified: "2026-05-10",
+    dateModified: "2026-09-25",
     sections: [
       {
-        heading: "Common warning signs",
+        id: "already-acted",
+        heading: "If you have already shared details or paid",
         paragraphs: [
-          "Be careful with messages that ask for banking passwords, card PINs, remote access apps, release fees, courier fees or urgent payment before a prize can be delivered.",
-          "Poor spelling is not the only red flag. Some fake messages copy real brand names and use convincing logos or screenshots.",
+          "Contact your bank immediately if you disclosed banking credentials, shared an OTP, approved an unexpected request or sent money. Use the number on your bank card or its independently opened official website or app. Explain exactly what happened and ask what must be blocked or secured. Do not wait for a Freehub email reply; recovery of money is not guaranteed.",
+          "If you installed remote-access software or shared your screen, stop the session and contact your bank from another trusted device. Tell the bank about the access before using the affected device for banking again. Secure affected accounts with help from their official providers.",
+          "Keep the original messages, transaction references and call details privately for your bank and, where fraud has occurred, the police. Report the impersonation to the genuine brand and the messaging platform. If your mobile signal unexpectedly disappears or you receive an unexplained SIM-swap alert, contact your network and bank urgently.",
+        ],
+        sources: [{ label: "SABRIC: banking fraud and account safety", href: "https://www.sabric.co.za/how-to-stay-safe/" }],
+      },
+      {
+        id: "verify-a-win",
+        heading: "Five steps to check a prize claim",
+        paragraphs: [
+          "1. Pause. Do not pay, buy vouchers, share codes, approve transactions or let the caller guide you through your banking app to activate a prize.",
+          "2. Note the claimed campaign name, promoter, agency, prize and claim deadline. You do not need to answer personal security questions to write down their claim.",
+          "3. End the conversation. Open the promoter's official website or app independently. Do not use the caller's callback number, message link or QR code as your only route to verification.",
+          "4. Find the campaign terms and contact the promoter through that independently found channel. Ask it to confirm both the campaign and the agency or person contacting you. A real campaign can still be impersonated.",
+          "5. Only follow claim instructions after independent confirmation. Check the exact documents needed, the submission channel and the published deadline. If anything conflicts or remains unclear, pause and ask the promoter to resolve it.",
         ],
       },
       {
-        heading: "How to verify a prize claim",
+        heading: "Questions to ask before you claim",
         paragraphs: [
-          "Check the competition terms for winner contact rules, then contact the promoter through its official website, app or verified social profile.",
-          "Do not reply directly with sensitive information until you have confirmed that the message came from the real promoter or agency.",
+          "Which competition and draw is this, and where are the official terms? Check that the campaign, prize and dates match the published information.",
+          "Which company or agency do you represent? Ask the promoter, through its own official contact route, whether that agency is authorised for this campaign.",
+          "How did my entry qualify? Compare the explanation with the entry method, purchase, loyalty or account requirements. Do not volunteer account security information to help a caller construct an answer.",
+          "What information do you need, why do you need it and where should it be submitted? Have the independently contacted promoter confirm the requirement and secure channel before sending documents.",
+          "What is the deadline, and where is it stated? Verify promptly so that a genuine claim deadline is not missed, without letting pressure replace your checks.",
+          "Convincing answers are not proof: scammers can read real campaign terms. These questions gather details for your independent check; they are not a test that authenticates a caller.",
         ],
       },
       {
-        heading: "What Freehub can do",
+        heading: "Warning signs across calls, SMS, WhatsApp and social media",
         paragraphs: [
-          "Freehub can review and update listing information, but it does not choose winners or confirm private prize claims on behalf of promoters.",
-          "If a Freehub listing appears suspicious or outdated, report it so the page can be checked.",
+          "Stop if claiming a prize involves a payment, donation, voucher purchase, cash-send transaction, unexplained top-up or an activation, release, insurance or delivery fee. A qualifying purchase made to enter a competition is different from a new payment demanded by someone claiming you have won.",
+          "Do not disclose banking passwords, card PINs, OTPs, cash-send PINs or private redemption codes to a caller. Do not approve an unexpected payment or give remote access to your device. Saying 'we will not ask for your PIN' does not make other instructions safe.",
+          "Copied logos, a reference number, a familiar-looking sender, a private number or a professional voice cannot settle whether a claim is genuine. Pressure to act immediately or refusal to let you verify independently should make you stop.",
         ],
+        sources: [{ label: "Capitec: competition and giveaway scam warning signs", href: "https://www.capitecbank.co.za/fraud-centre/avoid-these-common-scams/" }],
+      },
+      {
+        heading: "What a genuine winner process may involve",
+        paragraphs: [
+          "A telephone call or a claim deadline is not automatically fraudulent. Genuine campaigns can contact provisional winners by phone and require eligibility or identity checks. The published terms and independently contacted promoter should explain the process.",
+          "Do not assume an unfamiliar campaign is genuine just because you are a customer. Equally, not remembering a separate entry form is a reason to check how entry worked, rather than proof of fraud.",
+          "For a cash prize, a verified promoter may need payment details; that is different from access to your account. Ask it to confirm the minimum information and secure submission method. Never give the caller your banking login, PIN or OTP. Freehub does not need your identity documents or banking details to review a listing.",
+          "A code you enter yourself in an independently verified official claim process is different from a caller asking you to read out an OTP or approve a banking request. If you do not understand what a code or approval authorises, stop and check with the relevant provider.",
+        ],
+        sources: [{ label: "Example: Vodacom rewards terms include telephone contact and winner checks", href: "https://www.vodacom.co.za/vodacom/terms/vodacom-rewards-programme" }],
+      },
+      {
+        heading: "A safe response to an unexpected prize call",
+        paragraphs: [
+          "You can say: 'Please tell me the campaign name and the company or agency you represent. I will contact the promoter through its official website to verify the claim before sharing information or taking any action.'",
+          "You do not need to stay on the call or argue. A text message, reference number or follow-up email supplied by the same caller is still part of the claim, not independent confirmation.",
+        ],
+      },
+      {
+        heading: "Ask Freehub to review campaign information",
+        paragraphs: [
+          "Email hello@freehub.co.za with the claimed brand and campaign, the Freehub page if there is one, any public official source and a short description of the concern. You may include a redacted screenshot. Remove names, phone numbers, addresses, account details, identity numbers and all private codes first; keep the original privately.",
+          "Freehub can review public sources, flag unclear or conflicting terms and correct, hold or remove a listing. We cannot authenticate an individual caller, confirm that you personally won, recover money or resolve a promoter dispute. A listing on Freehub does not authenticate a message using that campaign's name.",
+          "Reviews are manual, with no guaranteed response time. For money or account access at risk, contact your bank or provider immediately. Do not send Freehub identity documents, banking details, passwords, OTPs or private redemption codes.",
+        ],
+      },
+      {
+        heading: "For companies: make genuine wins easier to verify",
+        paragraphs: [
+          "Publish the campaign terms, promoter and authorised agency, winner-contact method, claim deadline, required documents and an independent verification contact on your official website. Give support staff a way to route winner enquiries to the right team.",
+          "Invite provisional winners to verify through that public route before sharing documents. Explain why each document is needed and provide an appropriate secure submission method. Make any claim deadline clear and allow a practical opportunity to verify.",
+          "Companies and agencies can email hello@freehub.co.za with the subject 'Campaign information review', official URLs, business contact details and the published winner-contact process. We can check public information for clarity and consistency and flag gaps. An email alone does not establish authenticity; unresolved contradictions need clarification and corrected public information.",
+          "An editorial review is not legal certification, a guarantee of prize delivery or approval of individual winner messages. Please do not send customer lists, entries, winner details or identity documents.",
+        ],
+        sources: [{ label: "ASA/CAP: clear winner notification and deadlines (UK best-practice reference, not South African law)", href: "https://www.asa.org.uk/advice-online/promotional-marketing-prize-winners.html" }],
+      },
+      {
+        heading: "Sources and review date",
+        paragraphs: [
+          "Reviewed 25 September 2026 using the official guidance linked above. The guidance applies across brands. Brand examples illustrate published processes and warnings; they do not confirm any individual report or winner claim.",
+        ],
+        sources: [{ label: "Vodacom: official warnings about prize and promotion scams", href: "https://www.vodacom.co.za/vodacom/help/fraud-scams-and-hoaxes" }],
       },
     ],
     links: [
       { label: "Report a competition", href: "/report-a-competition/" },
+      { label: "Email a campaign concern", href: "mailto:hello@freehub.co.za?subject=Suspicious%20competition%20claim" },
+      { label: "Company campaign review", href: "/submit-a-competition/" },
+      { label: "Privacy policy", href: "/privacy-policy/" },
       { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
       { label: "Legit competitions guide", href: "/legit-competitions-south-africa/" },
       { label: "All competitions", href: "/competitions/" },
@@ -1803,6 +1894,7 @@ const TRUST_PAGE_DEFINITIONS = [
   },
   {
     slug: "submit-a-competition",
+    dateModified: "2026-09-25",
     title: "Submit a Competition South Africa | Brand Review & Listing | Freehub",
     description:
       "Submit a South African competition, giveaway or prize draw to Freehub for editorial review, validation and a possible SEO-friendly listing with official source links.",
@@ -1813,6 +1905,7 @@ const TRUST_PAGE_DEFINITIONS = [
       { label: "Submit Details", href: "#competitionSubmissionTitle", className: "btn--primary" },
       { label: "Email Freehub", href: "mailto:hello@freehub.co.za?subject=Competition%20submission%20for%20Freehub", className: "btn--secondary" },
       { label: "Review Criteria", href: "/how-we-verify-competitions/", className: "btn--secondary" },
+      { label: "Campaign information review", href: "mailto:hello@freehub.co.za?subject=Campaign%20information%20review", className: "btn--secondary" },
     ],
     trustItems: ["Editorial review", "Official source required", "Dedicated detail pages"],
     service: {
@@ -1836,6 +1929,16 @@ const TRUST_PAGE_DEFINITIONS = [
           "If an agency is submitting on behalf of a brand, include the brand relationship and the public source where users can confirm the competition is official.",
           "Please do not send raw customer data, competition entries, identity documents, till slips or private winner information to Freehub.",
         ],
+      },
+      {
+        heading: "Make winner messages independently verifiable",
+        paragraphs: [
+          "For a campaign information review, email hello@freehub.co.za with the subject 'Campaign information review'. Include official campaign and terms URLs, your business contact details, promoter and agency relationship, winner-contact methods, claim deadlines, required documents, secure submission route and a public verification contact.",
+          "Publish these details on the promoter's official website so consumers can find them independently. Explain how customer support can confirm the campaign and appointed agency, and how a provisional winner can verify the claim before sending documents.",
+          "Freehub checks public information for clarity and consistency and may flag gaps or conflicting terms. A company email alone is not proof; the agency relationship and claim process need independent corroboration. Material contradictions remain unresolved until clarified, and consumers need corrected public information.",
+          "This is an editorial review, not legal certification, an endorsement of individual callers or a guarantee of prize fulfilment. Reviews are manual with no guaranteed response time. Do not send customer lists, entries, identity documents, banking details, private codes or winner records.",
+        ],
+        sources: [{ label: "Consumer guide: how to verify a winner message", href: "/fake-competition-winner-messages/" }],
       },
       {
         heading: "Why submit directly",
@@ -1921,26 +2024,45 @@ const TRUST_PAGE_DEFINITIONS = [
   },
   {
     slug: "report-a-competition",
+    dateModified: "2026-09-25",
     title: "Report a Competition | Freehub",
     description:
       "Report a broken link, expired listing, suspicious competition, incorrect entry information or brand removal request to Freehub.",
     heading: "Report a Competition",
     intro:
       "Help keep Freehub useful by reporting broken links, expired campaigns, suspicious listings, incorrect details or brand concerns.",
+    actions: [
+      { label: "Check a winner message safely", href: "/fake-competition-winner-messages/", className: "btn--primary" },
+      { label: "Email a report", href: "mailto:hello@freehub.co.za?subject=Suspicious%20competition%20claim", className: "btn--secondary" },
+    ],
     sections: [
+      {
+        heading: "Money or account access at risk?",
+        paragraphs: [
+          "If you have paid, shared banking credentials or approved an unexpected banking request, contact your bank immediately through its official channel. Do not wait for Freehub's review. Freehub cannot block accounts, recover money or confirm that you personally won.",
+        ],
+      },
       {
         heading: "What to send",
         paragraphs: [
           "Email hello@freehub.co.za with the Freehub page URL, the official source URL if available, and a short explanation of the issue.",
           "Useful report types include expired listing, broken outbound link, wrong closing date, missing purchase requirement, suspicious promoter page or brand removal request.",
+          "For a suspicious winner message, use the subject 'Suspicious competition claim'. Include the claimed brand and campaign, how you were contacted and what you were asked to do. A Freehub listing is not required to send a concern, but our review is limited to public campaign information.",
+          "If useful, include a redacted screenshot. Remove names, phone numbers, addresses, identity and account details and all private codes; keep the original privately for your bank or the police. Do not send identity documents, banking details, passwords, OTPs or private redemption codes.",
         ],
       },
       {
         heading: "What happens next",
         paragraphs: [
           "Freehub will review the report and may update, remove or hold the listing for verification. We cannot resolve promoter disputes or confirm winner messages on behalf of brands.",
+          "Reviews are manual with no guaranteed response time. A genuine listed campaign can be impersonated, and an unresolved report does not by itself prove fraud. The promoter must confirm an individual claim through its independently found official contact route.",
         ],
       },
+    ],
+    links: [
+      { label: "Winner-message safety guide", href: "/fake-competition-winner-messages/" },
+      { label: "Company campaign review", href: "/submit-a-competition/" },
+      { label: "Privacy policy", href: "/privacy-policy/" },
     ],
   },
 ];
@@ -8626,7 +8748,7 @@ function renderTrustPage(page) {
         ${page.studentOffer ? renderStudentNotice(page.studentOffer) : page.slug === STUDENT_GUIDE.slug ? renderStudentGuide(STUDENT_GUIDE) : `<section class="trust-page__content" aria-label="${escapeAttribute(page.heading)}">
           ${page.sections
             .map(
-              (section) => `<article class="trust-page__section">
+              (section) => `<article class="trust-page__section"${section.id ? ` id="${escapeAttribute(section.id)}"` : ""}>
             <h2>${escapeHtml(section.heading)}</h2>
             ${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("\n            ")}
             ${(section.sources || []).map((source) => `<p><a href="${escapeAttribute(source.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)}</a></p>`).join("\n            ")}
