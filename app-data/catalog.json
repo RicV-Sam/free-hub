@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-25",
-  "count": 20,
+  "asOfDate": "2026-09-26",
+  "count": 19,
   "counts": {
     "freeStuff": 17,
     "resources": 17,
     "opportunities": 0,
-    "offers": 3
+    "offers": 2
   },
   "items": [
     {
@@ -280,25 +280,6 @@
       ],
       "watchOut": "Western Cape locations only. Check the official facility listing before travelling; free training availability can vary.",
       "lastChecked": "2026-09-24"
-    },
-    {
-      "id": "capenature-access-week-2026",
-      "kind": "deal",
-      "title": "CapeNature free walk-in day access: 19–25 September",
-      "provider": "CapeNature",
-      "summary": "Participating Western Cape reserves waive general conservation entry fees for permitted day activities during Access Week. Walk-in access only.",
-      "category": "entertainment",
-      "categoryLabel": "Entertainment",
-      "officialUrl": "https://www.capenature.co.za/news/2026/explore-the-western-cape-for-free-this-access-week-nature-is-for-everyone",
-      "termsUrl": "https://www.capenature.co.za/news/2026/explore-the-western-cape-for-free-this-access-week-nature-is-for-everyone",
-      "requirements": [
-        "19–25 September 2026 during normal reserve hours. No pre-booking for free entry; capacity limits apply. Online or Contact Centre bookings are charged. The waiver covers general conservation entry for permitted day activities, including hiking and mountain biking. Whale Trail, selected landowners, partners, concessions and commercial activities are excluded. Accommodation is not free. Check trail closures, opening hours and the official participating-reserve list."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2026-09-25",
-      "lastChecked": "2026-09-09",
-      "isAffiliate": false,
-      "isSponsored": false
     },
     {
       "id": "asus-cash-dash-2026",

@@ -1,14 +1,14 @@
 === Competition Maintenance Report ===
-Date: 2026-09-25
+Date: 2026-09-26
 Mode: archive-expired
 Total competitions: 393
-Active published count: 89
-Expired archive page count: 199
+Active published count: 88
+Expired archive page count: 200
 Low-value expired noindex count: 0
 Held/private count: 105
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 38
+Closing in next 14 days: 37
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -210,46 +210,46 @@ Expired competition IDs:
 - timeout-joy-of-jazz-tickets-2026 (2026-09-22)
 - food-lovers-market-supersport-heritage-day-2026 (2026-09-24)
 - takealot-heritage-design-challenge-2026 (2026-09-24)
+- imana-superspar-polofields-potjie-dash-2026 (2026-09-25)
 
 Closing soon (next 14 days):
-- imana-superspar-polofields-potjie-dash-2026 (0 days)
-- old-mutual-win-on-repeat-rewards (2 days)
-- curaprox-house-of-mouth-competition-2026 (3 days)
-- oreo-bts-promotion-2026 (5 days)
-- denny-r100000-cash-competition-2026 (5 days)
-- telkom-winter-wifi-mesh-competition-2026 (5 days)
-- fnb-family-banking-million-ebucks-makro-2026 (5 days)
-- ackermans-account-summer-wardrobe-competition-2026 (5 days)
-- jetour-win-your-way-to-brazil-2026 (5 days)
-- sprite-summer-music-festivals-2026 (5 days)
-- penguin-random-house-grandest-games-2026 (5 days)
-- beares-corduroy-couch-2026 (5 days)
-- beares-russell-hobbs-fridge-2026 (5 days)
-- penguin-random-house-hyatt-great-escapes-2026 (5 days)
-- penguin-random-house-roald-dahl-day-2026 (5 days)
-- bargain-books-kitsie-2026 (5 days)
-- bargain-books-taipei-story-2026 (5 days)
-- bargain-books-gruffalo-granny-2026 (5 days)
-- bargain-books-20-minute-meals-2026 (5 days)
-- flight-centre-new-york-flights-2026 (5 days)
-- ackermans-hisense-tech-vouchers-2026 (5 days)
-- woman-home-husky-prime-cuts-2026 (5 days)
-- takealot-delivered-in-your-language-2026 (5 days)
-- goldi-flavours-of-the-nation-2026 (5 days)
-- cashbuild-lasher-vouchers-september-2026 (5 days)
-- limp-bizkit-workout-challenge-2026 (5 days)
-- penguin-random-house-terbodore-100k-2026 (5 days)
-- bob-box-find-and-win-2026 (5 days)
-- babyyumyum-first-choice-custard-hamper-2026 (5 days)
-- wellness-warehouse-metagenics-story-2026 (5 days)
-- nedbank-greenbacks-checkers-grocery-2026 (5 days)
-- wellness-sportrx-electrolyte-giveaway-2026 (5 days)
-- spar-nutrifresh-spin-and-win-2026 (7 days)
-- huletts-heritage-2026 (8 days)
-- clicks-tresemme-extraordinary-wins-2026 (10 days)
-- wellness-cycle-harmony-giveaway-2026 (10 days)
-- makro-spring-trolley-dash-2026 (11 days)
-- nedbank-youthx-awards-2026 (14 days)
+- old-mutual-win-on-repeat-rewards (1 days)
+- curaprox-house-of-mouth-competition-2026 (2 days)
+- oreo-bts-promotion-2026 (4 days)
+- denny-r100000-cash-competition-2026 (4 days)
+- telkom-winter-wifi-mesh-competition-2026 (4 days)
+- fnb-family-banking-million-ebucks-makro-2026 (4 days)
+- ackermans-account-summer-wardrobe-competition-2026 (4 days)
+- jetour-win-your-way-to-brazil-2026 (4 days)
+- sprite-summer-music-festivals-2026 (4 days)
+- penguin-random-house-grandest-games-2026 (4 days)
+- beares-corduroy-couch-2026 (4 days)
+- beares-russell-hobbs-fridge-2026 (4 days)
+- penguin-random-house-hyatt-great-escapes-2026 (4 days)
+- penguin-random-house-roald-dahl-day-2026 (4 days)
+- bargain-books-kitsie-2026 (4 days)
+- bargain-books-taipei-story-2026 (4 days)
+- bargain-books-gruffalo-granny-2026 (4 days)
+- bargain-books-20-minute-meals-2026 (4 days)
+- flight-centre-new-york-flights-2026 (4 days)
+- ackermans-hisense-tech-vouchers-2026 (4 days)
+- woman-home-husky-prime-cuts-2026 (4 days)
+- takealot-delivered-in-your-language-2026 (4 days)
+- goldi-flavours-of-the-nation-2026 (4 days)
+- cashbuild-lasher-vouchers-september-2026 (4 days)
+- limp-bizkit-workout-challenge-2026 (4 days)
+- penguin-random-house-terbodore-100k-2026 (4 days)
+- bob-box-find-and-win-2026 (4 days)
+- babyyumyum-first-choice-custard-hamper-2026 (4 days)
+- wellness-warehouse-metagenics-story-2026 (4 days)
+- nedbank-greenbacks-checkers-grocery-2026 (4 days)
+- wellness-sportrx-electrolyte-giveaway-2026 (4 days)
+- spar-nutrifresh-spin-and-win-2026 (6 days)
+- huletts-heritage-2026 (7 days)
+- clicks-tresemme-extraordinary-wins-2026 (9 days)
+- wellness-cycle-harmony-giveaway-2026 (9 days)
+- makro-spring-trolley-dash-2026 (10 days)
+- nedbank-youthx-awards-2026 (13 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present

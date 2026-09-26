@@ -1,33 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-25",
-  "count": 88,
+  "asOfDate": "2026-09-26",
+  "count": 87,
   "competitions": [
-    {
-      "id": "imana-superspar-polofields-potjie-dash-2026",
-      "title": "IMANA SUPERSPAR Polofields Potjie Dash Competition 2026",
-      "brand": "IMANA Foods / SUPERSPAR Polofields",
-      "summary": "Spend R500 or more at SUPERSPAR Polofields, including two IMANA Super-Sheba Potjie Mix sachets, and enter the original till slip for a chance to win a two-minute grocery Potjie Dash worth up to R5,000.",
-      "closingDate": "2026-09-25",
-      "category": "Shopping",
-      "prizeName": "Two-minute Potjie Dash with groceries worth up to R5,000",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "In-store",
-      "eligibility": "Open to South African residents aged 18 or older who complete the qualifying purchase and in-store till-slip entry at SUPERSPAR Polofields.",
-      "entrySteps": [
-        "Spend at least R500 in one transaction at SUPERSPAR Polofields on Woodmead Drive, Midrand.",
-        "Include any two IMANA Super-Sheba Potjie Mix sachets in the qualifying transaction.",
-        "Write the requested contact details clearly on the original till slip and place it in the designated in-store entry box.",
-        "Enter before the store competition closes on 25 September 2026 and keep any supporting purchase details."
-      ],
-      "officialUrl": "https://www.imana.co.za/superspar-polofields-potjie-dash-competition",
-      "termsUrl": "https://www.imana.co.za/superspar-polofields-potjie-dash-competition",
-      "lastChecked": "2026-08-30",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "old-mutual-win-on-repeat-rewards",
       "title": "Old Mutual Win On Repeat - Win R100,000 Rewards Points",
@@ -872,7 +847,7 @@
       "termsUrl": "https://www.hulettssugar.co.za/competitions/huletts-heritage-2026-competition-rules/",
       "lastChecked": "2026-09-14",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "clicks-tresemme-extraordinary-wins-2026",
