@@ -510,5 +510,18 @@
     "reviewedAt": "2026-09-27",
     "sourcePage": "https://www.coca-cola.com/za/en/offerings/returnables",
     "sourceImage": "https://www.coca-cola.com/content/dam/onexp/za/en/offerings/returnables/coke_returnables_hero_desktop_v2.png"
+  },
+  "kaizer-chiefs-supporter-research-jersey-2026": {
+    "src": "/assets/listings/kaizer-chiefs-supporter-research-jersey-2026.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "FreeHub editorial illustration of a football, black-and-gold scarf and survey clipboard; not the prize jersey",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration — not official promoter artwork or a depiction of the prize jersey.",
+    "reviewedAt": "2026-09-27",
+    "generationTool": "Built-in image_gen",
+    "generationPrompt": "Landscape 3:2 editorial illustration for FreeHub about a South African football supporter research survey with a jersey prize draw. Refined warm paper-cut and softly textured still life: generic unbranded black-and-gold football scarf, football, clipboard with abstract checkbox marks, cream table, distant stadium. No people, club logos, actual jersey, replica kit, money, medical symbols, sponsor marks, prize quantities or endorsement. Include footer label FreeHub editorial illustration.",
+    "officialArtworkCheck": "Official survey inspected: sole image is a generic club emblem SVG. No suitable campaign-specific hero found on the survey or terms page.",
+    "sourcePage": "https://content.kaizerchiefs.com/competition/poll"
   }
 }
