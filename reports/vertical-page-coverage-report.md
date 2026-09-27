@@ -1,13 +1,13 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-09-26
+Generated: 2026-09-27
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 9
+- Matching active public competitions: 10
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -23,6 +23,7 @@ Only active, published, public-safe competitions are counted. Held, unverified, 
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Coca-Cola Be a Bok Competition 2026 (coca-cola-fan-can-be-a-bok-2026) | 2026-11-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | WhatsApp mentioned in entry text | none |
+| Coca-Cola Returnables: Win Grocery Vouchers (coca-cola-returnables-2026) | 2027-01-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 
 Recommended normalisation:
 - Inventory is strong enough; keep lastChecked and source/terms links fresh.
@@ -151,7 +152,7 @@ Recommended normalisation:
 ## Win Grocery Vouchers in South Africa
 
 - URL: /win-grocery-vouchers-south-africa/
-- Matching active public competitions: 3
+- Matching active public competitions: 4
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -161,6 +162,7 @@ Recommended normalisation:
 | Nedbank Greenbacks Grocery Rewards — Invited Clients (nedbank-greenbacks-checkers-grocery-2026) | 2026-09-30 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | SPAR Colgate-Palmolive Win Your Share of R150,000 Competition (spar-colgate-palmolive-r150k-2026) | 2026-10-17 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Lancewood Spread & Scoop Competition 2026 (lancewood-spread-scoop-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
+| Coca-Cola Returnables: Win Grocery Vouchers (coca-cola-returnables-2026) | 2027-01-31 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 
 Recommended normalisation:
 - Keep grocery voucher intent separate from generic voucher competitions.
@@ -168,7 +170,7 @@ Recommended normalisation:
 ## Supermarket Competitions in South Africa
 
 - URL: /supermarket-competitions-south-africa/
-- Matching active public competitions: 11
+- Matching active public competitions: 12
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -186,6 +188,7 @@ Recommended normalisation:
 | NESCAFÉ Gold Rush SPAR Rewards Competition (nescafe-gold-rush-spar-2026) | 2026-11-08 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Eskort Braai-Lux Toyota Hilux Competition (eskort-braai-lux-2026) | 2026-11-22 | purchase-required | yes | yes | Supermarket or grocery entry text | none |
 | Nedbank Greenbacks Checkers Trolley Dash Competition (nedbank-greenbacks-checkers-launch-2026) | 2026-11-30 | account-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
+| Coca-Cola Returnables: Win Grocery Vouchers (coca-cola-returnables-2026) | 2027-01-31 | purchase-required | yes | yes | Supermarket or grocery entry text | none |
 
 Recommended normalisation:
 - Inventory is strong enough; keep lastChecked and source/terms links fresh.

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-26",
-  "count": 87,
+  "asOfDate": "2026-09-27",
+  "count": 88,
   "competitions": [
     {
       "id": "old-mutual-win-on-repeat-rewards",
@@ -2129,6 +2129,32 @@
       "termsUrl": "https://www.builders.co.za/ratings-reviews-terms-conditions",
       "lastChecked": "2026-09-17",
       "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "coca-cola-returnables-2026",
+      "title": "Coca-Cola Returnables: Win Grocery Vouchers",
+      "brand": "Coca-Cola South Africa",
+      "summary": "Buy a participating promotional returnable bottle with a unique code and enter on WhatsApp for grocery and smaller voucher prizes. Purchase required; the main grocery prize is R25,000 in total, not a monthly payment.",
+      "imageUrl": "https://freehub.co.za/assets/competitions/coca-cola-returnables-2026.webp",
+      "closingDate": "2027-01-31",
+      "category": "Vouchers",
+      "prizeName": "124 R25,000 grocery-voucher bundles and smaller voucher prizes",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "WhatsApp",
+      "eligibility": "SA citizens/permanent residents aged 18+ with valid identification; location, related-party and previous-winner exclusions apply.",
+      "entrySteps": [
+        "Buy a participating promotional returnable product listed in Annexure A of the official rules. Check that the pack carries a valid 10-character unique code; not every product has one.",
+        "Scan the promotional QR code or send Hi to 082 508 9260 on WhatsApp. Follow the official registration prompts, provide your own name and surname, and accept the terms.",
+        "Make your marketing choice; receiving direct marketing can be declined. Enter the unique pack code through the WhatsApp process.",
+        "Complete entry by 23:59 South African time on 31 January 2027. Each code is valid once; additional entries require separate valid codes."
+      ],
+      "officialUrl": "https://www.coca-cola.com/za/en/offerings/returnables",
+      "termsUrl": "https://www.coca-cola.com/za/en/legal/terms-and-conditions-returnables-promotion-2026",
+      "lastChecked": "2026-09-27",
+      "isHighValue": true,
       "isClosingSoon": false
     },
     {

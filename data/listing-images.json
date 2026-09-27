@@ -499,5 +499,16 @@
     "reviewedAt": "2026-09-24",
     "sourcePage": "https://www.budgetspeechcompetition.co.za/home/",
     "sourceImage": "https://www.budgetspeechcompetition.co.za/media/liljupzi/banner-img1.png"
+  },
+  "coca-cola-returnables-2026": {
+    "src": "/assets/competitions/coca-cola-returnables-2026.webp",
+    "width": 1440,
+    "height": 810,
+    "alt": "Official Coca-Cola Returnables artwork with friends sharing food and drinks inside a returnable bottle silhouette",
+    "kind": "official-source",
+    "caption": "Image from the official Coca-Cola campaign.",
+    "reviewedAt": "2026-09-27",
+    "sourcePage": "https://www.coca-cola.com/za/en/offerings/returnables",
+    "sourceImage": "https://www.coca-cola.com/content/dam/onexp/za/en/offerings/returnables/coke_returnables_hero_desktop_v2.png"
   }
 }

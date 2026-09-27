@@ -1,0 +1,9 @@
+# Coca-Cola Returnables publication — 27 September 2026
+
+User authorised the scan's Add now recommendation, commit and push live. Created one published purchase-required voucher record, with official Returnables campaign hero, optimized WebP, descriptive alt text and provenance. Current official campaign and full rules checked; no duplicate across local, remote and production snapshots. Grocery prize total, separate first-time airtime allocation, purchase/code requirement, optional marketing, eligibility, SAST deadline and response restrictions are disclosed.
+
+Isolated worktree preserves unrelated primary-checkout changes. Build succeeds with production Opportunities/Offers enabled. All 121 lifecycle tests pass after adding the new purchase-required item to the compact baseline; generated-file baseline incremented by one. Maintenance validation passes; desktop/mobile image and layout inspected, both image instances loaded and no mobile overflow. New notes visibly render in About this competition.
+
+SEO sitemap-count check fails by one on unchanged remote base too (156 actual versus 157 expected), and remains the same one-count mismatch after this listing (157 versus 158). Free Stuff/Samples checks now fail only for that same pre-existing sitemap mismatch. Performance has no hard failures; existing CSS-size warning remains. Full lint is not clean: six unrelated competition URL/manual-evidence errors, plus existing archive warnings and Opportunity source-access/stale-evidence failures. No warning baseline was broadened and no other listings were changed. The new campaign and terms directly return HTTP 200.
+
+Local browser has expected missing deployment-only firebase-config plus unrelated favicon/advertising messages. Cookie dialog dismissed in the test session to inspect layout. Live verification follows deployment; no entries or promoter contact performed.

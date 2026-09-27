@@ -29,7 +29,7 @@ function getCurrentContentBaseline() {
   return { active, core, publicOpportunities, detailOpportunities, samples, testing, featured,
     // Reviewed 24 September base includes the website batch, five Instagram-sourced pages and the qualifying grocery hub;
     // active counts add the corresponding exit routes.
-    generatedFileCount: 387 + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    generatedFileCount: 388 + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
     sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length,
   };
 }
