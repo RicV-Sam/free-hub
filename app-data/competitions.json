@@ -1,33 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-27",
-  "count": 89,
+  "asOfDate": "2026-09-28",
+  "count": 88,
   "competitions": [
-    {
-      "id": "old-mutual-win-on-repeat-rewards",
-      "title": "Old Mutual Win On Repeat - Win R100,000 Rewards Points",
-      "brand": "Old Mutual Rewards / OM Bank",
-      "summary": "Old Mutual customers with an OM Bank account can earn entries by making at least two qualifying R30+ transactions per week, with monthly Rewards points draws and a R100,000 grand prize in Old Mutual Rewards points.",
-      "closingDate": "2026-09-27",
-      "category": "Cash",
-      "prizeName": "Old Mutual Rewards points worth up to R100,000 grand prize",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Bank Card Transactions",
-      "eligibility": "The record states that South African citizens or permanent residents aged 18+ with qualifying Old Mutual products may enter, subject to the official terms.",
-      "entrySteps": [
-        "Open or use an active OM Bank account and make sure you are an Old Mutual Rewards member with a qualifying Old Mutual product.",
-        "Make at least two qualifying transactions of R30 or more each week using your OM Bank card or account.",
-        "Switch a qualifying Old Mutual debit order to a DebiCheck mandate with OM Bank to qualify for the grand prize route.",
-        "Keep participating through the campaign period, which runs until 27 September 2026."
-      ],
-      "officialUrl": "https://proxy.my.oldmutual.co.za/contentstack-mobile/bltf9ffa14017dbad8a/WinonRepeat_TsCs.pdf",
-      "termsUrl": "https://proxy.my.oldmutual.co.za/contentstack-mobile/bltf9ffa14017dbad8a/WinonRepeat_TsCs.pdf",
-      "lastChecked": "2026-07-10",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
     {
       "id": "curaprox-house-of-mouth-competition-2026",
       "title": "Curaprox House of Mouth Competition 2026",
@@ -873,7 +848,7 @@
       "termsUrl": "https://woobox.com/g3m8ut/rules",
       "lastChecked": "2026-09-17",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "wellness-cycle-harmony-giveaway-2026",
@@ -901,7 +876,7 @@
       "termsUrl": "https://wellnesswarehouse.com/pages/policies-information",
       "lastChecked": "2026-09-24",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "makro-spring-trolley-dash-2026",
