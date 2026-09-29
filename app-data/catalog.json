@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-28",
-  "count": 19,
+  "asOfDate": "2026-09-29",
+  "count": 18,
   "counts": {
     "freeStuff": 17,
     "resources": 17,
     "opportunities": 0,
-    "offers": 2
+    "offers": 1
   },
   "items": [
     {
@@ -280,25 +280,6 @@
       ],
       "watchOut": "Western Cape locations only. Check the official facility listing before travelling; free training availability can vary.",
       "lastChecked": "2026-09-24"
-    },
-    {
-      "id": "asus-cash-dash-2026",
-      "kind": "deal",
-      "title": "ASUS Cash Dash 2026: cashback on eligible tech",
-      "provider": "ASUS",
-      "summary": "Buy an eligible ASUS product from a listed South African dealer by 28 September 2026 and claim the model-specific cashback through ASUS by 12 October. R12,912 is the combined maximum across one item from each product line, not the cashback on a single item.",
-      "category": "electronics-appliances",
-      "categoryLabel": "Electronics & Appliances",
-      "officialUrl": "https://promotion.asus.com/en-za/asus-cash-dash-2026/",
-      "termsUrl": "https://promotion.asus.com/en-za/asus-cash-dash-2026/tac/",
-      "requirements": [
-        "Qualifying product purchase period: 18 August–28 September 2026; redemption: 1 September–12 October 2026, CET. South African resident, participating dealer, listed model and part number, matching purchase invoice and ASUS VIP registration required. Claim through the official ASUS campaign page, which currently routes to an ASUS login. Cashback varies by product; the advertised R12,912 is an aggregate maximum across categories. The terms introduction mistakenly says Q3 2025, while its title, detailed dates and campaign page say 2026. After 28 September, only people who already made a qualifying purchase can still submit a claim."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2026-10-12",
-      "lastChecked": "2026-09-24",
-      "isAffiliate": false,
-      "isSponsored": false
     },
     {
       "id": "mtn-app-first-login-1gb-2026",

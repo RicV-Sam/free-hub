@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-09-28
+Generated: 2026-09-29
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
@@ -80,14 +80,13 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 25
+- Matching active public competitions: 24
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Curaprox House of Mouth Competition 2026 (curaprox-house-of-mouth-competition-2026) | 2026-09-28 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Penguin Random House Grandest Games Competition (penguin-random-house-grandest-games-2026) | 2026-09-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Beares Corduroy Couch Competition (beares-corduroy-couch-2026) | 2026-09-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Beares Russell Hobbs Fridge Competition (beares-russell-hobbs-fridge-2026) | 2026-09-30 | free-entry | yes | yes | Online entry mentioned in entry text | none |
