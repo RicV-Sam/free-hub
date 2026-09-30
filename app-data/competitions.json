@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-09-29",
+  "asOfDate": "2026-09-30",
   "count": 87,
   "competitions": [
     {
@@ -904,7 +904,7 @@
       "termsUrl": "https://content.kaizerchiefs.com/policy/kaizer-chiefs-supporter-research-prize-draw-terms-and-conditions",
       "lastChecked": "2026-09-27",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "nedbank-youthx-awards-2026",
