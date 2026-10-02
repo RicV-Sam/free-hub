@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-01",
+  "asOfDate": "2026-10-02",
   "count": 58,
   "competitions": [
     {
@@ -184,7 +184,7 @@
       "termsUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/youthx-awards-competition.html",
       "lastChecked": "2026-08-23",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "knorr-win-r5000-weekly-2026",

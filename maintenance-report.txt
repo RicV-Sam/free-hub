@@ -1,5 +1,5 @@
 === Competition Maintenance Report ===
-Date: 2026-10-01
+Date: 2026-10-02
 Mode: archive-expired
 Total competitions: 395
 Active published count: 59
@@ -244,14 +244,14 @@ Expired competition IDs:
 - wellness-sportrx-electrolyte-giveaway-2026 (2026-09-30)
 
 Closing soon (next 14 days):
-- spar-nutrifresh-spin-and-win-2026 (1 days)
-- huletts-heritage-2026 (2 days)
-- clicks-tresemme-extraordinary-wins-2026 (4 days)
-- wellness-cycle-harmony-giveaway-2026 (4 days)
-- makro-spring-trolley-dash-2026 (5 days)
-- kaizer-chiefs-supporter-research-jersey-2026 (6 days)
-- nedbank-youthx-awards-2026 (8 days)
-- knorr-win-r5000-weekly-2026 (10 days)
+- spar-nutrifresh-spin-and-win-2026 (0 days)
+- huletts-heritage-2026 (1 days)
+- clicks-tresemme-extraordinary-wins-2026 (3 days)
+- wellness-cycle-harmony-giveaway-2026 (3 days)
+- makro-spring-trolley-dash-2026 (4 days)
+- kaizer-chiefs-supporter-research-jersey-2026 (5 days)
+- nedbank-youthx-awards-2026 (7 days)
+- knorr-win-r5000-weekly-2026 (9 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
