@@ -40,3 +40,46 @@ test("image dimensions come from local files and preserve decorative alt text", 
     '<img src="/missing.webp" alt="Missing">',
   ]) assert.equal(addDimensions(tag, page), tag);
 });
+
+
+test("expired competition videos are removed while active and unrelated files survive rebuilds", () => {
+  const os = require("node:os");
+  const { removeExpiredVideoPages } = require("../../scripts/lib/inventory-routes.js");
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "freehub-video-cleanup-"));
+  try {
+    for (const slug of ["active", "expired", "evergreen"]) {
+      fs.mkdirSync(path.join(directory, slug));
+      fs.writeFileSync(path.join(directory, slug, "index.html"), slug);
+    }
+    fs.writeFileSync(path.join(directory, "expired", "editorial.txt"), "preserve");
+    const known = new Set(["active", "expired"]);
+    removeExpiredVideoPages(directory, known, known);
+    assert.ok(fs.existsSync(path.join(directory, "expired", "index.html")));
+    removeExpiredVideoPages(directory, known, new Set(["active"]));
+    assert.ok(!fs.existsSync(path.join(directory, "expired", "index.html")));
+    assert.ok(fs.existsSync(path.join(directory, "active", "index.html")));
+    assert.ok(fs.existsSync(path.join(directory, "evergreen", "index.html")));
+    assert.equal(fs.readFileSync(path.join(directory, "expired", "editorial.txt"), "utf8"), "preserve");
+    assert.throws(() => removeExpiredVideoPages(directory, new Set(["../escape"]), new Set()), /Unsafe/);
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test("sitemap expectations follow tag thresholds and active competition videos", () => {
+  const { inventorySitemapCount } = require("../../scripts/lib/inventory-routes.js");
+  const shared = require("../../shared/page-data.js");
+  const fixture = require("../fixtures/competition-lifecycle.json").activePublic;
+  const aliases = require("../baselines/seo-baseline.json").canonicalAliases;
+  const base = { ...fixture, tags: ["ussd-entry"], closingDate: "2026-10-31", isEndingSoon: false, isHighValue: false };
+  const ending = { ...base, id: "ending", closingDate: "2026-09-30",
+    featuredVideo: { youtubeId: "example", slug: "ending-video", durationSeconds: 20 } };
+  try {
+    shared.setReferenceDate("2026-09-24");
+    assert.equal(inventorySitemapCount(shared.getPublishedActiveCompetitions([base, ending]), aliases), 2);
+    shared.setReferenceDate("2026-10-02");
+    assert.equal(inventorySitemapCount(shared.getPublishedActiveCompetitions([base, ending]), aliases), 0);
+    assert.equal(inventorySitemapCount(shared.getPublishedActiveCompetitions([base, { ...base, id: "second" }]), aliases), 1);
+    assert.equal(inventorySitemapCount(shared.getPublishedActiveCompetitions([base, { ...base, publicationStatus: "held" }]), aliases), 0);
+  } finally { shared.setReferenceDate(); }
+});

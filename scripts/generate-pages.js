@@ -1,4 +1,5 @@
 const fs = require("fs");
+const { featuredVideoSlugs, removeExpiredVideoPages } = require("./lib/inventory-routes.js");
 const whatsappChannel = require("./lib/whatsapp-channel.js");
 const path = require("path");
 const { createLocalImageDimensionWriter } = require("./lib/local-image-dimensions.js");
@@ -1747,7 +1748,7 @@ const TRUST_PAGE_DEFINITIONS = [
       "This guide shows where to get free samples in South Africa through current requests, recognised product-testing panels and official brand programmes. Each route explains what is free, who may qualify, what work is required and where your details go.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: "2026-08-26",
+    dateModified: "2026-10-02",
     resourceCategories: ["samples"],
     resourceTitle: "Sample and product-testing routes",
     resourceIntro:
@@ -2633,6 +2634,9 @@ function main() {
     writeGeneratedFile(path.join(outputDirectory, "index.html"), renderTrustPage(page));
   });
 
+  removeExpiredVideoPages(path.join(ROOT_DIR, "videos"),
+    featuredVideoSlugs([...validCompetitions, ...validArchiveCompetitions]),
+    featuredVideoSlugs(activeCompetitions));
   writeVideoPages(activeCompetitions);
 
   writeLegacyRedirectPages();
@@ -7871,6 +7875,10 @@ function getFreeSamplesFaqItems() {
     {
       question: "Where can I get free samples in South Africa?",
       answer: "Start with current requests on official brand pages. Product-testing panels can also recruit South African testers, but joining does not guarantee a product.",
+    },
+    {
+      question: "Where can I get free sample boxes in South Africa?",
+      answer: "Use the official brand programmes and product-testing panels listed above as starting points, then check the current campaign. Confirm which products are included, whether delivery or collection is available in South Africa, any delivery charge and the selection rules. This guide does not promise a general sample box: applying to a panel does not guarantee a box or product.",
     },
     {
       question: "Can I get free samples without buying anything first?",
@@ -13255,7 +13263,7 @@ function runFreeResourceChecks() {
       }
 
       const isReviewedSamplesEditorialDate =
-        page.slug === "free-samples-south-africa" && ["2026-07-23", "2026-07-31"].includes(page.dateModified);
+        page.slug === "free-samples-south-africa" && ["2026-07-23", "2026-07-31", "2026-10-02"].includes(page.dateModified);
       if (page.dateModified === BUILD_DATE_ISO && page.dateModified !== page.datePublished && !isReviewedSamplesEditorialDate) {
         errors.push(`Free-resource page dateModified appears to be using build date by default: ${page.slug}`);
       }

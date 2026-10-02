@@ -1,4 +1,5 @@
 const fs = require('node:fs');
+const { inventorySitemapCount } = require('./inventory-routes.js');
 const path = require('node:path');
 const shared = require('../../shared/page-data.js');
 const opportunityData = require('../../shared/opportunity-data.js');
@@ -28,9 +29,10 @@ function getCurrentContentBaseline() {
   const featured = [samples[0], testing.at(-1), publicOpportunities.find(row => row.type === 'birthday_freebie')].filter(Boolean);
   return { active, core, publicOpportunities, detailOpportunities, samples, testing, featured,
     // Reviewed 24 September base includes the website batch, five Instagram-sourced pages and the qualifying grocery hub;
-    // active counts add the corresponding exit routes.
-    generatedFileCount: 388 + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
-    sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length,
+    // active counts add the corresponding exit routes. The fixed detail-page base
+    // excludes the Kaizer Chiefs survey withdrawn on 2 October after its entry page closed.
+    generatedFileCount: 387 + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length,
   };
 }
 module.exports = { getCurrentContentBaseline };

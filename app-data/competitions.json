@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-02",
-  "count": 58,
+  "count": 57,
   "competitions": [
     {
       "id": "spar-nutrifresh-spin-and-win-2026",
@@ -135,32 +135,6 @@
       "isClosingSoon": true
     },
     {
-      "id": "kaizer-chiefs-supporter-research-jersey-2026",
-      "title": "Kaizer Chiefs Supporter Research Jersey Draw",
-      "brand": "Kaizer Chiefs",
-      "summary": "Complete Kaizer Chiefs’ funeral-cover research survey and enter the draw for one of ten official 2026/27 home or away jerseys. No purchase or payment is required.",
-      "imageUrl": "https://freehub.co.za/assets/listings/kaizer-chiefs-supporter-research-jersey-2026.webp",
-      "closingDate": "2026-10-07",
-      "category": "Sports",
-      "prizeName": "Official Kaizer Chiefs 2026/27 home or away jersey",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "Aged 18+ and ordinarily resident in South Africa; research and draw opt-in required. Official related-party exclusions apply.",
-      "entrySteps": [
-        "Open the official Kaizer Chiefs research questionnaire and read its linked terms and privacy notices.",
-        "Provide your own name, surname, email and mobile number, and complete the research questions about funeral cover and related preferences. The current form requires email.",
-        "If you want to enter the jersey draw, select its prize-draw consent and required policy acknowledgements, then submit. Research participation alone does not automatically enter you.",
-        "Enter only once per person across all campaign channels. Use the earlier deadline: midnight at the end of 7 October 2026. Another linked policy says 8 October without a time; do not assume an extra day."
-      ],
-      "officialUrl": "https://content.kaizerchiefs.com/competition/poll",
-      "termsUrl": "https://content.kaizerchiefs.com/policy/kaizer-chiefs-supporter-research-prize-draw-terms-and-conditions",
-      "lastChecked": "2026-09-27",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
       "id": "nedbank-youthx-awards-2026",
       "title": "Nedbank YouthX Awards 2026",
       "brand": "YouthX by Nedbank",
@@ -231,9 +205,9 @@
         "Swipe the registered SPAR Rewards card during the qualifying transaction for automatic entry.",
         "Repeat with a new qualifying transaction before 17 October 2026 for additional entries; keep proof of purchase."
       ],
-      "officialUrl": "https://www.spar.co.za/Colgate-Palmolive-Win-your-share-of-R150k-Competition",
-      "termsUrl": "https://www.spar.co.za/Colgate-Palmolive-Win-your-share-of-R150k-Competition",
-      "lastChecked": "2026-08-23",
+      "officialUrl": "https://www.spar.co.za/competitions/colgate-palmolive-win-your-share-of-50k-competition",
+      "termsUrl": "https://www.spar.co.za/competitions/colgate-palmolive-win-your-share-of-50k-competition",
+      "lastChecked": "2026-10-02",
       "isHighValue": true,
       "isClosingSoon": false
     },
@@ -463,9 +437,9 @@
         "Complete your qualifying purchase between 14 September and 25 October 2026.",
         "Keep your SPAR Rewards contact details current. The winner must provide valid South African identification."
       ],
-      "officialUrl": "https://www.spar.co.za/Heinz-Heritage-SPAR-Rewards-Competition",
-      "termsUrl": "https://www.spar.co.za/Heinz-Heritage-SPAR-Rewards-Competition",
-      "lastChecked": "2026-09-14",
+      "officialUrl": "https://www.spar.co.za/competitions/heinz-heritage-spar-rewards-competition",
+      "termsUrl": "https://www.spar.co.za/competitions/heinz-heritage-spar-rewards-competition",
+      "lastChecked": "2026-10-02",
       "isHighValue": true,
       "isClosingSoon": false
     },
@@ -592,7 +566,7 @@
       ],
       "officialUrl": "https://lancewood.co.za/terms-conditions/spread-scoop-competition-terms/",
       "termsUrl": "https://lancewood.co.za/terms-conditions/spread-scoop-competition-terms/",
-      "lastChecked": "2026-08-26",
+      "lastChecked": "2026-10-02",
       "isHighValue": true,
       "isClosingSoon": false
     },
@@ -746,7 +720,7 @@
       ],
       "officialUrl": "https://www.dischem.co.za/garnier-soft-life-competition",
       "termsUrl": "https://www.dischem.co.za/garnier-soft-life-competition",
-      "lastChecked": "2026-09-24",
+      "lastChecked": "2026-10-02",
       "isHighValue": false,
       "isClosingSoon": false
     },
@@ -871,9 +845,9 @@
         "Entry is automatic. Check the entry confirmation on your till slip and keep the original receipt for winner verification.",
         "Enter by 8 November 2026. The terms describe the cut-off as 12am midnight on that date; enter earlier to avoid ambiguity."
       ],
-      "officialUrl": "https://www.spar.co.za/Nescafe-Gold-Rush-SPAR-Rewards-Competition",
-      "termsUrl": "https://www.spar.co.za/Nescafe-Gold-Rush-SPAR-Rewards-Competition",
-      "lastChecked": "2026-09-14",
+      "officialUrl": "https://www.spar.co.za/competitions/nescafe-gold-rush-spar-rewards-competition",
+      "termsUrl": "https://www.spar.co.za/competitions/nescafe-gold-rush-spar-rewards-competition",
+      "lastChecked": "2026-10-02",
       "isHighValue": true,
       "isClosingSoon": false
     },
@@ -1408,7 +1382,7 @@
       ],
       "officialUrl": "https://guidedog.org.za/product/south-african-guide-dogs-association-for-the-blind-car-raffle/",
       "termsUrl": "https://guidedog.org.za/product/south-african-guide-dogs-association-for-the-blind-car-raffle/",
-      "lastChecked": "2026-08-27",
+      "lastChecked": "2026-10-02",
       "isHighValue": true,
       "isClosingSoon": false
     },

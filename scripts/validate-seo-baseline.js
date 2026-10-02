@@ -1,4 +1,5 @@
 const fs = require("fs");
+const { inventorySitemapCount } = require("./lib/inventory-routes.js");
 const path = require("path");
 const shared = require("../shared/page-data.js");
 const opportunityData = require("../shared/opportunity-data.js");
@@ -134,6 +135,7 @@ const sitemapRoutes = sitemapUrls.map((url) => normalizeRoute(url));
 const sitemapSet = new Set(sitemapRoutes);
 
 const expectedSitemapUrlCount = CONFIG.staticSitemapUrlCount
+  + inventorySitemapCount(shared.getPublishedActiveCompetitions(COMPETITIONS), CONFIG.canonicalAliases)
   + indexableCompetitionSlugs.size
   + ACTIVE_OPPORTUNITIES.length
   + ACTIVE_OFFERS.length

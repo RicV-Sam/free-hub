@@ -85,8 +85,8 @@ check("Brand sample programmes", count(samples, /data-content-type="brand_sample
 check("Editorial explainers", count(samples, /data-content-type="editorial_guide"/g), 1);
 check("Sample route finder", samples.includes('id="sample-options"'), true);
 check("Brand programmes prioritised", samples.indexOf('id="brand-sample-programmes"') < samples.indexOf('id="product-testing-panels"'), true);
-check("Visible FAQs", count(samples, /<details>/g), 6);
-check("FAQ schema items", faqSchema?.mainEntity?.length || 0, 6);
+check("Visible FAQs", count(samples, /<details>/g), 7);
+check("FAQ schema items", faqSchema?.mainEntity?.length || 0, 7);
 check("Samples Opportunity cards", count(samples, /<article class="opportunity-card\b/g), expectedSampleOpportunityCount + expectedTestingOpportunityCount);
 check("Parent Opportunity cards", count(parent, /<article class="opportunity-card\b/g), expectedParentOpportunityCount);
 check("Samples Opportunity schema items", sampleOpportunitySchema?.itemListElement?.length || 0, expectedSampleOpportunityCount);
