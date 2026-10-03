@@ -589,5 +589,18 @@
     "reviewedAt": "2026-10-03",
     "sourcePage": "https://www.clicks.co.za/clubcard/competitions/clubcard-magazine-october-november-2026-have-your-say-competition",
     "sourceImage": "https://offertabs.s3.amazonaws.com/offer/3du4px/6abdf924683d26.39586366.jpg"
+  },
+  "sunlight-spar-kitchen-makeover-2026": {
+    "src": "/assets/listings/sunlight-spar-kitchen-makeover-2026.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "FreeHub editorial kitchen illustration advertising three R100,000 Sunlight SPAR kitchen-makeover prizes; pictured kitchen is illustrative",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration. Kitchen shown is illustrative; prize funds must be used for a kitchen makeover.",
+    "reviewedAt": "2026-10-03",
+    "sourcePage": "https://www.spar.co.za/competitions/sunlight-spar-rewards-competition",
+    "generationPrompt": "Create a polished landscape 3:2 editorial competition hero PNG for FreeHub South Africa. Subject: a bright aspirational modern kitchen, tastefully illustrated with warm daylight, cream cupboards, wood worktops, subtle green accents and cheerful yellow light. It is a conceptual kitchen, not a specific actual prize installation. Strong readable dark navy typography and a yellow accent panel, refined magazine-style composition with generous safe margins. Exact text: small top line 'SUNLIGHT AT SPAR'; main headline 'KITCHEN MAKEOVER'; prominent prize line '3 prizes of R100,000'; supporting line 'Buy 3 qualifying Sunlight products'; next line 'Swipe your SPAR Rewards card'; small but clearly legible footer 'Purchase required • T&Cs apply'; separate clearly legible disclosure 'FreeHub editorial illustration'. No official brand logos, no product packaging, no people, no mascot, no extra prize items, no claims of endorsement, no 20-prize reference, no invented appliance models. Make the prize line very clear even at mobile thumbnail size. The kitchen is illustrative context for cash to be used on a kitchen makeover, not a guaranteed bundle of pictured fixtures. Balanced attractive design, strong contrast, no busy confetti. Opaque background.",
+    "generationMethod": "Built-in image generation",
+    "sourceReviewNote": "Official image excluded because it advertises 20 prizes; written terms and headline specify three. User explicitly approved using the written three-prize schedule and new editorial artwork."
   }
 }

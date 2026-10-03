@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-03",
-  "count": 62,
+  "count": 63,
   "competitions": [
     {
       "id": "huletts-heritage-2026",
@@ -929,6 +929,33 @@
       "officialUrl": "https://www.spar.co.za/competitions/nescafe-gold-rush-spar-rewards-competition",
       "termsUrl": "https://www.spar.co.za/competitions/nescafe-gold-rush-spar-rewards-competition",
       "lastChecked": "2026-10-02",
+      "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "sunlight-spar-kitchen-makeover-2026",
+      "title": "Sunlight at SPAR: Win a R100,000 Kitchen Makeover",
+      "brand": "Sunlight / Unilever / SPAR",
+      "summary": "Buy three qualifying Sunlight products and swipe SPAR Rewards for a chance to win one of three R100,000 prizes to use on a kitchen makeover. Keep your receipt.",
+      "imageUrl": "https://freehub.co.za/assets/listings/sunlight-spar-kitchen-makeover-2026.webp",
+      "closingDate": "2026-11-08",
+      "category": "Cash",
+      "prizeName": "Three R100,000 cash prizes for kitchen makeovers",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Purchase and SPAR Rewards Card Swipe",
+      "eligibility": "South African citizens or permanent residents over 18 with valid ID; qualifying purchase and SPAR Rewards swipe required. Related-party exclusions apply.",
+      "entrySteps": [
+        "Buy any three qualifying Sunlight products from the Laundry Bar, Auto Liquid, Handwash Powder and Dishwashing Liquid categories.",
+        "Swipe your SPAR Rewards card with the qualifying purchase at SPAR.",
+        "Keep the till slip or receipt as proof. Each additional entry requires a new, separate qualifying purchase and proof.",
+        "Complete your purchase and card swipe between 17 August and 8 November 2026, before 23:59 on the closing date.",
+        "Keep your contact details current. If selected, provide the requested ID and bank confirmation within the promoter's contact window."
+      ],
+      "officialUrl": "https://www.spar.co.za/competitions/sunlight-spar-rewards-competition",
+      "termsUrl": "https://www.spar.co.za/competitions/sunlight-spar-rewards-competition",
+      "lastChecked": "2026-10-03",
       "isHighValue": true,
       "isClosingSoon": false
     },

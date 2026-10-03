@@ -47,7 +47,7 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 16
+- Matching active public competitions: 17
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -65,6 +65,7 @@ Recommended normalisation:
 | Astron Energy Own a Golf 8 GTI Competition 2026 (astron-energy-own-golf-8-gti-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Cadbury Made to Share: Win R20,000 Weekly (cadbury-made-to-share-2026) | 2026-10-31 | free-entry | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | NESCAFÉ Gold Rush SPAR Rewards Competition (nescafe-gold-rush-spar-2026) | 2026-11-08 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
+| Sunlight at SPAR: Win a R100,000 Kitchen Makeover (sunlight-spar-kitchen-makeover-2026) | 2026-11-08 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Pizza Perfect Oom Freddy’s Legacy Hamper Competition (pizza-perfect-oom-freddy-legacy-2026) | 2026-11-14 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Eskort Braai-Lux Toyota Hilux Competition (eskort-braai-lux-2026) | 2026-11-22 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Coca-Cola Be a Bok Competition 2026 (coca-cola-fan-can-be-a-bok-2026) | 2026-11-30 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
@@ -155,7 +156,7 @@ Recommended normalisation:
 ## Supermarket Competitions in South Africa
 
 - URL: /supermarket-competitions-south-africa/
-- Matching active public competitions: 11
+- Matching active public competitions: 12
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -170,6 +171,7 @@ Recommended normalisation:
 | SPAR Community School Support Competition (spar-community-school-support-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Supermarket brand or retail partner | none |
 | Lancewood Spread & Scoop Competition 2026 (lancewood-spread-scoop-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Supermarket or grocery entry text | none |
 | NESCAFÉ Gold Rush SPAR Rewards Competition (nescafe-gold-rush-spar-2026) | 2026-11-08 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
+| Sunlight at SPAR: Win a R100,000 Kitchen Makeover (sunlight-spar-kitchen-makeover-2026) | 2026-11-08 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Eskort Braai-Lux Toyota Hilux Competition (eskort-braai-lux-2026) | 2026-11-22 | purchase-required | yes | yes | Supermarket or grocery entry text | none |
 | Nedbank Greenbacks Checkers Trolley Dash Competition (nedbank-greenbacks-checkers-launch-2026) | 2026-11-30 | account-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Coca-Cola Returnables: Win Grocery Vouchers (coca-cola-returnables-2026) | 2027-01-31 | purchase-required | yes | yes | Supermarket or grocery entry text | none |
