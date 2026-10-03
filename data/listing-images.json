@@ -602,5 +602,203 @@
     "generationPrompt": "Create a polished landscape 3:2 editorial competition hero PNG for FreeHub South Africa. Subject: a bright aspirational modern kitchen, tastefully illustrated with warm daylight, cream cupboards, wood worktops, subtle green accents and cheerful yellow light. It is a conceptual kitchen, not a specific actual prize installation. Strong readable dark navy typography and a yellow accent panel, refined magazine-style composition with generous safe margins. Exact text: small top line 'SUNLIGHT AT SPAR'; main headline 'KITCHEN MAKEOVER'; prominent prize line '3 prizes of R100,000'; supporting line 'Buy 3 qualifying Sunlight products'; next line 'Swipe your SPAR Rewards card'; small but clearly legible footer 'Purchase required • T&Cs apply'; separate clearly legible disclosure 'FreeHub editorial illustration'. No official brand logos, no product packaging, no people, no mascot, no extra prize items, no claims of endorsement, no 20-prize reference, no invented appliance models. Make the prize line very clear even at mobile thumbnail size. The kitchen is illustrative context for cash to be used on a kitchen makeover, not a guaranteed bundle of pictured fixtures. Balanced attractive design, strong contrast, no busy confetti. Opaque background.",
     "generationMethod": "Built-in image generation",
     "sourceReviewNote": "Official image excluded because it advertises 20 prizes; written terms and headline specify three. User explicitly approved using the written three-prize schedule and new editorial artwork."
+  },
+  "clicks-october-november-beauty-box-2026": {
+    "src": "/assets/listings/clicks-october-november-beauty-box-2026.webp",
+    "width": 1200,
+    "height": 810,
+    "alt": "Official Clicks beauty-box campaign artwork",
+    "kind": "official-source",
+    "caption": "Image from the official campaign/provider source.",
+    "reviewedAt": "2026-10-03",
+    "sourcePage": "https://woobox.com/fxt525",
+    "sourceImage": "https://offertabs.s3.amazonaws.com/offer/fxt525/6abdfc6bb9d988.64675785.jpg"
+  },
+  "clicks-dlicious-hamper-october-november-2026": {
+    "src": "/assets/listings/clicks-dlicious-hamper-october-november-2026.webp",
+    "width": 1200,
+    "height": 810,
+    "alt": "Official Clicks D’Licious hamper campaign artwork",
+    "kind": "official-source",
+    "caption": "Image from the official campaign/provider source.",
+    "reviewedAt": "2026-10-03",
+    "sourcePage": "https://woobox.com/mt2ida",
+    "sourceImage": "https://offertabs.s3.amazonaws.com/offer/mt2ida/6abca7f23ce3e7.15187477.jpg"
+  },
+  "clicks-dkny-ice-pop-october-november-2026": {
+    "src": "/assets/listings/clicks-dkny-ice-pop-october-november-2026.webp",
+    "width": 1200,
+    "height": 810,
+    "alt": "Official Clicks DKNY Ice Pop fragrance campaign artwork",
+    "kind": "official-source",
+    "caption": "Image from the official campaign/provider source.",
+    "reviewedAt": "2026-10-03",
+    "sourcePage": "https://woobox.com/96yz3d",
+    "sourceImage": "https://offertabs.s3.amazonaws.com/offer/96yz3d/6abb7f2744f3d7.81393085.jpg"
+  },
+  "bargain-books-scorpio-rising-2026": {
+    "src": "/assets/listings/bargain-books-scorpio-rising-2026.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "FreeHub editorial illustration for bargain books scorpio rising 2026; depicted objects are illustrative",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration; not official campaign artwork.",
+    "reviewedAt": "2026-10-03",
+    "generator": "Built-in image generation tool",
+    "prompt": "Use case: illustration-story. Asset type: FreeHub competition hero, wide landscape 3:2. Create an elegant editorial illustration about a crime-fiction book giveaway: a closed, completely unbranded book on a desk, a subtle Cape Town skyline silhouette and a small magnifying glass, warm cream and teal palette. The book cover must be blank: do not depict or fabricate an actual published book jacket, author photo, publisher branding, prize amount or logo. Add a small but clearly readable footer reading exactly 'FreeHub editorial illustration'. No other text. This accompanies an official Scorpio Rising book giveaway; the artwork is an editorial illustration, not the prize cover."
+  },
+  "bargain-books-hollow-bones-2026": {
+    "src": "/assets/listings/bargain-books-hollow-bones-2026.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "FreeHub editorial illustration for bargain books hollow bones 2026; depicted objects are illustrative",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration; not official campaign artwork.",
+    "reviewedAt": "2026-10-03",
+    "generator": "Built-in image generation tool",
+    "prompt": "Use case: illustration-story. Wide 3:2 editorial hero for a fiction-book giveaway. An unbranded blank closed hardcover, a reading lamp and a delicate dried flower on a quiet teal and warm cream desk. Literary, restrained, premium illustrated style. Do not fabricate a published book cover, title lettering, author likeness or publisher branding. Footer text exactly 'FreeHub editorial illustration', clearly readable. No other text."
+  },
+  "bargain-books-cheslin-kolbe-2026": {
+    "src": "/assets/listings/bargain-books-cheslin-kolbe-2026.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "FreeHub editorial illustration for bargain books cheslin kolbe 2026; depicted objects are illustrative",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration; not official campaign artwork.",
+    "reviewedAt": "2026-10-03",
+    "generator": "Built-in image generation tool",
+    "prompt": "Use case: illustration-story. Wide 3:2 editorial illustration for a rugby memoir book giveaway: a plain blank hardcover book beside a rugby ball, with an abstract green rugby pitch in the background. No people or athlete likenesses, no official team logo, no fabricated book jacket or brand endorsement. Tasteful painted texture, cream and emerald palette. Clearly readable small footer exactly 'FreeHub editorial illustration'. No other text."
+  },
+  "bargain-books-court-splintered-harmony-2026": {
+    "src": "/assets/listings/bargain-books-court-splintered-harmony-2026.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "FreeHub editorial illustration for bargain books court splintered harmony 2026; depicted objects are illustrative",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration; not official campaign artwork.",
+    "reviewedAt": "2026-10-03",
+    "generator": "Built-in image generation tool",
+    "prompt": "Use case: illustration-story. Wide 3:2 editorial hero for a fantasy-book giveaway: a completely blank unbranded hardcover on a reading desk, with a soft dreamlike moon and forest silhouette behind it. Refined teal, midnight blue and warm gold illustration. Do not reproduce or fabricate an actual book jacket, characters, author likeness, publisher logo or prize amount. Small clearly readable footer exactly 'FreeHub editorial illustration'. No other text."
+  },
+  "samsung-october-rate-and-review-2026": {
+    "src": "/assets/listings/samsung-october-rate-and-review-2026.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "FreeHub editorial illustration for samsung october rate and review 2026; depicted objects are illustrative",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration; not official campaign artwork.",
+    "reviewedAt": "2026-10-03",
+    "generator": "Built-in image generation tool",
+    "prompt": "Use case: illustration-story. Wide 3:2 FreeHub editorial illustration about reviewing a personally used device for a voucher draw. A generic unbranded phone and handwritten review card with five simple star shapes on an orderly teal desk; no fake review text, no product model, no manufacturer logo, no cash or fabricated voucher card. The phone is illustrative and is not the competition prize. Elegant clean editorial art. Clearly readable small footer exactly 'FreeHub editorial illustration'. No other text."
+  },
+  "oxford-half-million-october-december-2026": {
+    "src": "/assets/listings/oxford-half-million-october-december-2026.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Official Oxford Freshmarket Win a Share of Half a Million campaign poster",
+    "kind": "official-source",
+    "caption": "Image from the official campaign/provider source.",
+    "reviewedAt": "2026-10-03",
+    "sourcePage": "https://www.oxfordfreshmarket.co.za/competitions/win-a-share-of-half-a-million",
+    "sourceImage": "https://cdn.prod.website-files.com/67160f164d4aabe314d1252e/6abe0855da721651225e6018_Poster.jpg"
+  },
+  "boxer-coca-cola-samsung-a06-october-2026": {
+    "src": "/assets/listings/boxer-coca-cola-samsung-a06-october-2026.webp",
+    "width": 436,
+    "height": 564,
+    "alt": "Official Boxer and Coca-Cola smartphone draw artwork",
+    "kind": "official-source",
+    "caption": "Image from the official campaign/provider source.",
+    "reviewedAt": "2026-10-03",
+    "sourcePage": "https://www.boxer.co.za/page/competitions",
+    "sourceImage": "https://www.boxer.co.za/storage/web/source/1/8lTlnfgokBO88x90Qmva8ynmOfaqDCVW.png"
+  },
+  "mcmerwe-games-prediction-voucher-2026": {
+    "src": "/assets/listings/mcmerwe-games-prediction-voucher-2026.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "FreeHub editorial illustration for mcmerwe games prediction voucher 2026; depicted objects are illustrative",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration; not official campaign artwork.",
+    "reviewedAt": "2026-10-03",
+    "generator": "Built-in image generation tool",
+    "prompt": "Use case: illustration-story. Wide 3:2 editorial illustration about a staff-games prediction competition. A simple unbranded ballot box, one blank prediction slip and an abstract playful winners podium with no numbers or people, warm cream and teal. No fabricated staff likenesses, store logo, real prize product or voucher value. Premium friendly hand-painted art. Clearly readable footer exactly 'FreeHub editorial illustration'. No other text."
+  },
+  "playgolf-parys-srixon-driver-2026": {
+    "src": "/assets/listings/playgolf-parys-srixon-driver-2026.webp",
+    "width": 1200,
+    "height": 630,
+    "alt": "Official PlayGolf Parys Srixon driver draw artwork",
+    "kind": "official-source",
+    "caption": "Image from the official campaign/provider source.",
+    "reviewedAt": "2026-10-03",
+    "sourcePage": "https://playgolfapp.co.za/parys",
+    "sourceImage": "https://playgolfapp.co.za/images/parys/parys-driver-draw-og.jpg"
+  },
+  "dis-chem-energizer-october-december-2026": {
+    "src": "/assets/listings/dis-chem-energizer-october-december-2026.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "FreeHub editorial illustration for dis chem energizer october december 2026; depicted objects are illustrative",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration; not official campaign artwork.",
+    "reviewedAt": "2026-10-03",
+    "generator": "Built-in image generation tool",
+    "prompt": "Use case: illustration-story. Wide 3:2 editorial illustration about a purchase-linked battery promotion. Two plain unbranded household batteries next to a paper shopping bag and a plain loyalty card on a teal and cream tabletop. No logos, no invented product model, no cash or phone prize, no amounts, no free-entry wording. Friendly refined editorial art. Clearly readable small footer exactly 'FreeHub editorial illustration'. No other text."
+  },
+  "glowming-cape-town-getaway-2026": {
+    "src": "/assets/listings/glowming-cape-town-getaway-2026.webp",
+    "width": 1200,
+    "height": 750,
+    "alt": "Cape Town aerial photograph from the official Glowming getaway campaign",
+    "kind": "official-source",
+    "caption": "Image from the official campaign/provider source.",
+    "reviewedAt": "2026-10-03",
+    "sourcePage": "https://glowming.co.za/pages/win-cape-town",
+    "sourceImage": "https://glowming.co.za/cdn/shop/t/24/assets/journey-cape-town-aerial-1400.jpg?v=30649976868331245391790262815"
+  },
+  "amc-cookware-gifts-september-october-2026": {
+    "src": "/assets/listings/amc-cookware-gifts-september-october-2026.webp",
+    "width": 600,
+    "height": 600,
+    "alt": "Official AMC 16cm Milk Boiler product photograph; one of the qualifying purchase gifts",
+    "kind": "official-source",
+    "caption": "Image from the official campaign/provider source.",
+    "reviewedAt": "2026-10-03",
+    "sourcePage": "https://www.amcsa.co.za/en/on-promotion/this-months-promotions/free-gifts/",
+    "sourceImage": "https://www.amcsa.co.za/docs/products/A1624/default.png"
+  },
+  "skinstore-cerave-purchase-gift-2026": {
+    "src": "/assets/listings/skinstore-cerave-purchase-gift-2026.webp",
+    "width": 900,
+    "height": 1125,
+    "alt": "Official SkinStore CeraVe SA Smoothing Cream purchase-gift artwork",
+    "kind": "official-source",
+    "caption": "Image from the official campaign/provider source.",
+    "reviewedAt": "2026-10-03",
+    "sourcePage": "https://www.skinstore.co.za/",
+    "sourceImage": "https://www.skinstore.co.za/cdn/shop/files/Cerave-promotions.png?v=1785694042&width=900"
+  },
+  "skinstore-samples-with-orders": {
+    "src": "/assets/listings/skinstore-samples-with-orders.webp",
+    "width": 900,
+    "height": 1125,
+    "alt": "Official SkinStore samples-with-orders artwork; sample contents vary",
+    "kind": "official-source",
+    "caption": "Image from the official campaign/provider source.",
+    "reviewedAt": "2026-10-03",
+    "sourcePage": "https://www.skinstore.co.za/",
+    "sourceImage": "https://www.skinstore.co.za/cdn/shop/files/69.jpg?v=1779278361&width=900"
+  },
+  "sebamed-samples-with-orders": {
+    "src": "/assets/listings/sebamed-samples-with-orders.webp",
+    "width": 1200,
+    "height": 403,
+    "alt": "Official Sebamed product-range banner; sample contents are not specified",
+    "kind": "official-source",
+    "caption": "Image from the official campaign/provider source.",
+    "reviewedAt": "2026-10-03",
+    "sourcePage": "https://sebamed.co.za/",
+    "sourceImage": "https://sebamed.co.za/wp-content/uploads/2026/04/banner.jpg"
   }
 }

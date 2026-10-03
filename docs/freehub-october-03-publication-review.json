@@ -1,0 +1,379 @@
+{
+  "asOf": "2026-10-03",
+  "authorization": "User requested commit and push live after the private discovery shortlist.",
+  "scope": {
+    "competitions": 14,
+    "purchaseLinkedOffers": 4
+  },
+  "newHold": {
+    "id": "spar-weekly-wins-wc",
+    "sourceUrl": "https://www.spar.co.za/competitions/spar-weekly-wins",
+    "reason": "Advertised R800,000 does not reconcile with 40 weekly R2,500 prizes over the 24 August–25 October period (nine weeks). No draw schedule explaining eight versus nine allocations was found. Hold for clarification; do not silently choose a total."
+  },
+  "otherHolds": "All other held, future-window, duplicate and excluded leads remain outside this release.",
+  "checks": {
+    "editorialSourceReview": "Official campaign pages and current rules reviewed; specific blocked-page access exceptions are scoped to exact IDs/URLs. No form submitted.",
+    "duplicateReview": "Six local and remote-main collections, live competition feed and catalog checked. Shared hubs and earlier rounds reviewed as distinct campaigns.",
+    "undatedOffers": "Expiry omitted where no official date is given. All offers require purchase; availability must be confirmed and source review is due 7 October.",
+    "artwork": "Eleven official assets and seven labelled editorial illustrations, with provenance. All 18 pages inspected at desktop 1440px and mobile 390px; heroes loaded, generated-image labels visible, no horizontal overflow. Local preview served local assets. Deployed-image verification remains a post-release check.",
+    "validation": "Production-feature build, SEO/performance/free-stuff checks and all 123 lifecycle tests passed; maintenance-state check passed. Link audit returned no errors for this batch. Older archived URL warnings and opportunity access/evidence problems remain outside this change."
+  },
+  "listings": [
+    {
+      "id": "clicks-october-november-beauty-box-2026",
+      "type": "competition",
+      "sourceUrl": "https://clicks.co.za/clubcard/competitions/clubcard-magazine-october-november-2026-beauty-hamper-competition",
+      "termsUrl": "https://woobox.com/fxt525/rules",
+      "closingDate": "2026-12-01",
+      "entryCostType": "free-entry",
+      "image": {
+        "src": "/assets/listings/clicks-october-november-beauty-box-2026.webp",
+        "width": 1200,
+        "height": 810,
+        "alt": "Official Clicks beauty-box campaign artwork",
+        "kind": "official-source",
+        "caption": "Image from the official campaign/provider source.",
+        "reviewedAt": "2026-10-03",
+        "sourcePage": "https://woobox.com/fxt525",
+        "sourceImage": "https://offertabs.s3.amazonaws.com/offer/fxt525/6abdfc6bb9d988.64675785.jpg"
+      },
+      "reviewId": "clicks-oct-nov-beauty"
+    },
+    {
+      "id": "clicks-dlicious-hamper-october-november-2026",
+      "type": "competition",
+      "sourceUrl": "https://clicks.co.za/clubcard/competitions/clubcard-magazine-october-november-2026-dlicious-hamper-competition",
+      "termsUrl": "https://woobox.com/mt2ida/rules",
+      "closingDate": "2026-12-01",
+      "entryCostType": "free-entry",
+      "image": {
+        "src": "/assets/listings/clicks-dlicious-hamper-october-november-2026.webp",
+        "width": 1200,
+        "height": 810,
+        "alt": "Official Clicks D’Licious hamper campaign artwork",
+        "kind": "official-source",
+        "caption": "Image from the official campaign/provider source.",
+        "reviewedAt": "2026-10-03",
+        "sourcePage": "https://woobox.com/mt2ida",
+        "sourceImage": "https://offertabs.s3.amazonaws.com/offer/mt2ida/6abca7f23ce3e7.15187477.jpg"
+      },
+      "reviewId": "clicks-oct-nov-dlicious"
+    },
+    {
+      "id": "clicks-dkny-ice-pop-october-november-2026",
+      "type": "competition",
+      "sourceUrl": "https://clicks.co.za/clubcard/competitions/clubcard-magazine-october-november-issue-of-2026-fragrances-competition",
+      "termsUrl": "https://woobox.com/96yz3d/rules",
+      "closingDate": "2026-12-01",
+      "entryCostType": "free-entry",
+      "image": {
+        "src": "/assets/listings/clicks-dkny-ice-pop-october-november-2026.webp",
+        "width": 1200,
+        "height": 810,
+        "alt": "Official Clicks DKNY Ice Pop fragrance campaign artwork",
+        "kind": "official-source",
+        "caption": "Image from the official campaign/provider source.",
+        "reviewedAt": "2026-10-03",
+        "sourcePage": "https://woobox.com/96yz3d",
+        "sourceImage": "https://offertabs.s3.amazonaws.com/offer/96yz3d/6abb7f2744f3d7.81393085.jpg"
+      },
+      "reviewId": "clicks-oct-nov-dkny"
+    },
+    {
+      "id": "bargain-books-scorpio-rising-2026",
+      "type": "competition",
+      "sourceUrl": "https://bargainbooks.co.za/competitions",
+      "termsUrl": "https://bargainbooks.co.za/competitions#terms",
+      "closingDate": "2026-11-01",
+      "entryCostType": "free-entry",
+      "image": {
+        "src": "/assets/listings/bargain-books-scorpio-rising-2026.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "FreeHub editorial illustration for bargain books scorpio rising 2026; depicted objects are illustrative",
+        "kind": "editorial-generated",
+        "caption": "FreeHub editorial illustration; not official campaign artwork.",
+        "reviewedAt": "2026-10-03",
+        "generator": "Built-in image generation tool",
+        "prompt": "Use case: illustration-story. Asset type: FreeHub competition hero, wide landscape 3:2. Create an elegant editorial illustration about a crime-fiction book giveaway: a closed, completely unbranded book on a desk, a subtle Cape Town skyline silhouette and a small magnifying glass, warm cream and teal palette. The book cover must be blank: do not depict or fabricate an actual published book jacket, author photo, publisher branding, prize amount or logo. Add a small but clearly readable footer reading exactly 'FreeHub editorial illustration'. No other text. This accompanies an official Scorpio Rising book giveaway; the artwork is an editorial illustration, not the prize cover."
+      },
+      "reviewId": "bargain-scorpio"
+    },
+    {
+      "id": "bargain-books-hollow-bones-2026",
+      "type": "competition",
+      "sourceUrl": "https://bargainbooks.co.za/competitions",
+      "termsUrl": "https://bargainbooks.co.za/competitions#terms",
+      "closingDate": "2026-11-01",
+      "entryCostType": "free-entry",
+      "image": {
+        "src": "/assets/listings/bargain-books-hollow-bones-2026.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "FreeHub editorial illustration for bargain books hollow bones 2026; depicted objects are illustrative",
+        "kind": "editorial-generated",
+        "caption": "FreeHub editorial illustration; not official campaign artwork.",
+        "reviewedAt": "2026-10-03",
+        "generator": "Built-in image generation tool",
+        "prompt": "Use case: illustration-story. Wide 3:2 editorial hero for a fiction-book giveaway. An unbranded blank closed hardcover, a reading lamp and a delicate dried flower on a quiet teal and warm cream desk. Literary, restrained, premium illustrated style. Do not fabricate a published book cover, title lettering, author likeness or publisher branding. Footer text exactly 'FreeHub editorial illustration', clearly readable. No other text."
+      },
+      "reviewId": "bargain-hollow"
+    },
+    {
+      "id": "bargain-books-cheslin-kolbe-2026",
+      "type": "competition",
+      "sourceUrl": "https://bargainbooks.co.za/competitions",
+      "termsUrl": "https://bargainbooks.co.za/competitions#terms",
+      "closingDate": "2026-11-01",
+      "entryCostType": "free-entry",
+      "image": {
+        "src": "/assets/listings/bargain-books-cheslin-kolbe-2026.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "FreeHub editorial illustration for bargain books cheslin kolbe 2026; depicted objects are illustrative",
+        "kind": "editorial-generated",
+        "caption": "FreeHub editorial illustration; not official campaign artwork.",
+        "reviewedAt": "2026-10-03",
+        "generator": "Built-in image generation tool",
+        "prompt": "Use case: illustration-story. Wide 3:2 editorial illustration for a rugby memoir book giveaway: a plain blank hardcover book beside a rugby ball, with an abstract green rugby pitch in the background. No people or athlete likenesses, no official team logo, no fabricated book jacket or brand endorsement. Tasteful painted texture, cream and emerald palette. Clearly readable small footer exactly 'FreeHub editorial illustration'. No other text."
+      },
+      "reviewId": "bargain-kolbe"
+    },
+    {
+      "id": "bargain-books-court-splintered-harmony-2026",
+      "type": "competition",
+      "sourceUrl": "https://bargainbooks.co.za/competitions",
+      "termsUrl": "https://bargainbooks.co.za/competitions#terms",
+      "closingDate": "2026-11-01",
+      "entryCostType": "free-entry",
+      "image": {
+        "src": "/assets/listings/bargain-books-court-splintered-harmony-2026.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "FreeHub editorial illustration for bargain books court splintered harmony 2026; depicted objects are illustrative",
+        "kind": "editorial-generated",
+        "caption": "FreeHub editorial illustration; not official campaign artwork.",
+        "reviewedAt": "2026-10-03",
+        "generator": "Built-in image generation tool",
+        "prompt": "Use case: illustration-story. Wide 3:2 editorial hero for a fantasy-book giveaway: a completely blank unbranded hardcover on a reading desk, with a soft dreamlike moon and forest silhouette behind it. Refined teal, midnight blue and warm gold illustration. Do not reproduce or fabricate an actual book jacket, characters, author likeness, publisher logo or prize amount. Small clearly readable footer exactly 'FreeHub editorial illustration'. No other text."
+      },
+      "reviewId": "bargain-court"
+    },
+    {
+      "id": "samsung-october-rate-and-review-2026",
+      "type": "competition",
+      "sourceUrl": "https://www.samsung.com/za/offer/rate-and-review/",
+      "termsUrl": "https://www.samsung.com/za/offer/general-competition-terms/",
+      "closingDate": "2026-10-31",
+      "entryCostType": "free-entry",
+      "image": {
+        "src": "/assets/listings/samsung-october-rate-and-review-2026.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "FreeHub editorial illustration for samsung october rate and review 2026; depicted objects are illustrative",
+        "kind": "editorial-generated",
+        "caption": "FreeHub editorial illustration; not official campaign artwork.",
+        "reviewedAt": "2026-10-03",
+        "generator": "Built-in image generation tool",
+        "prompt": "Use case: illustration-story. Wide 3:2 FreeHub editorial illustration about reviewing a personally used device for a voucher draw. A generic unbranded phone and handwritten review card with five simple star shapes on an orderly teal desk; no fake review text, no product model, no manufacturer logo, no cash or fabricated voucher card. The phone is illustrative and is not the competition prize. Elegant clean editorial art. Clearly readable small footer exactly 'FreeHub editorial illustration'. No other text."
+      },
+      "reviewId": "samsung-october-review"
+    },
+    {
+      "id": "oxford-half-million-october-december-2026",
+      "type": "competition",
+      "sourceUrl": "https://www.oxfordfreshmarket.co.za/competitions/win-a-share-of-half-a-million",
+      "termsUrl": "https://www.oxfordfreshmarket.co.za/competitions/win-a-share-of-half-a-million",
+      "closingDate": "2026-12-31",
+      "entryCostType": "purchase-required",
+      "image": {
+        "src": "/assets/listings/oxford-half-million-october-december-2026.webp",
+        "width": 960,
+        "height": 1200,
+        "alt": "Official Oxford Freshmarket Win a Share of Half a Million campaign poster",
+        "kind": "official-source",
+        "caption": "Image from the official campaign/provider source.",
+        "reviewedAt": "2026-10-03",
+        "sourcePage": "https://www.oxfordfreshmarket.co.za/competitions/win-a-share-of-half-a-million",
+        "sourceImage": "https://cdn.prod.website-files.com/67160f164d4aabe314d1252e/6abe0855da721651225e6018_Poster.jpg"
+      },
+      "reviewId": "oxford-half-million"
+    },
+    {
+      "id": "boxer-coca-cola-samsung-a06-october-2026",
+      "type": "competition",
+      "sourceUrl": "https://www.boxer.co.za/page/competitions",
+      "termsUrl": "https://www.boxer.co.za/storage/web/source/2026/Competition%20T%26Cs/Sep%20ME/Boxer%20%26%20CCBA%20Ts%26Cs.pdf?_t=1789978627",
+      "closingDate": "2026-11-04",
+      "entryCostType": "purchase-required",
+      "image": {
+        "src": "/assets/listings/boxer-coca-cola-samsung-a06-october-2026.webp",
+        "width": 436,
+        "height": 564,
+        "alt": "Official Boxer and Coca-Cola smartphone draw artwork",
+        "kind": "official-source",
+        "caption": "Image from the official campaign/provider source.",
+        "reviewedAt": "2026-10-03",
+        "sourcePage": "https://www.boxer.co.za/page/competitions",
+        "sourceImage": "https://www.boxer.co.za/storage/web/source/1/8lTlnfgokBO88x90Qmva8ynmOfaqDCVW.png"
+      },
+      "reviewId": "boxer-ccba-smartphones"
+    },
+    {
+      "id": "mcmerwe-games-prediction-voucher-2026",
+      "type": "competition",
+      "sourceUrl": "https://mcmerwe.co.za/the-mcmerwe-games/",
+      "termsUrl": "https://mcmerwe.co.za/mcmerwe-games-competition-rules/",
+      "closingDate": "2026-10-31",
+      "entryCostType": "purchase-required",
+      "image": {
+        "src": "/assets/listings/mcmerwe-games-prediction-voucher-2026.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "FreeHub editorial illustration for mcmerwe games prediction voucher 2026; depicted objects are illustrative",
+        "kind": "editorial-generated",
+        "caption": "FreeHub editorial illustration; not official campaign artwork.",
+        "reviewedAt": "2026-10-03",
+        "generator": "Built-in image generation tool",
+        "prompt": "Use case: illustration-story. Wide 3:2 editorial illustration about a staff-games prediction competition. A simple unbranded ballot box, one blank prediction slip and an abstract playful winners podium with no numbers or people, warm cream and teal. No fabricated staff likenesses, store logo, real prize product or voucher value. Premium friendly hand-painted art. Clearly readable footer exactly 'FreeHub editorial illustration'. No other text."
+      },
+      "reviewId": "mcmerwe-staff-games"
+    },
+    {
+      "id": "playgolf-parys-srixon-driver-2026",
+      "type": "competition",
+      "sourceUrl": "https://playgolfapp.co.za/parys",
+      "termsUrl": "https://playgolfapp.co.za/parys",
+      "closingDate": "2026-12-31",
+      "entryCostType": "purchase-required",
+      "image": {
+        "src": "/assets/listings/playgolf-parys-srixon-driver-2026.webp",
+        "width": 1200,
+        "height": 630,
+        "alt": "Official PlayGolf Parys Srixon driver draw artwork",
+        "kind": "official-source",
+        "caption": "Image from the official campaign/provider source.",
+        "reviewedAt": "2026-10-03",
+        "sourcePage": "https://playgolfapp.co.za/parys",
+        "sourceImage": "https://playgolfapp.co.za/images/parys/parys-driver-draw-og.jpg"
+      },
+      "reviewId": "playgolf-parys-driver"
+    },
+    {
+      "id": "dis-chem-energizer-october-december-2026",
+      "type": "competition",
+      "sourceUrl": "https://www.dischem.co.za/energizer-october-2026-competition",
+      "termsUrl": "https://www.dischem.co.za/energizer-october-2026-competition",
+      "closingDate": "2026-12-31",
+      "entryCostType": "purchase-required",
+      "image": {
+        "src": "/assets/listings/dis-chem-energizer-october-december-2026.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "FreeHub editorial illustration for dis chem energizer october december 2026; depicted objects are illustrative",
+        "kind": "editorial-generated",
+        "caption": "FreeHub editorial illustration; not official campaign artwork.",
+        "reviewedAt": "2026-10-03",
+        "generator": "Built-in image generation tool",
+        "prompt": "Use case: illustration-story. Wide 3:2 editorial illustration about a purchase-linked battery promotion. Two plain unbranded household batteries next to a paper shopping bag and a plain loyalty card on a teal and cream tabletop. No logos, no invented product model, no cash or phone prize, no amounts, no free-entry wording. Friendly refined editorial art. Clearly readable small footer exactly 'FreeHub editorial illustration'. No other text."
+      },
+      "reviewId": "dischem-energizer-october"
+    },
+    {
+      "id": "glowming-cape-town-getaway-2026",
+      "type": "competition",
+      "sourceUrl": "https://glowming.co.za/pages/win-cape-town",
+      "termsUrl": "https://glowming.co.za/pages/competition-rules",
+      "closingDate": "2026-11-30",
+      "entryCostType": "free-entry",
+      "image": {
+        "src": "/assets/listings/glowming-cape-town-getaway-2026.webp",
+        "width": 1200,
+        "height": 750,
+        "alt": "Cape Town aerial photograph from the official Glowming getaway campaign",
+        "kind": "official-source",
+        "caption": "Image from the official campaign/provider source.",
+        "reviewedAt": "2026-10-03",
+        "sourcePage": "https://glowming.co.za/pages/win-cape-town",
+        "sourceImage": "https://glowming.co.za/cdn/shop/t/24/assets/journey-cape-town-aerial-1400.jpg?v=30649976868331245391790262815"
+      },
+      "reviewId": "glowming-cape-town"
+    },
+    {
+      "id": "amc-cookware-gifts-september-october-2026",
+      "type": "deal",
+      "sourceUrl": "https://www.amcsa.co.za/en/on-promotion/this-months-promotions/free-gifts/",
+      "expiresAt": "2026-10-07",
+      "reviewDueAt": "2026-10-07",
+      "image": {
+        "src": "/assets/listings/amc-cookware-gifts-september-october-2026.webp",
+        "width": 600,
+        "height": 600,
+        "alt": "Official AMC 16cm Milk Boiler product photograph; one of the qualifying purchase gifts",
+        "kind": "official-source",
+        "caption": "Image from the official campaign/provider source.",
+        "reviewedAt": "2026-10-03",
+        "sourcePage": "https://www.amcsa.co.za/en/on-promotion/this-months-promotions/free-gifts/",
+        "sourceImage": "https://www.amcsa.co.za/docs/products/A1624/default.png"
+      },
+      "reviewId": "amc-free-gifts"
+    },
+    {
+      "id": "skinstore-cerave-purchase-gift-2026",
+      "type": "deal",
+      "sourceUrl": "https://www.skinstore.co.za/",
+      "expiresAt": null,
+      "reviewDueAt": "2026-10-07",
+      "image": {
+        "src": "/assets/listings/skinstore-cerave-purchase-gift-2026.webp",
+        "width": 900,
+        "height": 1125,
+        "alt": "Official SkinStore CeraVe SA Smoothing Cream purchase-gift artwork",
+        "kind": "official-source",
+        "caption": "Image from the official campaign/provider source.",
+        "reviewedAt": "2026-10-03",
+        "sourcePage": "https://www.skinstore.co.za/",
+        "sourceImage": "https://www.skinstore.co.za/cdn/shop/files/Cerave-promotions.png?v=1785694042&width=900"
+      },
+      "reviewId": "skinstore-cerave-gift"
+    },
+    {
+      "id": "skinstore-samples-with-orders",
+      "type": "deal",
+      "sourceUrl": "https://www.skinstore.co.za/",
+      "expiresAt": null,
+      "reviewDueAt": "2026-10-07",
+      "image": {
+        "src": "/assets/listings/skinstore-samples-with-orders.webp",
+        "width": 900,
+        "height": 1125,
+        "alt": "Official SkinStore samples-with-orders artwork; sample contents vary",
+        "kind": "official-source",
+        "caption": "Image from the official campaign/provider source.",
+        "reviewedAt": "2026-10-03",
+        "sourcePage": "https://www.skinstore.co.za/",
+        "sourceImage": "https://www.skinstore.co.za/cdn/shop/files/69.jpg?v=1779278361&width=900"
+      },
+      "reviewId": "skinstore-order-samples"
+    },
+    {
+      "id": "sebamed-samples-with-orders",
+      "type": "deal",
+      "sourceUrl": "https://sebamed.co.za/",
+      "expiresAt": null,
+      "reviewDueAt": "2026-10-07",
+      "image": {
+        "src": "/assets/listings/sebamed-samples-with-orders.webp",
+        "width": 1200,
+        "height": 403,
+        "alt": "Official Sebamed product-range banner; sample contents are not specified",
+        "kind": "official-source",
+        "caption": "Image from the official campaign/provider source.",
+        "reviewedAt": "2026-10-03",
+        "sourcePage": "https://sebamed.co.za/",
+        "sourceImage": "https://sebamed.co.za/wp-content/uploads/2026/04/banner.jpg"
+      },
+      "reviewId": "sebamed-order-samples"
+    }
+  ]
+}

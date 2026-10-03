@@ -28,6 +28,11 @@ const manualRecheckDays = 30;
 const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 FreeHubValidator/1.0";
 const APPROVED_MANUAL_OK_URLS = new Map([
+  ["bargain-books-scorpio-rising-2026", "https://bargainbooks.co.za/competitions"],
+  ["bargain-books-hollow-bones-2026", "https://bargainbooks.co.za/competitions"],
+  ["bargain-books-cheslin-kolbe-2026", "https://bargainbooks.co.za/competitions"],
+  ["bargain-books-court-splintered-harmony-2026", "https://bargainbooks.co.za/competitions"],
+  ["dis-chem-energizer-october-december-2026", "https://www.dischem.co.za/energizer-october-2026-competition"],
   ["dis-chem-garnier-soft-life-2026", "https://www.dischem.co.za/garnier-soft-life-competition"],
   ["lancewood-spread-scoop-competition-2026", "https://lancewood.co.za/terms-conditions/spread-scoop-competition-terms/"],
   ["dis-chem-oral-b-apple-combo-2026", "https://www.dischem.co.za/oral-b-september-2026-competition"],

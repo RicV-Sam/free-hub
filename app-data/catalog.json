@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-03",
-  "count": 17,
+  "count": 21,
   "counts": {
     "freeStuff": 16,
     "resources": 16,
     "opportunities": 0,
-    "offers": 1
+    "offers": 5
   },
   "items": [
     {
@@ -281,6 +281,79 @@
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "expiresAt": "2026-12-31",
       "lastChecked": "2026-09-24",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "amc-cookware-gifts-september-october-2026",
+      "kind": "deal",
+      "title": "AMC cookware gifts with qualifying purchases",
+      "provider": "AMC Cookware",
+      "summary": "Qualifying AMC cookware orders can receive a 16cm Milk Boiler or Gourmet High at R11,360 spend, or a 30cm Gourmet Roaster at R19,300. Purchase required.",
+      "category": "home-garden",
+      "categoryLabel": "Home & Garden",
+      "officialUrl": "https://www.amcsa.co.za/en/on-promotion/this-months-promotions/free-gifts/",
+      "termsUrl": "https://www.amcsa.co.za/en/on-promotion/this-months-promotions/free-gifts/",
+      "requirements": [
+        "Offer runs 8 September–7 October 2026. Gift depends on qualifying spend and order type. Credit-order gifts are delivered after full payment within the contract period. PriceSaver, Stokvel and interest-free orders require an AMC Consultant; these order types are not available online. Confirm the selected gift and order total with AMC before paying. Cook’s Book thresholds are omitted because wording differs at the exact spend boundary."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-10-07",
+      "lastChecked": "2026-10-03",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "skinstore-cerave-purchase-gift-2026",
+      "kind": "deal",
+      "title": "CeraVe SA Smoothing Cream gift with R999 CeraVe spend",
+      "provider": "SkinStore",
+      "summary": "SkinStore advertises a CeraVe SA Smoothing Cream 177ml gift with R999 spent on CeraVe products. Qualifying purchase required; confirm availability before checkout.",
+      "category": "beauty-health",
+      "categoryLabel": "Beauty & Health",
+      "officialUrl": "https://www.skinstore.co.za/",
+      "termsUrl": "https://www.skinstore.co.za/",
+      "requirements": [
+        "The qualifying spend is on CeraVe products, not the whole cart. The official homepage advertises the 177ml gift; no expiry date or live stock level is stated. Confirm the current offer, gift inclusion and any delivery charges with SkinStore before payment. No specific extra qualifying conditions were verified."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-03",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "skinstore-samples-with-orders",
+      "kind": "deal",
+      "title": "SkinStore skincare samples with paid orders",
+      "provider": "SkinStore",
+      "summary": "SkinStore advertises complimentary skincare samples with orders. A paid order is required; sample products vary with availability.",
+      "category": "beauty-health",
+      "categoryLabel": "Beauty & Health",
+      "officialUrl": "https://www.skinstore.co.za/",
+      "termsUrl": "https://www.skinstore.co.za/",
+      "requirements": [
+        "This is a purchase-linked benefit, not an unconditional freebie. Exact sample brands, contents and quantities are not guaranteed. The provider does not state an expiry date or current stock level. Confirm samples and any order/delivery charges before checkout."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-03",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "sebamed-samples-with-orders",
+      "kind": "deal",
+      "title": "Sebamed samples with paid online orders",
+      "provider": "Sebamed South Africa",
+      "summary": "The official Sebamed South Africa shop advertises free samples with all orders. A paid order is required; sample contents are not specified.",
+      "category": "beauty-health",
+      "categoryLabel": "Beauty & Health",
+      "officialUrl": "https://sebamed.co.za/",
+      "termsUrl": "https://sebamed.co.za/",
+      "requirements": [
+        "Purchase required. The homepage banner currently advertises samples with all orders; it does not specify contents, quantities, expiry or live inventory. Confirm availability and delivery charges with the provider before paying. The artwork shows the product range, not a promised sample pack."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-03",
       "isAffiliate": false,
       "isSponsored": false
     }
