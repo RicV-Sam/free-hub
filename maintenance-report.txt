@@ -1,14 +1,14 @@
 === Competition Maintenance Report ===
-Date: 2026-10-02
+Date: 2026-10-03
 Mode: archive-expired
-Total competitions: 395
-Active published count: 59
-Expired archive page count: 231
+Total competitions: 417
+Active published count: 79
+Expired archive page count: 232
 Low-value expired noindex count: 0
-Held/private count: 105
+Held/private count: 106
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 8
+Closing in next 14 days: 11
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -242,16 +242,20 @@ Expired competition IDs:
 - wellness-warehouse-metagenics-story-2026 (2026-09-30)
 - nedbank-greenbacks-checkers-grocery-2026 (2026-09-30)
 - wellness-sportrx-electrolyte-giveaway-2026 (2026-09-30)
+- spar-nutrifresh-spin-and-win-2026 (2026-10-02)
 
 Closing soon (next 14 days):
-- spar-nutrifresh-spin-and-win-2026 (0 days)
-- huletts-heritage-2026 (1 days)
-- clicks-tresemme-extraordinary-wins-2026 (3 days)
-- wellness-cycle-harmony-giveaway-2026 (3 days)
-- makro-spring-trolley-dash-2026 (4 days)
-- kaizer-chiefs-supporter-research-jersey-2026 (5 days)
-- nedbank-youthx-awards-2026 (7 days)
-- knorr-win-r5000-weekly-2026 (9 days)
+- huletts-heritage-2026 (0 days)
+- vodacom-pirates-sundowns-mtn8-tickets-october-2026 (1 days)
+- clicks-tresemme-extraordinary-wins-2026 (2 days)
+- wellness-cycle-harmony-giveaway-2026 (2 days)
+- makro-spring-trolley-dash-2026 (3 days)
+- nedbank-youthx-awards-2026 (6 days)
+- knorr-win-r5000-weekly-2026 (8 days)
+- sea-harvest-say-fish-grocery-vouchers-2026 (12 days)
+- spar-colgate-palmolive-r150k-2026 (14 days)
+- mr-muscle-2026-consumer-promotion (14 days)
+- gwm-haval-h7-travel-fund-2026 (14 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
