@@ -12514,9 +12514,10 @@ function renderOfficialEntryAccounts(competition) {
     return "";
   }
 
+  const isVnn = competition.id === "vodacom-value-news-network-2026";
   return `<section class="competition-detail__entry-accounts" aria-labelledby="official-entry-accounts-heading">
-              <h2 class="competition-detail__steps-title" id="official-entry-accounts-heading">Official VNN accounts</h2>
-              <p>Use the latest VNN episode post on one of these Vodacom accounts:</p>
+              <h2 class="competition-detail__steps-title" id="official-entry-accounts-heading">${isVnn ? "Official VNN accounts" : "Official entry accounts"}</h2>
+              <p>${isVnn ? "Use the latest VNN episode post on one of these Vodacom accounts:" : "Find the campaign post on the promoter's official account:"}</p>
               <ul class="competition-detail__entry-accounts-list">
                 ${accounts
                   .map(
@@ -12525,7 +12526,7 @@ function renderOfficialEntryAccounts(competition) {
                   )
                   .join("\n                ")}
               </ul>
-              <p class="competition-detail__entry-accounts-note">Check the episode post for its question and episode-specific deadline before entering.</p>
+              <p class="competition-detail__entry-accounts-note">${isVnn ? "Check the episode post for its question and episode-specific deadline before entering." : "Complete every action in the campaign post and check its closing date before entering."}</p>
             </section>`;
 }
 

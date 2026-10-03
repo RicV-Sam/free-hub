@@ -30,10 +30,11 @@ function getCurrentContentBaseline() {
   return { active, core, publicOpportunities, detailOpportunities, samples, testing, featured,
     // Reviewed 24 September base includes the website batch, five Instagram-sourced pages and the qualifying grocery hub;
     // Seven reviewed crawl-132 pages and fourteen reviewed wide-search competition
-    // detail pages were added on 3 October. SPAR Weekly Wins remains held.
+    // detail pages were added on 3 October, followed by the Vodacom MTN8 final
+    // ticket draw detail page and its noindex football tag page. SPAR Weekly Wins remains held.
     // Active counts add the corresponding exit routes. The fixed detail-page base
     // excludes the Kaizer Chiefs survey withdrawn on 2 October after its entry page closed.
-    generatedFileCount: 408 + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    generatedFileCount: 410 + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
     sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length,
   };
 }
