@@ -1,33 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-02",
-  "count": 57,
+  "asOfDate": "2026-10-03",
+  "count": 62,
   "competitions": [
-    {
-      "id": "spar-nutrifresh-spin-and-win-2026",
-      "title": "SPAR Nutrifresh Spin & Win Competition",
-      "brand": "SPAR KZN / Nutrifresh",
-      "summary": "Spin the official SPAR KZN Facebook jackpot wheel and post a winning screenshot for a chance to win a Nutrifresh knife hamper.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/spar-nutrifresh-spin-and-win-2026.webp",
-      "closingDate": "2026-10-02",
-      "category": "Shopping",
-      "prizeName": "Nutrifresh knife hamper",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Facebook Prize Wheel and Comment",
-      "eligibility": "Open to adults with Facebook access who can collect from a nominated KZN SPAR.",
-      "entrySteps": [
-        "Open the official SPAR Nutrifresh competition through the SPAR KZN Facebook post.",
-        "Spin the electronic jackpot wheel.",
-        "If three Nutrifresh logos appear, take a screenshot and post it in the official Facebook competition comments before noon on 2 October 2026."
-      ],
-      "officialUrl": "https://www.spar.co.za/SPAR-Nutrifresh-Competition",
-      "termsUrl": "https://www.spar.co.za/SPAR-Nutrifresh-Competition",
-      "lastChecked": "2026-09-06",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "huletts-heritage-2026",
       "title": "Huletts Heritage Recipe and Story Competition",
@@ -186,6 +161,33 @@
       "isClosingSoon": false
     },
     {
+      "id": "sea-harvest-say-fish-grocery-vouchers-2026",
+      "title": "Sea Harvest Say Fish: Win R5,000 Grocery Vouchers",
+      "brand": "Sea Harvest",
+      "summary": "Share a family fish recipe and your own dish photo for a chance to win one of three R5,000 grocery vouchers. A Sea Harvest product is required.",
+      "imageUrl": "https://freehub.co.za/assets/listings/sea-harvest-say-fish-grocery-vouchers-2026.webp",
+      "closingDate": "2026-10-15",
+      "category": "Vouchers",
+      "prizeName": "Three R5,000 grocery vouchers",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Recipe and Photo Upload",
+      "eligibility": "Lawful South African residents aged 18 or older, present in South Africa at entry and prize award. Promoter-related parties and their specified relatives or partners are excluded, as are people who won a promoter competition in the three months before closing.",
+      "entrySteps": [
+        "Prepare a family or heritage fish dish using at least one Sea Harvest product.",
+        "Complete the official Say Fish form with your details, recipe name and story, ingredients and method. Identify the Sea Harvest product used.",
+        "Upload your own clear photo of the finished dish as a JPG or PNG, up to 2MB. You must have the necessary rights and permissions for the recipe and photo.",
+        "Read and accept the terms and ongoing content-use licence; receiving marketing news is optional. Submit by 23:59 SAST on 15 October 2026.",
+        "Each additional entry must contain a materially different dish and different original photo. Only one prize per person."
+      ],
+      "officialUrl": "https://seaharvest.co.za/say-fish-campaign/",
+      "termsUrl": "https://seaharvest.co.za/say-fish-campaign-tcs/",
+      "lastChecked": "2026-10-03",
+      "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
       "id": "spar-colgate-palmolive-r150k-2026",
       "title": "SPAR Colgate-Palmolive Win Your Share of R150,000 Competition",
       "brand": "SPAR / Colgate-Palmolive",
@@ -330,12 +332,12 @@
       "entrySteps": [
         "Buy one or more Tinkies six-pack boxes in any flavour during the promotion period.",
         "Swipe a registered SPAR Rewards card with the qualifying purchase for automatic entry.",
-        "Buy one box for the JBL tier, two boxes for the Samsung Galaxy Tab tier, or three or more boxes for the Xbox tier.",
+        "The terms allocate prize tiers by boxes purchased during the promotion period: one for JBL, two for Samsung Galaxy Tab, and three or more for Xbox.",
         "Complete the qualifying purchase and swipe before 23:59 on 19 October 2026."
       ],
-      "officialUrl": "https://www.spar.co.za/My-SPAR/Competitions/View/Tinkies-Distraction-Levels-Competition",
-      "termsUrl": "https://www.spar.co.za/My-SPAR/Competitions/View/Tinkies-Distraction-Levels-Competition",
-      "lastChecked": "2026-08-30",
+      "officialUrl": "https://www.spar.co.za/competitions/tinkies-distraction-levels-competition",
+      "termsUrl": "https://www.spar.co.za/competitions/tinkies-distraction-levels-competition",
+      "lastChecked": "2026-10-03",
       "isHighValue": true,
       "isClosingSoon": false
     },
@@ -388,6 +390,33 @@
       "officialUrl": "https://www.clicks.co.za/clubcard/competitions/rimmel-hydration-hamper-competition",
       "termsUrl": "https://woobox.com/gtn7w7/rules",
       "lastChecked": "2026-09-24",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "clicks-sorbet-birthday-hampers-october-2026",
+      "title": "Clicks Sorbet Birthday: Win a R2,000 Hamper",
+      "brand": "Clicks / Sorbet",
+      "summary": "Buy a Sorbet product in one transaction and swipe your Clicks ClubCard for a chance to win one of three R2,000 Sorbet hampers.",
+      "imageUrl": "https://freehub.co.za/assets/listings/clicks-sorbet-birthday-hampers-october-2026.webp",
+      "closingDate": "2026-10-22",
+      "category": "Beauty",
+      "prizeName": "Sorbet hamper",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Purchase and ClubCard Swipe",
+      "eligibility": "South African residents aged 18 or older who belong to Clicks ClubCard and make the qualifying purchase. Clicks, its promotion agencies, the supplier and their specified related parties are excluded.",
+      "entrySteps": [
+        "Be a Clicks ClubCard member aged 18 or older and resident in South Africa.",
+        "Buy a Sorbet product in a single transaction at a South African Clicks store and swipe your ClubCard.",
+        "Entry is automatic when you meet the conditions; keep your ClubCard contact details current.",
+        "Complete your qualifying transaction between 2026-10-02 and 2026-10-22. The rules do not state a closing hour.",
+        "If selected, respond within two working days of contact and provide the required identity evidence."
+      ],
+      "officialUrl": "https://www.clicks.co.za/clubcard/competitions/sorbet-21st-birthday-competition",
+      "termsUrl": "https://woobox.com/v5nvs4/rules",
+      "lastChecked": "2026-10-03",
       "isHighValue": false,
       "isClosingSoon": false
     },
@@ -772,6 +801,58 @@
       "termsUrl": "https://www.budgetspeechcompetition.co.za/terms-and-conditions/",
       "lastChecked": "2026-09-24",
       "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "beares-facebook-russell-hobbs-freezer-october-2026",
+      "title": "Beares October: Win a Russell Hobbs Chest Freezer",
+      "brand": "Beares / Lewis Stores",
+      "summary": "Enter Beares' October Facebook competition for a chance to win a Russell Hobbs chest freezer. No purchase is stated; marketing consent is required.",
+      "imageUrl": "https://freehub.co.za/assets/listings/beares-facebook-russell-hobbs-freezer-october-2026.webp",
+      "closingDate": "2026-10-31",
+      "category": "Lifestyle",
+      "prizeName": "Russell Hobbs RHCF330ME stainless steel chest freezer (251L on the official campaign page)",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "Residents of South Africa, Botswana, Lesotho, Namibia or Eswatini aged 18 or older, with a valid ID or passport. Lewis Stores-related parties and their specified relatives or partners are excluded. The linked South African form was verified; support for other countries was not tested.",
+      "entrySteps": [
+        "Like the official Beares Facebook page, BearesFurniture, linked from the Beares website.",
+        "Open the official Beares Facebook competition form and complete the required name, contact, province and nearest-store details.",
+        "Review the terms and required consent to receive marketing from Lewis Stores and its affiliates.",
+        "Enter once between 1 and 31 October 2026. Do not use multiple phone numbers or submit duplicate entries. The closing hour is not stated."
+      ],
+      "officialUrl": "https://www.beares.co.za/facebook-competition",
+      "termsUrl": "https://www.beares.co.za/beares-social-media-competition-terms-conditions-rsa-russel-hobbs-330l-stainless-steel-chest-freezer",
+      "lastChecked": "2026-10-03",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "beares-instagram-skyler-wardrobe-october-2026",
+      "title": "Beares October: Win a Skyler Mirror Wardrobe",
+      "brand": "Beares / Lewis Stores",
+      "summary": "Enter Beares' October Instagram competition for a chance to win a Skyler six-door mirror wardrobe. No purchase is stated; marketing consent is required.",
+      "imageUrl": "https://freehub.co.za/assets/listings/beares-instagram-skyler-wardrobe-october-2026.webp",
+      "closingDate": "2026-10-31",
+      "category": "Lifestyle",
+      "prizeName": "Skyler 6-door, 6-drawer mirror wardrobe",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "Residents of South Africa, Botswana, Lesotho, Namibia or Eswatini aged 18 or older, with a valid ID or passport. Lewis Stores-related parties and their specified relatives or partners are excluded. The linked South African form was verified; support for other countries was not tested.",
+      "entrySteps": [
+        "Follow the official Beares Instagram account, @beares_furniture, linked from the Beares website.",
+        "Open the official Beares Instagram competition form and complete the required name, contact, province and nearest-store details.",
+        "Review the terms and required consent to receive marketing from Lewis Stores and its affiliates.",
+        "Enter once between 1 and 31 October 2026. Do not use multiple phone numbers or submit duplicate entries. The closing hour is not stated."
+      ],
+      "officialUrl": "https://www.beares.co.za/instagram-competition",
+      "termsUrl": "https://www.beares.co.za/beares-social-media-competition-terms-conditions-rsa-skyler-6door-6drawer-mirror-robe",
+      "lastChecked": "2026-10-03",
+      "isHighValue": false,
       "isClosingSoon": false
     },
     {
@@ -1161,6 +1242,32 @@
       "isClosingSoon": false
     },
     {
+      "id": "clicks-have-your-say-october-november-2026",
+      "title": "Clicks Have Your Say: Win R500 ClubCard Cashback",
+      "brand": "Clicks ClubCard Magazine / The Publishing Partnership",
+      "summary": "Email your thoughts about Clicks for a chance to win R500 ClubCard cashback in the October/November magazine competition. ClubCard membership is required.",
+      "imageUrl": "https://freehub.co.za/assets/listings/clicks-have-your-say-october-november-2026.webp",
+      "closingDate": "2026-12-01",
+      "category": "Vouchers",
+      "prizeName": "R500 Clicks ClubCard cashback",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Email Entry",
+      "eligibility": "South African residents aged 18 or older with Clicks ClubCard membership. Winners of competitions in the preceding magazine issue are excluded, along with specified Clicks, agency and Publishing Partnership related parties.",
+      "entrySteps": [
+        "Check that you are a South African resident aged 18 or older and a Clicks ClubCard member.",
+        "Write your thoughts about Clicks and email them to clubcardletters@tppsa.co.za.",
+        "Enter between 1 October and 1 December 2026. The rules do not specify a closing hour.",
+        "Keep your email and ClubCard contact details current. If selected, respond within four working days of notification and provide identity evidence."
+      ],
+      "officialUrl": "https://www.clicks.co.za/clubcard/competitions/clubcard-magazine-october-november-2026-have-your-say-competition",
+      "termsUrl": "https://woobox.com/3du4px/rules",
+      "lastChecked": "2026-10-03",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "vodacom-value-news-network-2026",
       "title": "Vodacom Value News Network Competition",
       "brand": "Vodacom",
@@ -1334,6 +1441,33 @@
       "termsUrl": "https://www.builders.co.za/ratings-reviews-terms-conditions",
       "lastChecked": "2026-09-17",
       "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "clicks-energizer-cashback-october-december-2026",
+      "title": "Clicks Energizer: Win R5,000 ClubCard Cashback",
+      "brand": "Clicks / Energizer",
+      "summary": "Buy two Energizer products in one transaction and swipe your Clicks ClubCard for a chance to win one of ten R5,000 ClubCard cashback prizes.",
+      "imageUrl": "https://freehub.co.za/assets/listings/clicks-energizer-cashback-october-december-2026.webp",
+      "closingDate": "2026-12-31",
+      "category": "Vouchers",
+      "prizeName": "R5,000 Clicks ClubCard cashback",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Purchase and ClubCard Swipe",
+      "eligibility": "South African residents aged 18 or older who belong to Clicks ClubCard and make the qualifying purchase. Clicks, its promotion agencies, the supplier and their specified related parties are excluded.",
+      "entrySteps": [
+        "Be a Clicks ClubCard member aged 18 or older and resident in South Africa.",
+        "Buy two Energizer products in a single transaction at a South African Clicks store and swipe your ClubCard. Online purchases meeting the same criteria also qualify.",
+        "Entry is automatic when you meet the conditions; keep your ClubCard contact details current.",
+        "Complete your qualifying transaction between 2026-10-01 and 2026-12-31. The rules do not state a closing hour.",
+        "If selected, respond within two working days of contact and provide the required identity evidence."
+      ],
+      "officialUrl": "https://www.clicks.co.za/clubcard/competitions/swipe-and-win-with-energizer-competition",
+      "termsUrl": "https://woobox.com/wgoqn2/rules",
+      "lastChecked": "2026-10-03",
+      "isHighValue": true,
       "isClosingSoon": false
     },
     {

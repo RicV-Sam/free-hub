@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-10-02
+Generated: 2026-10-03
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
@@ -77,7 +77,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 11
+- Matching active public competitions: 13
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -92,6 +92,8 @@ Recommended normalisation:
 | Penguin Random House Art of Hosting and Cape Island Hamper Competition (penguin-random-house-art-of-hosting-2026) | 2026-10-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Penguin Random House Penguin Post 44 Book Hamper Competition (penguin-random-house-penguin-post-44-2026) | 2026-10-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Cadbury Made to Share: Win R20,000 Weekly (cadbury-made-to-share-2026) | 2026-10-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| Beares October: Win a Russell Hobbs Chest Freezer (beares-facebook-russell-hobbs-freezer-october-2026) | 2026-10-31 | free-entry | yes | yes | Online entry mentioned in entry text | none |
+| Beares October: Win a Skyler Mirror Wardrobe (beares-instagram-skyler-wardrobe-october-2026) | 2026-10-31 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Clicks Baby Essentials Hamper Competition (clicks-baby-essentials-hamper-2026) | 2026-11-01 | account-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Builders Ratings and Reviews Competition 2026 (builders-ratings-reviews-2026) | 2026-12-31 | purchase-required | yes | yes | Online entry tag | none |
@@ -135,13 +137,14 @@ Recommended normalisation:
 ## Win Grocery Vouchers in South Africa
 
 - URL: /win-grocery-vouchers-south-africa/
-- Matching active public competitions: 3
+- Matching active public competitions: 4
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
+| Sea Harvest Say Fish: Win R5,000 Grocery Vouchers (sea-harvest-say-fish-grocery-vouchers-2026) | 2026-10-15 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | SPAR Colgate-Palmolive Win Your Share of R150,000 Competition (spar-colgate-palmolive-r150k-2026) | 2026-10-17 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Lancewood Spread & Scoop Competition 2026 (lancewood-spread-scoop-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Coca-Cola Returnables: Win Grocery Vouchers (coca-cola-returnables-2026) | 2027-01-31 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
@@ -159,8 +162,8 @@ Recommended normalisation:
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| SPAR Nutrifresh Spin & Win Competition (spar-nutrifresh-spin-and-win-2026) | 2026-10-02 | free-entry | yes | yes | Supermarket brand or retail partner | none |
 | Makro Spring Trolley Dash Competition (makro-spring-trolley-dash-2026) | 2026-10-06 | purchase-required | yes | yes | Supermarket or grocery entry text | none |
+| Sea Harvest Say Fish: Win R5,000 Grocery Vouchers (sea-harvest-say-fish-grocery-vouchers-2026) | 2026-10-15 | purchase-required | yes | yes | Supermarket or grocery entry text | none |
 | SPAR Colgate-Palmolive Win Your Share of R150,000 Competition (spar-colgate-palmolive-r150k-2026) | 2026-10-17 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Tinkies Distraction Levels Tech Competition 2026 (tinkies-distraction-levels-competition-2026) | 2026-10-19 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Heinz Heritage SPAR Rewards Braai Competition (heinz-heritage-spar-2026) | 2026-10-25 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |

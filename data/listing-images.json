@@ -523,5 +523,71 @@
     "generationPrompt": "Landscape 3:2 editorial illustration for FreeHub about a South African football supporter research survey with a jersey prize draw. Refined warm paper-cut and softly textured still life: generic unbranded black-and-gold football scarf, football, clipboard with abstract checkbox marks, cream table, distant stadium. No people, club logos, actual jersey, replica kit, money, medical symbols, sponsor marks, prize quantities or endorsement. Include footer label FreeHub editorial illustration.",
     "officialArtworkCheck": "Official survey inspected: sole image is a generic club emblem SVG. No suitable campaign-specific hero found on the survey or terms page.",
     "sourcePage": "https://content.kaizerchiefs.com/competition/poll"
+  },
+  "sea-harvest-say-fish-grocery-vouchers-2026": {
+    "src": "/assets/listings/sea-harvest-say-fish-grocery-vouchers-2026.webp",
+    "width": 756,
+    "height": 829,
+    "alt": "Official Sea Harvest and Saldanha Say Fish campaign artwork",
+    "kind": "official-source",
+    "caption": "Official campaign artwork.",
+    "reviewedAt": "2026-10-03",
+    "sourcePage": "https://seaharvest.co.za/say-fish-campaign/",
+    "sourceImage": "https://seaharvest.co.za/wp-content/uploads/2026/09/mobiletop1.jpg"
+  },
+  "beares-facebook-russell-hobbs-freezer-october-2026": {
+    "src": "/assets/listings/beares-facebook-russell-hobbs-freezer-october-2026.webp",
+    "width": 1200,
+    "height": 1200,
+    "alt": "Official Beares October Russell Hobbs chest freezer prize artwork",
+    "kind": "official-source",
+    "caption": "Official campaign artwork.",
+    "reviewedAt": "2026-10-03",
+    "sourcePage": "https://www.beares.co.za/competitions",
+    "sourceImage": "https://www.beares.co.za/api/.renditions/wysiwyg/Home_page/BRS_Sep_comp_E_COM.jpg"
+  },
+  "beares-instagram-skyler-wardrobe-october-2026": {
+    "src": "/assets/listings/beares-instagram-skyler-wardrobe-october-2026.webp",
+    "width": 1080,
+    "height": 1080,
+    "alt": "Official Beares October Skyler mirror wardrobe prize artwork",
+    "kind": "official-source",
+    "caption": "Official campaign artwork.",
+    "reviewedAt": "2026-10-03",
+    "sourcePage": "https://www.beares.co.za/competitions",
+    "sourceImage": "https://www.beares.co.za/api/.renditions/wysiwyg/Home_page/COMPETITION_WINNER_FEB_2026_E_COMM.jpg"
+  },
+  "clicks-sorbet-birthday-hampers-october-2026": {
+    "src": "/assets/listings/clicks-sorbet-birthday-hampers-october-2026.webp",
+    "width": 1200,
+    "height": 810,
+    "alt": "Official Sorbet 21st birthday hamper competition artwork",
+    "kind": "official-source",
+    "caption": "Official campaign artwork.",
+    "reviewedAt": "2026-10-03",
+    "sourcePage": "https://www.clicks.co.za/clubcard/competitions/sorbet-21st-birthday-competition",
+    "sourceImage": "https://offertabs.s3.amazonaws.com/offer/v5nvs4/6abdf686014008.61548132.png"
+  },
+  "clicks-energizer-cashback-october-december-2026": {
+    "src": "/assets/listings/clicks-energizer-cashback-october-december-2026.webp",
+    "width": 1200,
+    "height": 810,
+    "alt": "Official Energizer ClubCard cashback competition artwork",
+    "kind": "official-source",
+    "caption": "Official campaign artwork.",
+    "reviewedAt": "2026-10-03",
+    "sourcePage": "https://www.clicks.co.za/clubcard/competitions/swipe-and-win-with-energizer-competition",
+    "sourceImage": "https://offertabs.s3.amazonaws.com/offer/wgoqn2/6abe002f3a8902.07995194.png"
+  },
+  "clicks-have-your-say-october-november-2026": {
+    "src": "/assets/listings/clicks-have-your-say-october-november-2026.webp",
+    "width": 1200,
+    "height": 810,
+    "alt": "Official Clicks ClubCard Have Your Say competition artwork",
+    "kind": "official-source",
+    "caption": "Official campaign artwork.",
+    "reviewedAt": "2026-10-03",
+    "sourcePage": "https://www.clicks.co.za/clubcard/competitions/clubcard-magazine-october-november-2026-have-your-say-competition",
+    "sourceImage": "https://offertabs.s3.amazonaws.com/offer/3du4px/6abdf924683d26.39586366.jpg"
   }
 }
