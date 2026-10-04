@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "retirements": [
+    {
+      "id": "fnb-lovefnb-social-media-competition",
+      "sourceHash": "904a5a1e4701d0b614efe98c3dff5b45c415061e8e86441f6971d30b908c7346",
+      "reviewedAt": "2026-10-04",
+      "effectiveAt": "2026-10-04",
+      "evidenceHash": "0d7fd092279bd0203a444be49a7b74d8b4008f8a36fa7ffd76997f22f5d83d01",
+      "checks": {
+        "traffic": "clear",
+        "backlinks": "clear",
+        "claims": "clear",
+        "results": "clear"
+      },
+      "reason": "Reviewed closed archive with no preservation need identified."
+    },
+    {
+      "id": "coca-cola-fifa-world-cup-2026",
+      "sourceHash": "ec659f0e835c969059fdf75169e6916c93490eaf22dd723a904e8d94a5605373",
+      "reviewedAt": "2026-10-04",
+      "effectiveAt": "2026-10-04",
+      "evidenceHash": "f8d333ca3f91bd72d470b24ac1bff996f4413d675fa4dfa3e76771a72d77b88f",
+      "checks": {
+        "traffic": "clear",
+        "backlinks": "clear",
+        "claims": "clear",
+        "results": "clear"
+      },
+      "reason": "Reviewed closed archive with no preservation need identified."
+    },
+    {
+      "id": "coca-cola-mzansi-football-promotion-2026",
+      "sourceHash": "07dc6cdf3f81f0394598a046ba88fa5247867fe40a77c3a8cf027d4d627b04bd",
+      "reviewedAt": "2026-10-04",
+      "effectiveAt": "2026-10-04",
+      "evidenceHash": "a43927a7f5c277a3cfa0e445fa78ffbeab9f6df911f70ff617b4a016905c9107",
+      "checks": {
+        "traffic": "clear",
+        "backlinks": "clear",
+        "claims": "clear",
+        "results": "clear"
+      },
+      "reason": "Reviewed closed archive with no preservation need identified."
+    },
+    {
+      "id": "standard-bank-mastercard-grocery-fuel-vouchers-2026",
+      "sourceHash": "92eddbcbfdd73824b29c63835ec7617ce4f82d3d842c35eecc2e7dbc1f511f02",
+      "reviewedAt": "2026-10-04",
+      "effectiveAt": "2026-10-04",
+      "evidenceHash": "e607eb77b0d6626736158d96ee7e7b455b5d955b885a03895505ab77f268c0d8",
+      "checks": {
+        "traffic": "clear",
+        "backlinks": "clear",
+        "claims": "clear",
+        "results": "clear"
+      },
+      "reason": "Reviewed closed archive with no preservation need identified."
+    },
+    {
+      "id": "alcolin-stanley-cabinet-competition-2026",
+      "sourceHash": "47f58a55093da34e6ed800f2c9229e797b0ede399731f7f8d425f4f7a397388b",
+      "reviewedAt": "2026-10-04",
+      "effectiveAt": "2026-10-04",
+      "evidenceHash": "f626bd9ad1bd61d99f021df6a06735aafd5fa8d5acd0c13d91c971ac62f7c3af",
+      "checks": {
+        "traffic": "clear",
+        "backlinks": "clear",
+        "claims": "clear",
+        "results": "clear"
+      },
+      "reason": "Reviewed closed archive with no preservation need identified."
+    },
+    {
+      "id": "bull-brand-spar-inland-cash-competition-2026",
+      "sourceHash": "909578ecd5bec837848488cd2bb9515d2ff4d84d240fa50cbd4c230953fae6f4",
+      "reviewedAt": "2026-10-04",
+      "effectiveAt": "2026-10-04",
+      "evidenceHash": "c0e8b9e379a3e8b8e354b80e69e30848a1bf0cbf171dfbc629049ace33b95877",
+      "checks": {
+        "traffic": "clear",
+        "backlinks": "clear",
+        "claims": "clear",
+        "results": "clear"
+      },
+      "reason": "Reviewed closed archive with no preservation need identified."
+    }
+  ]
+}

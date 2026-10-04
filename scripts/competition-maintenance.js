@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const shared = require("../shared/page-data.js");
+const { applyCompetitionRetirements } = require("./lib/competition-retirements.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
@@ -246,7 +247,11 @@ function main() {
   const today = options.today ? normalizeDate(options.today) : normalizeDate(new Date());
   const todayIso = formatDateLocal(today);
 
-  const competitions = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
+  shared.setReferenceDate(todayIso);
+  const retirementState = applyCompetitionRetirements(JSON.parse(fs.readFileSync(DATA_PATH, "utf8")),
+    fs.existsSync(ARCHIVE_PATH) ? JSON.parse(fs.readFileSync(ARCHIVE_PATH, "utf8")) : []);
+  const competitions = retirementState.primary;
+  console.log(`Reviewed competition retirements effective: ${retirementState.retiredIds.size}`);
   const held = competitions.filter((competition) => !isLifecyclePublicCompetition(competition));
   const { expired, active, closingSoon, expiredArchiveEligible, expiredLowValue } = classifyCompetitions(
     competitions.filter(isLifecyclePublicCompetition),

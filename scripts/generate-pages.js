@@ -12,6 +12,7 @@ const offerData = require("../shared/offer-data.js");
 const listingImages = require("../data/listing-images.json");
 const unverifiedCompetitionData = require("../shared/unverified-competition-data.js");
 const { applyLegacyArchiveCostCompatibility } = require("./lib/legacy-archive-costs.js");
+const { applyCompetitionRetirements } = require("./lib/competition-retirements.js");
 const { createFreeResourceRenderer } = require("./lib/free-resource-renderer.js");
 const { isPublishedFreeResource } = require("./lib/free-resource-publication.js");
 const { validateStudentGuide, createStudentGuideRenderer, createStudentOfferRenderer, getStudentNoticePath } = require("./lib/student-guide.js");
@@ -2527,11 +2528,17 @@ function main() {
   activeOpportunityRoutes = opportunityPublication.active;
   approvedPublicOpportunities = activeOpportunityRoutes.map((entry) => entry.opportunity);
   opportunityTombstones = opportunityPublication.tombstones;
-  const rawCompetitions = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
+  const sourceCompetitions = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
+  const sourceArchive = fs.existsSync(ARCHIVE_DATA_PATH) ? JSON.parse(fs.readFileSync(ARCHIVE_DATA_PATH, "utf8")) : [];
+  const retirementState = applyCompetitionRetirements(sourceCompetitions, sourceArchive, { asOfDate: LIFECYCLE_REFERENCE_DATE_ISO });
+  const rawCompetitions = retirementState.primary;
   validateEditorialPicks(editorialPicks, { competition: rawCompetitions, resource: ALL_FREE_RESOURCES, offer: offerRegistry });
-  const rawArchiveCompetitions = fs.existsSync(ARCHIVE_DATA_PATH)
-    ? applyLegacyArchiveCostCompatibility(JSON.parse(fs.readFileSync(ARCHIVE_DATA_PATH, "utf8")))
-    : [];
+  // Validate the complete legacy manifest against the retained source history,
+  // then exclude retired records from publication. Filtering first would make a
+  // legitimate retirement look like a missing legacy source record.
+  const rawArchiveCompetitions = applyLegacyArchiveCostCompatibility(sourceArchive)
+    .filter(entry => !retirementState.retiredIds.has(entry.id));
+  console.log(`[generate-pages] Reviewed competition retirements effective: ${retirementState.retiredIds.size}`);
   const validCompetitions = shared.sortCompetitions(
     rawCompetitions.filter((entry, index) => validateCompetition(entry, index))
   );
@@ -12862,7 +12869,14 @@ function removeStaleSlugDirectories(managedDirectory, validSlugs, label, options
         return;
       }
 
-      const stalePath = path.join(managedDirectory, entry.name);
+      const resolvedManaged = path.resolve(managedDirectory);
+      const stalePath = path.resolve(resolvedManaged, entry.name);
+      const workspaceRelative = path.relative(ROOT_DIR, resolvedManaged);
+      if (!workspaceRelative || workspaceRelative.startsWith("..") || path.isAbsolute(workspaceRelative)
+        || path.dirname(stalePath) !== resolvedManaged || fs.lstatSync(stalePath).isSymbolicLink()
+        || fs.realpathSync(stalePath) !== stalePath) {
+        throw new Error(`Refusing cleanup outside the managed workspace directory: ${stalePath}`);
+      }
       fs.rmSync(stalePath, { recursive: true, force: true });
       console.log(`[generate-pages] Removed stale ${label} directory: ${stalePath}`);
     });

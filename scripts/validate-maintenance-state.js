@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const shared = require("../shared/page-data.js");
 const { validateEditorialFreshness } = require("./lib/editorial-freshness.js");
+const { applyCompetitionRetirements } = require("./lib/competition-retirements.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
@@ -43,6 +44,7 @@ function walkPublicListingFiles(rootDir) {
   const skippedDirectories = new Set([
     ".git",
     ".github",
+    ".research",
     "admin",
     "assets",
     "club",
@@ -51,6 +53,8 @@ function walkPublicListingFiles(rootDir) {
     "docs",
     "node_modules",
     "out",
+    "output",
+    "reports",
     "scripts",
     "shared",
   ]);
@@ -82,8 +86,12 @@ function walkPublicListingFiles(rootDir) {
 function validateMaintenanceState(options = {}) {
   const today = options.today ? normalizeDate(options.today) : normalizeDate(new Date());
   const todayIso = formatDateLocal(today);
-  const competitions = readJson(DATA_PATH, []);
-  const archivedCompetitions = readJson(ARCHIVE_PATH, []);
+  shared.setReferenceDate(todayIso);
+  const sourceCompetitions = readJson(DATA_PATH, []);
+  const sourceArchive = readJson(ARCHIVE_PATH, []);
+  const retirementState = applyCompetitionRetirements(sourceCompetitions, sourceArchive);
+  const competitions = retirementState.primary;
+  const archivedCompetitions = retirementState.archive;
   const sitemap = fs.existsSync(SITEMAP_PATH) ? fs.readFileSync(SITEMAP_PATH, "utf8") : "";
   const publicListingFiles = walkPublicListingFiles(ROOT_DIR);
   const archiveIds = new Set(archivedCompetitions.map((competition) => competition.id));
@@ -109,6 +117,8 @@ function validateMaintenanceState(options = {}) {
 
   const summary = {
     today: todayIso,
+    retiredCount: retirementState.retiredIds.size,
+    retiredRouteLeaks: [],
     expiredPublishedCount: expiredPublishedCompetitions.length,
     archivedCompetitionCount: archivedCompetitions.length,
     publicListingFilesScanned: publicListingFiles.length,
@@ -255,6 +265,16 @@ function validateMaintenanceState(options = {}) {
   });
 
   const errors = validateEditorialFreshness(ROOT_DIR, todayIso);
+  for (const competition of [...sourceCompetitions, ...sourceArchive].filter(row => retirementState.retiredIds.has(row.id))) {
+    const slug = getCompetitionSlug(competition);
+    const route = `/competition/${slug}/`;
+    if (fs.existsSync(path.join(ROOT_DIR, "competition", slug, "index.html"))
+      || fs.existsSync(path.join(ROOT_DIR, "out", slug, "index.html"))
+      || sitemap.includes(route) || publicListingFiles.some(file => fs.readFileSync(file, "utf8").includes(route))) {
+      if (!summary.retiredRouteLeaks.includes(slug)) summary.retiredRouteLeaks.push(slug);
+    }
+  }
+  if (summary.retiredRouteLeaks.length) errors.push(`Retired competitions still have routes or public links: ${summary.retiredRouteLeaks.join(", ")}`);
 
   if (summary.sitemapContainsOutUrls) {
     errors.push("Sitemap contains /out/ URLs.");

@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const shared = require("../shared/page-data.js");
+const { applyCompetitionRetirements } = require("./lib/competition-retirements.js");
 const {
   compareWarningBaseline,
   loadWarningBaseline,
@@ -317,7 +318,10 @@ const APPROVED_MANUAL_OK_URLS = new Map([
 ]);
 
 function loadCompetitions() {
-  return JSON.parse(fs.readFileSync(DATA_PATH, "utf8")).filter(Boolean);
+  shared.setReferenceDate(process.env.FREEHUB_AS_OF_DATE || process.env.FREEHUB_BUILD_DATE || shared.getSouthAfricanDate());
+  const primary = JSON.parse(fs.readFileSync(DATA_PATH, "utf8")).filter(Boolean);
+  const archive = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, "data", "archive", "competitions-expired.json"), "utf8"));
+  return applyCompetitionRetirements(primary, archive).primary;
 }
 
 function getLinkValidationScope(competitions) {
@@ -1021,7 +1025,11 @@ async function main() {
   }
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}
+
+module.exports = { loadCompetitions };

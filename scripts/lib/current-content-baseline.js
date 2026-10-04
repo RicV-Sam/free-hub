@@ -2,6 +2,7 @@ const fs = require('node:fs');
 const { inventorySitemapCount } = require('./inventory-routes.js');
 const path = require('node:path');
 const shared = require('../../shared/page-data.js');
+const { applyCompetitionRetirements } = require('./competition-retirements.js');
 const opportunityData = require('../../shared/opportunity-data.js');
 const root = path.resolve(__dirname, '../..');
 const read = (name) => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
@@ -9,10 +10,16 @@ const read = (name) => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8')
 function getCurrentContentBaseline() {
   const buildDate = process.env.FREEHUB_BUILD_DATE || shared.getSouthAfricanDate();
   shared.setReferenceDate(process.env.FREEHUB_AS_OF_DATE || buildDate);
-  const competitions = read('data/competitions.json');
+  const sourceCompetitions = read('data/competitions.json');
+  const sourceArchive = read('data/archive/competitions-expired.json');
+  const retirementState = applyCompetitionRetirements(sourceCompetitions, sourceArchive);
+  const competitions = retirementState.primary;
+  const retiredDetailCount = new Set([...sourceCompetitions, ...sourceArchive]
+    .filter(row => retirementState.retiredIds.has(row.id) && shared.isExpiredArchiveEligibleCompetition(row))
+    .map(shared.getCompetitionSlug)).size;
   const active = shared.getPublishedActiveCompetitions(competitions);
   const core = shared.getPublishedCoreActiveCompetitions(competitions);
-  const resultSlugs = new Set([...competitions, ...read('data/archive/competitions-expired.json')].filter(shared.hasVerifiedCompetitionResult).map(shared.getCompetitionSlug));
+  const resultSlugs = new Set([...competitions, ...retirementState.archive].filter(shared.hasVerifiedCompetitionResult).map(shared.getCompetitionSlug));
   const enabled = process.env.FREEHUB_ENABLE_OPPORTUNITIES === 'true';
   const options = { asOfDate: buildDate, strictFreeOnly: false, requireSourceEvidence: true,
     sourceEvidence: read('data/opportunity-source-evidence.json'),
@@ -34,7 +41,7 @@ function getCurrentContentBaseline() {
     // Active counts add the corresponding exit routes. The fixed detail-page base
     // excludes the Kaizer Chiefs survey withdrawn on 2 October after its entry page closed.
     // GoTyme Card Swipe and Spend adds one reviewed detail page on 4 October.
-    generatedFileCount: 411 + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    generatedFileCount: 411 - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
     sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length,
   };
 }

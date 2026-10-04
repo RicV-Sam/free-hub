@@ -5,6 +5,7 @@ const shared = require("../shared/page-data.js");
 const opportunityData = require("../shared/opportunity-data.js");
 const offerData = require("../shared/offer-data.js");
 const { getEligibleEditorialPicks } = require("./lib/editorial-picks.js");
+const { applyCompetitionRetirements } = require("./lib/competition-retirements.js");
 const {
   SITE_ORIGIN,
   fileToRoute,
@@ -18,8 +19,8 @@ const ROOT_DIR = path.resolve(__dirname, "..");
 const BASELINE_DIR = path.join(ROOT_DIR, "tests", "baselines");
 const CONFIG = readJson(path.join(BASELINE_DIR, "seo-baseline.json"));
 const MANIFEST = readJson(path.join(BASELINE_DIR, "generated-pages.json"));
-const COMPETITIONS = readJson(path.join(ROOT_DIR, "data", "competitions.json")).filter(Boolean);
-const ARCHIVED_COMPETITIONS = readJson(path.join(ROOT_DIR, "data", "archive", "competitions-expired.json")).filter(Boolean);
+const SOURCE_COMPETITIONS = readJson(path.join(ROOT_DIR, "data", "competitions.json")).filter(Boolean);
+const SOURCE_ARCHIVE = readJson(path.join(ROOT_DIR, "data", "archive", "competitions-expired.json")).filter(Boolean);
 const OPPORTUNITIES = readJson(path.join(ROOT_DIR, "data", "opportunities.json")).filter(Boolean);
 const OFFERS = readJson(path.join(ROOT_DIR, "data", "offers.json")).filter(Boolean);
 const OPPORTUNITY_EVIDENCE = readJson(path.join(ROOT_DIR, "data", "opportunity-source-evidence.json")).filter(Boolean);
@@ -28,6 +29,9 @@ const OFFERS_ENABLED = offerData.isOfferFeatureEnabled(process.env.FREEHUB_ENABL
 const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date());
 const LIFECYCLE_REFERENCE_DATE_ISO = process.env.FREEHUB_AS_OF_DATE || BUILD_DATE_ISO;
 shared.setReferenceDate(LIFECYCLE_REFERENCE_DATE_ISO);
+const retirementState = applyCompetitionRetirements(SOURCE_COMPETITIONS, SOURCE_ARCHIVE);
+const COMPETITIONS = retirementState.primary;
+const ARCHIVED_COMPETITIONS = retirementState.archive;
 const activePublicSlugs = new Set(shared.getPublishedActiveCompetitions(COMPETITIONS).map(shared.getCompetitionSlug));
 const confirmedResultSlugs = new Set([...COMPETITIONS, ...ARCHIVED_COMPETITIONS].filter(shared.hasVerifiedCompetitionResult).map(shared.getCompetitionSlug));
 const indexableCompetitionSlugs = new Set([...activePublicSlugs, ...confirmedResultSlugs]);
