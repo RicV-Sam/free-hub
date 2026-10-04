@@ -207,8 +207,8 @@ test("homepage navigation reaches canonical pillar routes", async ({ page }) => 
   await page.setViewportSize({ width: 390, height: 844 });
   await expect(startHere).toBeVisible();
   await expect(startHere.getByRole("link", { name: /^Free Stuff/ })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Worth exploring", exact: true })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Featured competitions", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Worth a look this week", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "What would you like to win?", exact: true })).toBeVisible();
   await startHere.getByRole("link", { name: /^Free Stuff/ }).evaluate((link) => {
     link.addEventListener("click", (event) => event.preventDefault(), { once: true });
     link.click();
@@ -217,6 +217,7 @@ test("homepage navigation reaches canonical pillar routes", async ({ page }) => 
     ["event", "homepage_discovery_click", expect.objectContaining({ destination_path: "/free-stuff-south-africa/", placement: "start_here" })],
   ]));
 
+  await page.getByRole("button", { name: "Menu", exact: true }).click();
   await page.getByRole("navigation", { name: "Primary navigation" }).getByRole("link", { name: "Competitions", exact: true }).click();
   await expect(page).toHaveURL(/\/competitions\/$/);
   await expectCanonical(page, "/competitions/");
@@ -224,6 +225,7 @@ test("homepage navigation reaches canonical pillar routes", async ({ page }) => 
   await expectCanonical(page, "/competitions/");
 
   await page.goto("/");
+  await page.getByRole("button", { name: "Menu", exact: true }).click();
   await page.getByRole("navigation", { name: "Primary navigation" }).getByRole("link", { name: "Free Stuff" }).click();
   await expect(page).toHaveURL(/\/free-stuff-south-africa\/$/);
   await expectCanonical(page, "/free-stuff-south-africa/");
@@ -499,11 +501,13 @@ test("skip link is keyboard reachable and targets main content", async ({ page }
   await expect(page.locator("#main-content")).toBeVisible();
 });
 
-test("mobile navigation remains fully visible without a horizontal strip", async ({ page }) => {
+test("mobile navigation opens without a horizontal strip", async ({ page }) => {
   await page.route("**/scripts.scriptwrapper.com/**", (route) => route.abort());
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
   const navigation = page.getByRole("navigation", { name: "Primary navigation" });
+  await expect(navigation).toBeHidden();
+  await page.getByRole("button", { name: "Menu", exact: true }).click();
   await expect(navigation).toBeVisible();
   await expect(navigation.getByRole("link", { name: "Competitions", exact: true })).toBeVisible();
   await navigation.getByRole("link", { name: "Free Stuff" }).scrollIntoViewIfNeeded();
@@ -526,7 +530,7 @@ test("competition hub search filters prerendered listings and updates the result
   await page.goto("/competitions/");
   const search = page.getByRole("searchbox", { name: "Search competitions" });
   await expect(search).toBeVisible();
-  await expect(page.getByRole("group", { name: "Categories" }).getByRole("button")).not.toHaveCount(0);
+  await expect(page.locator("#categoryFilters > a")).not.toHaveCount(0);
 
   await search.fill("Knorr Soup");
   await expect(page.locator("#resultsSummary")).toHaveText("Showing 1 competition");
@@ -646,7 +650,7 @@ test("Free Stuff parent preserves intent and separates durable resources from op
   await expect(childNavigation.getByRole("link", { name: "Children's Books" })).toHaveAttribute("href", "/free-childrens-books-south-africa/");
   await expect(childNavigation.getByRole("link", { name: "Credit Reports" })).toHaveAttribute("href", "/free-credit-report-south-africa/");
 
-  await expect(page.locator("article.free-resource-card")).toHaveCount(26);
+  await expect(page.locator("article.free-resource-card")).toHaveCount(27);
   await expect(page.locator("article.opportunity-card")).toHaveCount(current.featured.length);
   await expect(page.locator("section.opportunity-section")).toHaveCount(current.featured.length ? 1 : 0);
   await expect(page.locator("#structured-data-opportunities")).toHaveCount(current.featured.length ? 1 : 0);
@@ -1068,58 +1072,16 @@ test("competition collection cards are present in the static HTML", async ({ bro
   await context.close();
 });
 
-test("portrait competition artwork fills its media stage without being cropped", async ({ page }) => {
-  const portraitCompetitionRoutes = [
-    "/competition/evetech-pulse-giveaway-2026/",
-    "/competition/takealot-back-to-school-voucher-2026/",
-  ];
-
-  for (const route of portraitCompetitionRoutes) {
-    await page.setViewportSize({ width: 1280, height: 900 });
-    await page.goto(route);
-
-    const heroMedia = page.locator(".competition-hero-card__media.competition-media--portrait");
-    const detailMedia = page.locator(".competition-detail__media.competition-media--portrait");
-    await expect(heroMedia.locator(":scope > .competition-image-backdrop")).toHaveCount(1);
-    await expect(heroMedia.locator(":scope > .competition-image-foreground")).toHaveCount(1);
-    await expect(detailMedia.locator(":scope > .competition-image-backdrop")).toHaveCount(1);
-    await expect(detailMedia.locator(":scope > .competition-image-foreground")).toHaveCount(1);
-
-    const desktopHeroBox = await heroMedia.boundingBox();
-    const desktopDetailBox = await detailMedia.boundingBox();
-    expect(desktopHeroBox.height).toBeGreaterThanOrEqual(285);
-    expect(desktopDetailBox.height).toBeGreaterThanOrEqual(375);
-    await expect(heroMedia.locator(":scope > .competition-image-foreground")).toHaveCSS("object-fit", "contain");
-
-    await page.setViewportSize({ width: 390, height: 844 });
-    const mobileHeroBox = await heroMedia.boundingBox();
-    const mobileDetailBox = await detailMedia.boundingBox();
-    expect(mobileHeroBox.height / mobileHeroBox.width).toBeGreaterThan(1.2);
-    expect(mobileDetailBox.height / mobileDetailBox.width).toBeGreaterThan(1.2);
+test("portrait and landscape details show one uncropped campaign image", async ({ page }) => {
+  for (const route of ["/competition/evetech-pulse-giveaway-2026/", "/competition/takealot-back-to-school-voucher-2026/", "/competition/discovery-four-principles-book-launch-2026/"]) {
+    for (const width of [390, 1280]) {
+      await page.setViewportSize({ width, height: 900 }); await page.goto(route);
+      const image = page.locator(".competition-detail__media > img");
+      await expect(image).toHaveCount(1); await expect(image).toHaveCSS("object-fit", "contain");
+      await expect(page.locator(".competition-hero-card")).toHaveCount(0);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+    }
   }
-});
-
-test("landscape competition artwork receives a full 16:9 media stage", async ({ page }) => {
-  const route = "/competition/discovery-four-principles-book-launch-2026/";
-  const response = await page.request.get(route);
-  const html = await response.text();
-  expect(html).toContain("competition-media--landscape");
-  expect(html).toContain("assets/competitions/discovery-four-principles-book-launch-2026.png");
-
-  await page.setViewportSize({ width: 1280, height: 900 });
-  await page.goto(route);
-  const heroMedia = page.locator(".competition-hero-card__media.competition-media--landscape");
-  const detailMedia = page.locator(".competition-detail__media.competition-media--landscape");
-  const desktopHeroBox = await heroMedia.boundingBox();
-  const desktopDetailBox = await detailMedia.boundingBox();
-  expect(desktopHeroBox.height).toBeGreaterThanOrEqual(225);
-  expect(desktopDetailBox.height).toBeGreaterThanOrEqual(295);
-
-  await page.setViewportSize({ width: 390, height: 844 });
-  const mobileHeroBox = await heroMedia.boundingBox();
-  const mobileDetailBox = await detailMedia.boundingBox();
-  expect(mobileHeroBox.height / mobileHeroBox.width).toBeGreaterThan(0.55);
-  expect(mobileDetailBox.height / mobileDetailBox.width).toBeGreaterThan(0.55);
 });
 
 test("active detail, outbound handoff, and expired detail retain lifecycle behavior", async ({ browser, page }) => {

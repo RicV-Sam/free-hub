@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const shared = require("../shared/page-data.js");
+const { validateEditorialFreshness } = require("./lib/editorial-freshness.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
@@ -21,29 +22,9 @@ function parseArgs(argv) {
   return options;
 }
 
-function normalizeDate(value) {
-  if (!value) {
-    throw new Error("Missing date value");
-  }
+function normalizeDate(value) { return new Date(`${shared.getSouthAfricanDate(value)}T00:00:00Z`); }
 
-  const parsed = /^\d{4}-\d{2}-\d{2}$/.test(String(value))
-    ? new Date(`${value}T00:00:00`)
-    : new Date(value);
-
-  if (Number.isNaN(parsed.getTime())) {
-    throw new Error(`Invalid date: ${value}`);
-  }
-
-  parsed.setHours(0, 0, 0, 0);
-  return parsed;
-}
-
-function formatDateLocal(date) {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
-}
+function formatDateLocal(date) { return shared.getSouthAfricanDate(date); }
 
 function readJson(filePath, fallbackValue = null) {
   if (!fs.existsSync(filePath)) {
@@ -273,7 +254,7 @@ function validateMaintenanceState(options = {}) {
     }
   });
 
-  const errors = [];
+  const errors = validateEditorialFreshness(ROOT_DIR, todayIso);
 
   if (summary.sitemapContainsOutUrls) {
     errors.push("Sitemap contains /out/ URLs.");

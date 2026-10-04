@@ -7,8 +7,7 @@ const root = path.resolve(__dirname, '../..');
 const read = (name) => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
 
 function getCurrentContentBaseline() {
-  const today = new Date();
-  const buildDate = process.env.FREEHUB_BUILD_DATE || [today.getFullYear(), String(today.getMonth()+1).padStart(2,'0'), String(today.getDate()).padStart(2,'0')].join('-');
+  const buildDate = process.env.FREEHUB_BUILD_DATE || shared.getSouthAfricanDate();
   shared.setReferenceDate(process.env.FREEHUB_AS_OF_DATE || buildDate);
   const competitions = read('data/competitions.json');
   const active = shared.getPublishedActiveCompetitions(competitions);

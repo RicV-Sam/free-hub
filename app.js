@@ -70,10 +70,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (elements.competitionsGrid && state.routeContext.type !== "competition") {
     loadCompetitions();
+    document.addEventListener("freehub:freshness-refreshed", () => {
+      if (state.competitions.length) renderCompetitions();
+    });
   }
 });
 
 function bindEvents() {
+  document.querySelectorAll('[data-static-categories] a.filter-chip').forEach((link) => {
+    link.addEventListener("click", () => trackCategoryFilterClick(link.textContent.trim(), link.getAttribute("href")));
+  });
   if (state.routeContext.type === "home") {
     document.addEventListener("click", (event) => {
       const link = event.target.closest(".hero--home a, .home-section a");
@@ -163,6 +169,7 @@ function renderCategoryFilters() {
   }
 
   const categories = ["All", ...new Set(state.competitions.map((competition) => competition.category))];
+  if (elements.categoryFilters.dataset.staticCategories === "true") return;
 
   elements.categoryFilters.innerHTML = "";
 
@@ -636,7 +643,7 @@ function updatePageChrome() {
 
   document.title = pageCopy.title;
   elements.pageTitle.textContent = pageCopy.heading;
-  elements.pageIntro.textContent = pageCopy.intro;
+  if (!document.querySelector(".hero--catalogue")) elements.pageIntro.textContent = pageCopy.intro;
   elements.metaDescription.setAttribute("content", pageCopy.description);
   elements.canonical.setAttribute("href", pageCopy.canonical);
   elements.ogTitle.setAttribute("content", pageCopy.title);

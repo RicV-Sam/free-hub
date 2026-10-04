@@ -4,6 +4,7 @@ const path = require("path");
 const shared = require("../shared/page-data.js");
 const opportunityData = require("../shared/opportunity-data.js");
 const offerData = require("../shared/offer-data.js");
+const { getEligibleEditorialPicks } = require("./lib/editorial-picks.js");
 const {
   SITE_ORIGIN,
   fileToRoute,
@@ -60,11 +61,7 @@ function readJson(filePath) {
 }
 
 function getLocalIsoDate(date) {
-  return [
-    date.getFullYear(),
-    String(date.getMonth() + 1).padStart(2, "0"),
-    String(date.getDate()).padStart(2, "0"),
-  ].join("-");
+  return shared.getSouthAfricanDate(date);
 }
 
 function formatValue(value) {
@@ -507,11 +504,24 @@ MANIFEST.pages.forEach((expectedPage) => {
     expected: expectedPage.h1,
     actual: page.h1,
   });
-  check(expectedPage.schemaTypes.every((type) => page.schemaTypes.includes(type)), {
+  const emptyReviewedHome = route === "/" && getEligibleEditorialPicks(
+    readJson(path.join(ROOT_DIR, "data", "editorial-picks.json")),
+    { competition: COMPETITIONS, resource: readJson(path.join(ROOT_DIR, "data", "free-resources.json")), offer: ACTIVE_OFFERS },
+    "home", LIFECYCLE_REFERENCE_DATE_ISO
+  ).filter(pick => pick.kind === "competition").length === 0;
+  const expectedSchemaTypes = emptyReviewedHome ? expectedPage.schemaTypes.filter(type => type !== "ListItem") : expectedPage.schemaTypes;
+  if (emptyReviewedHome) {
+    const itemList = page.jsonLd.find(item => item["@type"] === "ItemList");
+    check(itemList?.itemListElement?.length === 0, {
+      file: expectedPage.file, route, rule: "empty reviewed homepage has an empty ItemList",
+      expected: 0, actual: itemList?.itemListElement?.length,
+    });
+  }
+  check(expectedSchemaTypes.every((type) => page.schemaTypes.includes(type)), {
     file: expectedPage.file,
     route,
     rule: "representative schema types include baseline types",
-    expected: expectedPage.schemaTypes,
+    expected: expectedSchemaTypes,
     actual: page.schemaTypes,
   });
   check(sitemapSet.has(route) === expectedPage.inSitemap, {

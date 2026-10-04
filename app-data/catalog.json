@@ -71,7 +71,7 @@
         "No purchase needed for digital books; printing or data may still have normal user costs."
       ],
       "watchOut": "Use the official Book Dash library rather than third-party download mirrors.",
-      "lastChecked": "2026-05-27"
+      "lastChecked": "2026-10-04"
     },
     {
       "id": "resource-childrens-books-nal-ibali",
@@ -280,7 +280,7 @@
       ],
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "expiresAt": "2026-12-31",
-      "lastChecked": "2026-09-24",
+      "lastChecked": "2026-10-04",
       "isAffiliate": false,
       "isSponsored": false
     },

@@ -4,6 +4,9 @@ const whatsappChannel = require("./lib/whatsapp-channel.js");
 const path = require("path");
 const { createLocalImageDimensionWriter } = require("./lib/local-image-dimensions.js");
 const shared = require("../shared/page-data.js");
+const { createEditorialRenderer } = require("./lib/editorial-renderer.js");
+const editorialPicks = require("../data/editorial-picks.json");
+const { validateEditorialPicks, getEligibleEditorialPicks } = require("./lib/editorial-picks.js");
 const opportunityData = require("../shared/opportunity-data.js");
 const offerData = require("../shared/offer-data.js");
 const listingImages = require("../data/listing-images.json");
@@ -29,6 +32,7 @@ const OFFERS_PATH = path.join(ROOT_DIR, "data", "offers.json");
 const UNVERIFIED_COMPETITIONS_PATH = path.join(ROOT_DIR, "data", "unverified-competitions.json");
 const RELATIVE_ASSET_PATH = "/";
 const RELEASE_ASSET_VERSION = "20260901-native-ads-v1";
+const UI_ASSET_VERSION = "20261004-editorial-ui-v1";
 const GUEST_ADS_SCRIPT_SRC = "/shared/guest-ads.js?v=20260917-account-save-v2";
 const OUTBOUND_HANDOFF_SCRIPT_SRC = `/shared/outbound-handoff.js?v=${RELEASE_ASSET_VERSION}`;
 const GUEST_ADS_SCRIPT = `<script type="module" src="${GUEST_ADS_SCRIPT_SRC}"></script>`;
@@ -39,6 +43,11 @@ const MEDIAVINE_SCRIPT = '<script type="text/javascript" async="async" data-nopt
 function writeGeneratedFile(filePath, content, ...options) {
   if (path.extname(filePath) === ".html" && typeof content === "string") {
     content = addLocalImageDimensions(content, filePath);
+    if (content.includes('class="site-topbar"')) {
+      const dateScript = /src="\/shared\/page-data\.js(?:\?[^"]*)?"/.test(content) ? "" : '<script src="/shared/page-data.js" defer></script>';
+      content = content.replace(/\s*<\/body>/i, `\n${dateScript}\n<script src="/shared/site-ui.js?v=20261004" defer></script>\n</body>`);
+    }
+    content = content.replace(/src="\/(shared\/page-data\.js|app\.js)"/g, `src="/$1?v=${UI_ASSET_VERSION}"`);
     const eligible = content.includes(GUEST_ADS_SCRIPT_SRC)
       && !/<meta[^>]+name="robots"[^>]+content="[^"]*noindex/i.test(content)
       && !content.includes('data-freehub-ad-surface="archive"');
@@ -128,7 +137,7 @@ const VOUCHER_DISCOVERY_RESOURCE_HOSTS = Object.freeze({
   "telkom-customer-referral-credit": "group.telkom.co.za",
 });
 const VOUCHER_DISCOVERY_RESOURCE_IDS = Object.freeze(Object.keys(VOUCHER_DISCOVERY_RESOURCE_HOSTS));
-const CSS_ASSET_VERSION = "20260917-audit-fixes-v1";
+const CSS_ASSET_VERSION = UI_ASSET_VERSION;
 const FREEHUB_REFER_WIN_CONFIG = {
   referWinCampaignEnabled: false,
   referWinLiveReady: false,
@@ -1362,10 +1371,10 @@ const TRUST_PAGE_DEFINITIONS = [
         ],
       },
       {
-        heading: "Where Freehub should focus",
+        heading: "Choose something useful for your day",
         paragraphs: [
-          "Freehub should prioritise free things South Africans search for repeatedly: no-purchase competitions, digital skills courses, free children's stories, credit report checks, sample programmes and voucher competitions with clear entry costs.",
-          "These topics can keep attracting search traffic after individual competitions close because the pages answer evergreen questions and point users to current official websites.",
+          "For learning, explore online courses or children's stories. For a household task, check consumer support and credit-report routes. Sample and reward programmes have their own eligibility and availability conditions.",
+          "Use the Best for, Requirements and Check first notes below to choose a resource that fits. Read the official organisation's current conditions before registering or sharing personal details.",
         ],
       },
       {
@@ -2519,6 +2528,7 @@ function main() {
   approvedPublicOpportunities = activeOpportunityRoutes.map((entry) => entry.opportunity);
   opportunityTombstones = opportunityPublication.tombstones;
   const rawCompetitions = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
+  validateEditorialPicks(editorialPicks, { competition: rawCompetitions, resource: ALL_FREE_RESOURCES, offer: offerRegistry });
   const rawArchiveCompetitions = fs.existsSync(ARCHIVE_DATA_PATH)
     ? applyLegacyArchiveCostCompatibility(JSON.parse(fs.readFileSync(ARCHIVE_DATA_PATH, "utf8")))
     : [];
@@ -3477,7 +3487,8 @@ function renderTopNavigation(options = {}) {
           <span class="site-topbar__mark" aria-hidden="true">FH</span>
           <span class="site-topbar__name">Freehub</span>
         </a>
-        <nav class="site-topbar__nav" aria-label="Primary navigation">
+        <button class="site-topbar__menu" type="button" aria-expanded="false" aria-controls="primary-navigation" hidden>Menu</button>
+        <nav id="primary-navigation" class="site-topbar__nav" aria-label="Primary navigation">
           ${links
             .map((link) => {
               const className = [
@@ -4020,7 +4031,7 @@ function isFlagshipSeoHub(routeContext) {
 }
 
 function renderUpdatedNotice() {
-  return `<p class="hero__updated">Updated: ${escapeHtml(shared.formatDate(BUILD_DATE_ISO))}</p>`;
+  return `<p class="hero__updated">Compiled ${escapeHtml(shared.formatDate(BUILD_DATE_ISO))} · South African dates. Source checks are shown on each listing.</p>`;
 }
 
 function renderStudentAdBreak() {
@@ -4120,6 +4131,9 @@ function renderModernHero({
 }
 
 function renderCollectionHero(routeContext, pageCopy, competitions) {
+  if (routeContext.type === "category" || (routeContext.type === "hub" && routeContext.slug === "competitions")) {
+    return `<header class="hero hero--catalogue"><h1 id="pageTitle">${escapeHtml(pageCopy.heading)}</h1><p id="pageIntro">Compare prizes, costs and deadlines, then check the official entry rules.</p>${renderUpdatedNotice()}</header>`;
+  }
   const flagship = isFlagshipSeoHub(routeContext);
   const actions = flagship ? getFlagshipHeroActions(routeContext) : getCollectionHeroActions(routeContext);
   const trustItems = flagship ? getFlagshipTrustItems(routeContext) : getCollectionTrustItems(routeContext, competitions);
@@ -5105,18 +5119,7 @@ function getCategoryEditorial(slug, competitions) {
   );
 }
 
-function getBuildDaysUntilClosing(dateString) {
-  const today = new Date(`${BUILD_DATE_ISO}T00:00:00`);
-  const closingDate = new Date(dateString);
-
-  if (Number.isNaN(closingDate.getTime())) {
-    return Number.POSITIVE_INFINITY;
-  }
-
-  closingDate.setHours(0, 0, 0, 0);
-
-  return Math.ceil((closingDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
-}
+function getBuildDaysUntilClosing(dateString) { return shared.getDaysUntilClosing(dateString); }
 
 function isWeekendDate(dateString) {
   const date = new Date(dateString);
@@ -5532,6 +5535,15 @@ function renderConfirmedCompetitionResults(competitions) {
         </section>`;
 }
 
+function renderCompactCategoryNavigation(routeContext) {
+  const primary = [{ label: "All", href: "/competitions/" }, ...["cash", "vouchers", "holidays", "tech"].map(slug => ({ label: shared.CATEGORY_COPY[slug].category, href: `/category/${slug}/` }))];
+  const active = CATEGORY_LINKS.find(link => link.href === routeContext.path);
+  if (active && !primary.some(link => link.href === active.href)) primary.push(active);
+  const remaining = CATEGORY_LINKS.filter(link => link.href !== "/" && !primary.some(item => item.href === link.href));
+  const link = item => `<a class="filter-chip${item.href === routeContext.path ? " is-active" : ""}" href="${escapeAttribute(item.href)}"${item.href === routeContext.path ? ' aria-current="page"' : ""}>${escapeHtml(item.label)}</a>`;
+  return primary.map(link).join("") + `<details class="more-categories"><summary>More categories</summary><nav aria-label="More competition categories">${remaining.map(link).join("")}</nav></details>`;
+}
+
 function renderPage(routeContext, competitions) {
   if (routeContext.type === "category" && routeContext.slug === "vouchers") {
     competitions = competitions.filter(shared.isVoucherPrizeCompetition);
@@ -5687,13 +5699,45 @@ function renderPage(routeContext, competitions) {
       <main id="main-content" class="main-content">
         ${isCollectionPage ? renderCollectionBreadcrumb(pageCopy.heading) : ""}
 
+        <section class="controls" aria-label="Competition filters">
+          <label class="search-field" for="searchInput">
+            <span class="search-field__label">Search competitions</span>
+            <input
+              id="searchInput"
+              type="search"
+              name="search"
+              placeholder="Search by title or category"
+              autocomplete="off"
+            />
+          </label>
+
+          <div class="filters">
+            <p class="filters__label">Categories</p>
+            <div id="categoryFilters" class="filter-list" data-static-categories="true" aria-label="Categories">${renderCompactCategoryNavigation(routeContext)}</div>
+          </div>
+        </section>
+
+        <section class="results-header" aria-live="polite">
+          <p id="resultsSummary" class="results-header__summary">${escapeHtml(resultsSummary)}</p>
+        </section>
+
+        ${renderStatusPlaceholders()}
+
+        <section class="competition-section">
+          <div id="competitionsGrid" class="competition-grid" aria-live="polite">
+            ${cardsMarkup}
+          </div>
+
+          ${renderCollectionEmptyState(routeContext, competitions)}
+        </section>
+${confirmedResultsMarkup ? `\n        ${confirmedResultsMarkup}\n` : ""}
+        ${routeContext.noindex === true || (routeContext.type === "hub" && routeContext.slug === "paid-entry-competitions") ? "" : renderGuestAdSlot(`${routeContext.type}-${routeContext.slug || "index"}-results`)}
+
         ${renderSupportSection(supportCopy)}
         ${isPrimaryCompetitionHub ? "" : renderHubIntroEditorial(routeContext)}
         ${isPrimaryCompetitionHub ? "" : renderVerticalEditorial(routeContext)}
 
-        <nav class="category-nav" aria-label="Competition categories">
-          ${CATEGORY_LINKS.map((link) => renderNavLink(link, routeContext.path)).join("\n          ")}
-        </nav>
+
 
         <section class="popular-searches" aria-label="Popular searches">
           <p class="popular-searches__title">Popular Searches</p>
@@ -5713,40 +5757,6 @@ function renderPage(routeContext, competitions) {
           compact: routeContext.type === "tag",
           ussd: ["sms-competitions-south-africa", "win-airtime-competitions-south-africa", "win-data-competitions-south-africa"].includes(routeContext.slug),
         })}
-
-        <section class="controls" aria-label="Competition filters">
-          <label class="search-field" for="searchInput">
-            <span class="search-field__label">Search competitions</span>
-            <input
-              id="searchInput"
-              type="search"
-              name="search"
-              placeholder="Search by title or category"
-              autocomplete="off"
-            />
-          </label>
-
-          <div class="filters">
-            <p class="filters__label">Categories</p>
-            <div id="categoryFilters" class="filter-list" role="group" aria-label="Categories"></div>
-          </div>
-        </section>
-
-        <section class="results-header" aria-live="polite">
-          <p id="resultsSummary" class="results-header__summary">${escapeHtml(resultsSummary)}</p>
-        </section>
-
-        ${renderStatusPlaceholders()}
-
-        <section class="competition-section">
-          <div id="competitionsGrid" class="competition-grid" aria-live="polite">
-            ${cardsMarkup}
-          </div>
-
-          ${renderCollectionEmptyState(routeContext, competitions)}
-        </section>
-${confirmedResultsMarkup ? `\n        ${confirmedResultsMarkup}\n` : ""}
-        ${routeContext.noindex === true || (routeContext.type === "hub" && routeContext.slug === "paid-entry-competitions") ? "" : renderGuestAdSlot(`${routeContext.type}-${routeContext.slug || "index"}-results`)}
 
         ${isPrimaryCompetitionHub ? renderHubIntroEditorial(routeContext) : ""}
         ${isPrimaryCompetitionHub ? renderInternalLinksSection(routeContext, competitions) : ""}
@@ -6038,7 +6048,7 @@ function renderCompetitionImageStage(imageUrl, altText, loading = "lazy", layere
 function renderCompetitionCard(competition, featured = false) {
   const internalPath = shared.getCompetitionPath(competition);
   const urgencyBadge = `<span class="badge badge--closing">${escapeHtml(
-    shared.getUrgencyBadgeLabel(competition.closingDate)
+    getAbsoluteClosingLabel(competition.closingDate)
   )}</span>`;
   const summaryMarkup = competition.summary
     ? `<p class="competition-card__summary">${escapeHtml(competition.summary)}</p>`
@@ -6208,7 +6218,7 @@ function renderHeroPreviewItem(competition, featured = false) {
                   <h3 class="hero-preview-item__title">${escapeHtml(title)}</h3>
                   <div class="hero-preview-item__meta">
                     <span>${escapeHtml(shared.getPrizeCue(competition))}</span>
-                    <span>${escapeHtml(shared.getUrgencyLabel(competition.closingDate))}</span>
+                    <span>${escapeHtml(getAbsoluteClosingLabel(competition.closingDate))}</span>
                   </div>
                 </div>
               </a>`;
@@ -6220,7 +6230,7 @@ function renderHeroSpotlight(competition) {
   }
 
   const title = competition.title;
-  const urgency = shared.getUrgencyLabel(competition.closingDate);
+  const urgency = getAbsoluteClosingLabel(competition.closingDate);
   const prizeCue = shared.getPrizeCue(competition);
   const entryPath = shared.getCompetitionPath(competition);
   const cardImageUrl = getCompetitionImageUrl(competition);
@@ -6962,7 +6972,7 @@ function renderTopPickCard(entry) {
                 <div class="top-pick-card__meta">
                   <span>${escapeHtml(competition.brand || "Official promoter")}</span>
                   <span>${escapeHtml(shared.getEntryCostLabel(competition))}</span>
-                  <span>${escapeHtml(shared.getUrgencyLabel(competition.closingDate))}</span>
+                  <span>${escapeHtml(getAbsoluteClosingLabel(competition.closingDate))}</span>
                 </div>
                 <a class="top-pick-card__cta" href="${escapeAttribute(href)}">View details</a>
               </div>
@@ -7024,7 +7034,7 @@ function renderLatestCompetitionRow(competition) {
   return `<a class="latest-row" href="${escapeAttribute(shared.getCompetitionPath(competition))}">
               <span class="latest-row__title">${escapeHtml(competition.title)}</span>
               <span class="latest-row__meta">${escapeHtml(shared.getEntryCostLabel(competition))}</span>
-              <span class="latest-row__meta">${escapeHtml(shared.getUrgencyLabel(competition.closingDate))}</span>
+              <span class="latest-row__meta">${escapeHtml(getAbsoluteClosingLabel(competition.closingDate))}</span>
             </a>`;
 }
 
@@ -7034,7 +7044,7 @@ function renderHomepageHeroGuide(competitions) {
     ...(OFFERS_ENABLED ? [{ label: "Coupons & Deals", value: "Discounts with the conditions explained", href: "/offers/" }] : []),
     {
       label: "Competitions",
-      value: `${competitions.length} current prize draws and giveaways`,
+      value: "Prize draws with costs and deadlines",
       href: "/competitions/",
     },
   ];
@@ -7203,10 +7213,20 @@ function renderVerticalDiscoveryLinks() {
         </section>`;
 }
 
+function getReviewedPicks(surface, competitions) {
+  const collections = { competition: competitions, resource: ALL_FREE_RESOURCES, offer: publicOffers };
+  return getEligibleEditorialPicks(editorialPicks, collections, surface);
+}
+
+function renderReviewedPicks(picks, surface) {
+  return createEditorialRenderer({ escapeHtml, escapeAttribute, getImage: getCompetitionVisualUrl, renderPlaceholder: renderCompetitionVisualPlaceholder, renderDisclosure: renderEditorialImageDisclosure }).renderSection(picks, surface);
+}
+
 function renderHomepage(competitions) {
   const homeRouteContext = { type: "home", slug: null, path: "/" };
   const ogImage = shared.DEFAULT_OG_IMAGE;
-  const topPicks = getHomepageTopPicks(competitions);
+  const reviewed = getReviewedPicks("home", competitions);
+  const topPicks = reviewed.filter(pick => pick.kind === "competition").map(pick => ({ competition: pick.record }));
   const structuredData = shared.buildStructuredData(topPicks.map((entry) => entry.competition), homeRouteContext);
   structuredData.name = "Featured competitions";
   const heroGuideMarkup = renderHomepageHeroGuide(competitions);
@@ -7262,24 +7282,9 @@ function renderHomepage(competitions) {
       <header class="hero hero--home">
         <div class="hero__layout">
           <div class="hero__copy">
-            <div class="hero__brand" aria-label="FreeHub brand">
-              <span class="hero__brand-mark" aria-hidden="true">FH</span>
-              <span class="hero__brand-name">Freehub</span>
-            </div>
             <h1 id="pageTitle">Find free stuff, savings and competitions in South Africa</h1>
             <p class="hero__text" id="pageIntro">Explore free resources, rewards, coupons, deals and competitions—with official links and clear information about costs and requirements.</p>
             ${renderUpdatedNotice()}
-            <div class="hero__actions">
-              <a class="btn btn--primary" href="/free-stuff-south-africa/">Explore free stuff</a>
-              ${OFFERS_ENABLED ? '<a class="btn btn--secondary" href="/offers/">Coupons &amp; Deals</a>' : ""}
-              <a class="btn btn--secondary" href="/competitions/">Browse competitions</a>
-            </div>
-            <div class="trust-row" aria-label="Trust signals">
-              <span class="trust-row__item">Free to browse</span>
-              <span class="trust-row__item">Official source links</span>
-              <span class="trust-row__item">Cost labels</span>
-              <span class="trust-row__item">Freehub is not the promoter</span>
-            </div>
           </div>
           ${heroGuideMarkup}
         </div>
@@ -7295,8 +7300,8 @@ ${noscriptLinks}
             </ul>
           </section>
         </noscript>
-        ${renderHomepageValueSection()}
-        ${renderTopPicksSection(topPicks)}
+        ${renderReviewedPicks(reviewed, "home")}
+        ${renderIntentTilesSection()}
         ${renderHomepageResourcesSection()}
         ${renderHomeTrustSection()}
         ${renderDatacostPromo({
@@ -7435,19 +7440,17 @@ function renderFreeStuffParentPage(page) {
     <div class="site-shell">
       ${renderTopNavigation({ active: "free-stuff" })}
       ${renderModernHero({
-        className: "hero--utility hero--trust",
-        eyebrow: "Freehub trust",
+        className: "hero--utility hero--trust hero--compact",
+        eyebrow: "Free resources",
         heading: page.heading,
-        intro: page.intro,
-        actions: page.actions || [
-          { label: "Browse Competitions", href: "/competitions/", className: "btn--primary" },
-          { label: "Safety Guide", href: "/how-to-enter-competitions-safely/", className: "btn--secondary" },
-        ],
-        trustItems: page.trustItems || ["Freehub is not the promoter", "Official source links", "Safety-first browsing"],
+        intro: "Find free reading, learning and practical support. Check each resource’s requirements and costs before using it.",
+        updatedMarkup: renderUpdatedNotice(),
+        actions: [],
+        trustItems: [],
       })}
 
       <main id="main-content" class="main-content trust-page free-stuff-parent">
-        <section class="state-card" aria-label="Free park entry dates"><h2>Planning a September day out?</h2><p>SANParks Week and CapeNature Access Week have different dates and entry rules. Check the 2026 calendar before travelling.</p><a class="btn btn--secondary" href="/free-parks-entry-south-africa-september-2026/">See September 2026 park dates</a></section>
+        ${LIFECYCLE_REFERENCE_DATE_ISO <= "2026-09-27" ? `<section class="state-card" data-valid-through="2026-09-27" aria-label="Free park entry dates"><h2>Planning a September day out?</h2><p>Check official dates and entry rules before travelling.</p><a class="btn btn--secondary" href="/free-parks-entry-south-africa-september-2026/">See September 2026 park dates</a></section>` : ""}
 ${renderFreeStuffParentContent({ page, pageResources, featuredOpportunities, usefulLinks, faqItems })}
       </main>
 
@@ -7464,7 +7467,7 @@ function renderFreeStuffParentContent({ page, pageResources, featuredOpportuniti
   const definitionSections = page.sections.slice(0, 2);
   const guidanceSections = page.sections.slice(2);
 
-  return `        ${renderTrustPageSections(definitionSections, "Free Stuff definition")}
+  return `        <section class="free-stuff-answer"><h2>Start with what you need</h2><p>Read a story, learn a skill or find practical support through official resources. Samples and account rewards have extra conditions: check requirements before signing up.</p></section>
 
         ${renderFreeStuffChildNavigation()}
 
@@ -7477,13 +7480,7 @@ function renderFreeStuffParentContent({ page, pageResources, featuredOpportuniti
           cardVariant: "compact",
         })}
 
-        ${freeResourceRenderer.renderFreeResourceSection({
-          resources: pageResources,
-          heading: "Official programmes, services and directories",
-          description: "These durable resources stay useful over time. A listed programme, service or directory does not mean a current claimable offer is available.",
-          pageType: "free_stuff_parent",
-          kicker: "Durable resources",
-        })}
+        ${renderGroupedFreeResources(pageResources)}
 
         ${renderEditorialBanner(page.slug)}
 
@@ -7501,6 +7498,19 @@ function renderFreeStuffParentContent({ page, pageResources, featuredOpportuniti
         ${renderTrustPageUsefulLinks(usefulLinks)}
 
         ${renderTrustFaqSection(faqItems)}`;
+}
+
+function renderGroupedFreeResources(resources) {
+  const groups = [
+    { id: "childrens-books", heading: "Read with children" },
+    { id: "online-courses", heading: "Learn a skill" },
+    { id: "credit-report", heading: "Check your credit report" },
+    { id: "consumer-support", heading: "Get consumer support" },
+    { id: "family-support", heading: "Find family and work support" },
+    { id: "samples", heading: "Explore sample programmes" },
+    { id: "rewards", heading: "Check account and app rewards" },
+  ];
+  return `<nav class="resource-needs" aria-label="Resources by purpose">${groups.map(group => `<a href="#resources-${group.id}">${group.heading}</a>`).join("")}</nav>` + groups.map(group => `<div id="resources-${group.id}">${freeResourceRenderer.renderFreeResourceSection({ resources: resources.filter(resource => resource.category === group.id), heading: group.heading, description: "Compare who each resource suits, what is free and what to check before using it.", pageType: "free_stuff_parent", kicker: "Official resources" })}</div>`).join("\n");
 }
 
 function renderTrustPageSections(sections, label) {
@@ -8994,7 +9004,7 @@ function renderMonthlyGuidePage(activeCompetitions) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "Best Competitions to Enter in South Africa This Month",
+    headline: "Competitions to Consider in South Africa This Month",
     description: "A current Freehub roundup of active South African competitions with costs, entry methods and closing dates.",
     datePublished: BUILD_DATE_ISO,
     dateModified: BUILD_DATE_ISO,
@@ -9008,7 +9018,7 @@ function renderMonthlyGuidePage(activeCompetitions) {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Best Competitions to Enter in South Africa This Month | Freehub</title>
+    <title>Competitions to Consider in South Africa This Month | Freehub</title>
     <meta name="description" content="Compare current South African competitions worth checking this month, with prize, cost, entry method and closing-date details from Freehub." />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
@@ -9026,33 +9036,17 @@ function renderMonthlyGuidePage(activeCompetitions) {
     <div class="site-shell">
       ${renderTopNavigation({ active: "competitions" })}
       ${renderModernHero({
-        className: "hero--standard hero--with-preview",
+        className: "hero--standard hero--compact",
         eyebrow: "Monthly guide",
-        heading: "Best competitions to enter in South Africa this month",
+        heading: "Competitions to consider this month",
         intro: "A current roundup of active Freehub listings with visible costs, closing dates and official-source paths.",
         updatedMarkup: renderUpdatedNotice(),
-        actions: [
-          { label: "All Competitions", href: "/competitions/", className: "btn--primary" },
-          { label: "Free Entry", href: "/free-competitions/", className: "btn--secondary" },
-          { label: "Ending Soon", href: "/competitions-ending-soon/", className: "btn--secondary" },
-        ],
-        trustItems: ["Active listings only", "Official source links", "Cost labels"],
-        previewMarkup: renderHeroPreviewPanel(featuredCompetitions.slice(0, 3), {
-          title: "This Month",
-          intro: "A quick look at current picks from the roundup.",
-          className: "hero-preview-panel--collection",
-        }),
+        actions: [],
+        trustItems: [],
+
       })}
 
       <main id="main-content" class="main-content">
-        <section class="seo-copy-block seo-copy-block--intro" aria-label="Monthly competition guide">
-          <h2 class="seo-copy-block__title">How to choose from this month’s shortlist</h2>
-          <div class="seo-copy-block__content">
-            <p>This shortlist updates from active listings with prize, cost and entry details. The selection gives priority to high-value prizes, available images and linked terms, then earlier deadlines. It is not a ranking of your chances of winning: entrant totals are not available.</p>
-            <p>Freehub does not run these competitions or collect entries. Open the detail page first, then confirm the latest rules on the official promoter source before entering.</p>
-          </div>
-        </section>
-
         ${renderMonthlyDecisionGuide(featuredCompetitions)}
         ${renderMonthlyGuideTable(featuredCompetitions)}
         ${renderEditorialBanner(MONTHLY_GUIDE_SLUG)}
@@ -9083,34 +9077,19 @@ function renderMonthlyGuidePage(activeCompetitions) {
 }
 
 function getMonthlyGuideCompetitions(activeCompetitions) {
-  return activeCompetitions
+  const reviewed = getReviewedPicks("monthly", activeCompetitions).map(pick => pick.record);
+  const reviewedIds = new Set(reviewed.map(item => item.id));
+  const catalogue = activeCompetitions
     .filter(hasHomepageReadyData)
+    .filter(item => !reviewedIds.has(item.id))
     .slice()
     .sort(compareHomepageCandidateScore)
-    .slice(0, 12);
+    .slice(0, 12 - reviewed.length);
+  return [...reviewed, ...catalogue];
 }
 
 function renderMonthlyDecisionGuide(competitions) {
-  const choices = [
-    { title: "Start with no-purchase entry", match: (item) => shared.getEntryCostLabel(item) === "Free entry", advice: "A useful starting point if you want to avoid a qualifying purchase. Check the entry limit and the information the form requests before submitting." },
-    { title: "Use a purchase you already planned", match: (item) => item.purchaseRequired === true, advice: "Consider this route when the qualifying product is already on your shopping list. Check the exact product, retailer and receipt requirements; extra spending does not guarantee a prize." },
-    { title: "Check whether your existing account qualifies", match: (item) => shared.getEntryCostLabel(item) === "Account required", advice: "Account-linked entry may suit existing customers, but eligibility alone may not be enough. Read the qualifying transaction or activation conditions before making a decision." },
-  ];
-  return choices.map((choice) => {
-    const item = competitions.find(choice.match);
-    if (!item) return "";
-    return `<section class="seo-copy-block">
-      <h2 class="seo-copy-block__title">${escapeHtml(choice.title)}</h2>
-      <div class="seo-copy-block__content">
-        <h3><a href="${escapeAttribute(shared.getCompetitionPath(item))}">${escapeHtml(item.title)}</a></h3>
-        <p>${escapeHtml(choice.advice)}</p>
-        <p>${escapeHtml(item.quickAnswer || item.summary || item.entryFeeLabel)}</p>
-        ${item.entryCostSummary ? `<p><strong>Cost conditions:</strong> ${escapeHtml(item.entryCostSummary)}</p>` : ""}
-        ${item.prizeContext ? `<p><strong>Prize details:</strong> ${escapeHtml(item.prizeContext)}</p>` : ""}
-        <p>Compare the remaining options below if this entry route does not fit your circumstances.</p>
-      </div>
-    </section>`;
-  }).join("\n");
+  return renderReviewedPicks(getReviewedPicks("monthly", competitions), "monthly");
 }
 
 function renderMonthlyGuideTable(competitions) {
@@ -9121,8 +9100,11 @@ function renderMonthlyGuideTable(competitions) {
         </section>`;
   }
 
-  return `<section class="guide-table-section" aria-label="Best competitions this month">
-          <div class="table-scroll">
+  return `<section class="guide-table-section" aria-label="Competition comparison">
+          <h2>Compare current catalogue options</h2>
+          <p>The table reflects listings available at compilation. It does not rank winning chances; entrant totals are unavailable.</p>
+          <p data-comparison-empty hidden>These compiled listings have closed. <a href="/competitions/">Browse the current competition catalogue</a>.</p>
+          <div class="table-scroll" data-current-comparison role="region" aria-label="Competition comparison table; scroll horizontally for all columns" tabindex="0">
             <table class="guide-table">
               <thead>
                 <tr>
@@ -9137,7 +9119,7 @@ function renderMonthlyGuideTable(competitions) {
               <tbody>
                 ${competitions
                   .map(
-                    (competition) => `<tr>
+                    (competition) => `<tr data-current-listing data-closing-date="${escapeAttribute(competition.closingDate)}">
                   <td><a href="${escapeAttribute(shared.getCompetitionPath(competition))}">${escapeHtml(competition.title)}</a></td>
                   <td>${escapeHtml(competition.brand || "Official promoter")}</td>
                   <td>${escapeHtml(competition.prizeName || shared.getPrizeCue(competition))}</td>
@@ -10754,11 +10736,9 @@ function getFeaturedCompetitions(competitions, n) {
 }
 
 function getEndingSoonCompetitions(competitions, n) {
-  const today = new Date(`${LIFECYCLE_REFERENCE_DATE_ISO}T00:00:00`);
-
   return competitions
-    .filter((c) => new Date(c.closingDate) >= today)
-    .sort((a, b) => new Date(a.closingDate) - new Date(b.closingDate))
+    .filter((c) => shared.getDaysUntilClosing(c.closingDate) >= 0)
+    .sort((a, b) => shared.getCalendarDay(a.closingDate) - shared.getCalendarDay(b.closingDate))
     .slice(0, n);
 }
 
@@ -10821,83 +10801,8 @@ function buildHowToEnterSteps(competition) {
   ];
 }
 
-function renderCompetitionDetailHero({
-  competition,
-  heroTitle,
-  heroSubline,
-  formattedDate,
-  closingSoon,
-  expired,
-  outPath,
-  ctaAttributes,
-  ctaLabel,
-  heroImage,
-}) {
-  const hasSpecificVisual = isSpecificCompetitionVisual(competition);
-  const mediaLayoutClass = getCompetitionMediaLayoutClass(competition);
-  const imageMarkup = renderCompetitionImageStage(
-    heroImage,
-    buildCompetitionImageAltText(competition, expired),
-    "eager",
-    mediaLayoutClass === " competition-media--portrait"
-  );
-  const heroMediaClass = hasSpecificVisual
-    ? `competition-hero-card__media competition-hero-card__media--specific${mediaLayoutClass}`
-    : "competition-hero-card__media";
-  const placeholderMarkup = renderCompetitionVisualPlaceholder(competition, "competition-hero-card__placeholder");
-  const closingLabel = `${expired ? "Closed" : "Closes"} ${formattedDate}${closingSoon && !expired ? " - Ending soon" : ""}`;
-  const heroUrgencyFact = expired
-    ? "Closed competition"
-    : shared.getUrgencyLabel(competition.closingDate);
-  const actions = expired
-    ? [{ label: "Browse Current Competitions", href: "/competitions/", className: "btn--primary" }]
-    : [
-        {
-          label: ctaLabel,
-          href: outPath,
-          className: "btn--primary",
-          target: "_blank",
-          rel: "noopener noreferrer",
-          attributes: ctaAttributes,
-        },
-        { label: "Browse More", href: "/competitions/", className: "btn--secondary" },
-      ];
-
-  return renderModernHero({
-    className: "hero--competition-modern",
-    eyebrow: expired ? "Archived competition" : "Competition listing",
-    heading: heroTitle,
-    intro: heroSubline,
-    headingId: "pageTitle",
-    updatedMarkup: `<p class="hero__closing${closingSoon && !expired ? " hero__closing--urgent" : ""}">${escapeHtml(
-      closingLabel
-    )}</p>`,
-    actions,
-    trustItems: expired
-      ? ["Closed competition", "Archived official source", "Current alternatives below"]
-      : ["Verified listing", "Official promoter link", "Freehub does not collect entries"],
-    previewMarkup: `<aside class="competition-hero-card" aria-label="Competition summary">
-            <div class="${heroMediaClass}">
-              ${placeholderMarkup}
-              ${imageMarkup}
-            </div>
-            <div class="competition-hero-card__body">
-              <div class="competition-hero-card__brand">
-                ${renderBrandMark(competition, "competition-hero-card__mark")}
-                <span>${escapeHtml(competition.brand || "Official promotion")}</span>
-              </div>
-              <div class="competition-hero-card__status-row">
-                ${renderCardStatusBadges(competition, { expired })}
-              </div>
-              ${renderEditorialImageDisclosure(competition)}
-              <div class="competition-hero-card__facts">
-                <span>${escapeHtml(shared.getPrizeCue(competition))}</span>
-                <span>${escapeHtml(shared.getEntryCostLabel(competition))}</span>
-                <span>${escapeHtml(heroUrgencyFact)}</span>
-              </div>
-            </div>
-          </aside>`,
-  });
+function renderCompetitionDetailHero({ competition, heroTitle, heroSubline, formattedDate, expired }) {
+  return `<header class="hero hero--competition-modern hero--compact"><h1 id="pageTitle">${escapeHtml(heroTitle)}</h1><p class="hero__text">${escapeHtml(heroSubline)}</p><p class="hero__closing">${expired ? "Closed" : "Closes"} ${escapeHtml(formattedDate)}</p>${renderUpdatedNotice()}</header>`;
 }
 
 function renderCompetitionDetailMedia(competition, imageUrl, altText = competition.title) {
@@ -10907,7 +10812,7 @@ function renderCompetitionDetailMedia(competition, imageUrl, altText = competiti
     imageUrl,
     altText,
     "lazy",
-    mediaLayoutClass === " competition-media--portrait"
+    false
   );
   const mediaClass = hasSpecificVisual
     ? `competition-detail__media competition-detail__media--specific${mediaLayoutClass}`
@@ -11091,7 +10996,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
     ${renderGoogleTagManagerHead(`{ page_type: 'competition', competition_slug: ${escapeScript(JSON.stringify(slug))}, competition_category: ${escapeScript(JSON.stringify(competition.category))} }`)}
     ${renderMetaPixelHead()}
   </head>
-  <body data-freehub-ad-surface="${expired && !confirmedResult ? "archive" : "none"}">
+  <body data-detail-closing-date="${escapeAttribute(competition.closingDate)}" data-freehub-ad-surface="${expired && !confirmedResult ? "archive" : "none"}">
     ${renderGoogleTagManagerNoScript()}
     ${renderMetaPixelNoScript()}
     <div class="site-shell">
@@ -11118,20 +11023,16 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
         </section>` : ""}
 
         <article class="competition-detail" aria-label="${escapeAttribute(competition.title)}">
-          ${renderCompetitionDetailMedia(competition, heroImage, imageAltText)}
           <div class="competition-detail__body">
-            <div class="competition-detail__meta">
-              <span class="badge badge--category">${escapeHtml(competition.category)}</span>
-              ${expired ? '<span class="badge badge--tag">Archived competition</span>' : ""}
-              ${brandBadge}
-              ${closingSoonBadge}
-            </div>
-            ${trustStripMarkup}
-            ${detailFactsMarkup}
             ${renderCompetitionQuickAnswer(competition, expired)}${resultConfirmationMarkup ? `\n            ${resultConfirmationMarkup}` : ""}
+            <section class="detail-decision" aria-label="Deadline, cost and eligibility"><dl><div><dt>Closing date</dt><dd>${escapeHtml(formattedDate)}${competition.closingTimeLabel ? ` · ${escapeHtml(competition.closingTimeLabel)}` : ""}<span data-urgency-date="${escapeAttribute(competition.closingDate)}"></span></dd></div><div><dt>Cost</dt><dd>${escapeHtml(competition.entryCostSummary || competition.entryFeeLabel || shared.getEntryCostLabel(competition))}</dd></div><div><dt>Eligibility</dt><dd>${escapeHtml(competition.eligibilitySummary || competition.eligibility || "Check the official promoter rules")}</dd></div></dl></section>
+            ${expired ? renderExpiredCompetitionActions(competition, categorySlug, generatedBrandSlugs, officialSourceUrl) : `<a class="competition-detail__cta" data-active-entry href="${escapeAttribute(outPath)}" target="_blank" rel="noopener noreferrer" ${ctaAttributes}>${escapeHtml(ctaLabel)}</a><p class="competition-detail__cta-note">You will leave Freehub for the official promoter. Freehub does not collect your entry.</p>`}
+            ${expired ? "" : `<section class="state-card" data-runtime-closed hidden aria-label="Competition closed"><h2>This competition has closed.</h2><p>These are archived details. Confirm current information with the promoter.</p>${renderExpiredCompetitionActions(competition, categorySlug, generatedBrandSlugs, officialSourceUrl)}</section>`}
+            ${renderCompetitionDetailMedia(competition, heroImage, imageAltText)}
+            ${renderEditorialImageDisclosure(competition)}
             ${expired ? "" : renderCompetitionVideoFeature(competition)}
-            ${entryCostEligibilityMarkup}
             ${entryStepsMarkup}
+            ${detailFactsMarkup}
             ${officialEntryAccountsMarkup}
             ${beforeYouEnterMarkup}
             ${authPanelMarkup}
@@ -11140,21 +11041,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
             </div>
             ${brandPrizeContextMarkup}
             ${tagsMarkup}
-            <div class="trust-chips">
-              <span class="trust-chip">${confirmedResult ? "Official result checked" : "Verified listing"}</span>
-              <span class="trust-chip">We link to official brand promotions</span>
-              <span class="trust-chip">No sign-up required on FreeHub</span>
-            </div>
-            ${expired ? renderExpiredCompetitionActions(competition, categorySlug, generatedBrandSlugs, officialSourceUrl) : `<a
-              class="competition-detail__cta"
-              href="${escapeAttribute(outPath)}"
-              target="_blank"
-              rel="noopener noreferrer"
-              ${ctaAttributes}
-            >
-              ${escapeHtml(ctaLabel)}
-            </a>
-            <p class="competition-detail__cta-note">You will leave Freehub and go to the official promoter page. Freehub does not run this competition or collect your entry.</p>`}
+            ${trustStripMarkup}
             ${sourceBlockMarkup}
             ${faqMarkup}
             <a
@@ -11168,19 +11055,6 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
             </a>
           </div>
         </article>
-
-        <section class="state-card" aria-label="About this listing">
-          <p class="state-card__title">About This Listing</p>
-          <p class="state-card__text">
-            We link directly to official brand competitions and promoter pages. No account or sign-up is required on our site. Always check the promoter's terms and closing date before entering.
-          </p>
-        </section>
-
-        ${!expired ? `<section class="competition-cta-repeat" aria-label="${automaticEntry ? "Check the official terms" : "Enter this competition"}">
-          <p>${automaticEntry ? "Check the membership, benefit-use and automatic-entry conditions on the official terms page." : "Ready to enter? Head to the official competition page."}</p>
-          <a class="competition-detail__cta" href="${escapeAttribute(outPath)}" target="_blank" rel="noopener noreferrer" ${ctaAttributes}>${escapeHtml(ctaLabel)}</a>
-          <p class="competition-detail__cta-note">You will leave Freehub and go to the official promoter page.</p>
-        </section>` : ""}
 
         <nav class="category-nav" aria-label="Competition categories">
           ${CATEGORY_LINKS.map((link) => renderNavLink(link, "/competition/")).join("\n          ")}
@@ -12425,10 +12299,7 @@ function isPreviewOrStagingUrl(value) {
 }
 
 function isExpired(dateString) {
-  const today = new Date(`${LIFECYCLE_REFERENCE_DATE_ISO}T00:00:00`);
-  const closing = new Date(dateString);
-  closing.setHours(0, 0, 0, 0);
-  return closing < today;
+  return shared.getCalendarDay(dateString) < shared.getCalendarDay(LIFECYCLE_REFERENCE_DATE_ISO);
 }
 
 function buildHowToEnterSteps(competition) {
@@ -12885,10 +12756,10 @@ function formatOptionalDate(dateString) {
   return shared.formatDate(dateString);
 }
 
+function getAbsoluteClosingLabel(date) { return `Closes ${shared.formatDate(date)}`; }
+
 function getLocalIsoDate(date) {
-  const localDate = new Date(date);
-  localDate.setMinutes(localDate.getMinutes() - localDate.getTimezoneOffset());
-  return localDate.toISOString().slice(0, 10);
+  return shared.getSouthAfricanDate(date);
 }
 
 function getDetailCtaLabel(competition) {

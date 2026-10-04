@@ -2,7 +2,7 @@ name: Daily competition maintenance
 
 on:
   schedule:
-    - cron: "15 6 * * *"
+    - cron: "17 22,6 * * *"
   workflow_dispatch:
 
 permissions:
@@ -21,6 +21,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     env:
+      TZ: Africa/Johannesburg
       BING_WEBMASTER_API_KEY: ${{ secrets.BING_WEBMASTER_API_KEY }}
       BING_SITE_URL: https://freehub.co.za
       INDEXNOW_API_KEY: ${{ secrets.INDEXNOW_API_KEY }}

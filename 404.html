@@ -17,7 +17,7 @@
     <meta name="twitter:title" content="Page Not Found | Freehub" />
     <meta name="twitter:description" content="This Freehub page could not be found. Browse live South African competitions, categories, safety guidance and contact options." />
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-    <link rel="stylesheet" href="/styles.css?v=20260917-audit-fixes-v1" />
+    <link rel="stylesheet" href="/styles.css?v=20261004-editorial-ui-v1" />
     <!-- Google Tag Manager -->
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -61,7 +61,8 @@
           <span class="site-topbar__mark" aria-hidden="true">FH</span>
           <span class="site-topbar__name">Freehub</span>
         </a>
-        <nav class="site-topbar__nav" aria-label="Primary navigation">
+        <button class="site-topbar__menu" type="button" aria-expanded="false" aria-controls="primary-navigation" hidden>Menu</button>
+        <nav id="primary-navigation" class="site-topbar__nav" aria-label="Primary navigation">
           <a class="site-topbar__link" href="/">Home</a>
           <a class="site-topbar__link" href="/competitions/">Competitions</a>
           <a class="site-topbar__link" href="/paid-entry-competitions/">Paid Entry</a>
@@ -212,8 +213,10 @@
       </footer>
     </div>
 
-    <script src="/shared/page-data.js" defer></script>
-    <script src="/app.js" defer></script>
+    <script src="/shared/page-data.js?v=20261004-editorial-ui-v1" defer></script>
+    <script src="/app.js?v=20261004-editorial-ui-v1" defer></script>
     <script type="module" src="/shared/auth-ui.js?v=20260917-account-save-v2"></script>
-  </body>
+
+<script src="/shared/site-ui.js?v=20261004" defer></script>
+</body>
 </html>

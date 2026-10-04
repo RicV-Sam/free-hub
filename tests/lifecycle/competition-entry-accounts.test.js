@@ -41,7 +41,6 @@ test("instruction and terms destinations are not labelled as direct app or Whats
   for (const [slug, label] of [
     ["nescafe-gold-rush-spar-2026", "View official terms"],
     ["heinz-heritage-spar-2026", "View official terms"],
-    ["huletts-heritage-2026", "View official entry instructions"],
     ["nedbank-moyaapp-consumer-education-2026", "View official terms"],
     ["sasol-magpie-2026", "View official entry instructions"],
   ]) {
@@ -57,6 +56,22 @@ test("instruction and terms destinations are not labelled as direct app or Whats
     assert.ok(!html.includes(">Enter in the official app</a>"), slug);
     assert.ok(!html.includes(">Enter via official WhatsApp</a>"), slug);
   }
+});
+
+test("Huletts closing day is active and the following day is archived", () => {
+  const shared = require("../../shared/page-data.js");
+  const competition = require("../../data/competitions.json").find(item => item.id === "huletts-heritage-2026");
+  const original = shared.getReferenceDate();
+  shared.setReferenceDate(competition.closingDate);
+  assert.equal(shared.isExpiredCompetition(competition), false);
+  shared.setReferenceDate(new Date(Date.parse(competition.closingDate) + 86400000).toISOString().slice(0, 10));
+  assert.equal(shared.isExpiredCompetition(competition), true);
+  shared.setReferenceDate(process.env.FREEHUB_AS_OF_DATE || "");
+  const html = fs.readFileSync(path.join(ROOT_DIR, "competition", competition.id, "index.html"), "utf8");
+  const active = (process.env.FREEHUB_AS_OF_DATE || original) <= competition.closingDate;
+  assert.ok(html.includes(active ? '>View official entry instructions</a>' : 'This competition has closed.'), competition.id);
+  assert.ok(!html.includes('>Enter in the official app</a>'));
+  assert.ok(!html.includes('>Enter via official WhatsApp</a>'));
 });
 
 test("the NESCAFE travel voucher cannot populate the grocery-voucher collection", () => {

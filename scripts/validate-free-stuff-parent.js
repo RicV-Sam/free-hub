@@ -91,11 +91,11 @@ check("Parent canonical", parentPage.canonical, "https://freehub.co.za/free-stuf
 check("Homepage title", homepagePage.title, "South African Competitions, Free Stuff & Savings | Freehub");
 check("Homepage H1", homepagePage.h1[0], "Find free stuff, savings and competitions in South Africa");
 const orderedParentMarkers = [
-  "Quick answer: where to find free stuff",
+  "Start with what you need",
   'class="free-stuff-child-nav"',
-  "<h2>Official programmes, services and directories</h2>",
+  'aria-label="Resources by purpose"',
   'class="free-stuff-competition-callout"',
-  "Where Freehub should focus",
+  "Choose something useful for your day",
   "Common Questions",
 ];
 const markerPositions = orderedParentMarkers.map((marker) => parent.indexOf(marker));

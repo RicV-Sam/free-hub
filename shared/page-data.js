@@ -619,7 +619,7 @@
       return;
     }
 
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(value) || Number.isNaN(new Date(`${value}T00:00:00`).getTime())) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(value) || !Number.isFinite(getCalendarDay(value))) {
       throw new Error(`Invalid reference date: ${value}`);
     }
 
@@ -627,9 +627,30 @@
   }
 
   function getReferenceToday() {
-    const today = referenceDateIso ? new Date(`${referenceDateIso}T00:00:00`) : new Date();
-    today.setHours(0, 0, 0, 0);
-    return today;
+    return new Date(`${referenceDateIso || getSouthAfricanDate()}T00:00:00Z`);
+  }
+
+  // Date-only deadlines are inclusive. Calendar arithmetic uses UTC day numbers,
+  // while the current calendar day always comes from South Africa (UTC+02:00).
+  function getSouthAfricanDate(value = new Date()) {
+    if (/^\d{4}-\d{2}-\d{2}$/.test(String(value))) {
+      const parsed = new Date(`${value}T00:00:00Z`);
+      if (Number.isNaN(parsed.getTime()) || parsed.toISOString().slice(0, 10) !== value) throw new Error(`Invalid calendar date: ${value}`);
+      return value;
+    }
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) throw new Error(`Invalid date: ${value}`);
+    const parts = new Intl.DateTimeFormat("en-CA", { timeZone: "Africa/Johannesburg", year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(date);
+    return ["year", "month", "day"].map((key) => parts.find((part) => part.type === key).value).join("-");
+  }
+
+  function getCalendarDay(value) {
+    try { return Date.parse(`${getSouthAfricanDate(value)}T00:00:00Z`) / 86400000; }
+    catch { return NaN; }
+  }
+
+  function getReferenceDate() {
+    return referenceDateIso || getSouthAfricanDate();
   }
 
   function formatDate(dateString) {
@@ -639,6 +660,7 @@
       day: "numeric",
       month: "short",
       year: "numeric",
+      timeZone: "UTC",
     }).format(date);
   }
 
@@ -827,14 +849,7 @@
   }
 
   function isClosingWithinDays(dateString, days) {
-    const today = getReferenceToday();
-
-    const closingDate = new Date(dateString);
-    closingDate.setHours(0, 0, 0, 0);
-
-    const diffInMs = closingDate.getTime() - today.getTime();
-    const diffInDays = Math.ceil(diffInMs / (1000 * 60 * 60 * 24));
-
+    const diffInDays = getDaysUntilClosing(dateString);
     return diffInDays >= 0 && diffInDays <= days;
   }
 
@@ -843,12 +858,8 @@
   }
 
   function getDaysUntilClosing(dateString) {
-    const today = getReferenceToday();
-
-    const closingDate = new Date(dateString);
-    closingDate.setHours(0, 0, 0, 0);
-
-    return Math.ceil((closingDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+    if (!dateString) return NaN;
+    return getCalendarDay(dateString) - getCalendarDay(getReferenceDate());
   }
 
   function getUrgencyLabel(dateString) {
@@ -1399,7 +1410,7 @@
     const fulfilmentStatus = String(competition.resultFulfilmentStatus || "").trim().toLowerCase();
     const checkedDate = new Date(`${resultCheckedAt}T00:00:00Z`);
     const today = getReferenceToday();
-    const todayIso = [today.getFullYear(), String(today.getMonth() + 1).padStart(2, "0"), String(today.getDate()).padStart(2, "0")].join("-");
+    const todayIso = getReferenceDate();
 
     if (
       !/^\d{4}-\d{2}-\d{2}$/.test(resultCheckedAt) ||
@@ -1914,9 +1925,7 @@
       return Number.POSITIVE_INFINITY;
     }
 
-    checkedDate.setHours(0, 0, 0, 0);
-
-    return Math.floor((today.getTime() - checkedDate.getTime()) / (1000 * 60 * 60 * 24));
+    return getCalendarDay(getReferenceDate()) - getCalendarDay(rawDate);
   }
 
   function compareRecentCompetitionUpdates(left, right) {
@@ -2058,6 +2067,9 @@
     CANONICAL_ORIGIN,
     HOME_ROUTE,
     setReferenceDate,
+    getSouthAfricanDate,
+    getCalendarDay,
+    getReferenceDate,
     DEFAULT_OG_IMAGE,
     getCompetitionImageUrl,
     getCompetitionPrimaryImageUrl,

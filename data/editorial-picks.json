@@ -1,0 +1,56 @@
+[
+  {
+    "surface": "home",
+    "kind": "resource",
+    "recordId": "resource-childrens-books-book-dash",
+    "reason": "For families and teachers who want a story to read now: browse Book Dash's free digital children's books, with language choices shown in its library.",
+    "caution": "Digital access does not promise a free printed copy. Data and printing costs are yours.",
+    "reviewedAt": "2026-10-04",
+    "reviewDueAt": "2026-10-11"
+  },
+  {
+    "surface": "home",
+    "kind": "offer",
+    "recordId": "mtn-app-first-login-1gb-2026",
+    "reason": "For eligible MTN customers trying the new app for the first time: check My Gifts after your first authenticated login for the data reward.",
+    "caution": "MTN decides eligibility. Claim within 24 hours of notification; redeemed data lasts 24 hours. Download costs may apply.",
+    "reviewedAt": "2026-10-04",
+    "reviewDueAt": "2026-10-11"
+  },
+  {
+    "surface": "home",
+    "kind": "competition",
+    "recordId": "cadbury-made-to-share-2026",
+    "reason": "For SA adults who prefer an online quiz to a qualifying purchase: complete the Slab Settler and registration for the weekly cash draw.",
+    "caution": "Own RICA-registered number and data needed. The FAQ says website entry is purchase-free, but general terms still mention proof-of-purchase checks. Confirm winner requirements before entering.",
+    "reviewedAt": "2026-10-04",
+    "reviewDueAt": "2026-10-11"
+  },
+  {
+    "surface": "monthly",
+    "kind": "competition",
+    "recordId": "cadbury-made-to-share-2026",
+    "reason": "An online quiz route for SA adults who want to avoid a qualifying purchase. Complete the Slab Settler and registration rather than the separate in-store mechanic.",
+    "caution": "Own RICA-registered number required; data costs and winner-document checks apply. The general terms retain proof-of-purchase validation wording despite the FAQ's purchase-free website route.",
+    "reviewedAt": "2026-10-04",
+    "reviewDueAt": "2026-10-11"
+  },
+  {
+    "surface": "monthly",
+    "kind": "competition",
+    "recordId": "heinz-heritage-spar-2026",
+    "reason": "For SPAR Rewards shoppers already buying the listed products: a qualifying purchase and card swipe enter you automatically, with no recipe, quiz or photo submission.",
+    "caution": "SA citizens aged 18+ only. Buy two participating products and swipe Rewards; check exact pack sizes. This is a purchase route, with one braai prize and no cash exchange.",
+    "reviewedAt": "2026-10-04",
+    "reviewDueAt": "2026-10-11"
+  },
+  {
+    "surface": "monthly",
+    "kind": "competition",
+    "recordId": "sea-harvest-say-fish-grocery-vouchers-2026",
+    "reason": "For adult home cooks already planning a Sea Harvest meal: enter a family or heritage recipe with your own dish photo for the grocery-voucher draw.",
+    "caution": "Product and data costs apply. Entry grants ongoing unpaid reuse and adaptation of your recipe and photo; credit is not guaranteed. Closes at 23:59 SAST.",
+    "reviewedAt": "2026-10-04",
+    "reviewDueAt": "2026-10-11"
+  }
+]
