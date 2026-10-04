@@ -811,5 +811,18 @@
     "reviewedAt": "2026-10-03",
     "sourcePage": "https://www.vodacom.co.za/vodacom/terms/competition/orlando-pirates-and-kaizer-chiefs-stand",
     "sourceImage": "https://a.wayin.com/images/4209/ddb29815-1372-4ee5-8af7-a0bdb13752ec/image_2.png"
+  },
+  "gotyme-card-swipe-spend-2026": {
+    "src": "/assets/listings/gotyme-card-swipe-spend-2026.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "FreeHub editorial illustration of an unbranded card, contactless phone and R300 prize medallion; eligibility and qualifying spend apply",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration. Devices and card are illustrative; this is a prize draw with qualifying conditions, not a guaranteed reward.",
+    "reviewedAt": "2026-10-04",
+    "sourcePage": "https://gotyme.co.za/personal/terms-and-conditions-for-campaigns",
+    "generationMethod": "Built-in image generation",
+    "generationPrompt": "Create a polished 1536x1024 landscape editorial illustration for South African consumer information site FreeHub, about a narrowly eligible bank card-spend prize draw. Warm cream backdrop, teal and navy accents, tasteful realistic 3D illustration of a plain unbranded debit card, a smartphone displaying only a simple abstract contactless icon (no simulated banking app UI), a small shopping bag, and an understated circular prize medallion reading 'R300'. Main headline exactly 'CARD SPEND PRIZE DRAW'. Smaller readable line 'Eligibility and qualifying spend apply'. Bottom strip visibly and clearly reads 'FreeHub editorial illustration'. Clean premium composition with generous whitespace and all text inside central safe margins. Do not depict actual banknotes, bank logos, Mastercard/Visa/Apple marks, endorsement, guaranteed rewards, account numbers, invented products or additional prize amounts. This is explanatory editorial artwork, not official GoTyme marketing.\r\n",
+    "sourceReviewNote": "Labelled FreeHub editorial illustration; not official bank artwork. Official terms page contained logos and utility graphics, with no suitable campaign hero."
   }
 }

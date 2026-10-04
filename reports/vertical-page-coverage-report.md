@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-10-03
+Generated: 2026-10-04
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
@@ -48,14 +48,13 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 18
+- Matching active public competitions: 17
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Huletts Heritage Recipe and Story Competition (huletts-heritage-2026) | 2026-10-03 | free-entry | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Makro Spring Trolley Dash Competition (makro-spring-trolley-dash-2026) | 2026-10-06 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Knorr Soup Competition 2026 - Win R5,000 Weekly (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | SPAR Colgate-Palmolive Win Your Share of R150,000 Competition (spar-colgate-palmolive-r150k-2026) | 2026-10-17 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
@@ -80,7 +79,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 21
+- Matching active public competitions: 22
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -103,6 +102,7 @@ Recommended normalisation:
 | Bargain Books: Win Hollow Bones (bargain-books-hollow-bones-2026) | 2026-11-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Bargain Books: Win Cheslin Kolbe’s Memoir (bargain-books-cheslin-kolbe-2026) | 2026-11-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Bargain Books: Win A Court of Splintered Harmony (bargain-books-court-splintered-harmony-2026) | 2026-11-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
+| GoTyme Card Swipe and Spend: Win R300 (gotyme-card-swipe-spend-2026) | 2026-11-30 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | Clicks October/November Beauty Box Giveaway (clicks-october-november-beauty-box-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Clicks D’Licious Hamper Giveaway (clicks-dlicious-hamper-october-november-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Clicks DKNY Ice Pop Fragrance Giveaway (clicks-dkny-ice-pop-october-november-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |

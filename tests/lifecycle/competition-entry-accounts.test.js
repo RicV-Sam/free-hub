@@ -36,6 +36,8 @@ function escapeRegExp(value) {
 }
 
 test("instruction and terms destinations are not labelled as direct app or WhatsApp entry", () => {
+  const competitions = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, "data", "competitions.json"), "utf8"));
+  const asOfDate = process.env.FREEHUB_BUILD_DATE || new Date().toISOString().slice(0, 10);
   for (const [slug, label] of [
     ["nescafe-gold-rush-spar-2026", "View official terms"],
     ["heinz-heritage-spar-2026", "View official terms"],
@@ -44,7 +46,14 @@ test("instruction and terms destinations are not labelled as direct app or Whats
     ["sasol-magpie-2026", "View official entry instructions"],
   ]) {
     const html = fs.readFileSync(path.join(ROOT_DIR, "competition", slug, "index.html"), "utf8");
-    assert.ok(html.includes(`>${label}</a>`), slug);
+    const competition = competitions.find((row) => row.id === slug);
+    assert.ok(competition, slug);
+    if (competition.closingDate < asOfDate) {
+      assert.ok(html.includes('aria-label="Competition closed"'), slug);
+      assert.ok(!html.includes(`href="/out/${slug}/"`), slug);
+    } else {
+      assert.ok(html.includes(`>${label}</a>`), slug);
+    }
     assert.ok(!html.includes(">Enter in the official app</a>"), slug);
     assert.ok(!html.includes(">Enter via official WhatsApp</a>"), slug);
   }

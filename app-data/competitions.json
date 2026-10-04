@@ -1,34 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-03",
+  "asOfDate": "2026-10-04",
   "count": 78,
   "competitions": [
-    {
-      "id": "huletts-heritage-2026",
-      "title": "Huletts Heritage Recipe and Story Competition",
-      "brand": "Huletts / Tongaat Hulett",
-      "summary": "Share the family story behind a heritage recipe made with a Huletts product in the comments of an official competition post for a chance to win R5,000.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/huletts-heritage-2026.jpg",
-      "closingDate": "2026-10-03",
-      "category": "Cash",
-      "prizeName": "R5,000 for each of ten winners",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Facebook or Instagram Comment",
-      "eligibility": "South African citizens living in South Africa; guardian assistance and consent are required for under-18s.",
-      "entrySteps": [
-        "Open the official Huletts Heritage campaign page and use its Facebook or Instagram link to reach a competition post.",
-        "In the comments of that post, share your favourite heritage recipe made with a Huletts product and tell the special story behind it.",
-        "Submit before 23:59 on 3 October 2026. Multiple entries are allowed only when each entry is unique.",
-        "If you are under 18, enter with your guardian’s assistance and consent. Winners must provide identification and contact details."
-      ],
-      "officialUrl": "https://www.hulettssugar.co.za/competitions/huletts-heritage-2026/",
-      "termsUrl": "https://www.hulettssugar.co.za/competitions/huletts-heritage-2026-competition-rules/",
-      "lastChecked": "2026-09-14",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
     {
       "id": "vodacom-pirates-sundowns-mtn8-tickets-october-2026",
       "title": "Vodacom: Win Orlando Pirates vs Mamelodi Sundowns MTN8 Final Tickets",
@@ -185,7 +159,7 @@
       "termsUrl": "https://www.whatsfordinner.co.za/knorr-win-r5000-weekly-ts-and-cs.html",
       "lastChecked": "2026-07-24",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "sea-harvest-say-fish-grocery-vouchers-2026",
@@ -1493,6 +1467,34 @@
       "termsUrl": "https://glowming.co.za/pages/competition-rules",
       "lastChecked": "2026-10-03",
       "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "gotyme-card-swipe-spend-2026",
+      "title": "GoTyme Card Swipe and Spend: Win R300",
+      "brand": "GoTyme Bank",
+      "summary": "Qualifying GoTyme customers can enter a draw for R300 after R300 cumulative card or Apple Pay spend. Strict account-history conditions apply; the reward is not guaranteed.",
+      "imageUrl": "https://freehub.co.za/assets/listings/gotyme-card-swipe-spend-2026.webp",
+      "closingDate": "2026-11-30",
+      "category": "Cash",
+      "prizeName": "R300 deposited into a GoTyme EveryDay Account",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Automatic qualifying card spend",
+      "eligibility": "South African residents over 18 with a verified GoTyme EveryDay Account in good standing. Group 1: joined between 1 January and 31 August 2026 and had made no card transaction before 1 October. Group 2: uses the GoTyme app on an Apple iOS device and had made no Apple Pay transaction before 1 October. GoTyme employees, directors, contractors and their immediate families are excluded. Only one qualifying group per person.",
+      "entrySteps": [
+        "Check that you meet the age, residence, account and historical payment conditions for group 1 or group 2 before spending. Opening an account alone does not qualify you.",
+        "Between 1 October and 30 November 2026 inclusive, complete at least R300 cumulative qualifying card purchases for group 1, or qualifying Apple Pay purchases for group 2.",
+        "Entry is automatic after the threshold is reached. No separate registration or entry form is required. Spending above R300 or making more transactions does not improve your odds.",
+        "Withdrawals, transfers, declined, reversed, cancelled and refunded transactions do not qualify. Refunds that reduce qualifying spend below R300 remove eligibility.",
+        "Only one group applies. If eligible for both, GoTyme allocates you according to your first qualifying transaction type.",
+        "Keep your registered contact details current. The rules specify a draw on 10 December and announcement on 14 December; failure to reach a winner within five days may result in disqualification."
+      ],
+      "officialUrl": "https://gotyme.co.za/personal/terms-and-conditions-for-campaigns",
+      "termsUrl": "https://gotyme.co.za/personal/terms-and-conditions-for-campaigns",
+      "lastChecked": "2026-10-04",
+      "isHighValue": false,
       "isClosingSoon": false
     },
     {

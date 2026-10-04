@@ -34,7 +34,8 @@ function getCurrentContentBaseline() {
     // ticket draw detail page and its noindex football tag page. SPAR Weekly Wins remains held.
     // Active counts add the corresponding exit routes. The fixed detail-page base
     // excludes the Kaizer Chiefs survey withdrawn on 2 October after its entry page closed.
-    generatedFileCount: 410 + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    // GoTyme Card Swipe and Spend adds one reviewed detail page on 4 October.
+    generatedFileCount: 411 + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
     sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length,
   };
 }
