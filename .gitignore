@@ -50,3 +50,8 @@ storage/exports/
 /free-parks-entry-south-africa-september-2026/
 
 whatsapp-channel/
+
+.indexnow-state/
+indexnow-revision.txt
+.indexnow-status.json
+.indexnow-status.json.tmp

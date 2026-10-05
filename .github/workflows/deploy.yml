@@ -6,13 +6,14 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: read
   contents: read
   pages: write
   id-token: write
 
 concurrency:
   group: "pages"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -91,6 +92,9 @@ jobs:
         if: env.INDEXNOW_API_KEY != ''
         run: node scripts/write-indexnow-key.js
 
+      - name: Write deployment marker
+        run: printf '%s' "$GITHUB_SHA" > indexnow-revision.txt
+
       - name: Remove build dependencies from publication directory
         run: rm -rf node_modules
 
@@ -111,10 +115,15 @@ jobs:
         continue-on-error: true
         run: node scripts/submit-bing.js --sitemap=https://freehub.co.za/sitemap.xml
 
-      - name: Submit sitemap URLs to IndexNow
+      - name: Validate IndexNow change selection
+        run: node --test scripts/notify-indexnow.test.mjs
+
+      - name: Notify IndexNow of changed pages
         id: indexnow
         if: env.INDEXNOW_API_KEY != ''
-        run: node scripts/submit-indexnow.js --sitemap=https://freehub.co.za/sitemap.xml
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/notify-indexnow.mjs notify https://freehub.co.za
 
       - name: Record IndexNow outcome
         if: ${{ always() }}
@@ -131,3 +140,13 @@ jobs:
           include-hidden-files: true
           retention-days: 90
           if-no-files-found: warn
+
+      - name: Save changed-page state
+        if: steps.indexnow.outcome == 'success'
+        uses: actions/upload-artifact@v4
+        with:
+          name: indexnow-state
+          path: .indexnow-state/state.json
+          include-hidden-files: true
+          retention-days: 90
+          if-no-files-found: error
