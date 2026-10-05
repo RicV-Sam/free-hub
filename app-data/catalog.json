@@ -10,36 +10,36 @@
   },
   "items": [
     {
-      "id": "resource-online-courses-google-digital-skills-for-africa",
+      "id": "resource-online-courses-google-skillshop-digital-skills",
       "kind": "resource",
-      "title": "Google Digital Skills for Africa",
-      "provider": "Google Digital Skills for Africa",
-      "summary": "Free digital marketing and online business learning from Google.",
+      "title": "Google Skillshop digital skills",
+      "provider": "Google Skillshop digital skills",
+      "summary": "Google offers free Google Ads training on Skillshop. The linked Fundamentals of Digital Marketing course covers beginner digital marketing; check its current terms.",
       "category": "online-courses",
       "categoryLabel": "Free online courses",
-      "officialUrl": "https://learndigital.withgoogle.com/digitalskills",
+      "officialUrl": "https://skillshop.exceedlms.com/student/collection/1830706?locale=en",
       "bestFor": "Beginners, jobseekers and small business owners",
       "requirements": [
-        "Google account may be needed for progress tracking and certificates."
+        "Sign in to track completion. Fundamentals is listed as a self-paced, 40-hour beginner course."
       ],
-      "watchOut": "Check the course page before promising a certificate because course availability can change.",
-      "lastChecked": "2026-05-27"
+      "watchOut": "Fundamentals now issues a digital award rather than the old Digital Garage certificate. Confirm the selected course cost; not every Google training programme is free.",
+      "lastChecked": "2026-10-05"
     },
     {
       "id": "resource-online-courses-microsoft-learn-south-africa",
       "kind": "resource",
       "title": "Microsoft Learn South Africa",
       "provider": "Microsoft Learn South Africa",
-      "summary": "Free learning paths, product training and selected virtual training events from Microsoft.",
+      "summary": "Free Microsoft Learn training content, with module badges and learning-path trophies distinct from assessed credentials.",
       "category": "online-courses",
       "categoryLabel": "Free online courses",
-      "officialUrl": "https://www.microsoft.com/en-za/microsoft-learn",
+      "officialUrl": "https://learn.microsoft.com/en-us/training/",
       "bestFor": "Students, IT beginners and people building technical skills",
       "requirements": [
-        "Microsoft account is useful for saving progress; some certifications or exams may cost money."
+        "A Learn profile saves progress. Check each module for prerequisites, software and subscription needs."
       ],
-      "watchOut": "Free learning content is not always the same as a free certification exam.",
-      "lastChecked": "2026-05-27"
+      "watchOut": "Former Learn sandboxes are no longer available. Azure exercises can require a subscription and incur usage costs; certification exams can cost extra.",
+      "lastChecked": "2026-10-05"
     },
     {
       "id": "resource-online-courses-vodacom-digital-skills-hub",
