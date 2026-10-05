@@ -5,6 +5,7 @@ const path = require("path");
 const { createLocalImageDimensionWriter } = require("./lib/local-image-dimensions.js");
 const shared = require("../shared/page-data.js");
 const { createEditorialRenderer } = require("./lib/editorial-renderer.js");
+const { renderMascot } = require("./lib/mascot-renderer.js");
 const editorialPicks = require("../data/editorial-picks.json");
 const { validateEditorialPicks, getEligibleEditorialPicks } = require("./lib/editorial-picks.js");
 const opportunityData = require("../shared/opportunity-data.js");
@@ -33,7 +34,7 @@ const OFFERS_PATH = path.join(ROOT_DIR, "data", "offers.json");
 const UNVERIFIED_COMPETITIONS_PATH = path.join(ROOT_DIR, "data", "unverified-competitions.json");
 const RELATIVE_ASSET_PATH = "/";
 const RELEASE_ASSET_VERSION = "20260901-native-ads-v1";
-const UI_ASSET_VERSION = "20261004-editorial-ui-v1";
+const UI_ASSET_VERSION = "20261005-hadeda-v1";
 const GUEST_ADS_SCRIPT_SRC = "/shared/guest-ads.js?v=20260917-account-save-v2";
 const OUTBOUND_HANDOFF_SCRIPT_SRC = `/shared/outbound-handoff.js?v=${RELEASE_ASSET_VERSION}`;
 const GUEST_ADS_SCRIPT = `<script type="module" src="${GUEST_ADS_SCRIPT_SRC}"></script>`;
@@ -3430,6 +3431,7 @@ function renderUnverifiedCompetitionPage(records) {
       ${renderTopNavigation({ active: "competitions" })}
       ${renderModernHero({
         className: "hero--utility hero--under-review",
+        mascotPose: records.length ? "browse" : "recover",
         eyebrow: "Discovery with disclosure",
         heading: "Competitions under review in South Africa",
         intro: "These competition leads have not passed Freehub's verification checks. We show what we found, what is still missing and the direct source so you can make your own judgement.",
@@ -3526,7 +3528,7 @@ function renderStatusPlaceholders() {
           id="errorState"
           class="state-card state-card--hidden state-card--error"
           aria-live="assertive"
-        ></section>`;
+        >${renderMascot("recover", { animate: false })}</section>`;
 }
 
 const OFFER_CATEGORY_DEFINITIONS = offerData.CATEGORY_DEFINITIONS;
@@ -3679,11 +3681,11 @@ function renderOfferCollectionPage({ type, offers, category = "", brandSlug = ""
   </head>
   <body>${renderGoogleTagManagerNoScript()}${renderMetaPixelNoScript()}<div class="site-shell">
     ${renderTopNavigation({ active: "offers" })}
-    ${renderModernHero({ className: "hero--utility hero--offers", eyebrow: type === "coupon" ? "Verified coupon codes" : type === "deal" ? "Checked deals" : "South African savings portal", heading, intro: description, actions: heroActions, trustItems: ["South Africa focused", "Checked regularly", "Clear link disclosures"] })}
+    ${renderModernHero({ className: "hero--utility hero--offers", mascotPose: "browse", mascotHidden: offers.length === 0, eyebrow: type === "coupon" ? "Verified coupon codes" : type === "deal" ? "Checked deals" : "South African savings portal", heading, intro: description, actions: heroActions, trustItems: ["South Africa focused", "Checked regularly", "Clear link disclosures"] })}
     <main id="main-content" class="main-content offer-page">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span>${category || brand ? '<a href="/offers/">Offers</a><span aria-hidden="true">/</span>' : ""}<span aria-current="page">${escapeHtml(qualifier || noun)}</span></nav>
       <section class="offer-trust" aria-label="How coupons and deals are organised"><strong>Coupons use codes; deals do not.</strong> We separate code-based coupons from ordinary promotions, then link you to the source to check the final price and terms.</section>
-      ${offers.length ? `<p class="offer-results">Showing ${offers.length} verified ${offers.length === 1 ? resultLabel : `${resultLabel}s`}</p><div class="offer-grid">${offers.map(renderOfferCard).join("\n")}</div>` : `<section class="state-card"><p class="state-card__title">No verified ${noun.toLowerCase()} listed yet</p><p class="state-card__text">No offer is published until its source, terms and coupon code, when needed, have been checked.</p></section>`}
+      ${offers.length ? `<p class="offer-results">Showing ${offers.length} verified ${offers.length === 1 ? resultLabel : `${resultLabel}s`}</p><div class="offer-grid">${offers.map(renderOfferCard).join("\n")}</div>` : `<section class="state-card">${renderMascot("recover")}<p class="state-card__title">No verified ${noun.toLowerCase()} listed yet</p><p class="state-card__text">No offer is published until its source, terms and coupon code, when needed, have been checked.</p></section>`}
       ${!category && !brand ? renderOfferTaxonomyLinks(offers) : ""}
       ${!category && !brand ? renderOfferContributionPanel() : ""}
     </main>${renderSiteFooter()}</div><script type="module" src="/shared/auth-ui.js?v=20260917-account-save-v2"></script>
@@ -3803,7 +3805,7 @@ function renderOfferExitPage(offer) {
   const destination = offer.destinationUrl;
   const sourceDomain = getSafeHostname(destination);
   const rel = `noopener noreferrer${offer.affiliate || offer.sponsored ? " sponsored" : ""}`;
-  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Continue to ${escapeHtml(offer.brand)} | Freehub</title><meta name="robots" content="noindex, nofollow" /><link rel="canonical" href="${escapeAttribute(`${shared.CANONICAL_ORIGIN}${offerData.getOfferExitPath(offer)}`)}" /><link rel="icon" type="image/svg+xml" href="/favicon.svg" /><link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />${GUEST_ADS_SCRIPT}${OUTBOUND_HANDOFF_SCRIPT}</head><body><div class="site-shell">${renderTopNavigation()}<main id="main-content" class="main-content"><section class="state-card offer-exit"><p class="state-card__title">You are leaving Freehub</p><p class="state-card__text">Continue to ${escapeHtml(sourceDomain)} to check current eligibility, availability and terms.${offer.affiliate ? " Freehub may earn a commission if you buy, at no extra cost to you." : ""}</p><a class="competition-detail__cta" href="${escapeAttribute(destination)}" rel="${rel}" data-offer-destination>Continue to ${escapeHtml(offer.brand)}</a><a href="${escapeAttribute(offerData.getOfferPath(offer))}">Back to offer details</a></section></main>${renderSiteFooter({ includeAuthPanel: false })}</div><script>window.FreeHubOutboundHandoff.afterGuestAdDecision(function(){var link=document.querySelector('[data-offer-destination]');if(link) window.location.replace(link.href);});</script></body></html>`;
+  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Continue to ${escapeHtml(offer.brand)} | Freehub</title><meta name="robots" content="noindex, nofollow" /><link rel="canonical" href="${escapeAttribute(`${shared.CANONICAL_ORIGIN}${offerData.getOfferExitPath(offer)}`)}" /><link rel="icon" type="image/svg+xml" href="/favicon.svg" /><link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />${GUEST_ADS_SCRIPT}${OUTBOUND_HANDOFF_SCRIPT}</head><body><div class="site-shell">${renderTopNavigation()}<main id="main-content" class="main-content"><section class="state-card offer-exit">${renderMascot("direct")}<p class="state-card__title">You are leaving Freehub</p><p class="state-card__text">Continue to ${escapeHtml(sourceDomain)} to check current eligibility, availability and terms.${offer.affiliate ? " Freehub may earn a commission if you buy, at no extra cost to you." : ""}</p><a class="competition-detail__cta" href="${escapeAttribute(destination)}" rel="${rel}" data-offer-destination>Continue to ${escapeHtml(offer.brand)}</a><a href="${escapeAttribute(offerData.getOfferPath(offer))}">Back to offer details</a></section></main>${renderSiteFooter({ includeAuthPanel: false })}</div><script>window.FreeHubOutboundHandoff.afterGuestAdDecision(function(){var link=document.querySelector('[data-offer-destination]');if(link) window.location.replace(link.href);});</script></body></html>`;
 }
 
 function renderRelatedOffersForCompetition(competition) {
@@ -4115,6 +4117,10 @@ function renderModernHero({
   actions = [],
   trustItems = [],
   previewMarkup = "",
+  mascotPose = "",
+  mascotHidden = false,
+  mascotAlt = "",
+  mascotCaption = "",
 }) {
   const headingAttribute = headingId ? ` id="${escapeAttribute(headingId)}"` : "";
   const introAttribute = introId ? ` id="${escapeAttribute(introId)}"` : "";
@@ -4128,10 +4134,11 @@ function renderModernHero({
 
   return `<header class="hero hero--collection hero--modern${safeClassName}">
         <div class="hero__layout">
-          <div class="hero__copy">
+          <div class="hero__copy${mascotPose ? " mascot-intro" : ""}">
+            ${mascotPose ? renderMascot(mascotPose, { heading: true, hidden: mascotHidden, alt: mascotAlt }) : ""}
             <p class="eyebrow">${escapeHtml(eyebrow)}</p>
             <h1${headingAttribute}>${escapeHtml(heading)}</h1>
-            <p class="hero__text"${introAttribute}>${escapeHtml(intro)}</p>${updatedSection}${actionsSection}${trustSection}
+            <p class="hero__text"${introAttribute}>${escapeHtml(intro)}</p>${mascotCaption ? `<p class="hero__text">${escapeHtml(mascotCaption)}</p>` : ""}${updatedSection}${actionsSection}${trustSection}
           </div>${previewSection}
         </div>
       </header>`;
@@ -4139,7 +4146,7 @@ function renderModernHero({
 
 function renderCollectionHero(routeContext, pageCopy, competitions) {
   if (routeContext.type === "category" || (routeContext.type === "hub" && routeContext.slug === "competitions")) {
-    return `<header class="hero hero--catalogue"><h1 id="pageTitle">${escapeHtml(pageCopy.heading)}</h1><p id="pageIntro">Compare prizes, costs and deadlines, then check the official entry rules.</p>${renderUpdatedNotice()}</header>`;
+    return `<header class="hero hero--catalogue mascot-intro">${renderMascot("browse", { heading: true, hidden: competitions.length === 0 })}<h1 id="pageTitle">${escapeHtml(pageCopy.heading)}</h1><p id="pageIntro">Compare prizes, costs and deadlines, then check the official entry rules.</p>${renderUpdatedNotice()}</header>`;
   }
   const flagship = isFlagshipSeoHub(routeContext);
   const actions = flagship ? getFlagshipHeroActions(routeContext) : getCollectionHeroActions(routeContext);
@@ -4164,6 +4171,8 @@ function renderCollectionHero(routeContext, pageCopy, competitions) {
 
   return renderModernHero({
     className,
+    mascotPose: "browse",
+    mascotHidden: competitions.length === 0,
     eyebrow: "Freehub discovery",
     heading: pageCopy.heading,
     intro: pageCopy.intro,
@@ -5860,6 +5869,7 @@ function renderBrandIndexPage(brandPages) {
           </div>
         </section>`
     : `<section class="state-card" id="brandPages" aria-label="Brand page status">
+          ${renderMascot("recover")}
           <p class="state-card__title">No brand pages qualify right now</p>
           <p class="state-card__text">Freehub only indexes brand pages when a brand has enough active published competitions to make the page useful. Use the current competition hubs below until enough strong brand clusters qualify.</p>
         </section>`;
@@ -5904,6 +5914,8 @@ function renderBrandIndexPage(brandPages) {
       ${renderTopNavigation({ active: "competitions" })}
       ${renderModernHero({
         className: "hero--utility hero--brand-index",
+        mascotPose: "browse",
+        mascotHidden: !hasBrandPages,
         eyebrow: "Freehub brands",
         heading: pageCopy.heading,
         intro: pageCopy.intro,
@@ -6719,12 +6731,13 @@ function getCollectionEmptyState(routeContext) {
 
 function renderCollectionEmptyState(routeContext, competitions) {
   if (competitions.length > 0) {
-    return `<div id="emptyState" class="state-card state-card--hidden" aria-live="polite"></div>`;
+    return `<div id="emptyState" class="state-card state-card--hidden" aria-live="polite">${renderMascot("recover", { animate: false })}</div>`;
   }
 
   const state = getCollectionEmptyState(routeContext);
 
   return `<div id="emptyState" class="state-card" aria-live="polite">
+            ${renderMascot("recover")}
             <p class="state-card__title">${escapeHtml(state.title)}</p>
             <p class="state-card__text">${escapeHtml(state.text)}</p>
           </div>`;
@@ -7288,7 +7301,8 @@ function renderHomepage(competitions) {
       ${renderTopNavigation({ active: "home" })}
       <header class="hero hero--home">
         <div class="hero__layout">
-          <div class="hero__copy">
+          <div class="hero__copy mascot-intro">
+            ${renderMascot("welcome", { heading: true })}
             <h1 id="pageTitle">Find free stuff, savings and competitions in South Africa</h1>
             <p class="hero__text" id="pageIntro">Explore free resources, rewards, coupons, deals and competitions—with official links and clear information about costs and requirements.</p>
             ${renderUpdatedNotice()}
@@ -7448,6 +7462,7 @@ function renderFreeStuffParentPage(page) {
       ${renderTopNavigation({ active: "free-stuff" })}
       ${renderModernHero({
         className: "hero--utility hero--trust hero--compact",
+        mascotPose: "read",
         eyebrow: "Free resources",
         heading: page.heading,
         intro: "Find free reading, learning and practical support. Check each resource’s requirements and costs before using it.",
@@ -7755,6 +7770,7 @@ function renderFreeSamplesPage(page) {
       ${renderModernHero({
         className: "hero--utility hero--trust",
         eyebrow: "Verified sample guide",
+        mascotPose: "read",
         heading: page.heading,
         intro: heroIntro,
         actions:
@@ -8015,6 +8031,9 @@ function renderAboutPage(page) {
       ${renderTopNavigation()}
       ${renderModernHero({
         className: "hero--about hero--no-preview",
+        mascotPose: "welcome",
+        mascotAlt: "FreeHub’s hadeda mascot wearing a navy FreeHub cap and lanyard",
+        mascotCaption: "Our hadeda mascot points the way around FreeHub.",
         eyebrow: "About Freehub",
         heading: page.heading,
         intro: page.intro,
@@ -8755,6 +8774,7 @@ function renderTrustPage(page) {
       ${renderTopNavigation({ active: page.requiresOffers === true ? "offers" : undefined })}
       ${renderModernHero({
         className: page.heroClassName || "hero--utility hero--trust",
+        mascotPose: page.studentOffer ? "direct" : (["contact", "privacy-policy", "terms-of-use", "submit-an-offer", "submit-a-competition", "report-a-competition"].includes(page.slug) ? "" : "read"),
         eyebrow: page.eyebrow || "Freehub trust",
         heading: page.heading,
         intro: page.intro,
@@ -8966,6 +8986,7 @@ function renderContentIndexPage(page) {
       ${renderModernHero({
         className: "hero--standard hero--no-preview",
         eyebrow: "Freehub guides",
+        mascotPose: "read",
         heading: page.heading,
         intro: page.intro,
         actions: [
@@ -9045,6 +9066,7 @@ function renderMonthlyGuidePage(activeCompetitions) {
       ${renderModernHero({
         className: "hero--standard hero--compact",
         eyebrow: "Monthly guide",
+        mascotPose: "read",
         heading: "Competitions to consider this month",
         intro: "A current roundup of active Freehub listings with visible costs, closing dates and official-source paths.",
         updatedMarkup: renderUpdatedNotice(),
@@ -10662,6 +10684,7 @@ function renderNotFoundPage() {
       ${renderTopNavigation()}
       ${renderModernHero({
         className: "hero--utility hero--not-found",
+        mascotPose: "recover",
         eyebrow: "Freehub",
         heading: "Page not found",
         intro: "The page you opened is not available. You can return to live competitions, browse a category, or report a broken link.",
@@ -11771,6 +11794,7 @@ function renderOpportunityExitPage(opportunity) {
         eyebrow: "Official source",
         heading: "You are leaving Freehub",
         intro: `Taking you to ${sourceDomain} for ${opportunity.title}.`,
+        mascotPose: "direct",
         actions: [
           { label: "Back to Opportunity Details", href: opportunityData.getOpportunityDetailPath(opportunity), className: "btn--secondary" },
         ],
@@ -11862,6 +11886,7 @@ function renderOutPage(competition) {
         eyebrow: "Official source",
         heading: "You are leaving Freehub",
         intro: `Taking you to ${sourceDomain} for ${competition.title}. If you are not redirected automatically, use the link below.`,
+        mascotPose: "direct",
         actions: [
           { label: "Continue", href: externalUrl, className: "btn--primary", target: "_blank", rel: "nofollow noopener" },
           { label: "Back to Competitions", href: "/competitions/", className: "btn--secondary" },

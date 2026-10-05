@@ -1,0 +1,2 @@
+# Keep stylesheet byte budgets identical on Windows and deployment builds.
+styles.css text eol=lf

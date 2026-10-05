@@ -30,6 +30,7 @@ const state = {
   searchQuery: "",
   lastTrackedSearchQuery: "",
   activeCategory: "All",
+  mascotGreetingShown: Boolean(document.querySelector('[data-mascot="recover"][data-mascot-greeted]')),
   routeContext: getRouteContext(getCurrentRoutePath()),
 };
 
@@ -229,6 +230,7 @@ function renderCompetitions() {
       "Try a different search term or clear the current category filter."
     );
     elements.emptyState.classList.remove("state-card--hidden");
+    updateCatalogueMascot(elements.emptyState);
   } else {
     const cards = filteredCompetitions.map((competition) => createCompetitionCard(competition));
 
@@ -433,6 +435,8 @@ function showLoading() {
   elements.errorState.classList.add("state-card--hidden");
   elements.emptyState.classList.add("state-card--hidden");
 
+  updateCatalogueMascot();
+
   if (!hasPrerenderedContent) {
     elements.competitionsGrid.innerHTML = "";
     elements.resultsSummary.textContent = "Loading competitions...";
@@ -448,6 +452,7 @@ function showError() {
   );
   elements.errorState.classList.remove("state-card--hidden");
   elements.emptyState.classList.add("state-card--hidden");
+  updateCatalogueMascot(elements.errorState);
 
   if (elements.competitionsGrid.children.length === 0) {
     elements.resultsSummary.textContent = "Competitions unavailable";
@@ -455,25 +460,33 @@ function showError() {
 }
 
 function setStateCardContent(element, title, text) {
-  if (!element || element.children.length > 0) {
-    return;
+  if (!element) return;
+  // Preserve server-rendered context, but decorative children are not a message.
+  for (const [className, content] of [["state-card__title", title], ["state-card__text", text]]) {
+    if (element.querySelector(`.${className}`)) continue;
+    const paragraph = document.createElement("p");
+    paragraph.className = className;
+    paragraph.textContent = content;
+    element.append(paragraph);
   }
+}
 
-  const titleElement = document.createElement("p");
-  titleElement.className = "state-card__title";
-  titleElement.textContent = title;
-
-  const textElement = document.createElement("p");
-  textElement.className = "state-card__text";
-  textElement.textContent = text;
-
-  element.append(titleElement, textElement);
+function updateCatalogueMascot(status = null) {
+  const headingMascot = document.querySelector('[data-mascot-heading]');
+  if (headingMascot) headingMascot.hidden = Boolean(status);
+  const recovery = status && status.querySelector('[data-mascot="recover"]');
+  if (!recovery || state.mascotGreetingShown) return;
+  state.mascotGreetingShown = true;
+  recovery.classList.add("mascot--greet");
+  recovery.addEventListener("animationend", () => recovery.classList.remove("mascot--greet"), { once: true });
 }
 
 function hideStatusStates() {
+  for (const mascot of document.querySelectorAll('.state-card .mascot--greet')) mascot.classList.remove("mascot--greet");
   elements.loadingState.classList.add("state-card--hidden");
   elements.errorState.classList.add("state-card--hidden");
   elements.emptyState.classList.add("state-card--hidden");
+  updateCatalogueMascot();
 }
 
 function trackCompetitionClick(competition) {

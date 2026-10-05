@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "sourceSha256": "cfe4fabf0083d602092c8f9a13062b23ce36fddbf3b0d9a83a3d895b38f381a8",
+  "poses": {
+    "welcome": {
+      "variants": [
+        {
+          "src": "/assets/mascot/welcome-v1-160.webp",
+          "width": 160,
+          "height": 200,
+          "bytes": 10638,
+          "sha256": "a5ae96fcd9d386057da993a49f58d83ab5ab57497616ac480b01df4d6aa85827"
+        },
+        {
+          "src": "/assets/mascot/welcome-v1-320.webp",
+          "width": 320,
+          "height": 400,
+          "bytes": 28120,
+          "sha256": "8325240d988d4878a4c431593a06e54b5f3a3f964d87db4ffe0693e464b8c7ae"
+        },
+        {
+          "src": "/assets/mascot/welcome-v1-640.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 81958,
+          "sha256": "d6b4a8229015e83d2f9632980a9d0dbe082818eb653263d0fee6bde737764d96"
+        }
+      ]
+    },
+    "browse": {
+      "variants": [
+        {
+          "src": "/assets/mascot/browse-v1-160.webp",
+          "width": 160,
+          "height": 200,
+          "bytes": 10310,
+          "sha256": "bb24551150baa1311083ccf1176400ca420bf439e14561ba36d66ef576ffbbc5"
+        },
+        {
+          "src": "/assets/mascot/browse-v1-320.webp",
+          "width": 320,
+          "height": 400,
+          "bytes": 26806,
+          "sha256": "222e007c430f217383af0724c92745cfc94bd19aa5a522de3276c489ae54a4fc"
+        },
+        {
+          "src": "/assets/mascot/browse-v1-640.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 77714,
+          "sha256": "57a7e98d9456d1571495a9cd72d994bf940afee6ce02fe7180cbbe15224ecfeb"
+        }
+      ]
+    },
+    "read": {
+      "variants": [
+        {
+          "src": "/assets/mascot/read-v1-160.webp",
+          "width": 160,
+          "height": 200,
+          "bytes": 8228,
+          "sha256": "dfd1af3898f63640660dee2b709527bbb0e49853b22874130d30876e00cfece3"
+        },
+        {
+          "src": "/assets/mascot/read-v1-320.webp",
+          "width": 320,
+          "height": 400,
+          "bytes": 21124,
+          "sha256": "8fc02de7675b08e9a9ebac8ded82d102dac1726d24b84e27c0c7b37531abd7f9"
+        },
+        {
+          "src": "/assets/mascot/read-v1-640.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 61932,
+          "sha256": "eab154c4cbc93ba3d49d74669cc4bb013a09e0a7980f1b8009f9fc5ea841e371"
+        }
+      ]
+    },
+    "direct": {
+      "variants": [
+        {
+          "src": "/assets/mascot/direct-v1-160.webp",
+          "width": 160,
+          "height": 200,
+          "bytes": 10334,
+          "sha256": "893a0da254256d2dabb9a7dbacb083fc59577863c147e2ea06c10517893a150a"
+        },
+        {
+          "src": "/assets/mascot/direct-v1-320.webp",
+          "width": 320,
+          "height": 400,
+          "bytes": 26310,
+          "sha256": "a28166c7183bb891d16f3eecff7d526c170b7aac283d4046061735c3b90bdbc2"
+        },
+        {
+          "src": "/assets/mascot/direct-v1-640.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 73052,
+          "sha256": "78834536882eadab8f83325bfde8d691cb4fc444eb2d518a39a6db19672b4308"
+        }
+      ]
+    },
+    "recover": {
+      "variants": [
+        {
+          "src": "/assets/mascot/recover-v1-160.webp",
+          "width": 160,
+          "height": 200,
+          "bytes": 9934,
+          "sha256": "38926fc7b4015b753a9ac250ce6e25bc818a5bece0443fbd839cd3626d782146"
+        },
+        {
+          "src": "/assets/mascot/recover-v1-320.webp",
+          "width": 320,
+          "height": 400,
+          "bytes": 25440,
+          "sha256": "54e062fe190f7750b65d5f155d3f4b3842f6763a3d915d35b46a1fffa1ffb404"
+        },
+        {
+          "src": "/assets/mascot/recover-v1-640.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 73806,
+          "sha256": "a79b98a1992c8b04ff986c004c95cdf8d26f1a99ec957c2d9d1ba49c2a27cff9"
+        }
+      ]
+    }
+  }
+}
