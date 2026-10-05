@@ -18,6 +18,7 @@ const { createFreeResourceRenderer } = require("./lib/free-resource-renderer.js"
 const { isPublishedFreeResource } = require("./lib/free-resource-publication.js");
 const { validateStudentGuide, createStudentGuideRenderer, createStudentOfferRenderer, getStudentNoticePath } = require("./lib/student-guide.js");
 const { PARKS_GUIDE } = require("./lib/parks-guide.js");
+const { COURSE_GUIDE, CS50_GUIDE } = require("./lib/course-guides.js");
 const STUDENT_GUIDE = require("../data/student-guide.json");
 const { createOpportunityRenderer } = require("./lib/opportunity-renderer.js");
 const { createOpportunityRouteRenderer } = require("./lib/opportunity-route-renderer.js");
@@ -231,9 +232,9 @@ const CONTENT_INDEX_PAGES = [
   {
     slug: "blog",
     title: "Freehub Blog",
-    description: "Freehub updates and practical competition roundups for South African compers.",
-    heading: "Freehub blog and roundups",
-    intro: "Read practical competition roundups and evergreen explainers backed by current Freehub inventory and official-source checks.",
+    description: "FreeHub learning explainers, free resource guides and practical competition roundups for South Africa.",
+    heading: "FreeHub blog and practical explainers",
+    intro: "Read course and certificate explainers, free resource guides and competition roundups backed by official-source checks.",
   },
 ];
 const MONTHLY_GUIDE_SLUG = "best-competitions-south-africa-this-month";
@@ -1435,82 +1436,8 @@ const TRUST_PAGE_DEFINITIONS = [
       { label: "Fake winner messages", href: "/fake-competition-winner-messages/" },
     ],
   },
-  {
-    slug: "free-online-courses-south-africa",
-    title: "Free Online Courses South Africa | Digital Skills & Certificates",
-    description:
-      "Compare free online course options for South Africans, including Google Digital Skills, Microsoft Learn, Vodacom Digital Skills Hub and certificate checks.",
-    heading: "Free Online Courses in South Africa",
-    intro:
-      "A jobseeker-friendly guide to free learning platforms, what they offer, what may still cost money and how to check certificate claims before spending time on a course.",
-    article: true,
-    datePublished: "2026-05-27",
-    dateModified: "2026-05-27",
-    resourceCategories: ["online-courses"],
-    resourceTitle: "Official free course websites",
-    resourceIntro:
-      "Use these as starting points for digital skills, technical learning and beginner business training.",
-    sections: [
-      {
-        heading: "Best for jobseekers and beginners",
-        paragraphs: [
-          "Free online courses work best when the page tells users the skill level, time commitment, certificate status and whether the provider is the official source. That is the difference between a useful search result and a thin list of links.",
-          "For Freehub, the strongest course angle is practical: digital marketing, Microsoft tools, cloud basics, AI basics, CV-friendly skills and beginner business learning.",
-        ],
-      },
-      {
-        heading: "Certificate and cost checks",
-        paragraphs: [
-          "Some platforms offer free learning but charge for certification exams, pro certificates or optional upgrades. Others may offer free completion certificates for selected courses only.",
-          "Users should confirm whether a course is self-paced, whether a certificate is included, whether data is zero-rated and whether the programme is open to all South Africans.",
-        ],
-      },
-      {
-        heading: "How to choose a course",
-        paragraphs: [
-          "Pick one skill goal first: improve your CV, learn digital marketing, understand Microsoft tools, start coding basics or build small-business confidence. Then choose the shortest official course that helps you prove progress.",
-          "Avoid pages that promise guaranteed jobs after a free course unless the provider gives transparent terms, intake criteria and current programme details.",
-        ],
-      },
-    ],
-    checklistTitle: "Before you start a free course",
-    checklist: [
-      "Check whether the course, certificate and exam are all free or only the learning content is free.",
-      "Confirm the course is still open and available to South African learners.",
-      "Check estimated hours so you do not abandon the course halfway.",
-      "Use the official provider page, not a reposted WhatsApp flyer.",
-    ],
-    avoidTitle: "Course red flags",
-    avoid: [
-      "Guaranteed job promises with no employer or programme terms.",
-      "Requests for upfront admin fees for a supposedly free course.",
-      "Certificate claims that do not appear on the provider's own website.",
-      "Pages that collect ID documents before explaining who runs the training.",
-    ],
-    faq: [
-      {
-        question: "Are free online courses in South Africa really free?",
-        answer:
-          "Many learning paths are free to study, but certificates, exams, data or optional upgrades may cost money. Always check the official course page.",
-      },
-      {
-        question: "Which free online course is best for beginners?",
-        answer:
-          "Google Digital Skills and Microsoft Learn are good starting points for beginners because they offer structured learning from official providers.",
-      },
-      {
-        question: "Can I get a job with a free online course?",
-        answer:
-          "A free course can improve your CV and skills, but it does not guarantee employment. Treat job promises carefully unless the provider gives official placement terms.",
-      },
-    ],
-    links: [
-      { label: "Free stuff guide", href: "/free-stuff-south-africa/" },
-      { label: "Free competitions", href: "/free-competitions/" },
-      { label: "App competitions", href: "/app-competitions-south-africa/" },
-      { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
-    ],
-  },
+  COURSE_GUIDE,
+  CS50_GUIDE,
   {
     slug: "free-childrens-books-south-africa",
     title: "Free Children's Books South Africa | Stories & Reading Resources",
@@ -8790,12 +8717,13 @@ function renderTrustPage(page) {
 
         ${page.slug === "submit-an-offer" ? renderOfferSubmissionForm() : ""}
 
-        ${page.studentOffer ? renderStudentNotice(page.studentOffer) : page.slug === STUDENT_GUIDE.slug ? renderStudentGuide(STUDENT_GUIDE) : `<section class="trust-page__content" aria-label="${escapeAttribute(page.heading)}">
+        ${page.studentOffer ? renderStudentNotice(page.studentOffer) : page.slug === STUDENT_GUIDE.slug ? renderStudentGuide(STUDENT_GUIDE) : `<section class="trust-page__content${page.sections.some((section) => section.table) ? " trust-page__content--tables" : ""}" aria-label="${escapeAttribute(page.heading)}">
           ${page.sections
             .map(
               (section) => `<article class="trust-page__section"${section.id ? ` id="${escapeAttribute(section.id)}"` : ""}>
             <h2>${escapeHtml(section.heading)}</h2>
             ${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("\n            ")}
+            ${section.table ? `<div class="table-scroll" role="region" aria-label="${escapeAttribute(section.table.caption)}" tabindex="0"><table class="guide-table"><caption>${escapeHtml(section.table.caption)}</caption><thead><tr>${section.table.headers.map((header) => `<th scope="col">${escapeHtml(header)}</th>`).join("")}</tr></thead><tbody>${section.table.rows.map((row) => `<tr>${row.map((cell, index) => index === 0 ? `<th scope="row">${escapeHtml(cell)}</th>` : `<td>${escapeHtml(cell)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>` : ""}
             ${(section.sources || []).map((source) => `<p><a href="${escapeAttribute(source.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)}</a></p>`).join("\n            ")}
           </article>`
             )
@@ -8913,6 +8841,16 @@ function writeContentPages(activeCompetitions) {
 
 function getGuideCards() {
   return [
+    {
+      title: "Is the CS50 certificate free?",
+      href: "/cs50-free-certificate-explained/",
+      text: "Free CS50x completion versus paid edX verification, with assignments and registration explained.",
+    },
+    {
+      title: "Free online courses in South Africa",
+      href: "/free-online-courses-south-africa/",
+      text: "Compare Google Skillshop, Microsoft Learn and CS50x, including awards and practical costs.",
+    },
     {
       title: STUDENT_GUIDE.heading,
       href: `/${STUDENT_GUIDE.slug}/`,
@@ -13175,7 +13113,9 @@ function runFreeResourceChecks() {
 
       const isReviewedSamplesEditorialDate =
         page.slug === "free-samples-south-africa" && ["2026-07-23", "2026-07-31", "2026-10-02"].includes(page.dateModified);
-      if (page.dateModified === BUILD_DATE_ISO && page.dateModified !== page.datePublished && !isReviewedSamplesEditorialDate) {
+      const isReviewedCourseEditorialDate =
+        page.slug === COURSE_GUIDE.slug && page.dateModified === "2026-10-05";
+      if (page.dateModified === BUILD_DATE_ISO && page.dateModified !== page.datePublished && !isReviewedSamplesEditorialDate && !isReviewedCourseEditorialDate) {
         errors.push(`Free-resource page dateModified appears to be using build date by default: ${page.slug}`);
       }
     }

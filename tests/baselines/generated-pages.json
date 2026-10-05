@@ -208,7 +208,7 @@
       "route": "/free-online-courses-south-africa/",
       "file": "free-online-courses-south-africa/index.html",
       "title": "Free Online Courses South Africa | Digital Skills & Certificates",
-      "description": "Compare free online course options for South Africans, including Google Digital Skills, Microsoft Learn, Vodacom Digital Skills Hub and certificate checks.",
+      "description": "Compare Google Skillshop, Microsoft Learn and CS50x: learning costs, completion awards, certificate requirements and practical checks for South African learners.",
       "canonical": "https://freehub.co.za/free-online-courses-south-africa/",
       "robots": "index, follow, max-image-preview:large",
       "h1": "Free Online Courses in South Africa",
@@ -281,6 +281,22 @@
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
+      ],
+      "inSitemap": true
+    },
+    {
+      "route": "/cs50-free-certificate-explained/",
+      "file": "cs50-free-certificate-explained/index.html",
+      "title": "Is the CS50 Certificate Free? CS50x vs edX Explained | FreeHub",
+      "description": "Understand the free CS50x certificate, optional paid edX verification, assignment requirements and registration steps before starting Harvard's online computer science course.",
+      "canonical": "https://freehub.co.za/cs50-free-certificate-explained/",
+      "robots": "index, follow, max-image-preview:large",
+      "h1": "Is the CS50 certificate free?",
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage"
       ],
       "inSitemap": true
     }
