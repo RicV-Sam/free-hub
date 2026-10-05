@@ -8733,6 +8733,14 @@ function renderTrustPage(page) {
         ${page.slug === "birthday-freebies" ? renderBirthdayVideoFeature() + renderGuestAdSlot("birthday-before-offers") : ""}
         ${page.slug === "free-online-courses-south-africa" ? renderGuestAdSlot("courses-before-resources") : ""}
 
+        ${page.slug === "free-online-courses-south-africa" ? `<section class="trust-page__content" aria-labelledby="everyday-value-ai-title">
+          <article class="trust-page__section">
+            <h2 id="everyday-value-ai-title">Try an AI task before paying for a course</h2>
+            <p>Our Everyday Value SA blog offers a ten-minute exercise using a fictional email, with three checks for judging the answer. It is a practical starting point, not a qualification or a promise of employment.</p>
+            <p><a href="https://everyday-value-sa.blogspot.com/2026/10/before-you-pay-for-ai-course-try-this.html">Read the beginner AI exercise</a></p>
+          </article>
+        </section>` : ""}
+
         ${opportunityRenderer.renderOpportunitySection({
           opportunities: birthdayOpportunities,
           heading: "Current verified birthday freebies",
