@@ -1,35 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-04",
-  "count": 78,
+  "asOfDate": "2026-10-05",
+  "count": 77,
   "competitions": [
-    {
-      "id": "vodacom-pirates-sundowns-mtn8-tickets-october-2026",
-      "title": "Vodacom: Win Orlando Pirates vs Mamelodi Sundowns MTN8 Final Tickets",
-      "brand": "Vodacom",
-      "summary": "Win stand tickets for Orlando Pirates vs Mamelodi Sundowns in the MTN8 final. Comment #VodacomLovesOrlandoPirates ❤️ on Vodacom’s fixture post and complete its linked form by 4 October at 23:59.",
-      "imageUrl": "https://freehub.co.za/assets/listings/vodacom-pirates-sundowns-mtn8-tickets-october-2026.webp",
-      "closingDate": "2026-10-04",
-      "category": "Experiences",
-      "prizeName": "Stand tickets for Orlando Pirates vs Mamelodi Sundowns, MTN8 final on 10 October 2026",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "South African residents with at least 24 uninterrupted months as a Vodacom customer, a RICA-registered SIM, qualifying identity/residence documentation and an account in good standing. Prior-winner and connected-party exclusions apply; minors need guardian consent on request.",
-      "entrySteps": [
-        "Open Vodacom’s official Facebook page using the account link below. Find the “Sold out? iSponsor still has a way in” Orlando Pirates vs Mamelodi Sundowns MTN8 final post, which states a 4 October 2026 closing date.",
-        "Comment #VodacomLovesOrlandoPirates ❤️ on that original Vodacom post. A comment alone does not complete the entry.",
-        "Open the entry-form link in the post. In the shared fixture form, select “MTN 8 | Orlando Pirates vs Mamelodi Sundowns | 10 Oct”, then choose your team.",
-        "Complete the required first name, last name, mobile number and email confirmation. Review the province and gender fields, acknowledge that travel and personal items are excluded, and accept the terms.",
-        "Complete both the comment and the form before 23:59 on 4 October 2026. The shared form also lists other fixtures; this deadline applies only to this advertised MTN8 final draw. Use the link from the current official post and check that Vodacom is still accepting entries."
-      ],
-      "officialUrl": "https://www.vodacom.co.za/vodacom/terms/competition/orlando-pirates-and-kaizer-chiefs-stand",
-      "termsUrl": "https://www.vodacom.co.za/vodacom/terms/competition/orlando-pirates-and-kaizer-chiefs-stand",
-      "lastChecked": "2026-10-03",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "clicks-tresemme-extraordinary-wins-2026",
       "title": "Clicks TRESemmé Extraordinary Hair, Extraordinary Wins",

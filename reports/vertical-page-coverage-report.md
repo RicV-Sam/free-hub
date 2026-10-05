@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-10-04
+Generated: 2026-10-05
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
@@ -79,14 +79,13 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 22
+- Matching active public competitions: 21
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Vodacom: Win Orlando Pirates vs Mamelodi Sundowns MTN8 Final Tickets (vodacom-pirates-sundowns-mtn8-tickets-october-2026) | 2026-10-04 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Nedbank YouthX Awards 2026 (nedbank-youthx-awards-2026) | 2026-10-09 | account-required | yes | yes | Online entry tag | none |
 | Telkom Radio Awards My Station R40,000 Competition (telkom-radio-awards-my-station-2026) | 2026-10-23 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Ster-Kinekor Silas Watch and Win Competition (ster-kinekor-silas-watch-and-win-2026) | 2026-10-25 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
