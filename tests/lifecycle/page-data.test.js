@@ -8,6 +8,33 @@ const fixtures = JSON.parse(
   fs.readFileSync(path.join(__dirname, "..", "fixtures", "competition-lifecycle.json"), "utf8")
 );
 
+test("international hub requires verified South African eligibility and strictly free active entry", () => {
+  const valid = { ...fixtures.activePublic, region: "International", southAfricanEligibilityVerified: true };
+  const variants = [
+    valid,
+    { ...valid, id: "unknown-eligibility", southAfricanEligibilityVerified: undefined },
+    { ...valid, id: "ineligible", southAfricanEligibilityVerified: false },
+    { ...valid, id: "local", region: "South Africa" },
+    { ...valid, id: "purchase", purchaseRequired: true },
+    { ...valid, id: "unknown-cost", entryCostType: "unknown" },
+    { ...valid, id: "fee", entryFeeAmount: 10 },
+    { ...valid, id: "charged-sms", tags: ["sms-entry"] },
+    { ...valid, id: "expired", closingDate: "2000-01-01" },
+    { ...valid, id: "held", publicationStatus: "held", verificationStatus: "held" },
+  ];
+  assert.deepEqual(shared.getHubFilteredCompetitions(variants, "international-competitions").map(x => x.id), [valid.id]);
+  assert.equal(shared.HUB_SLUGS.includes("international-competitions"), true);
+});
+
+test("international prize amounts retain their currency without converting to rand", () => {
+  assert.equal(shared.getPrizeCue({ prizeType: "cash", prizeValueAmount: 500, prizeValueCurrency: "USD" }), "US$500 cash");
+  assert.equal(shared.getCardHeadline({ prizeType: "cash", prizeValueAmount: 500, prizeValueCurrency: "USD" }), "Win US$500 Cash");
+  assert.equal(shared.formatPrizeAmount({ prizeValueAmount: 500, prizeValueCurrency: "EUR" }), "€500");
+  assert.equal(shared.formatPrizeAmount({ prizeValueAmount: 500, prizeValueCurrency: "ZAR" }), "R500");
+  assert.equal(shared.formatPrizeAmount({ prizeValueAmount: 500 }), "R500");
+  assert.equal(shared.formatPrizeAmount({ prizeValueCurrency: "USD" }), "");
+});
+
 test("active public competitions are published, public, and sitemap-eligible", () => {
   assert.equal(shared.isPublishedCompetition(fixtures.activePublic), true);
   assert.equal(shared.isPublicCompetition(fixtures.activePublic), true);

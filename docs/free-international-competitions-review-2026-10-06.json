@@ -1,0 +1,212 @@
+{
+  "reviewedAt": "2026-10-06",
+  "baseRevision": "88c28b8",
+  "status": "Reviewed release batch; user authorized commit and push live on 6 October 2026.",
+  "existingFreeEntryPage": "https://freehub.co.za/free-competitions/",
+  "newInternationalCanonical": "https://freehub.co.za/international-competitions/",
+  "newListings": [
+    {
+      "id": "avbob-poetry-2026",
+      "title": "AVBOB 10th Annual Poetry Competition",
+      "canonicalUrl": "https://freehub.co.za/competition/avbob-poetry-2026/",
+      "entryUrl": "https://www.avbobpoetry.co.za/Content/HowToEnter",
+      "termsUrl": "https://www.avbobpoetry.co.za/Content/CompetitionRules",
+      "closingDateSAST": "2026-11-30",
+      "closingTimeLabel": "23:59 SAST",
+      "region": "South Africa",
+      "hero": {
+        "src": "/assets/listings/avbob-poetry-2026.webp",
+        "width": 678,
+        "height": 133,
+        "alt": "AVBOB Decade of Poetry campaign artwork",
+        "kind": "official-source",
+        "caption": "Artwork from the official campaign source.",
+        "reviewedAt": "2026-10-06",
+        "sourcePage": "https://www.avbobpoetry.co.za/",
+        "sourceImage": "https://www.avbobpoetry.co.za/images/general/decadepoetry.png"
+      },
+      "localChecks": {
+        "canonical": true,
+        "sitemap": true,
+        "indexable": true,
+        "outDestination": true,
+        "assetHashMatches": true,
+        "desktopMobileReviewed": true
+      }
+    },
+    {
+      "id": "sony-single-image-2027",
+      "title": "Sony World Photography Awards 2027 Single Image Competition",
+      "canonicalUrl": "https://freehub.co.za/competition/sony-single-image-2027/",
+      "entryUrl": "https://www.worldphoto.org/sony-world-photography-awards/single-image",
+      "termsUrl": "https://www.worldphoto.org/sony-world-photography-awards/single-image",
+      "closingDateSAST": "2027-01-05",
+      "closingTimeLabel": "18:00 SAST (16:00 GMT)",
+      "region": "International",
+      "hero": {
+        "src": "/assets/listings/sony-single-image-2027.webp",
+        "width": 1200,
+        "height": 156,
+        "alt": "Official Sony World Photography Awards Single Image banner",
+        "kind": "official-source",
+        "caption": "Artwork from the official campaign source.",
+        "reviewedAt": "2026-10-06",
+        "sourcePage": "https://www.worldphoto.org/sony-world-photography-awards/single-image",
+        "sourceImage": "https://www.worldphoto.org/sites/default/files/styles/max_2600x2600/public/image_media-files-05/Single%20Image_0.jpg?itok=ekao7x5d"
+      },
+      "localChecks": {
+        "canonical": true,
+        "sitemap": true,
+        "indexable": true,
+        "outDestination": true,
+        "assetHashMatches": true,
+        "desktopMobileReviewed": true
+      }
+    },
+    {
+      "id": "staedtler-creative-challenge-2026",
+      "title": "STAEDTLER International Creative Challenge 2026",
+      "canonicalUrl": "https://freehub.co.za/competition/staedtler-creative-challenge-2026/",
+      "entryUrl": "https://www.staedtler.com/intl/en/discover/staedtler-international-creative-challenge-2026/",
+      "termsUrl": "https://e.staedtlercdn.com/fileadmin/user_upload/Content/Highlights/Design-Journey/Creative-Challenge/Creative_Challenge_2026/TCs/EN-STAEDTLER-International-Creative-Challenge-T_Cs-2026.pdf?1785243772",
+      "closingDateSAST": "2026-11-01",
+      "closingTimeLabel": "01:59 SAST; organiser deadline 31 October, 23:59 UTC",
+      "region": "International",
+      "hero": {
+        "src": "/assets/listings/staedtler-creative-challenge-2026.webp",
+        "width": 1120,
+        "height": 629,
+        "alt": "Official STAEDTLER International Creative Challenge 2026 artwork",
+        "kind": "official-source",
+        "caption": "Artwork from the official campaign source.",
+        "reviewedAt": "2026-10-06",
+        "sourcePage": "https://www.staedtler.com/intl/en/discover/staedtler-international-creative-challenge-2026/",
+        "sourceImage": "https://e.staedtlercdn.com/images/fxZM_y8nLvuvS2weuo10dNNFecXXPHiyVx_QSJb90KY/w:1120/h:629/fn:Y3NtX1BoYXNlMl9FTl9DcmVhdGl2ZS1DaGFsbGVuZ2UtMjAyNl84ZDNlOGFlODFk:t/cb:a30e8d7fb301245461493cb0711e4c48e3778f27/el:1/fq:jpeg:85:avif:70:webp:80/c:1920:1078.5007496252:fp:0.5:0.49925037481259/rt:force/aHR0cHM6Ly9lLnN0YWVkdGxlcmNkbi5jb20vZmlsZWFkbWluL3VzZXJfdXBsb2FkL0NvbnRlbnQvSGlnaGxpZ2h0cy9EZXNpZ24tSm91cm5leS9DcmVhdGl2ZS1DaGFsbGVuZ2UvQ3JlYXRpdmVfQ2hhbGxlbmdlXzIwMjYvRU4vUGhhc2UyX0VOX0NyZWF0aXZlLUNoYWxsZW5nZS0yMDI2LmpwZz8xNzgwMzg1NDE3"
+      },
+      "localChecks": {
+        "canonical": true,
+        "sitemap": true,
+        "indexable": true,
+        "outDestination": true,
+        "assetHashMatches": true,
+        "desktopMobileReviewed": true
+      }
+    },
+    {
+      "id": "writers-of-the-future-q1-2027",
+      "title": "Writers of the Future 2027 First Quarter",
+      "canonicalUrl": "https://freehub.co.za/competition/writers-of-the-future-q1-2027/",
+      "entryUrl": "https://writersofthefuture.com/enter-writer-contest/",
+      "termsUrl": "https://writersofthefuture.com/contest-rules-writers/",
+      "closingDateSAST": "2027-01-01",
+      "closingTimeLabel": "09:59 SAST; organiser deadline 31 December, 23:59 PST",
+      "region": "International",
+      "hero": {
+        "src": "/assets/listings/writers-of-the-future-q1-2027.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "FreeHub editorial illustration of a pen, story pages and an imagined planet",
+        "kind": "editorial-generated",
+        "caption": "FreeHub editorial illustration; not official promoter artwork or an eligible competition entry.",
+        "reviewedAt": "2026-10-06",
+        "generationPrompt": "Create a landscape 3:2 editorial illustration for a FreeHub listing about a free science fiction and fantasy short story writing contest. Warm ivory paper, midnight blue ink, a pen beside handwritten pages, subtle imaginative stars and a small imagined distant planet emerging from the page. Refined hand-painted illustration, not a photograph. Do not imitate any competition logo or official campaign artwork; no prize money, trophies, brands, contest entry text or endorsement. Include a small clearly legible footer reading exactly 'FreeHub editorial illustration'. This is website editorial artwork, never an eligible contest entry.",
+        "referencePage": "https://writersofthefuture.com/enter-writer-contest/"
+      },
+      "localChecks": {
+        "canonical": true,
+        "sitemap": true,
+        "indexable": true,
+        "outDestination": true,
+        "assetHashMatches": true,
+        "desktopMobileReviewed": true
+      }
+    },
+    {
+      "id": "icaw-poster-contest-2027",
+      "title": "International Compost Awareness Week 2027 Poster Contest",
+      "canonicalUrl": "https://freehub.co.za/competition/icaw-poster-contest-2027/",
+      "entryUrl": "https://compostfoundation.org/icaw-2027-poster-contest-entry-form/",
+      "termsUrl": "https://compostfoundation.org/icaw-poster-contest-rules/",
+      "closingDateSAST": "2026-10-22",
+      "closingTimeLabel": "Organiser: midnight Eastern Time; submit early because the rules also say EST",
+      "region": "International",
+      "hero": {
+        "src": "/assets/listings/icaw-poster-contest-2027.webp",
+        "width": 1024,
+        "height": 456,
+        "alt": "Examples of previous ICAW posters on the official 2027 contest announcement",
+        "kind": "official-source",
+        "caption": "Previous poster examples from the official contest announcement; not the 2027 winning design.",
+        "reviewedAt": "2026-10-06",
+        "sourcePage": "https://compostfoundation.org/2027-icaw-poster-bookmark-contests-now-open/",
+        "sourceImage": "https://compostfoundation.org/wp-content/uploads/2026/08/icaw-posters-1024x456.png"
+      },
+      "localChecks": {
+        "canonical": true,
+        "sitemap": true,
+        "indexable": true,
+        "outDestination": true,
+        "assetHashMatches": true,
+        "desktopMobileReviewed": true
+      }
+    },
+    {
+      "id": "fao-world-food-day-poster-2026",
+      "title": "FAO World Food Day 2026 Poster Contest",
+      "canonicalUrl": "https://freehub.co.za/competition/fao-world-food-day-poster-2026/",
+      "entryUrl": "https://www.fao.org/world-food-day/contest/submit-form/en",
+      "termsUrl": "https://www.fao.org/world-food-day/contest/",
+      "closingDateSAST": "2026-11-06",
+      "closingTimeLabel": "13:00 SAST (12:00 CET)",
+      "region": "International",
+      "hero": {
+        "src": "/assets/listings/fao-world-food-day-poster-2026.webp",
+        "width": 600,
+        "height": 400,
+        "alt": "Official FAO World Food Day 2026 activity-book artwork",
+        "kind": "official-source",
+        "caption": "Artwork from the official campaign source.",
+        "reviewedAt": "2026-10-06",
+        "sourcePage": "https://www.fao.org/world-food-day/contest/",
+        "sourceImage": "https://www.fao.org/media/images/devwfd22libraries/youth-2026/ab2026-png.png?sfvrsn=9208eed0_13"
+      },
+      "localChecks": {
+        "canonical": true,
+        "sitemap": true,
+        "indexable": true,
+        "outDestination": true,
+        "assetHashMatches": true,
+        "desktopMobileReviewed": true
+      }
+    }
+  ],
+  "correctedListing": "era-bin-it-to-win-it-2026: September–December R500 retailer vouchers, with retailer wording conflict disclosed",
+  "alreadyPresent": [
+    "bargain-books-scorpio-rising-2026",
+    "bargain-books-hollow-bones-2026",
+    "bargain-books-cheslin-kolbe-2026"
+  ],
+  "held": [
+    {
+      "name": "CEWE Photo Award 2027",
+      "reason": "Full entry-portal conditions not accessible; eligibility and prize restrictions need confirmation."
+    },
+    {
+      "name": "Illustrators of the Future Q1 2027",
+      "reason": "Official rules describe recurring quarters, but the reachable entry page still shows the closed September 2026 quarter."
+    },
+    {
+      "name": "D-Prize, KOKUYO and HIPA",
+      "reason": "Earlier review could not establish a complete current free-entry route; excluded from this batch."
+    }
+  ],
+  "verification": {
+    "build": "Passed with current deployment flags: offers and opportunities enabled.",
+    "npmTest": "Passed: SEO gates and all 139 lifecycle tests with current deployment flags.",
+    "maintenance": "passed",
+    "visual": "International hub and six detail-page hero images reviewed on desktop and mobile. Canonical asset requests mapped to local files for preview because these assets are not deployed yet.",
+    "linkAudit": "New manual-review records approved in the validator allowlist. Competition check has zero hard errors; unrelated historical warning-baseline changes and opportunity evidence gaps remain outside this batch.",
+    "liveDuplicateFeed": "HTTP 200, reviewed; none of the six new IDs already live."
+  },
+  "publicationRequires": "Explicit user push/deploy authorization; then fresh remote reconciliation and live page/canonical/sitemap/assets/outbound/disclosure checks."
+}

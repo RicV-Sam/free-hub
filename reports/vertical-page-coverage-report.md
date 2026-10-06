@@ -79,7 +79,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 21
+- Matching active public competitions: 27
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -87,6 +87,7 @@ Recommended normalisation:
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
 | Nedbank YouthX Awards 2026 (nedbank-youthx-awards-2026) | 2026-10-09 | account-required | yes | yes | Online entry tag | none |
+| International Compost Awareness Week 2027 Poster Contest (icaw-poster-contest-2027) | 2026-10-22 | free-entry | yes | yes | Online entry tag | none |
 | Telkom Radio Awards My Station R40,000 Competition (telkom-radio-awards-my-station-2026) | 2026-10-23 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Ster-Kinekor Silas Watch and Win Competition (ster-kinekor-silas-watch-and-win-2026) | 2026-10-25 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | Wanderlust Reader Travel Awards 2026 Prize Draw (wanderlust-reader-travel-awards-prize-draw-2026) | 2026-10-27 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
@@ -101,12 +102,17 @@ Recommended normalisation:
 | Bargain Books: Win Hollow Bones (bargain-books-hollow-bones-2026) | 2026-11-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Bargain Books: Win Cheslin Kolbe’s Memoir (bargain-books-cheslin-kolbe-2026) | 2026-11-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Bargain Books: Win A Court of Splintered Harmony (bargain-books-court-splintered-harmony-2026) | 2026-11-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
+| STAEDTLER International Creative Challenge 2026 (staedtler-creative-challenge-2026) | 2026-11-01 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| FAO World Food Day 2026 Poster Contest (fao-world-food-day-poster-2026) | 2026-11-06 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | GoTyme Card Swipe and Spend: Win R300 (gotyme-card-swipe-spend-2026) | 2026-11-30 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
+| AVBOB 10th Annual Poetry Competition (avbob-poetry-2026) | 2026-11-30 | free-entry | yes | yes | Online entry tag | none |
 | Clicks October/November Beauty Box Giveaway (clicks-october-november-beauty-box-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Clicks D’Licious Hamper Giveaway (clicks-dlicious-hamper-october-november-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Clicks DKNY Ice Pop Fragrance Giveaway (clicks-dkny-ice-pop-october-november-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Builders Ratings and Reviews Competition 2026 (builders-ratings-reviews-2026) | 2026-12-31 | purchase-required | yes | yes | Online entry tag | none |
+| Writers of the Future 2027 First Quarter (writers-of-the-future-q1-2027) | 2027-01-01 | free-entry | yes | yes | Online entry tag | none |
+| Sony World Photography Awards 2027 Single Image Competition (sony-single-image-2027) | 2027-01-05 | free-entry | yes | yes | Online entry tag | none |
 
 Recommended normalisation:
 - Inventory is strong enough; keep lastChecked and source/terms links fresh.
@@ -114,19 +120,18 @@ Recommended normalisation:
 ## Win Airtime Competitions in South Africa
 
 - URL: /win-airtime-competitions-south-africa/
-- Matching active public competitions: 3
+- Matching active public competitions: 2
 - Publication threshold: 3
-- Safe to publish: yes
-- Status: indexable vertical page
+- Safe to publish: no
+- Status: held; Only 2 active public matches; requires 3.
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | Airtime tag; Airtime prize text | none |
 | Coca-Cola Be a Bok Competition 2026 (coca-cola-fan-can-be-a-bok-2026) | 2026-11-30 | purchase-required | yes | yes | Airtime prize text | consider airtime or recharge tag if prize terms confirm |
-| ERA Bin It to Win It Competition 2026 (era-bin-it-to-win-it-2026) | 2026-12-31 | free-entry | yes | yes | Airtime tag; Airtime prize text | none |
 
 Recommended normalisation:
-- Inventory is strong enough; keep lastChecked and source/terms links fresh.
+- Do not generate or sitemap this page until active verified inventory improves.
 
 ## Win Data Competitions in South Africa
 

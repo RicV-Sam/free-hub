@@ -199,6 +199,7 @@ const HUB_LINKS = [
   { label: "New competitions", href: "/new-competitions-south-africa/" },
   { label: "Win a car", href: "/win-a-car/" },
   { label: "Free competitions", href: "/free-competitions/" },
+  { label: "International competitions", href: "/international-competitions/" },
   { label: "Ending soon", href: "/competitions-ending-soon/" },
   { label: "Purchase required", href: "/purchase-required-competitions/" },
 ];
@@ -4426,6 +4427,7 @@ function renderFreeCompetitionsEditorial(routeContext) {
           <div class="seo-copy-block__content hub-editorial hub-editorial--split">
             <section class="hub-editorial__section">
               <h3>What free to enter means on Freehub</h3>
+              <p>Looking beyond South Africa? Browse <a href="/international-competitions/">international competitions open to South Africans</a> for verified free submission routes and their eligibility requirements.</p>
               <p>Freehub treats a free competition as a listing where the available source information shows no required product purchase, paid ticket, minimum spend, till slip, subscription billing, SMS or USSD cost to enter.</p>
               <p>If the cost route is unclear, the listing should not appear on this page. Browse the homepage for broader <a href="/">free giveaways South Africa</a> intent when you want to compare free-entry, purchase-required and account-linked promotions together.</p>
             </section>
@@ -6365,6 +6367,7 @@ function getHubInternalLinks(slug) {
       { label: "How to spot scam competitions", href: "/how-to-spot-a-scam-competition/" },
     ],
     "free-competitions": [
+      { label: "International competitions open to South Africans", href: "/international-competitions/" },
       { label: "All competitions", href: "/competitions/" },
       { label: "Competitions ending soon", href: "/competitions-ending-soon/" },
       { label: "Win a car competitions", href: "/win-a-car/" },
@@ -6375,6 +6378,11 @@ function getHubInternalLinks(slug) {
       { label: "Holiday competitions", href: "/category/holidays/" },
       { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
       { label: "How to spot scam competitions", href: "/how-to-spot-a-scam-competition/" },
+    ],
+    "international-competitions": [
+      { label: "All free competitions", href: "/free-competitions/" },
+      { label: "All competitions", href: "/competitions/" },
+      { label: "How to enter safely", href: "/how-to-enter-competitions-safely/" },
     ],
     "competitions-ending-soon": [
       { label: "All competitions", href: "/competitions/" },
@@ -11299,7 +11307,9 @@ function renderCompetitionQuickAnswer(competition, expired = false) {
 
 function buildCompetitionHeroSubline(competition) {
   const parts = [
-    competition.brand ? `${competition.brand} competition in South Africa` : "Competition in South Africa",
+    competition.region === "International"
+      ? "International competition open to eligible South Africans"
+      : competition.brand ? `${competition.brand} competition in South Africa` : "Competition in South Africa",
     competition.category,
   ].filter(Boolean);
 
@@ -11893,6 +11903,9 @@ function renderCompetitionInternalLinks(competition, categoryPath, generatedBran
     links.push({ label: "Paid entry competitions", href: "/paid-entry-competitions/" });
   } else if (entryCostType === "free-entry") {
     links.push({ label: "Free competitions", href: "/free-competitions/" });
+    if (competition.region === "International" && competition.southAfricanEligibilityVerified === true) {
+      links.push({ label: "International competitions open to South Africans", href: "/international-competitions/" });
+    }
   }
 
   links.push({ label: "How to enter competitions safely", href: "/how-to-enter-competitions-safely/" });
@@ -12053,15 +12066,7 @@ function getDetailFactClassName(fact) {
 }
 
 function formatPrizeValue(competition) {
-  const value = shared.formatRandAmount(competition.prizeValueAmount);
-
-  if (!value) {
-    return "";
-  }
-
-  return competition.prizeValueCurrency && competition.prizeValueCurrency !== "ZAR"
-    ? `${value} ${competition.prizeValueCurrency}`
-    : value;
+  return shared.formatPrizeAmount(competition);
 }
 
 function formatDriverLicenceRequirement(value) {

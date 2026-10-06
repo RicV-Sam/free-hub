@@ -824,5 +824,71 @@
     "generationMethod": "Built-in image generation",
     "generationPrompt": "Create a polished 1536x1024 landscape editorial illustration for South African consumer information site FreeHub, about a narrowly eligible bank card-spend prize draw. Warm cream backdrop, teal and navy accents, tasteful realistic 3D illustration of a plain unbranded debit card, a smartphone displaying only a simple abstract contactless icon (no simulated banking app UI), a small shopping bag, and an understated circular prize medallion reading 'R300'. Main headline exactly 'CARD SPEND PRIZE DRAW'. Smaller readable line 'Eligibility and qualifying spend apply'. Bottom strip visibly and clearly reads 'FreeHub editorial illustration'. Clean premium composition with generous whitespace and all text inside central safe margins. Do not depict actual banknotes, bank logos, Mastercard/Visa/Apple marks, endorsement, guaranteed rewards, account numbers, invented products or additional prize amounts. This is explanatory editorial artwork, not official GoTyme marketing.\r\n",
     "sourceReviewNote": "Labelled FreeHub editorial illustration; not official bank artwork. Official terms page contained logos and utility graphics, with no suitable campaign hero."
+  },
+  "avbob-poetry-2026": {
+    "src": "/assets/listings/avbob-poetry-2026.webp",
+    "width": 678,
+    "height": 133,
+    "alt": "AVBOB Decade of Poetry campaign artwork",
+    "kind": "official-source",
+    "caption": "Artwork from the official campaign source.",
+    "reviewedAt": "2026-10-06",
+    "sourcePage": "https://www.avbobpoetry.co.za/",
+    "sourceImage": "https://www.avbobpoetry.co.za/images/general/decadepoetry.png"
+  },
+  "sony-single-image-2027": {
+    "src": "/assets/listings/sony-single-image-2027.webp",
+    "width": 1200,
+    "height": 156,
+    "alt": "Official Sony World Photography Awards Single Image banner",
+    "kind": "official-source",
+    "caption": "Artwork from the official campaign source.",
+    "reviewedAt": "2026-10-06",
+    "sourcePage": "https://www.worldphoto.org/sony-world-photography-awards/single-image",
+    "sourceImage": "https://www.worldphoto.org/sites/default/files/styles/max_2600x2600/public/image_media-files-05/Single%20Image_0.jpg?itok=ekao7x5d"
+  },
+  "staedtler-creative-challenge-2026": {
+    "src": "/assets/listings/staedtler-creative-challenge-2026.webp",
+    "width": 1120,
+    "height": 629,
+    "alt": "Official STAEDTLER International Creative Challenge 2026 artwork",
+    "kind": "official-source",
+    "caption": "Artwork from the official campaign source.",
+    "reviewedAt": "2026-10-06",
+    "sourcePage": "https://www.staedtler.com/intl/en/discover/staedtler-international-creative-challenge-2026/",
+    "sourceImage": "https://e.staedtlercdn.com/images/fxZM_y8nLvuvS2weuo10dNNFecXXPHiyVx_QSJb90KY/w:1120/h:629/fn:Y3NtX1BoYXNlMl9FTl9DcmVhdGl2ZS1DaGFsbGVuZ2UtMjAyNl84ZDNlOGFlODFk:t/cb:a30e8d7fb301245461493cb0711e4c48e3778f27/el:1/fq:jpeg:85:avif:70:webp:80/c:1920:1078.5007496252:fp:0.5:0.49925037481259/rt:force/aHR0cHM6Ly9lLnN0YWVkdGxlcmNkbi5jb20vZmlsZWFkbWluL3VzZXJfdXBsb2FkL0NvbnRlbnQvSGlnaGxpZ2h0cy9EZXNpZ24tSm91cm5leS9DcmVhdGl2ZS1DaGFsbGVuZ2UvQ3JlYXRpdmVfQ2hhbGxlbmdlXzIwMjYvRU4vUGhhc2UyX0VOX0NyZWF0aXZlLUNoYWxsZW5nZS0yMDI2LmpwZz8xNzgwMzg1NDE3"
+  },
+  "icaw-poster-contest-2027": {
+    "src": "/assets/listings/icaw-poster-contest-2027.webp",
+    "width": 1024,
+    "height": 456,
+    "alt": "Examples of previous ICAW posters on the official 2027 contest announcement",
+    "kind": "official-source",
+    "caption": "Previous poster examples from the official contest announcement; not the 2027 winning design.",
+    "reviewedAt": "2026-10-06",
+    "sourcePage": "https://compostfoundation.org/2027-icaw-poster-bookmark-contests-now-open/",
+    "sourceImage": "https://compostfoundation.org/wp-content/uploads/2026/08/icaw-posters-1024x456.png"
+  },
+  "fao-world-food-day-poster-2026": {
+    "src": "/assets/listings/fao-world-food-day-poster-2026.webp",
+    "width": 600,
+    "height": 400,
+    "alt": "Official FAO World Food Day 2026 activity-book artwork",
+    "kind": "official-source",
+    "caption": "Artwork from the official campaign source.",
+    "reviewedAt": "2026-10-06",
+    "sourcePage": "https://www.fao.org/world-food-day/contest/",
+    "sourceImage": "https://www.fao.org/media/images/devwfd22libraries/youth-2026/ab2026-png.png?sfvrsn=9208eed0_13"
+  },
+  "writers-of-the-future-q1-2027": {
+    "src": "/assets/listings/writers-of-the-future-q1-2027.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "FreeHub editorial illustration of a pen, story pages and an imagined planet",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration; not official promoter artwork or an eligible competition entry.",
+    "reviewedAt": "2026-10-06",
+    "generationPrompt": "Create a landscape 3:2 editorial illustration for a FreeHub listing about a free science fiction and fantasy short story writing contest. Warm ivory paper, midnight blue ink, a pen beside handwritten pages, subtle imaginative stars and a small imagined distant planet emerging from the page. Refined hand-painted illustration, not a photograph. Do not imitate any competition logo or official campaign artwork; no prize money, trophies, brands, contest entry text or endorsement. Include a small clearly legible footer reading exactly 'FreeHub editorial illustration'. This is website editorial artwork, never an eligible contest entry.",
+    "referencePage": "https://writersofthefuture.com/enter-writer-contest/"
   }
 }

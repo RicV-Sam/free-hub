@@ -29,6 +29,12 @@ const manualRecheckDays = 30;
 const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 FreeHubValidator/1.0";
 const APPROVED_MANUAL_OK_URLS = new Map([
+  ["avbob-poetry-2026", "https://www.avbobpoetry.co.za/Content/HowToEnter"],
+  ["sony-single-image-2027", "https://www.worldphoto.org/sony-world-photography-awards/single-image"],
+  ["staedtler-creative-challenge-2026", "https://www.staedtler.com/intl/en/discover/staedtler-international-creative-challenge-2026/"],
+  ["writers-of-the-future-q1-2027", "https://writersofthefuture.com/enter-writer-contest/"],
+  ["icaw-poster-contest-2027", "https://compostfoundation.org/icaw-2027-poster-contest-entry-form/"],
+  ["fao-world-food-day-poster-2026", "https://www.fao.org/world-food-day/contest/submit-form/en"],
   ["bargain-books-scorpio-rising-2026", "https://bargainbooks.co.za/competitions"],
   ["bargain-books-hollow-bones-2026", "https://bargainbooks.co.za/competitions"],
   ["bargain-books-cheslin-kolbe-2026", "https://bargainbooks.co.za/competitions"],

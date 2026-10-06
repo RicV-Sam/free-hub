@@ -360,6 +360,13 @@
       support:
         "Freehub does not run these competitions or collect entries. Compare the prize, closing date, entry method and official promoter link, then enter through the promoter's own page or channel. If you want all giveaways, including purchase-required and account-linked promotions, start from the homepage.",
     },
+    "international-competitions": {
+      title: "Free International Competitions Open to South Africans | Freehub",
+      description: "Browse free international competitions with confirmed South African eligibility. Compare deadlines, age rules, submission requirements and official entry links.",
+      heading: "International Competitions Open to South Africans",
+      intro: "These international competitions accept eligible South African entrants and offer a free entry route without a qualifying purchase. Many require original writing, photography or artwork, rather than a simple prize-draw entry.",
+      support: "Check each listing's age and experience limits, rights granted to the organiser and exact deadline. Normal data and creative-material costs may apply. Enter through the official promoter; Freehub does not collect entries.",
+    },
     "competitions-ending-soon": {
       title: "Competitions Ending This Week in South Africa | Freehub",
       description:
@@ -919,7 +926,7 @@
   function getPrizeCue(competition) {
     const prizeType = normalizePrizeType(competition.prizeType);
     const prizeName = getPrizeName(competition);
-    const prizeValue = formatRandAmount(competition.prizeValueAmount);
+    const prizeValue = formatPrizeAmount(competition);
     const brand = String(competition.brand || "").trim();
 
     if (prizeType === "cash" && prizeValue) {
@@ -963,7 +970,7 @@
   function getCardHeadline(competition) {
     const prizeName = getPrizeName(competition);
     const prizeType = normalizePrizeType(competition.prizeType);
-    const prizeValue = formatRandAmount(competition.prizeValueAmount);
+    const prizeValue = formatPrizeAmount(competition);
 
     if (prizeName) {
       return buildWinHeadline(prizeName, prizeType);
@@ -1117,6 +1124,15 @@
     }
 
     return `R${new Intl.NumberFormat("en-ZA", { maximumFractionDigits: 0 }).format(numericAmount)}`;
+  }
+
+  function formatPrizeAmount(competition) {
+    const amount = competition.prizeValueAmount;
+    if (amount === undefined || amount === null || amount === "" || !Number.isFinite(Number(amount))) return "";
+    const currency = String(competition.prizeValueCurrency || "ZAR").toUpperCase();
+    if (currency === "ZAR") return formatRandAmount(amount);
+    const prefix = { USD: "US$", EUR: "€", GBP: "£" }[currency] || `${currency} `;
+    return prefix + new Intl.NumberFormat("en-ZA", { maximumFractionDigits: 2 }).format(Number(amount));
   }
 
   function buildWinHeadline(prizeName, prizeType) {
@@ -1769,6 +1785,14 @@
       return sortedCompetitions.filter(isStrictFreeEntryCompetition);
     }
 
+    if (slug === "international-competitions") {
+      return sortedCompetitions.filter((competition) =>
+        competition.region === "International" &&
+        competition.southAfricanEligibilityVerified === true &&
+        isStrictFreeEntryCompetition(competition)
+      );
+    }
+
     if (slug === "competitions-ending-soon") {
       return sortedCompetitions.filter((competition) => {
         const daysUntilClosing = getDaysUntilClosing(competition.closingDate);
@@ -2108,6 +2132,7 @@
     getCardStatusLabels,
     isRecentlyCheckedCompetition,
     formatRandAmount,
+    formatPrizeAmount,
     getCardTagLabels,
     getCompetitionVisibility,
     isPaidEntryCompetition,

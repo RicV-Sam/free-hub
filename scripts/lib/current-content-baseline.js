@@ -42,7 +42,10 @@ function getCurrentContentBaseline() {
     // excludes the Kaizer Chiefs survey withdrawn on 2 October after its entry page closed.
     // GoTyme Card Swipe and Spend adds one reviewed detail page on 4 October.
     // The CS50 certificate explainer adds one reviewed editorial route on 5 October.
-    generatedFileCount: 412 - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    // 6 October: six reviewed detail pages and the international hub add seven.
+    // Correcting ERA removes the under-threshold airtime vertical; the clean
+    // 88c28b8 build also reproduced a pre-existing one-page overcount.
+    generatedFileCount: 417 - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
     sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length,
   };
 }
