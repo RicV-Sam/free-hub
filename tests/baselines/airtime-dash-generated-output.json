@@ -3,7 +3,7 @@
   "buildDate": "2026-09-08",
   "asOfDate": "2026-09-08",
   "timezone": "UTC",
-  "review": "The exact game and private admin pages are added. Public discovery adds only the Play link before My competitions and one game sitemap entry; no other existing HTML changes are approved.",
+  "review": "The exact game and private admin pages are added. Public discovery adds the Play link before My competitions and one game sitemap entry. The exact reviewed account pages add Airtime Dash navigation and a dashboard play section; other existing HTML changes are not approved.",
   "files": {
     "play/airtime-dash/index.html": {
       "expected": "missing",
@@ -12,6 +12,14 @@
     "admin/airtime-dash/index.html": {
       "expected": "missing",
       "actual": "525ed6d053fc0c05e23d269ab3b8b8e9b6cc601e4c6417f1424065924c785d8a"
+    },
+    "club/dashboard/index.html": {
+      "expected": "5a6c78444eeb967960cbe86fd4e14f1a7cd8cf932e37f99b678dfed457a0bfdb",
+      "actual": "d7a51e5b81c608e85ab4dd58a203a7893216d75dfe8656b547d7b7e7243162e0"
+    },
+    "club/account/index.html": {
+      "expected": "724e941ede63a78e178e0c8704e973dae7cab155386dad5aafbb7d69f001a593",
+      "actual": "f3313bc4fdc87bed765254cda48bc675d4fa175a7d051b45acaed59704d04fe1"
     }
   }
 }

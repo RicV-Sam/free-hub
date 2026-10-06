@@ -9291,10 +9291,15 @@ function renderClubDashboardPage(activeCompetitions = []) {
           </div>
           <nav class="club-task-nav" aria-label="Account navigation">
             <a href="/club/dashboard/">My competitions</a>
+            ${airtimeDashSettings.enabled ? '<a href="/play/airtime-dash/">Airtime Dash</a>' : ''}
             <a href="/club/account/#email-preferences">Email preferences</a>
             <a href="/club/account/">My account</a>
           </nav>
           <p class="club-status" data-club-status-message role="status"></p>
+          ${airtimeDashSettings.enabled ? `<section class="club-section club-section--notice" aria-labelledby="clubDashTitle">
+            <div><p class="section-kicker">The FreeHub arcade</p><h2 id="clubDashTitle">Airtime Dash</h2><p>Three lives. Endless mazes. Use your FreeHub account to record verified scores and challenge friends.</p></div>
+            <a class="btn btn--primary" href="/play/airtime-dash/">Play Airtime Dash</a>
+          </section>` : ''}
           <details class="club-saved-panel club-collapsible" aria-label="Saved competitions" open>
             <summary class="club-panel-header">
               <div>
@@ -9460,6 +9465,7 @@ function renderClubAccountPage() {
           </div>
           <nav class="club-task-nav" aria-label="Account navigation">
             <a href="/club/dashboard/">My competitions</a>
+            ${airtimeDashSettings.enabled ? '<a href="/play/airtime-dash/">Airtime Dash</a>' : ''}
             <a href="/club/account/#email-preferences">Email preferences</a>
             <a href="/club/account/">My account</a>
           </nav>

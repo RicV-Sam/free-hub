@@ -13,15 +13,16 @@ test("production deployment cannot publish emulator rules and the first competit
   assert.match(first.contactPolicy, /4 November 2026/);
   assert.equal(first.claimDays, 7); assert.match(first.rules, /seven calendar days after notification/); assert.doesNotMatch(first.rules, /PROPOSED CLAIM WINDOW/);
 });
-test("generated-output review allows only the exact two new game pages", () => {
+test("generated-output review allows only the exact game pages and account navigation changes", () => {
   const { isExactReviewedDifference } = require("../../scripts/lib/generated-output-review.js");
   const manifest = require("../baselines/airtime-dash-generated-output.json");
-  assert.deepEqual(Object.keys(manifest.files).sort(), ["admin/airtime-dash/index.html", "play/airtime-dash/index.html"]);
+  assert.deepEqual(Object.keys(manifest.files).sort(), ["admin/airtime-dash/index.html", "club/account/index.html", "club/dashboard/index.html", "play/airtime-dash/index.html"]);
   for (const [file, pair] of Object.entries(manifest.files)) {
-    assert.equal(pair.expected, "missing");
+    const expected = pair.expected === "missing" ? undefined : { hash: pair.expected };
+    assert.ok(pair.expected === "missing" || /^[a-f0-9]{64}$/.test(pair.expected));
     assert.match(pair.actual, /^[a-f0-9]{64}$/);
-    assert.equal(isExactReviewedDifference(manifest, file, undefined, { hash: pair.actual }), true);
-    assert.equal(isExactReviewedDifference(manifest, file, undefined, { hash: "tampered" }), false);
+    assert.equal(isExactReviewedDifference(manifest, file, expected, { hash: pair.actual }), true);
+    assert.equal(isExactReviewedDifference(manifest, file, expected, { hash: "tampered" }), false);
     assert.equal(isExactReviewedDifference(manifest, file, { hash: "existing" }, { hash: pair.actual }), false);
   }
   assert.equal(isExactReviewedDifference(manifest, "index.html", undefined, { hash: "anything" }), false);
