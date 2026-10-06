@@ -46,8 +46,9 @@ export class AirtimeDash extends DurableObject {
       if (identity.bearer) uid = await verify(identity.bearer, this.env.FIREBASE_PROJECT_ID);
       if (!publicActions.has(input.action) && !uid) return failure("unauthenticated", "Sign in with your FreeHub account.");
     } catch { return failure("unauthenticated", "Please sign in again. Your sign-in could not be verified."); }
-    if (input.action === "session.start") {
-      if (this.env.RANKED_ENABLED !== "true" || !this.env.TURNSTILE_SECRET) return failure("failed-precondition", "Prize entry is not open yet.");
+    if (input.action === "session.start" || input.action === "admin.securityCheck") {
+      if (input.action === "session.start" && this.env.RANKED_ENABLED !== "true") return failure("failed-precondition", "Prize entry is not open yet.");
+      if (!this.env.TURNSTILE_SECRET) return failure("failed-precondition", "The security check is not configured.");
       try {
         const response = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", { method: "POST", body: new URLSearchParams({
           secret: this.env.TURNSTILE_SECRET, response: input.turnstileToken || "", remoteip: identity.ip,

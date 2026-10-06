@@ -1,7 +1,47 @@
-import { getDashClient } from "./airtime-dash-api.js";
+import { getDashClient } from "./airtime-dash-api.js?v=dash-screenfit-2";
 const E = window.FreeHubDashEngine;
 const $ = id => document.getElementById(`dash-${id}`);
 const canvas = $("canvas"), ctx = canvas.getContext("2d"), sprite = new Image();
+const arcade = $("arcade"), expandButton = $("expand");
+let expanded = false, inertSiblings = [];
+function fitExpandedBoard() {
+  if (!expanded) { canvas.style.removeProperty("width"); canvas.style.removeProperty("height"); return; }
+  const board = canvas.parentElement;
+  const width = Math.max(0, Math.min(board.clientWidth - 16, board.clientHeight * canvas.width / canvas.height));
+  canvas.style.width = `${width}px`; canvas.style.height = `${width * canvas.height / canvas.width}px`;
+}
+new ResizeObserver(fitExpandedBoard).observe(canvas.parentElement);
+function expandGame(value) {
+  expanded = value; arcade.classList.toggle("dash-arcade--expanded", value);
+  document.body.classList.toggle("dash-game-expanded", value);
+  expandButton.textContent = value ? "Return to page" : "Expand game";
+  expandButton.setAttribute("aria-expanded", String(value));
+  fitExpandedBoard();
+  if (value) {
+    arcade.setAttribute("role", "dialog"); arcade.setAttribute("aria-modal", "true");
+    for (let branch = arcade; branch.parentElement; branch = branch.parentElement) {
+      for (const sibling of branch.parentElement.children) if (sibling !== branch) {
+        inertSiblings.push([sibling, sibling.inert]); sibling.inert = true;
+      }
+      if (branch.parentElement === document.body) break;
+    }
+    canvas.focus({ preventScroll: true });
+  } else {
+    arcade.removeAttribute("role"); arcade.removeAttribute("aria-modal");
+    for (const [element, prior] of inertSiblings) element.inert = prior;
+    inertSiblings = []; expandButton.focus({ preventScroll: true });
+  }
+}
+expandButton.addEventListener("click", () => expandGame(!expanded));
+document.addEventListener("keydown", e => {
+  if (!expanded) return;
+  if (e.key === "Escape") { e.preventDefault(); expandGame(false); return; }
+  if (e.key !== "Tab") return;
+  const controls = [...arcade.querySelectorAll('button:not(:disabled), a[href], input, canvas[tabindex]')].filter(element => element.getClientRects().length);
+  const first = controls[0], last = controls.at(-1);
+  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+});
 sprite.src = "/assets/mascot/direct-v1-160.webp";
 const tile = canvas.width / E.CONFIG.width;
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -96,7 +136,7 @@ function begin(mode, authorised) {
   lastMode = mode; $("cover").hidden = true; $("result").hidden = true; $("stop").disabled = false; $("share").hidden = true;
   $("practice").disabled = true; $("ranked").disabled = true; $("mode").textContent = mode === "ranked" ? (client.preview ? "TEST RANKED" : "RANKED") : "PRACTICE";
   status(mode === "ranked" ? "Your progress is checked as you play. Switching tabs does not pause ranked play." : "25-second practice. Clear the maze, keep your lives. This score does not enter the prize competition.");
-  canvas.focus({ preventScroll: true }); document.querySelector(".dash-arcade").scrollIntoView({ block: "start", behavior: "instant" });
+  canvas.focus({ preventScroll: true }); if (!expanded) arcade.scrollIntoView({ block: "start", behavior: "instant" });
   draw(run.state); event(mode === "ranked" ? "game_ranked_start" : "game_practice_start");
 }
 $("practice").addEventListener("click", () => { if (!run || run.ended) begin("practice"); });

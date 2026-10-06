@@ -1,4 +1,4 @@
-import { getDashClient } from "./airtime-dash-api.js";
+import { getDashClient } from "./airtime-dash-api.js?v=dash-screenfit-2";
 const $ = id => document.getElementById(`dash-${id}`);
 let client, report;
 const status = message => { $("admin-status").textContent = message; };
@@ -54,6 +54,12 @@ $("config-form").addEventListener("submit", e => {
 });
 $("admin-refresh").addEventListener("click", refresh);
 $("activate").addEventListener("click", () => perform("admin.activate"));
+$("security-check").addEventListener("click", async () => {
+  $("security-check").disabled = true;
+  try { await client.call("admin.securityCheck"); status("Live security check passed. Prize entry has not been opened by this check."); }
+  catch (error) { status(error.message); }
+  finally { $("security-check").disabled = false; }
+});
 $("confirm-winner").addEventListener("click", () => perform("admin.winner"));
 $("prize-sent").addEventListener("click", () => perform("admin.prize"));
 $("forfeit-winner").addEventListener("click", () => perform("admin.forfeitWinner", { reason: $("review-reason").value }));

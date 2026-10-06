@@ -10,7 +10,7 @@ const better = (a, b) => !b || a.score > b.score || (a.score === b.score && a.re
 const order = (a, b) => b.score - a.score || a.reachedAt - b.reachedAt || a.sessionId.localeCompare(b.sessionId);
 const finished = session => session.status !== "active";
 const publicScore = (row, rank) => ({ rank, displayName: row.displayName, score: row.score });
-const ACTIONS = new Set(["config", "leaderboard", "terms.accept", "session.start", "session.checkpoint", "session.finish", "result", "session.abandon", "challenge.create", "challenge.resolve", "challenges.summary", "admin.saveCompetition", "admin.activate", "admin.report", "admin.review", "admin.winner", "admin.prize", "admin.forfeitWinner"]);
+const ACTIONS = new Set(["config", "leaderboard", "terms.accept", "session.start", "session.checkpoint", "session.finish", "result", "session.abandon", "challenge.create", "challenge.resolve", "challenges.summary", "admin.saveCompetition", "admin.activate", "admin.report", "admin.review", "admin.winner", "admin.prize", "admin.forfeitWinner", "admin.securityCheck"]);
 function nickname(value) {
   need(typeof value === "string" && value.trim().length >= 2 && /^[\p{L}\p{N} _.-]{2,30}$/u.test(value) && /[\p{L}\p{N}]/u.test(value) && value.replace(/\D/g, "").length < 7, "Choose a public nickname of 2–30 characters without contact details.", "invalid-argument");
   return value.trim();
@@ -205,6 +205,7 @@ function createService(store, { clock = Date.now } = {}) {
     }
     if (action.startsWith("admin.")) {
       const owner = await admin(context);
+      if (action === "admin.securityCheck") return { verified: true };
       if (action === "admin.activate") {
         return store.transaction(async tx => {
           const config = await tx.get("dashConfig/current");

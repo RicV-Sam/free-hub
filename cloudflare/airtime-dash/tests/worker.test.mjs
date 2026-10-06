@@ -52,6 +52,9 @@ test("Cloudflare runtime verifies identities, protects ranked starts and persist
     assert.equal((await call("config", {}, alice, "", "https://malicious.test")).status, 403);
     assert.equal((await call("admin.report")).status, 403);
     assert.equal((await call("session.start", {}, alice, "invalid-proof")).status, 403);
+    assert.equal((await call("admin.securityCheck", {}, admin, "invalid-proof")).status, 403);
+    assert.equal((await call("admin.securityCheck", {}, alice)).status, 403);
+    assert.deepEqual((await call("admin.securityCheck", {}, admin)).body.result, { verified: true });
     const now = Date.now(), competition = { id: "worker-test", title: "Fixture", prizeTitle: "Test only", startAt: now - 1000, endAt: now + 60000,
       status: "draft", legalReviewed: true, termsVersion: "test-1", claimDays: 7, rules: "Synthetic fixture only", eligibility: "Fixture", contactPolicy: "Fixture", winnerPolicy: "Nickname" };
     assert.equal((await call("admin.saveCompetition", competition, admin)).status, 200);

@@ -26,7 +26,7 @@ async function createClient() {
       const user = firebase.auth.currentUser, headers = { "Content-Type": "application/json" };
       if (user) headers.Authorization = `Bearer ${await user.getIdToken()}`;
       const input = { action, data };
-      if (action === "session.start") input.turnstileToken = await securityCheck(settings.turnstileSiteKey);
+      if (action === "session.start" || action === "admin.securityCheck") input.turnstileToken = await securityCheck(settings.turnstileSiteKey);
       const response = await fetch(endpoint.href, { method: "POST", headers, body: JSON.stringify(input), signal: AbortSignal.timeout(12000) });
       let result; try { result = await response.json(); } catch { throw new Error("The game service is unavailable. Your last verified score is saved."); }
       if (!response.ok || result.error) throw new Error(result.error?.message || "The game service is unavailable. Your last verified score is saved.");

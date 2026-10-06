@@ -10,6 +10,8 @@ The winner must be contacted manually through their existing FreeHub account ema
 
 Three lives carry across endless levels and never refill. Original deterministic mazes repeat with the same versioned settings for everyone. Enemy speed, pursuit and numbers increase to defined movement caps. No victory screen or ranked countdown. Anonymous practice lasts 25 seconds and does not count. Hadeda artwork retains existing mascot provenance. Human balance and real-device testing remain useful alongside automated checks.
 
+Expand game fills the browser viewport and fits the maze around the score, controls and status. Return to page or Escape restores the page without restarting or pausing the simulation. Mobile portrait and landscape sizing are supported; no native fullscreen permission is required. The admin's Check live security control validates the real Turnstile flow without accepting competition terms, starting a prize run or changing competition status.
+
 ## Server verification and security
 
 - functions/airtime-dash/engine.js is the shared deterministic simulation. The generator copies its exact bytes to the browser asset. Maze, difficulty and score versions are pinned to the competition and lock after ranked play starts.
