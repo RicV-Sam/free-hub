@@ -48,6 +48,7 @@ test("Cloudflare runtime verifies identities, protects ranked starts and persist
   }
   try {
     assert.equal((await call("session.start", {}, null)).status, 401);
+    assert.equal((await call("player.profile", {}, null)).status, 401);
     assert.equal((await call("session.start", {}, badAudience)).status, 401);
     assert.equal((await call("config", {}, alice, "", "https://malicious.test")).status, 403);
     assert.equal((await call("admin.report")).status, 403);
@@ -75,6 +76,8 @@ test("Cloudflare runtime verifies identities, protects ranked starts and persist
     assert.equal(recovery.status, 200, JSON.stringify(recovery.body));
     const restored = recovery.body.result;
     assert.equal(restored.score, score); assert.equal(restored.sequence, 1);
+    assert.deepEqual((await call("player.profile")).body.result, { displayName: "Alice" });
+    assert.deepEqual((await call("player.profile", { uid: "alice" }, admin)).body.result, { displayName: null });
     const leaked = JSON.stringify((await call("leaderboard", { competitionId: competition.id }, null)).body);
     assert.doesNotMatch(leaked, /synthetic@example|"uid"|"sessionId"/);
     assert.equal((await call("session.checkpoint", { ...input, sequence: 2, toTick: 10000, inputs: [] })).status, 400);

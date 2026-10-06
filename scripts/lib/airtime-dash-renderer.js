@@ -7,8 +7,8 @@ function page(shell, admin = false) {
     canonicalUrl: `https://freehub.co.za/${admin ? "admin/airtime-dash" : "play/airtime-dash"}/`, robots: admin || !settings.enabled ? "noindex,follow" : "index,follow",
     pageType: admin ? "game_admin" : "game", body })
     .replace("We do not run the competitions, collect entries or supply the listed benefits.", "FreeHub runs Airtime Dash. Other listed competitions and benefits are provided by their named promoters.")
-    .replace("</head>", '<link rel="stylesheet" href="/assets/airtime-dash.css?v=dash-screenfit-2" />\n</head>')
-    .replace("</body>", `<script src="/shared/airtime-dash-engine.js?v=dash-1" defer></script><script type="module" src="/shared/airtime-dash-${admin ? "admin" : "ui"}.js?v=dash-screenfit-2"></script>\n</body>`);
+    .replace("</head>", '<link rel="stylesheet" href="/assets/airtime-dash.css?v=dash-nickname-1" />\n</head>')
+    .replace("</body>", `<script src="/shared/airtime-dash-engine.js?v=dash-1" defer></script><script type="module" src="/shared/airtime-dash-${admin ? "admin" : "ui"}.js?v=dash-nickname-1"></script>\n</body>`);
 }
 function auth() { return `<div class="dash-account" data-freehub-auth data-auth-default-action="club" data-auth-signed-out-text="Use your existing FreeHub account for ranked play."><span data-auth-user></span><span data-auth-status>Practice needs no account.</span><button type="button" class="dash-link" data-auth-action="signin">Sign in / Join FreeHub</button><button type="button" class="dash-link" data-auth-action="signout" hidden>Sign out</button></div>`; }
 function gameBody() {

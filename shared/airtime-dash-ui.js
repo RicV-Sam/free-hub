@@ -1,4 +1,5 @@
-import { getDashClient } from "./airtime-dash-api.js?v=dash-screenfit-2";
+import { getDashClient } from "./airtime-dash-api.js?v=dash-nickname-1";
+import { createNicknameRestorer } from "./airtime-dash-nickname.js?v=dash-nickname-1";
 const E = window.FreeHubDashEngine;
 const $ = id => document.getElementById(`dash-${id}`);
 const canvas = $("canvas"), ctx = canvas.getContext("2d"), sprite = new Image();
@@ -82,14 +83,19 @@ async function load() {
   event("game_page_view");
   try {
     client = await getDashClient();
-    client.onAuth(user => { $("terms").hidden = !user || !config?.live; });
+    const restoreNickname = createNicknameRestorer($("terms").elements.displayName, client);
+    client.onAuth(user => {
+      $("terms").hidden = !user || !config?.live;
+      restoreNickname(user);
+    });
     if (!client.available) return;
     config = await client.call("config");
     $("terms").hidden = !client.user || !config.live;
+    await restoreNickname(client.user);
     if (client.preview) {
       $("competition").textContent = "LOCAL PREVIEW · Test scores and accounts only. No real prize entry, registration or payout.";
       $("ranked").textContent = "Try a test ranked run";
-      $("terms").elements.displayName.value = "Preview Player";
+      if (!$("terms").elements.displayName.value) $("terms").elements.displayName.value = "Preview Player";
       document.querySelector(".dash-account").hidden = true;
     }
     if (config.competition) {

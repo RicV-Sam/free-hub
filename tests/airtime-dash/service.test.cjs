@@ -47,6 +47,29 @@ test("server replay ignores fabricated score totals, rejects impossible time and
   assert.equal((await f.call("leaderboard", { competitionId: f.competition.id })).top.length, 1);
   assert.equal((await f.store.scan("dashCheckpoints")).length, 1);
 });
+
+test("saved nicknames survive new sessions and months, with legacy entry recovery and account isolation", async () => {
+  const f = fixture();
+  await assert.rejects(f.call("player.profile", {}, null), /Sign in/);
+  assert.deepEqual(await f.call("player.profile"), { displayName: null });
+  const session = await f.start();
+  assert.deepEqual(await f.call("player.profile"), { displayName: "Alice" });
+  assert.deepEqual(await f.call("player.profile", { uid: "alice" }, "bob"), { displayName: null });
+  const player = (await f.store.scan("dashPlayers"))[0];
+  await f.store.transaction(async tx => { const { displayName, id, ...legacy } = player; tx.put(`dashPlayers/${id}`, legacy); });
+  assert.deepEqual(await f.call("player.profile"), { displayName: "Alice" });
+  await f.call("terms.accept", { termsVersion: "rules-1", displayName: "Alice Updated", accepted: true, eligible: true });
+  assert.equal((await f.store.scan("dashPlayers"))[0].activeSessionId, session.sessionId);
+  await f.call("session.abandon", { sessionId: session.sessionId });
+  await f.call("session.start");
+  assert.deepEqual(await f.call("player.profile"), { displayName: "Alice Updated" });
+  await f.store.transaction(tx => {
+    tx.put("dashConfig/current", { competitionId: "next-month" });
+    tx.put("dashCompetitions/next-month", { ...f.competition, id: "next-month", termsVersion: "rules-2" });
+  });
+  assert.deepEqual(await f.call("player.profile"), { displayName: "Alice Updated" });
+  await assert.rejects(f.call("session.start"), /rules/);
+});
 test("only one ranked session may run at once; inactivity preserves verified progress", async () => {
   const f = fixture(), session = await f.start(), { result } = await f.score(session);
   await assert.rejects(f.call("session.start"), /current ranked/);

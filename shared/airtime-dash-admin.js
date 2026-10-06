@@ -1,4 +1,4 @@
-import { getDashClient } from "./airtime-dash-api.js?v=dash-screenfit-2";
+import { getDashClient } from "./airtime-dash-api.js?v=dash-nickname-1";
 const $ = id => document.getElementById(`dash-${id}`);
 let client, report;
 const status = message => { $("admin-status").textContent = message; };

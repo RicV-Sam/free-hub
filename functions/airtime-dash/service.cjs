@@ -10,7 +10,7 @@ const better = (a, b) => !b || a.score > b.score || (a.score === b.score && a.re
 const order = (a, b) => b.score - a.score || a.reachedAt - b.reachedAt || a.sessionId.localeCompare(b.sessionId);
 const finished = session => session.status !== "active";
 const publicScore = (row, rank) => ({ rank, displayName: row.displayName, score: row.score });
-const ACTIONS = new Set(["config", "leaderboard", "terms.accept", "session.start", "session.checkpoint", "session.finish", "result", "session.abandon", "challenge.create", "challenge.resolve", "challenges.summary", "admin.saveCompetition", "admin.activate", "admin.report", "admin.review", "admin.winner", "admin.prize", "admin.forfeitWinner", "admin.securityCheck"]);
+const ACTIONS = new Set(["config", "leaderboard", "player.profile", "terms.accept", "session.start", "session.checkpoint", "session.finish", "result", "session.abandon", "challenge.create", "challenge.resolve", "challenges.summary", "admin.saveCompetition", "admin.activate", "admin.report", "admin.review", "admin.winner", "admin.prize", "admin.forfeitWinner", "admin.securityCheck"]);
 function nickname(value) {
   need(typeof value === "string" && value.trim().length >= 2 && /^[\p{L}\p{N} _.-]{2,30}$/u.test(value) && /[\p{L}\p{N}]/u.test(value) && value.replace(/\D/g, "").length < 7, "Choose a public nickname of 2–30 characters without contact details.", "invalid-argument");
   return value.trim();
@@ -129,6 +129,12 @@ function createService(store, { clock = Date.now } = {}) {
     const now = clock();
     if (action === "config") return publicCompetition(await current(), now);
     if (action === "leaderboard") return leaderboard(data.competitionId, context);
+    if (action === "player.profile") {
+      const owner = uid(context), competition = await current();
+      const acceptance = competition ? await store.get(`dashTerms/${userKey(competition.id, owner)}`) : null;
+      const player = await store.get(`dashPlayers/${hash(owner)}`);
+      return { displayName: player?.displayName || acceptance?.displayName || null };
+    }
     if (action === "terms.accept") {
       const owner = uid(context), competition = await current();
       need(live(competition, now), "The prize competition is not open.");
@@ -140,6 +146,8 @@ function createService(store, { clock = Date.now } = {}) {
       await store.transaction(async tx => {
         const path = `dashTerms/${userKey(competition.id, owner)}`, prior = await tx.get(path);
         tx.put(path, { ...acceptance, acceptedAt: prior?.termsVersion === acceptance.termsVersion ? prior.acceptedAt : now });
+        const playerPath = `dashPlayers/${hash(owner)}`, player = await tx.get(playerPath);
+        tx.put(playerPath, { ...player, displayName, closesAt: competition.endAt });
       });
       return { accepted: true };
     }
@@ -162,7 +170,7 @@ function createService(store, { clock = Date.now } = {}) {
         const session = { id, uid: owner, competitionId: competition.id, displayName: acceptance.displayName, challengeToken: acceptance.challengeToken,
           startedAt: now, closesAt: competition.endAt, expiresAt: now + Engine.CONFIG.inactivityMs, verifiedAt: now,
           state: Engine.create(), sequence: 0, scoreReachedAt: now, status: "active", verificationStatus: "verified", versions: Engine.VERSION };
-        tx.put(`dashSessions/${id}`, session); tx.put(playerPath, { activeSessionId: id, closesAt: session.closesAt });
+        tx.put(`dashSessions/${id}`, session); tx.put(playerPath, { ...player, activeSessionId: id, closesAt: session.closesAt });
         tx.put(`dashCompetitions/${competition.id}`, { ...competition, startedCount: (competition.startedCount || 0) + 1 });
         return result(session);
       });

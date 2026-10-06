@@ -12,6 +12,8 @@ Three lives carry across endless levels and never refill. Original deterministic
 
 Expand game fills the browser viewport and fits the maze around the score, controls and status. Return to page or Escape restores the page without restarting or pausing the simulation. Mobile portrait and landscape sizing are supported; no native fullscreen permission is required. The admin's Check live security control validates the real Turnstile flow without accepting competition terms, starting a prize run or changing competition status.
 
+The game restores the signed-in account's saved public nickname, including nicknames on existing entries. The name remains editable. Switching accounts clears the previous name and ignores delayed responses from that account. Saving a nickname does not accept new rules or confirm eligibility automatically; those confirmations remain explicit. The operational player record retains the nickname under the existing 90-day retention schedule after competition closing.
+
 ## Server verification and security
 
 - functions/airtime-dash/engine.js is the shared deterministic simulation. The generator copies its exact bytes to the browser asset. Maze, difficulty and score versions are pinned to the competition and lock after ranked play starts.
