@@ -10,3 +10,16 @@
 /* Keep the arcade recognisable within FreeHub's account and editorial surfaces. */
 .dash-intro{margin-bottom:18px;gap:20px}.dash-page{margin-top:24px}.dash-intro h1{font-size:clamp(2.15rem,4.5vw,3.35rem);margin:8px 0 14px}.dash-intro h1 span{font-size:.55em}.dash-lead{margin:0 0 12px;max-width:650px}.dash-facts{margin:0 0 16px;line-height:1.5}.dash-hero-actions{display:flex;flex-wrap:wrap;gap:10px}.dash-hero-actions .dash-button:first-child{background:#176957;color:#fff}.dash-hero-actions .dash-button--secondary{background:#e2eee8}.dash-intro>.mascot{align-self:center}.dash-intro .dash-small{margin-bottom:0;max-width:600px;color:#475b53}.dash-side #dash-entry{scroll-margin-top:90px}.dash-friend-intro{margin:32px 0 0;max-width:750px}.dash-friend-intro h2{font-size:1.55rem;margin-bottom:10px}.dash-friend-intro p{line-height:1.7}.dash-rules details{border-bottom:1px solid #d7dfd7;padding:14px 0}.dash-rules summary{cursor:pointer;font-weight:750;line-height:1.6;min-height:36px}.dash-rules details[open] summary{margin-bottom:12px}.dash-rules details p:last-child{margin-bottom:0}.dash-arcade--expanded .dash-result{inset:auto 16px;top:50%;transform:translateY(-50%);max-height:calc(100dvh - 100px);width:min(540px,calc(100% - 32px));margin-inline:auto;box-sizing:border-box}.dash-result #dash-personal:empty{display:none}
 @media(max-width:767px){.dash-page{margin-top:18px}.dash-intro{position:relative;display:block;padding-right:0}.dash-intro>div{min-width:0}.dash-intro .mascot{position:absolute;top:0;right:0;width:58px;height:73px;margin:0}.dash-intro h1{padding-right:62px;font-size:2.1rem}.dash-intro h1 span{font-size:.55em;line-height:1.2}.dash-hero-actions{gap:8px}.dash-hero-actions .dash-button{font-size:.88rem;padding:11px 13px}.dash-intro .dash-small{font-size:.78rem}.dash-facts{font-size:.88rem}.dash-result{padding:20px}.dash-arcade--expanded .dash-result{max-height:calc(100dvh - 60px)}}
+
+/* Give touch play a centred pad with room for a thumb on each arrow. */
+@media(max-width:767px),(pointer:coarse){
+  .dash-controls{flex-direction:column;align-items:center;gap:8px}
+  .dash-controls p{margin:0;text-align:center}
+  .dash-pad{grid-template-columns:repeat(3,64px);gap:8px;margin-inline:auto;order:-1}
+  .dash-pad button{display:grid;place-items:center;width:64px;height:64px;padding:0;font-size:2rem;line-height:1;border-radius:9px}
+  .dash-arcade--expanded .dash-controls p{max-width:none;text-align:center}
+}
+@media(min-width:700px) and (orientation:landscape) and (max-width:767px),(min-width:700px) and (orientation:landscape) and (pointer:coarse){
+  .dash-arcade--expanded .dash-controls{width:208px}
+  .dash-arcade--expanded .dash-board{width:calc(100% - 480px)}
+}

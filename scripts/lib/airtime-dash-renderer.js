@@ -11,7 +11,7 @@ function page(shell, admin = false) {
     .replace("We do not run the competitions, collect entries or supply the listed benefits.", "FreeHub runs Airtime Dash. Other listed competitions and benefits are provided by their named promoters.")
     .replace("/shared/auth-ui.js?v=20260917-account-save-v2", "/shared/auth-ui.js?v=dash-polish-1")
     .replace("<body>", `<body${admin ? "" : ' class="airtime-dash-page"'}>`)
-    .replace("</head>", '<link rel="stylesheet" href="/assets/airtime-dash.css?v=dash-polish-1" />\n</head>')
+    .replace("</head>", '<link rel="stylesheet" href="/assets/airtime-dash.css?v=dash-controls-1" />\n</head>')
     .replace("</body>", `<script src="/shared/airtime-dash-engine.js?v=dash-1" defer></script><script type="module" src="/shared/airtime-dash-${admin ? "admin" : "ui"}.js?v=dash-polish-1"></script>\n</body>`);
   if (admin) return html;
   const image = DEFAULT_OG_IMAGE.replaceAll("&", "&amp;");
