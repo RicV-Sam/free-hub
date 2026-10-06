@@ -254,12 +254,14 @@ function openSignupModal(panel, action, competitionOverride = null) {
       ? "Sign in for competition alerts"
       : action === "ignore"
         ? "Sign in to hide competitions"
+        : action === "airtime" ? "Sign in to compete in Airtime Dash"
         : action === "club" ? "Your free Freehub account" : "Sign in to save";
   message.textContent =
     action === "alerts"
       ? "Discover South African competitions, prizes, closing dates and links to enter. Choose email alerts below, then sign in."
       : action === "ignore"
         ? `Sign in to hide ${competition?.title || "competitions you have already seen"}.`
+        : action === "airtime" ? "Use your free FreeHub account to record verified scores, climb the leaderboard and challenge friends. After sign-in, review the rules and prepare your run. Play begins only when you click Start in the game."
         : action === "club" ? "Keep your saved competitions together and track what you enter. Sign in with Google or an email link." : `Sign in to save ${competition?.title || "this competition"}.`;
 
   modal.hidden = false;

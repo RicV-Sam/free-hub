@@ -51,6 +51,43 @@ let readyMode = "practice", readyOwner = null;
 let initial = E.create();
 function status(message) { $("status").textContent = message; }
 function event(name, data = {}) { window.dataLayer?.push({ event: name, game_version: E.VERSION.game, ...data }); }
+function updateEntryActions() {
+  for (const button of document.querySelectorAll("[data-dash-enter]")) {
+    button.disabled = !config?.live;
+    button.textContent = config?.live ? client?.user ? "Prepare competition run" : "Sign in & compete" : "Prize entry closed";
+  }
+  if (config?.competition) {
+    const c = config.competition;
+    $("prize").textContent = c.prizeTitle;
+    $("entry-copy").textContent = config.live ? "Highest verified score wins. Free entry; no purchase necessary." : "Prize entry is closed. Practice is still open.";
+    $("hero-prize").textContent = config.live ? `${c.prizeTitle} · Highest eligible verified score wins` : "Free practice · Challenge your friends with verified scores";
+    if (!client.preview) $("competition").textContent = `${c.title} · ${c.prizeTitle} · ${config.live ? "Entry open" : "Entry closed"} · Closes ${new Intl.DateTimeFormat("en-ZA", { timeZone: "Africa/Johannesburg", dateStyle: "medium", timeStyle: "short" }).format(c.endAt)} SAST`;
+  }
+}
+function entryUnavailable() {
+  $("hero-prize").textContent = "Free practice · Prize details unavailable";
+  $("competition").textContent = "Competition details are temporarily unavailable. Practice is open; retry by reloading the page.";
+  $("entry-copy").textContent = "Prize entry is unavailable while we check the competition details. Practice remains free.";
+  $("board-status").textContent = "Leaderboard temporarily unavailable. Try again by reloading the page.";
+  $("board-refresh").disabled = true;
+  $("current-rules").textContent = "Current competition rules could not load. Reload to check them before entering.";
+  for (const button of document.querySelectorAll("[data-dash-enter]")) { button.disabled = true; button.textContent = "Prize entry unavailable"; }
+}
+function showEntry() {
+  if (expanded) expandGame(false);
+  $("entry").scrollIntoView({ block: "center", behavior: "instant" });
+  if (client?.user) { $("terms").elements.displayName.focus({ preventScroll: true }); return; }
+  if (window.FreeHubAuth?.openSignupModal) window.FreeHubAuth.openSignupModal(document.querySelector(".dash-account"), "airtime");
+  else { $("entry").focus({ preventScroll: true }); status("Sign-in is still loading. Use Sign in & compete in the entry panel when it is ready."); }
+}
+for (const button of document.querySelectorAll("[data-dash-enter]")) button.addEventListener("click", () => { event("game_entry_intent", { placement: button.id === "dash-result-enter" ? "practice_result" : "hero" }); showEntry(); });
+document.addEventListener("freehub:signin-complete", () => { if (config?.live) showEntry(); });
+$("try").addEventListener("click", e => {
+  e.preventDefault();
+  if (!run || run.ended) prepare("practice");
+  else { arcade.scrollIntoView({ block: "start", behavior: "instant" }); canvas.focus({ preventScroll: true }); }
+});
+document.querySelector('#dash-terms a[href="#dash-rules"]').addEventListener("click", () => { $("full-rules").open = true; });
 function draw(state) {
   ctx.fillStyle = "#102b27"; ctx.fillRect(0, 0, canvas.width, canvas.height);
   for (let y = 0; y < E.CONFIG.height; y++) for (let x = 0; x < E.CONFIG.width; x++) {
@@ -89,11 +126,13 @@ async function load() {
       $("terms").hidden = !user || !config?.live;
       restoreNickname(user);
       if (readyMode === "ranked" && readyOwner !== user?.uid) prepare("practice");
+      if (config) { updateEntryActions(); refreshBoard(); }
     });
-    if (!client.available) return;
+    if (!client.available) { entryUnavailable(); return; }
     config = await client.call("config");
     $("terms").hidden = !client.user || !config.live;
     await restoreNickname(client.user);
+    updateEntryActions();
     if (client.preview) {
       $("competition").textContent = "LOCAL PREVIEW · Test scores and accounts only. No real prize entry, registration or payout.";
       $("ranked").textContent = "Prepare a test ranked run";
@@ -102,13 +141,12 @@ async function load() {
     }
     if (config.competition) {
       const c = config.competition;
-      $("prize").textContent = c.prizeTitle;
-      $("entry-copy").textContent = config.live ? "Highest verified score wins. Free entry; no purchase necessary." : "Prize entry is closed. Practice is still open.";
-      if (!client.preview) $("competition").textContent = `${c.title} · ${c.prizeTitle} · ${config.live ? "Entry open" : "Entry closed"} · Closes ${new Intl.DateTimeFormat("en-ZA", { timeZone: "Africa/Johannesburg", dateStyle: "medium", timeStyle: "short" }).format(c.endAt)} SAST`;
+      const summary = $("rule-summary"); summary.replaceChildren();
+      for (const text of [`${c.title}: ${c.prizeTitle}. Free entry; no purchase required. Highest eligible verified score wins.`, `Eligibility: ${c.eligibility}`, `Closes ${new Intl.DateTimeFormat("en-ZA", { timeZone: "Africa/Johannesburg", dateStyle: "long", timeStyle: "short" }).format(c.endAt)} SAST. Repeat attempts allowed; one active ranked run per account. Only progress verified before closing counts.`]) { const p = document.createElement("p"); p.textContent = text; summary.append(p); }
       const rules = $("current-rules"); rules.replaceChildren();
       for (const text of [`Eligibility: ${c.eligibility}`, c.rules, `Winner contact: ${c.contactPolicy}`, `Claim deadline: ${c.claimDays} days after notification.`, `Public display: ${c.winnerPolicy}`]) { const p = document.createElement("p"); p.textContent = text; rules.append(p); }
       await refreshBoard();
-    }
+    } else { $("hero-prize").textContent = "Free practice · Three lives · Endless ranked levels"; $("competition").textContent = "No prize competition is currently configured. Free practice is open."; $("entry-copy").textContent = "Prize entry is closed. Practice is still open."; $("board-status").textContent = "No prize competition is currently configured."; $("board-refresh").disabled = true; $("current-rules").textContent = "Current prize entry rules will appear here before a competition opens."; }
     const incoming = new URLSearchParams(location.search).get("challenge") || sessionStorage.getItem("freehubDashChallenge");
     if (incoming) {
       try {
@@ -119,7 +157,7 @@ async function load() {
         event("challenge_landing_view");
       } catch (error) { $("challenge").hidden = false; $("challenge").textContent = error.message; sessionStorage.removeItem("freehubDashChallenge"); }
     }
-  } catch (error) { status("The competition service is unavailable. Practice is still open."); }
+  } catch (error) { entryUnavailable(); status("The competition service is unavailable. Practice is still open."); }
 }
 function visitor() {
   try { let id = localStorage.getItem("freehubDashVisitor"); if (!id) { id = crypto.randomUUID(); localStorage.setItem("freehubDashVisitor", id); } return id; }
@@ -127,16 +165,24 @@ function visitor() {
 }
 async function refreshBoard() {
   if (!config?.competition) return;
+  $("board-refresh").disabled = true;
+  $("board-status").textContent = "Loading this month's leaderboard…";
   try {
     const board = await client.call("leaderboard", { competitionId: config.competition.id });
     $("leaderboard").replaceChildren();
     for (const row of board.top) { const li = document.createElement("li"), score = document.createElement("span"); li.textContent = row.displayName; score.textContent = row.score.toLocaleString("en-ZA"); li.append(score); $("leaderboard").append(li); }
-    $("board-status").textContent = board.top.length ? "Best verified score per player." : "No verified scores yet.";
+    $("board-status").textContent = config.live ? board.top.length ? "Best verified score per player." : "Be the first to set a competition score." : "Entries are closed. Standings are subject to verification and winner review.";
     $("own-rank").textContent = board.own ? `Your best: ${board.own.score.toLocaleString("en-ZA")} · Rank #${board.own.rank}` : "";
     $("personal").textContent = $("own-rank").textContent;
-    if (client.user) { const summary = await client.call("challenges.summary"); $("challenge-summary").hidden = false; $("summary").textContent = `${summary.shared} links created · ${summary.opened} opens · ${summary.played} qualified players · ${summary.beaten} beat you`; }
-  } catch { $("board-status").textContent = "Leaderboard temporarily unavailable. Your verified result is preserved."; }
+    if (client.user) {
+      $("challenge-summary").hidden = false;
+      try { const summary = await client.call("challenges.summary"); $("summary").textContent = `${summary.shared} links created · ${summary.opened} opens · ${summary.played} qualified players · ${summary.beaten} beat you`; }
+      catch { $("summary").textContent = "Challenge activity is temporarily unavailable. Refresh to retry."; }
+    } else $("challenge-summary").hidden = true;
+  } catch { $("board-status").textContent = "Leaderboard temporarily unavailable. Try Refresh leaderboard. Verified scores are preserved."; }
+  finally { $("board-refresh").disabled = false; }
 }
+$("board-refresh").addEventListener("click", refreshBoard);
 function begin(mode, authorised) {
   run = { mode, ranked: mode === "ranked", state: authorised ? structuredClone(authorised.state) : E.create(),
     origin: performance.now() - (authorised ? authorised.serverNow - authorised.startedAt : 0), inputs: [], lastSequence: authorised?.sequence || 0,
@@ -281,12 +327,15 @@ async function showResult(active, result) {
   const verified = result?.verificationStatus === "verified";
   $("stop").disabled = true; $("result").hidden = false; $("practice").disabled = false; $("ranked").disabled = false; $("demo-time").textContent = "";
   $("result-title").textContent = result ? !verified ? result.verificationStatus === "review_required" ? "Score awaiting review" : "Score not eligible" : result.endReason === "deadline" ? "Competition score frozen" : "Verified run" : active.mode === "unranked" ? "Unranked run complete" : "Practice complete";
+  $("result-enter").hidden = active.mode !== "practice" || !config?.live;
+  updateEntryActions();
   $("result-copy").textContent = result ? !verified ? `This run is ${result.verificationStatus.replaceAll("_", " ")}. ${result.verificationReason || "It does not count on the verified leaderboard."}` : `You scored ${result.score.toLocaleString("en-ZA")} verified points and reached level ${result.level}.${result.challengeOutcome ? ` Challenge: ${result.challengeOutcome === "won" ? "you beat the score!" : result.challengeOutcome === "tie" ? "a tie." : "the challenger is still ahead."}` : ""}` : `You scored ${active.state.score.toLocaleString("en-ZA")} and reached level ${active.state.level}. ${active.mode === "unranked" ? "These later points do not count toward the competition." : config?.live ? "Use your free FreeHub account to save ranked scores and enter the competition." : "Sign in when prize entry opens to save a ranked score."}`;
-  $("replay").textContent = result?.endReason === "deadline" && active.state.lives > 0 ? "Continue unranked" : "Play again";
+  if (active.mode === "practice" && config?.live) $("result-copy").textContent = `You scored ${active.state.score.toLocaleString("en-ZA")} and reached level ${active.state.level}. That was practice. ${client.user ? "Prepare a new competition run" : "Sign in free and prepare a competition run"} to compete for ${config.competition.prizeTitle}. Practice points do not transfer.`;
+  $("replay").textContent = result?.endReason === "deadline" && active.state.lives > 0 ? "Continue unranked" : active.mode === "practice" ? "Practise again" : "Play again";
   status(result ? !verified ? "This result is not an eligible verified leaderboard score." : result.endReason === "deadline" ? "The month's score is frozen. Further play is unranked and does not transfer into next month." : `Verified score saved.${client.preview ? " Local test only; no prize entry." : ""}` : "Unranked play does not count toward the prize.");
   event(result ? "game_ranked_complete" : "game_practice_complete");
   if (result) {
-    if (["deadline", "competition_closed"].includes(result.endReason)) { config.live = false; $("terms").hidden = true; }
+    if (["deadline", "competition_closed"].includes(result.endReason)) { config.live = false; $("terms").hidden = true; updateEntryActions(); }
     await refreshBoard();
     if (result.state.tick > 0 && result.verificationStatus === "verified") {
       try {
