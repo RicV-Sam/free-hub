@@ -13,7 +13,7 @@
     "FIREBASE_PROJECT_ID": "freehub-3206e",
     "ALLOWED_ORIGINS": "https://freehub.co.za,https://www.freehub.co.za",
     "TURNSTILE_HOSTNAMES": "freehub.co.za,www.freehub.co.za",
-    "RANKED_ENABLED": "false"
+    "RANKED_ENABLED": "true"
   },
   "observability": { "enabled": true, "head_sampling_rate": 0.01 }
 }

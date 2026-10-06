@@ -2,7 +2,7 @@ const crypto = require("crypto");
 const fs = require("fs");
 const path = require("path");
 const { walkHtmlFiles } = require("./lib/baseline-utils.js");
-const { isExactReviewedDifference } = require("./lib/generated-output-review.js");
+const { isExactReviewedDifference, isAirtimeDashDiscoveryDifference } = require("./lib/generated-output-review.js");
 
 const REPO_ROOT = path.resolve(__dirname, "..");
 const baseArg = process.argv.find((arg) => arg.startsWith("--base-dir="));
@@ -82,7 +82,7 @@ const differences = [...paths]
 
 function classifyDifference(filePath, expectedEntry, actualEntry) {
   if (allowAirtimeDash && isExactReviewedDifference(AIRTIME_DASH_OUTPUT_BASELINE, filePath, expectedEntry, actualEntry)) {
-    approvedDifferences.push({ file: filePath, reason: "exact reviewed draft Airtime Dash page addition" });
+    approvedDifferences.push({ file: filePath, reason: "exact reviewed Airtime Dash page addition" });
     return null;
   }
   if (allowPortfolioRecovery && isExactReviewedDifference(PORTFOLIO_RECOVERY_OUTPUT_BASELINE, filePath, expectedEntry, actualEntry)) {
@@ -120,6 +120,10 @@ function classifyDifference(filePath, expectedEntry, actualEntry) {
 
   const expectedHtml = expectedEntry.content.toString("utf8");
   const actualHtml = actualEntry.content.toString("utf8");
+  if (allowAirtimeDash && isAirtimeDashDiscoveryDifference(filePath, expectedHtml, actualHtml, AIRTIME_DASH_OUTPUT_BASELINE.buildDate)) {
+    approvedDifferences.push({ file: filePath, reason: "exact Airtime Dash Play navigation or sitemap insertion" });
+    return null;
+  }
   const reviewedSurface = OPPORTUNITY_OUTPUT_BASELINE.surfaces?.[filePath];
   if (
     allowOpportunityDetailFlow &&

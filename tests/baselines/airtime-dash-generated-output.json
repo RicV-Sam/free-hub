@@ -3,15 +3,15 @@
   "buildDate": "2026-09-08",
   "asOfDate": "2026-09-08",
   "timezone": "UTC",
-  "review": "Only the two draft, noindex Airtime Dash pages are added. Existing HTML and sitemap stay unchanged with the feature disabled.",
+  "review": "The exact game and private admin pages are added. Public discovery adds only the Play link before My competitions and one game sitemap entry; no other existing HTML changes are approved.",
   "files": {
     "play/airtime-dash/index.html": {
       "expected": "missing",
-      "actual": "733fdb941dd5784ff48877dba41e4f28113b0c0876112fb5f242af37bd62f24f"
+      "actual": "cbeedb2884508f5d74a4d584f1e4fb4116e5251bf2dd92f1f1b5bfe02eff2dc4"
     },
     "admin/airtime-dash/index.html": {
       "expected": "missing",
-      "actual": "d886c0d61e0378cc871a0a823a1ebf28c68d7c2137c597f5f262323ac3b3832e"
+      "actual": "41bae57a35021d84b0ef1ef6d601d66ccb26ae0c849a5420092aa3d6aeadc02d"
     }
   }
 }

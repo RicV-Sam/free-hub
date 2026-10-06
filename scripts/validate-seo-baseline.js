@@ -18,6 +18,7 @@ const {
 const ROOT_DIR = path.resolve(__dirname, "..");
 const BASELINE_DIR = path.join(ROOT_DIR, "tests", "baselines");
 const CONFIG = readJson(path.join(BASELINE_DIR, "seo-baseline.json"));
+const AIRTIME_DASH_ENABLED = readJson(path.join(ROOT_DIR, "data", "airtime-dash.json")).enabled === true;
 const MANIFEST = readJson(path.join(BASELINE_DIR, "generated-pages.json"));
 const SOURCE_COMPETITIONS = readJson(path.join(ROOT_DIR, "data", "competitions.json")).filter(Boolean);
 const SOURCE_ARCHIVE = readJson(path.join(ROOT_DIR, "data", "archive", "competitions-expired.json")).filter(Boolean);
@@ -141,7 +142,8 @@ const expectedSitemapUrlCount = CONFIG.staticSitemapUrlCount
   + ACTIVE_OPPORTUNITIES.length
   + ACTIVE_OFFERS.length
   + countIndexableOfferLandings(ACTIVE_OFFERS)
-  + (OFFERS_ENABLED ? 1 : 0);
+  + (OFFERS_ENABLED ? 1 : 0)
+  + (AIRTIME_DASH_ENABLED ? 1 : 0);
 check(sitemapUrls.length === expectedSitemapUrlCount, {
   file: "sitemap.xml",
   route: "/sitemap.xml",
