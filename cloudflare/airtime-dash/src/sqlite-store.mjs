@@ -1,3 +1,5 @@
+const auditCollections = new Set(["dashCompetitions", "dashTerms", "dashSessions", "dashBest", "dashAudit", "dashExclusions"]);
+const threeYearsAfter = value => { const date = new Date(value); date.setUTCFullYear(date.getUTCFullYear() + 3); return date.getTime(); };
 export class SQLiteStore {
   constructor(storage, profiles = async () => null, sql = storage.sql) {
     this.storage = storage; this.sql = sql; this.profiles = profiles;
@@ -9,7 +11,15 @@ export class SQLiteStore {
     ) WITHOUT ROWID;
     CREATE INDEX IF NOT EXISTS records_collection ON records(collection);
     CREATE INDEX IF NOT EXISTS records_expiry ON records(expiresAt) WHERE expiresAt IS NOT NULL;
-    CREATE INDEX IF NOT EXISTS records_active ON records(json_extract(value, '$.status')) WHERE collection = 'dashSessions';`);
+    CREATE INDEX IF NOT EXISTS records_active ON records(json_extract(value, '$.status')) WHERE collection = 'dashSessions';
+    CREATE INDEX IF NOT EXISTS records_competition ON records(json_extract(value, '$.competitionId'));
+    CREATE TABLE IF NOT EXISTS schema_migrations (version INTEGER PRIMARY KEY);`);
+    if (!storage.sql.exec("SELECT version FROM schema_migrations WHERE version = 2").toArray().length) storage.transactionSync(() => {
+      // Extend the unopened staging records' old 90-day expiry without deleting evidence.
+      storage.sql.exec(`UPDATE records SET expiresAt = CAST(strftime('%s',expiresAt/1000.0,'unixepoch','-90 days','+3 years') AS INTEGER)*1000 + expiresAt%1000
+        WHERE collection IN ('dashCompetitions','dashTerms','dashSessions','dashBest','dashAudit','dashExclusions') AND expiresAt IS NOT NULL;
+        INSERT INTO schema_migrations(version) VALUES(2);`);
+    });
   }
   async get(path) {
     if (/^(users|admins)\//.test(path)) return this.profiles(path);
@@ -41,9 +51,19 @@ export class SQLiteStore {
         const saved = competitionPath ? this.sql.exec("SELECT value FROM records WHERE path = ?", competitionPath).toArray()[0] : null;
         const competition = competitionPath ? pending.get(competitionPath) || (saved ? JSON.parse(saved.value) : null) : null;
         const closes = collection === "dashCompetitions" ? value.endAt : competition?.endAt ?? value.closesAt;
-        if (Number.isSafeInteger(closes)) expires = closes + 90 * 86400000;
+        if (Number.isSafeInteger(closes)) expires = auditCollections.has(collection)
+          ? threeYearsAfter(Math.max(closes, ...[value.at, value.updatedAt, value.prizeSentAt, competition?.prizeSentAt].filter(Number.isSafeInteger)))
+          : closes + 90 * 86400000;
         this.sql.exec("INSERT INTO records(path, collection, value, expiresAt) VALUES (?, ?, ?, ?) ON CONFLICT(path) DO UPDATE SET value=excluded.value, expiresAt=excluded.expiresAt",
           path, collection, JSON.stringify(value), expires);
+      }
+      for (const [path, competition] of pending) {
+        if (!path.startsWith("dashCompetitions/") || !Number.isSafeInteger(competition.endAt)) continue;
+        const expires = threeYearsAfter(Math.max(competition.endAt, ...[competition.updatedAt, competition.prizeSentAt].filter(Number.isSafeInteger)));
+        // Later prize administration extends every related retained entry and result.
+        this.sql.exec(`UPDATE records SET expiresAt = ? WHERE json_extract(value, '$.competitionId') = ?
+          AND collection IN ('dashTerms','dashSessions','dashBest','dashAudit','dashExclusions') AND expiresAt < ?`,
+          expires, path.split("/")[1], expires);
       }
     });
     return result;
