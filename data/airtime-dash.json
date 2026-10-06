@@ -1,0 +1,7 @@
+{
+  "enabled": false,
+  "projectId": "freehub-3206e",
+  "backend": "cloudflare",
+  "apiUrl": "https://freehub-airtime-dash.riccardo-vallaro.workers.dev/api",
+  "turnstileSiteKey": "0x4AAAAAAFPMME83nQ2aDXXr"
+}

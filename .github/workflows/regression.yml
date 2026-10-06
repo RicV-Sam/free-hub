@@ -13,6 +13,23 @@ env:
   FREEHUB_AS_OF_DATE: "2026-09-08"
 
 jobs:
+  airtime-worker:
+    name: Airtime Dash server verification
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: cloudflare/airtime-dash/package-lock.json
+      - run: npm ci --ignore-scripts
+        working-directory: cloudflare/airtime-dash
+      - run: npm run build
+        working-directory: cloudflare/airtime-dash
+      - run: npm test
+        working-directory: cloudflare/airtime-dash
+
   baseline:
     name: Deterministic baseline
     runs-on: ubuntu-latest
@@ -57,10 +74,10 @@ jobs:
           (cd "$base_dir" && npm ci --ignore-scripts && NODE_OPTIONS="--require=$fixed_date_register" FREEHUB_BUILD_DATE="$FREEHUB_BUILD_DATE" FREEHUB_AS_OF_DATE="$FREEHUB_AS_OF_DATE" node scripts/generate-pages.js)
           node scripts/capture-generated-output.js --output-dir="$candidate_absent_dir"
           echo "Compare feature flag absent with PR base"
-          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-portfolio-recovery
+          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-portfolio-recovery --allow-airtime-dash
           echo "Compare feature flag explicitly disabled with PR base"
           FREEHUB_ENABLE_OPPORTUNITIES=false npm run build
-          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-portfolio-recovery
+          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-portfolio-recovery --allow-airtime-dash
           node scripts/compare-generated-output.js --base-dir="$candidate_absent_dir"
           echo "Compare enabled reviewed Opportunity pilot with flag-off candidate"
           FREEHUB_ENABLE_OPPORTUNITIES=true npm run build

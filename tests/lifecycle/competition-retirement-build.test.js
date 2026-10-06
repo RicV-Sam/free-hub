@@ -21,7 +21,7 @@ test("a full build retires an approved synthetic archive, serves a real 404 and 
     assert.ok(relative.startsWith("retirement-build-test-") && !relative.includes(path.sep));
     fs.rmSync(fixture, { recursive: true, force: true });
   });
-  for (const name of ["scripts", "shared", "data", "assets", "tests/baselines", "tests/browser/server.js", "404.html", "styles.css", "app.js", "robots.txt"]) {
+  for (const name of ["scripts", "shared", "data", "assets", "functions/airtime-dash/engine.js", "tests/baselines", "tests/browser/server.js", "404.html", "styles.css", "app.js", "robots.txt"]) {
     fs.cpSync(path.join(root, name), path.join(fixture, name), { recursive: true });
   }
   const read = name => JSON.parse(fs.readFileSync(path.join(fixture, name), "utf8"));

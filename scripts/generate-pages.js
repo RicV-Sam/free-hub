@@ -1,4 +1,6 @@
 const fs = require("fs");
+const { renderAirtimeDash, renderAirtimeDashAdmin } = require("./lib/airtime-dash-renderer.js");
+const airtimeDashSettings = require("../data/airtime-dash.json");
 const { featuredVideoSlugs, removeExpiredVideoPages } = require("./lib/inventory-routes.js");
 const whatsappChannel = require("./lib/whatsapp-channel.js");
 const path = require("path");
@@ -3415,6 +3417,7 @@ function renderTopNavigation(options = {}) {
     ...(OFFERS_ENABLED ? [{ key: "offers", label: "Coupons & Deals", href: "/offers/" }] : []),
     { key: "ending", label: "Ending soon", href: "/competitions-ending-soon/" },
     { key: "whatsapp", label: "WhatsApp", href: WHATSAPP_CHANNEL_URL, target: "_blank", rel: "noopener noreferrer" },
+    ...(airtimeDashSettings.enabled ? [{ key: "play", label: "Play", href: "/play/airtime-dash/" }] : []),
     { key: "club", label: "My competitions", href: "/club/" },
   ];
 
@@ -3752,8 +3755,10 @@ function renderRelatedOffersForCompetition(competition) {
 }
 
 function writeClubPages(activeCompetitions = []) {
+  writeGeneratedFile(path.join(ROOT_DIR, "shared", "airtime-dash-engine.js"), fs.readFileSync(path.join(ROOT_DIR, "functions", "airtime-dash", "engine.js"), "utf8"));
   [
     { slug: "club", html: renderClubLandingPage() },
+    { slug: path.join("play", "airtime-dash"), html: renderAirtimeDash(renderClubShell) },
     { slug: path.join("club", "dashboard"), html: renderClubDashboardPage(activeCompetitions) },
     { slug: path.join("club", "account"), html: renderClubAccountPage() },
   ].forEach((page) => {
@@ -3766,6 +3771,7 @@ function writeClubPages(activeCompetitions = []) {
 function writeAdminPages() {
   [
     { slug: path.join("admin", "referrals"), html: renderReferralAdminPage() },
+    { slug: path.join("admin", "airtime-dash"), html: renderAirtimeDashAdmin(renderClubShell) },
   ].forEach((page) => {
     const outputDirectory = path.join(ROOT_DIR, page.slug);
     fs.mkdirSync(outputDirectory, { recursive: true });
@@ -12416,6 +12422,7 @@ function generateSitemap(competitions, routeContexts, sitemapCompetitions = comp
     })
   );
   const clubEntries = [
+    ...(airtimeDashSettings.enabled ? [renderSitemapUrl({ loc: `${origin}/play/airtime-dash/`, lastmod: BUILD_DATE_ISO })] : []),
     renderSitemapUrl({
       loc: `${origin}/club/`,
       lastmod: BUILD_DATE_ISO,

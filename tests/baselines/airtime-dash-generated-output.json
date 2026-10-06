@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "buildDate": "2026-09-08",
+  "asOfDate": "2026-09-08",
+  "timezone": "UTC",
+  "review": "Only the two draft, noindex Airtime Dash pages are added. Existing HTML and sitemap stay unchanged with the feature disabled.",
+  "files": {
+    "play/airtime-dash/index.html": {
+      "expected": "missing",
+      "actual": "b70c4eb0842d88bb2af2183c7cc5a6c557b91012fd6e6ccb8dbea0f1f2946c6c"
+    },
+    "admin/airtime-dash/index.html": {
+      "expected": "missing",
+      "actual": "d620f7d6eed02205584fe723e4a909ca374d6ae05ae458ab7851be7f5908d68d"
+    }
+  }
+}

@@ -11,6 +11,7 @@ const allowAdsterraEvergreenV1 = process.argv.includes("--allow-adsterra-evergre
 const allowDiscoveryContentV1 = process.argv.includes("--allow-discovery-content-v1");
 const allowOpportunityDetailFlow = process.argv.includes("--allow-opportunity-detail-flow");
 const allowPortfolioRecovery = process.argv.includes("--allow-portfolio-recovery");
+const allowAirtimeDash = process.argv.includes("--allow-airtime-dash");
 if (!baseArg) {
   console.error("Usage: node scripts/compare-generated-output.js --base-dir=/path/to/built/base");
   process.exit(1);
@@ -20,6 +21,7 @@ const ROOT_DIR = actualArg ? path.resolve(actualArg.slice("--actual-dir=".length
 
 const FREE_STUFF_PARENT_FILE = "free-stuff-south-africa/index.html";
 const PORTFOLIO_RECOVERY_OUTPUT_BASELINE = require("../tests/baselines/portfolio-recovery-generated-output.json");
+const AIRTIME_DASH_OUTPUT_BASELINE = require("../tests/baselines/airtime-dash-generated-output.json");
 const DISCOVERY_LASTMOD_ROUTES = Object.freeze([
   "/category/vouchers/",
   "/free-samples-south-africa/",
@@ -79,6 +81,10 @@ const differences = [...paths]
   .filter(Boolean);
 
 function classifyDifference(filePath, expectedEntry, actualEntry) {
+  if (allowAirtimeDash && isExactReviewedDifference(AIRTIME_DASH_OUTPUT_BASELINE, filePath, expectedEntry, actualEntry)) {
+    approvedDifferences.push({ file: filePath, reason: "exact reviewed draft Airtime Dash page addition" });
+    return null;
+  }
   if (allowPortfolioRecovery && isExactReviewedDifference(PORTFOLIO_RECOVERY_OUTPUT_BASELINE, filePath, expectedEntry, actualEntry)) {
     approvedDifferences.push({ file: filePath, reason: "exact reviewed confirmed-result release output" });
     return null;

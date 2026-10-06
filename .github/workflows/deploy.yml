@@ -98,6 +98,9 @@ jobs:
       - name: Remove build dependencies from publication directory
         run: rm -rf node_modules
 
+      - name: Exclude Airtime Dash backend and local test configuration from Pages
+        run: rm -rf cloudflare functions/airtime-dash tests/airtime-dash firebase.airtime-dash.json firebase.airtime-dash.emulators.json scripts/preview-airtime-dash.cjs
+
       - name: Upload static site artifact
         uses: actions/upload-pages-artifact@v5
         with:

@@ -1,0 +1,5 @@
+{
+  "functions": [{ "source": "functions/airtime-dash", "codebase": "airtime-dash", "ignore": ["node_modules", "*.log"] }],
+  "firestore": { "rules": "tests/airtime-dash/firestore.rules" },
+  "emulators": { "functions": { "port": 5011 }, "firestore": { "port": 8088 }, "auth": { "port": 9098 }, "singleProjectMode": true }
+}

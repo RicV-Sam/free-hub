@@ -1,0 +1,45 @@
+# FreeHub Airtime Dash
+
+The static game uses FreeHub's existing Firebase accounts and a Cloudflare Worker with a SQLite Durable Object for private, server-verified game records. It does not require a Firebase billing upgrade. Work is isolated on codex/airtime-dash; the primary checkout's unrelated edits are preserved.
+
+## Competition and play
+
+The first competition is an unopened draft in data/airtime-dash-first-competition.json. Activation sets its opening time from the server. Closing is **00:00 on 1 November 2026 in South African time**, the end of 31 October. Highest eligible verified score wins **R500 airtime**; ties use the earliest server verification of that exact score. Unlimited attempts, one active ranked run per account. Eligible entrants are South African residents aged 18+, excluding FreeHub staff and immediate families.
+
+The winner must be contacted manually through their existing FreeHub account email by **4 November 2026**. They have **seven calendar days after notification** to respond. Eligibility verification and airtime fulfilment are manual. Record notification time privately, allow the full response window, and record forfeiture with a reason if appropriate. Review and confirm the next eligible player separately. The system never sends winner emails or pays prizes automatically.
+
+Three lives carry across endless levels and never refill. Original deterministic mazes repeat with the same versioned settings for everyone. Enemy speed, pursuit and numbers increase to defined movement caps. No victory screen or ranked countdown. Anonymous practice lasts 25 seconds and does not count. Hadeda artwork retains existing mascot provenance. Human balance and real-device testing remain useful alongside automated checks.
+
+## Server verification and security
+
+- functions/airtime-dash/engine.js is the shared deterministic simulation. The generator copies its exact bytes to the browser asset. Maze, difficulty and score versions are pinned to the competition and lock after ranked play starts.
+- Checkpoints normally arrive every four seconds, with at most 240 ticks and 240 direction inputs. The server replays movement, collections, collisions and level transitions from its previous snapshot. Supplied score totals do not establish an official score.
+- Accepted activity renews session validity for 20 seconds. There is no overall run-duration limit. Server checks simulated time against its clock; backgrounding cannot pause enemies or avoid pressure. A prolonged interruption retains only verified progress. The client ends ranked play after 12 seconds of unacknowledged simulation.
+- Ordered, hashed checkpoints make retries idempotent. Snapshots and browser pending inputs are bounded. Replay evidence is stored separately so long runs do not need unlimited in-memory history.
+- Closing freezes the last progress verified before the deadline, including unfinished runs. Clocks are checked inside transactions and after replay. Later play is unranked and never transfers into a new month.
+- Firebase ID tokens are verified for issuer, project, signature and expiry against Google's public certificates. Existing Firestore users/admins records are read with the caller's Firebase token and existing rules. No service-account key is used; production Firestore rules are unchanged.
+- Ranked starts require server validation of a one-use Cloudflare Turnstile token, hostname and action. The secret is a Worker secret; only the public widget key is in frontend settings.
+- Origin checks, bounded bodies, account/IP limits and transactional SQLite writes protect operations. Admin actions require an active existing FreeHub admin record. Caller-supplied roles are never trusted.
+- Public leaderboards/challenges show nicknames, scores and ranks, not account IDs, emails, mobile numbers or session tokens. Marketing consent remains separate. Friends' contact details are not collected; sharing is user-initiated.
+
+## Storage and free capacity
+
+Private SQLite records include config, competitions, terms, sessions, players, best scores, checkpoints, challenges, referrals, challenge events, rate limits, exclusions and admin audit records. Existing Firebase account/profile data stays in Firebase. The game page has its own privacy notice describing both providers and cross-border processing.
+
+Competition records and related game evidence expire 90 days after closing, with deletion in bounded scheduled batches. Rate records expire after two minutes. Challenge links expire after 90 days and may become unavailable earlier when competition evidence is removed. Cloudflare recovery backups may retain deleted data for another 30 days. Export evidence needed for a dispute before expiry under the owner's privacy and records obligations.
+
+The confirmed Cloudflare Workers plan is Free. Its quotas are shared with other Workers in the account; hosting is not unlimited. Game counters reserve capacity for active progress and hold new starts before configured request/read/write/storage budgets are exhausted. Quota exhaustion can still interrupt service, preserving only verified points. No paid upgrade is configured. Queries have a 10,000-record ceiling and fail as unavailable instead of producing an incomplete leaderboard or winner. Review capacity before substantial growth.
+
+## Build, test and deployment
+
+Root commands: npm ci --ignore-scripts, npm run build, npm run test:airtime-dash, npm test. Synthetic preview: npm run preview:airtime-dash and http://127.0.0.1:4326/play/airtime-dash/. It is loopback-only and in-memory; it never authenticates real users or changes live records.
+
+In cloudflare/airtime-dash: npm ci --ignore-scripts, npm run build, npm test. Tests execute bundled code in Cloudflare's local runtime with synthetic signed identities and mocked external services. They cover authentication, Turnstile rejection, concurrent duplicate checkpoints, fabricated scores, impossible timing and persistence after runtime recreation. Storage tests cover rollback, retention, query limits and free-capacity reserves. They do not establish that real Google sign-in or a browser Turnstile flow has passed.
+
+npm run deploy in that folder deploys only the game Worker. RANKED_ENABLED=false holds starts closed. Worker: https://freehub-airtime-dash.riccardo-vallaro.workers.dev; frontend endpoint /api. Upload TURNSTILE_SECRET with Wrangler's secret command, never as a checked-in setting. The Firebase Functions package/config is an optional reference/test implementation, not the production deployment path. Never deploy emulator rules to production.
+
+The existing GitHub Pages workflow publishes frontend assets and excludes server packages and test fixtures. data/airtime-dash.json.enabled controls navigation, indexing and sitemap discovery. API availability is independent so staging/admin checks can happen while discovery is disabled. The server controls whether prize entry is open. Keep the competition draft until live authentication/security/game checks and required final owner rules review are complete. Activation is a separate authenticated admin action.
+
+Root feature tests include endless play beyond 60 seconds, repeated mazes, lives, replay, deadline freezing, privacy, score review, referrals and winner replacement. One legacy Firestore fixture is skipped without its emulator; it is not the production storage check. Existing broader browser/ad and live-link baseline failures are recorded separately and must not be described as a clean overall browser suite.
+
+Official references: [Workers limits](https://developers.cloudflare.com/workers/platform/limits/), [Durable Object pricing](https://developers.cloudflare.com/durable-objects/platform/pricing/), [SQLite storage](https://developers.cloudflare.com/durable-objects/api/sqlite-storage-api/), [Turnstile validation](https://developers.cloudflare.com/turnstile/get-started/server-side-validation/), [Firebase token verification](https://firebase.google.com/docs/auth/admin/verify-id-tokens), [Firestore REST authentication](https://firebase.google.com/docs/firestore/use-rest-api).

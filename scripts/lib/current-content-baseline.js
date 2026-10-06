@@ -45,8 +45,9 @@ function getCurrentContentBaseline() {
     // 6 October: six reviewed detail pages and the international hub add seven.
     // Correcting ERA removes the under-threshold airtime vertical; the clean
     // 88c28b8 build also reproduced a pre-existing one-page overcount.
-    generatedFileCount: 417 - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
-    sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length,
+    // Airtime Dash adds the game and its admin review page, both noindex while draft.
+    generatedFileCount: 419 - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length + (read('data/airtime-dash.json').enabled ? 1 : 0),
   };
 }
 module.exports = { getCurrentContentBaseline };

@@ -55,3 +55,13 @@ whatsapp-channel/
 indexnow-revision.txt
 .indexnow-status.json
 .indexnow-status.json.tmp
+
+# Airtime Dash generated assets and local QA
+/play/
+/admin/airtime-dash/
+/shared/airtime-dash-engine.js
+/output/airtime-dash/
+/.playwright-cli/
+/cloudflare/airtime-dash/.build/
+/cloudflare/airtime-dash/.wrangler/
+/cloudflare/airtime-dash/.dev.vars*

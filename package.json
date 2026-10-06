@@ -20,9 +20,11 @@
     "test:baseline": "npm run test:seo && npm run test:lifecycle",
     "baseline:update:warnings": "node scripts/update-link-warning-baseline.js --update",
     "validate:all": "npm test && npm run lint && node scripts/validate-maintenance-state.js",
-    "test": "npm run test:held && npm run test:baseline",
+    "test": "npm run test:held && npm run test:baseline && npm run test:airtime-dash",
     "test:student-guide": "node --test tests/lifecycle/student-guide.test.js",
-    "report:opportunity-health": "node scripts/run-opportunity-health-report.js"
+    "report:opportunity-health": "node scripts/run-opportunity-health-report.js",
+    "test:airtime-dash": "node --test tests/airtime-dash/*.test.cjs",
+    "preview:airtime-dash": "node scripts/preview-airtime-dash.cjs"
   },
   "dependencies": {
     "firebase-admin": "^13.6.0"
