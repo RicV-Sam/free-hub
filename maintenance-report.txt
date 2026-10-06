@@ -2,8 +2,8 @@ Reviewed competition retirements effective: 6
 === Competition Maintenance Report ===
 Date: 2026-10-06
 Mode: archive-expired
-Total competitions: 412
-Active published count: 76
+Total competitions: 418
+Active published count: 82
 Expired archive page count: 230
 Low-value expired noindex count: 0
 Held/private count: 106
