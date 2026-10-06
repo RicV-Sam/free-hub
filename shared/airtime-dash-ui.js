@@ -47,6 +47,7 @@ sprite.src = "/assets/mascot/direct-v1-160.webp";
 const tile = canvas.width / E.CONFIG.width;
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 let client, config, run = null, lastMode = "practice", challenge = null, challengeLink = "", busy = false;
+let readyMode = "practice", readyOwner = null;
 let initial = E.create();
 function status(message) { $("status").textContent = message; }
 function event(name, data = {}) { window.dataLayer?.push({ event: name, game_version: E.VERSION.game, ...data }); }
@@ -87,6 +88,7 @@ async function load() {
     client.onAuth(user => {
       $("terms").hidden = !user || !config?.live;
       restoreNickname(user);
+      if (readyMode === "ranked" && readyOwner !== user?.uid) prepare("practice");
     });
     if (!client.available) return;
     config = await client.call("config");
@@ -94,7 +96,7 @@ async function load() {
     await restoreNickname(client.user);
     if (client.preview) {
       $("competition").textContent = "LOCAL PREVIEW · Test scores and accounts only. No real prize entry, registration or payout.";
-      $("ranked").textContent = "Try a test ranked run";
+      $("ranked").textContent = "Prepare a test ranked run";
       if (!$("terms").elements.displayName.value) $("terms").elements.displayName.value = "Preview Player";
       document.querySelector(".dash-account").hidden = true;
     }
@@ -145,16 +147,59 @@ function begin(mode, authorised) {
   canvas.focus({ preventScroll: true }); if (!expanded) arcade.scrollIntoView({ block: "start", behavior: "instant" });
   draw(run.state); event(mode === "ranked" ? "game_ranked_start" : "game_practice_start");
 }
-$("practice").addEventListener("click", () => { if (!run || run.ended) begin("practice"); });
+function prepare(mode, owner = null) {
+  if (run && !run.ended) return;
+  readyMode = mode; readyOwner = owner;
+  $("cover").hidden = false; $("result").hidden = true; $("stop").disabled = true;
+  $("practice").disabled = false;
+  $("cover-title").textContent = mode === "unranked" ? "Ready to continue?" : "Ready to dash?";
+  $("cover-copy").textContent = "The maze waits for you. Use arrow keys, WASD, swipes or the direction pad. Click Start when you are ready.";
+  $("practice").textContent = mode === "ranked" ? "Start ranked run" : mode === "unranked" ? "Start unranked play" : "Start practice";
+  $("ready-note").textContent = mode === "ranked" ? "Three lives · Switching tabs does not pause ranked play" : mode === "unranked" ? "Later points do not count toward the prize" : "25-second demo · No prize entry";
+  $("mode").textContent = `${mode.toUpperCase()} · READY`;
+  draw(mode === "unranked" ? run.state : initial);
+  status("Ready. Nothing moves until you click Start.");
+  arcade.scrollIntoView({ block: "start", behavior: "instant" });
+  $("practice").focus({ preventScroll: true });
+}
+$("practice").addEventListener("click", async () => {
+  if (busy || (run && !run.ended)) return;
+  if (readyMode === "practice") { begin("practice"); return; }
+  if (readyMode === "unranked") {
+    run.ended = false; run.mode = "unranked"; run.ranked = false; run.origin = performance.now() - run.state.tick * 1000 / E.CONFIG.hz;
+    $("cover").hidden = true; $("result").hidden = true; $("mode").textContent = "UNRANKED";
+    $("stop").disabled = false; $("practice").disabled = true; $("ranked").disabled = true;
+    status("Unranked play. These later points do not count toward the prize."); canvas.focus(); return;
+  }
+  if (!client.user || client.user.uid !== readyOwner) { prepare("practice"); return; }
+  const owner = readyOwner;
+  busy = true; $("practice").disabled = true; $("ranked").disabled = true;
+  $("cover-title").textContent = "Checking entry…";
+  $("cover-copy").hidden = true; $("ready-note").hidden = true;
+  try {
+    const authorised = await client.call("session.start");
+    if (client.user?.uid !== owner) { status("Sign in and prepare your ranked run again."); return; }
+    begin("ranked", authorised);
+  }
+  catch (error) { status(error.message); }
+  finally {
+    busy = false;
+    $("cover-title").textContent = "Ready to dash?";
+    $("cover-copy").hidden = false; $("ready-note").hidden = false;
+    if (!run || run.ended) { $("practice").disabled = false; $("ranked").disabled = false; }
+  }
+});
 $("terms").addEventListener("submit", async e => {
   e.preventDefault(); if (busy || (run && !run.ended)) return; busy = true; $("ranked").disabled = true;
   try {
-    const data = new FormData(e.target);
+    const data = new FormData(e.target), owner = client.user?.uid;
     await client.call("terms.accept", { displayName: data.get("displayName"), accepted: data.get("accepted") === "on", eligible: data.get("eligible") === "on", termsVersion: config.competition.termsVersion,
       challengeToken: challenge?.competitionId === config.competition.id ? challenge.token : null });
-    event("game_terms_accepted"); begin("ranked", await client.call("session.start"));
+    event("game_terms_accepted");
+    if (owner && client.user?.uid === owner) prepare("ranked", owner);
+    else { prepare("practice"); status("Sign in and prepare your ranked run again."); }
   } catch (error) { status(error.message); $("ranked").disabled = false; }
-  finally { busy = false; }
+  finally { busy = false; $("ranked").disabled = false; }
 });
 function direction(value) {
   if (!run || run.ended) return;
@@ -259,12 +304,11 @@ async function showResult(active, result) {
 $("replay").addEventListener("click", async () => {
   if (run?.pending && run.ranked) { await sendCheckpoint(run, true, run.state.gameOver ? "lives_lost" : "quit"); return; }
   if (run?.verifiedResult?.endReason === "deadline" && run.state.lives > 0) {
-    run.ended = false; run.mode = "unranked"; run.ranked = false; run.origin = performance.now() - run.state.tick * 1000 / E.CONFIG.hz;
-    $("result").hidden = true; $("mode").textContent = "UNRANKED"; $("stop").disabled = false; $("practice").disabled = true; $("ranked").disabled = true; canvas.focus(); return;
+    prepare("unranked"); return;
   }
   event("game_replay");
   if (lastMode === "ranked" && config?.live) { $("terms").requestSubmit(); }
-  else begin("practice");
+  else prepare("practice");
 });
 $("copy").addEventListener("click", async () => {
   try { await navigator.clipboard.writeText(challengeLink); status("Challenge link copied."); }
