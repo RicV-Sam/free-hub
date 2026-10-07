@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-10-06
+Generated: 2026-10-07
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
@@ -48,14 +48,13 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 17
+- Matching active public competitions: 16
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Makro Spring Trolley Dash Competition (makro-spring-trolley-dash-2026) | 2026-10-06 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Knorr Soup Competition 2026 - Win R5,000 Weekly (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | SPAR Colgate-Palmolive Win Your Share of R150,000 Competition (spar-colgate-palmolive-r150k-2026) | 2026-10-17 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Mr Muscle 2026 Consumer Promotion (mr-muscle-2026-consumer-promotion) | 2026-10-17 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
@@ -170,14 +169,13 @@ Recommended normalisation:
 ## Supermarket Competitions in South Africa
 
 - URL: /supermarket-competitions-south-africa/
-- Matching active public competitions: 14
+- Matching active public competitions: 13
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Makro Spring Trolley Dash Competition (makro-spring-trolley-dash-2026) | 2026-10-06 | purchase-required | yes | yes | Supermarket or grocery entry text | none |
 | Sea Harvest Say Fish: Win R5,000 Grocery Vouchers (sea-harvest-say-fish-grocery-vouchers-2026) | 2026-10-15 | purchase-required | yes | yes | Supermarket or grocery entry text | none |
 | SPAR Colgate-Palmolive Win Your Share of R150,000 Competition (spar-colgate-palmolive-r150k-2026) | 2026-10-17 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Tinkies Distraction Levels Tech Competition 2026 (tinkies-distraction-levels-competition-2026) | 2026-10-19 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
