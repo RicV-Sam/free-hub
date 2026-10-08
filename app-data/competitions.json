@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-07",
+  "asOfDate": "2026-10-08",
   "count": 80,
   "competitions": [
     {
@@ -79,7 +79,7 @@
       "termsUrl": "https://seaharvest.co.za/say-fish-campaign-tcs/",
       "lastChecked": "2026-10-04",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "spar-colgate-palmolive-r150k-2026",

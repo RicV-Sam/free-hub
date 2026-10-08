@@ -1,6 +1,6 @@
 Reviewed competition retirements effective: 6
 === Competition Maintenance Report ===
-Date: 2026-10-07
+Date: 2026-10-08
 Mode: archive-expired
 Total competitions: 418
 Active published count: 81
@@ -9,7 +9,7 @@ Low-value expired noindex count: 0
 Held/private count: 106
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 11
+Closing in next 14 days: 13
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -245,17 +245,19 @@ Expired competition IDs:
 - makro-spring-trolley-dash-2026 (2026-10-06)
 
 Closing soon (next 14 days):
-- nedbank-youthx-awards-2026 (2 days)
-- knorr-win-r5000-weekly-2026 (4 days)
-- sea-harvest-say-fish-grocery-vouchers-2026 (8 days)
-- spar-colgate-palmolive-r150k-2026 (10 days)
-- mr-muscle-2026-consumer-promotion (10 days)
-- gwm-haval-h7-travel-fund-2026 (10 days)
-- coca-cola-400ml-social-media-competition-2026 (11 days)
-- dis-chem-oral-b-apple-combo-2026 (11 days)
-- tinkies-distraction-levels-competition-2026 (12 days)
-- sasol-magpie-2026 (14 days)
-- clicks-rimmel-hydration-hamper-2026 (14 days)
+- nedbank-youthx-awards-2026 (1 days)
+- knorr-win-r5000-weekly-2026 (3 days)
+- sea-harvest-say-fish-grocery-vouchers-2026 (7 days)
+- spar-colgate-palmolive-r150k-2026 (9 days)
+- mr-muscle-2026-consumer-promotion (9 days)
+- gwm-haval-h7-travel-fund-2026 (9 days)
+- coca-cola-400ml-social-media-competition-2026 (10 days)
+- dis-chem-oral-b-apple-combo-2026 (10 days)
+- tinkies-distraction-levels-competition-2026 (11 days)
+- sasol-magpie-2026 (13 days)
+- clicks-rimmel-hydration-hamper-2026 (13 days)
+- clicks-sorbet-birthday-hampers-october-2026 (14 days)
+- icaw-poster-contest-2027 (14 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
