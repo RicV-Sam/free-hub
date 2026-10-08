@@ -35,8 +35,8 @@ test("expiry is inclusive and fails closed on the following day", () => {
 });
 
 test("undated price comparisons have an editorial deadline without inventing a provider expiry", () => {
-  assert.doesNotThrow(() => validateStudentGuide(content, "2026-10-07"));
-  assert.throws(() => validateStudentGuide(content, "2026-10-08"), /comparison review overdue/);
+  assert.doesNotThrow(() => validateStudentGuide(content, "2026-11-07"));
+  assert.throws(() => validateStudentGuide(content, "2026-11-08"), /comparison review overdue/);
   const g = copy();
   delete g.offers.find((o) => o.comparison).comparison.reviewBy;
   assert.throws(() => validateStudentGuide(g, asOf), /comparison requires a deadline/);
