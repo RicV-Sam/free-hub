@@ -947,5 +947,95 @@
     "reviewedAt": "2026-10-08",
     "sourcePage": "https://thebeveragecompany.co.za/raimondi-birthday-retail-promotion-1/",
     "sourceImage": "https://thebeveragecompany.co.za/wp-content/uploads/2026/09/RAIMONDIS_Birthday_Retail_Promotion_1_2_Oct_-_22_Oct_2026-v2.png"
+  },
+  "pep-standard-bank-instant-money-metro-2026": {
+    "src": "/assets/listings/pep-standard-bank-instant-money-metro-2026.webp",
+    "width": 724,
+    "height": 724,
+    "alt": "Official PEP and Standard Bank Instant Money competition artwork; R55,000 refers to the full campaign pool",
+    "kind": "official-source",
+    "caption": "Official campaign artwork. R55,000 is the full campaign pool; the remaining prizes and requirements are explained below.",
+    "reviewedAt": "2026-10-08",
+    "sourcePage": "https://www.metrofm.co.za/metro-fm/competitions/standard-bank-instant-money-at-pep/",
+    "sourceImage": "https://www.metrofm.co.za/metro-fm/wp-content/uploads/2026/09/724x724.jpg"
+  },
+  "1life-metro-october-2026": {
+    "src": "/assets/listings/1life-metro-october-2026.webp",
+    "width": 1080,
+    "height": 1080,
+    "alt": "Official 1Life cash-box campaign artwork; R50,000 refers to the shared campaign pool",
+    "kind": "official-source",
+    "caption": "Official campaign artwork. R50,000 is a shared prize pool; the online entry form asks for quote consent.",
+    "reviewedAt": "2026-10-08",
+    "sourcePage": "https://www.metrofm.co.za/metro-fm/competitions/winning-at-life-with-1life-6/",
+    "sourceImage": "https://www.metrofm.co.za/metro-fm/wp-content/uploads/2026/09/5420_1life_Winning-at-Life_Metro-FM-FM_Socials_1080x1080px.jpg"
+  },
+  "maxi-cosi-baby-city-photo-2026": {
+    "src": "/assets/listings/maxi-cosi-baby-city-photo-2026.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "FreeHub editorial illustration of a generic demonstration car seat and camera; not the actual prize model",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration; not official Maxi-Cosi artwork or a depiction of the actual prize model.",
+    "reviewedAt": "2026-10-08",
+    "sourcePage": "https://www.dischem.co.za/maxi-cosi-september-competition",
+    "generationMethod": "Built-in image generation",
+    "generationPrompt": "Create a polished landscape 3:2 FreeHub editorial illustration for an information listing about an in-store child passenger safety photo competition. Show an empty, deliberately simplified generic child car seat displayed on a pedestal in a bright retail demonstration area, with a small smartphone camera symbol beside it. No people or children, no installation diagram, no car, no safety-certification badge, no brands or logos, no model-specific details, no price or prize amount, no claim of endorsement. Refined paper-cut and soft 3D editorial style, warm ivory background with deep navy and teal accents and gentle lighting. Generous safe margins. Small clear footer text reads exactly FreeHub editorial illustration. The seat is symbolic, not an accurate depiction of the Maxi-Cosi Emerald 360 Pro prize.",
+    "sourceReviewNote": "Official campaign page inspected; suitable campaign hero artwork could not be obtained. Illustration is labelled and deliberately generic."
+  },
+  "burnt-horse-power-in-store-2026": {
+    "src": "/assets/listings/burnt-horse-power-in-store-2026.webp",
+    "width": 834,
+    "height": 834,
+    "alt": "Official Burnt Horse Power collection photograph showing black and terracotta activewear",
+    "kind": "official-source",
+    "caption": "Official Horse Power collection photograph; the full prize bundle and purchase conditions are described below.",
+    "reviewedAt": "2026-10-08",
+    "sourcePage": "https://burnt.co.za/pages/terms-and-conditions",
+    "sourceImage": "https://burnt.co.za/cdn/shop/files/Horsepower_Collection_Menu_Tile.jpg?v=1791288180&width=1200"
+  },
+  "deskstand-three-winner-giveaway-2026": {
+    "src": "/assets/listings/deskstand-three-winner-giveaway-2026.webp",
+    "width": 1200,
+    "height": 704,
+    "alt": "Official DeskStand provider photograph showing a person using a standing desk converter",
+    "kind": "official-source",
+    "caption": "Official DeskStand provider photograph; three separate prizes are described below.",
+    "reviewedAt": "2026-10-08",
+    "sourcePage": "https://www.deskstand.com/pages/give-away-3-winners",
+    "sourceImage": "https://www.deskstand.com/cdn/shop/files/Q2A9014-1200.jpg?v=1650625735"
+  },
+  "winex-wine-derful-2026": {
+    "src": "/assets/listings/winex-wine-derful-2026.webp",
+    "width": 904,
+    "height": 904,
+    "alt": "Official WineX campaign photograph illustrating the hotel component of the main prize",
+    "kind": "official-source",
+    "caption": "Official WineX campaign image illustrating the hotel component; the complete prize package is described below.",
+    "reviewedAt": "2026-10-08",
+    "sourcePage": "https://www.winex.co.za/wine-derful-winex-competition/",
+    "sourceImage": "https://www.winex.co.za/wp-content/uploads/2025/09/Winex-Comp-20925-1c.webp"
+  },
+  "degrendel-haus-wine-homeware-2026": {
+    "src": "/assets/listings/degrendel-haus-wine-homeware-2026.webp",
+    "width": 1200,
+    "height": 628,
+    "alt": "Official De Grendel and HAUS campaign collage showing wine and homeware",
+    "kind": "official-source",
+    "caption": "Artwork from the official De Grendel and HAUS campaign page.",
+    "reviewedAt": "2026-10-08",
+    "sourcePage": "https://degrendel.co.za/blogs/news/r20000-giveaway-haus-wine-homeware",
+    "sourceImage": "https://degrendel.co.za/cdn/shop/articles/Blog-Header-Giveaway_c5e4a587-370d-4f52-a0cd-ee7a77a46455.jpg?v=1790837455&width=1200"
+  },
+  "ackermans-layby-samsung-a07-2026": {
+    "src": "/assets/listings/ackermans-layby-samsung-a07-2026.webp",
+    "width": 1160,
+    "height": 534,
+    "alt": "Official Ackermans Lay-by and Win campaign banner; terms award a R2,699 handset voucher",
+    "kind": "official-source",
+    "caption": "Official campaign artwork. The stated prize is a R2,699 handset/tech voucher, rather than a guaranteed physical handset.",
+    "reviewedAt": "2026-10-08",
+    "sourcePage": "https://www.ackermans.co.za/blogs/financial-services/lay-by-win-a-samsung-a07-ts-cs",
+    "sourceImage": "https://www.ackermans.co.za/cdn/shop/articles/14126_Lay-By_Booster_Campaign_Blog_banner__1160x534_3452df60-8a97-4817-92f2-e5120e2507f8.png?v=1790763001&width=1200"
   }
 }

@@ -7,13 +7,14 @@ Only active, published, public-safe competitions are counted. Held, unverified, 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 12
+- Matching active public competitions: 14
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
+| PEP & Standard Bank Instant Money Minute on Metro FM (pep-standard-bank-instant-money-metro-2026) | 2026-10-09 | free-entry | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Knorr Soup Competition 2026 - Win R5,000 Weekly (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Mr Muscle 2026 Consumer Promotion (mr-muscle-2026-consumer-promotion) | 2026-10-17 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Sasol Delight and Magpie Rewards Competition (sasol-magpie-2026) | 2026-10-21 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
@@ -21,6 +22,7 @@ Only active, published, public-safe competitions are counted. Held, unverified, 
 | Astron Energy Own a Golf 8 GTI Competition 2026 (astron-energy-own-golf-8-gti-2026) | 2026-10-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Cadbury Made to Share: Win R20,000 Weekly (cadbury-made-to-share-2026) | 2026-10-31 | free-entry | yes | yes | WhatsApp mentioned in entry text | none |
 | Jockey 150 Competition: Win R15,000 (jockey-150-2026) | 2026-10-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
+| Ackermans Lay-by & Win: R2,699 Handset Vouchers (ackermans-layby-samsung-a07-2026) | 2026-11-06 | purchase-required | yes | yes | WhatsApp mentioned in entry text | none |
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Coca-Cola Be a Bok Competition 2026 (coca-cola-fan-can-be-a-bok-2026) | 2026-11-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | WhatsApp mentioned in entry text | none |
@@ -33,18 +35,18 @@ Recommended normalisation:
 ## SMS Competitions in South Africa
 
 - URL: /sms-competitions-south-africa/
-- Matching active public competitions: 2
+- Matching active public competitions: 3
 - Publication threshold: 3
-- Safe to publish: no
-- Status: held; Only 2 active public matches; requires 3.
+- Safe to publish: yes
+- Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
+| Winning at Life with 1Life: Metro FM October 2026 (1life-metro-october-2026) | 2026-10-09 | sms-rate | yes | yes | SMS or shortcode mentioned in entry text | none |
 | 1Life Be The 1 to Win Funeral Competition (1life-be-the-1-to-win-funeral-2026) | 2026-11-30 | free-entry | yes | yes | SMS entry tag; SMS or shortcode mentioned in entry text | none |
 | Glowming: Win Three Nights in Cape Town for Two (glowming-cape-town-getaway-2026) | 2026-11-30 | free-entry | yes | yes | SMS or shortcode mentioned in entry text | none |
 
 Recommended normalisation:
-- Do not generate or sitemap this page until active verified inventory improves.
 - Separate sms-entry from sms-verification so account verification does not inflate SMS-entry inventory.
 
 ## Till Slip Competitions in South Africa
@@ -84,7 +86,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 27
+- Matching active public competitions: 30
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -92,6 +94,9 @@ Recommended normalisation:
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
 | Nedbank YouthX Awards 2026 (nedbank-youthx-awards-2026) | 2026-10-09 | account-required | yes | yes | Online entry tag | none |
+| PEP & Standard Bank Instant Money Minute on Metro FM (pep-standard-bank-instant-money-metro-2026) | 2026-10-09 | free-entry | yes | yes | Online entry mentioned in entry text | none |
+| Winning at Life with 1Life: Metro FM October 2026 (1life-metro-october-2026) | 2026-10-09 | sms-rate | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| DeskStand Giveaway: Three Standing Desk Prizes (deskstand-three-winner-giveaway-2026) | 2026-10-15 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | International Compost Awareness Week 2027 Poster Contest (icaw-poster-contest-2027) | 2026-10-22 | free-entry | yes | yes | Online entry tag | none |
 | Telkom Radio Awards My Station R40,000 Competition (telkom-radio-awards-my-station-2026) | 2026-10-23 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Ster-Kinekor Silas Watch and Win Competition (ster-kinekor-silas-watch-and-win-2026) | 2026-10-25 | purchase-required | yes | yes | Online entry mentioned in entry text | none |

@@ -29,6 +29,7 @@ const manualRecheckDays = 30;
 const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 FreeHubValidator/1.0";
 const APPROVED_MANUAL_OK_URLS = new Map([
+  ["maxi-cosi-baby-city-photo-2026", "https://www.dischem.co.za/maxi-cosi-september-competition"],
   ["avbob-poetry-2026", "https://www.avbobpoetry.co.za/Content/HowToEnter"],
   ["sony-single-image-2027", "https://www.worldphoto.org/sony-world-photography-awards/single-image"],
   ["staedtler-creative-challenge-2026", "https://www.staedtler.com/intl/en/discover/staedtler-international-creative-challenge-2026/"],

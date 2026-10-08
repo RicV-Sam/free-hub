@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-08",
-  "count": 85,
+  "count": 93,
   "competitions": [
     {
       "id": "nedbank-youthx-awards-2026",
@@ -30,6 +30,58 @@
       "isClosingSoon": true
     },
     {
+      "id": "pep-standard-bank-instant-money-metro-2026",
+      "title": "PEP & Standard Bank Instant Money Minute on Metro FM",
+      "brand": "PEP / Standard Bank / Metro FM",
+      "summary": "WhatsApp your story for the final PEP Standard Bank Instant Money Minute quiz on Metro FM, with up to R5,000 to win. Two R20,000 grand prizes require a qualifying Instant Money transaction and +more scan.",
+      "imageUrl": "https://freehub.co.za/assets/listings/pep-standard-bank-instant-money-metro-2026.webp",
+      "closingDate": "2026-10-09",
+      "category": "Cash",
+      "prizeName": "Up to R5,000 in the final quiz; two R20,000 grand prizes with additional requirements",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "WhatsApp",
+      "eligibility": "Natural persons aged 18+ who are South African citizens or permanent residents. Promoter-related parties and specified families are excluded. Winners of a competition on the same participating station must wait three months or 90 days before winning another.",
+      "entrySteps": [
+        "WhatsApp PEP to 066 050 6830 and share why you send money, or how you would use money received.",
+        "If selected on the merit of your response, take part in the live 60-second quiz on Metro FM. Each correct answer earns R1,000, up to R5,000.",
+        "For the separate R20,000 grand-prize judging, send or withdraw money at PEP using Standard Bank Instant Money during the promotion, scan your +more digital rewards card, answer the transaction question and supply your SA ID number for verification.",
+        "Submit an emotive story about how the grand prize would change your life when prompted. Entries close at 15:00 SAST on 9 October."
+      ],
+      "officialUrl": "https://www.metrofm.co.za/metro-fm/competitions/standard-bank-instant-money-at-pep/",
+      "termsUrl": "https://radiocompetitiontandc.co.za/terms_and_conditions/pep-standard-bank-instant-money/",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
+      "isClosingSoon": true
+    },
+    {
+      "id": "1life-metro-october-2026",
+      "title": "Winning at Life with 1Life: Metro FM October 2026",
+      "brand": "1Life / Metro FM",
+      "summary": "Enter the Metro FM 1Life competition for a chance to play live on air for R2,000–R8,000, with an additional R2,000 if you received an obligation-free quote. Entry includes credit-check and marketing consent.",
+      "imageUrl": "https://freehub.co.za/assets/listings/1life-metro-october-2026.webp",
+      "closingDate": "2026-10-09",
+      "category": "Cash",
+      "prizeName": "R2,000–R8,000 cash boxes with a possible R2,000 quote bonus",
+      "entryCostType": "standard_data_may_apply",
+      "entryCostLabel": "SMS/data rates may apply",
+      "purchaseRequired": false,
+      "entryMethod": "SMS",
+      "eligibility": "South African citizens over 18. People who won a 1Life-promoted competition in the previous 12 months and promoter-related parties or specified families are excluded.",
+      "entrySteps": [
+        "Read the official October terms, including consent to an ITC credit check and marketing communications.",
+        "SMS 1Life to 45787 at R1.50 per SMS, or follow ENTER HERE on the official Metro FM page. Free SMS bundles do not apply.",
+        "The linked online form requests your contact details and agreement to receive an obligation-free life quote. Although the terms describe the quote as optional, this reviewed form includes quote consent in its entry controls. Use the published SMS route if you do not want to request a quote.",
+        "If selected for the on-air game, pick one of the five cash boxes. A listener who has received an obligation-free quote gets a R2,000 bonus. No insurance contract is required."
+      ],
+      "officialUrl": "https://www.metrofm.co.za/metro-fm/competitions/winning-at-life-with-1life-6/",
+      "termsUrl": "https://www.1life.co.za/competitions/metrofm-2026-10",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
+      "isClosingSoon": true
+    },
+    {
       "id": "knorr-win-r5000-weekly-2026",
       "title": "Knorr Soup Competition 2026 - Win R5,000 Weekly",
       "brand": "Knorr / Unilever South Africa",
@@ -52,6 +104,58 @@
       "termsUrl": "https://www.whatsfordinner.co.za/knorr-win-r5000-weekly-ts-and-cs.html",
       "lastChecked": "2026-07-24",
       "isHighValue": true,
+      "isClosingSoon": true
+    },
+    {
+      "id": "maxi-cosi-baby-city-photo-2026",
+      "title": "Maxi-Cosi Baby City Photo Competition: Win a Car Seat",
+      "brand": "Dis-Chem Baby City / Maxi-Cosi",
+      "summary": "Visit a participating Dis-Chem Baby City store, take a photo of your little one in the in-store Maxi-Cosi safety demo seat and share it with the required tags for a chance to win an Emerald 360 Pro car seat.",
+      "imageUrl": "https://freehub.co.za/assets/listings/maxi-cosi-baby-city-photo-2026.webp",
+      "closingDate": "2026-10-11",
+      "category": "Lifestyle",
+      "prizeName": "One Maxi-Cosi Emerald 360 Pro car seat",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Social",
+      "eligibility": "Natural persons who are legal South African residents and/or citizens, over 18, with a valid identity document. Dis-Chem competition winners in the previous six months and promoter-related parties or specified families are excluded.",
+      "entrySteps": [
+        "Visit a participating Dis-Chem Baby City store: Sandton City, Woodmead, Irene, Fourways, Craighall, Centurion, Bluebird, Woodlands Boulevard, Benmore, Olympus (Faerie Glen), West Rand, Somerset West, Bellville, Sable Square, Kenilworth, Port Elizabeth, Umhlanga or Ballito.",
+        "Use the in-store Child Passenger Safety demo unit and buckle your little one into its Maxi-Cosi car seat.",
+        "Take a photo and share it on social media, tagging @babycityza.",
+        "Include #ChildPassengerSafety #DischemBabyCity #MaxiCosiSA #BackTheirFutureBuckleUp and post by 23:59 on 11 October 2026."
+      ],
+      "officialUrl": "https://www.dischem.co.za/maxi-cosi-september-competition",
+      "termsUrl": "https://www.dischem.co.za/maxi-cosi-september-competition",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
+      "isClosingSoon": true
+    },
+    {
+      "id": "burnt-horse-power-in-store-2026",
+      "title": "Burnt Horse Power In-Store Competition",
+      "brand": "Burnt Studios",
+      "summary": "Spend R1,500 or more in one transaction at Burnt’s Cavendish Square or Mall of Africa store for automatic entry to win a R6,000 Horse Power collection bundle.",
+      "imageUrl": "https://freehub.co.za/assets/listings/burnt-horse-power-in-store-2026.webp",
+      "closingDate": "2026-10-13",
+      "category": "Lifestyle",
+      "prizeName": "R6,000 Horse Power collection bundle: Toolbox, Wrench and five collection items",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Automatic entry from a qualifying store transaction",
+      "eligibility": "Customers with qualifying purchases at the two participating stores. Burnt employees, agencies, suppliers, service providers and competition administrators are excluded. The campaign terms do not specify a minimum age.",
+      "entrySteps": [
+        "Shop at Burnt Cavendish Square or Mall of Africa during 7–13 October 2026. Online and other-store purchases are not listed as eligible.",
+        "Spend at least R1,500 in a single transaction after discounts, including VAT. Gift-card-funded purchases qualify and any products may be bought.",
+        "Ensure the transaction is associated with your customer account and current contact details. Entry is automatic; keep the order/transaction number.",
+        "If selected, respond within 48 hours of the initial notification and collect from the store where you made the winning purchase within seven days of accepting."
+      ],
+      "officialUrl": "https://burnt.co.za/pages/terms-and-conditions",
+      "termsUrl": "https://burnt.co.za/pages/terms-and-conditions",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
       "isClosingSoon": true
     },
     {
@@ -79,6 +183,32 @@
       "termsUrl": "https://seaharvest.co.za/say-fish-campaign-tcs/",
       "lastChecked": "2026-10-04",
       "isHighValue": true,
+      "isClosingSoon": true
+    },
+    {
+      "id": "deskstand-three-winner-giveaway-2026",
+      "title": "DeskStand Giveaway: Three Standing Desk Prizes",
+      "brand": "DeskStand",
+      "summary": "Complete DeskStand’s free online entry form for a chance to win a JUMBO DeskStand, Table Shelf or Mini DeskStand. Newsletter signup and social engagement are optional.",
+      "imageUrl": "https://freehub.co.za/assets/listings/deskstand-three-winner-giveaway-2026.webp",
+      "closingDate": "2026-10-15",
+      "category": "Lifestyle",
+      "prizeName": "JUMBO DeskStand, Table Shelf and Mini DeskStand, awarded separately",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "South African residents aged 18+ with a delivery address in South Africa. Promoter personnel, immediate families and competition administrators are excluded.",
+      "entrySteps": [
+        "Open the official DeskStand giveaway form and read the linked terms.",
+        "Provide your name, email address, contact number and where you found the giveaway.",
+        "Choose whether to subscribe to the newsletter and whether to consent to a publicity photograph. These are separate choices; newsletter consent is optional.",
+        "Agree to the use of your personal information to administer the giveaway and submit before 23:59 SAST on 15 October 2026."
+      ],
+      "officialUrl": "https://www.deskstand.com/pages/give-away-3-winners",
+      "termsUrl": "https://www.deskstand.com/pages/competition-t-cs",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
       "isClosingSoon": true
     },
     {
@@ -309,6 +439,32 @@
       ],
       "officialUrl": "https://thebeveragecompany.co.za/raimondi-birthday-retail-promotion-1/",
       "termsUrl": "https://thebeveragecompany.co.za/general-terms-conditions/",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "winex-wine-derful-2026",
+      "title": "Standard Bank WineX Wine-derful Competition 2026",
+      "brand": "Standard Bank WineX",
+      "summary": "Buy at least two Standard Bank WineX 2026 tickets and opt in through Webtickets for the Wine-derful draw, with a R19,500 main prize and three runner-up wine-and-glass prizes.",
+      "imageUrl": "https://freehub.co.za/assets/listings/winex-wine-derful-2026.webp",
+      "closingDate": "2026-10-21",
+      "category": "Experiences",
+      "prizeName": "R19,500 Sandton Sun, dining and wine package; three runner-up wine-and-glass prizes",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Ticket",
+      "eligibility": "Entrants must be aged 18+. WineX exhibitors, suppliers and sponsors may not enter. The campaign page does not state a separate citizenship or residency restriction.",
+      "entrySteps": [
+        "Read the official Wine-derful campaign terms and check that you are aged 18+ and are not an excluded exhibitor, supplier or sponsor.",
+        "Use the ticket link on the official WineX website to buy at least two tickets to Standard Bank WineX 2026. The reviewed link resolves to Webtickets.",
+        "Opt in to Webtickets so the organisers can contact you. The campaign also states that entering means opting in to WineX/OutSorceress Marketing communications.",
+        "Complete the qualifying ticket purchase before midnight on 21 October 2026. Do not assume buying one ticket qualifies."
+      ],
+      "officialUrl": "https://www.winex.co.za/wine-derful-winex-competition/",
+      "termsUrl": "https://www.winex.co.za/wine-derful-winex-competition/",
       "lastChecked": "2026-10-08",
       "isHighValue": false,
       "isClosingSoon": false
@@ -903,6 +1059,32 @@
       "isClosingSoon": false
     },
     {
+      "id": "degrendel-haus-wine-homeware-2026",
+      "title": "De Grendel × HAUS: Win R20,000 in Wine and Homeware",
+      "brand": "De Grendel / HAUS",
+      "summary": "Spend R3,000 or more on De Grendel wines during October and subscribe to its newsletter for a chance to win R10,000 in wine plus a R10,000 HAUS homeware voucher.",
+      "imageUrl": "https://freehub.co.za/assets/listings/degrendel-haus-wine-homeware-2026.webp",
+      "closingDate": "2026-10-31",
+      "category": "Lifestyle",
+      "prizeName": "R10,000 in De Grendel wines and a R10,000 HAUS homeware voucher",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Qualifying wine spend and newsletter subscription",
+      "eligibility": "South African residents aged 18+.",
+      "entrySteps": [
+        "Ensure you are aged 18+ and resident in South Africa, then read the official campaign terms.",
+        "Buy at least R3,000 of De Grendel wines during 1–31 October 2026, online, through the Loyalty Club Manager, at the Tasting Room or in the De Grendel Restaurant.",
+        "Make sure you are subscribed to De Grendel’s newsletter. Each R3,000 spent qualifies as one entry; multiple entries are permitted.",
+        "Keep your purchase records and monitor email around the winner announcement on 4 November 2026."
+      ],
+      "officialUrl": "https://degrendel.co.za/blogs/news/r20000-giveaway-haus-wine-homeware",
+      "termsUrl": "https://degrendel.co.za/blogs/news/r20000-giveaway-haus-wine-homeware",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "clicks-baby-essentials-hamper-2026",
       "title": "Clicks Baby Essentials Hamper Competition",
       "brand": "Clicks",
@@ -1125,6 +1307,32 @@
       "officialUrl": "https://www.fao.org/world-food-day/contest/submit-form/en",
       "termsUrl": "https://www.fao.org/world-food-day/contest/",
       "lastChecked": "2026-10-06",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "ackermans-layby-samsung-a07-2026",
+      "title": "Ackermans Lay-by & Win: R2,699 Handset Vouchers",
+      "brand": "Ackermans",
+      "summary": "Start a qualifying in-store Ackermans lay-by and scan your +more rewards card for automatic entry. Ten daily winners receive a R2,699 handset/tech voucher, the stated value of a Samsung A07.",
+      "imageUrl": "https://freehub.co.za/assets/listings/ackermans-layby-samsung-a07-2026.webp",
+      "closingDate": "2026-11-06",
+      "category": "Vouchers",
+      "prizeName": "Ten daily R2,699 handset/tech vouchers, the stated value of a Samsung A07",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "In-store",
+      "eligibility": "Participants in South Africa who are South African citizens with valid SA ID, or permanent residents with a valid permanent residency permit. Pepkor-related parties and specified families are excluded. The campaign rules do not state a minimum age.",
+      "entrySteps": [
+        "Make a qualifying lay-by in an Ackermans store during 1 October–6 November 2026. Cellular products and cellular accessories are excluded.",
+        "Scan your +more rewards card at the till for automatic entry. Check that your lay-by contact details are current.",
+        "Only one entry per participant is allowed, and each participant may win only one prize.",
+        "If selected, follow the official WhatsApp notification instructions. Redeem the R2,699 handset/tech voucher in an Ackermans store in full; no change, cashback or credit is issued for an unused balance."
+      ],
+      "officialUrl": "https://www.ackermans.co.za/blogs/financial-services/lay-by-win-a-samsung-a07-ts-cs",
+      "termsUrl": "https://www.ackermans.co.za/blogs/financial-services/lay-by-win-a-samsung-a07-ts-cs",
+      "lastChecked": "2026-10-08",
       "isHighValue": false,
       "isClosingSoon": false
     },

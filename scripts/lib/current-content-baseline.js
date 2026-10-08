@@ -47,7 +47,9 @@ function getCurrentContentBaseline() {
     // 88c28b8 build also reproduced a pre-existing one-page overcount.
     // Airtime Dash adds the game and its admin review page, both noindex while draft.
     // 8 October: Huletts, Powerade, Jockey, MTN and Raimondi add five reviewed detail pages.
-    generatedFileCount: 424 - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    // The additional eight reviewed October listings add eight detail pages,
+    // the Standard Bank brand page and the newly generated ending-soon tag page.
+    generatedFileCount: 434 - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
     sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length + (read('data/airtime-dash.json').enabled ? 1 : 0),
   };
 }
