@@ -49,7 +49,9 @@ function getCurrentContentBaseline() {
     // 8 October: Huletts, Powerade, Jockey, MTN and Raimondi add five reviewed detail pages.
     // The additional eight reviewed October listings add eight detail pages,
     // the Standard Bank brand page and the newly generated ending-soon tag page.
-    generatedFileCount: 434 - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    // The next reviewed workbook batch adds eighteen competition detail pages.
+    // Their eighteen exit routes are already counted by active.length below.
+    generatedFileCount: 452 - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
     sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length + (read('data/airtime-dash.json').enabled ? 1 : 0),
   };
 }

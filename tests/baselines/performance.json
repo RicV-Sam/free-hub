@@ -4,16 +4,39 @@
   "warnGrowthPercent": 10,
   "failGrowthPercent": 25,
   "assets": {
-    "homepage": { "file": "index.html", "bytes": 62234 },
-    "competitions": { "file": "competitions/index.html", "bytes": 384107 },
-    "freeStuff": { "file": "free-stuff-south-africa/index.html", "bytes": 78717 },
-    "vouchers": { "file": "category/vouchers/index.html", "bytes": 127259 },
-    "freeSamples": { "file": "free-samples-south-africa/index.html", "bytes": 87871 },
-    "css": { "file": "styles.css", "bytes": 114032 },
-    "javascript": { "file": "app.js", "bytes": 23638 }
+    "homepage": {
+      "file": "index.html",
+      "bytes": 62234
+    },
+    "competitions": {
+      "file": "competitions/index.html",
+      "bytes": 518238,
+      "reviewedAt": "2026-10-08",
+      "reviewNote": "Reviewed inventory refresh: 109 cards and matching structured-data items versus July baseline of 80. HTML bytes per card decreased; growth thresholds and other asset baselines unchanged."
+    },
+    "freeStuff": {
+      "file": "free-stuff-south-africa/index.html",
+      "bytes": 78717
+    },
+    "vouchers": {
+      "file": "category/vouchers/index.html",
+      "bytes": 127259
+    },
+    "freeSamples": {
+      "file": "free-samples-south-africa/index.html",
+      "bytes": 87871
+    },
+    "css": {
+      "file": "styles.css",
+      "bytes": 114032
+    },
+    "javascript": {
+      "file": "app.js",
+      "bytes": 23638
+    }
   },
   "inventory": {
-    "competitionCards": 80,
-    "structuredDataItems": 80
+    "competitionCards": 109,
+    "structuredDataItems": 109
   }
 }

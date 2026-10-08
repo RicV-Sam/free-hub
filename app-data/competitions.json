@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-08",
-  "count": 93,
+  "count": 111,
   "competitions": [
     {
       "id": "nedbank-youthx-awards-2026",
@@ -77,6 +77,54 @@
       ],
       "officialUrl": "https://www.metrofm.co.za/metro-fm/competitions/winning-at-life-with-1life-6/",
       "termsUrl": "https://www.1life.co.za/competitions/metrofm-2026-10",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
+      "isClosingSoon": true
+    },
+    {
+      "id": "omo-super-soak-radio2000-2026",
+      "title": "Win R5,000 with OMO Super Soak on Radio 2000",
+      "brand": "OMO / Radio 2000",
+      "summary": "Win R5,000 with OMO Super Soak on Radio 2000. No purchase stated; social data costs apply. Closes 2026-10-09.",
+      "imageUrl": "https://freehub.co.za/assets/listings/omo-super-soak-radio2000-2026.webp",
+      "closingDate": "2026-10-09",
+      "category": "Cash",
+      "prizeName": "R5,000 in the on-air quiz",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Facebook or X story and on-air quiz",
+      "eligibility": "SA participants aged 18+ with valid identity documentation. See the full restrictions below.",
+      "entrySteps": [
+        "Share your memorable stain story on Facebook or X, tag Radio 2000 and OMO, and use #OMOSUPERSOAK5MINS. Selected callers compete in a 30-second OMO product quiz on the morning show.",
+        "No purchase stated; social data costs apply."
+      ],
+      "officialUrl": "https://www.radio2000.co.za/radio2000/competition/omo-hand-wash-super-soak-competition/",
+      "termsUrl": "https://www.radio2000.co.za/radio2000/competition/omo-hand-wash-super-soak-competition/",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
+      "isClosingSoon": true
+    },
+    {
+      "id": "mtn8-last-fan-standing-2026",
+      "title": "Stand a chance to win R1 million with MTN8",
+      "brand": "MTN",
+      "summary": "Stand a chance to win R1 million with MTN8. Qualifying R30 prepaid recharge and app required. Closes 2026-10-10.",
+      "imageUrl": "https://freehub.co.za/assets/listings/mtn8-last-fan-standing-2026.webp",
+      "closingDate": "2026-10-10",
+      "category": "Cash",
+      "prizeName": "A chance at R1 million in the Last Fan Standing final",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "App",
+      "eligibility": "SA permanent residents aged 18+, with the required valid identity/passport documentation and bank account, on one of the specified eligible prepaid plans.. See the full restrictions below.",
+      "entrySteps": [
+        "Make a qualifying non-cumulative R30 recharge on an eligible MTN prepaid plan, then register in the MTN App during the applicable week with the required identity details and consent.",
+        "Qualifying R30 recharge and app access required. Transfers, Me2U, XtraTime, YelloBucks and conversions do not qualify."
+      ],
+      "officialUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn8-competition",
+      "termsUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn8-competition",
       "lastChecked": "2026-10-08",
       "isHighValue": false,
       "isClosingSoon": true
@@ -212,6 +260,30 @@
       "isClosingSoon": true
     },
     {
+      "id": "sunlight-dirty-dish-gagasi-2026",
+      "title": "Win R5,000 with Sunlight Dirty Dish on Gagasi FM",
+      "brand": "Sunlight / Gagasi FM",
+      "summary": "Win R5,000 with Sunlight Dirty Dish on Gagasi FM. No purchase required for base entry; purchase required for bonus. Closes 2026-10-16.",
+      "imageUrl": "https://freehub.co.za/assets/listings/sunlight-dirty-dish-gagasi-2026.webp",
+      "closingDate": "2026-10-16",
+      "category": "Cash",
+      "prizeName": "R5,000 in the on-air game, with a conditional R2,000 bonus",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Facebook or X and on-air game",
+      "eligibility": "18+. See the full restrictions below.",
+      "entrySteps": [
+        "Share a story on Facebook or X about a meal outside your comfort zone: explain the challenge and dish count, use #DirtyDishCount, and tag Gagasi FM and @sunlightza. Selected callers compete on air during the 09:00–12:00 show.",
+        "No purchase stated for the base competition; purchase required for the bonus. Social data costs apply."
+      ],
+      "officialUrl": "https://gagasiworld.co.za/sunlight-dirty-dish-competition-terms-and-conditions/",
+      "termsUrl": "https://gagasiworld.co.za/sunlight-dirty-dish-competition-terms-and-conditions/",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "spar-colgate-palmolive-r150k-2026",
       "title": "SPAR Colgate-Palmolive Win Your Share of R150,000 Competition",
       "brand": "SPAR / Colgate-Palmolive",
@@ -285,6 +357,30 @@
       "termsUrl": "https://www.gwm.co.za/terms-and-conditions/all-new-haval-h7-pre-sale-campaign",
       "lastChecked": "2026-09-24",
       "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "nespray-always-giving-more-2026",
+      "title": "Win cash vouchers with NESPRAY Always Giving More",
+      "brand": "Nestlé NESPRAY",
+      "summary": "Win cash vouchers with NESPRAY Always Giving More. Qualifying NESPRAY purchase and WhatsApp data. Closes 2026-10-17.",
+      "imageUrl": "https://freehub.co.za/assets/listings/nespray-always-giving-more-2026.webp",
+      "closingDate": "2026-10-17",
+      "category": "Cash",
+      "prizeName": "A R2,500 cash voucher or the R140,000 grand prize",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "WhatsApp",
+      "eligibility": "SA legal residents/citizens aged 18+, with the required valid identity/residency documentation. See the full restrictions below.",
+      "entrySteps": [
+        "Buy a qualifying NESPRAY Fortigrow pack, keep the receipt, then WhatsApp Hi to 073 097 6335 and follow the official entry instructions. Use your own registered phone number and a distinct qualifying receipt for each entry.",
+        "Qualifying purchase and WhatsApp data required. Eligible packs: 250g, 400g, 850g, 1.8kg and the specified 1.8kg + 200g value pack."
+      ],
+      "officialUrl": "https://www.nestle-esar.com/nestle-nespray-always-giving-more-0",
+      "termsUrl": "https://www.nestle-esar.com/nestle-nespray-always-giving-more-0",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
       "isClosingSoon": false
     },
     {
@@ -1085,6 +1181,126 @@
       "isClosingSoon": false
     },
     {
+      "id": "fountains-mall-herbelin-birthday-2026",
+      "title": "Win a Herbelin watch at Fountains Mall",
+      "brand": "Fountains Mall / Gabriël Jewellers / Herbelin",
+      "summary": "Win a Herbelin watch at Fountains Mall. No purchase stated; store visit, draw attendance and data. Closes 2026-10-31.",
+      "imageUrl": "https://freehub.co.za/assets/listings/fountains-mall-herbelin-birthday-2026.webp",
+      "closingDate": "2026-10-31",
+      "category": "Lifestyle",
+      "prizeName": "One of two Herbelin watches",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Store photo and Facebook post",
+      "eligibility": "SA citizens and permanent residents. See the full restrictions below.",
+      "entrySteps": [
+        "Take a photo at Gabriël Jewellers with a Herbelin watch, upload it to Facebook, and tag/share with the Gabriël Jewellers and Fountains Mall pages. Randomly selected finalists must be present at the 6 November draw.",
+        "No purchase stated. Visiting the store and attending the draw require your own arrangements; social data costs apply."
+      ],
+      "officialUrl": "https://fountainsmall.co.za/events/18th-birthday-competition-with-gabriel-jewellers/",
+      "termsUrl": "https://fountainsmall.co.za/events/18th-birthday-competition-with-gabriel-jewellers/",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "nedbank-fixed-deposit-golf-challenge-2026",
+      "title": "Win a Nedbank Golf Challenge experience with a qualifying fixed deposit",
+      "brand": "Nedbank",
+      "summary": "Win a Nedbank Golf Challenge experience with a qualifying fixed deposit. R100,000 qualifying fixed deposit required. Closes 2026-10-31.",
+      "imageUrl": "https://freehub.co.za/assets/listings/nedbank-fixed-deposit-golf-challenge-2026.webp",
+      "closingDate": "2026-10-31",
+      "category": "Experiences",
+      "prizeName": "A Nedbank Golf Challenge experience for two",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Automatic qualifying fixed-deposit entry",
+      "eligibility": "18+, SA identity documentation and eligible accounts in good standing. See the full restrictions below.",
+      "entrySteps": [
+        "Open or reinvest at least R100,000 in a qualifying Electronic Fixed Deposit, Platinum Fixed Deposit or Electronic Optimum Plus account. Qualifying deposits enter automatically under the bank rules.",
+        "At least R100,000 deposited or reinvested. This is a financial-product promotion, not a free-entry offer."
+      ],
+      "officialUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/fixed-deposit-r100-000-ngc.html",
+      "termsUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/fixed-deposit-r100-000-ngc.html",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "fox-king-of-the-whip-2026",
+      "title": "Win King of the Whip tickets and a FOX clothing hamper",
+      "brand": "FOX Racing South Africa",
+      "summary": "Win King of the Whip tickets and a FOX clothing hamper. FOX purchase and newsletter subscription required. Closes 2026-10-31.",
+      "imageUrl": "https://freehub.co.za/assets/listings/fox-king-of-the-whip-2026.webp",
+      "closingDate": "2026-10-31",
+      "category": "Experiences",
+      "prizeName": "Two King of the Whip tickets and a R5,000 clothing hamper",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Online",
+      "eligibility": "SA residents aged 18+. See the full restrictions below.",
+      "entrySteps": [
+        "Buy FOX products online or at the Stellenbosch or Wolwespruit store, then complete the Google form linked from the official giveaway page with your receipt/order number and contact details. Newsletter subscription is required.",
+        "Qualifying FOX purchase, internet data and mandatory newsletter subscription."
+      ],
+      "officialUrl": "https://www.foxracing.co.za/pages/fox-kotw-ticket-giveaway",
+      "termsUrl": "https://www.foxracing.co.za/pages/fox-kotw-ticket-giveaway",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "real-beds-score-big-coupon-2026",
+      "title": "Stand a chance to have your Real Beds purchase refunded",
+      "brand": "Real Beds",
+      "summary": "Stand a chance to have your Real Beds purchase refunded. R4,999 qualifying purchase and original coupon required. Closes 2026-10-31.",
+      "imageUrl": "https://freehub.co.za/assets/listings/real-beds-score-big-coupon-2026.webp",
+      "closingDate": "2026-10-31",
+      "category": "Lifestyle",
+      "prizeName": "A refund or account credit for a qualifying purchase",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Original tear-off coupon and qualifying store purchase",
+      "eligibility": "SA residents aged 18+, with valid identification. See the full restrictions below.",
+      "entrySteps": [
+        "Make a qualifying cash or credit purchase of at least R4,999 at a participating Real Beds store using an eligible original newspaper tear-off coupon. Keep the original coupon and purchase proof.",
+        "Purchase of at least R4,999 plus an eligible original coupon. The R500 instant discount applies to cash purchases only."
+      ],
+      "officialUrl": "https://realbedsonline.co.za/competitions",
+      "termsUrl": "https://realbedsonline.co.za/terms-and-conditions-tear-off-coupon-promotion",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "absa-icaur-finance-2026",
+      "title": "Win up to R200,000 towards your iCAUR finance balance",
+      "brand": "iCAUR Finance / Absa",
+      "summary": "Win up to R200,000 towards your iCAUR finance balance. New qualifying vehicle purchase and finance required. Closes 2026-10-31.",
+      "imageUrl": "https://freehub.co.za/assets/listings/absa-icaur-finance-2026.webp",
+      "closingDate": "2026-10-31",
+      "category": "Lifestyle",
+      "prizeName": "Up to R200,000 towards an iCAUR finance balance",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Automatic qualifying vehicle-finance entry",
+      "eligibility": "Natural persons aged 18+ who meet the vehicle-finance and competition requirements.. See the full restrictions below.",
+      "entrySteps": [
+        "Buy a new qualifying iCAUR V23 and finance it through iCAUR Finance/Absa during the campaign. Qualifying customers enter automatically; the finance account must remain current until the relevant draw.",
+        "New vehicle purchase and qualifying finance agreement required."
+      ],
+      "officialUrl": "https://www.absa.co.za/offers/icaur/",
+      "termsUrl": "https://www.absa.co.za/content/dam/south-africa/absa/pdf/2026/iCAUR-Competition-Terms-and-Conditions.pdf",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "clicks-baby-essentials-hamper-2026",
       "title": "Clicks Baby Essentials Hamper Competition",
       "brand": "Clicks",
@@ -1520,6 +1736,54 @@
       "isClosingSoon": false
     },
     {
+      "id": "chateau-gateaux-paris-2026",
+      "title": "Win a trip for two to Paris with Château Gâteaux",
+      "brand": "Château Gâteaux",
+      "summary": "Win a trip for two to Paris with Château Gâteaux. Eligible whole-cake purchase and loyalty app required. Closes 2026-11-26.",
+      "imageUrl": "https://freehub.co.za/assets/listings/chateau-gateaux-paris-2026.webp",
+      "closingDate": "2026-11-26",
+      "category": "Holidays",
+      "prizeName": "A R100,000 Paris trip for two or a weekly cake voucher",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "App",
+      "eligibility": "SA residents aged 18+. See the full restrictions below.",
+      "entrySteps": [
+        "Buy an eligible small, medium or large whole cake at a Château Gâteaux patisserie and scan the loyalty app for automatic entry. One entry per transaction. For one optional bonus entry, follow the official Facebook, Instagram or TikTok account, post a public original video with your whole cake saying “Take me to Paris, Château Gâteaux!”, and tag that official account.",
+        "Eligible whole-cake purchase and loyalty app required; data costs apply."
+      ],
+      "officialUrl": "https://chateaugateaux.co.za/terms-conditions/win-a-trip-to-paris-2026/",
+      "termsUrl": "https://chateaugateaux.co.za/terms-conditions/win-a-trip-to-paris-2026/",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "milo-checkers-summer-2026",
+      "title": "Win a cooler or shopping voucher with MILO at Checkers",
+      "brand": "Nestlé MILO / Checkers",
+      "summary": "Win a cooler or shopping voucher with MILO at Checkers. In-store MILO purchase and Xtra Savings card required. Closes 2026-11-28.",
+      "imageUrl": "https://freehub.co.za/assets/listings/milo-checkers-summer-2026.webp",
+      "closingDate": "2026-11-28",
+      "category": "Vouchers",
+      "prizeName": "A cooler or R1,000 shopping voucher",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "In-store",
+      "eligibility": "SA legal residents/citizens aged 18+, with the required valid identification. See the full restrictions below.",
+      "entrySteps": [
+        "Buy qualifying MILO in a Checkers store and swipe your Xtra Savings card. Qualifying purchases enter automatically; retain the receipt.",
+        "Qualifying in-store MILO purchase and Xtra Savings card required."
+      ],
+      "officialUrl": "https://www.nestle-esar.com/nestle-milo-x-checkers-summer-promotion-2026",
+      "termsUrl": "https://www.nestle-esar.com/nestle-milo-x-checkers-summer-promotion-2026",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "coca-cola-be-a-bok-voucher-prizes-2026",
       "title": "Coca-Cola Be A Bok Voucher Prizes",
       "brand": "Coca-Cola South Africa",
@@ -1802,6 +2066,78 @@
       "isClosingSoon": false
     },
     {
+      "id": "engen-powerade-sportsmans-vouchers-2026",
+      "title": "Win a R1,000 Sportsmans Warehouse voucher with Powerade at Engen",
+      "brand": "Coca-Cola / Engen / Powerade",
+      "summary": "Win a R1,000 Sportsmans Warehouse voucher with Powerade at Engen. Three participating Powerade products and WhatsApp data. Closes 2026-11-30.",
+      "imageUrl": "https://freehub.co.za/assets/listings/engen-powerade-sportsmans-vouchers-2026.webp",
+      "closingDate": "2026-11-30",
+      "category": "Vouchers",
+      "prizeName": "A R1,000 Sportsmans Warehouse voucher",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "WhatsApp",
+      "eligibility": "SA citizens/permanent residents aged 18+, living in SA with valid ID/passport. See the full restrictions below.",
+      "entrySteps": [
+        "Buy three participating Powerade 500ml PET products at an Engen store displaying the promotion. WhatsApp Powerade to 060 557 4210, register, and upload the qualifying receipt.",
+        "Three qualifying products and WhatsApp data required. Maximum three distinct receipts per day and 50 across the campaign."
+      ],
+      "officialUrl": "https://www.coca-cola.com/za/en/legal/terms-and-conditions-engen-springboks-promotion-2026",
+      "termsUrl": "https://www.coca-cola.com/za/en/legal/terms-and-conditions-engen-springboks-promotion-2026",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "imana-pnp-oakfields-chef-2026",
+      "title": "Win a VIP chef experience with IMANA at Pick n Pay Oakfields",
+      "brand": "IMANA / Pick n Pay Family Oakfields",
+      "summary": "Win a VIP chef experience with IMANA at Pick n Pay Oakfields. R500 purchase including four Cook-in-Sauce sachets. Closes 2026-11-30.",
+      "imageUrl": "https://freehub.co.za/assets/listings/imana-pnp-oakfields-chef-2026.webp",
+      "closingDate": "2026-11-30",
+      "category": "Experiences",
+      "prizeName": "A VIP chef experience for you and five friends",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Receipt and contact details in store entry box",
+      "eligibility": "SA residents aged 18+. See the full restrictions below.",
+      "entrySteps": [
+        "Spend R500 in one transaction at Pick n Pay Family Oakfields, Benoni, including four IMANA Cook-in-Sauce sachets. Place your original receipt and contact details in the in-store entry box.",
+        "R500 qualifying purchase including four specified sachets at this store only."
+      ],
+      "officialUrl": "https://www.imana.co.za/competition-south-africa",
+      "termsUrl": "https://www.imana.co.za/pnp-oakfields-vip-chef-experience",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "absa-multi-currency-zanzibar-2026",
+      "title": "Win a Zanzibar trip for two with Absa Multi-Currency Cash Passport",
+      "brand": "Absa",
+      "summary": "Win a Zanzibar trip for two with Absa Multi-Currency Cash Passport. Banking products and R25,000 currency load required. Closes 2026-11-30.",
+      "imageUrl": "https://freehub.co.za/assets/listings/absa-multi-currency-zanzibar-2026.webp",
+      "closingDate": "2026-11-30",
+      "category": "Holidays",
+      "prizeName": "A Zanzibar trip for two",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Automatic qualifying currency-load entry",
+      "eligibility": "18+. See the full restrictions below.",
+      "entrySteps": [
+        "Load a cumulative R25,000 in currency onto a qualifying new or existing Multi-Currency Cash Passport during the campaign, with an active Absa transactional account in good standing. Entry is automatic.",
+        "R25,000 cumulative qualifying currency load and eligible banking products required."
+      ],
+      "officialUrl": "https://www.absa.co.za/offers/deals-and-promotions/terms-and-conditions/",
+      "termsUrl": "https://www.absa.co.za/content/dam/south-africa/absa/pdf/2026/mccp-international-trip-terms-and-conditions-english.pdf",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "clicks-have-your-say-october-november-2026",
       "title": "Clicks Have Your Say: Win R500 ClubCard Cashback",
       "brand": "Clicks ClubCard Magazine / The Publishing Partnership",
@@ -1926,6 +2262,54 @@
       "termsUrl": "https://www.vodacom.co.za/vodacom/terms/competition/value-news-network",
       "lastChecked": "2026-08-10",
       "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "dis-chem-vaseline-sun-city-2026",
+      "title": "Win a Palace of the Lost City getaway with Vaseline at Dis-Chem",
+      "brand": "Dis-Chem / Vaseline",
+      "summary": "Win a Palace of the Lost City getaway with Vaseline at Dis-Chem. Two Cera Glow products and Better Rewards card required. Closes 2026-12-13.",
+      "imageUrl": "https://freehub.co.za/assets/listings/dis-chem-vaseline-sun-city-2026.webp",
+      "closingDate": "2026-12-13",
+      "category": "Holidays",
+      "prizeName": "A Palace of the Lost City getaway for two",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "In-store",
+      "eligibility": "SA legal residents/citizens over 18 with valid identification. See the full restrictions below.",
+      "entrySteps": [
+        "Buy two Vaseline Cera Glow products in a Dis-Chem store and swipe your Better Rewards card for automatic entry.",
+        "Two qualifying products and Better Rewards card required."
+      ],
+      "officialUrl": "https://www.dischem.co.za/cera-glow-vaseline-summer-2026-competition",
+      "termsUrl": "https://www.dischem.co.za/cera-glow-vaseline-summer-2026-competition",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "galitos-birthday-feast-2026",
+      "title": "Win R30,000 in the Galito’s Birthday Feast weekly draw",
+      "brand": "Galito’s",
+      "summary": "Win R30,000 in the Galito’s Birthday Feast weekly draw. R299 qualifying SA Birthday Feast and WhatsApp data. Closes 2026-12-30.",
+      "imageUrl": "https://freehub.co.za/assets/listings/galitos-birthday-feast-2026.webp",
+      "closingDate": "2026-12-30",
+      "category": "Cash",
+      "prizeName": "A R30,000 weekly cash prize for a qualifying SA purchase",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "WhatsApp",
+      "eligibility": "Ordinary residents of SA or Lesotho aged 18+, purchasing in their country of residence. See the full restrictions below.",
+      "entrySteps": [
+        "Buy the qualifying R299 Birthday Feast in South Africa, then WhatsApp Galito’s Birthday Feast to 065 083 0838 and submit the receipt. Keep the original Galito’s receipt.",
+        "Qualifying Birthday Feast purchase and WhatsApp data required."
+      ],
+      "officialUrl": "https://www.galitos.co.za/terms/birthday-feast/",
+      "termsUrl": "https://www.galitos.co.za/terms/birthday-feast/",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
       "isClosingSoon": false
     },
     {
@@ -2207,6 +2591,30 @@
       "isClosingSoon": false
     },
     {
+      "id": "gotyme-five-transactions-2026",
+      "title": "Win R500 with five qualifying GoTyme app transactions",
+      "brand": "GoTyme Bank",
+      "summary": "Win R500 with five qualifying GoTyme app transactions. Bank account and five qualifying app transactions required. Closes 2026-12-31.",
+      "imageUrl": "https://freehub.co.za/assets/listings/gotyme-five-transactions-2026.webp",
+      "closingDate": "2026-12-31",
+      "category": "Cash",
+      "prizeName": "R500 in the monthly bank draw",
+      "entryCostType": "account_required",
+      "entryCostLabel": "Account required",
+      "purchaseRequired": false,
+      "entryMethod": "App",
+      "eligibility": "SA citizen residents over 18 with an active qualifying account. See the full restrictions below.",
+      "entrySteps": [
+        "Complete at least five qualifying GoTyme app transactions during the campaign. Eligible types include electricity, airtime, EFT, PayShap and specified deposit/withdrawal transactions. Qualifying participants enter automatically; lottery purchases are not required.",
+        "Eligible banking account and transactions required; normal transaction charges may apply."
+      ],
+      "officialUrl": "https://gotyme.co.za/personal/terms-and-conditions-for-campaigns",
+      "termsUrl": "https://gotyme.co.za/personal/terms-and-conditions-for-campaigns",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "writers-of-the-future-q1-2027",
       "title": "Writers of the Future 2027 First Quarter",
       "brand": "Writers of the Future",
@@ -2280,6 +2688,30 @@
       "termsUrl": "https://www.coca-cola.com/za/en/legal/terms-and-conditions-returnables-promotion-2026",
       "lastChecked": "2026-09-27",
       "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "algoa-pnp-care-like-champion-2026",
+      "title": "Win grocery vouchers for you and your champion with Algoa FM",
+      "brand": "Algoa FM / Pick n Pay",
+      "summary": "Win grocery vouchers for you and your champion with Algoa FM. No purchase stated; messaging data costs apply. Closes 2027-02-25.",
+      "imageUrl": "https://freehub.co.za/assets/listings/algoa-pnp-care-like-champion-2026.webp",
+      "closingDate": "2027-02-25",
+      "category": "Vouchers",
+      "prizeName": "A R1,500 grocery voucher each for you and your nominee",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "WhatsApp",
+      "eligibility": "18+, SA citizenship, a bank account and residence in the station broadcast area. See the full restrictions below.",
+      "entrySteps": [
+        "Send CHAMPION by WhatsApp or Telegram to 061 794 0940 with your name, town, nominee’s details and story. Selected entries must be reachable by phone and the nominee must be verified.",
+        "No purchase stated; messaging data costs apply."
+      ],
+      "officialUrl": "https://www.algoafm.co.za/care-like-a-champion-and-win-with-pick-n-pay",
+      "termsUrl": "https://www.algoafm.co.za/care-like-a-champion-and-win-with-pick-n-pay",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
       "isClosingSoon": false
     },
     {
