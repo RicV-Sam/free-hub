@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-08",
-  "count": 80,
+  "count": 85,
   "competitions": [
     {
       "id": "nedbank-youthx-awards-2026",
@@ -284,6 +284,32 @@
       "officialUrl": "https://www.clicks.co.za/clubcard/competitions/rimmel-hydration-hamper-competition",
       "termsUrl": "https://woobox.com/gtn7w7/rules",
       "lastChecked": "2026-09-24",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "raimondi-retail-1-october-2026",
+      "title": "Raimondi Birthday Retail Promotion: Win R1,500",
+      "brand": "Raimondi / The Beverage Company",
+      "summary": "Western Cape residents can buy any two participating JiVE, Twizza, Pepsi, Super C or Reboost products at six named stores for a R1,500 shopping voucher draw. Enter by 21 October: the official cut-off is 00:00 at the start of 22 October.",
+      "imageUrl": "https://freehub.co.za/assets/listings/raimondi-retail-1-october-2026.webp",
+      "closingDate": "2026-10-21",
+      "category": "Vouchers",
+      "prizeName": "Six R1,500 Raimondi shopping vouchers, one per participating store",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "In-store",
+      "eligibility": "Western Cape residents only, who are South African citizens or legal residents aged 18+ residing in South Africa and holding a valid South African ID document. Promoter-related parties and their specified families are excluded under the general terms.",
+      "entrySteps": [
+        "Check that you are a Western Cape resident and meet the linked general terms, including age 18+ and a valid South African identity document.",
+        "At a participating store, buy any two units of JiVE, Twizza, Pepsi, Super C or Reboost products.",
+        "Write your contact details on the back of the till slip and place it in that store’s competition box during the promotion. Submit by 21 October because the official deadline is 00:00 at the start of 22 October.",
+        "Participating stores: Raimondi Robertson (11 Kerk Street), Worcester (12 High Street), Malmesbury (16h Abattoir Street), Villiersdorp (4 Main Road), Piketberg (26 Main Street), and Polarama Cash & Carry (2 Pedro Street, Klippiesdal, Paarl)."
+      ],
+      "officialUrl": "https://thebeveragecompany.co.za/raimondi-birthday-retail-promotion-1/",
+      "termsUrl": "https://thebeveragecompany.co.za/general-terms-conditions/",
+      "lastChecked": "2026-10-08",
       "isHighValue": false,
       "isClosingSoon": false
     },
@@ -825,6 +851,58 @@
       "isClosingSoon": false
     },
     {
+      "id": "jockey-150-2026",
+      "title": "Jockey 150 Competition: Win R15,000",
+      "brand": "Jockey / Ninian & Lester",
+      "summary": "Buy a qualifying Jockey product and follow the official WhatsApp entry steps for a chance to win one of ten R15,000 cash prizes celebrating Jockey’s 150th anniversary.",
+      "imageUrl": "https://freehub.co.za/assets/listings/jockey-150-2026.webp",
+      "closingDate": "2026-10-31",
+      "category": "Cash",
+      "prizeName": "Ten R15,000 cash prizes",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "WhatsApp",
+      "eligibility": "Permanent residents of South Africa aged 18+ with a valid identity document or passport. Promoter employees, relevant agencies, suppliers, distributors, administering retailers and their immediate families are excluded.",
+      "entrySteps": [
+        "Read Jockey’s current official terms. They specify a qualifying Jockey product without listing product codes; confirm that your chosen purchase qualifies before paying.",
+        "Make the qualifying purchase and keep the original till slip, or invoice for an online order.",
+        "Scan the promotional QR on Jockey’s official site. The QR resolves to WhatsApp number +27 60 017 6363. Follow the prompts to upload your proof of purchase and provide name, surname, email and region.",
+        "Submit before the deadline and check for WhatsApp confirmation. Each qualifying purchase gives one entry; marketing consent is optional."
+      ],
+      "officialUrl": "https://jockey.co.za/pages/competition-terms-conditions",
+      "termsUrl": "https://jockey.co.za/pages/competition-terms-conditions",
+      "lastChecked": "2026-10-08",
+      "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "mtn-share-app-october-2026",
+      "title": "MTN Share the App & Win: October 2026 Draw",
+      "brand": "MTN",
+      "summary": "Invite an eligible first-time MTN App user through Share the App for the October referral-pair draw. One winning pair receives R1,000 Takealot vouchers per person; two pairs receive data per person.",
+      "imageUrl": "https://freehub.co.za/assets/listings/mtn-share-app-october-2026.webp",
+      "closingDate": "2026-10-31",
+      "category": "Vouchers",
+      "prizeName": "Three winning pairs: R1,000 Takealot vouchers or 120GB day + 120GB night data per person",
+      "entryCostType": "account_required",
+      "entryCostLabel": "Account required",
+      "purchaseRequired": false,
+      "entryMethod": "App",
+      "eligibility": "Natural persons who are permanent South African residents with valid ID or passport, active MTN South Africa SIMs and compatible smartphones. The referred friend must never previously have used or logged into the MTN App. The campaign terms do not state a minimum age. Competition-related MTN personnel and specified related parties are excluded.",
+      "entrySteps": [
+        "Ensure both people meet the MTN customer, active SIM, smartphone and residency requirements, and that the friend has never previously used or logged into the MTN App.",
+        "With your friend’s permission, log into the MTN App, go to More > Share the App and submit the friend’s MTN number through the official feature.",
+        "The friend must receive MTN’s invitation text message and complete their first successful MTN App login using that same number before 31 October 2026. The referral and first login must both take place in October.",
+        "After that first login, each person’s successful daily login gives the pair one additional entry, limited to one login per person per calendar day. Entries expire at the end of October and do not carry over."
+      ],
+      "officialUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn-share-the-app-and-win-competition",
+      "termsUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn-share-the-app-and-win-competition",
+      "lastChecked": "2026-10-08",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "clicks-baby-essentials-hamper-2026",
       "title": "Clicks Baby Essentials Hamper Competition",
       "brand": "Clicks",
@@ -1152,6 +1230,31 @@
       "officialUrl": "https://pizzaperfect.co.za/promos/",
       "termsUrl": "https://pizzaperfect.co.za/wp-content/uploads/2026/07/Terms-and-Conditions-Legacy.pdf",
       "lastChecked": "2026-09-18",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "huletts-spar-rewards-2026",
+      "title": "Huletts SPAR Rewards Competition 2026",
+      "brand": "Huletts / SPAR",
+      "summary": "Buy Huletts White Sugar or Brown Sugar in a 2kg or larger pack at SPAR and swipe your SPAR Rewards card for a chance to win one of 100 R2,000 digital vouchers.",
+      "imageUrl": "https://freehub.co.za/assets/listings/huletts-spar-rewards-2026.webp",
+      "closingDate": "2026-11-15",
+      "category": "Vouchers",
+      "prizeName": "100 R2,000 SPAR digital vouchers",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Purchase and SPAR Rewards card swipe",
+      "eligibility": "South African citizens and residents residing in South Africa over the age of 18, with a valid SPAR Rewards card. Promoter-related parties and their specified families are excluded.",
+      "entrySteps": [
+        "Check that your SPAR Rewards card is valid and its mobile contact details are current.",
+        "Buy any Huletts White Sugar or Brown Sugar pack of 2kg or larger at a SPAR store nationwide during the competition period.",
+        "Swipe your SPAR Rewards card at the till for automatic entry. Keep the original till slip for verification."
+      ],
+      "officialUrl": "https://www.spar.co.za/competitions/huletts-spar-rewards-competition-2026",
+      "termsUrl": "https://www.spar.co.za/competitions/huletts-spar-rewards-competition-2026",
+      "lastChecked": "2026-10-08",
       "isHighValue": false,
       "isClosingSoon": false
     },
@@ -1867,6 +1970,32 @@
       "termsUrl": "https://www.dischem.co.za/energizer-october-2026-competition",
       "lastChecked": "2026-10-03",
       "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "powerade-rwc-2026",
+      "title": "Powerade Rugby World Cup 2027 Trip Competition",
+      "brand": "Powerade / Coca-Cola",
+      "summary": "Buy two participating promotional Powerade 500ml PET products and enter via WhatsApp for a chance to win one of four Rugby World Cup 2027 trips for a winner and companion to Australia.",
+      "imageUrl": "https://freehub.co.za/assets/listings/powerade-rwc-2026.webp",
+      "closingDate": "2026-12-31",
+      "category": "Holidays",
+      "prizeName": "Four Rugby World Cup 2027 Australia experiences for a winner and companion",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "WhatsApp",
+      "eligibility": "South African citizens and permanent residents aged 18+ living in South Africa, with valid identification. Entrants and companions must already hold qualifying valid South African passports at entry. Promoter-related parties, participating retailer employees and winners of any promoter competition in the previous six months are excluded.",
+      "entrySteps": [
+        "Before buying, check your eligibility and ensure both you and your nominated companion already hold valid South African passports with at least six months validity after the proposed return date.",
+        "Buy two participating promotional Powerade Springboks Edition 500ml PET or Champions Edition 500ml PET products from a participating store displaying the campaign posters.",
+        "Scan the on-pack QR code, or send Coke to 087 133 0080 on WhatsApp. Complete registration, accept the terms and choose whether to receive marketing.",
+        "Upload a photo of your qualifying till slip and keep the original. Only the original purchaser may enter; use a new slip each time, up to three entries per day and 50 overall."
+      ],
+      "officialUrl": "https://www.coca-cola.com/za/en/legal/terms-and-conditions-powerade-rwc-2026",
+      "termsUrl": "https://www.coca-cola.com/za/en/legal/terms-and-conditions-powerade-rwc-2026",
+      "lastChecked": "2026-10-08",
+      "isHighValue": true,
       "isClosingSoon": false
     },
     {

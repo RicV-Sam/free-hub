@@ -7,7 +7,7 @@ Only active, published, public-safe competitions are counted. Held, unverified, 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 10
+- Matching active public competitions: 12
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -20,9 +20,11 @@ Only active, published, public-safe competitions are counted. Held, unverified, 
 | Ster-Kinekor Silas Watch and Win Competition (ster-kinekor-silas-watch-and-win-2026) | 2026-10-25 | purchase-required | yes | yes | WhatsApp mentioned in entry text | none |
 | Astron Energy Own a Golf 8 GTI Competition 2026 (astron-energy-own-golf-8-gti-2026) | 2026-10-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Cadbury Made to Share: Win R20,000 Weekly (cadbury-made-to-share-2026) | 2026-10-31 | free-entry | yes | yes | WhatsApp mentioned in entry text | none |
+| Jockey 150 Competition: Win R15,000 (jockey-150-2026) | 2026-10-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Coca-Cola Be a Bok Competition 2026 (coca-cola-fan-can-be-a-bok-2026) | 2026-11-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | WhatsApp mentioned in entry text | none |
+| Powerade Rugby World Cup 2027 Trip Competition (powerade-rwc-2026) | 2026-12-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Coca-Cola Returnables: Win Grocery Vouchers (coca-cola-returnables-2026) | 2027-01-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 
 Recommended normalisation:
@@ -48,7 +50,7 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 16
+- Matching active public competitions: 20
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -59,18 +61,22 @@ Recommended normalisation:
 | SPAR Colgate-Palmolive Win Your Share of R150,000 Competition (spar-colgate-palmolive-r150k-2026) | 2026-10-17 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Mr Muscle 2026 Consumer Promotion (mr-muscle-2026-consumer-promotion) | 2026-10-17 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Sasol Delight and Magpie Rewards Competition (sasol-magpie-2026) | 2026-10-21 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
+| Raimondi Birthday Retail Promotion: Win R1,500 (raimondi-retail-1-october-2026) | 2026-10-21 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Ster-Kinekor Silas Watch and Win Competition (ster-kinekor-silas-watch-and-win-2026) | 2026-10-25 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | SPAR Community School Support Competition (spar-community-school-support-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Astron Energy Own a Golf 8 GTI Competition 2026 (astron-energy-own-golf-8-gti-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Cadbury Made to Share: Win R20,000 Weekly (cadbury-made-to-share-2026) | 2026-10-31 | free-entry | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | McMerwe Games: Win a R5,000 Store Voucher (mcmerwe-games-prediction-voucher-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
+| Jockey 150 Competition: Win R15,000 (jockey-150-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | NESCAFÉ Gold Rush SPAR Rewards Competition (nescafe-gold-rush-spar-2026) | 2026-11-08 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Sunlight at SPAR: Win a R100,000 Kitchen Makeover (sunlight-spar-kitchen-makeover-2026) | 2026-11-08 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Pizza Perfect Oom Freddy’s Legacy Hamper Competition (pizza-perfect-oom-freddy-legacy-2026) | 2026-11-14 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
+| Huletts SPAR Rewards Competition 2026 (huletts-spar-rewards-2026) | 2026-11-15 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Eskort Braai-Lux Toyota Hilux Competition (eskort-braai-lux-2026) | 2026-11-22 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Coca-Cola Be a Bok Competition 2026 (coca-cola-fan-can-be-a-bok-2026) | 2026-11-30 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Montego Classic Competition 2026 - Win a Toyota Hilux (montego-classic-win-toyota-hilux-2026) | 2026-11-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
+| Powerade Rugby World Cup 2027 Trip Competition (powerade-rwc-2026) | 2026-12-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 
 Recommended normalisation:
 - Use explicit till-slip, receipt or proof-of-purchase tags instead of relying on broad purchase-required matching.
@@ -135,13 +141,14 @@ Recommended normalisation:
 ## Win Data Competitions in South Africa
 
 - URL: /win-data-competitions-south-africa/
-- Matching active public competitions: 1
+- Matching active public competitions: 2
 - Publication threshold: 3
 - Safe to publish: no
-- Status: held; Only 1 active public match; requires 3.
+- Status: held; Only 2 active public matches; requires 3.
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
+| MTN Share the App & Win: October 2026 Draw (mtn-share-app-october-2026) | 2026-10-31 | account-required | yes | yes | Data or connectivity tag; Data or connectivity prize text | none |
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | Data or connectivity tag | none |
 
 Recommended normalisation:
@@ -151,7 +158,7 @@ Recommended normalisation:
 ## Win Grocery Vouchers in South Africa
 
 - URL: /win-grocery-vouchers-south-africa/
-- Matching active public competitions: 4
+- Matching active public competitions: 6
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -160,7 +167,9 @@ Recommended normalisation:
 |---|---:|---|---|---|---|---|
 | Sea Harvest Say Fish: Win R5,000 Grocery Vouchers (sea-harvest-say-fish-grocery-vouchers-2026) | 2026-10-15 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | SPAR Colgate-Palmolive Win Your Share of R150,000 Competition (spar-colgate-palmolive-r150k-2026) | 2026-10-17 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
+| Raimondi Birthday Retail Promotion: Win R1,500 (raimondi-retail-1-october-2026) | 2026-10-21 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Lancewood Spread & Scoop Competition 2026 (lancewood-spread-scoop-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
+| Huletts SPAR Rewards Competition 2026 (huletts-spar-rewards-2026) | 2026-11-15 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Coca-Cola Returnables: Win Grocery Vouchers (coca-cola-returnables-2026) | 2027-01-31 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 
 Recommended normalisation:
@@ -169,7 +178,7 @@ Recommended normalisation:
 ## Supermarket Competitions in South Africa
 
 - URL: /supermarket-competitions-south-africa/
-- Matching active public competitions: 13
+- Matching active public competitions: 14
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -185,6 +194,7 @@ Recommended normalisation:
 | Boxer & Coca-Cola: Win a Samsung A06 Phone (boxer-coca-cola-samsung-a06-october-2026) | 2026-11-04 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | NESCAFÉ Gold Rush SPAR Rewards Competition (nescafe-gold-rush-spar-2026) | 2026-11-08 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Sunlight at SPAR: Win a R100,000 Kitchen Makeover (sunlight-spar-kitchen-makeover-2026) | 2026-11-08 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
+| Huletts SPAR Rewards Competition 2026 (huletts-spar-rewards-2026) | 2026-11-15 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Eskort Braai-Lux Toyota Hilux Competition (eskort-braai-lux-2026) | 2026-11-22 | purchase-required | yes | yes | Supermarket or grocery entry text | none |
 | Nedbank Greenbacks Checkers Trolley Dash Competition (nedbank-greenbacks-checkers-launch-2026) | 2026-11-30 | account-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Clicks D’Licious Hamper Giveaway (clicks-dlicious-hamper-october-november-2026) | 2026-12-01 | free-entry | yes | yes | Supermarket or grocery entry text | none |

@@ -890,5 +890,62 @@
     "reviewedAt": "2026-10-06",
     "generationPrompt": "Create a landscape 3:2 editorial illustration for a FreeHub listing about a free science fiction and fantasy short story writing contest. Warm ivory paper, midnight blue ink, a pen beside handwritten pages, subtle imaginative stars and a small imagined distant planet emerging from the page. Refined hand-painted illustration, not a photograph. Do not imitate any competition logo or official campaign artwork; no prize money, trophies, brands, contest entry text or endorsement. Include a small clearly legible footer reading exactly 'FreeHub editorial illustration'. This is website editorial artwork, never an eligible contest entry.",
     "referencePage": "https://writersofthefuture.com/enter-writer-contest/"
+  },
+  "huletts-spar-rewards-2026": {
+    "src": "/assets/listings/huletts-spar-rewards-2026.webp",
+    "width": 720,
+    "height": 480,
+    "alt": "Official Huletts SPAR Rewards artwork showing qualifying sugar packs and one of 100 R2,000 voucher prizes",
+    "kind": "official-source",
+    "caption": "Artwork from the official campaign/provider source.",
+    "reviewedAt": "2026-10-08",
+    "sourcePage": "https://www.spar.co.za/competitions/huletts-spar-rewards-competition-2026",
+    "sourceImage": "https://cozy-deer-74f9a4362f.media.strapiapp.com/RM_SPAR_827_hullets_rewards_comp_page_tile_3e97aa1ffc.png"
+  },
+  "powerade-rwc-2026": {
+    "src": "/assets/listings/powerade-rwc-2026.webp",
+    "width": 1200,
+    "height": 675,
+    "alt": "Official Powerade rugby partnership artwork showing a rugby player drinking Powerade",
+    "kind": "official-source",
+    "caption": "Official Powerade rugby partnership artwork; the trip details are set out below.",
+    "reviewedAt": "2026-10-08",
+    "sourcePage": "https://www.coca-cola.com/za/en/brands/powerade-rugby",
+    "sourceImage": "https://www.coca-cola.com/content/dam/onexp/za/en/offerings/powerade-rugby/hero-banner-1_desktop.jpg"
+  },
+  "jockey-150-2026": {
+    "src": "/assets/listings/jockey-150-2026.webp",
+    "width": 1200,
+    "height": 491,
+    "alt": "Official Jockey 150th anniversary campaign banner advertising a R150,000 cash prize pool",
+    "kind": "official-source",
+    "caption": "Artwork from the official campaign/provider source.",
+    "reviewedAt": "2026-10-08",
+    "sourcePage": "https://jockey.co.za/",
+    "sourceImage": "https://jockey.co.za/cdn/shop/files/Frame_3_4_19ee8ae7-783b-431d-8c9c-e5e8b4c83d17.png?v=1788519591&width=3200"
+  },
+  "mtn-share-app-october-2026": {
+    "src": "/assets/listings/mtn-share-app-october-2026.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "FreeHub editorial illustration of two people sharing an app with voucher and data symbols",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration; not official MTN artwork or a real app screen.",
+    "reviewedAt": "2026-10-08",
+    "sourcePage": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn-share-the-app-and-win-competition",
+    "generationMethod": "Built-in image generation",
+    "generationPrompt": "Create a polished landscape 3:2 editorial illustration for FreeHub, a South African consumer information website, for a listing about an MTN app referral prize draw. Show two generic unbranded smartphones side by side, a simple connecting share arrow between them, an abstract voucher card and subtle data-wave symbols. Premium clean paper-cut and soft 3D illustration style, warm ivory background, deep navy, teal and small golden-yellow accents, generous safe margins. A modest headline reads exactly 'APP REFERRAL PRIZE DRAW'. A clear visible footer reads exactly 'FreeHub editorial illustration'. Do not include any MTN or Takealot logo, simulated real app screen, currency amounts, data quantities, cash, smartwatch, QR code, personal information, guaranteed rewards, endorsement or invented product models. This image illustrates referral, vouchers and data as possible draw prizes; it is not official promoter artwork.",
+    "sourceReviewNote": "Official campaign terms page contained no campaign artwork. Labelled subject-specific editorial illustration; no real app UI, unverified prize or promoter endorsement."
+  },
+  "raimondi-retail-1-october-2026": {
+    "src": "/assets/listings/raimondi-retail-1-october-2026.webp",
+    "width": 1200,
+    "height": 1697,
+    "alt": "Official Raimondi birthday retail promotion poster showing participating drinks and a R1,500 shopping voucher prize",
+    "kind": "official-source",
+    "caption": "Artwork from the official campaign/provider source.",
+    "reviewedAt": "2026-10-08",
+    "sourcePage": "https://thebeveragecompany.co.za/raimondi-birthday-retail-promotion-1/",
+    "sourceImage": "https://thebeveragecompany.co.za/wp-content/uploads/2026/09/RAIMONDIS_Birthday_Retail_Promotion_1_2_Oct_-_22_Oct_2026-v2.png"
   }
 }

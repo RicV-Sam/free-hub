@@ -46,7 +46,8 @@ function getCurrentContentBaseline() {
     // Correcting ERA removes the under-threshold airtime vertical; the clean
     // 88c28b8 build also reproduced a pre-existing one-page overcount.
     // Airtime Dash adds the game and its admin review page, both noindex while draft.
-    generatedFileCount: 419 - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    // 8 October: Huletts, Powerade, Jockey, MTN and Raimondi add five reviewed detail pages.
+    generatedFileCount: 424 - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
     sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length + (read('data/airtime-dash.json').enabled ? 1 : 0),
   };
 }
