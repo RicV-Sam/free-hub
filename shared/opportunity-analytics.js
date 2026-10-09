@@ -3,7 +3,11 @@
 
   function sendEvent(name, payload) {
     if (typeof global.gtag === "function") {
-      global.gtag("event", name, payload);
+      // Official-source clicks must also reach the primary FreeHub stream.
+      const parameters = name === "official_source_click"
+        ? { ...payload, send_to: ["G-23P37R20FY", "G-P13C4QZYRG"] }
+        : payload;
+      global.gtag("event", name, parameters);
       return;
     }
     global.dataLayer = global.dataLayer || [];

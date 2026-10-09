@@ -663,6 +663,7 @@ test("Free Stuff parent preserves intent and separates durable resources from op
 });
 
 test("Free Stuff discovery analytics separates pillar and official-source events", async ({ page }) => {
+  await page.route("**/scripts.scriptwrapper.com/**", (route) => route.abort());
   await page.goto("/free-stuff-south-africa/");
   await page.evaluate(() => {
     window.__freehubTestEvents = [];
@@ -679,6 +680,7 @@ test("Free Stuff discovery analytics separates pillar and official-source events
       content_type: "free_samples",
       page_type: "free_stuff_parent",
       destination_path: "/free-samples-south-africa/",
+      send_to: ["G-23P37R20FY", "G-P13C4QZYRG"],
     }],
   ]);
 
@@ -690,6 +692,7 @@ test("Free Stuff discovery analytics separates pillar and official-source events
   expect(events).toHaveLength(1);
   expect(events[0][0]).toBe("event");
   expect(events[0][1]).toBe("official_source_click");
+  expect(events[0][2].send_to).toEqual(["G-23P37R20FY", "G-P13C4QZYRG"]);
   expect(events[0][2]).toMatchObject({
     entity_kind: "resource",
     page_type: "free_stuff_parent",
@@ -710,6 +713,7 @@ test("Free Stuff discovery analytics separates pillar and official-source events
       page_type: "free_stuff_parent",
       content_id: current.featured[0].id,
       destination_path: `/opportunity/${current.featured[0].slug}/`,
+      send_to: ["G-23P37R20FY", "G-P13C4QZYRG"],
     }]]);
   }
 });
@@ -845,6 +849,7 @@ test("voucher reward links emit source-safe discovery analytics", async ({ page 
 });
 
 test("Samples analytics identify the vertical and use parameter-free destinations", async ({ page }) => {
+  await page.route("**/scripts.scriptwrapper.com/**", (route) => route.abort());
   await page.goto("/free-samples-south-africa/");
   await page.evaluate(() => {
     window.__freehubTestEvents = [];
@@ -856,6 +861,7 @@ test("Samples analytics identify the vertical and use parameter-free destination
   let events = await page.evaluate(() => window.__freehubTestEvents);
   expect(events).toHaveLength(1);
   expect(events[0][1]).toBe("official_source_click");
+  expect(events[0][2].send_to).toEqual(["G-23P37R20FY", "G-P13C4QZYRG"]);
   expect(events[0][2]).toMatchObject({ entity_kind: "resource", page_type: "free_samples_vertical" });
   expect(events[0][2].destination_path).toMatch(/^\//);
   expect(events[0][2].destination_path).not.toContain("?");
@@ -872,11 +878,13 @@ test("Samples analytics identify the vertical and use parameter-free destination
       page_type: "free_samples_vertical",
       content_id: "coloplast-speedicath-short-sample",
       destination_path: "/opportunity/coloplast-speedicath-short-sample/",
+      send_to: ["G-23P37R20FY", "G-P13C4QZYRG"],
     }]]);
   }
 });
 
 test("Opportunity detail and measured exit flow remain flag-controlled", async ({ browser, page }) => {
+  await page.route("**/scripts.scriptwrapper.com/**", (route) => route.abort());
   const selected = activeOpportunity || opportunityFixture;
   const detailPath = `/opportunity/${selected.slug}/`;
   const exitPath = `/out/opportunity/${selected.slug}/`;

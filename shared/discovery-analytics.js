@@ -3,7 +3,9 @@
 
   function sendEvent(name, payload) {
     if (typeof global.gtag === "function") {
-      global.gtag("event", name, payload);
+      // GTM configures the primary stream outside gtag's default group.
+      // Preserve Journey delivery while also reaching the Analytics Hub stream.
+      global.gtag("event", name, { ...payload, send_to: ["G-23P37R20FY", "G-P13C4QZYRG"] });
       return;
     }
     global.dataLayer = global.dataLayer || [];

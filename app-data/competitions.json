@@ -808,16 +808,17 @@
       "entryCostLabel": "Purchase required",
       "purchaseRequired": true,
       "entryMethod": "WhatsApp",
-      "eligibility": "Open to South African citizens and permanent residents aged 18 or older who complete a valid qualifying purchase and receipt upload.",
+      "eligibility": "South African citizens and permanent residents; the terms say over 18 but the FAQ says 18 or older. Confirm eligibility with Astron Energy if you are exactly 18.",
       "entrySteps": [
+        "Check the official age conditions and WhatsApp entry hours before making a qualifying purchase. The terms say over 18, while the FAQ says 18 or older; confirm with Astron Energy if you are exactly 18.",
         "Spend at least R600 in one transaction on petrol, diesel and/or lubricants at an Astron Energy forecourt.",
         "WhatsApp the word GTI to 066 479 2431 or scan the official campaign QR code.",
         "Follow the prompts, upload the separate qualifying receipt and keep it available for validation.",
-        "Submit each qualifying entry before 23:59 on 31 October 2026."
+        "The official WhatsApp entry hours are 08:00 to 17:00, Monday to Friday, excluding public holidays. The formal competition close remains 23:59 on Saturday 31 October 2026. Do not rely on a Saturday entry: complete the process within the published weekday hours and obtain the confirmation message, or ask Astron Energy to clarify final entry availability."
       ],
       "officialUrl": "https://www.astronenergy.co.za/win-a-gti",
       "termsUrl": "https://www.astronenergy.co.za/own-a-gti-tscs/",
-      "lastChecked": "2026-08-30",
+      "lastChecked": "2026-10-09",
       "isHighValue": true,
       "isClosingSoon": false
     },
