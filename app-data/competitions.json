@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-08",
+  "asOfDate": "2026-10-09",
   "count": 111,
   "competitions": [
     {
@@ -281,7 +281,7 @@
       "termsUrl": "https://gagasiworld.co.za/sunlight-dirty-dish-competition-terms-and-conditions/",
       "lastChecked": "2026-10-08",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "spar-colgate-palmolive-r150k-2026",
