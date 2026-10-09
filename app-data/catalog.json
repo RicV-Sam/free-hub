@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-09",
-  "count": 15,
+  "count": 45,
   "counts": {
-    "freeStuff": 14,
-    "resources": 14,
+    "freeStuff": 18,
+    "resources": 18,
     "opportunities": 0,
-    "offers": 1
+    "offers": 27
   },
   "items": [
     {
@@ -234,6 +234,70 @@
       "lastChecked": "2026-09-24"
     },
     {
+      "id": "dbe-2026-rainbow-workbooks",
+      "kind": "resource",
+      "title": "Department of Basic Education 2026 Rainbow workbooks",
+      "provider": "Department of Basic Education 2026 Rainbow workbooks",
+      "summary": "The official workbook directory links the 2026 workbooks for terms 1–2 and 3–4.",
+      "category": "school-resources",
+      "categoryLabel": "Free school resources",
+      "officialUrl": "https://www.education.gov.za/Curriculum/LearningandTeachingSupportMaterials%28LTSM%29/Workbooks.aspx",
+      "bestFor": "Parents, teachers and South African school learners",
+      "requirements": [
+        "Choose the correct grade, subject, language and term from the official directory. Digital downloads need internet access; printing has normal paper/printing costs."
+      ],
+      "watchOut": "No free delivery of printed books is promised. Use official DBE links; check that the selected file is the 2026 edition.",
+      "lastChecked": "2026-10-09"
+    },
+    {
+      "id": "siyavula-free-maths-science-practice",
+      "kind": "resource",
+      "title": "Siyavula free Mathematics and Physical Sciences practice",
+      "provider": "Siyavula free Mathematics and Physical Sciences practice",
+      "summary": "Siyavula advertises free online Mathematics and Physical Sciences practice.",
+      "category": "school-resources",
+      "categoryLabel": "Free school resources",
+      "officialUrl": "https://www.siyavula.com/products/learners",
+      "bestFor": "South African learners and parents",
+      "requirements": [
+        "Register a free learner account to use the practice tools; parents can register to track work. Internet access is required."
+      ],
+      "watchOut": "Official July 2026 help specifies zero-rated access on MTN and Cell C; leaving Siyavula can incur data charges. Some networks need a small balance to begin access. Do not promise zero-rating on all networks.",
+      "lastChecked": "2026-10-09"
+    },
+    {
+      "id": "vodacom-free-school-elearning-content",
+      "kind": "resource",
+      "title": "Vodacom free school eLearning content",
+      "provider": "Vodacom free school eLearning content",
+      "summary": "The platform labels school content from grades R–12 as FREE; Vodacom states content and data on the service are free for its customers.",
+      "category": "school-resources",
+      "categoryLabel": "Free school resources",
+      "officialUrl": "https://elearning.vodacom.co.za/",
+      "bestFor": "School learners in grades R–12",
+      "requirements": [
+        "Register/sign in and select the free school-grade sections. A compatible device and internet connection are needed."
+      ],
+      "watchOut": "The platform also advertises premium learning subscriptions. This listing covers only the sections labelled FREE; external links and other networks can incur data costs. Do not sign up to premium content assuming it is free.",
+      "lastChecked": "2026-10-09"
+    },
+    {
+      "id": "hp-life-free-business-digital-courses",
+      "kind": "resource",
+      "title": "HP LIFE free business and digital courses",
+      "provider": "HP LIFE free business and digital courses",
+      "summary": "HP LIFE advertises free business/digital-skills courses in eight languages and free course-completion certificates.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://www.life-global.org/",
+      "bestFor": "Jobseekers, learners and small-business owners",
+      "requirements": [
+        "Join HP LIFE for free and select a course from the official catalogue. Device and internet/data costs remain your responsibility."
+      ],
+      "watchOut": "A completion certificate is not a university qualification, professional licence or guaranteed job. Check each course language and content before starting.",
+      "lastChecked": "2026-10-09"
+    },
+    {
       "id": "mtn-app-first-login-1gb-2026",
       "kind": "deal",
       "title": "Free 1 GB for first login to the new MTN App",
@@ -249,6 +313,477 @@
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "expiresAt": "2026-12-31",
       "lastChecked": "2026-10-04",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "zeitz-mocaa-african-citizen-onsite-rate",
+      "kind": "deal",
+      "title": "R199 onsite admission for African citizens",
+      "provider": "Zeitz MOCAA",
+      "summary": "African citizens can buy a R199 museum admission ticket in person with identification. This is a paid admission discount.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://zeitzmocaa.museum/plan-your-visit/",
+      "termsUrl": "https://zeitzmocaa.museum/plan-your-visit/",
+      "requirements": [
+        "Present a South African ID or African passport and buy onsite at Zeitz MOCAA, V&A Waterfront, Cape Town. The advertised rate took effect on 1 September 2026. It is not the online general-admission rate; no closing date is stated. Check the existing free Wednesday and birthday routes before paying."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "table-mountain-local-is-lekker-october-2026",
+      "kind": "deal",
+      "title": "Table Mountain October adult return ticket for R265",
+      "provider": "Table Mountain Cableway",
+      "summary": "The October Local is Lekker special advertises an adult return ticket for R265 for qualifying South African visitors.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://www.tablemountain.net/plan-your-visit/specials/",
+      "termsUrl": "https://www.tablemountain.net/plan-your-visit/specials/",
+      "requirements": [
+        "Valid 1–31 October 2026. Buy online through the booking link on the official specials page before the day of your visit and bring your South African ID. Paid ticket; this is not free admission. Check final booking charges and operating/weather conditions before paying. This listing covers the adult ticket only; check child-ticket ages and booking fees separately."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-10-31",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "capitec-exclusive-books-live-better-day-cashback",
+      "kind": "deal",
+      "title": "10% Exclusive Books cashback on the 10th of the month",
+      "provider": "Capitec",
+      "summary": "Capitec Live Better members can earn 10% cashback on eligible Exclusive Books purchases made on the 10th.",
+      "category": "banking-rewards",
+      "categoryLabel": "Banking & Rewards",
+      "officialUrl": "https://www.capitecbank.co.za/rewards/spend-better/exclusive-books/",
+      "termsUrl": "https://www.capitecbank.co.za/rewards/spend-better/exclusive-books/",
+      "requirements": [
+        "Join Live Better through the Capitec app, then shop at Exclusive Books in-store or online on the 10th of the month and pay with a Capitec debit, credit or virtual card. Cashback is paid into Live Better savings on the following monthly Live Better day. Cannot be combined with Fanatics Rewards. This requires a paid purchase and an eligible bank account; underlying account fees are separate. No campaign end date is published."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "absa-rewards-nu-metro-half-price-tickets",
+      "kind": "deal",
+      "title": "50% off eligible Nu Metro tickets with Absa Rewards",
+      "provider": "Absa",
+      "summary": "Qualifying Absa Rewards members can receive an upfront half-price ticket discount within their annual allocation.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://www.absa.co.za/personal/bank/absa-rewards/cash-rewards-from-partners/earn-partners/nu-metro/",
+      "termsUrl": "https://www.absa.co.za/personal/bank/absa-rewards/cash-rewards-from-partners/earn-partners/nu-metro/",
+      "requirements": [
+        "Book at the Nu Metro website or participating kiosk, choose Absa Rewards, enter the requested ID details and pay with your eligible Absa card. Annual allocation: 12 standard 2D/3D tickets, 2 VIP tickets and 2 Xtreme tickets. Standard tickets exclude full-VIP Bedford, Hyde Park, Mountain Mill and Woodlands cinemas. VIP: Cornubia, Ballito, Canal Walk, The Glen, The Pavilion, Clearwater, Bedford, Hyde Park, Woodlands, Galleria, Emperors Palace and Menlyn Park. Xtreme: Cornubia, Ballito, Canal Walk, The Glen, Clearwater, Galleria, Emperors Palace and Menlyn Park. Excludes 4DX, alternative/live-event screenings and combining benefits; unused allocations do not carry over. Paid ticket and qualifying bank-account conditions apply."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "cotton-on-perks-r75-voucher-cumulative-spend",
+      "kind": "deal",
+      "title": "Cotton On Perks R75 voucher after R750 eligible spend",
+      "provider": "Cotton On",
+      "summary": "Earn a R75 shopping voucher after R750 cumulative qualifying spend, then meet the separate redemption minimum.",
+      "category": "fashion",
+      "categoryLabel": "Fashion",
+      "officialUrl": "https://cottonon.com/ZA/perks/welcome/",
+      "termsUrl": "https://cottonon.com/ZA/perks/perks-terms.html",
+      "requirements": [
+        "Use your South African Cotton On & Co. Perks membership when buying eligible full-price goods in-store or online. Sale goods, gift cards and donations do not earn points. Online points post after dispatch. Each R75 voucher requires at least R200 spend to redeem; two require R400. Check the expiry printed on each issued voucher. This is a reward for paid shopping, not R75 cash or an unconditional free purchase. Delivery thresholds are assessed after discounts."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "superbalist-firstbuy-r400-off-first-order",
+      "kind": "coupon",
+      "title": "R400 off a first qualifying Superbalist order of R1,000",
+      "provider": "Superbalist",
+      "summary": "Use FIRSTBUY on an eligible first order of at least R1,000. Delivery can still cost extra.",
+      "category": "fashion",
+      "categoryLabel": "Fashion",
+      "officialUrl": "https://superbalist.com/landing/firstbuy",
+      "termsUrl": "https://superbalist.com/terms_and_conditions",
+      "couponCode": "FIRSTBUY",
+      "requirements": [
+        "First-time customers only; one use per customer and one promotion per checkout. Sale and non-shippable products are excluded. Apply FIRSTBUY to eligible items at checkout and confirm acceptance before paying. Free delivery/collection requires a R750 order total after discounts: a R1,000 basket reduced to R600 does not meet that threshold. No fixed campaign end date is stated."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "rocomamas-app-welcome-cheese-bombs-voucher",
+      "kind": "coupon",
+      "title": "RocoMamas welcome Cheese Bombs voucher with R150 spend",
+      "provider": "RocoMamas",
+      "summary": "New Roco App members can receive a voucher for 3 Cheese Bombs, subject to at least R150 spend.",
+      "category": "restaurants-takeaways",
+      "categoryLabel": "Restaurants & Takeaways",
+      "officialUrl": "https://cms.rocomamas.com/uploads/Updated_31_July_2025_Rococmamas_Rewards_App_Terms_and_Conditions_37e3ff75f8.pdf",
+      "termsUrl": "https://cms.rocomamas.com/uploads/Updated_31_July_2025_Rococmamas_Rewards_App_Terms_and_Conditions_37e3ff75f8.pdf",
+      "requirements": [
+        "Download and register through the Roco App; the voucher loads after successful registration and is valid for 3 months. Redeem using the app identification/OTP process with a R150 or larger qualifying bill. Personal and non-transferable; eligible South African restaurants support on-premises, call-and-collect and Click & Collect. Adult/guardian and staff-exclusion terms apply. This is a gift with paid dining, not a standalone free meal."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "colcacchio-kids-meal-with-qualifying-adult-main",
+      "kind": "deal",
+      "title": "Col’Cacchio kids meal with a qualifying adult main",
+      "provider": "Col’Cacchio",
+      "summary": "Selected branches offer one Bambini meal for a child aged 12 or under with one qualifying full-price adult main.",
+      "category": "restaurants-takeaways",
+      "categoryLabel": "Restaurants & Takeaways",
+      "officialUrl": "https://www.colcacchio.co.za/promo-terms",
+      "termsUrl": "https://www.colcacchio.co.za/promo-terms",
+      "requirements": [
+        "One child meal per full-priced standard adult main; Piccolo and discounted adult mains are excluded. Stock and participating-branch restrictions apply; do not combine with other promotions. Verified windows: Blouberg, Durbanville, Paardevlei, The Grove and Willowbridge Monday–Friday until 18:00; Canal Walk Monday–Sunday 16:00–19:00; Belvedere, Meadowridge and Stellenbosch all day daily. Haasendal is excluded because the official page lists conflicting windows. The adult meal must be purchased."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "clicks-babyclub-four-percent-cashback",
+      "kind": "deal",
+      "title": "Clicks BabyClub 4% cashback on most baby products",
+      "provider": "Clicks",
+      "summary": "Eligible BabyClub members earn 4% ClubCard cashback on most baby products, excluding legislated products.",
+      "category": "baby-kids",
+      "categoryLabel": "Baby & Kids",
+      "officialUrl": "https://clicks.co.za/clubcard/babyclub",
+      "termsUrl": "https://clicks.co.za/clubcard/babyclub",
+      "requirements": [
+        "Join Clicks BabyClub using your ClubCard membership. The official eligibility is expectant mothers, parents or guardians with children under 36 months. Earn on eligible paid purchases; the benefit is ClubCard cashback under the programme rules, not free products or guaranteed cash withdrawal. Legislated products are excluded. Check the eligible item and current ClubCard redemption rules before shopping."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "clicks-seniors-wednesday-four-percent-cashback",
+      "kind": "deal",
+      "title": "Clicks Seniors Wednesday 4% cashback",
+      "provider": "Clicks",
+      "summary": "Clicks advertises double cashback, 4%, on Wednesdays for eligible Seniors Club members.",
+      "category": "beauty-health",
+      "categoryLabel": "Beauty & Health",
+      "officialUrl": "https://clicks.co.za/seniors-club",
+      "termsUrl": "https://help.clicks.co.za/support/solutions/articles/80000958589-how-do-i-become-a-seniors-club-member-",
+      "requirements": [
+        "Use your ClubCard on qualifying Wednesday purchases. The consumer page says over 60, while the official help article says automatic enrolment at age 60 when the profile has a date of birth or ID. This conservative draft is restricted to members over 60; anyone exactly 60 should confirm enrolment before relying on the reward. Paid purchases and standard ClubCard product/redemption restrictions apply; this is programme cashback, not an unconditional free shopping voucher."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "dermastore-dermapoints-future-order-discount",
+      "kind": "deal",
+      "title": "Dermastore DermaPoints towards a later purchase",
+      "provider": "Dermastore",
+      "summary": "Registered members can earn points described by Dermastore as roughly 5% of the previous order total.",
+      "category": "beauty-health",
+      "categoryLabel": "Beauty & Health",
+      "officialUrl": "https://help.dermastore.co.za/en/articles/373735-how-do-i-earn-dermapoints",
+      "termsUrl": "https://help.dermastore.co.za/en/articles/373735-how-do-i-earn-dermapoints",
+      "requirements": [
+        "Shop while signed into a registered Dermastore account; guest checkout does not earn points. Points can only be redeemed after the first completed purchase. The published conversion is 100 points for R10 discount; maximum redemption is 5,000 points/R500 per order. Points expire 12 months after earning. Certain promotions do not earn points; use the amount shown for the selected product. This requires paid purchases and is not a guaranteed exact 5% return on every item."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "mtn-ayoba-monthly-app-data",
+      "kind": "deal",
+      "title": "MTN monthly 1GB data for eligible ayoba activity",
+      "provider": "MTN",
+      "summary": "MTN terms offer 1GB monthly for eligible activity inside ayoba, capped at 250MB per day.",
+      "category": "mobile-data",
+      "categoryLabel": "Mobile & Data",
+      "officialUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/ayoba-tandcs",
+      "termsUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/ayoba-tandcs",
+      "requirements": [
+        "For MTN subscribers using ayoba. The monthly allocation is made on the 1st and unused data is forfeited by the last calendar day; no transfer or sharing. Eligible activities include ayoba chat, media and channels; the terms separately limit ayoba-browser browsing to 00:00–04:59. It is not general-purpose 1GB data. Voice/video over IP can be excluded, and external or otherwise ineligible activity can incur normal data charges. Do not promise free calls or unrestricted browsing."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "table-mountain-south-african-senior-return-ticket",
+      "kind": "deal",
+      "title": "Table Mountain South African senior return ticket for R130",
+      "provider": "Table Mountain Cableway",
+      "summary": "Qualifying South African senior visitors can buy an onsite return ticket for R130.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://www.tablemountain.net/plan-your-visit/specials/",
+      "termsUrl": "https://www.tablemountain.net/plan-your-visit/specials/",
+      "requirements": [
+        "The published rate is valid 1 July 2026–30 June 2027. Buy at the ticket office and bring a South African ID; the rate table specifies 60+ even though adjacent prose says over 60. Check eligibility at the office if exactly 60. This is paid admission; the senior special is not sold online. Operating and weather conditions apply."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2027-06-30",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "capitec-cashbuild-one-percent-cashback",
+      "kind": "deal",
+      "title": "1% Cashbuild cashback for Capitec Rewards members",
+      "provider": "Capitec",
+      "summary": "Eligible Capitec card purchases at Cashbuild can earn 1% cashback.",
+      "category": "banking-rewards",
+      "categoryLabel": "Banking & Rewards",
+      "officialUrl": "https://www.capitecbank.co.za/rewards/spend-better/cashbuild/",
+      "termsUrl": "https://www.capitecbank.co.za/rewards/spend-better/cashbuild/",
+      "requirements": [
+        "Join Capitec Rewards in the app or at a branch and pay at Cashbuild in-store or online with a Capitec debit, credit or virtual card. Cashback goes to Live Better savings on the following monthly Live Better day. Requires an eligible bank account and a paid purchase; account fees are separate. No fixed benefit end date is published."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "capitec-tiger-wheel-tyre-cashback",
+      "kind": "deal",
+      "title": "2.5% Tiger Wheel & Tyre cashback with Capitec",
+      "provider": "Capitec",
+      "summary": "Eligible Capitec Rewards purchases can earn 2.5% cashback, capped at R125 per transaction per day.",
+      "category": "banking-rewards",
+      "categoryLabel": "Banking & Rewards",
+      "officialUrl": "https://www.capitecbank.co.za/rewards/spend-better/tiger-wheel-tyre/",
+      "termsUrl": "https://www.capitecbank.co.za/rewards/spend-better/tiger-wheel-tyre/",
+      "requirements": [
+        "Join Capitec Rewards and pay at participating Tiger Wheel & Tyre stores using an eligible Capitec card. The official cap is R125 per transaction per day; do not advertise unlimited 2.5% back. Cashback is paid into Live Better savings on the following monthly Live Better day. Paid goods/services and underlying bank-account fees are separate. Check current partner eligibility before paying."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "ster-kinekor-sk-club-half-price-tuesday",
+      "kind": "deal",
+      "title": "Ster-Kinekor SK Club half-price Tuesdays",
+      "provider": "Ster-Kinekor",
+      "summary": "SK Club members can receive a 50% ticket discount on Tuesdays under the club rules.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://www.sterkinekor.com/club-terms-and-conditions",
+      "termsUrl": "https://www.sterkinekor.com/club-terms-and-conditions",
+      "requirements": [
+        "Register for SK Club and use your membership number when booking a qualifying Tuesday ticket. The definition limits the benefit to one ticket for each unique show time; the reward section also says members may not watch the same movie more than once with the membership number. Published formats include 2D, 3D, IMAX, Cine Prestige, APEX and Kids’ Cinema. Availability and film age restrictions apply; 3D glasses are extra. Do not combine with The Epic Deal or other incompatible promotions. Adult identity or guardian-consent membership rules apply; the ticket remains paid."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "ster-kinekor-seniors-twenty-percent-ticket-saving",
+      "kind": "deal",
+      "title": "Ster-Kinekor Seniors 20% ticket saving",
+      "provider": "Ster-Kinekor",
+      "summary": "SK Seniors Club members aged 60 and over can receive 20% off tickets on days other than Tuesday.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://www.sterkinekor.com/club-terms-and-conditions",
+      "termsUrl": "https://www.sterkinekor.com/club-terms-and-conditions",
+      "requirements": [
+        "Use an eligible SK Seniors Club membership number when booking. Tuesdays use the separate half-price benefit instead of an extra stacked 20% discount. Seniors membership does not earn the ordinary SK Club points; existing points must be redeemed 7 days before switching or are forfeited. Paid tickets, seat availability, screening age restrictions and extra 3D-glasses charges apply."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "ster-kinekor-epic-deal-weekday-ticket-combo",
+      "kind": "deal",
+      "title": "Ster-Kinekor weekday Epic Deal for R169.90",
+      "provider": "Ster-Kinekor",
+      "summary": "SK Club offers a paid bundle of one 2D/3D ticket, regular popcorn and a regular drink for R169.90.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://www.sterkinekor.com/club-terms-and-conditions",
+      "termsUrl": "https://www.sterkinekor.com/club-terms-and-conditions",
+      "requirements": [
+        "For SK Club members, Monday–Friday only. Drink choices are regular soda, water or Slush. Excludes IMAX, Cine Prestige, APEX and D-Box; 3D glasses are extra. Cannot be combined with half-price Tuesday. Membership, seat availability and screening age restrictions apply. This is an advertised bundle offer, not a free cinema ticket; no independently verified savings percentage is claimed."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "capitec-getsmarter-south-african-course-fee-reduction",
+      "kind": "deal",
+      "title": "R4,000 off eligible GetSmarter courses through Capitec",
+      "provider": "Capitec",
+      "summary": "Capitec advertises a R4,000 fee reduction on eligible South African university short courses bought through its app.",
+      "category": "other",
+      "categoryLabel": "Other",
+      "officialUrl": "https://www.capitecbank.co.za/rewards/spend-better/getsmarter/",
+      "termsUrl": "https://www.capitecbank.co.za/rewards/spend-better/getsmarter/",
+      "requirements": [
+        "Use the GetSmarter widget in the Capitec app and pay with the eligible Capitec card. Direct bookings on the GetSmarter website do not qualify. The narrower eligibility clause restricts the reduction to courses from South African universities, despite broader university names in marketing. Pay the remaining course fee in full on registration. Check course-specific total cost, prerequisites and refund terms before paying. This is a discount on a paid course, not free training."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "krispy-kreme-app-chiller-tuesday-pair-discount",
+      "kind": "coupon",
+      "title": "50% off two 350ml chillers on Krispy Kreme Tuesdays",
+      "provider": "Krispy Kreme",
+      "summary": "The KKSA app Tuesday voucher offers 50% off a pair of qualifying 350ml chillers or frozen lemonades.",
+      "category": "restaurants-takeaways",
+      "categoryLabel": "Restaurants & Takeaways",
+      "officialUrl": "https://krispykremesa.com/terms-and-conditions/",
+      "termsUrl": "https://krispykremesa.com/terms-and-conditions/",
+      "requirements": [
+        "Use the Tuesday voucher in the KKSA app Offers tab and redeem in a participating shop. Requires purchase of two qualifying 350ml drinks. Personal/non-transferable, stock dependent and cannot be combined with other promotions. Not an offer for one free drink or an unrestricted discount on every drink size."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "rocomamas-qualifying-birthday-r50-voucher",
+      "kind": "coupon",
+      "title": "RocoMamas R50 birthday voucher after qualifying visits",
+      "provider": "RocoMamas",
+      "summary": "Roco Rewards members can receive a R50 birthday voucher after three qualifying R250 visits in the preceding year.",
+      "category": "restaurants-takeaways",
+      "categoryLabel": "Restaurants & Takeaways",
+      "officialUrl": "https://cms.rocomamas.com/uploads/Updated_31_July_2025_Rococmamas_Rewards_App_Terms_and_Conditions_37e3ff75f8.pdf",
+      "termsUrl": "https://cms.rocomamas.com/uploads/Updated_31_July_2025_Rococmamas_Rewards_App_Terms_and_Conditions_37e3ff75f8.pdf",
+      "requirements": [
+        "Identify each visit using the app/OTP: at least 3 visits, each costing R250 or more, in the 12 months before your birthday. One cumulative R750 bill does not satisfy the three-visit rule. The personal voucher loads on the birthday and is valid for 31 days afterwards; redeem on-premises or through Click & Collect in South Africa. Check the issued voucher minimum bill and exclusions before redeeming; no cash change or tip payment. Adult/guardian and staff-exclusion rules apply. This is conditional on prior paid dining."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "seattle-coffee-loyalty-eleventh-beverage",
+      "kind": "deal",
+      "title": "Seattle Coffee loyalty: buy ten beverages, earn the eleventh",
+      "provider": "Seattle Coffee Company",
+      "summary": "Seattle’s loyalty programme gives one point per paid beverage and a free beverage after ten points.",
+      "category": "restaurants-takeaways",
+      "categoryLabel": "Restaurants & Takeaways",
+      "officialUrl": "https://www.seattlecoffeecompany.co.za/?faqs=loyalty-program",
+      "termsUrl": "https://www.seattlecoffeecompany.co.za/?faqs=loyalty-program",
+      "requirements": [
+        "Register online or in-store and enter your loyalty number at the till on each paid beverage purchase. At 10 points the balance resets and one free beverage is added. The FAQ permits any menu beverage including extras. You can accrue points during a till connectivity outage, but cannot redeem the free beverage until service is available. No unverified cash value or guaranteed perpetual expiry is claimed. This is a reward after paid purchases."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "colcacchio-selected-branch-happy-hour-drink-pair",
+      "kind": "deal",
+      "title": "Col’Cacchio selected-branch 2-for-1 happy hour",
+      "provider": "Col’Cacchio",
+      "summary": "Selected Col’Cacchio restaurants advertise a 2-for-1 happy hour from 16:00 to 19:00 daily.",
+      "category": "restaurants-takeaways",
+      "categoryLabel": "Restaurants & Takeaways",
+      "officialUrl": "https://www.colcacchio.co.za/promo-terms",
+      "termsUrl": "https://www.colcacchio.co.za/promo-terms",
+      "requirements": [
+        "Participating branches: Cavendish, Canal Walk, Durbanville, Florida Road, Haasendal, Old Biscuit Mill GO, Paardevlei, Salt Rock, Stellenbosch and Willowbridge. Eligible categories are cocktails, mocktails and draughts, with branch exceptions: Canal Walk mocktails only; Florida Road cocktails/mocktails only; Old Biscuit Mill GO and Salt Rock draughts are Stella only. No stacking with other promotions. Confirm the eligible pair, price and stock at the selected branch before ordering. Alcoholic options are for adults; mocktails are available. Paid purchase; not nationwide or an unconditional free drink."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "sasol-rewards-fuel-and-store-points",
+      "kind": "deal",
+      "title": "Sasol Rewards points on fuel and eligible store purchases",
+      "provider": "Sasol",
+      "summary": "Registered members can earn 30 points per litre of fuel and 1 point per R2 spent on eligible convenience-store goods.",
+      "category": "banking-rewards",
+      "categoryLabel": "Banking & Rewards",
+      "officialUrl": "https://sasolrewards.co.za/",
+      "termsUrl": "https://sasolrewards.co.za/pages/terms-and-conditions",
+      "requirements": [
+        "Register for free and identify your rewards membership when buying at a participating Sasol site. Not all Sasol sites participate. The earning caps apply to 100 litres of fuel and R1,500 eligible convenience-store spend in 24 hours. Points expire after 18 months. Excluded fleet/payment arrangements and product exclusions apply; check the official rules before buying. Points are programme rewards; this listing does not equate 30 points with 30 cents or claim cash withdrawal. Paid purchases are required."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "kirstenbosch-south-african-senior-free-tuesday",
+      "kind": "deal",
+      "title": "Kirstenbosch free Tuesdays for qualifying South African seniors",
+      "provider": "Kirstenbosch",
+      "summary": "Kirstenbosch lists free Tuesday entry for South African residents over 60, except on public holidays.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://www.sanbi.org/gardens/kirstenboch/visitor-information/information/",
+      "termsUrl": "https://www.sanbi.org/gardens/kirstenboch/visitor-information/information/",
+      "requirements": [
+        "Bring identification proving age and South African residency to Kirstenbosch. The visitor fee table specifies residents over 60; the concession does not cover all seniors worldwide or every SANBI garden. Tuesday public holidays are excluded. Check separately for special-event admission and any transport or other costs. No paid garden membership is stated as a prerequisite for this specific Tuesday concession."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "american-tourister-newsletter-first-order-discount",
+      "kind": "coupon",
+      "title": "10% off a first American Tourister online order of R1,000",
+      "provider": "American Tourister",
+      "summary": "Newsletter subscribers can obtain a one-use 10% discount for an eligible first online order of at least R1,000.",
+      "category": "travel",
+      "categoryLabel": "Travel",
+      "officialUrl": "https://americantourister.co.za/newsletter-signup/",
+      "termsUrl": "https://americantourister.co.za/newsletter-signup/",
+      "requirements": [
+        "Sign up on the official South African newsletter page to receive the personal code; use it within 3 months of newsletter signup. Online first order only, one use and no combining with offers/promotions. Excludes Airconic, Starvibe, Dashpop, Fast Forward and Soundbox Alu collections. Check final shipping charges after the discount; Check the delivery threshold after the discount; free delivery is not guaranteed."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-09",
       "isAffiliate": false,
       "isSponsored": false
     }

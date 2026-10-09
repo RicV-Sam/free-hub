@@ -4,7 +4,7 @@
   "title": "Freehub verified coupon or deal",
   "type": "object",
   "additionalProperties": false,
-  "required": ["id", "slug", "type", "brand", "brandSlug", "title", "summary", "destinationUrl", "sourceUrl", "category", "lastChecked", "reviewDueAt", "terms", "publicationStatus", "verificationStatus", "country", "affiliate", "sponsored", "publishedAt", "updatedAt"],
+  "required": ["id", "slug", "type", "brand", "brandSlug", "title", "summary", "destinationUrl", "sourceUrl", "category", "lastChecked", "reviewDueAt", "terms", "publicationStatus", "verificationStatus", "country", "affiliate", "sponsored", "updatedAt"],
   "properties": {
     "id": { "type": "string", "minLength": 1 },
     "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
@@ -34,6 +34,7 @@
     "updatedAt": { "type": "string", "format": "date" }
   },
   "allOf": [
+    { "if": { "properties": { "publicationStatus": { "const": "published" } }, "required": ["publicationStatus"] }, "then": { "properties": { "publishedAt": {} }, "required": ["publishedAt"] } },
     { "if": { "properties": { "type": { "const": "coupon" } } }, "then": { "properties": { "couponCode": {}, "couponInstructions": {} }, "oneOf": [{ "properties": { "couponCode": {} }, "required": ["couponCode"] }, { "properties": { "couponInstructions": {} }, "required": ["couponInstructions"] }] } },
     { "if": { "properties": { "type": { "const": "deal" } } }, "then": { "properties": { "couponCode": {}, "couponInstructions": {} }, "not": { "anyOf": [{ "properties": { "couponCode": {} }, "required": ["couponCode"] }, { "properties": { "couponInstructions": {} }, "required": ["couponInstructions"] }] } } },
     { "if": { "properties": { "affiliate": { "const": true } } }, "then": { "properties": { "affiliateNetwork": {} }, "required": ["affiliateNetwork"] } }

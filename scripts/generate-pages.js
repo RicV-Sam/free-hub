@@ -1351,6 +1351,7 @@ const TRUST_PAGE_DEFINITIONS = [
     dateModified: "2026-08-20",
     resourceCategories: [
       "online-courses",
+      ...(FREE_RESOURCES.some((resource) => resource.category === "school-resources") ? ["school-resources"] : []),
       "childrens-books",
       "credit-report",
       "samples",
@@ -7466,6 +7467,9 @@ function renderFreeStuffParentContent({ page, pageResources, featuredOpportuniti
 function renderGroupedFreeResources(resources) {
   const groups = [
     { id: "childrens-books", heading: "Read with children" },
+    ...(resources.some((resource) => resource.category === "school-resources")
+      ? [{ id: "school-resources", heading: "Find school learning resources" }]
+      : []),
     { id: "online-courses", heading: "Learn a skill" },
     { id: "credit-report", heading: "Check your credit report" },
     { id: "consumer-support", heading: "Get consumer support" },
@@ -8719,7 +8723,7 @@ function renderTrustPage(page) {
         eyebrow: page.eyebrow || "Freehub trust",
         heading: page.heading,
         intro: page.intro,
-        actions: page.actions || [
+        actions: page.actions ? page.actions.filter((action) => !action.requiresOffers || OFFERS_ENABLED) : [
           { label: "Browse Competitions", href: "/competitions/", className: "btn--primary" },
           { label: "Safety Guide", href: "/how-to-enter-competitions-safely/", className: "btn--secondary" },
         ],
@@ -10604,7 +10608,7 @@ function buildTrustPageServiceStructuredData(page, canonicalUrl) {
 
 function getTrustPageUsefulLinks(page) {
   if (Array.isArray(page.links) && page.links.length > 0) {
-    return page.links;
+    return page.links.filter((link) => !link.requiresOffers || OFFERS_ENABLED);
   }
 
   return [

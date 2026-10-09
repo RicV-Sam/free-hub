@@ -79,6 +79,7 @@
     ["startsAt", "expiresAt", "publishedAt"].forEach((field) => {
       if (offer[field] !== undefined && !isIsoDate(offer[field])) errors.push(`${field} must be a valid YYYY-MM-DD date when present.`);
     });
+    if (offer.publicationStatus === "published" && !isIsoDate(offer.publishedAt)) errors.push("publishedAt is required for published offers.");
     if (offer.type === "coupon" && (isNonEmptyString(offer.couponCode) === isNonEmptyString(offer.couponInstructions))) errors.push("coupon offers require exactly one of couponCode or couponInstructions.");
     if (offer.couponCode !== undefined && !isNonEmptyString(offer.couponCode)) errors.push("couponCode must be a non-empty string.");
     if (offer.couponInstructions !== undefined && !isNonEmptyString(offer.couponInstructions)) errors.push("couponInstructions must be a non-empty string.");

@@ -1,0 +1,2327 @@
+{
+  "batchId": "free-offers-2026-10-09",
+  "reviewedAt": "2026-10-09",
+  "sourceWorkbook": "FreeHub_Free_Offers_Coupons_Deals_2026-10-09.xlsx",
+  "sourceWorkbookSha256": "daf24dbe378cff341aa0aeded1b26627b93072b14cc6710b5a9bc6762628922a",
+  "publicationStatus": "published",
+  "scope": "User-authorized publication of 26 reviewed offers and four free resources. Other leads remain held, monitored, excluded or existing matches.",
+  "corrections": [
+    "Faithful to Nature current primary page states SHOP4GOOD; the imported welcome code must not be copied.",
+    "Cell C PDF states 250kb, not 250MB; confirm its displayed allocation before publication.",
+    "Superbalist free-delivery threshold is after discounts.",
+    "Bash official lowest tier is below R400; exact R400 boundary is not established.",
+    "GetSmarter eligibility clause is South African universities only.",
+    "ColCacchio Haasendal kids-meal time windows conflict; excluded from the prepared branch list.",
+    "Clicks senior page says over 60 but its help article says enrolment at 60; conservative draft is restricted to over 60."
+  ],
+  "leads": [
+    {
+      "leadId": "MO08",
+      "workbookRow": 10,
+      "title": "Zeitz MOCAA African citizen onsite rate R199",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "zeitz-mocaa-african-citizen-onsite-rate",
+      "officialUrl": "https://zeitzmocaa.museum/plan-your-visit/",
+      "termsUrl": "https://zeitzmocaa.museum/plan-your-visit/",
+      "sourceChecks": [
+        {
+          "url": "https://zeitzmocaa.museum/plan-your-visit/",
+          "httpStatus": 200,
+          "captureSha256": "390e4b6fad937678cb30117b8a185372f9bb5c9a3bf051334bc8d9ea74508e83",
+          "captureKey": "bd943787761868"
+        }
+      ]
+    },
+    {
+      "leadId": "MO02",
+      "workbookRow": 11,
+      "title": "Table Mountain Local is Lekker — October 2026",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "table-mountain-local-is-lekker-october-2026",
+      "officialUrl": "https://www.tablemountain.net/plan-your-visit/specials/",
+      "termsUrl": "https://www.tablemountain.net/plan-your-visit/specials/",
+      "sourceChecks": [
+        {
+          "url": "https://www.tablemountain.net/plan-your-visit/specials/",
+          "httpStatus": 200,
+          "captureSha256": "0bacf67d06c6bdaee937f94cf5bd9fba558edc3b589ac9f876d9e0f7dc776761",
+          "captureKey": "dc0f6204cad63c"
+        }
+      ]
+    },
+    {
+      "leadId": "MO04",
+      "workbookRow": 12,
+      "title": "Two Oceans Aquarium birthday-month free visit",
+      "workbookStatus": "Verified current",
+      "decision": "existing-record",
+      "reason": "Exact benefit already exists in the local opportunities registry. No duplicate added; existing lifecycle/review state was preserved.",
+      "recordId": "two-oceans-aquarium-birthday-entry",
+      "officialUrl": "https://www.aquarium.co.za/specials/free-entry-on-your-birthday",
+      "termsUrl": "https://www.aquarium.co.za/specials/free-entry-on-your-birthday",
+      "sourceChecks": [
+        {
+          "url": "https://www.aquarium.co.za/specials/free-entry-on-your-birthday",
+          "httpStatus": 200,
+          "captureSha256": "fd0dd381251e8278e7dd1c5a963683a69d1e91afa83b6dfa601838098d0969d7",
+          "captureKey": "c65c557c231015"
+        }
+      ]
+    },
+    {
+      "leadId": "TO25",
+      "workbookRow": 13,
+      "title": "Capitec Rewards: 10% cashback at Exclusive Books on the 10th",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "capitec-exclusive-books-live-better-day-cashback",
+      "officialUrl": "https://www.capitecbank.co.za/rewards/spend-better/exclusive-books/",
+      "termsUrl": "https://www.capitecbank.co.za/rewards/spend-better/exclusive-books/",
+      "sourceChecks": [
+        {
+          "url": "https://www.capitecbank.co.za/rewards/spend-better/exclusive-books/",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "TO16",
+      "workbookRow": 14,
+      "title": "Absa Rewards: 50% off allocated Nu Metro tickets",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "absa-rewards-nu-metro-half-price-tickets",
+      "officialUrl": "https://www.absa.co.za/personal/bank/absa-rewards/cash-rewards-from-partners/earn-partners/nu-metro/",
+      "termsUrl": "https://www.absa.co.za/personal/bank/absa-rewards/cash-rewards-from-partners/earn-partners/nu-metro/",
+      "sourceChecks": [
+        {
+          "url": "https://www.absa.co.za/personal/bank/absa-rewards/cash-rewards-from-partners/earn-partners/nu-metro/",
+          "httpStatus": 200,
+          "captureSha256": "87555eab5dc83bc39f6e004af53481ca1853557eee66302de57ecc8dde6e0609",
+          "captureKey": "6483f7e57a0434"
+        }
+      ]
+    },
+    {
+      "leadId": "TO17",
+      "workbookRow": 15,
+      "title": "Capitec Rewards: three months of Spotify Premium for eligible new listeners",
+      "workbookStatus": "Verified current",
+      "decision": "existing-record",
+      "reason": "Exact benefit already exists in the local offers registry. No duplicate added; existing lifecycle/review state was preserved.",
+      "recordId": "capitec-spotify-three-months-free",
+      "officialUrl": "https://www.capitecbank.co.za/rewards/spend-better/spotify/",
+      "termsUrl": "https://www.capitecbank.co.za/rewards/spend-better/spotify/",
+      "sourceChecks": [
+        {
+          "url": "https://www.capitecbank.co.za/rewards/spend-better/spotify/",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "RO22",
+      "workbookRow": 16,
+      "title": "Cotton On Perks: 20% off first online order",
+      "workbookStatus": "Verified current",
+      "decision": "hold",
+      "reason": "The detailed emailed coupon terms were not captured; no signup was performed.",
+      "recordId": null,
+      "officialUrl": "https://cottonon.com/ZA/perks/welcome/",
+      "termsUrl": "https://cottonon.com/ZA/perks/perks-terms.html",
+      "sourceChecks": [
+        {
+          "url": "https://cottonon.com/ZA/perks/welcome/",
+          "httpStatus": 200,
+          "captureSha256": "282f98d3328e48c9911f13a0e8708be6f10b3b7c7d04791be5ad21cc4b31d8c4",
+          "captureKey": "f09c1b695e3697"
+        },
+        {
+          "url": "https://cottonon.com/ZA/perks/perks-terms.html",
+          "httpStatus": 200,
+          "captureSha256": "ce9938f02df775880b603492daa40337bd4c0ef28c02d84c7a7f32ca3fc8c265",
+          "captureKey": "0f11b411bf3e6f"
+        }
+      ]
+    },
+    {
+      "leadId": "RO23",
+      "workbookRow": 17,
+      "title": "Cotton On Perks: R 75 reward for every R 750 qualifying spend",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "cotton-on-perks-r75-voucher-cumulative-spend",
+      "officialUrl": "https://cottonon.com/ZA/perks/welcome/",
+      "termsUrl": "https://cottonon.com/ZA/perks/perks-terms.html",
+      "sourceChecks": [
+        {
+          "url": "https://cottonon.com/ZA/perks/welcome/",
+          "httpStatus": 200,
+          "captureSha256": "282f98d3328e48c9911f13a0e8708be6f10b3b7c7d04791be5ad21cc4b31d8c4",
+          "captureKey": "f09c1b695e3697"
+        },
+        {
+          "url": "https://cottonon.com/ZA/perks/perks-terms.html",
+          "httpStatus": 200,
+          "captureSha256": "ce9938f02df775880b603492daa40337bd4c0ef28c02d84c7a7f32ca3fc8c265",
+          "captureKey": "0f11b411bf3e6f"
+        }
+      ]
+    },
+    {
+      "leadId": "RO20",
+      "workbookRow": 18,
+      "title": "Bash Shop.Swipe.Unlock guaranteed first-order voucher",
+      "workbookStatus": "Verified current",
+      "decision": "hold",
+      "reason": "Official tier table starts below R400, not at or below R400 as the workbook says. The exact R400 boundary and some tier gaps are unresolved; do not promise a voucher tier.",
+      "recordId": null,
+      "officialUrl": "https://help.bash.com/support/solutions/articles/101000595585-shop-swipe-unlock-faq",
+      "termsUrl": "https://help.bash.com/support/solutions/articles/101000595582-terms-and-conditions-for-the-%E2%80%9Cshop-swipe-unlock%E2%80%9D-tfg-rewards-campaign",
+      "sourceChecks": [
+        {
+          "url": "https://help.bash.com/support/solutions/articles/101000595585-shop-swipe-unlock-faq",
+          "httpStatus": 200,
+          "captureSha256": "65999ae384a4b4bbff8e11ebc245dc459fa24c40296a168bafb8c8da96bb6a62",
+          "captureKey": "0644bd63240806"
+        },
+        {
+          "url": "https://help.bash.com/support/solutions/articles/101000595582-terms-and-conditions-for-the-%E2%80%9Cshop-swipe-unlock%E2%80%9D-tfg-rewards-campaign",
+          "httpStatus": 200,
+          "captureSha256": "b7feef7141d58e0ee481207ab7e80d289ae019192106d4f43367db5bcc3eac56",
+          "captureKey": "3c93eea686f6ad"
+        }
+      ]
+    },
+    {
+      "leadId": "RO21",
+      "workbookRow": 19,
+      "title": "H&M garment donation: 15% off next in-store item",
+      "workbookStatus": "Verified current",
+      "decision": "hold",
+      "reason": "Printed voucher expiry, product exclusions and per-visit limits were not available in the public page.",
+      "recordId": null,
+      "officialUrl": "https://social.hm.com/en_ZA/garment-collecting",
+      "termsUrl": "https://social.hm.com/en_ZA/garment-collecting",
+      "sourceChecks": [
+        {
+          "url": "https://social.hm.com/en_ZA/garment-collecting",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "GO02",
+      "workbookRow": 20,
+      "title": "Mr Price: R100 off your first app order of R500+",
+      "workbookStatus": "Verified current",
+      "decision": "existing-record",
+      "reason": "Exact benefit already exists in the local offers registry. No duplicate added; existing lifecycle/review state was preserved.",
+      "recordId": "mr-price-app-first-order-r100-off",
+      "officialUrl": "https://www.mrp.com/en_za/features/the-mrp-fashion-app/",
+      "termsUrl": "https://www.mrp.com/customer-service/faqs",
+      "sourceChecks": [
+        {
+          "url": "https://www.mrp.com/en_za/features/the-mrp-fashion-app/",
+          "httpStatus": 200,
+          "captureSha256": "bde0b798caca5dd49a3740f73cf94340adafdd62b81ec35e249d99514530f7e0",
+          "captureKey": "990ac82ab165fc"
+        },
+        {
+          "url": "https://www.mrp.com/customer-service/faqs",
+          "httpStatus": 200,
+          "captureSha256": "bde0b798caca5dd49a3740f73cf94340adafdd62b81ec35e249d99514530f7e0",
+          "captureKey": "33edd8eb6d7453"
+        }
+      ]
+    },
+    {
+      "leadId": "GO01",
+      "workbookRow": 21,
+      "title": "Superbalist: R400 off your first R1,000 order",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "superbalist-firstbuy-r400-off-first-order",
+      "officialUrl": "https://superbalist.com/landing/firstbuy",
+      "termsUrl": "https://superbalist.com/terms_and_conditions",
+      "sourceChecks": [
+        {
+          "url": "https://superbalist.com/landing/firstbuy",
+          "accessError": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://superbalist.com/terms_and_conditions",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "MO15",
+      "workbookRow": 22,
+      "title": "Mugg & Bean birthday cake after two qualifying app transactions",
+      "workbookStatus": "Verified current",
+      "decision": "existing-record",
+      "reason": "Exact benefit already exists in the local opportunities registry. No duplicate added; existing lifecycle/review state was preserved.",
+      "recordId": "mugg-and-bean-birthday-cake",
+      "officialUrl": "https://www.muggandbean.co.za/terms-and-conditions/",
+      "termsUrl": "https://www.muggandbean.co.za/terms-and-conditions/",
+      "sourceChecks": [
+        {
+          "url": "https://www.muggandbean.co.za/terms-and-conditions/",
+          "httpStatus": 200,
+          "captureSha256": "d3ddc933d9aa9858ef924182ff7844a590a03e06869590a830e7d378f501f483",
+          "captureKey": "e8f7449df7474e"
+        }
+      ]
+    },
+    {
+      "leadId": "MO16",
+      "workbookRow": 23,
+      "title": "Mugg & Bean new-app Easy Cappuccino after qualifying spend",
+      "workbookStatus": "Verified current",
+      "decision": "existing-record",
+      "reason": "Exact benefit already exists in the local offers registry. No duplicate added; existing lifecycle/review state was preserved.",
+      "recordId": "mugg-bean-new-app-cappuccino",
+      "officialUrl": "https://www.muggandbean.co.za/terms-and-conditions/",
+      "termsUrl": "https://www.muggandbean.co.za/terms-and-conditions/",
+      "sourceChecks": [
+        {
+          "url": "https://www.muggandbean.co.za/terms-and-conditions/",
+          "httpStatus": 200,
+          "captureSha256": "d3ddc933d9aa9858ef924182ff7844a590a03e06869590a830e7d378f501f483",
+          "captureKey": "e8f7449df7474e"
+        }
+      ]
+    },
+    {
+      "leadId": "MO37",
+      "workbookRow": 24,
+      "title": "RocoMamas app welcome — three Cheese Bombs with R150 spend",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "rocomamas-app-welcome-cheese-bombs-voucher",
+      "officialUrl": "https://cms.rocomamas.com/uploads/Updated_31_July_2025_Rococmamas_Rewards_App_Terms_and_Conditions_37e3ff75f8.pdf",
+      "termsUrl": "https://cms.rocomamas.com/uploads/Updated_31_July_2025_Rococmamas_Rewards_App_Terms_and_Conditions_37e3ff75f8.pdf",
+      "sourceChecks": [
+        {
+          "url": "https://cms.rocomamas.com/uploads/Updated_31_July_2025_Rococmamas_Rewards_App_Terms_and_Conditions_37e3ff75f8.pdf",
+          "httpStatus": 200,
+          "captureSha256": "77fd1a96bd93c9f70af8b45b83568b7b3755ae9c6da7b5aebd92ec9358258e26",
+          "captureKey": "a5e3d3f6418e42"
+        }
+      ]
+    },
+    {
+      "leadId": "MO33",
+      "workbookRow": 25,
+      "title": "Col’Cacchio kids eat free at selected branches",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "colcacchio-kids-meal-with-qualifying-adult-main",
+      "officialUrl": "https://www.colcacchio.co.za/promo-terms",
+      "termsUrl": "https://www.colcacchio.co.za/promo-terms",
+      "sourceChecks": [
+        {
+          "url": "https://www.colcacchio.co.za/promo-terms",
+          "httpStatus": 200,
+          "captureSha256": "a1187658c4ad2edd13bd368829c6cf8cd3336edb79400d4ae3813587dcd1e6ae",
+          "captureKey": "e53700b30fdc20"
+        }
+      ]
+    },
+    {
+      "leadId": "TO30",
+      "workbookRow": 26,
+      "title": "Cisco Networking Academy: free Introduction to Cybersecurity course",
+      "workbookStatus": "Verified current",
+      "decision": "hold",
+      "reason": "Cisco course page returned a JavaScript shell; course access, assessment/certificate conditions need a readable primary source.",
+      "recordId": null,
+      "officialUrl": "https://www.netacad.com/courses/introduction-to-cybersecurity",
+      "termsUrl": "https://www.netacad.com/courses/introduction-to-cybersecurity",
+      "sourceChecks": [
+        {
+          "url": "https://www.netacad.com/courses/introduction-to-cybersecurity",
+          "httpStatus": 200,
+          "captureSha256": "a0f09c0bade86afd2ddb08b6bf91629232dcf82b59f0c8682c3936f5e5adc566",
+          "captureKey": "35beac9d374801"
+        }
+      ]
+    },
+    {
+      "leadId": "TO28",
+      "workbookRow": 27,
+      "title": "DBE: download the 2026 Rainbow school workbooks",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "dbe-2026-rainbow-workbooks",
+      "officialUrl": "https://www.education.gov.za/Curriculum/LearningandTeachingSupportMaterials%28LTSM%29/Workbooks.aspx",
+      "termsUrl": "https://www.education.gov.za/Curriculum/LearningandTeachingSupportMaterials%28LTSM%29/Workbooks.aspx",
+      "sourceChecks": [
+        {
+          "url": "https://www.education.gov.za/Curriculum/LearningandTeachingSupportMaterials%28LTSM%29/Workbooks.aspx",
+          "httpStatus": 200,
+          "captureSha256": "8eada4a9be05057ace7a38c619e452bdea4ef074519fa84ffa6072c89a14d86f",
+          "captureKey": "3aa61e185481d4"
+        }
+      ]
+    },
+    {
+      "leadId": "TO29",
+      "workbookRow": 28,
+      "title": "HP LIFE: free practical business courses and completion certificates",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "hp-life-free-business-digital-courses",
+      "officialUrl": "https://www.life-global.org/",
+      "termsUrl": "https://www.life-global.org/help",
+      "sourceChecks": [
+        {
+          "url": "https://www.life-global.org/",
+          "httpStatus": 200,
+          "captureSha256": "a7aec61e1f3a8145995d33bbc99df6a796f1d081b63052b9c6ee9608e3946ecc",
+          "captureKey": "ffdae7d52f3dc3"
+        },
+        {
+          "url": "https://www.life-global.org/help",
+          "httpStatus": 200,
+          "captureSha256": "4adb8e3fee3aa8c379413fc98350990cc5e350b5883d8bce2afa552047b0c26a",
+          "captureKey": "24e266e3c10ce7"
+        }
+      ]
+    },
+    {
+      "leadId": "TO34",
+      "workbookRow": 29,
+      "title": "MTN Online School: free matric-focused learning and revision",
+      "workbookStatus": "Verified current",
+      "decision": "hold",
+      "reason": "MTN Online School route redirects to login; current course access and data/certificate conditions require further primary verification.",
+      "recordId": null,
+      "officialUrl": "https://www.mtnonlineschool.co.za/",
+      "termsUrl": "https://play.google.com/store/apps/details?hl=en-US&id=com.mtn.school",
+      "sourceChecks": [
+        {
+          "url": "https://www.mtnonlineschool.co.za/",
+          "httpStatus": 200,
+          "captureSha256": "b0a158191e4dcd6fc338823fd400bf33551f46c6c3ddbaa3725324bbe9db8d78",
+          "captureKey": "845840c1f75a4e"
+        },
+        {
+          "url": "https://play.google.com/store/apps/details?hl=en-US&id=com.mtn.school",
+          "httpStatus": 200,
+          "captureSha256": "f45e9441f8d38c3a783496d02617ce14486a4df4add206006f37c275ba2967c4",
+          "captureKey": "1c65ddb19b9a07"
+        }
+      ]
+    },
+    {
+      "leadId": "TO26",
+      "workbookRow": 30,
+      "title": "Siyavula: free CAPS practice and school textbooks",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "siyavula-free-maths-science-practice",
+      "officialUrl": "https://www.siyavula.com/products/learners",
+      "termsUrl": "https://help.siyavula.com/en/article/understanding-zero-rated-access-to-siyavula-1uzpw2f/",
+      "sourceChecks": [
+        {
+          "url": "https://www.siyavula.com/products/learners",
+          "httpStatus": 200,
+          "captureSha256": "1d12e973b0ac13c026dbcfee6a924916baeb18da26436133719e823623ec64b4",
+          "captureKey": "308986c9e7c182"
+        },
+        {
+          "url": "https://help.siyavula.com/en/article/understanding-zero-rated-access-to-siyavula-1uzpw2f/",
+          "httpStatus": 200,
+          "captureSha256": "782fc5b32c38918e96876369ebaca23fc521162004383ec0468208a38175f9c6",
+          "captureKey": "47f8cc096803d7"
+        }
+      ]
+    },
+    {
+      "leadId": "TO27",
+      "workbookRow": 31,
+      "title": "Vodacom eLearning: free school-grade content",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "vodacom-free-school-elearning-content",
+      "officialUrl": "https://elearning.vodacom.co.za/",
+      "termsUrl": "https://www.vodacom.co.za/vodacom/shopping/v/vodacom-e-learning",
+      "sourceChecks": [
+        {
+          "url": "https://elearning.vodacom.co.za/",
+          "httpStatus": 200,
+          "captureSha256": "d7b848ab77e2fa84379919df10174c75cb59ba35f526d5dbeaa8b2c73c295f4b",
+          "captureKey": "66039960bd2b8e"
+        },
+        {
+          "url": "https://www.vodacom.co.za/vodacom/shopping/v/vodacom-e-learning",
+          "httpStatus": 200,
+          "captureSha256": "04815e39f97320620f8381806ce93640e2880ca5e4e95385047cd16c95b3fc8a",
+          "captureKey": "1327ac52c4404e"
+        }
+      ]
+    },
+    {
+      "leadId": "TO14",
+      "workbookRow": 32,
+      "title": "Shell V+: earn 15c per litre at the base tier",
+      "workbookStatus": "Verified current",
+      "decision": "hold",
+      "reason": "Current Shell page/FAQ access did not establish the stated base earn rates and their complete conditions.",
+      "recordId": null,
+      "officialUrl": "https://www.shell.co.za/motorists/loyalty-payment/vplus-rewards.html",
+      "termsUrl": "https://support.shell.co.za/hc/en-za/articles/360009311937-V-Plus-FAQs",
+      "sourceChecks": [
+        {
+          "url": "https://www.shell.co.za/motorists/loyalty-payment/vplus-rewards.html",
+          "httpStatus": 200,
+          "captureSha256": "9314159c454042c6c30a671d8e71fe8671adf3bab11f54835f6e6e7762cae1b1",
+          "captureKey": "063fe5992ccf98"
+        },
+        {
+          "url": "https://support.shell.co.za/hc/en-za/articles/360009311937-V-Plus-FAQs",
+          "httpStatus": 200,
+          "captureSha256": "c5d900b8eac0f39d4c7f5fb6ef9f5950bbe4d62bb312bc4079381ba7e8aa65ba",
+          "captureKey": "9d11a80d01629c"
+        }
+      ]
+    },
+    {
+      "leadId": "RO26",
+      "workbookRow": 33,
+      "title": "ARC with ClubCard: 8% first purchase, then 5% cashback",
+      "workbookStatus": "Verified current",
+      "decision": "hold",
+      "reason": "Official ARC FAQ has conflicting points/conversion wording alongside 8%/5% rates; hold the value calculation until consistent primary rules are available.",
+      "recordId": null,
+      "officialUrl": "https://www.arcstore.co.za/customer/clubcard-partnership",
+      "termsUrl": "https://www.arcstore.co.za/customer/clubcard-partnership",
+      "sourceChecks": [
+        {
+          "url": "https://www.arcstore.co.za/customer/clubcard-partnership",
+          "httpStatus": 200,
+          "captureSha256": "51400cbb40b374093dabaf82c8c244c6b55466843a742e1f1e5bb9076d3d39d5",
+          "captureKey": "0f842648ea8456"
+        }
+      ]
+    },
+    {
+      "leadId": "RO15",
+      "workbookRow": 34,
+      "title": "Clarins APP20: 20% off first app purchase",
+      "workbookStatus": "Verified current",
+      "decision": "hold",
+      "reason": "Official app page supports a first-order 20% benefit, but the claimed APP20 code and full app-coupon restrictions were not established.",
+      "recordId": null,
+      "officialUrl": "https://www.clarins.co.za/clarins-app/",
+      "termsUrl": "https://www.clarins.co.za/termsAndConditions.html",
+      "sourceChecks": [
+        {
+          "url": "https://www.clarins.co.za/clarins-app/",
+          "httpStatus": 200,
+          "captureSha256": "c9cecdd637ee1c6b5a13852f6bc66417d97e73da584b1e4beede5f1061521af6",
+          "captureKey": "a5c5d090a564de"
+        },
+        {
+          "url": "https://www.clarins.co.za/termsAndConditions.html",
+          "httpStatus": 200,
+          "captureSha256": "ba564468e8d8d2e0d63a776cf2d643574bfaae32b362b7bbdac80e60842cc7cb",
+          "captureKey": "86d1f8b39d7918"
+        }
+      ]
+    },
+    {
+      "leadId": "RO16",
+      "workbookRow": 35,
+      "title": "Clarins x Lulama Wolf purse with Double Serum Foundation",
+      "workbookStatus": "Verified current",
+      "decision": "hold",
+      "reason": "Closing date, gift stock, per-customer limits and stacking rules are UNKNOWN.",
+      "recordId": null,
+      "officialUrl": "https://www.clarins.co.za/double-serum-foundation-80119236.html",
+      "termsUrl": "https://www.clarins.co.za/termsAndConditions.html",
+      "sourceChecks": [
+        {
+          "url": "https://www.clarins.co.za/double-serum-foundation-80119236.html",
+          "httpStatus": 200,
+          "captureSha256": "dcf39e037d729c37e78d8f232f0f21481b284dfc7b6d261a0108757b0b699300",
+          "captureKey": "f49ae5c10fbc9c"
+        },
+        {
+          "url": "https://www.clarins.co.za/termsAndConditions.html",
+          "httpStatus": 200,
+          "captureSha256": "ba564468e8d8d2e0d63a776cf2d643574bfaae32b362b7bbdac80e60842cc7cb",
+          "captureKey": "86d1f8b39d7918"
+        }
+      ]
+    },
+    {
+      "leadId": "RO05",
+      "workbookRow": 36,
+      "title": "Clicks BabyClub: 4% cashback on most baby products",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "clicks-babyclub-four-percent-cashback",
+      "officialUrl": "https://clicks.co.za/clubcard/babyclub",
+      "termsUrl": "https://clicks.co.za/clubcard/babyclub",
+      "sourceChecks": [
+        {
+          "url": "https://clicks.co.za/clubcard/babyclub",
+          "httpStatus": 200,
+          "captureSha256": "a38887ef42742271ef25059f24482d18a23ddbeb78487d57a92bcb24a1aa1078",
+          "captureKey": "59f42abbcb8c8e"
+        }
+      ]
+    },
+    {
+      "leadId": "RO06",
+      "workbookRow": 37,
+      "title": "Clicks Seniors Club: double points every Wednesday",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "clicks-seniors-wednesday-four-percent-cashback",
+      "officialUrl": "https://clicks.co.za/seniors-club",
+      "termsUrl": "https://help.clicks.co.za/support/solutions/articles/80000958589-how-do-i-become-a-seniors-club-member-",
+      "sourceChecks": [
+        {
+          "url": "https://clicks.co.za/seniors-club",
+          "httpStatus": 200,
+          "captureSha256": "0532df9a86f24ee87726a6e5def05bfce88c5c2d468b030ecfe2bd45749eda58",
+          "captureKey": "8c09e37db5fac5"
+        },
+        {
+          "url": "https://help.clicks.co.za/support/solutions/articles/80000958589-how-do-i-become-a-seniors-club-member-",
+          "httpStatus": 200,
+          "captureSha256": "9194e38199748f73f0920fb3f6e73ac7124a5cd2b1da992232f2a98b8c38249c",
+          "captureKey": "64a62a744cbba2"
+        }
+      ]
+    },
+    {
+      "leadId": "RO11",
+      "workbookRow": 38,
+      "title": "Clinique newsletter: 15% welcome offer",
+      "workbookStatus": "Verified current",
+      "decision": "hold",
+      "reason": "The emailed code's expiry, minimum spend and exclusions are UNKNOWN; no signup was performed.",
+      "recordId": null,
+      "officialUrl": "https://www.clinique.co.za/offers",
+      "termsUrl": "https://www.clinique.co.za/terms",
+      "sourceChecks": [
+        {
+          "url": "https://www.clinique.co.za/offers",
+          "accessError": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://www.clinique.co.za/terms",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "RO25",
+      "workbookRow": 39,
+      "title": "Dermastore DermaPoints: roughly 5% toward future purchases",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "dermastore-dermapoints-future-order-discount",
+      "officialUrl": "https://help.dermastore.co.za/en/articles/373735-how-do-i-earn-dermapoints",
+      "termsUrl": "https://help.dermastore.co.za/en/articles/373735-how-do-i-earn-dermapoints",
+      "sourceChecks": [
+        {
+          "url": "https://help.dermastore.co.za/en/articles/373735-how-do-i-earn-dermapoints",
+          "httpStatus": 200,
+          "captureSha256": "4549d63e875e63f2fcb13a62e21ff6d38558189cf426d68594a3a3a01bc26913",
+          "captureKey": "f5d960dee8b4ef"
+        }
+      ]
+    },
+    {
+      "leadId": "RO01",
+      "workbookRow": 40,
+      "title": "R 100 off your first R 400+ Faithful to Nature shop",
+      "workbookStatus": "Verified current",
+      "decision": "hold",
+      "reason": "Current official page states SHOP4GOOD, not the workbook welcome code. Full code exclusions, validity and post-discount shipping treatment remain incomplete.",
+      "recordId": null,
+      "officialUrl": "https://www.faithful-to-nature.co.za/refer-a-friend",
+      "termsUrl": "https://www.faithful-to-nature.co.za/refer-a-friend",
+      "sourceChecks": [
+        {
+          "url": "https://www.faithful-to-nature.co.za/refer-a-friend",
+          "httpStatus": 200,
+          "captureSha256": "1ed33e70d6925a4ac5ab429e164989f3df6f67b4e34a026e38118c3f8daae2cf",
+          "captureKey": "2eaa1ef5894b32"
+        }
+      ]
+    },
+    {
+      "leadId": "RO09",
+      "workbookRow": 41,
+      "title": "OSMO Guardian Angel gift with R 350 OSMO spend",
+      "workbookStatus": "Verified current",
+      "decision": "hold",
+      "reason": "No exact expiry or per-customer limit stated; remaining gift stock untested.",
+      "recordId": null,
+      "officialUrl": "https://skinmiles.com/",
+      "termsUrl": "https://skinmiles.com/",
+      "sourceChecks": [
+        {
+          "url": "https://skinmiles.com/",
+          "httpStatus": 200,
+          "captureSha256": "e87a27b9a787a401153f45a31261d7eca3312f70d9555aeb2f8ebb9473d645a2",
+          "captureKey": "aeb126000df4d2"
+        }
+      ]
+    },
+    {
+      "leadId": "TO04",
+      "workbookRow": 42,
+      "title": "AirMobile AirID: qualifying friend referrals earn 5 GB each",
+      "workbookStatus": "Verified current",
+      "decision": "hold",
+      "reason": "AirID referral benefit is advertised; bank/payment validation, signup caps and SIM acquisition costs must be reconciled before a complete listing.",
+      "recordId": null,
+      "officialUrl": "https://help.afrihost.com/entry/how-to-refer-a-friend-to-airmobile-and-earn-rewards/",
+      "termsUrl": "https://help.afrihost.com/entry/how-to-refer-a-friend-to-airmobile-and-earn-rewards/",
+      "sourceChecks": [
+        {
+          "url": "https://help.afrihost.com/entry/how-to-refer-a-friend-to-airmobile-and-earn-rewards/",
+          "httpStatus": 200,
+          "captureSha256": "01a2293949255e7abd0023105446d1d45ecea54c3b53da351b4b7fe6070c3441",
+          "captureKey": "ee369469045e0b"
+        }
+      ]
+    },
+    {
+      "leadId": "TO05",
+      "workbookRow": 43,
+      "title": "AirMobile prepaid: 6 GB top-up for R60",
+      "workbookStatus": "Verified current",
+      "decision": "ordinary-price",
+      "reason": "A R60/6GB plan price alone does not establish a distinct promotional saving or free benefit; no standalone deal added.",
+      "recordId": null,
+      "officialUrl": "https://www.afrihost.com/airmobile/prepaid/",
+      "termsUrl": "https://help.afrihost.com/entry/afrihost-airmobile-explained/",
+      "sourceChecks": [
+        {
+          "url": "https://www.afrihost.com/airmobile/prepaid/",
+          "httpStatus": 200,
+          "captureSha256": "77a186327f6ea112d4c3b6c2c8dc59b661033961c0203c54ad98bcb11664d3f2",
+          "captureKey": "8dccaa28bf9bb8"
+        },
+        {
+          "url": "https://help.afrihost.com/entry/afrihost-airmobile-explained/",
+          "httpStatus": 200,
+          "captureSha256": "cdb8aaeedf4bb63f44a82b530830262c6a076526d851cdc1d70c2e3bb7e6ba96",
+          "captureKey": "e26d37c1e040c3"
+        }
+      ]
+    },
+    {
+      "leadId": "TO03",
+      "workbookRow": 44,
+      "title": "AirMobile: new sign-ups receive 3 GB and R10 airtime",
+      "workbookStatus": "Verified current",
+      "decision": "hold",
+      "reason": "AirMobile advertises the signup benefit, but SIM/eSIM charges, physical-delivery cost and payment-validation requirements need a complete cost check.",
+      "recordId": null,
+      "officialUrl": "https://www.afrihost.com/airmobile/prepaid",
+      "termsUrl": "https://www.afrihost.com/airmobile/prepaid",
+      "sourceChecks": [
+        {
+          "url": "https://www.afrihost.com/airmobile/prepaid",
+          "httpStatus": 200,
+          "captureSha256": "dddd3b224876e33263f1e9069e19cf40bd8b996186d3f0d9efc5e2e1379b20fa",
+          "captureKey": "006e9b7ef25a57"
+        }
+      ]
+    },
+    {
+      "leadId": "TO06",
+      "workbookRow": 45,
+      "title": "Capitec Connect: 20% extra data on linked-number purchases",
+      "workbookStatus": "Verified current",
+      "decision": "hold",
+      "reason": "The fetched current Capitec Connect bundles page did not establish the claimed linked-number 20% bonus.",
+      "recordId": null,
+      "officialUrl": "https://www.capitecbank.co.za/personal/connect/capitec-bundles/",
+      "termsUrl": "https://www.capitecbank.co.za/personal/connect/",
+      "sourceChecks": [
+        {
+          "url": "https://www.capitecbank.co.za/personal/connect/capitec-bundles/",
+          "accessError": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://www.capitecbank.co.za/personal/connect/",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "TO02",
+      "workbookRow": 46,
+      "title": "MTN ayoba: 1 GB each month for supported in-app use",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "mtn-ayoba-monthly-app-data",
+      "officialUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/ayoba-tandcs",
+      "termsUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/ayoba-tandcs",
+      "sourceChecks": [
+        {
+          "url": "https://www.mtn.co.za/home/terms-and-conditions/content/ayoba-tandcs",
+          "httpStatus": 200,
+          "captureSha256": "f3164a543ec77617a1c4157a1e24ec53f93f75bc2d95a34f8afcbc151ac75922",
+          "captureKey": "33739485661c65"
+        }
+      ]
+    },
+    {
+      "leadId": "MO07",
+      "workbookRow": 47,
+      "title": "Zeitz MOCAA Africa Wednesday free admission",
+      "workbookStatus": "Verified current",
+      "decision": "existing-record",
+      "reason": "Exact benefit already exists in the local opportunities registry. No duplicate added; existing lifecycle/review state was preserved.",
+      "recordId": "zeitz-mocaa-free-access",
+      "officialUrl": "https://zeitzmocaa.museum/plan-your-visit/",
+      "termsUrl": "https://zeitzmocaa.museum/plan-your-visit/",
+      "sourceChecks": [
+        {
+          "url": "https://zeitzmocaa.museum/plan-your-visit/",
+          "httpStatus": 200,
+          "captureSha256": "390e4b6fad937678cb30117b8a185372f9bb5c9a3bf051334bc8d9ea74508e83",
+          "captureKey": "bd943787761868"
+        }
+      ]
+    },
+    {
+      "leadId": "MO06",
+      "workbookRow": 48,
+      "title": "Zeitz MOCAA birthday-month free entry",
+      "workbookStatus": "Verified current",
+      "decision": "existing-record",
+      "reason": "Exact benefit already exists in the local opportunities registry. No duplicate added; existing lifecycle/review state was preserved.",
+      "recordId": "zeitz-mocaa-free-access",
+      "officialUrl": "https://zeitzmocaa.museum/buy-tickets/",
+      "termsUrl": "https://zeitzmocaa.museum/buy-tickets/",
+      "sourceChecks": [
+        {
+          "url": "https://zeitzmocaa.museum/buy-tickets/",
+          "httpStatus": 200,
+          "captureSha256": "801128c6ab5dcb6af11f18bb8f74877c2835fa72ec03591d68b704edcef9b603",
+          "captureKey": "7b3392f3c40dca"
+        }
+      ]
+    },
+    {
+      "leadId": "MO01",
+      "workbookRow": 49,
+      "title": "Table Mountain birthday-month cableway ticket",
+      "workbookStatus": "Verified current",
+      "decision": "existing-record",
+      "reason": "Exact benefit already exists in the local opportunities registry. No duplicate added; existing lifecycle/review state was preserved.",
+      "recordId": "table-mountain-cableway-birthday-ticket",
+      "officialUrl": "https://www.tablemountain.net/plan-your-visit/specials/",
+      "termsUrl": "https://www.tablemountain.net/plan-your-visit/specials/",
+      "sourceChecks": [
+        {
+          "url": "https://www.tablemountain.net/plan-your-visit/specials/",
+          "httpStatus": 200,
+          "captureSha256": "0bacf67d06c6bdaee937f94cf5bd9fba558edc3b589ac9f876d9e0f7dc776761",
+          "captureKey": "dc0f6204cad63c"
+        }
+      ]
+    },
+    {
+      "leadId": "MO03",
+      "workbookRow": 50,
+      "title": "Table Mountain senior return ticket R130",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "table-mountain-south-african-senior-return-ticket",
+      "officialUrl": "https://www.tablemountain.net/plan-your-visit/specials/",
+      "termsUrl": "https://www.tablemountain.net/plan-your-visit/specials/",
+      "sourceChecks": [
+        {
+          "url": "https://www.tablemountain.net/plan-your-visit/specials/",
+          "httpStatus": 200,
+          "captureSha256": "0bacf67d06c6bdaee937f94cf5bd9fba558edc3b589ac9f876d9e0f7dc776761",
+          "captureKey": "dc0f6204cad63c"
+        }
+      ]
+    },
+    {
+      "leadId": "TO23",
+      "workbookRow": 51,
+      "title": "Capitec Rewards: 1% cashback at Cashbuild",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "capitec-cashbuild-one-percent-cashback",
+      "officialUrl": "https://www.capitecbank.co.za/rewards/spend-better/cashbuild/",
+      "termsUrl": "https://www.capitecbank.co.za/rewards/spend-better/cashbuild/",
+      "sourceChecks": [
+        {
+          "url": "https://www.capitecbank.co.za/rewards/spend-better/cashbuild/",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "TO24",
+      "workbookRow": 52,
+      "title": "Capitec Rewards: 2.5% cashback at Tiger Wheel & Tyre",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "capitec-tiger-wheel-tyre-cashback",
+      "officialUrl": "https://www.capitecbank.co.za/rewards/spend-better/tiger-wheel-tyre/",
+      "termsUrl": "https://www.capitecbank.co.za/rewards/spend-better/tiger-wheel-tyre/",
+      "sourceChecks": [
+        {
+          "url": "https://www.capitecbank.co.za/rewards/spend-better/tiger-wheel-tyre/",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "MO13",
+      "workbookRow": 53,
+      "title": "Ster-Kinekor SK Club Half-Price Tuesdays",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "ster-kinekor-sk-club-half-price-tuesday",
+      "officialUrl": "https://www.sterkinekor.com/club-terms-and-conditions",
+      "termsUrl": "https://www.sterkinekor.com/club-terms-and-conditions",
+      "sourceChecks": [
+        {
+          "url": "https://www.sterkinekor.com/club-terms-and-conditions",
+          "httpStatus": 200,
+          "captureSha256": "0d2da81adbb5fc000540f394c569d790403da251e74d93c5dbccc48a06702a4b",
+          "captureKey": "9222a5632f2890"
+        }
+      ]
+    },
+    {
+      "leadId": "MO12",
+      "workbookRow": 54,
+      "title": "Ster-Kinekor SK Club free birthday movie",
+      "workbookStatus": "Verified current",
+      "decision": "existing-record",
+      "reason": "Exact benefit already exists in the local opportunities registry. No duplicate added; existing lifecycle/review state was preserved.",
+      "recordId": "ster-kinekor-sk-club-birthday-ticket",
+      "officialUrl": "https://www.sterkinekor.com/club-terms-and-conditions",
+      "termsUrl": "https://www.sterkinekor.com/club-terms-and-conditions",
+      "sourceChecks": [
+        {
+          "url": "https://www.sterkinekor.com/club-terms-and-conditions",
+          "httpStatus": 200,
+          "captureSha256": "0d2da81adbb5fc000540f394c569d790403da251e74d93c5dbccc48a06702a4b",
+          "captureKey": "9222a5632f2890"
+        }
+      ]
+    },
+    {
+      "leadId": "MO14",
+      "workbookRow": 55,
+      "title": "Ster-Kinekor SK Seniors 20% ticket saving",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "ster-kinekor-seniors-twenty-percent-ticket-saving",
+      "officialUrl": "https://www.sterkinekor.com/club-terms-and-conditions",
+      "termsUrl": "https://www.sterkinekor.com/club-terms-and-conditions",
+      "sourceChecks": [
+        {
+          "url": "https://www.sterkinekor.com/club-terms-and-conditions",
+          "httpStatus": 200,
+          "captureSha256": "0d2da81adbb5fc000540f394c569d790403da251e74d93c5dbccc48a06702a4b",
+          "captureKey": "9222a5632f2890"
+        }
+      ]
+    },
+    {
+      "leadId": "GO08",
+      "workbookRow": 56,
+      "title": "Ster-Kinekor SK Club Epic Deal: movie, popcorn and drink for R169.90",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "ster-kinekor-epic-deal-weekday-ticket-combo",
+      "officialUrl": "https://www.sterkinekor.com/club-terms-and-conditions",
+      "termsUrl": "https://www.sterkinekor.com/club-terms-and-conditions",
+      "sourceChecks": [
+        {
+          "url": "https://www.sterkinekor.com/club-terms-and-conditions",
+          "httpStatus": 200,
+          "captureSha256": "0d2da81adbb5fc000540f394c569d790403da251e74d93c5dbccc48a06702a4b",
+          "captureKey": "9222a5632f2890"
+        }
+      ]
+    },
+    {
+      "leadId": "TO33",
+      "workbookRow": 57,
+      "title": "Apple Arcade: three months with an eligible new Apple device",
+      "workbookStatus": "Verified current",
+      "decision": "hold",
+      "reason": "Device purchase and automatic paid renewal apply. Verify the complete current South African redemption, cancellation and prior-trial eligibility rules before adding.",
+      "recordId": null,
+      "officialUrl": "https://www.apple.com/za/promo/pdf/ZA_Arcade_Promo_TandCs.pdf",
+      "termsUrl": "https://www.apple.com/za/promo/pdf/ZA_Arcade_Promo_TandCs.pdf",
+      "sourceChecks": [
+        {
+          "url": "https://www.apple.com/za/promo/pdf/ZA_Arcade_Promo_TandCs.pdf",
+          "httpStatus": 200,
+          "captureSha256": "e3cdca502692091253d0e4fd0e72d8fbfecd16a39ff977174f451f338aad11c9",
+          "captureKey": "dac2d999be4476"
+        }
+      ]
+    },
+    {
+      "leadId": "TO32",
+      "workbookRow": 58,
+      "title": "Apple TV: three months with an eligible new Apple device",
+      "workbookStatus": "Verified current",
+      "decision": "hold",
+      "reason": "Device purchase and automatic paid renewal apply. Verify the complete current South African redemption, cancellation and prior-trial eligibility rules before adding.",
+      "recordId": null,
+      "officialUrl": "https://tv.apple.com/za",
+      "termsUrl": "https://www.apple.com/za/promo/pdf/ZA_ATV%2B_Promo_TandCs.pdf",
+      "sourceChecks": [
+        {
+          "url": "https://tv.apple.com/za",
+          "httpStatus": 200,
+          "captureSha256": "95e13f5b8fd075326974a17252b8aaf7b763953125304a2c9ad874e59a87850a",
+          "captureKey": "f2c2d5f53abbc8"
+        },
+        {
+          "url": "https://www.apple.com/za/promo/pdf/ZA_ATV%2B_Promo_TandCs.pdf",
+          "httpStatus": 200,
+          "captureSha256": "d10fd5cd7ef0878927421ffcfd99a8aaac7ae11f5fd1cc4d58fe25a1e8f62f81",
+          "captureKey": "d5d458141ac19f"
+        }
+      ]
+    },
+    {
+      "leadId": "TO21",
+      "workbookRow": 59,
+      "title": "Capitec GetSmarter: R4,000 off eligible South African university short courses",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "capitec-getsmarter-south-african-course-fee-reduction",
+      "officialUrl": "https://www.capitecbank.co.za/rewards/spend-better/getsmarter/",
+      "termsUrl": "https://www.capitecbank.co.za/rewards/spend-better/getsmarter/",
+      "sourceChecks": [
+        {
+          "url": "https://www.capitecbank.co.za/rewards/spend-better/getsmarter/",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "GO03",
+      "workbookRow": 60,
+      "title": "Boody: 20% off your first order after newsletter signup",
+      "workbookStatus": "Verified current",
+      "decision": "hold",
+      "reason": "Code delivery and redemption not tested; no published minimum basket or code expiry on the reviewed signup page.",
+      "recordId": null,
+      "officialUrl": "https://boodywear.co.za/pages/boody-newsletter-signup",
+      "termsUrl": "https://boodywear.co.za/pages/shipping",
+      "sourceChecks": [
+        {
+          "url": "https://boodywear.co.za/pages/boody-newsletter-signup",
+          "httpStatus": 200,
+          "captureSha256": "a7b5d91da8d0f4ba807e02602e60d1ff90fa831b372ed9969084fbb74a453a98",
+          "captureKey": "cf3c60757f3880"
+        },
+        {
+          "url": "https://boodywear.co.za/pages/shipping",
+          "httpStatus": 200,
+          "captureSha256": "20dd4f92e4eec108bc9f36a256c48e418056f290d5f3854e37a9e3f5e4259e00",
+          "captureKey": "7afa79a0990a58"
+        }
+      ]
+    },
+    {
+      "leadId": "GO06",
+      "workbookRow": 61,
+      "title": "Tigerlilly: 20% off your first purchase after newsletter signup",
+      "workbookStatus": "Verified current",
+      "decision": "hold",
+      "reason": "No campaign expiry stated; welcome code and checkout were not tested.",
+      "recordId": null,
+      "officialUrl": "https://tigerlilly.co.za/pages/newsletter-sign-up",
+      "termsUrl": "https://tigerlilly.co.za/policies/shipping-policy",
+      "sourceChecks": [
+        {
+          "url": "https://tigerlilly.co.za/pages/newsletter-sign-up",
+          "httpStatus": 200,
+          "captureSha256": "2acbd9d86c07b1911d852f85930d35fba326b007ed45425f700f98659e5e533c",
+          "captureKey": "bcc653e7e6f6bc"
+        },
+        {
+          "url": "https://tigerlilly.co.za/policies/shipping-policy",
+          "httpStatus": 200,
+          "captureSha256": "699ffda4df4212a1963f57755cd4e26cc57fde906a95a8af36ec605bc762f759",
+          "captureKey": "74e27a123ddf2c"
+        }
+      ]
+    },
+    {
+      "leadId": "MO19",
+      "workbookRow": 62,
+      "title": "Krispy Kreme Chiller Tuesday — 50% off two",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "krispy-kreme-app-chiller-tuesday-pair-discount",
+      "officialUrl": "https://krispykremesa.com/terms-and-conditions/",
+      "termsUrl": "https://krispykremesa.com/terms-and-conditions/",
+      "sourceChecks": [
+        {
+          "url": "https://krispykremesa.com/terms-and-conditions/",
+          "httpStatus": 200,
+          "captureSha256": "993e9cdac515bbf2cb4340ead43b5897214b4052765742d1f0632f2bde04d02f",
+          "captureKey": "1db3f3e09d2e44"
+        }
+      ]
+    },
+    {
+      "leadId": "MO36",
+      "workbookRow": 63,
+      "title": "RocoMamas R50 birthday voucher after three qualifying visits",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "rocomamas-qualifying-birthday-r50-voucher",
+      "officialUrl": "https://cms.rocomamas.com/uploads/Updated_31_July_2025_Rococmamas_Rewards_App_Terms_and_Conditions_37e3ff75f8.pdf",
+      "termsUrl": "https://cms.rocomamas.com/uploads/Updated_31_July_2025_Rococmamas_Rewards_App_Terms_and_Conditions_37e3ff75f8.pdf",
+      "sourceChecks": [
+        {
+          "url": "https://cms.rocomamas.com/uploads/Updated_31_July_2025_Rococmamas_Rewards_App_Terms_and_Conditions_37e3ff75f8.pdf",
+          "httpStatus": 200,
+          "captureSha256": "77fd1a96bd93c9f70af8b45b83568b7b3755ae9c6da7b5aebd92ec9358258e26",
+          "captureKey": "a5e3d3f6418e42"
+        }
+      ]
+    },
+    {
+      "leadId": "MO35",
+      "workbookRow": 64,
+      "title": "Seattle Coffee Company — tenth point earns next beverage",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "seattle-coffee-loyalty-eleventh-beverage",
+      "officialUrl": "https://www.seattlecoffeecompany.co.za/?faqs=loyalty-program",
+      "termsUrl": "https://www.seattlecoffeecompany.co.za/?faqs=loyalty-program",
+      "sourceChecks": [
+        {
+          "url": "https://www.seattlecoffeecompany.co.za/?faqs=loyalty-program",
+          "httpStatus": 200,
+          "captureSha256": "a47e7c1ee3bdb8a23380a3cded7ac975e7529159cd5dc33669945682fc9f4e9c",
+          "captureKey": "7103e92a41f8a6"
+        }
+      ]
+    },
+    {
+      "leadId": "MO40",
+      "workbookRow": 65,
+      "title": "Col’Cacchio daily two-for-one happy hour",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "colcacchio-selected-branch-happy-hour-drink-pair",
+      "officialUrl": "https://www.colcacchio.co.za/promo-terms",
+      "termsUrl": "https://www.colcacchio.co.za/promo-terms",
+      "sourceChecks": [
+        {
+          "url": "https://www.colcacchio.co.za/promo-terms",
+          "httpStatus": 200,
+          "captureSha256": "a1187658c4ad2edd13bd368829c6cf8cd3336edb79400d4ae3813587dcd1e6ae",
+          "captureKey": "e53700b30fdc20"
+        }
+      ]
+    },
+    {
+      "leadId": "TO15",
+      "workbookRow": 66,
+      "title": "Sasol Rewards: fuel and convenience-store points",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "sasol-rewards-fuel-and-store-points",
+      "officialUrl": "https://sasolrewards.co.za/",
+      "termsUrl": "https://sasolrewards.co.za/pages/terms-and-conditions",
+      "sourceChecks": [
+        {
+          "url": "https://sasolrewards.co.za/",
+          "httpStatus": 200,
+          "captureSha256": "174ccbb18e17d43dade34a16ba1ec560e49eea7d40ac60ec96590e8d0d9c569b",
+          "captureKey": "920fbdd4010963"
+        },
+        {
+          "url": "https://sasolrewards.co.za/pages/terms-and-conditions",
+          "httpStatus": 200,
+          "captureSha256": "4ebc1707f9de55ad2036dc84c231815347b0dd3c6f7a0f0ad75240f974728ebd",
+          "captureKey": "33280d421ab518"
+        }
+      ]
+    },
+    {
+      "leadId": "MO27",
+      "workbookRow": 67,
+      "title": "SANBI pensioner free Tuesdays — confirmed garden routes",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "kirstenbosch-south-african-senior-free-tuesday",
+      "officialUrl": "https://www.sanbi.org/gardens/kirstenboch/visitor-information/information/",
+      "termsUrl": "https://www.sanbi.org/gardens/kirstenboch/visitor-information/information/",
+      "sourceChecks": [
+        {
+          "url": "https://www.sanbi.org/gardens/kirstenboch/visitor-information/information/",
+          "httpStatus": 200,
+          "captureSha256": "b0209f0f52006758282b6d1b2b12475a82bf21160eceba84cade46cd747d79a1",
+          "captureKey": "c18303e565ca72"
+        }
+      ]
+    },
+    {
+      "leadId": "GO05",
+      "workbookRow": 68,
+      "title": "CURAPROX: 15% off your first purchase after newsletter signup",
+      "workbookStatus": "Verified current",
+      "decision": "hold",
+      "reason": "Official shipping thresholds conflict (R850 current banner versus R750 older help page). Personal code and checkout not tested.",
+      "recordId": null,
+      "officialUrl": "https://curaprox.co.za/info/newsletter",
+      "termsUrl": "https://curaprox.co.za/helpcenter/payment-delivery",
+      "sourceChecks": [
+        {
+          "url": "https://curaprox.co.za/info/newsletter",
+          "httpStatus": 200,
+          "captureSha256": "1c81177cae02a897b9383c02b4c9ceb708518a5b40eb9e0fb974bc40b5f0bab6",
+          "captureKey": "ea09183fd0432a"
+        },
+        {
+          "url": "https://curaprox.co.za/helpcenter/payment-delivery",
+          "httpStatus": 200,
+          "captureSha256": "ff0c86525983891baab65fdba416794922bff1aa7efce128c31da92894ed77e9",
+          "captureKey": "7034c9ce89a762"
+        }
+      ]
+    },
+    {
+      "leadId": "MO28",
+      "workbookRow": 69,
+      "title": "UP Cycles free one-hour birthday ride",
+      "workbookStatus": "Verified current",
+      "decision": "existing-record",
+      "reason": "Exact benefit already exists in the local opportunities registry. No duplicate added; existing lifecycle/review state was preserved.",
+      "recordId": "upcycles-free-birthday-bike-ride",
+      "officialUrl": "https://upcycles.co.za/rentals/",
+      "termsUrl": "https://upcycles.co.za/rentals/",
+      "sourceChecks": [
+        {
+          "url": "https://upcycles.co.za/rentals/",
+          "httpStatus": 200,
+          "captureSha256": "7c7b5a60568caba5f25a4d562e68b270565426ff017e1c9dd320c5114e7e60b2",
+          "captureKey": "085411ff5b780c"
+        }
+      ]
+    },
+    {
+      "leadId": "RO14",
+      "workbookRow": 70,
+      "title": "MAC: 15% off first purchase",
+      "workbookStatus": "Verified current",
+      "decision": "hold",
+      "reason": "Minimum spend, excluded ranges, code delivery and personal expiry UNKNOWN; not redeemed.",
+      "recordId": null,
+      "officialUrl": "https://www.maccosmetics.co.za/offer-details",
+      "termsUrl": "https://www.maccosmetics.co.za/offer-details",
+      "sourceChecks": [
+        {
+          "url": "https://www.maccosmetics.co.za/offer-details",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "TO12",
+      "workbookRow": 71,
+      "title": "Cell C Connect4Free: claim 250 KB of daily emergency data",
+      "workbookStatus": "Verified current",
+      "decision": "hold",
+      "reason": "The official PDF labels the allowance 250kb. Current app availability and the bit/byte interpretation are not independently established; do not turn this into a 250MB promise.",
+      "recordId": null,
+      "officialUrl": "https://www.cellc.co.za/cellc/connectforfree-info",
+      "termsUrl": "https://www.cellc.co.za/cellc/static-content/PDF/Connect4Free_Bundle_Terms_n_Conditions.pdf",
+      "sourceChecks": [
+        {
+          "url": "https://www.cellc.co.za/cellc/connectforfree-info",
+          "accessError": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://www.cellc.co.za/cellc/static-content/PDF/Connect4Free_Bundle_Terms_n_Conditions.pdf",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "MO31",
+      "workbookRow": 72,
+      "title": "Intercape senior citizen fare discount",
+      "workbookStatus": "Verified current",
+      "decision": "hold",
+      "reason": "Senior discount advertised, but age/ID, fare/route exclusions and current detailed terms are not fully established.",
+      "recordId": null,
+      "officialUrl": "https://www.intercape.co.za/",
+      "termsUrl": "https://www.intercape.co.za/",
+      "sourceChecks": [
+        {
+          "url": "https://www.intercape.co.za/",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "GO04",
+      "workbookRow": 73,
+      "title": "American Tourister: 10% off your first online order of R1,000+",
+      "workbookStatus": "Verified current",
+      "decision": "published",
+      "reason": "Official-source review and desktop/mobile checks completed; publication authorized by user on 9 October 2026.",
+      "recordId": "american-tourister-newsletter-first-order-discount",
+      "officialUrl": "https://americantourister.co.za/newsletter-signup/",
+      "termsUrl": "https://americantourister.co.za/newsletter-signup/",
+      "sourceChecks": [
+        {
+          "url": "https://americantourister.co.za/newsletter-signup/",
+          "httpStatus": 200,
+          "captureSha256": "d5845d870caeca0b8206389385c6495da49d8887121f6f9b0a8c88311746c38e",
+          "captureKey": "9c7d7225400482"
+        }
+      ]
+    },
+    {
+      "leadId": "MO09",
+      "workbookRow": 74,
+      "title": "The Galileo birthday-month free movie — 2026/27 season",
+      "workbookStatus": "Upcoming",
+      "decision": "upcoming-hold",
+      "reason": "Future Galileo season benefit; verify the exact season opening date, paid companion/exclusions and live booking category before publication.",
+      "recordId": null,
+      "officialUrl": "https://thegalileo.co.za/free-birthday-ticket-special/",
+      "termsUrl": "https://thegalileo.co.za/free-birthday-ticket-special/",
+      "sourceChecks": [
+        {
+          "url": "https://thegalileo.co.za/free-birthday-ticket-special/",
+          "httpStatus": 200,
+          "captureSha256": "788b0408de90b175a57d807ef997facc32a557fed5edb1a20b8dfc5e55996e36",
+          "captureKey": "a42b7f02c0165d"
+        }
+      ]
+    },
+    {
+      "leadId": "MO10",
+      "workbookRow": 75,
+      "title": "The Galileo 60+ special — R99 Wednesdays / R155 other eligible shows",
+      "workbookStatus": "Upcoming",
+      "decision": "upcoming-hold",
+      "reason": "Future Galileo season rate; exact age/ID, season dates, screening exclusions and booking fees need verification.",
+      "recordId": null,
+      "officialUrl": "https://thegalileo.co.za/pensioner-special/",
+      "termsUrl": "https://thegalileo.co.za/pensioner-special/",
+      "sourceChecks": [
+        {
+          "url": "https://thegalileo.co.za/pensioner-special/",
+          "httpStatus": 200,
+          "captureSha256": "c1fc781ad32b66ea40c23b387f8fec93c8f2e38ca830f0e0ba5e14a8518fd7cf",
+          "captureKey": "bff11fdeea7471"
+        }
+      ]
+    },
+    {
+      "leadId": "MO39",
+      "workbookRow": 76,
+      "title": "The Galileo student special — R99 Thursdays / R155 other eligible shows",
+      "workbookStatus": "Upcoming",
+      "decision": "upcoming-hold",
+      "reason": "Future Galileo season rate; student ID, season dates, screening exclusions and booking fees need verification.",
+      "recordId": null,
+      "officialUrl": "https://thegalileo.co.za/buy-tickets/",
+      "termsUrl": "https://thegalileo.co.za/buy-tickets/",
+      "sourceChecks": [
+        {
+          "url": "https://thegalileo.co.za/buy-tickets/",
+          "httpStatus": 200,
+          "captureSha256": "e20d79e8becff1d36159e66364aecc08bf18a6ea3c7951363d47b40afea226c8",
+          "captureKey": "488bb535dd3328"
+        }
+      ]
+    },
+    {
+      "leadId": "GO11",
+      "workbookRow": 77,
+      "title": "The Galileo season pass: six movie tickets for the price of five",
+      "workbookStatus": "Upcoming",
+      "decision": "upcoming-hold",
+      "reason": "Future Galileo season bundle; eligible screenings, redemption dates, booking fees and refund restrictions need verification.",
+      "recordId": null,
+      "officialUrl": "https://thegalileo.co.za/season-pass-special",
+      "termsUrl": "https://thegalileo.co.za/season-pass-special",
+      "sourceChecks": [
+        {
+          "url": "https://thegalileo.co.za/season-pass-special",
+          "httpStatus": 200,
+          "captureSha256": "fe5d20d1b8f20c22238eb7ad8aea846c487915b908bf8bddba95b68d41b5494c",
+          "captureKey": "695b2c0105fc19"
+        }
+      ]
+    },
+    {
+      "leadId": "TO19",
+      "workbookRow": 78,
+      "title": "Capitec KOODOO: advertised R100 shopping voucher",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Minimum spend, shipping, product exclusions, stacking and redemption cap.",
+      "recordId": null,
+      "officialUrl": "https://www.capitecbank.co.za/rewards/spend-better/koodoo/",
+      "termsUrl": "https://www.capitecbank.co.za/rewards/spend-better/koodoo/",
+      "sourceChecks": [
+        {
+          "url": "https://www.capitecbank.co.za/rewards/spend-better/koodoo/",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "TO18",
+      "workbookRow": 79,
+      "title": "Capitec Uber One: advertised three- or six-month trial",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Updated terms, current price, minimum order, service-fee exceptions, trial eligibility and discount opt-in rules need reconciliation.",
+      "recordId": null,
+      "officialUrl": "https://www.capitecbank.co.za/rewards/spend-better/uber-one/",
+      "termsUrl": "https://www.capitecbank.co.za/globalassets/pages/competition-and-conditions/rewards-benefits/2025/uber-one-tcs-250224.pdf",
+      "sourceChecks": [
+        {
+          "url": "https://www.capitecbank.co.za/rewards/spend-better/uber-one/",
+          "accessError": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://www.capitecbank.co.za/globalassets/pages/competition-and-conditions/rewards-benefits/2025/uber-one-tcs-250224.pdf",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "TO09",
+      "workbookRow": 80,
+      "title": "VodaPay: advertised 10× VodaBucks on Vodacom airtime",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Whether every qualifying purchase earns the reward or some allocation is chance-based must be confirmed.",
+      "recordId": null,
+      "officialUrl": "https://www.vodacom.co.za/vodacom/terms/promotions/vodabucks-on-vodapay",
+      "termsUrl": "https://www.vodacom.co.za/vodacom/terms/promotions/vodabucks-on-vodapay",
+      "sourceChecks": [
+        {
+          "url": "https://www.vodacom.co.za/vodacom/terms/promotions/vodabucks-on-vodapay",
+          "httpStatus": 200,
+          "captureSha256": "8f8c3f5f5962bc528012409fa2a7f1a95f71a03c47d458118074d92b12b5984c",
+          "captureKey": "21abe31848ca04"
+        }
+      ]
+    },
+    {
+      "leadId": "MO30",
+      "workbookRow": 81,
+      "title": "Gautrain KlevaMova 50% train-fare product",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Confirm current GMA application route, category income criteria, card fees and post-concession conditions.",
+      "recordId": null,
+      "officialUrl": "https://gma.gautrain.co.za/news-room/Pages/20264g73.html?year=2026",
+      "termsUrl": "https://gma.gautrain.co.za/news-room/Pages/20264g73.html?year=2026",
+      "sourceChecks": [
+        {
+          "url": "https://gma.gautrain.co.za/news-room/Pages/20264g73.html?year=2026",
+          "httpStatus": 200,
+          "captureSha256": "d9a0c04def268e859d7ee7b0b22b087a79287a61c79b19f909f7a84131823d79",
+          "captureKey": "2dd5e13499c209"
+        }
+      ]
+    },
+    {
+      "leadId": "RO19",
+      "workbookRow": 82,
+      "title": "Bobbi Brown newsletter: advertised 20% first-order October offer",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Confirm the campaign year and the code issued for 20%; do not assume WELCOME gives 20%.",
+      "recordId": null,
+      "officialUrl": "https://www.bobbibrown.co.za/offers-landing-page",
+      "termsUrl": "https://www.bobbibrown.co.za/offers-landing-page",
+      "sourceChecks": [
+        {
+          "url": "https://www.bobbibrown.co.za/offers-landing-page",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "RO08",
+      "workbookRow": 83,
+      "title": "Xtra Savings Plus: R 99/month delivery and grocery benefits",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Reconfirm current basket threshold, in-store cap, renewal/cancellation, large-item exclusions in latest app terms.",
+      "recordId": null,
+      "officialUrl": "https://play.google.com/store/apps/details?id=za.co.shoprite.sixty60",
+      "termsUrl": "https://www.termsconditions.co.za/docs/Xtra-Savings-Plus.pdf",
+      "sourceChecks": [
+        {
+          "url": "https://play.google.com/store/apps/details?id=za.co.shoprite.sixty60",
+          "httpStatus": 200,
+          "captureSha256": "03f6bb2f805236aa7c4f03f371cef393e182ea79eba41a854784bd61e7dba2e8",
+          "captureKey": "79a2707a012ca1"
+        },
+        {
+          "url": "https://www.termsconditions.co.za/docs/Xtra-Savings-Plus.pdf",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "RO03",
+      "workbookRow": 84,
+      "title": "Baby & Me baby bag after qualifying baby spend",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Resolve conflicting qualification instructions before publication; do not label an unconditional free baby bag.",
+      "recordId": null,
+      "officialUrl": "https://www.dischem.co.za/baby-programme",
+      "termsUrl": "https://www.dischem.co.za/site-terms-and-conditions",
+      "sourceChecks": [
+        {
+          "url": "https://www.dischem.co.za/baby-programme",
+          "accessError": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://www.dischem.co.za/site-terms-and-conditions",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "RO02",
+      "workbookRow": 85,
+      "title": "Better Rewards: 10% instant discount on qualifying brands",
+      "workbookStatus": "Needs verification",
+      "decision": "existing-record",
+      "reason": "Exact benefit already exists in the local offers registry. No duplicate added; existing lifecycle/review state was preserved.",
+      "recordId": "dis-chem-better-rewards-10-percent",
+      "officialUrl": "https://www.dischem.co.za/better-rewards",
+      "termsUrl": "https://www.dischem.co.za/site-terms-and-conditions",
+      "sourceChecks": [
+        {
+          "url": "https://www.dischem.co.za/better-rewards",
+          "accessError": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://www.dischem.co.za/site-terms-and-conditions",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "RO13",
+      "workbookRow": 86,
+      "title": "MAC Your Glow Starts Here: mini gifts at R 1000/R 1200",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Confirm that the deadline belongs to October 2026.\nConfirm whether both gifts apply at R 1200; do not mix the separate R 1600/R 2100 evergreen tiers into this offer.",
+      "recordId": null,
+      "officialUrl": "https://www.maccosmetics.co.za/offer-details",
+      "termsUrl": "https://www.maccosmetics.co.za/offer-details",
+      "sourceChecks": [
+        {
+          "url": "https://www.maccosmetics.co.za/offer-details",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "TO13",
+      "workbookRow": 87,
+      "title": "Telkom Plug’d: advertised 1 GB youth registration gift",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "No extension or replacement dated terms found.",
+      "recordId": null,
+      "officialUrl": "https://www.telkom.co.za/plugd",
+      "termsUrl": "https://group.telkom.co.za/documents/regulatory/terms-and-conditions/Terms-and-Conditions-for-Plug%27d-1GB-Campaign.pdf",
+      "sourceChecks": [
+        {
+          "url": "https://www.telkom.co.za/plugd",
+          "httpStatus": 200,
+          "captureSha256": "ba83b024f75b8d668957a0ed4b60895de380f114b0a94e7bbc2048942a41ea64",
+          "captureKey": "05f4c5ba222d90"
+        },
+        {
+          "url": "https://group.telkom.co.za/documents/regulatory/terms-and-conditions/Terms-and-Conditions-for-Plug%27d-1GB-Campaign.pdf",
+          "httpStatus": 200,
+          "captureSha256": "bbf6b9b11ecb1651f40d10994f302b4eafe2f2af494abb324ac758ae2a565fbb",
+          "captureKey": "4db20c8b0df86b"
+        }
+      ]
+    },
+    {
+      "leadId": "MO34",
+      "workbookRow": 88,
+      "title": "Norval Foundation birthday-month free admission",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Confirm free-ticket route, ID, visit limit and eligibility; do not advertise as available today.",
+      "recordId": null,
+      "officialUrl": "https://www.norvalfoundation.org/visitors-information/",
+      "termsUrl": "https://www.norvalfoundation.org/visitors-information/",
+      "sourceChecks": [
+        {
+          "url": "https://www.norvalfoundation.org/visitors-information/",
+          "httpStatus": 200,
+          "captureSha256": "e523d06c8653dc559ab3d9ae551f04a1a65604b75cb5b70eb0c1571f3b0b85cf",
+          "captureKey": "b729e5211d6c85"
+        }
+      ]
+    },
+    {
+      "leadId": "MO41",
+      "workbookRow": 89,
+      "title": "Norval Foundation half-price pensioner Thursdays",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Confirm pensioner age and rate basis before publishing a rand price; no exact saving calculated.",
+      "recordId": null,
+      "officialUrl": "https://www.norvalfoundation.org/visitors-information/",
+      "termsUrl": "https://www.norvalfoundation.org/visitors-information/",
+      "sourceChecks": [
+        {
+          "url": "https://www.norvalfoundation.org/visitors-information/",
+          "httpStatus": 200,
+          "captureSha256": "e523d06c8653dc559ab3d9ae551f04a1a65604b75cb5b70eb0c1571f3b0b85cf",
+          "captureKey": "b729e5211d6c85"
+        }
+      ]
+    },
+    {
+      "leadId": "MO11",
+      "workbookRow": 90,
+      "title": "Gold Reef City free birthday theme-park entry",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Resolve closure-day/Sunday and certified-copy contradictions; verify current park gate/booking route.",
+      "recordId": null,
+      "officialUrl": "https://www.tsogosun.com/casino/gold-reef-city-theme-park/?chebs=gl-ent_gold-reef-city-theme-park",
+      "termsUrl": "https://www.tsogosun.com/casino/gold-reef-city-theme-park/?chebs=gl-ent_gold-reef-city-theme-park",
+      "sourceChecks": [
+        {
+          "url": "https://www.tsogosun.com/casino/gold-reef-city-theme-park/?chebs=gl-ent_gold-reef-city-theme-park",
+          "httpStatus": 200,
+          "captureSha256": "23237dc6b41020da57c7cc424045cfe8be859e3036cf9fa26d50e71a1c61c565",
+          "captureKey": "8015f078564255"
+        }
+      ]
+    },
+    {
+      "leadId": "TO07",
+      "workbookRow": 91,
+      "title": "Capitec credit card: monthly Connect data and 1% cashback",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Conflicting data quantities; complete current reward conditions and exclusions not reconciled.",
+      "recordId": null,
+      "officialUrl": "https://www.capitecbank.co.za/personal/credit/credit-card/",
+      "termsUrl": "https://www.capitecbank.co.za/were-here-to-help/faqs/?selectQuestionSection=Live+Better",
+      "sourceChecks": [
+        {
+          "url": "https://www.capitecbank.co.za/personal/credit/credit-card/",
+          "accessError": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://www.capitecbank.co.za/were-here-to-help/faqs/?selectQuestionSection=Live+Better",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "TO35",
+      "workbookRow": 92,
+      "title": "Woolworths MyDifference PLUS: card-linked rewards",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Exact current card fees, tier thresholds, cap conflict, qualifying spending, payout method and Black Card-only conditions unresolved.",
+      "recordId": null,
+      "officialUrl": "https://www.woolworths.co.za/content/look/mydifference-plus-joinplus/_/A-cmp216901",
+      "termsUrl": null,
+      "sourceChecks": [
+        {
+          "url": "https://www.woolworths.co.za/content/look/mydifference-plus-joinplus/_/A-cmp216901",
+          "httpStatus": 200,
+          "captureSha256": "455e0b5c9920c76b185ea670ee5d5bf393437cdd0d51465669b90eabe8533f53",
+          "captureKey": "a7375af77726b6"
+        }
+      ]
+    },
+    {
+      "leadId": "TO31",
+      "workbookRow": 93,
+      "title": "Spotify Premium Standard: conflicting introductory offer versions",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Conflicting current page versions and ambiguous six-month billing text; personalised checkout may differ. No subscription or checkout was activated.",
+      "recordId": null,
+      "officialUrl": "https://www.spotify.com/za-en/premium/?country=ZA",
+      "termsUrl": "https://www.spotify.com/za-en/legal/paid-subscription-terms/",
+      "sourceChecks": [
+        {
+          "url": "https://www.spotify.com/za-en/premium/?country=ZA",
+          "httpStatus": 200,
+          "captureSha256": "b5e5a46cc3ad78a416ed80b143ad308cbe9c982f57c0634b7601a4f8b9300611",
+          "captureKey": "ab915c80eefb7b"
+        },
+        {
+          "url": "https://www.spotify.com/za-en/legal/paid-subscription-terms/",
+          "httpStatus": 200,
+          "captureSha256": "21fed4b590050311b8e8344329244f81d009a664d4295f5b8d5a7d9ca0dc3558",
+          "captureKey": "1d62d2ac0d3419"
+        }
+      ]
+    },
+    {
+      "leadId": "MO25",
+      "workbookRow": 94,
+      "title": "Doppio Zero R100 birthday voucher",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Resolve expiry conflict and minimum bill requirement; no need to split the separate party wine perk into a new row.",
+      "recordId": null,
+      "officialUrl": "https://doppio.co.za/loyalty-programme/",
+      "termsUrl": "https://doppio.co.za/loyalty-programme/",
+      "sourceChecks": [
+        {
+          "url": "https://doppio.co.za/loyalty-programme/",
+          "httpStatus": 200,
+          "captureSha256": "03cc89e88287c4a5b28fda8f134f32a73fe8493c05d1439de024d3cf98309ace",
+          "captureKey": "991dac59a79269"
+        }
+      ]
+    },
+    {
+      "leadId": "MO38",
+      "workbookRow": 95,
+      "title": "Kauai welcome offer — 25% off first small smoothie",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Direct app/terms retrieval failed; confirm issue/expiry, delivery fees, eligible stores and transaction mechanics.",
+      "recordId": null,
+      "officialUrl": "https://kauai.co.za/app/",
+      "termsUrl": "https://kauai.co.za/app/",
+      "sourceChecks": [
+        {
+          "url": "https://kauai.co.za/app/",
+          "httpStatus": 200,
+          "captureSha256": "3de877f206ea272154f4826968a27f59b7d0e167723f742fcb0d54b8eb5bf4cf",
+          "captureKey": "721f7d934b2b3f"
+        }
+      ]
+    },
+    {
+      "leadId": "MO22",
+      "workbookRow": 96,
+      "title": "Spur kids birthday meal and ice cream",
+      "workbookStatus": "Needs verification",
+      "decision": "existing-record",
+      "reason": "Exact benefit already exists in the local opportunities registry. No duplicate added; existing lifecycle/review state was preserved.",
+      "recordId": "spur-kids-free-birthday-meal",
+      "officialUrl": "https://www.spursteakranches.com/za/faq/family-club",
+      "termsUrl": "https://www.spursteakranches.com/za/faq/family-club",
+      "sourceChecks": [
+        {
+          "url": "https://www.spursteakranches.com/za/faq/family-club",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "MO26",
+      "workbookRow": 97,
+      "title": "Starbucks Gold birthday reward",
+      "workbookStatus": "Needs verification",
+      "decision": "existing-record",
+      "reason": "Exact benefit already exists in the local opportunities registry. No duplicate added; existing lifecycle/review state was preserved.",
+      "recordId": "starbucks-gold-birthday-drink",
+      "officialUrl": "https://www.starbucks.co.za/rewards-terms-conditions",
+      "termsUrl": "https://www.starbucks.co.za/rewards-terms-conditions",
+      "sourceChecks": [
+        {
+          "url": "https://www.starbucks.co.za/rewards-terms-conditions",
+          "httpStatus": 200,
+          "captureSha256": "b63f3bdbee3257c0f2520ac23be034f863c9124110c0cf6c186a49c7b03aedb3",
+          "captureKey": "6f79034367aa9a"
+        }
+      ]
+    },
+    {
+      "leadId": "MO24",
+      "workbookRow": 98,
+      "title": "Wimpy Rewards welcome cappuccino",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Public FAQ does not describe cappuccino eligibility, purchase condition, size or validity. Do not state unconditional free coffee until voucher confirmed.",
+      "recordId": null,
+      "officialUrl": "https://wimpy.co.za/wimpy-rewards/",
+      "termsUrl": "https://wimpy.co.za/wimpy-rewards/",
+      "sourceChecks": [
+        {
+          "url": "https://wimpy.co.za/wimpy-rewards/",
+          "httpStatus": 200,
+          "captureSha256": "d9e4c2c47b86a0f197df4428308db71e37a70fc281c903cd1bc1708087691628",
+          "captureKey": "ac46225ea761ee"
+        }
+      ]
+    },
+    {
+      "leadId": "RO24",
+      "workbookRow": 99,
+      "title": "Makro birthday coupon: R 100 off R 800 in-store",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Confirm that the consumer programme continues and establish eligible-customer selection; consumer content on the business subdomain may be stale.",
+      "recordId": null,
+      "officialUrl": "https://business.makro.co.za/makro-card/gift-card",
+      "termsUrl": "https://business.makro.co.za/makro-card/gift-card",
+      "sourceChecks": [
+        {
+          "url": "https://business.makro.co.za/makro-card/gift-card",
+          "httpStatus": 200,
+          "captureSha256": "a6135a4dab251535ec876708cdd0b7f9edcc31918241615635cf38446bc351ce",
+          "captureKey": "a382e5d37b03b8"
+        }
+      ]
+    },
+    {
+      "leadId": "RO27",
+      "workbookRow": 100,
+      "title": "Pick n Pay Live Well Club: triple points and personalised 15% vouchers",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Recheck 2026 availability, points rates and voucher issue frequency. The extraction did not show the release date.",
+      "recordId": null,
+      "officialUrl": "https://picknpayinvestor.co.za/media/millions-of-south-africans-can-now-be-strongly-rewarded-for-choosing-healthier-products",
+      "termsUrl": "https://picknpayinvestor.co.za/media/millions-of-south-africans-can-now-be-strongly-rewarded-for-choosing-healthier-products",
+      "sourceChecks": [
+        {
+          "url": "https://picknpayinvestor.co.za/media/millions-of-south-africans-can-now-be-strongly-rewarded-for-choosing-healthier-products",
+          "httpStatus": 200,
+          "captureSha256": "7d211e75477f53a8a7569cfbf20792eb0893e2294b306392d40f2b253b9823f5",
+          "captureKey": "ff083e8429d217"
+        }
+      ]
+    },
+    {
+      "leadId": "RO30",
+      "workbookRow": 101,
+      "title": "OneCart R 100 first-order banner — operational status hold",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "OneCart operational availability/shutdown concerns remain unresolved; do not add an actionable offer.",
+      "recordId": null,
+      "officialUrl": "https://www.onecart.co.za/category/1",
+      "termsUrl": "https://www.onecart.co.za/category/1",
+      "sourceChecks": [
+        {
+          "url": "https://www.onecart.co.za/category/1",
+          "httpStatus": 200,
+          "captureSha256": "d61c38deb2bbf25ee94c19e6ae42d912caf85953b355fafae3b74c0e35d57f7e",
+          "captureKey": "5aa68878cb23af"
+        }
+      ]
+    },
+    {
+      "leadId": "GO09",
+      "workbookRow": 102,
+      "title": "UP Cycles: pensioner 20% rental discount",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Age threshold, identification, deposit and exclusions not stated.",
+      "recordId": null,
+      "officialUrl": "https://upcycles.co.za/rentals/",
+      "termsUrl": "https://upcycles.co.za/rentals/",
+      "sourceChecks": [
+        {
+          "url": "https://upcycles.co.za/rentals/",
+          "httpStatus": 200,
+          "captureSha256": "7c7b5a60568caba5f25a4d562e68b270565426ff017e1c9dd320c5114e7e60b2",
+          "captureKey": "085411ff5b780c"
+        }
+      ]
+    },
+    {
+      "leadId": "GO10",
+      "workbookRow": 103,
+      "title": "UP Cycles: advertised 50% off short rentals for Discovery Bank clients",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Bank-side terms and detailed eligibility missing.",
+      "recordId": null,
+      "officialUrl": "https://upcycles.co.za/rentals/",
+      "termsUrl": "https://upcycles.co.za/rentals/",
+      "sourceChecks": [
+        {
+          "url": "https://upcycles.co.za/rentals/",
+          "httpStatus": 200,
+          "captureSha256": "7c7b5a60568caba5f25a4d562e68b270565426ff017e1c9dd320c5114e7e60b2",
+          "captureKey": "085411ff5b780c"
+        }
+      ]
+    },
+    {
+      "leadId": "RO17",
+      "workbookRow": 104,
+      "title": "Clarins Beauty in Bloom six-piece gift at R 1500",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Resolve conflicting versions of the campaign page, exact dates, gift contents and stock.",
+      "recordId": null,
+      "officialUrl": "https://www.clarins.co.za/exclusives/",
+      "termsUrl": "https://www.clarins.co.za/termsAndConditions.html",
+      "sourceChecks": [
+        {
+          "url": "https://www.clarins.co.za/exclusives/",
+          "httpStatus": 200,
+          "captureSha256": "0f5195ebead9c9cf8a53627f5f78c0fa24af6b865a11243ef855897845c8a0d5",
+          "captureKey": "a7840554409c75"
+        },
+        {
+          "url": "https://www.clarins.co.za/termsAndConditions.html",
+          "httpStatus": 200,
+          "captureSha256": "ba564468e8d8d2e0d63a776cf2d643574bfaae32b362b7bbdac80e60842cc7cb",
+          "captureKey": "86d1f8b39d7918"
+        }
+      ]
+    },
+    {
+      "leadId": "RO18",
+      "workbookRow": 105,
+      "title": "Clarins one-week sitewide 20–25% promotion",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "The calendar week, excluded products and current availability are unresolved.",
+      "recordId": null,
+      "officialUrl": "https://www.clarins.co.za/special-offers/",
+      "termsUrl": "https://www.clarins.co.za/termsAndConditions.html",
+      "sourceChecks": [
+        {
+          "url": "https://www.clarins.co.za/special-offers/",
+          "httpStatus": 200,
+          "captureSha256": "3419d4ef8427abdd1999a767ddbb2062a7f1d8c8d3bd862efc599214be6e7de0",
+          "captureKey": "54f35a1125be01"
+        },
+        {
+          "url": "https://www.clarins.co.za/termsAndConditions.html",
+          "httpStatus": 200,
+          "captureSha256": "ba564468e8d8d2e0d63a776cf2d643574bfaae32b362b7bbdac80e60842cc7cb",
+          "captureKey": "86d1f8b39d7918"
+        }
+      ]
+    },
+    {
+      "leadId": "RO04",
+      "workbookRow": 106,
+      "title": "Clicks ClubCard base cashback and double-points milestone",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Current conversion threshold and full product exclusions need reconciliation.",
+      "recordId": null,
+      "officialUrl": "https://www.clicks.co.za/clubcard",
+      "termsUrl": "https://clicks.co.za/helpTopics",
+      "sourceChecks": [
+        {
+          "url": "https://www.clicks.co.za/clubcard",
+          "httpStatus": 200,
+          "captureSha256": "e366a144ab0cedcd2f8b96b29936622e10fbc86c6b4fa22f7d6af4bc81cab72b",
+          "captureKey": "33fe9048283582"
+        },
+        {
+          "url": "https://clicks.co.za/helpTopics",
+          "httpStatus": 200,
+          "captureSha256": "0454c2774d9c1ee271182f8ba4c9004387d9cc37acb6eba2463d7e4b5e67c3c7",
+          "captureKey": "323ad6193ba6ce"
+        }
+      ]
+    },
+    {
+      "leadId": "RO12",
+      "workbookRow": 107,
+      "title": "Clinique five-mini gift when buying three items",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Resolve the search-versus-page discrepancy, campaign year, eligible products and remaining gift stock.",
+      "recordId": null,
+      "officialUrl": "https://www.clinique.co.za/offers",
+      "termsUrl": "https://www.clinique.co.za/offers",
+      "sourceChecks": [
+        {
+          "url": "https://www.clinique.co.za/offers",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "RO10",
+      "workbookRow": 108,
+      "title": "iS Clinical CANSA donation-linked gifts",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "The precise donation-to-gift relationship, quantity limits, delivery costs and closing date are UNKNOWN.",
+      "recordId": null,
+      "officialUrl": "https://skinmiles.com/",
+      "termsUrl": "https://skinmiles.com/",
+      "sourceChecks": [
+        {
+          "url": "https://skinmiles.com/",
+          "httpStatus": 200,
+          "captureSha256": "e87a27b9a787a401153f45a31261d7eca3312f70d9555aeb2f8ebb9473d645a2",
+          "captureKey": "aeb126000df4d2"
+        }
+      ]
+    },
+    {
+      "leadId": "TO08",
+      "workbookRow": 109,
+      "title": "Capitec youth: 5 GB after an in-branch credit-card estimate",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "No clear overall campaign dates or full participating-branch schedule established.",
+      "recordId": null,
+      "officialUrl": "https://www.capitecbank.co.za/personal/youth-banking/",
+      "termsUrl": "https://www.capitecbank.co.za/were-here-to-help/faqs/?selectQuestionSection=Vouchers",
+      "sourceChecks": [
+        {
+          "url": "https://www.capitecbank.co.za/personal/youth-banking/",
+          "accessError": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://www.capitecbank.co.za/were-here-to-help/faqs/?selectQuestionSection=Vouchers",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "TO11",
+      "workbookRow": 110,
+      "title": "MTN Bonus Bonanza: 100% bonus airtime on qualifying recharge",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "The call tariff is worded inconsistently; a bonus alone does not prove a cheaper overall service.",
+      "recordId": null,
+      "officialUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/prepaid-bonus-bonanza-price-plan",
+      "termsUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/prepaid-bonus-bonanza-price-plan",
+      "sourceChecks": [
+        {
+          "url": "https://www.mtn.co.za/home/terms-and-conditions/content/prepaid-bonus-bonanza-price-plan",
+          "httpStatus": 200,
+          "captureSha256": "e55857c5fc8b965814d468967fbc6e39a2ebe923f663c8d6d585eab696b2cc04",
+          "captureKey": "b2076a5149c643"
+        }
+      ]
+    },
+    {
+      "leadId": "MO32",
+      "workbookRow": 111,
+      "title": "Intercape child and family fare reductions",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Family50% is on official booking-partner FAQ; final fare availability should be confirmed before publication.",
+      "recordId": null,
+      "officialUrl": "https://www.intercape.co.za/",
+      "termsUrl": "https://www.intercape.co.za/",
+      "sourceChecks": [
+        {
+          "url": "https://www.intercape.co.za/",
+          "accessError": "HTTP Error 403: Forbidden"
+        }
+      ]
+    },
+    {
+      "leadId": "TO22",
+      "workbookRow": 112,
+      "title": "Capitec EasyEquities: advertised R50 and 20% brokerage discount",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "Current partner activation, post-October reward compatibility, eligibility and fee-exemption details not fully reconciled.",
+      "recordId": null,
+      "officialUrl": "https://www.capitecbank.co.za/rewards/spend-better/easyequities/",
+      "termsUrl": "https://resources.easyequities.co.za/EasyEquities_CostProfile.pdf",
+      "sourceChecks": [
+        {
+          "url": "https://www.capitecbank.co.za/rewards/spend-better/easyequities/",
+          "accessError": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://resources.easyequities.co.za/EasyEquities_CostProfile.pdf",
+          "httpStatus": 200,
+          "captureSha256": "d74bce5051ed3d0760498942ca5b23047a201fe7e0ec44dfbdc4a5e1c87230f0",
+          "captureKey": "9e40e7778ff83d"
+        }
+      ]
+    },
+    {
+      "leadId": "GO07",
+      "workbookRow": 113,
+      "title": "VNAV: advertised 15% first-order newsletter discount",
+      "workbookStatus": "Needs verification",
+      "decision": "hold",
+      "reason": "The supplied VNAV subscription route returned 404; no current official coupon redemption page was established.",
+      "recordId": null,
+      "officialUrl": "https://vnav.co.za/",
+      "termsUrl": "https://vnav.co.za/pages/subscribe",
+      "sourceChecks": [
+        {
+          "url": "https://vnav.co.za/",
+          "httpStatus": 200,
+          "captureSha256": "1876e5804fec53262d28f82f1450e967d991cf4f5e79dc6c13944fb4696d0fce",
+          "captureKey": "21a606620d82d0"
+        },
+        {
+          "url": "https://vnav.co.za/pages/subscribe",
+          "accessError": "HTTP Error 404: Not Found"
+        }
+      ]
+    },
+    {
+      "leadId": "RO29",
+      "workbookRow": 114,
+      "title": "SNAPnSAVE grocery cashback coupons",
+      "workbookStatus": "Monitoring",
+      "decision": "monitor",
+      "reason": "Personalised/app-only benefit has no concrete, publicly verifiable offer to promise; retain as a monitoring lead.",
+      "recordId": null,
+      "officialUrl": "https://apps.apple.com/za/app/snapnsave-sas-1-cashback-app/id1015002455",
+      "termsUrl": "https://apps.apple.com/za/app/snapnsave-sas-1-cashback-app/id1015002455",
+      "sourceChecks": [
+        {
+          "url": "https://apps.apple.com/za/app/snapnsave-sas-1-cashback-app/id1015002455",
+          "httpStatus": 200,
+          "captureSha256": "e5159afe93d14ec7c7a6a6681e0da379d255e63b6b77514dd843a27ddd683309",
+          "captureKey": "d8d69b95e2a3e0"
+        }
+      ]
+    },
+    {
+      "leadId": "RO28",
+      "workbookRow": 115,
+      "title": "Woolworths MyDifference personalised vouchers",
+      "workbookStatus": "Monitoring",
+      "decision": "monitor",
+      "reason": "Personalised/app-only benefit has no concrete, publicly verifiable offer to promise; retain as a monitoring lead.",
+      "recordId": null,
+      "officialUrl": "https://www.woolworths.co.za/content/look/my-difference/_/A-cmp216141",
+      "termsUrl": "https://www.woolworths.co.za/content/look/my-difference/_/A-cmp216141",
+      "sourceChecks": [
+        {
+          "url": "https://www.woolworths.co.za/content/look/my-difference/_/A-cmp216141",
+          "httpStatus": 200,
+          "captureSha256": "4d45f83954918c105e05aa9c584f25a161c73e4c48f4859b70c76a69e51ff33d",
+          "captureKey": "e11accbfa33aa3"
+        }
+      ]
+    },
+    {
+      "leadId": "RO07",
+      "workbookRow": 116,
+      "title": "My ClubCard Deals: personalised app coupons",
+      "workbookStatus": "Monitoring",
+      "decision": "monitor",
+      "reason": "Personalised/app-only benefit has no concrete, publicly verifiable offer to promise; retain as a monitoring lead.",
+      "recordId": null,
+      "officialUrl": "https://clicks.co.za/mobileapphelp",
+      "termsUrl": "https://help.clicks.co.za/support/solutions/articles/80000958523-my-clubcard-deals",
+      "sourceChecks": [
+        {
+          "url": "https://clicks.co.za/mobileapphelp",
+          "httpStatus": 200,
+          "captureSha256": "2553c9ecb253eae1bdf0a95398fb787b9de2b9981f6d7c7ea9f727a184c7750d",
+          "captureKey": "ea62b448adeb0b"
+        },
+        {
+          "url": "https://help.clicks.co.za/support/solutions/articles/80000958523-my-clubcard-deals",
+          "httpStatus": 200,
+          "captureSha256": "c53b935d6e816f7bf8896a52051c3c50f128bf9abe6534ca8b43f1a70c6d37e5",
+          "captureKey": "b159b0f6e8239e"
+        }
+      ]
+    },
+    {
+      "leadId": "TO10",
+      "workbookRow": 117,
+      "title": "Vodacom Summer 2026/27 personalised bundle offers",
+      "workbookStatus": "Monitoring",
+      "decision": "monitor",
+      "reason": "Personalised/app-only benefit has no concrete, publicly verifiable offer to promise; retain as a monitoring lead.",
+      "recordId": null,
+      "officialUrl": "https://www.vodacom.co.za/vodacom/terms/promotions/summer-deals",
+      "termsUrl": "https://www.vodacom.co.za/vodacom/terms/promotions/summer-deals",
+      "sourceChecks": [
+        {
+          "url": "https://www.vodacom.co.za/vodacom/terms/promotions/summer-deals",
+          "httpStatus": 200,
+          "captureSha256": "851871acd6218656f638d71681abefce03ce24260d574524ca3e41e152520350",
+          "captureKey": "e39392433400a7"
+        }
+      ]
+    }
+  ],
+  "supplementalReview": "Existing coverage and update/exclusion tabs retained as source context. Existing records and expired, stale, unverified or excluded benefits were not republished or refreshed solely from workbook labels.",
+  "publishedAt": "2026-10-09",
+  "screeningCounts": {
+    "draft-added": 26,
+    "existing-record": 13,
+    "hold": 56,
+    "resource-draft-prepared": 4,
+    "ordinary-price": 1,
+    "upcoming-hold": 4,
+    "monitor": 4
+  },
+  "counts": {
+    "offersPublished": 26,
+    "resourcesPublished": 4,
+    "leadsScreened": 108
+  },
+  "publishedResources": [
+    {
+      "leadId": "TO28",
+      "record": {
+        "id": "dbe-2026-rainbow-workbooks",
+        "name": "Department of Basic Education 2026 Rainbow workbooks",
+        "resourceType": "public_service",
+        "category": "school-resources",
+        "categoryLabel": "Free school resources",
+        "officialUrl": "https://www.education.gov.za/Curriculum/LearningandTeachingSupportMaterials%28LTSM%29/Workbooks.aspx",
+        "bestFor": "Parents, teachers and South African school learners",
+        "freeDetails": "The official workbook directory links the 2026 workbooks for terms 1–2 and 3–4.",
+        "requirements": "Choose the correct grade, subject, language and term from the official directory. Digital downloads need internet access; printing has normal paper/printing costs.",
+        "watchOut": "No free delivery of printed books is promised. Use official DBE links; check that the selected file is the 2026 edition.",
+        "availability": "active",
+        "verificationStatus": "verified",
+        "lastReviewed": "2026-10-09",
+        "reviewDueAt": "2026-10-16",
+        "dateModified": "2026-10-09",
+        "datePublished": "2026-10-09"
+      },
+      "publicationStatus": "published",
+      "publicationBlockers": []
+    },
+    {
+      "leadId": "TO26",
+      "record": {
+        "id": "siyavula-free-maths-science-practice",
+        "name": "Siyavula free Mathematics and Physical Sciences practice",
+        "resourceType": "platform",
+        "category": "school-resources",
+        "categoryLabel": "Free school resources",
+        "officialUrl": "https://www.siyavula.com/products/learners",
+        "bestFor": "South African learners and parents",
+        "freeDetails": "Siyavula advertises free online Mathematics and Physical Sciences practice.",
+        "requirements": "Register a free learner account to use the practice tools; parents can register to track work. Internet access is required.",
+        "watchOut": "Official July 2026 help specifies zero-rated access on MTN and Cell C; leaving Siyavula can incur data charges. Some networks need a small balance to begin access. Do not promise zero-rating on all networks.",
+        "availability": "active",
+        "verificationStatus": "verified",
+        "lastReviewed": "2026-10-09",
+        "reviewDueAt": "2026-10-16",
+        "dateModified": "2026-10-09",
+        "datePublished": "2026-10-09"
+      },
+      "publicationStatus": "published",
+      "publicationBlockers": []
+    },
+    {
+      "leadId": "TO27",
+      "record": {
+        "id": "vodacom-free-school-elearning-content",
+        "name": "Vodacom free school eLearning content",
+        "resourceType": "platform",
+        "category": "school-resources",
+        "categoryLabel": "Free school resources",
+        "officialUrl": "https://elearning.vodacom.co.za/",
+        "bestFor": "School learners in grades R–12",
+        "freeDetails": "The platform labels school content from grades R–12 as FREE; Vodacom states content and data on the service are free for its customers.",
+        "requirements": "Register/sign in and select the free school-grade sections. A compatible device and internet connection are needed.",
+        "watchOut": "The platform also advertises premium learning subscriptions. This listing covers only the sections labelled FREE; external links and other networks can incur data costs. Do not sign up to premium content assuming it is free.",
+        "availability": "active",
+        "verificationStatus": "verified",
+        "lastReviewed": "2026-10-09",
+        "reviewDueAt": "2026-10-16",
+        "dateModified": "2026-10-09",
+        "datePublished": "2026-10-09"
+      },
+      "publicationStatus": "published",
+      "publicationBlockers": []
+    },
+    {
+      "leadId": "TO29",
+      "record": {
+        "id": "hp-life-free-business-digital-courses",
+        "name": "HP LIFE free business and digital courses",
+        "resourceType": "platform",
+        "category": "online-courses",
+        "categoryLabel": "Free online courses",
+        "officialUrl": "https://www.life-global.org/",
+        "bestFor": "Jobseekers, learners and small-business owners",
+        "freeDetails": "HP LIFE advertises free business/digital-skills courses in eight languages and free course-completion certificates.",
+        "requirements": "Join HP LIFE for free and select a course from the official catalogue. Device and internet/data costs remain your responsibility.",
+        "watchOut": "A completion certificate is not a university qualification, professional licence or guaranteed job. Check each course language and content before starting.",
+        "availability": "active",
+        "verificationStatus": "verified",
+        "lastReviewed": "2026-10-09",
+        "reviewDueAt": "2026-10-16",
+        "dateModified": "2026-10-09",
+        "datePublished": "2026-10-09"
+      },
+      "publicationStatus": "published",
+      "publicationBlockers": []
+    }
+  ]
+}

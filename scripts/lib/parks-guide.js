@@ -8,7 +8,7 @@ const PARKS_GUIDE = {
   article: true,
   datePublished: "2026-09-09",
   dateModified: "2026-09-09",
-  actions: [{ label: "Compare dates and rules", href: "#main-content", className: "btn--primary" }, { label: "Browse current deals", href: "/deals/", className: "btn--secondary" }],
+  actions: [{ label: "Compare dates and rules", href: "#main-content", className: "btn--primary" }, { label: "Browse current deals", href: "/deals/", className: "btn--secondary", requiresOffers: true }],
   trustItems: ["Official sources checked 9 September 2026", "Day entry only", "Travel costs still apply"],
   sections: [
     {
@@ -37,7 +37,7 @@ const PARKS_GUIDE = {
       paragraphs: ["Choose a nearby participating park, check its opening hours and access notices, and budget for transport, food and optional activities. Free admission does not make the entire trip free. Entry is subject to capacity, so an arrival does not guarantee admission.", "After the dates above, normal charges apply unless the provider announces another offer. Freehub does not take bookings, issue park tickets or guarantee entry."]
     }
   ],
-  links: [{ label: "Free stuff in South Africa", href: "/free-stuff-south-africa/" }, { label: "Current deals", href: "/deals/" }, { label: "Birthday freebies", href: "/birthday-freebies/" }]
+  links: [{ label: "Free stuff in South Africa", href: "/free-stuff-south-africa/" }, { label: "Current deals", href: "/deals/", requiresOffers: true }, { label: "Birthday freebies", href: "/birthday-freebies/" }]
 };
 
 module.exports = { PARKS_GUIDE };

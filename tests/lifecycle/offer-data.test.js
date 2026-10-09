@@ -61,11 +61,11 @@ test("offer routes and exact feature flag are safe", () => {
 test("registry rejects duplicate identifiers and production records are validated", () => {
   assert.equal(offerData.validateOfferRegistry([fixture(), fixture()]).valid, false);
   const registry = require("../../data/offers.json");
-  assert.equal(registry.length, 44);
+  assert.equal(registry.length, 70);
   assert.equal(offerData.validateOfferRegistry(registry).valid, true);
   assert.deepEqual(
     registry.reduce((counts, offer) => ({ ...counts, [offer.type]: counts[offer.type] + 1 }), { coupon: 0, deal: 0 }),
-    { coupon: 5, deal: 39 }
+    { coupon: 10, deal: 60 }
   );
   const allowedSourceHosts = new Set([
     "www.capitecbank.co.za", "www.gadventures.com", "ucount.standardbank.co.za",
@@ -78,6 +78,11 @@ test("registry rejects duplicate identifiers and production records are validate
     "promotion.asus.com", "www.mtn.co.za",
     "metrocosmetics.co.za", "akis.co.za", "www.sanparks.org", "www.capenature.co.za", "www.muggandbean.co.za",
     "www.amcsa.co.za", "www.skinstore.co.za", "sebamed.co.za",
+    "americantourister.co.za", "clicks.co.za", "cms.rocomamas.com", "cottonon.com",
+    "help.dermastore.co.za", "krispykremesa.com", "sasolrewards.co.za", "superbalist.com",
+    "www.absa.co.za", "www.colcacchio.co.za", "www.sanbi.org",
+    "www.seattlecoffeecompany.co.za", "www.sterkinekor.com", "www.tablemountain.net",
+    "zeitzmocaa.museum",
   ]);
   assert.equal(registry.every((offer) => allowedSourceHosts.has(new URL(offer.sourceUrl).hostname)), true);
 });
@@ -87,6 +92,9 @@ test("the committed offer schema compiles and matches runtime code rules", () =>
   addFormats(ajv);
   const schema = JSON.parse(fs.readFileSync(path.join(__dirname, "../../data/schemas/offer.schema.json"), "utf8"));
   const validate = ajv.compile(schema);
+  for (const record of require("../../data/offers.json")) {
+    assert.equal(validate(record), true, `${record.id}: ${JSON.stringify(validate.errors)}`);
+  }
   assert.equal(validate(fixture()), true);
   const deal = fixture({ id: "fixture-deal", slug: "fixture-deal", type: "deal" });
   delete deal.couponCode;
@@ -103,6 +111,34 @@ test("the committed offer schema compiles and matches runtime code rules", () =>
   ]) {
     assert.equal(validate(record), expected, JSON.stringify(validate.errors));
     assert.equal(offerData.validateOffer(record).valid, expected);
+  }
+});
+
+test("unpublished offers have no invented publication date and cannot become public without one", () => {
+  const ajv = new Ajv2020({ allErrors: true, strict: true });
+  addFormats(ajv);
+  const schema = require("../../data/schemas/offer.schema.json");
+  const validate = ajv.compile(schema);
+  const draft = fixture({ publicationStatus: "draft" });
+  delete draft.publishedAt;
+  assert.equal(validate(draft), true);
+  assert.equal(offerData.validateOffer(draft).valid, true);
+  assert.equal(offerData.isPublicOffer(draft, { asOfDate: "2026-08-07" }), false);
+  const accidentallyPublished = { ...draft, publicationStatus: "published" };
+  assert.equal(validate(accidentallyPublished), false);
+  assert.equal(offerData.validateOffer(accidentallyPublished).valid, false);
+  assert.equal(offerData.isPublicOffer(accidentallyPublished, { asOfDate: "2026-08-07" }), false);
+  const intake = require("../../data/editorial-intake/free-offers-2026-10-09.json");
+  const registry = require("../../data/offers.json");
+  const added = intake.leads.filter((lead) => lead.decision === "published" && registry.some((offer) => offer.id === lead.recordId));
+  assert.equal(added.length, 26);
+  assert.equal(new Set(intake.leads.map((lead) => lead.leadId)).size, 108);
+  for (const lead of added) {
+    const record = registry.find((offer) => offer.id === lead.recordId);
+    assert.ok(record, lead.leadId);
+    assert.equal(record.publicationStatus, "published");
+    assert.equal(record.publishedAt, "2026-10-09");
+    assert.equal(offerData.isPublicOffer(record, { asOfDate: "2026-10-09" }), true);
   }
 });
 
