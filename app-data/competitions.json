@@ -1,110 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-09",
-  "count": 111,
+  "asOfDate": "2026-10-10",
+  "count": 107,
   "competitions": [
-    {
-      "id": "nedbank-youthx-awards-2026",
-      "title": "Nedbank YouthX Awards 2026",
-      "brand": "YouthX by Nedbank",
-      "summary": "Submit an original YouthX Awards proposal, supporting summary or prototype and proof of a qualifying Nedbank account for a chance to win cash, mentorship and a One Young World Summit package.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/nedbank-youthx-awards-2026.svg",
-      "closingDate": "2026-10-09",
-      "category": "Cash",
-      "prizeName": "YouthX Awards cash, mentorship and One Young World Summit packages",
-      "entryCostType": "account_required",
-      "entryCostLabel": "Account required",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "Open only to South African citizens aged 18 to 26 with a qualifying Nedbank account in good standing and an eligible original submission.",
-      "entrySteps": [
-        "Be a South African citizen aged from 18 to 26 and hold a qualifying Nedbank account in good standing.",
-        "Open the official YouthX Awards entry site and choose the relevant entry category.",
-        "Prepare and submit the required proposal, summary, supporting material or prototype together with proof of the qualifying account.",
-        "If selected as a finalist, be available to pitch and attend the final event on 21 November 2026."
-      ],
-      "officialUrl": "https://www.youthxbynedbank.co.za/youthx/youthxawards",
-      "termsUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/youthx-awards-competition.html",
-      "lastChecked": "2026-08-23",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
-    {
-      "id": "pep-standard-bank-instant-money-metro-2026",
-      "title": "PEP & Standard Bank Instant Money Minute on Metro FM",
-      "brand": "PEP / Standard Bank / Metro FM",
-      "summary": "WhatsApp your story for the final PEP Standard Bank Instant Money Minute quiz on Metro FM, with up to R5,000 to win. Two R20,000 grand prizes require a qualifying Instant Money transaction and +more scan.",
-      "imageUrl": "https://freehub.co.za/assets/listings/pep-standard-bank-instant-money-metro-2026.webp",
-      "closingDate": "2026-10-09",
-      "category": "Cash",
-      "prizeName": "Up to R5,000 in the final quiz; two R20,000 grand prizes with additional requirements",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "WhatsApp",
-      "eligibility": "Natural persons aged 18+ who are South African citizens or permanent residents. Promoter-related parties and specified families are excluded. Winners of a competition on the same participating station must wait three months or 90 days before winning another.",
-      "entrySteps": [
-        "WhatsApp PEP to 066 050 6830 and share why you send money, or how you would use money received.",
-        "If selected on the merit of your response, take part in the live 60-second quiz on Metro FM. Each correct answer earns R1,000, up to R5,000.",
-        "For the separate R20,000 grand-prize judging, send or withdraw money at PEP using Standard Bank Instant Money during the promotion, scan your +more digital rewards card, answer the transaction question and supply your SA ID number for verification.",
-        "Submit an emotive story about how the grand prize would change your life when prompted. Entries close at 15:00 SAST on 9 October."
-      ],
-      "officialUrl": "https://www.metrofm.co.za/metro-fm/competitions/standard-bank-instant-money-at-pep/",
-      "termsUrl": "https://radiocompetitiontandc.co.za/terms_and_conditions/pep-standard-bank-instant-money/",
-      "lastChecked": "2026-10-08",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "1life-metro-october-2026",
-      "title": "Winning at Life with 1Life: Metro FM October 2026",
-      "brand": "1Life / Metro FM",
-      "summary": "Enter the Metro FM 1Life competition for a chance to play live on air for R2,000–R8,000, with an additional R2,000 if you received an obligation-free quote. Entry includes credit-check and marketing consent.",
-      "imageUrl": "https://freehub.co.za/assets/listings/1life-metro-october-2026.webp",
-      "closingDate": "2026-10-09",
-      "category": "Cash",
-      "prizeName": "R2,000–R8,000 cash boxes with a possible R2,000 quote bonus",
-      "entryCostType": "standard_data_may_apply",
-      "entryCostLabel": "SMS/data rates may apply",
-      "purchaseRequired": false,
-      "entryMethod": "SMS",
-      "eligibility": "South African citizens over 18. People who won a 1Life-promoted competition in the previous 12 months and promoter-related parties or specified families are excluded.",
-      "entrySteps": [
-        "Read the official October terms, including consent to an ITC credit check and marketing communications.",
-        "SMS 1Life to 45787 at R1.50 per SMS, or follow ENTER HERE on the official Metro FM page. Free SMS bundles do not apply.",
-        "The linked online form requests your contact details and agreement to receive an obligation-free life quote. Although the terms describe the quote as optional, this reviewed form includes quote consent in its entry controls. Use the published SMS route if you do not want to request a quote.",
-        "If selected for the on-air game, pick one of the five cash boxes. A listener who has received an obligation-free quote gets a R2,000 bonus. No insurance contract is required."
-      ],
-      "officialUrl": "https://www.metrofm.co.za/metro-fm/competitions/winning-at-life-with-1life-6/",
-      "termsUrl": "https://www.1life.co.za/competitions/metrofm-2026-10",
-      "lastChecked": "2026-10-08",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "omo-super-soak-radio2000-2026",
-      "title": "Win R5,000 with OMO Super Soak on Radio 2000",
-      "brand": "OMO / Radio 2000",
-      "summary": "Win R5,000 with OMO Super Soak on Radio 2000. No purchase stated; social data costs apply. Closes 2026-10-09.",
-      "imageUrl": "https://freehub.co.za/assets/listings/omo-super-soak-radio2000-2026.webp",
-      "closingDate": "2026-10-09",
-      "category": "Cash",
-      "prizeName": "R5,000 in the on-air quiz",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Facebook or X story and on-air quiz",
-      "eligibility": "SA participants aged 18+ with valid identity documentation. See the full restrictions below.",
-      "entrySteps": [
-        "Share your memorable stain story on Facebook or X, tag Radio 2000 and OMO, and use #OMOSUPERSOAK5MINS. Selected callers compete in a 30-second OMO product quiz on the morning show.",
-        "No purchase stated; social data costs apply."
-      ],
-      "officialUrl": "https://www.radio2000.co.za/radio2000/competition/omo-hand-wash-super-soak-competition/",
-      "termsUrl": "https://www.radio2000.co.za/radio2000/competition/omo-hand-wash-super-soak-competition/",
-      "lastChecked": "2026-10-08",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "mtn8-last-fan-standing-2026",
       "title": "Stand a chance to win R1 million with MTN8",
@@ -307,7 +205,7 @@
       "termsUrl": "https://www.spar.co.za/competitions/colgate-palmolive-win-your-share-of-50k-competition",
       "lastChecked": "2026-10-02",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "mr-muscle-2026-consumer-promotion",
@@ -332,7 +230,7 @@
       "termsUrl": "https://www.vaultbook.co.za/mr-muscle-competition/",
       "lastChecked": "2026-09-24",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "gwm-haval-h7-travel-fund-2026",
@@ -357,7 +255,7 @@
       "termsUrl": "https://www.gwm.co.za/terms-and-conditions/all-new-haval-h7-pre-sale-campaign",
       "lastChecked": "2026-09-24",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "nespray-always-giving-more-2026",
@@ -381,7 +279,7 @@
       "termsUrl": "https://www.nestle-esar.com/nestle-nespray-always-giving-more-0",
       "lastChecked": "2026-10-08",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "coca-cola-400ml-social-media-competition-2026",

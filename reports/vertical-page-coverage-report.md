@@ -1,20 +1,19 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-10-09
+Generated: 2026-10-10
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 18
+- Matching active public competitions: 17
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| PEP & Standard Bank Instant Money Minute on Metro FM (pep-standard-bank-instant-money-metro-2026) | 2026-10-09 | free-entry | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Knorr Soup Competition 2026 - Win R5,000 Weekly (knorr-win-r5000-weekly-2026) | 2026-10-11 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Mr Muscle 2026 Consumer Promotion (mr-muscle-2026-consumer-promotion) | 2026-10-17 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Win cash vouchers with NESPRAY Always Giving More (nespray-always-giving-more-2026) | 2026-10-17 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
@@ -39,18 +38,18 @@ Recommended normalisation:
 ## SMS Competitions in South Africa
 
 - URL: /sms-competitions-south-africa/
-- Matching active public competitions: 3
+- Matching active public competitions: 2
 - Publication threshold: 3
-- Safe to publish: yes
-- Status: indexable vertical page
+- Safe to publish: no
+- Status: held; Only 2 active public matches; requires 3.
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Winning at Life with 1Life: Metro FM October 2026 (1life-metro-october-2026) | 2026-10-09 | sms-rate | yes | yes | SMS or shortcode mentioned in entry text | none |
 | 1Life Be The 1 to Win Funeral Competition (1life-be-the-1-to-win-funeral-2026) | 2026-11-30 | free-entry | yes | yes | SMS entry tag; SMS or shortcode mentioned in entry text | none |
 | Glowming: Win Three Nights in Cape Town for Two (glowming-cape-town-getaway-2026) | 2026-11-30 | free-entry | yes | yes | SMS or shortcode mentioned in entry text | none |
 
 Recommended normalisation:
+- Do not generate or sitemap this page until active verified inventory improves.
 - Separate sms-entry from sms-verification so account verification does not inflate SMS-entry inventory.
 
 ## Till Slip Competitions in South Africa
@@ -96,17 +95,13 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 32
+- Matching active public competitions: 28
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Nedbank YouthX Awards 2026 (nedbank-youthx-awards-2026) | 2026-10-09 | account-required | yes | yes | Online entry tag | none |
-| PEP & Standard Bank Instant Money Minute on Metro FM (pep-standard-bank-instant-money-metro-2026) | 2026-10-09 | free-entry | yes | yes | Online entry mentioned in entry text | none |
-| Winning at Life with 1Life: Metro FM October 2026 (1life-metro-october-2026) | 2026-10-09 | sms-rate | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
-| Win R5,000 with OMO Super Soak on Radio 2000 (omo-super-soak-radio2000-2026) | 2026-10-09 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | DeskStand Giveaway: Three Standing Desk Prizes (deskstand-three-winner-giveaway-2026) | 2026-10-15 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | International Compost Awareness Week 2027 Poster Contest (icaw-poster-contest-2027) | 2026-10-22 | free-entry | yes | yes | Online entry tag | none |
 | Telkom Radio Awards My Station R40,000 Competition (telkom-radio-awards-my-station-2026) | 2026-10-23 | free-entry | yes | yes | Online entry mentioned in entry text | none |

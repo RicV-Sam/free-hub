@@ -1,15 +1,15 @@
 Reviewed competition retirements effective: 6
 === Competition Maintenance Report ===
-Date: 2026-10-09
+Date: 2026-10-10
 Mode: archive-expired
 Total competitions: 449
-Active published count: 112
-Expired archive page count: 231
+Active published count: 108
+Expired archive page count: 235
 Low-value expired noindex count: 0
 Held/private count: 106
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 25
+Closing in next 14 days: 21
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -243,33 +243,33 @@ Expired competition IDs:
 - clicks-tresemme-extraordinary-wins-2026 (2026-10-05)
 - wellness-cycle-harmony-giveaway-2026 (2026-10-05)
 - makro-spring-trolley-dash-2026 (2026-10-06)
+- nedbank-youthx-awards-2026 (2026-10-09)
+- pep-standard-bank-instant-money-metro-2026 (2026-10-09)
+- 1life-metro-october-2026 (2026-10-09)
+- omo-super-soak-radio2000-2026 (2026-10-09)
 
 Closing soon (next 14 days):
-- nedbank-youthx-awards-2026 (0 days)
-- pep-standard-bank-instant-money-metro-2026 (0 days)
-- 1life-metro-october-2026 (0 days)
-- omo-super-soak-radio2000-2026 (0 days)
-- mtn8-last-fan-standing-2026 (1 days)
-- knorr-win-r5000-weekly-2026 (2 days)
-- maxi-cosi-baby-city-photo-2026 (2 days)
-- burnt-horse-power-in-store-2026 (4 days)
-- sea-harvest-say-fish-grocery-vouchers-2026 (6 days)
-- deskstand-three-winner-giveaway-2026 (6 days)
-- sunlight-dirty-dish-gagasi-2026 (7 days)
-- spar-colgate-palmolive-r150k-2026 (8 days)
-- mr-muscle-2026-consumer-promotion (8 days)
-- gwm-haval-h7-travel-fund-2026 (8 days)
-- nespray-always-giving-more-2026 (8 days)
-- coca-cola-400ml-social-media-competition-2026 (9 days)
-- dis-chem-oral-b-apple-combo-2026 (9 days)
-- tinkies-distraction-levels-competition-2026 (10 days)
-- sasol-magpie-2026 (12 days)
-- clicks-rimmel-hydration-hamper-2026 (12 days)
-- raimondi-retail-1-october-2026 (12 days)
-- winex-wine-derful-2026 (12 days)
-- clicks-sorbet-birthday-hampers-october-2026 (13 days)
-- icaw-poster-contest-2027 (13 days)
-- telkom-radio-awards-my-station-2026 (14 days)
+- mtn8-last-fan-standing-2026 (0 days)
+- knorr-win-r5000-weekly-2026 (1 days)
+- maxi-cosi-baby-city-photo-2026 (1 days)
+- burnt-horse-power-in-store-2026 (3 days)
+- sea-harvest-say-fish-grocery-vouchers-2026 (5 days)
+- deskstand-three-winner-giveaway-2026 (5 days)
+- sunlight-dirty-dish-gagasi-2026 (6 days)
+- spar-colgate-palmolive-r150k-2026 (7 days)
+- mr-muscle-2026-consumer-promotion (7 days)
+- gwm-haval-h7-travel-fund-2026 (7 days)
+- nespray-always-giving-more-2026 (7 days)
+- coca-cola-400ml-social-media-competition-2026 (8 days)
+- dis-chem-oral-b-apple-combo-2026 (8 days)
+- tinkies-distraction-levels-competition-2026 (9 days)
+- sasol-magpie-2026 (11 days)
+- clicks-rimmel-hydration-hamper-2026 (11 days)
+- raimondi-retail-1-october-2026 (11 days)
+- winex-wine-derful-2026 (11 days)
+- clicks-sorbet-birthday-hampers-october-2026 (12 days)
+- icaw-poster-contest-2027 (12 days)
+- telkom-radio-awards-my-station-2026 (13 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
