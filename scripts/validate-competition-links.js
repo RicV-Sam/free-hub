@@ -29,6 +29,15 @@ const manualRecheckDays = 30;
 const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 FreeHubValidator/1.0";
 const APPROVED_MANUAL_OK_URLS = new Map([
+  ["edgars-at-our-school-2026", "https://www.edgars.co.za/pages/supersport-schools"],
+  ["glowming-cape-town-getaway-2026", "https://glowming.co.za/pages/win-cape-town"],
+  ["jockey-150-2026", "https://jockey.co.za/pages/competition-terms-conditions"],
+  ["burnt-horse-power-in-store-2026", "https://burnt.co.za/pages/terms-and-conditions"],
+  ["deskstand-three-winner-giveaway-2026", "https://www.deskstand.com/pages/give-away-3-winners"],
+  ["degrendel-haus-wine-homeware-2026", "https://degrendel.co.za/blogs/news/r20000-giveaway-haus-wine-homeware"],
+  ["ackermans-layby-samsung-a07-2026", "https://www.ackermans.co.za/blogs/financial-services/lay-by-win-a-samsung-a07-ts-cs"],
+  ["fox-king-of-the-whip-2026", "https://www.foxracing.co.za/pages/fox-kotw-ticket-giveaway"],
+  ["news24-myhomesa-art-competition-2026", "https://specialprojects.news24.com/news24-myhomesa-competition/"],
   ["nespray-always-giving-more-2026", "https://www.nestle-esar.com/nestle-nespray-always-giving-more-0"],
   ["milo-checkers-summer-2026", "https://www.nestle-esar.com/nestle-milo-x-checkers-summer-promotion-2026"],
   ["dis-chem-vaseline-sun-city-2026", "https://www.dischem.co.za/cera-glow-vaseline-summer-2026-competition"],
@@ -712,7 +721,9 @@ function validateExpiredArchivePage(competition, lifecycle) {
   const html = fs.readFileSync(detailPath, "utf8");
   const archiveLeadSection = html.split("Current competitions you may like")[0] || html;
 
-  if (!html.includes("This competition has closed.")) {
+  const expectedClosedBanner = shared.isEditorialPromotionEnded(competition)
+    ? "FreeHub has stopped promoting this competition." : "This competition has closed.";
+  if (!html.includes(expectedClosedBanner)) {
     results.push(makeStaticResult(competition, lifecycle, "archive", `/competition/${slug}/`, "error", "archive-missing-closed-banner"));
   }
 

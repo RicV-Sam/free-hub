@@ -102,7 +102,7 @@ function validateMaintenanceState(options = {}) {
       return false;
     }
 
-    return normalizeDate(competition.closingDate) < today;
+    return normalizeDate(shared.getEffectiveCompetitionEndDate(competition)) < today;
   });
   const noindexActiveCompetitions = competitions.filter(shared.isNoindexActiveCompetition);
   const clubOnlyCompetitions = competitions.filter(shared.isClubOnlyCompetition);
@@ -164,7 +164,9 @@ function validateMaintenanceState(options = {}) {
       summary.expiredMissingDetailPage.push(slug);
     } else {
       const html = fs.readFileSync(detailPath, "utf8");
-      if (!html.includes("This competition has closed.")) {
+      const expectedClosedBanner = shared.isEditorialPromotionEnded(competition)
+        ? "FreeHub has stopped promoting this competition." : "This competition has closed.";
+      if (!html.includes(expectedClosedBanner)) {
         summary.expiredMissingClosedBanner.push(slug);
       }
       const expectedRobots = confirmedResult

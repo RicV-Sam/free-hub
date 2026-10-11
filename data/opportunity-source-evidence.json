@@ -349,22 +349,166 @@
     "expiresAt": "2026-08-24",
     "evidenceSummary": "The exact official Brand Advisor page returned HTTP 200 during the 17 August review. The current ZA handoff identifies an open DanUp application for 100 Instagram creators, a 1,000-follower threshold, three required posts and provider-controlled selection; voucher and product fulfilment remain a draft-review blocker."
   },
-  { "recordId": "table-mountain-cableway-birthday-ticket", "field": "sourceUrl", "hostname": "www.tablemountain.net", "url": "https://www.tablemountain.net/plan-your-visit/specials/", "reason": "official_source_manually_reviewed", "verifiedAt": "2026-08-18", "expiresAt": "2026-08-25", "evidenceSummary": "Official Cableway specials page confirmed one free birthday-month ticket for South African citizens with accepted identification and in-person collection." },
-  { "recordId": "two-oceans-aquarium-birthday-entry", "field": "sourceUrl", "hostname": "www.aquarium.co.za", "url": "https://www.aquarium.co.za/specials/free-entry-on-your-birthday", "reason": "official_source_manually_reviewed", "verifiedAt": "2026-08-18", "expiresAt": "2026-08-25", "evidenceSummary": "Official Aquarium page confirmed one complimentary birthday-month visit for South African citizens and permanent residents aged four or older, collected in person with accepted identification." },
-  { "recordId": "cape-wheel-birthday-club-ride", "field": "sourceUrl", "hostname": "capewheel.co.za", "url": "https://capewheel.co.za/clubs/", "reason": "official_source_manually_reviewed", "verifiedAt": "2026-08-18", "expiresAt": "2026-08-25", "evidenceSummary": "Official Cape Wheel club page confirmed pre-birthday registration, an emailed free-ride voucher valid for 30 days and identification at redemption." },
-  { "recordId": "zeitz-mocaa-free-access", "field": "sourceUrl", "hostname": "zeitzmocaa.museum", "url": "https://zeitzmocaa.museum/pricing/option-3/", "reason": "official_source_manually_reviewed", "verifiedAt": "2026-08-18", "expiresAt": "2026-08-25", "evidenceSummary": "Official Zeitz MOCAA free-access page confirmed birthday-month entry, Wednesday 10:00-13:00 access for African citizens and year-round under-18 access with the stated identification." },
-  { "recordId": "robben-island-museum-birthday-tour", "field": "sourceUrl", "hostname": "www.robben-island.org.za", "url": "https://www.robben-island.org.za/frequently-asked-questions/", "reason": "official_source_manually_reviewed", "verifiedAt": "2026-08-18", "expiresAt": "2026-08-25", "evidenceSummary": "Official Robben Island Museum FAQ confirmed the birthday-special ticket requires valid identification, applies on the birth date and can be moved if tours are cancelled that day." },
-  { "recordId": "lion-safari-park-birthday-safari", "field": "sourceUrl", "hostname": "lionandsafaripark.com", "url": "https://lionandsafaripark.com/lets-go-wild-on-your-birthday/", "reason": "official_source_manually_reviewed", "verifiedAt": "2026-08-18", "expiresAt": "2026-08-25", "evidenceSummary": "Official Lion & Safari Park page confirmed a free one-hour guided safari or self-drive on the visitor's birthday with identification." },
-  { "recordId": "city-sightseeing-young-explorers-birthday-tickets", "field": "sourceUrl", "hostname": "citysightseeing.co.za", "url": "https://citysightseeing.co.za/en/cape-town/kidsclub-info", "reason": "official_source_manually_reviewed", "verifiedAt": "2026-08-18", "expiresAt": "2026-08-25", "evidenceSummary": "Official Young Explorers Club page confirmed free one-day Classic tickets for the member and one friend aged four to 17, two-week registration lead time and four-week voucher window." },
-  { "recordId": "upcycles-free-birthday-bike-ride", "field": "sourceUrl", "hostname": "upcycles.co.za", "url": "https://upcycles.co.za/rentals/", "reason": "official_source_manually_reviewed", "verifiedAt": "2026-08-18", "expiresAt": "2026-08-25", "evidenceSummary": "Official UpCycles rental page confirmed a free one-hour ride on the actual birthday with proof of birth date." },
-  { "recordId": "va-waterfront-pedal-boat-birthday-ride", "field": "sourceUrl", "hostname": "www.waterfront.co.za", "url": "https://www.waterfront.co.za/articles/free-birthday-celebrations", "reason": "official_source_manually_reviewed", "verifiedAt": "2026-08-18", "expiresAt": "2026-08-25", "evidenceSummary": "Official V&A Waterfront guide published in May 2026 confirmed a complimentary pedal-boat ride before noon on the birthday or during birthday week with identification." },
-  { "recordId": "ster-kinekor-sk-club-birthday-ticket", "field": "sourceUrl", "hostname": "www.sterkinekor.com", "url": "https://www.sterkinekor.com/ster-kinekor-club-terms-and-conditions", "reason": "official_source_manually_reviewed", "verifiedAt": "2026-08-18", "expiresAt": "2026-08-25", "evidenceSummary": "Official SK Club terms confirmed a free 2D or 3D birthday ticket valid for 30 days and the requirement for at least one SK Club transaction since joining." },
-  { "recordId": "mcdonalds-app-birthday-ice-cream", "field": "sourceUrl", "hostname": "www.mcdonalds.co.za", "url": "https://www.mcdonalds.co.za/deals-our-app", "reason": "official_source_manually_reviewed", "verifiedAt": "2026-08-18", "expiresAt": "2026-08-25", "evidenceSummary": "Official McDonald's South Africa app page confirmed a free ice-cream cone on the member's birthday when the correct date of birth is stored in the app profile." },
-  { "recordId": "spur-kids-free-birthday-meal", "field": "sourceUrl", "hostname": "www.spursteakranches.com", "url": "https://www.spursteakranches.com/za/family-card-benefits-for-kids", "reason": "official_source_manually_reviewed", "verifiedAt": "2026-08-18", "expiresAt": "2026-08-25", "evidenceSummary": "Official Spur family-benefits page confirmed a free Kids' meal and Chico the Clown ice cream on a linked child's birthday." },
-  { "recordId": "spur-kids-free-birthday-meal", "field": "termsUrl", "hostname": "www.spursteakranches.com", "url": "https://www.spursteakranches.com/uploads/policies_documents/Spur-Loyalty-Programme-and-App-Terms-and-Conditions-clean-July-2025-002-i9F.pdf", "reason": "official_source_manually_reviewed", "verifiedAt": "2026-08-18", "expiresAt": "2026-08-25", "evidenceSummary": "Official Spur loyalty terms confirmed eligibility through age 12, profile delivery on the birthday, three-month validity and the child's presence at redemption." },
-  { "recordId": "mugg-and-bean-birthday-cake", "field": "sourceUrl", "hostname": "muggandbean.co.za", "url": "https://muggandbean.co.za/rewards/loyalty-app-faqs/", "reason": "official_source_manually_reviewed", "verifiedAt": "2026-08-18", "expiresAt": "2026-08-25", "evidenceSummary": "Official Mugg & Bean FAQ confirmed the birthday cake voucher and the requirement for two or more qualifying loyalty-app payment or receipt-scan uses in the preceding 12 months." },
-  { "recordId": "rubybox-beauty-product-testing", "field": "sourceUrl", "hostname": "rubybox.co.za", "url": "https://rubybox.co.za/faq/", "reason": "official_source_manually_reviewed", "verifiedAt": "2026-08-18", "expiresAt": "2026-08-25", "evidenceSummary": "Official rubybox FAQ confirmed free rotating test-and-review campaigns for South African residents, profile matching, provider selection and required ratings and reviews." },
-  { "recordId": "cape-wheel-birthday-club-ride", "field": "sourceUrl", "hostname": "capewheel.co.za", "url": "https://capewheel.co.za/clubs/", "reason": "official_source_manually_reviewed", "verifiedAt": "2026-09-04", "expiresAt": "2026-09-11", "evidenceSummary": "Official Cape Wheel Birthday Club page confirmed registration before the birthday, an emailed free-ride voucher valid for 30 days, and a printed voucher plus identification at redemption." },
+  {
+    "recordId": "table-mountain-cableway-birthday-ticket",
+    "field": "sourceUrl",
+    "hostname": "www.tablemountain.net",
+    "url": "https://www.tablemountain.net/plan-your-visit/specials/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-08-18",
+    "expiresAt": "2026-08-25",
+    "evidenceSummary": "Official Cableway specials page confirmed one free birthday-month ticket for South African citizens with accepted identification and in-person collection."
+  },
+  {
+    "recordId": "two-oceans-aquarium-birthday-entry",
+    "field": "sourceUrl",
+    "hostname": "www.aquarium.co.za",
+    "url": "https://www.aquarium.co.za/specials/free-entry-on-your-birthday",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-08-18",
+    "expiresAt": "2026-08-25",
+    "evidenceSummary": "Official Aquarium page confirmed one complimentary birthday-month visit for South African citizens and permanent residents aged four or older, collected in person with accepted identification."
+  },
+  {
+    "recordId": "cape-wheel-birthday-club-ride",
+    "field": "sourceUrl",
+    "hostname": "capewheel.co.za",
+    "url": "https://capewheel.co.za/clubs/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-08-18",
+    "expiresAt": "2026-08-25",
+    "evidenceSummary": "Official Cape Wheel club page confirmed pre-birthday registration, an emailed free-ride voucher valid for 30 days and identification at redemption."
+  },
+  {
+    "recordId": "zeitz-mocaa-free-access",
+    "field": "sourceUrl",
+    "hostname": "zeitzmocaa.museum",
+    "url": "https://zeitzmocaa.museum/pricing/option-3/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-08-18",
+    "expiresAt": "2026-08-25",
+    "evidenceSummary": "Official Zeitz MOCAA free-access page confirmed birthday-month entry, Wednesday 10:00-13:00 access for African citizens and year-round under-18 access with the stated identification."
+  },
+  {
+    "recordId": "robben-island-museum-birthday-tour",
+    "field": "sourceUrl",
+    "hostname": "www.robben-island.org.za",
+    "url": "https://www.robben-island.org.za/frequently-asked-questions/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-08-18",
+    "expiresAt": "2026-08-25",
+    "evidenceSummary": "Official Robben Island Museum FAQ confirmed the birthday-special ticket requires valid identification, applies on the birth date and can be moved if tours are cancelled that day."
+  },
+  {
+    "recordId": "lion-safari-park-birthday-safari",
+    "field": "sourceUrl",
+    "hostname": "lionandsafaripark.com",
+    "url": "https://lionandsafaripark.com/lets-go-wild-on-your-birthday/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-08-18",
+    "expiresAt": "2026-08-25",
+    "evidenceSummary": "Official Lion & Safari Park page confirmed a free one-hour guided safari or self-drive on the visitor's birthday with identification."
+  },
+  {
+    "recordId": "city-sightseeing-young-explorers-birthday-tickets",
+    "field": "sourceUrl",
+    "hostname": "citysightseeing.co.za",
+    "url": "https://citysightseeing.co.za/en/cape-town/kidsclub-info",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-08-18",
+    "expiresAt": "2026-08-25",
+    "evidenceSummary": "Official Young Explorers Club page confirmed free one-day Classic tickets for the member and one friend aged four to 17, two-week registration lead time and four-week voucher window."
+  },
+  {
+    "recordId": "upcycles-free-birthday-bike-ride",
+    "field": "sourceUrl",
+    "hostname": "upcycles.co.za",
+    "url": "https://upcycles.co.za/rentals/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-08-18",
+    "expiresAt": "2026-08-25",
+    "evidenceSummary": "Official UpCycles rental page confirmed a free one-hour ride on the actual birthday with proof of birth date."
+  },
+  {
+    "recordId": "va-waterfront-pedal-boat-birthday-ride",
+    "field": "sourceUrl",
+    "hostname": "www.waterfront.co.za",
+    "url": "https://www.waterfront.co.za/articles/free-birthday-celebrations",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-08-18",
+    "expiresAt": "2026-08-25",
+    "evidenceSummary": "Official V&A Waterfront guide published in May 2026 confirmed a complimentary pedal-boat ride before noon on the birthday or during birthday week with identification."
+  },
+  {
+    "recordId": "ster-kinekor-sk-club-birthday-ticket",
+    "field": "sourceUrl",
+    "hostname": "www.sterkinekor.com",
+    "url": "https://www.sterkinekor.com/ster-kinekor-club-terms-and-conditions",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-08-18",
+    "expiresAt": "2026-08-25",
+    "evidenceSummary": "Official SK Club terms confirmed a free 2D or 3D birthday ticket valid for 30 days and the requirement for at least one SK Club transaction since joining."
+  },
+  {
+    "recordId": "mcdonalds-app-birthday-ice-cream",
+    "field": "sourceUrl",
+    "hostname": "www.mcdonalds.co.za",
+    "url": "https://www.mcdonalds.co.za/deals-our-app",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-08-18",
+    "expiresAt": "2026-08-25",
+    "evidenceSummary": "Official McDonald's South Africa app page confirmed a free ice-cream cone on the member's birthday when the correct date of birth is stored in the app profile."
+  },
+  {
+    "recordId": "spur-kids-free-birthday-meal",
+    "field": "sourceUrl",
+    "hostname": "www.spursteakranches.com",
+    "url": "https://www.spursteakranches.com/za/family-card-benefits-for-kids",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-08-18",
+    "expiresAt": "2026-08-25",
+    "evidenceSummary": "Official Spur family-benefits page confirmed a free Kids' meal and Chico the Clown ice cream on a linked child's birthday."
+  },
+  {
+    "recordId": "spur-kids-free-birthday-meal",
+    "field": "termsUrl",
+    "hostname": "www.spursteakranches.com",
+    "url": "https://www.spursteakranches.com/uploads/policies_documents/Spur-Loyalty-Programme-and-App-Terms-and-Conditions-clean-July-2025-002-i9F.pdf",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-08-18",
+    "expiresAt": "2026-08-25",
+    "evidenceSummary": "Official Spur loyalty terms confirmed eligibility through age 12, profile delivery on the birthday, three-month validity and the child's presence at redemption."
+  },
+  {
+    "recordId": "mugg-and-bean-birthday-cake",
+    "field": "sourceUrl",
+    "hostname": "muggandbean.co.za",
+    "url": "https://muggandbean.co.za/rewards/loyalty-app-faqs/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-08-18",
+    "expiresAt": "2026-08-25",
+    "evidenceSummary": "Official Mugg & Bean FAQ confirmed the birthday cake voucher and the requirement for two or more qualifying loyalty-app payment or receipt-scan uses in the preceding 12 months."
+  },
+  {
+    "recordId": "rubybox-beauty-product-testing",
+    "field": "sourceUrl",
+    "hostname": "rubybox.co.za",
+    "url": "https://rubybox.co.za/faq/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-08-18",
+    "expiresAt": "2026-08-25",
+    "evidenceSummary": "Official rubybox FAQ confirmed free rotating test-and-review campaigns for South African residents, profile matching, provider selection and required ratings and reviews."
+  },
+  {
+    "recordId": "cape-wheel-birthday-club-ride",
+    "field": "sourceUrl",
+    "hostname": "capewheel.co.za",
+    "url": "https://capewheel.co.za/clubs/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-09-04",
+    "expiresAt": "2026-09-11",
+    "evidenceSummary": "Official Cape Wheel Birthday Club page confirmed registration before the birthday, an emailed free-ride voucher valid for 30 days, and a printed voucher plus identification at redemption."
+  },
   {
     "recordId": "coloplast-speedicath-short-sample",
     "field": "sourceUrl",
@@ -684,5 +828,275 @@
     "verifiedAt": "2026-09-17",
     "expiresAt": "2026-09-24",
     "evidenceSummary": "Official kids benefits page and linked loyalty terms confirm a free Kids Menu meal and Chico the Clown ice cream for children aged zero to 12 linked to a parent or guardian profile; birthday voucher lasts three months and the child must be present for restaurant or Call & Collect redemption."
+  },
+  {
+    "recordId": "starbucks-gold-birthday-drink",
+    "field": "sourceUrl",
+    "hostname": "www.starbucks.co.za",
+    "url": "https://www.starbucks.co.za/rewards/ts-and-cs",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Starbucks South Africa Gold members receive a birthday Free Drink Reward valid for 30 days. Gold requires 750 Stars earned within 12 months, so this is a benefit for qualifying loyalty customers, not a drink for every new signup."
+  },
+  {
+    "recordId": "starbucks-gold-birthday-drink",
+    "field": "termsUrl",
+    "hostname": "www.starbucks.co.za",
+    "url": "https://www.starbucks.co.za/rewards/ts-and-cs",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Starbucks South Africa Gold members receive a birthday Free Drink Reward valid for 30 days. Gold requires 750 Stars earned within 12 months, so this is a benefit for qualifying loyalty customers, not a drink for every new signup."
+  },
+  {
+    "recordId": "coloplast-speedicath-short-sample",
+    "field": "sourceUrl",
+    "hostname": "products.coloplast.co.za",
+    "url": "https://products.coloplast.co.za/global-campaigns/speedicath-short/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official South African campaign read: free SpeediCath Short sample form, catheter-user/prescription suitability questions and health-data consent; requests are qualified before fulfilment. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "coloplast-speedicath-short-sample",
+    "field": "termsUrl",
+    "hostname": "products.coloplast.co.za",
+    "url": "https://products.coloplast.co.za/webshop/terms-of-sale/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official Coloplast South African terms-of-sale sample clauses read: suitability-approved samples dispatched separately within three business days with free South African delivery and discreet packaging; sales minimum-order terms are not sample charges. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "coloplast-sensura-mio-free-sample",
+    "field": "sourceUrl",
+    "hostname": "products.coloplast.co.za",
+    "url": "https://products.coloplast.co.za/global-campaigns/sensura-mio-consumer-what-comes-naturally/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official South African SenSura Mio campaign read; current free-sample button and ostomy-product information are present. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "coloplast-sensura-mio-free-sample",
+    "field": "termsUrl",
+    "hostname": "products.coloplast.co.za",
+    "url": "https://products.coloplast.co.za/webshop/terms-of-sale/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official Coloplast South African terms-of-sale sample clauses read: suitability-approved samples dispatched separately within three business days with free South African delivery and discreet packaging; sales minimum-order terms are not sample charges. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "coloplast-brava-elastic-tape-free-sample",
+    "field": "sourceUrl",
+    "hostname": "products.coloplast.co.za",
+    "url": "https://products.coloplast.co.za/global-campaigns/brava-elastic-tape/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official South African Brava Elastic Tape campaign read; current order-free-sample buttons and product information are present. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "coloplast-brava-elastic-tape-free-sample",
+    "field": "termsUrl",
+    "hostname": "products.coloplast.co.za",
+    "url": "https://products.coloplast.co.za/webshop/terms-of-sale/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official Coloplast South African terms-of-sale sample clauses read: suitability-approved samples dispatched separately within three business days with free South African delivery and discreet packaging; sales minimum-order terms are not sample charges. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "coloplast-sensura-mio-click-free-sample",
+    "field": "sourceUrl",
+    "hostname": "products.coloplast.co.za",
+    "url": "https://products.coloplast.co.za/global-campaigns/sensura-mio-click-coupling/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official South African SenSura Mio Click campaign read; free-sample request and care-advisor contact form are present. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "coloplast-sensura-mio-click-free-sample",
+    "field": "termsUrl",
+    "hostname": "products.coloplast.co.za",
+    "url": "https://products.coloplast.co.za/webshop/terms-of-sale/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official Coloplast South African terms-of-sale sample clauses read: suitability-approved samples dispatched separately within three business days with free South African delivery and discreet packaging; sales minimum-order terms are not sample charges. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "blind-designs-free-fabric-samples",
+    "field": "sourceUrl",
+    "hostname": "www.blinddesigns.co.za",
+    "url": "https://www.blinddesigns.co.za/view-blind-type/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official fabric-selection page read; it offers up to five free sample pieces and delivery within South Africa. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "table-mountain-cableway-birthday-ticket",
+    "field": "sourceUrl",
+    "hostname": "www.tablemountain.net",
+    "url": "https://www.tablemountain.net/plan-your-visit/specials",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official specials page read: South African birthday-month ticket, ID/driver licence/birth certificate and on-site ticket-office or visitor-centre collection; not an online ticket. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "two-oceans-aquarium-birthday-entry",
+    "field": "sourceUrl",
+    "hostname": "www.aquarium.co.za",
+    "url": "https://www.aquarium.co.za/specials/free-entry-on-your-birthday",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official birthday page and conditions read: one birthday-month visit for eligible South African citizens/permanent residents aged four or older, official identity proof, ticket used on collection day and adult accompaniment for children aged thirteen or younger. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "cape-wheel-birthday-club-ride",
+    "field": "sourceUrl",
+    "hostname": "capewheel.co.za",
+    "url": "https://capewheel.co.za/clubs/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official clubs page read: register before birthday, printed email voucher and identity proof; page uses both 30 days and one month for voucher validity. That wording difference remains a publication-review issue. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "zeitz-mocaa-free-access",
+    "field": "sourceUrl",
+    "hostname": "zeitzmocaa.museum",
+    "url": "https://zeitzmocaa.museum/pricing/option-3/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official pricing page read: free under-eighteen entry, birthday-month benefit and Wednesday morning African-citizen access with identity evidence. This source-access refresh does not renew the overdue listing review. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "robben-island-museum-birthday-tour",
+    "field": "sourceUrl",
+    "hostname": "www.robben-island.org.za",
+    "url": "https://www.robben-island.org.za/frequently-asked-questions/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official FAQ read: birthday ticket redeemed on birthday using valid South African ID and rescheduling for a cancelled tour. Free birthday access is separately described by the official V&A birthday guide; overdue publication review remains unchanged. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "city-sightseeing-young-explorers-birthday-tickets",
+    "field": "sourceUrl",
+    "hostname": "citysightseeing.co.za",
+    "url": "https://citysightseeing.co.za/en/cape-town/kidsclub-info",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official Young Explorers page read: child aged 4 to 17 and one friend aged 4 to 17, one-day Classic tour, registration at least two weeks before birthday; voucher valid one week before and three weeks after birthday. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "upcycles-free-birthday-bike-ride",
+    "field": "sourceUrl",
+    "hostname": "upcycles.co.za",
+    "url": "https://upcycles.co.za/rentals/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official rentals page read: one free hour on actual birthday with date-of-birth proof; restricted to UpCycles bicycles and operating/weather conditions. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "va-waterfront-pedal-boat-birthday-ride",
+    "field": "sourceUrl",
+    "hostname": "www.waterfront.co.za",
+    "url": "https://www.waterfront.co.za/articles/free-birthday-celebrations",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official V&A birthday guide read: free pedal boat before noon on birthday or in birthday week, valid ID, with the operator route linked separately. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "ster-kinekor-sk-club-birthday-ticket",
+    "field": "sourceUrl",
+    "hostname": "www.sterkinekor.com",
+    "url": "https://www.sterkinekor.com/ster-kinekor-club-terms-and-conditions",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official SK Club terms section 8.1.4 read: free 2D/3D birthday ticket, thirty-day validity, online profile redemption and at least one SK Club transaction since joining. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "mcdonalds-app-birthday-ice-cream",
+    "field": "sourceUrl",
+    "hostname": "www.mcdonalds.co.za",
+    "url": "https://www.mcdonalds.co.za/deals-our-app",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official South African app page read: birthday ice-cream cone offer and correct date of birth in app profile. No app redemption was performed. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "spur-kids-free-birthday-meal",
+    "field": "sourceUrl",
+    "hostname": "www.spursteakranches.com",
+    "url": "https://www.spursteakranches.com/za/family-card-benefits-for-kids",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official kids-benefits page read: child linked to parent family profile, birthday kids meal and Chico ice cream advertised. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "spur-kids-free-birthday-meal",
+    "field": "termsUrl",
+    "hostname": "res.cloudinary.com",
+    "url": "https://res.cloudinary.com/spur-group/image/upload/uploads/documents/policies/Spur-Loyalty-Programme-and-App-Terms-and-Conditions-clean-July-2025-002-oOH.pdf",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact referenced official Spur July 2025 PDF downloaded successfully (HTTP 200) and read. Secret Tribe clauses specify ages 0 to 12, linked parent profile, voucher issued on birthday, three-month validity and child presence. PDF and marketing descriptions differ in the meal wording; overdue publication review remains unchanged. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "mugg-and-bean-birthday-cake",
+    "field": "sourceUrl",
+    "hostname": "www.muggandbean.co.za",
+    "url": "https://www.muggandbean.co.za/rewards/loyalty-app-faqs/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official app FAQ read: birthday reward after two app uses in preceding twelve months, slice at sit-down or mini bundt at On-The-Move, thirty-day validity. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "mugg-and-bean-birthday-cake",
+    "field": "termsUrl",
+    "hostname": "www.muggandbean.co.za",
+    "url": "https://www.muggandbean.co.za/terms-and-conditions/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official terms birthday clauses read: from 1 September 2026 the birthday reward is issued on the birthday; two qualifying app uses in preceding twelve months, thirty-day redemption and the stated venue distinction. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "ocean-basket-app-birthday-treat",
+    "field": "sourceUrl",
+    "hostname": "za.oceanbasket.com",
+    "url": "https://za.oceanbasket.com/app-terms-and-conditions/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official app terms birthday clauses read: one annual complimentary treat, thirty-day validity, profile birthday and variable treat/eligibility conditions. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "ocean-basket-app-birthday-treat",
+    "field": "termsUrl",
+    "hostname": "za.oceanbasket.com",
+    "url": "https://za.oceanbasket.com/app-terms-and-conditions/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-11",
+    "expiresAt": "2026-10-18",
+    "evidenceSummary": "Exact official app terms read: adult app eligibility, one annual birthday treat, thirty-day validity, no cash exchange and possible changes; do not promise a specific menu item. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
   }
 ]

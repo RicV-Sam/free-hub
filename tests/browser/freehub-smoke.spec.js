@@ -901,8 +901,9 @@ test("Opportunity detail and measured exit flow remain flag-controlled", async (
   await expectCanonical(page, detailPath);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(selected.title);
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index, follow, max-image-preview:large");
-  await expect(page.locator(`script[src="${GUEST_ADS_LOADER_SRC}"]`)).toHaveCount(0);
-  await expect(page.locator(`script[src="${OUTBOUND_HANDOFF_SRC}"]`)).toHaveCount(0);
+  // Count the handoff modules independently of their cache-version query strings.
+  await expect(page.locator('script[src^="/shared/guest-ads.js?"]')).toHaveCount(0);
+  await expect(page.locator('script[src^="/shared/outbound-handoff.js?"]')).toHaveCount(0);
   await expect(page.locator('script[src*="effectivecpmnetwork.com"], script[src*="profitableratecpmnetwork.com"]')).toHaveCount(0);
   await expect(page.getByText(/Freehub does not (collect|receive)/).first()).toBeVisible();
   const cta = page.locator("[data-opportunity-action=exit]");
@@ -946,8 +947,8 @@ test("Opportunity detail and measured exit flow remain flag-controlled", async (
   await page.goto(exitPath);
   await expectCanonical(page, exitPath);
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, nofollow");
-  await expect(page.locator(`script[src="${GUEST_ADS_LOADER_SRC}"]`)).toHaveCount(1);
-  await expect(page.locator(`script[src="${OUTBOUND_HANDOFF_SRC}"]`)).toHaveCount(1);
+  await expect(page.locator('script[src^="/shared/guest-ads.js?"]')).toHaveCount(1);
+  await expect(page.locator('script[src^="/shared/outbound-handoff.js?"]')).toHaveCount(1);
   await expect(page.locator('script[src*="effectivecpmnetwork.com"], script[src*="profitableratecpmnetwork.com"]')).toHaveCount(0);
   await expect(page.locator('html[data-freehub-handoff-auth-resolution="resolved"]')).toHaveCount(1);
   await expect(page.locator('html[data-freehub-handoff-state="countdown"]')).toHaveCount(1);

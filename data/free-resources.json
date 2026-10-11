@@ -105,9 +105,9 @@
     "dateModified": "2026-07-27",
     "manualOk": true,
     "manualOkReason": "Official credit-bureau site can return automated-check 403 responses.",
-    "manualOkCheckedAt": "2026-09-08",
+    "manualOkCheckedAt": "2026-10-11",
     "manualOkAllowedDomain": "transunion.co.za",
-    "manualOkEvidence": "Official annual free credit report page rechecked on 2026-09-08; it confirms one free credit report per year and links to the official access service."
+    "manualOkEvidence": "Official annual report page read on 11 October 2026; confirms one free annual credit report and links to the official access service. Browser access returned 403 but the underlying official page was accessible through the research reader."
   },
   {
     "name": "ClearScore South Africa",
@@ -123,9 +123,9 @@
     "dateModified": "2026-07-27",
     "manualOk": true,
     "manualOkReason": "Official site can return automated-check 403 responses.",
-    "manualOkCheckedAt": "2026-09-08",
+    "manualOkCheckedAt": "2026-10-11",
     "manualOkAllowedDomain": "clearscore.com",
-    "manualOkEvidence": "Official South African page rechecked on 2026-09-08; it still describes a free credit score and report without a trial or credit-card signup requirement."
+    "manualOkEvidence": "Exact official South African page read on 11 October 2026; describes free credit score/report access without a trial or credit-card requirement. Browser access returned 403; the official content was accessible through the research reader."
   },
   {
     "id": "brand-advisor",
@@ -138,13 +138,13 @@
     "bestFor": "Consumers interested in product testing and honest feedback",
     "freeDetails": "Product exchange and trial opportunities may be available when campaigns are open.",
     "requirements": "Application, profile details and content or feedback may be required.",
-    "watchOut": "Campaigns are limited and not every application gets selected.",
+    "watchOut": "The official programme page could not be read on 11 October 2026: browser and direct requests returned HTTP 403. Programme availability is unconfirmed and this resource is withheld until it can be checked.",
     "availability": "active",
-    "verificationStatus": "verified",
+    "verificationStatus": "verification_due",
     "datePublished": "2026-05-27",
     "lastReviewed": "2026-09-08",
     "reviewDueAt": "2026-10-08",
-    "dateModified": "2026-09-08",
+    "dateModified": "2026-10-11",
     "manualOk": true,
     "manualOkCheckedAt": "2026-09-08",
     "manualOkAllowedDomain": "brandadvisor.co.za",
@@ -252,10 +252,10 @@
     "dateModified": "2026-07-14",
     "manualOk": true,
     "manualOkReason": "Official Coloplast South Africa sampling site returns HTTP 403 to the Freehub link checker but was manually rechecked in a browser-style request.",
-    "manualOkCheckedAt": "2026-09-08",
+    "manualOkCheckedAt": "2026-10-11",
     "manualOkAllowedDomain": "products.coloplast.co.za",
     "manualOkAllowGenericHomepage": true,
-    "manualOkEvidence": "Official Coloplast ZA directory rechecked on 2026-09-08; product categories and Requesting samples navigation are present. This confirms the durable directory, not availability of any individual sample campaign."
+    "manualOkEvidence": "Exact official ZA directory read on 11 October 2026; ostomy, continence and wound-care categories and Requesting samples navigation are present. This is directory evidence only, not independent approval of individual campaigns."
   },
   {
     "id": "kalley-free-flooring-samples",
@@ -303,9 +303,9 @@
     "dateModified": "2026-07-31",
     "manualOk": true,
     "manualOkReason": "Official gov.za municipal-services page can time out during automated link checks.",
-    "manualOkCheckedAt": "2026-09-08",
+    "manualOkCheckedAt": "2026-10-11",
     "manualOkAllowedDomain": "gov.za",
-    "manualOkEvidence": "Official gov.za municipal-services page returned HTTP 200 and was read on 2026-09-08. It describes free basic electricity, water and sanitation for qualifying poor households, subject to municipality availability."
+    "manualOkEvidence": "Exact official gov.za guidance read on 11 October 2026: minimum basic electricity, water and sanitation for qualifying poor households, depending on local municipal availability. Specific local entitlement and quantities are not asserted."
   },
   {
     "id": "krispy-kreme-sa-app-registration-doughnut",
@@ -403,22 +403,18 @@
     "resourceType": "programme",
     "category": "rewards",
     "categoryLabel": "Spend-linked birthday voucher",
-    "officialUrl": "https://www.spursteakranches.com/view-document/9",
+    "officialUrl": "https://res.cloudinary.com/spur-group/image/upload/uploads/documents/policies/Spur-Loyalty-Programme-and-App-Terms-and-Conditions-clean-July-2025-002-oOH.pdf",
     "bestFor": "Registered Spur Family members who already spend regularly at Spur",
     "freeDetails": "A registered member who spent at least R1,000 at Spur in the 12 months before their birthday receives a R50 birthday voucher in their profile on the birthday.",
     "requirements": "Register a Spur Family profile in the app and reach R1,000 cumulative qualifying Spur spend during the 12 months before the birthday.",
     "watchOut": "This is a spend-linked loyalty voucher, not a no-purchase freebie. It is valid for 31 days, is non-transferable and can only be used by the registered member under the current redemption rules.",
-    "availability": "manual_check",
+    "availability": "active",
     "verificationStatus": "verified",
     "datePublished": "2026-07-31",
-    "lastReviewed": "2026-09-08",
-    "reviewDueAt": "2026-10-08",
-    "dateModified": "2026-09-08",
-    "manualOk": true,
-    "manualOkReason": "The current App Terms route linked from Spur's official Legal page returns HTTP 403 to the automated checker but opens in a real browser and redirects to Spur's live terms PDF.",
-    "manualOkCheckedAt": "2026-09-08",
-    "manualOkAllowedDomain": "spursteakranches.com",
-    "manualOkEvidence": "Chrome opened the official App Terms route on 2026-09-08 after automatic security verification and redirected to the Spur July 2025 terms PDF hosted on res.cloudinary.com/spur-group. Page 5, section 5 confirms R1,000 spend in the preceding 12 months, a R50 birthday voucher loaded on the birthday, 31-day validity, non-transferability and redemption by the registered member."
+    "lastReviewed": "2026-10-11",
+    "reviewDueAt": "2026-11-10",
+    "dateModified": "2026-10-11",
+    "manualOk": false
   },
   {
     "id": "bootlegger-app-registration-coffee",
@@ -563,5 +559,23 @@
     "reviewDueAt": "2026-10-16",
     "dateModified": "2026-10-09",
     "datePublished": "2026-10-09"
+  },
+  {
+    "id": "vodacom-connectu-zero-rated-job-search",
+    "name": "Vodacom ConnectU job-search access",
+    "resourceType": "public_service",
+    "category": "family-support",
+    "categoryLabel": "Work and learning support",
+    "officialUrl": "https://www.vodacom.co.za/vodacom/shopping/v/connectu",
+    "bestFor": "Vodacom users looking for jobs while limiting mobile-data spending",
+    "freeDetails": "Vodacom provides zero-rated access to selected job-search services through ConnectU. This is access to the listed services on the Vodacom route, not a transferable data bundle.",
+    "requirements": "Switch off Wi-Fi, use Vodacom mobile data and open the official ConnectU portal at http://connectu.vodacom.co.za/. Choose a currently listed job service; registration and application requirements depend on that provider.",
+    "watchOut": "External links outside the included route and background phone activity may still use paid data. This is not free browsing across all websites or networks, and it does not guarantee a job. The individual service is responsible for its vacancies and applications.",
+    "availability": "active",
+    "verificationStatus": "verified",
+    "datePublished": "2026-10-11",
+    "lastReviewed": "2026-10-11",
+    "reviewDueAt": "2026-10-18",
+    "dateModified": "2026-10-11"
   }
 ]

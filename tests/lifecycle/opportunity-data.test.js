@@ -135,7 +135,7 @@ test("runtime validators enforce strict contracts and legacy FreeResource compat
   assert.equal(unsupported.typeSupported, false);
 
   const legacyResources = JSON.parse(fs.readFileSync(path.join(rootDir, "data", "free-resources.json"), "utf8"));
-  assert.equal(legacyResources.length, 32);
+  assert.equal(legacyResources.length, 33);
   assert.equal(opportunityData.validateFreeResourceRegistry(legacyResources, { legacy: true }).valid, true);
   assert.equal(opportunityData.validateFreeResource(legacyResources[0]).valid, false);
 
@@ -466,8 +466,10 @@ test("the tracked Opportunity registry contains the reviewed sample and product-
     allowedSourceHosts: JSON.parse(fs.readFileSync(path.join(rootDir, "tests/baselines/seo-baseline.json"), "utf8")).opportunityAllowedSourceHosts,
   };
   const expectedFiles = registry.flatMap((record) => {
-    const active = opportunityData.isPublicOpportunity(record, gateOptions);
-    const detail = active || opportunityData.isOpportunityTombstoneAllowed(record, gateOptions);
+    // A later review must not reinterpret the saved September 17 output.
+    const snapshotRecord = { ...record, ...generatedOutput.reviewDates?.[record.id] };
+    const active = opportunityData.isPublicOpportunity(snapshotRecord, gateOptions);
+    const detail = active || opportunityData.isOpportunityTombstoneAllowed(snapshotRecord, gateOptions);
     return [
       ...(detail ? [`opportunity/${record.slug}/index.html`] : []),
       ...(active ? [`out/opportunity/${record.slug}/index.html`] : []),

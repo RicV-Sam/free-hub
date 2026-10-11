@@ -1354,7 +1354,7 @@
   }
 
   function isActiveCompetition(competition) {
-    const daysUntilClosing = getDaysUntilClosing(competition && competition.closingDate);
+    const daysUntilClosing = getDaysUntilClosing(getEffectiveCompetitionEndDate(competition));
 
     return isPublicCompetition(competition) && Number.isFinite(daysUntilClosing) && daysUntilClosing >= 0;
   }
@@ -1368,7 +1368,7 @@
   }
 
   function isNoindexActiveCompetition(competition) {
-    const daysUntilClosing = getDaysUntilClosing(competition && competition.closingDate);
+    const daysUntilClosing = getDaysUntilClosing(getEffectiveCompetitionEndDate(competition));
 
     return (
       isPublishedCompetition(competition) &&
@@ -1386,9 +1386,24 @@
     return isPublishedCompetition(competition) && getCompetitionVisibility(competition) === "club_only";
   }
 
+  function getEffectiveCompetitionEndDate(competition) {
+    const officialDate = competition && competition.closingDate;
+    const editorialDate = competition && competition.editorialActiveUntil;
+    // An editorial cutoff may shorten promotion when the official hour is ambiguous.
+    if (/^\d{4}-\d{2}-\d{2}$/.test(editorialDate || "") &&
+        getCalendarDay(editorialDate) < getCalendarDay(officialDate)) return editorialDate;
+    return officialDate;
+  }
+
   function isExpiredCompetition(competition) {
-    const daysUntilClosing = getDaysUntilClosing(competition && competition.closingDate);
+    const daysUntilClosing = getDaysUntilClosing(getEffectiveCompetitionEndDate(competition));
     return Number.isFinite(daysUntilClosing) && daysUntilClosing < 0;
+  }
+
+  function isEditorialPromotionEnded(competition) {
+    return isExpiredCompetition(competition)
+      && getEffectiveCompetitionEndDate(competition) !== competition.closingDate
+      && getDaysUntilClosing(competition.closingDate) >= 0;
   }
 
   function hasVerifiedArchiveSource(competition) {
@@ -2152,6 +2167,8 @@
     getNoindexActiveCompetitions,
     isClubOnlyCompetition,
     isExpiredCompetition,
+    isEditorialPromotionEnded,
+    getEffectiveCompetitionEndDate,
     hasVerifiedArchiveSource,
     isExpiredArchiveEligibleCompetition,
     hasVerifiedCompetitionResult,

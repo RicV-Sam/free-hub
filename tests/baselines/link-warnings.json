@@ -11,10 +11,42 @@
     },
     {
       "sourceType": "competition",
+      "recordId": "ackermans-foneyam-tech-prizes",
+      "field": "url",
+      "reason": "expired_archive_429",
+      "url": "https://www.ackermans.co.za/blogs/blog/stand-a-chance-to-win-your-share-of-r1-million-in-tech-prizes",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "ackermans-foneyam-tech-prizes",
+      "field": "url",
+      "reason": "expired_archive_500",
+      "url": "https://www.ackermans.co.za/blogs/blog/stand-a-chance-to-win-your-share-of-r1-million-in-tech-prizes",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
       "recordId": "ackermans-payat-xbox-series-s",
       "field": "url",
       "reason": "expired_archive_404",
       "url": "https://www.ackermans.co.za/blogs/blog/win-an-xbox-s-series-competition",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "ackermans-payat-xbox-series-s",
+      "field": "url",
+      "reason": "expired_archive_429",
+      "url": "https://www.ackermans.co.za/blogs/blog/win-an-xbox-s-series-competition",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "bob-box-find-and-win-2026",
+      "field": "url",
+      "reason": "expired_archive_400",
+      "url": "https://www.facebook.com/bobgocoza/posts/want-to-score-a-r3000-bob-shop-voucher-spot-a-bob-box-locker-nearby-take-a-selfi/1736119475182610/",
       "lifecycle": "expired-archive"
     },
     {
@@ -63,6 +95,62 @@
       "field": "url",
       "reason": "timeout",
       "url": "https://www.discovery.co.za/vitality/oura-mothers-day-2026",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "go-south-africa-great-karkloof-escape-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://gosouthafrica.co.za/comp/karkloof-1786787263825",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "goldi-flavours-of-the-nation-2026",
+      "field": "sourceUrl",
+      "reason": "expired_archive_421",
+      "url": "https://goldichicken.co.za/goldi-chicken-home/about/competition-terms-and-conditions/goldi-flavours-of-the-nation-terms-and-conditions-2026/",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "hadeco-80th-birthday-competition-2026",
+      "field": "url",
+      "reason": "expired_archive_429",
+      "url": "https://hadeco.co.za/pages/hadeco-80th-birthday-competition-terms-conditions",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "himalaya-winter-colouring-competition-2026",
+      "field": "url",
+      "reason": "expired_archive_429",
+      "url": "https://himalayawellness.co.za/pages/colour-and-win-with-himalaya",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "huletts-heritage-2026",
+      "field": "termsUrl",
+      "reason": "expired_archive_404",
+      "url": "https://www.hulettssugar.co.za/competitions/huletts-heritage-2026-competition-rules/",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "huletts-heritage-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.hulettssugar.co.za/competitions/huletts-heritage-2026/",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "kaufmann-rugga-supporter-competition-2026",
+      "field": "url",
+      "reason": "expired_archive_429",
+      "url": "https://www.kaufmann-sa.co.za/pages/kaufmann-rugga-supporter-competition-terms-and-conditions",
       "lifecycle": "expired-archive"
     },
     {
@@ -171,6 +259,14 @@
     },
     {
       "sourceType": "competition",
+      "recordId": "pep-plusmore-win-your-dream-2026",
+      "field": "url",
+      "reason": "expired_archive_429",
+      "url": "https://www.pepstores.com/pages/competitions-promotions",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
       "recordId": "red-bull-symphonic-be-the-maestro",
       "field": "url",
       "reason": "expired_archive_404",
@@ -274,10 +370,42 @@
       "lifecycle": "expired-archive"
     },
     {
+      "sourceType": "competition",
+      "recordId": "wellness-cycle-harmony-giveaway-2026",
+      "field": "termsUrl",
+      "reason": "expired_archive_429",
+      "url": "https://wellnesswarehouse.com/pages/policies-information",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "wellness-sportrx-electrolyte-giveaway-2026",
+      "field": "termsUrl",
+      "reason": "expired_archive_429",
+      "url": "https://wellnesswarehouse.com/pages/policies-information",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "wellness-warehouse-metagenics-story-2026",
+      "field": "termsUrl",
+      "reason": "expired_archive_429",
+      "url": "https://wellnesswarehouse.com/pages/policies-information",
+      "lifecycle": "expired-archive"
+    },
+    {
       "sourceType": "free-resource",
       "recordId": "free-resource:consumer-support:free-basic-municipal-services",
       "field": "officialUrl",
       "reason": "manual_check_fetch_failed",
+      "url": "https://www.gov.za/services/place-live/municipal-services",
+      "lifecycle": "active-manual-check"
+    },
+    {
+      "sourceType": "free-resource",
+      "recordId": "free-resource:consumer-support:free-basic-municipal-services",
+      "field": "officialUrl",
+      "reason": "manual_check_http_500",
       "url": "https://www.gov.za/services/place-live/municipal-services",
       "lifecycle": "active-manual-check"
     },
@@ -328,6 +456,14 @@
       "reason": "manual_check_fetch_failed",
       "url": "https://reviewclub.co.za/how-it-works/",
       "lifecycle": "active-manual-check"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "penguin-random-house-penguin-post-42-hamper",
+      "field": "url",
+      "reason": "expired_archive_500",
+      "url": "https://www.penguinrandomhouse.co.za/competitions/win-with-the-penguin-post-42/",
+      "lifecycle": "expired-archive"
     }
   ]
 }

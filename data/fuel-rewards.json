@@ -1,0 +1,169 @@
+{
+  "reviewedOn": "2026-10-11",
+  "reviewBy": "2026-10-31",
+  "sources": {
+    "shell": "https://www.shell.co.za/motorists/loyalty-payment/vplus-rewards.html",
+    "bp": "https://www.bp.com/en_za/south-africa/home/products-and-services/bp-rewards.html",
+    "sasol": "https://sasolrewards.co.za/pages/terms-and-conditions",
+    "sasolAbout": "https://sasolrewards.co.za/pages/about-us",
+    "nedbank": "https://personal.nedbank.co.za/legal/terms-and-conditions/greenbacks-rewards-terms-and-conditions.html",
+    "fnb": "https://www.ebucks.com/web/eBucks/partners/engen.jsp",
+    "fnb2026": "https://www.ebucks.com/web/ebucks/binaries/content/assets/ebucks/frg-earn-rules/2026-2027/earn-guides/retail/jaw-6143-ebucks-earn-rules-stand-alone_private-clients-d7.0.pdf",
+    "ucount": "https://ucount.standardbank.co.za/personal/earn-points/fuel-rewards",
+    "ucountRules": "https://ucount.standardbank.co.za/personal/about-us/faq",
+    "absaShell": "https://www.absa.co.za/personal/bank/absa-rewards/cash-rewards-from-partners/earn-partners/shell/",
+    "absaSasol": "https://www.absa.co.za/personal/bank/absa-rewards/cash-rewards-from-partners/earn-partners/sasol/",
+    "discoveryInsure": "https://www.discovery.co.za/car-and-home-insurance/fuel-rewards",
+    "discoveryInsureFaq": "https://www.discovery.co.za/car-and-home-insurance/faq-vitality-drive",
+    "bpDiscovery": "https://www.discovery.co.za/corporate/good-driving-more-rewards-more-value",
+    "discoveryBank": "https://www.discovery.co.za/bank/info-and-tips-discovery-bank-rewards",
+    "sasolAbsa": "https://sasolrewards.co.za/partners/ABSA"
+  },
+  "shellRates": [
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.4,
+    0.5
+  ],
+  "shellTiers": [
+    "Regular",
+    "Super",
+    "Premium",
+    "Ultra",
+    "Ultra Plus",
+    "Highest tier"
+  ],
+  "bpRate": 0.2,
+  "bpSmartShopperCombinedRate": 0.3,
+  "sasolPointsPerLitre": 30,
+  "sasolDailyLitreCap": 100,
+  "nedbankRate": 0.25,
+  "absaRates": {
+    "debit": [
+      0.7,
+      0.75,
+      0.8,
+      1.5,
+      4.5
+    ],
+    "credit": [
+      0.75,
+      1.0,
+      1.25,
+      6.25,
+      30.0
+    ]
+  },
+  "absaSpendCap": 3000,
+  "fnbMaximumBaseRate": 4,
+  "fnbMaximumSpendCap": 3000,
+  "fnbInsurancePremiumCap": 0.3,
+  "fnbRulesThrough": "2027-06-30",
+  "ucountRates": {
+    "credit": [
+      0.3,
+      0.45,
+      0.9,
+      1.5,
+      5.0
+    ],
+    "evolve": [
+      0.15,
+      0.3,
+      0.5,
+      1.0,
+      2.5
+    ],
+    "debit": [
+      0.1,
+      0.15,
+      0.3,
+      0.5,
+      1.0
+    ]
+  },
+  "ucountSpendCap": 2500,
+  "ucountCardSpendShare": 0.2,
+  "discoveryInsureMaximumPercent": 50,
+  "discoveryInsureMaximumSpend": 3000,
+  "discoveryInsureMaximumReward": 1500,
+  "discoveryBankChangeDate": "2026-11-01",
+  "discoveryBankMaximumPercentBefore": 20,
+  "discoveryBankMaximumPercentAfter": 15,
+  "programmes": [
+    {
+      "name": "Shell V+",
+      "station": "Shell",
+      "headline": "15c/litre at Regular; up to 50c/litre",
+      "condition": "Higher tiers need repeated fuel fills and qualifying shop spending. Use the tier you already hold.",
+      "reward": "Value to spend at Shell",
+      "source": "shell"
+    },
+    {
+      "name": "BP Rewards + Smart Shopper",
+      "station": "bp",
+      "headline": "Up to 30c/litre combined",
+      "condition": "Swipe both cards. BP Rewards supplies 20c/litre; Smart Shopper adds its separate reward. Discovery Insure and Smart Shopper cards cannot be swiped together.",
+      "reward": "Two programme balances",
+      "source": "bp"
+    },
+    {
+      "name": "Sasol Rewards",
+      "station": "Participating Sasol sites",
+      "headline": "30 points/litre",
+      "condition": "Free registration; single-account fuel earning is capped at 100 litres in 24 hours. Rand conversion was not confirmed, so the calculator shows points.",
+      "reward": "Points; no cash exchange",
+      "source": "sasol"
+    },
+    {
+      "name": "Nedbank Greenbacks",
+      "station": "bp",
+      "headline": "25c/litre equivalent; BP combination up to 45c/litre",
+      "condition": "Pay with an eligible Greenbacks-linked card. Nedbank uses inland ULP 95 to calculate litres, even for other fuel. BP Rewards is a separate balance.",
+      "reward": "Greenbacks + optional BP balance",
+      "source": "nedbank"
+    },
+    {
+      "name": "FNB eBucks",
+      "station": "Engen",
+      "headline": "Up to R8/litre for qualifying Premier/Private clients",
+      "condition": "Up to R4 base + R2 eligible finance + R2 eligible insurance; virtual-card and nav»Car rules apply. Account spend limits and the insurance-premium cap reduce the maximum.",
+      "reward": "eBucks value",
+      "source": "fnb2026"
+    },
+    {
+      "name": "Standard Bank UCount",
+      "station": "Participating Astron Energy sites",
+      "headline": "Up to R10/litre",
+      "condition": "Top credit-card tier with double earn. All qualifying card/POS and fuel-spend conditions, a current account and two other qualifying product categories apply. Evolve has lower rates.",
+      "reward": "UCount Rewards Points value",
+      "source": "ucount"
+    },
+    {
+      "name": "Absa Rewards",
+      "station": "Shell or Sasol",
+      "headline": "Up to 30% at tier 5 with a credit card",
+      "condition": "Tier 5 debit earns 4.5%. The partner allowance is R3,000 monthly, including relevant store purchases. Swipe V+ at Shell or Sasol Rewards at Sasol; Sasol points remain separate from the cashback total.",
+      "reward": "Cashback",
+      "source": "absaShell"
+    },
+    {
+      "name": "Discovery Insure Vitality Drive",
+      "station": "Participating bp or Shell sites",
+      "headline": "Up to 50%; maximum R1,500/month",
+      "condition": "Eligible insurance plan, sensor, card swipe and driving status. Points limit qualifying fuel/Gautrain spend; cashback cannot exceed the relevant vehicle premium excluding VAT. Core Plan has no fuel rewards.",
+      "reward": "Cash or Discovery Miles, depending on arrangement",
+      "source": "discoveryInsure"
+    },
+    {
+      "name": "Discovery Bank Vitality Money",
+      "station": "bp or Shell",
+      "headline": "Up to 20% through October; up to 15% from 1 November 2026",
+      "condition": "Qualifying bank product, activation, status and spend rules. Enter the actual percentage and remaining limits in your app; bank membership alone does not establish a rate.",
+      "reward": "Discovery Miles value",
+      "source": "discoveryBank"
+    }
+  ]
+}

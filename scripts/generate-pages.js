@@ -13,6 +13,10 @@ const { validateEditorialPicks, getEligibleEditorialPicks } = require("./lib/edi
 const opportunityData = require("../shared/opportunity-data.js");
 const offerData = require("../shared/offer-data.js");
 const listingImages = require("../data/listing-images.json");
+const listingEditorialDetails = require("../data/listing-editorial-details.json");
+const { getReviewedGuides } = require("./lib/research-guides.js");
+const { createEditorialSectionsRenderer } = require("./lib/editorial-sections.js");
+const { createFuelRewardsRenderer } = require("./lib/fuel-rewards.js");
 const unverifiedCompetitionData = require("../shared/unverified-competition-data.js");
 const { applyLegacyArchiveCostCompatibility } = require("./lib/legacy-archive-costs.js");
 const { applyCompetitionRetirements } = require("./lib/competition-retirements.js");
@@ -37,7 +41,7 @@ const OFFERS_PATH = path.join(ROOT_DIR, "data", "offers.json");
 const UNVERIFIED_COMPETITIONS_PATH = path.join(ROOT_DIR, "data", "unverified-competitions.json");
 const RELATIVE_ASSET_PATH = "/";
 const RELEASE_ASSET_VERSION = "20260901-native-ads-v1";
-const UI_ASSET_VERSION = "20261005-hadeda-v1";
+const UI_ASSET_VERSION = "20261011-editorial-v1";
 const GUEST_ADS_SCRIPT_SRC = "/shared/guest-ads.js?v=20260917-account-save-v2";
 const OUTBOUND_HANDOFF_SCRIPT_SRC = `/shared/outbound-handoff.js?v=${RELEASE_ASSET_VERSION}`;
 const GUEST_ADS_SCRIPT = `<script type="module" src="${GUEST_ADS_SCRIPT_SRC}"></script>`;
@@ -50,7 +54,7 @@ function writeGeneratedFile(filePath, content, ...options) {
     content = addLocalImageDimensions(content, filePath);
     if (content.includes('class="site-topbar"')) {
       const dateScript = /src="\/shared\/page-data\.js(?:\?[^"]*)?"/.test(content) ? "" : '<script src="/shared/page-data.js" defer></script>';
-      content = content.replace(/\s*<\/body>/i, `\n${dateScript}\n<script src="/shared/site-ui.js?v=20261004" defer></script>\n</body>`);
+      content = content.replace(/\s*<\/body>/i, `\n${dateScript}\n<script src="/shared/site-ui.js?v=${UI_ASSET_VERSION}" defer></script>\n</body>`);
     }
     content = content.replace(/src="\/(shared\/page-data\.js|app\.js)"/g, `src="/$1?v=${UI_ASSET_VERSION}"`);
     const eligible = content.includes(GUEST_ADS_SCRIPT_SRC)
@@ -275,7 +279,10 @@ const opportunityRouteRenderer = createOpportunityRouteRenderer({
   getDetailPath: opportunityData.getOpportunityDetailPath,
   getExitPath: opportunityData.getOpportunityExitPath,
 });
+const editorialSections = createEditorialSectionsRenderer({ escapeHtml, escapeAttribute, isLinkAvailable: isEditorialLinkAvailable });
+const fuelRewardsRenderer = createFuelRewardsRenderer({ escapeHtml, escapeAttribute, escapeScript });
 const TRUST_PAGE_DEFINITIONS = [
+  ...getReviewedGuides(LIFECYCLE_REFERENCE_DATE_ISO),
   whatsappChannel.page,
   PARKS_GUIDE,
   {
@@ -1348,7 +1355,7 @@ const TRUST_PAGE_DEFINITIONS = [
       "Wondering where to find free stuff in South Africa without getting trapped by fake vouchers or hidden costs? Use this guide to compare official-source free competitions, cautious sample routes, learning resources, reading options and credit-report checks before you sign up.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: "2026-08-20",
+    dateModified: "2026-10-11",
     resourceCategories: [
       "online-courses",
       ...(FREE_RESOURCES.some((resource) => resource.category === "school-resources") ? ["school-resources"] : []),
@@ -1429,6 +1436,9 @@ const TRUST_PAGE_DEFINITIONS = [
       },
     ],
     links: [
+      ...getReviewedGuides(LIFECYCLE_REFERENCE_DATE_ISO).filter((guide) => !guide.noindex).map((guide) => ({
+        label: guide.heading, href: `/${guide.slug}/`,
+      })),
       { label: "September 2026 free park entry dates", href: "/free-parks-entry-south-africa-september-2026/" },
       { label: "Competitions South Africa", href: "/" },
       { label: "Free competitions", href: "/free-competitions/" },
@@ -1630,7 +1640,7 @@ const TRUST_PAGE_DEFINITIONS = [
       "Compare recurring South African birthday benefits that Freehub has checked against official provider sources. Every listing explains whether you need an app, club membership, prior activity, identification or advance registration before travelling.",
     article: true,
     datePublished: "2026-08-18",
-    dateModified: "2026-08-18",
+    dateModified: "2026-10-11",
     sections: [
       {
         heading: "Quick answer: the best birthday freebies",
@@ -1652,6 +1662,14 @@ const TRUST_PAGE_DEFINITIONS = [
           "Birthday month, birthday week and actual-birthday offers are different. Weather, operating schedules, screening availability, tour capacity and participating locations can still affect redemption.",
           "Open the official source shortly before travelling and take the identification, voucher, app or membership details stated by the provider."
         ]
+      },
+      {
+        heading: "Circus Circus: R200 off after qualifying loyalty activity",
+        paragraphs: [
+          "Circus Circus loyalty customers can get R200 off one bill during their birthday month after their fourth transaction within a year. Previous purchases are required; the reward is a bill reduction, not cash.",
+          "Check the loyalty account or app for the reward before visiting. Use it once within the birthday month; it cannot be combined with other discounts. Official provider rules checked on 11 October 2026."
+        ],
+        sources: [{ label: "Read the Circus Circus loyalty rules", href: "https://www.circuscircus.co.za/loyalty-programme" }]
       }
     ],
     checklistTitle: "Before claiming a birthday freebie",
@@ -3087,7 +3105,7 @@ function getGroceryVoucherVerticalMatchReasons(competition) {
   const hasGroceryIntent =
     hasAnyTag(tags, ["grocery", "groceries", "supermarket"]) ||
     foodRetailBrandPattern.test(brand) ||
-    /grocery|groceries|supermarket|food voucher|shopping voucher|basket|trolley/.test(text);
+    /grocery|groceries|supermarket|food voucher|shopping voucher|(?:grocery|food|shopping)\s+(?:basket|trolley)|(?:basket|trolley)\s+of\s+(?:groceries|food)/.test(text);
   const reasons = [];
 
   if (hasVoucherIntent && hasGroceryIntent) {
@@ -3113,7 +3131,7 @@ function getSupermarketVerticalMatchReasons(competition) {
     reasons.push("Supermarket or grocery tag");
   }
 
-  if (/supermarket|grocery|groceries|basket|trolley|xtra savings|smart shopper|spar rewards|boxer rewards|sixty60/.test(text)) {
+  if (/supermarket|grocery|groceries|(?:grocery|food|shopping)\s+(?:basket|trolley)|(?:basket|trolley)\s+of\s+(?:groceries|food)|xtra savings|smart shopper|spar rewards|boxer rewards|sixty60/.test(text)) {
     reasons.push("Supermarket or grocery entry text");
   }
 
@@ -3726,7 +3744,7 @@ function renderOfferDetailPage(offer) {
     ${renderModernHero({ className: "hero--utility hero--offers", eyebrow: `${offer.brand} ${noun.toLowerCase()}`, heading: offer.title, intro: offer.summary, trustItems: ["Source checked", `Checked ${shared.formatDate(offer.lastChecked)}`, disclosure] })}
     <main id="main-content" class="main-content offer-page"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/${offer.type === "coupon" ? "coupons" : "deals"}/">${noun}s</a><span aria-hidden="true">/</span><span aria-current="page">${escapeHtml(offer.title)}</span></nav>
       ${renderListingHeroImage(offer)}
-      <article class="offer-detail"><div class="offer-detail__main"><p class="offer-card__brand">${escapeHtml(offer.brand)}</p><h2>${escapeHtml(offer.title)}</h2>${offer.type === "coupon" ? `<div class="offer-detail__code"><span>${offer.couponCode ? "Coupon code" : "Personal coupon"}</span><strong>${escapeHtml(offer.couponCode || offer.couponInstructions)}</strong></div>` : '<div class="offer-detail__code offer-detail__code--deal"><span>How to claim</span><strong>No code needed</strong></div>'}<p>${escapeHtml(offer.summary)}</p><h2>Terms to check</h2><p>${escapeHtml(offer.terms)}</p><p><a href="${escapeAttribute(offer.termsUrl || offer.sourceUrl)}" target="_blank" rel="noopener noreferrer">Read the verified source${offer.termsUrl ? " and full terms" : ""}</a></p><a class="competition-detail__cta" href="${escapeAttribute(offerData.getOfferExitPath(offer))}" target="_blank" rel="noopener noreferrer">Go to ${escapeHtml(offer.brand)}</a><p class="competition-detail__cta-note">You will leave Freehub. Confirm eligibility, availability and terms before claiming or buying.</p></div>
+      <article class="offer-detail"><div class="offer-detail__main"><p class="offer-card__brand">${escapeHtml(offer.brand)}</p><h2>${escapeHtml(offer.title)}</h2>${offer.type === "coupon" ? `<div class="offer-detail__code"><span>${offer.couponCode ? "Coupon code" : "Personal coupon"}</span><strong>${escapeHtml(offer.couponCode || offer.couponInstructions)}</strong></div>` : '<div class="offer-detail__code offer-detail__code--deal"><span>How to claim</span><strong>No code needed</strong></div>'}<p>${escapeHtml(offer.summary)}</p>${editorialSections.renderListingDetails(listingEditorialDetails[offer.id])}<h2>Terms to check</h2><p>${escapeHtml(offer.terms)}</p><p><a href="${escapeAttribute(offer.termsUrl || offer.sourceUrl)}" target="_blank" rel="noopener noreferrer">Read the verified source${offer.termsUrl ? " and full terms" : ""}</a></p><a class="competition-detail__cta" href="${escapeAttribute(offerData.getOfferExitPath(offer))}" target="_blank" rel="noopener noreferrer">Go to ${escapeHtml(offer.brand)}</a><p class="competition-detail__cta-note">You will leave Freehub. Confirm eligibility, availability and terms before claiming or buying.</p></div>
       <aside class="offer-detail__facts"><h2>Offer details</h2><dl><div><dt>Type</dt><dd>${noun}</dd></div><div><dt>Category</dt><dd><a href="${escapeAttribute(getOfferCollectionPath({ category: offer.category }))}">${escapeHtml(getOfferCategoryLabel(offer.category))}</a></dd></div><div><dt>Last checked</dt><dd>${escapeHtml(shared.formatDate(offer.lastChecked))}</dd></div>${offer.expiresAt ? `<div><dt>Expires</dt><dd>${escapeHtml(shared.formatDate(offer.expiresAt))}</dd></div>` : ""}<div><dt>Link disclosure</dt><dd>${offer.sponsored ? "Paid placement" : offer.affiliate ? "Affiliate link" : "Not sponsored or affiliate"}</dd></div></dl></aside></article>
       ${renderOfferFeedbackPanel(offer)}
       <section class="offer-trust"><strong>Last checked ${escapeHtml(shared.formatDate(offer.lastChecked))}.</strong> This offer linked to ${escapeHtml(offer.brand)}'s source when reviewed. Eligibility, prices where applicable, availability and terms can change, so confirm them at the provider.</section>
@@ -5905,6 +5923,9 @@ function renderCollectionBreadcrumb(currentLabel) {
 }
 
 function getCompetitionVisualUrl(competition) {
+  if (competition && listingImages[competition.id]) {
+    return listingImages[competition.id].src;
+  }
   if (competition && competition.image) {
     return competition.image;
   }
@@ -6029,7 +6050,7 @@ function renderCompetitionCard(competition, featured = false) {
     competition.category
   )}" data-competition-brand="${escapeAttribute(competition.brand || "")}" data-competition-closing-date="${escapeAttribute(
     competition.closingDate || ""
-  )}" data-competition-path="${escapeAttribute(internalPath)}">
+  )}" data-competition-active-until="${escapeAttribute(shared.getEffectiveCompetitionEndDate(competition))}" data-competition-path="${escapeAttribute(internalPath)}">
               <div class="competition-card__media${mediaLayoutClass}">
                 ${renderCompetitionVisualPlaceholder(competition)}
                 ${imageMarkup}
@@ -8590,7 +8611,7 @@ function renderTrustPage(page) {
     return renderFreeSamplesPage(page);
   }
   const isStudentGuide = page.slug === STUDENT_GUIDE.slug;
-  const socialImageUrl = isStudentGuide ? `${shared.CANONICAL_ORIGIN}/assets/student-guide/campus-study-1200.jpg` : shared.DEFAULT_OG_IMAGE;
+  const socialImageUrl = isStudentGuide ? `${shared.CANONICAL_ORIGIN}/assets/student-guide/campus-study-1200.jpg` : page.id && listingImages[page.id] ? shared.CANONICAL_ORIGIN + listingImages[page.id].src : shared.DEFAULT_OG_IMAGE;
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/${page.slug}/`;
   const usefulLinks = getTrustPageUsefulLinks(page);
   const pageResources = getTrustPageResources(page);
@@ -8687,10 +8708,10 @@ function renderTrustPage(page) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${escapeHtml(page.title)}</title>
     <meta name="description" content="${escapeAttribute(page.description)}" />
-    <meta name="robots" content="${page.studentOffer ? "noindex, nofollow" : "index, follow, max-image-preview:large"}" />
+    <meta name="robots" content="${page.studentOffer ? "noindex, nofollow" : page.noindex ? "noindex, follow" : "index, follow, max-image-preview:large"}" />
     <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta property="og:type" content="${isStudentGuide ? "article" : "website"}" />
+    <meta property="og:type" content="${isStudentGuide || page.fuelRewards ? "article" : "website"}" />
     <meta property="og:title" content="${escapeAttribute(page.title)}" />
     <meta property="og:description" content="${escapeAttribute(page.description)}" />
     <meta property="og:url" content="${escapeAttribute(canonicalUrl)}" />
@@ -8708,6 +8729,7 @@ function renderTrustPage(page) {
     ${serviceStructuredDataScript}
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
     ${renderEditorialAdStyles(page.slug)}
+    ${page.fuelRewards ? '<link rel="stylesheet" href="/assets/fuel-rewards.css?v=20261011-fuel-v1" />' : ""}
     ${(isStudentGuide || page.studentOffer) ? '<link rel="stylesheet" href="/assets/student-guide.css?v=20260907-ads" />\n    ' : ""}${page.adsAllowed === false ? "" : GUEST_ADS_SCRIPT}
     ${renderGoogleTagManagerHead(`{ page_type: 'trust', trust_page: ${escapeScript(JSON.stringify(page.slug))} }`)}
     ${renderMetaPixelHead()}
@@ -8730,23 +8752,18 @@ function renderTrustPage(page) {
         trustItems: page.trustItems || ["Freehub is not the promoter", "Official source links", "Safety-first browsing"],
       })}
 
-      <main id="main-content" class="main-content trust-page">
-        ${page.studentOffer ? "" : renderTrustPageNavigation(page)}
+      <main id="main-content" class="main-content trust-page${page.fuelRewards ? " fuel-guide" : ""}">
+        ${page.studentOffer || page.skipTopicNavigation ? "" : renderTrustPageNavigation(page)}
+
+        ${page.fuelRewards ? fuelRewardsRenderer.renderCalculator() + fuelRewardsRenderer.renderComparison() : ""}
 
         ${page.slug === "submit-an-offer" ? renderOfferSubmissionForm() : ""}
 
         ${page.studentOffer ? renderStudentNotice(page.studentOffer) : page.slug === STUDENT_GUIDE.slug ? renderStudentGuide(STUDENT_GUIDE) : `<section class="trust-page__content${page.sections.some((section) => section.table) ? " trust-page__content--tables" : ""}" aria-label="${escapeAttribute(page.heading)}">
-          ${page.sections
-            .map(
-              (section) => `<article class="trust-page__section"${section.id ? ` id="${escapeAttribute(section.id)}"` : ""}>
-            <h2>${escapeHtml(section.heading)}</h2>
-            ${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("\n            ")}
-            ${section.table ? `<div class="table-scroll" role="region" aria-label="${escapeAttribute(section.table.caption)}" tabindex="0"><table class="guide-table"><caption>${escapeHtml(section.table.caption)}</caption><thead><tr>${section.table.headers.map((header) => `<th scope="col">${escapeHtml(header)}</th>`).join("")}</tr></thead><tbody>${section.table.rows.map((row) => `<tr>${row.map((cell, index) => index === 0 ? `<th scope="row">${escapeHtml(cell)}</th>` : `<td>${escapeHtml(cell)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>` : ""}
-            ${(section.sources || []).map((source) => `<p><a href="${escapeAttribute(source.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)}</a></p>`).join("\n            ")}
-          </article>`
-            )
-            .join("\n          ")}
+          ${editorialSections.renderSections(page.sections)}
         </section>`}
+
+        ${page.id ? renderListingHeroImage(page) : ""}
 
         ${page.slug === "birthday-freebies" ? renderBirthdayVideoFeature() + renderGuestAdSlot("birthday-before-offers") : ""}
         ${page.slug === "free-online-courses-south-africa" ? renderGuestAdSlot("courses-before-resources") : ""}
@@ -8806,6 +8823,7 @@ function renderTrustPage(page) {
     </div>
     ${page.slug === "submit-a-competition" ? '<script type="module" src="/shared/submission-ui.js?v=20260917-account-save-v2"></script>' : ""}
     ${page.slug === "submit-an-offer" ? '<script type="module" src="/shared/offer-contribution-ui.js"></script>' : ""}
+    ${page.fuelRewards ? '<script defer src="/shared/fuel-rewards-engine.js?v=20261011-fuel-v1"></script><script defer src="/shared/fuel-rewards-ui.js?v=20261011-fuel-v1"></script>' : ""}
     <script type="module" src="/shared/auth-ui.js?v=20260917-account-save-v2"></script>
   </body>
 </html>
@@ -8867,6 +8885,11 @@ function writeContentPages(activeCompetitions) {
 
 function getGuideCards() {
   return [
+    {
+      title: "Fuel rewards comparison and calculator",
+      href: "/guides/best-fuel-rewards-south-africa/",
+      text: "Compare forecourt, bank and insurance rewards using your fuel budget, actual eligibility and remaining limits.",
+    },
     {
       title: "Is the CS50 certificate free?",
       href: "/cs50-free-certificate-explained/",
@@ -9112,7 +9135,7 @@ function renderMonthlyGuideTable(competitions) {
               <tbody>
                 ${competitions
                   .map(
-                    (competition) => `<tr data-current-listing data-closing-date="${escapeAttribute(competition.closingDate)}">
+                    (competition) => `<tr data-current-listing data-closing-date="${escapeAttribute(shared.getEffectiveCompetitionEndDate(competition))}">
                   <td><a href="${escapeAttribute(shared.getCompetitionPath(competition))}">${escapeHtml(competition.title)}</a></td>
                   <td>${escapeHtml(competition.brand || "Official promoter")}</td>
                   <td>${escapeHtml(competition.prizeName || shared.getPrizeCue(competition))}</td>
@@ -10608,7 +10631,7 @@ function buildTrustPageServiceStructuredData(page, canonicalUrl) {
 
 function getTrustPageUsefulLinks(page) {
   if (Array.isArray(page.links) && page.links.length > 0) {
-    return page.links.filter((link) => !link.requiresOffers || OFFERS_ENABLED);
+    return page.links.filter(isEditorialLinkAvailable);
   }
 
   return [
@@ -10619,6 +10642,18 @@ function getTrustPageUsefulLinks(page) {
     { label: "Free entry listings", href: "/tag/free-entry/" },
     { label: "Report a competition", href: "/report-a-competition/" },
   ];
+}
+
+function isEditorialLinkAvailable(link) {
+  if (link.requiresOffers && !OFFERS_ENABLED) return false;
+  const route = String(link.href || "").split(/[?#]/)[0];
+  if (/^\/(?:deal|coupon)\//.test(route)) {
+    return OFFERS_ENABLED && publicOffers.some((offer) => offerData.getOfferPath(offer) === route);
+  }
+  if (/^\/opportunity\//.test(route)) {
+    return OPPORTUNITIES_ENABLED && approvedPublicOpportunities.some((opportunity) => opportunityData.getOpportunityDetailPath(opportunity) === route);
+  }
+  return true;
 }
 
 function renderNotFoundPage() {
@@ -10801,8 +10836,8 @@ function buildHowToEnterSteps(competition) {
   ];
 }
 
-function renderCompetitionDetailHero({ competition, heroTitle, heroSubline, formattedDate, expired }) {
-  return `<header class="hero hero--competition-modern hero--compact"><h1 id="pageTitle">${escapeHtml(heroTitle)}</h1><p class="hero__text">${escapeHtml(heroSubline)}</p><p class="hero__closing">${expired ? "Closed" : "Closes"} ${escapeHtml(formattedDate)}</p>${renderUpdatedNotice()}</header>`;
+function renderCompetitionDetailHero({ competition, heroTitle, heroSubline, formattedDate, expired, promotionEndedEarly }) {
+  return `<header class="hero hero--competition-modern hero--compact"><h1 id="pageTitle">${escapeHtml(heroTitle)}</h1><p class="hero__text">${escapeHtml(heroSubline)}</p><p class="hero__closing">${promotionEndedEarly ? "Official terms date:" : expired ? "Closed" : "Closes"} ${escapeHtml(formattedDate)}</p>${renderUpdatedNotice()}</header>`;
 }
 
 function renderCompetitionDetailMedia(competition, imageUrl, altText = competition.title) {
@@ -10836,15 +10871,18 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   const heroImage = getCompetitionVisualUrl(competition);
   const ogImage = getMetadataImageUrl(competition);
   const expired = shared.isExpiredCompetition(competition);
+  const promotionEndedEarly = shared.isEditorialPromotionEnded(competition);
   const confirmedResult = expired && shared.hasVerifiedCompetitionResult(competition);
   const noindexActive = !expired && shared.getCompetitionVisibility(competition) === "noindex";
   const adsAllowed = !confirmedResult && shared.competitionAllowsAds(competition);
   const adScriptMarkup = adsAllowed ? GUEST_ADS_SCRIPT : "";
-  const fallbackDescription = expired
+  const fallbackDescription = promotionEndedEarly
+    ? "FreeHub has stopped promoting this competition because its closing hour is ambiguous. The official terms date is retained; check the promoter for confirmation."
+    : expired
     ? `This ${competition.brand || "brand"} competition has closed. View the archived prize and closing-date details, then browse current South African competitions on Freehub.`
     : shared.buildCompetitionDescription(competition);
   const description = buildCompetitionSeoDescription(competition, expired, fallbackDescription);
-  const pageTitle = buildCompetitionSeoTitle(competition, expired);
+  const pageTitle = promotionEndedEarly ? `${competition.title} | FreeHub promotion ended` : buildCompetitionSeoTitle(competition, expired);
   const relatedCompetitions = getRelatedCompetitions(competition, allCompetitions);
 
   const categorySlug = shared.CATEGORY_SLUGS.find(
@@ -10855,6 +10893,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
     : "/";
   const heroTitle = confirmedResult
     ? `${competition.title} -- Winner Confirmed`
+    : promotionEndedEarly ? `${competition.title} -- FreeHub promotion ended`
     : expired
       ? `${competition.title} -- Competition Closed`
       : competition.title;
@@ -10902,7 +10941,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   const officialEntryAccountsMarkup = expired ? "" : renderOfficialEntryAccounts(competition);
   const sourceBlockMarkup = renderCompetitionSourceBlock(competition, officialSource, officialSourceUrl, lastChecked, expired);
   const resultConfirmationMarkup = renderCompetitionResultConfirmation(competition);
-  const faqItems = buildCompetitionFaqItems(competition, officialSource, ctaLabel, expired);
+  const faqItems = buildCompetitionFaqItems(competition, officialSource, ctaLabel, expired, promotionEndedEarly);
   const faqMarkup = renderCompetitionFaq(faqItems);
   const authPanelMarkup = expired ? "" : renderCompetitionAuthPanel(competition, slug, canonicalUrl);
 
@@ -10932,11 +10971,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   const webPageData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: confirmedResult
-      ? `${competition.title} -- Winner Confirmed`
-      : expired
-        ? `${competition.title} -- Competition Closed`
-        : competition.title,
+    name: heroTitle,
     description,
     url: canonicalUrl,
     inLanguage: "en-ZA",
@@ -10980,12 +11015,12 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
     <link rel="canonical" href="${escapeAttribute(canonicalUrl)}" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="${escapeAttribute(confirmedResult ? `${competition.title} Winner Confirmed` : expired ? `${competition.title} Closed` : competition.title)}" />
+    <meta property="og:title" content="${escapeAttribute(promotionEndedEarly ? `${competition.title} FreeHub promotion ended` : confirmedResult ? `${competition.title} Winner Confirmed` : expired ? `${competition.title} Closed` : competition.title)}" />
     <meta property="og:description" content="${escapeAttribute(description)}" />
     <meta property="og:url" content="${escapeAttribute(canonicalUrl)}" />
     <meta property="og:image" content="${escapeAttribute(ogImage)}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="${escapeAttribute(confirmedResult ? `${competition.title} Winner Confirmed` : expired ? `${competition.title} Closed` : competition.title)}" />
+    <meta name="twitter:title" content="${escapeAttribute(promotionEndedEarly ? `${competition.title} FreeHub promotion ended` : confirmedResult ? `${competition.title} Winner Confirmed` : expired ? `${competition.title} Closed` : competition.title)}" />
     <meta name="twitter:description" content="${escapeAttribute(description)}" />
     <meta name="twitter:image" content="${escapeAttribute(ogImage)}" />
     <script id="structured-data-webpage" type="application/ld+json">${escapeScript(JSON.stringify(webPageData))}</script>
@@ -10996,7 +11031,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
     ${renderGoogleTagManagerHead(`{ page_type: 'competition', competition_slug: ${escapeScript(JSON.stringify(slug))}, competition_category: ${escapeScript(JSON.stringify(competition.category))} }`)}
     ${renderMetaPixelHead()}
   </head>
-  <body data-detail-closing-date="${escapeAttribute(competition.closingDate)}" data-freehub-ad-surface="${expired && !confirmedResult ? "archive" : "none"}">
+  <body data-detail-closing-date="${escapeAttribute(shared.getEffectiveCompetitionEndDate(competition))}" data-detail-editorial-cutoff="${shared.getEffectiveCompetitionEndDate(competition) !== competition.closingDate}" data-freehub-ad-surface="${expired && !confirmedResult ? "archive" : "none"}">
     ${renderGoogleTagManagerNoScript()}
     ${renderMetaPixelNoScript()}
     <div class="site-shell">
@@ -11008,6 +11043,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
         formattedDate,
         closingSoon,
         expired,
+        promotionEndedEarly,
         outPath,
         ctaAttributes,
         ctaLabel,
@@ -11017,17 +11053,17 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
       <main id="main-content" class="main-content">
         ${breadcrumbMarkup}
 
-        ${expired ? `<section class="state-card state-card--error" aria-label="Competition closed">
-          <p class="state-card__title">This competition has closed.</p>
-          <p class="state-card__text">${confirmedResult ? "The promoter has published an official winner announcement, which Freehub has checked and summarised below." : "This Freehub page is kept as an archive to help users confirm the prize, brand, closing date and official source. Browse current competitions below."}</p>
+        ${expired ? `<section class="state-card state-card--error" aria-label="${promotionEndedEarly ? "FreeHub promotion ended" : "Competition closed"}">
+          <p class="state-card__title">${promotionEndedEarly ? "FreeHub has stopped promoting this competition." : "This competition has closed."}</p>
+          <p class="state-card__text">${promotionEndedEarly ? `The closing hour is ambiguous. FreeHub recommended entering by ${shared.formatDate(shared.getEffectiveCompetitionEndDate(competition))} and retains the official ${formattedDate} date as a reference. Check the promoter for confirmation.` : confirmedResult ? "The promoter has published an official winner announcement, which Freehub has checked and summarised below." : "This Freehub page is kept as an archive to help users confirm the prize, brand, closing date and official source. Browse current competitions below."}</p>
         </section>` : ""}
 
         <article class="competition-detail" aria-label="${escapeAttribute(competition.title)}">
           <div class="competition-detail__body">
             ${renderCompetitionQuickAnswer(competition, expired)}${resultConfirmationMarkup ? `\n            ${resultConfirmationMarkup}` : ""}
             <section class="detail-decision" aria-label="Deadline, cost and eligibility"><dl><div><dt>Closing date</dt><dd>${escapeHtml(formattedDate)}${competition.closingTimeLabel ? ` · ${escapeHtml(competition.closingTimeLabel)}` : ""}<span data-urgency-date="${escapeAttribute(competition.closingDate)}"></span></dd></div><div><dt>Cost</dt><dd>${escapeHtml(competition.entryCostSummary || competition.entryFeeLabel || shared.getEntryCostLabel(competition))}</dd></div><div><dt>Eligibility</dt><dd>${escapeHtml(competition.eligibilitySummary || competition.eligibility || "Check the official promoter rules")}</dd></div></dl></section>
-            ${expired ? renderExpiredCompetitionActions(competition, categorySlug, generatedBrandSlugs, officialSourceUrl) : `<a class="competition-detail__cta" data-active-entry href="${escapeAttribute(outPath)}" target="_blank" rel="noopener noreferrer" ${ctaAttributes}>${escapeHtml(ctaLabel)}</a><p class="competition-detail__cta-note">You will leave Freehub for the official promoter. Freehub does not collect your entry.</p>`}
-            ${expired ? "" : `<section class="state-card" data-runtime-closed hidden aria-label="Competition closed"><h2>This competition has closed.</h2><p>These are archived details. Confirm current information with the promoter.</p>${renderExpiredCompetitionActions(competition, categorySlug, generatedBrandSlugs, officialSourceUrl)}</section>`}
+            ${expired ? renderExpiredCompetitionActions(competition, categorySlug, generatedBrandSlugs, officialSourceUrl, promotionEndedEarly) : `<a class="competition-detail__cta" data-active-entry href="${escapeAttribute(outPath)}" target="_blank" rel="noopener noreferrer" ${ctaAttributes}>${escapeHtml(ctaLabel)}</a><p class="competition-detail__cta-note">You will leave Freehub for the official promoter. Freehub does not collect your entry.</p>`}
+            ${expired ? "" : `<section class="state-card" data-runtime-closed hidden aria-label="Promotion status"><h2>${competition.editorialActiveUntil ? "FreeHub promotion has ended." : "This competition has closed."}</h2><p>${competition.editorialActiveUntil ? "FreeHub stops promotion before the ambiguous closing hour. The official terms date remains above; check the promoter for confirmation." : "These are archived details. Confirm current information with the promoter."}</p>${renderExpiredCompetitionActions(competition, categorySlug, generatedBrandSlugs, officialSourceUrl, Boolean(competition.editorialActiveUntil))}</section>`}
             ${renderCompetitionDetailMedia(competition, heroImage, imageAltText)}
             ${renderEditorialImageDisclosure(competition)}
             ${expired ? "" : renderCompetitionVideoFeature(competition)}
@@ -11040,6 +11076,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
               <p>${escapeHtml(description)}</p>
             </div>
             ${brandPrizeContextMarkup}
+            ${editorialSections.renderListingDetails(listingEditorialDetails[competition.id])}
             ${tagsMarkup}
             ${trustStripMarkup}
             ${sourceBlockMarkup}
@@ -11404,10 +11441,21 @@ function renderCompetitionResultConfirmation(competition) {
             </section>`;
 }
 
-function buildCompetitionFaqItems(competition, officialSource, ctaLabel, expired = false) {
+function buildCompetitionFaqItems(competition, officialSource, ctaLabel, expired = false, promotionEndedEarly = false) {
   const items = [];
   const costLabel = shared.getEntryCostLabel(competition);
   const automaticEntry = isAutomaticEntryCompetition(competition);
+
+  if (promotionEndedEarly) return [
+    {
+      question: "Why has FreeHub stopped promoting this competition?",
+      answer: `The closing hour is ambiguous. FreeHub recommended entering by ${shared.formatDate(shared.getEffectiveCompetitionEndDate(competition))}; the official terms date remains ${shared.formatDate(competition.closingDate)}.`,
+    },
+    {
+      question: "Is entry still available from the promoter?",
+      answer: "FreeHub has stopped showing entry links. Check the promoter for confirmation of the exact closing time and availability.",
+    },
+  ];
 
   if (expired) {
     const confirmedResultItems = shared.hasVerifiedCompetitionResult(competition)
@@ -11941,7 +11989,7 @@ function renderCompetitionInternalLinks(competition, categoryPath, generatedBran
         </section>`;
 }
 
-function renderExpiredCompetitionActions(competition, categorySlug, generatedBrandSlugs = [], officialSourceUrl = "") {
+function renderExpiredCompetitionActions(competition, categorySlug, generatedBrandSlugs = [], officialSourceUrl = "", promotionEndedEarly = false) {
   const links = [
     { label: "Browse Current Competitions", href: "/competitions/", className: "competition-detail__cta" },
   ];
@@ -11973,7 +12021,7 @@ function renderExpiredCompetitionActions(competition, categorySlug, generatedBra
 
   return `<div class="competition-archive-actions" aria-label="Archived competition actions">
               ${actionMarkup}
-              <p class="competition-detail__cta-note">This competition has closed, so Freehub no longer links to the official entry flow as the main action.</p>
+              <p class="competition-detail__cta-note">${promotionEndedEarly ? "FreeHub has stopped promoting this competition because the closing hour is ambiguous. Check the promoter for confirmation." : "This competition has closed, so Freehub no longer links to the official entry flow as the main action."}</p>
               ${sourceMarkup}
             </div>`;
 }
@@ -12125,6 +12173,12 @@ function runDataSafetyChecks(competitions) {
     const headline = shared.getCardHeadline(competition);
     const costLabel = shared.getEntryCostLabel(competition);
     const previewUrlFields = ["entryUrl", "url", "sourceUrl"].filter((field) => isPreviewOrStagingUrl(competition[field]));
+    if (competition.editorialActiveUntil &&
+        (!/^\d{4}-\d{2}-\d{2}$/.test(competition.editorialActiveUntil) ||
+         !Number.isFinite(shared.getCalendarDay(competition.editorialActiveUntil)) ||
+         shared.getCalendarDay(competition.editorialActiveUntil) >= shared.getCalendarDay(competition.closingDate))) {
+      errors.push(`Editorial active cutoff must be a valid date earlier than the official closing date: ${label}.`);
+    }
 
     if (seenSlugs.has(slug)) {
       errors.push(`Duplicate competition slug "${slug}" for "${seenSlugs.get(slug)}" and "${competition.title}".`);
@@ -12304,7 +12358,7 @@ function isExpired(dateString) {
 function buildHowToEnterSteps(competition) {
   if (shared.isExpiredCompetition(competition) || shared.hasVerifiedCompetitionResult(competition)) {
     const historicalSteps = Array.isArray(competition.entrySteps) ? competition.entrySteps : [];
-    return historicalSteps.length ? renderHowToEnterList(historicalSteps, true) : "";
+    return historicalSteps.length ? renderHowToEnterList(historicalSteps, true, shared.isEditorialPromotionEnded(competition)) : "";
   }
   if (Array.isArray(competition.entrySteps) && competition.entrySteps.length > 0) {
     return renderHowToEnterList(competition.entrySteps);
@@ -12364,9 +12418,9 @@ function buildHowToEnterSteps(competition) {
   return renderHowToEnterList(steps);
 }
 
-function renderHowToEnterList(steps, historical = false) {
+function renderHowToEnterList(steps, historical = false, promotionEndedEarly = false) {
   return `<section class="competition-detail__steps" aria-labelledby="how-to-enter-heading">
-              <h2 class="competition-detail__steps-title" id="how-to-enter-heading">${historical ? "Original entry instructions (closed)" : "How to enter"}</h2>${historical ? '\n              <p>These instructions are retained as a historical record. Entries have closed.</p>' : ""}
+              <h2 class="competition-detail__steps-title" id="how-to-enter-heading">${promotionEndedEarly ? "Original entry instructions" : historical ? "Original entry instructions (closed)" : "How to enter"}</h2>${historical ? `\n              <p>${promotionEndedEarly ? "These instructions are retained as a reference after FreeHub’s promotion cutoff. Confirm availability with the promoter." : "These instructions are retained as a historical record. Entries have closed."}</p>` : ""}
               <ol class="competition-detail__steps-list">
                 ${steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("\n                ")}
               </ol>
@@ -12419,7 +12473,7 @@ function generateSitemap(competitions, routeContexts, sitemapCompetitions = comp
         lastmod: getRouteLastmod(routeContext, competitions),
       });
     });
-  const trustPageEntries = getPublicTrustPageDefinitions().map((page) => {
+  const trustPageEntries = getPublicTrustPageDefinitions().filter((page) => !page.noindex).map((page) => {
     return renderSitemapUrl({
       loc: `${origin}/${page.slug}/`,
       lastmod: getTrustPageLastmod(page),
@@ -13145,7 +13199,9 @@ function runFreeResourceChecks() {
         page.slug === "free-samples-south-africa" && ["2026-07-23", "2026-07-31", "2026-10-02"].includes(page.dateModified);
       const isReviewedCourseEditorialDate =
         page.slug === COURSE_GUIDE.slug && page.dateModified === "2026-10-05";
-      if (page.dateModified === BUILD_DATE_ISO && page.dateModified !== page.datePublished && !isReviewedSamplesEditorialDate && !isReviewedCourseEditorialDate) {
+      const isReviewedFreeStuffEditorialDate =
+        page.slug === "free-stuff-south-africa" && page.dateModified === "2026-10-11";
+      if (page.dateModified === BUILD_DATE_ISO && page.dateModified !== page.datePublished && !isReviewedSamplesEditorialDate && !isReviewedCourseEditorialDate && !isReviewedFreeStuffEditorialDate) {
         errors.push(`Free-resource page dateModified appears to be using build date by default: ${page.slug}`);
       }
     }
@@ -13309,7 +13365,9 @@ function runLifecycleStaticChecks(
 
     const html = fs.readFileSync(detailPath, "utf8");
     const archiveLeadSection = html.split("Current competitions you may like")[0] || html;
-    if (!html.includes("This competition has closed.")) {
+    const expectedClosedBanner = shared.isEditorialPromotionEnded(competition)
+      ? "FreeHub has stopped promoting this competition." : "This competition has closed.";
+    if (!html.includes(expectedClosedBanner)) {
       errors.push(`Expired archive page missing closed banner: ${slug}`);
     }
     const expectedRobots = confirmedResult

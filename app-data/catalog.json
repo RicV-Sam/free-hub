@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-11",
-  "count": 44,
+  "count": 50,
   "counts": {
-    "freeStuff": 17,
-    "resources": 17,
-    "opportunities": 0,
-    "offers": 27
+    "freeStuff": 20,
+    "resources": 19,
+    "opportunities": 1,
+    "offers": 30
   },
   "items": [
     {
@@ -186,6 +186,22 @@
       "lastChecked": "2026-07-31"
     },
     {
+      "id": "spur-r50-birthday-voucher",
+      "kind": "resource",
+      "title": "Spur R50 birthday voucher",
+      "provider": "Spur R50 birthday voucher",
+      "summary": "A registered member who spent at least R1,000 at Spur in the 12 months before their birthday receives a R50 birthday voucher in their profile on the birthday.",
+      "category": "rewards",
+      "categoryLabel": "Spend-linked birthday voucher",
+      "officialUrl": "https://res.cloudinary.com/spur-group/image/upload/uploads/documents/policies/Spur-Loyalty-Programme-and-App-Terms-and-Conditions-clean-July-2025-002-oOH.pdf",
+      "bestFor": "Registered Spur Family members who already spend regularly at Spur",
+      "requirements": [
+        "Register a Spur Family profile in the app and reach R1,000 cumulative qualifying Spur spend during the 12 months before the birthday."
+      ],
+      "watchOut": "This is a spend-linked loyalty voucher, not a no-purchase freebie. It is valid for 31 days, is non-transferable and can only be used by the registered member under the current redemption rules.",
+      "lastChecked": "2026-10-11"
+    },
+    {
       "id": "bootlegger-app-registration-coffee",
       "kind": "resource",
       "title": "Bootlegger app registration coffee",
@@ -280,6 +296,59 @@
       ],
       "watchOut": "A completion certificate is not a university qualification, professional licence or guaranteed job. Check each course language and content before starting.",
       "lastChecked": "2026-10-09"
+    },
+    {
+      "id": "vodacom-connectu-zero-rated-job-search",
+      "kind": "resource",
+      "title": "Vodacom ConnectU job-search access",
+      "provider": "Vodacom ConnectU job-search access",
+      "summary": "Vodacom provides zero-rated access to selected job-search services through ConnectU. This is access to the listed services on the Vodacom route, not a transferable data bundle.",
+      "category": "family-support",
+      "categoryLabel": "Work and learning support",
+      "officialUrl": "https://www.vodacom.co.za/vodacom/shopping/v/connectu",
+      "bestFor": "Vodacom users looking for jobs while limiting mobile-data spending",
+      "requirements": [
+        "Switch off Wi-Fi, use Vodacom mobile data and open the official ConnectU portal at http://connectu.vodacom.co.za/. Choose a currently listed job service; registration and application requirements depend on that provider."
+      ],
+      "watchOut": "External links outside the included route and background phone activity may still use paid data. This is not free browsing across all websites or networks, and it does not guarantee a job. The individual service is responsible for its vacancies and applications.",
+      "lastChecked": "2026-10-11"
+    },
+    {
+      "id": "starbucks-gold-birthday-drink",
+      "kind": "opportunity",
+      "title": "Starbucks Gold birthday drink",
+      "provider": "Starbucks South Africa",
+      "summary": "Starbucks South Africa Gold members receive a birthday Free Drink Reward valid for 30 days. Gold requires 750 Stars earned within 12 months, so this is a benefit for qualifying loyalty customers, not a drink for every new signup.",
+      "category": "birthday_freebie",
+      "categoryLabel": "Birthday freebies",
+      "officialUrl": "https://www.starbucks.co.za/rewards/ts-and-cs",
+      "imageUrl": "https://freehub.co.za/assets/listings/starbucks-gold-birthday-drink.webp",
+      "requirements": [
+        "Gold-level Starbucks Rewards membership required",
+        "Earn 750 Stars in 12 months through qualifying activity; another 750 Stars maintains Gold for the next year",
+        "Provide your birthday in your member profile and check the reward in your account",
+        "Redeem only at participating South African Starbucks stores"
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-10-11"
+    },
+    {
+      "id": "mugg-bean-new-app-cappuccino",
+      "kind": "deal",
+      "title": "Mugg & Bean new-app cappuccino after qualifying spend",
+      "provider": "Mugg & Bean",
+      "summary": "New Mugg & Bean app users who spend over R50 in their first month qualify for one complimentary Easy Cappuccino voucher.",
+      "category": "restaurants-takeaways",
+      "categoryLabel": "Restaurants & Takeaways",
+      "officialUrl": "https://www.muggandbean.co.za/rewards/loyalty-app-faqs/",
+      "termsUrl": "https://www.muggandbean.co.za/terms-and-conditions/",
+      "requirements": [
+        "App registration and spending over R50 in the first month are required. One Easy Cappuccino voucher is issued to qualifying new users; no loyalty is earned when redeeming it. The public clause does not specify its redemption expiry, so check the voucher in the app before visiting. This welcome reward is separate from the birthday cake benefit."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-11",
+      "isAffiliate": false,
+      "isSponsored": false
     },
     {
       "id": "mtn-app-first-login-1gb-2026",
@@ -768,6 +837,44 @@
       ],
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "lastChecked": "2026-10-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "virgin-active-club-v-two-free-visits-october-2026",
+      "kind": "deal",
+      "title": "Two free Virgin Active Club V visits in October",
+      "provider": "Virgin Active",
+      "summary": "Two free Club-V visits for eligible children during October 2026; parents or legal guardians need not be gym members.",
+      "category": "baby-kids",
+      "categoryLabel": "Baby & Kids",
+      "officialUrl": "https://hello.virginactive.co.za/support/solutions/articles/201000133149-october-2026-new-joiner-terms-and-conditions",
+      "termsUrl": "https://hello.virginactive.co.za/support/solutions/articles/201000133149-october-2026-new-joiner-terms-and-conditions",
+      "requirements": [
+        "Section 7 only. Offer ends 31 October 2026. Ages six weeks to nine at Club-V, or up to 13 at Club-V Max, subject to the facility. Complete the guest register and disclaimer, provide the club-required identification and proof of guardianship, and sign the child in. Members also complete a child disclaimer for every visit. Check the selected club before travelling. This benefit does not require joining the separate paid gym or PT campaigns."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-10-31",
+      "lastChecked": "2026-10-11",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "joburg-zoo-r22-on-the-22nd-2026",
+      "kind": "deal",
+      "title": "Joburg Zoo R22 admission on the 22nd",
+      "provider": "Joburg Zoo",
+      "summary": "R22 paid admission on qualifying 22nd-of-the-month dates: 22 October, 22 November, 22 December, 22 January and 22 February. Optional parking costs R20.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://www.jhbcityparksandzoo.com/news-events/news/the-lucky-ones-are-born-in-march-free-entry-to-joburg-zoo-for-all-march-babies",
+      "termsUrl": "https://www.jhbcityparksandzoo.com/news-events/news/the-lucky-ones-are-born-in-march-free-entry-to-joburg-zoo-for-all-march-babies",
+      "requirements": [
+        "The anniversary promotion ends in February 2027; the final qualifying 22nd is 22 February. R22 is discounted admission, not free entry. Optional parking is R20; transport, food and other spending are separate. The checked standard admission tariffs are R135 for adults and R81 for children or seniors, giving admission savings of R113 and R59 respectively. Recheck the official visiting arrangements and promotion before travelling."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2027-02-22",
+      "lastChecked": "2026-10-11",
       "isAffiliate": false,
       "isSponsored": false
     }

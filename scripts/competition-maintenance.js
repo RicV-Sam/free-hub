@@ -40,7 +40,7 @@ function classifyCompetitions(competitions, today) {
   const expiredLowValue = [];
 
   competitions.forEach((competition) => {
-    const closingDate = normalizeDate(competition.closingDate);
+    const closingDate = normalizeDate(shared.getEffectiveCompetitionEndDate(competition));
     const diffDays = Math.ceil((closingDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
 
     if (diffDays < 0) {

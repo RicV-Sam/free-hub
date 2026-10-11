@@ -16,8 +16,11 @@
       if (fallback) fallback.hidden = !!section.querySelector("[data-editorial-pick]");
     });
     document.querySelectorAll("[data-current-listing], article.competition-card[data-competition-closing-date]").forEach((node) => {
-      const closing = node.dataset.closingDate || node.dataset.competitionClosingDate;
-      if (closing && closing < today) node.remove();
+      const closing = node.dataset.competitionActiveUntil || node.dataset.closingDate || node.dataset.competitionClosingDate;
+      if (closing && closing < today) {
+        node.querySelectorAll('a[href^="/"]').forEach((link) => removedPaths.add(link.getAttribute("href")));
+        node.remove();
+      }
     });
     document.querySelectorAll("[data-current-comparison]").forEach((table) => {
       const empty = !table.querySelector("[data-current-listing]");
@@ -32,9 +35,10 @@
       const closed = document.querySelector("[data-runtime-closed]");
       if (closed) closed.hidden = false;
       const notice = document.querySelector(".hero__closing");
-      if (notice) notice.textContent = `Closed ${shared.formatDate(closing)}`;
+      const editorialCutoff = document.body.dataset.detailEditorialCutoff === "true";
+      if (notice) notice.textContent = editorialCutoff ? "FreeHub promotion has ended" : `Closed ${shared.formatDate(closing)}`;
       const title = document.querySelector("#pageTitle");
-      if (title && !/closed/i.test(title.textContent)) title.textContent += " — Competition closed";
+      if (title && !/closed|promotion ended/i.test(title.textContent)) title.textContent += editorialCutoff ? " — FreeHub promotion ended" : " — Competition closed";
       document.querySelectorAll(".competition-detail__cta-note").forEach((node) => { node.hidden = true; });
     }
     if (removedPaths.size) document.querySelectorAll('script[type="application/ld+json"]').forEach((script) => {

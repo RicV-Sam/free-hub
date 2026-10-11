@@ -144,6 +144,8 @@
 
 .offer-card__facts dd,
 .offer-detail__facts dd {
+  min-width: 0;
+  overflow-wrap: anywhere;
   margin: 0;
   font-weight: 700;
 }
@@ -2186,6 +2188,19 @@ button {
   }
 }
 
+.free-stuff-parent,
+.free-resource-section,
+.free-resource-section__header,
+.free-resource-grid,
+.free-resource-card {
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.free-resource-section {
+  overflow-wrap: anywhere;
+}
+
 .free-stuff-child-nav {
   display: grid;
   grid-template-columns: 1fr;
@@ -2332,6 +2347,9 @@ button {
 
 .opportunity-section {
   display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr);
+  overflow-wrap: anywhere;
   gap: 1rem;
   padding: 1rem;
   border: 1px solid rgba(15, 118, 110, 0.25);
@@ -2344,6 +2362,8 @@ button {
 .opportunity-card,
 .opportunity-card__facts {
   display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr);
   gap: 0.8rem;
 }
 
@@ -6944,6 +6964,20 @@ body {
 .guide-table a {
   color: var(--accent);
   font-weight: 800;
+}
+
+.guide-table--compact {
+  min-width: 0;
+  table-layout: fixed;
+  overflow-wrap: anywhere;
+}
+
+.guide-table--compact th:first-child { width: 40%; }
+
+.table-scroll-hint { display: none; }
+
+@media (max-width: 760px) {
+  .table-scroll-hint { display: block; font-size: 0.85rem; color: var(--muted); }
 }
 
 @media (max-width: 980px) {

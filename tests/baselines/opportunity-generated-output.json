@@ -1,6 +1,9 @@
 {
   "version": 1,
   "buildDate": "2026-09-17",
+  "reviewDates": {
+    "starbucks-gold-birthday-drink": { "lastVerifiedAt": "2026-09-17", "reviewDueAt": "2026-09-24" }
+  },
   "review": "September 17 source review: five current birthday opportunities, documented expired-review tombstones, and two new birthday rewards. Historical evidence retained.",
   "opportunityIds": [
     "blind-designs-free-fabric-samples",

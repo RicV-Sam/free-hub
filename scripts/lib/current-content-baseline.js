@@ -4,6 +4,7 @@ const path = require('node:path');
 const shared = require('../../shared/page-data.js');
 const { applyCompetitionRetirements } = require('./competition-retirements.js');
 const opportunityData = require('../../shared/opportunity-data.js');
+const { getReviewedGuides } = require('./research-guides.js');
 const root = path.resolve(__dirname, '../..');
 const read = (name) => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
 
@@ -51,8 +52,9 @@ function getCurrentContentBaseline() {
     // the Standard Bank brand page and the newly generated ending-soon tag page.
     // The next reviewed workbook batch adds eighteen competition detail pages.
     // Their eighteen exit routes are already counted by active.length below.
-    generatedFileCount: 452 - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
-    sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length + (read('data/airtime-dash.json').enabled ? 1 : 0),
+    // October 11 adds seven competition detail pages; exit routes vary with active inventory.
+    generatedFileCount: 457 + getReviewedGuides(buildDate).length - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + getReviewedGuides(buildDate).filter(page => !page.noindex).length + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length + (read('data/airtime-dash.json').enabled ? 1 : 0),
   };
 }
 module.exports = { getCurrentContentBaseline };

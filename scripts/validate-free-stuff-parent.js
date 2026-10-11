@@ -83,6 +83,7 @@ check("Opportunity sitemap entries", count(sitemap, /<loc>https:\/\/freehub\.co\
 check("Durable resources on parent", count(parent, /<article class="free-resource-card">/g), 31);
 check("Durable resource schema items", resourceItemList?.itemListElement?.length || 0, 31);
 check("Unverified Review Club resource excluded", parent.includes("https://reviewclub.co.za/how-it-works/"), false);
+check("Unverified Brand Advisor resource excluded", parent.includes("https://brandadvisor.co.za/how-it-works/"), false);
 check("Permanent Free Stuff child links", count(parent, /class="free-stuff-child-nav__link"/g), 6);
 check("Parent H1 count", parentPage.h1.length, 1);
 check("Parent H1", parentPage.h1[0], "Where to Find Free Stuff in South Africa");

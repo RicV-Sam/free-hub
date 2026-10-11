@@ -1,0 +1,45 @@
+.fuel-guide { gap: 2rem; grid-template-columns: minmax(0, 1fr); min-width: 0; }
+.fuel-guide > * { min-width: 0; }
+.fuel-guide .datacost-promo__body { min-width: 0; overflow-wrap: anywhere; }
+.fuel-calculator { background: var(--surface); border: 1px solid var(--border); border-top: 5px solid var(--accent); padding: clamp(1.1rem, 3vw, 2.5rem); border-radius: 0 0 var(--radius-md) var(--radius-md); }
+.fuel-calculator h2 { margin: 0; font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.15; }
+.fuel-calculator__intro > p { max-width: 65ch; }
+.fuel-kicker { color: var(--accent); font-weight: 800; margin: 0 0 .5rem; }
+.fuel-review, .fuel-field small { color: var(--muted); font-size: .88rem; }
+.fuel-calculator form { display: grid; gap: 1.5rem; margin-top: 1.5rem; }
+.fuel-calculator form[hidden], .fuel-calculator [hidden] { display: none; }
+.fuel-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+.fuel-field { display: grid; align-content: start; gap: .4rem; min-width: 0; margin: .75rem 0; }
+.fuel-field label, .fuel-calculator legend { font-weight: 750; color: var(--text); }
+.fuel-field input, .fuel-field select { box-sizing: border-box; font: inherit; padding: .8rem; width: 100%; max-width: 100%; min-width: 0; border-radius: 8px; border: 1px solid #78878f; background: #fff; color: var(--text); min-height: 48px; }
+.fuel-calculator fieldset { border: 0; border-top: 1px solid var(--border); padding: 1rem 0 0; margin: 0; min-width: 0; }
+.fuel-stations { display: flex; gap: .75rem 1.5rem; flex-wrap: wrap; }
+.fuel-check { display: flex; align-items: flex-start; gap: .65rem; cursor: pointer; min-height: 44px; padding: .4rem 0; }
+.fuel-check input { accent-color: var(--accent); width: 20px; height: 20px; margin: .15rem 0 0; flex: 0 0 20px; }
+.fuel-check span { flex: 1; min-width: 0; }
+.fuel-extra { border: 1px solid var(--border); padding: 1rem; border-radius: 10px; }
+.fuel-extra summary { cursor: pointer; padding: .4rem 0; font-weight: 750; min-height: 44px; }
+.fuel-extra[open] summary { margin-bottom: 1rem; }
+.fuel-calculator button[type="submit"] { justify-self: start; min-height: 48px; }
+.fuel-calculator :is(input, select, button, summary, [tabindex]):focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.fuel-error { padding: 1rem; background: #fff1ef; color: #8c251e; border-left: 4px solid #ad392d; }
+.fuel-note { padding: .9rem 1rem; border-left: 3px solid var(--accent); background: var(--accent-soft); color: #16413c; }
+.fuel-results { margin-top: 2rem; }
+.fuel-results > h3 { font-size: 1.4rem; }
+.fuel-result { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .25rem 1rem; padding: 1.2rem 0; border-bottom: 1px solid var(--border); }
+.fuel-result h4 { margin: 0; font-size: 1.12rem; }
+.fuel-result p { margin: .4rem 0 0; grid-column: 1 / -1; max-width: 70ch; }
+.fuel-result__amount { font-size: 1.5rem; color: var(--accent); font-variant-numeric: tabular-nums; }
+.fuel-result__label { font-size: .9rem; color: var(--muted); }
+.fuel-table { min-width: 760px; }
+.fuel-table th:first-child { width: 23%; }
+.fuel-table td:nth-child(2) { width: 31%; }
+.fuel-table small { color: var(--muted); }
+@media (max-width: 620px) {
+  .fuel-guide .datacost-promo { grid-template-columns: minmax(0, 1fr); }
+  .fuel-fields { grid-template-columns: 1fr; gap: .25rem; }
+  .fuel-result { grid-template-columns: 1fr; }
+  .fuel-result__amount { margin-top: .25rem; }
+  .fuel-extra { padding: .8rem; }
+  .fuel-calculator button[type="submit"] { width: 100%; }
+}

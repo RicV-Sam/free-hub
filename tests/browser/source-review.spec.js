@@ -9,10 +9,14 @@ for (const width of [320, 1365]) {
       await page.goto(path, { waitUntil: "domcontentloaded" });
       await expect(page.locator('a[href="https://reviewclub.co.za/how-it-works/"]')).toHaveCount(0);
       expect(await page.content()).not.toContain("https://reviewclub.co.za/how-it-works/");
+      await expect(page.locator('a[href^="https://brandadvisor.co.za/"]')).toHaveCount(0);
+      expect(await page.content()).not.toContain("brandadvisor.co.za");
     }
     await page.goto("/free-stuff-south-africa/", { waitUntil: "domcontentloaded" });
     const spur = page.locator(".free-resource-card").filter({ has: page.getByRole("heading", { name: "Spur R50 birthday voucher", exact: true }) });
-    await expect(spur).toContainText(/Reviewed 8 Sept? 2026/);
+    await expect(spur).toContainText("Reviewed 11 Oct 2026");
+    await expect(spur).toContainText("R1,000");
+    await expect(spur.locator(".free-resource-card__link")).toHaveAttribute("href", "https://res.cloudinary.com/spur-group/image/upload/uploads/documents/policies/Spur-Loyalty-Programme-and-App-Terms-and-Conditions-clean-July-2025-002-oOH.pdf");
     await spur.scrollIntoViewIfNeeded();
     await page.screenshot({ path: `output/playwright/source-review-${width}.png` });
     for (const path of ["/competition/mcdonalds-nazo-meals-airtime-data-rewards-2026/", "/out/mcdonalds-nazo-meals-airtime-data-rewards-2026/"]) {
@@ -37,6 +41,7 @@ for (const width of [320, 1365]) {
       const feed = await (await request.get(path)).text();
       expect(feed).not.toContain("mcdonalds-nazo-meals-airtime-data-rewards-2026");
       expect(feed).not.toContain("reviewclub.co.za");
+      expect(feed).not.toContain("brandadvisor.co.za");
       for (const record of withdrawn) expect(feed).not.toContain(record.id);
     }
   });
