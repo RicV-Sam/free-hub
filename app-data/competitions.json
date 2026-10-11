@@ -1,32 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-10",
-  "count": 107,
+  "asOfDate": "2026-10-11",
+  "count": 106,
   "competitions": [
-    {
-      "id": "mtn8-last-fan-standing-2026",
-      "title": "Stand a chance to win R1 million with MTN8",
-      "brand": "MTN",
-      "summary": "Stand a chance to win R1 million with MTN8. Qualifying R30 prepaid recharge and app required. Closes 2026-10-10.",
-      "imageUrl": "https://freehub.co.za/assets/listings/mtn8-last-fan-standing-2026.webp",
-      "closingDate": "2026-10-10",
-      "category": "Cash",
-      "prizeName": "A chance at R1 million in the Last Fan Standing final",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "App",
-      "eligibility": "SA permanent residents aged 18+, with the required valid identity/passport documentation and bank account, on one of the specified eligible prepaid plans.. See the full restrictions below.",
-      "entrySteps": [
-        "Make a qualifying non-cumulative R30 recharge on an eligible MTN prepaid plan, then register in the MTN App during the applicable week with the required identity details and consent.",
-        "Qualifying R30 recharge and app access required. Transfers, Me2U, XtraTime, YelloBucks and conversions do not qualify."
-      ],
-      "officialUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn8-competition",
-      "termsUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn8-competition",
-      "lastChecked": "2026-10-08",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "knorr-win-r5000-weekly-2026",
       "title": "Knorr Soup Competition 2026 - Win R5,000 Weekly",
@@ -305,7 +281,7 @@
       "termsUrl": "https://www.coca-cola.com/za/en/legal/terms-and-conditions-coca-cola-400ml-2026-competition",
       "lastChecked": "2026-08-26",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "dis-chem-oral-b-apple-combo-2026",
@@ -331,7 +307,7 @@
       "termsUrl": "https://www.dischem.co.za/oral-b-september-2026-competition",
       "lastChecked": "2026-09-21",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "tinkies-distraction-levels-competition-2026",
