@@ -1,59 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-11",
-  "count": 113,
+  "asOfDate": "2026-10-12",
+  "count": 111,
   "competitions": [
-    {
-      "id": "knorr-win-r5000-weekly-2026",
-      "title": "Knorr Soup Competition 2026 - Win R5,000 Weekly",
-      "brand": "Knorr / Unilever South Africa",
-      "summary": "Buy any 4 Knorr Soup products in one transaction and WhatsApp the official Knorr competition line with your till slip for a chance to win weekly R5,000 cash prizes.",
-      "closingDate": "2026-10-11",
-      "category": "Cash",
-      "prizeName": "Weekly R5,000 cash prizes",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "WhatsApp",
-      "eligibility": "The record states that South African citizens or permanent residents aged 18+ with a valid South African ID may enter, subject to the official terms.",
-      "entrySteps": [
-        "Buy any 4 Knorr Soup products in a single transaction during the competition period.",
-        "WhatsApp \"Knorr\" to +27 87 265 1280 and follow the prompts.",
-        "Upload a clear original photo of the physical till slip as proof of purchase.",
-        "Submit entries before 23:59 on 11 October 2026."
-      ],
-      "officialUrl": "https://www.whatsfordinner.co.za/knorr-win-r5000-weekly-ts-and-cs.html",
-      "termsUrl": "https://www.whatsfordinner.co.za/knorr-win-r5000-weekly-ts-and-cs.html",
-      "lastChecked": "2026-07-24",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
-    {
-      "id": "maxi-cosi-baby-city-photo-2026",
-      "title": "Maxi-Cosi Baby City Photo Competition: Win a Car Seat",
-      "brand": "Dis-Chem Baby City / Maxi-Cosi",
-      "summary": "Visit a participating Dis-Chem Baby City store, take a photo of your little one in the in-store Maxi-Cosi safety demo seat and share it with the required tags for a chance to win an Emerald 360 Pro car seat.",
-      "imageUrl": "https://freehub.co.za/assets/listings/maxi-cosi-baby-city-photo-2026.webp",
-      "closingDate": "2026-10-11",
-      "category": "Lifestyle",
-      "prizeName": "One Maxi-Cosi Emerald 360 Pro car seat",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Social",
-      "eligibility": "Natural persons who are legal South African residents and/or citizens, over 18, with a valid identity document. Dis-Chem competition winners in the previous six months and promoter-related parties or specified families are excluded.",
-      "entrySteps": [
-        "Visit a participating Dis-Chem Baby City store: Sandton City, Woodmead, Irene, Fourways, Craighall, Centurion, Bluebird, Woodlands Boulevard, Benmore, Olympus (Faerie Glen), West Rand, Somerset West, Bellville, Sable Square, Kenilworth, Port Elizabeth, Umhlanga or Ballito.",
-        "Use the in-store Child Passenger Safety demo unit and buckle your little one into its Maxi-Cosi car seat.",
-        "Take a photo and share it on social media, tagging @babycityza.",
-        "Include #ChildPassengerSafety #DischemBabyCity #MaxiCosiSA #BackTheirFutureBuckleUp and post by 23:59 on 11 October 2026."
-      ],
-      "officialUrl": "https://www.dischem.co.za/maxi-cosi-september-competition",
-      "termsUrl": "https://www.dischem.co.za/maxi-cosi-september-competition",
-      "lastChecked": "2026-10-08",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "burnt-horse-power-in-store-2026",
       "title": "Burnt Horse Power In-Store Competition",
@@ -360,7 +309,7 @@
       "termsUrl": "https://www.spar.co.za/competitions/tinkies-distraction-levels-competition",
       "lastChecked": "2026-10-03",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "sasol-magpie-2026",
