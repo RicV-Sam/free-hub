@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-14",
-  "count": 117,
+  "count": 118,
   "competitions": [
     {
       "id": "deskstand-three-winner-giveaway-2026",
@@ -42,7 +42,7 @@
       "entryCostLabel": "Free entry",
       "purchaseRequired": false,
       "entryMethod": "WhatsApp",
-      "eligibility": "Entrants must live in Algoa FM’s broadcast region, be over 18 and have no Algoa FM competition win in the previous 90 days. Standard station competition rules apply.",
+      "eligibility": "Entrants must live in Algoa FM’s broadcast region, be over 18 and have no Algoa FM competition win in the previous 90 days. Standard station competition rules apply. The linked standard Algoa FM rules also require South African citizenship, a valid South African identity document or passport and a South African bank account held in the entrant’s own name; station and specified related parties are excluded.",
       "entrySteps": [
         "Check that you live in Algoa FM’s broadcast region, are over 18 and have not won on the station in the past 90 days.",
         "WhatsApp or Telegram PROTEAS, your name, surname and town to 061 794 0940. Normal data rates apply.",
@@ -118,7 +118,7 @@
       "entryCostLabel": "Free entry",
       "purchaseRequired": false,
       "entryMethod": "WhatsApp",
-      "eligibility": "South African citizens aged 18+ residing within Algoa FM’s broadcast area, with no Algoa FM competition win in the previous 90 days. Standard station rules and promoter exclusions apply.",
+      "eligibility": "South African citizens aged 18+ residing within Algoa FM’s broadcast area, with no Algoa FM competition win in the previous 90 days. Standard station rules and promoter exclusions apply. The linked standard Algoa FM rules also require South African citizenship, a valid South African identity document or passport and a South African bank account held in the entrant’s own name; station and specified related parties are excluded.",
       "entrySteps": [
         "Check the regional, citizenship, age and previous-win rules.",
         "WhatsApp or Telegram MONTEGO, your name and town to 061 794 0940. Normal data costs apply.",
@@ -673,6 +673,32 @@
       "termsUrl": "https://specialprojects.news24.com/news24-myhomesa-competition/",
       "lastChecked": "2026-10-11",
       "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "mtn-algoa-big-walk-for-cancer-2026",
+      "title": "MTN and Algoa FM Big Walk: Cash and Home Internet Prizes",
+      "brand": "MTN / Algoa FM",
+      "summary": "Share who you are walking for by WhatsApp for a chance to win R4,000 cash, an optional MTN recharge bonus or a separate year of home internet. Entries close 30 October.",
+      "imageUrl": "https://freehub.co.za/assets/listings/mtn-algoa-big-walk-for-cancer-2026.webp",
+      "closingDate": "2026-10-30",
+      "category": "Cash",
+      "prizeName": "Three R4,000 weekly cash prizes, optional R2,000 recharge bonuses and one 12-month home internet package",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "WhatsApp",
+      "eligibility": "South African citizens aged 18+ residing within Algoa FM’s broadcast region, with a valid South African ID or passport and a South African bank account in their own name. Entrants must have access to WhatsApp and must not have won an Algoa FM competition in the previous 90 days. Promoter, station, agency and specified related parties and families are excluded.",
+      "entrySteps": [
+        "Read the MTN campaign PDF and linked Algoa FM standard rules, including the regional, identity, citizenship, bank-account and previous-win requirements.",
+        "During 12–30 October, WhatsApp MTN, your name, surname, town and who you are walking for and why to 061 794 0940. Normal data charges apply.",
+        "Base entry is open to customers of any mobile network without an MTN recharge. To claim the optional R2,000 weekly bonus, an MTN customer must provide proof of a recent qualifying R50 recharge, verified by MTN.",
+        "Be available for the Breakfast call. Weekly competition moments take place on 16, 23 and 30 October; a missed call forfeits the selection. The separate grand prize is announced on 31 October, after entries close."
+      ],
+      "officialUrl": "https://www.algoafm.co.za/competition/win-up-to-r6-000-with-mtn-proud-telecommunications-partner-to-the-big-walk-for-cancer",
+      "termsUrl": "https://www.algoafm.co.za/assets/CompetitionTermsandConditions_%20MTN%20x%20Algoa%20FM.pdf",
+      "lastChecked": "2026-10-14",
+      "isHighValue": false,
       "isClosingSoon": false
     },
     {

@@ -1814,5 +1814,19 @@
     "generationMethod": "Built-in image generation",
     "generationPrompt": "Create a premium wide 16:9 editorial illustration for FreeHub, an independent South African consumer information website. Subject: two clearly adult people in a generic indoor gym, one fitness trainer demonstrating a light dumbbell movement to a new adult member. Calm energetic warm light, simple welcoming gym environment, painterly cut-paper editorial style, navy, fresh green and coral with warm cream negative space. Represents personal training sessions linked to a paid gym membership. No gym logos, no brand marks, no text, no numbers, no before-and-after bodies, no health promises, no membership price or free-access claim. Clearly illustrative and distinct from official promoter advertising.",
     "sourceReviewNote": "Official campaign page inspected; suitable campaign-specific artwork unavailable or unsuitable for the particular prize. Independent editorial illustration disclosed."
+  },
+  "mtn-algoa-big-walk-for-cancer-2026": {
+    "src": "/assets/listings/mtn-algoa-big-walk-for-cancer-2026.webp",
+    "width": 1535,
+    "height": 864,
+    "alt": "FreeHub editorial illustration of an adult sharing a walking story by phone, with radio and home internet symbols",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration; symbolic subject image, not official campaign artwork or a specific router model.",
+    "reviewedAt": "2026-10-14",
+    "sourcePage": "https://www.algoafm.co.za/competition/win-up-to-r6-000-with-mtn-proud-telecommunications-partner-to-the-big-walk-for-cancer",
+    "generationMethod": "Built-in image generation",
+    "generationPrompt": "Create a polished wide 16:9 editorial illustration for FreeHub, an independent South African competition information website. Subject: a friendly adult walking along a green outdoor path, holding a smartphone with an abstract message bubble, with a discreet tabletop radio motif and a generic home internet router in the background as symbols of a radio storytelling competition and its home-internet prize. Premium textured painted and cut-paper illustration, warm cream, teal, leaf green and restrained golden yellow. No brand names or logos, no text, no currency or prize amounts, no particular router model, no medical promises, no official endorsement, no claim that a walk ticket must be bought. The person is sharing who they walk for; physical participation is not an entry requirement. Independent subject illustration, not an official advertisement.",
+    "generationEditNote": "Removed recognisable Cape Town landmarks; final image uses a generic leafy public garden and rolling hills.",
+    "sourceReviewNote": "Official campaign page inspected. Its image is a generic MTN SIM promotion with a different USSD route, so it is unsuitable as competition entry artwork. Editorial subject illustration used and disclosed."
   }
 }

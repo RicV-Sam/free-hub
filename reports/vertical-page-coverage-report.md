@@ -7,7 +7,7 @@ Only active, published, public-safe competitions are counted. Held, unverified, 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 21
+- Matching active public competitions: 22
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -20,6 +20,7 @@ Only active, published, public-safe competitions are counted. Held, unverified, 
 | Win cash vouchers with NESPRAY Always Giving More (nespray-always-giving-more-2026) | 2026-10-17 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Sasol Delight and Magpie Rewards Competition (sasol-magpie-2026) | 2026-10-21 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Ster-Kinekor Silas Watch and Win Competition (ster-kinekor-silas-watch-and-win-2026) | 2026-10-25 | purchase-required | yes | yes | WhatsApp mentioned in entry text | none |
+| MTN and Algoa FM Big Walk: Cash and Home Internet Prizes (mtn-algoa-big-walk-for-cancer-2026) | 2026-10-30 | free-entry | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Astron Energy Own a Golf 8 GTI Competition 2026 (astron-energy-own-golf-8-gti-2026) | 2026-10-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Cadbury Made to Share: Win R20,000 Weekly (cadbury-made-to-share-2026) | 2026-10-31 | free-entry | yes | yes | WhatsApp mentioned in entry text | none |
 | Jockey 150 Competition: Win R15,000 (jockey-150-2026) | 2026-10-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
