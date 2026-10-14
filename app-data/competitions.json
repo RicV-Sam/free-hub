@@ -1,34 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-13",
-  "count": 111,
+  "asOfDate": "2026-10-14",
+  "count": 110,
   "competitions": [
-    {
-      "id": "burnt-horse-power-in-store-2026",
-      "title": "Burnt Horse Power In-Store Competition",
-      "brand": "Burnt Studios",
-      "summary": "Spend R1,500 or more in one transaction at Burnt’s Cavendish Square or Mall of Africa store for automatic entry to win a R6,000 Horse Power collection bundle.",
-      "imageUrl": "https://freehub.co.za/assets/listings/burnt-horse-power-in-store-2026.webp",
-      "closingDate": "2026-10-13",
-      "category": "Lifestyle",
-      "prizeName": "R6,000 Horse Power collection bundle: Toolbox, Wrench and five collection items",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Automatic entry from a qualifying store transaction",
-      "eligibility": "Customers with qualifying purchases at the two participating stores. Burnt employees, agencies, suppliers, service providers and competition administrators are excluded. The campaign terms do not specify a minimum age.",
-      "entrySteps": [
-        "Shop at Burnt Cavendish Square or Mall of Africa during 7–13 October 2026. Online and other-store purchases are not listed as eligible.",
-        "Spend at least R1,500 in a single transaction after discounts, including VAT. Gift-card-funded purchases qualify and any products may be bought.",
-        "Ensure the transaction is associated with your customer account and current contact details. Entry is automatic; keep the order/transaction number.",
-        "If selected, respond within 48 hours of the initial notification and collect from the store where you made the winning purchase within seven days of accepting."
-      ],
-      "officialUrl": "https://burnt.co.za/pages/terms-and-conditions",
-      "termsUrl": "https://burnt.co.za/pages/terms-and-conditions",
-      "lastChecked": "2026-10-08",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "sea-harvest-say-fish-grocery-vouchers-2026",
       "title": "Sea Harvest Say Fish: Win R5,000 Grocery Vouchers",
@@ -335,7 +309,7 @@
       "termsUrl": "https://www.sasol.com/sites/default/files/2026-09/Sasol%20Delight%20Terms%20%26%20Conditions%20-%20MagPie%20Competition.pdf",
       "lastChecked": "2026-09-14",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "clicks-rimmel-hydration-hamper-2026",
@@ -361,7 +335,7 @@
       "termsUrl": "https://woobox.com/gtn7w7/rules",
       "lastChecked": "2026-09-24",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "raimondi-retail-1-october-2026",
@@ -387,7 +361,7 @@
       "termsUrl": "https://thebeveragecompany.co.za/general-terms-conditions/",
       "lastChecked": "2026-10-08",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "winex-wine-derful-2026",
@@ -413,7 +387,7 @@
       "termsUrl": "https://www.winex.co.za/wine-derful-winex-competition/",
       "lastChecked": "2026-10-08",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "clicks-sorbet-birthday-hampers-october-2026",
