@@ -93,6 +93,11 @@ jobs:
   links:
     name: Live link and warning baseline
     runs-on: ubuntu-latest
+    # External sources and review receipts must be checked at today's date.
+    # Historical fixtures remain confined to the baseline and browser jobs.
+    env:
+      FREEHUB_BUILD_DATE: ''
+      FREEHUB_AS_OF_DATE: ''
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
@@ -100,12 +105,8 @@ jobs:
           node-version: 24.19.0
           cache: npm
       - run: npm ci
-      - env:
-          NODE_OPTIONS: '--require=${{ github.workspace }}/scripts/lib/fixed-date-register.js'
-        run: npm run build
-      - env:
-          NODE_OPTIONS: '--require=${{ github.workspace }}/scripts/lib/fixed-date-register.js'
-        run: npm run lint:ci
+      - run: npm run build
+      - run: npm run lint:ci
 
   browser:
     name: Chromium smoke tests
