@@ -1707,5 +1707,112 @@
     "generationMethod": "Built-in image generation",
     "generationPrompt": "Create one wide 16:9 FreeHub editorial hero illustration for a South African consumer-information page. A chewing-gum promotion with shopping vouchers: two plain unbranded chewing-gum packets, a blank till receipt and a blank gift voucher on a counter. No cash, no money, no product branding. Style: polished tactile editorial illustration, warm cream, navy and restrained amber accents, generous clean space, useful recognizable subject. No words, logos, numbers, prices, dates, promotional slogans, brand endorsement or photorealistic official campaign appearance. Clearly illustration.",
     "sourceReviewNote": "Official Volume Driver campaign terms inspected first; no suitable campaign hero artwork was obtained from that source."
+  },
+  "1life-goodhope-october-2026": {
+    "src": "/assets/listings/1life-goodhope-october-2026.webp",
+    "width": 1200,
+    "height": 630,
+    "alt": "Official 1Life cash-box artwork; R50,000 is the shared pool",
+    "kind": "official-source",
+    "caption": "Official campaign/provider artwork; entry dates, prize limits and conditions are explained below.",
+    "reviewedAt": "2026-10-14",
+    "sourcePage": "https://www.goodhopefm.co.za/goodhopefm/event/fy27-life-insuranceradio-competitiongood-hope-fm/",
+    "sourceImage": "https://www.goodhopefm.co.za/goodhopefm/wp-content/uploads/2026/10/5420_1life_Winning-at-Life_Metro-FM_Socials_1200x630px.jpg"
+  },
+  "spar-vaseline-cera-glow-summer-2026": {
+    "src": "/assets/listings/spar-vaseline-cera-glow-summer-2026.webp",
+    "width": 728,
+    "height": 480,
+    "alt": "Official SPAR Vaseline Cera Glow artwork; ten R15,000 voucher prizes",
+    "kind": "official-source",
+    "caption": "Official campaign/provider artwork; entry dates, prize limits and conditions are explained below.",
+    "reviewedAt": "2026-10-14",
+    "sourcePage": "https://www.spar.co.za/competitions/vaseline-cera-glow-spar-competition",
+    "sourceImage": "https://cozy-deer-74f9a4362f.media.strapiapp.com/2026_10_vaseline_cera_glow_852290064a.jpg"
+  },
+  "vodacom-fibre-air-fryer-2026": {
+    "src": "/assets/listings/vodacom-fibre-air-fryer-2026.webp",
+    "width": 1536,
+    "height": 864,
+    "alt": "FreeHub editorial illustration of a generic air fryer and home broadband context",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration; symbolic subject image, not official campaign artwork.",
+    "reviewedAt": "2026-10-14",
+    "sourcePage": "https://www.vodacom.co.za/vodacom/terms/competition/fibre-price-air-fryer",
+    "generationMethod": "Built-in image generation",
+    "generationPrompt": "Create a polished wide 16:9 editorial illustration for an independent South African competition information website, FreeHub. Subject: a single generic black countertop air fryer on a warm cream kitchen surface, with a small abstract fiber-optic light motif in the background that suggests a home broadband subscription requirement. Premium handcrafted paper and painted illustration style, deep navy and turquoise with restrained coral accents, clean breathing room, natural soft shadows, approachable and credible. The verified prize is one air fryer; the router or broadband motif is only entry context, not an extra prize. No brand logos, no specific product model, no writing, no currency, no numbers, no promises, no badges and no official-endorsement styling. This is editorial subject imagery, not an advert.",
+    "sourceReviewNote": "Official campaign page inspected; suitable campaign-specific artwork unavailable or unsuitable for the particular prize. Independent editorial illustration disclosed."
+  },
+  "algoa-proteas-australia-tickets-october-2026": {
+    "src": "/assets/listings/algoa-proteas-australia-tickets-october-2026.webp",
+    "width": 1000,
+    "height": 562,
+    "alt": "Official Proteas–Australia Gqeberha Test artwork; match dates are separate from entry dates",
+    "kind": "official-source",
+    "caption": "Official campaign/provider artwork; entry dates, prize limits and conditions are explained below.",
+    "reviewedAt": "2026-10-14",
+    "sourcePage": "https://www.algoafm.co.za/competition/win-10-tickets-to-see-the-proteas-take-on-australia",
+    "sourceImage": "https://www.algoafm.co.za/assets/CSA%20361%20%E2%80%93%20Aus%20Men%20vs%20The%20Proteas%20TEST%20%5BGQEBERHA%5D%20%E2%80%93%20Social%2016x9.jpg"
+  },
+  "algoa-montego-radio-cash-2026": {
+    "src": "/assets/listings/algoa-montego-radio-cash-2026.webp",
+    "width": 1536,
+    "height": 864,
+    "alt": "FreeHub editorial illustration of a dog, mystery bowls and a radio",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration; symbolic subject image, not official campaign artwork.",
+    "reviewedAt": "2026-10-14",
+    "sourcePage": "https://www.algoafm.co.za/competition/win-with-montego-pet-nutrition",
+    "generationMethod": "Built-in image generation",
+    "generationPrompt": "Create a polished wide 16:9 editorial illustration for FreeHub, an independent South African competition information website. Subject: a friendly medium-sized brown dog beside five simple pet-food bowls arranged in a playful arc, with a small tabletop radio and a plain unbranded pet food bag in the background. The verified campaign is a radio cash and dog-food hamper game in which a selected listener chooses a bowl. Premium textured painted and cut-paper style, navy, teal and warm ochre, uncluttered, soft natural light. No vehicles, no pickup trucks, no trip, no product logos, no brand names, no text, no readable currency, no numbers, no specific monetary amounts and no implication of guaranteed winning. Independent editorial subject illustration.",
+    "sourceReviewNote": "Official campaign page inspected; suitable campaign-specific artwork unavailable or unsuitable for the particular prize. Independent editorial illustration disclosed."
+  },
+  "imana-pnp-lintons-corner-potjie-dash-2026": {
+    "src": "/assets/listings/imana-pnp-lintons-corner-potjie-dash-2026.webp",
+    "width": 1536,
+    "height": 864,
+    "alt": "FreeHub editorial illustration of a grocery basket, potjie pot and unbranded seasoning sachets",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration; symbolic subject image, not official campaign artwork.",
+    "reviewedAt": "2026-10-14",
+    "sourcePage": "https://www.imana.co.za/pnp-linton-potjie-dash-competition",
+    "generationMethod": "Built-in image generation",
+    "generationPrompt": "Create a polished landscape 16:9 editorial illustration for FreeHub, an independent South African competition information website. Subject: a modest shopping basket of assorted everyday groceries beside a traditional black cast-iron three-legged potjie pot and two plain unbranded seasoning sachets, on a sunlit warm cream surface. The article is about an in-store grocery dash after a qualifying grocery purchase. Use sophisticated cut-paper and lightly textured painted forms, leaf green, warm terracotta and charcoal, grounded composition with soft shadows. No appliances, no branding, no readable text, no currency, no value amounts, no invented prize-specific product brands or endorsement. Subject illustration only; exact terms appear separately on the webpage.",
+    "sourceReviewNote": "Official campaign page inspected; suitable campaign-specific artwork unavailable or unsuitable for the particular prize. Independent editorial illustration disclosed."
+  },
+  "hot-cares-schools-challenge-2026": {
+    "src": "/assets/listings/hot-cares-schools-challenge-2026.webp",
+    "width": 1536,
+    "height": 864,
+    "alt": "Official HOT Cares Schools Challenge campaign artwork",
+    "kind": "official-source",
+    "caption": "Official campaign/provider artwork; entry dates, prize limits and conditions are explained below.",
+    "reviewedAt": "2026-10-14",
+    "sourcePage": "https://hot1027.co.za/competition/big-hearts-big-prizes-the-hot-cares-schools-challenge-is-here/",
+    "sourceImage": "https://hot1027.co.za/wp-content/uploads/2026/10/HC_School_Challenge_Social.png"
+  },
+  "dunlop-summer-r800-checkers-voucher-2026": {
+    "src": "/assets/listings/dunlop-summer-r800-checkers-voucher-2026.webp",
+    "width": 1110,
+    "height": 500,
+    "alt": "Official Dunlop Summer campaign artwork featuring a family reunion",
+    "kind": "official-source",
+    "caption": "Official campaign/provider artwork; entry dates, prize limits and conditions are explained below.",
+    "reviewedAt": "2026-10-14",
+    "sourcePage": "https://www.dunloptyres.co.za/promotions/dunlop-promotion-october-2026-terms-and-conditions",
+    "sourceImage": "https://dunloptyres-oc-prod.azurewebsites.net/media/page/october-promotion-2026/october-promo_banner-01.png"
+  },
+  "virgin-active-october-pt-package-2026": {
+    "src": "/assets/listings/virgin-active-october-pt-package-2026.webp",
+    "width": 1536,
+    "height": 864,
+    "alt": "FreeHub editorial illustration of an adult trainer and adult gym member",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration; symbolic subject image, not official campaign artwork.",
+    "reviewedAt": "2026-10-14",
+    "sourcePage": "https://hello.virginactive.co.za/support/solutions/articles/201000133149-october-2026-new-joiner-terms-and-conditions",
+    "generationMethod": "Built-in image generation",
+    "generationPrompt": "Create a premium wide 16:9 editorial illustration for FreeHub, an independent South African consumer information website. Subject: two clearly adult people in a generic indoor gym, one fitness trainer demonstrating a light dumbbell movement to a new adult member. Calm energetic warm light, simple welcoming gym environment, painterly cut-paper editorial style, navy, fresh green and coral with warm cream negative space. Represents personal training sessions linked to a paid gym membership. No gym logos, no brand marks, no text, no numbers, no before-and-after bodies, no health promises, no membership price or free-access claim. Clearly illustrative and distinct from official promoter advertising.",
+    "sourceReviewNote": "Official campaign page inspected; suitable campaign-specific artwork unavailable or unsuitable for the particular prize. Independent editorial illustration disclosed."
   }
 }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-14",
-  "count": 110,
+  "count": 117,
   "competitions": [
     {
       "id": "deskstand-three-winner-giveaway-2026",
@@ -30,6 +30,32 @@
       "isClosingSoon": true
     },
     {
+      "id": "algoa-proteas-australia-tickets-october-2026",
+      "title": "Algoa FM: Win 10 Proteas vs Australia Test Tickets",
+      "brand": "Algoa FM / Eastern Province Cricket",
+      "summary": "WhatsApp or Telegram PROTEAS, your name, surname and town to Algoa FM for a chance to win ten tickets to one day of the Gqeberha Test.",
+      "imageUrl": "https://freehub.co.za/assets/listings/algoa-proteas-australia-tickets-october-2026.webp",
+      "closingDate": "2026-10-15",
+      "category": "Sports",
+      "prizeName": "Ten tickets to one specified day of the Proteas–Australia Gqeberha Test",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "WhatsApp",
+      "eligibility": "Entrants must live in Algoa FM’s broadcast region, be over 18 and have no Algoa FM competition win in the previous 90 days. Standard station competition rules apply.",
+      "entrySteps": [
+        "Check that you live in Algoa FM’s broadcast region, are over 18 and have not won on the station in the past 90 days.",
+        "WhatsApp or Telegram PROTEAS, your name, surname and town to 061 794 0940. Normal data rates apply.",
+        "Enter before the applicable on-air selection. Kaycee announces winners between 12:00 and 15:00 on 12–15 October. The source gives no separate submission cutoff.",
+        "Each selection day awards tickets for one corresponding day of the Test: 12 October for 18 October, 13 October for 19 October, 14 October for 20 October and 15 October for 21 October."
+      ],
+      "officialUrl": "https://www.algoafm.co.za/competition/win-10-tickets-to-see-the-proteas-take-on-australia",
+      "termsUrl": "https://www.algoafm.co.za/competition/win-10-tickets-to-see-the-proteas-take-on-australia",
+      "lastChecked": "2026-10-14",
+      "isHighValue": false,
+      "isClosingSoon": true
+    },
+    {
       "id": "sunlight-dirty-dish-gagasi-2026",
       "title": "Win R5,000 with Sunlight Dirty Dish on Gagasi FM",
       "brand": "Sunlight / Gagasi FM",
@@ -50,6 +76,58 @@
       "officialUrl": "https://gagasiworld.co.za/sunlight-dirty-dish-competition-terms-and-conditions/",
       "termsUrl": "https://gagasiworld.co.za/sunlight-dirty-dish-competition-terms-and-conditions/",
       "lastChecked": "2026-10-08",
+      "isHighValue": false,
+      "isClosingSoon": true
+    },
+    {
+      "id": "1life-goodhope-october-2026",
+      "title": "1Life Good Hope FM: Winning at Life October 2026",
+      "brand": "1Life / Good Hope FM",
+      "summary": "Enter by paid SMS for a chance to play on Good Hope FM for R2,000–R8,000, plus a possible R2,000 quote bonus. Credit-check and marketing consent apply.",
+      "imageUrl": "https://freehub.co.za/assets/listings/1life-goodhope-october-2026.webp",
+      "closingDate": "2026-10-16",
+      "category": "Cash",
+      "prizeName": "R2,000–R8,000 cash boxes, with a possible R2,000 quote bonus",
+      "entryCostType": "paid_entry",
+      "entryCostLabel": "Paid entry",
+      "purchaseRequired": false,
+      "entryMethod": "SMS",
+      "eligibility": "South African citizens over 18. Anyone who won a 1Life-promoted competition in the previous 12 months, promoter-related parties and specified family members are excluded.",
+      "entrySteps": [
+        "Read the official October competition rules, including ITC credit-check and marketing consent.",
+        "SMS 1Life to 37766 at R1.50 per SMS. Free SMS bundles do not apply. Only one entry per person per week is permitted.",
+        "If selected for the on-air game, choose one of five boxes for R2,000–R8,000. A qualifying obligation-free quote adds a R2,000 bonus.",
+        "The station also links to an online form, but that form requests agreement to receive a life quote. The published SMS route does not require requesting the optional quote."
+      ],
+      "officialUrl": "https://www.goodhopefm.co.za/goodhopefm/event/fy27-life-insuranceradio-competitiongood-hope-fm/",
+      "termsUrl": "https://www.1life.co.za/competitions/good-hope-2026-10",
+      "lastChecked": "2026-10-14",
+      "isHighValue": false,
+      "isClosingSoon": true
+    },
+    {
+      "id": "algoa-montego-radio-cash-2026",
+      "title": "Algoa FM Montego: Cash and Dog-Food Hampers",
+      "brand": "Algoa FM / Montego Pet Nutrition",
+      "summary": "Send MONTEGO, your name and town to Algoa FM to stand a chance to choose a mystery cash bowl on Breakfast and receive a dog-food hamper.",
+      "imageUrl": "https://freehub.co.za/assets/listings/algoa-montego-radio-cash-2026.webp",
+      "closingDate": "2026-10-16",
+      "category": "Cash",
+      "prizeName": "A mystery cash prize plus a Montego dog-food hamper worth R591.61",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "WhatsApp",
+      "eligibility": "South African citizens aged 18+ residing within Algoa FM’s broadcast area, with no Algoa FM competition win in the previous 90 days. Standard station rules and promoter exclusions apply.",
+      "entrySteps": [
+        "Check the regional, citizenship, age and previous-win rules.",
+        "WhatsApp or Telegram MONTEGO, your name and town to 061 794 0940. Normal data costs apply.",
+        "Be available for the Breakfast call between 06:00 and 09:00, 12–16 October. A missed call forfeits the entry. Enter before the daily selection; no separate submission cutoff is published.",
+        "If selected, choose one of five mystery dog bowls on air to reveal your cash prize. Each winner also receives the published dog-food hamper."
+      ],
+      "officialUrl": "https://www.algoafm.co.za/competition/win-with-montego-pet-nutrition",
+      "termsUrl": "https://www.algoafm.co.za/competition/win-with-montego-pet-nutrition",
+      "lastChecked": "2026-10-14",
       "isHighValue": false,
       "isClosingSoon": true
     },
@@ -1180,6 +1258,32 @@
       "isClosingSoon": false
     },
     {
+      "id": "vodacom-fibre-air-fryer-2026",
+      "title": "Vodacom: Win a Xiaomi Air Fryer with a Qualifying FTTH Order",
+      "brand": "Vodacom",
+      "summary": "Place a qualifying Vodacom Fibre order, activate it and pay the first month during the campaign for a chance to win one Xiaomi air fryer worth R2,341.",
+      "imageUrl": "https://freehub.co.za/assets/listings/vodacom-fibre-air-fryer-2026.webp",
+      "closingDate": "2026-10-31",
+      "category": "Tech",
+      "prizeName": "One Xiaomi air fryer valued at R2,341",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Automatic entry after qualifying order, activation and first payment",
+      "eligibility": "Natural persons aged 18+ resident in South Africa, including new and existing Vodacom customers, with a serviceable installation address on MFN, Evotel, Frogfoot, Openserve or Vumatel. Credit, affordability, identity and order checks apply. Business legal persons and promoter-related parties are excluded.",
+      "entrySteps": [
+        "Read the campaign rules and check serviceability through the official Vodacom Fibre page or a participating retail channel.",
+        "Place an eligible FTTH promotional order during 18 September–31 October 2026, at a minimum R409 monthly and 30/30 Mbps, or a higher qualifying package.",
+        "The order must be approved, the service activated and the first month’s payment received within the campaign period. An order alone is insufficient.",
+        "One entry is recorded per separate qualifying order at a separate serviceable address. The verified winner is announced on 1 December 2026."
+      ],
+      "officialUrl": "https://www.vodacom.co.za/vodacom/terms/competition/fibre-price-air-fryer",
+      "termsUrl": "https://www.vodacom.co.za/vodacom/terms/competition/fibre-price-air-fryer",
+      "lastChecked": "2026-10-14",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "clicks-baby-essentials-hamper-2026",
       "title": "Clicks Baby Essentials Hamper Competition",
       "brand": "Clicks",
@@ -1383,6 +1487,32 @@
       "isClosingSoon": false
     },
     {
+      "id": "hot-cares-schools-challenge-2026",
+      "title": "HOT Cares Schools Challenge: R100,000 in Radio Advertising",
+      "brand": "HOT Cares / HOT 102.7FM",
+      "summary": "Gauteng schools can register for HOT Cares’ Teddython fundraising challenge. The top school receives R100,000 in advertising airtime; the winning class gets a pizza experience.",
+      "imageUrl": "https://freehub.co.za/assets/listings/hot-cares-schools-challenge-2026.webp",
+      "closingDate": "2026-11-04",
+      "category": "Lifestyle",
+      "prizeName": "R100,000 worth of HOT 102.7FM radio advertising for the top school",
+      "entryCostType": "fundraising_required",
+      "entryCostLabel": "Fundraising required",
+      "purchaseRequired": false,
+      "entryMethod": "School registration and verified fundraising totals",
+      "eligibility": "Participating Gauteng schools must register, obtain school approval and supervision for activities, submit final cash fundraising totals on time and provide supporting records if requested.",
+      "entrySteps": [
+        "A Gauteng school must register by emailing info@hotcares.co.za, following the official campaign page.",
+        "Arrange school-approved, appropriately supervised fundraising activities conducted safely and ethically.",
+        "Raise cash funds specifically in the name of the HOT Cares Schools Challenge.",
+        "Submit the final fundraising totals by 12:00 midday on 4 November 2026 and retain supporting records for verification."
+      ],
+      "officialUrl": "https://hot1027.co.za/competition/big-hearts-big-prizes-the-hot-cares-schools-challenge-is-here/",
+      "termsUrl": "https://hot1027.co.za/competition/big-hearts-big-prizes-the-hot-cares-schools-challenge-is-here/",
+      "lastChecked": "2026-10-14",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "nedbank-moyaapp-consumer-education-2026",
       "title": "Nedbank MoyaApp Consumer Education Competition",
       "brand": "Nedbank",
@@ -1535,6 +1665,32 @@
       "termsUrl": "https://woobox.com/bua49d/rules",
       "lastChecked": "2026-09-17",
       "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "imana-pnp-lintons-corner-potjie-dash-2026",
+      "title": "IMANA Pick n Pay Linton’s Corner: R5,000 Potjie Dash",
+      "brand": "IMANA / Pick n Pay Linton’s Corner",
+      "summary": "Spend R500 in one transaction at Pick n Pay Linton’s Corner, including two IMANA Super-Sheba Potjie Mix sachets, and enter in-store for a grocery dash up to R5,000.",
+      "imageUrl": "https://freehub.co.za/assets/listings/imana-pnp-lintons-corner-potjie-dash-2026.webp",
+      "closingDate": "2026-11-13",
+      "category": "Groceries",
+      "prizeName": "A two-minute potjie grocery dash capped at R5,000",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "In-store",
+      "eligibility": "South African residents aged 18+. Employees and specified related parties of the organisers, Pick n Pay Group and Linton’s Corner Shopping Mall, including listed friends, relatives and household members, are excluded. Entry takes place at this Pretoria store only.",
+      "entrySteps": [
+        "Spend at least R500 in one transaction at Pick n Pay Linton’s Corner, Pretoria, during the campaign. Include any two IMANA Super-Sheba Potjie Mix sachets.",
+        "Complete your contact details clearly on the original till slip and place it in the designated in-store competition box.",
+        "Each additional entry needs a separate valid qualifying receipt. Retain proof as required by the official rules.",
+        "The winner is announced on 20 November. The dash is scheduled for 22 November, subject to change; an eligible adult substitute may participate if the winner cannot run."
+      ],
+      "officialUrl": "https://www.imana.co.za/pnp-linton-potjie-dash-competition",
+      "termsUrl": "https://www.imana.co.za/pnp-linton-potjie-dash-competition",
+      "lastChecked": "2026-10-14",
+      "isHighValue": false,
       "isClosingSoon": false
     },
     {
@@ -2245,6 +2401,31 @@
       "officialUrl": "https://www.dischem.co.za/cera-glow-vaseline-summer-2026-competition",
       "termsUrl": "https://www.dischem.co.za/cera-glow-vaseline-summer-2026-competition",
       "lastChecked": "2026-10-08",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "spar-vaseline-cera-glow-summer-2026",
+      "title": "SPAR Vaseline Cera Glow Summer: Win a R15,000 Voucher",
+      "brand": "SPAR / Vaseline",
+      "summary": "Buy two Vaseline Cera Glow products at SPAR and swipe SPAR Rewards for automatic entry into a draw for one of ten R15,000 digital vouchers.",
+      "imageUrl": "https://freehub.co.za/assets/listings/spar-vaseline-cera-glow-summer-2026.webp",
+      "closingDate": "2026-12-13",
+      "category": "Vouchers",
+      "prizeName": "One of ten R15,000 SPAR digital vouchers",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Purchase and Rewards swipe",
+      "eligibility": "South African citizens aged 18 or older with a valid identity document. Promoter, co-promoter, guild, supplier and specified related parties and families are excluded.",
+      "entrySteps": [
+        "Buy any two Vaseline Cera Glow products from SPAR stores nationally during the campaign.",
+        "Swipe your SPAR Rewards card at purchase for automatic entry.",
+        "Keep your contact details current. Winners receive their digital voucher code by text message following the draw."
+      ],
+      "officialUrl": "https://www.spar.co.za/competitions/vaseline-cera-glow-spar-competition",
+      "termsUrl": "https://www.spar.co.za/competitions/vaseline-cera-glow-spar-competition",
+      "lastChecked": "2026-10-14",
       "isHighValue": false,
       "isClosingSoon": false
     },

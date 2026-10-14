@@ -126,6 +126,14 @@ test("known cost types keep their current display labels", () => {
   assert.equal(shared.getEntryCostLabel(fixtures.unknownCost), "Entry requirements unclear");
 });
 
+test("the school fundraising challenge is labelled without implying free or ticket entry", () => {
+  const challenge = require("../../data/competitions.json").find(record => record.id === "hot-cares-schools-challenge-2026");
+  assert.equal(shared.getEntryCostLabel(challenge), "Fundraising required");
+  assert.equal(shared.isPaidEntryCompetition(challenge), false);
+  assert.notEqual(shared.getEntryCostClassification(challenge), "free_entry");
+  assert.match(challenge.entryCostSummary, /Cash funds raised/);
+});
+
 test("missing and unrecognized cost values fail closed", () => {
   assert.equal(shared.getEntryCostClassification(fixtures.missingCost), "unclear");
   assert.equal(shared.getEntryCostClassification(fixtures.unrecognizedCost), "unclear");

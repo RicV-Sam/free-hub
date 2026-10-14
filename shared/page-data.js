@@ -12,6 +12,7 @@
     STANDARD_DATA_MAY_APPLY: "standard_data_may_apply",
     ACCOUNT_REQUIRED: "account_required",
     MEMBERSHIP_REQUIRED: "membership_required",
+    FUNDRAISING_REQUIRED: "fundraising_required",
     APP_REQUIRED: "app_required",
     PURCHASE_REQUIRED: "purchase_required",
     PAID_ENTRY: "paid_entry",
@@ -25,6 +26,7 @@
     "app-required",
     "account-required",
     "membership-required",
+    "fundraising-required",
     "till-slip-required",
     "loyalty-required",
     "conditional",
@@ -1057,6 +1059,10 @@
       return ENTRY_COST_CLASSIFICATIONS.MEMBERSHIP_REQUIRED;
     }
 
+    if (entryCostType === "fundraising-required") {
+      return ENTRY_COST_CLASSIFICATIONS.FUNDRAISING_REQUIRED;
+    }
+
     if (entryCostType === "conditional") {
       const hasNoMandatoryPurchaseEvidence =
         entry.purchaseRequired === false &&
@@ -1099,6 +1105,8 @@
         return "Account required";
       case ENTRY_COST_CLASSIFICATIONS.MEMBERSHIP_REQUIRED:
         return "Membership required";
+      case ENTRY_COST_CLASSIFICATIONS.FUNDRAISING_REQUIRED:
+        return "Fundraising required";
       default:
         return "Entry requirements unclear";
     }
