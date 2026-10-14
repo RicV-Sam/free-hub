@@ -20,8 +20,15 @@ Object.entries(baseline.assets).forEach(([name, asset]) => {
     return;
   }
   const actual = fs.statSync(filePath).size;
-  const growth = percentChange(actual, asset.bytes);
-  const summary = `${name}: ${actual} bytes (baseline ${asset.bytes}, ${growth >= 0 ? "+" : ""}${growth.toFixed(1)}%)`;
+  let expected = asset.bytes;
+  let inventoryNote = "";
+  if (asset.cardCount) {
+    const cardCount = (fs.readFileSync(filePath, "utf8").match(/<article class="competition-card"/g) || []).length;
+    expected = asset.fixedBytes + (asset.bytes - asset.fixedBytes) * cardCount / asset.cardCount;
+    inventoryNote = `; ${cardCount} cards versus ${asset.cardCount} in reference`;
+  }
+  const growth = percentChange(actual, expected);
+  const summary = `${name}: ${actual} bytes (budget reference ${Math.round(expected)}${inventoryNote}, ${growth >= 0 ? "+" : ""}${growth.toFixed(1)}%)`;
   console.log(`- ${summary}`);
   if (growth > baseline.failGrowthPercent) {
     failures.push(`${summary}; exceeds +${baseline.failGrowthPercent}%`);

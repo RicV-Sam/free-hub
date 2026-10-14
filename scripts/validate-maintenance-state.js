@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const shared = require("../shared/page-data.js");
 const { validateEditorialFreshness } = require("./lib/editorial-freshness.js");
+const { getEditorialHealth } = require("./lib/editorial-picks.js");
 const { applyCompetitionRetirements } = require("./lib/competition-retirements.js");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
@@ -267,6 +268,11 @@ function validateMaintenanceState(options = {}) {
   });
 
   const errors = validateEditorialFreshness(ROOT_DIR, todayIso);
+  summary.editorialHealth = getEditorialHealth(
+    readJson(path.join(ROOT_DIR, "data", "editorial-picks.json")),
+    { competition: sourceCompetitions, resource: readJson(path.join(ROOT_DIR, "data", "free-resources.json")), offer: readJson(path.join(ROOT_DIR, "data", "offers.json")) },
+    todayIso
+  );
   for (const competition of [...sourceCompetitions, ...sourceArchive].filter(row => retirementState.retiredIds.has(row.id))) {
     const slug = getCompetitionSlug(competition);
     const route = `/competition/${slug}/`;

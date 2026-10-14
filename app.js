@@ -149,7 +149,9 @@ async function loadCompetitions() {
     }
 
     state.competitions = sortCompetitions(await response.json());
-    state.routeContext = getRouteContext(getCurrentRoutePath());
+    state.routeContext = window.FreeHubVerticalCollection
+      ? { type: "vertical", slug: window.FreeHubVerticalCollection.slug }
+      : getRouteContext(getCurrentRoutePath());
     state.activeCategory =
       state.routeContext.type === "category"
         ? CATEGORY_COPY[state.routeContext.slug].category
@@ -207,6 +209,23 @@ function renderCategoryFilters() {
 
 function renderCompetitions() {
   const routeFilteredCompetitions = getRouteScopedCompetitions();
+  const inventoryCount = document.querySelector("[data-inventory-count]");
+  if (inventoryCount) inventoryCount.textContent = routeFilteredCompetitions.length
+    ? `${routeFilteredCompetitions.length} current verified competition${routeFilteredCompetitions.length === 1 ? "" : "s"} listed below.`
+    : "No current verified competitions match this guide.";
+  if (window.FreeHubVerticalCollection) {
+    const liveCount = document.querySelector(".hero .trust-row__item");
+    if (liveCount) liveCount.textContent = routeFilteredCompetitions.length
+      ? `${routeFilteredCompetitions.length} live competition${routeFilteredCompetitions.length === 1 ? "" : "s"}`
+      : "No current competitions";
+    const currentPaths = new Set(routeFilteredCompetitions.map(getCompetitionPath));
+    document.querySelectorAll(".hero-preview-item").forEach(item => {
+      const href = item.getAttribute("href");
+      if (href && !currentPaths.has(href)) item.remove();
+    });
+    const preview = document.querySelector(".hero-preview-panel");
+    if (preview && !preview.querySelector(".hero-preview-item")) preview.remove();
+  }
   const filteredCompetitions = routeFilteredCompetitions.filter((competition) => {
     const searchableText = [
       competition.title,
@@ -260,6 +279,8 @@ function createBrandMark(competition, className = "brand-mark") {
   if (logoUrl) {
     mark.classList.add(`${className}--image`);
     const logo = document.createElement("img");
+    logo.loading = "lazy";
+    logo.decoding = "async";
     logo.src = logoUrl;
     logo.alt = `${brand} logo`;
     logo.loading = "lazy";
@@ -313,8 +334,22 @@ function createCompetitionCard(competition) {
   const imageUrl = getCompetitionPrimaryImageUrl(competition, state.competitions);
   if (imageUrl) {
     const image = document.createElement("img");
-    image.src = imageUrl;
-    image.alt = competition.title;
+    image.loading = "lazy";
+    image.decoding = "async";
+    let imagePath = new URL(imageUrl, window.location.href).pathname;
+    try { imagePath = decodeURIComponent(imagePath); } catch { /* Keep malformed encodings as literal paths. */ }
+    const variants = window.FreeHubResponsiveImages?.[imagePath]?.variants;
+    if (variants?.length) {
+      const preferred = variants.find(item => item.width >= 640) || variants[variants.length - 1];
+      image.srcset = variants.map(item => `${item.src} ${item.width}w`).join(", ");
+      image.sizes = "(max-width: 600px) calc(100vw - 2rem), (max-width: 1000px) calc((100vw - 3rem) / 2), 400px";
+      image.src = preferred.src;
+      image.width = preferred.width;
+      image.height = preferred.height;
+    } else {
+      image.src = imageUrl;
+    }
+    image.alt = competition.imageAlt || competition.title;
     image.loading = "lazy";
     image.onerror = () => image.remove();
     media.appendChild(image);
@@ -635,11 +670,17 @@ function injectStructuredData(competitions) {
   const script = document.createElement("script");
   script.id = "structured-data-itemlist";
   script.type = "application/ld+json";
-  script.textContent = JSON.stringify(buildStructuredData(competitions, state.routeContext));
+  const structuredData = buildStructuredData(competitions, state.routeContext);
+  if (window.FreeHubVerticalCollection) structuredData.name = window.FreeHubVerticalCollection.heading;
+  script.textContent = JSON.stringify(structuredData);
   document.head.appendChild(script);
 }
 
 function getRouteScopedCompetitions() {
+  if (window.FreeHubVerticalCollection) {
+    const ids = new Set(window.FreeHubVerticalCollection.recordIds);
+    return window.FreeHubShared.getPublishedActiveCompetitions(state.competitions).filter(item => ids.has(item.id));
+  }
   const routeScopedCompetitions = filterCompetitionsByRoute(state.competitions, state.routeContext);
 
   if (state.routeContext.type === "home" && state.activeCategory !== "All") {
@@ -652,6 +693,8 @@ function getRouteScopedCompetitions() {
 }
 
 function updatePageChrome() {
+  // Vertical guide copy and canonical are supplied by the generator.
+  if (window.FreeHubVerticalCollection) return;
   const pageCopy = getPageCopy(state.routeContext);
 
   document.title = pageCopy.title;
@@ -689,5 +732,5 @@ function getCurrentRoutePath() {
 }
 
 function getDataPath() {
-  return "/data/competitions.json";
+  return "/app-data/browser-competitions.json";
 }

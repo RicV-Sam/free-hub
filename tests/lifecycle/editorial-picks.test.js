@@ -2,7 +2,7 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const { execFileSync } = require("node:child_process");
 const shared = require("../../shared/page-data.js");
-const { validateEditorialPicks, getEligibleEditorialPicks } = require("../../scripts/lib/editorial-picks.js");
+const { validateEditorialPicks, getEligibleEditorialPicks, getEditorialHealth } = require("../../scripts/lib/editorial-picks.js");
 const picks = require("../../data/editorial-picks.json");
 const collections = { competition: require("../../data/competitions.json"), resource: require("../../data/free-resources.json"), offer: require("../../data/offers.json") };
 
@@ -25,19 +25,31 @@ test("date-only closing day is inclusive and deterministic overrides survive tim
 
 test("reviewed shortlist references real records and enforces weekly review", () => {
   assert.doesNotThrow(() => validateEditorialPicks(picks, collections));
-  assert.deepEqual(getEligibleEditorialPicks(picks, collections, "home", "2026-10-04").map(p => p.kind), ["resource", "offer", "competition"]);
-  assert.equal(getEligibleEditorialPicks(picks, collections, "monthly", "2026-10-04").length, 3);
-  assert.equal(getEligibleEditorialPicks(picks, collections, "home", "2026-10-12").length, 0);
+  assert.deepEqual(getEligibleEditorialPicks(picks, collections, "home", "2026-10-14").map(p => p.kind), ["resource", "offer", "competition"]);
+  assert.equal(getEligibleEditorialPicks(picks, collections, "monthly", "2026-10-14").length, 3);
+  assert.equal(getEligibleEditorialPicks(picks, collections, "home", "2026-10-22").length, 0);
   assert.equal(getEligibleEditorialPicks(picks, collections, "home", "2026-09-08").length, 0);
-  const overdue = [{ ...picks[0], reviewDueAt: "2026-10-20" }];
+  const overdue = [{ ...picks[0], reviewDueAt: "2026-10-30" }];
   assert.throws(() => validateEditorialPicks(overdue, collections));
 });
 
 test("held, withdrawn, expired and evidence-overdue records cannot be recommended", () => {
-  for (const field of [{ publicationStatus: "held" }, { publicationStatus: "withdrawn" }, { closingDate: "2026-10-03" }, { reviewDueAt: "2026-10-03" }]) {
+  for (const field of [{ publicationStatus: "held" }, { publicationStatus: "withdrawn" }, { closingDate: "2026-10-13" }, { reviewDueAt: "2026-10-13" }]) {
     const changed = { ...collections, competition: collections.competition.map(item => item.id === "cadbury-made-to-share-2026" ? { ...item, ...field } : item) };
-    assert.ok(!getEligibleEditorialPicks(picks, changed, "home", "2026-10-04").some(p => p.recordId === "cadbury-made-to-share-2026"));
+    assert.ok(!getEligibleEditorialPicks(picks, changed, "home", "2026-10-14").some(p => p.recordId === "cadbury-made-to-share-2026"));
   }
   const changed = { ...collections, resource: collections.resource.map(item => item.id === "resource-childrens-books-book-dash" ? { ...item, availability: "retired" } : item) };
-  assert.ok(!getEligibleEditorialPicks(picks, changed, "home", "2026-10-04").some(p => p.kind === "resource"));
+  assert.ok(!getEligibleEditorialPicks(picks, changed, "home", "2026-10-14").some(p => p.kind === "resource"));
+});
+
+test("maintenance exposes an empty or overdue shortlist without renewing evidence", () => {
+  assert.equal(getEditorialHealth(picks, collections, "2026-10-14").needsReview, false);
+  const approaching = getEditorialHealth(picks, collections, "2026-10-19");
+  assert.equal(approaching.needsReview, true);
+  assert.ok(approaching.surfaces.every(item => item.eligibleCount === 3));
+  const overdue = getEditorialHealth(picks, collections, "2026-10-22");
+  assert.equal(overdue.needsReview, true);
+  assert.ok(overdue.surfaces.every(item => item.eligibleCount === 0 && item.nextReviewDue === null && item.overdueIds.length === 3));
+  assert.equal(getEditorialHealth([], collections, "2026-10-14").needsReview, true);
+  assert.ok(picks.every(item => item.reviewDueAt === "2026-10-21"));
 });

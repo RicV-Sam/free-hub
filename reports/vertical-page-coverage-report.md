@@ -41,9 +41,9 @@ Recommended normalisation:
 
 - URL: /sms-competitions-south-africa/
 - Matching active public competitions: 2
-- Publication threshold: 3
-- Safe to publish: no
-- Status: held; Only 2 active public matches; requires 3.
+- Publication threshold: durable guide; independent of live listing count
+- Safe to publish: yes
+- Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
@@ -51,7 +51,7 @@ Recommended normalisation:
 | Glowming: Win Three Nights in Cape Town for Two (glowming-cape-town-getaway-2026) | 2026-11-30 | free-entry | yes | yes | SMS or shortcode mentioned in entry text | none |
 
 Recommended normalisation:
-- Do not generate or sitemap this page until active verified inventory improves.
+- Preserve the practical guide when inventory falls; show only qualifying live listings and an honest availability notice.
 - Separate sms-entry from sms-verification so account verification does not inflate SMS-entry inventory.
 
 ## Till Slip Competitions in South Africa
@@ -144,9 +144,9 @@ Recommended normalisation:
 
 - URL: /win-airtime-competitions-south-africa/
 - Matching active public competitions: 2
-- Publication threshold: 3
-- Safe to publish: no
-- Status: held; Only 2 active public matches; requires 3.
+- Publication threshold: durable guide; independent of live listing count
+- Safe to publish: yes
+- Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
@@ -154,15 +154,15 @@ Recommended normalisation:
 | Coca-Cola Be a Bok Competition 2026 (coca-cola-fan-can-be-a-bok-2026) | 2026-11-30 | purchase-required | yes | yes | Airtime prize text | consider airtime or recharge tag if prize terms confirm |
 
 Recommended normalisation:
-- Do not generate or sitemap this page until active verified inventory improves.
+- Preserve the practical guide when inventory falls; show only qualifying live listings and an honest availability notice.
 
 ## Win Data Competitions in South Africa
 
 - URL: /win-data-competitions-south-africa/
 - Matching active public competitions: 2
-- Publication threshold: 3
-- Safe to publish: no
-- Status: held; Only 2 active public matches; requires 3.
+- Publication threshold: durable guide; independent of live listing count
+- Safe to publish: yes
+- Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
@@ -170,7 +170,7 @@ Recommended normalisation:
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | Data or connectivity tag | none |
 
 Recommended normalisation:
-- Do not generate or sitemap this page until active verified inventory improves.
+- Preserve the practical guide when inventory falls; show only qualifying live listings and an honest availability notice.
 - Only tag data when the prize or terms mention data bundles, SIM, fibre, router or connectivity rewards.
 
 ## Win Grocery Vouchers in South Africa
@@ -183,9 +183,9 @@ Recommended normalisation:
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Sea Harvest Say Fish: Win R5,000 Grocery Vouchers (sea-harvest-say-fish-grocery-vouchers-2026) | 2026-10-15 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | SPAR Colgate-Palmolive Win Your Share of R150,000 Competition (spar-colgate-palmolive-r150k-2026) | 2026-10-17 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Raimondi Birthday Retail Promotion: Win R1,500 (raimondi-retail-1-october-2026) | 2026-10-21 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
+| Sea Harvest Say Fish: Win R5,000 Grocery Vouchers (sea-harvest-say-fish-grocery-vouchers-2026) | 2026-10-30 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Lancewood Spread & Scoop Competition 2026 (lancewood-spread-scoop-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Huletts SPAR Rewards Competition 2026 (huletts-spar-rewards-2026) | 2026-11-15 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Win a cooler or shopping voucher with MILO at Checkers (milo-checkers-summer-2026) | 2026-11-28 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
@@ -205,10 +205,10 @@ Recommended normalisation:
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Sea Harvest Say Fish: Win R5,000 Grocery Vouchers (sea-harvest-say-fish-grocery-vouchers-2026) | 2026-10-15 | purchase-required | yes | yes | Supermarket or grocery entry text | none |
 | SPAR Colgate-Palmolive Win Your Share of R150,000 Competition (spar-colgate-palmolive-r150k-2026) | 2026-10-17 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Tinkies Distraction Levels Tech Competition 2026 (tinkies-distraction-levels-competition-2026) | 2026-10-19 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Heinz Heritage SPAR Rewards Braai Competition (heinz-heritage-spar-2026) | 2026-10-25 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
+| Sea Harvest Say Fish: Win R5,000 Grocery Vouchers (sea-harvest-say-fish-grocery-vouchers-2026) | 2026-10-30 | purchase-required | yes | yes | Supermarket or grocery entry text | none |
 | SPAR Community School Support Competition (spar-community-school-support-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Supermarket brand or retail partner | none |
 | Lancewood Spread & Scoop Competition 2026 (lancewood-spread-scoop-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Supermarket or grocery entry text | none |
 | Boxer & Coca-Cola: Win a Samsung A06 Phone (boxer-coca-cola-samsung-a06-october-2026) | 2026-11-04 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |

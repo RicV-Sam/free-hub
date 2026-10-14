@@ -6,7 +6,8 @@ const unverifiedData = require("../../shared/unverified-competition-data.js");
 const offerData = require("../../shared/offer-data.js");
 const current = require("../../scripts/lib/current-content-baseline.js").getCurrentContentBaseline();
 const student = require("../../data/student-guide.json");
-const offers = require("../../data/offers.json").filter(row => offerData.isPublicOffer(row, { asOfDate: process.env.FREEHUB_AS_OF_DATE || shared.getSouthAfricanDate() }));
+const offersEnabled = offerData.isOfferFeatureEnabled(process.env.FREEHUB_ENABLE_OFFERS);
+const offers = offersEnabled ? require("../../data/offers.json").filter(row => offerData.isPublicOffer(row, { asOfDate: process.env.FREEHUB_AS_OF_DATE || shared.getSouthAfricanDate() })) : [];
 const root = path.resolve(__dirname, "../..");
 const visibleMascots = page => page.locator("[data-mascot]:visible");
 const guides = ["guides", "blog", "best-competitions-south-africa-this-month", "free-stuff-south-africa", "free-samples-south-africa", "free-online-courses-south-africa", "free-childrens-books-south-africa", "free-credit-report-south-africa", "birthday-freebies", student.slug, "free-parks-entry-south-africa-september-2026", "how-we-verify-competitions", "how-to-enter-competitions-safely", "how-to-spot-a-scam-competition", "legit-competitions-south-africa", "competition-closing-date-checklist", "competition-entry-cost-labels", "till-slip-competitions-south-africa", "whatsapp-competitions-south-africa", "app-competitions-south-africa", "fake-competition-winner-messages", "purchase-required-competitions-explained", "paid-entry-competitions-explained", "south-african-lottery"];
@@ -33,7 +34,7 @@ test("all public guides use Read; browsing hubs use Browse; excluded pages stay 
     const emptyOffers = ["/offers/", "/coupons/", "/deals/"].includes(route) && !offers.some(row => route === "/offers/" || row.type === (route === "/coupons/" ? "coupon" : "deal"));
     await expect(visibleMascots(page)).toHaveAttribute("data-mascot", emptyOffers ? "recover" : "browse");
   }
-  for (const route of ["/contact/", "/privacy-policy/", "/terms-of-use/", "/submit-an-offer/", "/submit-a-competition/", "/report-a-competition/", "/club/", "/club/account/", "/competition/cadbury-made-to-share-2026/", ...(offers[0] ? [offerData.getOfferPath(offers[0])] : []), ...(current.publicOpportunities[0] ? [`/opportunity/${current.publicOpportunities[0].slug}/`] : [])]) {
+  for (const route of ["/contact/", "/privacy-policy/", "/terms-of-use/", ...(offersEnabled ? ["/submit-an-offer/"] : []), "/submit-a-competition/", "/report-a-competition/", "/club/", "/club/account/", "/competition/cadbury-made-to-share-2026/", ...(offers[0] ? [offerData.getOfferPath(offers[0])] : []), ...(current.publicOpportunities[0] ? [`/opportunity/${current.publicOpportunities[0].slug}/`] : [])]) {
     await page.goto(route);
     await expect(page.locator("[data-mascot]")).toHaveCount(0);
   }
@@ -49,7 +50,7 @@ for (const width of [320, 390, 768, 1024, 1440]) test(`mascot layouts reflow at 
     await expect(visibleMascots(page)).toHaveCount(1);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), route).toBe(true);
     const mascot = await visibleMascots(page).boundingBox();
-    const featured = ["/", "/about/", "/not-a-freehub-page/"].includes(route);
+    const featured = await visibleMascots(page).evaluate(node => node.classList.contains("mascot--featured"));
     expect(mascot.height).toBeLessThanOrEqual((width < 768 ? featured ? 96 : 72 : featured ? 180 : 96) + 1);
     const overlaps = await page.evaluate(() => {
       const image = [...document.querySelectorAll('[data-mascot]')].find(n => n.getBoundingClientRect().width)?.getBoundingClientRect();
@@ -76,19 +77,19 @@ test("empty search, empty category and failed feeds keep messages and one recove
   await expect(visibleMascots(page).locator('img')).toHaveCSS("animation-name", "none");
   await search.fill("");
   await expect(visibleMascots(page)).toHaveAttribute("data-mascot", "browse");
-  await page.route("**/data/competitions.json", route => route.fulfill({ contentType:"application/json", body:"[]" }));
+  await page.route("**/app-data/browser-competitions.json", route => route.fulfill({ contentType:"application/json", body:"[]" }));
   await page.goto("/category/cash/");
   await expect(page.locator('#emptyState .state-card__title')).toBeVisible();
   await expect(visibleMascots(page)).toHaveAttribute("data-mascot", "recover");
-  await page.unroute("**/data/competitions.json");
-  await page.route("**/data/competitions.json", route => route.abort());
+  await page.unroute("**/app-data/browser-competitions.json");
+  await page.route("**/app-data/browser-competitions.json", route => route.abort());
   await page.goto("/competitions/");
   await expect(page.locator('#errorState .state-card__title')).toHaveText("Unable to load competitions");
   await expect(page.locator('#errorState .state-card__text')).toContainText("refresh");
   await expect(visibleMascots(page)).toHaveCount(1);
   await expect(visibleMascots(page)).toHaveAttribute("data-mascot", "recover");
   expect(await page.locator('#competitionsGrid article').count()).toBeGreaterThan(0);
-  await page.unroute("**/data/competitions.json");
+  await page.unroute("**/app-data/browser-competitions.json");
   await page.reload();
   await expect(visibleMascots(page)).toHaveAttribute("data-mascot", "browse");
 });
@@ -111,7 +112,7 @@ test("200% text, reduced motion, broken images and keyboard access remain useful
   await page.route("**/assets/mascot/**",route=>route.abort());
   await page.goto("/");
   await expect(page.getByRole("heading",{level:1})).toBeVisible();
-  await expect(page.locator('.home-hero-guide__links a')).toHaveCount(3);
+  await expect(page.locator('.home-hero-guide__links a')).toHaveCount(offersEnabled ? 3 : 2);
   await page.getByRole("button",{name:"Menu",exact:true}).focus();
   await page.keyboard.press("Enter");
   await expect(page.getByRole("navigation",{name:"Primary navigation",exact:true})).toBeVisible();

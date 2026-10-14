@@ -1643,7 +1643,7 @@
         description: copy.description,
         heading: copy.heading,
         intro: copy.intro,
-        canonical: `${CANONICAL_ORIGIN}/tag/${routeContext.slug}/`,
+        canonical: `${CANONICAL_ORIGIN}${({ "win-a-car": "/win-a-car/", "free-entry": "/free-competitions/", "purchase-required": "/purchase-required-competitions/", "paid-entry": "/paid-entry-competitions/" })[routeContext.slug] || `/tag/${routeContext.slug}/`}`,
       };
     }
 

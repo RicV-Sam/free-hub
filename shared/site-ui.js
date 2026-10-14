@@ -14,6 +14,8 @@
     document.querySelectorAll("[data-editorial-surface]").forEach((section) => {
       const fallback = section.querySelector("[data-editorial-fallback]");
       if (fallback) fallback.hidden = !!section.querySelector("[data-editorial-pick]");
+      const heading = section.querySelector("[data-editorial-heading]");
+      if (heading && fallback && !fallback.hidden) heading.textContent = "Keep exploring Freehub";
     });
     document.querySelectorAll("[data-current-listing], article.competition-card[data-competition-closing-date]").forEach((node) => {
       const closing = node.dataset.competitionActiveUntil || node.dataset.closingDate || node.dataset.competitionClosingDate;
@@ -56,22 +58,6 @@
     document.dispatchEvent(new CustomEvent("freehub:freshness-refreshed"));
   }
   function init() {
-    const header = document.querySelector(".site-topbar");
-    const button = header && header.querySelector(".site-topbar__menu");
-    if (button) {
-      button.hidden = false;
-      header.dataset.menuReady = "true";
-      const close = () => { button.setAttribute("aria-expanded", "false"); header.classList.remove("is-menu-open"); };
-      button.addEventListener("click", () => {
-        const open = button.getAttribute("aria-expanded") !== "true";
-        button.setAttribute("aria-expanded", String(open));
-        header.classList.toggle("is-menu-open", open);
-      });
-      header.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && button.getAttribute("aria-expanded") === "true") { close(); button.focus(); }
-      });
-      window.matchMedia("(max-width: 900px)").addEventListener("change", close);
-    }
     refreshFreshness();
     window.addEventListener("pageshow", refreshFreshness);
     document.addEventListener("visibilitychange", () => { if (!document.hidden) refreshFreshness(); });

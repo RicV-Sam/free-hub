@@ -37,3 +37,16 @@ function getEligibleEditorialPicks(picks, collections, surface, today = shared.g
 }
 
 module.exports = { validateEditorialPicks, getEligibleEditorialPicks };
+
+function getEditorialHealth(picks, collections, today = shared.getReferenceDate()) {
+  const surfaces = ["home", "monthly"].map(surface => {
+    const current = getEligibleEditorialPicks(picks, collections, surface, today);
+    const stored = picks.filter(pick => pick.surface === surface);
+    const nextReviewDue = current.map(pick => pick.validThrough).sort()[0] || null;
+    return { surface, eligibleCount: current.length, needsReview: current.length === 0 || shared.getCalendarDay(nextReviewDue) - shared.getCalendarDay(today) <= 2,
+      nextReviewDue,
+      overdueIds: stored.filter(pick => pick.reviewDueAt < today).map(pick => pick.recordId) };
+  });
+  return { asOfDate: today, needsReview: surfaces.some(item => item.needsReview), surfaces };
+}
+module.exports.getEditorialHealth = getEditorialHealth;

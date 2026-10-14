@@ -4,33 +4,6 @@
   "count": 110,
   "competitions": [
     {
-      "id": "sea-harvest-say-fish-grocery-vouchers-2026",
-      "title": "Sea Harvest Say Fish: Win R5,000 Grocery Vouchers",
-      "brand": "Sea Harvest",
-      "summary": "Share a family fish recipe and your own dish photo for a chance to win one of three R5,000 grocery vouchers. A Sea Harvest product is required.",
-      "imageUrl": "https://freehub.co.za/assets/listings/sea-harvest-say-fish-grocery-vouchers-2026.webp",
-      "closingDate": "2026-10-15",
-      "category": "Vouchers",
-      "prizeName": "Three R5,000 grocery vouchers",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Recipe and Photo Upload",
-      "eligibility": "Lawful South African residents aged 18 or older, present in South Africa at entry and prize award. Promoter-related parties and their specified relatives or partners are excluded, as are people who won a promoter competition in the three months before closing.",
-      "entrySteps": [
-        "Prepare a family or heritage fish dish using at least one Sea Harvest product.",
-        "Complete the official Say Fish form with your details, recipe name and story, ingredients and method. Identify the Sea Harvest product used.",
-        "Upload your own clear photo of the finished dish as a JPG or PNG, up to 2MB. You must have the necessary rights and permissions for the recipe and photo.",
-        "Read and accept the terms and ongoing content-use licence; receiving marketing news is optional. Submit by 23:59 SAST on 15 October 2026.",
-        "Each additional entry must contain a materially different dish and different original photo. Only one prize per person."
-      ],
-      "officialUrl": "https://seaharvest.co.za/say-fish-campaign/",
-      "termsUrl": "https://seaharvest.co.za/say-fish-campaign-tcs/",
-      "lastChecked": "2026-10-04",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
-    {
       "id": "deskstand-three-winner-giveaway-2026",
       "title": "DeskStand Giveaway: Three Standing Desk Prizes",
       "brand": "DeskStand",
@@ -489,7 +462,7 @@
       ],
       "officialUrl": "https://www.spar.co.za/competitions/heinz-heritage-spar-rewards-competition",
       "termsUrl": "https://www.spar.co.za/competitions/heinz-heritage-spar-rewards-competition",
-      "lastChecked": "2026-10-04",
+      "lastChecked": "2026-10-14",
       "isHighValue": true,
       "isClosingSoon": false
     },
@@ -567,6 +540,33 @@
       "officialUrl": "https://www.ackermans.co.za/blogs/baby/ackermans-baby-of-the-year-2026-ts-cs",
       "termsUrl": "https://www.ackermans.co.za/blogs/baby/ackermans-baby-of-the-year-2026-ts-cs",
       "lastChecked": "2026-09-17",
+      "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "sea-harvest-say-fish-grocery-vouchers-2026",
+      "title": "Sea Harvest Say Fish: Win R5,000 Grocery Vouchers",
+      "brand": "Sea Harvest",
+      "summary": "Share a family fish recipe and your own dish photo for a chance to win one of three R5,000 grocery vouchers. A Sea Harvest product is required.",
+      "imageUrl": "https://freehub.co.za/assets/listings/sea-harvest-say-fish-grocery-vouchers-2026.webp",
+      "closingDate": "2026-10-30",
+      "category": "Vouchers",
+      "prizeName": "Three R5,000 grocery vouchers",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Recipe and Photo Upload",
+      "eligibility": "Lawful South African residents aged 18 or older, present in South Africa at entry and prize award. Promoter-related parties and their specified relatives or partners are excluded, as are people who won a promoter competition in the three months before closing.",
+      "entrySteps": [
+        "Prepare a family or heritage fish dish using at least one Sea Harvest product.",
+        "Complete the official Say Fish form with your details, recipe name and story, ingredients and method. Identify the Sea Harvest product used.",
+        "Upload your own clear photo of the finished dish as a JPG or PNG, up to 2MB. You must have the necessary rights and permissions for the recipe and photo.",
+        "Read and accept the terms and ongoing content-use licence; receiving marketing news is optional. Submit by 23:59 SAST on 15 October 2026.",
+        "Each additional entry must contain a materially different dish and different original photo. Only one prize per person."
+      ],
+      "officialUrl": "https://seaharvest.co.za/say-fish-campaign/",
+      "termsUrl": "https://seaharvest.co.za/say-fish-campaign-tcs/",
+      "lastChecked": "2026-10-14",
       "isHighValue": true,
       "isClosingSoon": false
     },
@@ -773,7 +773,7 @@
       ],
       "officialUrl": "https://cadbury-made-to-share.co.za/",
       "termsUrl": "https://www.cadbury.co.za/terms/terms-and-conditions-made-share",
-      "lastChecked": "2026-10-04",
+      "lastChecked": "2026-10-14",
       "isHighValue": true,
       "isClosingSoon": false
     },

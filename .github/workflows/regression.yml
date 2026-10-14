@@ -122,19 +122,19 @@ jobs:
         run: FREEHUB_ENABLE_OPPORTUNITIES=false npm run build
       - run: npx playwright install --with-deps chromium
       - env:
-          NODE_OPTIONS: '--require=${{ github.workspace }}/scripts/lib/fixed-date-register.js'
+          NODE_OPTIONS: '' # Browser fixtures control page clocks; keep the automation clock real.
         run: npm run test:browser
       - env:
           NODE_OPTIONS: '--require=${{ github.workspace }}/scripts/lib/fixed-date-register.js'
         run: FREEHUB_ENABLE_OPPORTUNITIES=true npm run build
       - env:
-          NODE_OPTIONS: '--require=${{ github.workspace }}/scripts/lib/fixed-date-register.js'
+          NODE_OPTIONS: ''
         run: FREEHUB_ENABLE_OPPORTUNITIES=true npm run test:browser
       - env:
           NODE_OPTIONS: '--require=${{ github.workspace }}/scripts/lib/fixed-date-register.js'
         run: FREEHUB_ENABLE_OPPORTUNITIES=false FREEHUB_ENABLE_OFFERS=true npm run build
       - env:
-          NODE_OPTIONS: '--require=${{ github.workspace }}/scripts/lib/fixed-date-register.js'
+          NODE_OPTIONS: ''
         run: FREEHUB_ENABLE_OPPORTUNITIES=false FREEHUB_ENABLE_OFFERS=true npm run test:browser
       - name: Upload Playwright artifacts
         if: always()

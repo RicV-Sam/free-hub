@@ -10,9 +10,11 @@
     },
     "competitions": {
       "file": "competitions/index.html",
-      "bytes": 518238,
+      "bytes": 516950,
       "reviewedAt": "2026-10-08",
-      "reviewNote": "Reviewed inventory refresh: 109 cards and matching structured-data items versus July baseline of 80. HTML bytes per card decreased; growth thresholds and other asset baselines unchanged."
+      "reviewNote": "Measured from unmodified origin/main 1f3d953 on 14 October 2026. Preserve fixed-page budget and scale only the card component with source inventory; growth limits stay unchanged.",
+      "cardCount": 108,
+      "fixedBytes": 70006
     },
     "freeStuff": {
       "file": "free-stuff-south-africa/index.html",
@@ -20,7 +22,10 @@
     },
     "vouchers": {
       "file": "category/vouchers/index.html",
-      "bytes": 127259
+      "bytes": 156388,
+      "reviewNote": "Measured from unmodified origin/main 1f3d953 on 14 October 2026. Preserve fixed-page budget and scale only the card component with source inventory; growth limits stay unchanged.",
+      "cardCount": 24,
+      "fixedBytes": 56863
     },
     "freeSamples": {
       "file": "free-samples-south-africa/index.html",

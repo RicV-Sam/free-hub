@@ -8,14 +8,14 @@ function featuredVideoSlugs(competitions) {
   ).map(video => video.slug));
 }
 
-// The September 24 reviewed count of 64 included six tag pages and two
-// competition videos. Its fixed component is 56; only inventory varies.
-// Derive their expected presence from source inventory, never from generated output.
+// Tags, competition videos and approved brand collections vary with inventory.
+// Derive their expected presence from source records, never generated output.
 function inventorySitemapCount(active, canonicalAliases) {
   const tags = shared.TAG_SLUGS.filter(slug =>
     !canonicalAliases[`/tag/${slug}/`] && shared.getTagFilteredCompetitions(active, slug).length >= 2
   );
-  return tags.length + featuredVideoSlugs(active).size;
+  return tags.length + featuredVideoSlugs(active).size
+    + shared.getGeneratedBrandPageDefinitions(active.filter(shared.isCoreCompetition)).length;
 }
 
 function removeExpiredVideoPages(directory, knownSlugs, activeSlugs) {

@@ -2,6 +2,41 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script data-freehub-navigation>(function () {
+  "use strict";
+  if (window.FreeHubNavigation) return;
+  window.FreeHubNavigation = true;
+  function close(header) {
+    const button = header.querySelector(".site-topbar__menu");
+    if (button) button.setAttribute("aria-expanded", "false");
+    header.classList.remove("is-menu-open");
+  }
+  document.addEventListener("click", function (event) {
+    if (!(event.target instanceof Element)) return;
+    const button = event.target.closest(".site-topbar__menu");
+    if (!button) return;
+    const header = button.closest(".site-topbar");
+    const open = button.getAttribute("aria-expanded") !== "true";
+    button.setAttribute("aria-expanded", String(open));
+    header.classList.toggle("is-menu-open", open);
+  });
+  document.addEventListener("keydown", function (event) {
+    if (!(event.target instanceof Element)) return;
+    const header = event.target.closest(".site-topbar");
+    if (event.key !== "Escape" || !header) return;
+    const button = header.querySelector(".site-topbar__menu");
+    if (button && button.getAttribute("aria-expanded") === "true") {
+      close(header);
+      button.focus();
+    }
+  });
+  window.matchMedia("(max-width: 900px)").addEventListener("change", function () {
+    document.querySelectorAll(".site-topbar").forEach(close);
+  });
+  // Set only after handlers exist. No-JavaScript pages retain all navigation links.
+  document.documentElement.dataset.navigationReady = "true";
+})();
+</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page Not Found | Freehub</title>
     <meta name="description" content="This Freehub page could not be found. Browse live South African competitions, categories, safety guidance and contact options." />
@@ -17,7 +52,7 @@
     <meta name="twitter:title" content="Page Not Found | Freehub" />
     <meta name="twitter:description" content="This Freehub page could not be found. Browse live South African competitions, categories, safety guidance and contact options." />
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
-    <link rel="stylesheet" href="/styles.css?v=20261011-editorial-v1" />
+    <link rel="stylesheet" href="/styles.css?v=20261014-stability-v2" />
     <!-- Google Tag Manager -->
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -61,7 +96,7 @@
           <span class="site-topbar__mark" aria-hidden="true">FH</span>
           <span class="site-topbar__name">Freehub</span>
         </a>
-        <button class="site-topbar__menu" type="button" aria-expanded="false" aria-controls="primary-navigation" hidden>Menu</button>
+        <button class="site-topbar__menu" type="button" aria-expanded="false" aria-controls="primary-navigation">Menu</button>
         <nav id="primary-navigation" class="site-topbar__nav" aria-label="Primary navigation">
           <a class="site-topbar__link" href="/">Home</a>
           <a class="site-topbar__link" href="/competitions/">Competitions</a>
@@ -171,10 +206,11 @@
               <a href="/competitions-ending-soon/">Ending soon</a>
               <a href="/purchase-required-competitions/">Purchase required</a>
               <a href="/whatsapp-competitions-south-africa/">WhatsApp Competitions</a>
+              <a href="/sms-competitions-south-africa/">SMS Competitions</a>
               <a href="/till-slip-competitions-south-africa/">Till Slip Competitions</a>
               <a href="/online-competitions-south-africa/">Online Competitions</a>
-              <a href="/win-grocery-vouchers-south-africa/">Win Grocery Vouchers</a>
-              <a href="/supermarket-competitions-south-africa/">Supermarket Competitions</a>
+              <a href="/win-airtime-competitions-south-africa/">Win Airtime Competitions</a>
+              <a href="/win-data-competitions-south-africa/">Win Data Competitions</a>
               <a href="/whatsapp-channel/">Free WhatsApp competition updates</a>
               <a href="https://www.facebook.com/FreeHubZA/" target="_blank" rel="noopener noreferrer">Facebook page</a>
               <a href="/brands/">Browse by brand</a>
@@ -214,10 +250,10 @@
       </footer>
     </div>
 
-    <script src="/shared/page-data.js?v=20261011-editorial-v1" defer></script>
-    <script src="/app.js?v=20261011-editorial-v1" defer></script>
+    <script src="/shared/page-data.js?v=20261014-stability-v2" defer></script>
+    <script src="/app.js?v=20261014-stability-v2" defer></script>
     <script type="module" src="/shared/auth-ui.js?v=20260917-account-save-v2"></script>
 
-<script src="/shared/site-ui.js?v=20261011-editorial-v1" defer></script>
+<script src="/shared/site-ui.js?v=20261014-stability-v2" defer></script>
 </body>
 </html>

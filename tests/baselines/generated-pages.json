@@ -116,7 +116,7 @@
       "file": "tag/win-a-car/index.html",
       "title": "Win a Car Competitions South Africa",
       "description": "Browse verified South African win-a-car competitions with official source links, closing dates and entry requirements.",
-      "canonical": "https://freehub.co.za/tag/win-a-car/",
+      "canonical": "https://freehub.co.za/win-a-car/",
       "robots": "noindex, follow",
       "h1": "Win a Car Competitions",
       "schemaTypes": ["BreadcrumbList", "CollectionPage", "ItemList", "ListItem", "WebSite"],

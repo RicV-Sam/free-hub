@@ -2,7 +2,7 @@
   "version": 1,
   "buildDate": "2026-09-06",
   "siteOrigin": "https://freehub.co.za",
-  "staticSitemapUrlCount": 57,
+  "staticSitemapUrlCount": 59,
   "opportunityAllowedSourceHosts": [
     "brandadvisor.co.za",
     "products.coloplast.co.za",
@@ -31,7 +31,8 @@
     "/category/cars/": "/win-a-car/",
     "/tag/free-entry/": "/free-competitions/",
     "/tag/purchase-required/": "/purchase-required-competitions/",
-    "/tag/paid-entry/": "/paid-entry-competitions/"
+    "/tag/paid-entry/": "/paid-entry-competitions/",
+    "/tag/win-a-car/": "/win-a-car/"
   },
   "forbiddenAliases": [
     "/free-stuff/",

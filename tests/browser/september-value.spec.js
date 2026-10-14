@@ -39,7 +39,14 @@ test('Free Stuff exposes the dated guide and SA Youth with official links', asyn
 });
 
 test('Hyatt competition presents the entry conditions and official destination', async ({ page }) => {
-  test.skip(asOfDate > '2026-09-30', 'Current-entry assertions apply during this competition window.');
+  if (asOfDate > '2026-09-30') {
+    await page.goto('/competition/penguin-random-house-hyatt-great-escapes-2026/');
+    await expect(page.getByRole('region', { name: 'Competition closed', exact: true })).toBeVisible();
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, follow');
+    await expect(page.locator('a[href="/out/penguin-random-house-hyatt-great-escapes-2026/"]')).toHaveCount(0);
+    expect((await page.request.get('/out/penguin-random-house-hyatt-great-escapes-2026/')).status()).toBe(404);
+    return;
+  }
   await page.setViewportSize({ width: 390, height: 900 });
   await page.goto('/competition/penguin-random-house-hyatt-great-escapes-2026/');
   await expect(page.locator('h1')).toContainText('Hyatt');

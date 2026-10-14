@@ -117,10 +117,12 @@ jobs:
             `- Archive ledger changed: ${archiveFileChanged ? "yes" : "no"}`,
             `- Sitemap file changed: ${sitemapChanged ? "yes" : "no"}`,
             `- Changed files: ${changedFiles.length === 0 ? "none" : changedFiles.join(", ")}`,
-            `- Manual review needed: ${report.ok ? "no" : "yes"}`,
+            ...summary.editorialHealth.surfaces.map(surface => `- ${surface.surface} reviewed recommendations: ${surface.eligibleCount}; next review: ${surface.nextReviewDue || "needed now"}`),
+            `- Manual review needed: ${report.ok && !summary.editorialHealth.needsReview ? "no" : "yes"}`,
           ];
 
           fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${reportLines.join("\n")}\n`);
+          if (summary.editorialHealth.needsReview) console.log("::warning::The homepage or monthly editorial shortlist needs an official-source review. Useful fallback links remain available; review dates were not advanced automatically.");
           fs.appendFileSync(process.env.GITHUB_OUTPUT, `newly_archived=${newlyArchived}\n`);
           fs.appendFileSync(process.env.GITHUB_OUTPUT, `competition_changed=${competitionChanged ? "true" : "false"}\n`);
           fs.appendFileSync(process.env.GITHUB_OUTPUT, `out_changed=${outChanged ? "true" : "false"}\n`);

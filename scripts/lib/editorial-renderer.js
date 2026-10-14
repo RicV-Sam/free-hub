@@ -1,7 +1,7 @@
 const shared = require("../../shared/page-data.js");
 const offerData = require("../../shared/offer-data.js");
 
-function createEditorialRenderer({ escapeHtml: text, escapeAttribute: attr, getImage, renderPlaceholder, renderDisclosure }) {
+function createEditorialRenderer({ escapeHtml: text, escapeAttribute: attr, getImage, renderPlaceholder, renderDisclosure, offersEnabled = false }) {
   function renderPick(pick) {
     const item = pick.record;
     const competition = pick.kind === "competition";
@@ -23,9 +23,9 @@ function createEditorialRenderer({ escapeHtml: text, escapeAttribute: attr, getI
 
   function renderSection(picks, surface) {
     return `<section class="home-section editorial-shortlist" data-editorial-surface="${attr(surface)}" aria-label="Reviewed recommendations">
-      <div class="home-section__header"><h2>${surface === "home" ? "Worth a look this week" : "Reviewed recommendations"}</h2></div>
+      <div class="home-section__header"><h2 data-editorial-heading>${picks.length ? (surface === "home" ? "Worth a look this week" : "Reviewed recommendations") : "Keep exploring Freehub"}</h2></div>
       <div class="editorial-picks-grid">${picks.map(renderPick).join("\n")}</div>
-      <p class="editorial-fallback" data-editorial-fallback${picks.length ? " hidden" : ""}>No reviewed recommendations are current. <a href="/free-stuff-south-africa/">Explore free resources</a> or <a href="/competitions/">browse current competitions</a>.</p>
+      <div class="editorial-fallback" data-editorial-fallback${picks.length ? " hidden" : ""}><p>Choose a current listing or a practical resource while we review the next shortlist.</p><nav class="editorial-fallback__links" aria-label="More ways to explore"><a href="/competitions/">Browse current competitions</a><a href="/free-stuff-south-africa/">Find free resources</a>${surface === "home" && offersEnabled ? '<a href="/offers/">Check coupons and deals</a>' : '<a href="/competitions-ending-soon/">See competitions ending soon</a>'}</nav></div>
     </section>`;
   }
   return { renderSection };

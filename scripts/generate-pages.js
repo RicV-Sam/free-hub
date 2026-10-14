@@ -13,6 +13,7 @@ const { validateEditorialPicks, getEligibleEditorialPicks } = require("./lib/edi
 const opportunityData = require("../shared/opportunity-data.js");
 const offerData = require("../shared/offer-data.js");
 const listingImages = require("../data/listing-images.json");
+const responsiveImages = require("../data/responsive-images.json");
 const listingEditorialDetails = require("../data/listing-editorial-details.json");
 const { getReviewedGuides } = require("./lib/research-guides.js");
 const { createEditorialSectionsRenderer } = require("./lib/editorial-sections.js");
@@ -41,7 +42,8 @@ const OFFERS_PATH = path.join(ROOT_DIR, "data", "offers.json");
 const UNVERIFIED_COMPETITIONS_PATH = path.join(ROOT_DIR, "data", "unverified-competitions.json");
 const RELATIVE_ASSET_PATH = "/";
 const RELEASE_ASSET_VERSION = "20260901-native-ads-v1";
-const UI_ASSET_VERSION = "20261011-editorial-v1";
+const UI_ASSET_VERSION = "20261014-stability-v2";
+const NAVIGATION_BOOTSTRAP = fs.readFileSync(path.join(ROOT_DIR, "shared", "navigation.js"), "utf8");
 const GUEST_ADS_SCRIPT_SRC = "/shared/guest-ads.js?v=20260917-account-save-v2";
 const OUTBOUND_HANDOFF_SCRIPT_SRC = `/shared/outbound-handoff.js?v=${RELEASE_ASSET_VERSION}`;
 const GUEST_ADS_SCRIPT = `<script type="module" src="${GUEST_ADS_SCRIPT_SRC}"></script>`;
@@ -53,6 +55,7 @@ function writeGeneratedFile(filePath, content, ...options) {
   if (path.extname(filePath) === ".html" && typeof content === "string") {
     content = addLocalImageDimensions(content, filePath);
     if (content.includes('class="site-topbar"')) {
+      content = content.replace(/(<meta charset="UTF-8"\s*\/>)/i, `$1\n    <script data-freehub-navigation>${NAVIGATION_BOOTSTRAP}</script>`);
       const dateScript = /src="\/shared\/page-data\.js(?:\?[^"]*)?"/.test(content) ? "" : '<script src="/shared/page-data.js" defer></script>';
       content = content.replace(/\s*<\/body>/i, `\n${dateScript}\n<script src="/shared/site-ui.js?v=${UI_ASSET_VERSION}" defer></script>\n</body>`);
     }
@@ -61,6 +64,11 @@ function writeGeneratedFile(filePath, content, ...options) {
       && !/<meta[^>]+name="robots"[^>]+content="[^"]*noindex/i.test(content)
       && !content.includes('data-freehub-ad-surface="archive"');
     if (eligible) {
+      // Warm the connections used by the provider-owned CMP without executing
+      // extra vendor scripts, changing consent defaults or delaying Journey.
+      const hints = ["https://scripts.scriptwrapper.com", "https://scripts.journeymv.com", "https://eu-us.consentmanager.net", "https://eu-us-cdn.consentmanager.net"]
+        .map(origin => `<link rel="preconnect" href="${origin}" crossorigin />`).join("\n    ");
+      content = content.replace(/(<meta charset="UTF-8"\s*\/>)/i, `$1\n    ${hints}`);
       content = content.replace(/\s*<\/head>/i, '\n    ' + MEDIAVINE_SCRIPT + '\n  </head>');
     }
   }
@@ -210,6 +218,7 @@ const HUB_LINKS = [
   { label: "Purchase required", href: "/purchase-required-competitions/" },
 ];
 const DUPLICATE_TAG_CANONICAL_PATHS = {
+  "win-a-car": "/win-a-car/",
   "free-entry": "/free-competitions/",
   "purchase-required": "/purchase-required-competitions/",
   "paid-entry": "/paid-entry-competitions/",
@@ -2086,15 +2095,15 @@ const VERTICAL_PAGE_DEFINITIONS = [
     title: "SMS Competitions South Africa | Freehub",
     heading: "SMS Competitions in South Africa",
     description:
-      "Browse live South African SMS competitions when Freehub has enough verified listings with official source links, SMS costs and closing dates.",
+      "Check current South African SMS competitions and learn how to verify shortcodes, SMS costs, entry requirements and official sources.",
     intro:
-      "SMS competitions can involve a shortcode, keyword, product code or receipt-linked entry, but this page is only published when Freehub has enough active verified SMS-entry competitions to make the page useful. SMS verification during account signup is not treated as an SMS competition entry method.",
+      "SMS competitions can involve a shortcode, keyword, product code or receipt-linked entry. Compare current verified listings below and use the guidance even when no campaigns qualify. SMS verification during account signup is not treated as an SMS competition entry method.",
     support:
-      "SMS entry pages need extra caution because costs, shortcodes and opt-in wording matter. Freehub holds this page unless live inventory is strong enough.",
+      "SMS entry needs extra caution because costs, shortcodes and opt-in wording matter. Check the promoter's terms before sending a message.",
     explainerHeading: "How SMS competitions usually work",
     explainerParagraphs: [
       "A genuine SMS competition should clearly show the shortcode, keyword, charge or standard-rate wording, closing date and promoter terms. Some campaigns also require a product purchase or till slip before the SMS entry is valid.",
-      "This vertical stays unpublished until enough active public listings confirm SMS as the actual entry mechanic rather than ordinary account verification.",
+      "Only verified listings with SMS as the actual entry mechanic appear here. A security code sent during account registration does not qualify as an SMS-entry competition.",
     ],
     checklist: [
       "Official source showing SMS as the entry method.",
@@ -2106,9 +2115,9 @@ const VERTICAL_PAGE_DEFINITIONS = [
     ],
     faq: [
       {
-        question: "Why is this page held when there are too few SMS competitions?",
+        question: "What if there are no current SMS competitions?",
         answer:
-          "Freehub avoids thin pages. SMS verification or account security messages do not count as SMS competition entry, so the page is only published when enough live entries qualify.",
+          "The guide stays available while campaigns change. Freehub shows an honest availability notice and keeps entry advice and alternative browsing links; expired or unverified listings are not added to fill the page.",
       },
       {
         question: "Are SMS competitions always paid?",
@@ -2297,9 +2306,9 @@ const VERTICAL_PAGE_DEFINITIONS = [
     title: "Win Data Competitions South Africa | Freehub",
     heading: "Win Data Competitions in South Africa",
     description:
-      "Browse live South African competitions for mobile data, data bundles, connectivity prizes and smartphone data rewards where inventory qualifies.",
+      "Check current South African mobile data competitions, bundle validity, entry requirements and official sources.",
     intro:
-      "Find current South African competitions where mobile data, data bundles, connectivity prizes, SIM-linked rewards or smartphone data bundles are clearly part of the prize. This page is only indexable when Freehub has enough active verified listings to avoid a thin search page. Each listing links to a Freehub detail page first, with official source links and cost labels visible before users leave for the promoter site.",
+      "Find current South African competitions where mobile data, data bundles, connectivity prizes, SIM-linked rewards or smartphone data bundles are clearly part of the prize. The guide remains available while campaigns change. Each current listing links to a Freehub detail page first, with official source links and cost labels visible before users leave for the promoter site.",
     support:
       "Data competitions should not be confused with ordinary telecom deals. This page only uses records where the active listing supports a competition or prize draw involving data or connectivity rewards.",
     explainerHeading: "How data competitions usually work",
@@ -2454,6 +2463,9 @@ const VERTICAL_PAGE_DEFINITIONS = [
 ];
 
 function main() {
+  const browserImages = Object.fromEntries(Object.entries(responsiveImages).map(([source, entry]) =>
+    [source, { variants: entry.variants.map(({ src, width, height }) => ({ src, width, height })) }]));
+  writeGeneratedFile(path.join(ROOT_DIR, "shared", "responsive-images.js"), `window.FreeHubResponsiveImages = ${JSON.stringify(browserImages)};\n`);
   validateFreeResourceData();
   const unverifiedRegistry = JSON.parse(fs.readFileSync(UNVERIFIED_COMPETITIONS_PATH, "utf8"));
   const unverifiedValidation = unverifiedCompetitionData.validateRegistry(unverifiedRegistry);
@@ -2496,6 +2508,10 @@ function main() {
   );
   runDataSafetyChecks(validCompetitions);
   const activeCompetitions = shared.getPublishedActiveCompetitions(validCompetitions);
+  // The browser needs current public records, not the full editorial ledger.
+  // Retain every field so filtering, entry labels and account actions are unchanged.
+  fs.mkdirSync(path.join(ROOT_DIR, "app-data"), { recursive: true });
+  writeGeneratedFile(path.join(ROOT_DIR, "app-data", "browser-competitions.json"), `${JSON.stringify(activeCompetitions)}\n`);
   const coreActiveCompetitions = shared.getPublishedCoreActiveCompetitions(validCompetitions);
   const noindexActiveCompetitions = shared.getNoindexActiveCompetitions(validCompetitions);
   const expiredArchiveCompetitions = uniqueCompetitionsBySlug(
@@ -2729,13 +2745,17 @@ function getVerticalCoverage(activeCompetitions) {
       activeCompetitions.filter((competition) => getVerticalMatchReasons(definition, competition).length > 0)
     );
     const minimumLiveCount = definition.minimumLiveCount || MIN_INDEXABLE_VERTICAL_COMPETITIONS;
-    const safeToPublish = matches.length >= minimumLiveCount;
+    // These established guides retain their useful explanations, checklist and
+    // FAQs when campaign inventory falls. Listing eligibility stays unchanged.
+    const durableGuide = ["sms-competitions-south-africa", "win-airtime-competitions-south-africa", "win-data-competitions-south-africa"].includes(definition.slug);
+    const safeToPublish = durableGuide || matches.length >= minimumLiveCount;
 
     return {
       definition,
       matches,
       minimumLiveCount,
       safeToPublish,
+      durableGuide,
       heldReason: safeToPublish
         ? ""
         : `Only ${matches.length} active public match${matches.length === 1 ? "" : "es"}; requires ${minimumLiveCount}.`,
@@ -2825,12 +2845,12 @@ function writeVerticalCoverageReport(coverage) {
   ];
 
   coverage.forEach((entry) => {
-    const { definition, matches, minimumLiveCount, safeToPublish, heldReason } = entry;
+    const { definition, matches, minimumLiveCount, safeToPublish, heldReason, durableGuide } = entry;
     lines.push(`## ${definition.heading}`);
     lines.push("");
     lines.push(`- URL: /${definition.slug}/`);
     lines.push(`- Matching active public competitions: ${matches.length}`);
-    lines.push(`- Publication threshold: ${minimumLiveCount}`);
+    lines.push(`- Publication threshold: ${durableGuide ? "durable guide; independent of live listing count" : minimumLiveCount}`);
     lines.push(`- Safe to publish: ${safeToPublish ? "yes" : "no"}`);
     lines.push(`- Status: ${safeToPublish ? "indexable vertical page" : `held; ${heldReason}`}`);
     lines.push("");
@@ -2905,6 +2925,9 @@ function getVerticalDataNotes(definition, competition) {
 
 function getVerticalRecommendations(definition, matches, safeToPublish) {
   const recommendations = [];
+  if (["sms-competitions-south-africa", "win-airtime-competitions-south-africa", "win-data-competitions-south-africa"].includes(definition.slug)) {
+    recommendations.push("Preserve the practical guide when inventory falls; show only qualifying live listings and an honest availability notice.");
+  }
 
   if (!safeToPublish) {
     recommendations.push("Do not generate or sitemap this page until active verified inventory improves.");
@@ -3445,7 +3468,7 @@ function renderTopNavigation(options = {}) {
           <span class="site-topbar__mark" aria-hidden="true">FH</span>
           <span class="site-topbar__name">Freehub</span>
         </a>
-        <button class="site-topbar__menu" type="button" aria-expanded="false" aria-controls="primary-navigation" hidden>Menu</button>
+        <button class="site-topbar__menu" type="button" aria-expanded="false" aria-controls="primary-navigation">Menu</button>
         <nav id="primary-navigation" class="site-topbar__nav" aria-label="Primary navigation">
           ${links
             .map((link) => {
@@ -4589,16 +4612,21 @@ function getCurrentVoucherResources() {
   return FREE_RESOURCES.filter((resource) => {
     const reviewDueAt = normalizeIsoDateString(resource.reviewDueAt);
     let officialHost = "";
+    let officialPath = "";
 
     try {
-      officialHost = new URL(resource.officialUrl).hostname.toLowerCase();
+      const official = new URL(resource.officialUrl);
+      officialHost = official.hostname.toLowerCase();
+      officialPath = official.pathname;
     } catch {
       return false;
     }
 
     return (
       VOUCHER_DISCOVERY_RESOURCE_IDS.includes(resource.id) &&
-      officialHost === VOUCHER_DISCOVERY_RESOURCE_HOSTS[resource.id] &&
+      (officialHost === VOUCHER_DISCOVERY_RESOURCE_HOSTS[resource.id] ||
+        (resource.id === "spur-r50-birthday-voucher" && officialHost === "res.cloudinary.com" &&
+          officialPath.startsWith("/spur-group/image/upload/uploads/documents/policies/"))) &&
       resource.verificationStatus === "verified" &&
       ["active", "manual_check"].includes(resource.availability) &&
       reviewDueAt &&
@@ -5654,7 +5682,7 @@ function renderPage(routeContext, competitions) {
     ${renderGoogleTagManagerHead(`{ page_type: '${routeContext.type}'${routeContext.type === "hub" ? `, hub_slug: '${routeContext.slug}'` : ""}${routeContext.type === "brand" ? `, brand_slug: '${routeContext.slug}'` : ""} }`)}
     ${renderMetaPixelHead()}
   </head>
-  <body${routeContext.type === "category" && routeContext.slug === "vouchers" ? ' data-voucher-hub-version="2"' : ""}>
+    <body data-collection-page="true"${routeContext.type === "category" && routeContext.slug === "vouchers" ? ' data-voucher-hub-version="2"' : ""}>
     ${renderGoogleTagManagerNoScript()}
     ${renderMetaPixelNoScript()}
     <div class="site-shell">
@@ -5668,6 +5696,7 @@ function renderPage(routeContext, competitions) {
       <main id="main-content" class="main-content">
         ${isCollectionPage ? renderCollectionBreadcrumb(pageCopy.heading) : ""}
 
+        ${renderDurableInventoryNotice(routeContext, competitions)}
         <section class="controls" aria-label="Competition filters">
           <label class="search-field" for="searchInput">
             <span class="search-field__label">Search competitions</span>
@@ -5763,6 +5792,8 @@ ${confirmedResultsMarkup ? `\n        ${confirmedResultsMarkup}\n` : ""}
     </div>
 
     <script src="${RELATIVE_ASSET_PATH}shared/page-data.js" defer></script>${routeContext.type === "category" && routeContext.slug === "vouchers" ? `\n    <script src="${RELATIVE_ASSET_PATH}shared/discovery-analytics.js" defer></script>` : ""}
+    <script src="${RELATIVE_ASSET_PATH}shared/responsive-images.js?v=${UI_ASSET_VERSION}" defer></script>
+    ${routeContext.type === "vertical" ? `<script>window.FreeHubVerticalCollection = ${escapeScript(JSON.stringify({ slug: routeContext.slug, heading: pageCopy.heading, recordIds: competitions.map(item => item.id) }))};</script>` : ""}
     <script src="${RELATIVE_ASSET_PATH}app.js" defer></script>
     <script type="module" src="${RELATIVE_ASSET_PATH}shared/auth-ui.js?v=20260917-account-save-v2"></script>
   </body>
@@ -6705,6 +6736,11 @@ function renderCollectionEmptyState(routeContext, competitions) {
           </div>`;
 }
 
+function renderDurableInventoryNotice(routeContext, competitions) {
+  if (routeContext.type !== "vertical" || !["sms-competitions-south-africa", "win-airtime-competitions-south-africa", "win-data-competitions-south-africa"].includes(routeContext.slug)) return "";
+  return `<p class="inventory-notice" data-inventory-notice><span data-inventory-count>${competitions.length ? `${competitions.length} current verified competition${competitions.length === 1 ? "" : "s"} listed below.` : "No current verified competitions match this guide."}</span> The entry guidance remains available while campaigns change. <a href="/competitions/">Browse all current competitions</a>.</p>`;
+}
+
 function renderWhatsAppChannelCta(routeContext = null) {
   const showOnCollection =
     routeContext && (routeContext.type === "hub" || routeContext.type === "category");
@@ -7201,7 +7237,7 @@ function getReviewedPicks(surface, competitions) {
 }
 
 function renderReviewedPicks(picks, surface) {
-  return createEditorialRenderer({ escapeHtml, escapeAttribute, getImage: getCompetitionVisualUrl, renderPlaceholder: renderCompetitionVisualPlaceholder, renderDisclosure: renderEditorialImageDisclosure }).renderSection(picks, surface);
+  return createEditorialRenderer({ escapeHtml, escapeAttribute, getImage: getCompetitionVisualUrl, renderPlaceholder: renderCompetitionVisualPlaceholder, renderDisclosure: renderEditorialImageDisclosure, offersEnabled: OFFERS_ENABLED }).renderSection(picks, surface);
 }
 
 function renderHomepage(competitions) {
@@ -7246,7 +7282,7 @@ function renderHomepage(competitions) {
       "@id": `${shared.CANONICAL_ORIGIN}/#organization`,
       name: "Freehub",
       url: `${shared.CANONICAL_ORIGIN}/`,
-      logo: `${shared.CANONICAL_ORIGIN}/FH%20logo.png`,
+        logo: `${shared.CANONICAL_ORIGIN}/assets/responsive/fh-logo-640.webp`,
       sameAs: [FACEBOOK_PAGE_URL],
     }))}</script>
     <script id="structured-data-itemlist" type="application/ld+json">${escapeScript(JSON.stringify(structuredData))}</script>

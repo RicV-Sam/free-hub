@@ -1,11 +1,12 @@
 const { test, expect } = require("@playwright/test");
-const hasReviewed = require("node:fs").readFileSync(require("node:path").resolve(__dirname,"../../index.html"),"utf8").includes("data-editorial-pick=");
+const { homePicks, referenceDate } = require('./editorial-source-fixture.js');
+const hasReviewed = homePicks.length > 0;
 const routes = ["/", "/competitions/", "/competition/cadbury-made-to-share-2026/", "/best-competitions-south-africa-this-month/", "/free-stuff-south-africa/"];
 
 test.beforeEach(async ({ page }) => {
   await page.route("**/scripts.scriptwrapper.com/**", route => route.abort());
   await page.route("**/firebase-config.json", route => route.fulfill({ status: 404, body: "Local layout test" }));
-  await page.clock.install({ time: new Date("2026-10-04T10:00:00Z") });
+  await page.clock.install({ time: new Date(`${referenceDate}T10:00:00Z`) });
 });
 
 for (const width of [320, 390, 768, 1024, 1440]) test(`five editorial surfaces reflow at ${width}px`, async ({ page }) => {
@@ -41,7 +42,7 @@ test("menu and category disclosure work with keyboard and preserve destinations"
   await menu.focus(); await page.keyboard.press("Enter");
   await expect(menu).toHaveAttribute("aria-expanded", "true");
   const nav = page.getByRole("navigation", { name: "Primary navigation", exact: true });
-  await expect(nav.getByRole("link")).toHaveCount(8);
+  await expect(nav.getByRole("link")).toHaveCount(require("../../shared/offer-data.js").isOfferFeatureEnabled(process.env.FREEHUB_ENABLE_OFFERS) ? 9 : 8);
   await expect(nav.getByRole("link", { name: "Competitions", exact: true })).toHaveAttribute("aria-current", "page");
   await page.keyboard.press("Escape"); await expect(menu).toBeFocused();
   await expect(nav).toBeHidden();
@@ -57,26 +58,26 @@ test("search handles empty results and a failed feed leaves useful static listin
   await page.getByRole("searchbox").fill("not-a-real-competition");
   await expect(page.locator("#resultsSummary")).toHaveText("Showing 0 competitions");
   await expect(page.locator("#emptyState")).toBeVisible();
-  await page.route("**/data/competitions.json", route => route.abort());
+  await page.route("**/app-data/browser-competitions.json", route => route.abort());
   await page.reload();
   await expect(page.locator("#errorState")).toBeVisible();
   expect(await page.locator("#competitionsGrid article").count()).toBeGreaterThan(0);
 });
 
 test("delayed regeneration removes overdue picks at South African midnight", async ({ page }) => {
-  await page.clock.setFixedTime(new Date("2026-10-11T21:59:30Z"));
+  await page.clock.setFixedTime(new Date("2026-10-21T21:59:30Z"));
   await page.goto("/");
-  await expect(page.locator("[data-editorial-pick]")).toHaveCount(hasReviewed ? 3 : 0);
-  await page.clock.setFixedTime(new Date("2026-10-11T22:00:01Z"));
+  await expect(page.locator("[data-editorial-pick]")).toHaveCount(homePicks.filter(pick => pick.validThrough >= '2026-10-21').length);
+  await page.clock.setFixedTime(new Date("2026-10-21T22:00:01Z"));
   await page.evaluate(() => window.dispatchEvent(new Event("pageshow")));
   await expect(page.locator("[data-editorial-pick]")).toHaveCount(0);
   await expect(page.locator("[data-editorial-fallback]")).toBeVisible();
   expect(await page.locator("#structured-data-itemlist").evaluate(node => JSON.parse(node.textContent).itemListElement.length)).toBe(0);
   await page.goto("/best-competitions-south-africa-this-month/");
   await expect(page.locator("[data-editorial-pick]")).toHaveCount(0);
-  await page.clock.setFixedTime(new Date("2026-10-16T10:00:00Z"));
+  await page.clock.setFixedTime(new Date("2026-10-31T10:00:00Z"));
   await page.evaluate(() => document.dispatchEvent(new Event("visibilitychange")));
-  await expect(page.locator('tr[data-closing-date="2026-10-15"]')).toHaveCount(0);
+  await expect(page.locator('tr[data-closing-date="2026-10-30"]')).toHaveCount(0);
   await page.clock.setFixedTime(new Date("2027-01-01T10:00:00Z"));
   await page.evaluate(() => window.dispatchEvent(new Event("pageshow")));
   await expect(page.locator("[data-current-comparison]")).toBeHidden();

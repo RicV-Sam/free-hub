@@ -1,5 +1,5 @@
 const fs = require('node:fs');
-const { inventorySitemapCount } = require('./inventory-routes.js');
+const { inventorySitemapCount, featuredVideoSlugs } = require('./inventory-routes.js');
 const path = require('node:path');
 const shared = require('../../shared/page-data.js');
 const { applyCompetitionRetirements } = require('./competition-retirements.js');
@@ -53,7 +53,10 @@ function getCurrentContentBaseline() {
     // The next reviewed workbook batch adds eighteen competition detail pages.
     // Their eighteen exit routes are already counted by active.length below.
     // October 11 adds seven competition detail pages; exit routes vary with active inventory.
-    generatedFileCount: 457 + getReviewedGuides(buildDate).length - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    // 14 October: restore the three durable SMS, airtime and data guides.
+    // Brand, tag and competition-video routes now vary with source inventory;
+    // 446 excludes those routes from the fixed detail/editorial-page component.
+    generatedFileCount: 446 + shared.TAG_SLUGS.filter(slug => shared.getTagFilteredCompetitions(active, slug).length > 0).length + featuredVideoSlugs(active).size + shared.getGeneratedBrandPageDefinitions(core).length + getReviewedGuides(buildDate).length - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
     sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + getReviewedGuides(buildDate).filter(page => !page.noindex).length + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length + (read('data/airtime-dash.json').enabled ? 1 : 0),
   };
 }

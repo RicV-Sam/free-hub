@@ -1,0 +1,702 @@
+{
+  "/FH logo.png": {
+    "sourceSha256": "6a45a4a0dac018a052b1b60b770db077665d7b34a1563476da721ceed4bfdea4",
+    "sourceBytes": 802299,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/fh-logo-320.webp",
+        "width": 320,
+        "height": 64,
+        "bytes": 2996,
+        "sha256": "d5d23ed3c64af9c6101b934ce7982a0d2a205faebc9926dfa08df1d1d6b8e0e6"
+      },
+      {
+        "src": "/assets/responsive/fh-logo-640.webp",
+        "width": 640,
+        "height": 128,
+        "bytes": 5952,
+        "sha256": "cbc1135373f097ddb3f28ad43d06df00b045314bb10749f3d8f1f25f990319d1"
+      },
+      {
+        "src": "/assets/responsive/fh-logo-960.webp",
+        "width": 960,
+        "height": 192,
+        "bytes": 8784,
+        "sha256": "73bc992629870c5388e244bd00aca83adb29d5c20f7905ec3c66b756ef950ef9"
+      }
+    ]
+  },
+  "/assets/competitions/cadbury-made-to-share-2026.webp": {
+    "sourceSha256": "ba5c492da209f524815dd66374fe1a479ecfe89c0f2dd2e0a8e3c98ae2e8a6c6",
+    "sourceBytes": 94980,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/ba5c492da209-320.webp",
+        "width": 320,
+        "height": 168,
+        "bytes": 9148,
+        "sha256": "68b1e00dee041420e2e579c17caeb4f2f03c65e3863052c27964274a898e422c"
+      },
+      {
+        "src": "/assets/responsive/ba5c492da209-640.webp",
+        "width": 640,
+        "height": 336,
+        "bytes": 25124,
+        "sha256": "95898677ed72308e05a815e1291abbf9233a15bce1a4ee5ebffc1171c52607e9"
+      },
+      {
+        "src": "/assets/responsive/ba5c492da209-960.webp",
+        "width": 960,
+        "height": 504,
+        "bytes": 43852,
+        "sha256": "075306ac1e63e2de55aaa9aefb2e96f2ea5ee03ff6ee8ccb4576c64f1ad751a7"
+      }
+    ]
+  },
+  "/assets/competitions/coca-cola-returnables-2026.webp": {
+    "sourceSha256": "dd73adc397d34b509e8464a6b67733f6588d5a24fe49347bf858526735cb2f15",
+    "sourceBytes": 110770,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/dd73adc397d3-320.webp",
+        "width": 320,
+        "height": 180,
+        "bytes": 9984,
+        "sha256": "ad21d4af0a3a739d638781f2c2210e619c1d7d307caed810cc8b9147112765d1"
+      },
+      {
+        "src": "/assets/responsive/dd73adc397d3-640.webp",
+        "width": 640,
+        "height": 360,
+        "bytes": 25508,
+        "sha256": "9190ad8f2e9bcdb25535317af380aa007c32c1ccc4fb2e0df5ac9e96ca3c9d2e"
+      },
+      {
+        "src": "/assets/responsive/dd73adc397d3-960.webp",
+        "width": 960,
+        "height": 540,
+        "bytes": 42718,
+        "sha256": "414c06607be8bd2773f7d1994978283ce4ac45fb04284bf3f6d2d0df6887c88e"
+      }
+    ]
+  },
+  "/assets/competitions/heinz-heritage-spar-2026.jpg": {
+    "sourceSha256": "da4aa54731ab6e2fa269a4fd4a7cd16a77c080d44c1508bd9d0e3abd08b98a52",
+    "sourceBytes": 84330,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/da4aa54731ab-320.webp",
+        "width": 320,
+        "height": 240,
+        "bytes": 10730,
+        "sha256": "edd4656a4f50b0625a7e7abf4a12ed373cdd3305f6c4cd48bc4d2849ca83e765"
+      },
+      {
+        "src": "/assets/responsive/da4aa54731ab-640.webp",
+        "width": 640,
+        "height": 480,
+        "bytes": 25570,
+        "sha256": "c3c277030da06725db03278a6262c080d1c3d5debc308dec22fbf953d1bcc41a"
+      },
+      {
+        "src": "/assets/responsive/da4aa54731ab-800.webp",
+        "width": 800,
+        "height": 600,
+        "bytes": 33990,
+        "sha256": "2506fca6c707de0d1e39cade7dbdbe25e3d8c0d2441c1d217d454b1015639b79"
+      }
+    ]
+  },
+  "/assets/competitions/nedbank-appventure-map-your-future-2026.webp": {
+    "sourceSha256": "611da0023d7fc2ba5591257dbd6137bf359d10fed3f0cfc17e46f4550a217143",
+    "sourceBytes": 156632,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/611da0023d7f-320.webp",
+        "width": 320,
+        "height": 180,
+        "bytes": 13176,
+        "sha256": "6a17fd4f53b5ac253eb96bc4507706d9ab4ded0aefa3e350294ed2a11af87703"
+      },
+      {
+        "src": "/assets/responsive/611da0023d7f-640.webp",
+        "width": 640,
+        "height": 360,
+        "bytes": 36038,
+        "sha256": "93df5ca036d33f0e932ca4eee9e2bbc2058467eeec8050101d547dacb5e318d9"
+      },
+      {
+        "src": "/assets/responsive/611da0023d7f-960.webp",
+        "width": 960,
+        "height": 540,
+        "bytes": 62110,
+        "sha256": "1dd2818a985c67d5f62adac0804bf864087ee321f130f3314b40c16f40a59b42"
+      }
+    ]
+  },
+  "/assets/competitions/sasol-magpie-2026.jpg": {
+    "sourceSha256": "8acae564dcf59868cbe0565654dabd37962734d24fbee96ab4bff73da4fe553d",
+    "sourceBytes": 80829,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/8acae564dcf5-320.webp",
+        "width": 320,
+        "height": 90,
+        "bytes": 5350,
+        "sha256": "dc9dc8a1edfc83b8afd5cbccced0894aee1d7f0179b0111224364354fd810085"
+      },
+      {
+        "src": "/assets/responsive/8acae564dcf5-640.webp",
+        "width": 640,
+        "height": 180,
+        "bytes": 15882,
+        "sha256": "be9ebeb66f92a7ce6921175cd1af50d51f7dbbe0fc5adceb9c1c5d0e9cd44918"
+      },
+      {
+        "src": "/assets/responsive/8acae564dcf5-960.webp",
+        "width": 960,
+        "height": 270,
+        "bytes": 27658,
+        "sha256": "20c3e91bf3c9e856ffbff898c2deffaf74d70e7e85356b24d649790955621bd7"
+      }
+    ]
+  },
+  "/assets/competitions/spar-colgate-palmolive-r150k-2026.jpg": {
+    "sourceSha256": "4a11cde4ab4db7e5b0dabf8a62f48a481b412e75d7f32a7458fee49d3d18d07d",
+    "sourceBytes": 81051,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/4a11cde4ab4d-320.webp",
+        "width": 320,
+        "height": 213,
+        "bytes": 12946,
+        "sha256": "07efae1a05e2cc78c5ef03b237cbefa199556fcbbefa983e5f61507a77f112ad"
+      },
+      {
+        "src": "/assets/responsive/4a11cde4ab4d-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 31188,
+        "sha256": "4300485bf503aa7975cde9df7e893029350922a8931947536c099100f6c94c57"
+      },
+      {
+        "src": "/assets/responsive/4a11cde4ab4d-720.webp",
+        "width": 720,
+        "height": 480,
+        "bytes": 36266,
+        "sha256": "c89e978c333c0b38ceb045719dc8ca1102d87433c4c8e3dd4b8a9cb554990449"
+      }
+    ]
+  },
+  "/assets/listings/ackermans-layby-samsung-a07-2026.webp": {
+    "sourceSha256": "0161326368733473f8e189e3618a5d454812956690d6655eb0d9c1a2da01f414",
+    "sourceBytes": 35714,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/016132636873-320.webp",
+        "width": 320,
+        "height": 147,
+        "bytes": 6562,
+        "sha256": "cc53c273b38be0acb27ac67797619fdbf2fb221ec694ce3ed239ff78a6de896a"
+      },
+      {
+        "src": "/assets/responsive/016132636873-640.webp",
+        "width": 640,
+        "height": 295,
+        "bytes": 14220,
+        "sha256": "63d4a7ff112d24cc492d6590ac999c99440f229c0392f7ff6275f7107e152962"
+      },
+      {
+        "src": "/assets/responsive/016132636873-960.webp",
+        "width": 960,
+        "height": 442,
+        "bytes": 20530,
+        "sha256": "a1976644c3948528672b380eadf8fa2dbb52856c61f6c9c5d9f065e1ba38412b"
+      }
+    ]
+  },
+  "/assets/listings/algoa-pnp-care-like-champion-2026.webp": {
+    "sourceSha256": "b8b292e2d1b273423c18434de06f493ab4b4e7c93fb1a3021bae3419bf7f8482",
+    "sourceBytes": 77726,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/b8b292e2d1b2-320.webp",
+        "width": 320,
+        "height": 213,
+        "bytes": 7934,
+        "sha256": "b852f0379411f21a04854856f71b40d3d1156952462ceac71203040b7c267be0"
+      },
+      {
+        "src": "/assets/responsive/b8b292e2d1b2-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 18722,
+        "sha256": "0834480b6fcda2ad9d17a08f614613709eb0f9ebed88b3c68130d52aa5ed523d"
+      },
+      {
+        "src": "/assets/responsive/b8b292e2d1b2-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 31400,
+        "sha256": "60064aed4381a565ce6a4574bc518804301120b38d2108990719fa79106f8ce1"
+      }
+    ]
+  },
+  "/assets/listings/builders-ratings-reviews-2026.webp": {
+    "sourceSha256": "c78c151f8a12e302e9a54bc05169bb125e589705bfe931d7e0080ea577b0ba0c",
+    "sourceBytes": 145192,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/c78c151f8a12-320.webp",
+        "width": 320,
+        "height": 213,
+        "bytes": 15510,
+        "sha256": "ec3cc11498b6732e09f63bddfffa31b5fd3346156e53f8659baa4b8fd8e8faaf"
+      },
+      {
+        "src": "/assets/responsive/c78c151f8a12-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 40944,
+        "sha256": "9413dbc06c8dd2903f1a28d7d6fe1b96e99375e2613f8caac6cab6a552f7d3e1"
+      },
+      {
+        "src": "/assets/responsive/c78c151f8a12-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 67546,
+        "sha256": "4912383742e8e73b1743908cad509d6d8d9cedf2ab1cdfa55ba3f148940cc2f1"
+      }
+    ]
+  },
+  "/assets/listings/clicks-energizer-cashback-october-december-2026.webp": {
+    "sourceSha256": "2f5538e4dddae75d857aa75b403ac5bd5eb29d543981b25d9d8c044b7f59eb00",
+    "sourceBytes": 180016,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/2f5538e4ddda-320.webp",
+        "width": 320,
+        "height": 216,
+        "bytes": 15588,
+        "sha256": "1a95f394883fefc02ed216071397891c3c210eea337b827ffcf7066da4f219a3"
+      },
+      {
+        "src": "/assets/responsive/2f5538e4ddda-640.webp",
+        "width": 640,
+        "height": 432,
+        "bytes": 45778,
+        "sha256": "d8f872f164e5e1a102481e853d13fd8e28419d086caa50561e199ebd54daa5a2"
+      },
+      {
+        "src": "/assets/responsive/2f5538e4ddda-960.webp",
+        "width": 960,
+        "height": 648,
+        "bytes": 76542,
+        "sha256": "642ac31c9951276210704a8d36de1c3a4970e33e4dc074dbc264b382f11b2297"
+      }
+    ]
+  },
+  "/assets/listings/clicks-have-your-say-october-november-2026.webp": {
+    "sourceSha256": "34b74dd0708f036b3071d525a2514491420a92bdb8fe9a4e0fadc5f491cfea34",
+    "sourceBytes": 48230,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/34b74dd0708f-320.webp",
+        "width": 320,
+        "height": 216,
+        "bytes": 7464,
+        "sha256": "22be8dbe8fdd16b039d46004c207f384d835b3e43a6111d54a1192782a0daa5d"
+      },
+      {
+        "src": "/assets/responsive/34b74dd0708f-640.webp",
+        "width": 640,
+        "height": 432,
+        "bytes": 16054,
+        "sha256": "020261b4a403aaac6972e0b89880cabc618db970282d22945c30a60f3f575d86"
+      },
+      {
+        "src": "/assets/responsive/34b74dd0708f-960.webp",
+        "width": 960,
+        "height": 648,
+        "bytes": 22812,
+        "sha256": "d2d168564167b8bca5eff1ff52278c09f8441428f91a90b6a6fdf7fba171b3bd"
+      }
+    ]
+  },
+  "/assets/listings/dis-chem-energizer-october-december-2026.webp": {
+    "sourceSha256": "7396a4450ee74a894f6d521e04b4849da387c0c67db3a6e389f5baebaf1b5e6b",
+    "sourceBytes": 64516,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/7396a4450ee7-320.webp",
+        "width": 320,
+        "height": 213,
+        "bytes": 8010,
+        "sha256": "48a502c359574c1cf8c9598795630030ee82126673b4378fb1e4a72c45015094"
+      },
+      {
+        "src": "/assets/responsive/7396a4450ee7-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 18818,
+        "sha256": "669bca5244a8a070d92b62de539322746b177d90a2e13de9b159fb02ca8a4f35"
+      },
+      {
+        "src": "/assets/responsive/7396a4450ee7-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 29712,
+        "sha256": "ee39667081ecc75fd3e00c3f83d75dfe2c0e98d27da580641b38ea5a05f54e85"
+      }
+    ]
+  },
+  "/assets/listings/engen-powerade-sportsmans-vouchers-2026.webp": {
+    "sourceSha256": "5b234d1d3460cf083b57422fb1559f19a6be9b7bd7c0c1ce3a9aa71414a4a46b",
+    "sourceBytes": 80244,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/5b234d1d3460-320.webp",
+        "width": 320,
+        "height": 213,
+        "bytes": 8788,
+        "sha256": "1b3346b98bd72dd36958fd23bd25355ea39f1beff048310ba52477da54436f19"
+      },
+      {
+        "src": "/assets/responsive/5b234d1d3460-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 21564,
+        "sha256": "cea30f255c97f63df23acf08fa1593d06bce153bfa9adf38439c966a8d8e8534"
+      },
+      {
+        "src": "/assets/responsive/5b234d1d3460-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 35672,
+        "sha256": "329bb8644ab809dcb1c4937d0b1af5c14c67852af059c370cd7f7f4c55849a2b"
+      }
+    ]
+  },
+  "/assets/listings/huletts-spar-rewards-2026.webp": {
+    "sourceSha256": "1d5fea474eb97dfeb8f19cba3bc06b9d2100b589787cda734dea505850145710",
+    "sourceBytes": 63290,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/1d5fea474eb9-320.webp",
+        "width": 320,
+        "height": 213,
+        "bytes": 12712,
+        "sha256": "4c498a4dfb1eb39297a0ae719fabe8824858daf102006b825b59438f227bb244"
+      },
+      {
+        "src": "/assets/responsive/1d5fea474eb9-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 33262,
+        "sha256": "8af550b3addbc2cd29ecf6649cd2892fcd5c3b67b7915b7f243382eecc400fd3"
+      },
+      {
+        "src": "/assets/responsive/1d5fea474eb9-720.webp",
+        "width": 720,
+        "height": 480,
+        "bytes": 43708,
+        "sha256": "af0fba6a4fb2b3cb8eb07b494afc8f449e356c0580ca66cf7429968281192a88"
+      }
+    ]
+  },
+  "/assets/listings/mcmerwe-games-prediction-voucher-2026.webp": {
+    "sourceSha256": "6ec363595d56102fa74640f964e64e2e5230c6cb0092a430d3f66d3fef2c51f3",
+    "sourceBytes": 117854,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/6ec363595d56-320.webp",
+        "width": 320,
+        "height": 213,
+        "bytes": 10716,
+        "sha256": "b64628f2e3dc4a9faeeda819bdb6005b94761b501f4d4d3d0490849f41e47173"
+      },
+      {
+        "src": "/assets/responsive/6ec363595d56-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 28148,
+        "sha256": "24300d467d8310d82c94cc6c41081b686951978b23bb0fd8e4a194aec6bf53df"
+      },
+      {
+        "src": "/assets/responsive/6ec363595d56-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 46220,
+        "sha256": "ef44bbacfe5f5fc29ad80bdcf7f346d72bb91a187bd89f3d0bfbb7cfaffd8794"
+      }
+    ]
+  },
+  "/assets/listings/milo-checkers-summer-2026.webp": {
+    "sourceSha256": "5409cda6f396f161111e7eca0d0a3279aac576efa761944b267726a05def053e",
+    "sourceBytes": 53116,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/5409cda6f396-320.webp",
+        "width": 320,
+        "height": 213,
+        "bytes": 7390,
+        "sha256": "45898717eafea3298b851d16bfe28b260ac89b81f686e159271749f2184c36a4"
+      },
+      {
+        "src": "/assets/responsive/5409cda6f396-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 16400,
+        "sha256": "287ac78cb98de18db15f507f7fc1a1f27128686e474778c87b48f5241c590f61"
+      },
+      {
+        "src": "/assets/responsive/5409cda6f396-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 25900,
+        "sha256": "20ec4fbbd37aa72a3d35b4d0eb07c1dd30726ea979a71e84e12eee186823d497"
+      }
+    ]
+  },
+  "/assets/listings/miway-micover-conversation-2026.webp": {
+    "sourceSha256": "c5fc705ce2e093a86760805d97f68bd9ab13abb450cbbd23989fc03ea4c38ff7",
+    "sourceBytes": 194664,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/c5fc705ce2e0-320.webp",
+        "width": 320,
+        "height": 320,
+        "bytes": 22164,
+        "sha256": "a2c184337d7b1de73decd3338154b7277562589f2a22a354b8a2c0509192b338"
+      },
+      {
+        "src": "/assets/responsive/c5fc705ce2e0-640.webp",
+        "width": 640,
+        "height": 640,
+        "bytes": 62044,
+        "sha256": "a4debfc044d56a94a76d6b82994e7018bcf329d8a0eeabc9d78f02ef4a4f3edd"
+      },
+      {
+        "src": "/assets/responsive/c5fc705ce2e0-960.webp",
+        "width": 960,
+        "height": 960,
+        "bytes": 99228,
+        "sha256": "2a04329d03c139ea79167aabaa843802d37ba51284d9d83b01841b6c053321f3"
+      }
+    ]
+  },
+  "/assets/listings/mtn-share-app-october-2026.webp": {
+    "sourceSha256": "b154eba7bc83089537904175fe23ba087d8907307cf98248b2cd499750dd5192",
+    "sourceBytes": 86086,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/b154eba7bc83-320.webp",
+        "width": 320,
+        "height": 213,
+        "bytes": 10970,
+        "sha256": "63468a011b90848c3eaef986d4a242ff5d63b960f5c42176a5efd3e192791e5f"
+      },
+      {
+        "src": "/assets/responsive/b154eba7bc83-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 24810,
+        "sha256": "e5f8c0983d769ba99ddb0ca62c04b9521a10af1a2e5390c15cb62a1623833713"
+      },
+      {
+        "src": "/assets/responsive/b154eba7bc83-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 37320,
+        "sha256": "eb7a999e1317b6c9798c0c8abf57ee04ebde6c604305cac408cd805a0c2efad5"
+      }
+    ]
+  },
+  "/assets/listings/raimondi-retail-1-october-2026.webp": {
+    "sourceSha256": "f56098700b1dc6b006cfafb2effc7ec678dab4beb614a99cd5293afcfc8af35e",
+    "sourceBytes": 235018,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/f56098700b1d-320.webp",
+        "width": 320,
+        "height": 453,
+        "bytes": 22546,
+        "sha256": "1c222be58e77ac0abf6e7ce55a6970693d513ec5317e792823d8c36b9fa1c872"
+      },
+      {
+        "src": "/assets/responsive/f56098700b1d-640.webp",
+        "width": 640,
+        "height": 905,
+        "bytes": 61340,
+        "sha256": "8bbae82f6b4ca74867ae04a1345a9344a76209a4865e382f16e5ffe7d9a67d39"
+      },
+      {
+        "src": "/assets/responsive/f56098700b1d-960.webp",
+        "width": 960,
+        "height": 1358,
+        "bytes": 101354,
+        "sha256": "faa35d2e7e35d176754e15f4dccb6bece34ef9184d158e6b136b9550bf83c471"
+      }
+    ]
+  },
+  "/assets/listings/samsung-october-rate-and-review-2026.webp": {
+    "sourceSha256": "c0882e18ae23302401cb51464030a0bf57cf0ca8d5b59947eb5f529e224ea8f3",
+    "sourceBytes": 65146,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/c0882e18ae23-320.webp",
+        "width": 320,
+        "height": 213,
+        "bytes": 9180,
+        "sha256": "e0e281f1cd84ada1a6bb19c927557d4480ed54a5d8f23fecc098dad444c06f7a"
+      },
+      {
+        "src": "/assets/responsive/c0882e18ae23-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 20604,
+        "sha256": "d2e7c8f218aa074d940a509b5f321ad18748169f19e76189d94eee48fc04ca7a"
+      },
+      {
+        "src": "/assets/responsive/c0882e18ae23-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 31960,
+        "sha256": "e81635c2498fa3a149ca653c74a6b366f0ec5e259a1e60dc77dad7c7ba235f3e"
+      }
+    ]
+  },
+  "/assets/listings/schweppes-made-social-2026.webp": {
+    "sourceSha256": "166b52dc3f95cbaa3c49e9d5c2068a8fb5c95c07d48116de2bb486671417c75c",
+    "sourceBytes": 113064,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/166b52dc3f95-320.webp",
+        "width": 320,
+        "height": 180,
+        "bytes": 11700,
+        "sha256": "011a4bdbb995aec660cd438d60d086413cad393d77ee3e7c1684131ab59f28c4"
+      },
+      {
+        "src": "/assets/responsive/166b52dc3f95-640.webp",
+        "width": 640,
+        "height": 360,
+        "bytes": 32426,
+        "sha256": "46c8a648eeafec1b2e5aea9bfc5718ca146a0e74359636d502e6ed691eb428c8"
+      },
+      {
+        "src": "/assets/responsive/166b52dc3f95-960.webp",
+        "width": 960,
+        "height": 540,
+        "bytes": 50942,
+        "sha256": "e3fa07587cefc6671305634ecfc4c163aad1188b2905c86f35ffb02dada42757"
+      }
+    ]
+  },
+  "/assets/listings/sea-harvest-say-fish-grocery-vouchers-2026.webp": {
+    "sourceSha256": "2de2df0b3cba58646f825fae5595a29e70b13e36a9d28007de02a8ac78fa0db2",
+    "sourceBytes": 78456,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/2de2df0b3cba-320.webp",
+        "width": 320,
+        "height": 351,
+        "bytes": 11446,
+        "sha256": "1afb764b7554f8209b5413a3d13986f22cd01a78afc1d2e99c1d42f0fb37128b"
+      },
+      {
+        "src": "/assets/responsive/2de2df0b3cba-640.webp",
+        "width": 640,
+        "height": 702,
+        "bytes": 30568,
+        "sha256": "ccc50dad1e6c7eb22a69629a5988c7ea5d4a5e0d229643924f2575e611bb2839"
+      },
+      {
+        "src": "/assets/responsive/2de2df0b3cba-756.webp",
+        "width": 756,
+        "height": 829,
+        "bytes": 45086,
+        "sha256": "7f776f04d1449e2be689eb1027af3b84c4b8161e61f93b4ec46e2ebf318218b7"
+      }
+    ]
+  },
+  "/assets/listings/stimorol-volume-driver-2026.webp": {
+    "sourceSha256": "5c797362270cf0f0fc6d3eb52c8cbfb01435ab538b700d3ff9dc0a58be205a04",
+    "sourceBytes": 47870,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/5c797362270c-320.webp",
+        "width": 320,
+        "height": 180,
+        "bytes": 7668,
+        "sha256": "30c999c15387a298c2b8cfe1f063fcbf27c9b5f7a23369e7bd6c2b792679cd21"
+      },
+      {
+        "src": "/assets/responsive/5c797362270c-640.webp",
+        "width": 640,
+        "height": 360,
+        "bytes": 17350,
+        "sha256": "9f7b71a51595caa62f12b2b71ab8116852e228f74c719904f2a7bd18ae2950e5"
+      },
+      {
+        "src": "/assets/responsive/5c797362270c-960.webp",
+        "width": 960,
+        "height": 540,
+        "bytes": 25532,
+        "sha256": "d58e8afc15ebc2f715f4aac350d8d15e758bf0b6368e18850a6727feb5b1e5db"
+      }
+    ]
+  },
+  "/assets/partners/datacost-data-airtime-banner.jpg": {
+    "sourceSha256": "d955ae5d070eeecdd9101504a58db7f0d5a0f9dba96d05cff52fe9836bbb9a2a",
+    "sourceBytes": 117505,
+    "method": "Proportional WebP resize; no crop or artwork changes",
+    "variants": [
+      {
+        "src": "/assets/responsive/d955ae5d070e-320.webp",
+        "width": 320,
+        "height": 73,
+        "bytes": 6868,
+        "sha256": "6c6420aa95d83c7ae9728e233a49e3bef0e7fa7d6da17acbd4b9c94656b3912c"
+      },
+      {
+        "src": "/assets/responsive/d955ae5d070e-640.webp",
+        "width": 640,
+        "height": 146,
+        "bytes": 17904,
+        "sha256": "0e6c229662c26173695e31e758b05b95babf337e9de8edf391348e2cf40be347"
+      },
+      {
+        "src": "/assets/responsive/d955ae5d070e-960.webp",
+        "width": 960,
+        "height": 219,
+        "bytes": 29246,
+        "sha256": "fe83d9dc1fdf5bc7debb01dc79e090a50aa30698dfa893d45b853a550697146e"
+      }
+    ]
+  }
+}

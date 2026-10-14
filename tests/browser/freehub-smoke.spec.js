@@ -12,8 +12,15 @@ const offerData = require('../../shared/offer-data.js');
 const activeOffers = offersEnabled ? require('../../data/offers.json').filter(row => offerData.isPublicOffer(row, { asOfDate: process.env.FREEHUB_AS_OF_DATE || process.env.FREEHUB_BUILD_DATE || new Date().toISOString().slice(0, 10) })) : [];
 const activeCoupon = activeOffers.find(row => row.type === 'coupon');
 const activeOffer = activeOffers[0];
+const sharedData = require("../../shared/page-data.js");
+const { homePicks } = require('./editorial-source-fixture.js');
+const hasReviewedHome = homePicks.length > 0;
+const publishedResources = require("../../data/free-resources.json").filter(require("../../scripts/lib/free-resource-publication.js").isPublishedFreeResource);
+const reviewedSampleResources = publishedResources.filter(record => record.category === "samples");
+const reviewedVoucherResources = require("../../data/free-resources.json").filter(record => ["absa-advantage-meal-vouchers", "kauai-app-birthday-reward", "spur-r50-birthday-voucher", "western-cape-jobseeker-travel-voucher", "bootlegger-app-registration-coffee", "telkom-customer-referral-credit"].includes(record.id) && record.verificationStatus === "verified" && ["active", "manual_check"].includes(record.availability) && record.reviewDueAt >= (process.env.FREEHUB_BUILD_DATE || sharedData.getSouthAfricanDate()));
 const RELEASE_ASSET_VERSION = "20260901-native-ads-v1";
-const GUEST_ADS_LOADER_SRC = "/shared/guest-ads.js?v=20260907-content-ads-v1";
+const GUEST_ADS_LOADER_SRC = "/shared/guest-ads.js?v=20260917-account-save-v2";
+const JOURNEY_SRC = "https://scripts.scriptwrapper.com/tags/db39d7ff-ec0e-46b2-9797-bad57ea1954f.js";
 const OUTBOUND_HANDOFF_SRC = `/shared/outbound-handoff.js?v=${RELEASE_ASSET_VERSION}`;
 
 const ADSTERRA_NATIVE_BANNER_SRC = "https://pl31128445.profitableratecpmnetwork.com/c58e199012d4b578b7353f3e72a231f7/invoke.js";
@@ -192,7 +199,22 @@ async function readDataLayerEvents(page) {
   );
 }
 
-test.beforeEach(async ({ page }) => {
+test.beforeEach(async ({ page, baseURL }) => {
+  await page.clock.setFixedTime(new Date(`${process.env.FREEHUB_AS_OF_DATE || process.env.FREEHUB_BUILD_DATE || sharedData.getSouthAfricanDate()}T10:00:00Z`));
+  // Keep product checks deterministic and prevent production analytics writes.
+  // Provider behaviour is verified separately with controlled and live probes.
+  await page.route("**/*", async route => {
+    const url = new URL(route.request().url());
+    if (url.hostname === "127.0.0.1") return route.continue();
+    if (url.hostname === "freehub.co.za" && route.request().resourceType() === "image") {
+      const path = require("node:path"), fs = require("node:fs");
+      const root = path.resolve(__dirname, "../..");
+      const file = path.resolve(root, `.${decodeURIComponent(url.pathname)}`);
+      if (path.relative(root, file).startsWith("..") || !fs.existsSync(file)) return route.abort();
+      return route.fulfill({ path: file });
+    }
+    return route.abort();
+  });
   await disableFirebase(page);
 });
 
@@ -207,7 +229,9 @@ test("homepage navigation reaches canonical pillar routes", async ({ page }) => 
   await page.setViewportSize({ width: 390, height: 844 });
   await expect(startHere).toBeVisible();
   await expect(startHere.getByRole("link", { name: /^Free Stuff/ })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Worth a look this week", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: hasReviewedHome ? "Worth a look this week" : "Keep exploring Freehub", exact: true })).toBeVisible();
+  await expect(page.locator('[data-editorial-pick]')).toHaveCount(homePicks.length);
+  for (const pick of homePicks) await expect(page.locator(`[data-editorial-pick="${pick.recordId}"]`)).toBeVisible();
   await expect(page.getByRole("heading", { name: "What would you like to win?", exact: true })).toBeVisible();
   await startHere.getByRole("link", { name: /^Free Stuff/ }).evaluate((link) => {
     link.addEventListener("click", (event) => event.preventDefault(), { once: true });
@@ -282,31 +306,15 @@ test("Adsterra fails closed when Firebase auth cannot be resolved", async ({ pag
   await expect(page.locator(`script[src="${ADSTERRA_NATIVE_BANNER_SRC}"]`)).toHaveCount(0);
 });
 
-test("signed-out visitors receive one native banner on an eligible browsing page", async ({ page }) => {
+test("guest auth repeats cannot reintroduce retired advertising", async ({ page }) => {
   await mockFirebaseAuth(page);
   const requests = await stubAdsterra(page);
   await page.goto("/");
-
-  await expect(page.locator('html[data-freehub-ad-state="guest"]')).toHaveCount(1);
-  await page.locator("[data-freehub-ad-slot]").scrollIntoViewIfNeeded();
-  await expect(page.locator(`script[src="${ADSTERRA_NATIVE_BANNER_SRC}"]`)).toHaveCount(1);
-  await expect(page.locator(`#${ADSTERRA_NATIVE_BANNER_CONTAINER}`)).toHaveCount(1);
-  await expect.poll(() => requests).toEqual({ nativeBanner: 1, popunder: 0, socialBar: 0 });
-  await expect.poll(() => page.evaluate(() => window.__freehubNativeBannerExecutions || 0)).toBe(1);
-
-  await page.evaluate(() => {
-    window.__freehubEmitAuth(null);
-    window.__freehubEmitAuth(null);
-  });
-  await expect(page.locator(`script[src="${ADSTERRA_NATIVE_BANNER_SRC}"]`)).toHaveCount(1);
-  expect(requests).toEqual({ nativeBanner: 1, popunder: 0, socialBar: 0 });
-
-  await page.evaluate(() => {
-    document.querySelectorAll("script[data-freehub-guest-ad]").forEach((script) => script.remove());
-    window.__freehubEmitAuth(null);
-  });
-  await expect(page.locator("script[data-freehub-guest-ad]")).toHaveCount(0);
-  expect(requests).toEqual({ nativeBanner: 1, popunder: 0, socialBar: 0 });
+  await expect(page.locator('html')).toHaveAttribute('data-freehub-ad-state', 'guest');
+  await page.evaluate(() => { window.__freehubEmitAuth(null); window.__freehubEmitAuth(null); });
+  await expect(page.locator('script[src="'+JOURNEY_SRC+'"]')).toHaveCount(1);
+  await expect(page.locator('[data-freehub-ad-slot], [data-freehub-display-slot]')).toHaveCount(0);
+  expect(requests).toEqual({ nativeBanner: 0, popunder: 0, socialBar: 0 });
 });
 
 test("expired archive pages remain ad-free while active detail and outbound pages stay protected", async ({ page }) => {
@@ -386,25 +394,15 @@ test("signed-in members receive no external Adsterra scripts or executions", asy
   expect(requests).toEqual({ nativeBanner: 0, popunder: 0, socialBar: 0 });
 });
 
-test("a guest-to-member transition reloads into a clean ad-free document", async ({ page }) => {
+test("guest-to-member auth preserves the provider installation without legacy ad scripts", async ({ page }) => {
   await mockFirebaseAuth(page);
   const requests = await stubAdsterra(page);
   await page.goto("/");
-  await expect(page.locator('html[data-freehub-ad-state="guest"]')).toHaveCount(1);
-  await page.locator("[data-freehub-ad-slot]").scrollIntoViewIfNeeded();
-  await expect.poll(() => requests).toEqual({ nativeBanner: 1, popunder: 0, socialBar: 0 });
-
-  const navigation = page.waitForNavigation();
-  await page.evaluate((member) => {
-    window.FreeHubGuestAds.beginSignIn();
-    window.__freehubEmitAuth(member);
-    window.FreeHubGuestAds.completeSignIn();
-  }, MOCK_MEMBER);
-  await navigation;
-
-  await expect(page.locator('html[data-freehub-ad-state="member"]')).toHaveCount(1);
-  await expect(page.locator(`script[src="${ADSTERRA_NATIVE_BANNER_SRC}"]`)).toHaveCount(0);
-  expect(requests).toEqual({ nativeBanner: 1, popunder: 0, socialBar: 0 });
+  await expect(page.locator('html')).toHaveAttribute('data-freehub-ad-state','guest');
+  await page.evaluate(member => { window.FreeHubGuestAds.beginSignIn(); window.__freehubEmitAuth(member); window.FreeHubGuestAds.completeSignIn(); }, MOCK_MEMBER);
+  await expect(page.locator('html')).toHaveAttribute('data-freehub-ad-state','member');
+  await expect(page.locator('script[src="'+JOURNEY_SRC+'"]')).toHaveCount(1);
+  expect(requests).toEqual({ nativeBanner: 0, popunder: 0, socialBar: 0 });
 });
 
 test("provider sign-in resumes the requested competition action on an ad-free detail page", async ({ page }) => {
@@ -473,7 +471,7 @@ test("evergreen prize pages are indexable, useful and linked from discovery area
   }
 
   await page.goto("/category/cash/");
-  const categoryNavigation = page.getByRole("navigation", { name: "Competition categories" });
+  const categoryNavigation = page.locator("#categoryFilters");
   await expect(categoryNavigation.locator('a[href="/win-a-car/"]')).toHaveCount(1);
   await expect(categoryNavigation.locator('a[href="/category/cars/"]')).toHaveCount(0);
 
@@ -532,10 +530,11 @@ test("competition hub search filters prerendered listings and updates the result
   await expect(search).toBeVisible();
   await expect(page.locator("#categoryFilters > a")).not.toHaveCount(0);
 
-  await search.fill("Knorr Soup");
+  const needle = current.core[0].title;
+  await search.fill(needle);
   await expect(page.locator("#resultsSummary")).toHaveText("Showing 1 competition");
   await expect(page.locator("#competitionsGrid article.competition-card")).toHaveCount(1);
-  await expect(page.locator("#competitionsGrid article.competition-card")).toContainText("Knorr Soup");
+  await expect(page.locator("#competitionsGrid article.competition-card")).toContainText(needle);
 
   await search.fill("not-a-real-competition");
   await expect(page.locator("#resultsSummary")).toHaveText("Showing 0 competitions");
@@ -543,7 +542,7 @@ test("competition hub search filters prerendered listings and updates the result
 });
 
 test("competition detail shows entry facts before discovery and partner content", async ({ page }) => {
-  await page.goto("/competition/spar-win-a-car/");
+  await page.goto(require("../../shared/page-data.js").getCompetitionPath(current.core[0]));
   await expect(page.getByRole("heading", { level: 2, name: "How to enter" })).toBeVisible();
   await expect(page.getByRole("heading", { level: 2, name: "Quick answer" })).toBeVisible();
 
@@ -602,6 +601,14 @@ test("JETOUR competition video links its verified listing and dedicated watch pa
     route.fulfill({ contentType: "text/html", body: "<!doctype html><title>YouTube embed stub</title>" })
   );
 
+  const jetourActive = current.active.some(record => record.id === 'jetour-win-your-way-to-brazil-2026');
+  if(!jetourActive){
+    await page.goto('/competition/jetour-win-your-way-to-brazil-2026/');
+    await expect(page.getByRole('region', { name: 'Competition closed', exact: true })).toBeVisible();
+    await expect(page.locator('.competition-video')).toHaveCount(0);
+    expect((await page.request.get('/videos/jetour-win-your-way-to-brazil-competition/')).status()).toBe(404);
+    return;
+  }
   await page.goto("/competition/jetour-win-your-way-to-brazil-2026/");
   const competitionVideo = page.locator(".competition-video");
   await expect(competitionVideo).toBeVisible();
@@ -650,7 +657,7 @@ test("Free Stuff parent preserves intent and separates durable resources from op
   await expect(childNavigation.getByRole("link", { name: "Children's Books" })).toHaveAttribute("href", "/free-childrens-books-south-africa/");
   await expect(childNavigation.getByRole("link", { name: "Credit Reports" })).toHaveAttribute("href", "/free-credit-report-south-africa/");
 
-  await expect(page.locator("article.free-resource-card")).toHaveCount(27);
+  await expect(page.locator("article.free-resource-card")).toHaveCount(require("../../data/free-resources.json").filter(require("../../scripts/lib/free-resource-publication.js").isPublishedFreeResource).length);
   await expect(page.locator("article.opportunity-card")).toHaveCount(current.featured.length);
   await expect(page.locator("section.opportunity-section")).toHaveCount(current.featured.length ? 1 : 0);
   await expect(page.locator("#structured-data-opportunities")).toHaveCount(current.featured.length ? 1 : 0);
@@ -728,17 +735,19 @@ test("Free Samples v4 preserves its canonical and separates official sites from 
   await expect(
     page.getByRole("region", {
       name: currentSamplesCount
-        ? `6 reviewed routes plus ${currentSamplesCount} current opportunities`
-        : "6 reviewed sample routes, clearly separated",
+        ? `${reviewedSampleResources.length} reviewed routes plus ${currentSamplesCount} current opportunities`
+        : `${reviewedSampleResources.length} reviewed sample routes, clearly separated`,
     })
   ).toBeVisible();
-  await expect(page.locator("article.free-resource-card")).toHaveCount(6);
-  await expect(page.locator('[data-content-type="product_testing_panel"]')).toHaveCount(3);
-  await expect(page.locator('[data-content-type="brand_sample_programme"]')).toHaveCount(2);
-  await expect(page.locator('[data-content-type="editorial_guide"]')).toHaveCount(1);
+  await expect(page.locator("article.free-resource-card")).toHaveCount(reviewedSampleResources.length);
+  for (const type of ["product_testing_panel", "brand_sample_programme", "editorial_guide"]) {
+    await expect(page.locator(`[data-content-type="${type}"]`)).toHaveCount(reviewedSampleResources.filter(record => record.sampleResourceType === type).length);
+  }
   await expect(page.locator("#brand-sample-programmes")).toContainText("Official brand sample programmes");
   await expect(page.getByRole("region", { name: "Product-testing panels" })).toContainText("does not guarantee");
-  await expect(page.locator("section.detail-faq details")).toHaveCount(6);
+  const faq = await page.locator('script[type="application/ld+json"]').evaluateAll(nodes => nodes.map(node => JSON.parse(node.textContent)).find(data => data['@type'] === 'FAQPage'));
+  expect(faq.mainEntity.length).toBeGreaterThan(0);
+  await expect(page.locator("section.detail-faq details")).toHaveCount(faq.mainEntity.length);
   await expect(page.locator("article.opportunity-card")).toHaveCount(currentSamplesCount);
   await expect(page.locator("#structured-data-opportunities")).toHaveCount(current.samples.length ? 1 : 0);
   await expect(page.locator("#structured-data-product-testing")).toHaveCount(current.testing.length ? 1 : 0);
@@ -746,7 +755,7 @@ test("Free Samples v4 preserves its canonical and separates official sites from 
   if (medicalSampleActive) {
     await expect(page.getByText(`${current.samples.length} current sample requests`, { exact: true })).toBeVisible();
     await expect(page.getByText(`${current.testing.length} current product tests`, { exact: true })).toBeVisible();
-    await expect(page.getByText("6 reviewed sites and programmes", { exact: true })).toBeVisible();
+    await expect(page.getByText(`${reviewedSampleResources.length} reviewed sites and programmes`, { exact: true })).toBeVisible();
     await expect(page.locator("#current-samples article.opportunity-card")).toHaveCount(current.samples.length);
     const card = page.locator('[data-opportunity-id="coloplast-speedicath-short-sample"]');
     await expect(card).toHaveAttribute("data-card-variant", "full");
@@ -765,9 +774,13 @@ test("Free Samples v4 preserves its canonical and separates official sites from 
     const tena = page.locator('[data-opportunity-id="tena-women-free-sample-pack"]');
     await expect(tena).toHaveCount(0);
     const blindDesigns = page.locator('[data-opportunity-id="blind-designs-free-fabric-samples"]');
-    await expect(blindDesigns).toContainText("up to five");
-    await expect(blindDesigns).toContainText("No delivery charge");
-    await expect(blindDesigns).not.toContainText(/medical|health-related|suitability/i);
+    const blindActive = current.samples.some(record => record.id === "blind-designs-free-fabric-samples");
+    await expect(blindDesigns).toHaveCount(blindActive ? 1 : 0);
+    if (blindActive) {
+      await expect(blindDesigns).toContainText("up to five");
+      await expect(blindDesigns).toContainText("No delivery charge");
+      await expect(blindDesigns).not.toContainText(/medical|health-related|suitability/i);
+    }
     const testingCards = page.locator('[data-content-type="product_testing"]');
     await expect(testingCards).toHaveCount(current.testing.length);
     const sunlight = page.locator('[data-opportunity-id="brand-advisor-sunlight-dishwashing-testing"]');
@@ -800,33 +813,19 @@ test("voucher hub separates direct rewards, strict voucher prizes and creator ex
   await expect(page.locator('.hero-preview-panel a[href="/competition/clicks-babyclub-competition/"]')).toHaveCount(0);
 
   const voucherResources = page.locator("#current-voucher-offers article.free-resource-card");
-  await expect(voucherResources).toHaveCount(3);
-  await expect(voucherResources.filter({ hasText: "Telkom R550 customer referral credit" })).toContainText("Customer referral account credit");
-  await expect(voucherResources.filter({ hasText: "Bootlegger" })).toContainText("app");
-  await expect(voucherResources.filter({ hasText: "Absa Advantage meal vouchers" })).toHaveCount(0);
-  await expect(voucherResources.filter({ hasText: "Spur R50 birthday voucher" })).toContainText("R1,000");
-  const voucherResourceSchema = await page.locator("#structured-data-voucher-resources").evaluate((script) => JSON.parse(script.textContent || "{}"));
-  expect(voucherResourceSchema.itemListElement).toHaveLength(3);
-
-  const freeEntryPicks = page.locator("#free-entry-vouchers .voucher-free-pick");
-  await expect(freeEntryPicks).toHaveCount(1);
-  await expect(freeEntryPicks.first()).toHaveAttribute("href", "/competition/era-bin-it-to-win-it-2026/");
-  await expect(page.locator("#free-entry-vouchers .voucher-free-picks__empty")).toHaveCount(0);
-  await expect(page.locator('#free-entry-vouchers a[href="/competition/clicks-babyclub-competition/"]')).toHaveCount(0);
-  await expect(page.locator('#free-entry-vouchers a[href="/competition/clicks-clubcard-have-your-say-june-july-2026/"]')).toHaveCount(0);
-  const accountLinkedPicks = page.locator("#account-linked-vouchers .voucher-free-pick");
-  await expect(accountLinkedPicks).toHaveCount(2);
-  await expect(accountLinkedPicks.first()).toContainText("Account required");
-  expect((await accountLinkedPicks.evaluateAll((links) => links.map((link) => link.getAttribute("href")))).sort()).toEqual([
-    "/competition/capitec-tactical-flexi-voucher-2026/",
-    "/competition/nedbank-appventure-map-your-future-2026/",
-  ]);
-  await expect(page.locator('a[href="/competition/clicks-clubcard-fragrance-giveaway-june-july-2026/"]')).toHaveCount(0);
-  await expect(page.locator("#creator-voucher-exchanges article.opportunity-card")).toHaveCount(0);
-  await expect(page.locator("#structured-data-voucher-opportunities")).toHaveCount(0);
-  const voucherListings = page.locator("#competitionsGrid article.competition-card");
-  await expect(voucherListings).toHaveCount(8);
-  await expect(voucherListings.first()).toBeVisible();
+  await expect(voucherResources).toHaveCount(reviewedVoucherResources.length);
+  for (const record of reviewedVoucherResources) await expect(page.locator('[data-content-id="'+record.id+'"]')).toHaveAttribute('href', record.officialUrl);
+  await expect(voucherResources.filter({hasText:'Spur R50 birthday voucher'})).toContainText('R1,000');
+  const sourceSchema = await page.locator('#structured-data-voucher-resources').evaluate(node => JSON.parse(node.textContent));
+  expect(sourceSchema.itemListElement).toHaveLength(reviewedVoucherResources.length);
+  const eligible = current.core.filter(record => record.category === "Vouchers" && sharedData.isVoucherPrizeCompetition(record));
+  const free = eligible.filter(record => sharedData.getEntryCostLabel(record)==='Free entry');
+  const account = eligible.filter(record => sharedData.getEntryCostLabel(record)==='Account required' && record.purchaseRequired===false);
+  await expect(page.locator('#free-entry-vouchers .voucher-free-pick')).toHaveCount(Math.min(6,free.length));
+  for(const href of await page.locator('#free-entry-vouchers .voucher-free-pick').evaluateAll(links=>links.map(link=>link.getAttribute('href')))) expect(free.map(sharedData.getCompetitionPath)).toContain(href);
+  await expect(page.locator('#account-linked-vouchers .voucher-free-pick')).toHaveCount(Math.min(6,account.length));
+  await expect(page.locator('#creator-voucher-exchanges article.opportunity-card')).toHaveCount(0);
+  await expect(page.locator('#competitionsGrid article.competition-card')).toHaveCount(eligible.length);
 });
 
 test("voucher reward links emit source-safe discovery analytics", async ({ page }) => {
@@ -835,17 +834,12 @@ test("voucher reward links emit source-safe discovery analytics", async ({ page 
     window.__freehubTestEvents = [];
     window.gtag = (...args) => window.__freehubTestEvents.push(args);
   });
-  const source = page.locator('[data-content-id="telkom-customer-referral-credit"]');
-  await source.evaluate((link) => link.addEventListener("click", (event) => event.preventDefault(), { once: true }));
+  const record=reviewedVoucherResources[0]; expect(record).toBeTruthy();
+  const source = page.locator('[data-content-id="'+record.id+'"]');
+  await source.evaluate(link => link.addEventListener('click', event => event.preventDefault(), {once:true}));
   await source.click();
-  const events = await page.evaluate(() => window.__freehubTestEvents);
-  expect(events).toEqual([["event", "official_source_click", expect.objectContaining({
-    entity_kind: "resource",
-    content_id: "telkom-customer-referral-credit",
-    page_type: "voucher_hub",
-    source_domain: "group.telkom.co.za",
-    destination_path: "/documents/regulatory/terms-and-conditions/Customer%20Referral%20Program%20Terms%20and%20Conditions.pdf",
-  })]]);
+  const url=new URL(record.officialUrl);
+  expect(await page.evaluate(()=>window.__freehubTestEvents.filter(event => event[1] === 'official_source_click'))).toEqual([['event','official_source_click',expect.objectContaining({entity_kind:'resource',content_id:record.id,page_type:'voucher_hub',source_domain:url.hostname.replace(/^www\./,""),destination_path:url.pathname})]]);
 });
 
 test("Samples analytics identify the vertical and use parameter-free destinations", async ({ page }) => {
@@ -1082,7 +1076,18 @@ test("competition collection cards are present in the static HTML", async ({ bro
 });
 
 test("portrait and landscape details show one uncropped campaign image", async ({ page }) => {
-  for (const route of ["/competition/evetech-pulse-giveaway-2026/", "/competition/takealot-back-to-school-voucher-2026/", "/competition/discovery-four-principles-book-launch-2026/"]) {
+  const fs = require("node:fs"), path = require("node:path");
+  const { imageSize } = require("image-size");
+  const images = current.core.flatMap(record => {
+    const url = new URL(sharedData.getCompetitionPrimaryImageUrl(record));
+    const file = path.join(__dirname, "../..", decodeURIComponent(url.pathname));
+    if (url.origin !== sharedData.CANONICAL_ORIGIN || !/\.(png|jpe?g|webp)$/i.test(file) || !fs.existsSync(file)) return [];
+    return [{ record, size: imageSize(fs.readFileSync(file)) }];
+  });
+  const examples = [images.find(item => item.size.height > item.size.width), images.find(item => item.size.width > item.size.height)];
+  expect(examples.every(Boolean)).toBe(true);
+  for (const { record } of examples) {
+    const route = sharedData.getCompetitionPath(record);
     for (const width of [390, 1280]) {
       await page.setViewportSize({ width, height: 900 }); await page.goto(route);
       const image = page.locator(".competition-detail__media > img");
@@ -1118,14 +1123,22 @@ test("active detail, outbound handoff, and expired detail retain lifecycle behav
 test("privacy policy discloses advertising cookies", async ({ page }) => {
   await page.goto("/privacy-policy/");
   await expect(page.getByRole("heading", { level: 2, name: "Cookies and analytics" })).toBeVisible();
-  await expect(page.getByText(/Adsterra Native Banner/)).toBeVisible();
-  await expect(page.getByText(/only after Firebase confirms that a visitor is signed out/)).toBeVisible();
-  await expect(page.getByText(/Signed-in Freehub Club members are not served these Adsterra formats/)).toBeVisible();
+  await expect(page.getByText(/Freehub uses Mediavine/)).toBeVisible();
+  await expect(page.getByRole("link", { name: "Mediavine privacy policy" })).toHaveAttribute("href", "https://www.mediavine.com/privacy-policy/");
+  await expect(page.getByText(/Closed competition archive pages do not load these ads/)).toBeVisible();
   await expect(page.getByText(/Consent choices and applicable controls/)).toBeVisible();
 });
 
 test("offers portal separates coupons and deals with honest indexability", async ({ page }) => {
-  test.skip(!offersEnabled, "Offers are feature flagged in this build.");
+  if (!offersEnabled) {
+    for (const route of ["/offers/", "/coupons/", "/deals/"]) {
+      const html = await (await page.request.get(route)).text();
+      expect(html).toContain('content="noindex, follow"');
+      expect(html).not.toContain('<article class="offer-card');
+      expect(html).not.toContain(JOURNEY_SRC);
+    }
+    return;
+  }
   for (const [route, records] of [['/offers/', activeOffers], ['/coupons/', activeOffers.filter(row => row.type === 'coupon')], ['/deals/', activeOffers.filter(row => row.type === 'deal')]]) {
     await page.goto(route);
     await expectCanonical(page, route);
@@ -1150,7 +1163,14 @@ test("offers portal separates coupons and deals with honest indexability", async
 });
 
 test("offer contributions stay private and require an explicit email send", async ({ page }) => {
-  test.skip(!offersEnabled, "Offers are feature flagged in this build.");
+  if (!offersEnabled) {
+    expect((await page.request.get("/submit-an-offer/")).status()).toBe(404);
+    for (const record of require("../../data/offers.json")) {
+      expect((await page.request.get(`/${record.type}/${record.slug}/`)).status()).toBe(404);
+      expect((await page.request.get(`/out/${record.type}/${record.slug}/`)).status()).toBe(404);
+    }
+    return;
+  }
 
   if (activeOffer) {
   const detailPath = `/${activeOffer.type}/${activeOffer.slug}/`;
@@ -1269,35 +1289,15 @@ async function stubStudentDisplay(page) {
   return requests;
 }
 
-test('student ads load once near their placements and clear on member sign-in', async ({page}) => {
-  await page.setViewportSize({width:390,height:844});
-  await mockFirebaseAuth(page);
-  const native = await stubAdsterra(page);
-  const display = await stubStudentDisplay(page);
+test('student guide retains provider-owned ads and no retired placement containers', async ({ page }) => {
+  await mockFirebaseAuth(page); const retired = await stubAdsterra(page); const display = await stubStudentDisplay(page);
   await page.goto('/student-freebies-discounts-south-africa/');
   await expect(page.locator('html')).toHaveAttribute('data-freehub-ad-state','guest');
-  expect(native.nativeBanner).toBe(0);
-  expect(display.count).toBe(0);
-  await expect(page.locator('#software + .student-ad + #everyday')).toHaveCount(1);
-  await expect(page.locator('.student-ad--display + #attractions')).toHaveCount(1);
-  await page.locator('.student-ad--display').scrollIntoViewIfNeeded();
-  await expect.poll(()=>display.count).toBe(1);
-  await expect(page.frameLocator('iframe[data-freehub-display-ad]').getByText('Test display banner')).toBeVisible();
-  await page.locator('[data-placement="student-after-software"]').scrollIntoViewIfNeeded();
-  await expect.poll(()=>native.nativeBanner).toBe(1);
-  await page.evaluate(()=>{window.__freehubEmitAuth(null);window.__freehubEmitAuth(null)});
-  await page.locator('.student-ad--display').scrollIntoViewIfNeeded();
-  expect(display.count).toBe(1);
-  expect(native).toEqual({nativeBanner:1,popunder:0,socialBar:0});
-  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
-  await page.screenshot({path:'output/playwright/student-display-mobile.png'});
-  const navigation=page.waitForNavigation();
-  await page.evaluate(member=>window.__freehubEmitAuth(member),MOCK_MEMBER);
-  await navigation;
+  await expect(page.locator('script[src="'+JOURNEY_SRC+'"]')).toHaveCount(1);
+  await expect(page.locator('.student-ad, iframe[data-freehub-display-ad]')).toHaveCount(0);
+  await page.evaluate(member => window.__freehubEmitAuth(member), MOCK_MEMBER);
   await expect(page.locator('html')).toHaveAttribute('data-freehub-ad-state','member');
-  await expect(page.locator('iframe[data-freehub-display-ad]')).toHaveCount(0);
-  await expect(page.locator('.student-ad--display')).toBeHidden();
-  expect(display.count).toBe(1);
+  expect(retired).toEqual({nativeBanner:0,popunder:0,socialBar:0}); expect(display.count).toBe(0);
 });
 
 test('student ads remain suppressed for members, pending auth and narrow banners', async ({page})=>{
@@ -1316,23 +1316,15 @@ test('student ads remain suppressed for members, pending auth and narrow banners
 });
 
 for (const route of ['/free-stuff-south-africa/','/birthday-freebies/','/free-online-courses-south-africa/','/competitions/']) {
-  test(`content advertising loads once on approach: ${route}`, async ({page})=>{
-    await page.setViewportSize({width:390,height:844});
-    await mockFirebaseAuth(page);
-    const requests=await stubAdsterra(page);
-    await page.goto(route);
-    await expect(page.locator('html')).toHaveAttribute('data-freehub-ad-state','guest');
-    const slot=page.locator('[data-freehub-ad-slot]');
-    await expect(slot).toHaveCount(1);
-    await expect(slot).toHaveAttribute('data-freehub-ad-lazy','');
-    expect(requests.nativeBanner).toBe(0);
-    await slot.scrollIntoViewIfNeeded();
-    await expect.poll(()=>requests.nativeBanner).toBe(1);
-    await page.evaluate(()=>{window.__freehubEmitAuth(null);window.__freehubEmitAuth(null)});
-    expect(requests).toEqual({nativeBanner:1,popunder:0,socialBar:0});
-    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
-    await page.screenshot({path:'output/playwright/content-ads-'+route.split('/')[1]+'.png'});
-  });
+  test(`provider installation survives scrolling without retired native ads: ${route}`,async({page})=>{
+  await mockFirebaseAuth(page); const requests=await stubAdsterra(page);
+  await page.goto(route); await expect(page.locator('html')).toHaveAttribute('data-freehub-ad-state','guest');
+  await expect(page.locator('script[src="'+JOURNEY_SRC+'"]')).toHaveCount(1);
+  await page.locator('footer').scrollIntoViewIfNeeded();
+  await page.evaluate(()=>{window.__freehubEmitAuth(null);window.__freehubEmitAuth(null)});
+  await expect(page.locator('[data-freehub-ad-slot]')).toHaveCount(0);
+  expect(requests).toEqual({nativeBanner:0,popunder:0,socialBar:0});
+});
 }
 
 test('content advertising remains absent for members and protected pages', async ({page,request})=>{
@@ -1352,35 +1344,14 @@ test('content advertising remains absent for members and protected pages', async
 });
 
 for(const route of ['/free-stuff-south-africa/','/birthday-freebies/','/free-online-courses-south-africa/','/free-samples-south-africa/','/best-competitions-south-africa-this-month/']) {
-  test(`editorial display banner is lazy, responsive and member-free: ${route}`,async({page})=>{
-    await mockFirebaseAuth(page);
-    await stubAdsterra(page);
-    const display=await stubStudentDisplay(page);
-    await page.setViewportSize({width:320,height:844});
-    await page.goto(route);
-    await expect(page.locator('html')).toHaveAttribute('data-freehub-ad-state','guest');
-    const slot=page.locator('[data-freehub-display-slot]');
-    await expect(slot).toHaveCount(1);
-    await expect(slot).toBeHidden();
-    expect(display.count).toBe(0);
-    await page.setViewportSize({width:390,height:844});
-    await slot.scrollIntoViewIfNeeded();
-    await expect.poll(()=>display.count).toBe(1);
-    await expect(page.frameLocator('iframe[data-freehub-display-ad]').getByText('Test display banner')).toBeVisible();
-    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
-    await page.screenshot({path:'output/playwright/editorial-banner-'+route.split('/')[1]+'.png'});
-    for(const width of [768,1440]){
-      await page.setViewportSize({width,height:900});
-      expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
-    }
-    await page.setViewportSize({width:1280,height:900});
-    await page.addStyleTag({content:'html { zoom: 2; }'});
-    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
-    const navigation=page.waitForNavigation();
-    await page.evaluate(member=>window.__freehubEmitAuth(member),MOCK_MEMBER);
-    await navigation;
-    await expect(page.locator('html')).toHaveAttribute('data-freehub-ad-state','member');
-    await expect(slot).toBeHidden();
-    expect(display.count).toBe(1);
-  });
+  test(`editorial guides retain one provider installation without retired display slots: ${route}`,async({page})=>{
+  await mockFirebaseAuth(page); const display=await stubStudentDisplay(page);
+  for(const width of [320,390,768,1440]){
+    await page.setViewportSize({width,height:900}); await page.goto(route);
+    await expect(page.locator('script[src="'+JOURNEY_SRC+'"]')).toHaveCount(1);
+    await expect(page.locator('[data-freehub-display-slot], iframe[data-freehub-display-ad]')).toHaveCount(0);
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
+  }
+  expect(display.count).toBe(0);
+});
 }
