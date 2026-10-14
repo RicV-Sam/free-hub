@@ -66,7 +66,10 @@ test("responsive card creation does not start requests for superseded originals"
   const image = page.locator('#competitionsGrid img[srcset]');
   await expect(image).toHaveCount(1);
   await image.scrollIntoViewIfNeeded();
-  await expect.poll(() => requested.some(src => src.startsWith('/assets/responsive/'))).toBe(true);
+  await expect(image).toHaveJSProperty('complete', true);
+  expect(await image.evaluate(img => img.naturalWidth)).toBeGreaterThan(0);
+  // A derivative already loaded by server-rendered cards may be reused from memory.
+  expect(await image.evaluate(img => new URL(img.currentSrc).pathname)).toMatch(/^\/assets\/responsive\//);
   expect(requested).not.toContain(source);
 });
 
