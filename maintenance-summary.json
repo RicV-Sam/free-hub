@@ -7,7 +7,7 @@
     "retiredRouteLeaks": [],
     "expiredPublishedCount": 239,
     "archivedCompetitionCount": 265,
-    "publicListingFilesScanned": 177,
+    "publicListingFilesScanned": 180,
     "sitemapContainsOutUrls": false,
     "expiredMissingFromArchive": [],
     "expiredInSitemap": [],
@@ -26,6 +26,26 @@
     "clubOnlyDetailPages": [],
     "clubOnlyInSitemap": [],
     "nonPublicDetailPages": [],
-    "nonPublicInPublicListings": []
+    "nonPublicInPublicListings": [],
+    "editorialHealth": {
+      "asOfDate": "2026-10-14",
+      "needsReview": false,
+      "surfaces": [
+        {
+          "surface": "home",
+          "eligibleCount": 3,
+          "needsReview": false,
+          "nextReviewDue": "2026-10-21",
+          "overdueIds": []
+        },
+        {
+          "surface": "monthly",
+          "eligibleCount": 3,
+          "needsReview": false,
+          "nextReviewDue": "2026-10-21",
+          "overdueIds": []
+        }
+      ]
+    }
   }
 }

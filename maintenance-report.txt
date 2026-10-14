@@ -9,7 +9,7 @@ Low-value expired noindex count: 0
 Held/private count: 106
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 21
+Closing in next 14 days: 20
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -253,7 +253,6 @@ Expired competition IDs:
 - burnt-horse-power-in-store-2026 (2026-10-13)
 
 Closing soon (next 14 days):
-- sea-harvest-say-fish-grocery-vouchers-2026 (1 days)
 - deskstand-three-winner-giveaway-2026 (1 days)
 - sunlight-dirty-dish-gagasi-2026 (2 days)
 - spar-colgate-palmolive-r150k-2026 (3 days)
