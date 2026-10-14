@@ -18,6 +18,7 @@ test("durable guides survive a real generator build with zero qualifying publish
     fs.cpSync(path.join(root, name), path.join(fixture, name), { recursive: true });
   }
   const records = JSON.parse(fs.readFileSync(path.join(fixture, "data/competitions.json")));
+  const referenceDate = process.env.FREEHUB_AS_OF_DATE || process.env.FREEHUB_BUILD_DATE || "2026-10-14";
   // Withhold every qualifying guide record in this synthetic fixture while
   // preserving unrelated campaigns and the archive's required related links.
   const slugs = ["sms-competitions-south-africa", "win-airtime-competitions-south-africa", "win-data-competitions-south-africa"];
@@ -25,9 +26,13 @@ test("durable guides survive a real generator build with zero qualifying publish
     const html = fs.readFileSync(path.join(root, slug, "index.html"), "utf8");
     return JSON.parse(html.match(/window.FreeHubVerticalCollection = (\{.*?\});/)[1]).recordIds;
   }));
-  fs.writeFileSync(path.join(fixture, "data/competitions.json"), JSON.stringify(records.map(record => qualifyingIds.has(record.id) ? { ...record, verificationStatus: "held", publicationStatus: "held", doNotPublish: true } : record)));
+  const withhold = record => qualifyingIds.has(record.id) ? { ...record, verificationStatus: "held", publicationStatus: "held", doNotPublish: true } : record;
+  fs.writeFileSync(path.join(fixture, "data/competitions.json"), JSON.stringify(records.map(withhold)));
+  // An archived copy must not republish a campaign withheld in this fixture.
+  const archivePath = path.join(fixture, "data/archive/competitions-expired.json");
+  fs.writeFileSync(archivePath, JSON.stringify(JSON.parse(fs.readFileSync(archivePath)).map(withhold)));
   const result = spawnSync(process.execPath, ["scripts/generate-pages.js"], { cwd: fixture, encoding: "utf8",
-    env: { ...process.env, FREEHUB_AS_OF_DATE: "2026-10-14", FREEHUB_BUILD_DATE: "2026-10-14", FREEHUB_ENABLE_OFFERS: "true", FREEHUB_ENABLE_OPPORTUNITIES: "true" } });
+    env: { ...process.env, FREEHUB_AS_OF_DATE: referenceDate, FREEHUB_BUILD_DATE: referenceDate, FREEHUB_ENABLE_OFFERS: "true", FREEHUB_ENABLE_OPPORTUNITIES: "true" } });
   assert.equal(result.status, 0, result.stderr);
   const sitemap = fs.readFileSync(path.join(fixture, "sitemap.xml"), "utf8");
   for (const slug of slugs) {
