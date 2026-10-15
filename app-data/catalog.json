@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-15",
-  "count": 52,
+  "count": 56,
   "counts": {
     "freeStuff": 20,
     "resources": 19,
     "opportunities": 1,
-    "offers": 32
+    "offers": 36
   },
   "items": [
     {
@@ -913,6 +913,82 @@
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "expiresAt": "2026-10-31",
       "lastChecked": "2026-10-14",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "tafelberg-bosch-pot-set-2026",
+      "kind": "deal",
+      "title": "Pot set with a qualifying Bosch oven and induction hob at Tafelberg",
+      "provider": "Tafelberg Furnishers",
+      "summary": "Buy the specified Bosch 90cm oven and 90cm induction hob together at Tafelberg by 31 October. Claim one pot set, advertised at R5,000 retail value, while gift stock lasts.",
+      "category": "electronics-appliances",
+      "categoryLabel": "Electronics & Appliances",
+      "officialUrl": "https://www.bsh-promotions.co.za/free-pot-set-tafelberg-bosch-home-appliances/",
+      "termsUrl": "https://www.bsh-promotions.co.za/wp-content/uploads/2026/09/terms-and-conditions_tfb-pot-promo-900-set.pdf",
+      "requirements": [
+        "Purchase required. South African residents must buy Bosch oven VBD554FS0 or VBC514CR0 together with Bosch induction hob PIV975DC1E from Tafelberg during 1 September–31 October 2026. Both qualifying appliances must appear on the same original store invoice. Claim through the official BSH promotion form, uploading the invoice and supplying delivery details, by 15 November 2026. One pot set per customer while stocks last; no alternative is offered if gift stock runs out. Allow 10–14 working days for gift delivery. R5,000 is the recommended retail value of the gift, not cash or a discount on the appliances. The pictured pot sizes and colours may differ. Appliance prices and any purchase delivery charges must be confirmed with Tafelberg before payment. The supplier may change the promotion or registration period."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-10-31",
+      "lastChecked": "2026-10-15",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "tafelberg-cloud-nine-rest-assured-delivery-2026",
+      "kind": "deal",
+      "title": "Up to R350 off delivery with selected Cloud Nine or Rest Assured bedsets",
+      "provider": "Tafelberg Furnishers",
+      "summary": "Purchase a bedset shown in Tafelberg’s bedding promotion by 31 October. The local-delivery benefit covers up to R350; any delivery cost above the allowance remains payable.",
+      "category": "home-garden",
+      "categoryLabel": "Home & Garden",
+      "officialUrl": "https://www.tafelberg.co.za/bedding-promotion",
+      "termsUrl": "https://www.tafelberg.co.za/terms/",
+      "requirements": [
+        "Purchase required. Applies only to selected Cloud Nine and Rest Assured bedsets in Tafelberg’s linked bedding promotion, including listed Dual-Flex, Maxx-Duo and Wimbledon variants; sizes and stock vary. The delivery allowance is capped at R350, rather than unlimited free nationwide delivery. Tafelberg confirms Greater Cape Town and Gauteng coverage, with outlying areas charged the delivery cost above the R350 allowance. Confirm the exact model, delivery address and final quote before paying. Pay in full before the 31 October 2026 promotion end date, in store or online; delivery may be scheduled later. Stock, delivery access, area and scheduling conditions in Tafelberg’s standard terms apply."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-10-31",
+      "lastChecked": "2026-10-15",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "tafelberg-defy-finish-coupon-2026",
+      "kind": "coupon",
+      "title": "Finish 45-tablet coupon with a qualifying Defy dishwasher at Tafelberg",
+      "provider": "Tafelberg Furnishers",
+      "summary": "Buy a qualifying Defy dishwasher and register its three-year extended warranty to claim a R289.99 coupon for one Finish 45-tablet pack at Checkers. Early redemption is essential.",
+      "category": "electronics-appliances",
+      "categoryLabel": "Electronics & Appliances",
+      "officialUrl": "https://www.tafelberg.co.za/limited-time-deals/finish-x-defy-dishwashers",
+      "termsUrl": "https://www.defy.co.za/defy-finish-campaign-terms-and-conditions",
+      "requirements": [
+        "Purchase and successful three-year extended-warranty registration required. Open to South African residents aged 18+ with valid ID; promoter-related parties and specified family members are excluded. Tafelberg’s checked offer lists DDW377, DDW257, DDW366, DDW242 and DDW246. Follow the official warranty QR/registration route and WhatsApp 083 336 2923 with Defy Dishwasher to claim. After verification the supplier says the R289.99 coupon is sent by WhatsApp within 48 business hours. It is single use, non-transferable, not cash, and redeemable only in store at Checkers for one Finish Ultimate Plus Lemon Sparkle or Fresh 45-tablet pack, subject to stock. The rules state a redemption deadline of 11:59 SAST on 31 October 2026, earlier than the separate purchase-period close of 23:59 that day. Buy, register and redeem well beforehand; a purchase near the end may leave insufficient time. The additional warranty covers replacement parts only; labour, call-out, transport and installation costs remain payable. Campaign data-processing and marketing-consent/opt-out terms apply."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-10-31",
+      "lastChecked": "2026-10-15",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "tafelberg-defy-appliance-delivery-2026",
+      "kind": "deal",
+      "title": "Up to R350 off delivery on Defy DDW377 or DDW366 at Tafelberg",
+      "provider": "Tafelberg Furnishers",
+      "summary": "The DDW377 and DDW366 dishwashers are visibly marked for Tafelberg’s local-delivery promotion. Pay by 1 November; the allowance covers up to R350 of the quoted delivery cost.",
+      "category": "electronics-appliances",
+      "categoryLabel": "Electronics & Appliances",
+      "officialUrl": "https://www.tafelberg.co.za/limited-time-deals/finish-x-defy-dishwashers",
+      "termsUrl": "https://www.tafelberg.co.za/terms/",
+      "requirements": [
+        "Purchase required. This listing covers only Defy DDW377 and DDW366, the two dishwashers visibly marked Free Local Delivery on the checked Tafelberg product page; it does not claim every Defy model qualifies. The selected-appliance promotion runs through 1 November 2026 while stocks last. Tafelberg confirms the delivery allowance is capped at R350 in Greater Cape Town and Gauteng; any higher or outlying-area delivery charge remains payable. Confirm the model, destination address and final delivery quote with the store before paying. Purchases can be made in store or online and must be paid before the promotion ends; delivery can be arranged later. Standard delivery access, stock and scheduling terms apply. The separate Finish coupon has its own earlier purchase, registration and redemption deadlines and is not extended to 1 November by this delivery offer."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-11-01",
+      "lastChecked": "2026-10-15",
       "isAffiliate": false,
       "isSponsored": false
     }

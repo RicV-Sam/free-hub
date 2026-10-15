@@ -1,0 +1,83 @@
+{
+  "reviewedAt": "2026-10-15",
+  "authority": "User authorised verification and publication of eligible held candidates; narrowed completion requested on 15 October.",
+  "decision": "Publish four independently described Tafelberg benefits. Keep SkinMiles held.",
+  "merchantClarification": {
+    "receivedOn": "2026-10-15",
+    "facts": [
+      "Payment before promotion end; in-store and online purchases; later delivery permitted.",
+      "Delivery allowance capped at R350; Greater Cape Town and Gauteng; excess charges payable."
+    ],
+    "privateEvidence": "Written merchant clarification retained in the private outreach record."
+  },
+  "sources": [
+    "https://www.tafelberg.co.za/current-promotions/",
+    "https://www.tafelberg.co.za/terms/",
+    "https://www.bsh-promotions.co.za/wp-content/uploads/2026/09/terms-and-conditions_tfb-pot-promo-900-set.pdf",
+    "https://www.bsh-promotions.co.za/free-pot-set-tafelberg-bosch-home-appliances/",
+    "https://www.tafelberg.co.za/limited-time-deals/finish-x-defy-dishwashers",
+    "https://www.defy.co.za/defy-finish-campaign-terms-and-conditions",
+    "https://www.tafelberg.co.za/bedding-promotion"
+  ],
+  "published": [
+    {
+      "id": "tafelberg-bosch-pot-set-2026",
+      "sourceUrl": "https://www.tafelberg.co.za/current-promotions/",
+      "termsUrl": "https://www.bsh-promotions.co.za/wp-content/uploads/2026/09/terms-and-conditions_tfb-pot-promo-900-set.pdf",
+      "canonicalPath": "/deal/tafelberg-bosch-pot-set-2026/"
+    },
+    {
+      "id": "tafelberg-cloud-nine-rest-assured-delivery-2026",
+      "sourceUrl": "https://www.tafelberg.co.za/current-promotions/",
+      "termsUrl": "https://www.tafelberg.co.za/terms/",
+      "canonicalPath": "/deal/tafelberg-cloud-nine-rest-assured-delivery-2026/"
+    },
+    {
+      "id": "tafelberg-defy-finish-coupon-2026",
+      "sourceUrl": "https://www.tafelberg.co.za/current-promotions/",
+      "termsUrl": "https://www.defy.co.za/defy-finish-campaign-terms-and-conditions",
+      "canonicalPath": "/coupon/tafelberg-defy-finish-coupon-2026/"
+    },
+    {
+      "id": "tafelberg-defy-appliance-delivery-2026",
+      "sourceUrl": "https://www.tafelberg.co.za/current-promotions/",
+      "termsUrl": "https://www.tafelberg.co.za/terms/",
+      "canonicalPath": "/deal/tafelberg-defy-appliance-delivery-2026/"
+    }
+  ],
+  "scopeNotes": [
+    "Defy delivery restricted to two models with visible eligibility tags. The broader query-based product list returned HTTP 403 and is not used as a destination or to infer other eligible models.",
+    "The supplier’s 11:59 SAST redemption time is preserved distinctly from its 23:59 purchase close.",
+    "SkinMiles remains held: exact-R750 delivery charge and regional surcharge scope await written confirmation."
+  ],
+  "artwork": [
+    {
+      "id": "tafelberg-bosch-pot-set-2026",
+      "sourcePage": "https://www.tafelberg.co.za/current-promotions/",
+      "sourceImage": "https://content.storefront7.co.za/stores/za.co.storefront7.tafelberg/pictures/639249684844926108/bosch-claim-free-pot-set-2026-cp-banner-gaea45.png?cache=always",
+      "sourceSha256": "8d6e5a3cb7ba6322c414f3ee36a49a8394b50f53cdaf80ca72e1c9e2c014168c",
+      "assetSha256": "bfa424ce158610e490a644664fa6dc95167f5a0f4e6fd5fa388e883f0e9fabd0"
+    },
+    {
+      "id": "tafelberg-cloud-nine-rest-assured-delivery-2026",
+      "sourcePage": "https://www.tafelberg.co.za/current-promotions/",
+      "sourceImage": "https://media.tafelberg.co.za/stores/za.co.storefront7.tafelberg/pictures/639264446343656558/cnra-tafelbergfurnishers-current-promo--640x427-combined-oct2026-04jfiu.png?cache=always",
+      "sourceSha256": "e3265a180208083e360704a5514c1a97ec0c055d19e268f5b5038488979cbf1b",
+      "assetSha256": "00f5e142b16dfb5c753a09026a684a5019ec246013608fe501552f92bd01f80b"
+    },
+    {
+      "id": "tafelberg-defy-finish-coupon-2026",
+      "sourcePage": "https://www.tafelberg.co.za/current-promotions/",
+      "sourceImage": "https://content.storefront7.co.za/stores/za.co.storefront7.tafelberg/pictures/639226475538556447/defy-finish-cp-banner-2026-(640x427)-dqhqym.webp?cache=always",
+      "sourceSha256": "ccdf75a118a4fb6a7914979588e3e5473a1963575fa9a9c78308d6a4fbe558ea",
+      "assetSha256": "29639df3e51924436f2803264b50116aaf4166a82de03fd29d411c344a780b7c"
+    },
+    {
+      "id": "tafelberg-defy-appliance-delivery-2026",
+      "sourcePage": "https://www.tafelberg.co.za/current-promotions/",
+      "sourceImage": "https://media.tafelberg.co.za/stores/za.co.storefront7.tafelberg/pictures/639270367213149087/current-promotions-banner-s9vkhw.jpg?cache=always",
+      "sourceSha256": "6e275b9cd1e32cfea03c4c4a3104fda7c31c4897ba3542109892998f7648d4f0",
+      "assetSha256": "121f14f551166159aba8af70312d55a0a4a6afba53b72d26cadc53d51415f359"
+    }
+  ]
+}

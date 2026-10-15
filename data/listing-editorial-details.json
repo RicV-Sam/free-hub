@@ -333,5 +333,168 @@
         "href": "/free-stuff-south-africa/"
       }
     ]
+  },
+  "tafelberg-bosch-pot-set-2026": {
+    "sections": [
+      {
+        "heading": "Buy the correct pair on one invoice",
+        "table": {
+          "caption": "Qualifying Bosch combination",
+          "headers": [
+            "Item",
+            "Required model"
+          ],
+          "rows": [
+            [
+              "90cm Serie 4 oven",
+              "VBD554FS0 or VBC514CR0"
+            ],
+            [
+              "90cm Serie 8 induction hob",
+              "PIV975DC1E"
+            ]
+          ]
+        },
+        "sources": [
+          {
+            "label": "Supplier’s full pot-set rules",
+            "href": "https://www.bsh-promotions.co.za/wp-content/uploads/2026/09/terms-and-conditions_tfb-pot-promo-900-set.pdf"
+          },
+          {
+            "label": "Official gift claim form",
+            "href": "https://www.bsh-promotions.co.za/free-pot-set-tafelberg-bosch-home-appliances/"
+          }
+        ]
+      },
+      {
+        "heading": "Keep the two deadlines separate",
+        "paragraphs": [
+          "Buy the qualifying appliances by 31 October 2026. Submit the gift claim by 15 November 2026 with the original invoice. Gift stock is limited, so confirm availability before committing to the appliance purchase."
+        ]
+      }
+    ],
+    "relatedLinks": [
+      {
+        "label": "Other Tafelberg offers",
+        "href": "/offers/brand/tafelberg-furnishers/"
+      }
+    ]
+  },
+  "tafelberg-cloud-nine-rest-assured-delivery-2026": {
+    "sections": [
+      {
+        "heading": "Check the selected bedset and delivery quote",
+        "paragraphs": [
+          "The checked promotion includes selected Cloud Nine Dual-Flex and Maxx-Duo bedsets and Rest Assured Wimbledon bedsets. Only the variants shown on the merchant’s promotion page qualify. A brand name alone is not enough.",
+          "The offer pays up to R350 towards delivery. If the store quotes R500 for your address, the amount still payable would be R150, plus the bedset purchase price."
+        ],
+        "sources": [
+          {
+            "label": "Browse the qualifying bedding promotion",
+            "href": "https://www.tafelberg.co.za/bedding-promotion"
+          },
+          {
+            "label": "Tafelberg delivery terms",
+            "href": "https://www.tafelberg.co.za/terms/"
+          }
+        ]
+      }
+    ],
+    "relatedLinks": [
+      {
+        "label": "Other Tafelberg offers",
+        "href": "/offers/brand/tafelberg-furnishers/"
+      }
+    ]
+  },
+  "tafelberg-defy-finish-coupon-2026": {
+    "sections": [
+      {
+        "heading": "Claim with Defy, then redeem at Checkers",
+        "paragraphs": [
+          "Purchase one of the qualifying dishwashers, complete the extended-warranty registration and follow the official WhatsApp claim instructions. Tafelberg currently lists DDW377, DDW257, DDW366, DDW242 and DDW246 for this benefit.",
+          "The benefit is one specified Finish 45-tablet pack, not unrestricted R289.99 store credit. Keep your proof of purchase and allow the stated 48 business hours after successful verification."
+        ],
+        "sources": [
+          {
+            "label": "Current Tafelberg product list and claim instructions",
+            "href": "https://www.tafelberg.co.za/limited-time-deals/finish-x-defy-dishwashers"
+          },
+          {
+            "label": "Defy supplier campaign rules",
+            "href": "https://www.defy.co.za/defy-finish-campaign-terms-and-conditions"
+          },
+          {
+            "label": "Official Defy warranty registration",
+            "href": "https://www.defy.co.za/Product-Warranty-Registration"
+          }
+        ]
+      },
+      {
+        "heading": "Redeem before the supplier’s stated cutoff",
+        "paragraphs": [
+          "The supplier states 11:59 SAST on 31 October 2026 for coupon redemption. The separate purchase period ends at 23:59 that day. Complete the process early enough to receive and use the coupon before its earlier deadline."
+        ]
+      }
+    ],
+    "relatedLinks": [
+      {
+        "label": "Delivery saving on two qualifying Defy models",
+        "href": "/deal/tafelberg-defy-appliance-delivery-2026/"
+      }
+    ]
+  },
+  "tafelberg-defy-appliance-delivery-2026": {
+    "sections": [
+      {
+        "heading": "Two models checked for the delivery benefit",
+        "table": {
+          "caption": "Verified Defy models marked for local delivery",
+          "headers": [
+            "Model",
+            "Official product page"
+          ],
+          "rows": [
+            [
+              "DDW377",
+              {
+                "label": "Defy CornerWash 15 Place Dishwasher",
+                "href": "https://www.tafelberg.co.za/major-appliances/dishwashers/freestanding-dishwashers/defy-cornerwash-15-place-dishwasher-ddw377"
+              }
+            ],
+            [
+              "DDW366",
+              {
+                "label": "Defy 15 Place Inox CornerWash Dishwasher",
+                "href": "https://www.tafelberg.co.za/major-appliances/dishwashers/freestanding-dishwashers/defy-15-place-inox-cornerwash-dishwasher-ddw366"
+              }
+            ]
+          ]
+        },
+        "paragraphs": [
+          "Both models carry a Free Local Delivery tag on the checked merchant page. Confirm the quote for your address: Tafelberg covers up to R350 and you pay any excess. Other Defy appliances are not covered by this FreeHub listing."
+        ],
+        "sources": [
+          {
+            "label": "Checked product page with delivery tags",
+            "href": "https://www.tafelberg.co.za/limited-time-deals/finish-x-defy-dishwashers"
+          },
+          {
+            "label": "Dated delivery promotion",
+            "href": "https://www.tafelberg.co.za/current-promotions/"
+          },
+          {
+            "label": "Delivery cost and access terms",
+            "href": "https://www.tafelberg.co.za/terms/"
+          }
+        ]
+      }
+    ],
+    "relatedLinks": [
+      {
+        "label": "Separate Finish coupon conditions",
+        "href": "/coupon/tafelberg-defy-finish-coupon-2026/"
+      }
+    ]
   }
 }

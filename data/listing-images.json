@@ -1828,5 +1828,49 @@
     "generationPrompt": "Create a polished wide 16:9 editorial illustration for FreeHub, an independent South African competition information website. Subject: a friendly adult walking along a green outdoor path, holding a smartphone with an abstract message bubble, with a discreet tabletop radio motif and a generic home internet router in the background as symbols of a radio storytelling competition and its home-internet prize. Premium textured painted and cut-paper illustration, warm cream, teal, leaf green and restrained golden yellow. No brand names or logos, no text, no currency or prize amounts, no particular router model, no medical promises, no official endorsement, no claim that a walk ticket must be bought. The person is sharing who they walk for; physical participation is not an entry requirement. Independent subject illustration, not an official advertisement.",
     "generationEditNote": "Removed recognisable Cape Town landmarks; final image uses a generic leafy public garden and rolling hills.",
     "sourceReviewNote": "Official campaign page inspected. Its image is a generic MTN SIM promotion with a different USSD route, so it is unsuitable as competition entry artwork. Editorial subject illustration used and disclosed."
+  },
+  "tafelberg-bosch-pot-set-2026": {
+    "src": "/assets/listings/tafelberg-bosch-pot-set-2026.webp",
+    "width": 640,
+    "height": 427,
+    "alt": "Bosch Claim Free Pot Set 2026 CP banner",
+    "kind": "official-source",
+    "caption": "Official Tafelberg promotion artwork. Purchase and offer-specific conditions apply.",
+    "reviewedAt": "2026-10-15",
+    "sourcePage": "https://www.tafelberg.co.za/current-promotions/",
+    "sourceImage": "https://content.storefront7.co.za/stores/za.co.storefront7.tafelberg/pictures/639249684844926108/bosch-claim-free-pot-set-2026-cp-banner-gaea45.png?cache=always"
+  },
+  "tafelberg-cloud-nine-rest-assured-delivery-2026": {
+    "src": "/assets/listings/tafelberg-cloud-nine-rest-assured-delivery-2026.webp",
+    "width": 640,
+    "height": 427,
+    "alt": "FREE local delivery on selected Cloud Nine and Rest Assured Bedsets.",
+    "kind": "official-source",
+    "caption": "Official Tafelberg promotion artwork. Purchase and offer-specific conditions apply.",
+    "reviewedAt": "2026-10-15",
+    "sourcePage": "https://www.tafelberg.co.za/current-promotions/",
+    "sourceImage": "https://media.tafelberg.co.za/stores/za.co.storefront7.tafelberg/pictures/639264446343656558/cnra-tafelbergfurnishers-current-promo--640x427-combined-oct2026-04jfiu.png?cache=always"
+  },
+  "tafelberg-defy-finish-coupon-2026": {
+    "src": "/assets/listings/tafelberg-defy-finish-coupon-2026.webp",
+    "width": 640,
+    "height": 427,
+    "alt": "Defy Finish Promotion",
+    "kind": "official-source",
+    "caption": "Official Tafelberg promotion artwork. Purchase and offer-specific conditions apply.",
+    "reviewedAt": "2026-10-15",
+    "sourcePage": "https://www.tafelberg.co.za/current-promotions/",
+    "sourceImage": "https://content.storefront7.co.za/stores/za.co.storefront7.tafelberg/pictures/639226475538556447/defy-finish-cp-banner-2026-(640x427)-dqhqym.webp?cache=always"
+  },
+  "tafelberg-defy-appliance-delivery-2026": {
+    "src": "/assets/listings/tafelberg-defy-appliance-delivery-2026.webp",
+    "width": 640,
+    "height": 427,
+    "alt": "Free local delivery on selected Defy Major Appliances",
+    "kind": "official-source",
+    "caption": "Official Tafelberg promotion artwork. Purchase and offer-specific conditions apply.",
+    "reviewedAt": "2026-10-15",
+    "sourcePage": "https://www.tafelberg.co.za/current-promotions/",
+    "sourceImage": "https://media.tafelberg.co.za/stores/za.co.storefront7.tafelberg/pictures/639270367213149087/current-promotions-banner-s9vkhw.jpg?cache=always"
   }
 }
