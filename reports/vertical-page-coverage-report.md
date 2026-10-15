@@ -61,7 +61,7 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 29
+- Matching active public competitions: 30
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -80,6 +80,7 @@ Recommended normalisation:
 | McMerwe Games: Win a R5,000 Store Voucher (mcmerwe-games-prediction-voucher-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Jockey 150 Competition: Win R15,000 (jockey-150-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Win King of the Whip tickets and a FOX clothing hamper (fox-king-of-the-whip-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
+| Cadbury Fan Club: Win R500,000 (cadbury-fan-club-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Gelmar BirthDIY tools and vouchers competition (gelmar-birthdiy-october-2026) | 2026-11-01 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | NESCAFÉ Gold Rush SPAR Rewards Competition (nescafe-gold-rush-spar-2026) | 2026-11-08 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Sunlight at SPAR: Win a R100,000 Kitchen Makeover (sunlight-spar-kitchen-makeover-2026) | 2026-11-08 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-15",
-  "count": 119,
+  "count": 120,
   "competitions": [
     {
       "id": "deskstand-three-winner-giveaway-2026",
@@ -1306,6 +1306,33 @@
       "officialUrl": "https://www.vodacom.co.za/vodacom/terms/competition/fibre-price-air-fryer",
       "termsUrl": "https://www.vodacom.co.za/vodacom/terms/competition/fibre-price-air-fryer",
       "lastChecked": "2026-10-14",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "cadbury-fan-club-2026",
+      "title": "Cadbury Fan Club: Win R500,000",
+      "brand": "Cadbury / Mondelez South Africa",
+      "summary": "Buy two participating Cadbury chocolates and enter by USSD for a chance to win R500,000. One grand-prize winner may instead choose the rugby trip for two described in Cadbury’s FAQ. Purchase and USSD charges apply.",
+      "imageUrl": "https://freehub.co.za/assets/listings/cadbury-fan-club-2026.webp",
+      "closingDate": "2026-10-31",
+      "category": "Cash",
+      "prizeName": "R500,000 cash grand prize, with an optional rugby-trip alternative",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "USSD",
+      "eligibility": "South African citizens or legal residents aged 18+, with a valid South African ID, resident/work permit or driving licence, present in South Africa during the promotion, draws and prize fulfilment. Use your own prepaid mobile number, RICA-registered in your name. Promoter-related people and specified family/associates are excluded. Previous-winner, household and nearby-address restrictions apply; check the full rules.",
+      "entrySteps": [
+        "Read the official rules, FAQ and dated clarification below before buying. This is the Fan Club / Repertoire Drive competition, separate from Cadbury Made to Share.",
+        "Buy any two participating Cadbury chocolates. Lunch Bar sizes clarified to FreeHub include 18g, 21g, 23g, 44g and 48g; Lunch Bar MAX is excluded. Use the qualifying-product table below for the other products and specific 80g slab variants. Products and packs are subject to store availability.",
+        "Keep the wrappers with their unique codes and the till slip. The rules allow a replacement code if no code is found in a participating wrapper and you can produce the qualifying purchase receipt. Contact the promoter through its official channels if needed.",
+        "Dial *120*101112# from your own prepaid mobile number, RICA-registered in your name. Follow the text prompts and enter the requested unique code before the session times out. A session times out after 120 seconds.",
+        "Complete the entry before midnight at the end of 31 October 2026. Each further entry must comply with the qualifying-purchase and entry steps. Keep your phone available for winner-verification calls."
+      ],
+      "officialUrl": "https://www.cadbury.co.za/cadbury-fan-club-2026",
+      "termsUrl": "https://www.cadbury.co.za/terms/cadbury-fan-club-2026-terms-and-conditions",
+      "lastChecked": "2026-10-15",
       "isHighValue": false,
       "isClosingSoon": false
     },

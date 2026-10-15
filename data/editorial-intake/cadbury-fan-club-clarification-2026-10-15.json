@@ -1,0 +1,27 @@
+{
+  "id": "cadbury-fan-club-2026",
+  "reviewedAt": "2026-10-15",
+  "decision": "publish-with-visible-source-clarification",
+  "authority": "User instructed final checks and publication, then confirmed one grand-prize winner on 2 November and the cash-or-trip choice with cash as the focus.",
+  "sources": [
+    "https://www.cadbury.co.za/cadbury-fan-club-2026",
+    "https://www.cadbury.co.za/terms/cadbury-fan-club-2026-faq",
+    "https://www.cadbury.co.za/terms/cadbury-fan-club-2026-terms-and-conditions"
+  ],
+  "writtenClarification": {
+    "date": "2026-10-15",
+    "by": "Mpho at ColonyHQ",
+    "scope": "Participating products; all Lunch Bar sizes except MAX; older and newer pack sizes coexist",
+    "privateEvidence": "Original emails retained privately; no email address, private mail link, raw correspondence or message identifier published"
+  },
+  "publicSourceDifferences": [
+    "FAQ gives one grand-prize winner on 2 November with a cash-or-trip choice; long-form terms use a different monthly draw schedule and cash-only wording. Visible source note follows the FAQ, as the user explicitly confirmed."
+  ],
+  "duplicateCheck": "Cadbury Made to Share exists but is a separate campaign; no matching Fan Club/Repertoire Drive listing found across FreeHub data JSON record families.",
+  "noEntryPerformed": true,
+  "artwork": {
+    "sourceImage": "https://www.cadbury.co.za/sites/default/files/2026-09/desktop-banner.png",
+    "sourceSha256": "f0e668eebe8c5f4a7bac86a676a01bfc41e8e053fbea5b9d3bc23e37acc5a0dc",
+    "assetSha256": "353c05a50e88e4daeab96789bceb292c0515b18111fdf5a952a2f826227b2108"
+  }
+}

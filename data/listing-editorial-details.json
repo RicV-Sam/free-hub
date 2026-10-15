@@ -580,5 +580,101 @@
         "href": "/app-competitions-south-africa/"
       }
     ]
+  },
+  "cadbury-fan-club-2026": {
+    "sections": [
+      {
+        "heading": "Qualifying chocolates and Mpho’s pack-size clarification",
+        "paragraphs": [
+          "Mpho at ColonyHQ confirmed the qualifying-product list to FreeHub by email on 15 October 2026, then clarified that the website’s 21g Lunch Bar reference is also correct. Newer 44g and 18g packs and older 48g, 23g and 21g packs can coexist in stores. All Lunch Bar sizes qualify except Lunch Bar MAX. Lunch Bar Dream 44g and 48g were also explicitly included in the written product list.",
+          "This is a summary of written campaign-support clarification retained privately by FreeHub. The email is not a replacement public terms document. It explains the pack-size differences between the FAQ and full rules; it does not make every Cadbury product or every 80g Dairy Milk slab eligible."
+        ],
+        "table": {
+          "caption": "Participating products checked against public sources and written clarification",
+          "headers": [
+            "Product",
+            "Qualifying sizes or variants"
+          ],
+          "rows": [
+            [
+              "Lunch Bar",
+              "All sizes except Lunch Bar MAX; the clarification specifically discusses 18g, 21g, 23g, 44g and 48g"
+            ],
+            [
+              "Lunch Bar Dream",
+              "44g and 48g"
+            ],
+            [
+              "P.S. Milk Chocolate / P.S. Caramilk bars",
+              "48g"
+            ],
+            [
+              "P.S. Caramilk mini bar",
+              "19g"
+            ],
+            [
+              "5 Star bar",
+              "48.5g"
+            ],
+            [
+              "Crunchie bar",
+              "40g"
+            ],
+            [
+              "Dairy Milk slabs",
+              "80g Crunchie, 5 Star, Astros and P.S. Caramilk only"
+            ]
+          ]
+        },
+        "sources": [
+          {
+            "label": "Cadbury’s official Fan Club FAQ",
+            "href": "https://www.cadbury.co.za/terms/cadbury-fan-club-2026-faq"
+          },
+          {
+            "label": "Cadbury’s full Fan Club terms",
+            "href": "https://www.cadbury.co.za/terms/cadbury-fan-club-2026-terms-and-conditions"
+          }
+        ]
+      },
+      {
+        "heading": "R500,000 cash focus, one grand-prize winner",
+        "paragraphs": [
+          "The official FAQ describes one grand-prize winner, drawn on 2 November 2026, who may choose R500,000 cash or an international trip for the winner and a partner to watch the Boks. FreeHub leads with the cash option. The trip is an alternative, not an additional prize awarded alongside the cash.",
+          "Source difference: clause 5.2 of the long-form terms specifies one R500,000 cash winner, while clause 6.1 lists monthly grand-prize draws ending on 1 November. The FAQ instead gives the cash-or-trip choice and a single 2 November grand draw. This listing follows the official FAQ for those points; Mpho’s written clarification is specifically the source for the pack sizes. Both public documents are linked so entrants can check the wording.",
+          "The FAQ describes flights, transfers, accommodation, activities and rugby tickets for the trip alternative, but gives no destination, travel dates or detailed itinerary. Confirm the travel arrangements and any applicable additional conditions with the promoter before choosing that option."
+        ],
+        "sources": [
+          {
+            "label": "Official FAQ: grand prize and 2 November draw",
+            "href": "https://www.cadbury.co.za/terms/cadbury-fan-club-2026-faq"
+          },
+          {
+            "label": "Full terms: prize, entry and verification conditions",
+            "href": "https://www.cadbury.co.za/terms/cadbury-fan-club-2026-terms-and-conditions"
+          }
+        ]
+      },
+      {
+        "heading": "Purchase, USSD and winner-verification conditions",
+        "paragraphs": [
+          "Buy two participating chocolates for each qualifying entry. Keep the receipt and wrappers: the rules describe replacement codes against a qualifying till slip and allow wrapper checks if code ownership is disputed. Use only your own RICA-registered prepaid number. USSD costs 20c per 20 seconds, free minutes do not apply, and an incomplete session may still be billed.",
+          "The rules limit prizes to one per household and include six-month prior-winner restrictions extending to specified relatives, friends or acquaintances at the same address/property or within the stated 2km radius. A previous Cadbury grand-prize win within six months before the promotion ends also affects grand-prize eligibility. Read clauses 4.2–4.4 carefully.",
+          "Cash winners need a bank account and proof of that account for EFT. Finalists must provide the requested identity, residential-address and verification documents. Keep your entry phone number current and respond promptly to the promoter’s calls. Participation includes processing of entry information and marketing messages, with the opt-out provisions described in the rules."
+        ],
+        "sources": [
+          {
+            "label": "Read all entry, cost and winner conditions",
+            "href": "https://www.cadbury.co.za/terms/cadbury-fan-club-2026-terms-and-conditions"
+          }
+        ]
+      }
+    ],
+    "relatedLinks": [
+      {
+        "label": "More competitions",
+        "href": "/competitions/"
+      }
+    ]
   }
 }

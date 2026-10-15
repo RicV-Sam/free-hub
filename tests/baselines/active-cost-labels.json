@@ -1,9 +1,9 @@
 {
   "version": 1,
   "buildDate": "2026-09-06",
-  "activeCount": 183,
+  "activeCount": 184,
   "labelCounts": {
-    "Purchase required": 84,
+    "Purchase required": 85,
     "Account required": 13,
     "Free entry": 77,
     "Paid entry": 3,
@@ -12,5 +12,5 @@
     "Fundraising required": 1,
     "App required": 1
   },
-  "sha256": "66d7a1d632acb8f544741bf76a15d5ef6e2b27471b334722bdf0049ddc275e67"
+  "sha256": "3f28766eda7fc592214f82ad0cc4b0111b99c19f176eb87a7ae130ece1c1e537"
 }

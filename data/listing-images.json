@@ -1883,5 +1883,16 @@
     "reviewedAt": "2026-10-15",
     "sourcePage": "https://doctalk.co.za/competition/",
     "sourceImage": "https://doctalk.co.za/wp-content/uploads/2026/07/suzuki-s-presso-car-scaled.webp"
+  },
+  "cadbury-fan-club-2026": {
+    "src": "/assets/listings/cadbury-fan-club-2026.webp",
+    "width": 1600,
+    "height": 593,
+    "alt": "Official Cadbury Fan Club artwork advertising a chance to win half a million rand, with participating chocolates",
+    "kind": "official-source",
+    "caption": "Official Cadbury Fan Club campaign artwork. Buy two qualifying chocolates; USSD costs 20c per 20 seconds. Terms apply.",
+    "reviewedAt": "2026-10-15",
+    "sourcePage": "https://www.cadbury.co.za/terms/cadbury-fan-club-2026-terms-and-conditions",
+    "sourceImage": "https://www.cadbury.co.za/sites/default/files/2026-09/desktop-banner.png"
   }
 }
