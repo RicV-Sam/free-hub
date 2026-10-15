@@ -1,0 +1,38 @@
+{
+  "reviewedAt": "2026-10-15",
+  "id": "doctalk-suzuki-s-presso-2027",
+  "decision": "published_with_visible_promoter_email_clarification",
+  "authority": "User explicitly instructed publication using the promoter email as a reference on 15 October 2026.",
+  "officialSource": "https://doctalk.co.za/competition/",
+  "writtenClarificationDate": "2026-10-15",
+  "confirmedByEmail": [
+    "Current closing and draw dates",
+    "No paid consultation, subscription or purchase required",
+    "New and existing users may enter after explicit in-app competition confirmation",
+    "Up to 50 additional referral tickets",
+    "Freehub source tracking is optional",
+    "Virtual draw based in Benoni"
+  ],
+  "publicSourceDifferences": [
+    "Public rules still describe new registrations and one entry per person. Both differences are disclosed visibly alongside the dated email clarification.",
+    "The draw section retains a location/platform placeholder; the email confirms virtual and Benoni, without a viewing URL.",
+    "Opening dates differ between terms and footer; no opening date is asserted in the listing."
+  ],
+  "privateEvidence": "Written promoter reply retained privately; email address, mail identifiers and raw correspondence excluded from this public record.",
+  "storeChecks": [
+    {
+      "url": "https://play.google.com/store/apps/details?id=com.doctalkza.app",
+      "title": "DocTalk ZA - Apps on Google Play"
+    },
+    {
+      "url": "https://apps.apple.com/za/app/doctalk-za/id6761406144",
+      "title": "DocTalk ZA App - App Store"
+    }
+  ],
+  "registrationOrEntryPerformed": false,
+  "artwork": {
+    "sourceImage": "https://doctalk.co.za/wp-content/uploads/2026/07/suzuki-s-presso-car-scaled.webp",
+    "sourceSha256": "1bcf675586b70fd623b689f9a6ad4154fac2795655117b7a7accd0a2dc075fee",
+    "assetSha256": "0350c2950c42d55fb317cde88e32bcdcb7ed23621017ffbb7313d671ab0f94be"
+  }
+}

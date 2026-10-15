@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-15",
-  "count": 118,
+  "count": 119,
   "competitions": [
     {
       "id": "deskstand-three-winner-giveaway-2026",
@@ -2829,6 +2829,33 @@
       "termsUrl": "https://www.worldphoto.org/sony-world-photography-awards/single-image",
       "lastChecked": "2026-10-06",
       "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "doctalk-suzuki-s-presso-2027",
+      "title": "DocTalk: Win a 2026 Suzuki S-Presso",
+      "brand": "DocTalk",
+      "summary": "Win a 2026 Suzuki S-Presso through DocTalk’s app competition. No purchase is required; app entry confirmation is essential. Includes the promoter’s dated email clarification.",
+      "imageUrl": "https://freehub.co.za/assets/listings/doctalk-suzuki-s-presso-2027.webp",
+      "closingDate": "2027-01-15",
+      "category": "Cars",
+      "prizeName": "One 2026 Suzuki S-Presso 1.0",
+      "entryCostType": "app_required",
+      "entryCostLabel": "App required",
+      "purchaseRequired": false,
+      "entryMethod": "App",
+      "eligibility": "South African citizens or permanent residents aged 18+ at entry, with a valid South African ID or permanent residence permit. DocTalk confirmed by email on 15 October 2026 that both new and existing users are eligible. Promoter-related parties, specified relatives and people administering the competition are excluded.",
+      "entrySteps": [
+        "Read the official competition rules and the dated promoter clarification on this page. The public entry wording has not yet been aligned with that clarification.",
+        "Download the official DocTalk ZA app using the Google Play or Apple App Store links on the campaign page. New users register; existing users sign in. Complete the account details requested by DocTalk.",
+        "Open the competition in the app and explicitly confirm your entry to receive your entry ticket. An account registration on its own does not complete the confirmed competition-entry step.",
+        "Optionally share your unique referral code with friends or family. DocTalk says you can earn up to 50 additional tickets when those people download and register using that code. Referrals are not required for the initial entry.",
+        "Check that the app records your competition entry before the closing time. If it does not, contact DocTalk through its official competition page."
+      ],
+      "officialUrl": "https://doctalk.co.za/competition/",
+      "termsUrl": "https://doctalk.co.za/competition/",
+      "lastChecked": "2026-10-15",
+      "isHighValue": false,
       "isClosingSoon": false
     },
     {

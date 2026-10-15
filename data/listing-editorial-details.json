@@ -496,5 +496,89 @@
         "href": "/coupon/tafelberg-defy-finish-coupon-2026/"
       }
     ]
+  },
+  "doctalk-suzuki-s-presso-2027": {
+    "sections": [
+      {
+        "heading": "Promoter clarification received on 15 October 2026",
+        "paragraphs": [
+          "DocTalk confirmed the following details directly to FreeHub by email. This is a summary of the promoter’s written clarification; the private correspondence is retained by FreeHub and is not a public terms document.",
+          "There is a difference between that clarification and the public rules currently linked below. The public rules describe first-time registration and one entry per person. DocTalk’s email confirms that existing users may also enter, that an explicit competition confirmation in the app is required, and that up to 50 additional referral tickets can be earned. For existing-user eligibility and referral tickets, this listing follows that written clarification rather than the unchanged public wording. Check your entry status in the app and contact DocTalk if it does not reflect the clarified process."
+        ],
+        "table": {
+          "caption": "What DocTalk confirmed in writing",
+          "headers": [
+            "Point",
+            "Promoter confirmation"
+          ],
+          "rows": [
+            [
+              "Entry cost",
+              "No paid consultation, subscription or purchase required"
+            ],
+            [
+              "Who can enter",
+              "Both new and existing users, subject to the age, residency and other eligibility rules"
+            ],
+            [
+              "Initial entry",
+              "Confirm competition entry in the app to receive an entry ticket"
+            ],
+            [
+              "Optional referrals",
+              "Up to 50 additional tickets for friends or family who download and register with your unique referral code"
+            ],
+            [
+              "Closing time",
+              "15 January 2027 at 23:59 SAST"
+            ],
+            [
+              "Draw",
+              "22 January 2027; virtual and based in Benoni"
+            ]
+          ]
+        },
+        "sources": [
+          {
+            "label": "Read DocTalk’s public competition rules",
+            "href": "https://doctalk.co.za/competition/"
+          }
+        ]
+      },
+      {
+        "heading": "Use the official app and keep entry separate from healthcare purchases",
+        "paragraphs": [
+          "The competition requires the DocTalk ZA app and an account. A consultation, subscription or purchase is not required for entry. The app-store age ratings do not replace the competition’s minimum entry age of 18.",
+          "These store links are for DocTalk ZA. DocTalk handles registration, referrals and entry validation directly."
+        ],
+        "sources": [
+          {
+            "label": "DocTalk ZA on Google Play",
+            "href": "https://play.google.com/store/apps/details?id=com.doctalkza.app"
+          },
+          {
+            "label": "DocTalk ZA on the South African Apple App Store",
+            "href": "https://apps.apple.com/za/app/doctalk-za/id6761406144"
+          }
+        ]
+      },
+      {
+        "heading": "Plan for the winner’s costs and handover",
+        "paragraphs": [
+          "The winner must attend the vehicle handover in Benoni. Insurance, licensing and annual registration, fuel, optional extras and delivery elsewhere are excluded. Read the rules for the full exclusions and any applicable tax responsibility.",
+          "The rules require the winner to respond within the stated notification periods. Keep your DocTalk contact details current and read the official acceptance and transfer requirements."
+        ]
+      }
+    ],
+    "relatedLinks": [
+      {
+        "label": "More car competitions",
+        "href": "/win-a-car/"
+      },
+      {
+        "label": "How app competition entry works",
+        "href": "/app-competitions-south-africa/"
+      }
+    ]
   }
 }

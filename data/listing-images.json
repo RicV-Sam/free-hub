@@ -1872,5 +1872,16 @@
     "reviewedAt": "2026-10-15",
     "sourcePage": "https://www.tafelberg.co.za/current-promotions/",
     "sourceImage": "https://media.tafelberg.co.za/stores/za.co.storefront7.tafelberg/pictures/639270367213149087/current-promotions-banner-s9vkhw.jpg?cache=always"
+  },
+  "doctalk-suzuki-s-presso-2027": {
+    "src": "/assets/listings/doctalk-suzuki-s-presso-2027.webp",
+    "width": 1400,
+    "height": 924,
+    "alt": "Official DocTalk campaign image of a Suzuki S-Presso",
+    "kind": "official-source",
+    "caption": "Official DocTalk campaign artwork. Vehicle colour and final specification are subject to the promoter’s rules.",
+    "reviewedAt": "2026-10-15",
+    "sourcePage": "https://doctalk.co.za/competition/",
+    "sourceImage": "https://doctalk.co.za/wp-content/uploads/2026/07/suzuki-s-presso-car-scaled.webp"
   }
 }

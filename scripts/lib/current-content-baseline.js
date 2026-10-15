@@ -57,8 +57,9 @@ function getCurrentContentBaseline() {
     // Brand, tag and competition-video routes now vary with source inventory;
     // The verified 14 October sweep adds eight competition detail pages, including the resolved MTN hold.
     // Their exit routes are already counted by active.length; offer routes use their own baseline.
-    // 454 excludes variable brand, tag and competition-video routes from this fixed component.
-    generatedFileCount: 454 + shared.TAG_SLUGS.filter(slug => shared.getTagFilteredCompetitions(active, slug).length > 0).length + featuredVideoSlugs(active).size + shared.getGeneratedBrandPageDefinitions(core).length + getReviewedGuides(buildDate).length - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    // 15 October: DocTalk adds one reviewed competition detail page; its exit is counted by active.length.
+    // 455 excludes variable brand, tag and competition-video routes from this fixed component.
+    generatedFileCount: 455 + shared.TAG_SLUGS.filter(slug => shared.getTagFilteredCompetitions(active, slug).length > 0).length + featuredVideoSlugs(active).size + shared.getGeneratedBrandPageDefinitions(core).length + getReviewedGuides(buildDate).length - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
     sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + getReviewedGuides(buildDate).filter(page => !page.noindex).length + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length + (read('data/airtime-dash.json').enabled ? 1 : 0),
   };
 }
