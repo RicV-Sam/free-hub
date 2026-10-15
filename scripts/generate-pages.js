@@ -370,14 +370,35 @@ const TRUST_PAGE_DEFINITIONS = [
   {
     slug: "privacy-policy",
     adsAllowed: false,
-    dateModified: "2026-10-14",
+    dateModified: "2026-10-15",
     title: "Privacy Policy | Freehub",
     description:
-      "Read Freehub's privacy policy, including optional accounts, saved competitions, alerts, analytics, outbound links and competition entry responsibility.",
+      "Read how Freehub's website and Android app handle local preferences, public feed requests, optional accounts, analytics and official provider links.",
     heading: "Privacy Policy",
     intro:
-      "This privacy policy explains how Freehub handles basic site usage information and optional account features. Freehub is a listing site and does not collect competition entries for promoters.",
+      "This privacy policy covers the Freehub website and the Freehub Android app (co.za.freehub.app). The Android app is described separately below because its features differ from the website. Freehub does not collect competition entries for promoters.",
     sections: [
+      {
+        heading: "Freehub Android app",
+        paragraphs: [
+          "The Android app reads public competition, free-resource and deal listings from Freehub. It does not require a Freehub account, collect competition entries, take payments or receive your financial account details. Search terms and feed preferences are processed on your device rather than sent with the public feed requests.",
+          "The app stores feed preferences and cached public listing data in app storage. You can reset those copies through Android's app-storage controls. Any device backup or restore settings are managed by Android separately.",
+          "The Android app contains no advertising SDK or remote analytics SDK and does not embed the Freehub website. The website advertising, optional sign-in and referral features described elsewhere in this policy are not included in this Android version.",
+          "Official entry, provider, privacy and contact links open outside the app. If you continue to a website, create a provider account, enter a promotion, buy a product or contact Freehub, the destination's own privacy practices apply. Freehub receives a message only if you choose to send it.",
+        ],
+      },
+      {
+        heading: "Android app network requests and hosting",
+        paragraphs: [
+          "To load public feeds and listing images, the app makes HTTPS requests. Freehub content is served through GitHub Pages and Cloudflare. These hosting services receive connection information such as your IP address, requested file, request time and technical request information to deliver and protect the service.",
+          "This hosting and network processing is separate from advertising or a user profile in the app. Provider retention and privacy practices are described in the linked policies; this notice does not promise a fixed deletion period for their network or security records.",
+          "For privacy questions, or to request access to or deletion of information you have sent to Freehub, contact hello@freehub.co.za. Do not send passwords, identity documents, banking details or competition entries with your request.",
+        ],
+        sources: [
+          { label: "GitHub privacy statement", href: "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" },
+          { label: "Cloudflare privacy policy", href: "https://www.cloudflare.com/privacypolicy/" },
+        ],
+      },
       {
         heading: "Information Freehub may process",
         paragraphs: [
