@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-14",
+  "asOfDate": "2026-10-15",
   "count": 118,
   "competitions": [
     {
@@ -465,7 +465,7 @@
       "termsUrl": "https://woobox.com/v5nvs4/rules",
       "lastChecked": "2026-10-03",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "icaw-poster-contest-2027",
@@ -490,7 +490,7 @@
       "termsUrl": "https://compostfoundation.org/icaw-poster-contest-rules/",
       "lastChecked": "2026-10-06",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "telkom-radio-awards-my-station-2026",
