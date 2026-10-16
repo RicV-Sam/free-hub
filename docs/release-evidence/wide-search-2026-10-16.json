@@ -1,0 +1,497 @@
+{
+  "releaseDate": "2026-10-16",
+  "reviewBase": "a41382a30ecf34ec4a00ad589e7d867d2dfed0b6",
+  "scope": {
+    "competitions": 1,
+    "offers": 5,
+    "resources": 8,
+    "total": 14,
+    "heldLeadsPublished": 0
+  },
+  "sourceReview": {
+    "date": "2026-10-16",
+    "policy": "Current official campaign, provider and municipal conditions reviewed. No third-party lead is treated as primary evidence.",
+    "joburgCorrection": "Excluded the draft 2025/26 tariff proposal and forward-year figures. Published only the current official joining page claims and branch/current-fee checks.",
+    "manualAccess": [
+      "OpenLearn official catalogue: automated HTTP 403; exact official catalogue and FAQ read through research reader.",
+      "Durban exact official municipal page: checker HTTPS fetch fails; fresh HTTP 200 source captured and independently read."
+    ]
+  },
+  "artwork": {
+    "official": 10,
+    "editorialGenerated": 4,
+    "registry": "data/listing-images.json",
+    "generatedProvenance": "Prompts and source-review notes retained in registry; illustrations visibly labelled."
+  },
+  "validation": {
+    "fullTestSuite": {
+      "passed": true,
+      "seoChecks": 4332,
+      "lifecyclePassed": 162,
+      "airtimeDashPassed": 30,
+      "airtimeDashExistingSkipped": 1
+    },
+    "maintenance": {
+      "passed": true
+    },
+    "localManifest": {
+      "passed": true,
+      "items": 14,
+      "visibleFacts": 92
+    },
+    "browser": {
+      "checkedAt": "2026-10-16T09:25:27.461Z",
+      "allPassed": true,
+      "renderedChecks": 28,
+      "widths": [
+        1440,
+        390
+      ],
+      "overflowStressWidths": [
+        320,
+        768
+      ],
+      "runtimePageErrors": 0,
+      "notes": [
+        "All fourteen local rendered assets decoded with matching alt text.",
+        "No horizontal overflow in the 28 listing checks or six narrow/tablet stress checks.",
+        "Active Camp entry CTA visible.",
+        "Third-party requests intentionally blocked during layout QA; optional local firebase-config.json is absent.",
+        "All 28 listing screenshots and 28 image screenshots inspected by root via contact sheets."
+      ],
+      "screenshotCount": 56
+    },
+    "independentReview": {
+      "actionableFindings": 0,
+      "focusedTestsPassed": 43
+    },
+    "performance": {
+      "hardFailures": 0,
+      "thresholdsUnchanged": true,
+      "freeStuffBytes": 109364
+    },
+    "linkReview": {
+      "activeHardFailures": 0,
+      "scopedReviewedAccessWarnings": [
+        "OpenLearn catalogue HTTP403",
+        "Durban municipal page fetch failure"
+      ],
+      "historicalOnlyWarningVariants": {
+        "recordId": "penguin-random-house-penguin-post-43-book-hampers-2026",
+        "fields": [
+          "url",
+          "termsUrl"
+        ],
+        "reason": "expired_archive_500",
+        "review": "Both exact archived sources produced transient HTTP500 during lint. Independent retry returned entry404 and terms200. Competition closed31August2026 and remains archived/noindex, absent from active feeds, sitemap and own exit routes. Accepted only these exact historical warning variants."
+      }
+    }
+  },
+  "items": [
+    {
+      "id": "prh-camp-half-blood-2026",
+      "kind": "competition",
+      "path": "/competition/prh-camp-half-blood-2026/",
+      "visibleFacts": [
+        "South African residents aged 18 or older",
+        "23:59 SAST on 4 December 2026",
+        "Each of two winners receives",
+        "three magnets",
+        "No purchase or newsletter subscription is required.",
+        "one entry per person",
+        "entries through agents or third parties are invalid.",
+        "within 30 working days after closing",
+        "Winners may decline publicity."
+      ],
+      "image": {
+        "src": "/assets/listings/prh-camp-half-blood-2026.webp",
+        "width": 1240,
+        "height": 350,
+        "alt": "Official Camp Half-Blood hamper artwork showing The Wild Zone book, tote bag, cap, three magnets, patch, T-shirt, Book Cozi and blanket",
+        "kind": "official-source",
+        "caption": "Official Penguin Random House Camp Half-Blood campaign artwork. Two hamper prizes; free entry for SA residents aged 18+. The prize is the stated book and merchandise.",
+        "reviewedAt": "2026-10-16",
+        "sourcePage": "https://www.penguinrandomhouse.co.za/competitions/win-camp-half-blood-competition/",
+        "sourceImage": "https://www.penguinrandomhouse.co.za/wp-content/uploads/Camp-half-Blood-comp-PRH-banner-1240x350-1.jpg",
+        "sha256": "6597ebb6f5a4f8bbef2f68b2447c0ab90fa490d29339a82dee47a7c253bb4621"
+      },
+      "officialSource": "https://www.penguinrandomhouse.co.za/competitions/win-camp-half-blood-competition/",
+      "termsUrl": "https://www.penguinrandomhouse.co.za/tos/tscs-win-camp-half-blood-competition/",
+      "exitPath": "/out/prh-camp-half-blood-2026/",
+      "destination": "https://www.penguinrandomhouse.co.za/competitions/win-camp-half-blood-competition/"
+    },
+    {
+      "id": "panarottis-rewards-additional-benefits",
+      "kind": "offer",
+      "path": "/deal/panarottis-rewards-additional-benefits/",
+      "visibleFacts": [
+        "Ages 0–12",
+        "Child and a dining adult must attend",
+        "Adult dining costs remain payable",
+        "Redemption needs at least R150 spend",
+        "Buy ten qualifying hot beverages",
+        "App/profile registration and transaction OTP required.",
+        "Adult account holders must be at least 18",
+        "single-use and expires after 15 minutes",
+        "Kids membership ends automatically at 13."
+      ],
+      "image": {
+        "src": "/assets/listings/panarottis-rewards-additional-benefits.webp",
+        "width": 1200,
+        "height": 735,
+        "reviewedAt": "2026-10-16",
+        "kind": "official-source",
+        "sourcePage": "https://www.panarottis.com/za/loyalty",
+        "alt": "An adult and child enjoying food at Panarottis, from the official Rewards page",
+        "sourceImage": "https://www.panarottis.com/_ipx/w_3072&f_jpeg&q_75/img/loyalty/rewards.jpg",
+        "caption": "Official Panarottis Rewards photograph. Each voucher has its own purchase conditions.",
+        "sha256": "6ae32774c1d0ac8cfea0af70dea9249dbc57cdeb82eb823a5d80ad7bdffa29c8"
+      },
+      "officialSource": "https://www.panarottis.com/za/loyalty",
+      "termsUrl": "https://cms.panarottis.com/uploads/Panarottis_Loyalty_App_Terms_and_Conditions_Update_Aug_2026_972cec5c89.pdf",
+      "exitPath": "/out/deal/panarottis-rewards-additional-benefits/",
+      "destination": "https://www.panarottis.com/za/loyalty"
+    },
+    {
+      "id": "intercape-five-percent-loyalty-points",
+      "kind": "offer",
+      "path": "/deal/intercape-five-percent-loyalty-points/",
+      "visibleFacts": [
+        "5% of qualifying ticket value",
+        "purchaser rather than passenger",
+        "24 hours after scheduled departure",
+        "expire 12 months later",
+        "whole points only",
+        "Fully points-paid tickets earn no points.",
+        "Paid travel and loyalty account required"
+      ],
+      "image": {
+        "src": "/assets/listings/intercape-five-percent-loyalty-points.webp",
+        "width": 1200,
+        "height": 675,
+        "reviewedAt": "2026-10-16",
+        "kind": "editorial-generated",
+        "sourcePage": "https://www.intercape.co.za/loyalty-discounts/",
+        "alt": "FreeHub editorial illustration of an unbranded coach and symbolic ticket rewards",
+        "caption": "FreeHub editorial illustration; symbolic subject image, not official provider artwork or the actual location/interior.",
+        "generationMethod": "Built-in image generation",
+        "generationPrompt": "Create a polished wide 16:9 editorial illustration for FreeHub, an independent South African consumer information website. Subject: a generic unbranded modern long-distance coach beside a South African rural road, with subtle abstract ticket and loyalty-point symbols nearby. Paid travel and future-ticket loyalty rewards are the topic. Painterly editorial style, clean composition, warm daylight, navy, cream, muted green and coral. No brand logos, no Intercape wordmark, no money amounts, no percentages, no text, no particular coach model, no promised free trip, no official endorsement. The scene is symbolic and must not look like official provider advertising.",
+        "sourceReviewNote": "Official loyalty hero discovered on the provider page at https://www.intercape.co.za/wp-content/uploads/2025/08/IC_Loyalty_Program_Phase_3_Right_Desktop.webp returned HTTP 403 when obtaining the asset.",
+        "sha256": "d274044f922ec20ac622507f9401ddcbab09e27e0b86ea6247e1b6f349362386"
+      },
+      "officialSource": "https://www.intercape.co.za/loyalty-discounts/",
+      "termsUrl": "https://www.intercape.co.za/loyalty-terms-and-conditions/",
+      "exitPath": "/out/deal/intercape-five-percent-loyalty-points/",
+      "destination": "https://www.intercape.co.za/book-bus-tickets-now/?loyalty=login"
+    },
+    {
+      "id": "vida-app-five-percent-loyalty",
+      "kind": "offer",
+      "path": "/deal/vida-app-five-percent-loyalty/",
+      "visibleFacts": [
+        "5% back on app-recorded transactions",
+        "three-year expiry",
+        "under-18s need guardian consent/supervision",
+        "linking a card is not necessary for that route",
+        "order-ahead requires linked-card payment",
+        "Paid purchases and internet-enabled app required.",
+        "normal product/banking/data costs remain."
+      ],
+      "image": {
+        "src": "/assets/listings/vida-app-five-percent-loyalty.webp",
+        "width": 854,
+        "height": 547,
+        "reviewedAt": "2026-10-16",
+        "kind": "official-source",
+        "sourcePage": "https://vidaecaffe.com/rewards/app/",
+        "alt": "Official vida app artwork showing loyalty-balance and order screens",
+        "sourceImage": "https://vidaecaffe.com/wp-content/uploads/2023/11/App-website-v7.png",
+        "caption": "Official vida app artwork. The displayed balance is an example, not a sign-up reward.",
+        "sha256": "7701ad6a91651bfefb27e9a58c16ee1224762dea169566690b8273b99b7f71f3"
+      },
+      "officialSource": "https://vidaecaffe.com/rewards/app/",
+      "termsUrl": "https://vidaecaffe.com/wp-content/uploads/2020/07/vida-app-Terms-and-Conditions.pdf",
+      "exitPath": "/out/deal/vida-app-five-percent-loyalty/",
+      "destination": "https://vidaecaffe.com/rewards/app/"
+    },
+    {
+      "id": "greyhound-capitec-pay-five-percent",
+      "kind": "offer",
+      "path": "/deal/greyhound-capitec-pay-five-percent/",
+      "visibleFacts": [
+        "on a mobile device",
+        "excludes payment by Capitec bank card",
+        "cannot be added afterwards",
+        "qualifying Capitec account/payment approval required",
+        "No coupon code.",
+        "Banking/data costs remain separate"
+      ],
+      "image": {
+        "src": "/assets/listings/greyhound-capitec-pay-five-percent.webp",
+        "width": 1000,
+        "height": 667,
+        "reviewedAt": "2026-10-16",
+        "kind": "official-source",
+        "sourcePage": "https://greyhound.co.za/",
+        "alt": "Greyhound coaches pictured on the provider official website",
+        "sourceImage": "https://greyhound.co.za/wp-content/uploads/2024/11/home-carousel2.jpg",
+        "caption": "Official Greyhound provider photograph. The discount requires qualifying Capitec Pay.",
+        "sha256": "7fa077a4942234e3c0d5911088a2c5f1e7f3103f1d1cedc73601cde7c4018fb3"
+      },
+      "officialSource": "https://greyhound.co.za/capitec-pay-customers-get-5-off-every-trip/",
+      "termsUrl": "https://greyhound.co.za/capitec-pay-customers-get-5-off-every-trip/",
+      "exitPath": "/out/deal/greyhound-capitec-pay-five-percent/",
+      "destination": "https://greyhound.co.za/book-tickets/"
+    },
+    {
+      "id": "bellville-business-expo-free-visitor-ticket-2026",
+      "kind": "offer",
+      "path": "/deal/bellville-business-expo-free-visitor-ticket-2026/",
+      "visibleFacts": [
+        "Free visitor admission on Wednesday 28 and Thursday 29 October 2026",
+        "Book the free visitor ticket",
+        "Space is limited.",
+        "08:30 on 28 October to 18:00 on 29 October",
+        "confirm each day's visiting timetable with the organiser",
+        "normal data, travel, food and shopping costs remain payable",
+        "Free visitor admission does not include an exhibitor stand."
+      ],
+      "image": {
+        "src": "/assets/listings/bellville-business-expo-free-visitor-ticket-2026.webp",
+        "width": 800,
+        "height": 500,
+        "reviewedAt": "2026-10-16",
+        "kind": "official-source",
+        "sourcePage": "https://www.capetown.gov.za/media-and-news/smmes-take-centre-stage-at-4th-annual-bellville-business-expo/",
+        "alt": "A business display and representatives pictured in the City Bellville Business Expo announcement",
+        "sourceImage": "https://www.capetown.gov.za/media/c4alvnry/bbe.jpg",
+        "caption": "Official City of Cape Town photograph accompanying its 2026 expo announcement; not a photograph of the forthcoming 28-29 October event.",
+        "sha256": "49eea4f68799cd1743341fd75626395610e8209d63e1820488c90f7624f9edb1"
+      },
+      "officialSource": "https://www.capetown.gov.za/media-and-news/smmes-take-centre-stage-at-4th-annual-bellville-business-expo/",
+      "termsUrl": "https://www.quicket.co.za/events/399152-bellville-business-expo-2026/",
+      "exitPath": "/out/deal/bellville-business-expo-free-visitor-ticket-2026/",
+      "destination": "https://www.quicket.co.za/events/399152-bellville-business-expo-2026/"
+    },
+    {
+      "id": "openlearn-free-learning-statements",
+      "kind": "resource",
+      "path": "/free-stuff-south-africa/#resource-openlearn-free-learning-statements",
+      "visibleFacts": [
+        "A free account requires age 13+",
+        "selected courses also offer a free digital badge",
+        "complete the course pages and required quizzes",
+        "no formal qualification credit",
+        "Internet and device costs remain yours."
+      ],
+      "image": {
+        "src": "/assets/listings/openlearn-free-learning-statements.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "FreeHub editorial illustration of an adult learning with a laptop, notebook and books at home",
+        "kind": "editorial-generated",
+        "caption": "FreeHub editorial illustration; not official OpenLearn artwork or a depiction of a qualification.",
+        "sourcePage": "https://www.open.edu/openlearn/about-openlearn/frequently-asked-questions-on-openlearn",
+        "generationTool": "Built-in image_gen",
+        "generationPrompt": "Create one polished editorial illustration for a South African consumer directory card about freely accessible online learning. Landscape 3:2 composition. A warmly lit contemporary home study desk, an adult Black woman seen from a three-quarter rear angle studying with a laptop, open notebook, pencil, and a small stack of plain books. Soft teal, warm cream and muted terracotta palette, natural plant beside a bright window, clean thoughtful editorial illustration style with realistic proportions and gentle paper texture. Focus on everyday self-paced learning, not graduation or employment. Laptop screen shows only abstract blocks and lines, no readable interface, logos, brand marks, certificates, badges, diplomas, prices, money, award symbols, watermarks or text. Keep face non-prominent and composition dignified. Do not imply an official provider endorsement, a particular qualification, or a guaranteed certificate. This will be visibly captioned in the website as FreeHub editorial illustration.",
+        "reviewedAt": "2026-10-16",
+        "sha256": "499469d4561b65cde6e894bed726e17618f458b0bcefbedb2c91982052a541b4"
+      },
+      "officialSource": "https://www.open.edu/openlearn/free-courses/full-catalogue",
+      "termsUrl": "https://www.open.edu/openlearn/about-openlearn/frequently-asked-questions-on-openlearn"
+    },
+    {
+      "id": "ibm-skillsbuild-free-learning",
+      "kind": "resource",
+      "path": "/free-stuff-south-africa/#resource-ibm-skillsbuild-free-learning",
+      "visibleFacts": [
+        "free online adult learning",
+        "learners aged 18+",
+        "requires a Credly account",
+        "restricted to learners working with a partner non-profit organisation",
+        "A digital credential does not guarantee a job."
+      ],
+      "image": {
+        "src": "/assets/listings/ibm-skillsbuild-free-learning.webp",
+        "width": 1200,
+        "height": 630,
+        "alt": "Three adult learners working together at a laptop in official IBM SkillsBuild artwork",
+        "kind": "official-source",
+        "caption": "Official IBM SkillsBuild adult-learning artwork.",
+        "sourcePage": "https://skillsbuild.org/adult-learners",
+        "sourceImage": "https://skillsbuild.org/api/social-image/2026/07/AdultLearners_FB_LinkedIn_v3.jpg",
+        "reviewedAt": "2026-10-16",
+        "sha256": "0134465136e63372f36c70bc542d29d7b4e6f82bf407c446d28419d849243b0e"
+      },
+      "officialSource": "https://skillsbuild.org/adult-learners",
+      "termsUrl": "https://skillsbuild.org/frequently-asked-questions"
+    },
+    {
+      "id": "canva-education-eligible-k12",
+      "kind": "resource",
+      "path": "/free-stuff-south-africa/#resource-canva-education-eligible-k12",
+      "visibleFacts": [
+        "free worldwide for eligible K-12 teachers and institutions",
+        "currently hold an eligible certified role",
+        "formally accredited primary or secondary school",
+        "re-verification is required every three years",
+        "excludes universities and their students",
+        "normal internet and device costs apply."
+      ],
+      "image": {
+        "src": "/assets/listings/canva-education-eligible-k12.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "School students using laptops in an official Canva Education classroom photograph",
+        "kind": "official-source",
+        "caption": "Official Canva Education classroom artwork. Eligibility requirements apply.",
+        "sourcePage": "https://www.canva.com/education/",
+        "sourceImage": "https://content-management-files.canva.com/540dd49a-6916-4f14-b301-f8d762e1d063/EducationClassroomDarlinghurstPrimary011-Edited.png",
+        "reviewedAt": "2026-10-16",
+        "sha256": "801d7cac2ad9992c49195e31d005322b9946e8453cc6944fa760d9bee3ac1ec5"
+      },
+      "officialSource": "https://www.canva.com/education/eligibility-guidelines/",
+      "termsUrl": "https://www.canva.com/education/eligibility-guidelines/"
+    },
+    {
+      "id": "learnfree-practical-skills",
+      "kind": "resource",
+      "path": "/free-stuff-south-africa/#resource-learnfree-practical-skills",
+      "visibleFacts": [
+        "Free, self-paced lessons",
+        "age 18+, emancipation, or express parent or guardian permission",
+        "Registered users under 18 need parent or guardian consent",
+        "no promise of an accredited qualification or free certificate",
+        "Internet and device costs remain yours"
+      ],
+      "image": {
+        "src": "/assets/listings/learnfree-practical-skills.webp",
+        "width": 1200,
+        "height": 900,
+        "alt": "Person seated at a desk with books in official LearnFree website artwork",
+        "kind": "official-source",
+        "caption": "Official LearnFree website artwork.",
+        "sourcePage": "https://www.learnfree.org/",
+        "sourceImage": "https://www.learnfree.org/LearnFree/landing/lf-hero-lifestyle.webp",
+        "reviewedAt": "2026-10-16",
+        "sha256": "bcf4c074dc6b3502cac19e3af4b315ba5de67cb5faab67c878167b74c50504e4"
+      },
+      "officialSource": "https://www.learnfree.org/",
+      "termsUrl": "https://www.learnfree.org/terms-conditions"
+    },
+    {
+      "id": "momconnect-official-pregnancy-information",
+      "kind": "resource",
+      "path": "/free-stuff-south-africa/#resource-momconnect-official-pregnancy-information",
+      "visibleFacts": [
+        "The official USSD registration route is free.",
+        "Dial *134*550*2#",
+        "079 631 2456",
+        "facility code from a nurse",
+        "estimated delivery date",
+        "WhatsApp can use mobile data",
+        "no promised physical samples"
+      ],
+      "image": {
+        "src": "/assets/listings/momconnect-official-pregnancy-information.webp",
+        "width": 1200,
+        "height": 603,
+        "alt": "Mother holding her baby in the official MomConnect information-service banner",
+        "kind": "official-source",
+        "caption": "Official Department of Health MomConnect artwork.",
+        "sourcePage": "https://www.health.gov.za/momconnect/",
+        "sourceImage": "https://www.health.gov.za/wp-content/uploads/2026/02/MomConnect-Additional-Web-Banners-scaled.png",
+        "reviewedAt": "2026-10-16",
+        "sha256": "4e6ebd0140f1de4759c78e906eafe980ea38f26c0496a56f6d7a04babc504284"
+      },
+      "officialSource": "https://www.health.gov.za/momconnect-technical-solution/",
+      "termsUrl": "https://www.health.gov.za/momconnect-technical-solution/"
+    },
+    {
+      "id": "joburg-free-basic-library-membership",
+      "kind": "resource",
+      "path": "/free-stuff-south-africa/#resource-joburg-free-basic-library-membership",
+      "visibleFacts": [
+        "free membership for borrowing four or fewer books at a time",
+        "identity document and proof of residence",
+        "children also need a birth certificate",
+        "five working days for a first application to be processed",
+        "Confirm the current lending allowance and membership category with your branch.",
+        "check current fees before using them."
+      ],
+      "image": {
+        "src": "/assets/listings/joburg-free-basic-library-membership.webp",
+        "width": 1200,
+        "height": 675,
+        "reviewedAt": "2026-10-16",
+        "kind": "editorial-generated",
+        "sourcePage": "https://joburg.org.za/departments_/Communitydevelopment/Pages/Libraries%20And%20Information%20Services/libraries-and-information-services.aspx",
+        "alt": "FreeHub editorial illustration of an adult and child choosing library books",
+        "caption": "FreeHub editorial illustration; symbolic subject image, not official provider artwork or the actual location/interior.",
+        "generationMethod": "Built-in image generation",
+        "generationPrompt": "Create a polished wide 16:9 editorial illustration for FreeHub, an independent South African consumer information website. Subject: an adult and a child selecting books in a welcoming generic public library, with shelves, reading tables and soft daylight. Basic municipal library access is the topic. Painterly paper-texture editorial illustration, warm cream, forest green, navy and coral. This is a symbolic library interior, not an actual Johannesburg branch. No logos, no readable book titles, no membership fees or numbers, no text, no specific building facade, no official endorsement.",
+        "sourceReviewNote": "Official joining page inspected; sole relevant content photograph http://joburg.org.za/images/stories/june2007/library2.jpg redirects to HTTPS and returns 404. Other images are logos/UI.",
+        "sha256": "e4a8043cbf16bda22fb5c25da6e9c0dc59b4cd4cc2809068edfa46148c3242bb"
+      },
+      "officialSource": "https://joburg.org.za/departments_/Communitydevelopment/Pages/Libraries%20And%20Information%20Services/libraries-and-information-services.aspx",
+      "termsUrl": "https://joburg.org.za/departments_/Communitydevelopment/Pages/Libraries%20And%20Information%20Services/libraries-and-information-services.aspx"
+    },
+    {
+      "id": "durban-natural-science-museum-free-entry",
+      "kind": "resource",
+      "path": "/free-stuff-south-africa/#resource-durban-natural-science-museum-free-entry",
+      "visibleFacts": [
+        "free admission to the Natural Science Museum public galleries",
+        "234 Anton Lembede Street",
+        "No purchase, app, membership or citizenship requirement is stated",
+        "check current opening arrangements before travelling",
+        "publishing photographs or videos also needs",
+        "Kwa-Zuzulwazi Centre is temporarily closed and excluded"
+      ],
+      "image": {
+        "src": "/assets/listings/durban-natural-science-museum-free-entry.webp",
+        "width": 1200,
+        "height": 675,
+        "reviewedAt": "2026-10-16",
+        "kind": "editorial-generated",
+        "sourcePage": "https://www.durban.gov.za/page/parks-recreation-culture-amenities",
+        "alt": "FreeHub editorial illustration of visitors exploring symbolic natural-history displays",
+        "caption": "FreeHub editorial illustration; symbolic subject image, not official provider artwork or the actual location/interior.",
+        "generationMethod": "Built-in image generation",
+        "generationPrompt": "Create a polished wide 16:9 editorial illustration for FreeHub, an independent South African consumer information website. Subject: two adult visitors quietly exploring a generic natural-history museum gallery with glass display cases, a stylised bird specimen, a simple fossil form and a butterfly specimen display. Free public natural-history galleries are the topic. Painterly cut-paper editorial style with calm daylight, warm cream, deep teal, ochre and soft coral. Symbolic scene only; do not depict the actual Durban museum building or claim any specific specimen or exhibition is present. No logos, no text, no prices, no official endorsement, no recognisable actual museum architecture.",
+        "sourceReviewNote": "Official current municipal amenities page inspected: only generic logos/UI. Official searches produced historic posters/document images rather than a suitable current gallery hero.",
+        "sha256": "d09d8e41ffed17397a41439945ea68129574cf236e1500d3cbbbcdeb8beb2bb7"
+      },
+      "officialSource": "https://www.durban.gov.za/page/parks-recreation-culture-amenities",
+      "termsUrl": "https://www.durban.gov.za/page/parks-recreation-culture-amenities"
+    },
+    {
+      "id": "iziko-free-days-and-fridays",
+      "kind": "resource",
+      "path": "/free-stuff-south-africa/#resource-iziko-free-days-and-fridays",
+      "visibleFacts": [
+        "free Friday admission for South African students and pensioners",
+        "valid student card",
+        "1 December (Emancipation Day)",
+        "16 December (Reconciliation Day)",
+        "excludes the Planetarium, Castle of Good Hope and Groot Constantia",
+        "Closed sites and maintenance closures are excluded.",
+        "Paid shows, guided tours and separately priced activities are not included."
+      ],
+      "image": {
+        "src": "/assets/listings/iziko-free-days-and-fridays.webp",
+        "width": 1200,
+        "height": 795,
+        "reviewedAt": "2026-10-16",
+        "kind": "official-source",
+        "sourcePage": "https://www.iziko.org.za/visit/",
+        "alt": "The Iziko South African Museum exterior in an official museum photograph",
+        "sourceImage": "https://www.iziko.org.za/wp-content/uploads/2022/03/South-African-Museum-min-1-1-1600x1060.jpg",
+        "caption": "Official Iziko South African Museum photograph. Free entry has visitor and date conditions.",
+        "sha256": "267388937bcab90914df24ffdffc79c778c776b3ce97d4ca95bea8bf06cb8d3b"
+      },
+      "officialSource": "https://www.iziko.org.za/visit/",
+      "termsUrl": "https://www.iziko.org.za/news/new-entrance-fees-2026/"
+    }
+  ]
+}

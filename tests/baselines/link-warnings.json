@@ -464,6 +464,38 @@
       "reason": "expired_archive_500",
       "url": "https://www.penguinrandomhouse.co.za/competitions/win-with-the-penguin-post-42/",
       "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "free-resource",
+      "recordId": "free-resource:family-support:durban-natural-science-museum-free-city-hall-galleries",
+      "field": "officialUrl",
+      "reason": "manual_check_fetch_failed",
+      "url": "https://www.durban.gov.za/page/parks-recreation-culture-amenities",
+      "lifecycle": "active-manual-check"
+    },
+    {
+      "sourceType": "free-resource",
+      "recordId": "free-resource:online-courses:openlearn-free-courses-and-participation-statements",
+      "field": "officialUrl",
+      "reason": "manual_check_http_403",
+      "url": "https://www.open.edu/openlearn/free-courses/full-catalogue",
+      "lifecycle": "active-manual-check"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "penguin-random-house-penguin-post-43-book-hampers-2026",
+      "field": "url",
+      "reason": "expired_archive_500",
+      "url": "https://www.penguinrandomhouse.co.za/competitions/win-with-the-penguin-post-43/",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "penguin-random-house-penguin-post-43-book-hampers-2026",
+      "field": "termsUrl",
+      "reason": "expired_archive_500",
+      "url": "https://www.penguinrandomhouse.co.za/tos/tscs-win-with-penguin-post-43/",
+      "lifecycle": "expired-archive"
     }
   ]
 }

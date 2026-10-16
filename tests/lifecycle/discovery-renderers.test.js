@@ -46,6 +46,22 @@ test("FreeResource renderer uses explicit inputs and preserves legacy analytics 
   assert.equal(itemList.itemListElement.length, 1);
 });
 
+test("reviewed resource images expose provenance, stable anchors and official conditions", () => {
+  const resource = { ...legacyResources[0], id: "reviewed-learning", termsUrl: "https://example.com/terms" };
+  const renderer = createFreeResourceRenderer({ escapeHtml, escapeAttribute, formatDate: shared.formatDate,
+    listingImages: { [resource.id]: { src: "/assets/listings/learning.webp", width: 1200, height: 800,
+      alt: 'Learning <materials>', caption: 'FreeHub editorial illustration & source context', sourcePage: 'https://example.com/art' } } });
+  const html = renderer.renderFreeResourceCard(resource, { pageType: "free_stuff_parent" });
+  assert.match(html, /id="resource-reviewed-learning"/);
+  assert.match(html, /src="\/assets\/listings\/learning\.webp" width="1200" height="800"/);
+  assert.match(html, /alt="Learning &lt;materials&gt;"/);
+  assert.match(html, /FreeHub editorial illustration &amp; source context/);
+  assert.match(html, /href="https:\/\/example\.com\/art"/);
+  assert.match(html, /href="https:\/\/example\.com\/terms"/);
+  assert.match(html, /data-discovery-action="official-source"/);
+  assert.doesNotMatch(freeResources.renderFreeResourceCard(resource), /<figure/);
+});
+
 test("Opportunity renderer accepts approved inputs and emits no empty section or schema", () => {
   assert.equal(opportunities.renderOpportunitySection({ opportunities: [], heading: "Current verified opportunities", pageType: "free_stuff_parent" }), "");
   assert.equal(opportunities.buildOpportunityItemList({ opportunities: [], name: "Current verified opportunities" }), null);

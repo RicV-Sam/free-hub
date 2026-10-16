@@ -38,6 +38,7 @@
     "category": { "type": "string", "minLength": 1 },
     "categoryLabel": { "type": "string", "minLength": 1 },
     "officialUrl": { "type": "string", "format": "uri", "pattern": "^https?://" },
+    "termsUrl": { "type": "string", "format": "uri", "pattern": "^https?://" },
     "bestFor": { "type": "string", "minLength": 1 },
     "freeDetails": { "type": "string", "minLength": 1 },
     "requirements": { "type": "string", "minLength": 1 },

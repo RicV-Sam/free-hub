@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-16",
-  "count": 119,
+  "count": 120,
   "competitions": [
     {
       "id": "sunlight-dirty-dish-gagasi-2026",
@@ -2379,6 +2379,32 @@
       "officialUrl": "https://clicks.co.za/clubcard/competitions/clubcard-magazine-october-november-issue-of-2026-fragrances-competition",
       "termsUrl": "https://woobox.com/96yz3d/rules",
       "lastChecked": "2026-10-03",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "prh-camp-half-blood-2026",
+      "title": "Penguin Random House: Win a Camp Half-Blood Hamper",
+      "brand": "Penguin Random House South Africa",
+      "summary": "Two readers each win a Camp Half-Blood hamper containing The Wild Zone and themed merchandise. South African residents aged 18+ can enter the official form once for free by 23:59 SAST on 4 December 2026.",
+      "imageUrl": "https://freehub.co.za/assets/listings/prh-camp-half-blood-2026.webp",
+      "closingDate": "2026-12-04",
+      "category": "Shopping",
+      "prizeName": "1 of 2 Camp Half-Blood hampers with The Wild Zone and themed merchandise",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "South African residents aged 18+; one entry per person. Promoter-connected people and immediate family are excluded; ID required if you win.",
+      "entrySteps": [
+        "Check the official rules: you must be a South African resident aged 18 or older and meet the promoter-related exclusions.",
+        "Open the official Camp Half-Blood competition page and complete your first name, surname, email address and province.",
+        "Confirm South African residency and acceptance of the rules. Choose whether to receive the optional newsletter; selecting No, Thanks does not prevent entry.",
+        "Submit your own single entry so that it is received by 23:59 SAST on 4 December 2026. No purchase is necessary; entries through agents or third parties are invalid."
+      ],
+      "officialUrl": "https://www.penguinrandomhouse.co.za/competitions/win-camp-half-blood-competition/",
+      "termsUrl": "https://www.penguinrandomhouse.co.za/tos/tscs-win-camp-half-blood-competition/",
+      "lastChecked": "2026-10-16",
       "isHighValue": false,
       "isClosingSoon": false
     },

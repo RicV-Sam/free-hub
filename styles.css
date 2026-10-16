@@ -2372,6 +2372,28 @@ button {
   font-size: 1.15rem;
 }
 
+.free-resource-card__image {
+  min-width: 0;
+  margin: 0;
+}
+
+.free-resource-card__image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 22rem;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  background: #f5f7f6;
+}
+
+.free-resource-card__image figcaption {
+  margin-top: 0.45rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
 .free-resource-card__facts {
   display: grid;
   gap: 0.65rem;

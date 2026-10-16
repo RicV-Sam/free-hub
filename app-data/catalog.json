@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-16",
-  "count": 57,
+  "count": 70,
   "counts": {
-    "freeStuff": 20,
-    "resources": 19,
+    "freeStuff": 28,
+    "resources": 27,
     "opportunities": 1,
-    "offers": 37
+    "offers": 42
   },
   "items": [
     {
@@ -312,6 +312,134 @@
       ],
       "watchOut": "External links outside the included route and background phone activity may still use paid data. This is not free browsing across all websites or networks, and it does not guarantee a job. The individual service is responsible for its vacancies and applications.",
       "lastChecked": "2026-10-11"
+    },
+    {
+      "id": "openlearn-free-learning-statements",
+      "kind": "resource",
+      "title": "OpenLearn free courses and participation statements",
+      "provider": "OpenLearn free courses and participation statements",
+      "summary": "Free Open University learning content and courses. Completing a course can earn a free Statement of Participation; selected courses also offer a free digital badge.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://www.open.edu/openlearn/free-courses/full-catalogue",
+      "bestFor": "Independent learners exploring new subjects and practical skills",
+      "requirements": [
+        "Reading content does not require an account. A free account requires age 13+; enrol and complete the course pages and required quizzes to receive a statement or available badge."
+      ],
+      "watchOut": "Statements and badges carry no formal qualification credit. OpenLearn does not grant an Open University qualification, student status or student discounts. Internet and device costs remain yours.",
+      "lastChecked": "2026-10-16"
+    },
+    {
+      "id": "ibm-skillsbuild-free-learning",
+      "kind": "resource",
+      "title": "IBM SkillsBuild free learning for adults",
+      "provider": "IBM SkillsBuild free learning for adults",
+      "summary": "IBM SkillsBuild offers free online adult learning. Selected learning activities award IBM digital credentials after their requirements are completed.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://skillsbuild.org/adult-learners",
+      "bestFor": "Adults building technology and workplace skills for a career change or job search",
+      "requirements": [
+        "The adult programme is for learners aged 18+. Create a free SkillsBuild account. Accepting and managing digital credentials requires a Credly account and the relevant completion requirements."
+      ],
+      "watchOut": "Check each activity audience: some credentials and advanced routes are restricted to learners working with a partner non-profit organisation. A digital credential does not guarantee a job. Internet and device costs remain yours.",
+      "lastChecked": "2026-10-16"
+    },
+    {
+      "id": "canva-education-eligible-k12",
+      "kind": "resource",
+      "title": "Canva Education for eligible school educators",
+      "provider": "Canva Education for eligible school educators",
+      "summary": "Canva Education is free worldwide for eligible K-12 teachers and institutions, including qualifying school librarians, learning support staff and curriculum specialists.",
+      "category": "school-resources",
+      "categoryLabel": "Free school resources",
+      "officialUrl": "https://www.canva.com/education/eligibility-guidelines/",
+      "bestFor": "Active, eligible primary and secondary school educators and accredited schools",
+      "requirements": [
+        "You must currently hold an eligible certified role at a formally accredited primary or secondary school, or apply through a qualifying institution. Verify with an accepted educational email domain or supporting documents; re-verification is required every three years."
+      ],
+      "watchOut": "Eligibility excludes universities and their students, private tutors, parents applying only as parents, inactive teachers and unlicensed homeschool educators. This is conditional education access; normal internet and device costs apply.",
+      "lastChecked": "2026-10-16"
+    },
+    {
+      "id": "learnfree-practical-skills",
+      "kind": "resource",
+      "title": "LearnFree practical skills lessons",
+      "provider": "LearnFree practical skills lessons",
+      "summary": "Free, self-paced lessons and practical learning content across computing, office tools, core skills and job seeking.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://www.learnfree.org/",
+      "bestFor": "Beginners learning computer, office, internet and job-search skills",
+      "requirements": [
+        "Use a compatible device and internet connection. Provider terms require age 18+, emancipation, or express parent or guardian permission. Registered users under 18 need parent or guardian consent; certain features require an account."
+      ],
+      "watchOut": "This listing covers free learning content and makes no promise of an accredited qualification or free certificate. Internet and device costs remain yours; follow the provider terms for account use.",
+      "lastChecked": "2026-10-16"
+    },
+    {
+      "id": "momconnect-official-pregnancy-information",
+      "kind": "resource",
+      "title": "MomConnect pregnancy and baby information",
+      "provider": "MomConnect pregnancy and baby information",
+      "summary": "The Department of Health provides pregnancy and baby-care information through MomConnect messaging, with a helpdesk and clinic-feedback service. The official USSD registration route is free.",
+      "category": "family-support",
+      "categoryLabel": "Pregnancy and parenting support",
+      "officialUrl": "https://www.health.gov.za/momconnect-technical-solution/",
+      "bestFor": "Pregnant women and mothers using South African public-clinic maternity services",
+      "requirements": [
+        "Dial *134*550*2# for free USSD registration, or send join on WhatsApp to 079 631 2456. To finish registration, obtain the public-clinic facility code from a nurse and provide your estimated delivery date through the official service."
+      ],
+      "watchOut": "WhatsApp can use mobile data; the official page does not promise zero-rated WhatsApp. This is an information service, with no promised physical samples. Share registration and health details only with the official service.",
+      "lastChecked": "2026-10-16"
+    },
+    {
+      "id": "joburg-free-basic-library-membership",
+      "kind": "resource",
+      "title": "Johannesburg libraries: free basic membership",
+      "provider": "Johannesburg libraries: free basic membership",
+      "summary": "The City's joining page offers free membership for borrowing four or fewer books at a time.",
+      "category": "family-support",
+      "categoryLabel": "Free family outings and public services",
+      "officialUrl": "https://joburg.org.za/departments_/Communitydevelopment/Pages/Libraries%20And%20Information%20Services/libraries-and-information-services.aspx",
+      "bestFor": "Johannesburg residents who want basic library book borrowing",
+      "requirements": [
+        "Apply at a City of Johannesburg library with an identity document and proof of residence; children also need a birth certificate. The joining page allows five working days for a first application to be processed. Use its official regional branch-directory links to find your library."
+      ],
+      "watchOut": "Confirm the current lending allowance and membership category with your branch. Extra borrowing or services and overdue or lost items may incur charges; check current fees before using them. Branch opening hours and closure notices can change.",
+      "lastChecked": "2026-10-16"
+    },
+    {
+      "id": "durban-natural-science-museum-free-entry",
+      "kind": "resource",
+      "title": "Durban Natural Science Museum: free City Hall galleries",
+      "provider": "Durban Natural Science Museum: free City Hall galleries",
+      "summary": "eThekwini Municipality lists free admission to the Natural Science Museum public galleries, first-floor City Hall cultural block, 234 Anton Lembede Street, Durban. No purchase, app, membership or citizenship requirement is stated for ordinary gallery admission.",
+      "category": "family-support",
+      "categoryLabel": "Free family outings and public services",
+      "officialUrl": "https://www.durban.gov.za/page/parks-recreation-culture-amenities",
+      "bestFor": "Durban visitors and local families looking for free public natural-history galleries",
+      "requirements": [
+        "Visit the City Hall public galleries and check current opening arrangements before travelling. The municipal page lists visitor hours separately from general operating hours, so confirm the visitor timetable. Travel and optional purchases remain your responsibility."
+      ],
+      "watchOut": "Do not touch displays unless interactive, disturb visitors, bring weapons or enter while intoxicated. Eating/drinking is limited to designated areas. Flash photography needs prior written consent; publishing photographs or videos also needs the director's prior written consent. The Kwa-Zuzulwazi Centre is temporarily closed and excluded. Research-collection visits have separate booking and permission conditions.",
+      "lastChecked": "2026-10-16"
+    },
+    {
+      "id": "iziko-free-days-and-fridays",
+      "kind": "resource",
+      "title": "Iziko Museums: selected free days and eligible Fridays",
+      "provider": "Iziko Museums: selected free days and eligible Fridays",
+      "summary": "Selected Iziko museums offer free Friday admission for South African students and pensioners with valid identification. The official 2026 commemorative-day list also includes free entry at participating open sites on 1 December (Emancipation Day) and 16 December (Reconciliation Day).",
+      "category": "family-support",
+      "categoryLabel": "Free family outings and public services",
+      "officialUrl": "https://www.iziko.org.za/visit/",
+      "bestFor": "South African students and pensioners, and visitors planning a museum day in Cape Town",
+      "requirements": [
+        "Present valid identification and, for student entry, a valid student card. Check the chosen museum's hours and eligibility before travelling; the South African Museum, National Gallery and Slave Lodge are examples of participating sites. Ordinary visitors pay the normal fee outside qualifying free days."
+      ],
+      "watchOut": "This benefit excludes the Planetarium, Castle of Good Hope and Groot Constantia for the Friday and December dates described here. Closed sites and maintenance closures are excluded. Paid shows, guided tours and separately priced activities are not included. No account or purchase is stated for ordinary qualifying admission; travel and optional spending remain payable.",
+      "lastChecked": "2026-10-16"
     },
     {
       "id": "starbucks-gold-birthday-drink",
@@ -1007,6 +1135,97 @@
       ],
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "expiresAt": "2027-03-31",
+      "lastChecked": "2026-10-16",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "panarottis-rewards-additional-benefits",
+      "kind": "deal",
+      "title": "Panarottis Rewards: kids birthday meals, flatbread and hot drinks",
+      "provider": "Panarottis",
+      "summary": "App members can claim a child birthday Kids Combo with a dining adult, a new-registration flatbread with R150 minimum spend, and one hot-drink voucher after ten qualifying purchases.",
+      "category": "restaurants-takeaways",
+      "categoryLabel": "Restaurants & Takeaways",
+      "officialUrl": "https://www.panarottis.com/za/loyalty",
+      "termsUrl": "https://cms.panarottis.com/uploads/Panarottis_Loyalty_App_Terms_and_Conditions_Update_Aug_2026_972cec5c89.pdf",
+      "requirements": [
+        "Ages 0–12, linked to an adult Rewards profile. Voucher arrives on birthday morning and lasts three months. Child and a dining adult must attend; on-premises Kids' Combo only. Adult dining costs remain payable; no adult minimum amount is stated. New app registrants receive a non-transferable flatbread voucher lasting three months. Redemption needs at least R150 spend; available for dine-in, call-and-collect or Click & Collect. Buy ten qualifying hot beverages to receive a three-month voucher for one free hot beverage. Redeem in South Africa for dine-in or call-and-collect; Click & Collect excluded. App/profile registration and transaction OTP required. Restaurant staff are excluded. Adults manage child profiles. Data and paid purchases/dining remain separate costs. The app is free to download. Adult account holders must be at least 18 and legally able to contract; parents/guardians consent for linked children. Kids membership ends automatically at 13. Each transaction OTP is single-use and expires after 15 minutes. Profiles and vouchers are non-transferable. Check the live app and August 2026 terms before ordering; qualifying criteria can change."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-16",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "intercape-five-percent-loyalty-points",
+      "kind": "deal",
+      "title": "Earn 5% in Intercape loyalty points for future tickets",
+      "provider": "Intercape",
+      "summary": "Link a paid booking to your Intercape loyalty account to earn future-ticket points. Points become available after departure and expire after 12 months.",
+      "category": "travel",
+      "categoryLabel": "Travel",
+      "officialUrl": "https://www.intercape.co.za/book-bus-tickets-now/?loyalty=login",
+      "termsUrl": "https://www.intercape.co.za/loyalty-terms-and-conditions/",
+      "requirements": [
+        "Earn 5% of qualifying ticket value after discounts and redeemed points, excluding taxes/third-party fees not retained by Intercape. Each point is R1 toward tickets, not cash. Identify the purchaser's loyalty account at purchase through Intercape's own app/site/office/contact centre. Points belong to purchaser rather than passenger, become available 24 hours after scheduled departure and expire 12 months later. Redemption is on Intercape's site/app, whole points only; disclosed availability/minimums can apply. Fully points-paid tickets earn no points. Paid travel and loyalty account required; ticket prices, standard travel/cancellation terms and connection costs apply. The inspected loyalty terms do not state a membership fee. Programme serves Intercape customers, including South African routes; no SA-citizenship restriction or minimum age stated in inspected loyalty terms. Official page dates programme start to 1 September 2025; no end date published. Marketing giveaway vouchers do not earn points. Registration allows processing of account details for loyalty administration and programme notices."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-16",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "vida-app-five-percent-loyalty",
+      "kind": "deal",
+      "title": "Earn 5% loyalty on purchases recorded in the vida app",
+      "provider": "vida e caffe",
+      "summary": "Register in the vida app and record purchases to earn points for a future order. In-store cash or card payments can earn loyalty without linking a bank card.",
+      "category": "restaurants-takeaways",
+      "categoryLabel": "Restaurants & Takeaways",
+      "officialUrl": "https://vidaecaffe.com/rewards/app/",
+      "termsUrl": "https://vidaecaffe.com/wp-content/uploads/2020/07/vida-app-Terms-and-Conditions.pdf",
+      "requirements": [
+        "Current official app FAQ confirms 5% back on app-recorded transactions. Terms permit points toward part/full purchases in-app or in-store, with three-year expiry and no cash exchange. Register a profile; under-18s need guardian consent/supervision. In-store cash/card purchases can earn via the app, so linking a card is not necessary for that route; order-ahead requires linked-card payment. Paid purchases and internet-enabled app required. Current FAQ says no extra app-payment charge; normal product/banking/data costs remain. No delivery route promised. No fixed programme end date is stated. The current terms require accurate profile details and permit OTP, order, service, marketing and promotional messages. Order Ahead is for same-day collection from the selected store. Check points immediately after purchase."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-16",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "greyhound-capitec-pay-five-percent",
+      "kind": "deal",
+      "title": "Save 5% on Greyhound with Capitec Pay",
+      "provider": "Greyhound",
+      "summary": "Capitec clients get 5% off a paid Greyhound booking on its own website or app on a mobile device when paying with Capitec Pay.",
+      "category": "travel",
+      "categoryLabel": "Travel",
+      "officialUrl": "https://greyhound.co.za/book-tickets/",
+      "termsUrl": "https://greyhound.co.za/capitec-pay-customers-get-5-off-every-trip/",
+      "requirements": [
+        "Capitec clients receive 5% off Greyhound tickets booked on the operator's website/app and paid with Capitec Pay. Current homepage restricts the discount to mobile-device payment and excludes payment by Capitec bank card. It applies automatically at checkout, cannot be added afterwards, and standard changes/cancellation/refund terms apply. Paid bus ticket and qualifying Capitec account/payment approval required. No coupon code. Banking/data costs remain separate; no universal discount for cash, other banks or card payments implied. Official article is dated 21 January 2026; current homepage still advertises the benefit. No fixed expiry; operator can amend/withdraw it."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-16",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "bellville-business-expo-free-visitor-ticket-2026",
+      "kind": "deal",
+      "title": "Free visitor tickets: Bellville Business Expo, 28-29 October",
+      "provider": "Bellville Business Expo",
+      "summary": "Book a free visitor ticket for the expo at Tyger Valley Centre Arena, Cape Town. Space is limited; exhibitor stands are separate.",
+      "category": "other",
+      "categoryLabel": "Other",
+      "officialUrl": "https://www.quicket.co.za/events/399152-bellville-business-expo-2026/",
+      "termsUrl": "https://www.quicket.co.za/events/399152-bellville-business-expo-2026/",
+      "requirements": [
+        "Free visitor admission on Wednesday 28 and Thursday 29 October 2026 at Tyger Valley Centre Arena / Tyger Valley Shopping Centre, Bellville, Cape Town. Book the free visitor ticket via the official Quicket event linked by the City of Cape Town at qkt.io/BBEXPO2026. Space is limited. The ticket page lists an overall window from 08:30 on 28 October to 18:00 on 29 October, South African time. This does not promise overnight access: confirm each day's visiting timetable with the organiser. The event ends at 18:00 on 29 October. Provide the registration information requested by the ticketing service; normal data, travel, food and shopping costs remain payable. Free visitor admission does not include an exhibitor stand. The public announcement states no age or nationality restriction. Confirm availability and your booking before travelling."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-10-29",
       "lastChecked": "2026-10-16",
       "isAffiliate": false,
       "isSponsored": false

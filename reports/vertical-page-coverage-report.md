@@ -104,7 +104,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 30
+- Matching active public competitions: 31
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -137,6 +137,7 @@ Recommended normalisation:
 | Clicks October/November Beauty Box Giveaway (clicks-october-november-beauty-box-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Clicks D’Licious Hamper Giveaway (clicks-dlicious-hamper-october-november-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Clicks DKNY Ice Pop Fragrance Giveaway (clicks-dkny-ice-pop-october-november-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
+| Penguin Random House: Win a Camp Half-Blood Hamper (prh-camp-half-blood-2026) | 2026-12-04 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Builders Ratings and Reviews Competition 2026 (builders-ratings-reviews-2026) | 2026-12-31 | purchase-required | yes | yes | Online entry tag | none |
 | Writers of the Future 2027 First Quarter (writers-of-the-future-q1-2027) | 2027-01-01 | free-entry | yes | yes | Online entry tag | none |

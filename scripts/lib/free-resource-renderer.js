@@ -1,4 +1,4 @@
-function createFreeResourceRenderer({ escapeHtml, escapeAttribute, formatDate }) {
+function createFreeResourceRenderer({ escapeHtml, escapeAttribute, formatDate, listingImages = {} }) {
   if (![escapeHtml, escapeAttribute, formatDate].every((helper) => typeof helper === "function")) {
     throw new TypeError("FreeResource renderer requires escapeHtml, escapeAttribute, and formatDate helpers.");
   }
@@ -27,6 +27,14 @@ function createFreeResourceRenderer({ escapeHtml, escapeAttribute, formatDate })
   }
 
   function renderFreeResourceCard(resource, { pageType = "trust" } = {}) {
+    const image = resource.id && listingImages[resource.id];
+    const anchor = image ? ` id="resource-${escapeAttribute(resource.id)}"` : "";
+    const imageMarkup = image
+      ? `<figure class="free-resource-card__image"><img src="${escapeAttribute(image.src)}" width="${image.width}" height="${image.height}" alt="${escapeAttribute(image.alt)}" loading="lazy" decoding="async" /><figcaption>${escapeHtml(image.caption)}${image.sourcePage ? ` <a href="${escapeAttribute(image.sourcePage)}" target="_blank" rel="noopener noreferrer">Image source</a>` : ""}</figcaption></figure>`
+      : "";
+    const termsMarkup = resource.termsUrl && resource.termsUrl !== resource.officialUrl
+      ? `<a href="${escapeAttribute(resource.termsUrl)}" target="_blank" rel="nofollow noopener">Official conditions</a>`
+      : "";
     const rel = resource.internal ? "" : ' rel="nofollow noopener" target="_blank"';
     const linkLabel = resource.internal ? "Read guide" : "Official website";
     const analyticsAttributes =
@@ -42,12 +50,13 @@ function createFreeResourceRenderer({ escapeHtml, escapeAttribute, formatDate })
           })
         : "";
 
-    return `<article class="free-resource-card">
+    return `<article class="free-resource-card"${anchor}>
               <div class="free-resource-card__top">
                 <span class="free-resource-card__category">${escapeHtml(resource.categoryLabel)}</span>
                 <span class="free-resource-card__reviewed">Reviewed ${escapeHtml(formatDate(resource.lastReviewed))}</span>
               </div>
               <h3>${escapeHtml(resource.name)}</h3>
+              ${imageMarkup}
               <dl class="free-resource-card__facts">
                 <div>
                   <dt>Best for</dt>
@@ -67,7 +76,8 @@ function createFreeResourceRenderer({ escapeHtml, escapeAttribute, formatDate })
                 </div>
               </dl>
               <a class="free-resource-card__link" href="${escapeAttribute(resource.officialUrl)}"${rel}${analyticsAttributes}>${escapeHtml(linkLabel)}</a>
-            </article>`;
+              ${termsMarkup}
+            </article>`.replace(/>\s+</g, "><");
   }
 
   function buildFreeResourceItemList({ resources, name }) {

@@ -791,5 +791,110 @@
         ]
       }
     ]
+  },
+  "panarottis-rewards-additional-benefits": {
+    "sections": [
+      {
+        "heading": "Three benefits, with different conditions",
+        "paragraphs": [
+          "Register an adult Rewards profile before claiming. The app is free to download; normal data charges and the purchases below remain payable."
+        ],
+        "table": {
+          "caption": "Current August 2026 app terms",
+          "headers": [
+            "Benefit",
+            "Eligibility or purchase",
+            "Validity and route"
+          ],
+          "rows": [
+            [
+              "Kids birthday Kids Combo",
+              "Child aged 0-12 linked to parent/guardian adult profile; child and dining adult present. Adult meal remains payable.",
+              "Issued birthday morning; valid three months. Dine-in Kids Combo only. Membership ends at 13."
+            ],
+            [
+              "Registration mozzarella flatbread",
+              "New app registrant; minimum R150 spend to redeem.",
+              "Valid three months from registration. Dine-in, call-and-collect or Click & Collect."
+            ],
+            [
+              "One hot drink after ten",
+              "Buy ten qualifying hot beverages through the member profile.",
+              "Voucher valid three months after loading. Dine-in or call-and-collect; not Click & Collect."
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Use the transaction OTP",
+        "paragraphs": [
+          "Generate the official app or WhatsApp OTP and present it at the transaction. It is single-use and expires after 15 minutes. The voucher belongs to its associated member. Adult account holders must have legal capacity, parents/guardians consent for linked children, and the staff restriction in the terms applies. Confirm the live app voucher before ordering."
+        ]
+      }
+    ]
+  },
+  "intercape-five-percent-loyalty-points": {
+    "sections": [
+      {
+        "heading": "How to claim",
+        "paragraphs": [
+          "Link a paid booking to your Intercape loyalty account to earn future-ticket points. Points become available after departure and expire after 12 months."
+        ]
+      },
+      {
+        "heading": "Costs, eligibility and validity",
+        "paragraphs": [
+          "Earn 5% of qualifying ticket value after discounts and redeemed points, excluding taxes/third-party fees not retained by Intercape. Each point is R1 toward tickets, not cash. Identify the purchaser's loyalty account at purchase through Intercape's own app/site/office/contact centre. Points belong to purchaser rather than passenger, become available 24 hours after scheduled departure and expire 12 months later. Redemption is on Intercape's site/app, whole points only; disclosed availability/minimums can apply. Fully points-paid tickets earn no points. Paid travel and loyalty account required; ticket prices, standard travel/cancellation terms and connection costs apply. The inspected loyalty terms do not state a membership fee. Programme serves Intercape customers, including South African routes; no SA-citizenship restriction or minimum age stated in inspected loyalty terms. Official page dates programme start to 1 September 2025; no end date published. Marketing giveaway vouchers do not earn points. Registration allows processing of account details for loyalty administration and programme notices."
+        ]
+      }
+    ]
+  },
+  "vida-app-five-percent-loyalty": {
+    "sections": [
+      {
+        "heading": "How to claim",
+        "paragraphs": [
+          "Register in the vida app and record purchases to earn points for a future order. In-store cash or card payments can earn loyalty without linking a bank card."
+        ]
+      },
+      {
+        "heading": "Costs, eligibility and validity",
+        "paragraphs": [
+          "Current official app FAQ confirms 5% back on app-recorded transactions. Terms permit points toward part/full purchases in-app or in-store, with three-year expiry and no cash exchange. Register a profile; under-18s need guardian consent/supervision. In-store cash/card purchases can earn via the app, so linking a card is not necessary for that route; order-ahead requires linked-card payment. Paid purchases and internet-enabled app required. Current FAQ says no extra app-payment charge; normal product/banking/data costs remain. No delivery route promised. No fixed programme end date is stated. The current terms require accurate profile details and permit OTP, order, service, marketing and promotional messages. Order Ahead is for same-day collection from the selected store. Check points immediately after purchase."
+        ]
+      }
+    ]
+  },
+  "greyhound-capitec-pay-five-percent": {
+    "sections": [
+      {
+        "heading": "How to claim",
+        "paragraphs": [
+          "Capitec clients get 5% off a paid Greyhound booking on its own website or app on a mobile device when paying with Capitec Pay."
+        ]
+      },
+      {
+        "heading": "Costs, eligibility and validity",
+        "paragraphs": [
+          "Capitec clients receive 5% off Greyhound tickets booked on the operator's website/app and paid with Capitec Pay. Current homepage restricts the discount to mobile-device payment and excludes payment by Capitec bank card. It applies automatically at checkout, cannot be added afterwards, and standard changes/cancellation/refund terms apply. Paid bus ticket and qualifying Capitec account/payment approval required. No coupon code. Banking/data costs remain separate; no universal discount for cash, other banks or card payments implied. Official article is dated 21 January 2026; current homepage still advertises the benefit. No fixed expiry; operator can amend/withdraw it."
+        ]
+      }
+    ]
+  },
+  "bellville-business-expo-free-visitor-ticket-2026": {
+    "sections": [
+      {
+        "heading": "How to claim",
+        "paragraphs": [
+          "Book a free visitor ticket for the expo at Tyger Valley Centre Arena, Cape Town. Space is limited; exhibitor stands are separate."
+        ]
+      },
+      {
+        "heading": "Costs, eligibility and validity",
+        "paragraphs": [
+          "Free visitor admission on Wednesday 28 and Thursday 29 October 2026 at Tyger Valley Centre Arena / Tyger Valley Shopping Centre, Bellville, Cape Town. Book the free visitor ticket via the official Quicket event linked by the City of Cape Town at qkt.io/BBEXPO2026. Space is limited. The ticket page lists an overall window from 08:30 on 28 October to 18:00 on 29 October, South African time. This does not promise overnight access: confirm each day's visiting timetable with the organiser. The event ends at 18:00 on 29 October. Provide the registration information requested by the ticketing service; normal data, travel, food and shopping costs remain payable. Free visitor admission does not include an exhibitor stand. The public announcement states no age or nationality restriction. Confirm availability and your booking before travelling."
+        ]
+      }
+    ]
   }
 }

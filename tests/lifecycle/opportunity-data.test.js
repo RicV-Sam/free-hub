@@ -135,13 +135,20 @@ test("runtime validators enforce strict contracts and legacy FreeResource compat
   assert.equal(unsupported.typeSupported, false);
 
   const legacyResources = JSON.parse(fs.readFileSync(path.join(rootDir, "data", "free-resources.json"), "utf8"));
-  assert.equal(legacyResources.length, 33);
+  assert.equal(legacyResources.length, 41);
   assert.equal(opportunityData.validateFreeResourceRegistry(legacyResources, { legacy: true }).valid, true);
   assert.equal(opportunityData.validateFreeResource(legacyResources[0]).valid, false);
 
   const unexpected = clone(fixtures.freeResource);
   unexpected.unreviewedField = true;
   assert.equal(opportunityData.validateFreeResource(unexpected).valid, false);
+});
+
+test("resource condition links accept official HTTP URLs and reject unsafe destinations", () => {
+  assert.equal(opportunityData.validateFreeResource({ ...fixtures.freeResource, termsUrl: "https://learning.example.org/terms" }).valid, true);
+  for (const termsUrl of ["javascript:alert(1)", "https://user:password@example.org/", "", "/terms/"]) {
+    assert.equal(opportunityData.validateFreeResource({ ...fixtures.freeResource, termsUrl }).valid, false);
+  }
 });
 
 test("type-specific details reject missing, contradictory, and misspelled facts", () => {

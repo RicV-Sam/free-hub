@@ -309,6 +309,7 @@
       "id",
       "resourceType",
       "sampleResourceType",
+      "termsUrl",
       ...commonFields,
       "availability",
       "verificationStatus",
@@ -349,6 +350,9 @@
     ["datePublished", "lastReviewed", "dateModified"].forEach((field) => requireDate(resource, field, errors));
     if (resource.officialUrl && !isHttpUrl(resource.officialUrl)) {
       errors.push("officialUrl must be an HTTP(S) URL without credentials.");
+    }
+    if (resource.termsUrl !== undefined && !isHttpUrl(resource.termsUrl)) {
+      errors.push("termsUrl must be an HTTP(S) URL without credentials when present.");
     }
     if (!legacy && isIsoDate(resource.lastReviewed) && isIsoDate(resource.reviewDueAt) && resource.reviewDueAt < resource.lastReviewed) {
       errors.push("reviewDueAt cannot be before lastReviewed.");
