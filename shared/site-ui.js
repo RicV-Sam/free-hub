@@ -1,5 +1,29 @@
 (function () {
   "use strict";
+  function initAirtimeDashPromotionTracking() {
+    if (window.FreeHubAirtimeDashPromotionTrackingReady) return;
+    window.FreeHubAirtimeDashPromotionTrackingReady = true;
+    document.addEventListener("click", (event) => {
+      const link = event.target?.closest?.("a[data-airtime-dash-placement]");
+      if (!link) return;
+      let destination;
+      try { destination = new URL(link.getAttribute("href"), window.location.href); }
+      catch { return; }
+      if (destination.origin !== window.location.origin || destination.pathname !== "/play/airtime-dash/") return;
+      const payload = {
+        placement: link.dataset.airtimeDashPlacement,
+        destination_path: destination.pathname,
+        source_path: window.location.pathname,
+      };
+      if (typeof window.gtag === "function") {
+        // Match discovery analytics delivery to the primary and Journey streams.
+        window.gtag("event", "airtime_dash_promo_click", { ...payload, send_to: ["G-23P37R20FY", "G-P13C4QZYRG"] });
+      } else {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "airtime_dash_promo_click", ...payload });
+      }
+    });
+  }
   function refreshFreshness() {
     const shared = window.FreeHubShared;
     if (!shared) return;
@@ -58,6 +82,7 @@
     document.dispatchEvent(new CustomEvent("freehub:freshness-refreshed"));
   }
   function init() {
+    initAirtimeDashPromotionTracking();
     refreshFreshness();
     window.addEventListener("pageshow", refreshFreshness);
     document.addEventListener("visibilitychange", () => { if (!document.hidden) refreshFreshness(); });

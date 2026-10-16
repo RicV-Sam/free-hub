@@ -42,7 +42,7 @@ const OFFERS_PATH = path.join(ROOT_DIR, "data", "offers.json");
 const UNVERIFIED_COMPETITIONS_PATH = path.join(ROOT_DIR, "data", "unverified-competitions.json");
 const RELATIVE_ASSET_PATH = "/";
 const RELEASE_ASSET_VERSION = "20260901-native-ads-v1";
-const UI_ASSET_VERSION = "20261014-stability-v2";
+const UI_ASSET_VERSION = "20261016-airtime-promo-v1";
 const NAVIGATION_BOOTSTRAP = fs.readFileSync(path.join(ROOT_DIR, "shared", "navigation.js"), "utf8");
 const GUEST_ADS_SCRIPT_SRC = "/shared/guest-ads.js?v=20260917-account-save-v2";
 const OUTBOUND_HANDOFF_SCRIPT_SRC = `/shared/outbound-handoff.js?v=${RELEASE_ASSET_VERSION}`;
@@ -3260,7 +3260,7 @@ function renderSiteFooter(options = {}) {
           <div>
             <p class="site-footer__title">Freehub</p>
             <p class="site-footer__text">
-              Freehub helps South Africans find free resources, rewards, savings and competitions, with links to official sources. We do not run the competitions, collect entries or supply the listed benefits.
+              Freehub helps South Africans find free resources, rewards, savings and competitions, with links to official sources. FreeHub runs Airtime Dash. Other listed competitions and benefits are provided by their named promoters.
             </p>
           </div>
           <div>
@@ -3479,7 +3479,7 @@ function renderTopNavigation(options = {}) {
     ...(OFFERS_ENABLED ? [{ key: "offers", label: "Coupons & Deals", href: "/offers/" }] : []),
     { key: "ending", label: "Ending soon", href: "/competitions-ending-soon/" },
     { key: "whatsapp", label: "WhatsApp", href: WHATSAPP_CHANNEL_URL, target: "_blank", rel: "noopener noreferrer" },
-    ...(airtimeDashSettings.enabled ? [{ key: "play", label: "Play", href: "/play/airtime-dash/" }] : []),
+    ...(airtimeDashSettings.enabled ? [{ key: "play", label: "Airtime Dash", href: "/play/airtime-dash/" }] : []),
     { key: "club", label: "My competitions", href: "/club/" },
   ];
 
@@ -3503,7 +3503,8 @@ function renderTopNavigation(options = {}) {
               const current = link.key === active ? ` aria-current="page"` : "";
               const target = link.target ? ` target="${escapeAttribute(link.target)}"` : "";
               const rel = link.rel ? ` rel="${escapeAttribute(link.rel)}"` : "";
-              return `<a class="${className}" href="${escapeAttribute(link.href)}"${current}${target}${rel}>${escapeHtml(link.label)}</a>`;
+              const promotion = link.key === "play" ? ' data-airtime-dash-placement="navigation"' : "";
+              return `<a class="${className}" href="${escapeAttribute(link.href)}"${current}${target}${rel}${promotion}>${escapeHtml(link.label)}</a>`;
             })
             .join("\n          ")}
         </nav>
@@ -5718,6 +5719,7 @@ function renderPage(routeContext, competitions) {
         ${isCollectionPage ? renderCollectionBreadcrumb(pageCopy.heading) : ""}
 
         ${renderDurableInventoryNotice(routeContext, competitions)}
+        ${["competitions", "free-competitions", "win-airtime-competitions-south-africa"].includes(routeContext.slug) ? renderAirtimeDashPromotion({ compact: true, placement: routeContext.slug }) : ""}
         <section class="controls" aria-label="Competition filters">
           <label class="search-field" for="searchInput">
             <span class="search-field__label">Search competitions</span>
@@ -7086,6 +7088,7 @@ function renderHomepageHeroGuide(competitions) {
       value: "Prize draws with costs and deadlines",
       href: "/competitions/",
     },
+    ...(airtimeDashSettings.enabled ? [{ label: "Airtime Dash", value: "Play our free maze game", href: "/play/airtime-dash/" }] : []),
   ];
 
   return `<aside class="home-hero-guide" aria-label="Explore Freehub">
@@ -7095,7 +7098,7 @@ function renderHomepageHeroGuide(competitions) {
             <div class="home-hero-guide__links">
               ${links
                 .map(
-                  (link) => `<a href="${escapeAttribute(link.href)}">
+                  (link) => `<a href="${escapeAttribute(link.href)}"${link.href === "/play/airtime-dash/" ? ' data-airtime-dash-placement="home-start-here"' : ""}>
                     <span>${escapeHtml(link.label)}</span>
                     <strong>${escapeHtml(link.value)}</strong>
                   </a>`
@@ -7103,6 +7106,22 @@ function renderHomepageHeroGuide(competitions) {
                 .join("\n              ")}
             </div>
           </aside>`;
+}
+
+function renderAirtimeDashPromotion({ compact = false, placement = "home-feature" } = {}) {
+  if (!airtimeDashSettings.enabled) return "";
+  const headingId = `airtime-dash-promo-${placement}`;
+  // Keep discovery evergreen: the game loads current prize availability and rules.
+  return `<section class="airtime-dash-promo${compact ? " airtime-dash-promo--compact" : ""}" aria-labelledby="${escapeAttribute(headingId)}">
+          <div class="airtime-dash-promo__body">
+            <p class="section-kicker">The FreeHub arcade</p>
+            <h2 id="${escapeAttribute(headingId)}">${compact ? "Take a break. Play Airtime Dash." : "Airtime Dash. Can your friends beat you?"}</h2>
+            <p>${compact ? "Three lives. Endless ranked levels. Try the free maze game, then challenge your friends to beat your verified score." : "Guide our Hadeda through the maze, collect tokens and dodge the pursuers. Three lives. Endless ranked levels. How far can you go?"}</p>
+            <a class="airtime-dash-promo__cta" href="/play/airtime-dash/" data-airtime-dash-placement="${escapeAttribute(placement)}">Play Airtime Dash <span aria-hidden="true">&rarr;</span></a>
+            <p class="airtime-dash-promo__note">Try the 25-second practice without an account. Sign in for prize entry; SA residents 18+. Check the current prize and rules on the game page. Practice scores do not count.</p>
+          </div>
+          ${compact ? "" : '<img class="airtime-dash-promo__art" src="/assets/airtime-dash/share-v1.png" alt="FreeHub Airtime Dash artwork with our Hadeda mascot and game maze" width="1200" height="630" loading="lazy" decoding="async" />'}
+        </section>`;
 }
 
 function renderHomepageValueSection() {
@@ -7216,7 +7235,7 @@ function renderHomeTrustSection() {
             <article class="trust-card">
               <span class="trust-card__label">Official sources</span>
               <h3>Go to the source</h3>
-              <p>Read the details on Freehub, then follow the source link to the provider or promoter. We do not collect competition entries or supply the listed benefits. <a href="/how-we-verify-competitions/">How we check competitions</a>.</p>
+              <p>FreeHub runs Airtime Dash. For other listings, read the details here, then follow the official provider or promoter link to enter or claim. <a href="/how-we-verify-competitions/">How we check competitions</a>.</p>
             </article>
             <article class="trust-card">
               <span class="trust-card__label">Freshness</span>
@@ -7340,6 +7359,7 @@ ${noscriptLinks}
             </ul>
           </section>
         </noscript>
+        ${renderAirtimeDashPromotion()}
         ${renderReviewedPicks(reviewed, "home")}
         ${renderIntentTilesSection()}
         ${renderHomepageResourcesSection()}

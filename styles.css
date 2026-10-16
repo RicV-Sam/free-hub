@@ -661,6 +661,74 @@ button {
   }
 }
 
+.airtime-dash-promo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--accent);
+  border-radius: 8px;
+  background: #fffdf7;
+}
+
+.airtime-dash-promo__body { min-width: 0; }
+.airtime-dash-promo h2 {
+  margin: 0.4rem 0 0.75rem;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+.airtime-dash-promo__body > p:not(.section-kicker) {
+  margin: 0 0 1rem;
+  line-height: 1.6;
+}
+.airtime-dash-promo__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 48px;
+  padding: 0.75rem 1.15rem;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 850;
+}
+.airtime-dash-promo__cta:hover { background: #115e59; }
+.airtime-dash-promo__cta:focus-visible { outline: 3px solid var(--text); outline-offset: 4px; }
+.airtime-dash-promo__body > .airtime-dash-promo__note {
+  margin: 0.85rem 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+.airtime-dash-promo__art {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.airtime-dash-promo--compact { grid-template-columns: 1fr; }
+.airtime-dash-promo--compact h2 { font-size: 1.35rem; }
+
+@media (min-width: 760px) {
+  .airtime-dash-promo--compact .airtime-dash-promo__body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 2rem;
+    align-items: center;
+  }
+  .airtime-dash-promo--compact .section-kicker,
+  .airtime-dash-promo--compact h2,
+  .airtime-dash-promo--compact p { grid-column: 1; }
+  .airtime-dash-promo--compact .airtime-dash-promo__cta { grid-column: 2; grid-row: 1 / 5; }
+  .airtime-dash-promo--compact .airtime-dash-promo__body > p:not(.section-kicker) { margin-bottom: 0; }
+}
+@media (max-width: 759px) {
+  .airtime-dash-promo { grid-template-columns: 1fr; }
+  .airtime-dash-promo__art { max-width: 520px; }
+}
+
 .home-value-grid,
 .home-resource-grid {
   display: grid;
