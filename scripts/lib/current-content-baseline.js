@@ -59,8 +59,9 @@ function getCurrentContentBaseline() {
     // Their exit routes are already counted by active.length; offer routes use their own baseline.
     // 15 October: DocTalk adds one reviewed competition detail page; its exit is counted by active.length.
     // 15 October: Cadbury Fan Club adds one reviewed detail page; its exit is counted by active.length.
-    // 456 excludes variable brand, tag and competition-video routes from this fixed component.
-    generatedFileCount: 456 + shared.TAG_SLUGS.filter(slug => shared.getTagFilteredCompetitions(active, slug).length > 0).length + featuredVideoSlugs(active).size + shared.getGeneratedBrandPageDefinitions(core).length + getReviewedGuides(buildDate).length - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    // 16 October: Boxer & Colgate adds one reviewed competition detail page; its active exit is counted below.
+    // 457 excludes variable brand, tag and competition-video routes from this fixed component.
+    generatedFileCount: 457 + shared.TAG_SLUGS.filter(slug => shared.getTagFilteredCompetitions(active, slug).length > 0).length + featuredVideoSlugs(active).size + shared.getGeneratedBrandPageDefinitions(core).length + getReviewedGuides(buildDate).length - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
     sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + getReviewedGuides(buildDate).filter(page => !page.noindex).length + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length + (read('data/airtime-dash.json').enabled ? 1 : 0),
   };
 }

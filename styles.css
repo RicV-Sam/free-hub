@@ -4808,8 +4808,10 @@ body {
 
 .listing-hero-image img {
   display: block;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: auto;
+  margin-inline: auto;
   border-radius: 16px;
 }
 

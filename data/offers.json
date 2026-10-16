@@ -1830,5 +1830,30 @@
     "sponsored": false,
     "publishedAt": "2026-10-15",
     "updatedAt": "2026-10-15"
+  },
+  {
+    "id": "vodacom-summer-scratch-win-2026",
+    "slug": "vodacom-summer-scratch-win-2026",
+    "type": "deal",
+    "brand": "Vodacom",
+    "brandSlug": "vodacom",
+    "title": "Vodacom Summer: Up to Three Free Scratch & Win Plays Daily",
+    "summary": "Eligible Vodacom customers opted into VodaBucks can use up to three free Scratch & Win plays each day across VodaPay and USSD, with at most one free USSD play. Rewards vary and are not guaranteed.",
+    "destinationUrl": "https://www.vodacom.co.za/vodacom/shopping/summer",
+    "sourceUrl": "https://www.vodacom.co.za/vodacom/terms/promotions/summer-2026",
+    "termsUrl": "https://www.vodacom.co.za/vodacom/terms/promotions/summer-2026",
+    "category": "mobile-data",
+    "startsAt": "2026-10-08",
+    "expiresAt": "2027-03-31",
+    "lastChecked": "2026-10-16",
+    "reviewDueAt": "2026-10-23",
+    "terms": "Eligible Vodacom Prepaid, Hybrid/Top-Up and Postpaid customers need a lawfully registered SIM and VodaBucks opt-in. Use the VodaPay app or dial *133# or *135#. The combined free limit is three plays per day, including at most one on USSD; a USSD play reduces the remaining VodaPay allocation. Free plays expire at 23:59 that day. Specific rewards, availability and expiry are shown in the app/journey or SMS; there is no guaranteed reward or value. Optional extra plays cost one VodaBucks each, up to five daily; paid Upsize offers are separate and you keep your original reward if you decline. Where VodaBucks must be claimed on VodaPay, claim then bank them before midnight on Friday of that same week. Normal participation/connectivity costs may apply; free describes the play allocation. Rewards are redeemed in South Africa, and reward bundles can incur normal usage charges after depletion or expiry. Opt-in includes programme administration and usage/behavioural processing; marketing SMS opt-out is separate. Read the detailed conditions and current official terms before taking part.",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "affiliate": false,
+    "sponsored": false,
+    "publishedAt": "2026-10-16",
+    "updatedAt": "2026-10-16"
   }
 ]

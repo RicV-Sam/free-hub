@@ -1894,5 +1894,27 @@
     "reviewedAt": "2026-10-15",
     "sourcePage": "https://www.cadbury.co.za/terms/cadbury-fan-club-2026-terms-and-conditions",
     "sourceImage": "https://www.cadbury.co.za/sites/default/files/2026-09/desktop-banner.png"
+  },
+  "boxer-colgate-lenovo-tablets-2026": {
+    "src": "/assets/listings/boxer-colgate-lenovo-tablets-2026.webp",
+    "width": 1200,
+    "height": 1552,
+    "alt": "Official Boxer poster advertising 20 Lenovo Idea Tablets for a two-product Colgate, Protex or Sta-Soft purchase and a Rewards Club card swipe",
+    "kind": "official-source",
+    "caption": "Official Boxer campaign poster. The rules describe Lenovo Idea Tablets; a specific model, value or inclusion of pictured accessories is not confirmed.",
+    "reviewedAt": "2026-10-16",
+    "sourcePage": "https://www.boxer.co.za/page/competitions",
+    "sourceImage": "https://www.boxer.co.za/storage/web/source/1/3oGz-a-XFqkWEb40Ura6gCDAMFHpLRhH.jpg"
+  },
+  "vodacom-summer-scratch-win-2026": {
+    "src": "/assets/listings/vodacom-summer-scratch-win-2026.webp",
+    "width": 461,
+    "height": 520,
+    "alt": "Official Vodacom Summer Scratch and Win Daily artwork with three scratch cards",
+    "kind": "official-source",
+    "caption": "Official Vodacom Summer Scratch & Win artwork. Rewards vary; the image does not guarantee a win or a particular reward.",
+    "reviewedAt": "2026-10-16",
+    "sourcePage": "https://www.vodacom.co.za/vodacom/shopping/summer",
+    "sourceImage": "https://www.vodacom.co.za/sites/vodacomcoza/files/2026-10/summer26-stepper-image.webp"
   }
 }

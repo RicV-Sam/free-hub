@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-16",
-  "count": 118,
+  "count": 119,
   "competitions": [
     {
       "id": "sunlight-dirty-dish-gagasi-2026",
@@ -1640,6 +1640,33 @@
       "termsUrl": "https://www.spar.co.za/competitions/sunlight-spar-rewards-competition",
       "lastChecked": "2026-10-03",
       "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "boxer-colgate-lenovo-tablets-2026",
+      "title": "Boxer & Colgate: Win One of 20 Lenovo Idea Tablets",
+      "brand": "Boxer / Colgate",
+      "summary": "Buy any two Colgate, Protex or Sta-Soft products at a participating Boxer store and swipe your valid Boxer Rewards Club card for automatic entry into a draw for 20 Lenovo Idea Tablets.",
+      "imageUrl": "https://freehub.co.za/assets/listings/boxer-colgate-lenovo-tablets-2026.webp",
+      "closingDate": "2026-11-08",
+      "category": "Tech",
+      "prizeName": "20 Lenovo Idea Tablets",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Automatic entry with a qualifying purchase and card swipe",
+      "eligibility": "South African legal residents aged 18+ with valid SA ID or Smart Card; valid Rewards Club card required. Promoter-connected and recent-winner exclusions apply.",
+      "entrySteps": [
+        "Read the official campaign rules and check that you meet the age, South African ID/residency and previous-winner conditions.",
+        "Use a valid, registered and activated Boxer Rewards Club card. If you need a card, use Boxer’s official Rewards Club registration instructions.",
+        "Buy any two Colgate, Protex or Sta-Soft products from a participating Boxer store during the campaign period.",
+        "Swipe your Boxer Rewards Club card at the till during checkout. This records your automatic entry; no separate competition submission is required.",
+        "For another entry, make a separate qualifying purchase transaction and swipe again. Complete qualifying transactions before 23:59 on 8 November 2026."
+      ],
+      "officialUrl": "https://www.boxer.co.za/page/competitions",
+      "termsUrl": "https://www.boxer.co.za/storage/web/source/2026/Competition%20T%26Cs/Sep%20ME/Boxer%20%26%20Colgate%20Ts%26Cs.pdf?_t=1789977723",
+      "lastChecked": "2026-10-16",
+      "isHighValue": false,
       "isClosingSoon": false
     },
     {
