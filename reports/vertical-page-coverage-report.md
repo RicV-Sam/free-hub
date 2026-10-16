@@ -1,20 +1,19 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-10-15
+Generated: 2026-10-16
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 22
+- Matching active public competitions: 21
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Algoa FM: Win 10 Proteas vs Australia Test Tickets (algoa-proteas-australia-tickets-october-2026) | 2026-10-15 | free-entry | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Algoa FM Montego: Cash and Dog-Food Hampers (algoa-montego-radio-cash-2026) | 2026-10-16 | free-entry | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Mr Muscle 2026 Consumer Promotion (mr-muscle-2026-consumer-promotion) | 2026-10-17 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Win cash vouchers with NESPRAY Always Giving More (nespray-always-giving-more-2026) | 2026-10-17 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
@@ -105,14 +104,13 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 31
+- Matching active public competitions: 30
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| DeskStand Giveaway: Three Standing Desk Prizes (deskstand-three-winner-giveaway-2026) | 2026-10-15 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | 1Life Good Hope FM: Winning at Life October 2026 (1life-goodhope-october-2026) | 2026-10-16 | sms-rate | yes | yes | Online entry mentioned in entry text | none |
 | International Compost Awareness Week 2027 Poster Contest (icaw-poster-contest-2027) | 2026-10-22 | free-entry | yes | yes | Online entry tag | none |
 | Telkom Radio Awards My Station R40,000 Competition (telkom-radio-awards-my-station-2026) | 2026-10-23 | free-entry | yes | yes | Online entry mentioned in entry text | none |

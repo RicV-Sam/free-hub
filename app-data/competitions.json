@@ -1,60 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-15",
-  "count": 120,
+  "asOfDate": "2026-10-16",
+  "count": 118,
   "competitions": [
-    {
-      "id": "deskstand-three-winner-giveaway-2026",
-      "title": "DeskStand Giveaway: Three Standing Desk Prizes",
-      "brand": "DeskStand",
-      "summary": "Complete DeskStand’s free online entry form for a chance to win a JUMBO DeskStand, Table Shelf or Mini DeskStand. Newsletter signup and social engagement are optional.",
-      "imageUrl": "https://freehub.co.za/assets/listings/deskstand-three-winner-giveaway-2026.webp",
-      "closingDate": "2026-10-15",
-      "category": "Lifestyle",
-      "prizeName": "JUMBO DeskStand, Table Shelf and Mini DeskStand, awarded separately",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "South African residents aged 18+ with a delivery address in South Africa. Promoter personnel, immediate families and competition administrators are excluded.",
-      "entrySteps": [
-        "Open the official DeskStand giveaway form and read the linked terms.",
-        "Provide your name, email address, contact number and where you found the giveaway.",
-        "Choose whether to subscribe to the newsletter and whether to consent to a publicity photograph. These are separate choices; newsletter consent is optional.",
-        "Agree to the use of your personal information to administer the giveaway and submit before 23:59 SAST on 15 October 2026."
-      ],
-      "officialUrl": "https://www.deskstand.com/pages/give-away-3-winners",
-      "termsUrl": "https://www.deskstand.com/pages/competition-t-cs",
-      "lastChecked": "2026-10-08",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "algoa-proteas-australia-tickets-october-2026",
-      "title": "Algoa FM: Win 10 Proteas vs Australia Test Tickets",
-      "brand": "Algoa FM / Eastern Province Cricket",
-      "summary": "WhatsApp or Telegram PROTEAS, your name, surname and town to Algoa FM for a chance to win ten tickets to one day of the Gqeberha Test.",
-      "imageUrl": "https://freehub.co.za/assets/listings/algoa-proteas-australia-tickets-october-2026.webp",
-      "closingDate": "2026-10-15",
-      "category": "Sports",
-      "prizeName": "Ten tickets to one specified day of the Proteas–Australia Gqeberha Test",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "WhatsApp",
-      "eligibility": "Entrants must live in Algoa FM’s broadcast region, be over 18 and have no Algoa FM competition win in the previous 90 days. Standard station competition rules apply. The linked standard Algoa FM rules also require South African citizenship, a valid South African identity document or passport and a South African bank account held in the entrant’s own name; station and specified related parties are excluded.",
-      "entrySteps": [
-        "Check that you live in Algoa FM’s broadcast region, are over 18 and have not won on the station in the past 90 days.",
-        "WhatsApp or Telegram PROTEAS, your name, surname and town to 061 794 0940. Normal data rates apply.",
-        "Enter before the applicable on-air selection. Kaycee announces winners between 12:00 and 15:00 on 12–15 October. The source gives no separate submission cutoff.",
-        "Each selection day awards tickets for one corresponding day of the Test: 12 October for 18 October, 13 October for 19 October, 14 October for 20 October and 15 October for 21 October."
-      ],
-      "officialUrl": "https://www.algoafm.co.za/competition/win-10-tickets-to-see-the-proteas-take-on-australia",
-      "termsUrl": "https://www.algoafm.co.za/competition/win-10-tickets-to-see-the-proteas-take-on-australia",
-      "lastChecked": "2026-10-14",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "sunlight-dirty-dish-gagasi-2026",
       "title": "Win R5,000 with Sunlight Dirty Dish on Gagasi FM",
@@ -516,7 +464,7 @@
       "termsUrl": "https://upload.radioawards.co.za/MyStation/css/RA-My-Station-competiton_terms-and-conditions_2026.pdf",
       "lastChecked": "2026-09-18",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "heinz-heritage-spar-2026",
