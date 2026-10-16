@@ -59,7 +59,8 @@
         "Third-party requests intentionally blocked during layout QA; optional local firebase-config.json is absent.",
         "All 28 listing screenshots and 28 image screenshots inspected by root via contact sheets."
       ],
-      "screenshotCount": 56
+      "screenshotCount": 56,
+      "stylesheetCacheVersion": "20261016-wide14-images-v1"
     },
     "independentReview": {
       "actionableFindings": 0,
