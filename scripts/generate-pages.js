@@ -16,6 +16,7 @@ const listingImages = require("../data/listing-images.json");
 const responsiveImages = require("../data/responsive-images.json");
 const listingEditorialDetails = require("../data/listing-editorial-details.json");
 const { getReviewedGuides } = require("./lib/research-guides.js");
+const grocery = require("./lib/grocery-savings.js");
 const { createEditorialSectionsRenderer } = require("./lib/editorial-sections.js");
 const { createFuelRewardsRenderer } = require("./lib/fuel-rewards.js");
 const unverifiedCompetitionData = require("../shared/unverified-competition-data.js");
@@ -291,7 +292,9 @@ const opportunityRouteRenderer = createOpportunityRouteRenderer({
 });
 const editorialSections = createEditorialSectionsRenderer({ escapeHtml, escapeAttribute, isLinkAvailable: isEditorialLinkAvailable });
 const fuelRewardsRenderer = createFuelRewardsRenderer({ escapeHtml, escapeAttribute, escapeScript });
+const GROCERY_PAGES = OFFERS_ENABLED ? grocery.getGroceryPages({ asOfDate: LIFECYCLE_REFERENCE_DATE_ISO }) : [];
 const TRUST_PAGE_DEFINITIONS = [
+  ...GROCERY_PAGES,
   ...getReviewedGuides(LIFECYCLE_REFERENCE_DATE_ISO),
   whatsappChannel.page,
   PARKS_GUIDE,
@@ -2500,6 +2503,15 @@ function main() {
     asOfDate: LIFECYCLE_REFERENCE_DATE_ISO,
   });
   const offerRegistry = JSON.parse(fs.readFileSync(OFFERS_PATH, "utf8"));
+  grocery.validateGroceryData(offerRegistry, listingImages);
+  // A regular build must remove any local draft preview left in managed routes.
+  if (!GROCERY_PAGES.length) {
+    for (const page of grocery.settings.pages) {
+      const target = path.resolve(ROOT_DIR, page.slug, "index.html");
+      if (!target.startsWith(ROOT_DIR + path.sep)) throw new Error("Invalid grocery output path");
+      if (fs.existsSync(target)) fs.unlinkSync(target);
+    }
+  }
   const offerValidation = offerData.validateOfferRegistry(offerRegistry);
   if (!offerValidation.valid) {
     throw new Error(`[Offer validation failed]\n${offerValidation.errors.map((error) => `- ${error}`).join("\n")}`);
@@ -3680,6 +3692,7 @@ function renderOfferCollectionPage({ type, offers, category = "", brandSlug = ""
     <main id="main-content" class="main-content offer-page">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span>${category || brand ? '<a href="/offers/">Offers</a><span aria-hidden="true">/</span>' : ""}<span aria-current="page">${escapeHtml(qualifier || noun)}</span></nav>
       <section class="offer-trust" aria-label="How coupons and deals are organised"><strong>Coupons use codes; deals do not.</strong> We separate code-based coupons from ordinary promotions, then link you to the source to check the final price and terms.</section>
+      ${GROCERY_PAGES.length && !brand && (!category || category === "groceries") ? '<section class="offer-trust"><strong>Plan a cheaper grocery shop.</strong> <a href="/grocery-savings/">Explore Grocery Savings: store guides and price-checked finds →</a></section>' : ""}
       ${offers.length ? `<p class="offer-results">Showing ${offers.length} verified ${offers.length === 1 ? resultLabel : `${resultLabel}s`}</p><div class="offer-grid">${offers.map(renderOfferCard).join("\n")}</div>` : `<section class="state-card">${renderMascot("recover")}<p class="state-card__title">No verified ${noun.toLowerCase()} listed yet</p><p class="state-card__text">No offer is published until its source, terms and coupon code, when needed, have been checked.</p></section>`}
       ${!category && !brand ? renderOfferTaxonomyLinks(offers) : ""}
       ${!category && !brand ? renderOfferContributionPanel() : ""}
@@ -3769,6 +3782,8 @@ function renderListingHeroImage(listing) {
 }
 
 function renderOfferDetailPage(offer) {
+  const groceryPrice = grocery.getGroceryPrices([offer], { asOfDate: LIFECYCLE_REFERENCE_DATE_ISO })[0];
+  if (GROCERY_PAGES.length && groceryPrice) return getGroceryRenderer().renderOffer(groceryPrice);
   const detailPath = offerData.getOfferPath(offer);
   const canonical = `${shared.CANONICAL_ORIGIN}${detailPath}`;
   const noun = offer.type === "coupon" ? "Coupon" : "Deal";
@@ -8669,6 +8684,7 @@ function writeVideoPages(activeCompetitions = []) {
 }
 
 function renderTrustPage(page) {
+  if (page.groceryPage) return getGroceryRenderer().renderPage(page, grocery.getGroceryPrices(publicOffers, { asOfDate: LIFECYCLE_REFERENCE_DATE_ISO }));
   if (page.slug === whatsappChannel.page.slug) {
     return whatsappChannel.render({
       url: WHATSAPP_CHANNEL_URL, escapeHtml,
@@ -8961,6 +8977,7 @@ function writeContentPages(activeCompetitions) {
 
 function getGuideCards() {
   return [
+    ...GROCERY_PAGES.map(page => ({ title: page.kind === "hub" ? "Grocery Savings" : page.heading, href: `/${page.slug}/`, text: page.description })),
     {
       title: "Fuel rewards comparison and calculator",
       href: "/guides/best-fuel-rewards-south-africa/",
@@ -13675,4 +13692,45 @@ function escapeXml(value) {
     .replace(/'/g, "&apos;");
 }
 
-main();
+function getGroceryRenderer(preview = false) {
+  return grocery.createGroceryRenderer({
+    escapeHtml, escapeAttribute, escapeScript, images: listingImages,
+    stylesheet: getStylesheetHref("/"), navigation: renderTopNavigation({ active: "offers" }),
+    footer: renderSiteFooter({ includeAuthPanel: !preview }), preview,
+    trackingHead: GUEST_ADS_SCRIPT + renderGoogleTagManagerHead("{ page_type: 'grocery_savings' }") + renderMetaPixelHead(),
+    trackingBody: renderGoogleTagManagerNoScript() + renderMetaPixelNoScript(),
+  });
+}
+
+function writeGroceryPreview() {
+  const registry = JSON.parse(fs.readFileSync(OFFERS_PATH, "utf8"));
+  grocery.validateGroceryData(registry, listingImages);
+  const prices = grocery.getGroceryPrices(registry, { asOfDate: LIFECYCLE_REFERENCE_DATE_ISO, preview: true });
+  const renderer = getGroceryRenderer(true);
+  // Remove only these managed preview deals before applying today's review gate.
+  for (const price of grocery.settings.priceChecks) {
+    const offer = registry.find(item => item.id === price.offerId);
+    const target = path.join(ROOT_DIR, offerData.getOfferPath(offer), "index.html");
+    if (fs.existsSync(target)) fs.unlinkSync(target);
+  }
+  const write = (route, html) => {
+    const directory = path.resolve(ROOT_DIR, route);
+    if (!directory.startsWith(ROOT_DIR + path.sep)) throw new Error("Invalid grocery preview path");
+    fs.mkdirSync(directory, { recursive: true });
+    writeGeneratedFile(path.join(directory, "index.html"), html);
+  };
+  grocery.getGroceryPages({ preview: true }).forEach(page => write(page.slug, renderer.renderPage(page, prices)));
+  prices.forEach(price => write(`deal/${price.offer.slug}`, renderer.renderOffer(price)));
+  for (const route of ["offers", "guides", "blog"]) {
+    const file = path.join(ROOT_DIR, route, "index.html");
+    if (!fs.existsSync(file)) continue;
+    const html = fs.readFileSync(file, "utf8")
+      .replace(/<section class="offer-trust" data-grocery-preview>[\s\S]*?<\/section>/g, "")
+      .replace(/(<main[^>]*>)/, '$1<section class="offer-trust" data-grocery-preview><strong>Grocery Savings — private preview.</strong> <a href="/grocery-savings/">Explore the new guides and price-checked finds →</a></section>');
+    fs.writeFileSync(file, html);
+  }
+  return { pages: grocery.settings.pages.length, priceChecks: prices.length, publicationStatus: grocery.settings.publicationStatus };
+}
+
+if (require.main === module) main();
+module.exports = { writeGroceryPreview };

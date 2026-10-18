@@ -1,0 +1,266 @@
+{
+  "publicationStatus": "published",
+  "lastReviewed": "2026-10-18",
+  "reviewDueAt": "2026-11-18",
+  "pages": [
+    {
+      "slug": "grocery-savings",
+      "kind": "hub",
+      "title": "Grocery Savings South Africa: Stores, Prices & Guides | FreeHub",
+      "heading": "Make your grocery budget go further.",
+      "description": "Explore South African discount grocery stores and price-checked finds, with pack sizes, unit prices, date-label information and delivery costs to consider.",
+      "intro": "Find discount stores, compare the cost of a pack and check the details that matter before you shop.",
+      "imageId": "grocery-best-before-store",
+      "sections": []
+    },
+    {
+      "slug": "discount-grocery-stores-south-africa",
+      "kind": "stores",
+      "title": "Discount Grocery Stores in South Africa: Where to Shop | FreeHub",
+      "heading": "Discount grocery stores in South Africa",
+      "description": "Compare Best Before, Foodeez and Looters: verified store locations, delivery information, changing stock and how to check the real cost of groceries.",
+      "intro": "Best Before, Foodeez and Looters offer alternatives to a regular supermarket trip. Start with the stores that serve your area, then compare the products you actually need.",
+      "imageId": "grocery-foodeez-store",
+      "sections": [
+        {
+          "id": "how-to-compare",
+          "heading": "Compare your shopping list, one product at a time",
+          "paragraphs": [
+            "A low price on one product does not establish the cheapest place for your whole shop. Match the brand, variant and pack size where possible. A different brand can be a useful alternative, but it is a substitute rather than a like-for-like comparison.",
+            "Use price per kilogram or litre to compare pack sizes. For tins, check whether you need net or drained weight; our price cards use the labelled net pack weight. Multi-buy prices require the full qualifying quantity and can cost more overall if you will not use it.",
+            "Add delivery, collection travel and any minimum-spend requirement before deciding. A store across town can be useful for a planned stock-up; a special trip for a single item may use up the saving. Buy quantities you expect to use and store as the packaging instructs."
+          ]
+        },
+        {
+          "id": "date-labels",
+          "heading": "Read the date label and the storage instructions",
+          "paragraphs": [
+            "Best-before and use-by labels mean different things. Department of Health guidance distinguishes the quality and freshness role of a best-before date from a use-by date. A retailer's general policy does not tell you the date or condition of the individual pack you will receive.",
+            "Look for the printed date, follow the storage instructions and avoid products past their use-by date. If an online listing omits the batch date, ask the retailer before paying. We show that information as unavailable rather than treating an absent date as a fresh product."
+          ],
+          "sources": [
+            {
+              "label": "Department of Health: explanation of food date labels",
+              "href": "https://www.gov.za/news/media-statements/health-department-publishes-new-regulations-relating-labelling-and"
+            }
+          ]
+        },
+        {
+          "id": "our-checks",
+          "heading": "What FreeHub checked",
+          "paragraphs": [
+            "We reviewed the retailers' own websites on 18 October 2026 for locations, shopping options and stated conditions. This is a desk-researched guide, not a report of store visits or test purchases. The selection is a starting point, not a complete national directory or a ranking of the cheapest retailers.",
+            "Our linked price checks record the product, pack size and amount shown online. They do not establish in-store stock, delivery to every address or a saving against another supermarket. Retailers change stock and prices; open the source before travelling or ordering."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "best-before-south-africa-explained",
+      "kind": "explainer",
+      "title": "Best Before South Africa: Stores, Delivery & Date Labels | FreeHub",
+      "heading": "How shopping at Best Before works",
+      "description": "Understand Best Before's clearance stock, nine listed Gauteng stores, courier delivery, date labels and the limits of its reported 45% basket saving.",
+      "intro": "Best Before sells surplus, short-dated and past-best-before stock, alongside some newer-dated goods. Check the exact product, pack date and total delivered cost before deciding whether it suits your shop.",
+      "imageId": "grocery-best-before-store",
+      "sections": [
+        {
+          "id": "why-prices-vary",
+          "heading": "Why its prices and range can differ",
+          "paragraphs": [
+            "Best Before describes its business as buying surplus and clearance stock. That can include items approaching or beyond a best-before date, plus fresh-dated lines. The range changes as stock becomes available, so it may not replace every item on your normal shopping list.",
+            "Compare each product with the alternative you would actually buy. An imported sauce or a larger pack is not automatically better value than a local product you already use. FreeHub has not established that Best Before is the cheapest retailer for a complete household basket."
+          ],
+          "sources": [
+            {
+              "label": "Best Before: how the retailer describes its range",
+              "href": "https://www.best-before.co.za/"
+            }
+          ]
+        },
+        {
+          "id": "stores",
+          "heading": "Where are the stores?",
+          "paragraphs": [
+            "The official branch directory lists nine Gauteng locations: Woodmead, Edenvale, Fourways, Northcliff, Krugersdorp, Boksburg, Atterbury, Centurion and Wonderboom. Check the directory for the exact address and opening hours before travelling.",
+            "Some homepage copy still refers to the eighth branch. We use the current branch directory for the nine-location list. The retailer's product page stock is an online indication; it does not establish availability at every branch."
+          ],
+          "sources": [
+            {
+              "label": "Check the official Best Before branch directory",
+              "href": "https://www.best-before.co.za/branches/"
+            }
+          ]
+        },
+        {
+          "id": "delivery",
+          "heading": "Delivery and collection: check the total cost",
+          "paragraphs": [
+            "Best Before advertises nationwide courier delivery, with an estimated two to five working days for serviced areas. Some farms, remote areas and outlying addresses may not be covered. Its shipping page does not give a single flat delivery price; obtain the charge for your basket and address before paying.",
+            "Its buying guide describes free in-store collection, with orders and transfers taking up to five working days to prepare. The shipping page refers to selected Gauteng collection locations, so confirm the options offered for your order and wait for the ready-to-collect notification.",
+            "The retailer warns that products can sell out even after an order is placed. It says it will contact shoppers about an alternative or refund. A displayed stock count is a snapshot, not a reservation."
+          ],
+          "sources": [
+            {
+              "label": "Best Before shipping information",
+              "href": "https://www.best-before.co.za/shipping-information/"
+            },
+            {
+              "label": "Best Before: read before you buy",
+              "href": "https://www.best-before.co.za/before-you-buy/"
+            }
+          ]
+        },
+        {
+          "id": "best-before-dates",
+          "heading": "Best-before is not the same as use-by",
+          "paragraphs": [
+            "The Department of Health distinguishes a best-before date, which concerns optimum quality and freshness, from a use-by date. Best Before states that it does not sell products past their use-by date; that is the retailer's policy, not an independent inspection of its stock.",
+            "Check the printed label and storage instructions on the actual pack. Do not assume an item is fresh-dated because the website has no date field. The Farmgirl baked beans page we inspected is tagged “Future Dated”, but it gives no actual batch date. Ask for that date before ordering if it affects your decision."
+          ],
+          "sources": [
+            {
+              "label": "Department of Health: food date labels",
+              "href": "https://www.gov.za/news/media-statements/health-department-publishes-new-regulations-relating-labelling-and"
+            },
+            {
+              "label": "Best Before's stated date policy",
+              "href": "https://www.best-before.co.za/before-you-buy/"
+            }
+          ]
+        },
+        {
+          "id": "basket-claim",
+          "heading": "What does the reported 45% saving mean?",
+          "paragraphs": [
+            "Daily Investor reported on 18 October 2026 that a selected 21-product promotional basket cost R1,085 at Best Before against R1,958 at conventional retailers. The difference is R873, or 44.6% of R1,958. Best Before's Week 42 deals page displays the same totals.",
+            "That promotion includes food and household products; it is not a standard basket of essential groceries. We checked the arithmetic and attribution, but did not independently reproduce the 21 comparator prices. The result cannot establish a 45% saving on your own shopping list, and no delivery charge is included in our calculation."
+          ],
+          "sources": [
+            {
+              "label": "Daily Investor report, 18 October 2026",
+              "href": "https://dailyinvestor.com/retail/160324/new-store-with-lower-prices-than-checkers-pick-n-pay-and-spar/"
+            },
+            {
+              "label": "Best Before's weekly deals page",
+              "href": "https://www.best-before.co.za/product-category/special-deals/"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "stores": [
+    {
+      "name": "Best Before",
+      "area": "Gauteng stores · courier delivery",
+      "summary": "Clearance groceries, snacks and household products. The retailer describes surplus, short-dated, past-best-before and some fresh-dated stock.",
+      "locations": "Nine locations: Woodmead, Edenvale, Fourways, Northcliff, Krugersdorp, Boksburg, Atterbury, Centurion and Wonderboom.",
+      "delivery": "Nationwide courier service to supported addresses; no flat delivery tariff verified. Free collection is advertised, subject to the locations offered for your order.",
+      "dates": "Says it does not sell past-use-by products. Exact batch dates are not shown on every product page.",
+      "links": [
+        {
+          "label": "Store directory",
+          "href": "https://www.best-before.co.za/branches/"
+        },
+        {
+          "label": "Delivery conditions",
+          "href": "https://www.best-before.co.za/shipping-information/"
+        },
+        {
+          "label": "Date and stock policy",
+          "href": "https://www.best-before.co.za/before-you-buy/"
+        }
+      ]
+    },
+    {
+      "name": "Foodeez",
+      "area": "Western Cape stores",
+      "summary": "Discount groceries including pantry foods and selected chilled or frozen products. Its official site describes a changing, availability-dependent range.",
+      "locations": "The locator lists Diep River, Brackenfell, Parklands, Strand and Imhoff. Some navigation menus omit Imhoff; use the locator for addresses.",
+      "delivery": "No delivery tariff or nationwide service verified from the official pages reviewed. Confirm shopping and collection options with your chosen branch.",
+      "dates": "No detailed date-label policy found in the reviewed pages. Check the actual product; do not assume all stock is short-dated.",
+      "links": [
+        {
+          "label": "Store directory",
+          "href": "https://www.foodeez.co.za/find-us"
+        },
+        {
+          "label": "About the range",
+          "href": "https://www.foodeez.co.za/about-us"
+        },
+        {
+          "label": "Official specials",
+          "href": "https://www.foodeez.co.za/specials"
+        }
+      ]
+    },
+    {
+      "name": "Looters",
+      "area": "Western Cape & KwaZulu-Natal · online shop",
+      "summary": "Discount food and household products. The retailer says its range can include surplus goods and items near or past their best-before dates.",
+      "locations": "The contact page lists Retreat, Somerset West, Durban North and Ballito. Check the branch address before travelling.",
+      "delivery": "Collection or paid delivery, selected by province. The charge depends on order weight and area. Its policy states a 10% cancellation/handling fee after packing and processing.",
+      "dates": "Says it does not sell past-use-by products. The inspected grocery pages omit the batch's best-before date.",
+      "links": [
+        {
+          "label": "Store directory",
+          "href": "https://looters.co.za/contact/"
+        },
+        {
+          "label": "Collection and delivery",
+          "href": "https://looters.co.za/collection-delivery/"
+        },
+        {
+          "label": "About the stock",
+          "href": "https://looters.co.za/about-us/"
+        }
+      ]
+    }
+  ],
+  "priceChecks": [
+    {
+      "offerId": "best-before-farmgirl-baked-beans-410g",
+      "product": "Farmgirl baked beans",
+      "priceCents": 1400,
+      "quantity": 410,
+      "unit": "g",
+      "checkedAt": "2026-10-18T08:37:25Z",
+      "bestBefore": null,
+      "dateNote": "Tagged “Future Dated”; the actual batch date is not provided online.",
+      "availability": "The product page showed in stock and an Add to basket button when checked. Branch stock was not verified.",
+      "delivery": "Courier cost depends on your order and address; no flat price verified. Free in-store collection is advertised, subject to the options offered for your order.",
+      "deliveryUrl": "https://www.best-before.co.za/shipping-information/",
+      "sourceUrl": "https://www.best-before.co.za/product/farmgirl-baked-beans-410g/"
+    },
+    {
+      "offerId": "looters-koo-mixed-vegetables-410g",
+      "product": "Koo mixed vegetables in brine",
+      "priceCents": 990,
+      "quantity": 410,
+      "unit": "g",
+      "checkedAt": "2026-10-18T08:37:28Z",
+      "bestBefore": null,
+      "dateNote": "The batch's best-before date is not provided online.",
+      "availability": "The product page allowed Add to cart and its product data indicated in stock. Branch stock was not verified.",
+      "delivery": "Paid delivery is calculated using order weight and destination. Collection is also offered; check the province and collection options for your order.",
+      "deliveryUrl": "https://looters.co.za/collection-delivery/",
+      "sourceUrl": "https://looters.co.za/products/koo-mixed-vegetables-in-brine/"
+    },
+    {
+      "offerId": "looters-pasta-joy-elbows-500g",
+      "product": "Pasta Joy elbows pasta",
+      "priceCents": 1490,
+      "quantity": 500,
+      "unit": "g",
+      "checkedAt": "2026-10-18T08:37:28Z",
+      "bestBefore": null,
+      "dateNote": "The batch's best-before date is not provided online.",
+      "availability": "The product page allowed Add to cart and its product data indicated in stock. Branch stock was not verified.",
+      "delivery": "Paid delivery is calculated using order weight and destination. Collection is also offered; check the province and collection options for your order.",
+      "deliveryUrl": "https://looters.co.za/collection-delivery/",
+      "sourceUrl": "https://looters.co.za/products/pasta-joy-elbows-pasta-500g-looters/"
+    }
+  ],
+  "publishedAt": "2026-10-18"
+}

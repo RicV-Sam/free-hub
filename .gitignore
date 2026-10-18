@@ -65,3 +65,8 @@ indexnow-revision.txt
 /cloudflare/airtime-dash/.build/
 /cloudflare/airtime-dash/.wrangler/
 /cloudflare/airtime-dash/.dev.vars*
+
+# Grocery Savings generated pages
+/grocery-savings/
+/discount-grocery-stores-south-africa/
+/best-before-south-africa-explained/

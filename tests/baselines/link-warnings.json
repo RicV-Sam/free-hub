@@ -109,6 +109,14 @@
       "sourceType": "competition",
       "recordId": "goldi-flavours-of-the-nation-2026",
       "field": "sourceUrl",
+      "reason": "expired_archive_404",
+      "url": "https://goldichicken.co.za/goldi-chicken-home/about/competition-terms-and-conditions/goldi-flavours-of-the-nation-terms-and-conditions-2026/",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "goldi-flavours-of-the-nation-2026",
+      "field": "sourceUrl",
       "reason": "expired_archive_421",
       "url": "https://goldichicken.co.za/goldi-chicken-home/about/competition-terms-and-conditions/goldi-flavours-of-the-nation-terms-and-conditions-2026/",
       "lifecycle": "expired-archive"

@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-18",
-  "count": 40,
+  "count": 43,
   "counts": {
     "freeStuff": 24,
     "resources": 23,
     "opportunities": 1,
-    "offers": 16
+    "offers": 19
   },
   "items": [
     {
@@ -692,6 +692,60 @@
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "expiresAt": "2026-10-29",
       "lastChecked": "2026-10-16",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "best-before-farmgirl-baked-beans-410g",
+      "kind": "deal",
+      "title": "Farmgirl baked beans 410g for R14.00 at Best Before",
+      "provider": "Best Before",
+      "summary": "Online price checked on 18 October: R14.00 for 410g (R34.15/kg, based on net pack weight). Delivery costs extra; the batch best-before date is not provided online.",
+      "category": "groceries",
+      "categoryLabel": "Groceries",
+      "officialUrl": "https://www.best-before.co.za/product/farmgirl-baked-beans-410g/",
+      "termsUrl": "https://www.best-before.co.za/shipping-information/",
+      "requirements": [
+        "Purchase required. No coupon needed. The amount is the retailer's displayed online product price, excluding delivery. The product page showed in stock and an Add to basket button when checked. Branch stock was not verified. Tagged “Future Dated”; the actual batch date is not provided online. Confirm the actual pack date and total charge before paying. No promotional end date was stated. No same-product supermarket saving has been verified."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-18",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "looters-koo-mixed-vegetables-410g",
+      "kind": "deal",
+      "title": "Koo mixed vegetables in brine 410g for R9.90 at Looters",
+      "provider": "Looters",
+      "summary": "Online price checked on 18 October: R9.90 for 410g (R24.15/kg, based on net pack weight). Delivery costs extra; the batch best-before date is not provided online.",
+      "category": "groceries",
+      "categoryLabel": "Groceries",
+      "officialUrl": "https://looters.co.za/products/koo-mixed-vegetables-in-brine/",
+      "termsUrl": "https://looters.co.za/collection-delivery/",
+      "requirements": [
+        "Purchase required. No coupon needed. The amount is the retailer's displayed online product price, excluding delivery. The product page allowed Add to cart and its product data indicated in stock. Branch stock was not verified. The batch's best-before date is not provided online. Confirm the actual pack date and total charge before paying. No promotional end date was stated. No same-product supermarket saving has been verified."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-18",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "looters-pasta-joy-elbows-500g",
+      "kind": "deal",
+      "title": "Pasta Joy elbows pasta 500g for R14.90 at Looters",
+      "provider": "Looters",
+      "summary": "Online price checked on 18 October: R14.90 for 500g (R29.80/kg, based on net pack weight). Delivery costs extra; the batch best-before date is not provided online.",
+      "category": "groceries",
+      "categoryLabel": "Groceries",
+      "officialUrl": "https://looters.co.za/products/pasta-joy-elbows-pasta-500g-looters/",
+      "termsUrl": "https://looters.co.za/collection-delivery/",
+      "requirements": [
+        "Purchase required. No coupon needed. The amount is the retailer's displayed online product price, excluding delivery. The product page allowed Add to cart and its product data indicated in stock. Branch stock was not verified. The batch's best-before date is not provided online. Confirm the actual pack date and total charge before paying. No promotional end date was stated. No same-product supermarket saving has been verified."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-18",
       "isAffiliate": false,
       "isSponsored": false
     }

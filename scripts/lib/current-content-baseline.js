@@ -5,11 +5,13 @@ const shared = require('../../shared/page-data.js');
 const { applyCompetitionRetirements } = require('./competition-retirements.js');
 const opportunityData = require('../../shared/opportunity-data.js');
 const { getReviewedGuides } = require('./research-guides.js');
+const { getGroceryPages } = require('./grocery-savings.js');
 const root = path.resolve(__dirname, '../..');
 const read = (name) => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
 
 function getCurrentContentBaseline() {
   const buildDate = process.env.FREEHUB_BUILD_DATE || shared.getSouthAfricanDate();
+  const groceryPageCount = process.env.FREEHUB_ENABLE_OFFERS === 'true' ? getGroceryPages({ asOfDate: process.env.FREEHUB_AS_OF_DATE || buildDate }).length : 0;
   shared.setReferenceDate(process.env.FREEHUB_AS_OF_DATE || buildDate);
   const sourceCompetitions = read('data/competitions.json');
   const sourceArchive = read('data/archive/competitions-expired.json');
@@ -62,9 +64,10 @@ function getCurrentContentBaseline() {
     // 16 October: Boxer & Colgate adds one reviewed competition detail page; its active exit is counted below.
     // 16 October: Camp Half-Blood adds one reviewed detail page; its active exit is counted below.
     // 18 October: Superbalist Live Superb adds one reviewed competition detail page; its active exit is counted below.
-    // 459 excludes variable brand, tag and competition-video routes from this fixed component.
-    generatedFileCount: 459 + shared.TAG_SLUGS.filter(slug => shared.getTagFilteredCompetitions(active, slug).length > 0).length + featuredVideoSlugs(active).size + shared.getGeneratedBrandPageDefinitions(core).length + getReviewedGuides(buildDate).length - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
-    sitemapUrlCount: read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + getReviewedGuides(buildDate).filter(page => !page.noindex).length + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length + (read('data/airtime-dash.json').enabled ? 1 : 0),
+    // 18 October: hold Ackermans Baby of the Year because its official rules conflict.
+    // 458 excludes variable brand, tag and competition-video routes from this fixed component.
+    generatedFileCount: groceryPageCount + 458 + shared.TAG_SLUGS.filter(slug => shared.getTagFilteredCompetitions(active, slug).length > 0).length + featuredVideoSlugs(active).size + shared.getGeneratedBrandPageDefinitions(core).length + getReviewedGuides(buildDate).length - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    sitemapUrlCount: groceryPageCount + read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + getReviewedGuides(buildDate).filter(page => !page.noindex).length + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length + (read('data/airtime-dash.json').enabled ? 1 : 0),
   };
 }
 module.exports = { getCurrentContentBaseline };

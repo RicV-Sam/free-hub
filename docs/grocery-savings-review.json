@@ -1,0 +1,197 @@
+{
+  "status": "approved-and-validated-for-release",
+  "preparedOn": "2026-10-18",
+  "baseCommit": "954cc08b4bb758c66606ab018cee12981a62d683",
+  "branch": "codex/grocery-savings-review-20261018",
+  "preview": {
+    "command": "npm run build followed by npm run preview:grocery; use the normal offers and opportunities build flags",
+    "url": "http://127.0.0.1:4337/grocery-savings/",
+    "binding": "loopback only",
+    "indexing": "noindex, nofollow, noarchive; robots.txt disallows all",
+    "analytics": "External embedded requests and inline trackers blocked by preview-only CSP; shared mobile navigation explicitly allowed."
+  },
+  "scope": [
+    "/grocery-savings/",
+    "/discount-grocery-stores-south-africa/",
+    "/best-before-south-africa-explained/",
+    "/deal/best-before-farmgirl-baked-beans-410g/",
+    "/deal/looters-koo-mixed-vegetables-410g/",
+    "/deal/looters-pasta-joy-elbows-500g/"
+  ],
+  "editorialFindings": {
+    "stores": "Official directories reviewed for Best Before, Foodeez and Looters; regional coverage and source inconsistencies are stated in the guides.",
+    "basketClaim": {
+      "source": "https://dailyinvestor.com/retail/160324/new-store-with-lower-prices-than-checkers-pick-n-pay-and-spar/",
+      "retailerSource": "https://www.best-before.co.za/product-category/special-deals/",
+      "reportedOn": "2026-10-18",
+      "bestBeforeRand": 1085,
+      "comparatorRand": 1958,
+      "differenceRand": 873,
+      "savingRoundedPercent": 44.6,
+      "limitation": "Reported selected 21-product promotional basket containing food and household goods. Arithmetic and attribution checked; supermarket comparator prices were not independently reproduced. Not a general cheapest-store or household saving claim."
+    },
+    "excluded": [
+      "Foodeez poster specials dated 12-18 October: end today, unsuitable as durable launch offers.",
+      "Looters Brookes lemon juice: conflicting price, pack and promotional information.",
+      "Looters Koo mixed vegetables multi-buy attribute: not sufficiently clear to publish as a qualifying offer.",
+      "All retailer crossed-out prices and claimed percentage savings: not independently verified."
+    ],
+    "limits": [
+      "No store visits, checkout, test purchase or physical stock inspection.",
+      "All three exact batch best-before dates are unavailable online.",
+      "Displayed product prices exclude delivery. Address-specific delivery charges remain unverified.",
+      "No independent same-product supermarket saving or search-volume claim established."
+    ]
+  },
+  "priceReceipts": [
+    {
+      "offerId": "best-before-farmgirl-baked-beans-410g",
+      "sourceUrl": "https://www.best-before.co.za/product/farmgirl-baked-beans-410g/",
+      "checkedAt": "2026-10-18T08:37:25Z",
+      "httpStatus": 200,
+      "sourceHtmlSha256": "13de679a3ad0f5c2de8fec939bcc68d4503715839dcf6c67eda967290849babd",
+      "priceCents": 1400,
+      "packGrams": 410,
+      "centsPerKg": 3415
+    },
+    {
+      "offerId": "looters-koo-mixed-vegetables-410g",
+      "sourceUrl": "https://looters.co.za/products/koo-mixed-vegetables-in-brine/",
+      "checkedAt": "2026-10-18T08:37:28Z",
+      "httpStatus": 200,
+      "sourceHtmlSha256": "bcb59f874fa74cd2a5c7cd2df29c9fa27c2341802f3164ccba43176925fa7f58",
+      "priceCents": 990,
+      "packGrams": 410,
+      "centsPerKg": 2415
+    },
+    {
+      "offerId": "looters-pasta-joy-elbows-500g",
+      "sourceUrl": "https://looters.co.za/products/pasta-joy-elbows-pasta-500g-looters/",
+      "checkedAt": "2026-10-18T08:37:28Z",
+      "httpStatus": 200,
+      "sourceHtmlSha256": "fd6240a697b85848891e9d7df993302d827f0fb281059a11364578eb3d7b8b08",
+      "priceCents": 1490,
+      "packGrams": 500,
+      "centsPerKg": 2980
+    }
+  ],
+  "artwork": {
+    "type": "Official retailer store photographs and product images, optimized locally",
+    "provenanceRegistry": "data/listing-images.json",
+    "assetDirectory": "assets/grocery-savings/",
+    "limits": "Store photographs are identified as archival. Pictured shelf prices and stock are not price-check evidence. No endorsement or image licence claim made."
+  },
+  "beforePublication": [
+    "Check remote divergence, commit and push the approved scope, then verify deployment and live routes, images and sitemap."
+  ],
+  "releaseValidation": {
+    "checkedOn": "2026-10-18",
+    "build": "Passed with offers and opportunities enabled, using the current 18 October reference date.",
+    "npmTest": "Passed: SEO, performance and content checks; 170 lifecycle tests; 30 Airtime Dash tests passed and 1 skipped.",
+    "lint": "Passed, including current official-link checks and the exact reviewed Goldi archive warning documented below.",
+    "historicalBuild": "8 September reference-date build and SEO checks passed. The current 18 October build was restored afterwards.",
+    "maintenance": "Passed with no held-listing leaks or maintenance errors.",
+    "browser": "All six production pages returned 200 at 1440px and 390px, with one H1, the expected canonical, index/follow metadata, valid JSON-LD, no broken images, no horizontal overflow and no page errors. External services were blocked during local QA.",
+    "routesAndLinks": "All six canonical URLs occur exactly once in the sitemap. All three retailer handoff pages use the official destinations and are noindex and excluded from the sitemap. Offers, Guides and Blog link to Grocery Savings.",
+    "ackermans": "Held detail and exit routes are absent. Ackermans is absent from the sitemap, app catalogue, competition feeds and public competition listing.",
+    "screenshots": "output/playwright/grocery-release-1440.png and output/playwright/grocery-release-390.png",
+    "diffCheck": "Passed. Unrelated changes in the primary checkout were preserved."
+  },
+  "authorization": {
+    "on": "2026-10-18",
+    "scope": "User approved the preview and explicitly requested price rechecks, resolution of the Ackermans verification, then commit and push Grocery Savings live."
+  },
+  "previewValidation": {
+    "phase": "Historical private-preview results before publication approval; current release results are recorded above.",
+    "build": "passed",
+    "npmTest": "passed: SEO/performance/content checks, 167 lifecycle tests and 30 Airtime Dash tests; 1 Airtime Dash test skipped",
+    "groceryTestsAfterFinalPreviewChanges": "5 passed",
+    "maintenanceValidation": "passed",
+    "diffCheck": "passed",
+    "normalBuildDraftGate": "Passed after generating previews: all six new pages absent; no grocery preview references in sitemap, app catalogue, Offers, Guides or Blog. Offer records remain drafts.",
+    "browser": "All six pages returned 200 at 1440px and 390px, with one H1, valid JSON-LD, no broken images and no console/page errors. Hub had no horizontal overflow at 320px, 720px or 768px. Mobile menu, Escape, anchor navigation and keyboard skip-link checked. All 51 unique internal links from the hub returned 200.",
+    "screenshots": "output/playwright/grocery-*.png; desktop and mobile layouts visually reviewed",
+    "lint": "Failed on existing ackermans-baby-of-the-year-2026 manual-ok exception dated 17 September 2026, older than 30 days. The same record exists in the base commit; no competition data was changed."
+  },
+  "releaseRecheck": {
+    "sourceReceipts": [
+      {
+        "id": "best-before-farmgirl-baked-beans-410g",
+        "sourceUrl": "https://www.best-before.co.za/product/farmgirl-baked-beans-410g/",
+        "checkedAt": "2026-10-18T08:37:25Z",
+        "status": 200,
+        "finalUrl": "https://www.best-before.co.za/product/farmgirl-baked-beans-410g/",
+        "sha256": "13de679a3ad0f5c2de8fec939bcc68d4503715839dcf6c67eda967290849babd"
+      },
+      {
+        "id": "looters-koo-mixed-vegetables-410g",
+        "sourceUrl": "https://looters.co.za/products/koo-mixed-vegetables-in-brine/",
+        "checkedAt": "2026-10-18T08:37:28Z",
+        "status": 200,
+        "finalUrl": "https://looters.co.za/products/koo-mixed-vegetables-in-brine/",
+        "sha256": "bcb59f874fa74cd2a5c7cd2df29c9fa27c2341802f3164ccba43176925fa7f58"
+      },
+      {
+        "id": "looters-pasta-joy-elbows-500g",
+        "sourceUrl": "https://looters.co.za/products/pasta-joy-elbows-pasta-500g-looters/",
+        "checkedAt": "2026-10-18T08:37:28Z",
+        "status": 200,
+        "finalUrl": "https://looters.co.za/products/pasta-joy-elbows-pasta-500g-looters/",
+        "sha256": "fd6240a697b85848891e9d7df993302d827f0fb281059a11364578eb3d7b8b08"
+      },
+      {
+        "id": "ackermans-terms",
+        "sourceUrl": "https://www.ackermans.co.za/blogs/baby/ackermans-baby-of-the-year-2026-ts-cs",
+        "checkedAt": "2026-10-18T08:37:25Z",
+        "status": 200,
+        "finalUrl": "https://www.ackermans.co.za/blogs/baby/ackermans-baby-of-the-year-2026-ts-cs",
+        "sha256": "bd79732fb403959d082d194c19061a66ae3ff529737503cf7aad102f10c16a1b"
+      },
+      {
+        "id": "ackermans-entry",
+        "sourceUrl": "https://www.ackermans.co.za/pages/baby-of-the-year",
+        "checkedAt": "2026-10-18T08:37:25Z",
+        "status": 200,
+        "finalUrl": "https://www.ackermans.co.za/pages/baby-of-the-year",
+        "sha256": "985e527b0a09c21949fac2c77e9f98cbd25075a772a4c706b42cdc840783dd1b"
+      },
+      {
+        "id": "best-before-shipping",
+        "sourceUrl": "https://www.best-before.co.za/shipping-information/",
+        "checkedAt": "2026-10-18T08:37:26Z",
+        "status": 200,
+        "finalUrl": "https://www.best-before.co.za/shipping-information/",
+        "sha256": "cf7b76d444749613509197643f80a9d2a92b85498953c8e7d49a552e1fbe7396"
+      },
+      {
+        "id": "looters-shipping",
+        "sourceUrl": "https://looters.co.za/collection-delivery/",
+        "checkedAt": "2026-10-18T08:37:29Z",
+        "status": 200,
+        "finalUrl": "https://looters.co.za/collection-delivery/",
+        "sha256": "e93aa074faba59e5ad28bbef6504b7a429240385c4491672d394653c03c36b16"
+      }
+    ],
+    "pricesChanged": false,
+    "limitationsUnchanged": true,
+    "ackermans": {
+      "id": "ackermans-baby-of-the-year-2026",
+      "outcome": "held-not-verified",
+      "reason": "Held on 18 October 2026 because official sources conflict: the blog terms say 30 October with website or social entry, while the live entry-form rules say 31 October with compulsory website entry and optional social sharing. Do not restore active recommendations until the promoter reconciles the terms.",
+      "additionalConflicts": "Official blog terms and the linked live ViralSweep entry form were inspected on 18 October 2026. The form also specifies R12,000 in vouchers as 12 monthly R1,000 vouchers, and winner notification/announcement by 25/30 November; the blog gives 13/20 November. Historical listing facts are retained for review, not approved as current entry instructions. No entry was submitted.",
+      "termsUrl": "https://www.ackermans.co.za/blogs/baby/ackermans-baby-of-the-year-2026-ts-cs",
+      "entryUrl": "https://www.ackermans.co.za/pages/baby-of-the-year",
+      "browserEvidenceSha256": "d01fe62ba6a82654e0ba497a4b3af1307a0d65fc4dc374afb2154e92923be369"
+    },
+    "goldiArchiveWarning": {
+      "url": "https://goldichicken.co.za/goldi-chicken-home/about/competition-terms-and-conditions/goldi-flavours-of-the-nation-terms-and-conditions-2026/",
+      "status": 404,
+      "checkedAt": "2026-10-18T08:45:38.189422+00:00",
+      "sha256": "942f1221add67825e716475db7cb5ef0ea71a2c2df881e64da01373990a622a1",
+      "lifecycle": "expired-archive",
+      "closingDate": "2026-09-30",
+      "archivedAt": "2026-10-01",
+      "action": "Recorded the exact reviewed archive 404 in the existing warning baseline. No Goldi content or active-listing approval changed."
+    }
+  }
+}

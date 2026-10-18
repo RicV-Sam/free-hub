@@ -1,6 +1,7 @@
 const fs = require("fs");
 const { inventorySitemapCount } = require("./lib/inventory-routes.js");
 const { getReviewedGuides } = require("./lib/research-guides.js");
+const { getGroceryPages } = require("./lib/grocery-savings.js");
 const path = require("path");
 const shared = require("../shared/page-data.js");
 const opportunityData = require("../shared/opportunity-data.js");
@@ -138,6 +139,7 @@ const sitemapRoutes = sitemapUrls.map((url) => normalizeRoute(url));
 const sitemapSet = new Set(sitemapRoutes);
 
 const expectedSitemapUrlCount = CONFIG.staticSitemapUrlCount
+  + (OFFERS_ENABLED ? getGroceryPages({ asOfDate: LIFECYCLE_REFERENCE_DATE_ISO }).filter(page => !page.noindex).length : 0)
   + getReviewedGuides(LIFECYCLE_REFERENCE_DATE_ISO).filter((page) => !page.noindex).length
   + inventorySitemapCount(shared.getPublishedActiveCompetitions(COMPETITIONS), CONFIG.canonicalAliases)
   + indexableCompetitionSlugs.size

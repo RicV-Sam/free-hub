@@ -2088,5 +2088,60 @@
     "sourceImage": "https://assets.superbalistcdn.co.za/1280x720/filters%3Aquality%2875%29%3Aformat%28jpg%29/cms/5_TtVxBoX.jpg",
     "alt": "Official Superbalist Live Superb summer campaign artwork with a model holding a green ice lolly against a blue background",
     "caption": "Official Superbalist Live Superb campaign artwork. The competition prize is R100,000 cash; clothing and summer activities are not additional prizes."
+  },
+  "grocery-best-before-store": {
+    "src": "/assets/grocery-savings/best-before-store.webp",
+    "width": 1280,
+    "height": 513,
+    "reviewedAt": "2026-10-18",
+    "kind": "official-source",
+    "sourcePage": "https://www.best-before.co.za/",
+    "sourceImage": "https://www.best-before.co.za/wp-content/uploads/2023/02/Banner-NewB1.jpg",
+    "alt": "A Best Before store interior with stocked shelves and the retailer's yellow sign",
+    "caption": "Store photograph: Best Before. Archival website image; pictured stock and shelf prices are not current offer evidence."
+  },
+  "grocery-foodeez-store": {
+    "src": "/assets/grocery-savings/foodeez-store.webp",
+    "width": 1280,
+    "height": 629,
+    "reviewedAt": "2026-10-18",
+    "kind": "official-source",
+    "sourcePage": "https://www.foodeez.co.za/",
+    "sourceImage": "https://static.wixstatic.com/media/8ae118_5377bd4b67d045779764b1d1f1c66daa~mv2.jpg",
+    "alt": "Grocery shelves and refrigerated cabinets inside a Foodeez store",
+    "caption": "Store photograph: Foodeez. Branch not identified; pictured stock and shelf prices are not current offer evidence."
+  },
+  "best-before-farmgirl-baked-beans-410g": {
+    "src": "/assets/grocery-savings/farmgirl-baked-beans.webp",
+    "width": 700,
+    "height": 700,
+    "reviewedAt": "2026-10-18",
+    "kind": "official-source",
+    "sourcePage": "https://www.best-before.co.za/product/farmgirl-baked-beans-410g/",
+    "sourceImage": "https://www.best-before.co.za/wp-content/uploads/2023/06/6001097700006.jpg",
+    "alt": "Farmgirl baked beans 410g tin shown on Best Before's product page",
+    "caption": "Official retailer product image. Packaging can differ; the image does not establish the supplied batch date."
+  },
+  "looters-koo-mixed-vegetables-410g": {
+    "src": "/assets/grocery-savings/koo-mixed-vegetables.webp",
+    "width": 700,
+    "height": 700,
+    "reviewedAt": "2026-10-18",
+    "kind": "official-source",
+    "sourcePage": "https://looters.co.za/products/koo-mixed-vegetables-in-brine/",
+    "sourceImage": "https://looters.co.za/wp-content/uploads/2026/06/Koo-Mixed-Vegetables-In-Brine.webp",
+    "alt": "Koo mixed vegetables in brine 410g tin shown on Looters' product page",
+    "caption": "Official retailer product image. Check the supplied pack and batch date."
+  },
+  "looters-pasta-joy-elbows-500g": {
+    "src": "/assets/grocery-savings/pasta-joy-elbows.webp",
+    "width": 700,
+    "height": 700,
+    "reviewedAt": "2026-10-18",
+    "kind": "official-source",
+    "sourcePage": "https://looters.co.za/products/pasta-joy-elbows-pasta-500g-looters/",
+    "sourceImage": "https://looters.co.za/wp-content/uploads/2026/03/psta-jy-elbw.webp",
+    "alt": "Pasta Joy elbows pasta 500g pack shown on Looters' product page",
+    "caption": "Official retailer product image. Check the supplied pack and batch date."
   }
 }

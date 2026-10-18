@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-18",
-  "count": 114,
+  "count": 113,
   "competitions": [
     {
       "id": "coca-cola-400ml-social-media-competition-2026",
@@ -364,32 +364,6 @@
       "officialUrl": "https://wanderlusttravelawards.com/",
       "termsUrl": "https://www.wanderlustmagazine.com/wanderlust-reader-travel-awards-2026-prize-draw-terms-and-conditions/",
       "lastChecked": "2026-09-08",
-      "isHighValue": true,
-      "isClosingSoon": false
-    },
-    {
-      "id": "ackermans-baby-of-the-year-2026",
-      "title": "Ackermans Baby of the Year 2026",
-      "brand": "Ackermans",
-      "summary": "Enter a photograph of your child wearing Ackermans clothing by 30 October 2026. Six winners each receive R10,000 cash, R12,000 in vouchers and a photoshoot.",
-      "imageUrl": "https://freehub.co.za/assets/listings/ackermans-baby-of-the-year-2026.webp",
-      "closingDate": "2026-10-30",
-      "category": "Cash",
-      "prizeName": "Cash, Ackermans vouchers and a photoshoot for six winners",
-      "entryCostType": "unclear",
-      "entryCostLabel": "Entry requirements unclear",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "Parent or legal guardian aged 18 or older; South African citizens or permanent residents living in South Africa with valid documentation. The child must be no older than 36 months on 30 October. Promoter-related parties are excluded.",
-      "entrySteps": [
-        "Check the age categories and photograph requirements in Ackermans’ rules.",
-        "Use the official entry form linked from the rules, or post on Facebook or Instagram and tag @ackermans_za.",
-        "Show only the child, fully dressed in Ackermans clothing, without props, sunglasses or a pacifier. Social profiles must remain public during entry and verification.",
-        "Submit only one entry per child. The parent or legal guardian must be able to prove eligibility."
-      ],
-      "officialUrl": "https://www.ackermans.co.za/blogs/baby/ackermans-baby-of-the-year-2026-ts-cs",
-      "termsUrl": "https://www.ackermans.co.za/blogs/baby/ackermans-baby-of-the-year-2026-ts-cs",
-      "lastChecked": "2026-09-17",
       "isHighValue": true,
       "isClosingSoon": false
     },

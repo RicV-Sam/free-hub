@@ -97,7 +97,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 31
+- Matching active public competitions: 30
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -108,7 +108,6 @@ Recommended normalisation:
 | Telkom Radio Awards My Station R40,000 Competition (telkom-radio-awards-my-station-2026) | 2026-10-23 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Ster-Kinekor Silas Watch and Win Competition (ster-kinekor-silas-watch-and-win-2026) | 2026-10-25 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | Wanderlust Reader Travel Awards 2026 Prize Draw (wanderlust-reader-travel-awards-prize-draw-2026) | 2026-10-27 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
-| Ackermans Baby of the Year 2026 (ackermans-baby-of-the-year-2026) | 2026-10-30 | conditional | yes | yes | Online entry mentioned in entry text | none |
 | News24 MyHomeSA art competition for school learners (news24-myhomesa-art-competition-2026) | 2026-10-30 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Penguin Random House Art of Hosting and Cape Island Hamper Competition (penguin-random-house-art-of-hosting-2026) | 2026-10-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Penguin Random House Penguin Post 44 Book Hamper Competition (penguin-random-house-penguin-post-44-2026) | 2026-10-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
