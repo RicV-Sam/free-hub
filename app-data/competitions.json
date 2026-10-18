@@ -1,108 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-17",
-  "count": 117,
+  "asOfDate": "2026-10-18",
+  "count": 113,
   "competitions": [
-    {
-      "id": "spar-colgate-palmolive-r150k-2026",
-      "title": "SPAR Colgate-Palmolive Win Your Share of R150,000 Competition",
-      "brand": "SPAR / Colgate-Palmolive",
-      "summary": "Buy three qualifying Colgate-Palmolive products in one transaction and swipe your registered SPAR Rewards card for automatic entry into the R150,000 voucher draw.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/spar-colgate-palmolive-r150k-2026.jpg",
-      "closingDate": "2026-10-17",
-      "category": "Vouchers",
-      "prizeName": "R1,000 Mastercard voucher",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Purchase and SPAR Rewards Card Swipe",
-      "eligibility": "Open to South African citizens aged 18 or older with valid identification and a correctly registered SPAR Rewards card, subject to the official exclusions.",
-      "entrySteps": [
-        "Be a South African citizen aged 18 or older and register a SPAR Rewards card with complete and correct contact details.",
-        "At a participating SPAR store, buy any three qualifying Colgate-Palmolive products in one transaction.",
-        "Swipe the registered SPAR Rewards card during the qualifying transaction for automatic entry.",
-        "Repeat with a new qualifying transaction before 17 October 2026 for additional entries; keep proof of purchase."
-      ],
-      "officialUrl": "https://www.spar.co.za/competitions/colgate-palmolive-win-your-share-of-50k-competition",
-      "termsUrl": "https://www.spar.co.za/competitions/colgate-palmolive-win-your-share-of-50k-competition",
-      "lastChecked": "2026-10-02",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
-    {
-      "id": "mr-muscle-2026-consumer-promotion",
-      "title": "Mr Muscle 2026 Consumer Promotion",
-      "brand": "Mr Muscle / S.C. Johnson",
-      "summary": "Buy two participating Mr Muscle products and enter by WhatsApp for one of 13 robot vacuum, air purifier or Sorbet voucher prizes.",
-      "imageUrl": "https://freehub.co.za/assets/listings/mr-muscle-2026-consumer-promotion.webp",
-      "closingDate": "2026-10-17",
-      "category": "Home",
-      "prizeName": "Three Xiaomi Robot Vacuum 5 Pro, five Xiaomi Smart Air Purifier 4 Pro and five R4,000 Sorbet vouchers",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "WhatsApp",
-      "eligibility": "SA residents over 18 with a valid ID; promoter-related exclusions apply.",
-      "entrySteps": [
-        "Buy any two Mr Muscle products listed in Annexure A of the official rules in one qualifying purchase.",
-        "WhatsApp a clear full-length photo of the till slip to 078 760 4132 and follow the prompts.",
-        "Keep the original till slip for winner verification; each new entry needs a separate qualifying purchase and unique slip."
-      ],
-      "officialUrl": "https://www.vaultbook.co.za/mr-muscle-competition/",
-      "termsUrl": "https://www.vaultbook.co.za/mr-muscle-competition/",
-      "lastChecked": "2026-09-24",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "gwm-haval-h7-travel-fund-2026",
-      "title": "GWM All-New HAVAL H7 Pre-Sale Travel Fund Draw",
-      "brand": "GWM South Africa",
-      "summary": "Purchase required: place a qualifying HAVAL H7 pre-sale order by 17 October and complete the vehicle purchase by 25 November for a chance to win a R30,000 or R50,000 cash travel fund.",
-      "imageUrl": "https://freehub.co.za/assets/listings/gwm-haval-h7-travel-fund-2026.webp",
-      "closingDate": "2026-10-17",
-      "category": "Travel",
-      "prizeName": "Seven R50,000 and seventy R30,000 cash travel-fund prizes; R2,450,000 total.",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Vehicle Pre-Sale and Purchase",
-      "eligibility": "South African residents aged 18 or older; promoter-related exclusions apply.",
-      "entrySteps": [
-        "Place a valid HAVAL H7 pre-sale order at a participating GWM dealership by 23:59 on 17 October 2026; the rules do not explicitly state a timezone.",
-        "Retain the system-generated order number and pass verification.",
-        "Complete the vehicle purchase and required documentation by 25 November."
-      ],
-      "officialUrl": "https://www.gwm.co.za/models/haval-h7",
-      "termsUrl": "https://www.gwm.co.za/terms-and-conditions/all-new-haval-h7-pre-sale-campaign",
-      "lastChecked": "2026-09-24",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
-    {
-      "id": "nespray-always-giving-more-2026",
-      "title": "Win cash vouchers with NESPRAY Always Giving More",
-      "brand": "Nestlé NESPRAY",
-      "summary": "Win cash vouchers with NESPRAY Always Giving More. Qualifying NESPRAY purchase and WhatsApp data. Closes 2026-10-17.",
-      "imageUrl": "https://freehub.co.za/assets/listings/nespray-always-giving-more-2026.webp",
-      "closingDate": "2026-10-17",
-      "category": "Cash",
-      "prizeName": "A R2,500 cash voucher or the R140,000 grand prize",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "WhatsApp",
-      "eligibility": "SA legal residents/citizens aged 18+, with the required valid identity/residency documentation. See the full restrictions below.",
-      "entrySteps": [
-        "Buy a qualifying NESPRAY Fortigrow pack, keep the receipt, then WhatsApp Hi to 073 097 6335 and follow the official entry instructions. Use your own registered phone number and a distinct qualifying receipt for each entry.",
-        "Qualifying purchase and WhatsApp data required. Eligible packs: 250g, 400g, 850g, 1.8kg and the specified 1.8kg + 200g value pack."
-      ],
-      "officialUrl": "https://www.nestle-esar.com/nestle-nespray-always-giving-more-0",
-      "termsUrl": "https://www.nestle-esar.com/nestle-nespray-always-giving-more-0",
-      "lastChecked": "2026-10-08",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "coca-cola-400ml-social-media-competition-2026",
       "title": "Coca-Cola 400ml Social Media Competition 2026",
@@ -414,7 +314,7 @@
       "termsUrl": "https://www.spar.co.za/competitions/heinz-heritage-spar-rewards-competition",
       "lastChecked": "2026-10-14",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "ster-kinekor-silas-watch-and-win-2026",
@@ -440,7 +340,7 @@
       "termsUrl": "https://www.sterkinekor.com/competition/silas-en-die-ysbeer-op-tafelberg-watch-and-win-competition-sk-club-and-discovery-vitality",
       "lastChecked": "2026-09-18",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "wanderlust-reader-travel-awards-prize-draw-2026",

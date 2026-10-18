@@ -1,21 +1,19 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-10-17
+Generated: 2026-10-18
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 20
+- Matching active public competitions: 18
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Mr Muscle 2026 Consumer Promotion (mr-muscle-2026-consumer-promotion) | 2026-10-17 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
-| Win cash vouchers with NESPRAY Always Giving More (nespray-always-giving-more-2026) | 2026-10-17 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Sasol Delight and Magpie Rewards Competition (sasol-magpie-2026) | 2026-10-21 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Ster-Kinekor Silas Watch and Win Competition (ster-kinekor-silas-watch-and-win-2026) | 2026-10-25 | purchase-required | yes | yes | WhatsApp mentioned in entry text | none |
 | MTN and Algoa FM Big Walk: Cash and Home Internet Prizes (mtn-algoa-big-walk-for-cancer-2026) | 2026-10-30 | free-entry | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
@@ -58,16 +56,13 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 30
+- Matching active public competitions: 27
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| SPAR Colgate-Palmolive Win Your Share of R150,000 Competition (spar-colgate-palmolive-r150k-2026) | 2026-10-17 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
-| Mr Muscle 2026 Consumer Promotion (mr-muscle-2026-consumer-promotion) | 2026-10-17 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
-| Win cash vouchers with NESPRAY Always Giving More (nespray-always-giving-more-2026) | 2026-10-17 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Sasol Delight and Magpie Rewards Competition (sasol-magpie-2026) | 2026-10-21 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Raimondi Birthday Retail Promotion: Win R1,500 (raimondi-retail-1-october-2026) | 2026-10-21 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Ster-Kinekor Silas Watch and Win Competition (ster-kinekor-silas-watch-and-win-2026) | 2026-10-25 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
@@ -179,14 +174,13 @@ Recommended normalisation:
 ## Win Grocery Vouchers in South Africa
 
 - URL: /win-grocery-vouchers-south-africa/
-- Matching active public competitions: 9
+- Matching active public competitions: 8
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| SPAR Colgate-Palmolive Win Your Share of R150,000 Competition (spar-colgate-palmolive-r150k-2026) | 2026-10-17 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Raimondi Birthday Retail Promotion: Win R1,500 (raimondi-retail-1-october-2026) | 2026-10-21 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Sea Harvest Say Fish: Win R5,000 Grocery Vouchers (sea-harvest-say-fish-grocery-vouchers-2026) | 2026-10-30 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Lancewood Spread & Scoop Competition 2026 (lancewood-spread-scoop-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
@@ -202,14 +196,13 @@ Recommended normalisation:
 ## Supermarket Competitions in South Africa
 
 - URL: /supermarket-competitions-south-africa/
-- Matching active public competitions: 20
+- Matching active public competitions: 19
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| SPAR Colgate-Palmolive Win Your Share of R150,000 Competition (spar-colgate-palmolive-r150k-2026) | 2026-10-17 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Tinkies Distraction Levels Tech Competition 2026 (tinkies-distraction-levels-competition-2026) | 2026-10-19 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Heinz Heritage SPAR Rewards Braai Competition (heinz-heritage-spar-2026) | 2026-10-25 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Sea Harvest Say Fish: Win R5,000 Grocery Vouchers (sea-harvest-say-fish-grocery-vouchers-2026) | 2026-10-30 | purchase-required | yes | yes | Supermarket or grocery entry text | none |
