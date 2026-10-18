@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-18",
-  "count": 113,
+  "count": 114,
   "competitions": [
     {
       "id": "coca-cola-400ml-social-media-competition-2026",
@@ -1360,6 +1360,34 @@
       "termsUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/consumer-education-competition-with-money-app.html",
       "lastChecked": "2026-09-14",
       "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "superbalist-live-superb-cash-2026",
+      "title": "Superbalist Live Superb: Win R100,000 Cash",
+      "brand": "Superbalist",
+      "summary": "Win one R100,000 cash prize in Superbalist’s Live Superb Instagram competition. Follow @superbalist, repost the official video and share your dream summer with #LiveSuperb. Entry is free; a public Instagram account is required.",
+      "imageUrl": "https://freehub.co.za/assets/listings/superbalist-live-superb-cash-2026.webp",
+      "closingDate": "2026-11-05",
+      "category": "Cash",
+      "prizeName": "One R100,000 cash prize",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Instagram Follow, Repost and Comment",
+      "eligibility": "SA citizens/permanent residents aged 18+; valid SA ID or passport, own SA bank account and public Instagram account. Promoter-connected people and specified family/partners excluded.",
+      "entrySteps": [
+        "Check the official rules: you must be 18 or older, a South African citizen or permanent resident, with valid SA ID or passport and a South African bank account in your own name. Promoter-connected people and specified family/partners are excluded.",
+        "Open the official Live Superb competition video on @superbalist’s Instagram account and follow @superbalist.",
+        "Repost that competition video and keep the repost visible until the winner has been announced.",
+        "Answer “What would your dream summer look like if you had R100K to Live Superb?” in the comments of that video, using #LiveSuperb.",
+        "Complete your entry before 23:59 SAST on 5 November 2026. Your Instagram account must remain public until the winner has been verified. Multiple entries are allowed only when each comment is a unique answer; copied or automated entries are invalid.",
+        "If contacted by @superbalist, respond within 48 hours and supply the requested verification documents within 24 hours after responding. Never pay a fee to claim this prize."
+      ],
+      "officialUrl": "https://www.instagram.com/superbalist/reel/DeRIybWs-3x/",
+      "termsUrl": "https://superbalist.com/competitions",
+      "lastChecked": "2026-10-18",
+      "isHighValue": true,
       "isClosingSoon": false
     },
     {

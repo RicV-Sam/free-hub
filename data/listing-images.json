@@ -2077,5 +2077,16 @@
     "generationMethod": "Built-in image generation",
     "generationPrompt": "Create a polished wide 16:9 editorial illustration for FreeHub, an independent South African consumer information website. Subject: two adult visitors quietly exploring a generic natural-history museum gallery with glass display cases, a stylised bird specimen, a simple fossil form and a butterfly specimen display. Free public natural-history galleries are the topic. Painterly cut-paper editorial style with calm daylight, warm cream, deep teal, ochre and soft coral. Symbolic scene only; do not depict the actual Durban museum building or claim any specific specimen or exhibition is present. No logos, no text, no prices, no official endorsement, no recognisable actual museum architecture.",
     "sourceReviewNote": "Official current municipal amenities page inspected: only generic logos/UI. Official searches produced historic posters/document images rather than a suitable current gallery hero."
+  },
+  "superbalist-live-superb-cash-2026": {
+    "src": "/assets/listings/superbalist-live-superb-cash-2026.webp",
+    "width": 1280,
+    "height": 720,
+    "reviewedAt": "2026-10-18",
+    "kind": "official-source",
+    "sourcePage": "https://superbalist.com/competitions",
+    "sourceImage": "https://assets.superbalistcdn.co.za/1280x720/filters%3Aquality%2875%29%3Aformat%28jpg%29/cms/5_TtVxBoX.jpg",
+    "alt": "Official Superbalist Live Superb summer campaign artwork with a model holding a green ice lolly against a blue background",
+    "caption": "Official Superbalist Live Superb campaign artwork. The competition prize is R100,000 cash; clothing and summer activities are not additional prizes."
   }
 }

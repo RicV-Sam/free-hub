@@ -97,7 +97,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 30
+- Matching active public competitions: 31
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -123,6 +123,7 @@ Recommended normalisation:
 | Bargain Books: Win A Court of Splintered Harmony (bargain-books-court-splintered-harmony-2026) | 2026-11-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | STAEDTLER International Creative Challenge 2026 (staedtler-creative-challenge-2026) | 2026-11-01 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Gelmar BirthDIY tools and vouchers competition (gelmar-birthdiy-october-2026) | 2026-11-01 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
+| Superbalist Live Superb: Win R100,000 Cash (superbalist-live-superb-cash-2026) | 2026-11-05 | free-entry | yes | yes | Online entry tag | none |
 | FAO World Food Day 2026 Poster Contest (fao-world-food-day-poster-2026) | 2026-11-06 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | GoTyme Card Swipe and Spend: Win R300 (gotyme-card-swipe-spend-2026) | 2026-11-30 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | AVBOB 10th Annual Poetry Competition (avbob-poetry-2026) | 2026-11-30 | free-entry | yes | yes | Online entry tag | none |
