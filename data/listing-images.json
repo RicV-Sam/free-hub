@@ -2143,5 +2143,60 @@
     "sourceImage": "https://looters.co.za/wp-content/uploads/2026/03/psta-jy-elbw.webp",
     "alt": "Pasta Joy elbows pasta 500g pack shown on Looters' product page",
     "caption": "Official retailer product image. Check the supplied pack and batch date."
+  },
+  "looters-bokomo-weet-bix-450g": {
+    "src": "/assets/grocery-savings/looters-bokomo-weet-bix-450g.webp",
+    "width": 600,
+    "height": 600,
+    "reviewedAt": "2026-10-19",
+    "kind": "official-source",
+    "sourcePage": "https://looters.co.za/products/bokomo-weet-bix-450g-ooters/",
+    "sourceImage": "https://looters.co.za/wp-content/uploads/2026/01/weetbx-Template-1-600x600.webp",
+    "alt": "Bokomo Weet-Bix 450g in the retailer product photograph",
+    "caption": "Official retailer product image. Packaging can differ; check the supplied pack and batch date."
+  },
+  "looters-la-italiana-butter-beans-400g": {
+    "src": "/assets/grocery-savings/looters-la-italiana-butter-beans-400g.webp",
+    "width": 600,
+    "height": 600,
+    "reviewedAt": "2026-10-19",
+    "kind": "official-source",
+    "sourcePage": "https://looters.co.za/products/la-italiana-butter-beans-400g-looters/",
+    "sourceImage": "https://looters.co.za/wp-content/uploads/2026/03/la-itln-btr-bns-600x600.webp",
+    "alt": "La Italiana butter beans 400g in the retailer product photograph",
+    "caption": "Official retailer product image. Packaging can differ; check the supplied pack and batch date."
+  },
+  "looters-la-italiana-tomato-puree-400g": {
+    "src": "/assets/grocery-savings/looters-la-italiana-tomato-puree-400g.webp",
+    "width": 600,
+    "height": 600,
+    "reviewedAt": "2026-10-19",
+    "kind": "official-source",
+    "sourcePage": "https://looters.co.za/products/la-italiana-italian-tomato-puree/",
+    "sourceImage": "https://looters.co.za/wp-content/uploads/2026/01/la-italna-pree-600x600.webp",
+    "alt": "La Italiana Italian tomato puree 400g in the retailer product photograph",
+    "caption": "Official retailer product image. Packaging can differ; check the supplied pack and batch date."
+  },
+  "looters-eezee-assorted-noodles-5x65g": {
+    "src": "/assets/grocery-savings/looters-eezee-assorted-noodles-5x65g.webp",
+    "width": 600,
+    "height": 600,
+    "reviewedAt": "2026-10-19",
+    "kind": "official-source",
+    "sourcePage": "https://looters.co.za/products/eezee-noodles-assorted-value-pack/",
+    "sourceImage": "https://looters.co.za/wp-content/uploads/2025/11/Eezee-Noodles-Assorted-Value-Pack-5x65g-600x600.webp",
+    "alt": "Eezee assorted noodles 5 x 65g in the retailer product photograph",
+    "caption": "Official retailer product image. Packaging can differ; check the supplied pack and batch date."
+  },
+  "best-before-serena-chopped-tomatoes-400g": {
+    "src": "/assets/grocery-savings/best-before-serena-chopped-tomatoes-400g.webp",
+    "width": 600,
+    "height": 600,
+    "reviewedAt": "2026-10-19",
+    "kind": "official-source",
+    "sourcePage": "https://www.best-before.co.za/product/serena-chopped-tomatoes-400g/",
+    "sourceImage": "https://www.best-before.co.za/wp-content/uploads/2023/06/6004791001387-600x600.jpg.webp",
+    "alt": "Serena chopped tomatoes 400g in the retailer product photograph",
+    "caption": "Official retailer product image. Packaging can differ; check the supplied pack and batch date."
   }
 }

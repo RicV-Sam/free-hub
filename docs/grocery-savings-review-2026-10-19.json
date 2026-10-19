@@ -1,0 +1,486 @@
+{
+  "status": "approved-and-validated-for-scoped-release",
+  "preparedOn": "2026-10-19",
+  "baseCommit": "e71999d7ee54966db2b25c767859a17431421b4e",
+  "approval": {
+    "instruction": "commit and push live",
+    "scope": "Weekly 19 October review: two existing renewals, Pasta Joy hold, five new offers.",
+    "reviewSha256": "88235743f3fec994f8b1ff8fe743582d362154770ee69172980f6ee08d3eb780"
+  },
+  "renewed": [
+    "best-before-farmgirl-baked-beans-410g",
+    "looters-koo-mixed-vegetables-410g"
+  ],
+  "held": [
+    "looters-pasta-joy-elbows-500g"
+  ],
+  "added": [
+    "looters-bokomo-weet-bix-450g",
+    "looters-la-italiana-butter-beans-400g",
+    "looters-la-italiana-tomato-puree-400g",
+    "looters-eezee-assorted-noodles-5x65g",
+    "best-before-serena-chopped-tomatoes-400g"
+  ],
+  "reviewDueAt": "2026-10-20",
+  "freshness": "Existing inclusive one-day offer review window retained. No cadence or gate changes. No renewal after this date without new evidence.",
+  "guideChanges": "None; original source review dates and historical basket attribution retained.",
+  "checks": [
+    {
+      "id": "best-before-farmgirl-baked-beans-410g",
+      "sourceUrl": "https://www.best-before.co.za/product/farmgirl-baked-beans-410g/",
+      "checkedAt": "2026-10-19T08:23:25.434Z",
+      "priceCents": 1400,
+      "status": 200,
+      "onlineStock": [
+        "37 in stock"
+      ],
+      "enabledOrderingButton": true,
+      "attributes": []
+    },
+    {
+      "id": "looters-koo-mixed-vegetables-410g",
+      "sourceUrl": "https://looters.co.za/products/koo-mixed-vegetables-in-brine/",
+      "checkedAt": "2026-10-19T08:23:33.245Z",
+      "priceCents": 990,
+      "status": 200,
+      "onlineStock": [],
+      "enabledOrderingButton": true,
+      "attributes": [
+        "\n\t\t\t\n\t\t\tWeight\n\t\t\t0.475 kg\n\t\t\n\t\t\t\n\t\t\tDimensions\n\t\t\t10.8 × 7.4 × 7.4 cm\n\t\t\n\t\t\t\n\t\t\tQuantity\n\t\t\t1, Buy 2 Get 1 Free\n\n\t\t\n\t"
+      ]
+    },
+    {
+      "id": "looters-pasta-joy-elbows-500g",
+      "sourceUrl": "https://looters.co.za/products/pasta-joy-elbows-pasta-500g-looters/",
+      "checkedAt": "2026-10-19T08:23:38.766Z",
+      "priceCents": 1490,
+      "status": 200,
+      "onlineStock": [],
+      "enabledOrderingButton": true,
+      "attributes": [
+        "\n\t\t\t\n\t\t\tWeight\n\t\t\t0.4 kg\n\t\t\n\t\t\t\n\t\t\tDimensions\n\t\t\t6 × 17 × 22 cm\n\t\t\n\t"
+      ]
+    },
+    {
+      "id": "looters-bokomo-weet-bix-450g",
+      "sourceUrl": "https://looters.co.za/products/bokomo-weet-bix-450g-ooters/",
+      "checkedAt": "2026-10-19T08:23:43.539Z",
+      "priceCents": 2990,
+      "status": 200,
+      "onlineStock": [],
+      "enabledOrderingButton": true,
+      "attributes": [
+        "\n\t\t\t\n\t\t\tWeight\n\t\t\t0.45 kg\n\t\t\n\t\t\t\n\t\t\tDimensions\n\t\t\t8.5 × 21.2 × 8.5 cm\n\t\t\n\t"
+      ]
+    },
+    {
+      "id": "looters-la-italiana-butter-beans-400g",
+      "sourceUrl": "https://looters.co.za/products/la-italiana-butter-beans-400g-looters/",
+      "checkedAt": "2026-10-19T08:23:46.736Z",
+      "priceCents": 1690,
+      "status": 200,
+      "onlineStock": [],
+      "enabledOrderingButton": true,
+      "attributes": [
+        "\n\t\t\t\n\t\t\tWeight\n\t\t\t0.4 kg\n\t\t\n\t\t\t\n\t\t\tDimensions\n\t\t\t7.2 × 7.2 × 11 cm\n\t\t\n\t"
+      ]
+    },
+    {
+      "id": "looters-la-italiana-tomato-puree-400g",
+      "sourceUrl": "https://looters.co.za/products/la-italiana-italian-tomato-puree/",
+      "checkedAt": "2026-10-19T08:23:49.503Z",
+      "priceCents": 1790,
+      "status": 200,
+      "onlineStock": [],
+      "enabledOrderingButton": true,
+      "attributes": [
+        "\n\t\t\t\n\t\t\tWeight\n\t\t\t0.4 kg\n\t\t\n\t\t\t\n\t\t\tDimensions\n\t\t\t8.2 × 7.3 × 10 cm\n\t\t\n\t"
+      ]
+    },
+    {
+      "id": "looters-eezee-assorted-noodles-5x65g",
+      "sourceUrl": "https://looters.co.za/products/eezee-noodles-assorted-value-pack/",
+      "checkedAt": "2026-10-19T08:23:52.340Z",
+      "priceCents": 2190,
+      "status": 200,
+      "onlineStock": [],
+      "enabledOrderingButton": true,
+      "attributes": [
+        "\n\t\t\t\n\t\t\tWeight\n\t\t\t0.325 kg\n\t\t\n\t\t\t\n\t\t\tDimensions\n\t\t\t11 × 17 × 12 cm\n\t\t\n\t"
+      ]
+    },
+    {
+      "id": "best-before-serena-chopped-tomatoes-400g",
+      "sourceUrl": "https://www.best-before.co.za/product/serena-chopped-tomatoes-400g/",
+      "checkedAt": "2026-10-19T08:23:58.708Z",
+      "priceCents": 2000,
+      "status": 200,
+      "onlineStock": [
+        "421 in stock"
+      ],
+      "enabledOrderingButton": true,
+      "attributes": []
+    }
+  ],
+  "httpReceipts": [
+    {
+      "id": "farmgirl-beans",
+      "url": "https://www.best-before.co.za/product/farmgirl-baked-beans-410g/",
+      "finalUrl": "https://www.best-before.co.za/product/farmgirl-baked-beans-410g/",
+      "checkedAt": "2026-10-19T08:24:26.050159+00:00",
+      "status": 200,
+      "sha256": "80146b255abdace10c451578efd89904b450fa113f14001b306be3f704b26557",
+      "bytes": 462587
+    },
+    {
+      "id": "koo-vegetables",
+      "url": "https://looters.co.za/products/koo-mixed-vegetables-in-brine/",
+      "finalUrl": "https://looters.co.za/products/koo-mixed-vegetables-in-brine/",
+      "checkedAt": "2026-10-19T08:24:26.050827+00:00",
+      "status": 200,
+      "sha256": "1453159877d2d34553e4a1f01e3f7ae0d92928597d321d75990e2193a7794a56",
+      "bytes": 146205
+    },
+    {
+      "id": "pasta-joy",
+      "url": "https://looters.co.za/products/pasta-joy-elbows-pasta-500g-looters/",
+      "finalUrl": "https://looters.co.za/products/pasta-joy-elbows-pasta-500g-looters/",
+      "checkedAt": "2026-10-19T08:24:26.051225+00:00",
+      "status": 200,
+      "sha256": "871083a72821968469804a7de709eb4e92d0be40feb5f6227dae582f5951ecaf",
+      "bytes": 146063
+    },
+    {
+      "id": "weet-bix",
+      "url": "https://looters.co.za/products/bokomo-weet-bix-450g-ooters/",
+      "finalUrl": "https://looters.co.za/products/bokomo-weet-bix-450g-ooters/",
+      "checkedAt": "2026-10-19T08:24:26.051619+00:00",
+      "status": 200,
+      "sha256": "df0a0865192878c9ba4e6f89d422446156c7b09f4f4482b255cee5fd1c70bbb8",
+      "bytes": 144228
+    },
+    {
+      "id": "butter-beans",
+      "url": "https://looters.co.za/products/la-italiana-butter-beans-400g-looters/",
+      "finalUrl": "https://looters.co.za/products/la-italiana-butter-beans-400g-looters/",
+      "checkedAt": "2026-10-19T08:24:29.286348+00:00",
+      "status": 200,
+      "sha256": "4cc189d1be622f237b8ca65c637d75fd306a2fe7abf8b8d0bce3c6644adf3028",
+      "bytes": 146443
+    },
+    {
+      "id": "tomato-puree",
+      "url": "https://looters.co.za/products/la-italiana-italian-tomato-puree/",
+      "finalUrl": "https://looters.co.za/products/la-italiana-italian-tomato-puree/",
+      "checkedAt": "2026-10-19T08:24:30.689553+00:00",
+      "status": 200,
+      "sha256": "61f9a32953009d5ca82b2688183d0eb4f85d554e59ce2524669eeae2cf0cd678",
+      "bytes": 146090
+    },
+    {
+      "id": "eezee-noodles",
+      "url": "https://looters.co.za/products/eezee-noodles-assorted-value-pack/",
+      "finalUrl": "https://looters.co.za/products/eezee-noodles-assorted-value-pack/",
+      "checkedAt": "2026-10-19T08:24:30.718949+00:00",
+      "status": 200,
+      "sha256": "6908b181e9ba056ebd98c60d28c4b79293246b7d214460de0474b718f73d8584",
+      "bytes": 145882
+    },
+    {
+      "id": "serena-tomatoes",
+      "url": "https://www.best-before.co.za/product/serena-chopped-tomatoes-400g/",
+      "finalUrl": "https://www.best-before.co.za/product/serena-chopped-tomatoes-400g/",
+      "checkedAt": "2026-10-19T08:24:30.780906+00:00",
+      "status": 200,
+      "sha256": "4840f7d61f9e008db1ec6575105371e19a996211928b2917ea6fba868451362e",
+      "bytes": 462850
+    },
+    {
+      "id": "best-before-shipping",
+      "url": "https://www.best-before.co.za/shipping-information/",
+      "finalUrl": "https://www.best-before.co.za/shipping-information/",
+      "checkedAt": "2026-10-19T08:24:33.724031+00:00",
+      "status": 200,
+      "sha256": "8203f4014379ee473808aa964e55f4847feaf09c1bbac66917041219fb97a909",
+      "bytes": 419595
+    },
+    {
+      "id": "best-before-buying",
+      "url": "https://www.best-before.co.za/before-you-buy/",
+      "finalUrl": "https://www.best-before.co.za/before-you-buy/",
+      "checkedAt": "2026-10-19T08:24:34.776867+00:00",
+      "status": 200,
+      "sha256": "b4aa72b0a7aac4f792f6386b9369d49e6832ec6f6eabc19d66d41b3dc3488c86",
+      "bytes": 452920
+    },
+    {
+      "id": "looters-shipping",
+      "url": "https://looters.co.za/collection-delivery/",
+      "finalUrl": "https://looters.co.za/collection-delivery/",
+      "checkedAt": "2026-10-19T08:24:36.370122+00:00",
+      "status": 200,
+      "sha256": "4e3f431cc00e22713484a8410428beb68fddc8637ae5f63820d65cf9209583a2",
+      "bytes": 109667
+    }
+  ],
+  "images": [
+    {
+      "id": "looters-bokomo-weet-bix-450g",
+      "checkedAt": "2026-10-19T08:25:44.386702+00:00",
+      "sourcePage": "https://looters.co.za/products/bokomo-weet-bix-450g-ooters/",
+      "sourceImage": "https://looters.co.za/wp-content/uploads/2026/01/weetbx-Template-1-600x600.webp",
+      "status": 200,
+      "originalSha256": "2d4c3405fd56f749a821f79d36b7035e64a039b53fa2f65372ba0e6cad68fb89",
+      "src": "/assets/grocery-savings/looters-bokomo-weet-bix-450g.webp",
+      "width": 600,
+      "height": 600,
+      "sha256": "ebfa9da6c347e88ba4a42cbabdc622cc35c361849f6ccf2e8079c28ebc5e8c22",
+      "bytes": 29670
+    },
+    {
+      "id": "looters-la-italiana-butter-beans-400g",
+      "checkedAt": "2026-10-19T08:25:47.533439+00:00",
+      "sourcePage": "https://looters.co.za/products/la-italiana-butter-beans-400g-looters/",
+      "sourceImage": "https://looters.co.za/wp-content/uploads/2026/03/la-itln-btr-bns-600x600.webp",
+      "status": 200,
+      "originalSha256": "c9c8e478ac0ad8f252d4263f9a864ae8e7dba658ed9d8f01169a3e465864fd5d",
+      "src": "/assets/grocery-savings/looters-la-italiana-butter-beans-400g.webp",
+      "width": 600,
+      "height": 600,
+      "sha256": "3b8c148e70059ba3aacd7599389a29e56fff38b6619ce1c380b435dbe583f82e",
+      "bytes": 28646
+    },
+    {
+      "id": "looters-la-italiana-tomato-puree-400g",
+      "checkedAt": "2026-10-19T08:25:50.635946+00:00",
+      "sourcePage": "https://looters.co.za/products/la-italiana-italian-tomato-puree/",
+      "sourceImage": "https://looters.co.za/wp-content/uploads/2026/01/la-italna-pree-600x600.webp",
+      "status": 200,
+      "originalSha256": "5297654d085fc1ca6ab0420734242a9c50aad642587733a8e663ac1b710790ba",
+      "src": "/assets/grocery-savings/looters-la-italiana-tomato-puree-400g.webp",
+      "width": 600,
+      "height": 600,
+      "sha256": "ad079df312037de7f9fab0fa377325081d6548863f3aead6042487f093b58db0",
+      "bytes": 28818
+    },
+    {
+      "id": "looters-eezee-assorted-noodles-5x65g",
+      "checkedAt": "2026-10-19T08:25:54.109035+00:00",
+      "sourcePage": "https://looters.co.za/products/eezee-noodles-assorted-value-pack/",
+      "sourceImage": "https://looters.co.za/wp-content/uploads/2025/11/Eezee-Noodles-Assorted-Value-Pack-5x65g-600x600.webp",
+      "status": 200,
+      "originalSha256": "073a2a5bbffa84672480ef142fec996659d8f4f497696e8dd03079f39df2eed6",
+      "src": "/assets/grocery-savings/looters-eezee-assorted-noodles-5x65g.webp",
+      "width": 600,
+      "height": 600,
+      "sha256": "29ce1046a5bc766ebfb57c6b71666a29a84e5c7259aedd99aee9f516730c66c8",
+      "bytes": 52030
+    },
+    {
+      "id": "best-before-serena-chopped-tomatoes-400g",
+      "checkedAt": "2026-10-19T08:25:54.290125+00:00",
+      "sourcePage": "https://www.best-before.co.za/product/serena-chopped-tomatoes-400g/",
+      "sourceImage": "https://www.best-before.co.za/wp-content/uploads/2023/06/6004791001387-600x600.jpg.webp",
+      "status": 200,
+      "originalSha256": "96067cc487ec464ef713cd4103d9bce2055e7780a4c4638c990890307bb6e459",
+      "src": "/assets/grocery-savings/best-before-serena-chopped-tomatoes-400g.webp",
+      "width": 600,
+      "height": 600,
+      "sha256": "811af7aaf7f5306e535a7c12f414a7f2800070e67ea084fc8c8986dfc3f6ab42",
+      "bytes": 20602
+    }
+  ],
+  "sourceCaveats": [
+    "Online ordering indications only; branch stock, final checkout and batch dates not confirmed. Delivery extra; address-specific charges and checkout minimums not verified.",
+    "No independently verified supermarket saving, cheapest-store claim or customer-facing promotional end date.",
+    "The web lookup service returned a last-month cached Weet-Bix page marked Out of stock. Fresh direct HTTPS and rendered browser checks on 19 October agree on an enabled product cart button and current product data; the cached version is not used as current stock evidence.",
+    "Pasta Joy conflicting 500g description/photo and 0.4kg attribute also existed in the 18 October snapshot; historical weight retained privately for audit, not a verified current claim.",
+    "Foodeez, Checkdate backup candidates, legacy expired grocery records and Ackermans remain unchanged."
+  ],
+  "validation": {
+    "checkedAt": "2026-10-19T08:32:34.781399+00:00",
+    "build": "passed",
+    "groceryTests": 9,
+    "lifecycle": {
+      "passed": 171,
+      "failed": 0
+    },
+    "airtimeDash": {
+      "passed": 30,
+      "skipped": 1,
+      "failed": 0
+    },
+    "maintenance": "passed",
+    "seoBaseline": "passed: 3822 checks, 219 sitemap URLs",
+    "performance": "no hard failures; existing informational size warnings",
+    "browser": {
+      "pages": 10,
+      "viewports": [
+        1280,
+        390
+      ],
+      "checks": 20,
+      "overflow": false,
+      "imagesLoaded": true,
+      "note": "External analytics/ad requests blocked for local QA; optional Firebase config intentionally absent on local test server."
+    },
+    "localSite": {
+      "checkedAt": "2026-10-19T08:32:34.673260+00:00",
+      "origin": "http://127.0.0.1:4339",
+      "ok": true,
+      "pages": [
+        {
+          "path": "/grocery-savings/",
+          "status": 200,
+          "canonical": "https://freehub.co.za/grocery-savings/",
+          "robots": "index, follow, max-image-preview:large",
+          "sitemap": true,
+          "cards": 7
+        },
+        {
+          "path": "/discount-grocery-stores-south-africa/",
+          "status": 200,
+          "canonical": "https://freehub.co.za/discount-grocery-stores-south-africa/",
+          "robots": "index, follow, max-image-preview:large",
+          "sitemap": true,
+          "cards": 7
+        },
+        {
+          "path": "/best-before-south-africa-explained/",
+          "status": 200,
+          "canonical": "https://freehub.co.za/best-before-south-africa-explained/",
+          "robots": "index, follow, max-image-preview:large",
+          "sitemap": true,
+          "cards": 2
+        },
+        {
+          "path": "/deal/best-before-farmgirl-baked-beans-410g/",
+          "status": 200,
+          "canonical": "https://freehub.co.za/deal/best-before-farmgirl-baked-beans-410g/",
+          "robots": "index, follow, max-image-preview:large",
+          "sitemap": true,
+          "cards": 0
+        },
+        {
+          "path": "/deal/looters-koo-mixed-vegetables-410g/",
+          "status": 200,
+          "canonical": "https://freehub.co.za/deal/looters-koo-mixed-vegetables-410g/",
+          "robots": "index, follow, max-image-preview:large",
+          "sitemap": true,
+          "cards": 0
+        },
+        {
+          "path": "/deal/looters-bokomo-weet-bix-450g/",
+          "status": 200,
+          "canonical": "https://freehub.co.za/deal/looters-bokomo-weet-bix-450g/",
+          "robots": "index, follow, max-image-preview:large",
+          "sitemap": true,
+          "cards": 0
+        },
+        {
+          "path": "/deal/looters-la-italiana-butter-beans-400g/",
+          "status": 200,
+          "canonical": "https://freehub.co.za/deal/looters-la-italiana-butter-beans-400g/",
+          "robots": "index, follow, max-image-preview:large",
+          "sitemap": true,
+          "cards": 0
+        },
+        {
+          "path": "/deal/looters-la-italiana-tomato-puree-400g/",
+          "status": 200,
+          "canonical": "https://freehub.co.za/deal/looters-la-italiana-tomato-puree-400g/",
+          "robots": "index, follow, max-image-preview:large",
+          "sitemap": true,
+          "cards": 0
+        },
+        {
+          "path": "/deal/looters-eezee-assorted-noodles-5x65g/",
+          "status": 200,
+          "canonical": "https://freehub.co.za/deal/looters-eezee-assorted-noodles-5x65g/",
+          "robots": "index, follow, max-image-preview:large",
+          "sitemap": true,
+          "cards": 0
+        },
+        {
+          "path": "/deal/best-before-serena-chopped-tomatoes-400g/",
+          "status": 200,
+          "canonical": "https://freehub.co.za/deal/best-before-serena-chopped-tomatoes-400g/",
+          "robots": "index, follow, max-image-preview:large",
+          "sitemap": true,
+          "cards": 0
+        }
+      ],
+      "assets": [
+        {
+          "path": "/assets/grocery-savings/farmgirl-baked-beans.webp",
+          "status": 200,
+          "sha256Matches": true,
+          "sha256": "9d316693d74c96c0eacf4315c2dcdf989bcbc7b08a043b94067d148b8ef30af2"
+        },
+        {
+          "path": "/assets/grocery-savings/koo-mixed-vegetables.webp",
+          "status": 200,
+          "sha256Matches": true,
+          "sha256": "6a2a552b7e1a428b872f10477796a8c6fcee1649fd063eba04ba405f9d4a1695"
+        },
+        {
+          "path": "/assets/grocery-savings/looters-bokomo-weet-bix-450g.webp",
+          "status": 200,
+          "sha256Matches": true,
+          "sha256": "ebfa9da6c347e88ba4a42cbabdc622cc35c361849f6ccf2e8079c28ebc5e8c22"
+        },
+        {
+          "path": "/assets/grocery-savings/looters-la-italiana-butter-beans-400g.webp",
+          "status": 200,
+          "sha256Matches": true,
+          "sha256": "3b8c148e70059ba3aacd7599389a29e56fff38b6619ce1c380b435dbe583f82e"
+        },
+        {
+          "path": "/assets/grocery-savings/looters-la-italiana-tomato-puree-400g.webp",
+          "status": 200,
+          "sha256Matches": true,
+          "sha256": "ad079df312037de7f9fab0fa377325081d6548863f3aead6042487f093b58db0"
+        },
+        {
+          "path": "/assets/grocery-savings/looters-eezee-assorted-noodles-5x65g.webp",
+          "status": 200,
+          "sha256Matches": true,
+          "sha256": "29ce1046a5bc766ebfb57c6b71666a29a84e5c7259aedd99aee9f516730c66c8"
+        },
+        {
+          "path": "/assets/grocery-savings/best-before-serena-chopped-tomatoes-400g.webp",
+          "status": 200,
+          "sha256Matches": true,
+          "sha256": "811af7aaf7f5306e535a7c12f414a7f2800070e67ea084fc8c8986dfc3f6ab42"
+        },
+        {
+          "path": "/assets/grocery-savings/best-before-store.webp",
+          "status": 200,
+          "sha256Matches": true,
+          "sha256": "76f95e105053a009607cd756526fc63a5a750d5afe87b1e29f4beb681cf99499"
+        },
+        {
+          "path": "/assets/grocery-savings/foodeez-store.webp",
+          "status": 200,
+          "sha256Matches": true,
+          "sha256": "c0410835ad7cef53e85cc675b214bc398401352569bbfe81a91c2e7bc0ace727"
+        }
+      ],
+      "allSevenOfficialHandoffsVerified": true,
+      "pastaJoyDetailAndExit404": true,
+      "pastaJoyAbsentFromHubGuidesSitemapCatalog": true,
+      "catalogCount": 44,
+      "groceryCards": 7
+    },
+    "wholeRepositoryLimitations": [
+      "npm test: pre-existing Petal Search ownership verification file 3411cccf5b.html (origin commit f7201c0) is incorrectly counted as a generated page and checked for navigation by the Free Stuff and Free Samples validators. Verification file and unrelated validators preserved. Remaining lifecycle and Airtime suites ran separately.",
+      "npm run lint: competition and free-resource link checks passed with no new/changed warnings. Unrelated opportunity checks failed on 11 blocked/rate-limited source requests and missing current evidence. Opportunity records, evidence ledger and validator unchanged from origin/main; their existing public gates remain in place."
+    ],
+    "primaryCheckout": "Unrelated dirty files preserved; release prepared in an isolated worktree."
+  },
+  "implementationNotes": [
+    "Deal structured-data modification dates use each offer lastChecked date; the store guides retain their original reviewed date. Publication and freshness gates are unchanged.",
+    "Eezee copy exposes the complete 5 x 65g pack and R4.38 equivalent per sachet; full pack purchase is required.",
+    "Official WebP artwork optimized locally with transparency preserved; five new image provenance entries."
+  ]
+}

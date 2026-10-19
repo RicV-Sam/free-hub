@@ -64,7 +64,7 @@ function createGroceryRenderer({ escapeHtml: esc, escapeAttribute: attr, escapeS
   }
   function shell(page, content, imageId) {
     const canonical = `${origin}/${page.slug}/`;
-    const schema = { "@context": "https://schema.org", "@type": page.kind === "hub" ? "CollectionPage" : page.kind === "deal" ? "WebPage" : "Article", name: page.heading, description: page.description, url: canonical, inLanguage: "en-ZA", dateModified: settings.lastReviewed };
+    const schema = { "@context": "https://schema.org", "@type": page.kind === "hub" ? "CollectionPage" : page.kind === "deal" ? "WebPage" : "Article", name: page.heading, description: page.description, url: canonical, inLanguage: "en-ZA", dateModified: page.dateModified || settings.lastReviewed };
     if (["stores", "explainer"].includes(page.kind)) {
       schema.headline = page.heading;
       schema.author = { "@type": "Organization", name: "FreeHub", url: `${origin}/about/` };
@@ -121,7 +121,7 @@ function createGroceryRenderer({ escapeHtml: esc, escapeAttribute: attr, escapeS
   }
   function renderOffer(price) {
     const offer = price.offer;
-    const page = { slug: `deal/${offer.slug}`, kind: "deal", title: `${offer.title} | FreeHub`, heading: `${price.product} · ${price.quantity}${price.unit}`, description: offer.summary };
+    const page = { slug: `deal/${offer.slug}`, kind: "deal", title: `${offer.title} | FreeHub`, heading: `${price.product} · ${price.quantity}${price.unit}`, description: offer.summary, dateModified: offer.lastChecked };
     const body = `<div class="grocery-product"><div>${image(offer.id, { hero: true })}</div><article><p class="grocery-kicker">${esc(offer.brand)} · price checked online</p><h1>${esc(page.heading)}</h1><p class="grocery-price grocery-price--large">${money(price.priceCents)} <span>${money(unitPriceCents(price))}/${price.unit === "g" ? "kg" : "litre"}</span></p><p class="grocery-reviewed">Checked ${esc(date(offer.lastChecked))}. Product price excludes delivery.</p>
       <div class="grocery-date-note"><h2>Check the batch date before paying</h2><p>${esc(price.dateNote)} We have not inspected the supplied product or verified its condition.</p></div>
       <dl class="grocery-product-facts"><div><dt>Online availability</dt><dd>${esc(price.availability)}</dd></div><div><dt>Delivery & collection</dt><dd>${esc(price.delivery)}</dd></div><div><dt>End date</dt><dd>No promotional end date stated. Recheck price and availability before ordering.</dd></div><div><dt>How we compare</dt><dd>Unit price uses ${price.quantity}${esc(price.unit)} net pack weight. This is a checked retailer price, not a verified saving against another supermarket.</dd></div></dl>
