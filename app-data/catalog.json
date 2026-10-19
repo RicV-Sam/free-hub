@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-18",
-  "count": 43,
+  "asOfDate": "2026-10-19",
+  "count": 40,
   "counts": {
-    "freeStuff": 24,
-    "resources": 23,
-    "opportunities": 1,
-    "offers": 19
+    "freeStuff": 22,
+    "resources": 22,
+    "opportunities": 0,
+    "offers": 18
   },
   "items": [
     {
@@ -234,22 +234,6 @@
       "lastChecked": "2026-09-24"
     },
     {
-      "id": "vodacom-connectu-zero-rated-job-search",
-      "kind": "resource",
-      "title": "Vodacom ConnectU job-search access",
-      "provider": "Vodacom ConnectU job-search access",
-      "summary": "Vodacom provides zero-rated access to selected job-search services through ConnectU. This is access to the listed services on the Vodacom route, not a transferable data bundle.",
-      "category": "family-support",
-      "categoryLabel": "Work and learning support",
-      "officialUrl": "https://www.vodacom.co.za/vodacom/shopping/v/connectu",
-      "bestFor": "Vodacom users looking for jobs while limiting mobile-data spending",
-      "requirements": [
-        "Switch off Wi-Fi, use Vodacom mobile data and open the official ConnectU portal at http://connectu.vodacom.co.za/. Choose a currently listed job service; registration and application requirements depend on that provider."
-      ],
-      "watchOut": "External links outside the included route and background phone activity may still use paid data. This is not free browsing across all websites or networks, and it does not guarantee a job. The individual service is responsible for its vacancies and applications.",
-      "lastChecked": "2026-10-11"
-    },
-    {
       "id": "openlearn-free-learning-statements",
       "kind": "resource",
       "title": "OpenLearn free courses and participation statements",
@@ -376,43 +360,6 @@
       ],
       "watchOut": "This benefit excludes the Planetarium, Castle of Good Hope and Groot Constantia for the Friday and December dates described here. Closed sites and maintenance closures are excluded. Paid shows, guided tours and separately priced activities are not included. No account or purchase is stated for ordinary qualifying admission; travel and optional spending remain payable.",
       "lastChecked": "2026-10-16"
-    },
-    {
-      "id": "starbucks-gold-birthday-drink",
-      "kind": "opportunity",
-      "title": "Starbucks Gold birthday drink",
-      "provider": "Starbucks South Africa",
-      "summary": "Starbucks South Africa Gold members receive a birthday Free Drink Reward valid for 30 days. Gold requires 750 Stars earned within 12 months, so this is a benefit for qualifying loyalty customers, not a drink for every new signup.",
-      "category": "birthday_freebie",
-      "categoryLabel": "Birthday freebies",
-      "officialUrl": "https://www.starbucks.co.za/rewards/ts-and-cs",
-      "imageUrl": "https://freehub.co.za/assets/listings/starbucks-gold-birthday-drink.webp",
-      "requirements": [
-        "Gold-level Starbucks Rewards membership required",
-        "Earn 750 Stars in 12 months through qualifying activity; another 750 Stars maintains Gold for the next year",
-        "Provide your birthday in your member profile and check the reward in your account",
-        "Redeem only at participating South African Starbucks stores"
-      ],
-      "watchOut": "Availability and provider approval can change.",
-      "lastChecked": "2026-10-11"
-    },
-    {
-      "id": "mugg-bean-new-app-cappuccino",
-      "kind": "deal",
-      "title": "Mugg & Bean new-app cappuccino after qualifying spend",
-      "provider": "Mugg & Bean",
-      "summary": "New Mugg & Bean app users who spend over R50 in their first month qualify for one complimentary Easy Cappuccino voucher.",
-      "category": "restaurants-takeaways",
-      "categoryLabel": "Restaurants & Takeaways",
-      "officialUrl": "https://www.muggandbean.co.za/rewards/loyalty-app-faqs/",
-      "termsUrl": "https://www.muggandbean.co.za/terms-and-conditions/",
-      "requirements": [
-        "App registration and spending over R50 in the first month are required. One Easy Cappuccino voucher is issued to qualifying new users; no loyalty is earned when redeeming it. The public clause does not specify its redemption expiry, so check the voucher in the app before visiting. This welcome reward is separate from the birthday cake benefit."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "lastChecked": "2026-10-11",
-      "isAffiliate": false,
-      "isSponsored": false
     },
     {
       "id": "mtn-app-first-login-1gb-2026",
