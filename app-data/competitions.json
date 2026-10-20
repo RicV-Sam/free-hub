@@ -1,34 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-19",
-  "count": 110,
+  "asOfDate": "2026-10-20",
+  "count": 109,
   "competitions": [
-    {
-      "id": "tinkies-distraction-levels-competition-2026",
-      "title": "Tinkies Distraction Levels Tech Competition 2026",
-      "brand": "Tinkies / Tiger Brands / SPAR",
-      "summary": "Buy Tinkies six-pack boxes and swipe your SPAR Rewards card for automatic entry into quantity-based draws for JBL speakers, Samsung tablets or Xbox Series S consoles.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/tinkies-distraction-levels-competition-2026.jpg",
-      "closingDate": "2026-10-19",
-      "category": "Tech",
-      "prizeName": "JBL Flip 7 speakers, Samsung Galaxy Tab S10 Lite tablets and Xbox Series S consoles",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Purchase and SPAR Rewards Card Swipe",
-      "eligibility": "Open to South African citizens and permanent residents aged 18 or older who make the qualifying purchase and swipe SPAR Rewards.",
-      "entrySteps": [
-        "Buy one or more Tinkies six-pack boxes in any flavour during the promotion period.",
-        "Swipe a registered SPAR Rewards card with the qualifying purchase for automatic entry.",
-        "The terms allocate prize tiers by boxes purchased during the promotion period: one for JBL, two for Samsung Galaxy Tab, and three or more for Xbox.",
-        "Complete the qualifying purchase and swipe before 23:59 on 19 October 2026."
-      ],
-      "officialUrl": "https://www.spar.co.za/competitions/tinkies-distraction-levels-competition",
-      "termsUrl": "https://www.spar.co.za/competitions/tinkies-distraction-levels-competition",
-      "lastChecked": "2026-10-03",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
     {
       "id": "sasol-magpie-2026",
       "title": "Sasol Delight and Magpie Rewards Competition",
@@ -286,7 +260,7 @@
       "termsUrl": "https://www.wanderlustmagazine.com/wanderlust-reader-travel-awards-2026-prize-draw-terms-and-conditions/",
       "lastChecked": "2026-09-08",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "sea-harvest-say-fish-grocery-vouchers-2026",
