@@ -176,6 +176,9 @@ function walkHtmlFiles(rootDir) {
       if (entry.isDirectory()) {
         visit(entryPath);
       } else if (entry.isFile() && entry.name.endsWith(".html")) {
+        // Petal Search's existing ownership token is not a generated content page.
+        if (directory === rootDir && entry.name === "3411cccf5b.html"
+          && fs.readFileSync(entryPath, "utf8").trim() === "3411cccf5b") return;
         files.push(entryPath);
       }
     });

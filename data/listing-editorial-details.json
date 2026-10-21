@@ -896,5 +896,16 @@
         ]
       }
     ]
+  },
+  "virgin-active-clue-plus-reward-2026": {
+    "sections": [
+      {
+        "heading": "Check membership and renewal before activating",
+        "paragraphs": [
+          "Reach the required milestone in Virgin Active Rewards, select Clue Plus in the app and redeem within seven days. Existing Clue subscriptions and trials cannot be extended or combined with this reward.",
+          "You must provide payment details. After three months, Clue automatically charges its standard subscription rate unless you cancel beforehand. Check the price and cancellation process on Clue’s activation page before accepting."
+        ]
+      }
+    ]
   }
 }

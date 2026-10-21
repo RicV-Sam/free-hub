@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-21",
-  "count": 109,
+  "count": 112,
   "competitions": [
     {
       "id": "sasol-magpie-2026",
@@ -2003,6 +2003,58 @@
       "isClosingSoon": false
     },
     {
+      "id": "prh-braai-broekies-2026",
+      "title": "Penguin x Braai Broekies: Win a Book and Braai Gear",
+      "brand": "Penguin Random House South Africa",
+      "summary": "Share your favourite braai essential for a chance to win Jan Braai / Idees vol vrees and a Braai Broekies product of your choice up to R1,000. Free entry includes a social post and the official form.",
+      "imageUrl": "https://freehub.co.za/assets/listings/prh-braai-broekies-2026.webp",
+      "closingDate": "2026-11-30",
+      "category": "Shopping",
+      "prizeName": "Jan Braai / Idees vol vrees book plus a Braai Broekies product up to R1,000",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Social",
+      "eligibility": "South African residents aged 18+; one entry per person; promoter-related exclusions apply.",
+      "entrySteps": [
+        "Take a photo or Reel featuring your favourite braai essential and explain why you cannot braai without it.",
+        "Share it on Instagram or Facebook and tag @thehungrypenguin_sa and @braaibroekies.",
+        "Open the official campaign form, supply your contact details, social handle, post link and answer, then confirm SA residency and acceptance of the rules. The campaign also asks for a photo or Reel screenshot; follow the current form’s available prompts.",
+        "Check both newsletter choices: Yes is preselected, but No, Thanks is available. Enter once by 23:59 SAST on 30 November 2026."
+      ],
+      "officialUrl": "https://www.penguinrandomhouse.co.za/competitions/win-braai-broekies-x-idees-vol-vrees/",
+      "termsUrl": "https://www.penguinrandomhouse.co.za/tos/tscs-win-braai-broekies-x-idees-vol-vrees/",
+      "lastChecked": "2026-10-21",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "prh-greenie-do-not-feed-the-monkey-2026",
+      "title": "Greenie x Penguin: Win a Food-Cover and Book Hamper",
+      "brand": "Penguin Random House South Africa",
+      "summary": "Enter the official form for one of five Greenie hampers featuring reusable food covers, plus Do Not Feed the Monkey. No purchase is required; South African entrants must be 18 or older.",
+      "imageUrl": "https://freehub.co.za/assets/listings/prh-greenie-do-not-feed-the-monkey-2026.webp",
+      "closingDate": "2026-11-30",
+      "category": "Shopping",
+      "prizeName": "One of five Greenie hampers plus Do Not Feed the Monkey",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "South African residents aged 18+; one entry per person; promoter-related exclusions apply.",
+      "entrySteps": [
+        "Read the official campaign rules and confirm that you are an eligible South African resident aged 18 or older.",
+        "Complete the official form with your first name, surname, email and province; confirm residency and acceptance of the rules.",
+        "Review the optional Greenie and Penguin newsletter choices, which default to Yes. Select No, Thanks if you do not want updates.",
+        "Submit one entry per person before 23:59 SAST on 30 November 2026."
+      ],
+      "officialUrl": "https://www.penguinrandomhouse.co.za/competitions/win-do-not-feed-the-monkey/",
+      "termsUrl": "https://www.penguinrandomhouse.co.za/tos/tscs-win-do-not-feed-the-monkey/",
+      "lastChecked": "2026-10-21",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "clicks-have-your-say-october-november-2026",
       "title": "Clicks Have Your Say: Win R500 ClubCard Cashback",
       "brand": "Clicks ClubCard Magazine / The Publishing Partnership",
@@ -2658,6 +2710,33 @@
       "termsUrl": "https://www.coca-cola.com/za/en/legal/terms-and-conditions-made-social-promotion-2026",
       "lastChecked": "2026-10-11",
       "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "telkom-datanaire-tap2win-summer-2026",
+      "title": "Telkom Datanaire Tap2Win: Cash and Voucher Prizes",
+      "brand": "Telkom South Africa",
+      "summary": "Qualifying Telkom customers can enter the Summer cash draw and Tap2Win rewards campaign. R500 million is the advertised overall pool; cash prizes are R10,000 each. Purchase or contract activity is required.",
+      "imageUrl": "https://freehub.co.za/assets/listings/telkom-datanaire-tap2win-summer-2026.webp",
+      "closingDate": "2027-01-31",
+      "category": "Vouchers",
+      "prizeName": "R10,000 cash prizes and Tap2Win rewards",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Qualifying Purchase or Contract and Tap2Win Opt-in",
+      "eligibility": "Eligible Telkom customers aged 18+ with SA ID/passport; qualifying activity, correct RICA details and account-in-good-standing conditions apply.",
+      "entrySteps": [
+        "Read the current Summer Campaign rules. You must be an eligible Telkom customer aged 18+ with valid SA ID or passport; related-party exclusions apply.",
+        "For prepaid mobile, recharge or buy a qualifying bundle worth at least R29. Mobile contract customers can qualify through a new contract, upgrade or qualifying R29 recharge/bundle activity, as specified in the rules.",
+        "For Tap2Win rewards, opt in or register through *180#, *123#, the MyTelkom app or Telkom’s website and follow the play prompts. Do not assume purchase alone completes Tap2Win registration.",
+        "Fibre customers qualify for the separate Summer cash draw by subscribing to or renewing a Fibre contract. Do not assume the mobile Tap2Win play route applies to Fibre.",
+        "Complete qualifying activity by midnight ending 31 January 2027. Keep your RICA/account details current and check your Telkom notifications for entry, reward and expiry instructions."
+      ],
+      "officialUrl": "https://www.telkom.co.za/tap2win",
+      "termsUrl": "https://group.telkom.co.za/documents/regulatory/terms-and-conditions/Summer-Campaign-Tap2Win-TCs.pdf",
+      "lastChecked": "2026-10-21",
+      "isHighValue": true,
       "isClosingSoon": false
     },
     {

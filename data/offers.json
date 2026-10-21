@@ -2155,5 +2155,30 @@
     "sponsored": false,
     "updatedAt": "2026-10-19",
     "publishedAt": "2026-10-19"
+  },
+  {
+    "id": "virgin-active-clue-plus-reward-2026",
+    "slug": "virgin-active-clue-plus-reward-2026",
+    "type": "deal",
+    "brand": "Virgin Active",
+    "brandSlug": "virgin-active",
+    "title": "Three months of Clue Plus with Virgin Active Rewards",
+    "summary": "Eligible Virgin Active members aged 18+ can select three months of Clue Plus after reaching a rewards milestone. Payment details are required; it renews at the standard rate unless cancelled.",
+    "destinationUrl": "https://hello.virginactive.co.za/support/solutions/articles/201000133699-terms-and-conditions-3-months-free",
+    "sourceUrl": "https://hello.virginactive.co.za/support/solutions/articles/201000133699-terms-and-conditions-3-months-free",
+    "termsUrl": "https://hello.virginactive.co.za/support/solutions/articles/201000133699-terms-and-conditions-3-months-free",
+    "category": "banking-rewards",
+    "startsAt": "2026-10-12",
+    "expiresAt": "2027-01-31",
+    "lastChecked": "2026-10-21",
+    "reviewDueAt": "2026-10-28",
+    "terms": "Active Virgin Active membership in South Africa, Botswana or Namibia, age 18+ and achievement of the app’s milestone goal are required. Select the Clue Plus reward in the Virgin Active app and activate it within seven days. It cannot overlap or extend an existing Clue subscription or trial. Valid payment details are required; there is no subscription charge during the initial three months, then automatic renewal at Clue’s standard rate unless cancelled beforehand under Clue’s terms. No fixed renewal price is stated here: check it before activation. This is a member subscription reward, not free gym membership. Availability and partner exclusions apply.",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "affiliate": false,
+    "sponsored": false,
+    "publishedAt": "2026-10-21",
+    "updatedAt": "2026-10-21"
   }
 ]

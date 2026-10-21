@@ -1,0 +1,95 @@
+{
+  "checkedAt": "2026-10-21",
+  "authorization": "User requested commit and push live of reviewed additions; Telkom lead subsequently added to the same release.",
+  "baseCommit": "0c7eb32fe2a44f3812a4d2ed0abe1cf725f0b83b",
+  "newCompetitionIds": [
+    "prh-braai-broekies-2026",
+    "prh-greenie-do-not-feed-the-monkey-2026",
+    "telkom-datanaire-tap2win-summer-2026"
+  ],
+  "newOfferIds": [
+    "virgin-active-clue-plus-reward-2026"
+  ],
+  "duplicatesAlreadyPublished": [
+    "beares-facebook-russell-hobbs-freezer-october-2026",
+    "beares-instagram-skyler-wardrobe-october-2026",
+    "dis-chem-energizer-october-december-2026",
+    "schweppes-made-social-2026",
+    "stimorol-volume-driver-2026",
+    "prh-camp-half-blood-2026"
+  ],
+  "held": [
+    "Bella’s Kitchen: conflicting closing dates and winner count",
+    "Diary of a Wimpy Kid Fight or Flight: conflicting closing dates"
+  ],
+  "notes": [
+    "Latest remote and live production catalogues checked: 475 competition records before this release. Initial research used an older local catalogue; six duplicates excluded.",
+    "Official PRH campaign artwork inspected and saved; reward terms page has only generic artwork so a visibly labelled editorial illustration was created.",
+    "Braai campaign asks for an image upload but current form offers social URL and answer fields without a visible file-upload input; entry instructions preserve the request and disclose current form limitations.",
+    "No consumer entry, subscription or social interaction submitted.",
+    "Original checkout and unrelated pending changes preserved.",
+    "Telkom Summer campaign included with explicit pool-versus-individual-prize distinction and current R29 threshold. Old generic PDF and FAQ disagree; current campaign-specific Summer terms used. Monthly draw inconsistency disclosed without inventing a schedule."
+  ],
+  "sources": [
+    {
+      "id": "prh-braai-broekies-2026",
+      "campaign": "https://www.penguinrandomhouse.co.za/competitions/win-braai-broekies-x-idees-vol-vrees/",
+      "terms": "https://www.penguinrandomhouse.co.za/tos/tscs-win-braai-broekies-x-idees-vol-vrees/"
+    },
+    {
+      "id": "prh-greenie-do-not-feed-the-monkey-2026",
+      "campaign": "https://www.penguinrandomhouse.co.za/competitions/win-do-not-feed-the-monkey/",
+      "terms": "https://www.penguinrandomhouse.co.za/tos/tscs-win-do-not-feed-the-monkey/"
+    },
+    {
+      "id": "virgin-active-clue-plus-reward-2026",
+      "terms": "https://hello.virginactive.co.za/support/solutions/articles/201000133699-terms-and-conditions-3-months-free"
+    },
+    {
+      "id": "telkom-datanaire-tap2win-summer-2026",
+      "campaign": "https://www.telkom.co.za/deals/beadatanaire",
+      "entryInstructions": "https://www.telkom.co.za/tap2win",
+      "terms": "https://group.telkom.co.za/documents/regulatory/terms-and-conditions/Summer-Campaign-Tap2Win-TCs.pdf",
+      "directory": "https://group.telkom.co.za/regulatory/terms-and-conditions-campaigns.html",
+      "userLead": "https://mybroadband.co.za/news/industrynews/673121-telkom-invites-south-africans-to-enter-their-datanaire-era-this-summer-with-a-share-of-r500-million-in-cash-and-prizes-up-for-grabs.html"
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "productionBuild": "passed",
+    "seo": "passed: baseline, performance, free-stuff parent and free-samples checks",
+    "heldCandidates": "passed",
+    "lifecycle": {
+      "passed": 171,
+      "failed": 0,
+      "execution": "Sequential, historical CI fixture date; today’s production build restored afterwards"
+    },
+    "airtime": {
+      "passed": 30,
+      "failed": 0,
+      "skipped": 1
+    },
+    "targetedProductionDataAndFeeds": {
+      "passed": 36,
+      "failed": 0
+    },
+    "responsiveReview": {
+      "desktop": "1365 x 1000",
+      "mobile": "390 x 844",
+      "pages": [
+        "prh-braai-broekies-2026",
+        "prh-greenie-do-not-feed-the-monkey-2026",
+        "telkom-datanaire-tap2win-summer-2026",
+        "virgin-active-clue-plus-reward-2026"
+      ],
+      "imagesLoaded": true,
+      "horizontalOverflow": false
+    },
+    "baselineChanges": [
+      "Added three reviewed competition detail pages to the fixed count.",
+      "Renewed compact cost-label snapshot with two Free entry listings and one Purchase required listing.",
+      "Excluded the existing exact Petal Search ownership-token file from content-page navigation checks.",
+      "Updated offer registry count and deal count for one new member reward."
+    ]
+  }
+}

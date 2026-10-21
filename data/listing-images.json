@@ -2198,5 +2198,52 @@
     "sourceImage": "https://www.best-before.co.za/wp-content/uploads/2023/06/6004791001387-600x600.jpg.webp",
     "alt": "Serena chopped tomatoes 400g in the retailer product photograph",
     "caption": "Official retailer product image. Packaging can differ; check the supplied pack and batch date."
+  },
+  "prh-braai-broekies-2026": {
+    "src": "/assets/listings/prh-braai-broekies-2026.webp",
+    "width": 1600,
+    "height": 292,
+    "alt": "Official Braai Broekies and Penguin banner showing cartoon braai scenes, clothing and the Jan Braai / Idees vol vrees book",
+    "kind": "official-source",
+    "caption": "Official Penguin Random House campaign artwork.",
+    "reviewedAt": "2026-10-21",
+    "sourcePage": "https://www.penguinrandomhouse.co.za/competitions/win-braai-broekies-x-idees-vol-vrees/",
+    "sourceImage": "https://www.penguinrandomhouse.co.za/wp-content/uploads/Braai-Broekies-Jan-Braai-Idees-Vol-Vrees-comp-PRH-banner-1920x350-1.jpg"
+  },
+  "prh-greenie-do-not-feed-the-monkey-2026": {
+    "src": "/assets/listings/prh-greenie-do-not-feed-the-monkey-2026.webp",
+    "width": 1600,
+    "height": 292,
+    "alt": "Official Greenie giveaway banner showing reusable food covers and the Do Not Feed the Monkey children’s book",
+    "kind": "official-source",
+    "caption": "Official Penguin Random House campaign artwork.",
+    "reviewedAt": "2026-10-21",
+    "sourcePage": "https://www.penguinrandomhouse.co.za/competitions/win-do-not-feed-the-monkey/",
+    "sourceImage": "https://www.penguinrandomhouse.co.za/wp-content/uploads/Do-Not-Feed-the-Monkey-comp-PRH-banner-1920x350-1.jpg"
+  },
+  "virgin-active-clue-plus-reward-2026": {
+    "src": "/assets/listings/virgin-active-clue-plus-reward-2026.webp",
+    "width": 1535,
+    "height": 864,
+    "alt": "FreeHub editorial illustration of a calendar on a smartphone beside a gym bag and water bottle; not the Clue app interface",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration, not official Virgin Active or Clue artwork.",
+    "reviewedAt": "2026-10-21",
+    "sourcePage": "https://hello.virginactive.co.za/support/solutions/articles/201000133699-terms-and-conditions-3-months-free",
+    "generationPrompt": "Create ONE polished landscape website hero illustration, 1536x864, for FreeHub's independent editorial listing about a Virgin Active member milestone reward that provides three months of Clue Plus. Use a tasteful modern flat illustration style, warm coral and plum accents on a pale cream background. Depict a generic unbranded smartphone with a simple abstract calendar icon, a small gym bag and a water bottle, with a few botanical shapes. Do not show human bodies, medical results, actual app interfaces, brand logos or product endorsements. Do not invent prices, dates, savings or qualifying mechanics. The only readable text should be a discreet but legible bottom caption: 'FreeHub editorial illustration'. This is editorial artwork, not an official advert. Calm professional wellness tone, generous spacing, clean balanced composition.",
+    "generationTool": "image_gen.imagegen",
+    "provenance": "Official provider terms page inspected: only generic portal artwork available. Subject-specific illustration generated on 21 October 2026 and optimized to WebP."
+  },
+  "telkom-datanaire-tap2win-summer-2026": {
+    "src": "/assets/listings/telkom-datanaire-tap2win-summer-2026.webp",
+    "width": 920,
+    "height": 600,
+    "alt": "Official Telkom Tap2Win artwork advertising an overall R500 million cash-and-prize pool with travel, shopping, airtime and data symbols",
+    "kind": "official-source",
+    "caption": "Official Telkom Tap2Win campaign artwork. R500 million is the advertised overall prize pool.",
+    "reviewedAt": "2026-10-21",
+    "sourcePage": "https://www.telkom.co.za/deals/beadatanaire",
+    "sourceImage": "https://images.telkom.co.za/1920/backend-files/banner-promo-banner_1.webp",
+    "transformation": "Cropped empty blue margin from official banner; claims unchanged; WebP optimization."
   }
 }

@@ -97,7 +97,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 30
+- Matching active public competitions: 32
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -126,6 +126,8 @@ Recommended normalisation:
 | FAO World Food Day 2026 Poster Contest (fao-world-food-day-poster-2026) | 2026-11-06 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | GoTyme Card Swipe and Spend: Win R300 (gotyme-card-swipe-spend-2026) | 2026-11-30 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | AVBOB 10th Annual Poetry Competition (avbob-poetry-2026) | 2026-11-30 | free-entry | yes | yes | Online entry tag | none |
+| Penguin x Braai Broekies: Win a Book and Braai Gear (prh-braai-broekies-2026) | 2026-11-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| Greenie x Penguin: Win a Food-Cover and Book Hamper (prh-greenie-do-not-feed-the-monkey-2026) | 2026-11-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Clicks October/November Beauty Box Giveaway (clicks-october-november-beauty-box-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Clicks D’Licious Hamper Giveaway (clicks-dlicious-hamper-october-november-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Clicks DKNY Ice Pop Fragrance Giveaway (clicks-dkny-ice-pop-october-november-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
@@ -141,7 +143,7 @@ Recommended normalisation:
 ## Win Airtime Competitions in South Africa
 
 - URL: /win-airtime-competitions-south-africa/
-- Matching active public competitions: 2
+- Matching active public competitions: 3
 - Publication threshold: durable guide; independent of live listing count
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -150,6 +152,7 @@ Recommended normalisation:
 |---|---:|---|---|---|---|---|
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | Airtime tag; Airtime prize text | none |
 | Coca-Cola Be a Bok Competition 2026 (coca-cola-fan-can-be-a-bok-2026) | 2026-11-30 | purchase-required | yes | yes | Airtime prize text | consider airtime or recharge tag if prize terms confirm |
+| Telkom Datanaire Tap2Win: Cash and Voucher Prizes (telkom-datanaire-tap2win-summer-2026) | 2027-01-31 | purchase-required | yes | yes | Airtime tag; Airtime prize text | none |
 
 Recommended normalisation:
 - Preserve the practical guide when inventory falls; show only qualifying live listings and an honest availability notice.
@@ -157,7 +160,7 @@ Recommended normalisation:
 ## Win Data Competitions in South Africa
 
 - URL: /win-data-competitions-south-africa/
-- Matching active public competitions: 2
+- Matching active public competitions: 3
 - Publication threshold: durable guide; independent of live listing count
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -166,6 +169,7 @@ Recommended normalisation:
 |---|---:|---|---|---|---|---|
 | MTN Share the App & Win: October 2026 Draw (mtn-share-app-october-2026) | 2026-10-31 | account-required | yes | yes | Data or connectivity tag; Data or connectivity prize text | none |
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | Data or connectivity tag | none |
+| Telkom Datanaire Tap2Win: Cash and Voucher Prizes (telkom-datanaire-tap2win-summer-2026) | 2027-01-31 | purchase-required | yes | yes | Data or connectivity tag | none |
 
 Recommended normalisation:
 - Preserve the practical guide when inventory falls; show only qualifying live listings and an honest availability notice.
