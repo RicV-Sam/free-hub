@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-20",
-  "count": 44,
+  "asOfDate": "2026-10-21",
+  "count": 37,
   "counts": {
     "freeStuff": 22,
     "resources": 22,
     "opportunities": 0,
-    "offers": 22
+    "offers": 15
   },
   "items": [
     {
@@ -639,132 +639,6 @@
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "expiresAt": "2026-10-29",
       "lastChecked": "2026-10-16",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "best-before-farmgirl-baked-beans-410g",
-      "kind": "deal",
-      "title": "Farmgirl baked beans 410g for R14.00 at Best Before",
-      "provider": "Best Before",
-      "summary": "Online price checked on 19 October: R14.00 for 410g (R34.15/kg, based on net pack weight). Delivery costs extra; the batch best-before date is not provided online.",
-      "category": "groceries",
-      "categoryLabel": "Groceries",
-      "officialUrl": "https://www.best-before.co.za/product/farmgirl-baked-beans-410g/",
-      "termsUrl": "https://www.best-before.co.za/shipping-information/",
-      "requirements": [
-        "Purchase required. No coupon needed. The amount is the retailer's displayed online product price, excluding delivery. The product page showed in stock and an Add to basket button when checked. Branch stock was not verified. Tagged “Future Dated”; the actual batch date is not provided online. Confirm the actual pack date and total charge before paying. No promotional end date was stated. No same-product supermarket saving has been verified."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "lastChecked": "2026-10-19",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "looters-koo-mixed-vegetables-410g",
-      "kind": "deal",
-      "title": "Koo mixed vegetables in brine 410g for R9.90 at Looters",
-      "provider": "Looters",
-      "summary": "Online price checked on 19 October: R9.90 for 410g (R24.15/kg, based on net pack weight). Delivery costs extra; the batch best-before date is not provided online.",
-      "category": "groceries",
-      "categoryLabel": "Groceries",
-      "officialUrl": "https://looters.co.za/products/koo-mixed-vegetables-in-brine/",
-      "termsUrl": "https://looters.co.za/collection-delivery/",
-      "requirements": [
-        "Purchase required. No coupon needed. The amount is the retailer's displayed online product price, excluding delivery. The product page allowed Add to cart and its product data indicated in stock. Branch stock was not verified. The batch's best-before date is not provided online. Confirm the actual pack date and total charge before paying. No promotional end date was stated. No same-product supermarket saving has been verified."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "lastChecked": "2026-10-19",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "looters-bokomo-weet-bix-450g",
-      "kind": "deal",
-      "title": "Bokomo Weet-Bix 450g for R29.90 at Looters",
-      "provider": "Looters",
-      "summary": "Online price checked on 19 October: R29.90 for 450g (R66.44/kg, based on net pack weight). Delivery costs extra; check the actual batch date before buying.",
-      "category": "groceries",
-      "categoryLabel": "Groceries",
-      "officialUrl": "https://looters.co.za/products/bokomo-weet-bix-450g-ooters/",
-      "termsUrl": "https://looters.co.za/collection-delivery/",
-      "requirements": [
-        "Purchase required. No coupon is shown as necessary for the displayed pack price. The main product Add to cart button was visible and enabled; product data indicated InStock. No stock count was displayed. Branch stock was not verified. The actual batch date is not displayed. No customer-facing promotional end date was displayed. The price excludes delivery; confirm the final charge and availability before paying. No same-product supermarket saving has been verified."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "lastChecked": "2026-10-19",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "looters-la-italiana-butter-beans-400g",
-      "kind": "deal",
-      "title": "La Italiana butter beans 400g for R16.90 at Looters",
-      "provider": "Looters",
-      "summary": "Online price checked on 19 October: R16.90 for 400g (R42.25/kg, based on net pack weight). Delivery costs extra; check the actual batch date before buying.",
-      "category": "groceries",
-      "categoryLabel": "Groceries",
-      "officialUrl": "https://looters.co.za/products/la-italiana-butter-beans-400g-looters/",
-      "termsUrl": "https://looters.co.za/collection-delivery/",
-      "requirements": [
-        "Purchase required. No coupon is shown as necessary for the displayed pack price. The main product Add to cart button was visible and enabled; product data indicated InStock. No stock count was displayed. Branch stock was not verified. The actual batch date is not displayed. No customer-facing promotional end date was displayed. The price excludes delivery; confirm the final charge and availability before paying. No same-product supermarket saving has been verified."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "lastChecked": "2026-10-19",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "looters-la-italiana-tomato-puree-400g",
-      "kind": "deal",
-      "title": "La Italiana Italian tomato puree 400g for R17.90 at Looters",
-      "provider": "Looters",
-      "summary": "Online price checked on 19 October: R17.90 for 400g (R44.75/kg, based on net pack weight). Delivery costs extra; check the actual batch date before buying.",
-      "category": "groceries",
-      "categoryLabel": "Groceries",
-      "officialUrl": "https://looters.co.za/products/la-italiana-italian-tomato-puree/",
-      "termsUrl": "https://looters.co.za/collection-delivery/",
-      "requirements": [
-        "Purchase required. No coupon is shown as necessary for the displayed pack price. The main product Add to cart button was visible and enabled; product data indicated InStock. No stock count was displayed. Branch stock was not verified. The actual batch date is not displayed. No customer-facing promotional end date was displayed. The price excludes delivery; confirm the final charge and availability before paying. No same-product supermarket saving has been verified."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "lastChecked": "2026-10-19",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "looters-eezee-assorted-noodles-5x65g",
-      "kind": "deal",
-      "title": "Eezee assorted noodles 5 x 65g for R21.90 at Looters",
-      "provider": "Looters",
-      "summary": "Online price checked on 19 October: R21.90 for 5 x 65g (R67.38/kg, based on net pack weight). Delivery costs extra; check the actual batch date before buying.",
-      "category": "groceries",
-      "categoryLabel": "Groceries",
-      "officialUrl": "https://looters.co.za/products/eezee-noodles-assorted-value-pack/",
-      "termsUrl": "https://looters.co.za/collection-delivery/",
-      "requirements": [
-        "Purchase required. No coupon is shown as necessary for the displayed pack price. The main product Add to cart button was visible and enabled; product data indicated InStock. No stock count was displayed. Branch stock was not verified. The actual batch date is not displayed. No customer-facing promotional end date was displayed. The price excludes delivery; confirm the final charge and availability before paying. No same-product supermarket saving has been verified. The full five-pack must be purchased: 5 x 65g = 325g total, equivalent to R4.38 per sachet."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "lastChecked": "2026-10-19",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "best-before-serena-chopped-tomatoes-400g",
-      "kind": "deal",
-      "title": "Serena chopped tomatoes 400g for R20.00 at Best Before",
-      "provider": "Best Before",
-      "summary": "Online price checked on 19 October: R20.00 for 400g (R50.00/kg, based on net pack weight). Delivery costs extra; check the actual batch date before buying.",
-      "category": "groceries",
-      "categoryLabel": "Groceries",
-      "officialUrl": "https://www.best-before.co.za/product/serena-chopped-tomatoes-400g/",
-      "termsUrl": "https://www.best-before.co.za/shipping-information/",
-      "requirements": [
-        "Purchase required. No coupon is shown as necessary for the displayed pack price. The page displayed 421 in stock and an enabled Add to basket button. Branch stock was not verified. Tagged Future Dated; the actual batch date is not displayed. No customer-facing promotional end date was displayed. The price excludes delivery; confirm the final charge and availability before paying. No same-product supermarket saving has been verified."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "lastChecked": "2026-10-19",
       "isAffiliate": false,
       "isSponsored": false
     }

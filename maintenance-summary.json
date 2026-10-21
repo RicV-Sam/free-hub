@@ -2,12 +2,12 @@
   "ok": true,
   "errors": [],
   "summary": {
-    "today": "2026-10-20",
+    "today": "2026-10-21",
     "retiredCount": 6,
     "retiredRouteLeaks": [],
     "expiredPublishedCount": 252,
     "archivedCompetitionCount": 278,
-    "publicListingFilesScanned": 170,
+    "publicListingFilesScanned": 160,
     "sitemapContainsOutUrls": false,
     "expiredMissingFromArchive": [],
     "expiredInSitemap": [],
@@ -28,7 +28,7 @@
     "nonPublicDetailPages": [],
     "nonPublicInPublicListings": [],
     "editorialHealth": {
-      "asOfDate": "2026-10-20",
+      "asOfDate": "2026-10-21",
       "needsReview": true,
       "surfaces": [
         {
