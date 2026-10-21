@@ -1,0 +1,822 @@
+{
+  "reviewDate": "2026-10-21",
+  "timezone": "Africa/Johannesburg",
+  "scope": "Broad South African consumer competition, reward, sample and offer discovery; worldwide creative contests where official source explicitly indicates worldwide eligibility.",
+  "searchQueryCount": 45,
+  "searchEngines": [
+    "system1",
+    "system2"
+  ],
+  "catalogueComparison": {
+    "source": "Remote GitHub main, not stale local checkout",
+    "files": {
+      "data/competitions.json": 478,
+      "data/offers.json": 93,
+      "data/opportunities.json": 39,
+      "data/free-resources.json": 41,
+      "data/unverified-competitions.json": 11
+    },
+    "totalRecords": 662,
+    "method": "Compare provider/campaign name, source URL and campaign period against all five registries. ExistingId values checked for existence. This is campaign-level deduplication, not a full audit of published records."
+  },
+  "statusDefinitions": {
+    "shortlist": "New source-backed discovery candidate; full eligibility, entry-form, cost, consent, artwork and release checks remain. Not approved for publication.",
+    "upcoming": "New candidate with future start; do not present as currently open.",
+    "verification-hold": "Material evidence gap, conflicting terms, inaccessible current rules or press-only lead. Do not publish.",
+    "existing-review": "Already in an under-review registry; improve existing record rather than duplicate.",
+    "already-listed": "Campaign or benefit already recorded on remote main; do not duplicate.",
+    "exclude": "Expired, no verified SA availability, or unsuitable for a completely-free claim."
+  },
+  "coverage": [
+    "Supermarkets and FMCG",
+    "Fashion and home retailers",
+    "Beauty and personal care",
+    "Technology and electronics",
+    "Banks and financial rewards",
+    "Mobile networks and entertainment",
+    "Travel and hospitality",
+    "Radio and media",
+    "Shopping centres and regional promotions",
+    "Food and restaurant promotions",
+    "Creative and photographic opportunities",
+    "Samples and product testing"
+  ],
+  "limitations": [
+    "Broad but not exhaustive: search indexes miss app-only, email-only, in-store-only and poorly indexed social campaigns.",
+    "No accounts, entries, subscriptions or marketing-consent submissions were created.",
+    "No new consumer listings published in this discovery pass.",
+    "Artwork acquisition and desktop/mobile QA are required at publication stage under AGENTS.md; no discovery record should be copied straight into production.",
+    "Cached search/browser representations sometimes disagreed with direct provider responses. Current direct fetches resolved Mambo’s and 1UP; Pattex remains held because its linked terms are older than its current banner.",
+    "The 21 shortlist items are a discovery queue, not 21 fully verified/ready-to-publish offers.",
+    "Existing Bella’s Kitchen and Wimpy Kid holds from earlier work remain unchanged."
+  ],
+  "counts": {
+    "shortlist": 21,
+    "upcoming": 3,
+    "verification-hold": 11,
+    "existing-review": 1,
+    "already-listed": 18,
+    "exclude": 4
+  },
+  "uniqueRetainedSourceUrls": 60,
+  "records": [
+    {
+      "id": "outdoorphoto-wishlist",
+      "title": "Outdoorphoto wishlist: Tenba Axis v2 28L Spinner Backpack",
+      "kind": "competition",
+      "status": "shortlist",
+      "closingDate": "2026-11-10",
+      "cost": "No purchase; free account and wishlist",
+      "sourceUrls": [
+        "https://www.outdoorphoto.co.za/blogs/blog/outdoorphoto-wishlist-competition"
+      ],
+      "findings": "20 Oct–10 Nov. Prize advertised R10,295. Up to five distinct eligible products/entries. Standard giveaway terms still need full eligibility review.",
+      "existingId": null
+    },
+    {
+      "id": "gelmar-pass-parcel",
+      "title": "Gelmar Pass the Parcel: daily R1,000 vouchers",
+      "kind": "competition",
+      "status": "shortlist",
+      "closingDate": "2026-10-30",
+      "cost": "Social entry; data costs",
+      "sourceUrls": [
+        "https://www.gelmar.co.za/pass-the-parcel"
+      ],
+      "findings": "5–30 Oct; one R1,000 voucher each weekday, total R20,000. Facebook/Instagram daily draws; may only win once. Confirm current social post and full eligibility before listing.",
+      "existingId": null
+    },
+    {
+      "id": "maynards-spar",
+      "title": "Maynards Kaboom Your Festive / SPAR",
+      "kind": "competition",
+      "status": "shortlist",
+      "closingDate": "2026-12-26",
+      "cost": "Qualifying purchase and SPAR Rewards",
+      "sourceUrls": [
+        "https://www.spar.co.za/competitions/maynards-SPAR-Rewards-competition"
+      ],
+      "findings": "12 Oct–26 Dec. R250,000 is the pool: 1,250 R200 digital vouchers. Capture exact products, quantities and card mechanics from schedule before publication.",
+      "existingId": null
+    },
+    {
+      "id": "sausage-saloon",
+      "title": "Sausage Saloon: MacBook Neo",
+      "kind": "competition",
+      "status": "shortlist",
+      "closingDate": "2026-12-15",
+      "cost": "Qualifying Local Wors Feast or Fiesta Deal purchase",
+      "sourceUrls": [
+        "https://www.sausagesaloon.co.za/competitions/"
+      ],
+      "findings": "1 Oct–15 Dec. One laptop advertised R13,999. Unique receipt per entry, participating outlets, adult declaration; optional marketing. Full rules linked on campaign page.",
+      "existingId": null
+    },
+    {
+      "id": "nedbank-travel",
+      "title": "Nedbank Black Friday travel-voucher draw",
+      "kind": "competition",
+      "status": "shortlist",
+      "closingDate": "2026-11-30",
+      "cost": "Qualifying banking activity/spend",
+      "sourceUrls": [
+        "https://personal.nedbank.co.za/promotions/black-friday-competition.html"
+      ],
+      "findings": "28 Sep–30 Nov. R5 million overall pool, R50,000 Tourvest vouchers per winner. Active Money app and qualifying actions; base entry per R5,000 spend, bonus rules differ. Not a R5 million individual cash prize.",
+      "existingId": null
+    },
+    {
+      "id": "samsung-telkom-summer",
+      "title": "Turn Up Summer with Samsung and Telkom",
+      "kind": "competition",
+      "status": "shortlist",
+      "closingDate": "2027-02-15",
+      "cost": "Qualifying device contract/upgrade and promotional redemption",
+      "sourceUrls": [
+        "https://www.samsung.com/za/offer/telkom-turn-up-summer-terms/"
+      ],
+      "findings": "7 Oct–15 Feb. Cash and TVs across device tiers/phases. Distinct from Telkom Datanaire Tap2Win. Must complete phase-specific prize, entry and promotional redemption review.",
+      "existingId": null
+    },
+    {
+      "id": "water-filter-factory",
+      "title": "Water Filter Factory October Spring Giveaway",
+      "kind": "competition",
+      "status": "shortlist",
+      "closingDate": "2026-10-31",
+      "cost": "Paid qualifying filtration-system order",
+      "sourceUrls": [
+        "https://thewaterfilterfactory.co.za/pages/competition"
+      ],
+      "findings": "1–31 Oct. Ten replacement filter sets; membranes excluded. Qualifying systems only, no separate entry form; one entry/order, not system. Winners 2 Nov. No standalone free filter entitlement.",
+      "existingId": null
+    },
+    {
+      "id": "bed-centre",
+      "title": "The Bed Centre: Win Your Purchase Back",
+      "kind": "competition",
+      "status": "shortlist",
+      "closingDate": "2026-10-31",
+      "cost": "Qualifying purchase and invoice form",
+      "sourceUrls": [
+        "https://thebedcentre.co.za/win-your-purchase-back-terms-and-conditions/"
+      ],
+      "findings": "1–31 Oct. One winner receives product value on qualifying invoice; delivery and returned/refunded items excluded. Each invoice once. Prize is refund, not guaranteed cashback.",
+      "existingId": null
+    },
+    {
+      "id": "jwd-website",
+      "title": "JWD: website worth R10,000",
+      "kind": "competition",
+      "status": "shortlist",
+      "closingDate": "2026-12-31",
+      "cost": "No purchase; business representative and required steps",
+      "sourceUrls": [
+        "https://www.jwd.co.za/win-a-website/"
+      ],
+      "findings": "12 Oct–31 Dec. SA adults representing existing or prospective business/organisation. Agreed website scope within R10,000, not cash. Three entry steps; full linked rules and post mechanics need review.",
+      "existingId": null
+    },
+    {
+      "id": "peacehaven-bogart",
+      "title": "Bogart Radio / PeaceHaven Love Story getaway",
+      "kind": "competition",
+      "status": "shortlist",
+      "closingDate": "2026-10-30",
+      "cost": "Public social Reel; data/production costs",
+      "sourceUrls": [
+        "https://bogartradio.co.za/competitions/"
+      ],
+      "findings": "Three-night getaway for a couple; 30–90 second love-story Reel, follow/tag/#LoveinPeacehaven. One entry/couple. Capture travel exclusions, stay restrictions and judging from full terms.",
+      "existingId": null
+    },
+    {
+      "id": "glenfiddich-cappello",
+      "title": "Glenfiddich x Cappello: R10,000 Bogartman voucher",
+      "kind": "competition",
+      "status": "shortlist",
+      "closingDate": "2026-10-31",
+      "cost": "Qualifying bottle purchase at Cappello; 18+",
+      "sourceUrls": [
+        "https://bogartradio.co.za/competitions/"
+      ],
+      "findings": "1–31 Oct. Proof of purchase through dedicated site linked by official radio page. Verify complete linked rules, participating bottle/outlet details and age conditions.",
+      "existingId": null
+    },
+    {
+      "id": "miway-quote-ride",
+      "title": "Miway x METRO FM Quote and Ride",
+      "kind": "competition",
+      "status": "shortlist",
+      "closingDate": "2026-11-13",
+      "cost": "Qualifying insurance quote and radio mechanics",
+      "sourceUrls": [
+        "https://www.miway.co.za/quote-and-ride-terms-of-use"
+      ],
+      "findings": "Promoter says 14 Oct–13 Nov; on-air 19 Oct–13 Nov. Two Jetour Dashings plus radio cash mechanics. Station page starts 13 Oct; use promoter dates and explain distinct cash/car entry paths. Insurance sales contact likely; no entry submitted.",
+      "existingId": null
+    },
+    {
+      "id": "worldart10",
+      "title": "WORLDART10 emerging artist open call",
+      "kind": "creative-opportunity",
+      "status": "shortlist",
+      "closingDate": "2026-10-31",
+      "cost": "PDF portfolio submission; confirm all eligibility/costs",
+      "sourceUrls": [
+        "https://www.worldart.co.za/exhibitions-news/worldart10-2026"
+      ],
+      "findings": "Ten artists selected for mentorship and suitable exhibition/promotion opportunities; no cash award claimed. Portfolio PDF by 31 Oct. Do not invent a cash value or suggest generated art is an eligible entry.",
+      "existingId": null
+    },
+    {
+      "id": "landscape-alliance",
+      "title": "Landscape Alliance #Landscapes4Life photo contest",
+      "kind": "competition",
+      "status": "shortlist",
+      "closingDate": "2026-10-31",
+      "cost": "Photo submission; review contest terms",
+      "sourceUrls": [
+        "https://photocompetition.landscapealliance.org/"
+      ],
+      "findings": "Worldwide submissions 6–31 Oct; public voting 9–30 Nov; USD1,200 total prize pool. Ownership and image licence conditions need clear disclosure; no individual USD1,200 prize claim.",
+      "existingId": null
+    },
+    {
+      "id": "tropika-engen",
+      "title": "Tropika Island of Treasure / Engen",
+      "kind": "competition",
+      "status": "shortlist",
+      "closingDate": "2026-12-31",
+      "cost": "Two qualifying Tropika products at participating Engen stores",
+      "sourceUrls": [
+        "https://www.clover.co.za/competitions/tropika-island-of-treasure-engen-competition/"
+      ],
+      "findings": "1 Oct–31 Dec. QR/WhatsApp registration; retain till slip, separate purchase for each entry. Monthly product prizes and a Réunion trip for two advertised R70,000. Full travel exclusions/documents must be captured.",
+      "existingId": null
+    },
+    {
+      "id": "dstv-seven-day",
+      "title": "DStv 7 Day Upgrade",
+      "kind": "reward",
+      "status": "shortlist",
+      "closingDate": null,
+      "cost": "Existing qualifying paid monthly subscription",
+      "sourceUrls": [
+        "https://www.dstv.com/en-za/news/149765/7-day-upgrade/"
+      ],
+      "findings": "Pay full/on time for seven days of additional channels, automatic for eligible accounts. Staggered package start dates incl 26 Oct for Starter and Movies & Series; business, quarterly/annual and price-lock exclusions. No free DStv subscription claim.",
+      "existingId": null
+    },
+    {
+      "id": "cell-c-canva",
+      "title": "Cell C: three months Canva Pro with qualifying 5GB bundle",
+      "kind": "offer",
+      "status": "shortlist",
+      "closingDate": "2026-10-31",
+      "cost": "Qualifying paid 5GB Anytime bundle",
+      "sourceUrls": [
+        "https://cellc.com/news/how-cell-c-is-helping-turn-potential-into-opportunity"
+      ],
+      "findings": "Provider release confirms 11 Aug–31 Oct, R69 bundle with 14-day validity, three months Canva Pro via code. Obtain redemption terms, eligible Canva account rules, payment/renewal/cancellation conditions before publishing.",
+      "existingId": null
+    },
+    {
+      "id": "bash-unlock",
+      "title": "TFG Shop.Swipe.Unlock: first Bash-order voucher",
+      "kind": "offer",
+      "status": "shortlist",
+      "closingDate": "2026-10-24",
+      "cost": "In-store qualifying purchase followed by minimum-spend Bash order",
+      "sourceUrls": [
+        "https://help.bash.com/support/solutions/articles/101000595582-terms-and-conditions-for-the-%E2%80%9Cshop-swipe-unlock%E2%80%9D-tfg-rewards-campaign"
+      ],
+      "findings": "25 Sep–24 Oct; only customers with no previous Bash purchase. Tiered vouchers from R150 off R500 to R1,500 off R5,000; not free store credit. Link same rewards account; read redemption expiry and exclusions before publication.",
+      "existingId": null
+    },
+    {
+      "id": "spotify-standard",
+      "title": "Spotify Premium Standard introductory paid discount",
+      "kind": "offer",
+      "status": "shortlist",
+      "closingDate": "2026-10-31",
+      "cost": "R34.99/month for six months, then R69.99/month",
+      "sourceUrls": [
+        "https://www.spotify.com/za-en/premium/"
+      ],
+      "findings": "Current direct SA page advertises paid six-month introduction for people who have never tried Premium. Old indexed three-month R0 campaign ended 23 Sep. Treat as discount with recurring billing, not free trial.",
+      "existingId": null
+    },
+    {
+      "id": "vodacom-prime-mobile",
+      "title": "Vodacom selected-customer Prime Video Mobile Edition reward",
+      "kind": "reward",
+      "status": "shortlist",
+      "closingDate": "2026-11-15",
+      "cost": "Invitation-only existing-customer reward; later subscription charges",
+      "sourceUrls": [
+        "https://www.vodacom.co.za/vodacom/terms/competition/prime-video-mobile-edition-reward"
+      ],
+      "findings": "Selected customers notified 2 Mar–15 Nov can redeem 12 months Mobile Edition. Terms say continuing afterwards billed R29/month. Capture cancellation/continuation details; never imply all Vodacom customers qualify.",
+      "existingId": null
+    },
+    {
+      "id": "lush-samples",
+      "title": "Lush samples with online order / in-store consultation",
+      "kind": "sample-route",
+      "status": "shortlist",
+      "closingDate": null,
+      "cost": "Online samples require product purchase; in-store discretion",
+      "sourceUrls": [
+        "https://lush.co.za/pages/faq-1"
+      ],
+      "findings": "Direct provider fetch confirms up to three samples, availability and exclusions. No sample-only postal dispatch without purchase. Separate online gift-with-purchase from discretionary in-store testing; no guaranteed mail-freebie claim.",
+      "existingId": null
+    },
+    {
+      "id": "mambos-swift",
+      "title": "Mambo’s: Suzuki Swift 1.2 GL Auto",
+      "kind": "competition",
+      "status": "upcoming",
+      "closingDate": "2026-12-15",
+      "cost": "Spend R750 in one in-store transaction",
+      "sourceUrls": [
+        "https://mambos.co.za/win-a-car/"
+      ],
+      "findings": "Opens 1 Nov; store closing time 15 Dec. In-store till-slip entry only, online purchases excluded. Direct fetch successful despite browsing error. Do not mark open before 1 Nov.",
+      "existingId": null
+    },
+    {
+      "id": "one-day-only-radio",
+      "title": "OneDayOnly Dealaverse / 5FM and METRO FM, second burst",
+      "kind": "competition",
+      "status": "upcoming",
+      "closingDate": "2026-10-30",
+      "cost": "Social comment; confirm current burst cost wording",
+      "sourceUrls": [
+        "https://radiocompetitiontandc.co.za/terms_and_conditions/one-day-only/"
+      ],
+      "findings": "Second burst 26–30 Oct; first closed 2 Oct. Four R5,000 wallet credits across overall campaign/stations. Rules contain broken cross-reference and fee boilerplate; verify live post before release and do not allocate all four prizes to second burst.",
+      "existingId": null
+    },
+    {
+      "id": "1up-mangia",
+      "title": "1UP Mangia pasta: R500 food vouchers",
+      "kind": "competition",
+      "status": "upcoming",
+      "closingDate": "2026-11-09",
+      "cost": "Mangia pasta purchase at participating 1UP store",
+      "sourceUrls": [
+        "https://1uponline.co.za/1upcompetition"
+      ],
+      "findings": "Direct current page confirms 23 Oct–9 Nov; ten R500 vouchers, one winner/store. Cached browser extraction shows an older closed campaign; direct provider fetch resolves discrepancy. Keep upcoming until 23 Oct.",
+      "existingId": null
+    },
+    {
+      "id": "pattex-current",
+      "title": "Pattex October–December campaign",
+      "kind": "competition",
+      "status": "verification-hold",
+      "closingDate": "2026-12-31",
+      "cost": "Purchase required; exact current mechanics unresolved",
+      "sourceUrls": [
+        "https://www.pattex.co.za/products/static-landingpages/competition.html",
+        "https://www.pattex.co.za/products/static-landingpages/competition/terms-conditions1.html"
+      ],
+      "findings": "Current direct banner: 1 Oct–31 Dec 2026. Linked rules still 1 Jun–15 Jul 2026 with R116,000 prize pool. Cached browser page additionally shows 2025. Do not transfer old prize details to current banner.",
+      "existingId": null
+    },
+    {
+      "id": "techmogul",
+      "title": "TechMogul R50,000+ technology package",
+      "kind": "competition",
+      "status": "verification-hold",
+      "closingDate": "2026-11-30",
+      "cost": "Qualifying purchase, specifics unresolved",
+      "sourceUrls": [
+        "https://www.techmogul.co.za/giveaways/"
+      ],
+      "findings": "Landing page confirms advertised package/end date but references full giveaway rules without sufficiently defining qualifying spend/products, start, exact contents and verification. Retrieve complete campaign rules before listing.",
+      "existingId": null
+    },
+    {
+      "id": "albany-soft-spot",
+      "title": "Albany Soft Spot Volume Driver",
+      "kind": "competition",
+      "status": "verification-hold",
+      "closingDate": "2026-12-18",
+      "cost": "Purchase/mechanics not fully inspected",
+      "sourceUrls": [
+        "https://www.albany.co.za/terms-and-conditions/Albany-Soft-Spot-Competition"
+      ],
+      "findings": "Official search result says 19 Oct–18 Dec. Browser and direct host retrieval failed; prize/entry details unverified. Search snippet alone insufficient.",
+      "existingId": null
+    },
+    {
+      "id": "absa-moments",
+      "title": "Absa Moments radio campaign",
+      "kind": "competition",
+      "status": "verification-hold",
+      "closingDate": null,
+      "cost": "Channel-specific radio entry",
+      "sourceUrls": [
+        "https://www.metrofm.co.za/metro-fm/metrofm-competitions/",
+        "https://mh360.co.za/absa-brand-campaign-2026/",
+        "https://www.absa.co.za/personal/my-absa/"
+      ],
+      "findings": "METRO index says over R78,000 cash/vouchers through 6 Nov. Agency campaign terms say 19 Oct–13 Nov. Identify exact station/burst and official linked rules; do not combine channels or prize pools.",
+      "existingId": null
+    },
+    {
+      "id": "taste-makanyane",
+      "title": "TASTE: two-night Last Word Makanyane safari",
+      "kind": "competition",
+      "status": "verification-hold",
+      "closingDate": "2026-11-12",
+      "cost": "Account required; full entry conditions hidden",
+      "sourceUrls": [
+        "https://taste.co.za/win/",
+        "https://taste.co.za/win/win-a-two-night-safari-escape-at-last-word-makanyane-worth-r74-000/"
+      ],
+      "findings": "Official hub says closes 12 Nov, R74,000 advertised value. Detail page requires login/registration before full competition content. No account created; verify travel exclusions, SA eligibility and full terms before release.",
+      "existingId": null
+    },
+    {
+      "id": "whitehouse-signup",
+      "title": "Whitehouse / Continental Linen October sign-up draw",
+      "kind": "competition",
+      "status": "verification-hold",
+      "closingDate": "2026-10-31",
+      "cost": "Signup/marketing mechanics need inspection",
+      "sourceUrls": [
+        "https://bedbathhome.co.za/pages/competitions-terms-conditions"
+      ],
+      "findings": "1–31 Oct, one R1,000 summer hamper stated. Page mixes email signup and generic social notification clauses. Locate actual entry route and mandatory/optional consent requirements.",
+      "existingId": null
+    },
+    {
+      "id": "empangeni-car",
+      "title": "Empangeni Mall: Renault Kiger spend-and-win",
+      "kind": "competition",
+      "status": "verification-hold",
+      "closingDate": "2026-12-16",
+      "cost": "R250 mall purchase; finalists attend in person",
+      "sourceUrls": [
+        "https://www.empangenicentre.co.za/Pages/WinACarTermsAndConditions"
+      ],
+      "findings": "Terms state Renault Kiger 1.0 Evolution; 20 finalists must attend 19 Dec. Fixed vehicle collection 7 Jan 2027 conflicts with collection within seven days of notification; includes editorial-looking correction. Verify current mall campaign/art and handover conditions.",
+      "existingId": null
+    },
+    {
+      "id": "gunret-kfc",
+      "title": "Gunret selected KFC stores: R1,000 vouchers",
+      "kind": "competition",
+      "status": "verification-hold",
+      "closingDate": null,
+      "cost": "R100 qualifying purchase at 15 named outlets",
+      "sourceUrls": [
+        "https://gunretfoods.co.za/terms-and-conditions-win-r1000.html"
+      ],
+      "findings": "Summary says 13 Oct–2 Nov; clause 2.1 closes 23:59 on 1 Nov. Resolve end-date conflict and 20 draw-day schedule before publication; not nationwide KFC promotion.",
+      "existingId": null
+    },
+    {
+      "id": "vincent-golden-grab",
+      "title": "Vincent Park Golden Grab",
+      "kind": "competition",
+      "status": "verification-hold",
+      "closingDate": "2026-10-30",
+      "cost": "Reported R300 centre spend",
+      "sourceUrls": [
+        "https://stageandscreen.co.za/live-events/mall-activations-and-events/vincent-park-golden-grab-cash-prize/"
+      ],
+      "findings": "Press-release discovery only. Locate official centre campaign rules, operating days/times, qualifying receipts and prize allocation. Do not treat as guaranteed cash reward.",
+      "existingId": null
+    },
+    {
+      "id": "mtn-summer",
+      "title": "MTN Summer is Calling / Flip & Win",
+      "kind": "competition",
+      "status": "verification-hold",
+      "closingDate": null,
+      "cost": "Eligible MTN customer actions not fully verified",
+      "sourceUrls": [
+        "https://iol.co.za/news/partnered/2026-10-12-summer-is-calling-mtn-brings-south-africans-closer-to-the-moments-that-matter/"
+      ],
+      "findings": "Partnered article reports 10 Oct–end Jan, R700 million-plus overall rewards. Official campaign rules not located in this pass. Do not list the pool as a cash prize or assume daily/free eligibility.",
+      "existingId": null
+    },
+    {
+      "id": "dstv-big",
+      "title": "DStv Rewards 2026 Big Competitions",
+      "kind": "competition",
+      "status": "verification-hold",
+      "closingDate": "2026-11-30",
+      "cost": "Paid DStv Rewards membership and continued connection",
+      "sourceUrls": [
+        "https://www.dstv.com/en-za/legal/terms-conditions/rewards/2026-big-competitions/"
+      ],
+      "findings": "Official rules specify Sept–Nov connection/entry rules but only identify prize as '1 voucher'; no usable denomination or specific campaign. Needs actual current app prize card before a standalone listing.",
+      "existingId": null
+    },
+    {
+      "id": "taste-master-existing",
+      "title": "Capitec / Taste Master Junior weekly R1,000",
+      "kind": "competition",
+      "status": "existing-review",
+      "closingDate": "2026-11-15",
+      "cost": "Social reply to current weekly post",
+      "sourceUrls": [
+        "https://thetastemaster.co.za/capitec-and-the-taste-master-junior-2026-weekly-r1000-giveaway/"
+      ],
+      "findings": "Already in unverified registry as public-under-review. Update that record after reviewing weekly post/draw window, not a duplicate new candidate.",
+      "existingId": "capitec-taste-master-junior-2026"
+    },
+    {
+      "id": "existing-samsung-october-rate-and-review-2026",
+      "title": "Samsung October Rate and Review",
+      "kind": "existing",
+      "status": "already-listed",
+      "closingDate": null,
+      "cost": "See existing record",
+      "sourceUrls": [
+        "https://www.samsung.com/za/offer/rate-and-review/"
+      ],
+      "findings": "Matched against remote main; do not create duplicate. This pass did not re-audit the full published record.",
+      "existingId": "samsung-october-rate-and-review-2026"
+    },
+    {
+      "id": "existing-huletts-spar-rewards-2026",
+      "title": "Huletts SPAR Rewards",
+      "kind": "existing",
+      "status": "already-listed",
+      "closingDate": null,
+      "cost": "See existing record",
+      "sourceUrls": [
+        "https://www.spar.co.za/competitions/huletts-spar-rewards-competition-2026"
+      ],
+      "findings": "Matched against remote main; do not create duplicate. This pass did not re-audit the full published record.",
+      "existingId": "huletts-spar-rewards-2026"
+    },
+    {
+      "id": "existing-spar-vaseline-cera-glow-summer-2026",
+      "title": "SPAR Vaseline Cera Glow Summer",
+      "kind": "existing",
+      "status": "already-listed",
+      "closingDate": null,
+      "cost": "See existing record",
+      "sourceUrls": [
+        "https://www.spar.co.za/competitions/vaseline-cera-glow-spar-competition"
+      ],
+      "findings": "Matched against remote main; do not create duplicate. This pass did not re-audit the full published record.",
+      "existingId": "spar-vaseline-cera-glow-summer-2026"
+    },
+    {
+      "id": "existing-powerade-rwc-2026",
+      "title": "Powerade Rugby World Cup trip",
+      "kind": "existing",
+      "status": "already-listed",
+      "closingDate": null,
+      "cost": "See existing record",
+      "sourceUrls": [
+        "https://www.coca-cola.com/za/en/legal/terms-and-conditions-powerade-rwc-2026"
+      ],
+      "findings": "Matched against remote main; do not create duplicate. This pass did not re-audit the full published record.",
+      "existingId": "powerade-rwc-2026"
+    },
+    {
+      "id": "existing-engen-powerade-sportsmans-vouchers-2026",
+      "title": "Engen / Powerade Sportsmans Warehouse vouchers",
+      "kind": "existing",
+      "status": "already-listed",
+      "closingDate": null,
+      "cost": "See existing record",
+      "sourceUrls": [
+        "https://www.engen.co.za/promotions/engen-springboks-consumer-promotion-2026"
+      ],
+      "findings": "Matched against remote main; do not create duplicate. This pass did not re-audit the full published record.",
+      "existingId": "engen-powerade-sportsmans-vouchers-2026"
+    },
+    {
+      "id": "existing-jockey-150-2026",
+      "title": "Jockey 150",
+      "kind": "existing",
+      "status": "already-listed",
+      "closingDate": null,
+      "cost": "See existing record",
+      "sourceUrls": [
+        "https://jockey.co.za/pages/competition-terms-conditions"
+      ],
+      "findings": "Matched against remote main; do not create duplicate. This pass did not re-audit the full published record.",
+      "existingId": "jockey-150-2026"
+    },
+    {
+      "id": "existing-penguin-random-house-penguin-post-44-2026",
+      "title": "Penguin Post 44 book hamper",
+      "kind": "existing",
+      "status": "already-listed",
+      "closingDate": null,
+      "cost": "See existing record",
+      "sourceUrls": [
+        "https://www.penguinrandomhouse.co.za/tos/tscs-win-penguin-post-44-competition/"
+      ],
+      "findings": "Matched against remote main; do not create duplicate. This pass did not re-audit the full published record.",
+      "existingId": "penguin-random-house-penguin-post-44-2026"
+    },
+    {
+      "id": "existing-boxer-coca-cola-samsung-a06-october-2026",
+      "title": "Boxer / Coca-Cola Samsung A06",
+      "kind": "existing",
+      "status": "already-listed",
+      "closingDate": null,
+      "cost": "See existing record",
+      "sourceUrls": [
+        "https://www.boxer.co.za/page/competitions"
+      ],
+      "findings": "Matched against remote main; do not create duplicate. This pass did not re-audit the full published record.",
+      "existingId": "boxer-coca-cola-samsung-a06-october-2026"
+    },
+    {
+      "id": "existing-boxer-colgate-lenovo-tablets-2026",
+      "title": "Boxer / Colgate Lenovo tablets",
+      "kind": "existing",
+      "status": "already-listed",
+      "closingDate": null,
+      "cost": "See existing record",
+      "sourceUrls": [
+        "https://www.boxer.co.za/page/competitions"
+      ],
+      "findings": "Matched against remote main; do not create duplicate. This pass did not re-audit the full published record.",
+      "existingId": "boxer-colgate-lenovo-tablets-2026"
+    },
+    {
+      "id": "existing-vodacom-summer-scratch-win-2026",
+      "title": "Vodacom Summer rewards",
+      "kind": "existing",
+      "status": "already-listed",
+      "closingDate": null,
+      "cost": "See existing record",
+      "sourceUrls": [
+        "https://www.vodacom.co.za/vodacom/terms/promotions/summer-2026"
+      ],
+      "findings": "Matched against remote main; do not create duplicate. This pass did not re-audit the full published record.",
+      "existingId": "vodacom-summer-scratch-win-2026"
+    },
+    {
+      "id": "existing-mtn-share-app-october-2026",
+      "title": "MTN Share the App and Win",
+      "kind": "existing",
+      "status": "already-listed",
+      "closingDate": null,
+      "cost": "See existing record",
+      "sourceUrls": [
+        "https://www.mtn.co.za/home/terms-and-conditions/content/mtn-share-the-app-and-win-competition"
+      ],
+      "findings": "Matched against remote main; do not create duplicate. This pass did not re-audit the full published record.",
+      "existingId": "mtn-share-app-october-2026"
+    },
+    {
+      "id": "existing-bellas-surprise-free-sample-with-order",
+      "title": "Bellas sample with paid order",
+      "kind": "existing",
+      "status": "already-listed",
+      "closingDate": null,
+      "cost": "See existing record",
+      "sourceUrls": [
+        "https://bellas.co.za/shop/free-gift/"
+      ],
+      "findings": "Matched against remote main; do not create duplicate. This pass did not re-audit the full published record.",
+      "existingId": "bellas-surprise-free-sample-with-order"
+    },
+    {
+      "id": "existing-clarins-three-free-samples-with-order",
+      "title": "Clarins three samples with paid order",
+      "kind": "existing",
+      "status": "already-listed",
+      "closingDate": null,
+      "cost": "See existing record",
+      "sourceUrls": [
+        "https://www.clarins.co.za/trymeloveme/"
+      ],
+      "findings": "Matched against remote main; do not create duplicate. This pass did not re-audit the full published record.",
+      "existingId": "clarins-three-free-samples-with-order"
+    },
+    {
+      "id": "existing-sebamed-samples-with-orders",
+      "title": "Sebamed samples with paid orders",
+      "kind": "existing",
+      "status": "already-listed",
+      "closingDate": null,
+      "cost": "See existing record",
+      "sourceUrls": [
+        "https://sebamed.co.za/"
+      ],
+      "findings": "Matched against remote main; do not create duplicate. This pass did not re-audit the full published record.",
+      "existingId": "sebamed-samples-with-orders"
+    },
+    {
+      "id": "existing-starbucks-gold-birthday-drink",
+      "title": "Starbucks Gold birthday drink",
+      "kind": "existing",
+      "status": "already-listed",
+      "closingDate": null,
+      "cost": "See existing record",
+      "sourceUrls": [
+        "https://www.starbucks.co.za/rewards/ts-and-cs"
+      ],
+      "findings": "Matched against remote main; do not create duplicate. This pass did not re-audit the full published record.",
+      "existingId": "starbucks-gold-birthday-drink"
+    },
+    {
+      "id": "existing-schweppes-made-social-2026",
+      "title": "Schweppes Made Social",
+      "kind": "existing",
+      "status": "already-listed",
+      "closingDate": null,
+      "cost": "See existing record",
+      "sourceUrls": [
+        "https://cocacolapenbev.co.za/index/promotion-detail?dcid=670972"
+      ],
+      "findings": "Matched against remote main; do not create duplicate. This pass did not re-audit the full published record.",
+      "existingId": "schweppes-made-social-2026"
+    },
+    {
+      "id": "existing-superbalist-live-superb-cash-2026",
+      "title": "Superbalist Live Superb R100,000",
+      "kind": "existing",
+      "status": "already-listed",
+      "closingDate": null,
+      "cost": "See existing record",
+      "sourceUrls": [
+        "https://superbalist.com/competitions"
+      ],
+      "findings": "Matched against remote main; do not create duplicate. This pass did not re-audit the full published record.",
+      "existingId": "superbalist-live-superb-cash-2026"
+    },
+    {
+      "id": "existing-sunlight-spar-kitchen-makeover-2026",
+      "title": "Sunlight SPAR kitchen makeover",
+      "kind": "existing",
+      "status": "already-listed",
+      "closingDate": null,
+      "cost": "See existing record",
+      "sourceUrls": [
+        "https://www.spar.co.za/competitions"
+      ],
+      "findings": "Matched against remote main; do not create duplicate. This pass did not re-audit the full published record.",
+      "existingId": "sunlight-spar-kitchen-makeover-2026"
+    },
+    {
+      "id": "barone-expired",
+      "title": "Nestlé BARONE 2026 social competition",
+      "kind": "competition",
+      "status": "exclude",
+      "closingDate": null,
+      "cost": "Not relevant: ended",
+      "sourceUrls": [
+        "https://www.nestle-esar.com/sa-barone-2026-competition-terms-conditions"
+      ],
+      "findings": "Terms identify August campaign, plus internal 2025 typo; not a verified open October opportunity.",
+      "existingId": null
+    },
+    {
+      "id": "lifebuoy-expired",
+      "title": "Lifebuoy Charcoal & Mint sample",
+      "kind": "sample-route",
+      "status": "exclude",
+      "closingDate": "2021-11-21",
+      "cost": "Expired",
+      "sourceUrls": [
+        "https://www.lifebuoy.co.za/terms-conditions/free-charcoal-sample-terms-and-conditions.html"
+      ],
+      "findings": "Official page remains indexed but campaign ran 22 Aug–21 Nov 2021 or stock exhaustion. Not current.",
+      "existingId": null
+    },
+    {
+      "id": "purina-uk",
+      "title": "Purina UK sample campaigns",
+      "kind": "sample-route",
+      "status": "exclude",
+      "closingDate": null,
+      "cost": "UK campaign; SA fulfilment unverified",
+      "sourceUrls": [
+        "https://www.purina.co.uk/brands/gourmet/sampling-terms-2026"
+      ],
+      "findings": "Foreign sample programme surfaced in broad search; no evidence it serves SA. Do not imply SA eligibility.",
+      "existingId": null
+    },
+    {
+      "id": "skinmiles-paid",
+      "title": "SkinMiles sample request product",
+      "kind": "sample-route",
+      "status": "exclude",
+      "closingDate": null,
+      "cost": "Packaging/admin charge; delivery to check",
+      "sourceUrls": [
+        "https://skinmiles.com/product/sample-request-product/"
+      ],
+      "findings": "Search result explicitly discloses packaging/admin costs. Not verified as a completely free sample. Could be researched separately as a paid sample route; direct retrieval timed out.",
+      "existingId": null
+    }
+  ]
+}

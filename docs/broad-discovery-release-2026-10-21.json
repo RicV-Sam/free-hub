@@ -1,0 +1,315 @@
+{
+  "reviewDate": "2026-10-21",
+  "baseCommit": "a5108e3796e45885d3bf29ce0a3fdc1ab0066c6f",
+  "publishedIds": [
+    "outdoorphoto-wishlist-tenba-2026",
+    "gelmar-pass-the-parcel-october-2026",
+    "maynards-kaboom-spar-rewards-2026",
+    "sausage-saloon-macbook-neo-2026",
+    "nedbank-black-friday-tourvest-2026",
+    "water-filter-factory-october-2026",
+    "jwd-win-a-website-2026",
+    "landscape-alliance-living-landscapes-2026",
+    "tropika-island-treasure-engen-2026",
+    "dstv-seven-day-upgrade-2026",
+    "tfg-bash-shop-swipe-unlock-2026",
+    "vodacom-prime-video-mobile-reward-2026",
+    "lush-samples-with-online-order"
+  ],
+  "newCompetitions": 9,
+  "newOffers": 4,
+  "newHolds": {
+    "samsung-telkom-summer": "Headline advertises R1 million while enumerated five prizes total R500,000. Purchase vs redemption windows and the promotion’s self-referencing terms need clarification.",
+    "bed-centre": "Same page states both automatic entry and required form; both seven-day and 14-business-day response limits. No reliable single mechanic.",
+    "worldart10": "Portfolio call verified but no complete competition cost/eligibility or submission-use terms established for publication.",
+    "cell-c-canva": "Provider release says full mechanics available on request; linked youth page lacks Canva redemption/account/renewal terms.",
+    "spotify-standard": "Current page headline says R34.99 per month for six months, but purchase selector says R34.99 today for six months. Paid offer price is materially ambiguous.",
+    "glenfiddich-cappello": "Rendered full terms still say final qualifying products/branches/prize description to be confirmed; radio advert says voucher but dynamic site says R10,000.",
+    "peacehaven-bogart": "Official artwork requires both partners registered and sending Reel/proof; text has no registration route and calls sending a DM optional. Eligibility and complete valid-entry route unresolved.",
+    "miway-quote-ride": "Rules contradict handover travel: self-funded attendance, flights supplied and provincial delivery. Different second car announcement dates also appear. Hold for promoter clarification."
+  },
+  "upcoming": [
+    {
+      "id": "mambos-swift",
+      "title": "Mambo’s: Suzuki Swift 1.2 GL Auto",
+      "kind": "competition",
+      "status": "upcoming",
+      "closingDate": "2026-12-15",
+      "cost": "Spend R750 in one in-store transaction",
+      "sourceUrls": [
+        "https://mambos.co.za/win-a-car/"
+      ],
+      "findings": "Opens 1 Nov; store closing time 15 Dec. In-store till-slip entry only, online purchases excluded. Direct fetch successful despite browsing error. Do not mark open before 1 Nov.",
+      "existingId": null
+    },
+    {
+      "id": "one-day-only-radio",
+      "title": "OneDayOnly Dealaverse / 5FM and METRO FM, second burst",
+      "kind": "competition",
+      "status": "upcoming",
+      "closingDate": "2026-10-30",
+      "cost": "Social comment; confirm current burst cost wording",
+      "sourceUrls": [
+        "https://radiocompetitiontandc.co.za/terms_and_conditions/one-day-only/"
+      ],
+      "findings": "Second burst 26–30 Oct; first closed 2 Oct. Four R5,000 wallet credits across overall campaign/stations. Rules contain broken cross-reference and fee boilerplate; verify live post before release and do not allocate all four prizes to second burst.",
+      "existingId": null
+    },
+    {
+      "id": "1up-mangia",
+      "title": "1UP Mangia pasta: R500 food vouchers",
+      "kind": "competition",
+      "status": "upcoming",
+      "closingDate": "2026-11-09",
+      "cost": "Mangia pasta purchase at participating 1UP store",
+      "sourceUrls": [
+        "https://1uponline.co.za/1upcompetition"
+      ],
+      "findings": "Direct current page confirms 23 Oct–9 Nov; ten R500 vouchers, one winner/store. Cached browser extraction shows an older closed campaign; direct provider fetch resolves discrepancy. Keep upcoming until 23 Oct.",
+      "existingId": null
+    }
+  ],
+  "priorDiscoveryHoldsPreserved": [
+    {
+      "id": "pattex-current",
+      "title": "Pattex October–December campaign",
+      "kind": "competition",
+      "status": "verification-hold",
+      "closingDate": "2026-12-31",
+      "cost": "Purchase required; exact current mechanics unresolved",
+      "sourceUrls": [
+        "https://www.pattex.co.za/products/static-landingpages/competition.html",
+        "https://www.pattex.co.za/products/static-landingpages/competition/terms-conditions1.html"
+      ],
+      "findings": "Current direct banner: 1 Oct–31 Dec 2026. Linked rules still 1 Jun–15 Jul 2026 with R116,000 prize pool. Cached browser page additionally shows 2025. Do not transfer old prize details to current banner.",
+      "existingId": null
+    },
+    {
+      "id": "techmogul",
+      "title": "TechMogul R50,000+ technology package",
+      "kind": "competition",
+      "status": "verification-hold",
+      "closingDate": "2026-11-30",
+      "cost": "Qualifying purchase, specifics unresolved",
+      "sourceUrls": [
+        "https://www.techmogul.co.za/giveaways/"
+      ],
+      "findings": "Landing page confirms advertised package/end date but references full giveaway rules without sufficiently defining qualifying spend/products, start, exact contents and verification. Retrieve complete campaign rules before listing.",
+      "existingId": null
+    },
+    {
+      "id": "albany-soft-spot",
+      "title": "Albany Soft Spot Volume Driver",
+      "kind": "competition",
+      "status": "verification-hold",
+      "closingDate": "2026-12-18",
+      "cost": "Purchase/mechanics not fully inspected",
+      "sourceUrls": [
+        "https://www.albany.co.za/terms-and-conditions/Albany-Soft-Spot-Competition"
+      ],
+      "findings": "Official search result says 19 Oct–18 Dec. Browser and direct host retrieval failed; prize/entry details unverified. Search snippet alone insufficient.",
+      "existingId": null
+    },
+    {
+      "id": "absa-moments",
+      "title": "Absa Moments radio campaign",
+      "kind": "competition",
+      "status": "verification-hold",
+      "closingDate": null,
+      "cost": "Channel-specific radio entry",
+      "sourceUrls": [
+        "https://www.metrofm.co.za/metro-fm/metrofm-competitions/",
+        "https://mh360.co.za/absa-brand-campaign-2026/",
+        "https://www.absa.co.za/personal/my-absa/"
+      ],
+      "findings": "METRO index says over R78,000 cash/vouchers through 6 Nov. Agency campaign terms say 19 Oct–13 Nov. Identify exact station/burst and official linked rules; do not combine channels or prize pools.",
+      "existingId": null
+    },
+    {
+      "id": "taste-makanyane",
+      "title": "TASTE: two-night Last Word Makanyane safari",
+      "kind": "competition",
+      "status": "verification-hold",
+      "closingDate": "2026-11-12",
+      "cost": "Account required; full entry conditions hidden",
+      "sourceUrls": [
+        "https://taste.co.za/win/",
+        "https://taste.co.za/win/win-a-two-night-safari-escape-at-last-word-makanyane-worth-r74-000/"
+      ],
+      "findings": "Official hub says closes 12 Nov, R74,000 advertised value. Detail page requires login/registration before full competition content. No account created; verify travel exclusions, SA eligibility and full terms before release.",
+      "existingId": null
+    },
+    {
+      "id": "whitehouse-signup",
+      "title": "Whitehouse / Continental Linen October sign-up draw",
+      "kind": "competition",
+      "status": "verification-hold",
+      "closingDate": "2026-10-31",
+      "cost": "Signup/marketing mechanics need inspection",
+      "sourceUrls": [
+        "https://bedbathhome.co.za/pages/competitions-terms-conditions"
+      ],
+      "findings": "1–31 Oct, one R1,000 summer hamper stated. Page mixes email signup and generic social notification clauses. Locate actual entry route and mandatory/optional consent requirements.",
+      "existingId": null
+    },
+    {
+      "id": "empangeni-car",
+      "title": "Empangeni Mall: Renault Kiger spend-and-win",
+      "kind": "competition",
+      "status": "verification-hold",
+      "closingDate": "2026-12-16",
+      "cost": "R250 mall purchase; finalists attend in person",
+      "sourceUrls": [
+        "https://www.empangenicentre.co.za/Pages/WinACarTermsAndConditions"
+      ],
+      "findings": "Terms state Renault Kiger 1.0 Evolution; 20 finalists must attend 19 Dec. Fixed vehicle collection 7 Jan 2027 conflicts with collection within seven days of notification; includes editorial-looking correction. Verify current mall campaign/art and handover conditions.",
+      "existingId": null
+    },
+    {
+      "id": "gunret-kfc",
+      "title": "Gunret selected KFC stores: R1,000 vouchers",
+      "kind": "competition",
+      "status": "verification-hold",
+      "closingDate": null,
+      "cost": "R100 qualifying purchase at 15 named outlets",
+      "sourceUrls": [
+        "https://gunretfoods.co.za/terms-and-conditions-win-r1000.html"
+      ],
+      "findings": "Summary says 13 Oct–2 Nov; clause 2.1 closes 23:59 on 1 Nov. Resolve end-date conflict and 20 draw-day schedule before publication; not nationwide KFC promotion.",
+      "existingId": null
+    },
+    {
+      "id": "vincent-golden-grab",
+      "title": "Vincent Park Golden Grab",
+      "kind": "competition",
+      "status": "verification-hold",
+      "closingDate": "2026-10-30",
+      "cost": "Reported R300 centre spend",
+      "sourceUrls": [
+        "https://stageandscreen.co.za/live-events/mall-activations-and-events/vincent-park-golden-grab-cash-prize/"
+      ],
+      "findings": "Press-release discovery only. Locate official centre campaign rules, operating days/times, qualifying receipts and prize allocation. Do not treat as guaranteed cash reward.",
+      "existingId": null
+    },
+    {
+      "id": "mtn-summer",
+      "title": "MTN Summer is Calling / Flip & Win",
+      "kind": "competition",
+      "status": "verification-hold",
+      "closingDate": null,
+      "cost": "Eligible MTN customer actions not fully verified",
+      "sourceUrls": [
+        "https://iol.co.za/news/partnered/2026-10-12-summer-is-calling-mtn-brings-south-africans-closer-to-the-moments-that-matter/"
+      ],
+      "findings": "Partnered article reports 10 Oct–end Jan, R700 million-plus overall rewards. Official campaign rules not located in this pass. Do not list the pool as a cash prize or assume daily/free eligibility.",
+      "existingId": null
+    },
+    {
+      "id": "dstv-big",
+      "title": "DStv Rewards 2026 Big Competitions",
+      "kind": "competition",
+      "status": "verification-hold",
+      "closingDate": "2026-11-30",
+      "cost": "Paid DStv Rewards membership and continued connection",
+      "sourceUrls": [
+        "https://www.dstv.com/en-za/legal/terms-conditions/rewards/2026-big-competitions/"
+      ],
+      "findings": "Official rules specify Sept–Nov connection/entry rules but only identify prize as '1 voucher'; no usable denomination or specific campaign. Needs actual current app prize card before a standalone listing.",
+      "existingId": null
+    }
+  ],
+  "existingRecordsNotDuplicated": [
+    "capitec-taste-master-junior-2026",
+    "samsung-october-rate-and-review-2026",
+    "huletts-spar-rewards-2026",
+    "spar-vaseline-cera-glow-summer-2026",
+    "powerade-rwc-2026",
+    "engen-powerade-sportsmans-vouchers-2026",
+    "jockey-150-2026",
+    "penguin-random-house-penguin-post-44-2026",
+    "boxer-coca-cola-samsung-a06-october-2026",
+    "boxer-colgate-lenovo-tablets-2026",
+    "vodacom-summer-scratch-win-2026",
+    "mtn-share-app-october-2026",
+    "bellas-surprise-free-sample-with-order",
+    "clarins-three-free-samples-with-order",
+    "sebamed-samples-with-orders",
+    "starbucks-gold-birthday-drink",
+    "schweppes-made-social-2026",
+    "superbalist-live-superb-cash-2026",
+    "sunlight-spar-kitchen-makeover-2026"
+  ],
+  "reviewNotes": [
+    "Full rules revealed additional material conflicts; eight discovery shortlist items held.",
+    "All 13 heroes inspected; nine official sources and four labelled editorial illustrations, optimized with provenance.",
+    "Lush sample route is a paid-order benefit, not an unconditional postal freebie.",
+    "Vodacom Prime Video reward is invitation-only and renews at R29/month from airtime unless cancelled before renewal.",
+    "Landscape Alliance requires Google sign-in; no account created and no upload submitted. Full public eligibility and image restrictions disclosed.",
+    "Current DStv Select/Sports phase verified against official subscriber PDF; future Starter and Movies & Series expansion clearly dated 26 October.",
+    "Desktop/mobile QA and deployed checks are recorded in the release verification output."
+  ],
+  "validation": {
+    "checks": [
+      {
+        "name": "build",
+        "exitCode": 0
+      },
+      {
+        "name": "held",
+        "exitCode": 0
+      },
+      {
+        "name": "seo",
+        "exitCode": 0
+      },
+      {
+        "name": "performance",
+        "exitCode": 0
+      },
+      {
+        "name": "free-stuff",
+        "exitCode": 0
+      },
+      {
+        "name": "free-samples",
+        "exitCode": 0
+      },
+      {
+        "name": "lifecycle",
+        "exitCode": 0
+      },
+      {
+        "name": "production-build",
+        "exitCode": 0
+      },
+      {
+        "name": "production-seo",
+        "exitCode": 0
+      },
+      {
+        "name": "maintenance",
+        "exitCode": 0
+      }
+    ],
+    "lifecycleTests": {
+      "passed": 171,
+      "failed": 0,
+      "skipped": 0
+    },
+    "renderedReview": {
+      "desktop": {
+        "width": 1365,
+        "height": 1000,
+        "pages": 13
+      },
+      "mobile": {
+        "width": 390,
+        "height": 844,
+        "pages": 13
+      },
+      "heroesLoaded": 26,
+      "horizontalOverflowFailures": 0,
+      "note": "Production templates and assets reviewed in isolated local preview with third-party ad scripts omitted for layout inspection."
+    }
+  }
+}

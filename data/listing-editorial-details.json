@@ -907,5 +907,74 @@
         ]
       }
     ]
+  },
+  "dstv-seven-day-upgrade-2026": {
+    "sections": [
+      {
+        "heading": "Current package routes and the next phase",
+        "paragraphs": [
+          "For the current Select/Sports phase, Select customers receive Sport channels and Sports customers receive Premium for seven days. DStv Stream is included where eligible. The provider’s news page announces Starter to Select and Movies & Series to Premium from 26 October 2026; those two routes have not started at this review date.",
+          "No signup form is needed for the upgrade. Keep the paid subscription active, ensure payment is received before the due date and check the next cycle. If it does not appear, contact DStv rather than paying for an upgrade unnecessarily."
+        ]
+      },
+      {
+        "heading": "Existing subscription costs remain",
+        "paragraphs": [
+          "This benefit does not provide a free DStv subscription. You keep paying for your normal qualifying package and separately charged add-ons. The temporary extra channels end automatically; no extra seven-day upgrade charge is added. Reconnected accounts and excluded billing plans have additional restrictions in the full terms."
+        ]
+      }
+    ]
+  },
+  "tfg-bash-shop-swipe-unlock-2026": {
+    "sections": [
+      {
+        "heading": "Two purchases and minimum spends",
+        "paragraphs": [
+          "A qualifying TFG store purchase earns a discount toward a separate first Bash order. This is not free money or a voucher covering an entire order. The voucher may be used once, is valid for 60 days from issue, and must be checked for participating brands and exclusions.",
+          "The purchase bands are: up to R400 earns R150 off R500; R401–R700 earns R250 off R850; R701–R1,000 earns R450 off R1,600; R1,001–R1,500 earns R1,000 off R3,000; above R1,500 earns R1,500 off R5,000."
+        ]
+      },
+      {
+        "heading": "How to access the discount",
+        "paragraphs": [
+          "Make the eligible store purchase using your TFG Rewards or Money card by 24 October, then look for the SMS. Log into or create a Bash profile and link that same card to see the voucher in your Bash Wallet. Use it on your first eligible Bash order. No public coupon code is supplied."
+        ]
+      }
+    ]
+  },
+  "vodacom-prime-video-mobile-reward-2026": {
+    "sections": [
+      {
+        "heading": "Check the invitation before signing up",
+        "paragraphs": [
+          "Only customers selected by Vodacom who receive the official reward SMS qualify. It is not a public offer for every SIM or a reason to buy a new service without first confirming eligibility. Activate through the provider’s SMS portal and sign in at least once every two months to retain the reward.",
+          "The countdown begins on activation. The promotional notification window ends 15 November 2026; that is not a promise that every customer can claim before that date."
+        ]
+      },
+      {
+        "heading": "Airtime billing starts after the trial",
+        "paragraphs": [
+          "Vodacom’s terms state automatic renewal at R29 per month, deducted from airtime, when the 12-month complimentary period expires. Cancel before renewal if you do not want the paid service; set your own reminder from the actual activation date.",
+          "Use the Manage Subscriptions option at the Vodafone offers portal linked from the official terms, or contact Vodacom on 082135 / *135# and follow its cancellation instructions. Ordinary data usage and your existing mobile service costs are separate."
+        ]
+      }
+    ]
+  },
+  "lush-samples-with-online-order": {
+    "sections": [
+      {
+        "heading": "Claiming samples with an online order",
+        "paragraphs": [
+          "Place a paid product order on Lush South Africa. Where the cart offers Add Samples, select up to three available options; otherwise the team may choose based on the products ordered. Check the final basket and delivery charge before paying.",
+          "This is a gift with purchase, not a free sample-only parcel. Gifts, mouthcare and bath products are excluded from the sample policy, and availability varies."
+        ]
+      },
+      {
+        "heading": "Trying a product in store",
+        "paragraphs": [
+          "The official FAQ also says store staff can prepare a sample for trying a new product at home, with limits on repeated requests. Ask your store about suitable products and availability before travelling; no fixed sample selection is guaranteed."
+        ]
+      }
+    ]
   }
 }
