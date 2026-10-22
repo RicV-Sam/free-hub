@@ -2,12 +2,12 @@
   "ok": true,
   "errors": [],
   "summary": {
-    "today": "2026-10-21",
+    "today": "2026-10-22",
     "retiredCount": 6,
     "retiredRouteLeaks": [],
-    "expiredPublishedCount": 252,
-    "archivedCompetitionCount": 278,
-    "publicListingFilesScanned": 160,
+    "expiredPublishedCount": 256,
+    "archivedCompetitionCount": 282,
+    "publicListingFilesScanned": 165,
     "sitemapContainsOutUrls": false,
     "expiredMissingFromArchive": [],
     "expiredInSitemap": [],
@@ -28,22 +28,30 @@
     "nonPublicDetailPages": [],
     "nonPublicInPublicListings": [],
     "editorialHealth": {
-      "asOfDate": "2026-10-21",
+      "asOfDate": "2026-10-22",
       "needsReview": true,
       "surfaces": [
         {
           "surface": "home",
-          "eligibleCount": 3,
+          "eligibleCount": 0,
           "needsReview": true,
-          "nextReviewDue": "2026-10-21",
-          "overdueIds": []
+          "nextReviewDue": null,
+          "overdueIds": [
+            "resource-childrens-books-book-dash",
+            "mtn-app-first-login-1gb-2026",
+            "cadbury-made-to-share-2026"
+          ]
         },
         {
           "surface": "monthly",
-          "eligibleCount": 3,
+          "eligibleCount": 0,
           "needsReview": true,
-          "nextReviewDue": "2026-10-21",
-          "overdueIds": []
+          "nextReviewDue": null,
+          "overdueIds": [
+            "cadbury-made-to-share-2026",
+            "heinz-heritage-spar-2026",
+            "sea-harvest-say-fish-grocery-vouchers-2026"
+          ]
         }
       ]
     }

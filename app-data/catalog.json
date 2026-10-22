@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-21",
-  "count": 42,
+  "asOfDate": "2026-10-22",
+  "count": 39,
   "counts": {
     "freeStuff": 22,
     "resources": 22,
     "opportunities": 0,
-    "offers": 20
+    "offers": 17
   },
   "items": [
     {
@@ -362,25 +362,6 @@
       "lastChecked": "2026-10-16"
     },
     {
-      "id": "mtn-app-first-login-1gb-2026",
-      "kind": "deal",
-      "title": "Free 1 GB for first login to the new MTN App",
-      "provider": "MTN South Africa",
-      "summary": "Eligible MTN customers logging into the new MTN App for the first time can claim a free 1 GB bundle from My Gifts within 24 hours of notification; the redeemed data lasts 24 hours.",
-      "category": "mobile-data",
-      "categoryLabel": "Mobile & Data",
-      "officialUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/2025-mtn-app-free-1-gb-download-and-login-incentive",
-      "termsUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/2025-mtn-app-free-1-gb-download-and-login-incentive",
-      "requirements": [
-        "New MTN App, MTN customer and successful first authenticated login required; MTN decides eligibility using its records, mobile number and/or device. Check the My Gifts menu and claim within 24 hours of being notified. The 1 GB bundle expires 24 hours after redemption. The promotion is listed through 31 December 2026 but may change or be withdrawn. Download or network data costs may apply, though MTN says the app can be used without data once downloaded. No purchase is stated in these terms."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2026-12-31",
-      "lastChecked": "2026-10-14",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
       "id": "virgin-active-club-v-two-free-visits-october-2026",
       "kind": "deal",
       "title": "Two free Virgin Active Club V visits in October",
@@ -415,44 +396,6 @@
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "expiresAt": "2027-02-22",
       "lastChecked": "2026-10-11",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "dunlop-summer-r800-checkers-voucher-2026",
-      "kind": "deal",
-      "title": "R800 Checkers voucher with four qualifying Dunlop tyres",
-      "provider": "Dunlop",
-      "summary": "Buy four qualifying 16-inch-or-larger Dunlop passenger or SUV tyres and register for Dunlop Sure Tyre Insurance. Limited vouchers require dealer verification and final approval.",
-      "category": "other",
-      "categoryLabel": "Other",
-      "officialUrl": "https://www.dunloptyres.co.za/promotions/dunlop-promotion-october-2026",
-      "termsUrl": "https://www.dunloptyres.co.za/promotions/dunlop-promotion-october-2026-terms-and-conditions",
-      "requirements": [
-        "Purchase required: buy four qualifying 16-inch-or-larger Dunlop passenger/SUV tyres at a participating authorised Dunlop branded store in South Africa from 14 October to 16 December 2026, or until the first 2,000 approved vouchers are issued. Register for Dunlop Sure Tyre Insurance at purchase or within seven days. You must be 18+, reside in South Africa, hold a valid driver’s licence and provide correct vehicle and customer details plus your own verified WhatsApp-enabled number. The dealer must verify the claim and the promoter must give final approval; registration, a dealer promise or the website tracker does not guarantee availability. Approved R800 vouchers are delivered by WhatsApp within 7–14 working days after verification and approval. Vouchers are non-transferable, not exchangeable for cash and valid for three years from 1 October 2026. Multiple approved claims require different vehicle registration numbers. Promoter-related parties and specified relatives/associates are excluded. Confirm tyre eligibility and remaining vouchers before paying. Standard tyre and insurance terms also apply."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2026-12-16",
-      "lastChecked": "2026-10-14",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "virgin-active-october-pt-package-2026",
-      "kind": "deal",
-      "title": "Three personal training sessions with an eligible Virgin Active membership",
-      "provider": "Virgin Active",
-      "summary": "New eligible members joining in October can choose a three-session PT package with a paid 12- or 24-month membership. Joining fees and ongoing membership charges apply.",
-      "category": "sports-outdoors",
-      "categoryLabel": "Sports & Outdoors",
-      "officialUrl": "https://www.virginactive.co.za/join-gym",
-      "termsUrl": "https://hello.virginactive.co.za/support/solutions/articles/201000133149-october-2026-new-joiner-terms-and-conditions",
-      "requirements": [
-        "Paid membership required: join between 1–31 October 2026 on an eligible 12- or 24-month membership and choose the HYROX PT Starter Pack or PT Intro Pack as your single new-joiner campaign benefit. This is not free gym access. Public-campaign joining fees are R199 at Red/Life Centre, R399 at Collection Country/Urban and R599 at Collection clubs; ongoing membership fees vary by club and contract. October pro-rata fees are waived for this offer. Applicable public membership types include Club, Off Peak, Youth 14–23, Premier, Collection and Workplace Wellness; under-14s are excluded. Existing members, members active in the past 30 days, upgrades/conversions, Flexi, month-to-month, short-term, dependent, complimentary, staff and other listed excluded memberships do not qualify. Vitality and Multiply benefit joiners need the separately eligible Premier membership and their own benefit conditions. Ask sales to load the correct PT promotion before joining. Download the Virgin Active app, create your profile and find the unique voucher under Rewards; apply it to the eligible three-pack by 20 November 2026. Complete all three sessions within 90 calendar days of redemption, with no extensions. Trainer assignment depends on capacity and selection is not guaranteed. Book at least 24 hours ahead; no-shows without 12 hours notice count as used. Membership must remain active and in good standing; cancellation forfeits sessions. Non-transferable and cannot be combined with another new-joiner campaign. Public campaign members cannot switch to Vitality/Multiply within the stated six-month restriction. Read section 1.3, section 4 and the full exclusions before signing."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2026-10-31",
-      "lastChecked": "2026-10-14",
       "isAffiliate": false,
       "isSponsored": false
     },
