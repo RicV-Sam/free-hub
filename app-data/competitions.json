@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-24",
-  "count": 114,
+  "count": 118,
   "competitions": [
     {
       "id": "heinz-heritage-spar-2026",
@@ -1105,6 +1105,29 @@
       "isClosingSoon": false
     },
     {
+      "id": "ster-kinekor-street-fighter-watch-win-2026",
+      "title": "Ster-Kinekor Street Fighter Watch and Win",
+      "brand": "Ster-Kinekor",
+      "summary": "Street Fighter: two R1,800 figurine packs; ends 4 Nov. Eligible SK Club/Discovery Vitality members resident in SA, Namibia or Zambia enter with a qualifying film booking using their loyalty number.",
+      "imageUrl": "https://freehub.co.za/assets/listings/ster-kinekor-street-fighter-watch-win-2026.webp",
+      "closingDate": "2026-11-04",
+      "category": "Entertainment",
+      "prizeName": "Two figurine prize packs worth R1,800 each; the listed character combinations differ by winner.",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Loyalty Film Booking",
+      "eligibility": "Legal residents of South Africa, Namibia or Zambia using eligible Discovery Vitality or SK Club membership, including the named VIP, Fan Club, MORvies and Seniors affiliations. The inspected Street Fighter screening admits persons aged 13 and above; check the selected screening's restrictions. Promoter-related exclusions apply.",
+      "entrySteps": [
+        "Book a qualifying Street Fighter screening with an eligible SK Club or Discovery Vitality membership number during the campaign period for automatic entry."
+      ],
+      "officialUrl": "https://www.sterkinekor.com/competition/street-fighter-watch-and-win-competition",
+      "termsUrl": "https://www.sterkinekor.com/competition/street-fighter-watch-and-win-competition",
+      "lastChecked": "2026-10-24",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "nedbank-moyaapp-consumer-education-2026",
       "title": "Nedbank MoyaApp Consumer Education Competition",
       "brand": "Nedbank",
@@ -1285,6 +1308,30 @@
       "officialUrl": "https://www.boxer.co.za/page/competitions",
       "termsUrl": "https://www.boxer.co.za/storage/web/source/2026/Competition%20T%26Cs/Sep%20ME/Boxer%20%26%20Colgate%20Ts%26Cs.pdf?_t=1789977723",
       "lastChecked": "2026-10-16",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "1up-mangia-vouchers-2026",
+      "title": "1UP Mangia Pasta R500 vouchers",
+      "brand": "1UP Cash & Carry / Mangia",
+      "summary": "Buy Mangia pasta at a participating 1UP branch and submit a receipt for a chance to win one of ten R500 food vouchers.",
+      "imageUrl": "https://freehub.co.za/assets/listings/1up-mangia-vouchers-2026.webp",
+      "closingDate": "2026-11-09",
+      "category": "Vouchers",
+      "prizeName": "Ten R500 food vouchers; one winner per participating store",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Official provider entry",
+      "eligibility": "South African residents aged 18+. Promoter/supplier/agency employees and immediate family excluded. Original purchase proof and identity verification may be required.",
+      "entrySteps": [
+        "Buy any Mangia pasta at a participating 1UP physical store during the campaign.",
+        "Open Enter Now on the official competition page, select the branch and upload a clear receipt. Submit that receipt once for this campaign and retain the original."
+      ],
+      "officialUrl": "https://1uponline.co.za/index.php?route=information/oneupcompetition",
+      "termsUrl": "https://1uponline.co.za/index.php?route=information/oneupcompetition",
+      "lastChecked": "2026-10-24",
       "isHighValue": false,
       "isClosingSoon": false
     },
@@ -2231,6 +2278,54 @@
       "officialUrl": "https://www.sausagesaloon.co.za/competitions/",
       "termsUrl": "https://www.sausagesaloon.co.za/competitions/",
       "lastChecked": "2026-10-21",
+      "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "mambos-suzuki-swift-2026",
+      "title": "Mambo’s Suzuki Swift",
+      "brand": "Mambo’s Storage & Home",
+      "summary": "Buy R750 or more in one physical-store transaction for a Suzuki Swift draw. Submit the receipt once in-store or online; online shopping orders do not qualify.",
+      "imageUrl": "https://freehub.co.za/assets/listings/mambos-suzuki-swift-2026.webp",
+      "closingDate": "2026-12-15",
+      "category": "Cars",
+      "prizeName": "One Suzuki Swift 1.2 GL Auto",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Official provider entry",
+      "eligibility": "South African residents aged 18+, with a valid SA ID or passport and lawful-residence permit. Promoter/supplier/independent-draw-person and related-party exclusions apply. A driver’s licence is not required to enter or win.",
+      "entrySteps": [
+        "Spend at least R750 in one transaction at a participating physical Mambo’s store. Online purchases do not qualify.",
+        "Enter the receipt once, either in the store entry box or through the official receipt-photo form. Keep the original receipt."
+      ],
+      "officialUrl": "https://mambos.co.za/win-a-car/",
+      "termsUrl": "https://mambos.co.za/win-a-car/",
+      "lastChecked": "2026-10-24",
+      "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "ctm-australia-trip-competition-2026",
+      "title": "CTM Year-End Sale: Win an Australia Trip for Two",
+      "brand": "CTM",
+      "summary": "CTM: ten Australia trips for two, about R100,000 each; qualifying SA single purchase R10,000; natural persons 18+. Terms close entries on 24 Dec 2026, store closing time or online 23:59 with full payment.",
+      "imageUrl": "https://freehub.co.za/assets/listings/ctm-australia-trip-competition-2026.webp",
+      "closingDate": "2026-12-24",
+      "category": "Holidays",
+      "prizeName": "Ten trips for a winner and companion; approximate retail value R100,000 per trip.",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Qualifying CTM Purchase",
+      "eligibility": "Natural persons aged 18 or older making a qualifying transaction in a participating country, including South Africa; business accounts must nominate one qualifying person; employee/family/supplier exclusions apply.",
+      "entrySteps": [
+        "Make a qualifying CTM purchase of at least R10,000 in one South African transaction and provide name, telephone number and email for automatic entry. Online payment must be received in full by 23:59 on 24 December 2026; store entries close at the relevant store closing time that day.",
+        "The R10,000 threshold includes VAT after discounts and delivery fees. Do not combine separate invoices or split one purchase into entries. Gift cards and lay-bys qualify only when fully paid within the campaign period. Read the fixed 2027 travel dates and document requirements before entering."
+      ],
+      "officialUrl": "https://www.ctm.co.za/win-a-trip-for-2-to-australia-in-2027",
+      "termsUrl": "https://www.ctm.co.za/win-a-trip-for-2-to-australia-in-2027",
+      "lastChecked": "2026-10-24",
       "isHighValue": true,
       "isClosingSoon": false
     },

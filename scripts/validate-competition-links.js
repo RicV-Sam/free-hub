@@ -29,6 +29,11 @@ const manualRecheckDays = 30;
 const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 FreeHubValidator/1.0";
 const APPROVED_MANUAL_OK_URLS = new Map([
+  // Official campaign pages, complete public rules and entry routes inspected in-browser on 24 October 2026.
+  ["mambos-suzuki-swift-2026","https://mambos.co.za/win-a-car/"],
+  ["1up-mangia-vouchers-2026","https://1uponline.co.za/index.php?route=information/oneupcompetition"],
+  ["ctm-australia-trip-competition-2026","https://www.ctm.co.za/win-a-trip-for-2-to-australia-in-2027"],
+  ["ster-kinekor-street-fighter-watch-win-2026","https://www.sterkinekor.com/competition/street-fighter-watch-and-win-competition"],
   // Official verified-account post and linked full rules reviewed on 18 October 2026.
   ["superbalist-live-superb-cash-2026", "https://www.instagram.com/superbalist/reel/DeRIybWs-3x/"],
   ["edgars-at-our-school-2026", "https://www.edgars.co.za/pages/supersport-schools"],

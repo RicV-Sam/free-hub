@@ -2396,5 +2396,49 @@
     "reviewedAt": "2026-10-21",
     "sourcePage": "https://lush.co.za/pages/faq-1",
     "sourceImage": "https://lush.co.za/cdn/shop/files/snow_fairy_naked_body_conditioner_hero_image_2020_modelAAB02-1.jpg?v=1684345337&width=1500"
+  },
+  "mambos-suzuki-swift-2026": {
+    "src": "/assets/listings/mambos-suzuki-swift-2026.webp",
+    "width": 1400,
+    "height": 788,
+    "alt": "FreeHub editorial illustration of a compact hatchback for Mambo's Suzuki Swift competition; purchase required",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration. Vehicle appearance is illustrative.",
+    "reviewedAt": "2026-10-24",
+    "sourcePage": "https://mambos.co.za/win-a-car/",
+    "generationPrompt": "Landscape navy/gold paper-cut editorial design with a generic white compact hatchback. Text: Win a Suzuki Swift; Purchase required; FreeHub editorial illustration. No logos, year, amounts, dates or unrelated three-day sale wording."
+  },
+  "1up-mangia-vouchers-2026": {
+    "src": "/assets/listings/1up-mangia-vouchers-2026.webp",
+    "width": 1400,
+    "height": 467,
+    "alt": "Official 1UP Mangia pasta competition banner advertising ten R500 food vouchers",
+    "kind": "official-source",
+    "caption": "Artwork from the official campaign page, visually reviewed.",
+    "reviewedAt": "2026-10-24",
+    "sourcePage": "https://1uponline.co.za/index.php?route=information/oneupcompetition",
+    "sourceImage": "https://1uponline.co.za/image/catalog/competitions/1up-mangia-competition-homepage-banner.png"
+  },
+  "ctm-australia-trip-competition-2026": {
+    "src": "/assets/listings/ctm-australia-trip-competition-2026.webp",
+    "width": 1220,
+    "height": 809,
+    "alt": "Sydney Opera House and Harbour Bridge at sunset in CTM's official Australia trip campaign artwork",
+    "kind": "official-source",
+    "caption": "Artwork from the official campaign page, visually reviewed.",
+    "reviewedAt": "2026-10-24",
+    "sourcePage": "https://www.ctm.co.za/win-a-trip-for-2-to-australia-in-2027",
+    "sourceImage": "https://www.ctm.co.za/media/wysiwyg/south-africa/Promotions/Year_End_Sale_2026/CT4104-Year-End-Promo-Competition-Ts_Cs-Desktop6.webp"
+  },
+  "ster-kinekor-street-fighter-watch-win-2026": {
+    "src": "/assets/listings/ster-kinekor-street-fighter-watch-win-2026.webp",
+    "width": 560,
+    "height": 315,
+    "alt": "Official Ster-Kinekor Street Fighter Watch and Win banner showing the figurine prizes",
+    "kind": "official-source",
+    "caption": "Artwork from the official campaign page, visually reviewed.",
+    "reviewedAt": "2026-10-24",
+    "sourcePage": "https://www.sterkinekor.com/competition/street-fighter-watch-and-win-competition",
+    "sourceImage": "https://images.filmgrail.com/1792399531112-SF2026W&W_MailerBanner560x315.jpg?optimizer=image&width=1200"
   }
 }

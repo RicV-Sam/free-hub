@@ -57,7 +57,7 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 28
+- Matching active public competitions: 31
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -75,6 +75,7 @@ Recommended normalisation:
 | Gelmar BirthDIY tools and vouchers competition (gelmar-birthdiy-october-2026) | 2026-11-01 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | NESCAFÉ Gold Rush SPAR Rewards Competition (nescafe-gold-rush-spar-2026) | 2026-11-08 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Sunlight at SPAR: Win a R100,000 Kitchen Makeover (sunlight-spar-kitchen-makeover-2026) | 2026-11-08 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
+| 1UP Mangia Pasta R500 vouchers (1up-mangia-vouchers-2026) | 2026-11-09 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | IMANA Pick n Pay Linton’s Corner: R5,000 Potjie Dash (imana-pnp-lintons-corner-potjie-dash-2026) | 2026-11-13 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Pizza Perfect Oom Freddy’s Legacy Hamper Competition (pizza-perfect-oom-freddy-legacy-2026) | 2026-11-14 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Huletts SPAR Rewards Competition 2026 (huletts-spar-rewards-2026) | 2026-11-15 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
@@ -86,6 +87,8 @@ Recommended normalisation:
 | Win a VIP chef experience with IMANA at Pick n Pay Oakfields (imana-pnp-oakfields-chef-2026) | 2026-11-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Stimorol Volume Driver vouchers competition 2026 (stimorol-volume-driver-2026) | 2026-11-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Sausage Saloon: Win a MacBook Neo (sausage-saloon-macbook-neo-2026) | 2026-12-15 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
+| Mambo’s Suzuki Swift (mambos-suzuki-swift-2026) | 2026-12-15 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
+| CTM Year-End Sale: Win an Australia Trip for Two (ctm-australia-trip-competition-2026) | 2026-12-24 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Maynards Kaboom: Win R200 SPAR Vouchers (maynards-kaboom-spar-rewards-2026) | 2026-12-26 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Win R30,000 in the Galito’s Birthday Feast weekly draw (galitos-birthday-feast-2026) | 2026-12-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
@@ -99,7 +102,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 39
+- Matching active public competitions: 43
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -125,8 +128,10 @@ Recommended normalisation:
 | Bargain Books: Win A Court of Splintered Harmony (bargain-books-court-splintered-harmony-2026) | 2026-11-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | STAEDTLER International Creative Challenge 2026 (staedtler-creative-challenge-2026) | 2026-11-01 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Gelmar BirthDIY tools and vouchers competition (gelmar-birthdiy-october-2026) | 2026-11-01 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
+| Ster-Kinekor Street Fighter Watch and Win (ster-kinekor-street-fighter-watch-win-2026) | 2026-11-04 | purchase-required | yes | yes | Online entry tag | none |
 | Superbalist Live Superb: Win R100,000 Cash (superbalist-live-superb-cash-2026) | 2026-11-05 | free-entry | yes | yes | Online entry tag | none |
 | FAO World Food Day 2026 Poster Contest (fao-world-food-day-poster-2026) | 2026-11-06 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| 1UP Mangia Pasta R500 vouchers (1up-mangia-vouchers-2026) | 2026-11-09 | purchase-required | yes | yes | Online entry tag | none |
 | Outdoorphoto Wishlist: Win a Tenba Spinner Backpack (outdoorphoto-wishlist-tenba-2026) | 2026-11-10 | free-entry | yes | yes | Online entry tag | none |
 | GoTyme Card Swipe and Spend: Win R300 (gotyme-card-swipe-spend-2026) | 2026-11-30 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | AVBOB 10th Annual Poetry Competition (avbob-poetry-2026) | 2026-11-30 | free-entry | yes | yes | Online entry tag | none |
@@ -138,6 +143,8 @@ Recommended normalisation:
 | Clicks DKNY Ice Pop Fragrance Giveaway (clicks-dkny-ice-pop-october-november-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Penguin Random House: Win a Camp Half-Blood Hamper (prh-camp-half-blood-2026) | 2026-12-04 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Sausage Saloon: Win a MacBook Neo (sausage-saloon-macbook-neo-2026) | 2026-12-15 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| Mambo’s Suzuki Swift (mambos-suzuki-swift-2026) | 2026-12-15 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| CTM Year-End Sale: Win an Australia Trip for Two (ctm-australia-trip-competition-2026) | 2026-12-24 | purchase-required | yes | yes | Online entry tag | none |
 | Maynards Kaboom: Win R200 SPAR Vouchers (maynards-kaboom-spar-rewards-2026) | 2026-12-26 | purchase-required | yes | yes | Online entry tag | none |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Builders Ratings and Reviews Competition 2026 (builders-ratings-reviews-2026) | 2026-12-31 | purchase-required | yes | yes | Online entry tag | none |
@@ -187,7 +194,7 @@ Recommended normalisation:
 ## Win Grocery Vouchers in South Africa
 
 - URL: /win-grocery-vouchers-south-africa/
-- Matching active public competitions: 8
+- Matching active public competitions: 9
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -196,6 +203,7 @@ Recommended normalisation:
 |---|---:|---|---|---|---|---|
 | Sea Harvest Say Fish: Win R5,000 Grocery Vouchers (sea-harvest-say-fish-grocery-vouchers-2026) | 2026-10-30 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Lancewood Spread & Scoop Competition 2026 (lancewood-spread-scoop-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
+| 1UP Mangia Pasta R500 vouchers (1up-mangia-vouchers-2026) | 2026-11-09 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Huletts SPAR Rewards Competition 2026 (huletts-spar-rewards-2026) | 2026-11-15 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Win a cooler or shopping voucher with MILO at Checkers (milo-checkers-summer-2026) | 2026-11-28 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | SPAR Vaseline Cera Glow Summer: Win a R15,000 Voucher (spar-vaseline-cera-glow-summer-2026) | 2026-12-13 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
