@@ -5,45 +5,52 @@ on:
 permissions:
   contents: read
 jobs:
-  release-checks:
+  browser-comparison:
+    name: Browser and production checks (${{ matrix.source }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        source: ["candidate", "base"]
     steps:
       - uses: actions/checkout@v6
+        with:
+          ref: ${{ matrix.source == 'candidate' && '4e6c81247b6cde8721fa1bdc58d8d8543f1b8b8d' || '461bec5178db87fb59b284c93b5dfc521db8812f' }}
       - uses: actions/setup-node@v6
         with:
           node-version: 24.19.0
           cache: npm
       - run: npm ci --ignore-scripts
-      - name: Fixed-date build and complete test suite
-        env:
-          TZ: UTC
-          FREEHUB_BUILD_DATE: "2026-09-08"
-          FREEHUB_AS_OF_DATE: "2026-09-08"
-          NODE_OPTIONS: "--require=./scripts/lib/fixed-date-register.js"
-        run: |
-          npm run build
-          npm test
-      - name: Offers-enabled SEO gates
-        env:
-          TZ: UTC
-          FREEHUB_BUILD_DATE: "2026-09-08"
-          FREEHUB_AS_OF_DATE: "2026-09-08"
-          NODE_OPTIONS: "--require=./scripts/lib/fixed-date-register.js"
-          FREEHUB_ENABLE_OFFERS: "true"
-        run: |
-          npm run build
-          npm run test:seo
-      - name: Browser checks
-        env:
-          CI: "true"
-        run: |
-          npx playwright install --with-deps chromium
-          FREEHUB_BUILD_DATE=2026-09-08 FREEHUB_AS_OF_DATE=2026-09-08 NODE_OPTIONS=--require=./scripts/lib/fixed-date-register.js npm run build
-          npm run test:browser
-      - name: Production-date build and lifecycle
+      - name: Production-date build, SEO and lifecycle
         env:
           FREEHUB_ENABLE_OFFERS: "true"
         run: |
           npm run build
           npm run test:seo
           node scripts/validate-maintenance-state.js
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Build fixed-date browser fixture
+        env:
+          TZ: UTC
+          FREEHUB_BUILD_DATE: "2026-09-08"
+          FREEHUB_AS_OF_DATE: "2026-09-08"
+          NODE_OPTIONS: "--require=./scripts/lib/fixed-date-register.js"
+          FREEHUB_ENABLE_OPPORTUNITIES: "false"
+          FREEHUB_ENABLE_OFFERS: "false"
+        run: npm run build
+      - name: Browser suite with matching fixture dates
+        env:
+          CI: "true"
+          TZ: UTC
+          FREEHUB_BUILD_DATE: "2026-09-08"
+          FREEHUB_AS_OF_DATE: "2026-09-08"
+          NODE_OPTIONS: ""
+          FREEHUB_ENABLE_OPPORTUNITIES: "false"
+          FREEHUB_ENABLE_OFFERS: "false"
+        run: npm run test:browser
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-${{ matrix.source }}
+          path: output/playwright/
