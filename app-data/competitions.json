@@ -1,34 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-23",
-  "count": 115,
+  "asOfDate": "2026-10-24",
+  "count": 114,
   "competitions": [
-    {
-      "id": "telkom-radio-awards-my-station-2026",
-      "title": "Telkom Radio Awards My Station R40,000 Competition",
-      "brand": "Telkom Radio Awards / Arena Events",
-      "summary": "The My Station audience competition offers one R40,000 cash prize. Kaya 959 promoted the draw, but the official form lets you choose your favourite participating station.",
-      "imageUrl": "https://freehub.co.za/assets/listings/telkom-radio-awards-my-station-2026.webp",
-      "closingDate": "2026-10-23",
-      "category": "Cash",
-      "prizeName": "R40,000 cash",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "SA citizens or permanent residents with valid SA identification; the entry form is for ages 18 and over.",
-      "entrySteps": [
-        "Open the official My Station voting form and read its competition terms and privacy information.",
-        "Enter the required name, email, cellphone number, age and province information accurately, then select your favourite radio station.",
-        "Review the form’s consent wording and submit your vote yourself before 23 October 2026. The rules allow unlimited votes.",
-        "Keep the phone number and email you supplied active so the organiser can contact you if drawn. Valid identification is needed to verify a potential winner."
-      ],
-      "officialUrl": "https://upload.radioawards.co.za/MyStation",
-      "termsUrl": "https://upload.radioawards.co.za/MyStation/css/RA-My-Station-competiton_terms-and-conditions_2026.pdf",
-      "lastChecked": "2026-09-18",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
     {
       "id": "heinz-heritage-spar-2026",
       "title": "Heinz Heritage SPAR Rewards Braai Competition",
@@ -234,7 +208,7 @@
       "termsUrl": "https://www.spar.co.za/SPAR-Community-School-Support-Competition",
       "lastChecked": "2026-06-19",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "lancewood-spread-scoop-competition-2026",
@@ -260,7 +234,7 @@
       "termsUrl": "https://lancewood.co.za/terms-conditions/spread-scoop-competition-terms/",
       "lastChecked": "2026-10-02",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "astron-energy-own-golf-8-gti-2026",
@@ -286,7 +260,7 @@
       "termsUrl": "https://www.astronenergy.co.za/own-a-gti-tscs/",
       "lastChecked": "2026-10-09",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "nedbank-appventure-map-your-future-2026",
@@ -311,7 +285,7 @@
       "termsUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/appventure-map-your-future-competition.html",
       "lastChecked": "2026-09-06",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "penguin-random-house-art-of-hosting-2026",
@@ -337,7 +311,7 @@
       "termsUrl": "https://www.penguinrandomhouse.co.za/tos/tscs-win-set-the-table-set-the-mood-the-art-of-hosting/",
       "lastChecked": "2026-09-20",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "penguin-random-house-penguin-post-44-2026",
@@ -363,7 +337,7 @@
       "termsUrl": "https://www.penguinrandomhouse.co.za/tos/tscs-win-penguin-post-44-competition/",
       "lastChecked": "2026-09-20",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "cadbury-made-to-share-2026",
@@ -390,7 +364,7 @@
       "termsUrl": "https://www.cadbury.co.za/terms/terms-and-conditions-made-share",
       "lastChecked": "2026-10-14",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "dis-chem-garnier-soft-life-2026",
@@ -415,7 +389,7 @@
       "termsUrl": "https://www.dischem.co.za/garnier-soft-life-competition",
       "lastChecked": "2026-10-02",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "ufo-newsletter-voucher-2026",
@@ -440,7 +414,7 @@
       "termsUrl": "https://www.unitedfurnitureoutlets.co.za/newsletter-terms-and-conditions",
       "lastChecked": "2026-09-24",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "nedbank-old-mutual-budget-speech-2026",
@@ -465,7 +439,7 @@
       "termsUrl": "https://www.budgetspeechcompetition.co.za/terms-and-conditions/",
       "lastChecked": "2026-09-24",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "beares-facebook-russell-hobbs-freezer-october-2026",
@@ -491,7 +465,7 @@
       "termsUrl": "https://www.beares.co.za/beares-social-media-competition-terms-conditions-rsa-russel-hobbs-330l-stainless-steel-chest-freezer",
       "lastChecked": "2026-10-03",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "beares-instagram-skyler-wardrobe-october-2026",
@@ -517,7 +491,7 @@
       "termsUrl": "https://www.beares.co.za/beares-social-media-competition-terms-conditions-rsa-skyler-6door-6drawer-mirror-robe",
       "lastChecked": "2026-10-03",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "samsung-october-rate-and-review-2026",
@@ -542,7 +516,7 @@
       "termsUrl": "https://www.samsung.com/za/offer/general-competition-terms/",
       "lastChecked": "2026-10-03",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "mcmerwe-games-prediction-voucher-2026",
@@ -567,7 +541,7 @@
       "termsUrl": "https://mcmerwe.co.za/mcmerwe-games-competition-rules/",
       "lastChecked": "2026-10-03",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "jockey-150-2026",
@@ -593,7 +567,7 @@
       "termsUrl": "https://jockey.co.za/pages/competition-terms-conditions",
       "lastChecked": "2026-10-08",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "mtn-share-app-october-2026",
@@ -619,7 +593,7 @@
       "termsUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn-share-the-app-and-win-competition",
       "lastChecked": "2026-10-08",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "degrendel-haus-wine-homeware-2026",
@@ -645,7 +619,7 @@
       "termsUrl": "https://degrendel.co.za/blogs/news/r20000-giveaway-haus-wine-homeware",
       "lastChecked": "2026-10-08",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "fountains-mall-herbelin-birthday-2026",
@@ -669,7 +643,7 @@
       "termsUrl": "https://fountainsmall.co.za/events/18th-birthday-competition-with-gabriel-jewellers/",
       "lastChecked": "2026-10-08",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "nedbank-fixed-deposit-golf-challenge-2026",
@@ -693,7 +667,7 @@
       "termsUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/fixed-deposit-r100-000-ngc.html",
       "lastChecked": "2026-10-08",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "fox-king-of-the-whip-2026",
@@ -717,7 +691,7 @@
       "termsUrl": "https://www.foxracing.co.za/pages/fox-kotw-ticket-giveaway",
       "lastChecked": "2026-10-08",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "real-beds-score-big-coupon-2026",
@@ -741,7 +715,7 @@
       "termsUrl": "https://realbedsonline.co.za/terms-and-conditions-tear-off-coupon-promotion",
       "lastChecked": "2026-10-08",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "absa-icaur-finance-2026",
@@ -765,7 +739,7 @@
       "termsUrl": "https://www.absa.co.za/content/dam/south-africa/absa/pdf/2026/iCAUR-Competition-Terms-and-Conditions.pdf",
       "lastChecked": "2026-10-08",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "cashbuild-six-store-october-2026",
@@ -792,7 +766,7 @@
       "termsUrl": "https://www.cashbuild.co.za/module/smartblog/download?id=452",
       "lastChecked": "2026-10-11",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "vodacom-fibre-air-fryer-2026",
@@ -818,7 +792,7 @@
       "termsUrl": "https://www.vodacom.co.za/vodacom/terms/competition/fibre-price-air-fryer",
       "lastChecked": "2026-10-14",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "cadbury-fan-club-2026",
@@ -845,7 +819,7 @@
       "termsUrl": "https://www.cadbury.co.za/terms/cadbury-fan-club-2026-terms-and-conditions",
       "lastChecked": "2026-10-15",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "water-filter-factory-october-2026",
@@ -872,7 +846,7 @@
       "termsUrl": "https://thewaterfilterfactory.co.za/pages/competition",
       "lastChecked": "2026-10-21",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "landscape-alliance-living-landscapes-2026",
@@ -899,7 +873,7 @@
       "termsUrl": "https://photocompetition.landscapealliance.org/",
       "lastChecked": "2026-10-21",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "clicks-baby-essentials-hamper-2026",

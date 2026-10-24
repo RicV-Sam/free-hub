@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-23",
-  "count": 34,
+  "asOfDate": "2026-10-24",
+  "count": 32,
   "counts": {
     "freeStuff": 22,
     "resources": 22,
     "opportunities": 0,
-    "offers": 12
+    "offers": 10
   },
   "items": [
     {
@@ -381,25 +381,6 @@
       "isSponsored": false
     },
     {
-      "id": "vodacom-summer-scratch-win-2026",
-      "kind": "deal",
-      "title": "Vodacom Summer: Up to Three Free Scratch & Win Plays Daily",
-      "provider": "Vodacom",
-      "summary": "Eligible Vodacom customers opted into VodaBucks can use up to three free Scratch & Win plays each day across VodaPay and USSD, with at most one free USSD play. Rewards vary and are not guaranteed.",
-      "category": "mobile-data",
-      "categoryLabel": "Mobile & Data",
-      "officialUrl": "https://www.vodacom.co.za/vodacom/shopping/summer",
-      "termsUrl": "https://www.vodacom.co.za/vodacom/terms/promotions/summer-2026",
-      "requirements": [
-        "Eligible Vodacom Prepaid, Hybrid/Top-Up and Postpaid customers need a lawfully registered SIM and VodaBucks opt-in. Use the VodaPay app or dial *133# or *135#. The combined free limit is three plays per day, including at most one on USSD; a USSD play reduces the remaining VodaPay allocation. Free plays expire at 23:59 that day. Specific rewards, availability and expiry are shown in the app/journey or SMS; there is no guaranteed reward or value. Optional extra plays cost one VodaBucks each, up to five daily; paid Upsize offers are separate and you keep your original reward if you decline. Where VodaBucks must be claimed on VodaPay, claim then bank them before midnight on Friday of that same week. Normal participation/connectivity costs may apply; free describes the play allocation. Rewards are redeemed in South Africa, and reward bundles can incur normal usage charges after depletion or expiry. Opt-in includes programme administration and usage/behavioural processing; marketing SMS opt-out is separate. Read the detailed conditions and current official terms before taking part."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2027-03-31",
-      "lastChecked": "2026-10-16",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
       "id": "panarottis-rewards-additional-benefits",
       "kind": "deal",
       "title": "Panarottis Rewards: kids birthday meals, flatbread and hot drinks",
@@ -467,25 +448,6 @@
         "Capitec clients receive 5% off Greyhound tickets booked on the operator's website/app and paid with Capitec Pay. Current homepage restricts the discount to mobile-device payment and excludes payment by Capitec bank card. It applies automatically at checkout, cannot be added afterwards, and standard changes/cancellation/refund terms apply. Paid bus ticket and qualifying Capitec account/payment approval required. No coupon code. Banking/data costs remain separate; no universal discount for cash, other banks or card payments implied. Official article is dated 21 January 2026; current homepage still advertises the benefit. No fixed expiry; operator can amend/withdraw it."
       ],
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "lastChecked": "2026-10-16",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "bellville-business-expo-free-visitor-ticket-2026",
-      "kind": "deal",
-      "title": "Free visitor tickets: Bellville Business Expo, 28-29 October",
-      "provider": "Bellville Business Expo",
-      "summary": "Book a free visitor ticket for the expo at Tyger Valley Centre Arena, Cape Town. Space is limited; exhibitor stands are separate.",
-      "category": "other",
-      "categoryLabel": "Other",
-      "officialUrl": "https://www.quicket.co.za/events/399152-bellville-business-expo-2026/",
-      "termsUrl": "https://www.quicket.co.za/events/399152-bellville-business-expo-2026/",
-      "requirements": [
-        "Free visitor admission on Wednesday 28 and Thursday 29 October 2026 at Tyger Valley Centre Arena / Tyger Valley Shopping Centre, Bellville, Cape Town. Book the free visitor ticket via the official Quicket event linked by the City of Cape Town at qkt.io/BBEXPO2026. Space is limited. The ticket page lists an overall window from 08:30 on 28 October to 18:00 on 29 October, South African time. This does not promise overnight access: confirm each day's visiting timetable with the organiser. The event ends at 18:00 on 29 October. Provide the registration information requested by the ticketing service; normal data, travel, food and shopping costs remain payable. Free visitor admission does not include an exhibitor stand. The public announcement states no age or nationality restriction. Confirm availability and your booking before travelling."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2026-10-29",
       "lastChecked": "2026-10-16",
       "isAffiliate": false,
       "isSponsored": false
