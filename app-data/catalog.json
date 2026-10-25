@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-24",
-  "count": 32,
+  "asOfDate": "2026-10-25",
+  "count": 30,
   "counts": {
-    "freeStuff": 22,
-    "resources": 22,
+    "freeStuff": 21,
+    "resources": 21,
     "opportunities": 0,
-    "offers": 10
+    "offers": 9
   },
   "items": [
     {
@@ -216,22 +216,6 @@
       ],
       "watchOut": "Check the reward's product choice, validity period and participating cafe availability in the app before travelling. The separate stamp reward requires ten purchases.",
       "lastChecked": "2026-08-18"
-    },
-    {
-      "id": "western-cape-government-ecentres",
-      "kind": "resource",
-      "title": "Western Cape Government eCentres",
-      "provider": "Western Cape Government eCentres",
-      "summary": "Participating eCentres provide free computer and internet use, up to ten printed pages per person per day, and training options.",
-      "category": "online-courses",
-      "categoryLabel": "Free online courses",
-      "officialUrl": "https://www.westerncape.gov.za/wcg-ecentres",
-      "bestFor": "Western Cape residents needing public internet access and basic computer training",
-      "requirements": [
-        "Visit a participating eCentre; course places, opening times and services depend on the local facility."
-      ],
-      "watchOut": "Western Cape locations only. Check the official facility listing before travelling; free training availability can vary.",
-      "lastChecked": "2026-09-24"
     },
     {
       "id": "openlearn-free-learning-statements",
@@ -485,25 +469,6 @@
         "South African residential DStv or DStv Stream monthly subscribers must have completed at least one full month, stay active on an eligible package and ensure full payment reaches MultiChoice before the next due date. Select receives Sport; Sports receives Premium. The seven-day benefit is automatic, linked to the next viewing cycle and may take up to 48 hours to provision. Viewing returns to the normal package afterwards without an extra upgrade fee. Business, quarterly/annual, Price Lock and Subscription Price Lock accounts, unpaired packages, add-ons and certain disconnected/inactive accounts are excluded. Reconnected customers qualify only in month two after two consecutive active months. Add-ons and value-added services keep their normal charges. The provider announces Starter-to-Select and Movies & Series-to-Premium from 26 October under a separate later package phase, not as already available on 21 October."
       ],
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "lastChecked": "2026-10-21",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "tfg-bash-shop-swipe-unlock-2026",
-      "kind": "deal",
-      "title": "First Bash-order discount after a qualifying TFG store purchase",
-      "provider": "TFG Rewards / Bash",
-      "summary": "Eligible TFG Rewards or Money customers who have never bought on Bash can earn a first-order discount after an in-store purchase. Both the qualifying purchase and a separate minimum-spend Bash order are required.",
-      "category": "fashion",
-      "categoryLabel": "Fashion",
-      "officialUrl": "https://help.bash.com/support/solutions/articles/101000595582-terms-and-conditions-for-the-%E2%80%9Cshop-swipe-unlock%E2%80%9D-tfg-rewards-campaign",
-      "termsUrl": "https://help.bash.com/support/solutions/articles/101000595582-terms-and-conditions-for-the-%E2%80%9Cshop-swipe-unlock%E2%80%9D-tfg-rewards-campaign",
-      "requirements": [
-        "Earn during 25 September–24 October 2026. South African TFG Rewards members or TFG Money account holders must have no previous purchase via the Bash app, bash.com or a Bash store. Use the card in a participating TFG store; JD Sports, Coricraft, Dial-a-Bed and Mojo Beds are excluded. Purchase up to R400: R150 off R500 on Bash; R401–R700: R250 off R850; R701–R1,000: R450 off R1,600; R1,001–R1,500: R1,000 off R3,000; over R1,500: R1,500 off R5,000. Access the voucher by linking the same card to a Bash profile. Only one voucher can be redeemed on the first Bash order; using one makes remaining campaign vouchers unusable. Vouchers expire 60 days after issue, apply only to the stated participating TFG brands, exclude third-party brands, airtime, cellular/navigation items, gift cards and services, and are not reissued on returns. TFG employees/directors are excluded. No cash equivalent."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2026-10-24",
       "lastChecked": "2026-10-21",
       "isAffiliate": false,
       "isSponsored": false

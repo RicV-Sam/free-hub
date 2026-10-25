@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-24",
+  "asOfDate": "2026-10-25",
   "count": 118,
   "competitions": [
     {
@@ -899,7 +899,7 @@
       "termsUrl": "https://woobox.com/f65xbp/rules",
       "lastChecked": "2026-09-09",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "bargain-books-scorpio-rising-2026",
@@ -924,7 +924,7 @@
       "termsUrl": "https://bargainbooks.co.za/competitions#terms",
       "lastChecked": "2026-10-03",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "bargain-books-hollow-bones-2026",
@@ -949,7 +949,7 @@
       "termsUrl": "https://bargainbooks.co.za/competitions#terms",
       "lastChecked": "2026-10-03",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "bargain-books-cheslin-kolbe-2026",
@@ -974,7 +974,7 @@
       "termsUrl": "https://bargainbooks.co.za/competitions#terms",
       "lastChecked": "2026-10-03",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "bargain-books-court-splintered-harmony-2026",
@@ -999,7 +999,7 @@
       "termsUrl": "https://bargainbooks.co.za/competitions#terms",
       "lastChecked": "2026-10-03",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "staedtler-creative-challenge-2026",
@@ -1024,7 +1024,7 @@
       "termsUrl": "https://e.staedtlercdn.com/fileadmin/user_upload/Content/Highlights/Design-Journey/Creative-Challenge/Creative_Challenge_2026/TCs/EN-STAEDTLER-International-Creative-Challenge-T_Cs-2026.pdf?1785243772",
       "lastChecked": "2026-10-06",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "gelmar-birthdiy-october-2026",
@@ -1051,7 +1051,7 @@
       "termsUrl": "https://www.gelmar.co.za/october-competition",
       "lastChecked": "2026-10-11",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "boxer-coca-cola-samsung-a06-october-2026",
