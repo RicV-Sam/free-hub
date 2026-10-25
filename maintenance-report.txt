@@ -2,14 +2,14 @@ Reviewed competition retirements effective: 6
 === Competition Maintenance Report ===
 Date: 2026-10-25
 Mode: archive-expired
-Total competitions: 485
-Active published count: 119
+Total competitions: 487
+Active published count: 121
 Expired archive page count: 259
 Low-value expired noindex count: 0
 Held/private count: 107
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 51
+Closing in next 14 days: 52
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -307,6 +307,7 @@ Closing soon (next 14 days):
 - cadbury-fan-club-2026 (6 days)
 - water-filter-factory-october-2026 (6 days)
 - landscape-alliance-living-landscapes-2026 (6 days)
+- everest-wealth-holiday-2026 (6 days)
 - clicks-baby-essentials-hamper-2026 (7 days)
 - bargain-books-scorpio-rising-2026 (7 days)
 - bargain-books-hollow-bones-2026 (7 days)
