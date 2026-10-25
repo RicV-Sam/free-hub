@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-25",
-  "count": 118,
+  "count": 120,
   "competitions": [
     {
       "id": "heinz-heritage-spar-2026",
@@ -873,6 +873,34 @@
       "termsUrl": "https://photocompetition.landscapealliance.org/",
       "lastChecked": "2026-10-21",
       "isHighValue": false,
+      "isClosingSoon": true
+    },
+    {
+      "id": "everest-wealth-holiday-2026",
+      "title": "Everest Wealth: Win a R15,000 Holiday",
+      "brand": "Everest Wealth",
+      "summary": "Follow Everest Wealth and tag a friend for a chance to win a holiday package worth up to R15,000. Free social entry for eligible South African adults; closes 31 October at 23:59 SAST.",
+      "imageUrl": "https://freehub.co.za/assets/listings/everest-wealth-holiday-2026.webp",
+      "closingDate": "2026-10-31",
+      "category": "Holidays",
+      "prizeName": "One holiday package worth up to R15,000",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Social",
+      "eligibility": "SA residents aged 18+ with valid SA ID; promoter-related people and specified family excluded. A social account is required.",
+      "entrySteps": [
+        "Check eligibility: you must live in South Africa, be aged 18 or older and hold a valid South African identity document. The promoter, related entities, agencies, suppliers and their specified immediate families are excluded.",
+        "Open the linked official Everest Wealth competition post on Facebook. Follow the official @EverestWealth page and tag at least one real friend in the comments of that post. Obtain the friend’s consent before tagging.",
+        "Alternatively, use the official @everest_wealth Instagram competition post linked from the campaign page. Complete both follow and tag steps on the same platform, and remain following until the draw.",
+        "One entry per person per platform is allowed, with a maximum of two across Facebook and Instagram. Extra tag comments on the same platform do not earn extra entries. Do not tag brands, celebrities, giveaway accounts, fake accounts or inactive accounts. Ensure the entry is visible to the promoter.",
+        "Enter before 23:59 SAST on 31 October 2026. Entry is free; normal data charges apply. No investment or product purchase is required.",
+        "If the official account contacts you as a potential winner, respond within 48 hours. Never pay money or supply banking details, passwords or one-time PINs to claim. Read the R15,000 cap, excluded travel costs and booking deadlines before accepting."
+      ],
+      "officialUrl": "https://www.facebook.com/reel/1629086925671821/",
+      "termsUrl": "https://everestwealth.co.za/wp-content/uploads/2026/08/Everest_Wealth_Holiday_Giveaway_TCs_v1.pdf",
+      "lastChecked": "2026-10-25",
+      "isHighValue": true,
       "isClosingSoon": true
     },
     {
@@ -2050,6 +2078,34 @@
       "termsUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/clm-black-friday-competition.html",
       "lastChecked": "2026-10-21",
       "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "first-choice-moms-got-the-power-2026",
+      "title": "First Choice: Win a Power Cup Hamper",
+      "brand": "First Choice / Woodlands Dairy",
+      "summary": "Like the official post, share an original mom power move and tag another mom with #MomsGotThePower for one of twenty hampers worth over R1,000 each. Social account and data access required.",
+      "imageUrl": "https://freehub.co.za/assets/listings/first-choice-moms-got-the-power-2026.webp",
+      "closingDate": "2026-11-30",
+      "category": "Vouchers",
+      "prizeName": "Twenty Power Cup hampers, each worth over R1,000",
+      "entryCostType": "account_required",
+      "entryCostLabel": "Account required",
+      "purchaseRequired": false,
+      "entryMethod": "Social",
+      "eligibility": "SA residents aged 18+ with valid identification and a South African contact number for winner messaging; promoter-related people and specified family excluded. See full eligibility below.",
+      "entrySteps": [
+        "Check the age, residence, identification and contact requirements in Eligibility before entering. Promoter/agency employees, agents, consultants and immediate family members are excluded.",
+        "Open the verified official First Choice Mom’s Got The Power Facebook competition post and like that post.",
+        "Comment on the post with your own original mom power move. Tag another powerful mom and include #MomsGotThePower in the comment.",
+        "You may tag more than one mom, but each participant can win only once. Incomplete, misleading, abusive, discriminatory or copied/non-original content may be disqualified. The promoter may share or reference entry comments on its social channels.",
+        "Complete the steps by 30 November 2026. The rules give a date without a closing hour or timezone; Freehub treats this as a South African local date. Enter before the final day to avoid relying on an unstated cutoff.",
+        "Check official direct messages around the 7 December announcement. If selected, supply the requested identity, contact and South African delivery details to the promoter within its communicated response window. Never pay or give banking details or passwords to claim."
+      ],
+      "officialUrl": "https://www.facebook.com/FirstChoiceSA/videos/moms-dont-do-small-moves-they-do-power-moves-the-kind-nobody-sees-but-everybody-/2199509164780452/",
+      "termsUrl": "https://www.firstchoice.co.za/terms-and-conditions/first-choice-power-cup-mom-s-got-the-power-competition-2026",
+      "lastChecked": "2026-10-25",
+      "isHighValue": false,
       "isClosingSoon": false
     },
     {

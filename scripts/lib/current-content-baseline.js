@@ -68,7 +68,8 @@ function getCurrentContentBaseline() {
     // 21 October: Braai Broekies, Greenie and Telkom Datanaire add three reviewed detail pages.
     // 461 excludes variable brand, tag and competition-video routes from this fixed component.
     // 24 October: four reviewed competition detail pages; exits are counted by active.length.
-    generatedFileCount: groceryPageCount + 474 + shared.TAG_SLUGS.filter(slug => shared.getTagFilteredCompetitions(active, slug).length > 0).length + featuredVideoSlugs(active).size + shared.getGeneratedBrandPageDefinitions(core).length + getReviewedGuides(buildDate).length - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    // 25 October: Everest Wealth and First Choice add two reviewed detail pages; active exits are counted below.
+    generatedFileCount: groceryPageCount + 476 + shared.TAG_SLUGS.filter(slug => shared.getTagFilteredCompetitions(active, slug).length > 0).length + featuredVideoSlugs(active).size + shared.getGeneratedBrandPageDefinitions(core).length + getReviewedGuides(buildDate).length - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
     sitemapUrlCount: groceryPageCount + read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + getReviewedGuides(buildDate).filter(page => !page.noindex).length + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length + (read('data/airtime-dash.json').enabled ? 1 : 0),
   };
 }

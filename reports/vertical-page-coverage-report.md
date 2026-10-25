@@ -102,7 +102,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 43
+- Matching active public competitions: 45
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -121,6 +121,7 @@ Recommended normalisation:
 | Win King of the Whip tickets and a FOX clothing hamper (fox-king-of-the-whip-2026) | 2026-10-31 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | Water Filter Factory: Win Replacement Filters (water-filter-factory-october-2026) | 2026-10-31 | purchase-required | yes | yes | Online entry tag | none |
 | Living Landscapes Photo Contest: Win Up to US$500 (landscape-alliance-living-landscapes-2026) | 2026-10-31 | free-entry | yes | yes | Online entry tag | none |
+| Everest Wealth: Win a R15,000 Holiday (everest-wealth-holiday-2026) | 2026-10-31 | free-entry | yes | yes | Online entry tag | none |
 | Clicks Baby Essentials Hamper Competition (clicks-baby-essentials-hamper-2026) | 2026-11-01 | account-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Bargain Books: Win Scorpio Rising (bargain-books-scorpio-rising-2026) | 2026-11-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Bargain Books: Win Hollow Bones (bargain-books-hollow-bones-2026) | 2026-11-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
@@ -138,6 +139,7 @@ Recommended normalisation:
 | Penguin x Braai Broekies: Win a Book and Braai Gear (prh-braai-broekies-2026) | 2026-11-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Greenie x Penguin: Win a Food-Cover and Book Hamper (prh-greenie-do-not-feed-the-monkey-2026) | 2026-11-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Nedbank: Win a R50,000 Travel Voucher (nedbank-black-friday-tourvest-2026) | 2026-11-30 | purchase-required | yes | yes | Online entry tag | none |
+| First Choice: Win a Power Cup Hamper (first-choice-moms-got-the-power-2026) | 2026-11-30 | account-required | yes | yes | Online entry tag | none |
 | Clicks October/November Beauty Box Giveaway (clicks-october-november-beauty-box-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Clicks D’Licious Hamper Giveaway (clicks-dlicious-hamper-october-november-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Clicks DKNY Ice Pop Fragrance Giveaway (clicks-dkny-ice-pop-october-november-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |

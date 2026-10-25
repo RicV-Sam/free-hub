@@ -29,6 +29,9 @@ const manualRecheckDays = 30;
 const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 FreeHubValidator/1.0";
 const APPROVED_MANUAL_OK_URLS = new Map([
+  // Exact official Facebook entry posts and full promoter rules inspected on 25 October 2026.
+  ["everest-wealth-holiday-2026", "https://www.facebook.com/reel/1629086925671821/"],
+  ["first-choice-moms-got-the-power-2026", "https://www.facebook.com/FirstChoiceSA/videos/moms-dont-do-small-moves-they-do-power-moves-the-kind-nobody-sees-but-everybody-/2199509164780452/"],
   // Official campaign pages, complete public rules and entry routes inspected in-browser on 24 October 2026.
   ["mambos-suzuki-swift-2026","https://mambos.co.za/win-a-car/"],
   ["1up-mangia-vouchers-2026","https://1uponline.co.za/index.php?route=information/oneupcompetition"],
