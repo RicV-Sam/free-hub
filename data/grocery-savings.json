@@ -1,6 +1,6 @@
 {
   "publicationStatus": "published",
-  "lastReviewed": "2026-10-18",
+  "lastReviewed": "2026-10-26",
   "reviewDueAt": "2026-11-18",
   "pages": [
     {
@@ -49,7 +49,7 @@
           "id": "our-checks",
           "heading": "What FreeHub checked",
           "paragraphs": [
-            "We reviewed the retailers' own websites on 18 October 2026 for locations, shopping options and stated conditions. This is a desk-researched guide, not a report of store visits or test purchases. The selection is a starting point, not a complete national directory or a ranking of the cheapest retailers.",
+            "We reviewed the retailers' own websites on 26 October 2026 for locations, shopping options and stated conditions. This is a desk-researched guide, not a report of store visits or test purchases. The selection is a starting point, not a complete national directory or a ranking of the cheapest retailers.",
             "Our linked price checks record the product, pack size and amount shown online. They do not establish in-store stock, delivery to every address or a saving against another supermarket. Retailers change stock and prices; open the source before travelling or ordering."
           ]
         }
@@ -133,7 +133,7 @@
           "id": "basket-claim",
           "heading": "What does the reported 45% saving mean?",
           "paragraphs": [
-            "Daily Investor reported on 18 October 2026 that a selected 21-product promotional basket cost R1,085 at Best Before against R1,958 at conventional retailers. The difference is R873, or 44.6% of R1,958. Best Before's Week 42 deals page displays the same totals.",
+            "Daily Investor reported on 18 October 2026 that a selected 21-product promotional basket cost R1,085 at Best Before against R1,958 at conventional retailers. The difference is R873, or 44.6% of R1,958. Best Before's Week 42 deals page showed those totals when FreeHub checked it on 18 October 2026. Its weekly promotions have since changed.",
             "That promotion includes food and household products; it is not a standard basket of essential groceries. We checked the arithmetic and attribution, but did not independently reproduce the 21 comparator prices. The result cannot establish a 45% saving on your own shopping list, and no delivery charge is included in our calculation."
           ],
           "sources": [
@@ -225,10 +225,10 @@
       "priceCents": 1400,
       "quantity": 410,
       "unit": "g",
-      "checkedAt": "2026-10-19T08:23:25.434Z",
+      "checkedAt": "2026-10-26T09:45:05.565Z",
       "bestBefore": null,
-      "dateNote": "Tagged “Future Dated”; the actual batch date is not provided online.",
-      "availability": "The product page displayed 37 in stock and an enabled Add to basket button when checked. Branch stock was not verified.",
+      "dateNote": "Tagged Future Dated; actual batch date not shown.",
+      "availability": "18 in stock; main Add to basket button visible and enabled. Branch stock and checkout availability were not verified.",
       "delivery": "Courier cost depends on your order and address; no flat price verified. Free in-store collection is advertised, subject to the options offered for your order.",
       "deliveryUrl": "https://www.best-before.co.za/shipping-information/",
       "sourceUrl": "https://www.best-before.co.za/product/farmgirl-baked-beans-410g/"
@@ -239,10 +239,10 @@
       "priceCents": 990,
       "quantity": 410,
       "unit": "g",
-      "checkedAt": "2026-10-19T08:23:33.245Z",
+      "checkedAt": "2026-10-26T09:45:11.091Z",
       "bestBefore": null,
-      "dateNote": "The batch's best-before date is not provided online.",
-      "availability": "The product page allowed Add to cart and its product data indicated in stock when checked. Branch stock was not verified.",
+      "dateNote": "Actual batch best-before/use-by date not shown.",
+      "availability": "Main Add to cart button visible and enabled; no stock count displayed. Branch stock and checkout availability were not verified.",
       "delivery": "Paid delivery is calculated using order weight and destination. Collection is also offered; check the province and collection options for your order.",
       "deliveryUrl": "https://looters.co.za/collection-delivery/",
       "sourceUrl": "https://looters.co.za/products/koo-mixed-vegetables-in-brine/"
@@ -281,10 +281,10 @@
       "priceCents": 1690,
       "quantity": 400,
       "unit": "g",
-      "checkedAt": "2026-10-19T08:23:46.736Z",
+      "checkedAt": "2026-10-26T09:45:19.168Z",
       "bestBefore": null,
-      "dateNote": "The actual batch date is not displayed.",
-      "availability": "The main product Add to cart button was visible and enabled; product data indicated InStock. No stock count was displayed. Branch stock was not verified.",
+      "dateNote": "Actual batch best-before/use-by date not shown.",
+      "availability": "Main Add to cart button visible and enabled; no stock count displayed. Branch stock and checkout availability were not verified.",
       "delivery": "Paid delivery depends on order weight and destination. Collection is offered. The policy says orders are checked and packed within 72 hours. A 10% cancellation/handling fee applies after packing and processing. No address-specific delivery total was verified.",
       "deliveryUrl": "https://looters.co.za/collection-delivery/",
       "sourceUrl": "https://looters.co.za/products/la-italiana-butter-beans-400g-looters/"
@@ -295,10 +295,10 @@
       "priceCents": 1790,
       "quantity": 400,
       "unit": "g",
-      "checkedAt": "2026-10-19T08:23:49.503Z",
+      "checkedAt": "2026-10-26T09:45:21.810Z",
       "bestBefore": null,
-      "dateNote": "The actual batch date is not displayed.",
-      "availability": "The main product Add to cart button was visible and enabled; product data indicated InStock. No stock count was displayed. Branch stock was not verified.",
+      "dateNote": "Actual batch best-before/use-by date not shown.",
+      "availability": "Main Add to cart button visible and enabled; no stock count displayed. Branch stock and checkout availability were not verified.",
       "delivery": "Paid delivery depends on order weight and destination. Collection is offered. The policy says orders are checked and packed within 72 hours. A 10% cancellation/handling fee applies after packing and processing. No address-specific delivery total was verified.",
       "deliveryUrl": "https://looters.co.za/collection-delivery/",
       "sourceUrl": "https://looters.co.za/products/la-italiana-italian-tomato-puree/"
@@ -309,10 +309,10 @@
       "priceCents": 2190,
       "quantity": 325,
       "unit": "g",
-      "checkedAt": "2026-10-19T08:23:52.340Z",
+      "checkedAt": "2026-10-26T09:45:24.851Z",
       "bestBefore": null,
-      "dateNote": "The actual batch date is not displayed.",
-      "availability": "The main product Add to cart button was visible and enabled; product data indicated InStock. No stock count was displayed. Branch stock was not verified.",
+      "dateNote": "Actual batch best-before/use-by date not shown.",
+      "availability": "Main Add to cart button visible and enabled; no stock count displayed. Branch stock and checkout availability were not verified.",
       "delivery": "Paid delivery depends on order weight and destination. Collection is offered. The policy says orders are checked and packed within 72 hours. A 10% cancellation/handling fee applies after packing and processing. No address-specific delivery total was verified.",
       "deliveryUrl": "https://looters.co.za/collection-delivery/",
       "sourceUrl": "https://looters.co.za/products/eezee-noodles-assorted-value-pack/"
@@ -323,13 +323,69 @@
       "priceCents": 2000,
       "quantity": 400,
       "unit": "g",
-      "checkedAt": "2026-10-19T08:23:58.708Z",
+      "checkedAt": "2026-10-26T09:45:28.351Z",
       "bestBefore": null,
-      "dateNote": "Tagged Future Dated; the actual batch date is not displayed.",
-      "availability": "The page displayed 421 in stock and an enabled Add to basket button. Branch stock was not verified.",
+      "dateNote": "Tagged Future Dated; actual batch date not shown.",
+      "availability": "337 in stock; main Add to basket button visible and enabled. Branch stock and checkout availability were not verified.",
       "delivery": "Courier delivery is advertised for serviced South African addresses, normally 2-5 working days; some remote areas and farms may be excluded. No single flat tariff was published. Free store collection is advertised, subject to the locations offered for the order and up to five working days of preparation.",
       "deliveryUrl": "https://www.best-before.co.za/shipping-information/",
       "sourceUrl": "https://www.best-before.co.za/product/serena-chopped-tomatoes-400g/"
+    },
+    {
+      "offerId": "best-before-donna-zeina-macaroni-500g",
+      "product": "Donna Zeina macaroni",
+      "priceCents": 1400,
+      "quantity": 500,
+      "unit": "g",
+      "checkedAt": "2026-10-26T09:45:31.222Z",
+      "bestBefore": null,
+      "dateNote": "Tagged Future Dated; no actual batch date.",
+      "availability": "27 in stock; main Add to basket button visible and enabled. Branch stock and checkout availability were not verified.",
+      "delivery": "No flat courier tariff or address-specific total verified. Free store collection is advertised in the buying guide. Courier service to supported South African addresses; no P.O. boxes and some farms, remote/outlying areas excluded. Collection at selected Gauteng locations.",
+      "deliveryUrl": "https://www.best-before.co.za/shipping-information/",
+      "sourceUrl": "https://www.best-before.co.za/product/donna-zeina-macaroni-500g/"
+    },
+    {
+      "offerId": "best-before-pride-brown-lentils-500g",
+      "product": "Pride brown lentils",
+      "priceCents": 2200,
+      "quantity": 500,
+      "unit": "g",
+      "checkedAt": "2026-10-26T09:45:33.981Z",
+      "bestBefore": null,
+      "dateNote": "No actual batch date or Future Dated tag observed.",
+      "availability": "12 in stock; main Add to basket button visible and enabled. Branch stock and checkout availability were not verified.",
+      "delivery": "No flat courier tariff or address-specific total verified. Free store collection is advertised in the buying guide. Courier service to supported South African addresses; no P.O. boxes and some farms, remote/outlying areas excluded. Collection at selected Gauteng locations.",
+      "deliveryUrl": "https://www.best-before.co.za/shipping-information/",
+      "sourceUrl": "https://www.best-before.co.za/product/pride-brown-lentils-500g/"
+    },
+    {
+      "offerId": "looters-craft-coconut-milk-400ml",
+      "product": "Craft coconut milk, choice grade",
+      "priceCents": 2390,
+      "quantity": 400,
+      "unit": "ml",
+      "checkedAt": "2026-10-26T09:45:37.509Z",
+      "bestBefore": null,
+      "dateNote": "No actual batch date displayed.",
+      "availability": "Main Add to cart button visible and enabled; no stock count. Branch stock and checkout availability were not verified.",
+      "delivery": "Paid delivery quote depends on order weight and area; no flat price or address-specific total verified. Select the applicable province for delivery, or collection. Published stores: Retreat, Somerset West, Durban North and Ballito. Address eligibility not confirmed.",
+      "deliveryUrl": "https://looters.co.za/collection-delivery/",
+      "sourceUrl": "https://looters.co.za/products/craft-coconut-milk-choice-grade/"
+    },
+    {
+      "offerId": "looters-noodle-king-assorted-pasta-2kg",
+      "product": "Noodle King assorted pasta",
+      "priceCents": 4690,
+      "quantity": 2000,
+      "unit": "g",
+      "checkedAt": "2026-10-26T09:45:40.270Z",
+      "bestBefore": null,
+      "dateNote": "No actual batch date displayed.",
+      "availability": "Main Add to cart button visible and enabled; no stock count. Branch stock and checkout availability were not verified.",
+      "delivery": "Paid delivery quote depends on order weight and area; no flat price or address-specific total verified. Select the applicable province for delivery, or collection. Published stores: Retreat, Somerset West, Durban North and Ballito. Address eligibility not confirmed.",
+      "deliveryUrl": "https://looters.co.za/collection-delivery/",
+      "sourceUrl": "https://looters.co.za/products/noodle-king-assorted-pasta-2kg-looters/"
     }
   ],
   "publishedAt": "2026-10-18"

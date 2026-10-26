@@ -23,17 +23,17 @@ test("approved grocery pages and offers appear only from their publication date"
   assert.equal(grocery.getGroceryPages({ asOfDate: "2026-10-18" }).length, 3);
   assert.deepEqual(grocery.getGroceryPages({ asOfDate: "2026-09-08" }), []);
   assert.equal(grocery.getGroceryPrices(offers, { asOfDate: "2026-10-18" }).length, 2);
-  assert.equal(grocery.getGroceryPrices(offers, { asOfDate: "2026-10-19" }).length, 7);
-  assert.equal(grocery.getGroceryPrices(offers, { asOfDate: "2026-10-20" }).length, 7);
-  assert.deepEqual(grocery.getGroceryPrices(offers, { asOfDate: "2026-10-21" }), []);
+  assert.equal(grocery.getGroceryPrices(offers, { asOfDate: "2026-10-26" }).length, 10);
+  assert.equal(grocery.getGroceryPrices(offers, { asOfDate: "2026-10-27" }).length, 10);
+  assert.deepEqual(grocery.getGroceryPrices(offers, { asOfDate: "2026-10-28" }), []);
   assert.deepEqual(grocery.getGroceryPrices(offers, { asOfDate: "2026-09-08" }), []);
 });
 
 test("preview is read-only and still withholds overdue or unverified prices", () => {
   const drafts = offers.map(offer => ({ ...offer, publicationStatus: "draft" }));
   const before = JSON.stringify(drafts);
-  assert.equal(grocery.getGroceryPrices(drafts, { asOfDate: "2026-10-19", preview: true }).length, 7);
-  assert.equal(grocery.getGroceryPrices(drafts, { asOfDate: "2026-10-21", preview: true }).length, 0);
+  assert.equal(grocery.getGroceryPrices(drafts, { asOfDate: "2026-10-26", preview: true }).length, 10);
+  assert.equal(grocery.getGroceryPrices(drafts, { asOfDate: "2026-10-28", preview: true }).length, 0);
   const changed = drafts.map(offer => ({ ...offer, verificationStatus: "unverified" }));
   assert.equal(grocery.getGroceryPrices(changed, { asOfDate: "2026-10-19", preview: true }).length, 0);
   assert.equal(JSON.stringify(drafts), before);
@@ -50,8 +50,8 @@ test("Ackermans remains held while its official entry rules conflict", () => {
 });
 
 test("unit prices use net pack quantity and reject missing or invalid quantities", () => {
-  const current = grocery.getGroceryPrices(offers, { asOfDate: "2026-10-19" });
-  assert.deepEqual(current.map(grocery.unitPriceCents), [3415, 2415, 6644, 4225, 4475, 6738, 5000]);
+  const current = grocery.getGroceryPrices(offers, { asOfDate: "2026-10-26" });
+  assert.deepEqual(current.map(grocery.unitPriceCents), [3415, 2415, 4225, 4475, 6738, 5000, 2800, 4400, 5975, 2345]);
   assert.equal(grocery.unitPriceCents({ priceCents: 2500, quantity: 500, unit: "ml" }), 5000);
   for (const quantity of [0, -1, NaN]) assert.throws(() => grocery.unitPriceCents({ priceCents: 990, quantity, unit: "g" }));
 });
@@ -74,9 +74,21 @@ test("price metadata agrees with the offer registry and official image provenanc
   assert.throws(() => grocery.validateGroceryData(changed, images), /source\/date mismatch/);
 });
 
+test("out-of-stock Weet-Bix stays excluded without extending its review window", () => {
+  const record = offers.find(offer => offer.id === "looters-bokomo-weet-bix-450g");
+  assert.equal(record.publicationStatus, "review");
+  assert.equal(record.verificationStatus, "source_changed");
+  assert.equal(record.lastChecked, "2026-10-19");
+  assert.equal(record.reviewDueAt, "2026-10-20");
+  assert.match(record.terms, /Out of stock/);
+  for (const preview of [false, true]) {
+    assert.ok(!grocery.getGroceryPrices(offers, { asOfDate: "2026-10-26", preview }).some(price => price.offerId === record.id));
+  }
+});
+
 test("production pages are indexable and deals use the existing retailer handoff", () => {
   const live = grocery.createGroceryRenderer({ escapeHtml: escape, escapeAttribute: escape, escapeScript, images, stylesheet: "/styles.css", navigation: "", footer: "" });
-  const prices = grocery.getGroceryPrices(offers, { asOfDate: "2026-10-19" });
+  const prices = grocery.getGroceryPrices(offers, { asOfDate: "2026-10-26" });
   for (const price of prices) {
     const html = live.renderOffer(price);
     assert.ok(html.includes(`href="${offerData.getOfferExitPath(price.offer)}"`));
@@ -85,11 +97,16 @@ test("production pages are indexable and deals use the existing retailer handoff
     assert.ok(html.includes("/shared/auth-ui.js"));
     const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
     assert.equal(schema.dateModified, price.offer.lastChecked);
+    if (price.unit === "ml") {
+      assert.ok(html.includes("400ml net pack volume"));
+      assert.ok(html.includes("R59.75/litre"));
+      assert.ok(!html.includes("400ml net pack weight"));
+    }
   }
 });
 
 test("preview renders uncertainty, noindex and the empty state without fabricated offers", () => {
-  const prices = grocery.getGroceryPrices(offers, { asOfDate: "2026-10-19", preview: true });
+  const prices = grocery.getGroceryPrices(offers, { asOfDate: "2026-10-26", preview: true });
   const hub = grocery.getGroceryPages({ preview: true })[0];
   const html = renderer.renderPage(hub, prices);
   assert.ok(html.includes('content="noindex, nofollow"'));

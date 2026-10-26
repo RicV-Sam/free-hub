@@ -1,0 +1,277 @@
+{
+  "status": "approved-and-validated-for-scoped-release",
+  "preparedOn": "2026-10-26",
+  "baseCommit": "5cf7ea5ece4c5fceca28d70c09538840e7878ad5",
+  "renewed": [
+    "best-before-farmgirl-baked-beans-410g",
+    "looters-koo-mixed-vegetables-410g",
+    "looters-la-italiana-butter-beans-400g",
+    "looters-la-italiana-tomato-puree-400g",
+    "looters-eezee-assorted-noodles-5x65g",
+    "best-before-serena-chopped-tomatoes-400g"
+  ],
+  "held": [
+    "looters-pasta-joy-elbows-500g",
+    "looters-bokomo-weet-bix-450g"
+  ],
+  "added": [
+    "best-before-donna-zeina-macaroni-500g",
+    "best-before-pride-brown-lentils-500g",
+    "looters-craft-coconut-milk-400ml",
+    "looters-noodle-king-assorted-pasta-2kg"
+  ],
+  "reviewDueAt": "2026-10-27",
+  "freshness": "Existing next-day review convention and inclusive gate retained. No cadence or gate change; renew only after fresh evidence.",
+  "guideChanges": "Historical basket phrasing corrected; source-review date updated after retailer policy checks. Guide deadline remains 18 November.",
+  "checks": [
+    {
+      "id": "best-before-farmgirl-baked-beans-410g",
+      "sourceUrl": "https://www.best-before.co.za/product/farmgirl-baked-beans-410g/",
+      "checkedAt": "2026-10-26T09:45:05.565Z",
+      "priceCents": 1400,
+      "status": 200,
+      "onlineStock": [
+        "18 in stock"
+      ],
+      "enabledOrderingButton": true,
+      "attributes": [],
+      "action": "publish-current-check"
+    },
+    {
+      "id": "looters-koo-mixed-vegetables-410g",
+      "sourceUrl": "https://looters.co.za/products/koo-mixed-vegetables-in-brine/",
+      "checkedAt": "2026-10-26T09:45:11.091Z",
+      "priceCents": 990,
+      "status": 200,
+      "onlineStock": [],
+      "enabledOrderingButton": true,
+      "attributes": [
+        "Weight\t0.475 kg\nDimensions\t10.8 × 7.4 × 7.4 cm\nQuantity\t\n\n1, Buy 2 Get 1 Free"
+      ],
+      "action": "publish-current-check"
+    },
+    {
+      "id": "looters-pasta-joy-elbows-500g",
+      "sourceUrl": "https://looters.co.za/products/pasta-joy-elbows-pasta-500g-looters/",
+      "checkedAt": "2026-10-26T09:45:13.998Z",
+      "priceCents": 1490,
+      "status": 200,
+      "onlineStock": [],
+      "enabledOrderingButton": true,
+      "attributes": [
+        "Weight\t0.4 kg\nDimensions\t6 × 17 × 22 cm"
+      ],
+      "action": "held-without-date-renewal"
+    },
+    {
+      "id": "looters-bokomo-weet-bix-450g",
+      "sourceUrl": "https://looters.co.za/products/bokomo-weet-bix-450g-ooters/",
+      "checkedAt": "2026-10-26T09:45:16.620Z",
+      "priceCents": 2990,
+      "status": 200,
+      "onlineStock": [
+        "Out of stock"
+      ],
+      "enabledOrderingButton": false,
+      "attributes": [
+        "Weight\t0.45 kg\nDimensions\t8.5 × 21.2 × 8.5 cm"
+      ],
+      "action": "held-without-date-renewal"
+    },
+    {
+      "id": "looters-la-italiana-butter-beans-400g",
+      "sourceUrl": "https://looters.co.za/products/la-italiana-butter-beans-400g-looters/",
+      "checkedAt": "2026-10-26T09:45:19.168Z",
+      "priceCents": 1690,
+      "status": 200,
+      "onlineStock": [],
+      "enabledOrderingButton": true,
+      "attributes": [
+        "Weight\t0.4 kg\nDimensions\t7.2 × 7.2 × 11 cm"
+      ],
+      "action": "publish-current-check"
+    },
+    {
+      "id": "looters-la-italiana-tomato-puree-400g",
+      "sourceUrl": "https://looters.co.za/products/la-italiana-italian-tomato-puree/",
+      "checkedAt": "2026-10-26T09:45:21.810Z",
+      "priceCents": 1790,
+      "status": 200,
+      "onlineStock": [],
+      "enabledOrderingButton": true,
+      "attributes": [
+        "Weight\t0.4 kg\nDimensions\t8.2 × 7.3 × 10 cm"
+      ],
+      "action": "publish-current-check"
+    },
+    {
+      "id": "looters-eezee-assorted-noodles-5x65g",
+      "sourceUrl": "https://looters.co.za/products/eezee-noodles-assorted-value-pack/",
+      "checkedAt": "2026-10-26T09:45:24.851Z",
+      "priceCents": 2190,
+      "status": 200,
+      "onlineStock": [],
+      "enabledOrderingButton": true,
+      "attributes": [
+        "Weight\t0.325 kg\nDimensions\t11 × 17 × 12 cm"
+      ],
+      "action": "publish-current-check"
+    },
+    {
+      "id": "best-before-serena-chopped-tomatoes-400g",
+      "sourceUrl": "https://www.best-before.co.za/product/serena-chopped-tomatoes-400g/",
+      "checkedAt": "2026-10-26T09:45:28.351Z",
+      "priceCents": 2000,
+      "status": 200,
+      "onlineStock": [
+        "337 in stock"
+      ],
+      "enabledOrderingButton": true,
+      "attributes": [],
+      "action": "publish-current-check"
+    },
+    {
+      "id": "best-before-donna-zeina-macaroni-500g",
+      "sourceUrl": "https://www.best-before.co.za/product/donna-zeina-macaroni-500g/",
+      "checkedAt": "2026-10-26T09:45:31.222Z",
+      "priceCents": 1400,
+      "status": 200,
+      "onlineStock": [
+        "27 in stock"
+      ],
+      "enabledOrderingButton": true,
+      "attributes": [],
+      "action": "publish-current-check"
+    },
+    {
+      "id": "best-before-pride-brown-lentils-500g",
+      "sourceUrl": "https://www.best-before.co.za/product/pride-brown-lentils-500g/",
+      "checkedAt": "2026-10-26T09:45:33.981Z",
+      "priceCents": 2200,
+      "status": 200,
+      "onlineStock": [
+        "12 in stock"
+      ],
+      "enabledOrderingButton": true,
+      "attributes": [],
+      "action": "publish-current-check"
+    },
+    {
+      "id": "looters-craft-coconut-milk-400ml",
+      "sourceUrl": "https://looters.co.za/products/craft-coconut-milk-choice-grade/",
+      "checkedAt": "2026-10-26T09:45:37.509Z",
+      "priceCents": 2390,
+      "status": 200,
+      "onlineStock": [],
+      "enabledOrderingButton": true,
+      "attributes": [
+        "Weight\t0.475 kg\nDimensions\t11.1 × 7.4 × 7.4 cm"
+      ],
+      "action": "publish-current-check"
+    },
+    {
+      "id": "looters-noodle-king-assorted-pasta-2kg",
+      "sourceUrl": "https://looters.co.za/products/noodle-king-assorted-pasta-2kg-looters/",
+      "checkedAt": "2026-10-26T09:45:40.270Z",
+      "priceCents": 4690,
+      "status": 200,
+      "onlineStock": [],
+      "enabledOrderingButton": true,
+      "attributes": [
+        "Weight\t2.000 kg\nDimensions\t41 × 28 × 9 cm"
+      ],
+      "action": "publish-current-check"
+    }
+  ],
+  "artwork": [
+    {
+      "offerId": "best-before-donna-zeina-macaroni-500g",
+      "sourcePage": "https://www.best-before.co.za/product/donna-zeina-macaroni-500g/",
+      "sourceImage": "https://www.best-before.co.za/wp-content/uploads/2023/04/6009879971118b-600x600.jpg",
+      "downloadedAt": "2026-10-26T09:49:07.111482+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "b76bcf37cd9282fca579802aab981153eaa915da539022b2954e897181e72308",
+      "assetPath": "/assets/grocery-savings/best-before-donna-zeina-macaroni-500g.webp",
+      "width": 600,
+      "height": 600,
+      "assetBytes": 41664,
+      "assetSha256": "20407748a8b82c0f8da659d9da9d5395bad1acc6a7a45fd698235e670629b70d",
+      "operation": "Lossy WebP optimization only; no factual artwork changes."
+    },
+    {
+      "offerId": "best-before-pride-brown-lentils-500g",
+      "sourcePage": "https://www.best-before.co.za/product/pride-brown-lentils-500g/",
+      "sourceImage": "https://www.best-before.co.za/wp-content/uploads/2025/07/6002310009715-600x600.jpg",
+      "downloadedAt": "2026-10-26T09:49:07.271533+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "c0667e82c13a08661cb8db68bc5bfde06f6aef126359eec8f2ee4f8788ba69db",
+      "assetPath": "/assets/grocery-savings/best-before-pride-brown-lentils-500g.webp",
+      "width": 600,
+      "height": 600,
+      "assetBytes": 22292,
+      "assetSha256": "69b657a28ed4c79139b8e8b1c5c18930877c5a3effe406ab4eb35d03678a7f5e",
+      "operation": "Lossy WebP optimization only; no factual artwork changes."
+    },
+    {
+      "offerId": "looters-craft-coconut-milk-400ml",
+      "sourcePage": "https://looters.co.za/products/craft-coconut-milk-choice-grade/",
+      "sourceImage": "https://looters.co.za/wp-content/uploads/2026/05/Craft-Coconut-Milk-Choice-Grade-600x600.webp",
+      "downloadedAt": "2026-10-26T09:49:10.685366+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "86ec7e006f09374275a4ddd65e9da40fe03bd785cc3c1e334207218b97d90d3a",
+      "assetPath": "/assets/grocery-savings/looters-craft-coconut-milk-400ml.webp",
+      "width": 600,
+      "height": 600,
+      "assetBytes": 30238,
+      "assetSha256": "f5cd803075f6f07bcfaae715b7e1301d1a9c4db6c16f38f15b3c09a0279577a8",
+      "operation": "Lossy WebP optimization only; no factual artwork changes."
+    },
+    {
+      "offerId": "looters-noodle-king-assorted-pasta-2kg",
+      "sourcePage": "https://looters.co.za/products/noodle-king-assorted-pasta-2kg-looters/",
+      "sourceImage": "https://looters.co.za/wp-content/uploads/2026/04/Standard-Template-2026-04-25T132408.094-600x600.webp",
+      "downloadedAt": "2026-10-26T09:49:13.895337+00:00",
+      "httpStatus": 200,
+      "sourceSha256": "65e7771e6819c8fc4e772f47cbffd2a65c13fc61aaf6754bebb42e1fef886478",
+      "assetPath": "/assets/grocery-savings/looters-noodle-king-assorted-pasta-2kg.webp",
+      "width": 600,
+      "height": 600,
+      "assetBytes": 20190,
+      "assetSha256": "7b4fc26eafb570a02d337c4504085a4ae5df68219c9c733142d44fb1f7c87b98",
+      "operation": "Lossy WebP optimization only; no factual artwork changes."
+    }
+  ],
+  "limitations": [
+    "Online ordering signals only; branch and checkout availability are not confirmed.",
+    "Exact batch dates and address-specific delivery totals are unverified.",
+    "No current like-for-like supermarket comparison or percentage-saving claim."
+  ],
+  "heldSnapshotHandling": "Prior lastChecked, reviewDueAt and price-check timestamps remain historical. Unsuccessful 26 October reviews are recorded here and in held-record terms; they do not extend availability.",
+  "validation": {
+    "nodeVersion": "v24.11.0",
+    "referenceDate": "2026-10-26",
+    "heldSeoPerformanceAndLifecycle": "passed",
+    "lifecycleTestsPassed": 172,
+    "airtimeTestsPassed": 30,
+    "airtimeTestsSkipped": 1,
+    "groceryTestsPassed": 10,
+    "maintenanceValidation": "passed",
+    "offerFeatureOffBuild": "passed; grocery routes and records absent",
+    "localHttpPagesChecked": 18,
+    "localDesktopMobilePagesChecked": 13,
+    "localViewports": [
+      1280,
+      390
+    ],
+    "imageAssetsVerified": 4,
+    "retailerHandoffsVerified": 10,
+    "heldDetailAndExitRoutesExcluded": true,
+    "siteWideLint": "failed outside grocery scope",
+    "siteWideLintLimitations": [
+      "Existing competition manual-exception records are missing approved allowlist entries or have overdue evidence.",
+      "Unchanged opportunity sources have access blocks, redirects and overdue evidence."
+    ],
+    "grocerySourceChecks": "All 18 checked product/policy pages returned HTTP 200 and were inspected in the rendered browser.",
+    "dateHarnessNote": "Current-date test runs explicitly used 26 October so the durable-guide fixture matched the production build; no historical snapshot date used for availability."
+  }
+}

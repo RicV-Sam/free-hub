@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-26",
-  "count": 29,
+  "count": 39,
   "counts": {
     "freeStuff": 21,
     "resources": 21,
     "opportunities": 0,
-    "offers": 8
+    "offers": 18
   },
   "items": [
     {
@@ -418,6 +418,114 @@
       "isSponsored": false
     },
     {
+      "id": "best-before-farmgirl-baked-beans-410g",
+      "kind": "deal",
+      "title": "Farmgirl baked beans 410g for R14.00 at Best Before",
+      "provider": "Best Before",
+      "summary": "Online price checked on 26 October: R14.00 for 410g (R34.15/kg, based on net pack weight). Delivery costs extra; check the actual batch date before buying.",
+      "category": "groceries",
+      "categoryLabel": "Groceries",
+      "officialUrl": "https://www.best-before.co.za/product/farmgirl-baked-beans-410g/",
+      "termsUrl": "https://www.best-before.co.za/shipping-information/",
+      "requirements": [
+        "Purchase required. No coupon or membership requirement was shown for the displayed pack price. 18 in stock; main Add to basket button visible and enabled. Branch stock and checkout availability were not verified. Tagged Future Dated; actual batch date not shown. No promotional end date was stated. No flat courier tariff or address-specific total verified. Free store collection is advertised in the buying guide. Courier service to supported South African addresses; no P.O. boxes and some farms, remote/outlying areas excluded. Collection at selected Gauteng locations. Retailer warns stock may sell out after ordering; an alternative or refund may be offered. No minimum basket spend was stated on the inspected product and delivery pages. Checkout availability and account requirements were not tested. Confirm your final total and the batch date before paying. No current like-for-like supermarket saving has been verified."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-26",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "looters-koo-mixed-vegetables-410g",
+      "kind": "deal",
+      "title": "Koo mixed vegetables in brine 410g for R9.90 at Looters",
+      "provider": "Looters",
+      "summary": "Online price checked on 26 October: R9.90 for 410g (R24.15/kg, based on net pack weight). Delivery costs extra; check the actual batch date before buying.",
+      "category": "groceries",
+      "categoryLabel": "Groceries",
+      "officialUrl": "https://looters.co.za/products/koo-mixed-vegetables-in-brine/",
+      "termsUrl": "https://looters.co.za/collection-delivery/",
+      "requirements": [
+        "Purchase required. No coupon or membership requirement was shown for the displayed pack price. Main Add to cart button visible and enabled; no stock count displayed. Branch stock and checkout availability were not verified. Actual batch best-before/use-by date not shown. No promotional end date was stated. Paid delivery quote depends on order weight and area; no flat price or address-specific total verified. Select the applicable province for delivery, or collection. Published stores: Retreat, Somerset West, Durban North and Ballito. Address eligibility not confirmed. Retailer says it will notify customers of stock issues. A 10% cancellation/handling fee applies after packing and processing. No minimum basket spend was stated on the inspected product and delivery pages. Checkout availability and account requirements were not tested. Confirm your final total and the batch date before paying. The unit price uses the labelled 410g net pack. A separate Buy 2 Get 1 Free option appears, but its qualifying selection and total were not verified; this listing uses the single-can price. No current like-for-like supermarket saving has been verified."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-26",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "looters-la-italiana-butter-beans-400g",
+      "kind": "deal",
+      "title": "La Italiana butter beans 400g for R16.90 at Looters",
+      "provider": "Looters",
+      "summary": "Online price checked on 26 October: R16.90 for 400g (R42.25/kg, based on net pack weight). Delivery costs extra; check the actual batch date before buying.",
+      "category": "groceries",
+      "categoryLabel": "Groceries",
+      "officialUrl": "https://looters.co.za/products/la-italiana-butter-beans-400g-looters/",
+      "termsUrl": "https://looters.co.za/collection-delivery/",
+      "requirements": [
+        "Purchase required. No coupon or membership requirement was shown for the displayed pack price. Main Add to cart button visible and enabled; no stock count displayed. Branch stock and checkout availability were not verified. Actual batch best-before/use-by date not shown. No promotional end date was stated. Paid delivery quote depends on order weight and area; no flat price or address-specific total verified. Select the applicable province for delivery, or collection. Published stores: Retreat, Somerset West, Durban North and Ballito. Address eligibility not confirmed. Retailer says it will notify customers of stock issues. A 10% cancellation/handling fee applies after packing and processing. No minimum basket spend was stated on the inspected product and delivery pages. Checkout availability and account requirements were not tested. Confirm your final total and the batch date before paying. No current like-for-like supermarket saving has been verified."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-26",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "looters-la-italiana-tomato-puree-400g",
+      "kind": "deal",
+      "title": "La Italiana Italian tomato puree 400g for R17.90 at Looters",
+      "provider": "Looters",
+      "summary": "Online price checked on 26 October: R17.90 for 400g (R44.75/kg, based on net pack weight). Delivery costs extra; check the actual batch date before buying.",
+      "category": "groceries",
+      "categoryLabel": "Groceries",
+      "officialUrl": "https://looters.co.za/products/la-italiana-italian-tomato-puree/",
+      "termsUrl": "https://looters.co.za/collection-delivery/",
+      "requirements": [
+        "Purchase required. No coupon or membership requirement was shown for the displayed pack price. Main Add to cart button visible and enabled; no stock count displayed. Branch stock and checkout availability were not verified. Actual batch best-before/use-by date not shown. No promotional end date was stated. Paid delivery quote depends on order weight and area; no flat price or address-specific total verified. Select the applicable province for delivery, or collection. Published stores: Retreat, Somerset West, Durban North and Ballito. Address eligibility not confirmed. Retailer says it will notify customers of stock issues. A 10% cancellation/handling fee applies after packing and processing. No minimum basket spend was stated on the inspected product and delivery pages. Checkout availability and account requirements were not tested. Confirm your final total and the batch date before paying. No current like-for-like supermarket saving has been verified."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-26",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "looters-eezee-assorted-noodles-5x65g",
+      "kind": "deal",
+      "title": "Eezee assorted noodles 5 x 65g for R21.90 at Looters",
+      "provider": "Looters",
+      "summary": "Online price checked on 26 October: R21.90 for 5 × 65g (325g total) (R67.38/kg, based on net pack weight). Delivery costs extra; check the actual batch date before buying.",
+      "category": "groceries",
+      "categoryLabel": "Groceries",
+      "officialUrl": "https://looters.co.za/products/eezee-noodles-assorted-value-pack/",
+      "termsUrl": "https://looters.co.za/collection-delivery/",
+      "requirements": [
+        "Purchase required. No coupon or membership requirement was shown for the displayed pack price. Main Add to cart button visible and enabled; no stock count displayed. Branch stock and checkout availability were not verified. Actual batch best-before/use-by date not shown. No promotional end date was stated. Paid delivery quote depends on order weight and area; no flat price or address-specific total verified. Select the applicable province for delivery, or collection. Published stores: Retreat, Somerset West, Durban North and Ballito. Address eligibility not confirmed. Retailer says it will notify customers of stock issues. A 10% cancellation/handling fee applies after packing and processing. No minimum basket spend was stated on the inspected product and delivery pages. Checkout availability and account requirements were not tested. Confirm your final total and the batch date before paying. R21.90 requires the full assorted five-sachet pack: R4.38 per 65g sachet, R67.38/kg for 325g. No current like-for-like supermarket saving has been verified."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-26",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "best-before-serena-chopped-tomatoes-400g",
+      "kind": "deal",
+      "title": "Serena chopped tomatoes 400g for R20.00 at Best Before",
+      "provider": "Best Before",
+      "summary": "Online price checked on 26 October: R20.00 for 400g (R50.00/kg, based on net pack weight). Delivery costs extra; check the actual batch date before buying.",
+      "category": "groceries",
+      "categoryLabel": "Groceries",
+      "officialUrl": "https://www.best-before.co.za/product/serena-chopped-tomatoes-400g/",
+      "termsUrl": "https://www.best-before.co.za/shipping-information/",
+      "requirements": [
+        "Purchase required. No coupon or membership requirement was shown for the displayed pack price. 337 in stock; main Add to basket button visible and enabled. Branch stock and checkout availability were not verified. Tagged Future Dated; actual batch date not shown. No promotional end date was stated. No flat courier tariff or address-specific total verified. Free store collection is advertised in the buying guide. Courier service to supported South African addresses; no P.O. boxes and some farms, remote/outlying areas excluded. Collection at selected Gauteng locations. Retailer warns stock may sell out after ordering; an alternative or refund may be offered. No minimum basket spend was stated on the inspected product and delivery pages. Checkout availability and account requirements were not tested. Confirm your final total and the batch date before paying. No current like-for-like supermarket saving has been verified."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-26",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
       "id": "virgin-active-clue-plus-reward-2026",
       "kind": "deal",
       "title": "Three months of Clue Plus with Virgin Active Rewards",
@@ -488,6 +596,78 @@
       ],
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "lastChecked": "2026-10-21",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "best-before-donna-zeina-macaroni-500g",
+      "kind": "deal",
+      "title": "Donna Zeina macaroni 500g for R14.00 at Best Before",
+      "provider": "Best Before",
+      "summary": "Online price checked on 26 October: R14.00 for 500g (R28.00/kg). Delivery costs extra; the actual batch date is not displayed.",
+      "category": "groceries",
+      "categoryLabel": "Groceries",
+      "officialUrl": "https://www.best-before.co.za/product/donna-zeina-macaroni-500g/",
+      "termsUrl": "https://www.best-before.co.za/shipping-information/",
+      "requirements": [
+        "Purchase required. No coupon or membership requirement was shown for the displayed pack price. 27 in stock; main Add to basket button visible and enabled. Branch stock and checkout availability were not verified. Tagged Future Dated; no actual batch date. No promotional end date was stated. No flat courier tariff or address-specific total verified. Free store collection is advertised in the buying guide. Courier service to supported South African addresses; no P.O. boxes and some farms, remote/outlying areas excluded. Collection at selected Gauteng locations. Retailer warns stock may sell out after ordering; an alternative or refund may be offered. No minimum basket spend was stated on the inspected product and delivery pages. Checkout availability and account requirements were not tested. Confirm your final total and the batch date before paying. No current like-for-like supermarket saving has been verified."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-26",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "best-before-pride-brown-lentils-500g",
+      "kind": "deal",
+      "title": "Pride brown lentils 500g for R22.00 at Best Before",
+      "provider": "Best Before",
+      "summary": "Online price checked on 26 October: R22.00 for 500g (R44.00/kg). Delivery costs extra; the actual batch date is not displayed.",
+      "category": "groceries",
+      "categoryLabel": "Groceries",
+      "officialUrl": "https://www.best-before.co.za/product/pride-brown-lentils-500g/",
+      "termsUrl": "https://www.best-before.co.za/shipping-information/",
+      "requirements": [
+        "Purchase required. No coupon or membership requirement was shown for the displayed pack price. 12 in stock; main Add to basket button visible and enabled. Branch stock and checkout availability were not verified. No actual batch date or Future Dated tag observed. No promotional end date was stated. No flat courier tariff or address-specific total verified. Free store collection is advertised in the buying guide. Courier service to supported South African addresses; no P.O. boxes and some farms, remote/outlying areas excluded. Collection at selected Gauteng locations. Retailer warns stock may sell out after ordering; an alternative or refund may be offered. No minimum basket spend was stated on the inspected product and delivery pages. Checkout availability and account requirements were not tested. Confirm your final total and the batch date before paying. No current like-for-like supermarket saving has been verified."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-26",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "looters-craft-coconut-milk-400ml",
+      "kind": "deal",
+      "title": "Craft coconut milk, choice grade 400ml for R23.90 at Looters",
+      "provider": "Looters",
+      "summary": "Online price checked on 26 October: R23.90 for 400ml (R59.75/litre). Delivery costs extra; the actual batch date is not displayed.",
+      "category": "groceries",
+      "categoryLabel": "Groceries",
+      "officialUrl": "https://looters.co.za/products/craft-coconut-milk-choice-grade/",
+      "termsUrl": "https://looters.co.za/collection-delivery/",
+      "requirements": [
+        "Purchase required. No coupon or membership requirement was shown for the displayed pack price. Main Add to cart button visible and enabled; no stock count. Branch stock and checkout availability were not verified. No actual batch date displayed. No promotional end date was stated. Paid delivery quote depends on order weight and area; no flat price or address-specific total verified. Select the applicable province for delivery, or collection. Published stores: Retreat, Somerset West, Durban North and Ballito. Address eligibility not confirmed. Retailer says it will notify customers of stock issues. A 10% cancellation/handling fee applies after packing and processing. No minimum basket spend was stated on the inspected product and delivery pages. Checkout availability and account requirements were not tested. Confirm your final total and the batch date before paying. The retailer description specifies 400ml; the unit price uses that volume, not the separate 0.475kg weight attribute. No current like-for-like supermarket saving has been verified."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-26",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "looters-noodle-king-assorted-pasta-2kg",
+      "kind": "deal",
+      "title": "Noodle King assorted pasta 2kg for R46.90 at Looters",
+      "provider": "Looters",
+      "summary": "Online price checked on 26 October: R46.90 for 2kg (R23.45/kg). Delivery costs extra; the actual batch date is not displayed.",
+      "category": "groceries",
+      "categoryLabel": "Groceries",
+      "officialUrl": "https://looters.co.za/products/noodle-king-assorted-pasta-2kg-looters/",
+      "termsUrl": "https://looters.co.za/collection-delivery/",
+      "requirements": [
+        "Purchase required. No coupon or membership requirement was shown for the displayed pack price. Main Add to cart button visible and enabled; no stock count. Branch stock and checkout availability were not verified. No actual batch date displayed. No promotional end date was stated. Paid delivery quote depends on order weight and area; no flat price or address-specific total verified. Select the applicable province for delivery, or collection. Published stores: Retreat, Somerset West, Durban North and Ballito. Address eligibility not confirmed. Retailer says it will notify customers of stock issues. A 10% cancellation/handling fee applies after packing and processing. No minimum basket spend was stated on the inspected product and delivery pages. Checkout availability and account requirements were not tested. Confirm your final total and the batch date before paying. No current like-for-like supermarket saving has been verified."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-10-26",
       "isAffiliate": false,
       "isSponsored": false
     }

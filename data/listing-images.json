@@ -2462,5 +2462,49 @@
     "reviewedAt": "2026-10-25",
     "sourcePage": "https://www.facebook.com/FirstChoiceSA/videos/moms-dont-do-small-moves-they-do-power-moves-the-kind-nobody-sees-but-everybody-/2199509164780452/",
     "sourceImage": "https://scontent-lhr11-1.xx.fbcdn.net/v/t51.82787-15/856760343_18568472791078583_570329615624033935_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=a27664&_nc_ohc=_cAL1VjYbzYQ7kNvwEFh3Pq&_nc_oc=AdptGkRtHCGo_cEt9LvUwZJV8Xwpyk2l6xQTwnXMQdWu77AfVd3wJLmcTxF_eJaLlJA&_nc_zt=23&_nc_ht=scontent-lhr11-1.xx&_nc_gid=qE4FSf8RU8Yr9edx2exTmQ&_nc_ss=7f289&oh=00_AQOSBrCgNXoOz0eGgIQ_pZX5vl-fCm99Drr7XomDeHrerA&oe=6AE37D85"
+  },
+  "best-before-donna-zeina-macaroni-500g": {
+    "src": "/assets/grocery-savings/best-before-donna-zeina-macaroni-500g.webp",
+    "width": 600,
+    "height": 600,
+    "reviewedAt": "2026-10-26",
+    "kind": "official-source",
+    "sourcePage": "https://www.best-before.co.za/product/donna-zeina-macaroni-500g/",
+    "sourceImage": "https://www.best-before.co.za/wp-content/uploads/2023/04/6009879971118b-600x600.jpg",
+    "alt": "Official retailer photograph of Donna Zeina macaroni, 500g",
+    "caption": "Official retailer product image. Packaging can differ; check the supplied pack and batch date."
+  },
+  "best-before-pride-brown-lentils-500g": {
+    "src": "/assets/grocery-savings/best-before-pride-brown-lentils-500g.webp",
+    "width": 600,
+    "height": 600,
+    "reviewedAt": "2026-10-26",
+    "kind": "official-source",
+    "sourcePage": "https://www.best-before.co.za/product/pride-brown-lentils-500g/",
+    "sourceImage": "https://www.best-before.co.za/wp-content/uploads/2025/07/6002310009715-600x600.jpg",
+    "alt": "Official retailer photograph of Pride brown lentils, 500g",
+    "caption": "Official retailer product image. Packaging can differ; check the supplied pack and batch date."
+  },
+  "looters-craft-coconut-milk-400ml": {
+    "src": "/assets/grocery-savings/looters-craft-coconut-milk-400ml.webp",
+    "width": 600,
+    "height": 600,
+    "reviewedAt": "2026-10-26",
+    "kind": "official-source",
+    "sourcePage": "https://looters.co.za/products/craft-coconut-milk-choice-grade/",
+    "sourceImage": "https://looters.co.za/wp-content/uploads/2026/05/Craft-Coconut-Milk-Choice-Grade-600x600.webp",
+    "alt": "Official retailer photograph of Craft coconut milk, choice grade, 400ml",
+    "caption": "Official retailer product image. Packaging can differ; check the supplied pack and batch date."
+  },
+  "looters-noodle-king-assorted-pasta-2kg": {
+    "src": "/assets/grocery-savings/looters-noodle-king-assorted-pasta-2kg.webp",
+    "width": 600,
+    "height": 600,
+    "reviewedAt": "2026-10-26",
+    "kind": "official-source",
+    "sourcePage": "https://looters.co.za/products/noodle-king-assorted-pasta-2kg-looters/",
+    "sourceImage": "https://looters.co.za/wp-content/uploads/2026/04/Standard-Template-2026-04-25T132408.094-600x600.webp",
+    "alt": "Official retailer photograph of Noodle King assorted pasta, 2kg",
+    "caption": "Official retailer product image. Packaging can differ; check the supplied pack and batch date."
   }
 }
