@@ -1,20 +1,19 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-10-25
+Generated: 2026-10-26
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 18
+- Matching active public competitions: 17
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Ster-Kinekor Silas Watch and Win Competition (ster-kinekor-silas-watch-and-win-2026) | 2026-10-25 | purchase-required | yes | yes | WhatsApp mentioned in entry text | none |
 | MTN and Algoa FM Big Walk: Cash and Home Internet Prizes (mtn-algoa-big-walk-for-cancer-2026) | 2026-10-30 | free-entry | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Astron Energy Own a Golf 8 GTI Competition 2026 (astron-energy-own-golf-8-gti-2026) | 2026-10-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Cadbury Made to Share: Win R20,000 Weekly (cadbury-made-to-share-2026) | 2026-10-31 | free-entry | yes | yes | WhatsApp mentioned in entry text | none |
@@ -57,14 +56,13 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 31
+- Matching active public competitions: 30
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Ster-Kinekor Silas Watch and Win Competition (ster-kinekor-silas-watch-and-win-2026) | 2026-10-25 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | SPAR Community School Support Competition (spar-community-school-support-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Astron Energy Own a Golf 8 GTI Competition 2026 (astron-energy-own-golf-8-gti-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Cadbury Made to Share: Win R20,000 Weekly (cadbury-made-to-share-2026) | 2026-10-31 | free-entry | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
@@ -102,14 +100,13 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 45
+- Matching active public competitions: 44
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Ster-Kinekor Silas Watch and Win Competition (ster-kinekor-silas-watch-and-win-2026) | 2026-10-25 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | Wanderlust Reader Travel Awards 2026 Prize Draw (wanderlust-reader-travel-awards-prize-draw-2026) | 2026-10-27 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | News24 MyHomeSA art competition for school learners (news24-myhomesa-art-competition-2026) | 2026-10-30 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Gelmar Pass the Parcel: Win R1,000 Vouchers (gelmar-pass-the-parcel-october-2026) | 2026-10-30 | free-entry | yes | yes | Online entry tag | none |
@@ -219,14 +216,13 @@ Recommended normalisation:
 ## Supermarket Competitions in South Africa
 
 - URL: /supermarket-competitions-south-africa/
-- Matching active public competitions: 19
+- Matching active public competitions: 18
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Heinz Heritage SPAR Rewards Braai Competition (heinz-heritage-spar-2026) | 2026-10-25 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Sea Harvest Say Fish: Win R5,000 Grocery Vouchers (sea-harvest-say-fish-grocery-vouchers-2026) | 2026-10-30 | purchase-required | yes | yes | Supermarket or grocery entry text | none |
 | SPAR Community School Support Competition (spar-community-school-support-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Supermarket brand or retail partner | none |
 | Lancewood Spread & Scoop Competition 2026 (lancewood-spread-scoop-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Supermarket or grocery entry text | none |

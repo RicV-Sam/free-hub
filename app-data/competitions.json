@@ -1,60 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-25",
-  "count": 120,
+  "asOfDate": "2026-10-26",
+  "count": 118,
   "competitions": [
-    {
-      "id": "heinz-heritage-spar-2026",
-      "title": "Heinz Heritage SPAR Rewards Braai Competition",
-      "brand": "Heinz / Diplomat Distributors / SPAR",
-      "summary": "Buy two participating Heinz products and swipe SPAR Rewards for a chance to win a Red Outback four-burner Jupiter hybrid gas and charcoal braai with a chopping board.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/heinz-heritage-spar-2026.jpg",
-      "closingDate": "2026-10-25",
-      "category": "Lifestyle",
-      "prizeName": "Red Outback 4 Burner Jupiter Hybrid Gas and Charcoal Braai with chopping board",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Purchase and SPAR Rewards Card Swipe",
-      "eligibility": "South African citizens aged 18 or older with valid identification and a SPAR Rewards card.",
-      "entrySteps": [
-        "Check the participating product list on the official SPAR campaign page.",
-        "Buy any two participating products and swipe your SPAR Rewards card for automatic entry.",
-        "Complete your qualifying purchase between 14 September and 25 October 2026.",
-        "Keep your SPAR Rewards contact details current. The winner must provide valid South African identification."
-      ],
-      "officialUrl": "https://www.spar.co.za/competitions/heinz-heritage-spar-rewards-competition",
-      "termsUrl": "https://www.spar.co.za/competitions/heinz-heritage-spar-rewards-competition",
-      "lastChecked": "2026-10-14",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
-    {
-      "id": "ster-kinekor-silas-watch-and-win-2026",
-      "title": "Ster-Kinekor Silas Watch and Win Competition",
-      "brand": "Ster-Kinekor",
-      "summary": "A qualifying booking for Silas en die Ysbeer op Tafelberg using your SK Club or Discovery Vitality membership number enters you automatically. Three winners each receive a picture book, a self-read book and a Silas plush toy.",
-      "imageUrl": "https://freehub.co.za/assets/listings/ster-kinekor-silas-watch-and-win-2026.webp",
-      "closingDate": "2026-10-25",
-      "category": "Other",
-      "prizeName": "Silas picture book, self-read book and plush-toy prize pack",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Automatic loyalty booking entry",
-      "eligibility": "Open to legal residents of South Africa, Namibia and Zambia with a qualifying SK Club/affiliated club or Discovery Vitality membership.",
-      "entrySteps": [
-        "Read the official watch-and-win rules and confirm that you hold a qualifying SK Club, affiliated club or Discovery Vitality membership.",
-        "Book Silas en die Ysbeer op Tafelberg through the Ster-Kinekor website, app, Ticket Line or cinema self-service terminals during 18 September–25 October 2026.",
-        "Use your qualifying membership number when booking. The rules say this creates an automatic competition entry; a separate social-media comment is not the stated entry method.",
-        "Keep your membership contact details current. The draw is scheduled for 26 October, with winners contacted by email, phone or WhatsApp by 30 October. Complete any winner declaration and prize receipt requirements."
-      ],
-      "officialUrl": "https://www.sterkinekor.com/competition/silas-en-die-ysbeer-op-tafelberg-watch-and-win-competition-sk-club-and-discovery-vitality",
-      "termsUrl": "https://www.sterkinekor.com/competition/silas-en-die-ysbeer-op-tafelberg-watch-and-win-competition-sk-club-and-discovery-vitality",
-      "lastChecked": "2026-09-18",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "wanderlust-reader-travel-awards-prize-draw-2026",
       "title": "Wanderlust Reader Travel Awards 2026 Prize Draw",

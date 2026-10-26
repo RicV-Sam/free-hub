@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-25",
-  "count": 30,
+  "asOfDate": "2026-10-26",
+  "count": 29,
   "counts": {
     "freeStuff": 21,
     "resources": 21,
     "opportunities": 0,
-    "offers": 9
+    "offers": 8
   },
   "items": [
     {
@@ -344,25 +344,6 @@
       ],
       "watchOut": "This benefit excludes the Planetarium, Castle of Good Hope and Groot Constantia for the Friday and December dates described here. Closed sites and maintenance closures are excluded. Paid shows, guided tours and separately priced activities are not included. No account or purchase is stated for ordinary qualifying admission; travel and optional spending remain payable.",
       "lastChecked": "2026-10-16"
-    },
-    {
-      "id": "virgin-active-club-v-two-free-visits-october-2026",
-      "kind": "deal",
-      "title": "Two free Virgin Active Club V visits in October",
-      "provider": "Virgin Active",
-      "summary": "Two free Club-V visits for eligible children during October 2026; parents or legal guardians need not be gym members.",
-      "category": "baby-kids",
-      "categoryLabel": "Baby & Kids",
-      "officialUrl": "https://hello.virginactive.co.za/support/solutions/articles/201000133149-october-2026-new-joiner-terms-and-conditions",
-      "termsUrl": "https://hello.virginactive.co.za/support/solutions/articles/201000133149-october-2026-new-joiner-terms-and-conditions",
-      "requirements": [
-        "Section 7 only. Offer ends 31 October 2026. Ages six weeks to nine at Club-V, or up to 13 at Club-V Max, subject to the facility. Complete the guest register and disclaimer, provide the club-required identification and proof of guardianship, and sign the child in. Members also complete a child disclaimer for every visit. Check the selected club before travelling. This benefit does not require joining the separate paid gym or PT campaigns."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2026-10-31",
-      "lastChecked": "2026-10-11",
-      "isAffiliate": false,
-      "isSponsored": false
     },
     {
       "id": "panarottis-rewards-additional-benefits",
