@@ -2,7 +2,7 @@
   "ok": true,
   "errors": [],
   "summary": {
-    "today": "2026-10-26",
+    "today": "2026-10-27",
     "retiredCount": 6,
     "retiredRouteLeaks": [],
     "expiredPublishedCount": 261,
@@ -28,7 +28,7 @@
     "nonPublicDetailPages": [],
     "nonPublicInPublicListings": [],
     "editorialHealth": {
-      "asOfDate": "2026-10-26",
+      "asOfDate": "2026-10-27",
       "needsReview": true,
       "surfaces": [
         {
