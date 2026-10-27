@@ -118,3 +118,34 @@ test("preview renders uncertainty, noindex and the empty state without fabricate
   assert.ok(empty.includes("No current price checks to show"));
   assert.ok(!empty.includes("R9.90"));
 });
+
+
+test("grocery discovery puts area and guide choices before product cards without refreshing evidence", () => {
+  const page = grocery.getGroceryPages({ asOfDate: "2026-10-27" })[0];
+  const html = renderer.renderPage(page, grocery.getGroceryPrices(offers, { asOfDate: "2026-10-27" }));
+  assert.equal(page.dateModified, "2026-10-27");
+  assert.equal(grocery.settings.lastReviewed, "2026-10-26");
+  assert.match(html, /<h1>Grocery savings in South Africa<\/h1>/);
+  assert.ok(html.indexOf('id="where-to-shop"') < html.indexOf('id="price-checked-finds"'));
+  assert.ok(html.indexOf('id="reading-heading"') < html.indexOf('id="price-checked-finds"'));
+  for (const area of ["Gauteng", "Western Cape", "KwaZulu-Natal"]) assert.ok(html.includes(area));
+  assert.match(html, /data-link-role="store_directory"/);
+  assert.match(html, /No supermarket price saving has been established/);
+});
+
+test("grocery clicks reuse discovery analytics while previews and reference images send no events", () => {
+  const live = grocery.createGroceryRenderer({ escapeHtml: escape, escapeAttribute: escape, escapeScript, images, stylesheet: "/styles.css", navigation: "", footer: "" });
+  const prices = grocery.getGroceryPrices(offers, { asOfDate: "2026-10-27" });
+  const html = live.renderOffer(prices[0]);
+  assert.match(html, /src="\/shared\/discovery-analytics\.js" defer/);
+  assert.match(html, /data-discovery-action="official-source"[^>]+data-content-id="best-before-farmgirl-baked-beans-410g"[^>]+data-source-domain="www.best-before.co.za"[^>]+data-link-role="retailer_handoff"/);
+  assert.match(html, /data-link-role="product_source"/);
+  assert.match(html, /data-link-role="delivery_terms"/);
+  const hub = grocery.getGroceryPages({ asOfDate: "2026-10-27" })[0];
+  assert.match(live.renderPage(hub, prices), /data-discovery-action="card"/);
+  const preview = renderer.renderPage(hub, prices);
+  assert.ok(!preview.includes('src="/shared/discovery-analytics.js"'));
+  const figcaptions = [...preview.matchAll(/<figcaption>([\s\S]*?)<\/figcaption>/g)];
+  assert.ok(figcaptions.length > 0);
+  for (const caption of figcaptions) assert.ok(!caption[1].includes("data-discovery-action"));
+});

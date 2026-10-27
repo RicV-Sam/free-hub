@@ -7,9 +7,9 @@
       "slug": "grocery-savings",
       "kind": "hub",
       "title": "Grocery Savings South Africa: Stores, Prices & Guides | FreeHub",
-      "heading": "Make your grocery budget go further.",
+      "heading": "Grocery savings in South Africa",
       "description": "Explore South African discount grocery stores and price-checked finds, with pack sizes, unit prices, date-label information and delivery costs to consider.",
-      "intro": "Find discount stores, compare the cost of a pack and check the details that matter before you shop.",
+      "intro": "Compare discount grocery stores and checked prices. Start with your area, then check pack sizes, date labels and delivery costs before you shop.",
       "imageId": "grocery-best-before-store",
       "sections": []
     },
@@ -388,5 +388,6 @@
       "sourceUrl": "https://looters.co.za/products/noodle-king-assorted-pasta-2kg-looters/"
     }
   ],
-  "publishedAt": "2026-10-18"
+  "publishedAt": "2026-10-18",
+  "contentUpdatedAt": "2026-10-27"
 }

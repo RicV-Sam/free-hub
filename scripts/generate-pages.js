@@ -4387,7 +4387,7 @@ function renderVerticalEditorial(routeContext) {
           <div class="seo-copy-block__content hub-editorial">
             <section class="hub-editorial__section">
               ${paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("\n              ")}
-              <p>Freehub summarises competitions and links to official promoter pages. Always confirm the final rules on the promoter's website.</p>
+              ${GROCERY_PAGES.length && ["win-grocery-vouchers-south-africa", "supermarket-competitions-south-africa"].includes(verticalPage.slug) ? '<p>Looking to reduce your shopping bill? <a href="/grocery-savings/">Explore Grocery Savings</a> for discount stores, checked pack prices and delivery information.</p>\n              ' : ""}<p>Freehub summarises competitions and links to official promoter pages. Always confirm the final rules on the promoter's website.</p>
             </section>
           </div>
         </section>`;
@@ -7172,6 +7172,15 @@ function renderHomepageValueSection() {
         </section>`;
 }
 
+function renderGrocerySavingsPromotion() {
+  if (!GROCERY_PAGES.length) return "";
+  return `<section class="home-cta" aria-label="Grocery Savings guides">
+          <div><p class="section-kicker">Everyday savings</p><h2 class="home-cta__title">Compare discount grocery stores before you shop</h2>
+          <p class="home-section__intro">Find stores for your area, compare checked pack prices and include delivery costs in your decision.</p></div>
+          <div class="home-cta__actions"><a class="btn btn--primary" href="/grocery-savings/">Explore Grocery Savings</a>
+          <a class="btn btn--secondary" href="/discount-grocery-stores-south-africa/">Compare stores</a></div></section>`;
+}
+
 function renderHomepageResourcesSection() {
   const guides = [
     { image: "learning", title: "Free online courses", text: "Compare learning options, entry requirements and any certificate or exam fees before you enrol.", action: "Explore courses", href: "/free-online-courses-south-africa/" },
@@ -7378,7 +7387,7 @@ ${noscriptLinks}
         ${renderAirtimeDashPromotion()}
         ${renderReviewedPicks(reviewed, "home")}
         ${renderIntentTilesSection()}
-        ${renderHomepageResourcesSection()}
+        ${renderGrocerySavingsPromotion()}${renderHomepageResourcesSection()}
         ${renderHomeTrustSection()}
         ${renderDatacostPromo({
           placement: "home-after-featured",

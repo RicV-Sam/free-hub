@@ -1,0 +1,69 @@
+{
+  "status": "validated-for-authorised-scoped-release",
+  "preparedOn": "2026-10-27",
+  "sourceBase": "6d0ec819ec07d1c2a73207b0d46468d2351ef575",
+  "remoteHeadChecked": "c433a6f855cc8a8932edc38252ad36aa653e6dd6",
+  "remoteDifference": "Two maintenance commits; only generated files differ, no source differences.",
+  "changes": [
+    "Hub heading states Grocery savings in South Africa.",
+    "Location comparison and evergreen guide links precede product cards.",
+    "Homepage promotion and contextual links from grocery-voucher and supermarket guides are offers-flag gated.",
+    "Existing discovery_card_click and official_source_click helper measures product details, retailer directories, product sources, delivery terms and retailer handoff clicks."
+  ],
+  "freshness": "Source checks retain 26 October dates. Only editorial modification date advances to 27 October. No offer review windows, publication states or image provenance changed.",
+  "comparisonResearch": [
+    {
+      "sourceUrl": "https://www.checkers.co.za/product/koo-mixed-vegetables-in-brine-410g-10126792EA",
+      "checkedOn": "2026-10-27",
+      "method": "Live browser page inspection",
+      "product": "KOO Mixed Vegetables In Brine 410g",
+      "priceCents": 2299,
+      "bundle": {
+        "quantity": 2,
+        "totalCents": 3500,
+        "expiresAt": "2026-11-08"
+      },
+      "limitations": "No delivery address selected. Site requires an address for relevant offers and availability. Checkout stock, local eligibility, batch dates and delivery total not verified."
+    },
+    {
+      "sourceUrl": "https://looters.co.za/products/koo-mixed-vegetables-in-brine/",
+      "status": "not-rechecked",
+      "reason": "Browser origin access was declined. No other access method attempted after the denial.",
+      "existingEvidence": "26 October reviewed record retained; not treated as a 27 October observation."
+    }
+  ],
+  "publicPriceComparison": "Withheld: matching discount-retailer price could not be rechecked on the same day. No invented saving or national cheapest claim.",
+  "measurement": {
+    "script": "/shared/discovery-analytics.js",
+    "events": [
+      "discovery_card_click",
+      "official_source_click"
+    ],
+    "entity_kind": "grocery",
+    "content_type": "grocery_savings",
+    "page_type": "grocery_savings",
+    "roles": [
+      "store_directory",
+      "retailer_information",
+      "product_source",
+      "delivery_terms",
+      "retailer_handoff"
+    ],
+    "privacy": "Only content identifiers, destination path and source hostname. No queries, addresses, credentials or checkout data. Artwork provenance and government references are excluded from retailer click tracking.",
+    "ga4": "Browser wiring checks do not establish processed GA4 event receipt."
+  },
+  "indexing": {
+    "hub": "Discovered – currently not indexed in Search Console on 27 October",
+    "nextAction": "After deployment verify live source changes and request hub indexing. Google decides whether and when to index."
+  },
+  "validation": {
+    "runtime": "Node 24.11.0; exact Node 24.19.0 regression manifest not claimed",
+    "dependencies": "npm ci --ignore-scripts --offline succeeded using a copied local cache",
+    "baseline": "8 September fixture, offers disabled: build and SEO passed; lifecycle 173/174 passed; remaining retirement HTTP fixture blocked by connect EACCES on loopback",
+    "current": "27 October actual-date build, offers enabled: build, SEO and maintenance validation passed",
+    "groceryTests": "12/12 passed",
+    "browser": "390px and 1440px Chromium checks passed for reflow, local images, directory/card/handoff events, homepage promotion and contextual links. Static generated files served through Playwright routing because local socket access is restricted.",
+    "outputReview": "No added/removed routes; no app feed changes. Three existing guide lastmod dates advance to editorial update date. Grocery pages, homepage and two existing grocery-related verticals change.",
+    "external": "Live link audit unavailable in restricted network; same-day comparison withheld after declined retailer access. Processed GA4 receipt requires post-release observation."
+  }
+}
