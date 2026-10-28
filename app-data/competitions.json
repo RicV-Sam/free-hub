@@ -1,33 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-27",
-  "count": 118,
+  "asOfDate": "2026-10-28",
+  "count": 117,
   "competitions": [
-    {
-      "id": "wanderlust-reader-travel-awards-prize-draw-2026",
-      "title": "Wanderlust Reader Travel Awards 2026 Prize Draw",
-      "brand": "Wanderlust Travel Media",
-      "summary": "Wanderlust Travel Media is running a free prize draw alongside the 2026 Reader Travel Awards. Eleven winners receive one of eleven travel prizes from travel partners, with international entrants allowed under the master terms but some prizes carrying UK departure points or prize-specific eligibility limits.",
-      "closingDate": "2026-10-27",
-      "category": "Holidays",
-      "prizeName": "One of eleven international travel prizes",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "Entrants must be 18 or older, enter online by the closing date and satisfy any prize-provider rules for the prize drawn.",
-      "entrySteps": [
-        "Open the official Wanderlust Reader Travel Awards voting page and review the prize draw terms.",
-        "Submit your Reader Travel Awards votes through the official online entry route.",
-        "Follow @wanderlustmag on Instagram or Wanderlust Travel Magazine on Facebook for the duration of the draw. The terms provide an active-subscriber exception for entrants without a social-media account.",
-        "Opt into any prize-provider requirements that apply to the specific prize you want to be eligible for, then enter before 27 October 2026 at 23:59 UK time."
-      ],
-      "officialUrl": "https://wanderlusttravelawards.com/",
-      "termsUrl": "https://www.wanderlustmagazine.com/wanderlust-reader-travel-awards-2026-prize-draw-terms-and-conditions/",
-      "lastChecked": "2026-09-08",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
     {
       "id": "sea-harvest-say-fish-grocery-vouchers-2026",
       "title": "Sea Harvest Say Fish: Win R5,000 Grocery Vouchers",
@@ -1052,7 +1027,7 @@
       "termsUrl": "https://www.boxer.co.za/storage/web/source/2026/Competition%20T%26Cs/Sep%20ME/Boxer%20%26%20CCBA%20Ts%26Cs.pdf?_t=1789978627",
       "lastChecked": "2026-10-03",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "hot-cares-schools-challenge-2026",
@@ -1078,7 +1053,7 @@
       "termsUrl": "https://hot1027.co.za/competition/big-hearts-big-prizes-the-hot-cares-schools-challenge-is-here/",
       "lastChecked": "2026-10-14",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "ster-kinekor-street-fighter-watch-win-2026",
@@ -1101,7 +1076,7 @@
       "termsUrl": "https://www.sterkinekor.com/competition/street-fighter-watch-and-win-competition",
       "lastChecked": "2026-10-24",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "nedbank-moyaapp-consumer-education-2026",
