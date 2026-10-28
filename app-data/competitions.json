@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-28",
-  "count": 117,
+  "count": 118,
   "competitions": [
     {
       "id": "sea-harvest-say-fish-grocery-vouchers-2026",
@@ -1336,6 +1336,34 @@
       "termsUrl": "https://woobox.com/bua49d/rules",
       "lastChecked": "2026-09-17",
       "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "hypertext-mobile-survey-2026",
+      "title": "Hypertext Mobile Survey: Win R5,000 in Takealot Vouchers",
+      "brand": "Hypertext / HTXT Media",
+      "summary": "Share your views on mobile phones in Hypertext's 2026 survey for a chance to win R5,000 in Takealot vouchers. One entry per South African reader; no purchase or entry fee. Marketing subscriptions are optional.",
+      "imageUrl": "https://freehub.co.za/assets/listings/htxt-mobile-survey-2026.webp",
+      "closingDate": "2026-11-12",
+      "category": "Vouchers",
+      "prizeName": "R5,000 in Takealot vouchers for one winner",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "South African residents; one entry per reader. HTXT employees, agents and their families excluded. HTXT confirms no minimum age and optional marketing choices.",
+      "entrySteps": [
+        "Read the campaign terms on Hypertext's official 2026 Mobile Survey page. Entry is limited to South African residents, with one entry per reader; HTXT Media employees, agents and their families are excluded.",
+        "Scroll to the Google Form embedded in the official campaign page. It is titled 2026 Hypertext Mobile Survey.",
+        "Provide your first name, surname, email address and daytime contact number, then answer the questions about your phone, mobile network and smartphone preferences.",
+        "Choose Yes or No separately for the daily newsletter and future-survey database invitations. HTXT confirmed to FreeHub that these marketing choices are optional and declining them does not prevent entry into the prize draw.",
+        "Submit the completed survey once before midnight at the end of 12 November 2026 (SAST). No purchase or entry fee is required; normal internet/data costs may apply.",
+        "Monitor the email address and telephone number you supplied. HTXT says the selected winner will be emailed and given 48 hours to respond, followed by a telephone attempt if needed. If there is still no response, HTXT will draw a replacement winner."
+      ],
+      "officialUrl": "https://htxt.co.za/2026/09/the-hypertext-mobile-survey-returns-for-2026/",
+      "termsUrl": "https://htxt.co.za/2026/09/the-hypertext-mobile-survey-returns-for-2026/",
+      "lastChecked": "2026-10-28",
+      "isHighValue": false,
       "isClosingSoon": false
     },
     {

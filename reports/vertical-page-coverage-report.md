@@ -100,7 +100,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 43
+- Matching active public competitions: 44
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -130,6 +130,7 @@ Recommended normalisation:
 | FAO World Food Day 2026 Poster Contest (fao-world-food-day-poster-2026) | 2026-11-06 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | 1UP Mangia Pasta R500 vouchers (1up-mangia-vouchers-2026) | 2026-11-09 | purchase-required | yes | yes | Online entry tag | none |
 | Outdoorphoto Wishlist: Win a Tenba Spinner Backpack (outdoorphoto-wishlist-tenba-2026) | 2026-11-10 | free-entry | yes | yes | Online entry tag | none |
+| Hypertext Mobile Survey: Win R5,000 in Takealot Vouchers (hypertext-mobile-survey-2026) | 2026-11-12 | free-entry | yes | yes | Online entry tag | none |
 | GoTyme Card Swipe and Spend: Win R300 (gotyme-card-swipe-spend-2026) | 2026-11-30 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | AVBOB 10th Annual Poetry Competition (avbob-poetry-2026) | 2026-11-30 | free-entry | yes | yes | Online entry tag | none |
 | Penguin x Braai Broekies: Win a Book and Braai Gear (prh-braai-broekies-2026) | 2026-11-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |

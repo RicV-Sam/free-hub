@@ -2506,5 +2506,16 @@
     "sourceImage": "https://looters.co.za/wp-content/uploads/2026/04/Standard-Template-2026-04-25T132408.094-600x600.webp",
     "alt": "Official retailer photograph of Noodle King assorted pasta, 2kg",
     "caption": "Official retailer product image. Packaging can differ; check the supplied pack and batch date."
+  },
+  "hypertext-mobile-survey-2026": {
+    "src": "/assets/listings/htxt-mobile-survey-2026.webp",
+    "width": 1200,
+    "height": 1200,
+    "alt": "Official Hypertext 2026 Mobile Survey artwork offering entry into a draw for a R5,000 Takealot voucher",
+    "kind": "official-source",
+    "caption": "Official campaign artwork supplied by HTXT Media.",
+    "reviewedAt": "2026-10-28",
+    "sourcePage": "https://htxt.co.za/2026/09/the-hypertext-mobile-survey-returns-for-2026/",
+    "provenance": "Campaign-specific artwork supplied directly by HTXT Media for the FreeHub competition submission; original preserved privately."
   }
 }
