@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-28",
+  "asOfDate": "2026-10-29",
   "count": 118,
   "competitions": [
     {
@@ -1101,7 +1101,7 @@
       "termsUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/consumer-education-competition-with-money-app.html",
       "lastChecked": "2026-09-14",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "superbalist-live-superb-cash-2026",
@@ -1129,7 +1129,7 @@
       "termsUrl": "https://superbalist.com/competitions",
       "lastChecked": "2026-10-18",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "fao-world-food-day-poster-2026",

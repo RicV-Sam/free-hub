@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-28",
-  "count": 29,
+  "asOfDate": "2026-10-29",
+  "count": 25,
   "counts": {
     "freeStuff": 21,
     "resources": 21,
     "opportunities": 0,
-    "offers": 8
+    "offers": 4
   },
   "items": [
     {
@@ -414,80 +414,6 @@
       ],
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "lastChecked": "2026-10-16",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "virgin-active-clue-plus-reward-2026",
-      "kind": "deal",
-      "title": "Three months of Clue Plus with Virgin Active Rewards",
-      "provider": "Virgin Active",
-      "summary": "Eligible Virgin Active members aged 18+ can select three months of Clue Plus after reaching a rewards milestone. Payment details are required; it renews at the standard rate unless cancelled.",
-      "category": "banking-rewards",
-      "categoryLabel": "Banking & Rewards",
-      "officialUrl": "https://hello.virginactive.co.za/support/solutions/articles/201000133699-terms-and-conditions-3-months-free",
-      "termsUrl": "https://hello.virginactive.co.za/support/solutions/articles/201000133699-terms-and-conditions-3-months-free",
-      "requirements": [
-        "Active Virgin Active membership in South Africa, Botswana or Namibia, age 18+ and achievement of the app’s milestone goal are required. Select the Clue Plus reward in the Virgin Active app and activate it within seven days. It cannot overlap or extend an existing Clue subscription or trial. Valid payment details are required; there is no subscription charge during the initial three months, then automatic renewal at Clue’s standard rate unless cancelled beforehand under Clue’s terms. No fixed renewal price is stated here: check it before activation. This is a member subscription reward, not free gym membership. Availability and partner exclusions apply."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2027-01-31",
-      "lastChecked": "2026-10-21",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "dstv-seven-day-upgrade-2026",
-      "kind": "deal",
-      "title": "Seven days of extra DStv channels for qualifying monthly customers",
-      "provider": "DStv",
-      "summary": "Eligible DStv Select and Sports monthly customers can receive seven days of higher-package channels after paying on time. A paid subscription and qualifying history are required; the extra viewing ends automatically without an upgrade charge.",
-      "category": "entertainment",
-      "categoryLabel": "Entertainment",
-      "officialUrl": "https://www.dstv.com/en-za/news/149765/7-day-upgrade/",
-      "termsUrl": "https://www.multichoice.com/SouthAfrica/pdf/subscriber-terms/230926-sportsandselect-ts-and-cs-for-7-day-upgrade-sa.pdf",
-      "requirements": [
-        "South African residential DStv or DStv Stream monthly subscribers must have completed at least one full month, stay active on an eligible package and ensure full payment reaches MultiChoice before the next due date. Select receives Sport; Sports receives Premium. The seven-day benefit is automatic, linked to the next viewing cycle and may take up to 48 hours to provision. Viewing returns to the normal package afterwards without an extra upgrade fee. Business, quarterly/annual, Price Lock and Subscription Price Lock accounts, unpaired packages, add-ons and certain disconnected/inactive accounts are excluded. Reconnected customers qualify only in month two after two consecutive active months. Add-ons and value-added services keep their normal charges. The provider announces Starter-to-Select and Movies & Series-to-Premium from 26 October under a separate later package phase, not as already available on 21 October."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "lastChecked": "2026-10-21",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "vodacom-prime-video-mobile-reward-2026",
-      "kind": "deal",
-      "title": "Invited Vodacom customers: 12 months Prime Video Mobile Edition",
-      "provider": "Vodacom",
-      "summary": "Selected Vodacom customers receiving the official SMS can activate 12 months of Prime Video Mobile Edition. It automatically becomes a paid R29/month subscription deducted from airtime unless cancelled in time.",
-      "category": "entertainment",
-      "categoryLabel": "Entertainment",
-      "officialUrl": "https://www.vodacom.co.za/vodacom/terms/competition/prime-video-mobile-edition-reward",
-      "termsUrl": "https://www.vodacom.co.za/vodacom/terms/competition/prime-video-mobile-edition-reward",
-      "requirements": [
-        "Invitation-only South African Vodacom reward, with notifications during 2 March–15 November 2026. Receive the official SMS, use its portal link and sign up; the 12 months start on activation. Correct RICA registration and valid SA ID/residence documentation are required. Sign in at least once every two months to keep the reward. Normal mobile data costs may remain. This is Mobile Edition, not an unrestricted promise of every Prime subscription benefit. At trial expiry it automatically changes to a paid R29 monthly subscription deducted from airtime unless cancelled. Manage subscriptions at the official Vodafone offers portal linked in Vodacom’s terms; cancellation is also available through Vodacom self-service, Customer Care 082135, *135#, VodaPay or the service’s cancellation menu. Porting/cancelling the number forfeits unused reward. No cash exchange or transfer."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2026-11-15",
-      "lastChecked": "2026-10-21",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "lush-samples-with-online-order",
-      "kind": "deal",
-      "title": "Up to three Lush samples with a paid online order",
-      "provider": "Lush South Africa",
-      "summary": "Lush South Africa offers complimentary samples with paid online orders, subject to availability and exclusions. Choose up to three from the cart’s sample menu where available; sample-only postal requests are not offered.",
-      "category": "beauty-health",
-      "categoryLabel": "Beauty & Health",
-      "officialUrl": "https://lush.co.za/pages/faq-1",
-      "termsUrl": "https://lush.co.za/pages/faq-1",
-      "requirements": [
-        "A product purchase is required for online sample delivery, and normal order/delivery charges apply. Lush may select samples based on the order, or customers can select up to three through Add Samples in the cart. Samples are subject to availability, capped at three per customer, and exclude gifts, mouthcare and bath products. The FAQ says it cannot send samples without a product purchase. In-store staff may prepare a sample for trying a new product at home; repeat requests for the same product may be limited. In-store availability and selection are discretionary and no nationwide sample stock is promised. No fixed campaign expiry is published."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "lastChecked": "2026-10-21",
       "isAffiliate": false,
       "isSponsored": false
     }
