@@ -3344,10 +3344,10 @@ function renderUnderReviewCallout() {
   return `<aside class="under-review-callout" aria-labelledby="under-review-callout-title">
           <div>
             <p class="under-review-callout__eyebrow">Separate from verified listings</p>
-            <h2 id="under-review-callout-title">See competitions still under review</h2>
-            <p>We found ${count} current lead${count === 1 ? "" : "s"} that may be useful, but the available terms leave important questions unanswered. See the exact evidence gap before deciding whether to visit the promoter.</p>
+            <h2 id="under-review-callout-title">Explore competitions pending verification</h2>
+            <p>${count} current lead${count === 1 ? " has" : "s have"} not passed FreeHub's verification checks. Read what remains unconfirmed before visiting a promoter. Inclusion does not mean endorsement or guarantee approval.</p>
           </div>
-          <a class="under-review-callout__link" href="${unverifiedCompetitionData.PUBLIC_PATH}">View the under-review list</a>
+          <a class="under-review-callout__link" href="${unverifiedCompetitionData.PUBLIC_PATH}">Pending Verification Competitions</a>
         </aside>`;
 }
 
@@ -5777,6 +5777,7 @@ function renderPage(routeContext, competitions) {
         ${isCollectionPage ? renderCollectionBreadcrumb(pageCopy.heading) : ""}
 
         ${renderDurableInventoryNotice(routeContext, competitions)}
+        ${isPrimaryCompetitionHub ? renderUnderReviewCallout() : ""}
         ${["competitions", "free-competitions", "win-airtime-competitions-south-africa"].includes(routeContext.slug) ? renderAirtimeDashPromotion({ compact: true, placement: routeContext.slug }) : ""}
         <section class="controls" aria-label="Competition filters">
           <label class="search-field" for="searchInput">
@@ -5840,7 +5841,6 @@ ${confirmedResultsMarkup ? `\n        ${confirmedResultsMarkup}\n` : ""}
 
         ${isPrimaryCompetitionHub ? renderHubIntroEditorial(routeContext) : ""}
         ${isPrimaryCompetitionHub ? renderInternalLinksSection(routeContext, competitions) : ""}
-        ${isPrimaryCompetitionHub ? renderUnderReviewCallout() : ""}
         ${isPrimaryCompetitionHub ? renderVerticalDiscoveryLinks() : ""}
         ${isPrimaryCompetitionHub ? renderHubSupportLinks(routeContext, competitions) : ""}
         ${isPrimaryCompetitionHub ? renderWhatsAppChannelCta(routeContext) : ""}
