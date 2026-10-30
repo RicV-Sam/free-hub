@@ -3352,7 +3352,7 @@ function renderUnderReviewCallout() {
 
 function renderUnverifiedCompetitionCard(record) {
   const sourceHost = getSafeHostname(record.officialSourceUrl);
-  return `<article class="unverified-card" data-review-id="${escapeAttribute(record.id)}">
+  return `<article class="unverified-card" id="review-${escapeAttribute(record.id)}" data-review-id="${escapeAttribute(record.id)}">
           <div class="unverified-card__heading">
             <div>
               <p class="unverified-card__brand">${escapeHtml(record.brand)}</p>
@@ -3360,6 +3360,7 @@ function renderUnverifiedCompetitionCard(record) {
             </div>
             <span class="unverified-card__status">Not verified</span>
           </div>
+          ${renderListingHeroImage(record)}
           <dl class="unverified-card__facts">
             <div><dt>Prize shown</dt><dd>${escapeHtml(record.prize)}</dd></div>
             <div><dt>Closing date shown</dt><dd>${escapeHtml(shared.formatDate(record.closingDate))}</dd></div>

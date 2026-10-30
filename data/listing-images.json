@@ -2616,5 +2616,68 @@
     "reviewedAt": "2026-10-30",
     "sourcePage": "https://www.mrp.com/en_za/promos",
     "sourceImage": "https://cdn.media.amplience.net/i/mrpricegroup/01_107868041_SI_00?$preset$&w=320"
+  },
+  "toyota-corolla-story-hamper-2026": {
+    "src": "/assets/listings/toyota-corolla-story-hamper-2026.webp",
+    "width": 1535,
+    "height": 864,
+    "alt": "FreeHub editorial illustration of a notebook and pen beside an illustrated car-memory photograph.",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration. Not official campaign artwork, a prize depiction or an eligible entry.",
+    "reviewedAt": "2026-10-30",
+    "generationPrompt": "Use case: illustration-story. Asset type: wide landscape 16:9 FreeHub editorial hero for a PRIVATE REVIEW DRAFT of a Toyota Corolla memory/story competition. Create a refined, warm, tactile paper-cut editorial illustration showing a notebook with abstract unreadable handwriting, a pen, and a small printed memory photograph with an anonymous unbranded compact sedan silhouette on a road. Focus on storytelling and personal car memories. Cream paper, deep teal and restrained ochre, soft natural side lighting, elegant generous spacing, large clear shapes that work on mobile. No people, no readable text, no logos, no badges, no recognisable Toyota model, no numberplates, no email address, no cash, no gift hamper, no invented merchandise, no trophy or winner claim. The car is shown only inside the small illustrative photograph, not as a prize. This is artwork for an editorial listing, never an entrant's photograph or story; it must not look like a real ownership photo. The page will visibly caption it FreeHub editorial illustration, not official campaign artwork or an eligible entry."
+  },
+  "farmer-brown-your-table-2026": {
+    "src": "/assets/listings/farmer-brown-your-table-2026.webp",
+    "width": 1080,
+    "height": 738,
+    "alt": "Official Farmer Brown campaign photograph of guests at a candlelit dinner table.",
+    "kind": "official-source",
+    "caption": "Image from the official campaign or provider page.",
+    "reviewedAt": "2026-10-30",
+    "sourcePage": "https://farmerbrown.vaultbook.co.za/",
+    "sourceImage": "https://farmerbrown.vaultbook.co.za/assets/hero.png"
+  },
+  "pizza-hut-rugby-campaign-2026": {
+    "src": "/assets/listings/pizza-hut-rugby-campaign-2026.webp",
+    "width": 1536,
+    "height": 864,
+    "alt": "FreeHub editorial illustration of plain green rugby clothing and a tumbler beside a closed pizza box.",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration. Objects are illustrative, not an exact prize or product depiction.",
+    "reviewedAt": "2026-10-30",
+    "generationPrompt": "Use case: illustration-story. Asset type: landscape editorial hero for a private FreeHub competition draft. Create a polished 16:9 editorial illustration with tactile paper-cut shapes, deep forest green, warm cream and muted red, restrained sophisticated lighting. Subject: a plain green rugby jersey, a plain green baseball cap and a plain tumbler beside a closed unbranded pizza box on a tabletop. These objects illustrate a pizza-purchase rugby merchandise prize draw; do not depict a specific jersey model, official crest, team logo, sponsor, ticket, money, person, trophy, or holiday. No brand logos. No words, prices, dates, numbers or claims. Do not imply every object forms one winner's bundle. The page will visibly caption it FreeHub editorial illustration. Beautiful, coherent wide composition, large simple forms that remain clear on mobile."
+  },
+  "radio2000-1life-november-2026": {
+    "src": "/assets/listings/radio2000-1life-november-2026.webp",
+    "width": 469,
+    "height": 293,
+    "alt": "Official Radio 2000 and 1Life artwork advertising a R50,000 total cash prize pool.",
+    "kind": "official-source",
+    "caption": "Image from the official campaign or provider page.",
+    "reviewedAt": "2026-10-30",
+    "sourcePage": "https://www.radio2000.co.za/radio2000/competition/winning-at-life-with-1life-2/",
+    "sourceImage": "https://www.radio2000.co.za/radio2000/wp-content/uploads/elementor/thumbs/1-life-oct-26-25fjhnkn207owyv2qze9jgxe3awjx2mekb5pdy739dbm.png"
+  },
+  "creating-hope-ai-november-2026": {
+    "src": "/assets/listings/creating-hope-ai-november-2026.webp",
+    "width": 1536,
+    "height": 861,
+    "alt": "Official Creating Hope Africa Generative AI Programme artwork for 23–27 November 2026.",
+    "kind": "official-source",
+    "caption": "Image from the official campaign or provider page.",
+    "reviewedAt": "2026-10-30",
+    "sourcePage": "https://www.creatinghopeafrica.com/gen-ai-programme",
+    "sourceImage": "https://static.wixstatic.com/media/b60d58_03bd950a52a74897beb9b6f2d8e06956~mv2.png/v1/fill/w_1920,h_1076,al_c/b60d58_03bd950a52a74897beb9b6f2d8e06956~mv2.png"
+  },
+  "clearscore-discovery-welcome-miles-2026": {
+    "src": "/assets/listings/clearscore-discovery-welcome-miles-2026.webp",
+    "width": 1536,
+    "height": 864,
+    "alt": "FreeHub editorial illustration of an unbranded phone and bank card with abstract reward dots.",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration. Objects are illustrative, not an exact prize or product depiction.",
+    "reviewedAt": "2026-10-30",
+    "generationPrompt": "Use case: illustration-story. Asset type: landscape 16:9 FreeHub editorial hero for a private draft of a conditional new-bank-account rewards offer. A refined conceptual illustration of a plain unbranded smartphone and plain unnumbered bank card beside a small trail of abstract reward dots; deep teal, warm cream and subtle plum palette, sophisticated tactile paper texture and gentle depth. No cash, currency signs, amounts, logos, card numbers, bank name, credit-approval symbolism, guarantee, readable text, checkmark or trophy. Clearly illustrative rather than an actual banking screenshot. Do not imply a free bank account. The page will visibly caption it FreeHub editorial illustration. Wide composition and large forms readable on mobile."
   }
 }

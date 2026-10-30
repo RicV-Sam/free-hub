@@ -761,5 +761,42 @@
     "manualOkCheckedAt": "2026-10-30",
     "manualOkAllowedDomain": "www.su.ac.za",
     "manualOkEvidence": "Official SU short-courses page reviewed on 30 October 2026: free eligible staff/student AI access, university email, registration routes and access conditions. No registration submitted."
+  },
+  {
+    "id": "creating-hope-ai-november-2026",
+    "name": "Creating Hope Africa AI programme: check November application dates",
+    "resourceType": "programme",
+    "category": "online-courses",
+    "categoryLabel": "Course information — application timing needs confirmation",
+    "officialUrl": "https://www.creatinghopeafrica.com/gen-ai-programme",
+    "termsUrl": "https://www.creatinghopeafrica.com/privacy-policy",
+    "bestFor": "South African citizens; preference for West Coast residents.",
+    "freeDetails": "Advertised free tuition for 23–27 November 2026: ten online modules, five days/40 hours, completion certificate subject to passing. No place or application window is guaranteed.",
+    "requirements": "Computer, internet, a free AI-tool account, basic computer literacy, reachable email and South African WhatsApp number. Complete all ten modules in the programme period. The form requests identity, birth/contact/status details, programme contact and partner data-sharing consent. Newsletter consent has a required marker; submission behaviour was not tested. Local Youth Café devices are limited and need confirmation.",
+    "watchOut": "APPLICATION TIMING UNCONFIRMED. November course details appear beside an old April selection timetable. Confirm current selection/application dates before sharing data. Application deadline and pass threshold are unstated. The unrelated youth-accelerator age restriction has not been applied.",
+    "availability": "manual_check",
+    "verificationStatus": "verified",
+    "datePublished": "2026-10-30",
+    "lastReviewed": "2026-10-30",
+    "reviewDueAt": "2026-11-06",
+    "dateModified": "2026-10-30"
+  },
+  {
+    "id": "clearscore-discovery-welcome-miles-2026",
+    "name": "ClearScore / Discovery Welcome Miles: campaign terms to check",
+    "resourceType": "guide",
+    "category": "rewards",
+    "categoryLabel": "Provider information — reward qualification not verified",
+    "officialUrl": "https://www.discovery.co.za/assets/template-resources/terms-and-conditions/bank/clear-score-x-discovery-bank-may-exclusive-terms-and-conditions.pdf",
+    "bestFor": "ClearScore clients checking provider terms.",
+    "freeDetails": "Public terms are free to read; banking costs apply. Conditional Double Welcome Miles total up to 5,000 (Suite) or 2,500 (Credit Card Account), including standard and boosted Miles. Rewards are not cash.",
+    "requirements": "Apply through the qualifying ClearScore route for a Suite or Credit Card Account during 19 October–27 November 2026 (ends 23:59 SAST). Make a virtual-card/digital-wallet purchase within 30 days of joining and during the campaign; fees/interest do not count. Keep the account open and in good standing for six months or Miles may be recovered. Bank fees, application/credit checks and general Welcome Miles terms apply.",
+    "watchOut": "QUALIFYING ROUTE AND FULL PRODUCT COSTS UNVERIFIED. This link is the bank’s terms PDF, not an application link or proof of eligibility. Confirm the exact ClearScore campaign route, full product fees and general Welcome Miles conditions with the providers before applying. No approval or reward is guaranteed.",
+    "availability": "manual_check",
+    "verificationStatus": "verified",
+    "datePublished": "2026-10-30",
+    "lastReviewed": "2026-10-30",
+    "reviewDueAt": "2026-11-06",
+    "dateModified": "2026-10-30"
   }
 ]
