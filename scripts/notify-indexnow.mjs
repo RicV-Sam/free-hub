@@ -3,7 +3,7 @@ import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { submitIndexNow, waitForRevision } from './lib/indexnow-client.mjs';
+import { retryDelay, submitIndexNow, waitForRevision } from './lib/indexnow-client.mjs';
 
 const stateFile = '.indexnow-state/state.json';
 const decode = text => text.replaceAll('&amp;', '&').replaceAll('&lt;', '<').replaceAll('&gt;', '>').replaceAll('&quot;', '"').replaceAll('&apos;', "'");
@@ -22,15 +22,31 @@ export function changedUrls(previous, current) {
   return [...new Set([...Object.keys(previous.pages), ...Object.keys(current.pages)])]
     .filter(url => previous.pages[url] !== current.pages[url]).sort();
 }
-export async function snapshot(site, fetcher = fetch, sitemapPath = '/sitemap.xml') {
+export async function snapshot(site, fetcher = fetch, sitemapPath = '/sitemap.xml', { sleep = ms => new Promise(resolve => setTimeout(resolve, ms)) } = {}) {
   const origin = new URL(site).origin;
   const pages = {};
   const visited = new Set();
   async function get(url) {
     if (new URL(url).origin !== origin) throw new Error('Foreign URL in sitemap.');
-    const response = await fetcher(url, { redirect: 'error', signal: AbortSignal.timeout(20000), headers: { 'Cache-Control': 'no-cache' } });
-    if (response.status !== 200) throw new Error(`Live snapshot failed: HTTP ${response.status} for ${url}`);
-    return response.text();
+    for (let attempt = 0; attempt <= 2; attempt++) {
+      let response;
+      let failure;
+      try {
+        response = await fetcher(url, { redirect: 'error', signal: AbortSignal.timeout(20000), headers: { 'Cache-Control': 'no-cache' } });
+        if (response.status === 200) return await response.text();
+      } catch (cause) {
+        failure = new Error(`Live snapshot request failed for ${url}`, { cause });
+      }
+      if (!failure) {
+        failure = new Error(`Live snapshot failed: HTTP ${response.status} for ${url}`);
+        try { await response.body?.cancel(); } catch { /* A broken error body must not prevent retrying the status. */ }
+        if (response.status !== 429 && (response.status < 500 || response.status > 599)) throw failure;
+      }
+      if (attempt === 2) throw failure;
+      const delay = retryDelay(response, attempt, 2000);
+      if (delay > 60000) throw new Error(`Live snapshot retry exceeds 60 seconds for ${url}; retry in a later run.`);
+      await sleep(delay);
+    }
   }
   async function sitemap(url) {
     if (visited.has(url)) return [];
@@ -43,7 +59,7 @@ export async function snapshot(site, fetcher = fetch, sitemapPath = '/sitemap.xm
   }
   const urls = [...new Set(await sitemap(`${origin}${sitemapPath}`))];
   let next = 0;
-  await Promise.all(Array.from({ length: Math.min(5, urls.length) }, async () => {
+  await Promise.all(Array.from({ length: Math.min(2, urls.length) }, async () => {
     while (next < urls.length) {
       const url = urls[next++];
       const html = await get(url);
