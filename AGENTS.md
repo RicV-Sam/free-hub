@@ -62,7 +62,7 @@ See [editorial image policy](docs/editorial-competition-image-policy.md). Generi
 ## SEO and page contracts
 - Canonical production origin is `https://freehub.co.za`. Preserve established evergreen paths; do not introduce `/free-stuff/`, `/free-samples/` or `/free-courses/` aliases. Legacy-host redirects require hosting changes: [canonical domain guard](docs/deployment-canonical-domain.md).
 - Indexable pages need unique title/description, one H1, matching canonical, valid JSON-LD and an incoming contextual link. Schema and ItemLists must match visible, eligible content; FAQ markup requires visible FAQs and promises no rich result.
-- Exclude private, noindex and outbound routes from sitemap/indexable collections. Expired competitions lose entry CTAs and exits; only the documented official confirmed-result gate can restore indexability. Do not redirect expired pages wholesale to the homepage.
+- Exclude private, noindex and outbound routes from sitemap/indexable collections. Expired competitions lose entry CTAs and exits. Public, published archive-eligible competitions remain indexable with clear closure messaging, homepage and WhatsApp prompts, and existing advertising eligibility. Restricted, held, rejected and doNotPublish records stay excluded. Official evidence is still required before claiming a confirmed result. Do not redirect expired pages wholesale to the homepage.
 - Use `renderSiteFooter()` for public content pages: shared WhatsApp/Facebook links, global auth panel and auth script are generator-enforced. `/out/*` is the minimal noindex/nofollow exception. See [new-page checklist](docs/new-page-checklist.md).
 
 ## Deployment and external effects

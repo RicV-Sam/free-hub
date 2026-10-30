@@ -70,7 +70,20 @@ test("expired published records retain verified detail eligibility but not activ
   assert.equal(shared.isExpiredArchiveEligibleCompetition(fixtures.expiredMissingEvidence), false);
 });
 
-test("only complete official result evidence makes an expired page indexable", () => {
+test("public closed archives are indexable without a winner while restricted records remain excluded", () => {
+  assert.equal(shared.isIndexableClosedCompetition(fixtures.expiredPublished), true);
+  assert.equal(shared.hasVerifiedCompetitionResult(fixtures.expiredPublished), false);
+  for (const override of [
+    { visibility: "noindex" }, { visibility: "club_only" },
+    { verificationStatus: "rejected" }, { publicationStatus: "held" },
+    { publicationStatus: "archived-low-value" }, { doNotPublish: true },
+    { closingDate: "2099-12-31" }, { termsUrl: "", sourceUrl: "", url: "" },
+  ]) {
+    assert.equal(shared.isIndexableClosedCompetition({ ...fixtures.expiredPublished, ...override }), false, JSON.stringify(override));
+  }
+});
+
+test("only complete official result evidence permits a confirmed winner claim", () => {
   assert.equal(shared.hasVerifiedCompetitionResult(fixtures.expiredConfirmedResult), true);
   assert.equal(shared.isIndexableConfirmedResultCompetition(fixtures.expiredConfirmedResult), true);
 

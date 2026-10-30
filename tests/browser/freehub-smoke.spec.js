@@ -317,7 +317,7 @@ test("guest auth repeats cannot reintroduce retired advertising", async ({ page 
   expect(requests).toEqual({ nativeBanner: 0, popunder: 0, socialBar: 0 });
 });
 
-test("expired archive pages remain ad-free while active detail and outbound pages stay protected", async ({ page }) => {
+test("expired archives omit retired Adsterra scripts while active detail and outbound pages stay protected", async ({ page }) => {
   await mockFirebaseAuth(page, { manualAuth: true });
   const requests = await stubAdsterra(page);
   await page.goto("/competition/isuzu-win-a-new-x-rider-2026/", { waitUntil: "domcontentloaded" });
@@ -1106,7 +1106,7 @@ test("active detail, outbound handoff, and expired detail retain lifecycle behav
 
   await page.goto("/competition/isuzu-win-a-new-x-rider-2026/");
   await expect(page.getByText("This competition has closed.", { exact: true })).toBeVisible();
-  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, follow");
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index, follow, max-image-preview:large");
 
   const noJavaScript = await browser.newContext({ javaScriptEnabled: false });
   const outPage = await noJavaScript.newPage();

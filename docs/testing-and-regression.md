@@ -41,7 +41,7 @@ Hard failures include:
 - empty or duplicate sitemap titles and descriptions;
 - missing or multiple H1 elements;
 - canonical mismatch or a non-Freehub canonical origin;
-- noindex, private, outbound, expired, held, rejected or `doNotPublish` sitemap leakage;
+- noindex, private, outbound, restricted expired, held, rejected or `doNotPublish` sitemap leakage;
 - invalid JSON-LD or non-canonical breadcrumb URLs;
 - unexpected canonical aliases or the invented `/free-stuff/`, `/free-samples/` and `/free-courses/` routes;
 - a new sitemap route without a cross-page anchor.
@@ -71,7 +71,7 @@ The update command performs live requests and intentionally contains no generate
 
 ## Lifecycle and known defects
 
-Fixtures cover active public, active noindex, Club-only, expired published, confirmed-result evidence, missing archive evidence, archived low-value, held, rejected/`doNotPublish`, free, purchase-required, paid, explicit unknown, missing and unrecognized cost states. Closed pages remain noindex unless a complete result record uses the same official promoter domain and supplies a result check date, substantive summary, public winner wording, confirmed prize and explicit announcement-versus-fulfilment status.
+Fixtures cover active public, active noindex, Club-only, expired published, confirmed-result evidence, missing archive evidence, archived low-value, held, rejected/`doNotPublish`, free, purchase-required, paid, explicit unknown, missing and unrecognized cost states. As authorised on 30 October 2026, public published archive-eligible competition pages remain indexable and in the sitemap, with clear closed messaging, homepage and WhatsApp prompts. Their advertising follows the existing public/risk/adsAllowed gates. Restricted archives remain noindex. Closed archive links are separate from active listings and app feeds. Winner claims still require a complete official result record; closure alone never establishes a winner.
 
 Missing, explicit `unknown` and unrecognized cost fixtures fail closed to `unclear` / `Entry requirements unclear`. A missing type may classify only from affirmative evidence such as a purchase boolean, paid amount, standard-rate tag, exact free-entry tag or explicit fee label; absence never implies free. The reviewed active cost-label inventory remains fixed to the 6 September 2026 snapshot (54 records) so routine expiry cannot silently change those assertions.
 

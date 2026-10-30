@@ -1482,7 +1482,11 @@
   }
 
   function isIndexableConfirmedResultCompetition(competition) {
-    return hasVerifiedCompetitionResult(competition);
+    return isPublicCompetition(competition) && hasVerifiedCompetitionResult(competition);
+  }
+
+  function isIndexableClosedCompetition(competition) {
+    return isPublicCompetition(competition) && isExpiredArchiveEligibleCompetition(competition);
   }
 
   function isArchivedLowValueCompetition(competition) {
@@ -2181,6 +2185,7 @@
     isExpiredArchiveEligibleCompetition,
     hasVerifiedCompetitionResult,
     isIndexableConfirmedResultCompetition,
+    isIndexableClosedCompetition,
     isArchivedLowValueCompetition,
     getExpiredArchiveCompetitions,
     getArchivedLowValueCompetitions,

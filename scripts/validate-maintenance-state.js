@@ -58,6 +58,7 @@ function walkPublicListingFiles(rootDir) {
     "reports",
     "scripts",
     "shared",
+    "storage",
   ]);
 
   function visit(directory) {
@@ -126,11 +127,11 @@ function validateMaintenanceState(options = {}) {
     sitemapContainsOutUrls: sitemap.includes("/out/"),
     expiredMissingFromArchive: [],
     expiredInSitemap: [],
-    confirmedResultMissingFromSitemap: [],
+    closedPublicMissingFromSitemap: [],
     expiredInPublicListings: [],
     expiredMissingDetailPage: [],
     expiredMissingClosedBanner: [],
-    expiredMissingNoindex: [],
+    expiredWrongRobots: [],
     expiredWithOutPage: [],
     expiredInHomepage: [],
     noindexInSitemap: [],
@@ -146,7 +147,7 @@ function validateMaintenanceState(options = {}) {
 
   expiredPublishedCompetitions.forEach((competition) => {
     const slug = getCompetitionSlug(competition);
-    const confirmedResult = shared.isIndexableConfirmedResultCompetition(archiveById.get(competition.id) || competition);
+    const indexableClosed = shared.isIndexableClosedCompetition(archiveById.get(competition.id) || competition);
     const detailPath = path.join(ROOT_DIR, "competition", slug, "index.html");
     const outPath = path.join(ROOT_DIR, "out", slug, "index.html");
 
@@ -154,11 +155,11 @@ function validateMaintenanceState(options = {}) {
       summary.expiredMissingFromArchive.push(slug);
     }
 
-    if (!confirmedResult && sitemap.includes(`/competition/${slug}/`)) {
+    if (!indexableClosed && sitemap.includes(`/competition/${slug}/`)) {
       summary.expiredInSitemap.push(slug);
     }
-    if (confirmedResult && !sitemap.includes(`/competition/${slug}/`)) {
-      summary.confirmedResultMissingFromSitemap.push(slug);
+    if (indexableClosed && !sitemap.includes(`/competition/${slug}/`)) {
+      summary.closedPublicMissingFromSitemap.push(slug);
     }
 
     if (!fs.existsSync(detailPath)) {
@@ -170,11 +171,11 @@ function validateMaintenanceState(options = {}) {
       if (!html.includes(expectedClosedBanner)) {
         summary.expiredMissingClosedBanner.push(slug);
       }
-      const expectedRobots = confirmedResult
+      const expectedRobots = indexableClosed
         ? 'name="robots" content="index, follow, max-image-preview:large"'
         : 'name="robots" content="noindex, follow"';
       if (!html.includes(expectedRobots)) {
-        summary.expiredMissingNoindex.push(slug);
+        summary.expiredWrongRobots.push(slug);
       }
     }
 
@@ -231,7 +232,7 @@ function validateMaintenanceState(options = {}) {
 
   publicListingFiles.forEach((filePath) => {
     const relativePath = path.relative(ROOT_DIR, filePath).replace(/\\/g, "/");
-    const html = fs.readFileSync(filePath, "utf8");
+    const html = fs.readFileSync(filePath, "utf8").replace(/<section[^>]*data-closed-competition-links[\s\S]*?<\/section>/g, "");
 
     expiredPublishedCompetitions.forEach((competition) => {
       const slug = getCompetitionSlug(competition);
@@ -291,10 +292,10 @@ function validateMaintenanceState(options = {}) {
     errors.push(`Expired competitions missing from archive: ${summary.expiredMissingFromArchive.join(", ")}`);
   }
   if (summary.expiredInSitemap.length > 0) {
-    errors.push(`Expired competitions still in sitemap: ${summary.expiredInSitemap.join(", ")}`);
+    errors.push(`Restricted expired competitions in sitemap: ${summary.expiredInSitemap.join(", ")}`);
   }
-  if (summary.confirmedResultMissingFromSitemap.length > 0) {
-    errors.push(`Confirmed result pages missing from sitemap: ${summary.confirmedResultMissingFromSitemap.join(", ")}`);
+  if (summary.closedPublicMissingFromSitemap.length > 0) {
+    errors.push(`Public closed competition pages missing from sitemap: ${summary.closedPublicMissingFromSitemap.join(", ")}`);
   }
   if (summary.expiredInPublicListings.length > 0) {
     errors.push("Expired competitions still appear in public listing pages.");
@@ -305,8 +306,8 @@ function validateMaintenanceState(options = {}) {
   if (summary.expiredMissingClosedBanner.length > 0) {
     errors.push(`Expired detail pages missing closed banner: ${summary.expiredMissingClosedBanner.join(", ")}`);
   }
-  if (summary.expiredMissingNoindex.length > 0) {
-    errors.push(`Expired detail pages missing noindex: ${summary.expiredMissingNoindex.join(", ")}`);
+  if (summary.expiredWrongRobots.length > 0) {
+    errors.push(`Expired detail pages with incorrect robots: ${summary.expiredWrongRobots.join(", ")}`);
   }
   if (summary.expiredWithOutPage.length > 0) {
     errors.push(`Expired competitions still have /out/ pages: ${summary.expiredWithOutPage.join(", ")}`);

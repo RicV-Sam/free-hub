@@ -137,12 +137,12 @@
       "route": "/competition/isuzu-win-a-new-x-rider-2026/",
       "file": "competition/isuzu-win-a-new-x-rider-2026/index.html",
       "title": "ISUZU Win a New X-Rider Competition Closed | Current Alternatives on Freehub",
-      "description": "This ISUZU Motors South Africa competition has closed. View the archived prize and closing-date details, then browse current South African competitions on Freehub.",
+      "description": "ISUZU Win a New X-Rider Competition closed on 30 Jun 2026. View the archived details, browse live competitions on FreeHub and follow our WhatsApp channel for updates.",
       "canonical": "https://freehub.co.za/competition/isuzu-win-a-new-x-rider-2026/",
-      "robots": "noindex, follow",
+      "robots": "index, follow, max-image-preview:large",
       "h1": "ISUZU Win a New X-Rider Competition -- Competition Closed",
       "schemaTypes": ["Answer", "BreadcrumbList", "FAQPage", "ListItem", "Question", "Thing", "WebPage", "WebSite"],
-      "inSitemap": false
+      "inSitemap": true
     },
     {
       "route": "/out/one-life-winning-wednesday-cash-2026/",

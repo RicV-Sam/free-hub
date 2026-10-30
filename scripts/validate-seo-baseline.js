@@ -36,8 +36,8 @@ const retirementState = applyCompetitionRetirements(SOURCE_COMPETITIONS, SOURCE_
 const COMPETITIONS = retirementState.primary;
 const ARCHIVED_COMPETITIONS = retirementState.archive;
 const activePublicSlugs = new Set(shared.getPublishedActiveCompetitions(COMPETITIONS).map(shared.getCompetitionSlug));
-const confirmedResultSlugs = new Set([...COMPETITIONS, ...ARCHIVED_COMPETITIONS].filter(shared.hasVerifiedCompetitionResult).map(shared.getCompetitionSlug));
-const indexableCompetitionSlugs = new Set([...activePublicSlugs, ...confirmedResultSlugs]);
+const closedPublicSlugs = new Set([...COMPETITIONS, ...ARCHIVED_COMPETITIONS].filter(shared.isIndexableClosedCompetition).map(shared.getCompetitionSlug));
+const indexableCompetitionSlugs = new Set([...activePublicSlugs, ...closedPublicSlugs]);
 const OPPORTUNITY_GATE_OPTIONS = {
   asOfDate: BUILD_DATE_ISO,
   strictFreeOnly: false,
@@ -299,8 +299,8 @@ sitemapRoutes.filter((route) => route.startsWith("/competition/")).forEach((rout
   check(indexableCompetitionSlugs.has(slug), {
     file: "sitemap.xml",
     route,
-    rule: "competition sitemap entry is active and public or has a verified official result",
-    expected: "active public competition or confirmed result",
+    rule: "competition sitemap entry is active and public or an eligible public archive",
+    expected: "active public competition or public closed competition",
     actual: slug,
   });
 });
@@ -310,7 +310,7 @@ sitemapRoutes.filter((route) => route.startsWith("/competition/")).forEach((rout
   check(!sitemapSet.has(route), {
     file: "sitemap.xml",
     route,
-    rule: "expired, noindex, held, rejected, and doNotPublish records stay out of sitemap",
+    rule: "restricted, noindex, held, rejected, and doNotPublish records stay out of sitemap",
     expected: "route excluded",
     actual: "route included",
   });

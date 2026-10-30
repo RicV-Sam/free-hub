@@ -22,7 +22,7 @@ function getCurrentContentBaseline() {
     .map(shared.getCompetitionSlug)).size;
   const active = shared.getPublishedActiveCompetitions(competitions);
   const core = shared.getPublishedCoreActiveCompetitions(competitions);
-  const resultSlugs = new Set([...competitions, ...retirementState.archive].filter(shared.hasVerifiedCompetitionResult).map(shared.getCompetitionSlug));
+  const resultSlugs = new Set([...competitions, ...retirementState.archive].filter(shared.isIndexableClosedCompetition).map(shared.getCompetitionSlug));
   const enabled = process.env.FREEHUB_ENABLE_OPPORTUNITIES === 'true';
   const options = { asOfDate: buildDate, strictFreeOnly: false, requireSourceEvidence: true,
     sourceEvidence: read('data/opportunity-source-evidence.json'),
