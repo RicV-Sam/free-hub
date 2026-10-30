@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-29",
+  "asOfDate": "2026-10-30",
   "count": 118,
   "competitions": [
     {
@@ -1154,7 +1154,7 @@
       "termsUrl": "https://www.fao.org/world-food-day/contest/",
       "lastChecked": "2026-10-06",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "ackermans-layby-samsung-a07-2026",
@@ -1180,7 +1180,7 @@
       "termsUrl": "https://www.ackermans.co.za/blogs/financial-services/lay-by-win-a-samsung-a07-ts-cs",
       "lastChecked": "2026-10-08",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "nescafe-gold-rush-spar-2026",
