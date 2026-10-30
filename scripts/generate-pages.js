@@ -3352,6 +3352,28 @@ function renderUnderReviewCallout() {
 }
 
 function renderUnverifiedCompetitionCard(record, { detail = false } = {}) {
+  if (!detail) {
+    const detailPath = unverifiedCompetitionData.getDetailPath(record);
+    const closingDate = record.closingDateText || (record.closingDate ? shared.formatDate(record.closingDate) : "Not confirmed");
+    return `<article class="competition-card unverified-preview" id="review-${escapeAttribute(record.id)}" data-review-id="${escapeAttribute(record.id)}">
+            <div class="competition-card__media">
+              ${record.image ? `<img src="${escapeAttribute(record.image)}" alt="${escapeAttribute(record.imageAlt || record.title)}" loading="lazy" decoding="async" />` : `<div class="competition-card__placeholder">Campaign artwork not available</div>`}
+              <div class="competition-card__badges"><span class="badge unverified-card__status">Not verified</span></div>
+            </div>
+            <div class="competition-card__body">
+              <p class="unverified-card__brand">${escapeHtml(record.brand)}</p>
+              ${record.image ? `<p class="competition-card__summary">${record.imageReviewStatus === "editorial-generated" ? "FreeHub editorial illustration" : "Promoter artwork — claims unverified"}</p>` : ""}
+              <h2 class="competition-card__title">${escapeHtml(record.title)}</h2>
+              <p class="competition-card__summary"><strong>${record.listingType === "reward" ? "Reward reported" : "Prize reported"}:</strong> ${escapeHtml(record.prize)}</p>
+              <p class="competition-card__summary"><strong>Closing date reported:</strong> ${escapeHtml(closingDate)}</p>
+              <p class="competition-card__summary"><strong>Costs:</strong> ${escapeHtml(record.costSummary)}</p>
+              <div class="unverified-card__gap"><strong>Unresolved checks</strong><p class="competition-card__summary">${escapeHtml(record.reviewGap)}</p></div>
+              ${!record.officialSourceUrl ? `<p class="unverified-card__brand">Official campaign source not located.</p>` : ""}
+              <span class="competition-card__cta">View details</span>
+            </div>
+          <a class="competition-card__overlay-link" href="${escapeAttribute(detailPath)}" aria-label="${escapeAttribute(`View details and unresolved checks for ${record.title}`)}"><span class="visually-hidden">View details for ${escapeHtml(record.title)}</span></a>
+        </article>`;
+  }
   const sourceHost = getSafeHostname(record.officialSourceUrl);
   return `<article class="unverified-card" id="review-${escapeAttribute(record.id)}" data-review-id="${escapeAttribute(record.id)}">
           <div class="unverified-card__heading">
@@ -3409,7 +3431,7 @@ function renderUnverifiedCompetitionPage(records, detailRecord = null) {
     ],
   };
   const listMarkup = records.length > 0
-    ? `<div class="unverified-list${detailRecord ? " unverified-list--detail" : ""}">${records.map((record) => renderUnverifiedCompetitionCard(record, { detail: Boolean(detailRecord) })).join("\n")}</div>`
+    ? `<div class="unverified-list${detailRecord ? " unverified-list--detail" : " competition-grid unverified-list--previews"}">${records.map((record) => renderUnverifiedCompetitionCard(record, { detail: Boolean(detailRecord) })).join("\n")}</div>`
     : `<section class="state-card"><p class="state-card__title">No current leads under review</p><p class="state-card__text">We remove entries once the stated closing date passes. Browse verified competitions while we review new sources.</p><a href="/competitions/">Browse verified competitions</a></section>`;
 
   return `<!DOCTYPE html>

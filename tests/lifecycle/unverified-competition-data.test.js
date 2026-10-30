@@ -40,7 +40,7 @@ test("generated page discloses status and bypasses verified detail and redirect 
   assert.match(html, /Competitions under review in South Africa/);
   if (current.length > 0) {
     assert.match(html, /Not verified/);
-    assert.match(html, /Why Freehub has not verified it/);
+    assert.match(html, /Unresolved checks/);
   } else {
     assert.match(html, /No current leads under review/);
   }
@@ -61,10 +61,20 @@ test("generated page discloses status and bypasses verified detail and redirect 
   });
 });
 
-test("under-review page links directly to sources without verified competition schema", () => {
+test("under-review cards open separate detail pages before promoter sources", () => {
   const html = fs.readFileSync(path.join(ROOT_DIR, "unverified-competitions", "index.html"), "utf8");
   const current = unverifiedData.getPublicUnderReview(registry, { asOfDate });
-  current.filter(record => record.officialSourceUrl).forEach((record) => assert.ok(html.includes(record.officialSourceUrl.replace(/&/g, "&amp;"))));
+  assert.equal((html.match(/class="competition-card unverified-preview"/g) || []).length, current.length);
+  current.forEach((record) => {
+    const route = unverifiedData.getDetailPath(record);
+    assert.ok(html.includes(`href="${route}"`));
+    const detail = fs.readFileSync(path.join(ROOT_DIR, route, "index.html"), "utf8");
+    if (record.officialSourceUrl) assert.ok(detail.includes(record.officialSourceUrl.replace(/&/g, "&amp;")));
+    assert.match(detail, /How it appears to work/);
+    assert.match(detail, /Why Freehub has not verified it/);
+  });
+  assert.doesNotMatch(html, />Open source on /);
+  assert.doesNotMatch(html, /class="unverified-card__facts"/);
   assert.doesNotMatch(html, /"@type":"ItemList"/);
   assert.doesNotMatch(html, /Verified listing/);
   assert.doesNotMatch(html, /href="\/out\//);

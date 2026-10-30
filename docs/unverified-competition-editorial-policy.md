@@ -22,6 +22,8 @@ Under-review records must never produce individual `/competition/` pages, `/out/
 
 Each record must state the promoter or brand, title, prize shown, stated closing date, apparent entry route, cost uncertainty, source URL, last-checked date and a specific reason Freehub has not verified it. Do not use generic wording where the evidence gap is known.
 
+The collection presents compact, clickable preview cards with a Not verified badge, reported prize/date, cost summary and an unresolved-checks excerpt. Each card opens its separate under-review detail page, where the complete evidence gap, entry information, review date and available promoter sources remain visible. Preview cards must not use verified badges or imply that a reported prize or deadline has been confirmed. Label generated artwork and missing official sources on the preview as well as the detail page.
+
 Use a direct promoter or campaign source. Do not add affiliate parameters, tracking redirects or third-party competition aggregators. The public link is marked `nofollow` and opens the source directly.
 
 To fulfil the owner's all-leads coverage direction, an identified research lead may have a source-missing page. Label the claimed prize, dates and promoter as reported, explain that no official campaign source was located, and omit the entry/source CTA entirely. Do not invent a URL or link an aggregator as if it were official. Such records still require a bounded review window and remain separate from verified listings.

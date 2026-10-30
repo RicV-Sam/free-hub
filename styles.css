@@ -1817,6 +1817,9 @@ button {
   gap: 1rem;
 }
 
+
+.unverified-preview .unverified-card__status { background: #fff9e8; }
+
 .unverified-card {
   display: grid;
   gap: 1rem;
