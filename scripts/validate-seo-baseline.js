@@ -6,6 +6,7 @@ const path = require("path");
 const shared = require("../shared/page-data.js");
 const opportunityData = require("../shared/opportunity-data.js");
 const offerData = require("../shared/offer-data.js");
+const unverifiedData = require("../shared/unverified-competition-data.js");
 const { getEligibleEditorialPicks } = require("./lib/editorial-picks.js");
 const { applyCompetitionRetirements } = require("./lib/competition-retirements.js");
 const {
@@ -145,6 +146,7 @@ const expectedSitemapUrlCount = CONFIG.staticSitemapUrlCount
   + indexableCompetitionSlugs.size
   + ACTIVE_OPPORTUNITIES.length
   + ACTIVE_OFFERS.length
+  + unverifiedData.getPublicUnderReview(readJson(path.join(ROOT_DIR, "data", "unverified-competitions.json")), { asOfDate: LIFECYCLE_REFERENCE_DATE_ISO }).length
   + countIndexableOfferLandings(ACTIVE_OFFERS)
   + (OFFERS_ENABLED ? 1 : 0)
   + (AIRTIME_DASH_ENABLED ? 1 : 0);

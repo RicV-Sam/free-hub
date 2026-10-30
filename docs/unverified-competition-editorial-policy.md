@@ -9,19 +9,22 @@ Only records in `data/unverified-competitions.json` with all of the following ma
 - `publicationStatus: "public-under-review"`
 - `verificationStatus: "not-verified"`
 - `doNotPublish: true`
-- a valid HTTPS source outside Freehub
+- a valid HTTPS source outside Freehub, or explicit `sourceCheckStatus: "not-located"` with a truthful `sourceNote` identifying the supplied research lead
 - complete display fields, including the unresolved evidence gap and last-checked date
-- a closing date on or after the build's lifecycle reference date
+- a closing date on or after the build's lifecycle reference date, or an explicitly unknown deadline with a valid `reviewDueAt`
+- no future `listedAt` date or overdue `reviewDueAt`
 
-`doNotPublish: true` continues to block the record from the verified competition pipeline. The generator uses a separate reader and renderer for this one collection page.
+`doNotPublish: true` continues to block the record from the verified competition pipeline. The generator uses a separate reader and renderer for the collection and its individual `/unverified-competitions/{id}/` pages. This follows the owner's 30 October 2026 direction to make identifiable unverified leads discoverable with their evidence gaps clearly explained.
 
-Under-review records must never produce individual `/competition/` pages, `/out/` redirects, verified cards, ItemList competition schema, mobile-app feed entries, category/tag/brand listings or verified sitemap URLs. The collection page is indexable and included in the sitemap only while at least three current records provide substantial consumer value.
+Under-review records must never produce individual `/competition/` pages, `/out/` redirects, verified cards, ItemList competition schema, mobile-app feed entries, category/tag/brand listings or verified sitemap URLs. Each current individual under-review page is indexable, self-canonical, linked from the collection and included in the sitemap. The collection is indexable while at least three current records provide substantial consumer value. Expired or overdue leads leave the collection and sitemap, and their generated detail files are removed. Indexable does not guarantee search-engine indexing.
 
 ## Required editorial content
 
 Each record must state the promoter or brand, title, prize shown, stated closing date, apparent entry route, cost uncertainty, source URL, last-checked date and a specific reason Freehub has not verified it. Do not use generic wording where the evidence gap is known.
 
 Use a direct promoter or campaign source. Do not add affiliate parameters, tracking redirects or third-party competition aggregators. The public link is marked `nofollow` and opens the source directly.
+
+To fulfil the owner's all-leads coverage direction, an identified research lead may have a source-missing page. Label the claimed prize, dates and promoter as reported, explain that no official campaign source was located, and omit the entry/source CTA entirely. Do not invent a URL or link an aggregator as if it were official. Such records still require a bounded review window and remain separate from verified listings.
 
 ## Moving a record to verified
 

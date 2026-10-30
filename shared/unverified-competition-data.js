@@ -7,10 +7,8 @@ const REQUIRED_FIELDS = Object.freeze([
   "brand",
   "title",
   "prize",
-  "closingDate",
   "entrySummary",
   "costSummary",
-  "officialSourceUrl",
   "reviewGap",
   "lastChecked",
   "publicationStatus",
@@ -45,8 +43,14 @@ function validateRegistry(records) {
 
     if (ids.has(record.id)) errors.push(`${label}: duplicate id.`);
     ids.add(record.id);
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(record.id || "")) errors.push(`${label}: invalid id.`);
 
-    if (!normalizeDate(record.closingDate)) errors.push(`${label}: invalid closingDate.`);
+    if (record.closingDate && !normalizeDate(record.closingDate)) errors.push(`${label}: invalid closingDate.`);
+    if (!record.closingDate && (!record.closingDateText || !normalizeDate(record.reviewDueAt))) {
+      errors.push(`${label}: unknown closing date requires closingDateText and reviewDueAt.`);
+    }
+    if (record.reviewDueAt && !normalizeDate(record.reviewDueAt)) errors.push(`${label}: invalid reviewDueAt.`);
+    if (record.listedAt && !normalizeDate(record.listedAt)) errors.push(`${label}: invalid listedAt.`);
     if (!normalizeDate(record.lastChecked)) errors.push(`${label}: invalid lastChecked.`);
     if (record.publicationStatus !== PUBLICATION_STATUS) {
       errors.push(`${label}: publicationStatus must be ${PUBLICATION_STATUS}.`);
@@ -56,6 +60,10 @@ function validateRegistry(records) {
     }
     if (record.doNotPublish !== true) errors.push(`${label}: doNotPublish must be true.`);
 
+    if (!record.officialSourceUrl && record.sourceCheckStatus === "not-located" && typeof record.sourceNote === "string" && record.sourceNote.trim()) {
+      // Explicit source-missing discovery pages offer no entry or source CTA.
+      return;
+    }
     try {
       const source = new URL(record.officialSourceUrl);
       if (source.protocol !== "https:") errors.push(`${label}: officialSourceUrl must use https.`);
@@ -77,15 +85,23 @@ function isPublicUnderReview(record, options = {}) {
     record.publicationStatus === PUBLICATION_STATUS &&
     record.verificationStatus === VERIFICATION_STATUS &&
     record.doNotPublish === true &&
-    normalizeDate(record.closingDate) &&
-    record.closingDate >= asOfDate
+    (!record.listedAt || record.listedAt <= asOfDate) &&
+    (!record.reviewDueAt || record.reviewDueAt >= asOfDate) &&
+    (normalizeDate(record.closingDate)
+      ? record.closingDate >= asOfDate
+      : Boolean(record.closingDateText && normalizeDate(record.reviewDueAt)))
   );
 }
 
 function getPublicUnderReview(records, options = {}) {
   return records
     .filter((record) => isPublicUnderReview(record, options))
-    .sort((a, b) => a.closingDate.localeCompare(b.closingDate) || a.brand.localeCompare(b.brand));
+    .sort((a, b) => (a.closingDate || "9999").localeCompare(b.closingDate || "9999") || a.brand.localeCompare(b.brand));
+}
+
+function getDetailPath(record) {
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(record.id || "")) throw new Error("Invalid under-review id");
+  return `${PUBLIC_PATH}${record.id}/`;
 }
 
 module.exports = {
@@ -95,4 +111,5 @@ module.exports = {
   validateRegistry,
   isPublicUnderReview,
   getPublicUnderReview,
+  getDetailPath,
 };

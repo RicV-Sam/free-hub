@@ -3351,20 +3351,22 @@ function renderUnderReviewCallout() {
         </aside>`;
 }
 
-function renderUnverifiedCompetitionCard(record) {
+function renderUnverifiedCompetitionCard(record, { detail = false } = {}) {
   const sourceHost = getSafeHostname(record.officialSourceUrl);
   return `<article class="unverified-card" id="review-${escapeAttribute(record.id)}" data-review-id="${escapeAttribute(record.id)}">
           <div class="unverified-card__heading">
             <div>
               <p class="unverified-card__brand">${escapeHtml(record.brand)}</p>
-              <h2>${escapeHtml(record.title)}</h2>
+              <h2>${detail ? "Campaign details" : `<a href="${escapeAttribute(unverifiedCompetitionData.getDetailPath(record))}">${escapeHtml(record.title)}</a>`}</h2>
             </div>
             <span class="unverified-card__status">Not verified</span>
           </div>
-          ${renderListingHeroImage(record)}
+          ${record.image ? `<figure class="unverified-card__art${detail ? " unverified-card__art--detail" : ""}"><img src="${escapeAttribute(record.image)}" alt="${escapeAttribute(record.imageAlt || record.title)}" loading="${detail ? "eager" : "lazy"}" decoding="async" /><figcaption>${record.imageReviewStatus === "editorial-generated" ? "FreeHub editorial illustration — not promoter artwork or a depiction of a confirmed prize." : "Promoter artwork. The claims shown remain subject to the unresolved checks below."}</figcaption></figure>` : renderListingHeroImage(record)}
           <dl class="unverified-card__facts">
             <div><dt>Prize shown</dt><dd>${escapeHtml(record.prize)}</dd></div>
-            <div><dt>Closing date shown</dt><dd>${escapeHtml(shared.formatDate(record.closingDate))}</dd></div>
+            <div><dt>Closing date shown</dt><dd>${escapeHtml(record.closingDateText || (record.closingDate ? shared.formatDate(record.closingDate) : "Not confirmed"))}</dd></div>
+            ${record.startDate ? `<div><dt>Opening date reported</dt><dd>${escapeHtml(shared.formatDate(record.startDate))}</dd></div>` : ""}
+            ${record.eligibility ? `<div><dt>Eligibility reported</dt><dd>${escapeHtml(record.eligibility)}</dd></div>` : ""}
             <div><dt>How it appears to work</dt><dd>${escapeHtml(record.entrySummary)}</dd></div>
             <div><dt>Cost to consider</dt><dd>${escapeHtml(record.costSummary)}</dd></div>
           </dl>
@@ -3373,21 +3375,23 @@ function renderUnverifiedCompetitionCard(record) {
             <p>${escapeHtml(record.reviewGap)}</p>
           </div>
           <div class="unverified-card__footer">
-            <p>Checked ${escapeHtml(shared.formatDate(record.lastChecked))}</p>
-            <a href="${escapeAttribute(record.officialSourceUrl)}" target="_blank" rel="nofollow noopener noreferrer">Open source on ${escapeHtml(sourceHost)}</a>
+            <p>${record.sourceCheckStatus === "not-located" ? "Source search attempted" : record.sourceCheckStatus === "unavailable" ? "Source access attempted" : "Reviewed"} ${escapeHtml(shared.formatDate(record.lastChecked))}</p>
+            ${record.officialSourceUrl ? `<a href="${escapeAttribute(record.officialSourceUrl)}" target="_blank" rel="nofollow noopener noreferrer">Open source on ${escapeHtml(sourceHost)}</a>` : `<p><strong>Official campaign source not located.</strong> ${escapeHtml(record.sourceNote)}</p>`}
+            ${record.termsUrl && record.termsUrl !== record.officialSourceUrl ? `<a href="${escapeAttribute(record.termsUrl)}" target="_blank" rel="nofollow noopener noreferrer">Read promoter terms</a>` : ""}
           </div>
         </article>`;
 }
 
-function renderUnverifiedCompetitionPage(records) {
-  const canonicalUrl = `${shared.CANONICAL_ORIGIN}${unverifiedCompetitionData.PUBLIC_PATH}`;
-  const indexable = records.length >= MIN_INDEXABLE_UNVERIFIED_COMPETITIONS;
-  const title = "Unverified Competitions South Africa | Check Before Entering";
-  const description = "See current South African competition leads Freehub has not verified, with the missing evidence, possible costs, dates and direct promoter-source links clearly disclosed.";
+function renderUnverifiedCompetitionPage(records, detailRecord = null) {
+  const canonicalUrl = `${shared.CANONICAL_ORIGIN}${detailRecord ? unverifiedCompetitionData.getDetailPath(detailRecord) : unverifiedCompetitionData.PUBLIC_PATH}`;
+  const indexable = Boolean(detailRecord) || records.length >= MIN_INDEXABLE_UNVERIFIED_COMPETITIONS;
+  const title = detailRecord ? `${detailRecord.title} — Unverified | Freehub` : "Unverified Competitions South Africa | Check Before Entering";
+  const heading = detailRecord ? `${detailRecord.title}: under review` : "Competitions under review in South Africa";
+  const description = detailRecord ? `${detailRecord.title}: not yet verified. ${detailRecord.reviewGap}` : "See South African competition leads Freehub has not verified, with the missing evidence, possible costs, dates and direct promoter-source links clearly disclosed.";
   const pageData = {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: "Competitions under review in South Africa",
+    "@type": detailRecord ? "WebPage" : "CollectionPage",
+    name: heading,
     description,
     url: canonicalUrl,
     inLanguage: "en-ZA",
@@ -3400,11 +3404,12 @@ function renderUnverifiedCompetitionPage(records) {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${shared.CANONICAL_ORIGIN}/` },
       { "@type": "ListItem", position: 2, name: "Competitions", item: `${shared.CANONICAL_ORIGIN}/competitions/` },
-      { "@type": "ListItem", position: 3, name: "Competitions under review", item: canonicalUrl },
+      { "@type": "ListItem", position: 3, name: "Competitions under review", item: `${shared.CANONICAL_ORIGIN}${unverifiedCompetitionData.PUBLIC_PATH}` },
+      ...(detailRecord ? [{ "@type": "ListItem", position: 4, name: detailRecord.title, item: canonicalUrl }] : []),
     ],
   };
   const listMarkup = records.length > 0
-    ? `<div class="unverified-list">${records.map(renderUnverifiedCompetitionCard).join("\n")}</div>`
+    ? `<div class="unverified-list${detailRecord ? " unverified-list--detail" : ""}">${records.map((record) => renderUnverifiedCompetitionCard(record, { detail: Boolean(detailRecord) })).join("\n")}</div>`
     : `<section class="state-card"><p class="state-card__title">No current leads under review</p><p class="state-card__text">We remove entries once the stated closing date passes. Browse verified competitions while we review new sources.</p><a href="/competitions/">Browse verified competitions</a></section>`;
 
   return `<!DOCTYPE html>
@@ -3440,15 +3445,16 @@ function renderUnverifiedCompetitionPage(records) {
       ${renderTopNavigation({ active: "competitions" })}
       ${renderModernHero({
         className: "hero--utility hero--under-review",
-        mascotPose: records.length ? "browse" : "recover",
+        mascotPose: detailRecord ? undefined : (records.length ? "browse" : "recover"),
         eyebrow: "Discovery with disclosure",
-        heading: "Competitions under review in South Africa",
-        intro: "These competition leads have not passed Freehub's verification checks. We show what we found, what is still missing and the direct source so you can make your own judgement.",
+        heading,
+        intro: "These competition leads have not passed Freehub's verification checks. We show what is reported, what is still missing and an official source where one has been located.",
         actions: [
+          ...(detailRecord ? [{ label: "All competitions under review", href: unverifiedCompetitionData.PUBLIC_PATH, className: "btn--secondary" }] : []),
           { label: "Browse verified competitions", href: "/competitions/", className: "btn--primary" },
           { label: "How Freehub verifies", href: "/how-we-verify-competitions/", className: "btn--secondary" },
         ],
-        trustItems: ["Not endorsed by Freehub", "Evidence gaps disclosed", "Direct source links"],
+        trustItems: ["Not endorsed by Freehub", "Evidence gaps disclosed", "Missing sources labelled"],
       })}
       <main id="main-content" class="main-content unverified-page">
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/competitions/">Competitions</a><span aria-hidden="true">/</span><span aria-current="page">Under review</span></nav>
@@ -3463,13 +3469,13 @@ function renderUnverifiedCompetitionPage(records) {
           </ul>
         </section>
         <section class="unverified-page__intro" aria-labelledby="under-review-list-title">
-          <div><p class="unverified-page__kicker">Current watchlist</p><h2 id="under-review-list-title">${records.length} lead${records.length === 1 ? "" : "s"} with unresolved checks</h2></div>
-          <p>Items disappear automatically after their stated closing date. If stronger evidence becomes available, an item can move into Freehub's separate verified listings.</p>
+          <div><p class="unverified-page__kicker">${detailRecord ? "Not yet verified" : "Competition watchlist"}</p><h2 id="under-review-list-title">${detailRecord ? "What is known and what remains uncertain" : `${records.length} leads with unresolved checks`}</h2></div>
+          <p>A reported date is not confirmation that entries are open. Leads with unknown or conflicting deadlines are labelled explicitly and reviewed again before their review window expires.</p>
         </section>
         ${listMarkup}
         <section class="unverified-method" aria-labelledby="unverified-method-title">
           <h2 id="unverified-method-title">What “not verified” means here</h2>
-          <p>We found an apparently relevant promoter or campaign source, but could not confirm one or more important facts such as the complete terms, exact entry route, eligibility, cost or internally consistent dates. We publish no individual Freehub competition page, verified badge or Freehub redirect for these leads.</p>
+          <p>These leads come from promoter material or research reports. We could not confirm one or more important facts such as the official campaign source, full terms, entry route, eligibility, cost or consistent dates. Each page explains its own uncertainty. Where no official source has been located, we provide no entry link. This is not a verified badge or confirmation that entries are open.</p>
           <a href="/report-a-competition/">Report a concern or send better source evidence</a>
         </section>
       </main>
@@ -3484,6 +3490,19 @@ function writeUnverifiedCompetitionPage(records) {
   const outputDirectory = path.join(ROOT_DIR, unverifiedCompetitionData.PUBLIC_PATH.replace(/^\//, "").replace(/\/$/, ""));
   fs.mkdirSync(outputDirectory, { recursive: true });
   writeGeneratedFile(path.join(outputDirectory, "index.html"), renderUnverifiedCompetitionPage(records));
+  const currentIds = new Set(records.map((record) => record.id));
+  // This directory owns only generated under-review detail pages. Remove stale
+  // files, not arbitrary directories, so closed/promoted leads cannot linger.
+  for (const entry of fs.readdirSync(outputDirectory, { withFileTypes: true })) {
+    if (!entry.isDirectory() || currentIds.has(entry.name)) continue;
+    const staleFile = path.join(outputDirectory, entry.name, "index.html");
+    if (fs.existsSync(staleFile) && fs.readFileSync(staleFile, "utf8").includes('data-under-review-detail="true"')) fs.unlinkSync(staleFile);
+  }
+  records.forEach((record) => {
+    const detailDirectory = path.join(outputDirectory, record.id);
+    fs.mkdirSync(detailDirectory, { recursive: true });
+    writeGeneratedFile(path.join(detailDirectory, "index.html"), renderUnverifiedCompetitionPage([record], record).replace('<body>', '<body data-under-review-detail="true">'));
+  });
 }
 
 function renderTopNavigation(options = {}) {
@@ -12525,6 +12544,11 @@ function generateSitemap(competitions, routeContexts, sitemapCompetitions = comp
         lastmod: getUnverifiedPageLastmod(publicUnderReviewCompetitions),
       })]
     : [];
+
+  unverifiedEntries.push(...publicUnderReviewCompetitions.map((record) => renderSitemapUrl({
+    loc: `${origin}${unverifiedCompetitionData.getDetailPath(record)}`,
+    lastmod: record.lastChecked,
+  })));
 
   const staticEntries = routeContexts
     .filter((routeContext) => routeContext.noindex !== true)

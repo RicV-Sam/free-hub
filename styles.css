@@ -1854,6 +1854,12 @@ button {
   margin: 0;
 }
 
+.unverified-card__art { margin: 0 0 1.25rem; }
+.unverified-list--detail { display: block; }
+.unverified-card__art img { display: block; width: 100%; height: 200px; object-fit: contain; background: #f5f7f6; border-radius: 12px; }
+.unverified-card__art--detail img { height: auto; max-height: 480px; }
+.unverified-card__art figcaption { margin-top: .5rem; color: var(--text-muted, #52615c); font-size: .8rem; line-height: 1.5; }
+
 .unverified-card__facts div {
   display: grid;
   gap: 0.15rem;

@@ -23,7 +23,7 @@ test("under-review registry is valid and explicitly fail-closed", () => {
 
 test("only current records enter the public under-review collection", () => {
   const current = unverifiedData.getPublicUnderReview(registry, { asOfDate: "2026-09-03" });
-  assert.equal(current.length, registry.length);
+  assert.ok(current.length > 0);
   assert.ok(current.every((record) => record.closingDate >= "2026-09-03"));
   assert.equal(
     unverifiedData.isPublicUnderReview({ ...registry[0], closingDate: "2026-09-02" }, { asOfDate: "2026-09-03" }),
@@ -52,7 +52,7 @@ test("generated page discloses status and bypasses verified detail and redirect 
 
   registry.forEach((record) => {
     const idPattern = new RegExp(record.id.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
-    if (record.closingDate >= asOfDate) assert.match(html, idPattern);
+    if (unverifiedData.isPublicUnderReview(record, { asOfDate })) assert.match(html, idPattern);
     else assert.doesNotMatch(html, idPattern);
     assert.doesNotMatch(sitemap, new RegExp(`/competition/${record.id}/`));
     assert.equal(fs.existsSync(path.join(ROOT_DIR, "competition", record.id)), false);
@@ -64,8 +64,46 @@ test("generated page discloses status and bypasses verified detail and redirect 
 test("under-review page links directly to sources without verified competition schema", () => {
   const html = fs.readFileSync(path.join(ROOT_DIR, "unverified-competitions", "index.html"), "utf8");
   const current = unverifiedData.getPublicUnderReview(registry, { asOfDate });
-  current.forEach((record) => assert.ok(html.includes(record.officialSourceUrl)));
+  current.filter(record => record.officialSourceUrl).forEach((record) => assert.ok(html.includes(record.officialSourceUrl.replace(/&/g, "&amp;"))));
   assert.doesNotMatch(html, /"@type":"ItemList"/);
   assert.doesNotMatch(html, /Verified listing/);
   assert.doesNotMatch(html, /href="\/out\//);
+});
+
+test("unknown deadlines expire at their review boundary and cannot appear before listedAt", () => {
+  const lead = { ...registry[0], closingDate: "", closingDateText: "Not confirmed", listedAt: "2026-10-30", reviewDueAt: "2026-11-06" };
+  assert.equal(unverifiedData.validateRegistry([lead]).valid, true);
+  assert.equal(unverifiedData.isPublicUnderReview(lead, { asOfDate: "2026-10-29" }), false);
+  assert.equal(unverifiedData.isPublicUnderReview(lead, { asOfDate: "2026-11-06" }), true);
+  assert.equal(unverifiedData.isPublicUnderReview(lead, { asOfDate: "2026-11-07" }), false);
+  assert.equal(unverifiedData.validateRegistry([{ ...lead, reviewDueAt: "" }]).valid, false);
+  assert.throws(() => unverifiedData.getDetailPath({ id: "../escape" }));
+});
+
+test("each current lead has an indexable self-canonical detail page with disclosure and incoming link", () => {
+  const hub = fs.readFileSync(path.join(ROOT_DIR, "unverified-competitions/index.html"), "utf8");
+  const sitemap = fs.readFileSync(path.join(ROOT_DIR, "sitemap.xml"), "utf8");
+  for (const record of unverifiedData.getPublicUnderReview(registry, { asOfDate })) {
+    const route = unverifiedData.getDetailPath(record);
+    const html = fs.readFileSync(path.join(ROOT_DIR, route, "index.html"), "utf8");
+    assert.ok(hub.includes(`href="${route}"`));
+    assert.ok(sitemap.includes(`https://freehub.co.za${route}</loc>`));
+    assert.ok(html.includes(`rel="canonical" href="https://freehub.co.za${route}"`));
+    assert.match(html, /name="robots" content="index, follow/);
+    assert.equal((html.match(/<h1\b/g) || []).length, 1);
+    assert.match(html, /Why Freehub has not verified it/);
+    assert.doesNotMatch(html, /href="\/out\//);
+    assert.doesNotMatch(html, /"@type":"ItemList"/);
+    if (!record.officialSourceUrl) {
+      assert.match(html, /Official campaign source not located/);
+      assert.doesNotMatch(html, />Open source on /);
+      assert.doesNotMatch(html, />Read promoter terms</);
+    }
+  }
+});
+
+test("source-missing leads require an explicit disclosure rather than a fabricated source", () => {
+  const lead = { ...registry[0], officialSourceUrl: "" };
+  assert.equal(unverifiedData.validateRegistry([lead]).valid, false);
+  assert.equal(unverifiedData.validateRegistry([{ ...lead, sourceCheckStatus: "not-located", sourceNote: "Supplied research report; exact campaign not located." }]).valid, true);
 });

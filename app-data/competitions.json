@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-30",
-  "count": 119,
+  "count": 125,
   "competitions": [
     {
       "id": "sea-harvest-say-fish-grocery-vouchers-2026",
@@ -1263,6 +1263,31 @@
       "isClosingSoon": false
     },
     {
+      "id": "boxer-go-getta-2026",
+      "title": "Boxer Go-Getta Business Prize Competition",
+      "brand": "Boxer / AMKA",
+      "summary": "Buy two qualifying personal-care products and swipe your Boxer Rewards Club card for automatic entry. The South African competition closes on 8 November 2026.",
+      "imageUrl": "https://freehub.co.za/assets/listings/discovery-2026-10-30/a003.webp",
+      "closingDate": "2026-11-08",
+      "category": "Cash",
+      "prizeName": "Cash prizes up to R250,000 and Boxer rewards",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Promoter campaign",
+      "eligibility": "Permanent residents or citizens of South Africa aged 18 or older with a valid South African identity document and bank account. Prior winners of the named participating brands within 12 months are excluded. Separate Eswatini rules apply.",
+      "entrySteps": [
+        "Buy any two qualifying products from the brands and product ranges listed in Boxer’s official terms.",
+        "Swipe your valid Boxer Rewards Club card at checkout for automatic entry.",
+        "Keep proof of purchase and ensure your contact details are current."
+      ],
+      "officialUrl": "https://www.boxer.co.za/page/competitions",
+      "termsUrl": "https://www.boxer.co.za/storage/web/source/2026/Competition%20T%26Cs/Boxer%20Go-Getta%20T%26Cs.pdf?_t=1788761172",
+      "lastChecked": "2026-10-30",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "1up-mangia-vouchers-2026",
       "title": "1UP Mangia Pasta R500 vouchers",
       "brand": "1UP Cash & Carry / Mangia",
@@ -1283,6 +1308,31 @@
       "officialUrl": "https://1uponline.co.za/index.php?route=information/oneupcompetition",
       "termsUrl": "https://1uponline.co.za/index.php?route=information/oneupcompetition",
       "lastChecked": "2026-10-24",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "cape-town-move-with-melody-2026",
+      "title": "Cape Town Move with Melody Dance Competition",
+      "brand": "City of Cape Town",
+      "summary": "Amateur dance groups of two to ten performers can submit a one-minute Beacon of Hope routine for Cape Town’s Move with Melody competition. Finalists must attend the live performance.",
+      "imageUrl": "https://freehub.co.za/assets/listings/discovery-2026-10-30/f004.webp",
+      "closingDate": "2026-11-09",
+      "category": "Cash",
+      "prizeName": "First R10,000; second R5,000; third R2,000.",
+      "entryCostType": "unclear",
+      "entryCostLabel": "Entry requirements unclear",
+      "purchaseRequired": false,
+      "entryMethod": "Promoter campaign",
+      "eligibility": "Cape Town amateur dance groups of 2–10; participants must not earn a living from dance/performance. No explicit age minimum published.",
+      "entrySteps": [
+        "Film a one-minute group routine inspired by Beacon of Hope. Groups must have two to ten amateur performers.",
+        "Follow the City’s submission instructions: tag @CTFestiveLights and use #FLSODance2026 on the listed social platforms, or use its listed WhatsApp route.",
+        "Submit by 9 November 2026. Finalists perform at the V&A Waterfront Amphitheatre on 21 November; the top three also perform at Grand Parade on 29 November."
+      ],
+      "officialUrl": "https://www.capetown.gov.za/general/festive-lights-switch-on/",
+      "termsUrl": "https://www.capetown.gov.za/general/festive-lights-switch-on/",
+      "lastChecked": "2026-10-30",
       "isHighValue": false,
       "isClosingSoon": false
     },
@@ -1444,6 +1494,31 @@
       "isClosingSoon": false
     },
     {
+      "id": "mtn-tfg-prepaid-win-your-share-2026",
+      "title": "MTN TFG Prepaid Win Your Share Competition",
+      "brand": "MTN / TFG",
+      "summary": "Buy a qualifying MTN prepaid device at a participating TFG chain, activate a new MTN SIM in that device and recharge it with at least R30 to enter automatically.",
+      "imageUrl": "https://freehub.co.za/assets/listings/discovery-2026-10-30/r012.webp",
+      "closingDate": "2026-11-18",
+      "category": "Vouchers",
+      "prizeName": "R20,000 TFG shopping vouchers",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Promoter campaign",
+      "eligibility": "South African permanent residents aged 18 or older with a valid ID or passport and a South African bank account; new qualifying device, new SIM and recharge requirements apply.",
+      "entrySteps": [
+        "Buy an MTN prepaid device at a participating TFG chain listed in the official terms.",
+        "Activate a new MTN SIM in the newly purchased device and recharge that SIM with at least R30 in airtime or a direct bundle before 18 November 2026.",
+        "Further entries require separate qualifying R30 recharges on that same newly activated SIM. Keep your purchase and activation evidence."
+      ],
+      "officialUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn-pay-as-you-go-tfg-win-your-share-competition",
+      "termsUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn-pay-as-you-go-tfg-win-your-share-competition",
+      "lastChecked": "2026-10-30",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "edgars-at-our-school-2026",
       "title": "Edgars At Our School Competition",
       "brand": "Edgars / SuperSport Schools",
@@ -1494,6 +1569,31 @@
       "termsUrl": "https://eskort.com/braai-lux-competition-terms-conditions/",
       "lastChecked": "2026-09-18",
       "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "boxer-amarula-smeg-fridge-2026",
+      "title": "Boxer Amarula SMEG Fridge Competition",
+      "brand": "Boxer / Amarula",
+      "summary": "Buy a qualifying Amarula Cream Liqueur 750ml bottle at a participating Boxer Liquor store, swipe Boxer Rewards and keep the receipt for a chance to win one of two SMEG fridges.",
+      "imageUrl": "https://freehub.co.za/assets/listings/discovery-2026-10-30/a004.webp",
+      "closingDate": "2026-11-24",
+      "category": "Home",
+      "prizeName": "Two SMEG fridges; model and rand value not stated.",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Promoter campaign",
+      "eligibility": "SA legal residents 18+ with valid SA ID/smart card.",
+      "entrySteps": [
+        "Buy an Amarula Cream Liqueur 750ml bottle at a participating Boxer Liquor store.",
+        "Swipe your valid Boxer Rewards Club card at checkout and keep the till slip.",
+        "Each separate qualifying purchase gives another entry; entries close at 23:59 on 24 November 2026."
+      ],
+      "officialUrl": "https://www.boxer.co.za/page/competitions",
+      "termsUrl": "https://www.boxer.co.za/storage/web/source/2026/Competition%20T%26Cs/Boxer%20%26%20Amarula%20Ts%26Cs.pdf?_t=1792679933",
+      "lastChecked": "2026-10-30",
+      "isHighValue": false,
       "isClosingSoon": false
     },
     {
@@ -2771,6 +2871,56 @@
       "termsUrl": "https://www.clover.co.za/competitions/tropika-island-of-treasure-engen-competition/",
       "lastChecked": "2026-10-21",
       "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "sparletta-local-jewels-2026",
+      "title": "Sparletta Local Jewels Airtime, Fuel and Trolley Dash Competition",
+      "brand": "Sparletta / Twist / Coca-Cola Peninsula Beverages",
+      "summary": "Buy a participating Sparletta or Twist promotional pack with a unique code under its yellow cap and register through the official campaign page. Only the listed Coca-Cola Peninsula Beverages regions qualify.",
+      "imageUrl": "https://freehub.co.za/assets/listings/discovery-2026-10-30/a006.webp",
+      "closingDate": "2026-12-31",
+      "category": "Airtime",
+      "prizeName": "R20 airtime/data, R1,000 fuel cards or R5,000 trolley-dash prizes.",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Promoter campaign",
+      "eligibility": "18+ SA citizens/permanent residents in participating CCPB regions: Cape Town, Cape Winelands, Boland, West Coast, Overberg and Namakwa.",
+      "entrySteps": [
+        "Check that your store and region are covered by the official terms and buy a listed promotional pack with a unique code under its yellow cap.",
+        "Scan the campaign QR code or open the official Sparletta campaign page and complete registration.",
+        "Enter the unique code once. Each further entry needs a separate valid promotional code."
+      ],
+      "officialUrl": "https://www.coca-cola.com/za/en/offerings/sparletta-2026",
+      "termsUrl": "https://www.coca-cola.com/za/en/legal/terms-and-conditions-sparletta-2026",
+      "lastChecked": "2026-10-30",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "bic-summer-braai-2026",
+      "title": "BIC Summer Braai Voucher Competition",
+      "brand": "BIC South Africa",
+      "summary": "BIC’s summer promotion offers SPAR shopping vouchers and cash vouchers through other named retailers. Purchase rules differ between SPAR in-store, SPAR2U and other retailer routes.",
+      "imageUrl": "https://freehub.co.za/assets/listings/discovery-2026-10-30/a007.webp",
+      "closingDate": "2026-12-31",
+      "category": "Vouchers",
+      "prizeName": "Voucher prizes worth R1,000 or R5,000",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Promoter campaign",
+      "eligibility": "SA permanent residents 18+; BIC-connected people excluded.",
+      "entrySteps": [
+        "For SPAR in-store entry, buy a qualifying BIC Megalighter or BIC Firelighter and scan the in-store QR code.",
+        "For SPAR2U and the national retailer routes, the detailed terms require both the qualifying Megalighter and Firelighter; follow the retailer’s entry prompts.",
+        "Keep a clear till slip or invoice. Enter no more than once per week and before 23:59 on 31 December 2026."
+      ],
+      "officialUrl": "https://mea.bic.com/en-za/lighters/Braais-are-best-with-bic",
+      "termsUrl": "https://mea.bic.com/en-za/lighters/bic-summer-braai-competition-terms-and-conditions",
+      "lastChecked": "2026-10-30",
+      "isHighValue": false,
       "isClosingSoon": false
     },
     {

@@ -18,7 +18,7 @@ test("durable guides survive a real generator build with zero qualifying publish
     fs.cpSync(path.join(root, name), path.join(fixture, name), { recursive: true });
   }
   const records = JSON.parse(fs.readFileSync(path.join(fixture, "data/competitions.json")));
-  const referenceDate = process.env.FREEHUB_AS_OF_DATE || process.env.FREEHUB_BUILD_DATE || "2026-10-14";
+  const referenceDate = process.env.FREEHUB_AS_OF_DATE || process.env.FREEHUB_BUILD_DATE || require("../../shared/page-data.js").getSouthAfricanDate();
   // Withhold every qualifying guide record in this synthetic fixture while
   // preserving unrelated campaigns and the archive's required related links.
   const slugs = ["sms-competitions-south-africa", "win-airtime-competitions-south-africa", "win-data-competitions-south-africa"];

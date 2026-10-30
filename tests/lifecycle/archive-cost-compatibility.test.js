@@ -40,10 +40,18 @@ test("archive compatibility is explicit, complete, and serialization-neutral", (
 test("all active competition labels match the reviewed compact snapshot", () => {
   const baseline = JSON.parse(fs.readFileSync(path.join(rootDir, "tests", "baselines", "active-cost-labels.json"), "utf8"));
   const competitions = JSON.parse(fs.readFileSync(path.join(rootDir, "data", "competitions.json"), "utf8"));
+  // Review new editorial additions separately while retaining the historical
+  // cost-label hash unchanged for every record it originally covered.
+  const additions = require("../baselines/discovery-cost-labels-2026-10-30.json");
+  for (const [id, label] of Object.entries(additions)) {
+    const record = competitions.find(row => row.id === id);
+    assert.ok(record, id);
+    assert.equal(shared.getEntryCostLabel(record), label, id);
+  }
   let active;
   shared.setReferenceDate(baseline.buildDate);
   try {
-    active = shared.getPublishedActiveCompetitions(competitions);
+    active = shared.getPublishedActiveCompetitions(competitions.filter(row => !Object.hasOwn(additions, row.id)));
   } finally {
     shared.setReferenceDate();
   }

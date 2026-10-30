@@ -4,6 +4,7 @@ const path = require('node:path');
 const shared = require('../../shared/page-data.js');
 const { applyCompetitionRetirements } = require('./competition-retirements.js');
 const opportunityData = require('../../shared/opportunity-data.js');
+const unverifiedData = require('../../shared/unverified-competition-data.js');
 const { getReviewedGuides } = require('./research-guides.js');
 const { getGroceryPages } = require('./grocery-savings.js');
 const root = path.resolve(__dirname, '../..');
@@ -11,6 +12,7 @@ const read = (name) => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8')
 
 function getCurrentContentBaseline() {
   const buildDate = process.env.FREEHUB_BUILD_DATE || shared.getSouthAfricanDate();
+  const underReviewCount = unverifiedData.getPublicUnderReview(read('data/unverified-competitions.json'), { asOfDate: process.env.FREEHUB_AS_OF_DATE || buildDate }).length;
   const groceryPageCount = process.env.FREEHUB_ENABLE_OFFERS === 'true' ? getGroceryPages({ asOfDate: process.env.FREEHUB_AS_OF_DATE || buildDate }).length : 0;
   shared.setReferenceDate(process.env.FREEHUB_AS_OF_DATE || buildDate);
   const sourceCompetitions = read('data/competitions.json');
@@ -71,8 +73,9 @@ function getCurrentContentBaseline() {
     // 25 October: Everest Wealth and First Choice add two reviewed detail pages; active exits are counted below.
     // 28 October: Hypertext Mobile Survey adds one reviewed detail page; its active exit is counted below.
     // 30 October: Dr. Oetker adds one reviewed competition detail; active exits are counted below.
-    generatedFileCount: groceryPageCount + 478 + shared.TAG_SLUGS.filter(slug => shared.getTagFilteredCompetitions(active, slug).length > 0).length + featuredVideoSlugs(active).size + shared.getGeneratedBrandPageDefinitions(core).length + getReviewedGuides(buildDate).length - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
-    sitemapUrlCount: groceryPageCount + read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + getReviewedGuides(buildDate).filter(page => !page.noindex).length + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length + (read('data/airtime-dash.json').enabled ? 1 : 0),
+    // Six reviewed competition detail pages and the current under-review detail pages.
+    generatedFileCount: groceryPageCount + 484 + underReviewCount + shared.TAG_SLUGS.filter(slug => shared.getTagFilteredCompetitions(active, slug).length > 0).length + featuredVideoSlugs(active).size + shared.getGeneratedBrandPageDefinitions(core).length + getReviewedGuides(buildDate).length - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    sitemapUrlCount: groceryPageCount + underReviewCount + read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + getReviewedGuides(buildDate).filter(page => !page.noindex).length + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length + (read('data/airtime-dash.json').enabled ? 1 : 0),
   };
 }
 module.exports = { getCurrentContentBaseline };
