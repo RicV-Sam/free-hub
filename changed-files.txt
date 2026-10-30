@@ -1,7 +1,4 @@
-ads.txt
-app-data/catalog.json
-app-data/competitions.json
 changed-files.txt
+generate-pages-report.txt
 maintenance-report.txt
 maintenance-summary.json
-reports/vertical-page-coverage-report.md
