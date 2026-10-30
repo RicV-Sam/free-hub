@@ -2,6 +2,14 @@
 
 Freehub's public under-review page is a discovery surface for current South African competition leads that have not passed the normal verification gate. It exists to help users see what is online without presenting incomplete evidence as a verified listing.
 
+## Ongoing discovery direction
+
+The owner's direction on 30 October 2026 is to continue developing both verified competition coverage and unverified discovery. Do not limit research to campaigns that already have complete verification evidence, or discard an identifiable, useful lead solely because checks remain unresolved.
+
+Capture as much relevant information as the available sources support: promoter, reported prizes and dates, eligibility, entry steps, purchase/account/app requirements, costs, exclusions and source links. Distinguish confirmed facts from reported claims, missing information and conflicting sources. Preserve source provenance and truthful review dates; do not fill gaps with assumptions or copy entire source pages. Unverified does not mean proven legitimate, proven fraudulent or endorsed by FreeHub.
+
+Use the separate under-review cards and detail pages for leads that meet the publication boundary below. Missing official sources require the existing explicit disclosure and no entry link. Keep review windows, duplicate checks, expiry rules and publication approval requirements intact. Broader useful search coverage is an objective; indexing, traffic and SEO uplift must be measured rather than assumed from adding pages.
+
 ## Publication boundary
 
 Only records in `data/unverified-competitions.json` with all of the following may appear:
