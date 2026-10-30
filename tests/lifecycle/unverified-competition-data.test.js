@@ -72,6 +72,11 @@ test("under-review cards open separate detail pages before promoter sources", ()
     if (record.officialSourceUrl) assert.ok(detail.includes(record.officialSourceUrl.replace(/&/g, "&amp;")));
     assert.match(detail, /How it appears to work/);
     assert.match(detail, /Why Freehub has not verified it/);
+    if (record.startDate) {
+      const card = html.split(`data-review-id="${record.id}"`)[1].split("</article>")[0];
+      assert.match(card, /Opening date reported/);
+      assert.match(detail, /Opening date reported/);
+    }
   });
   assert.doesNotMatch(html, />Open source on /);
   assert.doesNotMatch(html, /class="unverified-card__facts"/);

@@ -3306,5 +3306,60 @@
     "reviewedAt": "2026-10-30",
     "generationPrompt": "Create a landscape 16:9 FreeHub editorial illustration: a generic small music speaker silhouette beside a shopping receipt; no alcohol containers. Warm teal and amber editorial style. No brand logos, model details, amounts, dates, prize guarantee or official endorsement. Small label FreeHub editorial illustration. This depicts a research topic, not a confirmed prize.",
     "sourceNote": "Identified in the supplied Claude discovery report dated 30 October 2026; no official campaign source located."
+  },
+  "virgin-active-ultimate-getaway-2026": {
+    "src": "/assets/listings/followup-2026-10-30/virgin-active.webp",
+    "width": 1200,
+    "height": 675,
+    "alt": "FreeHub editorial illustration of gym shoes, a suitcase and a globe; not the actual holiday prize.",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration; not promoter artwork.",
+    "reviewedAt": "2026-10-30",
+    "sourcePage": "https://hello.virginactive.co.za/support/solutions/articles/201000133030-terms-and-conditions-the-ultimate-getaway-competition",
+    "prompt": "Create a polished landscape 16:9 editorial illustration for FreeHub's Virgin Active Ultimate Getaway competition article. Evoke fitness goals leading to a travel opportunity: running shoes and a plain gym towel in foreground next to a closed suitcase and abstract globe, soft tropical daylight and teal/navy palette. No identifiable destination, hotel, aircraft brand, logos, money, people, text or claims. Clearly illustrative premium magazine style, not a photograph of an actual prize. Centre-safe composition suitable for website cards."
+  },
+  "lucozade-spar-franchise-vouchers-2026": {
+    "src": "/assets/listings/followup-2026-10-30/lucozade-spar.webp",
+    "width": 1200,
+    "height": 675,
+    "alt": "FreeHub editorial illustration of an unbranded drink, grocery basket and blank voucher; not confirmed prize artwork.",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration; not promoter artwork.",
+    "reviewedAt": "2026-10-30",
+    "sourcePage": "https://lucozade.co.za/faq/spar-competition-terms/",
+    "prompt": "Create a polished landscape 16:9 editorial illustration for FreeHub's pending-verification Lucozade SPAR shopping-voucher competition article. Subject: an unbranded amber sports drink bottle, a shopping basket with ordinary groceries, blank voucher card and receipt with no legible writing on a clean counter. Warm orange, green, deep navy accents. No logos, brand labels, cash, numbers, QR codes or text, no invented prize products. Stylised editorial still life with attractive lighting, centre-safe composition suitable for website cards."
+  },
+  "scentemy-perfume-giveaway-november-2026": {
+    "src": "/assets/listings/followup-2026-10-30/scentemy.webp",
+    "width": 1200,
+    "height": 1200,
+    "alt": "Official Scentemy weekly perfume giveaway artwork showing twelve boxes and the R1,000 qualifying spend.",
+    "kind": "official-source",
+    "caption": "Image from the official campaign page.",
+    "reviewedAt": "2026-10-30",
+    "sourcePage": "https://scentemy.co.za/pages/win-a-year-s-worth-of-perfume-how-to-enter-competition-rules",
+    "sourceImage": "https://scentemy.co.za/cdn/shop/files/Scentemy_weekly_perfume_giveaway.png?v=1793032352&width=1254"
+  },
+  "fossil-free-sa-community-journey-2026": {
+    "src": "/assets/listings/followup-2026-10-30/fossil-free-sa.webp",
+    "width": 1080,
+    "height": 1350,
+    "alt": "Official Fossil Free SA community journey illustration of a group of people together.",
+    "kind": "official-source",
+    "caption": "Image from the official campaign page.",
+    "reviewedAt": "2026-10-30",
+    "sourcePage": "https://www.fossilfreesa.org.za/community-journey-2026",
+    "sourceImage": "https://images.squarespace-cdn.com/content/v1/66eadbffa71e537e4e4a49e4/5b208041-46e7-4f8e-ae23-ca0229d500d6/community+journey.png"
+  },
+  "aqua-atlantis-ada-kaku-pot-giveaway-2026": {
+    "src": "/assets/listings/followup-2026-10-30/aqua-atlantis.webp",
+    "width": 960,
+    "height": 600,
+    "alt": "Official event-page photograph of an ADA planted-container display; the final giveaway creation will be scaped at the seminar.",
+    "kind": "official-source",
+    "caption": "Image from the official campaign page.",
+    "reviewedAt": "2026-10-30",
+    "sourcePage": "https://aquaatlantis.co.za/ada-seminar-2026/",
+    "sourceImage": "https://aquaatlantis.co.za/wp-content/uploads/2026/10/Giveaway-prize-large-1.webp"
   }
 }

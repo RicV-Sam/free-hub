@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-10-30",
-  "count": 125,
+  "count": 126,
   "competitions": [
     {
       "id": "sea-harvest-say-fish-grocery-vouchers-2026",
@@ -2315,6 +2315,31 @@
       "termsUrl": "https://www.penguinrandomhouse.co.za/tos/tscs-win-camp-half-blood-competition/",
       "lastChecked": "2026-10-16",
       "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "virgin-active-ultimate-getaway-2026",
+      "title": "Virgin Active Ultimate Getaway Competition",
+      "brand": "Virgin Active",
+      "summary": "Virgin Active members can earn random draw entries through weekly app rewards for a holiday for two capped at R200,000. Meeting a visits goal unlocks a spin, not a guaranteed competition entry.",
+      "imageUrl": "https://freehub.co.za/assets/listings/followup-2026-10-30/virgin-active.webp",
+      "closingDate": "2026-12-06",
+      "category": "Travel",
+      "prizeName": "Holiday for two capped at R200,000",
+      "entryCostType": "membership_required",
+      "entryCostLabel": "Membership required",
+      "purchaseRequired": false,
+      "entryMethod": "App",
+      "eligibility": "Members resident in South Africa, Botswana or Namibia; winner and companion must be 18 by 7 December 2026. Travel-document requirements apply.",
+      "entrySteps": [
+        "Use the Virgin Active app as an eligible member.",
+        "Achieve your weekly visits goal and use the weekly rewards spin during 28 September–6 December 2026.",
+        "If the spin awards a competition entry, that reward gives one entry. Completing a goal alone does not guarantee entry."
+      ],
+      "officialUrl": "https://hello.virginactive.co.za/support/solutions/articles/201000133030-terms-and-conditions-the-ultimate-getaway-competition",
+      "termsUrl": "https://hello.virginactive.co.za/support/solutions/articles/201000133030-terms-and-conditions-the-ultimate-getaway-competition",
+      "lastChecked": "2026-10-30",
+      "isHighValue": true,
       "isClosingSoon": false
     },
     {

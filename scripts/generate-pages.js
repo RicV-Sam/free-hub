@@ -3366,6 +3366,7 @@ function renderUnverifiedCompetitionCard(record, { detail = false } = {}) {
               <h2 class="competition-card__title">${escapeHtml(record.title)}</h2>
               <p class="competition-card__summary"><strong>${record.listingType === "reward" ? "Reward reported" : "Prize reported"}:</strong> ${escapeHtml(record.prize)}</p>
               <p class="competition-card__summary"><strong>Closing date reported:</strong> ${escapeHtml(closingDate)}</p>
+              ${record.startDate ? `<p class="competition-card__summary"><strong>Opening date reported:</strong> ${escapeHtml(shared.formatDate(record.startDate))}</p>` : ""}
               <p class="competition-card__summary"><strong>Costs:</strong> ${escapeHtml(record.costSummary)}</p>
               <div class="unverified-card__gap"><strong>Unresolved checks</strong><p class="competition-card__summary">${escapeHtml(record.reviewGap)}</p></div>
               ${!record.officialSourceUrl ? `<p class="unverified-card__brand">Official campaign source not located.</p>` : ""}
