@@ -3363,7 +3363,7 @@ function renderUnverifiedCompetitionCard(record, { detail = false } = {}) {
           </div>
           ${record.image ? `<figure class="unverified-card__art${detail ? " unverified-card__art--detail" : ""}"><img src="${escapeAttribute(record.image)}" alt="${escapeAttribute(record.imageAlt || record.title)}" loading="${detail ? "eager" : "lazy"}" decoding="async" /><figcaption>${record.imageReviewStatus === "editorial-generated" ? "FreeHub editorial illustration — not promoter artwork or a depiction of a confirmed prize." : "Promoter artwork. The claims shown remain subject to the unresolved checks below."}</figcaption></figure>` : renderListingHeroImage(record)}
           <dl class="unverified-card__facts">
-            <div><dt>Prize shown</dt><dd>${escapeHtml(record.prize)}</dd></div>
+            <div><dt>${record.listingType === "reward" ? "Reward described" : "Prize shown"}</dt><dd>${escapeHtml(record.prize)}</dd></div>
             <div><dt>Closing date shown</dt><dd>${escapeHtml(record.closingDateText || (record.closingDate ? shared.formatDate(record.closingDate) : "Not confirmed"))}</dd></div>
             ${record.startDate ? `<div><dt>Opening date reported</dt><dd>${escapeHtml(shared.formatDate(record.startDate))}</dd></div>` : ""}
             ${record.eligibility ? `<div><dt>Eligibility reported</dt><dd>${escapeHtml(record.eligibility)}</dd></div>` : ""}
@@ -3448,7 +3448,7 @@ function renderUnverifiedCompetitionPage(records, detailRecord = null) {
         mascotPose: detailRecord ? undefined : (records.length ? "browse" : "recover"),
         eyebrow: "Discovery with disclosure",
         heading,
-        intro: "These competition leads have not passed Freehub's verification checks. We show what is reported, what is still missing and an official source where one has been located.",
+        intro: detailRecord?.listingType === "reward" ? "This loyalty reward has not passed Freehub's verification checks. Read the conflicting terms below and confirm the benefit with the provider before making plans." : "These competition leads have not passed Freehub's verification checks. We show what is reported, what is still missing and an official source where one has been located.",
         actions: [
           ...(detailRecord ? [{ label: "All competitions under review", href: unverifiedCompetitionData.PUBLIC_PATH, className: "btn--secondary" }] : []),
           { label: "Browse verified competitions", href: "/competitions/", className: "btn--primary" },
@@ -7531,6 +7531,7 @@ function renderFreeStuffParentPage(page) {
     ],
   };
 
+  // Remove tag indentation only; retain content, line breaks and all cards.
   return `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7589,7 +7590,7 @@ ${renderFreeStuffParentContent({ page, pageResources, featuredOpportunities, use
     <script type="module" src="/shared/auth-ui.js?v=20260917-account-save-v2"></script>
   </body>
 </html>
-`;
+`.replace(/^[ \t]+(?=<(?!a class="site-topbar__link))/gm, "");
 }
 
 function renderFreeStuffParentContent({ page, pageResources, featuredOpportunities, usefulLinks, faqItems }) {

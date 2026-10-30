@@ -462,7 +462,29 @@ test("the tracked Opportunity registry contains the reviewed sample and product-
   const generatedOutput = JSON.parse(
     fs.readFileSync(path.join(rootDir, "tests", "baselines", "opportunity-generated-output.json"), "utf8")
   );
-  const publishedIds = registry
+  // Later withdrawals must not rewrite the saved historical publication state.
+  const historicalEvidence = JSON.parse(fs.readFileSync(path.join(rootDir, "data/opportunity-source-evidence.json"), "utf8"));
+  const snapshotRegistry = registry.map((record) => {
+    const snapshotRecord = { ...record, ...generatedOutput.reviewDates?.[record.id] };
+    // Reconstruct reviewed URLs too: provider migrations after the snapshot
+    // must not invalidate evidence for the historical output.
+    for (const field of ["sourceUrl", "termsUrl"]) {
+      const reviewed = historicalEvidence.filter(entry => entry.recordId === record.id && entry.field === field && entry.verifiedAt <= generatedOutput.buildDate).at(-1);
+      if (reviewed) snapshotRecord[field] = reviewed.url;
+      if (field === "sourceUrl" && reviewed && snapshotRecord.lastVerifiedAt > generatedOutput.buildDate) {
+        snapshotRecord.lastVerifiedAt = reviewed.verifiedAt;
+        snapshotRecord.reviewDueAt = reviewed.expiresAt;
+      }
+    }
+    if (record.publicationStatus === "withdrawn" && record.withdrawnAt > generatedOutput.buildDate && record.publishedAt <= generatedOutput.buildDate) {
+      snapshotRecord.publicationStatus = "published";
+      snapshotRecord.verificationStatus = "verified";
+      delete snapshotRecord.withdrawnAt;
+      delete snapshotRecord.withdrawalReason;
+    }
+    return snapshotRecord;
+  });
+  const publishedIds = snapshotRegistry
     .filter((record) => record.publicationStatus === "published" && (!record.publishedAt || record.publishedAt <= generatedOutput.buildDate))
     .map((record) => record.id)
     .sort();
@@ -474,7 +496,7 @@ test("the tracked Opportunity registry contains the reviewed sample and product-
     sourceEvidence: JSON.parse(fs.readFileSync(path.join(rootDir, "data/opportunity-source-evidence.json"), "utf8")),
     allowedSourceHosts: JSON.parse(fs.readFileSync(path.join(rootDir, "tests/baselines/seo-baseline.json"), "utf8")).opportunityAllowedSourceHosts,
   };
-  const expectedFiles = registry.filter(record => !record.publishedAt || record.publishedAt <= generatedOutput.buildDate).flatMap((record) => {
+  const expectedFiles = snapshotRegistry.filter(record => !record.publishedAt || record.publishedAt <= generatedOutput.buildDate).flatMap((record) => {
     // A later review must not reinterpret the saved September 17 output.
     const snapshotRecord = { ...record, ...generatedOutput.reviewDates?.[record.id] };
     const active = opportunityData.isPublicOpportunity(snapshotRecord, gateOptions);
@@ -486,7 +508,7 @@ test("the tracked Opportunity registry contains the reviewed sample and product-
   });
   assert.deepEqual(Object.keys(generatedOutput.files).sort(), expectedFiles.sort());
   assert.equal(typeof generatedOutput.files["out/opportunity/mcdonalds-app-birthday-ice-cream/index.html"], "string");
-  for (const record of registry.filter(record => record.publicationStatus === "withdrawn")) {
+  for (const record of snapshotRegistry.filter(record => record.publicationStatus === "withdrawn")) {
     assert.equal(generatedOutput.files[`out/opportunity/${record.slug}/index.html`], undefined);
   }
 });

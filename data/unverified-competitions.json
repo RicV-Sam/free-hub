@@ -1541,5 +1541,27 @@
     "imageAlt": "FreeHub editorial illustration for Reported Pick n Pay / Monkey Shoulder speaker competition",
     "imageReviewStatus": "editorial-generated",
     "imageReviewCheckedAt": "2026-10-30"
+  },
+  {
+    "id": "spur-kids-free-birthday-meal",
+    "listingType": "reward",
+    "brand": "Spur Steak Ranches",
+    "title": "Spur kids' birthday reward",
+    "prize": "The marketing page advertises a free Kids' meal and Chico the Clown ice cream. The detailed terms describe the voucher inconsistently; the exact benefit is not confirmed.",
+    "closingDate": "",
+    "closingDateText": "Recurring birthday benefit; no campaign closing date stated. Voucher terms say three months from issue.",
+    "entrySummary": "The published terms describe a child aged 0–12 linked to a parent or guardian's Spur Family profile, with a birthday voucher issued to that profile and the child present at redemption. This is a loyalty reward, not a prize draw.",
+    "costSummary": "Membership required. The marketing page describes a free meal, but the terms also describe a soda with a meal ordered. FreeHub cannot confirm whether a qualifying purchase is required; ask Spur before spending or travelling.",
+    "eligibility": "Terms describe children aged 0–12 linked to a parent or guardian profile. Restaurant and collection conditions need clarification.",
+    "officialSourceUrl": "https://www.spursteakranches.com/za/family-card-benefits-for-kids",
+    "termsUrl": "https://res.cloudinary.com/spur-group/image/upload/uploads/documents/policies/Spur-Loyalty-Programme-and-App-Terms-and-Conditions-clean-July-2025-002-oOH.pdf",
+    "reviewGap": "The official marketing page promises a free Kids meal and Chico ice cream, but section S of the July 2025 loyalty terms labels a soda with an ordered meal as the birthday meal voucher. The same terms also give conflicting on-premises and Call & Collect redemption wording. Ask Spur to confirm the exact benefit and redemption conditions.",
+    "lastChecked": "2026-10-30",
+    "listedAt": "2026-10-30",
+    "reviewDueAt": "2026-11-06",
+    "publicationStatus": "public-under-review",
+    "verificationStatus": "not-verified",
+    "doNotPublish": true,
+    "sourceCheckStatus": "partial"
   }
 ]

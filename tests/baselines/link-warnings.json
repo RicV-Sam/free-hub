@@ -43,6 +43,14 @@
     },
     {
       "sourceType": "competition",
+      "recordId": "best-home-electric-kelvinator-top-loader-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://bestelectric.co.za/bhe-competition-landing.php",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
       "recordId": "bob-box-find-and-win-2026",
       "field": "url",
       "reason": "expired_archive_400",

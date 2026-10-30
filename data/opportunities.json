@@ -12,10 +12,10 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["National"],
-    "lastVerifiedAt": "2026-09-08",
-    "reviewDueAt": "2026-09-15",
+    "lastVerifiedAt": "2026-10-30",
+    "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-07-14",
-    "updatedAt": "2026-09-08",
+    "updatedAt": "2026-10-30",
     "availabilityKind": "ongoing",
     "costClassification": "completely_free",
     "requirements": [
@@ -783,10 +783,10 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["National"],
-    "lastVerifiedAt": "2026-09-08",
-    "reviewDueAt": "2026-09-15",
+    "lastVerifiedAt": "2026-10-30",
+    "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-07-27",
-    "updatedAt": "2026-09-08",
+    "updatedAt": "2026-10-30",
     "availabilityKind": "ongoing",
     "costClassification": "completely_free",
     "requirements": [
@@ -836,10 +836,10 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["National"],
-    "lastVerifiedAt": "2026-09-08",
-    "reviewDueAt": "2026-09-15",
+    "lastVerifiedAt": "2026-10-30",
+    "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-07-27",
-    "updatedAt": "2026-09-08",
+    "updatedAt": "2026-10-30",
     "availabilityKind": "ongoing",
     "costClassification": "completely_free",
     "requirements": [
@@ -889,10 +889,10 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["National"],
-    "lastVerifiedAt": "2026-09-08",
-    "reviewDueAt": "2026-09-15",
+    "lastVerifiedAt": "2026-10-30",
+    "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-07-27",
-    "updatedAt": "2026-09-08",
+    "updatedAt": "2026-10-30",
     "availabilityKind": "ongoing",
     "costClassification": "completely_free",
     "requirements": [
@@ -1051,10 +1051,10 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["National"],
-    "lastVerifiedAt": "2026-09-08",
-    "reviewDueAt": "2026-09-15",
+    "lastVerifiedAt": "2026-10-30",
+    "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-07-31",
-    "updatedAt": "2026-09-08",
+    "updatedAt": "2026-10-30",
     "availabilityKind": "ongoing",
     "costClassification": "completely_free",
     "requirements": [
@@ -1195,10 +1195,10 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["Cape Town, Western Cape"],
-    "lastVerifiedAt": "2026-09-08",
-    "reviewDueAt": "2026-09-15",
+    "lastVerifiedAt": "2026-10-30",
+    "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-09-08",
+    "updatedAt": "2026-10-30",
     "availabilityKind": "recurring",
     "costClassification": "completely_free",
     "requirements": [
@@ -1240,10 +1240,10 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["Cape Town, Western Cape"],
-    "lastVerifiedAt": "2026-09-08",
-    "reviewDueAt": "2026-09-15",
+    "lastVerifiedAt": "2026-10-30",
+    "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-09-08",
+    "updatedAt": "2026-10-30",
     "availabilityKind": "recurring",
     "costClassification": "completely_free",
     "requirements": [
@@ -1283,17 +1283,17 @@
     "slug": "cape-wheel-birthday-club-ride",
     "type": "birthday_freebie",
     "title": "Cape Wheel Birthday Club Free Ride",
-    "summary": "Cape Wheel Birthday Club members get one free ride.",
+    "summary": "Cape Wheel Birthday Club members over 12 receive a free standard ride after signing up before their birthday. VIP and Sky Dining are excluded; any photo-pack purchase is separate.",
     "provider": "Cape Wheel",
     "sourceUrl": "https://capewheel.co.za/clubs/",
     "publicationStatus": "published",
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["Cape Town, Western Cape"],
-    "lastVerifiedAt": "2026-09-08",
-    "reviewDueAt": "2026-09-15",
+    "lastVerifiedAt": "2026-10-30",
+    "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-09-08",
+    "updatedAt": "2026-10-30",
     "availabilityKind": "recurring",
     "costClassification": "membership_required",
     "requirements": [
@@ -1346,10 +1346,10 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["Cape Town, Western Cape"],
-    "lastVerifiedAt": "2026-09-08",
-    "reviewDueAt": "2026-09-15",
+    "lastVerifiedAt": "2026-10-30",
+    "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-09-08",
+    "updatedAt": "2026-10-30",
     "availabilityKind": "recurring",
     "costClassification": "completely_free",
     "requirements": [
@@ -1384,29 +1384,29 @@
     "slug": "robben-island-museum-birthday-tour",
     "type": "birthday_freebie",
     "title": "Robben Island Museum free birthday tour",
-    "summary": "A complimentary standard Robben Island tour is available on the visitor's actual birthday, subject to tour capacity and operations, with valid identification required.",
+    "summary": "Visitors with a South African ID can collect a complimentary standard Robben Island tour ticket at the Nelson Mandela Gateway ticket sales office on their actual birthday, subject to tour capacity and operations.",
     "provider": "Robben Island Museum",
     "sourceUrl": "https://www.robben-island.org.za/frequently-asked-questions/",
     "publicationStatus": "published",
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["Cape Town, Western Cape"],
-    "lastVerifiedAt": "2026-09-08",
-    "reviewDueAt": "2026-09-15",
+    "lastVerifiedAt": "2026-10-30",
+    "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-09-08",
+    "updatedAt": "2026-10-30",
     "availabilityKind": "recurring",
     "costClassification": "completely_free",
     "requirements": [
       {
         "kind": "identity",
         "required": true,
-        "label": "Valid identification showing the birth date required"
+        "label": "South African ID showing the birth date required"
       },
       {
         "kind": "location",
         "required": true,
-        "label": "Birthday ticket is valid on the actual birth date and remains subject to tour availability"
+        "label": "Collect at the Nelson Mandela Gateway ticket sales office on the actual birthday; subject to tour availability"
       },
       {
         "kind": "other",
@@ -1490,10 +1490,10 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["Cape Town", "Johannesburg"],
-    "lastVerifiedAt": "2026-09-08",
-    "reviewDueAt": "2026-09-15",
+    "lastVerifiedAt": "2026-10-30",
+    "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-09-08",
+    "updatedAt": "2026-10-30",
     "availabilityKind": "recurring",
     "costClassification": "membership_required",
     "requirements": [
@@ -1541,10 +1541,10 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["Cape Town, Western Cape"],
-    "lastVerifiedAt": "2026-09-08",
-    "reviewDueAt": "2026-09-15",
+    "lastVerifiedAt": "2026-10-30",
+    "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-09-08",
+    "updatedAt": "2026-10-30",
     "availabilityKind": "recurring",
     "costClassification": "completely_free",
     "requirements": [
@@ -1592,10 +1592,10 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["Cape Town, Western Cape"],
-    "lastVerifiedAt": "2026-09-08",
-    "reviewDueAt": "2026-09-15",
+    "lastVerifiedAt": "2026-10-30",
+    "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-09-08",
+    "updatedAt": "2026-10-30",
     "availabilityKind": "recurring",
     "costClassification": "completely_free",
     "requirements": [
@@ -1637,10 +1637,10 @@
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": ["Participating Ster-Kinekor cinemas in South Africa"],
-    "lastVerifiedAt": "2026-09-08",
-    "reviewDueAt": "2026-09-15",
+    "lastVerifiedAt": "2026-10-30",
+    "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-09-08",
+    "updatedAt": "2026-10-30",
     "availabilityKind": "recurring",
     "costClassification": "membership_required",
     "requirements": [
@@ -1690,10 +1690,10 @@
     "regions": [
       "Participating McDonald's restaurants in South Africa"
     ],
-    "lastVerifiedAt": "2026-09-17",
-    "reviewDueAt": "2026-09-24",
+    "lastVerifiedAt": "2026-10-30",
+    "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-09-17",
+    "updatedAt": "2026-10-30",
     "availabilityKind": "recurring",
     "costClassification": "app_required",
     "requirements": [
@@ -1751,8 +1751,8 @@
     "provider": "Spur Steak Ranches",
     "sourceUrl": "https://www.spursteakranches.com/za/family-card-benefits-for-kids",
     "termsUrl": "https://res.cloudinary.com/spur-group/image/upload/uploads/documents/policies/Spur-Loyalty-Programme-and-App-Terms-and-Conditions-clean-July-2025-002-oOH.pdf",
-    "publicationStatus": "published",
-    "verificationStatus": "verified",
+    "publicationStatus": "withdrawn",
+    "verificationStatus": "withdrawn",
     "country": "ZA",
     "regions": [
       "Participating Spur restaurants in South Africa"
@@ -1760,7 +1760,7 @@
     "lastVerifiedAt": "2026-09-17",
     "reviewDueAt": "2026-09-24",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-09-17",
+    "updatedAt": "2026-10-30",
     "availabilityKind": "recurring",
     "costClassification": "membership_required",
     "requirements": [
@@ -1802,7 +1802,9 @@
       "branchAvailability": "participating_branches",
       "recurrence": "annual",
       "voucherDelivery": "account"
-    }
+    },
+    "withdrawnAt": "2026-10-30",
+    "withdrawalReason": "Reviewed 30 October 2026: the official children benefits page promises a free Kids meal and Chico ice cream, but the linked July 2025 terms define the birthday meal voucher inconsistently as a soda with a purchased meal. The terms also conflict on on-premises versus Call & Collect redemption. Keep withdrawn pending official clarification; do not imply the provider has ended the benefit."
   },
   {
     "id": "mugg-and-bean-birthday-cake",
@@ -1811,17 +1813,17 @@
     "title": "Mugg & Bean free birthday cake slice",
     "summary": "Qualifying Mugg & Bean Loyalty App members receive a birthday voucher for a cake slice at a Sit-Down restaurant or a bundt cake at On-The-Move. From 1 September 2026 it is issued on the actual birthday and is valid for 30 days. Two qualifying app uses in the preceding 12 months are required.",
     "provider": "Mugg & Bean",
-    "sourceUrl": "https://www.muggandbean.co.za/rewards/loyalty-app-faqs/",
+    "sourceUrl": "https://www.muggandbean.co.za/rewards/loyalty-app",
     "publicationStatus": "published",
     "verificationStatus": "verified",
     "country": "ZA",
     "regions": [
       "Participating Mugg & Bean locations in South Africa"
     ],
-    "lastVerifiedAt": "2026-09-17",
-    "reviewDueAt": "2026-09-24",
+    "lastVerifiedAt": "2026-10-30",
+    "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-09-17",
+    "updatedAt": "2026-10-30",
     "availabilityKind": "recurring",
     "costClassification": "purchase_required",
     "requirements": [
@@ -1869,7 +1871,7 @@
       "recurrence": "annual",
       "voucherDelivery": "app"
     },
-    "termsUrl": "https://www.muggandbean.co.za/terms-and-conditions/"
+    "termsUrl": "https://www.muggandbean.co.za/terms-and-conditions"
   },
   {
     "id": "rubybox-beauty-product-testing",
@@ -1938,10 +1940,10 @@
     "regions": [
       "Participating South African restaurants"
     ],
-    "lastVerifiedAt": "2026-09-17",
-    "reviewDueAt": "2026-09-24",
+    "lastVerifiedAt": "2026-10-30",
+    "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-09-17",
-    "updatedAt": "2026-09-17",
+    "updatedAt": "2026-10-30",
     "availabilityKind": "recurring",
     "costClassification": "app_required",
     "requirements": [
@@ -2009,10 +2011,10 @@
     "regions": [
       "Participating South African restaurants"
     ],
-    "lastVerifiedAt": "2026-10-11",
-    "reviewDueAt": "2026-10-18",
+    "lastVerifiedAt": "2026-10-30",
+    "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-09-17",
-    "updatedAt": "2026-10-11",
+    "updatedAt": "2026-10-30",
     "availabilityKind": "recurring",
     "costClassification": "purchase_required",
     "requirements": [

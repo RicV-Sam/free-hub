@@ -36,3 +36,7 @@ To fulfil the owner's all-leads coverage direction, an identified research lead 
 6. Confirm there is one verified detail page and redirect, with no duplicate under-review card.
 
 If the evidence remains contradictory, incomplete or inaccessible, leave the lead under review or remove it. Do not weaken the verified standard to preserve inventory.
+
+## Explicitly requested reward reviews
+
+On 30 October 2026 the owner directed that the unresolved Spur children's birthday reward be published under unverified. An existing reward may be reclassified here with `listingType: "reward"`, retaining its original official sources and a bounded review date. Describe it as a loyalty reward, not a prize draw; disclose the exact conflicting benefit/cost conditions. The original opportunity remains excluded from verified cards, application exits and app feeds. This does not waive the verified publication gate or establish that the provider ended the reward.
