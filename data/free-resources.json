@@ -738,5 +738,28 @@
     "reviewDueAt": "2026-10-30",
     "dateModified": "2026-10-16",
     "termsUrl": "https://www.iziko.org.za/news/new-entrance-fees-2026/"
+  },
+  {
+    "id": "stellenbosch-ai-literacy-access",
+    "name": "Free AI Literacy Learning for SU Staff and Students",
+    "resourceType": "programme",
+    "category": "online-courses",
+    "categoryLabel": "Free online courses",
+    "officialUrl": "https://www.su.ac.za/en/staff/services/teaching/learning-technologies/short-courses-upskilling-learning-units-ulus",
+    "bestFor": "Stellenbosch University staff and students using an @sun.ac.za email address",
+    "freeDetails": "Stellenbosch University offers free AI learning access to its staff and students who register with a university email address. Course access is advertised as free for eligible SU users. Device and internet access remain necessary.",
+    "requirements": "SU staff/students using an @sun.ac.za address. This is not an open-to-everyone South African course. Open the university’s official course page. Choose the specific AI course offered to your staff/student group and follow its official registration link. Register with your @sun.ac.za address. The university states access is normally granted within 24–48 business hours. Complete the course requirements within the access period; the page describes approximately 90 days for the listed short-course access.",
+    "watchOut": "Enrolment for the student-focused offering is described as open through 2026. Do not treat that as perpetual availability. Other courses and staff ULUs on the page have different hours and enrolment routes; do not mix their conditions.",
+    "availability": "active",
+    "verificationStatus": "verified",
+    "datePublished": "2026-10-30",
+    "lastReviewed": "2026-10-30",
+    "reviewDueAt": "2026-11-29",
+    "dateModified": "2026-10-30",
+    "manualOk": true,
+    "manualOkReason": "Official page readable through browser/web tool; automated direct HTTP access returned 403.",
+    "manualOkCheckedAt": "2026-10-30",
+    "manualOkAllowedDomain": "www.su.ac.za",
+    "manualOkEvidence": "Official SU short-courses page reviewed on 30 October 2026: free eligible staff/student AI access, university email, registration routes and access conditions. No registration submitted."
   }
 ]

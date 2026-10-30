@@ -3,7 +3,7 @@
   "heading": "Student Freebies & Discounts in South Africa 2026",
   "description": "Compare verified student software, AI trials, travel discounts and everyday benefits in South Africa, with eligibility, claim steps, costs and official sources.",
   "datePublished": "2026-09-07",
-  "dateModified": "2026-10-08",
+  "dateModified": "2026-10-30",
   "intro": "Start with student tools you can use for free, then compare travel, tech and everyday savings. Each entry explains the published benefit, who can apply, how to claim and what it costs.",
   "categories": [
     {
@@ -666,6 +666,33 @@
       "destination": {
         "label": "Join and browse current deals",
         "url": "https://varsityvibe.co.za/"
+      }
+    },
+    {
+      "id": "stellenbosch-ai-literacy-access",
+      "name": "Free AI Literacy Learning for SU Staff and Students",
+      "category": "software",
+      "type": "completely_free",
+      "deal": "Stellenbosch University offers free AI learning access to its staff and students who register with a university email address. Course access is advertised as free for eligible SU users. Device and internet access remain necessary.",
+      "eligibility": "SU staff/students using an @sun.ac.za address. This is not an open-to-everyone South African course.",
+      "claim": [
+        "Open the university’s official course page.",
+        "Choose the specific AI course offered to your staff/student group and follow its official registration link.",
+        "Register with your @sun.ac.za address. The university states access is normally granted within 24–48 business hours.",
+        "Complete the course requirements within the access period; the page describes approximately 90 days for the listed short-course access."
+      ],
+      "limitations": "Enrolment for the student-focused offering is described as open through 2026. Do not treat that as perpetual availability. Other courses and staff ULUs on the page have different hours and enrolment routes; do not mix their conditions.",
+      "region": "SU staff and students; online",
+      "lastChecked": "2026-10-30",
+      "sources": [
+        {
+          "label": "Stellenbosch University course access and registration",
+          "url": "https://www.su.ac.za/en/staff/services/teaching/learning-technologies/short-courses-upskilling-learning-units-ulus"
+        }
+      ],
+      "destination": {
+        "label": "Official SU course page",
+        "url": "https://www.su.ac.za/en/staff/services/teaching/learning-technologies/short-courses-upskilling-learning-units-ulus"
       }
     }
   ],

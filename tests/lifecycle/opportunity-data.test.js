@@ -135,7 +135,7 @@ test("runtime validators enforce strict contracts and legacy FreeResource compat
   assert.equal(unsupported.typeSupported, false);
 
   const legacyResources = JSON.parse(fs.readFileSync(path.join(rootDir, "data", "free-resources.json"), "utf8"));
-  assert.equal(legacyResources.length, 41);
+  assert.equal(legacyResources.length, 42);
   assert.equal(opportunityData.validateFreeResourceRegistry(legacyResources, { legacy: true }).valid, true);
   assert.equal(opportunityData.validateFreeResource(legacyResources[0]).valid, false);
 
@@ -450,18 +450,20 @@ test("the tracked Opportunity registry contains the reviewed sample and product-
       "rubybox-beauty-product-testing",
       "ocean-basket-app-birthday-treat",
       "starbucks-gold-birthday-drink",
+      "norval-birthday-free-access",
+      "galileo-birthday-ticket-2026-2027",
     ]
   );
   assert.equal(opportunityData.validateOpportunityRegistry(registry).valid, true);
   assert.equal(registry.filter((record) => record.type === "free_sample").length, 7);
   assert.equal(registry.filter((record) => record.type === "product_testing").length, 17);
-  assert.equal(registry.filter((record) => record.type === "birthday_freebie").length, 15);
+  assert.equal(registry.filter((record) => record.type === "birthday_freebie").length, 17);
 
   const generatedOutput = JSON.parse(
     fs.readFileSync(path.join(rootDir, "tests", "baselines", "opportunity-generated-output.json"), "utf8")
   );
   const publishedIds = registry
-    .filter((record) => record.publicationStatus === "published")
+    .filter((record) => record.publicationStatus === "published" && (!record.publishedAt || record.publishedAt <= generatedOutput.buildDate))
     .map((record) => record.id)
     .sort();
   assert.deepEqual(generatedOutput.opportunityIds, publishedIds);
@@ -472,7 +474,7 @@ test("the tracked Opportunity registry contains the reviewed sample and product-
     sourceEvidence: JSON.parse(fs.readFileSync(path.join(rootDir, "data/opportunity-source-evidence.json"), "utf8")),
     allowedSourceHosts: JSON.parse(fs.readFileSync(path.join(rootDir, "tests/baselines/seo-baseline.json"), "utf8")).opportunityAllowedSourceHosts,
   };
-  const expectedFiles = registry.flatMap((record) => {
+  const expectedFiles = registry.filter(record => !record.publishedAt || record.publishedAt <= generatedOutput.buildDate).flatMap((record) => {
     // A later review must not reinterpret the saved September 17 output.
     const snapshotRecord = { ...record, ...generatedOutput.reviewDates?.[record.id] };
     const active = opportunityData.isPublicOpportunity(snapshotRecord, gateOptions);

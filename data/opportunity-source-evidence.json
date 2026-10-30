@@ -1098,5 +1098,45 @@
     "verifiedAt": "2026-10-11",
     "expiresAt": "2026-10-18",
     "evidenceSummary": "Exact official app terms read: adult app eligibility, one annual birthday treat, thirty-day validity, no cash exchange and possible changes; do not promise a specific menu item. Reviewed on 11 October 2026; this source-access entry does not advance the listing publication review dates."
+  },
+  {
+    "recordId": "norval-birthday-free-access",
+    "field": "sourceUrl",
+    "hostname": "www.norvalfoundation.org",
+    "url": "https://www.norvalfoundation.org/visitors-information/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-30",
+    "expiresAt": "2026-11-06",
+    "evidenceSummary": "Museum is listed as closed on 30 October 2026. Gallery 8 has a partial closure on 14 November. Normal hours: Wednesday–Saturday 10:00–17:00; Sunday/public holidays 10:00–16:00; closed Monday/Tuesday. Last entry is 30 minutes before closing. Do not assume birthday admission includes separately ticketed events, special activities or parking. Birthday conditions, exclusions and required identity/booking checked on the official provider page."
+  },
+  {
+    "recordId": "norval-birthday-free-access",
+    "field": "termsUrl",
+    "hostname": "www.norvalfoundation.org",
+    "url": "https://www.norvalfoundation.org/visitors-information/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-30",
+    "expiresAt": "2026-11-06",
+    "evidenceSummary": "Museum is listed as closed on 30 October 2026. Gallery 8 has a partial closure on 14 November. Normal hours: Wednesday–Saturday 10:00–17:00; Sunday/public holidays 10:00–16:00; closed Monday/Tuesday. Last entry is 30 minutes before closing. Do not assume birthday admission includes separately ticketed events, special activities or parking. Birthday conditions, exclusions and required identity/booking checked on the official provider page."
+  },
+  {
+    "recordId": "galileo-birthday-ticket-2026-2027",
+    "field": "sourceUrl",
+    "hostname": "thegalileo.co.za",
+    "url": "https://thegalileo.co.za/free-birthday-ticket-special/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-30",
+    "expiresAt": "2026-11-06",
+    "evidenceSummary": "Excluded themed dates: 30/31 October, 24/25 December, 14 February, 26/28 March; Royale shows are also excluded. Only standard movie admission is included. Outside chairs and backrests are not permitted. Tickets can sell out; no available ticket or booking success has been assumed. Birthday conditions, exclusions and required identity/booking checked on the official provider page."
+  },
+  {
+    "recordId": "galileo-birthday-ticket-2026-2027",
+    "field": "termsUrl",
+    "hostname": "thegalileo.co.za",
+    "url": "https://thegalileo.co.za/free-birthday-ticket-special/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-10-30",
+    "expiresAt": "2026-11-06",
+    "evidenceSummary": "Excluded themed dates: 30/31 October, 24/25 December, 14 February, 26/28 March; Royale shows are also excluded. Only standard movie admission is included. Outside chairs and backrests are not permitted. Tickets can sell out; no available ticket or booking success has been assumed. Birthday conditions, exclusions and required identity/booking checked on the official provider page."
   }
 ]

@@ -2517,5 +2517,104 @@
     "reviewedAt": "2026-10-28",
     "sourcePage": "https://htxt.co.za/2026/09/the-hypertext-mobile-survey-returns-for-2026/",
     "provenance": "Campaign-specific artwork supplied directly by HTXT Media for the FreeHub competition submission; original preserved privately."
+  },
+  "dr-oetker-nice-n-easy-travel-2026": {
+    "src": "/assets/listings/dr-oetker-nice-n-easy-travel-2026.webp",
+    "width": 708,
+    "height": 500,
+    "alt": "Official Nice n Easy artwork advertising a R100,000 travel experience draw.",
+    "kind": "official-source",
+    "caption": "Image from the official campaign or provider page.",
+    "reviewedAt": "2026-10-30",
+    "sourcePage": "https://www.oetker.co.za/competitions-promotions",
+    "sourceImage": "https://www.oetker.co.za/assets/hygraph/AVtdz8Pl3QxerK0kYX32fz/resize=fit:max,height:500,width:1440/compress=metadata:true/quality=value:75/output=format:webp/cmuh1nq3w7daf07vykdmgkool?dpl=3110"
+  },
+  "norval-birthday-free-access": {
+    "src": "/assets/listings/norval-birthday-free-access.webp",
+    "width": 1536,
+    "height": 1041,
+    "alt": "Official Norval Foundation photograph of sculpture on a lawn in its gardens.",
+    "kind": "official-source",
+    "caption": "Image from the official campaign or provider page.",
+    "reviewedAt": "2026-10-30",
+    "sourcePage": "https://www.norvalfoundation.org/visitors-information/",
+    "sourceImage": "https://www.norvalfoundation.org/wp-content/uploads/2026/03/visit-normal-bg-img-scaled.webp"
+  },
+  "galileo-birthday-ticket-2026-2027": {
+    "src": "/assets/listings/galileo-birthday-ticket-2026-2027.webp",
+    "width": 1536,
+    "height": 864,
+    "alt": "Official Galileo birthday-special photograph of a visitor holding a birthday cake.",
+    "kind": "official-source",
+    "caption": "Image from the official campaign or provider page.",
+    "reviewedAt": "2026-10-30",
+    "sourcePage": "https://thegalileo.co.za/free-birthday-ticket-special/",
+    "sourceImage": "https://thegalileo.co.za/wp-content/uploads/2025/09/The-Galileo-Free-Birthday-Ticket.webp"
+  },
+  "stellenbosch-ai-literacy-access": {
+    "src": "/assets/listings/stellenbosch-ai-literacy-access.webp",
+    "width": 1536,
+    "height": 864,
+    "alt": "FreeHub editorial illustration of an adult student learning at a laptop.",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration. Objects are illustrative, not an exact prize or product depiction.",
+    "reviewedAt": "2026-10-30",
+    "generationPrompt": "Use case: illustration-story. Asset type: landscape 16:9 FreeHub editorial hero for a draft about free AI literacy learning restricted to Stellenbosch University staff and students. Create a refined contemporary editorial illustration: an adult university student studying at a laptop in a modest sunlit study room, notebook beside laptop, abstract small connected learning shapes on the screen. Warm cream, deep teal, muted ochre, tactile paper texture, simple confident shapes and natural South African campus-life feel without showing a specific real campus. No words, no brand or university logos, no certificate, no money, no claims, no readable screen text. Keep the image clearly illustrative. It will be captioned FreeHub editorial illustration. Compose for desktop and mobile.",
+    "sourcePage": "https://www.su.ac.za/en/staff/services/teaching/learning-technologies/short-courses-upskilling-learning-units-ulus"
+  },
+  "mrp-tops": {
+    "src": "/assets/listings/mrp-tops.webp",
+    "width": 320,
+    "height": 480,
+    "alt": "Official Mr Price photograph used for its selected-tops multi-buy offer.",
+    "kind": "official-source",
+    "caption": "Image from the official campaign or provider page.",
+    "reviewedAt": "2026-10-30",
+    "sourcePage": "https://www.mrp.com/en_za/promos",
+    "sourceImage": "https://cdn.media.amplience.net/i/mrpricegroup/01_107823371_SI_00?$preset$&w=320"
+  },
+  "mrp-denim-two": {
+    "src": "/assets/listings/mrp-denim-two.webp",
+    "width": 320,
+    "height": 480,
+    "alt": "Official Mr Price photograph used for its selected-denim multi-buy offer.",
+    "kind": "official-source",
+    "caption": "Image from the official campaign or provider page.",
+    "reviewedAt": "2026-10-30",
+    "sourcePage": "https://www.mrp.com/en_za/promos",
+    "sourceImage": "https://cdn.media.amplience.net/i/mrpricegroup/01_107923311_SI_00?$preset$&w=320"
+  },
+  "mrp-denim-r50": {
+    "src": "/assets/listings/mrp-denim-r50.webp",
+    "width": 320,
+    "height": 480,
+    "alt": "Official Mr Price photograph used for its selected-denim R50-off offer.",
+    "kind": "official-source",
+    "caption": "Image from the official campaign or provider page.",
+    "reviewedAt": "2026-10-30",
+    "sourcePage": "https://www.mrp.com/en_za/promos",
+    "sourceImage": "https://cdn.media.amplience.net/i/mrpricegroup/01_107694992_SI_00?$preset$&w=320"
+  },
+  "mrp-boys-pants": {
+    "src": "/assets/listings/mrp-boys-pants.webp",
+    "width": 320,
+    "height": 480,
+    "alt": "Official Mr Price photograph used for its boys 7–14 denim and pants offer.",
+    "kind": "official-source",
+    "caption": "Image from the official campaign or provider page.",
+    "reviewedAt": "2026-10-30",
+    "sourcePage": "https://www.mrp.com/en_za/promos",
+    "sourceImage": "https://cdn.media.amplience.net/i/mrpricegroup/01_107137948_SI_00?$preset$&w=320"
+  },
+  "mrp-boys-golfers": {
+    "src": "/assets/listings/mrp-boys-golfers.webp",
+    "width": 320,
+    "height": 480,
+    "alt": "Official Mr Price photograph used for its boys 1–7 golfers offer.",
+    "kind": "official-source",
+    "caption": "Image from the official campaign or provider page.",
+    "reviewedAt": "2026-10-30",
+    "sourcePage": "https://www.mrp.com/en_za/promos",
+    "sourceImage": "https://cdn.media.amplience.net/i/mrpricegroup/01_107868041_SI_00?$preset$&w=320"
   }
 }

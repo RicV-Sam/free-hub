@@ -504,6 +504,14 @@
       "reason": "expired_archive_500",
       "url": "https://www.penguinrandomhouse.co.za/tos/tscs-win-with-penguin-post-43/",
       "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "free-resource",
+      "recordId": "free-resource:online-courses:free-ai-literacy-learning-for-su-staff-and-students",
+      "field": "officialUrl",
+      "reason": "manual_check_http_403",
+      "url": "https://www.su.ac.za/en/staff/services/teaching/learning-technologies/short-courses-upskilling-learning-units-ulus",
+      "lifecycle": "active-manual-check"
     }
   ]
 }

@@ -80,8 +80,8 @@ check("Opportunity schema items", opportunitySchema?.itemListElement?.length || 
 check("Opportunity routes generated", countGeneratedRoutes("opportunity"), current.detailOpportunities.length);
 check("Opportunity exit routes generated", countGeneratedRoutes(path.join("out", "opportunity")), expectedOpportunityCount);
 check("Opportunity sitemap entries", count(sitemap, /<loc>https:\/\/freehub\.co\.za\/opportunity\//g), expectedOpportunityCount);
-check("Durable resources on parent", count(parent, /<article class="free-resource-card"(?:\s[^>]*)?>/g), 39);
-check("Durable resource schema items", resourceItemList?.itemListElement?.length || 0, 39);
+check("Durable resources on parent", count(parent, /<article class="free-resource-card"(?:\s[^>]*)?>/g), 40);
+check("Durable resource schema items", resourceItemList?.itemListElement?.length || 0, 40);
 check("Unverified Review Club resource excluded", parent.includes("https://reviewclub.co.za/how-it-works/"), false);
 check("Unverified Brand Advisor resource excluded", parent.includes("https://brandadvisor.co.za/how-it-works/"), false);
 check("Permanent Free Stuff child links", count(parent, /class="free-stuff-child-nav__link"/g), 6);

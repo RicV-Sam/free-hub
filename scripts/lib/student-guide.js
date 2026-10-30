@@ -12,7 +12,7 @@ const SOURCE_HOSTS = new Set([
   "www.samsung.com", "www.istore.co.za", "www.mygautrain.co.za", "www.intercape.co.za",
   "secure.ticketpros.co.za", "www.spotify.com", "info.varsityvibe.co.za", "varsityvibe.co.za",
   "www.absa.co.za", "www.standardbank.co.za", "www.tablemountain.net", "www.sanbi.org",
-  "shop.aquarium.co.za", "www.myunidays.com", "www.canva.com",
+  "www.su.ac.za", "shop.aquarium.co.za", "www.myunidays.com", "www.canva.com",
 ]);
 
 function isDate(value) {

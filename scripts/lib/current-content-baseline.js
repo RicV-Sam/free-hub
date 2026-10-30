@@ -70,7 +70,8 @@ function getCurrentContentBaseline() {
     // 24 October: four reviewed competition detail pages; exits are counted by active.length.
     // 25 October: Everest Wealth and First Choice add two reviewed detail pages; active exits are counted below.
     // 28 October: Hypertext Mobile Survey adds one reviewed detail page; its active exit is counted below.
-    generatedFileCount: groceryPageCount + 477 + shared.TAG_SLUGS.filter(slug => shared.getTagFilteredCompetitions(active, slug).length > 0).length + featuredVideoSlugs(active).size + shared.getGeneratedBrandPageDefinitions(core).length + getReviewedGuides(buildDate).length - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    // 30 October: Dr. Oetker adds one reviewed competition detail; active exits are counted below.
+    generatedFileCount: groceryPageCount + 478 + shared.TAG_SLUGS.filter(slug => shared.getTagFilteredCompetitions(active, slug).length > 0).length + featuredVideoSlugs(active).size + shared.getGeneratedBrandPageDefinitions(core).length + getReviewedGuides(buildDate).length - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
     sitemapUrlCount: groceryPageCount + read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + getReviewedGuides(buildDate).filter(page => !page.noindex).length + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length + (read('data/airtime-dash.json').enabled ? 1 : 0),
   };
 }

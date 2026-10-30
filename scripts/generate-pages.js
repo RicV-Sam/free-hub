@@ -145,6 +145,8 @@ const OPPORTUNITY_ALLOWED_SOURCE_HOSTS = Object.freeze([
   "rubybox.co.za",
   "za.oceanbasket.com",
   "www.starbucks.co.za",
+  "www.norvalfoundation.org",
+  "thegalileo.co.za",
 ]);
 const VOUCHER_DISCOVERY_RESOURCE_HOSTS = Object.freeze({
   "absa-advantage-meal-vouchers": "www.absa.co.za",

@@ -2059,5 +2059,182 @@
       "voucherDelivery": "account"
     },
     "imageUrl": "https://freehub.co.za/assets/listings/starbucks-gold-birthday-drink.webp"
+  },
+  {
+    "id": "norval-birthday-free-access",
+    "imageUrl": "https://freehub.co.za/assets/listings/norval-birthday-free-access.webp",
+    "slug": "norval-birthday-free-access",
+    "type": "birthday_freebie",
+    "title": "Norval Foundation: Free Birthday-Month Admission",
+    "summary": "Norval Foundation lists free entry during your birthday month and free admission for children under 18. Check closures before travelling.",
+    "provider": "Norval Foundation",
+    "sourceUrl": "https://www.norvalfoundation.org/visitors-information/",
+    "termsUrl": "https://www.norvalfoundation.org/visitors-information/",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": [
+      "Western Cape"
+    ],
+    "lastVerifiedAt": "2026-10-30",
+    "reviewDueAt": "2026-11-06",
+    "publishedAt": "2026-10-30",
+    "updatedAt": "2026-10-30",
+    "availabilityKind": "recurring",
+    "costClassification": "completely_free",
+    "requirements": [
+      {
+        "kind": "identity",
+        "required": true,
+        "label": "Birthday-month benefit: the provider page confirms the timing but does not spell out nationality or every document type. Cape Town Tourism directs visitors to show valid ID at the front desk. Under-18 entry is separately free."
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Check the official opening and closure information before visiting."
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "For the birthday benefit, bring valid ID and ask the front desk for birthday-month admission. Cape Town Tourism says no online birthday booking is needed."
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "For a child’s visit, confirm age-document and accompanying-adult arrangements with the venue."
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Museum is listed as closed on 30 October 2026. Gallery 8 has a partial closure on 14 November."
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Normal hours: Wednesday–Saturday 10:00–17:00; Sunday/public holidays 10:00–16:00; closed Monday/Tuesday. Last entry is 30 minutes before closing."
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Do not assume birthday admission includes separately ticketed events, special activities or parking."
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Qualifying admission is free. Parking is free for the first 30 minutes and R20 thereafter; transport and optional purchases are separate."
+      }
+    ],
+    "categories": [
+      "birthday-freebies"
+    ],
+    "tags": [
+      "birthday",
+      "cape-town",
+      "norval"
+    ],
+    "details": {
+      "signupLeadDays": 0,
+      "birthdayWindow": {
+        "kind": "calendar_month"
+      },
+      "membershipRequired": false,
+      "appRequired": false,
+      "identityRequired": true,
+      "branchAvailability": "participating_branches",
+      "recurrence": "annual",
+      "voucherDelivery": "in_store"
+    }
+  },
+  {
+    "id": "galileo-birthday-ticket-2026-2027",
+    "imageUrl": "https://freehub.co.za/assets/listings/galileo-birthday-ticket-2026-2027.webp",
+    "slug": "galileo-birthday-ticket-2026-2027",
+    "type": "birthday_freebie",
+    "title": "The Galileo: Free Birthday-Month Movie Entry",
+    "summary": "South Africans with valid ID can pre-book a limited free birthday ticket for a qualifying Galileo screening during their birthday month.",
+    "provider": "The Galileo Open Air Cinema",
+    "sourceUrl": "https://thegalileo.co.za/free-birthday-ticket-special/",
+    "termsUrl": "https://thegalileo.co.za/free-birthday-ticket-special/",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": [
+      "Western Cape"
+    ],
+    "lastVerifiedAt": "2026-10-30",
+    "reviewDueAt": "2026-11-06",
+    "publishedAt": "2026-10-30",
+    "updatedAt": "2026-10-30",
+    "availabilityKind": "fixed_window",
+    "startsAt": "2026-10-15",
+    "expiresAt": "2027-05-15",
+    "costClassification": "completely_free",
+    "requirements": [
+      {
+        "kind": "identity",
+        "required": true,
+        "label": "South Africans with valid identification, attending during their birthday month and the operating season. Screening age ratings and the limited birthday-ticket allocation still apply."
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Choose a qualifying show during your birthday month from the official movie line-up."
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Pre-book the Free Birthday Ticket online through the Webtickets link on the provider page. Enter the required South African ID number."
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Bring the same identification to the ticket station for birthday verification. The separate birthday-name animation form is not a ticket booking."
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Excluded themed dates: 30/31 October, 24/25 December, 14 February, 26/28 March; Royale shows are also excluded."
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Only standard movie admission is included. Outside chairs and backrests are not permitted."
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Tickets can sell out; no available ticket or booking success has been assumed."
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Qualifying standard admission is free. Blankets and backrests cost extra to rent; bring your own warm blanket if preferred."
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "One free standard birthday ticket per person per season; attend during your birthday month."
+      }
+    ],
+    "categories": [
+      "birthday-freebies"
+    ],
+    "tags": [
+      "birthday",
+      "cape-town",
+      "galileo"
+    ],
+    "details": {
+      "signupLeadDays": 0,
+      "birthdayWindow": {
+        "kind": "calendar_month"
+      },
+      "membershipRequired": false,
+      "appRequired": false,
+      "identityRequired": true,
+      "branchAvailability": "participating_branches",
+      "recurrence": "annual",
+      "voucherDelivery": "none"
+    }
   }
 ]
