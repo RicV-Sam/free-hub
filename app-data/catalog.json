@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-10-30",
-  "count": 53,
+  "asOfDate": "2026-10-31",
+  "count": 48,
   "counts": {
-    "freeStuff": 44,
-    "resources": 24,
+    "freeStuff": 43,
+    "resources": 23,
     "opportunities": 20,
-    "offers": 9
+    "offers": 5
   },
   "items": [
     {
@@ -327,22 +327,6 @@
         "Visit the City Hall public galleries and check current opening arrangements before travelling. The municipal page lists visitor hours separately from general operating hours, so confirm the visitor timetable. Travel and optional purchases remain your responsibility."
       ],
       "watchOut": "Do not touch displays unless interactive, disturb visitors, bring weapons or enter while intoxicated. Eating/drinking is limited to designated areas. Flash photography needs prior written consent; publishing photographs or videos also needs the director's prior written consent. The Kwa-Zuzulwazi Centre is temporarily closed and excluded. Research-collection visits have separate booking and permission conditions.",
-      "lastChecked": "2026-10-16"
-    },
-    {
-      "id": "iziko-free-days-and-fridays",
-      "kind": "resource",
-      "title": "Iziko Museums: selected free days and eligible Fridays",
-      "provider": "Iziko Museums: selected free days and eligible Fridays",
-      "summary": "Selected Iziko museums offer free Friday admission for South African students and pensioners with valid identification. The official 2026 commemorative-day list also includes free entry at participating open sites on 1 December (Emancipation Day) and 16 December (Reconciliation Day).",
-      "category": "family-support",
-      "categoryLabel": "Free family outings and public services",
-      "officialUrl": "https://www.iziko.org.za/visit/",
-      "bestFor": "South African students and pensioners, and visitors planning a museum day in Cape Town",
-      "requirements": [
-        "Present valid identification and, for student entry, a valid student card. Check the chosen museum's hours and eligibility before travelling; the South African Museum, National Gallery and Slave Lodge are examples of participating sites. Ordinary visitors pay the normal fee outside qualifying free days."
-      ],
-      "watchOut": "This benefit excludes the Planetarium, Castle of Good Hope and Groot Constantia for the Friday and December dates described here. Closed sites and maintenance closures are excluded. Paid shows, guided tours and separately priced activities are not included. No account or purchase is stated for ordinary qualifying admission; travel and optional spending remain payable.",
       "lastChecked": "2026-10-16"
     },
     {
@@ -755,78 +739,6 @@
       "watchOut": "Availability and provider approval can change.",
       "expiresAt": "2027-05-15",
       "lastChecked": "2026-10-30"
-    },
-    {
-      "id": "panarottis-rewards-additional-benefits",
-      "kind": "deal",
-      "title": "Panarottis Rewards: kids birthday meals, flatbread and hot drinks",
-      "provider": "Panarottis",
-      "summary": "App members can claim a child birthday Kids Combo with a dining adult, a new-registration flatbread with R150 minimum spend, and one hot-drink voucher after ten qualifying purchases.",
-      "category": "restaurants-takeaways",
-      "categoryLabel": "Restaurants & Takeaways",
-      "officialUrl": "https://www.panarottis.com/za/loyalty",
-      "termsUrl": "https://cms.panarottis.com/uploads/Panarottis_Loyalty_App_Terms_and_Conditions_Update_Aug_2026_972cec5c89.pdf",
-      "requirements": [
-        "Ages 0–12, linked to an adult Rewards profile. Voucher arrives on birthday morning and lasts three months. Child and a dining adult must attend; on-premises Kids' Combo only. Adult dining costs remain payable; no adult minimum amount is stated. New app registrants receive a non-transferable flatbread voucher lasting three months. Redemption needs at least R150 spend; available for dine-in, call-and-collect or Click & Collect. Buy ten qualifying hot beverages to receive a three-month voucher for one free hot beverage. Redeem in South Africa for dine-in or call-and-collect; Click & Collect excluded. App/profile registration and transaction OTP required. Restaurant staff are excluded. Adults manage child profiles. Data and paid purchases/dining remain separate costs. The app is free to download. Adult account holders must be at least 18 and legally able to contract; parents/guardians consent for linked children. Kids membership ends automatically at 13. Each transaction OTP is single-use and expires after 15 minutes. Profiles and vouchers are non-transferable. Check the live app and August 2026 terms before ordering; qualifying criteria can change."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "lastChecked": "2026-10-16",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "intercape-five-percent-loyalty-points",
-      "kind": "deal",
-      "title": "Earn 5% in Intercape loyalty points for future tickets",
-      "provider": "Intercape",
-      "summary": "Link a paid booking to your Intercape loyalty account to earn future-ticket points. Points become available after departure and expire after 12 months.",
-      "category": "travel",
-      "categoryLabel": "Travel",
-      "officialUrl": "https://www.intercape.co.za/book-bus-tickets-now/?loyalty=login",
-      "termsUrl": "https://www.intercape.co.za/loyalty-terms-and-conditions/",
-      "requirements": [
-        "Earn 5% of qualifying ticket value after discounts and redeemed points, excluding taxes/third-party fees not retained by Intercape. Each point is R1 toward tickets, not cash. Identify the purchaser's loyalty account at purchase through Intercape's own app/site/office/contact centre. Points belong to purchaser rather than passenger, become available 24 hours after scheduled departure and expire 12 months later. Redemption is on Intercape's site/app, whole points only; disclosed availability/minimums can apply. Fully points-paid tickets earn no points. Paid travel and loyalty account required; ticket prices, standard travel/cancellation terms and connection costs apply. The inspected loyalty terms do not state a membership fee. Programme serves Intercape customers, including South African routes; no SA-citizenship restriction or minimum age stated in inspected loyalty terms. Official page dates programme start to 1 September 2025; no end date published. Marketing giveaway vouchers do not earn points. Registration allows processing of account details for loyalty administration and programme notices."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "lastChecked": "2026-10-16",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "vida-app-five-percent-loyalty",
-      "kind": "deal",
-      "title": "Earn 5% loyalty on purchases recorded in the vida app",
-      "provider": "vida e caffe",
-      "summary": "Register in the vida app and record purchases to earn points for a future order. In-store cash or card payments can earn loyalty without linking a bank card.",
-      "category": "restaurants-takeaways",
-      "categoryLabel": "Restaurants & Takeaways",
-      "officialUrl": "https://vidaecaffe.com/rewards/app/",
-      "termsUrl": "https://vidaecaffe.com/wp-content/uploads/2020/07/vida-app-Terms-and-Conditions.pdf",
-      "requirements": [
-        "Current official app FAQ confirms 5% back on app-recorded transactions. Terms permit points toward part/full purchases in-app or in-store, with three-year expiry and no cash exchange. Register a profile; under-18s need guardian consent/supervision. In-store cash/card purchases can earn via the app, so linking a card is not necessary for that route; order-ahead requires linked-card payment. Paid purchases and internet-enabled app required. Current FAQ says no extra app-payment charge; normal product/banking/data costs remain. No delivery route promised. No fixed programme end date is stated. The current terms require accurate profile details and permit OTP, order, service, marketing and promotional messages. Order Ahead is for same-day collection from the selected store. Check points immediately after purchase."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "lastChecked": "2026-10-16",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "greyhound-capitec-pay-five-percent",
-      "kind": "deal",
-      "title": "Save 5% on Greyhound with Capitec Pay",
-      "provider": "Greyhound",
-      "summary": "Capitec clients get 5% off a paid Greyhound booking on its own website or app on a mobile device when paying with Capitec Pay.",
-      "category": "travel",
-      "categoryLabel": "Travel",
-      "officialUrl": "https://greyhound.co.za/book-tickets/",
-      "termsUrl": "https://greyhound.co.za/capitec-pay-customers-get-5-off-every-trip/",
-      "requirements": [
-        "Capitec clients receive 5% off Greyhound tickets booked on the operator's website/app and paid with Capitec Pay. Current homepage restricts the discount to mobile-device payment and excludes payment by Capitec bank card. It applies automatically at checkout, cannot be added afterwards, and standard changes/cancellation/refund terms apply. Paid bus ticket and qualifying Capitec account/payment approval required. No coupon code. Banking/data costs remain separate; no universal discount for cash, other banks or card payments implied. Official article is dated 21 January 2026; current homepage still advertises the benefit. No fixed expiry; operator can amend/withdraw it."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "lastChecked": "2026-10-16",
-      "isAffiliate": false,
-      "isSponsored": false
     },
     {
       "id": "mrp-tops",
