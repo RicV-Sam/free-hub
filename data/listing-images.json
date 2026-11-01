@@ -3361,5 +3361,71 @@
     "reviewedAt": "2026-10-30",
     "sourcePage": "https://aquaatlantis.co.za/ada-seminar-2026/",
     "sourceImage": "https://aquaatlantis.co.za/wp-content/uploads/2026/10/Giveaway-prize-large-1.webp"
+  },
+  "beds-r-us-golden-ticket-2026": {
+    "src": "/assets/listings/weekly-2026-11-01/beds-r-us-golden-ticket-2026.webp",
+    "width": 1536,
+    "height": 864,
+    "alt": "Illustrative unbranded bedroom with a golden ticket and receipt; not the actual product or prize.",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration.",
+    "reviewedAt": "2026-11-01",
+    "sourcePage": "https://bedsrus.co.za/golden-ticket-rules/",
+    "provenanceNote": "Generated with the built-in image-generation tool after inspecting the official page and finding no suitable campaign-specific hero. Exact prompt retained in docs/weekly-competition-publication-2026-11-01.md."
+  },
+  "1voucher-birthday-video-2026": {
+    "src": "/assets/listings/weekly-2026-11-01/1voucher-birthday-video-2026.webp",
+    "width": 1536,
+    "height": 864,
+    "alt": "FreeHub editorial illustration of an adult recording a birthday song; not a competition entry.",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration.",
+    "reviewedAt": "2026-11-01",
+    "sourcePage": "https://www.1voucher.co.za/competition-terms-conditions",
+    "provenanceNote": "Generated with the built-in image-generation tool after inspecting the official page and finding no suitable campaign-specific hero. Exact prompt retained in docs/weekly-competition-publication-2026-11-01.md."
+  },
+  "fastjet-matobo-hills-2026": {
+    "src": "/assets/listings/weekly-2026-11-01/fastjet-matobo-hills-2026.webp",
+    "width": 768,
+    "height": 186,
+    "alt": "Official fastjet and Matobo Hills competition banner showing the lodge and advertised holiday.",
+    "kind": "official-source",
+    "caption": "Promoter artwork; unresolved claims are explained on the under-review page.",
+    "reviewedAt": "2026-11-01",
+    "sourcePage": "https://www.fastjet.com/competitions/",
+    "sourceImage": "https://www.fastjet.com/app/uploads/2026/10/Matobo-Hills-Competition-Banner-768x186.png"
+  },
+  "nedbank-xtratime-november-2026": {
+    "src": "/assets/listings/weekly-2026-11-01/nedbank-xtratime-november-2026.webp",
+    "width": 1536,
+    "height": 286,
+    "alt": "Official Nedbank XtraTime campaign artwork over a football stadium.",
+    "kind": "official-source",
+    "caption": "Promoter artwork; unresolved claims are explained on the under-review page.",
+    "reviewedAt": "2026-11-01",
+    "sourcePage": "https://www.nedbankcup.co.za/news/xtratime-you-know-ball-competition-ts-and-cs/",
+    "sourceImage": "https://www.nedbankcup.co.za/media/fzahvh4p/xtra-time-ts-and-cs-banner.jpg"
+  },
+  "mtn-formal-retail-october-january-2026": {
+    "src": "/assets/listings/weekly-2026-11-01/mtn-formal-retail-october-january-2026.webp",
+    "width": 1536,
+    "height": 864,
+    "alt": "FreeHub editorial illustration of an unbranded phone, groceries and voucher; not an actual prize or redemption code.",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration.",
+    "reviewedAt": "2026-11-01",
+    "sourcePage": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn-pay-as-you-go-formal-retail-october-2026-to-january-2027",
+    "provenanceNote": "Generated with the built-in image-generation tool after inspecting the official page and finding no suitable campaign-specific hero. Exact prompt retained in docs/weekly-competition-publication-2026-11-01.md."
+  },
+  "superbalist-payjustnow-november-2026": {
+    "src": "/assets/listings/weekly-2026-11-01/superbalist-payjustnow-november-2026.webp",
+    "width": 1536,
+    "height": 769,
+    "alt": "Official Superbalist and PayJustNow artwork advertising thirty-five R1,000 vouchers and an R1,500 qualifying spend claim.",
+    "kind": "official-source",
+    "caption": "Promoter artwork; unresolved claims are explained on the under-review page.",
+    "reviewedAt": "2026-11-01",
+    "sourcePage": "https://superbalist.com/competitions",
+    "sourceImage": "https://assets.superbalistcdn.co.za/3000x1501/filters%3Aquality%2875%29%3Aformat%28jpg%29/cms/Desktop-web-banner_7272x3638px-1-1.png"
   }
 }

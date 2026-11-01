@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-11-01",
-  "count": 94,
+  "count": 95,
   "competitions": [
     {
       "id": "clicks-baby-essentials-hamper-2026",
@@ -1365,6 +1365,31 @@
       "termsUrl": "https://www.oetker.co.za/dr-oetker-competition-nice-n-easy-meals-win-your-ultimate-travel-experience-worth-r100-000",
       "lastChecked": "2026-10-30",
       "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "beds-r-us-golden-ticket-2026",
+      "title": "Beds R Us Golden Ticket: Win Your Order Refund",
+      "brand": "Beds R Us",
+      "summary": "Every 50th fully paid Beds R Us website order during November receives its order amount back, capped at R10,000. A purchase is required; this is not a guaranteed refund for every shopper.",
+      "imageUrl": "https://freehub.co.za/assets/listings/weekly-2026-11-01/beds-r-us-golden-ticket-2026.webp",
+      "closingDate": "2026-11-30",
+      "category": "Home",
+      "prizeName": "Order refund capped at R10,000",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Automatic purchase entry",
+      "eligibility": "Age 18+ and qualifying paid website order; related-party exclusions. Regional delivery conditions apply.",
+      "entrySteps": [
+        "Place an order directly on bedsrus.co.za during 1–30 November 2026.",
+        "Pay for the order in full before 23:59 South African time on 30 November. Unpaid, cancelled and fully refunded orders do not count.",
+        "Entry is automatic: paid orders are numbered by the order in which payment is received, and every 50th paid order wins. Keep your order contact details current; winners are contacted by email and phone."
+      ],
+      "officialUrl": "https://bedsrus.co.za/golden-ticket-rules/",
+      "termsUrl": "https://bedsrus.co.za/golden-ticket-rules/",
+      "lastChecked": "2026-11-01",
+      "isHighValue": false,
       "isClosingSoon": false
     },
     {

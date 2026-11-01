@@ -28146,5 +28146,62 @@
     "imageAlt": "FreeHub editorial illustration of gym shoes, a suitcase and a globe; not the actual holiday prize.",
     "imageReviewStatus": "editorial-generated",
     "imageReviewCheckedAt": "2026-10-30"
+  },
+  {
+    "id": "beds-r-us-golden-ticket-2026",
+    "title": "Beds R Us Golden Ticket: Win Your Order Refund",
+    "brand": "Beds R Us",
+    "category": "Home",
+    "summary": "Every 50th fully paid Beds R Us website order during November receives its order amount back, capped at R10,000. A purchase is required; this is not a guaranteed refund for every shopper.",
+    "quickAnswer": "Customers aged 18+ who fully pay for a qualifying website order from 1 to 30 November 2026 are entered automatically. Every 50th paid order wins a refund capped at R10,000; regional delivery conditions apply.",
+    "startDate": "2026-11-01",
+    "closingDate": "2026-11-30",
+    "closingDateText": "30 November 2026 at 23:59 South African time",
+    "prizeName": "Order refund capped at R10,000",
+    "prizeType": "other",
+    "prizeContext": "The refund equals the amount paid for the winning order, up to R10,000, and is returned to the original payment method within seven working days after notification. The goods are still delivered. The number of winning orders depends on paid-order volume; every 50th order wins in full-payment receipt order. This is not a random draw or a guaranteed refund. Returns or cancellation can cancel the prize.",
+    "entrySteps": [
+      "Place an order directly on bedsrus.co.za during 1–30 November 2026.",
+      "Pay for the order in full before 23:59 South African time on 30 November. Unpaid, cancelled and fully refunded orders do not count.",
+      "Entry is automatic: paid orders are numbered by the order in which payment is received, and every 50th paid order wins. Keep your order contact details current; winners are contacted by email and phone."
+    ],
+    "entryType": "Automatic purchase entry",
+    "entryCostType": "purchase-required",
+    "purchaseRequired": true,
+    "entryFeeLabel": "Purchase required. Full website-order payment is necessary; no additional entry fee. Delivery fees may apply.",
+    "entryCostSummary": "Purchase required; full website-order payment. The rules state no entry fee or competition price increase. Delivery and collection conditions apply; do not assume nationwide free delivery.",
+    "eligibility": "Anyone aged 18 or older placing a qualifying website order. Directors, employees, agents, consultants, prize suppliers and their specified partners or immediate family are excluded. The delivery policy describes Western Cape delivery and location-dependent fees; confirm fulfilment for your address before buying.",
+    "eligibilitySummary": "Age 18+ and qualifying paid website order; related-party exclusions. Regional delivery conditions apply.",
+    "url": "https://bedsrus.co.za/golden-ticket-rules/",
+    "sourceUrl": "https://bedsrus.co.za/golden-ticket-rules/",
+    "termsUrl": "https://bedsrus.co.za/golden-ticket-rules/",
+    "sourceDomain": "bedsrus.co.za",
+    "officialDestinationType": "instructions",
+    "lastChecked": "2026-11-01",
+    "dateAdded": "2026-11-01",
+    "verificationStatus": "published",
+    "publicationStatus": "published",
+    "sourceReviewStatus": "editorially-reviewed",
+    "visibility": "public",
+    "doNotPublish": false,
+    "region": "South Africa",
+    "tags": [
+      "purchase-required"
+    ],
+    "isHighValue": false,
+    "isEndingSoon": false,
+    "verificationNote": "Official campaign and complete numbered rules directly rechecked with HTTP 200 on 1 November 2026. Entry period: 1 November 00:00–30 November 23:59 South African time. Delivery policy also inspected. No purchase or entry submitted.",
+    "seoTitle": "Beds R Us Golden Ticket Refund Competition 2026 | Freehub",
+    "seoDescription": "Every 50th fully paid Beds R Us website order wins a refund capped at R10,000. Purchase required, age 18+, closes 30 November 2026. Regional delivery terms apply.",
+    "riskFlags": [
+      "purchase_required",
+      "regional_delivery",
+      "capped_refund"
+    ],
+    "image": "https://freehub.co.za/assets/listings/weekly-2026-11-01/beds-r-us-golden-ticket-2026.webp",
+    "imageAlt": "Illustrative unbranded bedroom with a golden ticket and receipt; not the actual product or prize.",
+    "imageLayout": "landscape",
+    "imageReviewStatus": "editorial-generated",
+    "imageReviewCheckedAt": "2026-11-01"
   }
 ]

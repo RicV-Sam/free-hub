@@ -42,7 +42,10 @@ test("all active competition labels match the reviewed compact snapshot", () => 
   const competitions = JSON.parse(fs.readFileSync(path.join(rootDir, "data", "competitions.json"), "utf8"));
   // Review new editorial additions separately while retaining the historical
   // cost-label hash unchanged for every record it originally covered.
-  const additions = require("../baselines/discovery-cost-labels-2026-10-30.json");
+  const additions = {
+    ...require("../baselines/discovery-cost-labels-2026-10-30.json"),
+    ...require("../baselines/weekly-cost-labels-2026-11-01.json"),
+  };
   for (const [id, label] of Object.entries(additions)) {
     const record = competitions.find(row => row.id === id);
     assert.ok(record, id);
