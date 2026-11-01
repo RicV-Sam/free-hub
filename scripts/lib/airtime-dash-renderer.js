@@ -11,7 +11,7 @@ function page(shell, admin = false) {
     .replace("We do not run the competitions, collect entries or supply the listed benefits.", "FreeHub runs Airtime Dash. Other listed competitions and benefits are provided by their named promoters.")
     .replace("/shared/auth-ui.js?v=20260917-account-save-v2", "/shared/auth-ui.js?v=dash-polish-1")
     .replace("<body>", `<body${admin ? "" : ' class="airtime-dash-page"'}>`)
-    .replace("</head>", '<link rel="stylesheet" href="/assets/airtime-dash.css?v=dash-controls-1" />\n</head>')
+    .replace("</head>", '<link rel="stylesheet" href="/assets/airtime-dash.css?v=dash-winner-1" />\n</head>')
     .replace("</body>", `<script src="/shared/airtime-dash-engine.js?v=dash-1" defer></script><script type="module" src="/shared/airtime-dash-${admin ? "admin" : "ui"}.js?v=dash-polish-1"></script>\n</body>`);
   if (admin) return html;
   const image = DEFAULT_OG_IMAGE.replaceAll("&", "&amp;");
@@ -23,6 +23,10 @@ function gameBody() {
   return `<main id="main-content" class="dash-page">
     <div class="dash-challenge" id="dash-challenge" hidden></div>
     <header class="dash-intro"><div><p class="dash-eyebrow">THE FREEHUB ARCADE</p><h1>Airtime Dash<span>Play free. Beat your friends.</span></h1><p class="dash-lead">Guide our Hadeda through the maze, collect tokens and outsmart the pursuers. Three lives. Endless levels. How far can you go?</p><p class="dash-facts" id="dash-hero-prize">Monthly R500 airtime · Highest eligible verified score wins</p><div class="dash-hero-actions"><button type="button" class="dash-button" data-dash-enter disabled>Checking prize entry…</button><a class="dash-button dash-button--secondary" id="dash-try" href="#dash-arcade">Try the 25-second practice</a></div><p class="dash-small">Practice needs no account. Sign in free for competition play. The game waits until you click Start.</p></div>${renderMascot("welcome", { animate: false })}</header>
+    <section class="dash-winner" id="october-2026-result" aria-labelledby="dash-winner-title">
+      <div><p class="dash-eyebrow">OUR FIRST AIRTIME DASH RESULT · OCTOBER 2026</p><h2 id="dash-winner-title">Congratulations, Mlc!</h2><p>Mlc topped our first Airtime Dash leaderboard and is the selected winner of <strong>R500 airtime</strong>, subject to final eligibility confirmation.</p><p>Thank you to everyone who played. October entries are closed; free practice is still open.</p></div>
+      <div class="dash-winner-score"><strong>11,690</strong><span>server-verified points</span><span>October 2026 · 1st place</span></div>
+    </section>
     <p class="dash-competition" id="dash-competition">${settings.enabled ? "Practice is open. Loading this month's R500 airtime competition details…" : "Practice is open. The monthly R500 airtime competition is being prepared; prize entry is not open."}</p>
     <div class="dash-layout"><section class="dash-arcade" id="dash-arcade" aria-label="Airtime Dash game">
       <div class="dash-toolbar"><span>MAZE CHALLENGE</span><button type="button" class="dash-expand" id="dash-expand" aria-expanded="false" aria-controls="dash-arcade">Expand game</button></div>
