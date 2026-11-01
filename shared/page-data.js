@@ -6,6 +6,7 @@
   const CLOSING_SOON_DAYS = 3;
   const ENDING_SOON_TAG_DAYS = 7;
   let referenceDateIso = "";
+  let referenceTimestamp = NaN;
   const LEGACY_ARCHIVE_COST_TYPE = Symbol.for("freehub.legacyArchiveCostType");
   const ENTRY_COST_CLASSIFICATIONS = Object.freeze({
     FREE_ENTRY: "free_entry",
@@ -625,6 +626,7 @@
 
     if (!value) {
       referenceDateIso = "";
+      referenceTimestamp = NaN;
       return;
     }
 
@@ -633,6 +635,23 @@
     }
 
     referenceDateIso = value;
+    // Date-only audit fixtures have one stable instant, independent of the host clock.
+    referenceTimestamp = Date.parse(`${value}T12:00:00+02:00`);
+  }
+
+  function setReferenceTime(value = "") {
+    if (value === "") {
+      setReferenceDate();
+      return;
+    }
+    const timestamp = parseCompetitionClosingAt(value);
+    if (!Number.isFinite(timestamp)) throw new Error(`Invalid reference time: ${value}`);
+    referenceTimestamp = timestamp;
+    referenceDateIso = getSouthAfricanDate(timestamp);
+  }
+
+  function getReferenceTimestamp() {
+    return Number.isFinite(referenceTimestamp) ? referenceTimestamp : Date.now();
   }
 
   function getReferenceToday() {
@@ -1362,9 +1381,7 @@
   }
 
   function isActiveCompetition(competition) {
-    const daysUntilClosing = getDaysUntilClosing(getEffectiveCompetitionEndDate(competition));
-
-    return isPublicCompetition(competition) && Number.isFinite(daysUntilClosing) && daysUntilClosing >= 0;
+    return isPublicCompetition(competition) && isCompetitionEntryOpen(competition);
   }
 
   function getPublishedActiveCompetitions(competitions) {
@@ -1376,13 +1393,10 @@
   }
 
   function isNoindexActiveCompetition(competition) {
-    const daysUntilClosing = getDaysUntilClosing(getEffectiveCompetitionEndDate(competition));
-
     return (
       isPublishedCompetition(competition) &&
       getCompetitionVisibility(competition) === "noindex" &&
-      Number.isFinite(daysUntilClosing) &&
-      daysUntilClosing >= 0
+      isCompetitionEntryOpen(competition)
     );
   }
 
@@ -1403,15 +1417,50 @@
     return officialDate;
   }
 
+  // Explicit deadlines must include seconds and a UTC offset. Never infer an
+  // instant from display prose or let Date.parse normalize an invalid date.
+  function parseCompetitionClosingAt(value) {
+    if (typeof value !== "string") return NaN;
+    const match = value.match(/^(\d{4}-\d{2}-\d{2})T(\d{2}):(\d{2}):(\d{2})(?:\.\d{1,3})?(Z|([+-])(\d{2}):(\d{2}))$/);
+    if (!match || !Number.isFinite(getCalendarDay(match[1])) ||
+        Number(match[2]) > 23 || Number(match[3]) > 59 || Number(match[4]) > 59 ||
+        (match[5] !== "Z" && (Number(match[7]) > 23 || Number(match[8]) > 59 || match[5] === "-00:00"))) return NaN;
+    return Date.parse(value);
+  }
+
+  function getCompetitionClosingTimestamp(competition) {
+    const date = getEffectiveCompetitionEndDate(competition);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(String(date || "")) || !Number.isFinite(getCalendarDay(date))) return NaN;
+    // A date-only competition closes at the start of the following SAST day.
+    const dateOnlyDeadline = Date.parse(`${date}T00:00:00+02:00`) + 86400000;
+    if (!Object.prototype.hasOwnProperty.call(competition, "closingAt")) return dateOnlyDeadline;
+    const exactDeadline = parseCompetitionClosingAt(competition.closingAt);
+    // An invalid provided timestamp must not silently fall back to a later date.
+    return Number.isFinite(exactDeadline) ? Math.min(exactDeadline, dateOnlyDeadline) : NaN;
+  }
+
+  function validateCompetitionDeadline(competition) {
+    if (competition && Object.prototype.hasOwnProperty.call(competition, "closingAt") &&
+        !Number.isFinite(getCompetitionClosingTimestamp(competition))) {
+      throw new Error(`Competition ${competition.id || competition.title || "unknown"} has an invalid closingAt deadline; provide a valid zoned ISO timestamp and closingDate.`);
+    }
+    return true;
+  }
+
+  function isCompetitionEntryOpen(competition, now = getReferenceTimestamp()) {
+    const deadline = getCompetitionClosingTimestamp(competition);
+    return Number.isFinite(deadline) && Number.isFinite(now) && now < deadline;
+  }
+
   function isExpiredCompetition(competition) {
-    const daysUntilClosing = getDaysUntilClosing(getEffectiveCompetitionEndDate(competition));
-    return Number.isFinite(daysUntilClosing) && daysUntilClosing < 0;
+    const deadline = getCompetitionClosingTimestamp(competition);
+    return Number.isFinite(deadline) && getReferenceTimestamp() >= deadline;
   }
 
   function isEditorialPromotionEnded(competition) {
     return isExpiredCompetition(competition)
       && getEffectiveCompetitionEndDate(competition) !== competition.closingDate
-      && getDaysUntilClosing(competition.closingDate) >= 0;
+      && getReferenceTimestamp() < getCompetitionClosingTimestamp({ ...competition, editorialActiveUntil: undefined });
   }
 
   function hasVerifiedArchiveSource(competition) {
@@ -2118,6 +2167,8 @@
     CANONICAL_ORIGIN,
     HOME_ROUTE,
     setReferenceDate,
+    setReferenceTime,
+    getReferenceTimestamp,
     getSouthAfricanDate,
     getCalendarDay,
     getReferenceDate,
@@ -2181,6 +2232,10 @@
     isExpiredCompetition,
     isEditorialPromotionEnded,
     getEffectiveCompetitionEndDate,
+    parseCompetitionClosingAt,
+    getCompetitionClosingTimestamp,
+    validateCompetitionDeadline,
+    isCompetitionEntryOpen,
     hasVerifiedArchiveSource,
     isExpiredArchiveEligibleCompetition,
     hasVerifiedCompetitionResult,

@@ -21,12 +21,14 @@ function validateEditorialPicks(picks, collections) {
 }
 
 function getEligibleEditorialPicks(picks, collections, surface, today = shared.getReferenceDate()) {
+  const referenceTime = today === shared.getReferenceDate()
+    ? shared.getReferenceTimestamp() : shared.parseCompetitionClosingAt(`${today}T12:00:00+02:00`);
   return picks.filter((pick) => pick.surface === surface && pick.reviewedAt <= today && pick.reviewDueAt >= today).flatMap((pick) => {
     const record = collections[pick.kind].find((item) => item.id === pick.recordId);
     if (!record) return [];
     if (record.doNotPublish || ["held", "withdrawn", "expired", "rejected", "archived-low-value"].includes(record.publicationStatus) || ["retired", "withdrawn", "expired", "unavailable"].includes(record.availability)) return [];
     let eligible = false;
-    if (pick.kind === "competition") eligible = shared.isPublicCompetition(record) && record.closingDate >= today;
+    if (pick.kind === "competition") eligible = shared.isPublicCompetition(record) && shared.isCompetitionEntryOpen(record, referenceTime);
     if (pick.kind === "resource") eligible = isPublishedFreeResource(record) && !["held", "withdrawn", "expired"].includes(record.publicationStatus) && !["withdrawn", "expired", "unavailable"].includes(record.availability);
     if (pick.kind === "offer") eligible = offerData.isPublicOffer(record, { asOfDate: today });
     if (record.reviewDueAt && record.reviewDueAt < today) eligible = false;

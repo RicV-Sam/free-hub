@@ -43,7 +43,7 @@ function classifyCompetitions(competitions, today) {
     const closingDate = normalizeDate(shared.getEffectiveCompetitionEndDate(competition));
     const diffDays = Math.ceil((closingDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
 
-    if (diffDays < 0) {
+    if (shared.isExpiredCompetition(competition)) {
       expired.push(competition);
       if (shared.hasVerifiedArchiveSource(competition) && competition.publicationStatus !== "archived-low-value") {
         expiredArchiveEligible.push(competition);
@@ -53,7 +53,7 @@ function classifyCompetitions(competitions, today) {
       return;
     }
 
-    if (!isPublishedCompetition(competition)) {
+    if (!isPublishedCompetition(competition) || !shared.isCompetitionEntryOpen(competition)) {
       return;
     }
 
@@ -244,10 +244,12 @@ function buildPublicSeoSearchText() {
 
 function main() {
   const options = parseArgs(process.argv.slice(2));
-  const today = options.today ? normalizeDate(options.today) : normalizeDate(new Date());
+  if (options.today) shared.setReferenceDate(options.today);
+  else if (process.env.FREEHUB_AS_OF_TIME) shared.setReferenceTime(process.env.FREEHUB_AS_OF_TIME);
+  else shared.setReferenceDate(process.env.FREEHUB_AS_OF_DATE || "");
+  const today = normalizeDate(shared.getReferenceDate());
   const todayIso = formatDateLocal(today);
 
-  shared.setReferenceDate(todayIso);
   const retirementState = applyCompetitionRetirements(JSON.parse(fs.readFileSync(DATA_PATH, "utf8")),
     fs.existsSync(ARCHIVE_PATH) ? JSON.parse(fs.readFileSync(ARCHIVE_PATH, "utf8")) : []);
   const competitions = retirementState.primary;

@@ -2,6 +2,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const shared = require("../shared/page-data.js");
 
 const ROOT_DIR = path.join(__dirname, "..");
 const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
@@ -154,14 +155,13 @@ function loadCompetitions() {
 }
 
 function selectCompetitions(competitions, options) {
-  const today = new Date().toISOString().slice(0, 10);
   const selectedIds = new Set(options.competitionIds);
 
   return competitions
     .filter((competition) => competition.verificationStatus === "published")
     .filter((competition) => !competition.doNotPublish)
     .filter((competition) => !competition.publicationStatus || competition.publicationStatus === "published")
-    .filter((competition) => !competition.closingDate || competition.closingDate >= today)
+    .filter((competition) => shared.isCompetitionEntryOpen(competition))
     .filter((competition) => {
       if (selectedIds.size > 0) {
         return selectedIds.has(competition.id);

@@ -86,9 +86,11 @@ function walkPublicListingFiles(rootDir) {
 }
 
 function validateMaintenanceState(options = {}) {
-  const today = options.today ? normalizeDate(options.today) : normalizeDate(new Date());
+  if (options.today) shared.setReferenceDate(options.today);
+  else if (process.env.FREEHUB_AS_OF_TIME) shared.setReferenceTime(process.env.FREEHUB_AS_OF_TIME);
+  else shared.setReferenceDate(process.env.FREEHUB_AS_OF_DATE || "");
+  const today = normalizeDate(shared.getReferenceDate());
   const todayIso = formatDateLocal(today);
-  shared.setReferenceDate(todayIso);
   const sourceCompetitions = readJson(DATA_PATH, []);
   const sourceArchive = readJson(ARCHIVE_PATH, []);
   const retirementState = applyCompetitionRetirements(sourceCompetitions, sourceArchive);
@@ -104,7 +106,7 @@ function validateMaintenanceState(options = {}) {
       return false;
     }
 
-    return normalizeDate(shared.getEffectiveCompetitionEndDate(competition)) < today;
+    return shared.isExpiredCompetition(competition);
   });
   const noindexActiveCompetitions = competitions.filter(shared.isNoindexActiveCompetition);
   const clubOnlyCompetitions = competitions.filter(shared.isClubOnlyCompetition);

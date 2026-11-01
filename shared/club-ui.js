@@ -25,6 +25,7 @@ async function initClubUi() {
   state.page = document.querySelector("[data-club-page]")?.dataset.clubPage || "landing";
   state.allCompetitions = getDashboardCompetitions();
   bindClubActions();
+  document.addEventListener("freehub:freshness-refreshed", renderAllCompetitions);
 
   try {
     state.client = await getFirebaseClient();
@@ -359,7 +360,9 @@ function renderAllCompetitions() {
     return;
   }
 
-  const competitions = state.allCompetitions;
+  const competitions = state.allCompetitions.filter((competition) =>
+    window.FreeHubShared?.isCompetitionEntryOpen?.(competition)
+  );
   const statusCounts = competitions.reduce(
     (counts, competition) => {
       counts[getCompetitionStatus(competition.competitionId)] += 1;
@@ -794,6 +797,8 @@ function getDashboardCompetitions() {
       brand: competition.brand || "",
       category: competition.category || "",
       closingDate: competition.closingDate || "",
+      ...(Object.prototype.hasOwnProperty.call(competition, "closingAt") ? { closingAt: competition.closingAt } : {}),
+      ...(competition.editorialActiveUntil ? { editorialActiveUntil: competition.editorialActiveUntil } : {}),
       path: competition.path || `/competition/${competition.slug || competition.competitionId}/`,
       entryCost: competition.entryCost || "",
       entryMethod: competition.entryMethod || "",

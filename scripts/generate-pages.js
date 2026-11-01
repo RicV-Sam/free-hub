@@ -43,7 +43,7 @@ const OFFERS_PATH = path.join(ROOT_DIR, "data", "offers.json");
 const UNVERIFIED_COMPETITIONS_PATH = path.join(ROOT_DIR, "data", "unverified-competitions.json");
 const RELATIVE_ASSET_PATH = "/";
 const RELEASE_ASSET_VERSION = "20260901-native-ads-v1";
-const UI_ASSET_VERSION = "20261016-airtime-promo-v1";
+const UI_ASSET_VERSION = "20261101-expiry-mobile-v1";
 const NAVIGATION_BOOTSTRAP = fs.readFileSync(path.join(ROOT_DIR, "shared", "navigation.js"), "utf8");
 const GUEST_ADS_SCRIPT_SRC = "/shared/guest-ads.js?v=20260917-account-save-v2";
 const OUTBOUND_HANDOFF_SCRIPT_SRC = `/shared/outbound-handoff.js?v=${RELEASE_ASSET_VERSION}`;
@@ -89,8 +89,10 @@ const DATACOST_URL = "https://datacost.co.za/?utm_source=freehub&utm_medium=hous
 const DATACOST_USSD_URL = "https://datacost.co.za/ussd-codes/?utm_source=freehub&utm_medium=house_banner&utm_campaign=ussd_codes";
 const DATACOST_BANNER_IMAGE = "/assets/partners/datacost-data-airtime-banner.jpg";
 const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date());
-const LIFECYCLE_REFERENCE_DATE_ISO = process.env.FREEHUB_AS_OF_DATE || getLocalIsoDate(new Date());
-shared.setReferenceDate(LIFECYCLE_REFERENCE_DATE_ISO);
+if (process.env.FREEHUB_AS_OF_TIME) shared.setReferenceTime(process.env.FREEHUB_AS_OF_TIME);
+else if (process.env.FREEHUB_AS_OF_DATE) shared.setReferenceDate(process.env.FREEHUB_AS_OF_DATE);
+else shared.setReferenceTime(new Date().toISOString());
+const LIFECYCLE_REFERENCE_DATE_ISO = shared.getReferenceDate();
 // Validate before any generated files are written. Use the lifecycle clock, not SEO snapshot dates.
 validateStudentGuide(STUDENT_GUIDE, LIFECYCLE_REFERENCE_DATE_ISO);
 const renderStudentGuide = createStudentGuideRenderer({ escapeHtml, escapeAttribute, formatDate: shared.formatDate, renderAdBreak: renderStudentAdBreak });
@@ -2490,6 +2492,9 @@ const VERTICAL_PAGE_DEFINITIONS = [
 ];
 
 function main() {
+  const sourceCompetitions = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
+  const sourceArchive = fs.existsSync(ARCHIVE_DATA_PATH) ? JSON.parse(fs.readFileSync(ARCHIVE_DATA_PATH, "utf8")) : [];
+  [...sourceCompetitions, ...sourceArchive].forEach(shared.validateCompetitionDeadline);
   const browserImages = Object.fromEntries(Object.entries(responsiveImages).map(([source, entry]) =>
     [source, { variants: entry.variants.map(({ src, width, height }) => ({ src, width, height })) }]));
   writeGeneratedFile(path.join(ROOT_DIR, "shared", "responsive-images.js"), `window.FreeHubResponsiveImages = ${JSON.stringify(browserImages)};\n`);
@@ -2525,8 +2530,6 @@ function main() {
   activeOpportunityRoutes = opportunityPublication.active;
   approvedPublicOpportunities = activeOpportunityRoutes.map((entry) => entry.opportunity);
   opportunityTombstones = opportunityPublication.tombstones;
-  const sourceCompetitions = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
-  const sourceArchive = fs.existsSync(ARCHIVE_DATA_PATH) ? JSON.parse(fs.readFileSync(ARCHIVE_DATA_PATH, "utf8")) : [];
   const retirementState = applyCompetitionRetirements(sourceCompetitions, sourceArchive, { asOfDate: LIFECYCLE_REFERENCE_DATE_ISO });
   const rawCompetitions = retirementState.primary;
   validateEditorialPicks(editorialPicks, { competition: rawCompetitions, resource: ALL_FREE_RESOURCES, offer: offerRegistry });
@@ -2569,6 +2572,7 @@ function main() {
   const outCompetitions = [...activeCompetitions, ...noindexActiveCompetitions];
   writeMobileFeed(path.join(ROOT_DIR, "app-data", "competitions.json"), validCompetitions, {
     asOfDate: LIFECYCLE_REFERENCE_DATE_ISO,
+    asOfTime: new Date(shared.getReferenceTimestamp()).toISOString(),
   });
   writeMobileCatalog(path.join(ROOT_DIR, "app-data", "catalog.json"), {
     resources: FREE_RESOURCES,
@@ -3471,7 +3475,7 @@ function renderUnverifiedCompetitionPage(records, detailRecord = null) {
         mascotPose: detailRecord ? undefined : (records.length ? "browse" : "recover"),
         eyebrow: "Discovery with disclosure",
         heading,
-        intro: detailRecord?.listingType === "reward" ? "This loyalty reward has not passed Freehub's verification checks. Read the conflicting terms below and confirm the benefit with the provider before making plans." : "These competition leads have not passed Freehub's verification checks. We show what is reported, what is still missing and an official source where one has been located.",
+        intro: detailRecord?.listingType === "reward" ? "This reward or promotion has not passed Freehub's verification checks. Read the unresolved checks below and confirm the benefit with the provider before making plans." : "These competition leads have not passed Freehub's verification checks. We show what is reported, what is still missing and an official source where one has been located.",
         actions: [
           ...(detailRecord ? [{ label: "All competitions under review", href: unverifiedCompetitionData.PUBLIC_PATH, className: "btn--secondary" }] : []),
           { label: "Browse verified competitions", href: "/competitions/", className: "btn--primary" },
@@ -4147,9 +4151,8 @@ function renderHeroActions(actions = []) {
                   const rel = action.rel ? ` rel="${escapeAttribute(action.rel)}"` : "";
                   const extraAttributes = action.attributes ? ` ${action.attributes}` : "";
 
-                  return `<a class="btn ${escapeAttribute(className)}" href="${escapeAttribute(
-                    action.href
-                  )}"${target}${rel}${extraAttributes}>${escapeHtml(action.label)}</a>`;
+                  const href = action.href == null ? "" : ` href="${escapeAttribute(action.href)}"`;
+                  return `<a class="btn ${escapeAttribute(className)}"${href}${target}${rel}${extraAttributes}>${escapeHtml(action.label)}</a>`;
                 })
                 .join("\n              ")}
             </div>`;
@@ -4862,7 +4865,7 @@ function renderVoucherIntentSection(routeContext, competitions) {
                 ? `<div class="voucher-free-picks__grid">
                 ${freeEntryPicks
                   .map(
-                    (competition) => `<a class="voucher-free-pick" href="${escapeAttribute(shared.getCompetitionPath(competition))}">
+                    (competition) => `<a class="voucher-free-pick" ${renderCurrentCompetitionAttributes(competition)} href="${escapeAttribute(shared.getCompetitionPath(competition))}">
                   <span class="voucher-free-pick__label">Free entry</span>
                   <strong>${escapeHtml(shared.getCardHeadline(competition))}</strong>
                   <span>${escapeHtml(competition.brand || "Verified promoter")}</span>
@@ -4884,7 +4887,7 @@ function renderVoucherIntentSection(routeContext, competitions) {
               <div class="voucher-free-picks__grid">
                 ${accountLinkedPicks
                   .map(
-                    (competition) => `<a class="voucher-free-pick" href="${escapeAttribute(shared.getCompetitionPath(competition))}">
+                    (competition) => `<a class="voucher-free-pick" ${renderCurrentCompetitionAttributes(competition)} href="${escapeAttribute(shared.getCompetitionPath(competition))}">
                   <span class="voucher-free-pick__label">Account required</span>
                   <strong>${escapeHtml(shared.getCardHeadline(competition))}</strong>
                   <span>${escapeHtml(competition.brand || "Verified promoter")}</span>
@@ -5800,8 +5803,7 @@ function renderPage(routeContext, competitions) {
         ${isCollectionPage ? renderCollectionBreadcrumb(pageCopy.heading) : ""}
 
         ${renderDurableInventoryNotice(routeContext, competitions)}
-        ${isPrimaryCompetitionHub ? renderUnderReviewCallout() : ""}
-        ${["competitions", "free-competitions", "win-airtime-competitions-south-africa"].includes(routeContext.slug) ? renderAirtimeDashPromotion({ compact: true, placement: routeContext.slug }) : ""}
+        ${isPrimaryCompetitionHub ? `<aside class="collection-review-link" aria-label="Unverified competition discovery"><a class="editorial-pick__link" href="${unverifiedCompetitionData.PUBLIC_PATH}">Competitions pending verification</a> <span>Unconfirmed leads, separate from verified listings.</span></aside>` : ""}
         <section class="controls" aria-label="Competition filters">
           <label class="search-field" for="searchInput">
             <span class="search-field__label">Search competitions</span>
@@ -5833,6 +5835,8 @@ function renderPage(routeContext, competitions) {
 
           ${renderCollectionEmptyState(routeContext, competitions)}
         </section>
+        ${isPrimaryCompetitionHub ? renderUnderReviewCallout() : ""}
+        ${["competitions", "free-competitions", "win-airtime-competitions-south-africa"].includes(routeContext.slug) ? renderAirtimeDashPromotion({ compact: true, placement: routeContext.slug }) : ""}
 ${confirmedResultsMarkup ? `\n        ${confirmedResultsMarkup}\n` : ""}
         ${isPrimaryCompetitionHub ? renderClosedCompetitionLinks() : ""}
         ${routeContext.noindex === true || (routeContext.type === "hub" && routeContext.slug === "paid-entry-competitions") ? "" : renderGuestAdSlot(`${routeContext.type}-${routeContext.slug || "index"}-results`)}
@@ -6185,7 +6189,7 @@ function renderCompetitionCard(competition, featured = false) {
     competition.category
   )}" data-competition-brand="${escapeAttribute(competition.brand || "")}" data-competition-closing-date="${escapeAttribute(
     competition.closingDate || ""
-  )}" data-competition-active-until="${escapeAttribute(shared.getEffectiveCompetitionEndDate(competition))}" data-competition-path="${escapeAttribute(internalPath)}">
+  )}" data-competition-active-until="${escapeAttribute(shared.getEffectiveCompetitionEndDate(competition))}"${competition.closingAt !== undefined ? ` data-competition-closing-at="${escapeAttribute(competition.closingAt)}"` : ""} data-competition-path="${escapeAttribute(internalPath)}">
               <div class="competition-card__media${mediaLayoutClass}">
                 ${renderCompetitionVisualPlaceholder(competition)}
                 ${imageMarkup}
@@ -6305,6 +6309,10 @@ function renderHeroPreviewPanel(competitions, options = {}) {
           </aside>`;
 }
 
+function renderCurrentCompetitionAttributes(competition) {
+  return `data-current-listing data-closing-date="${escapeAttribute(shared.getEffectiveCompetitionEndDate(competition))}"${competition.closingAt !== undefined ? ` data-competition-closing-at="${escapeAttribute(competition.closingAt)}"` : ""}`;
+}
+
 function renderHeroPreviewItem(competition, featured = false) {
   const title = shared.getCardHeadline(competition);
   const href = shared.getCompetitionPath(competition);
@@ -6314,7 +6322,7 @@ function renderHeroPreviewItem(competition, featured = false) {
     : "";
   const className = featured ? "hero-preview-item hero-preview-item--featured" : "hero-preview-item";
 
-  return `<a class="${className}" href="${escapeAttribute(href)}" aria-label="${escapeAttribute(
+  return `<a class="${className}" ${renderCurrentCompetitionAttributes(competition)} href="${escapeAttribute(href)}" aria-label="${escapeAttribute(
     competition.title
   )} - view details">
                 <div class="hero-preview-item__media">
@@ -6346,7 +6354,7 @@ function renderHeroSpotlight(competition) {
   const entryPath = shared.getCompetitionPath(competition);
   const cardImageUrl = getCompetitionImageUrl(competition);
 
-  return `<a class="hero-spotlight" href="${escapeAttribute(entryPath)}" aria-label="${escapeAttribute(
+  return `<a class="hero-spotlight" ${renderCurrentCompetitionAttributes(competition)} href="${escapeAttribute(entryPath)}" aria-label="${escapeAttribute(
     title
   )} - view details">
             <div class="hero-spotlight__media">
@@ -6368,7 +6376,7 @@ function getHeroSpotlightCompetition(competitions) {
   const priorityCategories = ["Vouchers", "Cash", "Cars", "Holidays"];
 
   return competitions
-    .filter((competition) => !competition.closingDate || shared.getDaysUntilClosing(competition.closingDate) >= 0)
+    .filter((competition) => shared.isCompetitionEntryOpen(competition))
     .slice()
     .sort((left, right) => {
       const leftCategoryScore = priorityCategories.includes(left.category)
@@ -7084,7 +7092,7 @@ function renderTopPickCard(entry) {
     ? `<img src="${escapeAttribute(imageUrl)}" alt="${escapeAttribute(competition.title)}" loading="lazy" onerror="this.remove()" />`
     : "";
 
-  return `<article class="top-pick-card">
+  return `<article class="top-pick-card" ${renderCurrentCompetitionAttributes(competition)}>
               <a class="top-pick-card__media" href="${escapeAttribute(href)}" aria-label="${escapeAttribute(competition.title)} - view details">
                 ${renderCompetitionVisualPlaceholder(competition, "top-pick-card__placeholder")}
                 ${imageMarkup}
@@ -7154,7 +7162,7 @@ function renderLatestRowsSection(competitions) {
 }
 
 function renderLatestCompetitionRow(competition) {
-  return `<a class="latest-row" href="${escapeAttribute(shared.getCompetitionPath(competition))}">
+  return `<a class="latest-row" ${renderCurrentCompetitionAttributes(competition)} href="${escapeAttribute(shared.getCompetitionPath(competition))}">
               <span class="latest-row__title">${escapeHtml(competition.title)}</span>
               <span class="latest-row__meta">${escapeHtml(shared.getEntryCostLabel(competition))}</span>
               <span class="latest-row__meta">${escapeHtml(getAbsoluteClosingLabel(competition.closingDate))}</span>
@@ -7450,9 +7458,9 @@ ${noscriptLinks}
             </ul>
           </section>
         </noscript>
-        ${renderAirtimeDashPromotion()}
         ${renderReviewedPicks(reviewed, "home")}
         ${renderIntentTilesSection()}
+        ${renderAirtimeDashPromotion()}
         ${renderGrocerySavingsPromotion()}${renderHomepageResourcesSection()}
         ${renderHomeTrustSection()}
         ${renderDatacostPromo({
@@ -9304,7 +9312,7 @@ function renderMonthlyGuideTable(competitions) {
               <tbody>
                 ${competitions
                   .map(
-                    (competition) => `<tr data-current-listing data-closing-date="${escapeAttribute(shared.getEffectiveCompetitionEndDate(competition))}">
+                    (competition) => `<tr data-current-listing data-closing-date="${escapeAttribute(shared.getEffectiveCompetitionEndDate(competition))}"${competition.closingAt !== undefined ? ` data-competition-closing-at="${escapeAttribute(competition.closingAt)}"` : ""}>
                   <td><a href="${escapeAttribute(shared.getCompetitionPath(competition))}">${escapeHtml(competition.title)}</a></td>
                   <td>${escapeHtml(competition.brand || "Official promoter")}</td>
                   <td>${escapeHtml(competition.prizeName || shared.getPrizeCue(competition))}</td>
@@ -9630,6 +9638,8 @@ function getClubDashboardCompetitions(activeCompetitions = []) {
         brand: competition.brand || "",
         category: competition.category || "",
         closingDate: competition.closingDate || "",
+        ...(competition.closingAt !== undefined ? { closingAt: competition.closingAt } : {}),
+        ...(competition.editorialActiveUntil ? { editorialActiveUntil: competition.editorialActiveUntil } : {}),
         path: shared.getCompetitionPath(competition),
         entryCost: shared.getEntryCostLabel(competition),
         entryMethod: shared.getEntryMethodLabel(competition.entryType),
@@ -10477,7 +10487,7 @@ function renderClubShell({ title, description, canonicalUrl, robots, pageType, b
       ${body}
       ${renderSiteFooter({ includeAuthPanel: false })}
     </div>
-    <script type="module" src="/shared/club-ui.js?v=20260917-account-save-v2"></script>
+    <script type="module" src="/shared/club-ui.js?v=${UI_ASSET_VERSION}"></script>
     <script type="module" src="/shared/club-tools.js"></script>
     <script type="module" src="/shared/auth-ui.js?v=20260917-account-save-v2"></script>
   </body>
@@ -10872,7 +10882,7 @@ function getFeaturedCompetitions(competitions, n) {
 
 function getEndingSoonCompetitions(competitions, n) {
   return competitions
-    .filter((c) => shared.getDaysUntilClosing(c.closingDate) >= 0)
+    .filter((c) => shared.isCompetitionEntryOpen(c))
     .sort((a, b) => shared.getCalendarDay(a.closingDate) - shared.getCalendarDay(b.closingDate))
     .slice(0, n);
 }
@@ -11129,7 +11139,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
     ${renderGoogleTagManagerHead(`{ page_type: 'competition', competition_slug: ${escapeScript(JSON.stringify(slug))}, competition_category: ${escapeScript(JSON.stringify(competition.category))} }`)}
     ${renderMetaPixelHead()}
   </head>
-  <body data-detail-closing-date="${escapeAttribute(shared.getEffectiveCompetitionEndDate(competition))}" data-detail-editorial-cutoff="${shared.getEffectiveCompetitionEndDate(competition) !== competition.closingDate}" data-freehub-ad-surface="${expired ? "archive" : "none"}">
+  <body data-detail-closing-date="${escapeAttribute(shared.getEffectiveCompetitionEndDate(competition))}"${competition.closingAt !== undefined ? ` data-detail-closing-at="${escapeAttribute(competition.closingAt)}"` : ""} data-detail-editorial-cutoff="${shared.getEffectiveCompetitionEndDate(competition) !== competition.closingDate}" data-freehub-ad-surface="${expired ? "archive" : "none"}">
     ${renderGoogleTagManagerNoScript()}
     ${renderMetaPixelNoScript()}
     <div class="site-shell">
@@ -11166,7 +11176,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
           <div class="competition-detail__body">
             ${renderCompetitionQuickAnswer(competition, expired)}${resultConfirmationMarkup ? `\n            ${resultConfirmationMarkup}` : ""}
             <section class="detail-decision" aria-label="Deadline, cost and eligibility"><dl><div><dt>Closing date</dt><dd>${escapeHtml(formattedDate)}${competition.closingTimeLabel ? ` · ${escapeHtml(competition.closingTimeLabel)}` : ""}<span data-urgency-date="${escapeAttribute(competition.closingDate)}"></span></dd></div><div><dt>Cost</dt><dd>${escapeHtml(competition.entryCostSummary || competition.entryFeeLabel || shared.getEntryCostLabel(competition))}</dd></div><div><dt>Eligibility</dt><dd>${escapeHtml(competition.eligibilitySummary || competition.eligibility || "Check the official promoter rules")}</dd></div></dl></section>
-            ${expired ? renderExpiredCompetitionActions(competition, categorySlug, generatedBrandSlugs, officialSourceUrl, promotionEndedEarly) : `<a class="competition-detail__cta" data-active-entry href="${escapeAttribute(outPath)}" target="_blank" rel="noopener noreferrer" ${ctaAttributes}>${escapeHtml(ctaLabel)}</a><p class="competition-detail__cta-note">You will leave Freehub for the official promoter. Freehub does not collect your entry.</p>`}
+            ${expired ? renderExpiredCompetitionActions(competition, categorySlug, generatedBrandSlugs, officialSourceUrl, promotionEndedEarly) : `<a class="competition-detail__cta" data-active-entry${competition.closingAt !== undefined ? ` hidden data-entry-path="${escapeAttribute(outPath)}"` : ` href="${escapeAttribute(outPath)}"`} target="_blank" rel="noopener noreferrer" ${ctaAttributes}>${escapeHtml(ctaLabel)}</a><p class="competition-detail__cta-note"${competition.closingAt !== undefined ? " hidden" : ""}>You will leave Freehub for the official promoter. Freehub does not collect your entry.</p>${competition.closingAt !== undefined ? '<noscript><p>Check the stated closing time and the official terms below. The entry button requires JavaScript to confirm that entries are still open.</p></noscript>' : ""}`}
             ${expired ? "" : `<section class="state-card" data-runtime-closed hidden aria-label="Promotion status"><h2>${competition.editorialActiveUntil ? "FreeHub promotion has ended." : "This competition has closed."}</h2><p>${competition.editorialActiveUntil ? "FreeHub stops promotion before the ambiguous closing hour. The official terms date remains above; check the promoter for confirmation." : "These are archived details. Confirm current information with the promoter."}</p>${renderExpiredCompetitionActions(competition, categorySlug, generatedBrandSlugs, officialSourceUrl, Boolean(competition.editorialActiveUntil))}</section>`}
             ${renderCompetitionDetailMedia(competition, heroImage, imageAltText)}
             ${renderEditorialImageDisclosure(competition)}
@@ -11950,6 +11960,7 @@ function renderOutPage(competition) {
   const canonicalUrl = `${shared.CANONICAL_ORIGIN}/out/${slug}/`;
   const adScriptMarkup = shared.competitionAllowsAds(competition) ? GUEST_ADS_SCRIPT : "";
   const handoffGateMarkup = adScriptMarkup ? OUTBOUND_HANDOFF_SCRIPT : "";
+  const timed = competition.closingAt !== undefined;
   const redirectNotice = adScriptMarkup
     ? `You will be taken to ${sourceDomain} shortly after Freehub checks whether you are signed in.`
     : `You will be taken to ${sourceDomain} in 2 seconds.`;
@@ -11968,40 +11979,10 @@ function renderOutPage(competition) {
     ${handoffGateMarkup}
     ${renderGoogleTagManagerHead(`{ page_type: 'outbound', competition_slug: ${escapeScript(JSON.stringify(slug))}, competition_category: ${escapeScript(JSON.stringify(competition.category))} }`)}
     ${renderMetaPixelHead()}
-    <script>
-      (function () {
-        var SLUG = ${escapeScript(JSON.stringify(slug))};
-        var TITLE = ${escapeScript(JSON.stringify(competition.title))};
-        var CATEGORY = ${escapeScript(JSON.stringify(competition.category))};
-        var TARGET = ${escapeScript(JSON.stringify(externalUrl))};
-        var SOURCE_DOMAIN = ${escapeScript(JSON.stringify(sourceDomain))};
-        var redirectTimer = null;
-        function beginRedirectCountdown() {
-          if (redirectTimer !== null) return;
-          document.documentElement.dataset.freehubHandoffState = 'countdown';
-          redirectTimer = setTimeout(function () {
-            document.documentElement.dataset.freehubHandoffState = 'redirecting';
-            window.location.replace(TARGET);
-          }, 2000);
-        }
-        gtag('event', 'outbound_click', {
-          competition_slug: SLUG,
-          competition_title: TITLE,
-          competition_category: CATEGORY,
-          source_domain: SOURCE_DOMAIN,
-          destination_url: TARGET,
-          page_type: 'out',
-          transport_type: 'beacon',
-        });
-        if (window.FreeHubOutboundHandoff) {
-          window.FreeHubOutboundHandoff.afterGuestAdDecision(beginRedirectCountdown, { maxWaitMs: 3000 });
-        } else {
-          beginRedirectCountdown();
-        }
-      })();
-    </script>
+    <script src="/shared/page-data.js?v=${UI_ASSET_VERSION}" defer></script>
+    <script src="/shared/competition-handoff.js?v=${UI_ASSET_VERSION}" defer></script>
   </head>
-  <body>
+  <body data-out-closing-date="${escapeAttribute(shared.getEffectiveCompetitionEndDate(competition))}"${timed ? ` data-out-closing-at="${escapeAttribute(competition.closingAt)}"` : ""} data-out-target="${escapeAttribute(externalUrl)}" data-out-slug="${escapeAttribute(slug)}" data-out-title="${escapeAttribute(competition.title)}" data-out-category="${escapeAttribute(competition.category)}" data-out-source-domain="${escapeAttribute(sourceDomain)}">
     ${renderGoogleTagManagerNoScript()}
     ${renderMetaPixelNoScript()}
     <div class="site-shell">
@@ -12013,24 +11994,31 @@ function renderOutPage(competition) {
         intro: `Taking you to ${sourceDomain} for ${competition.title}. If you are not redirected automatically, use the link below.`,
         mascotPose: "direct",
         actions: [
-          { label: "Continue", href: externalUrl, className: "btn--primary", target: "_blank", rel: "nofollow noopener" },
+          { label: "Continue", href: timed ? null : externalUrl, className: "btn--primary", target: "_blank", rel: "nofollow noopener", attributes: `data-outbound-destination${timed ? " hidden" : ""}` },
           { label: "Back to Competitions", href: "/competitions/", className: "btn--secondary" },
         ],
         trustItems: ["External promoter page", "Terms apply at source", "Freehub does not collect entries"],
       })}
 
       <main id="main-content" class="main-content">
-        <section class="state-card outbound-notice" aria-label="Redirect notice">
+        <section class="state-card outbound-notice" data-outbound-open aria-label="Redirect notice">
           <p class="state-card__title">Continue to the official promoter</p>
           <p class="state-card__text">
             ${escapeHtml(redirectNotice)} Freehub does not run this competition or collect your entry.
           </p>
           <p class="state-card__text">Always check the promoter's terms before entering.</p>
-          <a class="competition-detail__cta" href="${escapeAttribute(externalUrl)}" rel="nofollow noopener" target="_blank">
+          <a class="competition-detail__cta" data-outbound-destination${timed ? " hidden" : ` href="${escapeAttribute(externalUrl)}"`} rel="nofollow noopener" target="_blank">
             Continue to official promoter page
           </a>
           <p class="competition-detail__cta-note">If the redirect does not work, use the button above as the manual fallback link.</p>
         </section>
+        <section class="state-card" data-outbound-closed hidden aria-live="polite">
+          <h2>Entry is no longer available</h2>
+          <p>The entry deadline has passed or could not be confirmed. This page will not send you to an entry flow.</p>
+          <a href="${escapeAttribute(shared.getCompetitionPath(competition))}">View competition details</a>
+          <a href="/competitions/">Browse current competitions</a>
+        </section>
+        ${timed ? `<noscript><p>This competition has a specific closing time. JavaScript is needed to confirm that entries are still open. <a href="${escapeAttribute(shared.getCompetitionPath(competition))}">Read the closing details and official terms</a>.</p></noscript>` : ""}
       </main>
 
       ${renderSiteFooter({ includeAuthPanel: false })}

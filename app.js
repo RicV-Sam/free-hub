@@ -317,6 +317,9 @@ function createCompetitionCard(competition) {
   article.dataset.competitionTitle = competition.title;
   article.dataset.competitionCategory = competition.category;
   article.dataset.competitionPath = getCompetitionPath(competition);
+  article.dataset.competitionClosingDate = competition.closingDate || "";
+  article.dataset.competitionActiveUntil = window.FreeHubShared.getEffectiveCompetitionEndDate(competition);
+  if (competition.closingAt !== undefined) article.dataset.competitionClosingAt = competition.closingAt;
 
   const overlayLink = document.createElement("a");
   overlayLink.className = "competition-card__overlay-link";

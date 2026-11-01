@@ -1,5 +1,27 @@
 (function () {
   "use strict";
+  let refreshTimer = null;
+  function getDeadline(node) {
+    const data = node.dataset;
+    const record = { closingDate: data.detailClosingDate || data.competitionActiveUntil || data.closingDate || data.competitionClosingDate };
+    if (data.detailClosingAt !== undefined) record.closingAt = data.detailClosingAt;
+    else if (data.competitionClosingAt !== undefined) record.closingAt = data.competitionClosingAt;
+    return record;
+  }
+  function scheduleRefresh() {
+    const shared = window.FreeHubShared;
+    if (!shared) return;
+    if (refreshTimer !== null) window.clearTimeout(refreshTimer);
+    const now = Date.now();
+    let delay = 60000;
+    const records = [...document.querySelectorAll('[data-detail-closing-date], [data-current-listing], article[data-competition-closing-date]')].map(getDeadline);
+    records.push(...(window.FREEHUB_CLUB_COMPETITIONS || []));
+    for (const record of records) {
+      const cutoff = shared.getCompetitionClosingTimestamp(record);
+      if (cutoff > now) delay = Math.min(delay, cutoff - now);
+    }
+    refreshTimer = window.setTimeout(refreshFreshness, Math.max(1, delay));
+  }
   function initAirtimeDashPromotionTracking() {
     if (window.FreeHubAirtimeDashPromotionTrackingReady) return;
     window.FreeHubAirtimeDashPromotionTrackingReady = true;
@@ -35,18 +57,18 @@
         node.remove();
       }
     });
+    document.querySelectorAll("[data-current-listing], article.competition-card[data-competition-closing-date]").forEach((node) => {
+      if (!shared.isCompetitionEntryOpen(getDeadline(node))) {
+        if (node.matches('a[href^="/"]')) removedPaths.add(node.getAttribute("href"));
+        node.querySelectorAll('a[href^="/"]').forEach((link) => removedPaths.add(link.getAttribute("href")));
+        node.remove();
+      }
+    });
     document.querySelectorAll("[data-editorial-surface]").forEach((section) => {
       const fallback = section.querySelector("[data-editorial-fallback]");
       if (fallback) fallback.hidden = !!section.querySelector("[data-editorial-pick]");
       const heading = section.querySelector("[data-editorial-heading]");
       if (heading && fallback && !fallback.hidden) heading.textContent = "Keep exploring Freehub";
-    });
-    document.querySelectorAll("[data-current-listing], article.competition-card[data-competition-closing-date]").forEach((node) => {
-      const closing = node.dataset.competitionActiveUntil || node.dataset.closingDate || node.dataset.competitionClosingDate;
-      if (closing && closing < today) {
-        node.querySelectorAll('a[href^="/"]').forEach((link) => removedPaths.add(link.getAttribute("href")));
-        node.remove();
-      }
     });
     document.querySelectorAll("[data-current-comparison]").forEach((table) => {
       const empty = !table.querySelector("[data-current-listing]");
@@ -54,10 +76,19 @@
       const fallback = table.parentElement.querySelector("[data-comparison-empty]");
       if (fallback) fallback.hidden = !empty;
     });
-    document.querySelectorAll("[data-urgency-date]").forEach((node) => { node.textContent = ` · ${shared.getUrgencyLabel(node.dataset.urgencyDate)}`; });
+    document.querySelectorAll("[data-urgency-date]").forEach((node) => {
+      const owner = node.closest("[data-detail-closing-date], [data-current-listing], article[data-competition-closing-date]");
+      node.textContent = ` · ${owner && !shared.isCompetitionEntryOpen(getDeadline(owner)) ? "Closed" : shared.getUrgencyLabel(node.dataset.urgencyDate)}`;
+    });
     const closing = document.body.dataset.detailClosingDate;
-    if (closing && closing < today) {
-      document.querySelectorAll("[data-active-entry]").forEach((link) => { link.hidden = true; });
+    const entryOpen = closing && shared.isCompetitionEntryOpen(getDeadline(document.body));
+    document.querySelectorAll("[data-active-entry]").forEach((link) => {
+      link.hidden = !entryOpen;
+      if (entryOpen && link.dataset.entryPath) link.setAttribute("href", link.dataset.entryPath);
+      if (!entryOpen) link.removeAttribute("href");
+    });
+    if (entryOpen) document.querySelectorAll(".competition-detail__cta-note").forEach((node) => { node.hidden = false; });
+    if (closing && !entryOpen) {
       const closed = document.querySelector("[data-runtime-closed]");
       if (closed) closed.hidden = false;
       const notice = document.querySelector(".hero__closing");
@@ -80,13 +111,24 @@
       } catch { /* Preserve unrelated structured data. */ }
     });
     document.dispatchEvent(new CustomEvent("freehub:freshness-refreshed"));
+    scheduleRefresh();
   }
   function init() {
     initAirtimeDashPromotionTracking();
     refreshFreshness();
     window.addEventListener("pageshow", refreshFreshness);
     document.addEventListener("visibilitychange", () => { if (!document.hidden) refreshFreshness(); });
-    window.setInterval(refreshFreshness, 60000);
+    document.addEventListener("freehub:competition-cards-rendered", scheduleRefresh);
+    // Recheck at the action itself, including a suspended tab's first click.
+    const guardEntryAction = (event) => {
+      if (!event.target.closest?.("[data-active-entry]")) return;
+      if (!window.FreeHubShared?.isCompetitionEntryOpen(getDeadline(document.body))) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        refreshFreshness();
+      }
+    };
+    ["click", "auxclick", "contextmenu"].forEach(type => document.addEventListener(type, guardEntryAction, true));
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();

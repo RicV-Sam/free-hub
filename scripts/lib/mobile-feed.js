@@ -11,6 +11,8 @@ const ALLOWED_ITEM_KEYS = Object.freeze([
   "summary",
   "imageUrl",
   "closingDate",
+  "closingAt",
+  "editorialActiveUntil",
   "category",
   "prizeName",
   "entryCostType",
@@ -26,19 +28,20 @@ const ALLOWED_ITEM_KEYS = Object.freeze([
   "isClosingSoon",
 ]);
 
-function buildMobileFeed(competitions, { asOfDate } = {}) {
+function buildMobileFeed(competitions, { asOfDate, asOfTime } = {}) {
   if (!Array.isArray(competitions)) {
     throw new TypeError("Mobile feed input must be an array of competitions.");
   }
 
-  if (asOfDate) {
-    shared.setReferenceDate(asOfDate);
-  }
+  const referenceTime = asOfTime !== undefined
+    ? shared.parseCompetitionClosingAt(asOfTime)
+    : asOfDate ? shared.parseCompetitionClosingAt(`${asOfDate}T12:00:00+02:00`) : shared.getReferenceTimestamp();
+  if (!Number.isFinite(referenceTime)) throw new TypeError("Mobile feed reference date or time is invalid.");
 
   const publishedActive = shared.sortCompetitions(
-    shared.getPublishedActiveCompetitions(competitions)
+    competitions.filter(competition => shared.isPublicCompetition(competition) && shared.isCompetitionEntryOpen(competition, referenceTime))
   );
-  const items = publishedActive.map(toMobileFeedItem);
+  const items = publishedActive.map(competition => toMobileFeedItem(competition, referenceTime));
 
   validateMobileFeedItems(items);
 
@@ -194,7 +197,7 @@ function capitalize(value) {
   return value ? `${value[0].toUpperCase()}${value.slice(1)}` : value;
 }
 
-function toMobileFeedItem(competition) {
+function toMobileFeedItem(competition, referenceTime) {
   const officialUrl = getRequiredOfficialUrl(competition);
   const item = {
     id: shared.getCompetitionSlug(competition),
@@ -203,6 +206,8 @@ function toMobileFeedItem(competition) {
     summary: requiredText(competition.summary, "summary", competition),
     imageUrl: optionalHttpsUrl(competition.image),
     closingDate: requiredText(competition.closingDate, "closingDate", competition),
+    closingAt: competition.closingAt || "",
+    editorialActiveUntil: competition.editorialActiveUntil || "",
     category: requiredText(competition.category, "category", competition),
     prizeName: requiredText(competition.prizeName, "prizeName", competition),
     entryCostType: shared.getEntryCostClassification(competition),
@@ -217,7 +222,7 @@ function toMobileFeedItem(competition) {
     termsUrl: optionalExternalUrl(competition.termsUrl, officialUrl),
     lastChecked: String(competition.lastChecked || "").trim(),
     isHighValue: shared.isHighValueCompetition(competition),
-    isClosingSoon: shared.isClosingWithinDays(competition.closingDate, 7),
+    isClosingSoon: shared.getCalendarDay(shared.getEffectiveCompetitionEndDate(competition)) - shared.getCalendarDay(referenceTime) <= 7,
   };
 
   return Object.fromEntries(Object.entries(item).filter(([, value]) => value !== "" && value !== null));

@@ -32,7 +32,8 @@ const OPPORTUNITIES_ENABLED = opportunityData.isOpportunityFeatureEnabled(proces
 const OFFERS_ENABLED = offerData.isOfferFeatureEnabled(process.env.FREEHUB_ENABLE_OFFERS);
 const BUILD_DATE_ISO = process.env.FREEHUB_BUILD_DATE || getLocalIsoDate(new Date());
 const LIFECYCLE_REFERENCE_DATE_ISO = process.env.FREEHUB_AS_OF_DATE || BUILD_DATE_ISO;
-shared.setReferenceDate(LIFECYCLE_REFERENCE_DATE_ISO);
+if (process.env.FREEHUB_AS_OF_TIME) shared.setReferenceTime(process.env.FREEHUB_AS_OF_TIME);
+else shared.setReferenceDate(process.env.FREEHUB_AS_OF_DATE || "");
 const retirementState = applyCompetitionRetirements(SOURCE_COMPETITIONS, SOURCE_ARCHIVE);
 const COMPETITIONS = retirementState.primary;
 const ARCHIVED_COMPETITIONS = retirementState.archive;

@@ -347,7 +347,8 @@ const APPROVED_MANUAL_OK_URLS = new Map([
 ]);
 
 function loadCompetitions() {
-  shared.setReferenceDate(process.env.FREEHUB_AS_OF_DATE || process.env.FREEHUB_BUILD_DATE || shared.getSouthAfricanDate());
+  if (process.env.FREEHUB_AS_OF_TIME) shared.setReferenceTime(process.env.FREEHUB_AS_OF_TIME);
+  else shared.setReferenceDate(process.env.FREEHUB_AS_OF_DATE || "");
   const primary = JSON.parse(fs.readFileSync(DATA_PATH, "utf8")).filter(Boolean);
   const archive = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, "data", "archive", "competitions-expired.json"), "utf8"));
   return applyCompetitionRetirements(primary, archive).primary;

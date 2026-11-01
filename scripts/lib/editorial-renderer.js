@@ -9,7 +9,7 @@ function createEditorialRenderer({ escapeHtml: text, escapeAttribute: attr, getI
     const title = item.title || item.name;
     const label = { competition: "Competition", offer: "Saving", resource: "Free resource" }[pick.kind];
     const image = competition ? getImage(item) : "";
-    return `<article class="editorial-pick" data-editorial-pick="${attr(pick.recordId)}" data-valid-through="${attr(pick.validThrough)}" data-source-reviewed="${attr(item.lastChecked || item.lastReviewed || "")}">
+    return `<article class="editorial-pick" data-editorial-pick="${attr(pick.recordId)}" data-valid-through="${attr(pick.validThrough)}"${competition ? ` data-current-listing data-closing-date="${attr(shared.getEffectiveCompetitionEndDate(item))}"${item.closingAt !== undefined ? ` data-competition-closing-at="${attr(item.closingAt)}"` : ""}` : ""} data-source-reviewed="${attr(item.lastChecked || item.lastReviewed || "")}">
       <p class="section-kicker">${label}</p>
       <h3><a href="${attr(href)}"${pick.kind === "resource" ? ' target="_blank" rel="nofollow noopener"' : ""}>${text(title)}</a></h3>
       <p>${text(pick.reason)}</p>

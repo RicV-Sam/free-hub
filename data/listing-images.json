@@ -3427,5 +3427,82 @@
     "reviewedAt": "2026-11-01",
     "sourcePage": "https://superbalist.com/competitions",
     "sourceImage": "https://assets.superbalistcdn.co.za/3000x1501/filters%3Aquality%2875%29%3Aformat%28jpg%29/cms/Desktop-web-banner_7272x3638px-1-1.png"
+  },
+  "best-home-electric-dakota-sleigh-bed-november-2026": {
+    "src": "/assets/listings/2026-11-01/best-home-electric-dakota-sleigh-bed-november-2026.webp",
+    "width": 1200,
+    "height": 1200,
+    "alt": "Official Dakota Sleigh Bed competition artwork showing a brown upholstered bed in a furnished bedroom; pictured accessories are not confirmed prize inclusions.",
+    "kind": "official-source",
+    "caption": "Official Best Home & Electric campaign artwork. The listing remains under review; pictured bedroom accessories are not confirmed prize inclusions.",
+    "reviewedAt": "2026-11-01",
+    "sourcePage": "https://www.bestelectric.co.za/competitions",
+    "sourceImage": "https://www.bestelectric.co.za/media/wysiwyg/B2188_BHE_November_Social_FB_Post_Competition_Posts_35_.jpg"
+  },
+  "best-home-electric-kelvinator-stove-november-2026": {
+    "src": "/assets/listings/2026-11-01/best-home-electric-kelvinator-stove-november-2026.webp",
+    "width": 1200,
+    "height": 1200,
+    "alt": "Official Kelvinator competition artwork showing a black four-plate stove and the named prize; no model number is confirmed.",
+    "kind": "official-source",
+    "caption": "Official Best Home & Electric campaign artwork. The listing remains under review.",
+    "reviewedAt": "2026-11-01",
+    "sourcePage": "https://www.bestelectric.co.za/competitions",
+    "sourceImage": "https://www.bestelectric.co.za/media/wysiwyg/IG_post_2_.jpg"
+  },
+  "just-about-anything-shop-and-win-2026": {
+    "src": "/assets/listings/2026-11-01/just-about-anything-shop-and-win-2026.webp",
+    "width": 1024,
+    "height": 1024,
+    "alt": "Official Just About Anything Shop & Win artwork: every full R500 spent online earns an entry for a voucher up to R1,500, with November entry and January draw dates.",
+    "kind": "official-source",
+    "caption": "Official promoter campaign artwork. The merchandise pictured is illustrative; the prize is a shopping voucher up to R1,500.",
+    "reviewedAt": "2026-11-01",
+    "sourcePage": "https://justaboutanything.co.za/shop-and-win/",
+    "sourceImage": "https://justaboutanything.co.za/wp-content/uploads/2026/09/ChatGPT-Image-Sep-22-2026-09_45_29-AM-1024x1024.webp"
+  },
+  "yuppiechef-festive-riddle-hunt-2026": {
+    "src": "/assets/listings/2026-11-01/yuppiechef-festive-riddle-hunt-2026.webp",
+    "width": 1536,
+    "height": 864,
+    "alt": "FreeHub editorial illustration of blank riddle cards and puzzle pieces with festive greenery on a kitchen counter.",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration — not promoter artwork or a depiction of a confirmed prize.",
+    "reviewedAt": "2026-11-01",
+    "sourcePage": "https://m.yuppiechef.com/help.htm?action=article&display=mobile&id=378&name=festive-riddle-hunt-2026",
+    "provenanceNote": "Generated with the built-in image_gen tool after official campaign artwork could not be obtained. Conceptual editorial illustration, with no confirmed prize depiction. Full prompts retained in private preparation notes."
+  },
+  "woolworths-mydifference-black-friday-play-win-2026": {
+    "src": "/assets/listings/2026-11-01/woolworths-mydifference-black-friday-play-win-2026.webp",
+    "width": 1536,
+    "height": 864,
+    "alt": "FreeHub editorial illustration of a generic phone game, blank voucher cards and an unbranded shopping bag.",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration — not promoter artwork or a depiction of a confirmed prize.",
+    "reviewedAt": "2026-11-01",
+    "sourcePage": "https://www.woolworths.co.za/corporate/cmp217495",
+    "provenanceNote": "Generated with the built-in image_gen tool after official campaign artwork could not be obtained. Conceptual editorial illustration, with no confirmed prize depiction. Full prompts retained in private preparation notes."
+  },
+  "adidas-adiclub-welcome-voucher": {
+    "src": "/assets/listings/2026-11-01/adidas-adiclub-welcome.webp",
+    "width": 1535,
+    "height": 864,
+    "alt": "FreeHub editorial illustration of an unbranded running shoe beside a plain sports membership card; not an official adidas product or prize.",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration — not official adidas artwork, an actual membership card or a prize.",
+    "reviewedAt": "2026-11-01",
+    "sourcePage": "https://www.adidas.co.za/adiclub",
+    "provenanceNote": "Generated with the built-in image_gen tool after official Level 1 image access returned 403. Generic sport membership concept, not an official product or card. Prompt retained in private preparation notes."
+  },
+  "beko-woolworths-voucher-2026": {
+    "src": "/assets/listings/2026-11-01/beko-woolworths-voucher-2026.webp",
+    "width": 1535,
+    "height": 864,
+    "alt": "FreeHub editorial illustration of a generic washing machine and blank voucher card; not a specific Beko model or confirmed reward.",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration — not official Beko artwork or a specific qualifying appliance.",
+    "reviewedAt": "2026-11-01",
+    "sourcePage": "https://www.beko.com/za-en/beko-woolworths-voucher-campaign-terms-and-conditions",
+    "provenanceNote": "Generated with the built-in image_gen tool after inspection found no suitable campaign artwork. Generic appliance and blank voucher concept; no model, value or availability claim. Prompt retained in private preparation notes."
   }
 }

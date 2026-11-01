@@ -24,13 +24,47 @@ for (const width of [320, 390, 768, 1024, 1440]) test(`five editorial surfaces r
       await expect(page.getByRole("button", { name: "Menu", exact: true })).toBeVisible();
       await expect(page.getByRole("navigation", { name: "Primary navigation", exact: true })).toBeHidden();
     }
-    if (route === "/" && width === 390 && hasReviewed) expect((await page.locator(".editorial-pick").first().boundingBox()).y).toBeLessThan(844);
-    if (route === "/competitions/" && width === 390) expect((await page.locator("#competitionsGrid article").first().boundingBox()).y).toBeLessThan(844);
+    if (route === "/" && width === 390) {
+      const recommendation = page.locator(hasReviewed ? ".editorial-pick" : "[data-editorial-fallback]").first();
+      expect((await recommendation.boundingBox()).y).toBeLessThan(844);
+      if (await page.locator(".airtime-dash-promo").count()) {
+        expect((await recommendation.boundingBox()).y).toBeLessThan((await page.locator(".airtime-dash-promo").boundingBox()).y);
+      }
+    }
+    if (route === "/competitions/" && width === 390) {
+      const search = await page.getByRole("searchbox").boundingBox();
+      expect(search.y + search.height).toBeLessThan(844);
+      expect((await page.locator("#competitionsGrid article").first().boundingBox()).y).toBeLessThan(844);
+    }
     if (route.includes("/competition/")) {
       await expect(page.locator(".competition-detail__media > img")).toHaveCount(1);
       const decision = await page.locator(".detail-decision").boundingBox();
       const image = await page.locator(".competition-detail__media").boundingBox();
       expect(decision.y + decision.height).toBeLessThan(image.y);
+    }
+  }
+});
+
+test("mobile competition browsing retains separate discovery and lower game promotions", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  for (const route of ["/competitions/", "/free-competitions/", "/win-airtime-competitions-south-africa/"]) {
+    await page.goto(route);
+    await expect(page.locator("#loadingState")).toBeHidden();
+    const grid = await page.locator("#competitionsGrid").boundingBox();
+    if (await page.locator(".airtime-dash-promo").count()) {
+      await expect(page.locator(".airtime-dash-promo")).toHaveCount(1);
+      expect((await page.locator(".airtime-dash-promo").boundingBox()).y).toBeGreaterThanOrEqual(grid.y + grid.height);
+      await expect(page.locator(".airtime-dash-promo a")).toHaveAttribute("href", "/play/airtime-dash/");
+    }
+    if (route === "/competitions/") {
+      const pending = page.getByRole("complementary", { name: "Unverified competition discovery" });
+      await expect(pending).toContainText("Unconfirmed leads, separate from verified listings.");
+      const link = pending.getByRole("link");
+      await expect(link).toHaveAttribute("href", "/unverified-competitions/");
+      await link.focus();
+      await expect(link).toBeFocused();
+      await expect(page.locator(".under-review-callout")).toHaveCount(1);
+      expect((await page.locator(".under-review-callout").boundingBox()).y).toBeGreaterThanOrEqual(grid.y + grid.height);
     }
   }
 });

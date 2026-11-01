@@ -72,14 +72,6 @@ function collectHtmlFiles(directory, results = []) {
   return results;
 }
 
-function isExpired(dateString) {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const closing = new Date(dateString);
-  closing.setHours(0, 0, 0, 0);
-  return Number.isNaN(closing.getTime()) || closing < today;
-}
-
 function requireField(errors, row, field) {
   if (!asString(row[field])) {
     errors.push(`${row.id || "held row"} missing ${field}.`);
@@ -154,6 +146,8 @@ function validateRows(competitions, heldRows) {
 }
 
 function validatePublicArtifacts(competitions, heldRows) {
+  if (process.env.FREEHUB_AS_OF_TIME) shared.setReferenceTime(process.env.FREEHUB_AS_OF_TIME);
+  else shared.setReferenceDate(process.env.FREEHUB_AS_OF_DATE || "");
   const errors = [];
   const htmlFiles = collectHtmlFiles(ROOT_DIR);
   const sitemapPath = path.join(ROOT_DIR, "sitemap.xml");
@@ -186,7 +180,7 @@ function validatePublicArtifacts(competitions, heldRows) {
   });
 
   const firstActivePublished = competitions.find(
-    (competition) => competition.verificationStatus === "published" && !isExpired(competition.closingDate)
+    (competition) => shared.isActiveCompetition(competition)
   );
   if (firstActivePublished) {
     const publishedSlug = shared.getCompetitionSlug(firstActivePublished);

@@ -53,3 +53,16 @@ test("maintenance exposes an empty or overdue shortlist without renewing evidenc
   assert.equal(getEditorialHealth([], collections, "2026-10-14").needsReview, true);
   assert.ok(picks.every(item => item.reviewDueAt === "2026-10-21"));
 });
+
+test("a reviewed competition disappears from shortlists at its exact cutoff", () => {
+  const record = { id: "timed-pick", title: "Timed pick", verificationStatus: "published", closingDate: "2026-11-01", closingAt: "2026-11-01T01:59:00+02:00" };
+  const timedPicks = [{ surface: "home", kind: "competition", recordId: record.id, reviewedAt: "2026-10-30", reviewDueAt: "2026-11-06" }];
+  const timedCollections = { competition: [record], resource: [], offer: [] };
+  try {
+    shared.setReferenceTime("2026-11-01T01:58:59+02:00");
+    assert.equal(getEligibleEditorialPicks(timedPicks, timedCollections, "home").length, 1);
+    shared.setReferenceTime("2026-11-01T01:59:00+02:00");
+    assert.equal(getEligibleEditorialPicks(timedPicks, timedCollections, "home").length, 0);
+    assert.equal(getEditorialHealth(timedPicks, timedCollections).needsReview, true);
+  } finally { shared.setReferenceDate(process.env.FREEHUB_AS_OF_DATE || ""); }
+});

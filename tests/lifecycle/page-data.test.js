@@ -55,6 +55,104 @@ test("an explicit reference date makes lifecycle checks deterministic", () => {
   }
 });
 
+test("verified timestamp deadlines close public and noindex entry exactly at the cutoff", () => {
+  const competition = { ...fixtures.activePublic, closingDate: "2026-11-01", closingAt: "2026-10-31T23:59:00Z" };
+  const noindex = { ...competition, visibility: "noindex" };
+  try {
+    for (const [now, open] of [["2026-10-31T23:58:59.999Z", true], ["2026-10-31T23:59:00Z", false], ["2026-11-01T00:00:00Z", false]]) {
+      shared.setReferenceTime(now);
+      assert.equal(shared.isActiveCompetition(competition), open, now);
+      assert.equal(shared.isNoindexActiveCompetition(noindex), open, now);
+      assert.equal(shared.isExpiredCompetition(competition), !open, now);
+      assert.equal(shared.isIndexableClosedCompetition(competition), !open, now);
+      assert.equal(shared.getPublishedActiveCompetitions([competition]).length, open ? 1 : 0);
+    }
+    assert.equal(shared.getCompetitionClosingTimestamp({ ...competition, closingAt: "2026-11-01T01:59:00+02:00" }), Date.parse(competition.closingAt));
+  } finally { shared.setReferenceDate(); }
+});
+
+test("date-only entry remains open through the entire South African closing day", () => {
+  const competition = { ...fixtures.activePublic, closingDate: "2026-11-01" };
+  try {
+    shared.setReferenceTime("2026-11-01T21:59:59.999Z");
+    assert.equal(shared.isActiveCompetition(competition), true);
+    shared.setReferenceTime("2026-11-01T22:00:00Z");
+    assert.equal(shared.isActiveCompetition(competition), false);
+    assert.equal(shared.isExpiredCompetition(competition), true);
+    shared.setReferenceDate("2026-11-01");
+    assert.equal(shared.getReferenceTimestamp(), Date.parse("2026-11-01T12:00:00+02:00"));
+    assert.equal(shared.isActiveCompetition(competition), true);
+    shared.setReferenceDate("2026-11-02");
+    assert.equal(shared.isExpiredCompetition(competition), true);
+  } finally { shared.setReferenceDate(); }
+});
+
+test("invalid provided precise deadlines fail closed without inventing archival status", () => {
+  for (const closingAt of [undefined, null, "", 1793491140000, "2026-11-01", "2026-11-01T01:59:00", "2026-02-30T01:59:00Z", "2026-11-01T24:00:00Z", "2026-11-01T01:60:00Z", "2026-11-01T01:59:60Z", "2026-11-01T01:59:00+24:00", "2026-11-01T01:59:00-00:00"]) {
+    const competition = { ...fixtures.activePublic, closingAt };
+    assert.equal(Number.isNaN(shared.getCompetitionClosingTimestamp(competition)), true, String(closingAt));
+    assert.equal(shared.isActiveCompetition(competition), false, String(closingAt));
+    assert.equal(shared.isNoindexActiveCompetition({ ...competition, visibility: "noindex" }), false, String(closingAt));
+    assert.equal(shared.isExpiredCompetition(competition), false, String(closingAt));
+    assert.equal(shared.isIndexableClosedCompetition(competition), false, String(closingAt));
+    assert.throws(() => shared.validateCompetitionDeadline(competition), /fixture-active-public.*invalid closingAt/);
+  }
+  assert.equal(shared.validateCompetitionDeadline(fixtures.activePublic), true);
+});
+
+test("an exact time cannot extend a date or an earlier editorial promotion cutoff", () => {
+  const competition = { ...fixtures.activePublic, closingDate: "2026-11-05", closingAt: "2026-11-05T18:00:00+02:00", editorialActiveUntil: "2026-11-01" };
+  assert.equal(shared.getCompetitionClosingTimestamp(competition), Date.parse("2026-11-02T00:00:00+02:00"));
+  assert.equal(shared.getCompetitionClosingTimestamp({ ...competition, editorialActiveUntil: undefined, closingAt: "2026-11-10T18:00:00+02:00" }), Date.parse("2026-11-06T00:00:00+02:00"));
+  try {
+    shared.setReferenceTime("2026-11-02T00:00:00+02:00");
+    assert.equal(shared.isExpiredCompetition(competition), true);
+    assert.equal(shared.isEditorialPromotionEnded(competition), true);
+    const earlierOfficialTime = { ...competition, closingAt: "2026-11-01T01:59:00+02:00" };
+    assert.equal(shared.isEditorialPromotionEnded(earlierOfficialTime), false);
+  } finally { shared.setReferenceDate(); }
+});
+
+test("one generator build keeps a consistent instant across an entry cutoff", () => {
+  const vm = require("node:vm");
+  const source = fs.readFileSync(path.join(__dirname, "../../scripts/generate-pages.js"), "utf8");
+  const setupStart = source.indexOf("const BUILD_DATE_ISO =");
+  const setupEnd = source.indexOf("// Validate before any generated files are written.", setupStart);
+  assert.ok(setupStart >= 0 && setupEnd > setupStart, "generator clock setup must be available to exercise");
+  const clockSetup = source.slice(setupStart, setupEnd);
+  const competition = { ...fixtures.activePublic, closingDate: "2030-01-15", closingAt: "2030-01-15T12:00:00+02:00" };
+  const cutoff = Date.parse(competition.closingAt);
+  let clock = cutoff - 1;
+  const originalNow = Date.now;
+  class BuildDate extends Date {
+    constructor(...args) { super(...(args.length ? args : [clock])); }
+    static now() { return clock; }
+  }
+  const initialiseBuild = (env = {}) => vm.runInNewContext(clockSetup, {
+    process: { env }, shared, Date: BuildDate, getLocalIsoDate: date => shared.getSouthAfricanDate(date),
+  });
+  try {
+    Date.now = () => clock;
+    initialiseBuild({ FREEHUB_BUILD_DATE: "2020-01-01" });
+    const firstSelection = shared.getPublishedActiveCompetitions([competition]);
+    assert.equal(firstSelection.length, 1);
+    clock = cutoff + 1;
+    assert.equal(shared.getReferenceTimestamp(), cutoff - 1, "later renderers must use the original build instant");
+    assert.equal(shared.getPublishedActiveCompetitions([competition]).length, 1, "later feeds must agree with the first selection");
+    assert.equal(shared.isExpiredCompetition(firstSelection[0]), false, "a selected active record must not render as closed in the same build");
+
+    initialiseBuild({ FREEHUB_AS_OF_DATE: "2030-01-16" });
+    assert.equal(shared.getReferenceTimestamp(), Date.parse("2030-01-16T12:00:00+02:00"));
+    assert.equal(shared.isExpiredCompetition(competition), true);
+    initialiseBuild({ FREEHUB_AS_OF_DATE: "2030-01-16", FREEHUB_AS_OF_TIME: "2030-01-15T11:59:59+02:00" });
+    assert.equal(shared.getReferenceTimestamp(), Date.parse("2030-01-15T11:59:59+02:00"), "explicit time takes precedence over the date fixture");
+    assert.equal(shared.isActiveCompetition(competition), true);
+  } finally {
+    Date.now = originalNow;
+    shared.setReferenceDate();
+  }
+});
+
 test("active noindex and Club competitions stay outside public active collections", () => {
   assert.equal(shared.isPublishedCompetition(fixtures.activeNoindex), true);
   assert.equal(shared.isNoindexActiveCompetition(fixtures.activeNoindex), true);

@@ -33,6 +33,8 @@ The npm interfaces are:
 
 ## SEO and generated-page baseline
 
+Precise expiry fields, browser guards and audit clock overrides are documented in [competition deadlines](competition-deadlines.md).
+
 `tests/baselines/seo-baseline.json` fixes the audited origin, snapshot date, reviewed flag-disabled sitemap count, canonical aliases, forbidden aliases and link-graph exceptions. The validator adds only lifecycle-eligible Opportunity and offer detail or collection routes when their exact feature flags are enabled; offer category and brand additions must also meet the two-record indexability threshold. `tests/baselines/generated-pages.json` records representative outputs for the homepage, voucher hub, collection hubs, taxonomy routes, active and expired detail pages, outbound redirect, evergreen pillars, Club, admin and 404. `tests/baselines/adsterra-evergreen-generated-output.json` pins every exact base-to-candidate hash for the Adsterra and evergreen-category release. The older discovery manifest remains a review record for its release, while `tests/baselines/opportunity-generated-output.json` pins every reviewed flag-enabled detail, exit, discovery-surface and sitemap hash against the current shared templates.
 
 Hard failures include:

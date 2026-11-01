@@ -44,6 +44,30 @@ test("mobile feed rejects a Freehub redirect as an official entry URL", () => {
   );
 });
 
+test("mobile feed carries exact deadlines and excludes expired or invalid entries at that instant", () => {
+  const shared = require("../../shared/page-data.js");
+  const competition = {
+    ...competitions.find(record => record.id === "staedtler-creative-challenge-2026"),
+    closingDate: "2026-11-01", closingAt: "2026-10-31T23:59:00Z",
+  };
+  shared.setReferenceDate("2026-09-08");
+  const previousTimestamp = shared.getReferenceTimestamp();
+  try {
+    const before = buildMobileFeed([competition], { asOfDate: "2026-11-01", asOfTime: "2026-10-31T23:58:59.999Z" });
+    assert.equal(before.count, 1);
+    assert.equal(before.competitions[0].closingAt, competition.closingAt);
+    for (const asOfTime of ["2026-10-31T23:59:00Z", "2026-11-01T12:00:00+02:00"]) {
+      assert.equal(buildMobileFeed([competition], { asOfDate: "2026-11-01", asOfTime }).count, 0);
+    }
+    assert.equal(buildMobileFeed([{ ...competition, closingAt: "unknown" }], { asOfDate: "2026-10-31" }).count, 0);
+    const dateOnly = { ...competition };
+    delete dateOnly.closingAt;
+    assert.equal(buildMobileFeed([dateOnly], { asOfDate: "2026-11-01", asOfTime: "2026-11-01T21:59:59.999Z" }).count, 1);
+    assert.equal(buildMobileFeed([dateOnly], { asOfDate: "2026-11-02", asOfTime: "2026-11-01T22:00:00Z" }).count, 0);
+    assert.equal(shared.getReferenceTimestamp(), previousTimestamp, "building a feed does not change the caller's clock");
+  } finally { shared.setReferenceDate(); }
+});
+
 test("mobile catalog includes durable resources but fails closed on overdue strict resources", () => {
   const catalog = buildMobileCatalog({
     resources: [

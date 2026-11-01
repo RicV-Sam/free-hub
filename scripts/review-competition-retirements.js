@@ -13,7 +13,7 @@ function run(argv = process.argv.slice(2)) {
   const relative = path.relative(researchRoot, inputPath);
   if (!relative || relative.startsWith("..") || path.isAbsolute(relative)) throw new Error("Keep the private review dossier under .research/.");
   const asOfDate = value("--today") || shared.getSouthAfricanDate();
-  shared.setReferenceDate(asOfDate);
+  shared.setReferenceDate(value("--today") || "");
   const read = name => JSON.parse(fs.readFileSync(path.join(root, name), "utf8"));
   const primary = read("data/competitions.json");
   const archive = read("data/archive/competitions-expired.json");

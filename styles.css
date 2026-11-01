@@ -7210,6 +7210,8 @@ html[data-freehub-ad-state="guest"] .ad-slot--native {
 .editorial-pick__image { display: block; position: relative; height: 160px; overflow: hidden; border-radius: 6px; background: #edf3f3; }
 .editorial-pick__image img { position: relative; width: 100%; height: 100%; object-fit: contain; }
 .controls { margin: 0; padding: 1rem; gap: .65rem; }
+.collection-review-link { font-size: .85rem; }
+.collection-review-link a { min-height: 44px; }
 .filters { margin: 0; }
 .more-categories { width: 100%; }
 .more-categories summary { display: list-item; cursor: pointer; padding: .6rem; color: #0f766e; font-weight: 700; }
