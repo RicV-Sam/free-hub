@@ -6,7 +6,7 @@ const test = require("node:test");
 const { imageSize } = require("image-size");
 const artwork = require("../../scripts/lib/mascot-artwork.json");
 const provenance = require("../../scripts/lib/mascot-provenance.json");
-const { renderMascot } = require("../../scripts/lib/mascot-renderer.js");
+const { renderMascot, ensurePageMascot } = require("../../scripts/lib/mascot-renderer.js");
 const root = path.resolve(__dirname, "../..");
 
 test("all five mascot poses have verified transparent responsive assets within budget", () => {
@@ -41,4 +41,17 @@ test("mascot rendering reserves dimensions, uses decorative alt and never gates 
   assert.match(renderMascot("welcome", { alt: 'FreeHub "hadeda"' }), /alt="FreeHub &quot;hadeda&quot;"/);
   assert.doesNotMatch(welcome, /<script|onload=|onclick=|<a |tabindex=/);
   assert.throws(() => renderMascot("unreviewed"), /Unknown/);
+});
+
+test("custom public pages receive a mascot without duplicating existing poses or decorating redirects", () => {
+  const page = '<header class="site-topbar"></header><main><h1>Prize details</h1><p>Read the rules.</p></main>';
+  const result = ensurePageMascot(page, '/competition/example/index.html');
+  assert.match(result, /data-mascot="direct"/);
+  assert.match(result, /<h1>Prize details<\/h1>/);
+  assert.equal(ensurePageMascot(result), result);
+  assert.match(ensurePageMascot(page, 'C:\\site\\privacy-policy\\index.html'), /data-mascot="read"/);
+  const hidden = page.replace('<h1>', renderMascot('browse', { hidden: true }) + '<h1>');
+  assert.match(ensurePageMascot(hidden), /data-mascot="read"/);
+  const redirect = '<main><h1>Continue</h1></main>';
+  assert.equal(ensurePageMascot(redirect), redirect);
 });

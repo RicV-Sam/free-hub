@@ -3,13 +3,13 @@ const page = {
   title: 'Free WhatsApp Competition Updates South Africa | FreeHub',
   heading: 'South African competition updates on WhatsApp',
   description: 'Follow FreeHub’s free WhatsApp channel for new South African competition updates, prize details, closing dates and links showing how to enter.',
-  dateModified: '2026-09-17',
+  dateModified: '2026-11-01',
   sections: [],
 };
 
 function render({ url, escapeHtml: e, stylesheet, navigation, footer, trackingHead, trackingBody }) {
   const canonical = 'https://freehub.co.za/whatsapp-channel/';
-  const join = (label = 'Follow FreeHub on WhatsApp') => `<a class="wa-join" href="${e(url)}" target="_blank" rel="noopener noreferrer">${label}<span aria-hidden="true"> ↗</span></a>`;
+  const join = (label = 'Follow FreeHub on WhatsApp') => `<a class="wa-join" href="${e(url)}" target="_blank" rel="noopener noreferrer" data-whatsapp-placement="channel-guide">${label}<span aria-hidden="true"> ↗</span></a>`;
   const schema = { '@context': 'https://schema.org', '@graph': [
     { '@type': 'WebPage', name: page.heading, description: page.description, url: canonical, inLanguage: 'en-ZA', isPartOf: { '@type': 'WebSite', name: 'FreeHub', url: 'https://freehub.co.za/' } },
     { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://freehub.co.za/' }, { '@type': 'ListItem', position: 2, name: 'WhatsApp channel', item: canonical }] }
@@ -22,7 +22,7 @@ function render({ url, escapeHtml: e, stylesheet, navigation, footer, trackingHe
   <meta property="og:type" content="website"><meta property="og:title" content="${e(page.title)}"><meta property="og:description" content="${e(page.description)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="https://freehub.co.za/FH%20logo.png">
   <meta name="twitter:card" content="summary"><meta name="twitter:title" content="${e(page.title)}"><meta name="twitter:description" content="${e(page.description)}"><meta name="twitter:image" content="https://freehub.co.za/FH%20logo.png">
   <script type="application/ld+json">${JSON.stringify(schema)}</script>
-  <link rel="stylesheet" href="${e(stylesheet)}"><link rel="stylesheet" href="/assets/whatsapp-channel.css">${trackingHead}
+  <link rel="stylesheet" href="${e(stylesheet)}"><link rel="stylesheet" href="/assets/whatsapp-channel.css?v=20261101-notifications">${trackingHead}
   </head><body>${trackingBody}<div class="site-shell">${navigation}
   <main id="main-content" class="wa-page">
     <section class="wa-hero" aria-labelledby="wa-title">
@@ -30,7 +30,7 @@ function render({ url, escapeHtml: e, stylesheet, navigation, footer, trackingHe
         <h1 id="wa-title">South African competition updates on WhatsApp</h1>
         <p class="wa-hook">New competitions.<br><em>Straight to your WhatsApp.</em></p>
         <p class="wa-intro">Discover new competitions without checking back all day. We post prize details, closing dates and links showing how to enter directly to our channel.</p>
-        ${join()}<p class="wa-small">Free to follow. No FreeHub signup needed.<br>Normal data charges may apply.</p>
+        ${join()}<p class="wa-small"><strong>Tap Follow, then turn on the notification bell</strong> for alerts when we post.</p><p class="wa-small">Free to follow. No FreeHub signup needed.<br>Normal data charges may apply.</p>
       </div>
       <aside class="wa-preview" aria-label="Illustration of the channel, not a live feed">
         <div class="wa-phone-head"><img src="/FH%20logo.png" width="48" height="48" alt="FreeHub"><div><strong>South Africa Competitions</strong><span>FreeHub’s WhatsApp channel</span></div></div>

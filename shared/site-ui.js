@@ -46,6 +46,23 @@
       }
     });
   }
+  function initWhatsAppChannelTracking() {
+    if (window.FreeHubWhatsAppChannelTrackingReady) return;
+    window.FreeHubWhatsAppChannelTrackingReady = true;
+    document.addEventListener("click", (event) => {
+      const link = event.target?.closest?.("a[data-whatsapp-placement]");
+      if (!link) return;
+      // A channel visit is not a confirmed follow or a competition entry.
+      if (link.href !== "https://whatsapp.com/channel/0029Vb7mS1VE50UlOc2yOe2H") return;
+      const payload = { placement: link.dataset.whatsappPlacement, source_path: window.location.pathname };
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "whatsapp_channel_click", { ...payload, send_to: ["G-23P37R20FY", "G-P13C4QZYRG"] });
+      } else {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "whatsapp_channel_click", ...payload });
+      }
+    });
+  }
   function refreshFreshness() {
     const shared = window.FreeHubShared;
     if (!shared) return;
@@ -115,6 +132,7 @@
   }
   function init() {
     initAirtimeDashPromotionTracking();
+    initWhatsAppChannelTracking();
     refreshFreshness();
     window.addEventListener("pageshow", refreshFreshness);
     document.addEventListener("visibilitychange", () => { if (!document.hidden) refreshFreshness(); });

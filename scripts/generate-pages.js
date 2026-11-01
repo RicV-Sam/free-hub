@@ -7,7 +7,7 @@ const path = require("path");
 const { createLocalImageDimensionWriter } = require("./lib/local-image-dimensions.js");
 const shared = require("../shared/page-data.js");
 const { createEditorialRenderer } = require("./lib/editorial-renderer.js");
-const { renderMascot } = require("./lib/mascot-renderer.js");
+const { renderMascot, ensurePageMascot } = require("./lib/mascot-renderer.js");
 const editorialPicks = require("../data/editorial-picks.json");
 const { validateEditorialPicks, getEligibleEditorialPicks } = require("./lib/editorial-picks.js");
 const opportunityData = require("../shared/opportunity-data.js");
@@ -43,7 +43,7 @@ const OFFERS_PATH = path.join(ROOT_DIR, "data", "offers.json");
 const UNVERIFIED_COMPETITIONS_PATH = path.join(ROOT_DIR, "data", "unverified-competitions.json");
 const RELATIVE_ASSET_PATH = "/";
 const RELEASE_ASSET_VERSION = "20260901-native-ads-v1";
-const UI_ASSET_VERSION = "20261101-expiry-mobile-v1";
+const UI_ASSET_VERSION = "20261101-whatsapp-prompts-v1";
 const NAVIGATION_BOOTSTRAP = fs.readFileSync(path.join(ROOT_DIR, "shared", "navigation.js"), "utf8");
 const GUEST_ADS_SCRIPT_SRC = "/shared/guest-ads.js?v=20260917-account-save-v2";
 const OUTBOUND_HANDOFF_SCRIPT_SRC = `/shared/outbound-handoff.js?v=${RELEASE_ASSET_VERSION}`;
@@ -54,6 +54,7 @@ const MEDIAVINE_SCRIPT = '<script type="text/javascript" async="async" data-nopt
 // Keep provider installation consistent across generated pages and existing ad exclusions.
 function writeGeneratedFile(filePath, content, ...options) {
   if (path.extname(filePath) === ".html" && typeof content === "string") {
+    content = ensurePageMascot(content, filePath);
     content = addLocalImageDimensions(content, filePath);
     if (content.includes('class="site-topbar"')) {
       content = content.replace(/(<meta charset="UTF-8"\s*\/>)/i, `$1\n    <script data-freehub-navigation>${NAVIGATION_BOOTSTRAP}</script>`);
@@ -3541,7 +3542,7 @@ function renderTopNavigation(options = {}) {
     { key: "free-stuff", label: "Free Stuff", href: "/free-stuff-south-africa/" },
     ...(OFFERS_ENABLED ? [{ key: "offers", label: "Coupons & Deals", href: "/offers/" }] : []),
     { key: "ending", label: "Ending soon", href: "/competitions-ending-soon/" },
-    { key: "whatsapp", label: "WhatsApp", href: WHATSAPP_CHANNEL_URL, target: "_blank", rel: "noopener noreferrer" },
+    { key: "whatsapp", label: "WhatsApp alerts", href: WHATSAPP_CHANNEL_URL, target: "_blank", rel: "noopener noreferrer" },
     ...(airtimeDashSettings.enabled ? [{ key: "play", label: "Airtime Dash", href: "/play/airtime-dash/" }] : []),
     { key: "club", label: "My competitions", href: "/club/" },
   ];
@@ -3566,7 +3567,7 @@ function renderTopNavigation(options = {}) {
               const current = link.key === active ? ` aria-current="page"` : "";
               const target = link.target ? ` target="${escapeAttribute(link.target)}"` : "";
               const rel = link.rel ? ` rel="${escapeAttribute(link.rel)}"` : "";
-              const promotion = link.key === "play" ? ' data-airtime-dash-placement="navigation"' : "";
+              const promotion = link.key === "play" ? ' data-airtime-dash-placement="navigation"' : link.key === "whatsapp" ? ' data-whatsapp-placement="navigation"' : "";
               return `<a class="${className}" href="${escapeAttribute(link.href)}"${current}${target}${rel}${promotion}>${escapeHtml(link.label)}</a>`;
             })
             .join("\n          ")}
@@ -4135,11 +4136,12 @@ function renderHeroActions(actions = []) {
     : [
         ...actions,
         {
-          label: "Follow on WhatsApp",
+          label: "Follow FreeHub on WhatsApp",
           href: WHATSAPP_CHANNEL_URL,
           className: "btn--whatsapp",
           target: "_blank",
           rel: "noopener noreferrer",
+          attributes: 'data-whatsapp-placement="hero"',
         },
       ];
 
@@ -5822,6 +5824,8 @@ function renderPage(routeContext, competitions) {
           </div>
         </section>
 
+        ${renderWhatsAppChannelCta(routeContext, { compact: true, placement: "collection-filters" })}
+
         <section class="results-header" aria-live="polite">
           <p id="resultsSummary" class="results-header__summary">${escapeHtml(resultsSummary)}</p>
         </section>
@@ -6854,20 +6858,29 @@ function renderDurableInventoryNotice(routeContext, competitions) {
   return `<p class="inventory-notice" data-inventory-notice><span data-inventory-count>${competitions.length ? `${competitions.length} current verified competition${competitions.length === 1 ? "" : "s"} listed below.` : "No current verified competitions match this guide."}</span> The entry guidance remains available while campaigns change. <a href="/competitions/">Browse all current competitions</a>.</p>`;
 }
 
-function renderWhatsAppChannelCta(routeContext = null) {
+function renderWhatsAppChannelCta(routeContext = null, { compact = false, placement = "collection-footer" } = {}) {
   const showOnCollection =
     routeContext && (routeContext.type === "hub" || routeContext.type === "category");
 
-  if (routeContext && !showOnCollection) {
+  if (routeContext && !compact && !showOnCollection) {
     return "";
   }
 
+  if (compact) {
+    return `<aside class="collection-review-link whatsapp-channel-note" aria-label="WhatsApp competition updates">
+          <a class="editorial-pick__link" href="${escapeAttribute(WHATSAPP_CHANNEL_URL)}" target="_blank" rel="noopener noreferrer" data-whatsapp-placement="${escapeAttribute(placement)}">Get WhatsApp competition updates</a>
+          <p class="state-card__text">Tap Follow, then turn on the bell for notifications.</p>
+        </aside>`;
+  }
+
   return `<section class="state-card whatsapp-channel-cta" aria-label="WhatsApp competition updates">
-          <p class="state-card__title">Get competition alerts on WhatsApp</p>
-          <p class="state-card__text">Follow the South Africa Competitions WhatsApp Channel for new listings, closing-soon reminders and prize updates.</p>
-          <a class="btn btn--primary whatsapp-channel-cta__button" href="${escapeAttribute(
+          <p class="state-card__title">Get competition updates on WhatsApp</p>
+          <p class="state-card__text">Follow FreeHub's channel for the competitions we share, with prize details and closing dates.</p>
+          <a class="btn btn--whatsapp whatsapp-channel-cta__button" href="${escapeAttribute(
             WHATSAPP_CHANNEL_URL
-          )}" target="_blank" rel="noopener noreferrer">Follow on WhatsApp</a>
+          )}" target="_blank" rel="noopener noreferrer" data-whatsapp-placement="${escapeAttribute(placement)}">Follow FreeHub on WhatsApp</a>
+          <p class="state-card__text">Tap Follow, then turn on the notification bell for alerts when we post. Free to follow; normal data charges may apply.</p>
+          <a class="editorial-pick__link" href="/whatsapp-channel/">How channel notifications work</a>
         </section>`;
 }
 
@@ -7458,6 +7471,7 @@ ${noscriptLinks}
             </ul>
           </section>
         </noscript>
+        ${renderWhatsAppChannelCta(null, { compact: true, placement: "home-discovery" })}
         ${renderReviewedPicks(reviewed, "home")}
         ${renderIntentTilesSection()}
         ${renderAirtimeDashPromotion()}
@@ -11164,10 +11178,10 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
         ${expired ? `<section class="state-card closed-competition-promo" aria-label="${promotionEndedEarly ? "FreeHub promotion ended" : "Competition closed"}">
           <p class="state-card__title">${promotionEndedEarly ? "FreeHub has stopped promoting this competition." : "This competition has closed."}</p>
           <p class="state-card__text">Looking for your next chance to win? Visit the FreeHub homepage to see which competitions are live now.</p>
-          <p class="state-card__text">Get the latest competition updates straight to your phone. Follow our WhatsApp channel and discover new chances to win.</p>
+          <p class="state-card__text">Find your next competition through our WhatsApp channel. Tap Follow, then turn on the notification bell for alerts when we post.</p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="/">See live competitions</a>
-            <a class="btn btn--whatsapp" href="${escapeAttribute(WHATSAPP_CHANNEL_URL)}" target="_blank" rel="noopener noreferrer">Follow on WhatsApp</a>
+            <a class="btn btn--whatsapp" href="${escapeAttribute(WHATSAPP_CHANNEL_URL)}" target="_blank" rel="noopener noreferrer" data-whatsapp-placement="closed-competition">Follow on WhatsApp</a>
           </div>
           <p class="state-card__text">${promotionEndedEarly ? `The closing hour is ambiguous. FreeHub recommended entering by ${shared.formatDate(shared.getEffectiveCompetitionEndDate(competition))} and retains the official ${formattedDate} date as a reference. Check the promoter for confirmation.` : confirmedResult ? "The promoter has published an official winner announcement, which Freehub has checked and summarised below." : "This Freehub page is kept as an archive to help users confirm the prize, brand, closing date and official source. Browse current competitions below."}</p>
         </section>` : ""}
@@ -11178,6 +11192,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
             <section class="detail-decision" aria-label="Deadline, cost and eligibility"><dl><div><dt>Closing date</dt><dd>${escapeHtml(formattedDate)}${competition.closingTimeLabel ? ` · ${escapeHtml(competition.closingTimeLabel)}` : ""}<span data-urgency-date="${escapeAttribute(competition.closingDate)}"></span></dd></div><div><dt>Cost</dt><dd>${escapeHtml(competition.entryCostSummary || competition.entryFeeLabel || shared.getEntryCostLabel(competition))}</dd></div><div><dt>Eligibility</dt><dd>${escapeHtml(competition.eligibilitySummary || competition.eligibility || "Check the official promoter rules")}</dd></div></dl></section>
             ${expired ? renderExpiredCompetitionActions(competition, categorySlug, generatedBrandSlugs, officialSourceUrl, promotionEndedEarly) : `<a class="competition-detail__cta" data-active-entry${competition.closingAt !== undefined ? ` hidden data-entry-path="${escapeAttribute(outPath)}"` : ` href="${escapeAttribute(outPath)}"`} target="_blank" rel="noopener noreferrer" ${ctaAttributes}>${escapeHtml(ctaLabel)}</a><p class="competition-detail__cta-note"${competition.closingAt !== undefined ? " hidden" : ""}>You will leave Freehub for the official promoter. Freehub does not collect your entry.</p>${competition.closingAt !== undefined ? '<noscript><p>Check the stated closing time and the official terms below. The entry button requires JavaScript to confirm that entries are still open.</p></noscript>' : ""}`}
             ${expired ? "" : `<section class="state-card" data-runtime-closed hidden aria-label="Promotion status"><h2>${competition.editorialActiveUntil ? "FreeHub promotion has ended." : "This competition has closed."}</h2><p>${competition.editorialActiveUntil ? "FreeHub stops promotion before the ambiguous closing hour. The official terms date remains above; check the promoter for confirmation." : "These are archived details. Confirm current information with the promoter."}</p>${renderExpiredCompetitionActions(competition, categorySlug, generatedBrandSlugs, officialSourceUrl, Boolean(competition.editorialActiveUntil))}</section>`}
+            ${expired ? "" : renderWhatsAppChannelCta(null, { compact: true, placement: "competition-detail" })}
             ${renderCompetitionDetailMedia(competition, heroImage, imageAltText)}
             ${renderEditorialImageDisclosure(competition)}
             ${expired ? "" : renderCompetitionVideoFeature(competition)}
