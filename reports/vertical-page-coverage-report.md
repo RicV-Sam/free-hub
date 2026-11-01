@@ -1,22 +1,19 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-10-31
+Generated: 2026-11-01
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 18
+- Matching active public competitions: 15
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Astron Energy Own a Golf 8 GTI Competition 2026 (astron-energy-own-golf-8-gti-2026) | 2026-10-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
-| Cadbury Made to Share: Win R20,000 Weekly (cadbury-made-to-share-2026) | 2026-10-31 | free-entry | yes | yes | WhatsApp mentioned in entry text | none |
-| Jockey 150 Competition: Win R15,000 (jockey-150-2026) | 2026-10-31 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Gelmar BirthDIY tools and vouchers competition (gelmar-birthdiy-october-2026) | 2026-11-01 | purchase-required | yes | yes | WhatsApp mentioned in entry text | none |
 | Ackermans Lay-by & Win: R2,699 Handset Vouchers (ackermans-layby-samsung-a07-2026) | 2026-11-06 | purchase-required | yes | yes | WhatsApp mentioned in entry text | none |
 | Cape Town Move with Melody Dance Competition (cape-town-move-with-melody-2026) | 2026-11-09 | unknown | yes | yes | WhatsApp mentioned in entry text | none |
@@ -57,20 +54,13 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 34
+- Matching active public competitions: 27
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| SPAR Community School Support Competition (spar-community-school-support-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
-| Astron Energy Own a Golf 8 GTI Competition 2026 (astron-energy-own-golf-8-gti-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
-| Cadbury Made to Share: Win R20,000 Weekly (cadbury-made-to-share-2026) | 2026-10-31 | free-entry | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
-| McMerwe Games: Win a R5,000 Store Voucher (mcmerwe-games-prediction-voucher-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
-| Jockey 150 Competition: Win R15,000 (jockey-150-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
-| Win King of the Whip tickets and a FOX clothing hamper (fox-king-of-the-whip-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
-| Cadbury Fan Club: Win R500,000 (cadbury-fan-club-2026) | 2026-10-31 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Gelmar BirthDIY tools and vouchers competition (gelmar-birthdiy-october-2026) | 2026-11-01 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | NESCAFÉ Gold Rush SPAR Rewards Competition (nescafe-gold-rush-spar-2026) | 2026-11-08 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Sunlight at SPAR: Win a R100,000 Kitchen Makeover (sunlight-spar-kitchen-makeover-2026) | 2026-11-08 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
@@ -105,22 +95,13 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 42
+- Matching active public competitions: 33
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Penguin Random House Art of Hosting and Cape Island Hamper Competition (penguin-random-house-art-of-hosting-2026) | 2026-10-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
-| Penguin Random House Penguin Post 44 Book Hamper Competition (penguin-random-house-penguin-post-44-2026) | 2026-10-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
-| Cadbury Made to Share: Win R20,000 Weekly (cadbury-made-to-share-2026) | 2026-10-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
-| Beares October: Win a Russell Hobbs Chest Freezer (beares-facebook-russell-hobbs-freezer-october-2026) | 2026-10-31 | free-entry | yes | yes | Online entry mentioned in entry text | none |
-| Beares October: Win a Skyler Mirror Wardrobe (beares-instagram-skyler-wardrobe-october-2026) | 2026-10-31 | free-entry | yes | yes | Online entry mentioned in entry text | none |
-| Win King of the Whip tickets and a FOX clothing hamper (fox-king-of-the-whip-2026) | 2026-10-31 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
-| Water Filter Factory: Win Replacement Filters (water-filter-factory-october-2026) | 2026-10-31 | purchase-required | yes | yes | Online entry tag | none |
-| Living Landscapes Photo Contest: Win Up to US$500 (landscape-alliance-living-landscapes-2026) | 2026-10-31 | free-entry | yes | yes | Online entry tag | none |
-| Everest Wealth: Win a R15,000 Holiday (everest-wealth-holiday-2026) | 2026-10-31 | free-entry | yes | yes | Online entry tag | none |
 | Clicks Baby Essentials Hamper Competition (clicks-baby-essentials-hamper-2026) | 2026-11-01 | account-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Bargain Books: Win Scorpio Rising (bargain-books-scorpio-rising-2026) | 2026-11-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Bargain Books: Win Hollow Bones (bargain-books-hollow-bones-2026) | 2026-11-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
@@ -180,14 +161,13 @@ Recommended normalisation:
 ## Win Data Competitions in South Africa
 
 - URL: /win-data-competitions-south-africa/
-- Matching active public competitions: 3
+- Matching active public competitions: 2
 - Publication threshold: durable guide; independent of live listing count
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| MTN Share the App & Win: October 2026 Draw (mtn-share-app-october-2026) | 2026-10-31 | account-required | yes | yes | Data or connectivity tag; Data or connectivity prize text | none |
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | Data or connectivity tag | none |
 | Telkom Datanaire Tap2Win: Cash and Voucher Prizes (telkom-datanaire-tap2win-summer-2026) | 2027-01-31 | purchase-required | yes | yes | Data or connectivity tag | none |
 
@@ -198,14 +178,13 @@ Recommended normalisation:
 ## Win Grocery Vouchers in South Africa
 
 - URL: /win-grocery-vouchers-south-africa/
-- Matching active public competitions: 9
+- Matching active public competitions: 8
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Lancewood Spread & Scoop Competition 2026 (lancewood-spread-scoop-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | 1UP Mangia Pasta R500 vouchers (1up-mangia-vouchers-2026) | 2026-11-09 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Huletts SPAR Rewards Competition 2026 (huletts-spar-rewards-2026) | 2026-11-15 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | MTN TFG Prepaid Win Your Share Competition (mtn-tfg-prepaid-win-your-share-2026) | 2026-11-18 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
@@ -221,15 +200,13 @@ Recommended normalisation:
 ## Supermarket Competitions in South Africa
 
 - URL: /supermarket-competitions-south-africa/
-- Matching active public competitions: 20
+- Matching active public competitions: 18
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| SPAR Community School Support Competition (spar-community-school-support-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Supermarket brand or retail partner | none |
-| Lancewood Spread & Scoop Competition 2026 (lancewood-spread-scoop-competition-2026) | 2026-10-31 | purchase-required | yes | yes | Supermarket or grocery entry text | none |
 | Boxer & Coca-Cola: Win a Samsung A06 Phone (boxer-coca-cola-samsung-a06-october-2026) | 2026-11-04 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | NESCAFÉ Gold Rush SPAR Rewards Competition (nescafe-gold-rush-spar-2026) | 2026-11-08 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Sunlight at SPAR: Win a R100,000 Kitchen Makeover (sunlight-spar-kitchen-makeover-2026) | 2026-11-08 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
