@@ -99,10 +99,11 @@ test("search handles empty results and a failed feed leaves useful static listin
 });
 
 test("delayed regeneration removes overdue picks at South African midnight", async ({ page }) => {
-  await page.clock.setFixedTime(new Date("2026-10-21T21:59:30Z"));
+  const finalReviewDate = homePicks.map(pick => pick.validThrough).sort().at(-1) || "2026-10-21";
+  await page.clock.setFixedTime(new Date(`${finalReviewDate}T21:59:30Z`));
   await page.goto("/");
-  await expect(page.locator("[data-editorial-pick]")).toHaveCount(homePicks.filter(pick => pick.validThrough >= '2026-10-21').length);
-  await page.clock.setFixedTime(new Date("2026-10-21T22:00:01Z"));
+  await expect(page.locator("[data-editorial-pick]")).toHaveCount(homePicks.filter(pick => pick.validThrough >= finalReviewDate).length);
+  await page.clock.setFixedTime(new Date(`${finalReviewDate}T22:00:01Z`));
   await page.evaluate(() => window.dispatchEvent(new Event("pageshow")));
   await expect(page.locator("[data-editorial-pick]")).toHaveCount(0);
   await expect(page.locator("[data-editorial-fallback]")).toBeVisible();

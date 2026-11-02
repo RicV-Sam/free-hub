@@ -6,11 +6,13 @@ const { applyCompetitionRetirements } = require('./competition-retirements.js');
 const opportunityData = require('../../shared/opportunity-data.js');
 const unverifiedData = require('../../shared/unverified-competition-data.js');
 const { getReviewedGuides } = require('./research-guides.js');
+const { getPublicResourceGuides } = require('./resource-guides.js');
 const { getGroceryPages } = require('./grocery-savings.js');
 const root = path.resolve(__dirname, '../..');
 const read = (name) => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
 
 function getCurrentContentBaseline() {
+  const resourceGuideCount = getPublicResourceGuides(read('data/free-resources.json')).length;
   const buildDate = process.env.FREEHUB_BUILD_DATE || shared.getSouthAfricanDate();
   const underReviewCount = unverifiedData.getPublicUnderReview(read('data/unverified-competitions.json'), { asOfDate: process.env.FREEHUB_AS_OF_DATE || buildDate }).length;
   const groceryPageCount = process.env.FREEHUB_ENABLE_OFFERS === 'true' ? getGroceryPages({ asOfDate: process.env.FREEHUB_AS_OF_DATE || buildDate }).length : 0;
@@ -78,8 +80,8 @@ function getCurrentContentBaseline() {
     // 30 October follow-up: Virgin Active Ultimate Getaway adds one detail page; its exit is counted by active.length.
     // 1 November: Beds R Us adds one verified detail page; its exit is counted by active.length.
     // 1 November preparation: Just About Anything adds one detail page; its active exit is counted below.
-    generatedFileCount: groceryPageCount + 487 + underReviewCount + shared.TAG_SLUGS.filter(slug => shared.getTagFilteredCompetitions(active, slug).length > 0).length + featuredVideoSlugs(active).size + shared.getGeneratedBrandPageDefinitions(core).length + getReviewedGuides(buildDate).length - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
-    sitemapUrlCount: groceryPageCount + underReviewCount + read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + getReviewedGuides(buildDate).filter(page => !page.noindex).length + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length + (read('data/airtime-dash.json').enabled ? 1 : 0),
+    generatedFileCount: resourceGuideCount * 2 + groceryPageCount + 487 + underReviewCount + shared.TAG_SLUGS.filter(slug => shared.getTagFilteredCompetitions(active, slug).length > 0).length + featuredVideoSlugs(active).size + shared.getGeneratedBrandPageDefinitions(core).length + getReviewedGuides(buildDate).length - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    sitemapUrlCount: resourceGuideCount + groceryPageCount + underReviewCount + read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + getReviewedGuides(buildDate).filter(page => !page.noindex).length + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length + (read('data/airtime-dash.json').enabled ? 1 : 0),
   };
 }
 module.exports = { getCurrentContentBaseline };

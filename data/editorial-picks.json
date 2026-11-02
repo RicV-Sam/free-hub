@@ -52,5 +52,14 @@
     "caution": "Product and data costs apply. Entry grants ongoing unpaid reuse and adaptation of your recipe and photo; credit is not guaranteed. Closes at 23:59 SAST.",
     "reviewedAt": "2026-10-14",
     "reviewDueAt": "2026-10-21"
+  },
+  {
+    "surface": "home",
+    "kind": "resource",
+    "recordId": "resource-famelack-live-tv-radio-webcams",
+    "reason": "Something to watch or hear without another subscription: explore international live TV, radio and webcams through Famelack, formerly TV.Garden.",
+    "caution": "Data costs apply. South African access was reported successful; individual streams can be restricted or unavailable, and stream rights are not independently verified.",
+    "reviewedAt": "2026-11-02",
+    "reviewDueAt": "2026-11-09"
   }
 ]

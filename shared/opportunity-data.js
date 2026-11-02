@@ -307,6 +307,7 @@
     ];
     const strictFields = [
       "id",
+      "detailSlug",
       "resourceType",
       "sampleResourceType",
       "termsUrl",
@@ -325,6 +326,9 @@
     if (!legacy) {
       addUnexpectedFieldErrors(resource, strictFields, errors, "resource");
       requireString(resource, "id", errors);
+      if (resource.detailSlug !== undefined && (typeof resource.detailSlug !== "string" || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(resource.detailSlug))) {
+        errors.push("detailSlug must be a lowercase URL slug.");
+      }
       requireEnum(resource, "resourceType", RESOURCE_TYPES, errors);
       requireEnum(resource, "availability", RESOURCE_AVAILABILITY, errors);
       requireEnum(resource, "verificationStatus", RESOURCE_VERIFICATION_STATUSES, errors);

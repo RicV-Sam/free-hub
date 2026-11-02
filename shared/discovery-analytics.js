@@ -33,6 +33,16 @@
       return;
     }
 
+    if (link.dataset.discoveryAction === "resource-handoff") {
+      sendEvent("resource_handoff_start", {
+        ...common,
+        content_id: link.dataset.contentId,
+        source_domain: link.dataset.sourceDomain,
+        destination_path: link.dataset.destinationPath,
+      });
+      return;
+    }
+
     if (link.dataset.discoveryAction === "official-source") {
       sendEvent("official_source_click", {
         ...common,

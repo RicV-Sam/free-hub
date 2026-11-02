@@ -1,5 +1,6 @@
 const fs = require("fs");
 const { inventorySitemapCount } = require("./lib/inventory-routes.js");
+const { getPublicResourceGuides } = require("./lib/resource-guides.js");
 const { getReviewedGuides } = require("./lib/research-guides.js");
 const { getGroceryPages } = require("./lib/grocery-savings.js");
 const path = require("path");
@@ -141,6 +142,7 @@ const sitemapRoutes = sitemapUrls.map((url) => normalizeRoute(url));
 const sitemapSet = new Set(sitemapRoutes);
 
 const expectedSitemapUrlCount = CONFIG.staticSitemapUrlCount
+  + getPublicResourceGuides(readJson(path.join(ROOT_DIR, "data", "free-resources.json"))).length
   + (OFFERS_ENABLED ? getGroceryPages({ asOfDate: LIFECYCLE_REFERENCE_DATE_ISO }).filter(page => !page.noindex).length : 0)
   + getReviewedGuides(LIFECYCLE_REFERENCE_DATE_ISO).filter((page) => !page.noindex).length
   + inventorySitemapCount(shared.getPublishedActiveCompetitions(COMPETITIONS), CONFIG.canonicalAliases)

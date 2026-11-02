@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-11-02",
-  "count": 43,
+  "count": 44,
   "counts": {
-    "freeStuff": 43,
-    "resources": 23,
+    "freeStuff": 44,
+    "resources": 24,
     "opportunities": 20,
     "offers": 0
   },
@@ -376,6 +376,22 @@
       ],
       "watchOut": "QUALIFYING ROUTE AND FULL PRODUCT COSTS UNVERIFIED. This link is the bank’s terms PDF, not an application link or proof of eligibility. Confirm the exact ClearScore campaign route, full product fees and general Welcome Miles conditions with the providers before applying. No approval or reward is guaranteed.",
       "lastChecked": "2026-10-30"
+    },
+    {
+      "id": "resource-famelack-live-tv-radio-webcams",
+      "kind": "resource",
+      "title": "Famelack: Free TV, Radio & Webcams",
+      "provider": "Famelack: Free TV, Radio & Webcams",
+      "summary": "Free browser access to TV, radio and webcams. No subscription or account; data costs apply.",
+      "category": "entertainment",
+      "categoryLabel": "Free Entertainment",
+      "officialUrl": "https://famelack.com/",
+      "bestFor": "People exploring international live TV, radio and webcam views in a browser",
+      "requirements": [
+        "A compatible browser and internet connection. Choose a stream on the provider website; availability varies by source and region."
+      ],
+      "watchOut": "South African access was reported successful by a FreeHub reviewer. Individual stream availability and content rights are not guaranteed. Data costs apply.",
+      "lastChecked": "2026-11-02"
     },
     {
       "id": "coloplast-speedicath-short-sample",

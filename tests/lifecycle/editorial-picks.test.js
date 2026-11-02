@@ -51,7 +51,7 @@ test("maintenance exposes an empty or overdue shortlist without renewing evidenc
   assert.equal(overdue.needsReview, true);
   assert.ok(overdue.surfaces.every(item => item.eligibleCount === 0 && item.nextReviewDue === null && item.overdueIds.length === 3));
   assert.equal(getEditorialHealth([], collections, "2026-10-14").needsReview, true);
-  assert.ok(picks.every(item => item.reviewDueAt === "2026-10-21"));
+  assert.ok(picks.filter(item => item.reviewedAt <= "2026-10-14").every(item => item.reviewDueAt === "2026-10-21"));
 });
 
 test("a reviewed competition disappears from shortlists at its exact cutoff", () => {

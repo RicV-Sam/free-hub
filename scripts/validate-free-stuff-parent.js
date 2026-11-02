@@ -3,6 +3,7 @@ const path = require("path");
 const shared = require("../shared/page-data.js");
 const { parseHtml, walkHtmlFiles } = require("./lib/baseline-utils.js");
 const { getOfferBaselineCounts } = require("./lib/offer-baseline-counts.js");
+const { isPublishedFreeResource } = require("./lib/free-resource-publication.js");
 
 const { getCurrentContentBaseline } = require("./lib/current-content-baseline.js");
 const current = getCurrentContentBaseline();
@@ -80,8 +81,9 @@ check("Opportunity schema items", opportunitySchema?.itemListElement?.length || 
 check("Opportunity routes generated", countGeneratedRoutes("opportunity"), current.detailOpportunities.length);
 check("Opportunity exit routes generated", countGeneratedRoutes(path.join("out", "opportunity")), expectedOpportunityCount);
 check("Opportunity sitemap entries", count(sitemap, /<loc>https:\/\/freehub\.co\.za\/opportunity\//g), expectedOpportunityCount);
-check("Durable resources on parent", count(parent, /<article class="free-resource-card"(?:\s[^>]*)?>/g), 42);
-check("Durable resource schema items", resourceItemList?.itemListElement?.length || 0, 42);
+const expectedResourceCount = JSON.parse(read("data/free-resources.json")).filter(isPublishedFreeResource).length;
+check("Durable resources on parent", count(parent, /<article class="free-resource-card"(?:\s[^>]*)?>/g), expectedResourceCount);
+check("Durable resource schema items", resourceItemList?.itemListElement?.length || 0, expectedResourceCount);
 check("Unverified Review Club resource excluded", parent.includes("https://reviewclub.co.za/how-it-works/"), false);
 check("Unverified Brand Advisor resource excluded", parent.includes("https://brandadvisor.co.za/how-it-works/"), false);
 check("Permanent Free Stuff child links", count(parent, /class="free-stuff-child-nav__link"/g), 6);
@@ -110,7 +112,7 @@ htmlFiles.forEach((filePath) => {
   const relative = path.relative(ROOT_DIR, filePath).replace(/\\/g, "/");
   if (relative === "freehub-account-benefits/index.html") return;
   const html = fs.readFileSync(filePath, "utf8");
-  const expectedLine = relative === "free-stuff-south-africa/index.html" ? FREE_STUFF_NAV_ACTIVE : FREE_STUFF_NAV_INACTIVE;
+  const expectedLine = relative === "free-stuff-south-africa/index.html" || relative.startsWith("resources/") || relative.startsWith("out/resources/") ? FREE_STUFF_NAV_ACTIVE : FREE_STUFF_NAV_INACTIVE;
   const occurrences = html.split(expectedLine).length - 1;
   if (occurrences !== 1) {
     errors.push({ label: `${relative} exact Free Stuff navigation anchor`, actual: occurrences, expected: 1 });

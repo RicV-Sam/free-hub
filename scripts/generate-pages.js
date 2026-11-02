@@ -24,6 +24,8 @@ const { applyLegacyArchiveCostCompatibility } = require("./lib/legacy-archive-co
 const { applyCompetitionRetirements } = require("./lib/competition-retirements.js");
 const { createFreeResourceRenderer } = require("./lib/free-resource-renderer.js");
 const { isPublishedFreeResource } = require("./lib/free-resource-publication.js");
+const { getPublicResourceGuides, getResourceDetailPath, getResourceExitPath } = require("./lib/resource-guides.js");
+const { createResourceGuideRenderer } = require("./lib/resource-guide-renderer.js");
 const { validateStudentGuide, createStudentGuideRenderer, createStudentOfferRenderer, getStudentNoticePath } = require("./lib/student-guide.js");
 const { PARKS_GUIDE } = require("./lib/parks-guide.js");
 const { COURSE_GUIDE, CS50_GUIDE } = require("./lib/course-guides.js");
@@ -274,6 +276,7 @@ let publicOffers = [];
 let publicUnderReviewCompetitions = [];
 const ALL_FREE_RESOURCES = JSON.parse(fs.readFileSync(FREE_RESOURCES_PATH, "utf8"));
 const FREE_RESOURCES = ALL_FREE_RESOURCES.filter(isPublishedFreeResource);
+const RESOURCE_GUIDES = getPublicResourceGuides(ALL_FREE_RESOURCES);
 const freeResourceRenderer = createFreeResourceRenderer({
   escapeHtml,
   escapeAttribute,
@@ -1394,7 +1397,7 @@ const TRUST_PAGE_DEFINITIONS = [
       "Wondering where to find free stuff in South Africa without getting trapped by fake vouchers or hidden costs? Use this guide to compare official-source free competitions, cautious sample routes, learning resources, reading options and credit-report checks before you sign up.",
     article: true,
     datePublished: "2026-05-27",
-    dateModified: "2026-10-11",
+    dateModified: "2026-11-02",
     resourceCategories: [
       "online-courses",
       ...(FREE_RESOURCES.some((resource) => resource.category === "school-resources") ? ["school-resources"] : []),
@@ -1404,6 +1407,7 @@ const TRUST_PAGE_DEFINITIONS = [
       "rewards",
       "family-support",
       "consumer-support",
+      ...(FREE_RESOURCES.some(resource => resource.category === "entertainment") ? ["entertainment"] : []),
     ],
     resourceTitle: "Best free options right now",
     resourceIntro:
@@ -2604,6 +2608,7 @@ function main() {
   removeLegacyHomeDirectory();
   removeLegacyNestedSiteDirectory();
   writeOfferPages(publicOffers);
+  writeResourceGuidePages();
 
   writeGeneratedFile(path.join(ROOT_DIR, "index.html"), renderHomepage(coreActiveCompetitions));
   writeGeneratedFile(path.join(ROOT_DIR, "404.html"), renderNotFoundPage());
@@ -2743,9 +2748,9 @@ function loadOpportunityPublicationState() {
 }
 
 function validateFreeResourceData() {
-  const strictSamples = ALL_FREE_RESOURCES.filter((resource) => resource.category === "samples");
-  const legacyResources = ALL_FREE_RESOURCES.filter((resource) => resource.category !== "samples");
-  const strictValidation = opportunityData.validateFreeResourceRegistry(strictSamples);
+  const strictResources = ALL_FREE_RESOURCES.filter((resource) => resource.category === "samples" || resource.detailSlug);
+  const legacyResources = ALL_FREE_RESOURCES.filter((resource) => resource.category !== "samples" && !resource.detailSlug);
+  const strictValidation = opportunityData.validateFreeResourceRegistry(strictResources);
   const legacyValidation = opportunityData.validateFreeResourceRegistry(legacyResources, { legacy: true });
   const names = ALL_FREE_RESOURCES.map((resource) => String(resource.name || "").trim().toLowerCase()).filter(Boolean);
   const duplicateNames = names.filter((name, index) => names.indexOf(name) !== index);
@@ -3824,6 +3829,29 @@ function renderOfferFeedbackPanel(offer) {
               </details>
             </div>
           </section>`;
+}
+
+function writeResourceGuidePages() {
+  const slugs = new Set(RESOURCE_GUIDES.map(({ resource }) => resource.detailSlug));
+  removeStaleSlugDirectories(path.join(ROOT_DIR, "resources"), slugs, "resource detail");
+  removeStaleSlugDirectories(path.join(ROOT_DIR, "out", "resources"), slugs, "resource exit");
+  const renderer = createResourceGuideRenderer({
+    escapeHtml, escapeAttribute, escapeScript, formatDate: shared.formatDate,
+    canonicalOrigin: shared.CANONICAL_ORIGIN, defaultSocialImage: shared.DEFAULT_OG_IMAGE,
+    images: listingImages, stylesheetHref: getStylesheetHref("/"),
+    guestAdsScript: GUEST_ADS_SCRIPT, outboundHandoffScript: OUTBOUND_HANDOFF_SCRIPT,
+    renderTopNavigation, renderModernHero, renderSiteFooter, renderDatacostPromo,
+    renderHeroImage: resource => renderListingHeroImage(resource).replace(">Image source<", ">Provider information<"), renderFaq: renderTrustFaqSection,
+    renderAnalyticsHead: (pageType, resource) => renderGoogleTagManagerHead(`{ page_type: ${escapeScript(JSON.stringify(pageType))}, content_id: ${escapeScript(JSON.stringify(resource.id))} }`) + renderMetaPixelHead(),
+    renderAnalyticsBody: () => renderGoogleTagManagerNoScript() + renderMetaPixelNoScript(),
+  });
+  for (const guide of RESOURCE_GUIDES) {
+    for (const [route, html] of [[getResourceDetailPath(guide.resource), renderer.renderDetail(guide)], [getResourceExitPath(guide.resource), renderer.renderExit(guide)]]) {
+      const directory = path.join(ROOT_DIR, route);
+      fs.mkdirSync(directory, { recursive: true });
+      writeGeneratedFile(path.join(directory, "index.html"), html);
+    }
+  }
 }
 
 function renderListingHeroImage(listing) {
@@ -7389,7 +7417,7 @@ function getReviewedPicks(surface, competitions) {
 }
 
 function renderReviewedPicks(picks, surface) {
-  return createEditorialRenderer({ escapeHtml, escapeAttribute, getImage: getCompetitionVisualUrl, renderPlaceholder: renderCompetitionVisualPlaceholder, renderDisclosure: renderEditorialImageDisclosure, offersEnabled: OFFERS_ENABLED }).renderSection(picks, surface);
+  return createEditorialRenderer({ escapeHtml, escapeAttribute, getImage: getCompetitionVisualUrl, renderPlaceholder: renderCompetitionVisualPlaceholder, renderDisclosure: renderEditorialImageDisclosure, offersEnabled: OFFERS_ENABLED, resourceImages: listingImages }).renderSection(picks, surface);
 }
 
 function renderHomepage(competitions) {
@@ -7604,6 +7632,7 @@ function renderFreeStuffParentPage(page) {
     ${faqStructuredData ? `<script id="structured-data-faq" type="application/ld+json">${escapeScript(JSON.stringify(faqStructuredData))}</script>` : ""}
     <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
     ${renderEditorialAdStyles(page.slug)}
+    ${RESOURCE_GUIDES.length ? '<link rel="stylesheet" href="/shared/resource-guides.css" />' : ""}
     ${GUEST_ADS_SCRIPT}
     ${renderGoogleTagManagerHead("{ page_type: 'free_stuff_parent', trust_page: 'free-stuff-south-africa' }")}
     ${renderMetaPixelHead()}
@@ -7677,6 +7706,7 @@ function renderFreeStuffParentContent({ page, pageResources, featuredOpportuniti
 
 function renderGroupedFreeResources(resources) {
   const groups = [
+    ...(resources.some(resource => resource.category === "entertainment") ? [{ id: "entertainment", heading: "Watch & listen" }] : []),
     { id: "childrens-books", heading: "Read with children" },
     ...(resources.some((resource) => resource.category === "school-resources")
       ? [{ id: "school-resources", heading: "Find school learning resources" }]
@@ -7688,7 +7718,7 @@ function renderGroupedFreeResources(resources) {
     { id: "samples", heading: "Explore sample programmes" },
     { id: "rewards", heading: "Check account and app rewards" },
   ];
-  return `<nav class="resource-needs" aria-label="Resources by purpose">${groups.map(group => `<a href="#resources-${group.id}">${group.heading}</a>`).join("")}</nav>` + groups.map(group => `<div id="resources-${group.id}">${freeResourceRenderer.renderFreeResourceSection({ resources: resources.filter(resource => resource.category === group.id), heading: group.heading, description: "Compare who each resource suits, what is free and what to check before using it.", pageType: "free_stuff_parent", kicker: "Official resources" })}</div>`).join("\n");
+  return `<nav class="resource-needs" aria-label="Resources by purpose">${groups.map(group => `<a href="#resources-${group.id}">${group.heading}</a>`).join("")}</nav>` + groups.map(group => `<div id="resources-${group.id}">${freeResourceRenderer.renderFreeResourceSection({ resources: resources.filter(resource => resource.category === group.id), heading: group.heading, showDescription: false, pageType: "free_stuff_parent", kicker: "Official resources" })}</div>`).join("\n");
 }
 
 function renderTrustPageSections(sections, label) {
@@ -12577,6 +12607,11 @@ function generateSitemap(competitions, routeContexts, sitemapCompetitions = comp
     lastmod: record.lastChecked,
   })));
 
+  const resourceEntries = RESOURCE_GUIDES.map(({ resource }) => renderSitemapUrl({
+    loc: `${origin}${getResourceDetailPath(resource)}`,
+    lastmod: resource.dateModified,
+    images: listingImages[resource.id] ? [origin + listingImages[resource.id].src] : [],
+  }));
   const staticEntries = routeContexts
     .filter((routeContext) => routeContext.noindex !== true)
     .map((routeContext) => {
@@ -12673,7 +12708,7 @@ function generateSitemap(competitions, routeContexts, sitemapCompetitions = comp
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-${[...staticEntries, ...unverifiedEntries, ...trustPageEntries, ...contentPageEntries, ...clubEntries, ...referAndWinEntries, ...videoEntries, ...competitionEntries, ...opportunityEntries, ...offerCollectionEntries, ...offerEntries].join("\n")}
+${[...staticEntries, ...resourceEntries, ...unverifiedEntries, ...trustPageEntries, ...contentPageEntries, ...clubEntries, ...referAndWinEntries, ...videoEntries, ...competitionEntries, ...opportunityEntries, ...offerCollectionEntries, ...offerEntries].join("\n")}
 </urlset>
 `;
 }
@@ -13003,7 +13038,7 @@ function renderDetailCtaDataAttributes(competition, outPath, sourceDomain) {
 function removeStaleCompetitionDirectories(validCompetitionSlugs, validOutSlugs) {
   removeStaleSlugDirectories(path.join(ROOT_DIR, "competition"), validCompetitionSlugs, "competition");
   removeStaleSlugDirectories(path.join(ROOT_DIR, "out"), validOutSlugs, "out", {
-    preservedSlugs: new Set(["opportunity", "student"]),
+    preservedSlugs: new Set(["opportunity", "student", "resources"]),
   });
 }
 
@@ -13313,7 +13348,7 @@ function runFreeResourceChecks() {
       const isReviewedCourseEditorialDate =
         page.slug === COURSE_GUIDE.slug && page.dateModified === "2026-10-05";
       const isReviewedFreeStuffEditorialDate =
-        page.slug === "free-stuff-south-africa" && page.dateModified === "2026-10-11";
+        page.slug === "free-stuff-south-africa" && ["2026-10-11", "2026-11-02"].includes(page.dateModified);
       if (page.dateModified === BUILD_DATE_ISO && page.dateModified !== page.datePublished && !isReviewedSamplesEditorialDate && !isReviewedCourseEditorialDate && !isReviewedFreeStuffEditorialDate) {
         errors.push(`Free-resource page dateModified appears to be using build date by default: ${page.slug}`);
       }

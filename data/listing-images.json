@@ -3504,5 +3504,17 @@
     "reviewedAt": "2026-11-01",
     "sourcePage": "https://www.beko.com/za-en/beko-woolworths-voucher-campaign-terms-and-conditions",
     "provenanceNote": "Generated with the built-in image_gen tool after inspection found no suitable campaign artwork. Generic appliance and blank voucher concept; no model, value or availability claim. Prompt retained in private preparation notes."
+  },
+  "resource-famelack-live-tv-radio-webcams": {
+    "src": "/assets/listings/2026-11-02/famelack-editorial.webp",
+    "width": 1200,
+    "height": 676,
+    "alt": "FreeHub illustration of devices showing a symbolic globe, nature view and audio waveform",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration; not the actual Famelack interface.",
+    "reviewedAt": "2026-11-02",
+    "sourcePage": "https://famelack.com/",
+    "generationPrompt": "Use case: illustration-story. Asset type: landscape 16:9 hero illustration for a FreeHub.co.za editorial guide to Famelack, an external directory of live TV, radio and webcams. Create a warm, confident, polished editorial illustration in a clean modern flat style with gentle dimensional shading. Main subject: an unbranded laptop and smartphone on a desk, with simple abstract screen imagery suggesting a world globe, a live nature camera view and an audio waveform. A small pair of headphones beside the devices. Use FreeHub-style deep navy, teal, yellow and soft off-white. Strong subject-specific composition that crops well on mobile. Include exactly this small readable label along the bottom: 'FreeHub editorial illustration'. No other text. Do not depict the Famelack interface, channel logos, copyrighted programme characters, paid-TV brands, channel counts, money, prizes, endorsements or a claim that all streams work. This is contextual editorial art about discovering global live content using a web browser.",
+    "provenanceNote": "Generated with the built-in image_gen tool after official-page inspection found no suitable standalone hero artwork. Optimized locally as WebP. South African playback is user-reported, separate from the artwork."
   }
 }

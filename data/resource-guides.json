@@ -1,0 +1,64 @@
+[
+  {
+    "resourceId": "resource-famelack-live-tv-radio-webcams",
+    "provider": "Famelack",
+    "title": "Famelack: Free Live TV, Radio & Webcams | FreeHub",
+    "description": "Explore Famelack, formerly TV.Garden, for free live TV, radio and webcams. Read the South African access check, data costs, limits and steps before opening it.",
+    "intro": "Looking for something to watch or listen to without another subscription? Famelack brings international live TV, radio and webcams into one browser-based directory. Use this guide to decide what to try and what to check first.",
+    "accessNote": "A FreeHub reviewer reported successful access from a South African internet connection, confirmed to us on 2 November 2026. This was a user-reported access check, not an independent test of every channel, station or webcam. Individual streams can still be restricted or unavailable.",
+    "steps": [
+      "Open Famelack and choose what you want to explore from its homepage.",
+      "Choose TV, Radio or Webcam mode. Browse a country or category, or use the globe to explore.",
+      "Select a channel, station or camera and start playback. If it is unavailable, try another source; a working directory does not guarantee every feed works.",
+      "Check your data balance while streaming. Close playback when finished rather than leaving a stream running in the background."
+    ],
+    "sections": [
+      {
+        "heading": "What can you use Famelack for?",
+        "paragraphs": [
+          "Famelack describes its service as free access to live TV, online radio and live webcams, with no account or subscription. The selection includes international news, music, places and nature. Choose a mode that matches what you want to do: watch a live channel, listen to a station or explore a camera view.",
+          "This listing covers an external directory. FreeHub does not play, host or retransmit its streams, and does not sell a television package. You choose and use the content on Famelack and its external sources."
+        ]
+      },
+      {
+        "heading": "What South African viewers should check",
+        "paragraphs": [
+          "Successful access to Famelack is useful evidence that the site can be reached from South Africa. It does not establish that a particular broadcaster permits viewing here, that every programme is available, or that playback will work on every network and device.",
+          "Famelack says some streams have regional restrictions and others may go offline or change address. If a source fails, choose another available source. For a particular broadcaster or programme, check the broadcaster's own viewing information."
+        ]
+      },
+      {
+        "heading": "Free access still uses your internet connection",
+        "paragraphs": [
+          "A free service can still use paid mobile data or Wi-Fi. Check your bundle and connection costs before a long viewing session. Video quality and viewing time affect data consumption, so we do not quote one hourly data figure for all streams.",
+          "On a limited bundle, keep an eye on your device's usage counter and stop playback when you finish. Audio may suit a listening session better than leaving a video playing when you only need the sound."
+        ]
+      },
+      {
+        "heading": "External sources, privacy and content rights",
+        "paragraphs": [
+          "Famelack says it links to external sources and does not host or restream the underlying content. Its disclaimer also says it cannot guarantee every link's copyright status. FreeHub's listing does not certify the rights or regional availability of individual streams.",
+          "External players and stream providers can receive technical information when you connect. Read Famelack's Privacy Policy from its menu before using the service if you want details about those connections."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Is Famelack the same service as TV.Garden?",
+        "answer": "Famelack's official FAQ says TV.Garden was renamed Famelack and expanded to include radio and webcams."
+      },
+      {
+        "question": "Does Famelack work in South Africa?",
+        "answer": "A FreeHub reviewer reported successful access from South Africa. This is not a guarantee for every stream: regional restrictions, outages and device differences can affect playback."
+      },
+      {
+        "question": "Do I need to register or start a free trial?",
+        "answer": "Famelack says its browser service does not require an account or subscription. This listing does not involve a FreeHub trial or payment. Normal internet costs still apply."
+      },
+      {
+        "question": "Why does a channel or webcam fail to play?",
+        "answer": "The external source may be offline, restricted to another region, or unsupported in your browser. Try another source and check the provider's information if you need a specific channel."
+      }
+    ]
+  }
+]

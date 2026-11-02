@@ -1,3 +1,6 @@
+const { getResourceDetailPath } = require("./resource-guides.js");
+const { CANONICAL_ORIGIN } = require("../../shared/page-data.js");
+
 function createFreeResourceRenderer({ escapeHtml, escapeAttribute, formatDate, listingImages = {} }) {
   if (![escapeHtml, escapeAttribute, formatDate].every((helper) => typeof helper === "function")) {
     throw new TypeError("FreeResource renderer requires escapeHtml, escapeAttribute, and formatDate helpers.");
@@ -7,6 +10,7 @@ function createFreeResourceRenderer({ escapeHtml, escapeAttribute, formatDate, l
     resources,
     heading,
     description,
+    showDescription = true,
     pageType = "trust",
     kicker = "Official Websites",
   }) {
@@ -18,7 +22,7 @@ function createFreeResourceRenderer({ escapeHtml, escapeAttribute, formatDate, l
           <div class="free-resource-section__header">
             <p class="section-kicker">${escapeHtml(kicker)}</p>
             <h2>${escapeHtml(heading || "Best free options right now")}</h2>
-            <p>${escapeHtml(description || "Use official source links and check what is actually free before signing up.")}</p>
+            ${showDescription ? `<p>${escapeHtml(description || "Use official source links and check what is actually free before signing up.")}</p>` : ""}
           </div>
           <div class="free-resource-grid">
             ${resources.map((resource) => renderFreeResourceCard(resource, { pageType })).join("\n            ")}
@@ -27,6 +31,8 @@ function createFreeResourceRenderer({ escapeHtml, escapeAttribute, formatDate, l
   }
 
   function renderFreeResourceCard(resource, { pageType = "trust" } = {}) {
+    const detailPath = getResourceDetailPath(resource);
+    const href = detailPath || resource.officialUrl;
     const image = resource.id && listingImages[resource.id];
     const anchor = image ? ` id="resource-${escapeAttribute(resource.id)}"` : "";
     const imageMarkup = image
@@ -35,20 +41,32 @@ function createFreeResourceRenderer({ escapeHtml, escapeAttribute, formatDate, l
     const termsMarkup = resource.termsUrl && resource.termsUrl !== resource.officialUrl
       ? `<a href="${escapeAttribute(resource.termsUrl)}" target="_blank" rel="nofollow noopener">Official conditions</a>`
       : "";
-    const rel = resource.internal ? "" : ' rel="nofollow noopener" target="_blank"';
-    const linkLabel = resource.internal ? "Read guide" : "Official website";
+    const rel = resource.internal || detailPath ? "" : ' rel="nofollow noopener" target="_blank"';
+    const linkLabel = detailPath ? "View details" : resource.internal ? "Read guide" : "Official website";
     const analyticsAttributes =
       ["free_stuff_parent", "free_samples_vertical", "voucher_hub"].includes(pageType) && !resource.internal
         ? renderAnalyticsAttributes({
-            action: "official-source",
+            action: detailPath ? "card" : "official-source",
             entityKind: "resource",
             contentType: resource.sampleResourceType || resource.resourceType || resource.category,
             contentId: resource.id || resource.name,
             sourceDomain: getHostname(resource.officialUrl),
             pageType,
-            destinationPath: getDestinationPath(resource.officialUrl),
+            destinationPath: getDestinationPath(href),
           })
         : "";
+
+    if (detailPath) {
+      return `<article class="free-resource-card"${anchor}>
+        <a class="free-resource-card__detail" href="${escapeAttribute(detailPath)}"${analyticsAttributes} aria-label="View details for ${escapeAttribute(resource.name)}">
+        <div class="free-resource-card__top"><span class="free-resource-card__category">${escapeHtml(resource.categoryLabel)}</span><span class="free-resource-card__reviewed">Reviewed ${escapeHtml(formatDate(resource.lastReviewed))}</span></div>
+        <h3>${escapeHtml(resource.name)}</h3>
+        ${image ? `<figure class="free-resource-card__image"><img src="${escapeAttribute(image.src)}" width="${image.width}" height="${image.height}" alt="${escapeAttribute(image.alt)}" loading="lazy" decoding="async" /><figcaption>${escapeHtml(image.caption)}</figcaption></figure>` : ""}
+        <p>${escapeHtml(resource.freeDetails)}</p>
+        <span class="free-resource-card__link">View details</span>
+        </a>
+      </article>`.replace(/>\s+</g, "><");
+    }
 
     return `<article class="free-resource-card"${anchor}>
               <div class="free-resource-card__top">
@@ -75,7 +93,7 @@ function createFreeResourceRenderer({ escapeHtml, escapeAttribute, formatDate, l
                   <dd>${escapeHtml(resource.watchOut)}</dd>
                 </div>
               </dl>
-              <a class="free-resource-card__link" href="${escapeAttribute(resource.officialUrl)}"${rel}${analyticsAttributes}>${escapeHtml(linkLabel)}</a>
+              <a class="free-resource-card__link" href="${escapeAttribute(href)}"${rel}${analyticsAttributes}>${escapeHtml(linkLabel)}</a>
               ${termsMarkup}
             </article>`.replace(/>\s+</g, "><");
   }
@@ -93,9 +111,9 @@ function createFreeResourceRenderer({ escapeHtml, escapeAttribute, formatDate, l
         "@type": "ListItem",
         position: index + 1,
         item: {
-          "@type": "WebSite",
+          "@type": getResourceDetailPath(resource) ? "WebPage" : "WebSite",
           name: resource.name,
-          url: resource.officialUrl,
+          url: getResourceDetailPath(resource) ? `${CANONICAL_ORIGIN}${getResourceDetailPath(resource)}` : resource.officialUrl,
           description: resource.freeDetails,
         },
       })),
@@ -123,7 +141,7 @@ function createFreeResourceRenderer({ escapeHtml, escapeAttribute, formatDate, l
 
 function getDestinationPath(value) {
   try {
-    return new URL(value).pathname || "/";
+    return new URL(value, CANONICAL_ORIGIN).pathname || "/";
   } catch (error) {
     return "";
   }

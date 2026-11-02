@@ -33,8 +33,8 @@ async function main() {
   let okCount = 0;
   const manualOkResources = resources.filter((resource) => isPublishedFreeResource(resource) && resource.manualOk);
   const registryErrors = [
-    ...validateFreeResourceRegistry(resources.filter(resource => resource.category === "samples")).errors,
-    ...validateFreeResourceRegistry(resources.filter(resource => resource.category !== "samples"), { legacy: true }).errors,
+    ...validateFreeResourceRegistry(resources.filter(resource => resource.category === "samples" || resource.detailSlug)).errors,
+    ...validateFreeResourceRegistry(resources.filter(resource => resource.category !== "samples" && !resource.detailSlug), { legacy: true }).errors,
   ];
   failures.push(...registryErrors.map(reason => ({ name: "Resource registry", reason })));
 
