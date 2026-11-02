@@ -1,20 +1,19 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-11-01
+Generated: 2026-11-02
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 15
+- Matching active public competitions: 14
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Gelmar BirthDIY tools and vouchers competition (gelmar-birthdiy-october-2026) | 2026-11-01 | purchase-required | yes | yes | WhatsApp mentioned in entry text | none |
 | Ackermans Lay-by & Win: R2,699 Handset Vouchers (ackermans-layby-samsung-a07-2026) | 2026-11-06 | purchase-required | yes | yes | WhatsApp mentioned in entry text | none |
 | Cape Town Move with Melody Dance Competition (cape-town-move-with-melody-2026) | 2026-11-09 | unknown | yes | yes | WhatsApp mentioned in entry text | none |
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
@@ -54,14 +53,13 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 28
+- Matching active public competitions: 27
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Gelmar BirthDIY tools and vouchers competition (gelmar-birthdiy-october-2026) | 2026-11-01 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | NESCAFÉ Gold Rush SPAR Rewards Competition (nescafe-gold-rush-spar-2026) | 2026-11-08 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Sunlight at SPAR: Win a R100,000 Kitchen Makeover (sunlight-spar-kitchen-makeover-2026) | 2026-11-08 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Boxer Go-Getta Business Prize Competition (boxer-go-getta-2026) | 2026-11-08 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
@@ -96,19 +94,13 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 32
+- Matching active public competitions: 26
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Clicks Baby Essentials Hamper Competition (clicks-baby-essentials-hamper-2026) | 2026-11-01 | account-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
-| Bargain Books: Win Scorpio Rising (bargain-books-scorpio-rising-2026) | 2026-11-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
-| Bargain Books: Win Hollow Bones (bargain-books-hollow-bones-2026) | 2026-11-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
-| Bargain Books: Win Cheslin Kolbe’s Memoir (bargain-books-cheslin-kolbe-2026) | 2026-11-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
-| Bargain Books: Win A Court of Splintered Harmony (bargain-books-court-splintered-harmony-2026) | 2026-11-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
-| Gelmar BirthDIY tools and vouchers competition (gelmar-birthdiy-october-2026) | 2026-11-01 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | Ster-Kinekor Street Fighter Watch and Win (ster-kinekor-street-fighter-watch-win-2026) | 2026-11-04 | purchase-required | yes | yes | Online entry tag | none |
 | Superbalist Live Superb: Win R100,000 Cash (superbalist-live-superb-cash-2026) | 2026-11-05 | free-entry | yes | yes | Online entry tag | none |
 | FAO World Food Day 2026 Poster Contest (fao-world-food-day-poster-2026) | 2026-11-06 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |

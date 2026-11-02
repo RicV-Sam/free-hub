@@ -2,12 +2,12 @@
   "ok": true,
   "errors": [],
   "summary": {
-    "today": "2026-11-01",
+    "today": "2026-11-02",
     "retiredCount": 6,
     "retiredRouteLeaks": [],
-    "expiredPublishedCount": 294,
-    "archivedCompetitionCount": 320,
-    "publicListingFilesScanned": 200,
+    "expiredPublishedCount": 301,
+    "archivedCompetitionCount": 327,
+    "publicListingFilesScanned": 194,
     "sitemapContainsOutUrls": false,
     "expiredMissingFromArchive": [],
     "expiredInSitemap": [],
@@ -28,7 +28,7 @@
     "nonPublicDetailPages": [],
     "nonPublicInPublicListings": [],
     "editorialHealth": {
-      "asOfDate": "2026-11-01",
+      "asOfDate": "2026-11-02",
       "needsReview": true,
       "surfaces": [
         {

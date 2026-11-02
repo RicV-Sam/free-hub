@@ -1,161 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-01",
-  "count": 95,
+  "asOfDate": "2026-11-02",
+  "count": 89,
   "competitions": [
-    {
-      "id": "clicks-baby-essentials-hamper-2026",
-      "title": "Clicks Baby Essentials Hamper Competition",
-      "brand": "Clicks",
-      "summary": "A newborn essentials hamper worth over R4,000 for one eligible Clicks ClubCard member. Enter through the online BabyClub magazine route; closes 1 November 2026.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/clicks-baby-essentials-editorial-2026.webp",
-      "closingDate": "2026-11-01",
-      "category": "Shopping",
-      "prizeName": "Newborn essentials hamper worth over R4,000",
-      "entryCostType": "account_required",
-      "entryCostLabel": "Account required",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "ClubCard members aged 18+ in South Africa; previous magazine-issue winners and specified promoter-related parties excluded.",
-      "entrySteps": [
-        "Check that you are a South African resident aged 18 or older and a Clicks ClubCard member.",
-        "Sign in to your ClubCard member account on Clicks before following the entry route.",
-        "Open the official Clicks competition page and follow the link from the online BabyClub magazine to the Woobox entry form.",
-        "Complete all required boxes and submit by 1 November 2026."
-      ],
-      "officialUrl": "https://www.clicks.co.za/clubcard/competitions/babyclub-magazine-september-issue-of-2026",
-      "termsUrl": "https://woobox.com/f65xbp/rules",
-      "lastChecked": "2026-09-09",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "bargain-books-scorpio-rising-2026",
-      "title": "Bargain Books: Win Scorpio Rising",
-      "brand": "Bargain Books",
-      "summary": "Enter the official online draw for a copy of Scorpio Rising by Deon Meyer. No purchase required; newsletter signup is optional.",
-      "imageUrl": "https://freehub.co.za/assets/listings/bargain-books-scorpio-rising-2026.webp",
-      "closingDate": "2026-11-01",
-      "category": "Shopping",
-      "prizeName": "A copy of Scorpio Rising by Deon Meyer",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "SA residents; under-18s need written parent/guardian permission.",
-      "entrySteps": [
-        "Open the official Bargain Books competition form and select the matching book.",
-        "Complete the required details, confirm South African residency and accept the rules. Newsletter signup is optional.",
-        "Submit once for this book by 1 November 2026; no closing hour is stated. Under-18s need written parent/guardian permission."
-      ],
-      "officialUrl": "https://bargainbooks.co.za/competitions",
-      "termsUrl": "https://bargainbooks.co.za/competitions#terms",
-      "lastChecked": "2026-10-03",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "bargain-books-hollow-bones-2026",
-      "title": "Bargain Books: Win Hollow Bones",
-      "brand": "Bargain Books",
-      "summary": "Enter the official online draw for a copy of Hollow Bones by Jodi Picoult. No purchase required; newsletter signup is optional.",
-      "imageUrl": "https://freehub.co.za/assets/listings/bargain-books-hollow-bones-2026.webp",
-      "closingDate": "2026-11-01",
-      "category": "Shopping",
-      "prizeName": "A copy of Hollow Bones by Jodi Picoult",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "SA residents; under-18s need written parent/guardian permission.",
-      "entrySteps": [
-        "Open the official Bargain Books competition form and select the matching book.",
-        "Complete the required details, confirm South African residency and accept the rules. Newsletter signup is optional.",
-        "Submit once for this book by 1 November 2026; no closing hour is stated. Under-18s need written parent/guardian permission."
-      ],
-      "officialUrl": "https://bargainbooks.co.za/competitions",
-      "termsUrl": "https://bargainbooks.co.za/competitions#terms",
-      "lastChecked": "2026-10-03",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "bargain-books-cheslin-kolbe-2026",
-      "title": "Bargain Books: Win Cheslin Kolbe’s Memoir",
-      "brand": "Bargain Books",
-      "summary": "Enter to win a copy of Cheslin Kolbe: Sidestepping the Odds by Cheslin Kolbe and David O’Sullivan. Free online entry; newsletter optional.",
-      "imageUrl": "https://freehub.co.za/assets/listings/bargain-books-cheslin-kolbe-2026.webp",
-      "closingDate": "2026-11-01",
-      "category": "Shopping",
-      "prizeName": "A copy of Cheslin Kolbe: Sidestepping the Odds by Cheslin Kolbe and David O’Sullivan",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "SA residents; under-18s need written parent/guardian permission.",
-      "entrySteps": [
-        "Open the official Bargain Books competition form and select the matching book.",
-        "Complete the required details, confirm South African residency and accept the rules. Newsletter signup is optional.",
-        "Submit once for this book by 1 November 2026; no closing hour is stated. Under-18s need written parent/guardian permission."
-      ],
-      "officialUrl": "https://bargainbooks.co.za/competitions",
-      "termsUrl": "https://bargainbooks.co.za/competitions#terms",
-      "lastChecked": "2026-10-03",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "bargain-books-court-splintered-harmony-2026",
-      "title": "Bargain Books: Win A Court of Splintered Harmony",
-      "brand": "Bargain Books",
-      "summary": "Enter the official draw for a copy of A Court of Splintered Harmony by Sarah J. Maas. Free online entry; newsletter signup optional.",
-      "imageUrl": "https://freehub.co.za/assets/listings/bargain-books-court-splintered-harmony-2026.webp",
-      "closingDate": "2026-11-01",
-      "category": "Shopping",
-      "prizeName": "A copy of A Court of Splintered Harmony by Sarah J. Maas",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "SA residents; under-18s need written parent/guardian permission.",
-      "entrySteps": [
-        "Open the official Bargain Books competition form and select the matching book.",
-        "Complete the required details, confirm South African residency and accept the rules. Newsletter signup is optional.",
-        "Submit once for this book by 1 November 2026; no closing hour is stated. Under-18s need written parent/guardian permission."
-      ],
-      "officialUrl": "https://bargainbooks.co.za/competitions",
-      "termsUrl": "https://bargainbooks.co.za/competitions#terms",
-      "lastChecked": "2026-10-03",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "gelmar-birthdiy-october-2026",
-      "title": "Gelmar BirthDIY tools and vouchers competition",
-      "brand": "Gelmar",
-      "summary": "Gelmar BirthDIY offers six prizes worth R22,000 in total after a purchase of R750 or more in one transaction. Qualifying purchases and entry forms must be completed by 1 November 2026 at 23:59 SAST.",
-      "imageUrl": "https://freehub.co.za/assets/listings/gelmar-birthdiy-october-2026.webp",
-      "closingDate": "2026-11-01",
-      "category": "Home",
-      "prizeName": "One R15,000 tool trolley, two R2,000 toolkits and three R1,000 Gelmar vouchers",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Online",
-      "eligibility": "South African residents aged 18 or older; promoter, employee, supplier and competition-service exclusions apply.",
-      "entrySteps": [
-        "Spend R750 or more in a single in-store or online Gelmar transaction during 1 October–1 November.",
-        "Use the official campaign page’s entry-form link. Enter your name, surname, cellphone number and till-slip or online-order number.",
-        "Keep the receipt or order proof for winner verification. An upload is not the stated initial form step.",
-        "Use a different qualifying purchase for every repeat entry. Spending above R750 in one transaction still gives one entry.",
-        "Watch for Gelmar’s WhatsApp verification request. Returned items that reduce the qualifying spend below R750, or cancelled purchases, invalidate the entry."
-      ],
-      "officialUrl": "https://www.gelmar.co.za/october-competition",
-      "termsUrl": "https://www.gelmar.co.za/october-competition",
-      "lastChecked": "2026-10-11",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "boxer-coca-cola-samsung-a06-october-2026",
       "title": "Boxer & Coca-Cola: Win a Samsung A06 Phone",
@@ -463,7 +310,7 @@
       "termsUrl": "https://1uponline.co.za/index.php?route=information/oneupcompetition",
       "lastChecked": "2026-10-24",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "cape-town-move-with-melody-2026",
@@ -488,7 +335,7 @@
       "termsUrl": "https://www.capetown.gov.za/general/festive-lights-switch-on/",
       "lastChecked": "2026-10-30",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "outdoorphoto-wishlist-tenba-2026",

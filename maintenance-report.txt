@@ -1,15 +1,15 @@
 Reviewed competition retirements effective: 6
 === Competition Maintenance Report ===
-Date: 2026-11-01
+Date: 2026-11-02
 Mode: archive-expired
-Total competitions: 497
-Active published count: 96
-Expired archive page count: 294
+Total competitions: 498
+Active published count: 90
+Expired archive page count: 301
 Low-value expired noindex count: 0
 Held/private count: 107
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 26
+Closing in next 14 days: 19
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -306,34 +306,34 @@ Expired competition IDs:
 - water-filter-factory-october-2026 (2026-10-31)
 - landscape-alliance-living-landscapes-2026 (2026-10-31)
 - everest-wealth-holiday-2026 (2026-10-31)
+- clicks-baby-essentials-hamper-2026 (2026-11-01)
+- bargain-books-scorpio-rising-2026 (2026-11-01)
+- bargain-books-hollow-bones-2026 (2026-11-01)
+- bargain-books-cheslin-kolbe-2026 (2026-11-01)
+- bargain-books-court-splintered-harmony-2026 (2026-11-01)
+- staedtler-creative-challenge-2026 (2026-11-01)
+- gelmar-birthdiy-october-2026 (2026-11-01)
 
 Closing soon (next 14 days):
-- clicks-baby-essentials-hamper-2026 (0 days)
-- bargain-books-scorpio-rising-2026 (0 days)
-- bargain-books-hollow-bones-2026 (0 days)
-- bargain-books-cheslin-kolbe-2026 (0 days)
-- bargain-books-court-splintered-harmony-2026 (0 days)
-- staedtler-creative-challenge-2026 (0 days)
-- gelmar-birthdiy-october-2026 (0 days)
-- boxer-coca-cola-samsung-a06-october-2026 (3 days)
-- hot-cares-schools-challenge-2026 (3 days)
-- ster-kinekor-street-fighter-watch-win-2026 (3 days)
-- nedbank-moyaapp-consumer-education-2026 (4 days)
-- superbalist-live-superb-cash-2026 (4 days)
-- fao-world-food-day-poster-2026 (5 days)
-- ackermans-layby-samsung-a07-2026 (5 days)
-- nescafe-gold-rush-spar-2026 (7 days)
-- sunlight-spar-kitchen-makeover-2026 (7 days)
-- boxer-colgate-lenovo-tablets-2026 (7 days)
-- boxer-go-getta-2026 (7 days)
-- 1up-mangia-vouchers-2026 (8 days)
-- cape-town-move-with-melody-2026 (8 days)
-- outdoorphoto-wishlist-tenba-2026 (9 days)
-- clicks-amka-deo2rands-2026 (11 days)
-- hypertext-mobile-survey-2026 (11 days)
-- imana-pnp-lintons-corner-potjie-dash-2026 (12 days)
-- pizza-perfect-oom-freddy-legacy-2026 (13 days)
-- huletts-spar-rewards-2026 (14 days)
+- boxer-coca-cola-samsung-a06-october-2026 (2 days)
+- hot-cares-schools-challenge-2026 (2 days)
+- ster-kinekor-street-fighter-watch-win-2026 (2 days)
+- nedbank-moyaapp-consumer-education-2026 (3 days)
+- superbalist-live-superb-cash-2026 (3 days)
+- fao-world-food-day-poster-2026 (4 days)
+- ackermans-layby-samsung-a07-2026 (4 days)
+- nescafe-gold-rush-spar-2026 (6 days)
+- sunlight-spar-kitchen-makeover-2026 (6 days)
+- boxer-colgate-lenovo-tablets-2026 (6 days)
+- boxer-go-getta-2026 (6 days)
+- 1up-mangia-vouchers-2026 (7 days)
+- cape-town-move-with-melody-2026 (7 days)
+- outdoorphoto-wishlist-tenba-2026 (8 days)
+- clicks-amka-deo2rands-2026 (10 days)
+- hypertext-mobile-survey-2026 (10 days)
+- imana-pnp-lintons-corner-potjie-dash-2026 (11 days)
+- pizza-perfect-oom-freddy-legacy-2026 (12 days)
+- huletts-spar-rewards-2026 (13 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
