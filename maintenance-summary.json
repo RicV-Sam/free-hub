@@ -7,7 +7,7 @@
     "retiredRouteLeaks": [],
     "expiredPublishedCount": 301,
     "archivedCompetitionCount": 327,
-    "publicListingFilesScanned": 194,
+    "publicListingFilesScanned": 195,
     "sitemapContainsOutUrls": false,
     "expiredMissingFromArchive": [],
     "expiredInSitemap": [],
@@ -33,9 +33,9 @@
       "surfaces": [
         {
           "surface": "home",
-          "eligibleCount": 0,
-          "needsReview": true,
-          "nextReviewDue": null,
+          "eligibleCount": 1,
+          "needsReview": false,
+          "nextReviewDue": "2026-11-09",
           "overdueIds": [
             "resource-childrens-books-book-dash",
             "mtn-app-first-login-1gb-2026",
