@@ -30,6 +30,7 @@ const { validateStudentGuide, createStudentGuideRenderer, createStudentOfferRend
 const { PARKS_GUIDE } = require("./lib/parks-guide.js");
 const { COURSE_GUIDE, CS50_GUIDE } = require("./lib/course-guides.js");
 const STUDENT_GUIDE = require("../data/student-guide.json");
+const { SLANG_SLUG, renderSlangPage } = require("./lib/slang-page.js");
 const { createOpportunityRenderer } = require("./lib/opportunity-renderer.js");
 const { createOpportunityRouteRenderer } = require("./lib/opportunity-route-renderer.js");
 const { writeMobileCatalog, writeMobileFeed } = require("./lib/mobile-feed.js");
@@ -2609,6 +2610,13 @@ function main() {
   removeLegacyNestedSiteDirectory();
   writeOfferPages(publicOffers);
   writeResourceGuidePages();
+  const slangDirectory = path.join(ROOT_DIR, SLANG_SLUG);
+  fs.mkdirSync(slangDirectory, { recursive: true });
+  writeGeneratedFile(path.join(slangDirectory, "index.html"), renderSlangPage({
+    origin: shared.CANONICAL_ORIGIN, stylesheet: getStylesheetHref("/"),
+    navigation: renderTopNavigation(), footer: renderSiteFooter(), guestAdsScript: GUEST_ADS_SCRIPT,
+    escapeHtml, escapeAttribute, escapeScript,
+  }));
 
   writeGeneratedFile(path.join(ROOT_DIR, "index.html"), renderHomepage(coreActiveCompetitions));
   writeGeneratedFile(path.join(ROOT_DIR, "404.html"), renderNotFoundPage());
@@ -7513,6 +7521,7 @@ ${noscriptLinks}
         })}
         ${renderGuestAdSlot("home-latest")}
         ${renderHomepageClubSection()}
+        <p><a href="/${SLANG_SLUG}/">Just for fun · South African slang</a></p>
       </main>
 
       ${renderSiteFooter()}
@@ -12721,7 +12730,7 @@ function getOpportunityLastmod(opportunity) {
 }
 
 function getContentSitemapEntries() {
-  return [...CONTENT_INDEX_PAGES, { slug: MONTHLY_GUIDE_SLUG }];
+  return [...CONTENT_INDEX_PAGES, { slug: MONTHLY_GUIDE_SLUG }, { slug: SLANG_SLUG }];
 }
 
 function renderSitemapUrl({ loc, lastmod, images = [], video = null }) {
