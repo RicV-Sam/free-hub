@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-02",
+  "asOfDate": "2026-11-03",
   "count": 89,
   "competitions": [
     {
@@ -361,7 +361,7 @@
       "termsUrl": "https://www.outdoorphoto.co.za/pages/competition-terms-conditions",
       "lastChecked": "2026-10-21",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "clicks-amka-deo2rands-2026",

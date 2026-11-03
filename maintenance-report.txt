@@ -1,6 +1,6 @@
 Reviewed competition retirements effective: 6
 === Competition Maintenance Report ===
-Date: 2026-11-02
+Date: 2026-11-03
 Mode: archive-expired
 Total competitions: 498
 Active published count: 90
@@ -315,25 +315,25 @@ Expired competition IDs:
 - gelmar-birthdiy-october-2026 (2026-11-01)
 
 Closing soon (next 14 days):
-- boxer-coca-cola-samsung-a06-october-2026 (2 days)
-- hot-cares-schools-challenge-2026 (2 days)
-- ster-kinekor-street-fighter-watch-win-2026 (2 days)
-- nedbank-moyaapp-consumer-education-2026 (3 days)
-- superbalist-live-superb-cash-2026 (3 days)
-- fao-world-food-day-poster-2026 (4 days)
-- ackermans-layby-samsung-a07-2026 (4 days)
-- nescafe-gold-rush-spar-2026 (6 days)
-- sunlight-spar-kitchen-makeover-2026 (6 days)
-- boxer-colgate-lenovo-tablets-2026 (6 days)
-- boxer-go-getta-2026 (6 days)
-- 1up-mangia-vouchers-2026 (7 days)
-- cape-town-move-with-melody-2026 (7 days)
-- outdoorphoto-wishlist-tenba-2026 (8 days)
-- clicks-amka-deo2rands-2026 (10 days)
-- hypertext-mobile-survey-2026 (10 days)
-- imana-pnp-lintons-corner-potjie-dash-2026 (11 days)
-- pizza-perfect-oom-freddy-legacy-2026 (12 days)
-- huletts-spar-rewards-2026 (13 days)
+- boxer-coca-cola-samsung-a06-october-2026 (1 days)
+- hot-cares-schools-challenge-2026 (1 days)
+- ster-kinekor-street-fighter-watch-win-2026 (1 days)
+- nedbank-moyaapp-consumer-education-2026 (2 days)
+- superbalist-live-superb-cash-2026 (2 days)
+- fao-world-food-day-poster-2026 (3 days)
+- ackermans-layby-samsung-a07-2026 (3 days)
+- nescafe-gold-rush-spar-2026 (5 days)
+- sunlight-spar-kitchen-makeover-2026 (5 days)
+- boxer-colgate-lenovo-tablets-2026 (5 days)
+- boxer-go-getta-2026 (5 days)
+- 1up-mangia-vouchers-2026 (6 days)
+- cape-town-move-with-melody-2026 (6 days)
+- outdoorphoto-wishlist-tenba-2026 (7 days)
+- clicks-amka-deo2rands-2026 (9 days)
+- hypertext-mobile-survey-2026 (9 days)
+- imana-pnp-lintons-corner-potjie-dash-2026 (10 days)
+- pizza-perfect-oom-freddy-legacy-2026 (11 days)
+- huletts-spar-rewards-2026 (12 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
