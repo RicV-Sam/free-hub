@@ -1,6 +1,26 @@
 const SLANG_SLUG = "south-african-slang";
 const tourism = "https://www.southafrica.net/gl/en/trade/welcome/tip/five-south-african-words-and-phrases-to-teach-your-guests";
 const dictionary = (entry) => `https://dsae.co.za/entry/${entry}`;
+// These exact DSAE entries were checked for a pronunciation player.
+const dictionaryAudioEntries = [
+  "aikona/e00153", "bakgat/e00514", "bakkie/e00518", "chommie/e01639",
+  "eish/e10058", "ekasi/e10062", "galla/e02535", "gashle/e02565",
+  "jol/e03505", "kasi/e10115",
+  "kwaai/e04165", "larney/e04243", "lekker/e04283", "majita/e04471",
+  "makoya/e10121", "robot/e06032", "shibobo/e10123",
+  "shu/e06441", "yebo/e07960",
+];
+const dictionaryAudioByTerm = new Map(Object.entries({
+  Babbelas: "babalaas/e00453", Boet: "boet/e01017", Braai: "braai/e01198",
+  Eina: "eina/e02232", Gatvol: "gatvol/e10111", Gooi: "gooi/e02747", Padkos: "padkos/e05484",
+}));
+const dictionaryAudioUrls = new Set(dictionaryAudioEntries.map(dictionary));
+const bakkieRecording = {
+  path: "/assets/slang/bakkie-en-za.mp3",
+  source: "https://commons.wikimedia.org/wiki/File:En-za-bakkie.ogg",
+  creator: "Theonlycatonice",
+  license: "https://creativecommons.org/licenses/by-sa/4.0/",
+};
 const cape = "Cape Town & Cape Flats";
 const kzn = "Durban & KwaZulu-Natal";
 const easternCape = "Gqeberha & Mthatha";
@@ -134,17 +154,26 @@ function renderSlangPage({ origin, stylesheet, navigation, footer, guestAdsScrip
   const groups = [...new Set(entries.map(({ group }) => group))];
   const regions = [...new Set(entries.map(({ region }) => region).filter(Boolean))].sort();
   const schema = { "@context": "https://schema.org", "@type": "CollectionPage", name: "South African slang", description, url, inLanguage: "en-ZA" };
-  const cards = entries.map(({ term, aliases, group, region, say, meaning, example, source }) => `
+  const cards = entries.map(({ term, aliases, group, region, say, meaning, example, source }) => {
+    const audioEntry = dictionaryAudioByTerm.get(term);
+    const audioUrl = audioEntry ? dictionary(audioEntry) : dictionaryAudioUrls.has(source) ? source : null;
+    return `
         <article class="slang-card" data-slang-group="${escapeAttribute(group)}" data-slang-region="${escapeAttribute(region || "")}">
           <p class="slang-label">${escapeHtml(group)}</p>
           <h3>${escapeHtml(term)}</h3>
           ${region ? `<p class="slang-region">${escapeHtml(region)}</p>` : ""}
           ${aliases ? `<p class="slang-alias">${escapeHtml(aliases)}</p>` : ""}
           ${say ? `<p class="slang-sound"><strong>Sounds like</strong> ${escapeHtml(say)}</p>` : ""}
+          ${term === "Bakkie" ? `<div class="slang-recording">
+            <audio controls preload="none" aria-label="Play Bakkie pronunciation" src="${escapeAttribute(bakkieRecording.path)}"></audio>
+            <p>South African English recording by <a href="${escapeAttribute(bakkieRecording.source)}">${escapeHtml(bakkieRecording.creator)}</a> · <a href="${escapeAttribute(bakkieRecording.license)}">CC BY-SA 4.0</a> · converted to MP3</p>
+          </div>` : ""}
+          ${audioUrl ? `<a class="slang-listen" href="${escapeAttribute(audioUrl)}"><span aria-hidden="true">▶</span> Listen on DSAE<span class="slang-visually-hidden"> to ${escapeHtml(term)}</span></a>` : ""}
           <p>${escapeHtml(meaning)}</p>
           <p class="slang-example">${escapeHtml(example)}</p>
-          <a href="${escapeAttribute(source)}">Source<span class="slang-visually-hidden"> for ${escapeHtml(term)}</span></a>
-        </article>`).join("");
+          ${audioUrl !== source ? `<a href="${escapeAttribute(source)}">Source<span class="slang-visually-hidden"> for ${escapeHtml(term)}</span></a>` : ""}
+        </article>`;
+  }).join("");
   return `<!DOCTYPE html>
 <html lang="en-ZA">
 <head>
@@ -183,6 +212,7 @@ function renderSlangPage({ origin, stylesheet, navigation, footer, guestAdsScrip
       <section id="slang-glossary" aria-labelledby="slang-heading">
         <h2 id="slang-heading">Find a word or phrase</h2>
         <p>Explore ${entries.length} slang terms and everyday expressions. Regional labels show where a usage is documented. The Regional vocabulary category includes dialect words and conventional greetings. Sound hints are approximate.</p>
+        <p>Use the player where it’s shown, or choose <strong>Listen on DSAE</strong> and press play beside the pronunciation on the Dictionary of South African English entry.</p>
         <div class="slang-filters" hidden>
           <label>Search the glossary <input type="search" placeholder="Try aweh or traffic light" /></label>
           <label>Category <select name="category"><option value="">All expressions</option>${groups.map((group) => `<option>${escapeHtml(group)}</option>`).join("")}</select></label>

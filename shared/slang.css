@@ -115,6 +115,9 @@
 .slang-card .slang-alias, .slang-region, .slang-sound, .slang-card a { font-size: .9rem; }
 .slang-region { font-weight: 700; }
 .slang-card a { color: #225b43; text-decoration: underline; }
+.slang-listen { display: inline-block; padding-block: .45rem; font-weight: 700; }
+.slang-recording audio { display: block; width: 100%; max-width: 19rem; }
+.slang-recording p { font-size: .9rem; }
 .slang-example { padding-inline-start: .7rem; border-inline-start: .2rem solid #8ebd9b; font-style: italic; }
 
 .slang-visually-hidden {
