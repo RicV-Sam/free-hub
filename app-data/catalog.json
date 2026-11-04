@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-11-04",
-  "count": 44,
+  "count": 54,
   "counts": {
     "freeStuff": 44,
     "resources": 24,
     "opportunities": 20,
-    "offers": 0
+    "offers": 10
   },
   "items": [
     {
@@ -755,6 +755,196 @@
       "watchOut": "Availability and provider approval can change.",
       "expiresAt": "2027-05-15",
       "lastChecked": "2026-10-30"
+    },
+    {
+      "id": "zorora-pick-your-promo-november-2026",
+      "kind": "deal",
+      "title": "Zorora Pick Your Promo November Sale",
+      "provider": "Zorora",
+      "summary": "Pick from three November offers in store. Online, Zorora runs the selected-fabric discount, ottoman offer and spend-tier savings in successive windows.",
+      "category": "home-garden",
+      "categoryLabel": "Home & Garden",
+      "officialUrl": "https://zororasofas.co.za/products/zola-3-seater",
+      "termsUrl": "https://zororasofas.co.za/policies/terms-of-service",
+      "requirements": [
+        "The three primary offers run in store throughout November, one per purchase. Online: 1–10 November gives 20% off products in designated fabrics. 11–20 November offers one eligible ottoman with R15,000 or more of qualifying products, excluding delivery. 21–30 November offers tiered savings on qualifying full-price merchandise. Express Shipping items and partner offers are excluded from these primary offers. Check the official list of fabrics, collections and spend tiers. Discounts do not stack."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-11-30",
+      "lastChecked": "2026-11-04",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "maxwell-williams-black-november-2026",
+      "kind": "deal",
+      "title": "Maxwell & Williams Black November Spend Discounts",
+      "provider": "Maxwell & Williams",
+      "summary": "The official Black November terms advertise 10%, 20% and 30% discounts at three qualifying spend levels.",
+      "category": "home-garden",
+      "categoryLabel": "Home & Garden",
+      "officialUrl": "https://maxwellandwilliams.co.za/collections/mic-special-deals-black-friday-deals",
+      "termsUrl": "https://maxwellandwilliams.co.za/pages/black-friday-discount-terms",
+      "requirements": [
+        "Spend at least R1,000 for 10% off, R2,500 for 20% or R5,000 for 30% during 1–30 November. The highest qualifying tier applies, and shipping does not count towards the threshold. Discounts cannot be combined. The terms do not list a public code. Confirm the eligible basket and discount before paying."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-11-30",
+      "lastChecked": "2026-11-04",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "iherb-new20-first-order-south-africa",
+      "kind": "coupon",
+      "title": "iHerb NEW20 First Order Discount",
+      "provider": "iHerb",
+      "summary": "New iHerb customers in South Africa can use NEW20 for 20% off their first order before shipping and taxes.",
+      "category": "beauty-health",
+      "categoryLabel": "Beauty & Health",
+      "officialUrl": "https://za.iherb.com/info/sales-and-offers",
+      "termsUrl": "https://information.iherb.com/hc/en-us/articles/40675330600724-New-Customer-Discount-Information",
+      "couponCode": "NEW20",
+      "requirements": [
+        "For new customers only. Apply NEW20 at checkout on the website or app. It is single use and the discount is calculated before shipping and taxes. iHerb's South African shipping policy says import duties, taxes or handling fees can apply, depending on the order and carrier. Check the final cost before paying. The official code terms give no fixed expiry date."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-04",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "rustenburg-film-festival-free-admission-2026",
+      "kind": "deal",
+      "title": "Free Rustenburg Film Festival Admission",
+      "provider": "Rustenburg Film Festival",
+      "summary": "Register for free admission to the Rustenburg Film Festival's 10th anniversary programme in Cashan, Rustenburg.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://www.quicket.co.za/events/394490-rustenburg-film-festival/",
+      "termsUrl": "https://www.quicket.co.za/events/394490-rustenburg-film-festival/",
+      "requirements": [
+        "The organiser lists 5–8 November 2026 at Upper East Side, 1 Abbey Street, Cashan. Admission is free with registration through the official ticket page, subject to availability. The ticket widget displays an end time of midnight at the start of 8 November. Check the schedule and ticket status before travelling."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-11-07",
+      "lastChecked": "2026-11-04",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "ngeke-festival-free-ticket-johannesburg-2026",
+      "kind": "deal",
+      "title": "Free Ngeke! Festival Ticket in Johannesburg",
+      "provider": "Ngeke! Festival",
+      "summary": "Sign the organiser's anti-corruption pledge and choose the free festival ticket option for 7 November at The Nest in Johannesburg.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://www.ngeke.co.za/",
+      "termsUrl": "https://www.ngeke.co.za/",
+      "requirements": [
+        "The festival takes place on 7 November 2026 at The Nest, 39 Voorhout Street, New Doornfontein, Johannesburg. Sign the pledge and select the option that also reserves a free ticket. The pledge-only option does not reserve admission. Check current availability and event details with the organiser."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-11-07",
+      "lastChecked": "2026-11-04",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "yellow-sands-market-free-entry-november-2026",
+      "kind": "deal",
+      "title": "Free Entry to the Yellow Sands Market",
+      "provider": "Yellow Sands",
+      "summary": "Visit the Yellow Sands Market near East London with free admission on 7 November.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://yellows.co.za/market",
+      "termsUrl": "https://yellows.co.za/market",
+      "requirements": [
+        "The venue advertises free entry for everyone from 14:30 to 20:30 on Saturday, 7 November 2026, at Yellow Sands on the East Coast Resorts road near East London. Food and market purchases are separate."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-11-07",
+      "lastChecked": "2026-11-04",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "embo-music-fusion-concert-free-entry-2026",
+      "kind": "deal",
+      "title": "Free Entry to Embo Music Fusion in Gqeberha",
+      "provider": "Embo Music Fusion",
+      "summary": "Attend the Embo Music Fusion Concert for free in Algoa Park on 7 November.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://www.algoafm.co.za/event/embo-music-fusion-concert",
+      "termsUrl": "https://www.algoafm.co.za/event/embo-music-fusion-concert",
+      "requirements": [
+        "The event notice lists 12:00–19:00 on Saturday, 7 November 2026 at 255 Whyteleaf Drive, Algoa Park, Gqeberha. Entry is free. Food is available to buy separately."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-11-07",
+      "lastChecked": "2026-11-04",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "streetopia-observatory-free-entry-november-2026",
+      "kind": "deal",
+      "title": "Free Streetopia Festival in Observatory",
+      "provider": "Streetopia",
+      "summary": "Streetopia brings art, music and performances to the streets of Observatory, Cape Town, on 28 November with free admission.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://streetopia.co.za/",
+      "termsUrl": "https://streetopia.co.za/",
+      "requirements": [
+        "The organiser confirms Saturday, 28 November 2026 and free admission. Use the organiser's current event information to plan the visit. The downloadable 2025 guide describes the previous edition."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-11-28",
+      "lastChecked": "2026-11-04",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "main-street-sundays-free-entry-november-2026",
+      "kind": "deal",
+      "title": "Free Main Street Sundays in Johannesburg",
+      "provider": "Jozi My Jozi",
+      "summary": "Visit the car-free Main Street Sundays event in Marshalltown on 29 November. The organiser offers a free RSVP.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://www.jozimyjozi.com/events/main-street-sundays",
+      "termsUrl": "https://www.jozimyjozi.com/events/main-street-sundays",
+      "requirements": [
+        "Jozi My Jozi lists free admission on Sunday, 29 November 2026 from 10:00 to 18:30 on Main Street, Marshalltown. Find the free RSVP link and current programme on the organiser's page. Transport, food and purchases are separate."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-11-29",
+      "lastChecked": "2026-11-04",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "cape-town-festive-lights-switch-on-free-entry-2026",
+      "kind": "deal",
+      "title": "Free Cape Town Festive Lights Switch-On",
+      "provider": "City of Cape Town",
+      "summary": "Watch the free live music and lights switch-on at the Grand Parade on 29 November.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://www.capetown.gov.za/media-and-news/star-studded-line-up-set-to-light-up-cape-towns-festive-season/",
+      "termsUrl": "https://www.capetown.gov.za/media-and-news/star-studded-line-up-set-to-light-up-cape-towns-festive-season/",
+      "requirements": [
+        "The City of Cape Town advertises free admission and entertainment from 16:00 to 22:00 on Sunday, 29 November 2026 at the Grand Parade. Check the City announcement for any updates, travel arrangements and road closures."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-11-29",
+      "lastChecked": "2026-11-04",
+      "isAffiliate": false,
+      "isSponsored": false
     }
   ]
 }

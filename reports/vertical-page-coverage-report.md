@@ -94,7 +94,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 26
+- Matching active public competitions: 29
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -107,12 +107,15 @@ Recommended normalisation:
 | 1UP Mangia Pasta R500 vouchers (1up-mangia-vouchers-2026) | 2026-11-09 | purchase-required | yes | yes | Online entry tag | none |
 | Outdoorphoto Wishlist: Win a Tenba Spinner Backpack (outdoorphoto-wishlist-tenba-2026) | 2026-11-10 | free-entry | yes | yes | Online entry tag | none |
 | Hypertext Mobile Survey: Win R5,000 in Takealot Vouchers (hypertext-mobile-survey-2026) | 2026-11-12 | free-entry | yes | yes | Online entry tag | none |
+| Bed Bath Home November Sign-Up and Win (bed-bath-home-november-voucher-signup-2026) | 2026-11-19 | unknown | yes | yes | Online entry tag | none |
 | GoTyme Card Swipe and Spend: Win R300 (gotyme-card-swipe-spend-2026) | 2026-11-30 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | AVBOB 10th Annual Poetry Competition (avbob-poetry-2026) | 2026-11-30 | free-entry | yes | yes | Online entry tag | none |
 | Penguin x Braai Broekies: Win a Book and Braai Gear (prh-braai-broekies-2026) | 2026-11-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Greenie x Penguin: Win a Food-Cover and Book Hamper (prh-greenie-do-not-feed-the-monkey-2026) | 2026-11-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Nedbank: Win a R50,000 Travel Voucher (nedbank-black-friday-tourvest-2026) | 2026-11-30 | purchase-required | yes | yes | Online entry tag | none |
 | First Choice: Win a Power Cup Hamper (first-choice-moms-got-the-power-2026) | 2026-11-30 | account-required | yes | yes | Online entry tag | none |
+| Beares Facebook Headboard Competition (beares-facebook-stanley-headboard-november-2026) | 2026-11-30 | account-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| Beares Instagram Ceramic Stove Competition (beares-instagram-ceramic-stove-november-2026) | 2026-11-30 | account-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Clicks October/November Beauty Box Giveaway (clicks-october-november-beauty-box-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Clicks D’Licious Hamper Giveaway (clicks-dlicious-hamper-october-november-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Clicks DKNY Ice Pop Fragrance Giveaway (clicks-dkny-ice-pop-october-november-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
@@ -193,7 +196,7 @@ Recommended normalisation:
 ## Supermarket Competitions in South Africa
 
 - URL: /supermarket-competitions-south-africa/
-- Matching active public competitions: 18
+- Matching active public competitions: 19
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -214,6 +217,7 @@ Recommended normalisation:
 | Win a VIP chef experience with IMANA at Pick n Pay Oakfields (imana-pnp-oakfields-chef-2026) | 2026-11-30 | purchase-required | yes | yes | Supermarket brand or retail partner | none |
 | Clicks D’Licious Hamper Giveaway (clicks-dlicious-hamper-october-november-2026) | 2026-12-01 | free-entry | yes | yes | Supermarket or grocery entry text | none |
 | SPAR Vaseline Cera Glow Summer: Win a R15,000 Voucher (spar-vaseline-cera-glow-summer-2026) | 2026-12-13 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
+| Rhodes Quality and SPAR Summer Cash Competition (rhodes-quality-spar-summer-cash-2026) | 2026-12-13 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery tag; Supermarket or grocery entry text | none |
 | Maynards Kaboom: Win R200 SPAR Vouchers (maynards-kaboom-spar-rewards-2026) | 2026-12-26 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Sparletta Local Jewels Airtime, Fuel and Trolley Dash Competition (sparletta-local-jewels-2026) | 2026-12-31 | purchase-required | yes | yes | Supermarket brand or retail partner | none |
 | Coca-Cola Returnables: Win Grocery Vouchers (coca-cola-returnables-2026) | 2027-01-31 | purchase-required | yes | yes | Supermarket or grocery entry text | none |

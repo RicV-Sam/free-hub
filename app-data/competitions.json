@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-11-04",
-  "count": 88,
+  "count": 93,
   "competitions": [
     {
       "id": "boxer-coca-cola-samsung-a06-october-2026",
@@ -489,6 +489,31 @@
       "officialUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn-pay-as-you-go-tfg-win-your-share-competition",
       "termsUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn-pay-as-you-go-tfg-win-your-share-competition",
       "lastChecked": "2026-10-30",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "bed-bath-home-november-voucher-signup-2026",
+      "title": "Bed Bath Home November Sign-Up and Win",
+      "brand": "Whitehouse & Continental Linen",
+      "summary": "Sign up for Whitehouse & Continental Linen marketing for a chance to win one of three R1,500 online gift vouchers.",
+      "imageUrl": "https://freehub.co.za/assets/listings/2026-11-04/bed-bath-home-november-voucher-signup-2026.webp",
+      "closingDate": "2026-11-19",
+      "category": "Vouchers",
+      "prizeName": "One of three R1,500 online gift vouchers",
+      "entryCostType": "unclear",
+      "entryCostLabel": "Entry requirements unclear",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "South African residents aged 18 or older. Staff of Little Whitehouse, Whitehouse and Continental Linen and their immediate families are excluded. One entry per valid email address.",
+      "entrySteps": [
+        "Open the official Whitehouse & Continental Linen signup form and use a valid email address. The form also asks for your name and phone number.",
+        "Read the marketing consent notice and submit during the November campaign if you agree to receive communications.",
+        "Check your email after the draw. Winners are announced after 20 November and have seven days to respond to their notification."
+      ],
+      "officialUrl": "https://bedbathhome.co.za/pages/newsletter-signup",
+      "termsUrl": "https://bedbathhome.co.za/pages/competitions-terms-conditions",
+      "lastChecked": "2026-11-04",
       "isHighValue": false,
       "isClosingSoon": false
     },
@@ -1218,6 +1243,82 @@
       "isClosingSoon": false
     },
     {
+      "id": "beares-facebook-stanley-headboard-november-2026",
+      "title": "Beares Facebook Headboard Competition",
+      "brand": "Beares",
+      "summary": "Like Beares on Facebook and complete its official form for a chance to win a Stanley headboard with two Grandiose pedestals.",
+      "imageUrl": "https://freehub.co.za/assets/listings/2026-11-04/beares-facebook-stanley-headboard-november-2026.webp",
+      "closingDate": "2026-11-30",
+      "category": "Home",
+      "prizeName": "Stanley headboard and two Grandiose pedestals",
+      "entryCostType": "account_required",
+      "entryCostLabel": "Account required",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "Residents of South Africa, Botswana, Lesotho, Namibia or Eswatini aged 18 or older with a valid ID or passport. One entry per person. Lewis Stores and associated parties and relatives specified in the rules are excluded.",
+      "entrySteps": [
+        "Like the official Beares Facebook page.",
+        "Complete the official Beares Facebook entry form once by 30 November. Review the promoter's marketing and data-use terms before entering.",
+        "Keep the phone and email details supplied in the form current. Beares contacts the randomly selected winner by phone and follows up by email."
+      ],
+      "officialUrl": "https://www.beares.co.za/facebook-competition",
+      "termsUrl": "https://www.beares.co.za/beares-facebook-competition-terms-and-conditions",
+      "lastChecked": "2026-11-04",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "beares-instagram-ceramic-stove-november-2026",
+      "title": "Beares Instagram Ceramic Stove Competition",
+      "brand": "Beares",
+      "summary": "Follow Beares on Instagram and complete its official form for a chance to win a Russell Hobbs 60 cm four-plate ceramic stove.",
+      "imageUrl": "https://freehub.co.za/assets/listings/2026-11-04/beares-instagram-ceramic-stove-november-2026.webp",
+      "closingDate": "2026-11-30",
+      "category": "Home",
+      "prizeName": "Russell Hobbs 60 cm four-plate ceramic stove",
+      "entryCostType": "account_required",
+      "entryCostLabel": "Account required",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "Residents of South Africa, Botswana, Lesotho, Namibia or Eswatini aged 18 or older with a valid ID or passport. One entry per person. Lewis Stores and associated parties and relatives specified in the rules are excluded.",
+      "entrySteps": [
+        "Follow the official Beares Instagram account.",
+        "Complete the official Beares Instagram entry form once by 30 November. Review the promoter's marketing and data-use terms before entering.",
+        "Keep the phone and email details supplied in the form current. Beares contacts the randomly selected winner by phone and follows up by email."
+      ],
+      "officialUrl": "https://www.beares.co.za/instagram-competition",
+      "termsUrl": "https://www.beares.co.za/beares-instagram-competition-terms-and-conditions",
+      "lastChecked": "2026-11-04",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "vodacom-prepaid-fibre-r300-voucher-2026",
+      "title": "Vodacom November R300 Voucher Competition",
+      "brand": "Vodacom",
+      "summary": "Pay for and activate or reactivate a qualifying Vodacom Home Prepaid Fibre plan during November for automatic entry into a draw for one of 500 R300 vouchers.",
+      "imageUrl": "https://freehub.co.za/assets/listings/2026-11-04/vodacom-prepaid-fibre-r300-voucher-2026.webp",
+      "closingDate": "2026-11-30",
+      "closingAt": "2026-11-30T23:59:00+02:00",
+      "category": "Vouchers",
+      "prizeName": "One of 500 R300 digital vouchers",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Automatic qualifying activation",
+      "eligibility": "Registered account holders aged 18+ with a qualifying Vodacom Home Prepaid Fibre service in South Africa. The purchase and activation or reactivation must both be completed in the campaign period. A recharge on an already-active service does not qualify. Related-party exclusions apply.",
+      "entrySteps": [
+        "Read the official rules and check coverage and the current price of a qualifying 10, 20, 30 or 100 Mbps prepaid fibre plan.",
+        "Pay for and complete a qualifying activation or reactivation by 30 November at 23:59 SAST. Entry is automatic and limited to one per eligible person.",
+        "Keep the phone number linked to your fibre account current so Vodacom can contact you if selected."
+      ],
+      "officialUrl": "https://www.vodacom.co.za/vodacom/terms/competition/prepaid-fibre-r300-voucher",
+      "termsUrl": "https://www.vodacom.co.za/vodacom/terms/competition/prepaid-fibre-r300-voucher",
+      "lastChecked": "2026-11-04",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "clicks-have-your-say-october-november-2026",
       "title": "Clicks Have Your Say: Win R500 ClubCard Cashback",
       "brand": "Clicks ClubCard Magazine / The Publishing Partnership",
@@ -1441,6 +1542,31 @@
       "officialUrl": "https://www.spar.co.za/competitions/vaseline-cera-glow-spar-competition",
       "termsUrl": "https://www.spar.co.za/competitions/vaseline-cera-glow-spar-competition",
       "lastChecked": "2026-10-14",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "rhodes-quality-spar-summer-cash-2026",
+      "title": "Rhodes Quality and SPAR Summer Cash Competition",
+      "brand": "Rhodes Quality / SPAR",
+      "summary": "Buy two qualifying Rhodes Quality juices or canned pineapple products and swipe your SPAR Rewards card for a chance to win one of twenty R1,250 cash prizes.",
+      "imageUrl": "https://freehub.co.za/assets/listings/2026-11-04/rhodes-quality-spar-summer-cash-2026.webp",
+      "closingDate": "2026-12-13",
+      "category": "Cash",
+      "prizeName": "One of twenty R1,250 cash prizes",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Purchase and Rewards card swipe",
+      "eligibility": "South African citizens aged 18 or older with valid identification. Promoter, co-promoter and supplier-related parties and the relatives and partners specified in the rules are excluded.",
+      "entrySteps": [
+        "Buy two participating Rhodes Quality 1 L 100% fruit juices or 432 g or 440 g canned pineapple products at a participating SPAR.",
+        "Swipe a valid SPAR Rewards card with the qualifying purchase for automatic entry. Check that the contact details on your card are current.",
+        "If selected, provide the identification, proof of banking and proof of residence requested in the official terms."
+      ],
+      "officialUrl": "https://www.spar.co.za/competitions/rhodes-spar-rewards-competition",
+      "termsUrl": "https://www.spar.co.za/competitions/rhodes-spar-rewards-competition",
+      "lastChecked": "2026-11-04",
       "isHighValue": false,
       "isClosingSoon": false
     },

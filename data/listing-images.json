@@ -3516,5 +3516,203 @@
     "sourcePage": "https://famelack.com/",
     "generationPrompt": "Use case: illustration-story. Asset type: landscape 16:9 hero illustration for a FreeHub.co.za editorial guide to Famelack, an external directory of live TV, radio and webcams. Create a warm, confident, polished editorial illustration in a clean modern flat style with gentle dimensional shading. Main subject: an unbranded laptop and smartphone on a desk, with simple abstract screen imagery suggesting a world globe, a live nature camera view and an audio waveform. A small pair of headphones beside the devices. Use FreeHub-style deep navy, teal, yellow and soft off-white. Strong subject-specific composition that crops well on mobile. Include exactly this small readable label along the bottom: 'FreeHub editorial illustration'. No other text. Do not depict the Famelack interface, channel logos, copyrighted programme characters, paid-TV brands, channel counts, money, prizes, endorsements or a claim that all streams work. This is contextual editorial art about discovering global live content using a web browser.",
     "provenanceNote": "Generated with the built-in image_gen tool after official-page inspection found no suitable standalone hero artwork. Optimized locally as WebP. South African playback is user-reported, separate from the artwork."
+  },
+  "rhodes-quality-spar-summer-cash-2026": {
+    "src": "/assets/listings/2026-11-04/rhodes-quality-spar-summer-cash-2026.webp",
+    "width": 720,
+    "height": 482,
+    "alt": "Official Rhodes Quality and SPAR competition artwork showing qualifying products and the R25,000 total cash pool.",
+    "kind": "official-source",
+    "caption": "Artwork from the official listing source.",
+    "reviewedAt": "2026-11-04",
+    "sourcePage": "https://www.spar.co.za/competitions/rhodes-spar-rewards-competition",
+    "sourceImage": "https://www.spar.co.za/assets/cms/2026_rhodes_74616a550b.jpg"
+  },
+  "bed-bath-home-november-voucher-signup-2026": {
+    "src": "/assets/listings/2026-11-04/bed-bath-home-november-voucher-signup-2026.webp",
+    "width": 728,
+    "height": 300,
+    "alt": "Official Whitehouse & Continental Linen banner advertising early access signup and three R1,500 vouchers.",
+    "kind": "official-source",
+    "caption": "Artwork from the official listing source.",
+    "reviewedAt": "2026-11-04",
+    "sourcePage": "https://bedbathhome.co.za/pages/newsletter-signup",
+    "sourceImage": "https://cdn.klaviyomail.com/company/Uhm8ts/images/95f43053-a497-4762-b8f1-e96247d4a995.png"
+  },
+  "beares-facebook-stanley-headboard-november-2026": {
+    "src": "/assets/listings/2026-11-04/beares-facebook-stanley-headboard-november-2026.webp",
+    "width": 1200,
+    "height": 1200,
+    "alt": "Official Beares Facebook giveaway artwork showing the Stanley headboard and two white Grandiose pedestals.",
+    "kind": "official-source",
+    "caption": "Artwork from the official listing source.",
+    "reviewedAt": "2026-11-04",
+    "sourcePage": "https://www.beares.co.za/competitions",
+    "sourceImage": "https://www.beares.co.za/api/.renditions/wysiwyg/Home_page/BRS_COMPETITION_Nov_FB.jpg"
+  },
+  "beares-instagram-ceramic-stove-november-2026": {
+    "src": "/assets/listings/2026-11-04/beares-instagram-ceramic-stove-november-2026.webp",
+    "width": 1200,
+    "height": 1200,
+    "alt": "Official Beares Instagram giveaway artwork showing a black Russell Hobbs ceramic stove.",
+    "kind": "official-source",
+    "caption": "Artwork from the official listing source.",
+    "reviewedAt": "2026-11-04",
+    "sourcePage": "https://www.beares.co.za/competitions",
+    "sourceImage": "https://www.beares.co.za/api/.renditions/wysiwyg/Home_page/BRS_Nov_comp_E_COM_RH.jpg"
+  },
+  "vodacom-prepaid-fibre-r300-voucher-2026": {
+    "src": "/assets/listings/2026-11-04/vodacom-prepaid-fibre-r300-voucher-2026.webp",
+    "width": 1440,
+    "height": 810,
+    "alt": "FreeHub editorial illustration of a generic fibre router, cable and blank voucher.",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration.",
+    "reviewedAt": "2026-11-04",
+    "sourcePage": "https://www.vodacom.co.za/vodacom/terms/competition/prepaid-fibre-r300-voucher",
+    "provenanceNote": "Built-in ImageGen. Prompt: Create a polished landscape 16:9 editorial illustration for a South African consumer-information website about an online voucher prize draw linked to activating prepaid home fibre. Matte warm ivory background, teal and red accents, a generic white home internet router with a single optic-fibre cable bending toward a blank, unbranded voucher card. Clearly conceptual editorial still life, clean modern composition, use the full width, broad safe margins. No text, logos, numbers, currency, official branding, specific model, person, or claim of guaranteed rewards. It will be labelled externally as a FreeHub editorial illustration."
+  },
+  "travelstart-pick-your-prize-november-2026": {
+    "src": "/assets/listings/2026-11-04/travelstart-pick-your-prize-november-2026.webp",
+    "width": 589,
+    "height": 600,
+    "alt": "Sugar Beach pool and palm trees from the Travelstart Mauritius draw page.",
+    "kind": "official-source",
+    "caption": "Artwork from the official listing source.",
+    "reviewedAt": "2026-11-04",
+    "sourcePage": "https://www.travelstart.co.za/lp/travel-competitions",
+    "sourceImage": "https://www.travelstart.co.za/lp/wp-content/uploads/sites/3/2026/10/SugarBeach_Views_South-Pool-e1793352590201-589x600.jpg"
+  },
+  "woolworths-taste-dairy-dream-hamper-2026": {
+    "src": "/assets/listings/2026-11-04/woolworths-taste-dairy-dream-hamper-2026.webp",
+    "width": 800,
+    "height": 855,
+    "alt": "Woolworths TASTE's Dairy Dream campaign photo of tableware and packaged products.",
+    "kind": "official-source",
+    "caption": "Artwork from the official listing source.",
+    "reviewedAt": "2026-11-04",
+    "sourcePage": "https://taste.co.za/win/win-dairy-dream-hamper/",
+    "sourceImage": "https://taste.co.za/wp-content/uploads/2026/10/Lactalis-Comp-jpg.jpg"
+  },
+  "woolworths-taste-last-word-makanyane-2026": {
+    "src": "/assets/listings/2026-11-04/woolworths-taste-last-word-makanyane-2026.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "Last Word Makanyane lodge pool and deck as shown on the Woolworths TASTE campaign page.",
+    "kind": "official-source",
+    "caption": "Artwork from the official listing source.",
+    "reviewedAt": "2026-11-04",
+    "sourcePage": "https://taste.co.za/win/win-a-two-night-safari-escape-at-last-word-makanyane-worth-r74-000/",
+    "sourceImage": "https://taste.co.za/wp-content/uploads/2026/09/Last-Word-Makanyane-pool.jpg"
+  },
+  "zorora-pick-your-promo-november-2026": {
+    "src": "/assets/listings/2026-11-04/zorora-pick-your-promo-november-2026.webp",
+    "width": 500,
+    "height": 500,
+    "alt": "Zorora sofa shown on the retailer's Zola 3 Seater product page.",
+    "kind": "official-source",
+    "caption": "Product photography from Zorora's site. Fabric eligibility varies.",
+    "reviewedAt": "2026-11-04",
+    "sourcePage": "https://zororasofas.co.za/products/zola-3-seater",
+    "sourceImage": "https://zororasofas.co.za/cdn/shop/files/preview_images/8c8ca00642554bf6825f0dccb8a9cdda.thumbnail.0000000000.jpg?v=1776676477&width=500"
+  },
+  "maxwell-williams-black-november-2026": {
+    "src": "/assets/listings/2026-11-04/maxwell-williams-black-november-2026.webp",
+    "width": 533,
+    "height": 400,
+    "alt": "Maxwell & Williams cream casserole dish with tray lid, shown in the retailer's specials collection.",
+    "kind": "official-source",
+    "caption": "Product example from the retailer's specials collection. Check whether your basket qualifies.",
+    "reviewedAt": "2026-11-04",
+    "sourcePage": "https://maxwellandwilliams.co.za/collections/mic-special-deals-black-friday-deals",
+    "sourceImage": "https://maxwellandwilliams.co.za/cdn/shop/files/IA0329_cf73a608-e990-4fb0-9c4f-47f739073f09.jpg?v=1791881382&width=533"
+  },
+  "iherb-new20-first-order-south-africa": {
+    "src": "/assets/listings/2026-11-04/iherb-new20-first-order-south-africa.webp",
+    "width": 1440,
+    "height": 810,
+    "alt": "FreeHub editorial illustration of a plain delivery box with an unmarked coupon tag.",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration.",
+    "reviewedAt": "2026-11-04",
+    "sourcePage": "https://za.iherb.com/info/sales-and-offers",
+    "provenanceNote": "Built-in ImageGen. Prompt: Create a polished landscape 16:9 editorial illustration for a South African consumer-information website about a first-order online shopping discount. Stylized paper-cut still life with a small plain cardboard parcel, blank coupon tag, and abstract leaf shapes in sage, forest green, warm cream and terracotta. Broad safe margins and balanced composition. No text, lettering, numbers, logos, brand, specific items, pills or supplements, medical claims, currency or guarantees. It will be labelled externally as a FreeHub editorial illustration."
+  },
+  "rustenburg-film-festival-free-admission-2026": {
+    "src": "/assets/listings/2026-11-04/rustenburg-film-festival-free-admission-2026.webp",
+    "width": 1440,
+    "height": 810,
+    "alt": "FreeHub editorial illustration of a film projector and empty cinema seats.",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration.",
+    "reviewedAt": "2026-11-04",
+    "sourcePage": "https://www.quicket.co.za/events/394490-rustenburg-film-festival/",
+    "provenanceNote": "Built-in ImageGen. Prompt: Generate a polished wide 16:9 editorial illustration of a small community film festival screening. A vintage-style projector casts a warm cone of light onto a blank screen, with a simple film reel and burgundy cinema seats. Layered cut-paper texture, ink-blue, russet and muted gold, uncluttered with safe margins. No readable text, no numbers, dates, people, trademarks, venue likeness, official identity, or promises. The website will label this as a FreeHub editorial illustration for the Rustenburg Film Festival."
+  },
+  "ngeke-festival-free-ticket-johannesburg-2026": {
+    "src": "/assets/listings/2026-11-04/ngeke-festival-free-ticket-johannesburg-2026.webp",
+    "width": 1200,
+    "height": 630,
+    "alt": "Official yellow Ngeke! Festival artwork with the 7 November date and The Nest venue.",
+    "kind": "official-source",
+    "caption": "Artwork from the official listing source.",
+    "reviewedAt": "2026-11-04",
+    "sourcePage": "https://www.ngeke.co.za/",
+    "sourceImage": "https://www.ngeke.co.za/images/og-festival.jpg"
+  },
+  "yellow-sands-market-free-entry-november-2026": {
+    "src": "/assets/listings/2026-11-04/yellow-sands-market-free-entry-november-2026.webp",
+    "width": 1200,
+    "height": 1200,
+    "alt": "Official Yellow Sands Market poster for the 7 November event.",
+    "kind": "official-source",
+    "caption": "Artwork from the official listing source.",
+    "reviewedAt": "2026-11-04",
+    "sourcePage": "https://yellows.co.za/market",
+    "sourceImage": "https://www.yellows.co.za/assets/market/poster.jpg"
+  },
+  "embo-music-fusion-concert-free-entry-2026": {
+    "src": "/assets/listings/2026-11-04/embo-music-fusion-concert-free-entry-2026.webp",
+    "width": 707,
+    "height": 1000,
+    "alt": "Official Embo Music Fusion Concert poster announcing free entry in Algoa Park on 7 November.",
+    "kind": "official-source",
+    "caption": "Artwork from the official listing source.",
+    "reviewedAt": "2026-11-04",
+    "sourcePage": "https://www.algoafm.co.za/event/embo-music-fusion-concert",
+    "sourceImage": "https://www.algoafm.co.za/images/cmsimages/big/img_3096-whatshappening.png"
+  },
+  "streetopia-observatory-free-entry-november-2026": {
+    "src": "/assets/listings/2026-11-04/streetopia-observatory-free-entry-november-2026.webp",
+    "width": 900,
+    "height": 1200,
+    "alt": "A photo from a previous Streetopia festival in Observatory.",
+    "kind": "official-source",
+    "caption": "Previous Streetopia edition. Photo by Fazel Ockhuys, from the organiser's website.",
+    "reviewedAt": "2026-11-04",
+    "sourcePage": "https://streetopia.co.za/",
+    "sourceImage": "https://streetopia.co.za/wp-content/uploads/2026/07/Fazel-Ockhuys_Streetopia2025_20251129_094659.jpg"
+  },
+  "main-street-sundays-free-entry-november-2026": {
+    "src": "/assets/listings/2026-11-04/main-street-sundays-free-entry-november-2026.webp",
+    "width": 1200,
+    "height": 630,
+    "alt": "Gold-costumed performer on Main Street in a photograph from a previous Main Street Sundays event.",
+    "kind": "official-source",
+    "caption": "Previous Main Street Sundays event. Photo by Justin Lee, from the organiser's website.",
+    "reviewedAt": "2026-11-04",
+    "sourcePage": "https://www.jozimyjozi.com/events/main-street-sundays",
+    "sourceImage": "https://www.jozimyjozi.com/uploads/files/transforms/_1200x630_crop_center-center_82_none/Justin-Lee_@justinleephotos_Main-Street-Sundays-626459.jpg?mtime=1781509645"
+  },
+  "cape-town-festive-lights-switch-on-free-entry-2026": {
+    "src": "/assets/listings/2026-11-04/cape-town-festive-lights-switch-on-free-entry-2026.webp",
+    "width": 1440,
+    "height": 250,
+    "alt": "City of Cape Town photograph of festive street lights along Adderley Street.",
+    "kind": "official-source",
+    "caption": "Artwork from the official listing source.",
+    "reviewedAt": "2026-11-04",
+    "sourcePage": "https://www.capetown.gov.za/media-and-news/star-studded-line-up-set-to-light-up-cape-towns-festive-season/",
+    "sourceImage": "https://www.capetown.gov.za/media/hlokvyne/banner_festive_lights.jpg"
   }
 }
