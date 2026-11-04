@@ -129,8 +129,7 @@ async function main() {
     throw new Error("--campaign-id is required with --send so alerts can be de-duped.");
   }
 
-  const admin = loadFirebaseAdmin(options);
-  const db = admin.firestore();
+  const { db, FieldValue } = loadFirebaseAdmin(options);
   const recipients = await getEligibleRecipients(db, options);
 
   if (recipients.length === 0) {
@@ -138,7 +137,7 @@ async function main() {
     return;
   }
 
-  const summary = await queueCampaignEmails(db, admin, {
+  const summary = await queueCampaignEmails(db, FieldValue, {
     campaignId,
     email,
     recipients,
@@ -213,32 +212,33 @@ function buildEmail(competitions) {
 }
 
 function loadFirebaseAdmin(options) {
-  let admin;
+  let initializeApp, getApps, getApp, cert, getFirestore, FieldValue;
 
   try {
-    admin = require("firebase-admin");
+    ({ initializeApp, getApps, getApp, cert } = require("firebase-admin/app"));
+    ({ getFirestore, FieldValue } = require("firebase-admin/firestore"));
   } catch (error) {
     throw new Error("Missing firebase-admin. Run npm install before queueing email alerts.");
   }
 
-  if (admin.apps.length > 0) {
-    return admin;
+  if (getApps().some(app => app.name === "[DEFAULT]")) {
+    return { db: getFirestore(getApp()), FieldValue };
   }
 
   if (options.serviceAccountPath) {
     const resolvedPath = path.resolve(options.serviceAccountPath);
     const serviceAccount = JSON.parse(fs.readFileSync(resolvedPath, "utf8"));
-    admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount),
+    const app = initializeApp({
+      credential: cert(serviceAccount),
       projectId: options.projectId || serviceAccount.project_id,
     });
-    return admin;
+    return { db: getFirestore(app), FieldValue };
   }
 
-  admin.initializeApp({
+  const app = initializeApp({
     projectId: options.projectId || undefined,
   });
-  return admin;
+  return { db: getFirestore(app), FieldValue };
 }
 
 async function getEligibleRecipients(db, options) {
@@ -279,7 +279,7 @@ async function getEligibleRecipients(db, options) {
   return recipients;
 }
 
-async function queueCampaignEmails(db, admin, context) {
+async function queueCampaignEmails(db, FieldValue, context) {
   const campaignRef = db.collection(context.campaignCollection).doc(context.campaignId);
   await campaignRef.set(
     {
@@ -287,8 +287,8 @@ async function queueCampaignEmails(db, admin, context) {
       competitionIds: context.competitions.map((competition) => competition.id),
       mailCollection: context.mailCollection,
       subject: context.email.subject,
-      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
-      createdAt: admin.firestore.FieldValue.serverTimestamp(),
+      updatedAt: FieldValue.serverTimestamp(),
+      createdAt: FieldValue.serverTimestamp(),
     },
     { merge: true }
   );
@@ -317,13 +317,13 @@ async function queueCampaignEmails(db, admin, context) {
         competitionIds: context.competitions.map((competition) => competition.id),
         type: "competition-alert",
       },
-      createdAt: admin.firestore.FieldValue.serverTimestamp(),
+      createdAt: FieldValue.serverTimestamp(),
     });
     batch.set(recipientRef, {
       userId: recipient.userId,
       email: recipient.email,
       mailDocumentPath: mailRef.path,
-      queuedAt: admin.firestore.FieldValue.serverTimestamp(),
+      queuedAt: FieldValue.serverTimestamp(),
     });
 
     queued += 1;
@@ -344,7 +344,7 @@ async function queueCampaignEmails(db, admin, context) {
     {
       queued,
       skipped,
-      completedAt: admin.firestore.FieldValue.serverTimestamp(),
+      completedAt: FieldValue.serverTimestamp(),
     },
     { merge: true }
   );
@@ -385,7 +385,11 @@ function escapeHtml(value) {
     .replace(/'/g, "&#039;");
 }
 
-main().catch((error) => {
-  console.error(error.message);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch((error) => {
+    console.error(error.message);
+    process.exit(1);
+  });
+}
+
+module.exports = { loadFirebaseAdmin, getEligibleRecipients, queueCampaignEmails, parseArgs };

@@ -20,7 +20,7 @@
     "test:baseline": "npm run test:seo && npm run test:lifecycle",
     "baseline:update:warnings": "node scripts/update-link-warning-baseline.js --update",
     "validate:all": "npm test && npm run lint && node scripts/validate-maintenance-state.js",
-    "test": "npm run test:held && npm run test:baseline && npm run test:airtime-dash",
+    "test": "npm run test:held && npm run test:baseline && npm run test:airtime-dash && npm run test:firebase-admin",
     "test:student-guide": "node --test tests/lifecycle/student-guide.test.js",
     "test:research-content": "node --test tests/lifecycle/research-content.test.js",
     "report:opportunity-health": "node scripts/run-opportunity-health-report.js",
@@ -28,10 +28,11 @@
     "preview:airtime-dash": "node scripts/preview-airtime-dash.cjs",
     "test:fuel-rewards": "node --test tests/lifecycle/fuel-rewards.test.js",
     "preview:grocery": "node scripts/preview-grocery-savings.cjs",
-    "test:grocery": "node --test tests/lifecycle/grocery-savings.test.js"
+    "test:grocery": "node --test tests/lifecycle/grocery-savings.test.js",
+    "test:firebase-admin": "node --test tests/firebase-admin/*.test.cjs"
   },
   "dependencies": {
-    "firebase-admin": "^13.6.0"
+    "firebase-admin": "^14.5.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.61.1",
