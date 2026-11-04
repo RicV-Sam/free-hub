@@ -1,6 +1,6 @@
 Reviewed competition retirements effective: 6
 === Competition Maintenance Report ===
-Date: 2026-11-03
+Date: 2026-11-04
 Mode: archive-expired
 Total competitions: 498
 Active published count: 90
@@ -9,7 +9,7 @@ Low-value expired noindex count: 0
 Held/private count: 107
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 19
+Closing in next 14 days: 20
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -315,25 +315,26 @@ Expired competition IDs:
 - gelmar-birthdiy-october-2026 (2026-11-01)
 
 Closing soon (next 14 days):
-- boxer-coca-cola-samsung-a06-october-2026 (1 days)
-- hot-cares-schools-challenge-2026 (1 days)
-- ster-kinekor-street-fighter-watch-win-2026 (1 days)
-- nedbank-moyaapp-consumer-education-2026 (2 days)
-- superbalist-live-superb-cash-2026 (2 days)
-- fao-world-food-day-poster-2026 (3 days)
-- ackermans-layby-samsung-a07-2026 (3 days)
-- nescafe-gold-rush-spar-2026 (5 days)
-- sunlight-spar-kitchen-makeover-2026 (5 days)
-- boxer-colgate-lenovo-tablets-2026 (5 days)
-- boxer-go-getta-2026 (5 days)
-- 1up-mangia-vouchers-2026 (6 days)
-- cape-town-move-with-melody-2026 (6 days)
-- outdoorphoto-wishlist-tenba-2026 (7 days)
-- clicks-amka-deo2rands-2026 (9 days)
-- hypertext-mobile-survey-2026 (9 days)
-- imana-pnp-lintons-corner-potjie-dash-2026 (10 days)
-- pizza-perfect-oom-freddy-legacy-2026 (11 days)
-- huletts-spar-rewards-2026 (12 days)
+- boxer-coca-cola-samsung-a06-october-2026 (0 days)
+- hot-cares-schools-challenge-2026 (0 days)
+- ster-kinekor-street-fighter-watch-win-2026 (0 days)
+- nedbank-moyaapp-consumer-education-2026 (1 days)
+- superbalist-live-superb-cash-2026 (1 days)
+- fao-world-food-day-poster-2026 (2 days)
+- ackermans-layby-samsung-a07-2026 (2 days)
+- nescafe-gold-rush-spar-2026 (4 days)
+- sunlight-spar-kitchen-makeover-2026 (4 days)
+- boxer-colgate-lenovo-tablets-2026 (4 days)
+- boxer-go-getta-2026 (4 days)
+- 1up-mangia-vouchers-2026 (5 days)
+- cape-town-move-with-melody-2026 (5 days)
+- outdoorphoto-wishlist-tenba-2026 (6 days)
+- clicks-amka-deo2rands-2026 (8 days)
+- hypertext-mobile-survey-2026 (8 days)
+- imana-pnp-lintons-corner-potjie-dash-2026 (9 days)
+- pizza-perfect-oom-freddy-legacy-2026 (10 days)
+- huletts-spar-rewards-2026 (11 days)
+- mtn-tfg-prepaid-win-your-share-2026 (14 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
