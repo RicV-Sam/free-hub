@@ -3714,5 +3714,36 @@
     "reviewedAt": "2026-11-04",
     "sourcePage": "https://www.capetown.gov.za/media-and-news/star-studded-line-up-set-to-light-up-cape-towns-festive-season/",
     "sourceImage": "https://www.capetown.gov.za/media/hlokvyne/banner_festive_lights.jpg"
+  },
+  "equisweet-summer-competition-2026": {
+    "src": "/assets/listings/za-comp-engine-2026-11-04/equisweet.webp",
+    "width": 1400,
+    "height": 438,
+    "alt": "Official EquiSweet banner showing the qualifying 100-pack, Xtra Savings card and fifty R1,000 vouchers.",
+    "kind": "official-source",
+    "caption": "Official Huletts campaign artwork.",
+    "reviewedAt": "2026-11-04",
+    "sourcePage": "https://www.hulettssugar.co.za/competitions/make-the-sweet-swap-win-with-huletts-equisweet/",
+    "sourceImage": "https://www.hulettssugar.co.za/wp-content/uploads/2026/10/09-competition-web-banner-1920x600-Huletts-EquiSweet-1400x438.png"
+  },
+  "raimondi-birthday-retail-promotion-2-2026": {
+    "src": "/assets/listings/za-comp-engine-2026-11-04/raimondi.webp",
+    "width": 1440,
+    "height": 810,
+    "alt": "FreeHub editorial illustration of two unbranded soft drink bottles, a till slip and an in-store entry box",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration.",
+    "reviewedAt": "2026-11-04",
+    "sourcePage": "https://thebeveragecompany.co.za/raimondis-birthday-retail-promotion-1-23oct-to-12-nov-2026/"
+  },
+  "nedbank-boxer-back-to-school-2026": {
+    "src": "/assets/listings/za-comp-engine-2026-11-04/nedbank.webp",
+    "width": 1440,
+    "height": 810,
+    "alt": "FreeHub editorial illustration of school stationery and a blank voucher beside a grocery checkout",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration.",
+    "reviewedAt": "2026-11-04",
+    "sourcePage": "https://personal.nedbank.co.za/legal/terms-and-conditions/back-to-school-boxer-competition.html"
   }
 }

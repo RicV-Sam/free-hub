@@ -5841,7 +5841,7 @@ function renderPage(routeContext, competitions) {
         ${isCollectionPage ? renderCollectionBreadcrumb(pageCopy.heading) : ""}
 
         ${renderDurableInventoryNotice(routeContext, competitions)}
-        ${isPrimaryCompetitionHub ? `<aside class="collection-review-link" aria-label="Unverified competition discovery"><a class="editorial-pick__link" href="${unverifiedCompetitionData.PUBLIC_PATH}">Competitions pending verification</a> <span>Unconfirmed leads, separate from verified listings.</span></aside>` : ""}
+        ${isPrimaryCompetitionHub ? `<aside class="collection-review-link" aria-label="Unverified competition discovery"><a class="btn btn--secondary" href="${unverifiedCompetitionData.PUBLIC_PATH}">View all unverified competitions</a> <span>Unconfirmed leads, separate from verified listings.</span></aside>` : ""}
         <section class="controls" aria-label="Competition filters">
           <label class="search-field" for="searchInput">
             <span class="search-field__label">Search competitions</span>
@@ -6904,7 +6904,7 @@ function renderWhatsAppChannelCta(routeContext = null, { compact = false, placem
 
   if (compact) {
     return `<aside class="collection-review-link whatsapp-channel-note" aria-label="WhatsApp competition updates">
-          <a class="editorial-pick__link" href="${escapeAttribute(WHATSAPP_CHANNEL_URL)}" target="_blank" rel="noopener noreferrer" data-whatsapp-placement="${escapeAttribute(placement)}">Get WhatsApp competition updates</a>
+          <a class="btn btn--whatsapp" href="${escapeAttribute(WHATSAPP_CHANNEL_URL)}" target="_blank" rel="noopener noreferrer" data-whatsapp-placement="${escapeAttribute(placement)}">Get the latest updates on WhatsApp</a>
           <p class="state-card__text">Tap Follow, then turn on the bell for notifications.</p>
         </aside>`;
   }
