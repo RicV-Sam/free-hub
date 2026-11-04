@@ -1,6 +1,6 @@
 # Firebase Admin upgrade review — 4 November 2026
 
-Prepared on branch `codex/firebase-admin-review-2026-11-04`, based on `134488a`, in `C:/Users/ricca/.codex/worktrees/freehub-firebase-20261104`. Nothing committed, pushed or deployed. The main workspace contains unrelated unfinished work and was left untouched.
+Prepared on branch `codex/firebase-admin-review-2026-11-04`, reconciled with main `81b9ed8`, in `C:/Users/ricca/.codex/worktrees/freehub-firebase-20261104`. The owner authorised committing and pushing the tested upgrade and archive maintenance on 4 November 2026. The main workspace contains unrelated unfinished work and was left untouched.
 
 ## Closure verified
 
@@ -24,11 +24,12 @@ The remaining six affected packages are `gaxios`, `gcp-metadata`, `glob`, `googl
 ## Validation
 
 - Clean `npm ci --ignore-scripts`: passed; `npm ls --all`: valid dependency tree.
-- Node 24.19.0 deterministic build and full `npm test`: passed (186 lifecycle tests, 30 Airtime Dash tests, four new offline tests; the existing Airtime Dash emulator test skipped).
+- Node 24.19.0 deterministic build and full `npm test`: passed (191 lifecycle tests, 30 Airtime Dash tests, four new offline tests; the existing Airtime Dash emulator test skipped).
 - New root Firestore emulator test: passed separately against locally bound `127.0.0.1:18088`, using only `demo-freehub-admin-upgrade`. It exercised actual reads/writes, consent selection, timestamp persistence and duplicate prevention in test-only collections. No email extension was running. The emulator was stopped afterwards.
 - After clean install, offline tests passed again; the new optional emulator test skips when no local emulator is configured.
-- Current-date production-flag build: passed. Maintenance validation failed because six expired competitions in the unchanged inventory are missing from the archive: `clicks-baby-essentials-hamper-2026`, `bargain-books-scorpio-rising-2026`, `bargain-books-hollow-bones-2026`, `bargain-books-cheslin-kolbe-2026`, `bargain-books-court-splintered-harmony-2026`, `gelmar-birthdiy-october-2026`.
-- Build-only changes to tracked generated files were restored in this isolated checkout; no content changes are part of the upgrade. `git diff --check` passed.
-- Live authenticated Firebase operations and email delivery were not tested. No frontend changes were made; a new visual/browser audit or external campaign-link audit was not run for this backend dependency change.
+- Current-date production-flag build and maintenance validation: passed with no missing archive entries or expired listing leaks. Main already contained the six previously missing records; the standard maintenance command added the newly closed HOT Cares Schools Challenge. Regenerated tracked feeds remove it from active listings.
+- Reconciled full regression suite passed; local Firestore emulator passed again. Twenty Chromium closure/expiry checks passed.
+- External competition-link validation did not pass: the unchanged Dis-Chem Energizer manual exception is over 30 days old, and three unchanged archived source pages (Fountains Mall Herbelin, Penguin Random House Art of Hosting, Penguin Post 44) returned new 404 warnings. No review dates or warning baselines were altered to suppress these findings. These require separate source review.
+- Live authenticated Firebase operations and email delivery were not tested. Production data, results and alerts were not modified.
 
-Evidence logs are private under `.research/firebase-upgrade/` in the isolated checkout. Reconcile with current main and its maintenance state before any release; do not overwrite its dirty package.json. Explicit owner approval is required before pushing or deploying. The one-time scheduled follow-up is complete and will be removed.
+Evidence logs are private under `.research/firebase-upgrade/` in the isolated checkout. The main workspace and its unfinished changes remain untouched. The one-time scheduled follow-up was removed. Six moderate dependency advisories remain as described above.

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-11-04",
-  "count": 89,
+  "count": 88,
   "competitions": [
     {
       "id": "boxer-coca-cola-samsung-a06-october-2026",
@@ -25,33 +25,6 @@
       "officialUrl": "https://www.boxer.co.za/page/competitions",
       "termsUrl": "https://www.boxer.co.za/storage/web/source/2026/Competition%20T%26Cs/Sep%20ME/Boxer%20%26%20CCBA%20Ts%26Cs.pdf?_t=1789978627",
       "lastChecked": "2026-10-03",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "hot-cares-schools-challenge-2026",
-      "title": "HOT Cares Schools Challenge: R100,000 in Radio Advertising",
-      "brand": "HOT Cares / HOT 102.7FM",
-      "summary": "Gauteng schools can register for HOT Cares’ Teddython fundraising challenge. The top school receives R100,000 in advertising airtime; the winning class gets a pizza experience.",
-      "imageUrl": "https://freehub.co.za/assets/listings/hot-cares-schools-challenge-2026.webp",
-      "closingDate": "2026-11-04",
-      "closingAt": "2026-11-04T10:00:00Z",
-      "category": "Lifestyle",
-      "prizeName": "R100,000 worth of HOT 102.7FM radio advertising for the top school",
-      "entryCostType": "fundraising_required",
-      "entryCostLabel": "Fundraising required",
-      "purchaseRequired": false,
-      "entryMethod": "School registration and verified fundraising totals",
-      "eligibility": "Participating Gauteng schools must register, obtain school approval and supervision for activities, submit final cash fundraising totals on time and provide supporting records if requested.",
-      "entrySteps": [
-        "A Gauteng school must register by emailing info@hotcares.co.za, following the official campaign page.",
-        "Arrange school-approved, appropriately supervised fundraising activities conducted safely and ethically.",
-        "Raise cash funds specifically in the name of the HOT Cares Schools Challenge.",
-        "Submit the final fundraising totals by 12:00 midday on 4 November 2026 and retain supporting records for verification."
-      ],
-      "officialUrl": "https://hot1027.co.za/competition/big-hearts-big-prizes-the-hot-cares-schools-challenge-is-here/",
-      "termsUrl": "https://hot1027.co.za/competition/big-hearts-big-prizes-the-hot-cares-schools-challenge-is-here/",
-      "lastChecked": "2026-10-14",
       "isHighValue": false,
       "isClosingSoon": true
     },
