@@ -1,56 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-04",
-  "count": 93,
+  "asOfDate": "2026-11-05",
+  "count": 94,
   "competitions": [
-    {
-      "id": "boxer-coca-cola-samsung-a06-october-2026",
-      "title": "Boxer & Coca-Cola: Win a Samsung A06 Phone",
-      "brand": "Boxer / Coca-Cola Beverages South Africa",
-      "summary": "Buy two advertised qualifying products and swipe Boxer Rewards for automatic entry into the draw for 500 Samsung A06 smartphones.",
-      "imageUrl": "https://freehub.co.za/assets/listings/boxer-coca-cola-samsung-a06-october-2026.webp",
-      "closingDate": "2026-11-04",
-      "category": "Tech",
-      "prizeName": "500 Samsung A06 smartphones",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Purchase and Rewards Card Swipe",
-      "eligibility": "18+ legal SA residents with valid SA ID/Smart Card; prior three-month Boxer winners excluded.",
-      "entrySteps": [
-        "Check the participating products advertised in the current Boxer Coca-Cola campaign.",
-        "Buy any two qualifying advertised products and swipe your valid Boxer Rewards Club card at checkout.",
-        "Complete your purchase and swipe by 23:59 on 4 November 2026. Each additional entry needs a separate qualifying transaction."
-      ],
-      "officialUrl": "https://www.boxer.co.za/page/competitions",
-      "termsUrl": "https://www.boxer.co.za/storage/web/source/2026/Competition%20T%26Cs/Sep%20ME/Boxer%20%26%20CCBA%20Ts%26Cs.pdf?_t=1789978627",
-      "lastChecked": "2026-10-03",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "ster-kinekor-street-fighter-watch-win-2026",
-      "title": "Ster-Kinekor Street Fighter Watch and Win",
-      "brand": "Ster-Kinekor",
-      "summary": "Street Fighter: two R1,800 figurine packs; ends 4 Nov. Eligible SK Club/Discovery Vitality members resident in SA, Namibia or Zambia enter with a qualifying film booking using their loyalty number.",
-      "imageUrl": "https://freehub.co.za/assets/listings/ster-kinekor-street-fighter-watch-win-2026.webp",
-      "closingDate": "2026-11-04",
-      "category": "Entertainment",
-      "prizeName": "Two figurine prize packs worth R1,800 each; the listed character combinations differ by winner.",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Loyalty Film Booking",
-      "eligibility": "Legal residents of South Africa, Namibia or Zambia using eligible Discovery Vitality or SK Club membership, including the named VIP, Fan Club, MORvies and Seniors affiliations. The inspected Street Fighter screening admits persons aged 13 and above; check the selected screening's restrictions. Promoter-related exclusions apply.",
-      "entrySteps": [
-        "Book a qualifying Street Fighter screening with an eligible SK Club or Discovery Vitality membership number during the campaign period for automatic entry."
-      ],
-      "officialUrl": "https://www.sterkinekor.com/competition/street-fighter-watch-and-win-competition",
-      "termsUrl": "https://www.sterkinekor.com/competition/street-fighter-watch-and-win-competition",
-      "lastChecked": "2026-10-24",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "nedbank-moyaapp-consumer-education-2026",
       "title": "Nedbank MoyaApp Consumer Education Competition",
@@ -360,7 +312,7 @@
       "termsUrl": "https://woobox.com/bua49d/rules",
       "lastChecked": "2026-09-17",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "hypertext-mobile-survey-2026",
@@ -388,7 +340,32 @@
       "termsUrl": "https://htxt.co.za/2026/09/the-hypertext-mobile-survey-returns-for-2026/",
       "lastChecked": "2026-10-28",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
+    },
+    {
+      "id": "raimondi-birthday-retail-promotion-2-2026",
+      "title": "Raimondi Birthday Retail Promotion 2",
+      "brand": "The Beverage Company",
+      "summary": "Western Cape residents can win one of six R1,500 Raimondi shopping vouchers in the second birthday retail draw.",
+      "imageUrl": "https://freehub.co.za/assets/listings/za-comp-engine-2026-11-04/raimondi.webp",
+      "closingDate": "2026-11-12",
+      "category": "Vouchers",
+      "prizeName": "Six R1,500 Raimondi vouchers",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "In-store",
+      "eligibility": "Western Cape residents who meet BevCo's general competition terms.",
+      "entrySteps": [
+        "Buy two qualifying JiVE, Twizza, Pepsi, Super C or Reboost products at a participating store.",
+        "Write your contact details on the back of your till slip and place it in that store's entry box.",
+        "Enter before 00:00 SAST on 12 November. One voucher is available per participating store."
+      ],
+      "officialUrl": "https://thebeveragecompany.co.za/raimondis-birthday-retail-promotion-1-23oct-to-12-nov-2026/",
+      "termsUrl": "https://thebeveragecompany.co.za/raimondis-birthday-retail-promotion-1-23oct-to-12-nov-2026/",
+      "lastChecked": "2026-11-04",
+      "isHighValue": false,
+      "isClosingSoon": true
     },
     {
       "id": "imana-pnp-lintons-corner-potjie-dash-2026",
@@ -1319,6 +1296,31 @@
       "isClosingSoon": false
     },
     {
+      "id": "nedbank-boxer-back-to-school-2026",
+      "title": "Nedbank Boxer Back-to-School",
+      "brand": "Nedbank",
+      "summary": "Qualifying Nedbank MiGoals clients can win one of 60 R500 Boxer stationery eCoupons.",
+      "imageUrl": "https://freehub.co.za/assets/listings/za-comp-engine-2026-11-04/nedbank.webp",
+      "closingDate": "2026-11-30",
+      "category": "Vouchers",
+      "prizeName": "60 R500 Boxer stationery eCoupons",
+      "entryCostType": "account_required",
+      "entryCostLabel": "Account required",
+      "purchaseRequired": false,
+      "entryMethod": "Automatic qualifying spend or deposit",
+      "eligibility": "Aged 18 or older with a South African ID and a qualifying Nedbank account in good standing. Promoter exclusions apply.",
+      "entrySteps": [
+        "Open or use a Nedbank MiGoals, MiGoals Plus or MiGoals Premium account.",
+        "Spend at least R1,000 at Boxer using that account, or deposit at least R1,000 into it at a Boxer till point. Multiple qualifying transactions can add up to the threshold.",
+        "Entry is automatic once the conditions are met during November."
+      ],
+      "officialUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/back-to-school-boxer-competition.html",
+      "termsUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/back-to-school-boxer-competition.html",
+      "lastChecked": "2026-11-04",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "clicks-have-your-say-october-november-2026",
       "title": "Clicks Have Your Say: Win R500 ClubCard Cashback",
       "brand": "Clicks ClubCard Magazine / The Publishing Partnership",
@@ -1468,6 +1470,31 @@
       "termsUrl": "https://hello.virginactive.co.za/support/solutions/articles/201000133030-terms-and-conditions-the-ultimate-getaway-competition",
       "lastChecked": "2026-10-30",
       "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "equisweet-summer-competition-2026",
+      "title": "Equisweet Summer Competition",
+      "brand": "Huletts",
+      "summary": "Win one of 50 R1,000 Shoprite or Checkers grocery vouchers with a qualifying EquiSweet purchase.",
+      "imageUrl": "https://freehub.co.za/assets/listings/za-comp-engine-2026-11-04/equisweet.webp",
+      "closingDate": "2026-12-06",
+      "category": "Vouchers",
+      "prizeName": "50 R1,000 Shoprite or Checkers grocery vouchers",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Qualifying purchase and Xtra Savings",
+      "eligibility": "South African residents aged 18 or older with proof of residency and an active Xtra Savings membership. Promoter and retailer exclusions apply.",
+      "entrySteps": [
+        "Buy a 100-pack of EquiSweet sachets or tablets from Shoprite or Checkers.",
+        "Swipe your Xtra Savings card in store, or make the qualifying purchase through Sixty60, for automatic entry.",
+        "Keep your till slip or Sixty60 invoice. Each separate qualifying purchase counts as an entry."
+      ],
+      "officialUrl": "https://www.hulettssugar.co.za/competition-rules/equisweet-summer-competition-rules/",
+      "termsUrl": "https://www.hulettssugar.co.za/competition-rules/equisweet-summer-competition-rules/",
+      "lastChecked": "2026-11-04",
+      "isHighValue": false,
       "isClosingSoon": false
     },
     {
