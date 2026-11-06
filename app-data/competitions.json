@@ -1,34 +1,8 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-11-06",
-  "count": 92,
+  "count": 91,
   "competitions": [
-    {
-      "id": "fao-world-food-day-poster-2026",
-      "title": "FAO World Food Day 2026 Poster Contest",
-      "brand": "Food and Agriculture Organization of the United Nations",
-      "summary": "Create a poster on Innovate today. Nourish tomorrow. FAO’s free World Food Day contest is open worldwide to ages 5–19 and closes 6 November 2026.",
-      "imageUrl": "https://freehub.co.za/assets/listings/fao-world-food-day-poster-2026.webp",
-      "closingDate": "2026-11-06",
-      "closingAt": "2026-11-06T11:00:00Z",
-      "category": "Experiences",
-      "prizeName": "FAO recognition and a surprise gift bag",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "Children and young people aged 5–19 worldwide, including South Africa; minors need parent or guardian consent.",
-      "entrySteps": [
-        "Read the age categories, theme, originality and rights conditions on FAO’s official contest page.",
-        "Create one original poster on Innovate today. Nourish tomorrow. Photographs and fully AI-generated posters are excluded; disclose permitted AI assistance.",
-        "Complete the official online form and upload your JPEG before 12:00 CET / 13:00 SAST on 6 November 2026."
-      ],
-      "officialUrl": "https://www.fao.org/world-food-day/contest/submit-form/en",
-      "termsUrl": "https://www.fao.org/world-food-day/contest/",
-      "lastChecked": "2026-10-06",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "ackermans-layby-samsung-a07-2026",
       "title": "Ackermans Lay-by & Win: R2,699 Handset Vouchers",

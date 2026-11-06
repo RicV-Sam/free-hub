@@ -3,13 +3,13 @@ Reviewed competition retirements effective: 6
 Date: 2026-11-06
 Mode: archive-expired
 Total competitions: 506
-Active published count: 93
-Expired archive page count: 306
+Active published count: 92
+Expired archive page count: 307
 Low-value expired noindex count: 0
 Held/private count: 107
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 18
+Closing in next 14 days: 17
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -318,9 +318,9 @@ Expired competition IDs:
 - ster-kinekor-street-fighter-watch-win-2026 (2026-11-04)
 - nedbank-moyaapp-consumer-education-2026 (2026-11-05)
 - superbalist-live-superb-cash-2026 (2026-11-05)
+- fao-world-food-day-poster-2026 (2026-11-06)
 
 Closing soon (next 14 days):
-- fao-world-food-day-poster-2026 (0 days)
 - ackermans-layby-samsung-a07-2026 (0 days)
 - nescafe-gold-rush-spar-2026 (2 days)
 - sunlight-spar-kitchen-makeover-2026 (2 days)
