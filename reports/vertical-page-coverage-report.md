@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-11-05
+Generated: 2026-11-06
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
@@ -96,14 +96,13 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 28
+- Matching active public competitions: 27
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Superbalist Live Superb: Win R100,000 Cash (superbalist-live-superb-cash-2026) | 2026-11-05 | free-entry | yes | yes | Online entry tag | none |
 | FAO World Food Day 2026 Poster Contest (fao-world-food-day-poster-2026) | 2026-11-06 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | 1UP Mangia Pasta R500 vouchers (1up-mangia-vouchers-2026) | 2026-11-09 | purchase-required | yes | yes | Online entry tag | none |
 | Outdoorphoto Wishlist: Win a Tenba Spinner Backpack (outdoorphoto-wishlist-tenba-2026) | 2026-11-10 | free-entry | yes | yes | Online entry tag | none |
