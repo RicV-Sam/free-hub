@@ -1,20 +1,19 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-11-06
+Generated: 2026-11-07
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 14
+- Matching active public competitions: 13
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Ackermans Lay-by & Win: R2,699 Handset Vouchers (ackermans-layby-samsung-a07-2026) | 2026-11-06 | purchase-required | yes | yes | WhatsApp mentioned in entry text | none |
 | Cape Town Move with Melody Dance Competition (cape-town-move-with-melody-2026) | 2026-11-09 | unknown | yes | yes | WhatsApp mentioned in entry text | none |
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Coca-Cola Be a Bok Competition 2026 (coca-cola-fan-can-be-a-bok-2026) | 2026-11-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |

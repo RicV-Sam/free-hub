@@ -1,34 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-06",
-  "count": 91,
+  "asOfDate": "2026-11-07",
+  "count": 90,
   "competitions": [
-    {
-      "id": "ackermans-layby-samsung-a07-2026",
-      "title": "Ackermans Lay-by & Win: R2,699 Handset Vouchers",
-      "brand": "Ackermans",
-      "summary": "Start a qualifying in-store Ackermans lay-by and scan your +more rewards card for automatic entry. Ten daily winners receive a R2,699 handset/tech voucher, the stated value of a Samsung A07.",
-      "imageUrl": "https://freehub.co.za/assets/listings/ackermans-layby-samsung-a07-2026.webp",
-      "closingDate": "2026-11-06",
-      "category": "Vouchers",
-      "prizeName": "Ten daily R2,699 handset/tech vouchers, the stated value of a Samsung A07",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "In-store",
-      "eligibility": "Participants in South Africa who are South African citizens with valid SA ID, or permanent residents with a valid permanent residency permit. Pepkor-related parties and specified families are excluded. The campaign rules do not state a minimum age.",
-      "entrySteps": [
-        "Make a qualifying lay-by in an Ackermans store during 1 October–6 November 2026. Cellular products and cellular accessories are excluded.",
-        "Scan your +more rewards card at the till for automatic entry. Check that your lay-by contact details are current.",
-        "Only one entry per participant is allowed, and each participant may win only one prize.",
-        "If selected, follow the official WhatsApp notification instructions. Redeem the R2,699 handset/tech voucher in an Ackermans store in full; no change, cashback or credit is issued for an unused balance."
-      ],
-      "officialUrl": "https://www.ackermans.co.za/blogs/financial-services/lay-by-win-a-samsung-a07-ts-cs",
-      "termsUrl": "https://www.ackermans.co.za/blogs/financial-services/lay-by-win-a-samsung-a07-ts-cs",
-      "lastChecked": "2026-10-08",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "nescafe-gold-rush-spar-2026",
       "title": "NESCAFÉ Gold Rush SPAR Rewards Competition",
@@ -338,7 +312,7 @@
       "termsUrl": "https://pizzaperfect.co.za/wp-content/uploads/2026/07/Terms-and-Conditions-Legacy.pdf",
       "lastChecked": "2026-09-18",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "huletts-spar-rewards-2026",

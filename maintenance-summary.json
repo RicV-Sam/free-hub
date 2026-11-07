@@ -2,12 +2,12 @@
   "ok": true,
   "errors": [],
   "summary": {
-    "today": "2026-11-06",
+    "today": "2026-11-07",
     "retiredCount": 6,
     "retiredRouteLeaks": [],
-    "expiredPublishedCount": 307,
-    "archivedCompetitionCount": 333,
-    "publicListingFilesScanned": 219,
+    "expiredPublishedCount": 308,
+    "archivedCompetitionCount": 334,
+    "publicListingFilesScanned": 168,
     "sitemapContainsOutUrls": false,
     "expiredMissingFromArchive": [],
     "expiredInSitemap": [],
@@ -28,13 +28,13 @@
     "nonPublicDetailPages": [],
     "nonPublicInPublicListings": [],
     "editorialHealth": {
-      "asOfDate": "2026-11-06",
+      "asOfDate": "2026-11-07",
       "needsReview": true,
       "surfaces": [
         {
           "surface": "home",
           "eligibleCount": 1,
-          "needsReview": false,
+          "needsReview": true,
           "nextReviewDue": "2026-11-09",
           "overdueIds": [
             "resource-childrens-books-book-dash",
