@@ -2793,5 +2793,30 @@
     "terms": "Tools, accessories and gift cards are excluded. The sale applies automatically at checkout. Additional codes cannot be used and DewDrops cannot be earned or redeemed during the sale. Dispatch may take longer than usual.",
     "startsAt": "2026-11-25",
     "expiresAt": "2026-12-01"
+  },
+  {
+    "id": "edgars-payflex-r250-off-r1000-2026",
+    "slug": "edgars-payflex-r250-off-r1000-2026",
+    "type": "coupon",
+    "brand": "Edgars",
+    "brandSlug": "edgars",
+    "title": "Edgars via Payflex: R250 Off R1,000 on Eligible Fashion",
+    "summary": "Use code 447382 for R250 off a qualifying R1,000 online fashion order. Payflex advertises the offer through 30 November 2026.",
+    "couponCode": "447382",
+    "destinationUrl": "https://www.edgars.co.za/collections/women-dresses",
+    "sourceUrl": "https://payflex.co.za/deals/",
+    "termsUrl": "https://payflex.co.za/deals/",
+    "category": "fashion",
+    "expiresAt": "2026-11-30",
+    "lastChecked": "2026-11-09",
+    "reviewDueAt": "2026-11-16",
+    "terms": "Enter the code at Edgars checkout on at least R1,000 of qualifying fashion and use Payflex for the advertised offer. FreeHub confirmed the R250 reduction at guest checkout on two regular-price fashion baskets. Check that the discount appears in your order summary before paying. Eligibility for sale items, other categories and combining discounts remains unconfirmed.",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "affiliate": false,
+    "sponsored": false,
+    "publishedAt": "2026-11-09",
+    "updatedAt": "2026-11-09"
   }
 ]

@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-11-09",
-  "count": 33,
+  "count": 34,
   "counts": {
     "freeStuff": 25,
     "resources": 25,
     "opportunities": 0,
-    "offers": 8
+    "offers": 9
   },
   "items": [
     {
@@ -554,6 +554,26 @@
       "termsUrl": "https://micsa.co.za/pages/black-friday-discount-terms",
       "requirements": [
         "Shipping is excluded from qualifying spend. The highest qualifying tier applies and cannot be combined with other discounts. Check the order total before paying."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-11-30",
+      "lastChecked": "2026-11-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "edgars-payflex-r250-off-r1000-2026",
+      "kind": "coupon",
+      "title": "Edgars via Payflex: R250 Off R1,000 on Eligible Fashion",
+      "provider": "Edgars",
+      "summary": "Use code 447382 for R250 off a qualifying R1,000 online fashion order. Payflex advertises the offer through 30 November 2026.",
+      "category": "fashion",
+      "categoryLabel": "Fashion",
+      "officialUrl": "https://www.edgars.co.za/collections/women-dresses",
+      "termsUrl": "https://payflex.co.za/deals/",
+      "couponCode": "447382",
+      "requirements": [
+        "Enter the code at Edgars checkout on at least R1,000 of qualifying fashion and use Payflex for the advertised offer. FreeHub confirmed the R250 reduction at guest checkout on two regular-price fashion baskets. Check that the discount appears in your order summary before paying. Eligibility for sale items, other categories and combining discounts remains unconfirmed."
       ],
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "expiresAt": "2026-11-30",
