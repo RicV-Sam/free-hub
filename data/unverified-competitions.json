@@ -2058,5 +2058,33 @@
     "publicationStatus": "public-under-review",
     "verificationStatus": "not-verified",
     "doNotPublish": true
+  },
+  {
+    "id": "simba-wanna-come-over-2026",
+    "brand": "Simba / PepsiCo South Africa",
+    "title": "Simba Wanna Come Over Competition",
+    "startDate": "2026-09-14",
+    "closingDate": "2026-12-14",
+    "closingDateText": "Enter by the end of 14 December 2026. The published cutoff is 00:00 on 15 December.",
+    "prize": "Makro’s campaign terms list instant airtime, electricity, fuel and grocery vouchers, monthly grocery vouchers and Simba hosting kits with cash, and a separate R10,000 grand prize with additional conditions.",
+    "entrySummary": "Buy any two 120 g Simba packs during the promotion period. Simba and Makro direct entrants to the Simba Roarrrs With Flavour microsite, also accessible from the on-pack QR code shown in the advert. Makro’s terms allow up to three entries and say winners may be asked for a till slip.",
+    "costSummary": "Purchase of two 120 g Simba packs is required. No separate entry fee is stated in the terms published by Makro. Normal connectivity costs may apply.",
+    "eligibility": "Makro’s terms require entrants to be 18 or older, permanently reside in South Africa and hold a valid South African ID or a passport and residency permission. Promoter and related-party exclusions apply.",
+    "officialSourceUrl": "https://simba.co.za/promotion?id=simba-wanna-come-over-campaign",
+    "termsUrl": "https://www.makro.co.za/pages/simba-wanna-come-over-competition",
+    "sourceCheckStatus": "partial",
+    "reviewGap": "Makro’s terms require grand-prize entrants to share and submit photos or video of a gathering using the prize. They also limit each entrant to one prize. FreeHub could not confirm how the two rules work together or verify the entry form.",
+    "image": "/assets/listings/2026-11-09/simba-wanna-come-over-2026.webp",
+    "imageAlt": "FreeHub editorial illustration of ridged potato chips in a bowl beside two unbranded packets.",
+    "imageLayout": "landscape",
+    "imageReviewStatus": "editorial-generated",
+    "imageReviewCheckedAt": "2026-11-09",
+    "imageReviewNote": "FreeHub editorial illustration. The generation prompt is recorded in the listing image metadata.",
+    "lastChecked": "2026-11-09",
+    "listedAt": "2026-11-09",
+    "reviewDueAt": "2026-11-16",
+    "publicationStatus": "public-under-review",
+    "verificationStatus": "not-verified",
+    "doNotPublish": true
   }
 ]

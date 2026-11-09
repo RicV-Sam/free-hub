@@ -3854,5 +3854,16 @@
     "reviewedAt": "2026-11-09",
     "sourcePage": "https://www.cellc.co.za/cellc/cellcrewards",
     "sourceImage": "https://www.cellc.co.za/cellc/img/world-of-cellc/summer/summer-new-desktop-1.webp"
+  },
+  "simba-wanna-come-over-2026": {
+    "src": "/assets/listings/2026-11-09/simba-wanna-come-over-2026.webp",
+    "width": 1535,
+    "height": 864,
+    "alt": "FreeHub editorial illustration of ridged potato chips in a bowl beside two unbranded packets.",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration.",
+    "reviewedAt": "2026-11-09",
+    "sourcePage": "https://www.makro.co.za/pages/simba-wanna-come-over-competition",
+    "generationPrompt": "Landscape 16:9 editorial illustration for FreeHub about sharing potato chips at a casual get-together. A close tabletop still life with a ceramic bowl of ridged potato chips and two plain unbranded chip packets on a warm terracotta table, subtle teal accents, modern textured editorial illustration, simple clear composition, ample breathing room. No people, logos, branding, exact packaging, prizes, cash, QR codes, dates, offer claims, or entry instructions. No text except the small but clearly legible label 'FreeHub editorial illustration' along the bottom."
   }
 }
