@@ -67,6 +67,7 @@ See [editorial image policy](docs/editorial-competition-image-policy.md). Generi
 - Use `renderSiteFooter()` for public content pages: shared WhatsApp/Facebook links, global auth panel and auth script are generator-enforced. `/out/*` is the minimal noindex/nofollow exception. See [new-page checklist](docs/new-page-checklist.md).
 
 ## Deployment and external effects
+- Handle email opt-outs and account deletion requests using the [privacy request runbook](docs/privacy-request-runbook.md). Copy the Firebase UID before deleting the sign-in. Keep individual requests and case records out of Git.
 - `.github/workflows/deploy.yml` deploys GitHub Pages on pushes to `main` or manual dispatch; publishing the root artifact also submits sitemap URLs to Bing/IndexNow when configured. Treat pushes to `main` as releases.
 - `.github/workflows/daily-competition-maintenance.yml` archives expired records, regenerates, validates maintenance state, and commits/deploys changes. `.github/workflows/regression.yml` supplies PR baseline, link and browser checks; the deploy workflow itself does not run the full regression suite.
 - Keep real `firebase-config.json`, `.env` and credentials out of commits. Deployment creates optional Firebase web config from repository variables; use the checked-in example files for local setup.
