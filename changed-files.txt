@@ -1,1 +1,3 @@
 changed-files.txt
+maintenance-report.txt
+maintenance-summary.json

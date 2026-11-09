@@ -1,15 +1,15 @@
 Reviewed competition retirements effective: 6
 === Competition Maintenance Report ===
-Date: 2026-11-07
+Date: 2026-11-09
 Mode: archive-expired
-Total competitions: 506
-Active published count: 91
-Expired archive page count: 308
+Total competitions: 511
+Active published count: 93
+Expired archive page count: 311
 Low-value expired noindex count: 0
 Held/private count: 107
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 16
+Closing in next 14 days: 14
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -287,7 +287,6 @@ Expired competition IDs:
 - cadbury-made-to-share-2026 (2026-10-31)
 - dis-chem-garnier-soft-life-2026 (2026-10-31)
 - ufo-newsletter-voucher-2026 (2026-10-31)
-- nedbank-old-mutual-budget-speech-2026 (2026-10-31)
 - beares-facebook-russell-hobbs-freezer-october-2026 (2026-10-31)
 - beares-instagram-skyler-wardrobe-october-2026 (2026-10-31)
 - samsung-october-rate-and-review-2026 (2026-10-31)
@@ -320,24 +319,26 @@ Expired competition IDs:
 - superbalist-live-superb-cash-2026 (2026-11-05)
 - fao-world-food-day-poster-2026 (2026-11-06)
 - ackermans-layby-samsung-a07-2026 (2026-11-06)
+- nescafe-gold-rush-spar-2026 (2026-11-08)
+- sunlight-spar-kitchen-makeover-2026 (2026-11-08)
+- boxer-colgate-lenovo-tablets-2026 (2026-11-08)
+- boxer-go-getta-2026 (2026-11-08)
 
 Closing soon (next 14 days):
-- nescafe-gold-rush-spar-2026 (1 days)
-- sunlight-spar-kitchen-makeover-2026 (1 days)
-- boxer-colgate-lenovo-tablets-2026 (1 days)
-- boxer-go-getta-2026 (1 days)
-- 1up-mangia-vouchers-2026 (2 days)
-- cape-town-move-with-melody-2026 (2 days)
-- outdoorphoto-wishlist-tenba-2026 (3 days)
-- clicks-amka-deo2rands-2026 (5 days)
-- hypertext-mobile-survey-2026 (5 days)
-- raimondi-birthday-retail-promotion-2-2026 (5 days)
-- imana-pnp-lintons-corner-potjie-dash-2026 (6 days)
-- pizza-perfect-oom-freddy-legacy-2026 (7 days)
-- huletts-spar-rewards-2026 (8 days)
-- mtn-tfg-prepaid-win-your-share-2026 (11 days)
-- bed-bath-home-november-voucher-signup-2026 (12 days)
-- edgars-at-our-school-2026 (13 days)
+- 1up-mangia-vouchers-2026 (0 days)
+- cape-town-move-with-melody-2026 (0 days)
+- outdoorphoto-wishlist-tenba-2026 (1 days)
+- clicks-amka-deo2rands-2026 (3 days)
+- hypertext-mobile-survey-2026 (3 days)
+- raimondi-birthday-retail-promotion-2-2026 (3 days)
+- imana-pnp-lintons-corner-potjie-dash-2026 (4 days)
+- pizza-perfect-oom-freddy-legacy-2026 (5 days)
+- nedbank-old-mutual-budget-speech-2026 (6 days)
+- huletts-spar-rewards-2026 (6 days)
+- mtn-tfg-prepaid-win-your-share-2026 (9 days)
+- bed-bath-home-november-voucher-signup-2026 (10 days)
+- edgars-at-our-school-2026 (11 days)
+- eskort-braai-lux-2026 (13 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present
