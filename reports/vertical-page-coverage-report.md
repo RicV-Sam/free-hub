@@ -52,7 +52,7 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 26
+- Matching active public competitions: 27
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -79,6 +79,7 @@ Recommended normalisation:
 | Mambo’s Suzuki Swift (mambos-suzuki-swift-2026) | 2026-12-15 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | CTM Year-End Sale: Win an Australia Trip for Two (ctm-australia-trip-competition-2026) | 2026-12-24 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Maynards Kaboom: Win R200 SPAR Vouchers (maynards-kaboom-spar-rewards-2026) | 2026-12-26 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
+| Easy Build Dezemba Ready: Win R2,000 or R4,000 Vouchers (easy-build-dezemba-ready-2026) | 2026-12-27 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Win R30,000 in the Galito’s Birthday Feast weekly draw (galitos-birthday-feast-2026) | 2026-12-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Alpha Pharm Alpha 52 Competition (alpha-pharm-alpha-52-cash-2026) | 2026-12-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Powerade Rugby World Cup 2027 Trip Competition (powerade-rwc-2026) | 2026-12-31 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
@@ -92,7 +93,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 26
+- Matching active public competitions: 29
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -111,9 +112,11 @@ Recommended normalisation:
 | First Choice: Win a Power Cup Hamper (first-choice-moms-got-the-power-2026) | 2026-11-30 | account-required | yes | yes | Online entry tag | none |
 | Beares Facebook Headboard Competition (beares-facebook-stanley-headboard-november-2026) | 2026-11-30 | account-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Beares Instagram Ceramic Stove Competition (beares-instagram-ceramic-stove-november-2026) | 2026-11-30 | account-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| Paaper Bites Flavour Battle: Win a Snack Hamper (paaper-bites-flavour-battle-2026) | 2026-11-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Clicks October/November Beauty Box Giveaway (clicks-october-november-beauty-box-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Clicks D’Licious Hamper Giveaway (clicks-dlicious-hamper-october-november-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Clicks DKNY Ice Pop Fragrance Giveaway (clicks-dkny-ice-pop-october-november-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
+| Dough Couture Christmas Giveaway: Win a Festive Hamper (dough-couture-christmas-giveaway-2026) | 2026-12-01 | free-entry | yes | yes | Online entry tag | none |
 | Penguin Random House: Win a Camp Half-Blood Hamper (prh-camp-half-blood-2026) | 2026-12-04 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Sausage Saloon: Win a MacBook Neo (sausage-saloon-macbook-neo-2026) | 2026-12-15 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Mambo’s Suzuki Swift (mambos-suzuki-swift-2026) | 2026-12-15 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
@@ -123,6 +126,7 @@ Recommended normalisation:
 | Builders Ratings and Reviews Competition 2026 (builders-ratings-reviews-2026) | 2026-12-31 | purchase-required | yes | yes | Online entry tag | none |
 | JWD Giveaway: Win a R10,000 Website (jwd-win-a-website-2026) | 2026-12-31 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Tropika at Engen: Win a Réunion Trip for Two (tropika-island-treasure-engen-2026) | 2026-12-31 | purchase-required | yes | yes | Online entry tag | none |
+| Haier Unlock Match Day: Win a R2,000 Voucher (haier-unlock-match-day-2026) | 2026-12-31 | free-entry | yes | yes | Online entry tag | none |
 | Writers of the Future 2027 First Quarter (writers-of-the-future-q1-2027) | 2027-01-01 | free-entry | yes | yes | Online entry tag | none |
 | Sony World Photography Awards 2027 Single Image Competition (sony-single-image-2027) | 2027-01-05 | free-entry | yes | yes | Online entry tag | none |
 

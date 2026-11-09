@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-11-09",
-  "count": 28,
+  "count": 33,
   "counts": {
-    "freeStuff": 22,
-    "resources": 22,
+    "freeStuff": 25,
+    "resources": 25,
     "opportunities": 0,
-    "offers": 6
+    "offers": 8
   },
   "items": [
     {
@@ -362,6 +362,54 @@
       "lastChecked": "2026-11-02"
     },
     {
+      "id": "zorora-free-fabric-swatches",
+      "kind": "resource",
+      "title": "Zorora free sofa fabric swatches",
+      "provider": "Zorora free sofa fabric swatches",
+      "summary": "Up to four different sofa fabric swatches with free shipping.",
+      "category": "samples",
+      "categoryLabel": "Free samples and product testing",
+      "officialUrl": "https://zororasofas.co.za/pages/fabric-swatch-page",
+      "bestFor": "Sofa shoppers comparing fabrics",
+      "requirements": [
+        "Select swatches and check shipping for your address in Zorora’s cart."
+      ],
+      "watchOut": "Extra swatches cost R20 each.",
+      "lastChecked": "2026-11-09"
+    },
+    {
+      "id": "wethinkcode-free-ai-training",
+      "kind": "resource",
+      "title": "WeThinkCode_ free online AI course for professionals",
+      "provider": "WeThinkCode_ free online AI course for professionals",
+      "summary": "Free online AI training in scheduled cohorts.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://ai.wethinkcode.co.za/",
+      "bestFor": "People using AI at work or in study",
+      "requirements": [
+        "Apply with a work or student email. Internet access is required."
+      ],
+      "watchOut": "Check the official portal for dates and available places.",
+      "lastChecked": "2026-11-09"
+    },
+    {
+      "id": "dbe-state-owned-school-textbooks",
+      "kind": "resource",
+      "title": "Department of Basic Education free school textbooks",
+      "provider": "Department of Basic Education free school textbooks",
+      "summary": "Download selected state-owned school textbooks for free.",
+      "category": "school-resources",
+      "categoryLabel": "Free school resources",
+      "officialUrl": "https://www.education.gov.za/Curriculum/LearningandTeachingSupportMaterials(LTSM)/State-owned-textbooks.aspx",
+      "bestFor": "South African learners, parents and teachers",
+      "requirements": [
+        "Choose the right grade, subject, language and edition."
+      ],
+      "watchOut": "Data and printing can still cost money.",
+      "lastChecked": "2026-11-09"
+    },
+    {
       "id": "zorora-pick-your-promo-november-2026",
       "kind": "deal",
       "title": "Zorora Pick Your Promo November Sale",
@@ -472,6 +520,44 @@
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "expiresAt": "2026-11-29",
       "lastChecked": "2026-11-04",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "umatie-first-order-20-off",
+      "kind": "coupon",
+      "title": "Umatie: 20% Off Your First Online Order",
+      "provider": "Umatie",
+      "summary": "Use the retailer's public welcome code for 20% off your first online Umatie order.",
+      "category": "baby-kids",
+      "categoryLabel": "Baby & Kids",
+      "officialUrl": "https://umatie.co.za/promotions/",
+      "termsUrl": "https://umatie.co.za/delivery-info/",
+      "couponCode": "NEW-CUSTOMER-DISCOUNT",
+      "requirements": [
+        "First online order only. Enter the code before paying. Umatie does not combine codes. Its delivery page lists an R400 minimum order and location-specific delivery fees and coverage. The retailer does not state a code expiry."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "mic-sa-black-november-2026",
+      "kind": "deal",
+      "title": "MIC SA Black November: 10% to 30% Off by Spend",
+      "provider": "MIC SA",
+      "summary": "Save 10% from R1,000, 20% from R2,500 or 30% from R5,000 under MIC SA's Black November terms.",
+      "category": "home-garden",
+      "categoryLabel": "Home & Garden",
+      "officialUrl": "https://micsa.co.za/",
+      "termsUrl": "https://micsa.co.za/pages/black-friday-discount-terms",
+      "requirements": [
+        "Shipping is excluded from qualifying spend. The highest qualifying tier applies and cannot be combined with other discounts. Check the order total before paying."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-11-30",
+      "lastChecked": "2026-11-09",
       "isAffiliate": false,
       "isSponsored": false
     }

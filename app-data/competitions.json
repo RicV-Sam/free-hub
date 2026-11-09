@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-11-09",
-  "count": 87,
+  "count": 91,
   "competitions": [
     {
       "id": "1up-mangia-vouchers-2026",
@@ -1136,6 +1136,32 @@
       "isClosingSoon": false
     },
     {
+      "id": "paaper-bites-flavour-battle-2026",
+      "title": "Paaper Bites Flavour Battle: Win a Snack Hamper",
+      "brand": "Paaper Bites",
+      "summary": "Choose Team Chutney or Team Mexican Chilli and enter the free online draw for a merchandise hamper and Paaper Bites snacks.",
+      "imageUrl": "https://freehub.co.za/assets/listings/2026-11-09/paaper-bites-flavour-battle-2026.webp",
+      "closingDate": "2026-11-30",
+      "closingAt": "2026-11-30T23:59:00+02:00",
+      "category": "Food & Drink",
+      "prizeName": "One Paaper Bites merchandise hamper plus snacks",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "South African residents aged 18 or older with a valid South African ID, passport or permit and a delivery address in South Africa. Promoter, supplier and household exclusions apply.",
+      "entrySteps": [
+        "Open the official Flavour Battle page and pick either flavour team.",
+        "Fill in the draw form with your name, email, mobile number and province. Read and accept the competition rules.",
+        "Enter through the form once per day until 23:59 SAST on 30 November. The promoter also offers optional bonus entries through its official social accounts."
+      ],
+      "officialUrl": "https://paaperbites.co.za/battle",
+      "termsUrl": "https://paaperbites.co.za/competition-rules",
+      "lastChecked": "2026-11-09",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
       "id": "clicks-have-your-say-october-november-2026",
       "title": "Clicks Have Your Say: Win R500 ClubCard Cashback",
       "brand": "Clicks ClubCard Magazine / The Publishing Partnership",
@@ -1233,6 +1259,32 @@
       "officialUrl": "https://clicks.co.za/clubcard/competitions/clubcard-magazine-october-november-issue-of-2026-fragrances-competition",
       "termsUrl": "https://woobox.com/96yz3d/rules",
       "lastChecked": "2026-10-03",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "dough-couture-christmas-giveaway-2026",
+      "title": "Dough Couture Christmas Giveaway: Win a Festive Hamper",
+      "brand": "Dough Couture",
+      "summary": "Share your dream festive flavour on the official giveaway post. The main hamper is available nationwide and the runner-up box has a Pretoria-area limit.",
+      "imageUrl": "https://freehub.co.za/assets/listings/2026-11-09/dough-couture-christmas-giveaway-2026.webp",
+      "closingDate": "2026-12-01",
+      "closingAt": "2026-12-01T23:59:00+02:00",
+      "category": "Food & Drink",
+      "prizeName": "A festive hamper and a runner-up Festive Box",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Social",
+      "eligibility": "South African residents aged 18 or older. The runner-up must be in the Pretoria delivery area or able to collect in Pretoria. Promoter and supplier exclusions apply.",
+      "entrySteps": [
+        "Open the official campaign page and follow its Instagram or Facebook giveaway link.",
+        "Follow Dough Couture, like the giveaway post and comment with your dream festive flavour. Tag someone you would share the prize with.",
+        "Use a different tag for each extra comment. The promoter counts up to five valid comments per platform and one optional Story bonus per platform."
+      ],
+      "officialUrl": "https://doughcouture.co.za/pages/christmas-giveaway",
+      "termsUrl": "https://doughcouture.co.za/pages/christmas-giveaway",
+      "lastChecked": "2026-11-09",
       "isHighValue": false,
       "isClosingSoon": false
     },
@@ -1510,6 +1562,31 @@
       "officialUrl": "https://www.spar.co.za/competitions/maynards-SPAR-Rewards-competition",
       "termsUrl": "https://www.spar.co.za/competitions/maynards-SPAR-Rewards-competition",
       "lastChecked": "2026-10-21",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "easy-build-dezemba-ready-2026",
+      "title": "Easy Build Dezemba Ready: Win R2,000 or R4,000 Vouchers",
+      "brand": "Easy Build",
+      "summary": "Spend R2,000 or more in a single transaction at one of eight participating Easy Build or Easy Tile stores and enter with a numbered slip.",
+      "imageUrl": "https://freehub.co.za/assets/listings/2026-11-09/easy-build-dezemba-ready-2026.webp",
+      "closingDate": "2026-12-27",
+      "category": "Vouchers",
+      "prizeName": "Eight R2,000 weekly vouchers and eight R4,000 store grand prizes",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "In-store",
+      "eligibility": "Individuals aged 18 or older with valid identity documents who shop at a participating store. Promoter, agency and supplier exclusions apply.",
+      "entrySteps": [
+        "Check the official list of eight participating stores. Pay at least R2,000 in one transaction after discounts, including VAT, in full at the till by cash or card.",
+        "Complete the numbered entry slip from the cashier. The cashier initials it and puts it into the store's sealed entry box. Keep the original receipt.",
+        "Shop by 18 December to qualify for your store's grand-prize draw. Weekly draws continue for purchases made until participating stores close on 27 December."
+      ],
+      "officialUrl": "https://www.easybuildgroup.co.za/dezemba-ready/",
+      "termsUrl": "https://www.easybuildgroup.co.za/dezemba-ready/terms/",
+      "lastChecked": "2026-11-09",
       "isHighValue": false,
       "isClosingSoon": false
     },
@@ -1940,6 +2017,33 @@
       "officialUrl": "https://mea.bic.com/en-za/lighters/Braais-are-best-with-bic",
       "termsUrl": "https://mea.bic.com/en-za/lighters/bic-summer-braai-competition-terms-and-conditions",
       "lastChecked": "2026-10-30",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "haier-unlock-match-day-2026",
+      "title": "Haier Unlock Match Day: Win a R2,000 Voucher",
+      "brand": "Haier South Africa",
+      "summary": "Find a hidden football club icon on a qualifying Haier page and share it for a chance to win one of two R2,000 digital cash cards or vouchers each month.",
+      "imageUrl": "https://freehub.co.za/assets/listings/2026-11-09/haier-unlock-match-day-2026.webp",
+      "closingDate": "2026-12-31",
+      "closingAt": "2026-12-31T23:59:00+02:00",
+      "category": "Vouchers",
+      "prizeName": "One of four R2,000 digital vouchers",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Social",
+      "eligibility": "South African citizens or permanent residents aged 18 or older with acceptable proof of identity. Haier-connected parties, including participating retailers, specified creators and related households, are excluded as set out in the rules.",
+      "entrySteps": [
+        "Find an approved hidden football club icon on a qualifying Haier South Africa product page and capture it with enough of the page visible for verification.",
+        "Post the screenshot publicly on Instagram, Facebook or TikTok. Tag and follow the applicable official Haier South Africa account and add #UnlockMatchDay.",
+        "Enter by 23:59 SAST on 30 November for the November draw or from 1 December until 23:59 SAST on 31 December for the December draw. Entries reset between rounds.",
+        "Keep the account and post public for seven days after the applicable winner selection. Potential winners have 72 hours to respond to Haier."
+      ],
+      "officialUrl": "https://www.haier.com/za/where-to-buy/promotions/20261106_296250.shtml",
+      "termsUrl": "https://docs.google.com/document/d/1rQeZjxEaDAzvxDJI-76r4zcdUPeJ78WY/edit",
+      "lastChecked": "2026-11-09",
       "isHighValue": false,
       "isClosingSoon": false
     },

@@ -2032,5 +2032,32 @@
     "verificationStatus": "not-verified",
     "doNotPublish": true,
     "sourceCheckStatus": "partial"
+  },
+  {
+    "id": "one-deal-a-day-ps5-digital-edition-2026",
+    "brand": "One Deal A Day / Tech Bar Investments",
+    "title": "One Deal A Day PlayStation 5 Digital Edition Giveaway",
+    "closingDate": "2026-12-06",
+    "closingDateText": "6 December 2026 at 23:59 SAST, as stated in the promoter's rules.",
+    "prize": "The promoter's rules list one PlayStation 5 Digital Edition and one DualSense controller, with free delivery to a physical address in South Africa.",
+    "entrySummary": "The rules say to complete the campaign lead form on Facebook or Instagram using a South African WhatsApp number and then confirm the entry on WhatsApp. They allow one entry per mobile number.",
+    "costSummary": "The published rules say entry is free. Entry includes consent to WhatsApp marketing. Normal connectivity costs may apply.",
+    "eligibility": "The published rules say South African residents aged 18 or older can enter, subject to the listed promoter and related-party exclusions.",
+    "officialSourceUrl": "https://www.onedealaday.co.za/page/playstationfive",
+    "termsUrl": "https://www.onedealaday.co.za/page/playstationfive",
+    "sourceCheckStatus": "partial",
+    "reviewGap": "FreeHub checked the promoter's campaign-specific terms and confirmed the stated prize, dates and entry instructions. The exact Facebook or Instagram lead form has not been located, so we cannot verify where to submit an entry. The official link here opens the rules.",
+    "image": "/assets/listings/2026-11-09/one-deal-a-day-ps5-digital-edition-2026.webp",
+    "imageAlt": "FreeHub editorial illustration of an unbranded game controller and a phone with a chat symbol.",
+    "imageLayout": "landscape",
+    "imageReviewStatus": "editorial-generated",
+    "imageReviewCheckedAt": "2026-11-09",
+    "imageReviewNote": "FreeHub editorial illustration generated with built-in ImageGen. Prompt: Create a polished landscape 16:9 editorial illustration for FreeHub's under-review page about a South African electronics-console giveaway with a social entry form still to be verified. A generic unbranded games controller resting on a dark desk beside a smartphone with a plain abstract chat bubble on its screen. Deep navy and warm cream with subtle teal accents, editorial 3D paper style, attractive low-key light, full scene visible with safe margins. Do not show a specific console model, platform logo, store branding, personal details, a claim button, an entry link, money, prizes, eligibility or a date. The sole visible text, clear and legible near the bottom of the composition, must read exactly 'FreeHub editorial illustration'.",
+    "lastChecked": "2026-11-09",
+    "listedAt": "2026-11-09",
+    "reviewDueAt": "2026-11-16",
+    "publicationStatus": "public-under-review",
+    "verificationStatus": "not-verified",
+    "doNotPublish": true
   }
 ]

@@ -3745,5 +3745,92 @@
     "caption": "FreeHub editorial illustration.",
     "reviewedAt": "2026-11-04",
     "sourcePage": "https://personal.nedbank.co.za/legal/terms-and-conditions/back-to-school-boxer-competition.html"
+  },
+  "haier-unlock-match-day-2026": {
+    "src": "/assets/listings/2026-11-09/haier-unlock-match-day-2026.webp",
+    "width": 1536,
+    "height": 768,
+    "alt": "Official Haier Unlock Match Day artwork showing a stadium, a club-icon hunt and two R2,000 vouchers.",
+    "kind": "official-source",
+    "caption": "Official provider artwork.",
+    "reviewedAt": "2026-11-09",
+    "sourcePage": "https://www.haier.com/za/where-to-buy/promotions/20261106_296250.shtml",
+    "sourceImage": "https://image.haier.com/za/where-to-buy/promotions/W020261106703298607219_q.jpg"
+  },
+  "paaper-bites-flavour-battle-2026": {
+    "src": "/assets/listings/2026-11-09/paaper-bites-flavour-battle-2026.webp",
+    "width": 1200,
+    "height": 630,
+    "alt": "Paaper Bites artwork showing the Chutney and Mexican Chilli mascots and corn snacks.",
+    "kind": "official-source",
+    "caption": "Official provider artwork.",
+    "reviewedAt": "2026-11-09",
+    "sourcePage": "https://paaperbites.co.za/battle",
+    "sourceImage": "https://paaperbites.co.za/img/og.jpg"
+  },
+  "dough-couture-christmas-giveaway-2026": {
+    "src": "/assets/listings/2026-11-09/dough-couture-christmas-giveaway-2026.webp",
+    "width": 1080,
+    "height": 1350,
+    "alt": "Dough Couture Christmas giveaway artwork showing seasonal treats and gift packaging.",
+    "kind": "official-source",
+    "caption": "Official provider artwork.",
+    "reviewedAt": "2026-11-09",
+    "sourcePage": "https://doughcouture.co.za/pages/christmas-giveaway",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0599/1553/4471/files/IMG-20261101-WA0005.jpg?v=1793622336"
+  },
+  "easy-build-dezemba-ready-2026": {
+    "src": "/assets/listings/2026-11-09/easy-build-dezemba-ready-2026.webp",
+    "width": 1536,
+    "height": 717,
+    "alt": "Easy Build Dezemba Ready campaign artwork showing a family working on a home improvement project.",
+    "kind": "official-source",
+    "caption": "Official provider artwork.",
+    "reviewedAt": "2026-11-09",
+    "sourcePage": "https://www.easybuildgroup.co.za/dezemba-ready/",
+    "sourceImage": "https://www.easybuildgroup.co.za/wp-content/uploads/2026/11/IMG_0012-1-1536x717.png"
+  },
+  "umatie-first-order-20-off": {
+    "src": "/assets/listings/2026-11-09/umatie-first-order-20-off.webp",
+    "width": 1490,
+    "height": 500,
+    "alt": "Umatie first-order promotion photo of a child holding an Umatie meal pack.",
+    "kind": "official-source",
+    "caption": "Official provider artwork.",
+    "reviewedAt": "2026-11-09",
+    "sourcePage": "https://umatie.co.za/promotions/",
+    "sourceImage": "https://umatie.co.za/wp-content/uploads/New-Customer-Code-33-02.jpg"
+  },
+  "mic-sa-black-november-2026": {
+    "src": "/assets/listings/2026-11-09/mic-sa-black-november-2026.webp",
+    "width": 1536,
+    "height": 576,
+    "alt": "MIC SA Black November banner with tableware and the three qualifying discount tiers.",
+    "kind": "official-source",
+    "caption": "Official provider artwork.",
+    "reviewedAt": "2026-11-09",
+    "sourcePage": "https://micsa.co.za/",
+    "sourceImage": "https://micsa.co.za/cdn/shop/files/Black_November_v5.png?v=1793361939&width=1536"
+  },
+  "fundamentals-skincare-black-friday-2026": {
+    "src": "/assets/listings/2026-11-09/fundamentals-skincare-black-friday-2026.webp",
+    "width": 840,
+    "height": 1160,
+    "alt": "Official Fundamentals Skincare sale-page photograph of a serum dropper and carton.",
+    "kind": "official-source",
+    "caption": "Official provider artwork.",
+    "reviewedAt": "2026-11-09",
+    "sourcePage": "https://fundamentals-skincare.co.za/pages/black-friday-2026",
+    "sourceImage": "https://fundamentals-skincare.co.za/cdn/shop/files/active2.jpg?v=1771841324&width=1600"
+  },
+  "one-deal-a-day-ps5-digital-edition-2026": {
+    "src": "/assets/listings/2026-11-09/one-deal-a-day-ps5-digital-edition-2026.webp",
+    "width": 1535,
+    "height": 864,
+    "alt": "FreeHub editorial illustration of an unbranded game controller and a phone with a chat symbol.",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration.",
+    "reviewedAt": "2026-11-09",
+    "sourcePage": "https://www.onedealaday.co.za/page/playstationfive"
   }
 }
