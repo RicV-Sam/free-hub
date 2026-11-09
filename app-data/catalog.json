@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-07",
-  "count": 32,
+  "asOfDate": "2026-11-09",
+  "count": 28,
   "counts": {
     "freeStuff": 22,
     "resources": 22,
     "opportunities": 0,
-    "offers": 10
+    "offers": 6
   },
   "items": [
     {
@@ -414,82 +414,6 @@
         "For new customers only. Apply NEW20 at checkout on the website or app. It is single use and the discount is calculated before shipping and taxes. iHerb's South African shipping policy says import duties, taxes or handling fees can apply, depending on the order and carrier. Check the final cost before paying. The official code terms give no fixed expiry date."
       ],
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "lastChecked": "2026-11-04",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "rustenburg-film-festival-free-admission-2026",
-      "kind": "deal",
-      "title": "Free Rustenburg Film Festival Admission",
-      "provider": "Rustenburg Film Festival",
-      "summary": "Register for free admission to the Rustenburg Film Festival's 10th anniversary programme in Cashan, Rustenburg.",
-      "category": "entertainment",
-      "categoryLabel": "Entertainment",
-      "officialUrl": "https://www.quicket.co.za/events/394490-rustenburg-film-festival/",
-      "termsUrl": "https://www.quicket.co.za/events/394490-rustenburg-film-festival/",
-      "requirements": [
-        "The organiser lists 5–8 November 2026 at Upper East Side, 1 Abbey Street, Cashan. Admission is free with registration through the official ticket page, subject to availability. The ticket widget displays an end time of midnight at the start of 8 November. Check the schedule and ticket status before travelling."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2026-11-07",
-      "lastChecked": "2026-11-04",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "ngeke-festival-free-ticket-johannesburg-2026",
-      "kind": "deal",
-      "title": "Free Ngeke! Festival Ticket in Johannesburg",
-      "provider": "Ngeke! Festival",
-      "summary": "Sign the organiser's anti-corruption pledge and choose the free festival ticket option for 7 November at The Nest in Johannesburg.",
-      "category": "entertainment",
-      "categoryLabel": "Entertainment",
-      "officialUrl": "https://www.ngeke.co.za/",
-      "termsUrl": "https://www.ngeke.co.za/",
-      "requirements": [
-        "The festival takes place on 7 November 2026 at The Nest, 39 Voorhout Street, New Doornfontein, Johannesburg. Sign the pledge and select the option that also reserves a free ticket. The pledge-only option does not reserve admission. Check current availability and event details with the organiser."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2026-11-07",
-      "lastChecked": "2026-11-04",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "yellow-sands-market-free-entry-november-2026",
-      "kind": "deal",
-      "title": "Free Entry to the Yellow Sands Market",
-      "provider": "Yellow Sands",
-      "summary": "Visit the Yellow Sands Market near East London with free admission on 7 November.",
-      "category": "entertainment",
-      "categoryLabel": "Entertainment",
-      "officialUrl": "https://yellows.co.za/market",
-      "termsUrl": "https://yellows.co.za/market",
-      "requirements": [
-        "The venue advertises free entry for everyone from 14:30 to 20:30 on Saturday, 7 November 2026, at Yellow Sands on the East Coast Resorts road near East London. Food and market purchases are separate."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2026-11-07",
-      "lastChecked": "2026-11-04",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "embo-music-fusion-concert-free-entry-2026",
-      "kind": "deal",
-      "title": "Free Entry to Embo Music Fusion in Gqeberha",
-      "provider": "Embo Music Fusion",
-      "summary": "Attend the Embo Music Fusion Concert for free in Algoa Park on 7 November.",
-      "category": "entertainment",
-      "categoryLabel": "Entertainment",
-      "officialUrl": "https://www.algoafm.co.za/event/embo-music-fusion-concert",
-      "termsUrl": "https://www.algoafm.co.za/event/embo-music-fusion-concert",
-      "requirements": [
-        "The event notice lists 12:00–19:00 on Saturday, 7 November 2026 at 255 Whyteleaf Drive, Algoa Park, Gqeberha. Entry is free. Food is available to buy separately."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2026-11-07",
       "lastChecked": "2026-11-04",
       "isAffiliate": false,
       "isSponsored": false

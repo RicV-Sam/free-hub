@@ -1,113 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-07",
-  "count": 90,
+  "asOfDate": "2026-11-09",
+  "count": 87,
   "competitions": [
-    {
-      "id": "nescafe-gold-rush-spar-2026",
-      "title": "NESCAFÉ Gold Rush SPAR Rewards Competition",
-      "brand": "NESCAFÉ / Nestlé South Africa / SPAR",
-      "summary": "Buy a participating NESCAFÉ GOLD or Cappuccino product at SPAR and swipe your SPAR Rewards card for a chance to win one of five R100,000 travel vouchers.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/nescafe-gold-rush-spar-2026.jpg",
-      "closingDate": "2026-11-08",
-      "category": "Holidays",
-      "prizeName": "One of five R100,000 Flight Centre travel vouchers issued by Corporate Traveller",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Purchase and SPAR Rewards Card Swipe",
-      "eligibility": "South African residents aged 18 or older; a valid SPAR Rewards card and qualifying purchase are required.",
-      "entrySteps": [
-        "Check the exact participating NESCAFÉ GOLD and Cappuccino products in the official SPAR rules; single-serve sticks are excluded in the campaign artwork.",
-        "Buy a qualifying product during the competition period and swipe your valid SPAR Rewards card at the same checkout.",
-        "Entry is automatic. Check the entry confirmation on your till slip and keep the original receipt for winner verification.",
-        "Enter by 8 November 2026. The terms describe the cut-off as 12am midnight on that date; enter earlier to avoid ambiguity."
-      ],
-      "officialUrl": "https://www.spar.co.za/competitions/nescafe-gold-rush-spar-rewards-competition",
-      "termsUrl": "https://www.spar.co.za/competitions/nescafe-gold-rush-spar-rewards-competition",
-      "lastChecked": "2026-10-02",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
-    {
-      "id": "sunlight-spar-kitchen-makeover-2026",
-      "title": "Sunlight at SPAR: Win a R100,000 Kitchen Makeover",
-      "brand": "Sunlight / Unilever / SPAR",
-      "summary": "Buy three qualifying Sunlight products and swipe SPAR Rewards for a chance to win one of three R100,000 prizes to use on a kitchen makeover. Keep your receipt.",
-      "imageUrl": "https://freehub.co.za/assets/listings/sunlight-spar-kitchen-makeover-2026.webp",
-      "closingDate": "2026-11-08",
-      "category": "Cash",
-      "prizeName": "Three R100,000 cash prizes for kitchen makeovers",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Purchase and SPAR Rewards Card Swipe",
-      "eligibility": "South African citizens or permanent residents over 18 with valid ID; qualifying purchase and SPAR Rewards swipe required. Related-party exclusions apply.",
-      "entrySteps": [
-        "Buy any three qualifying Sunlight products from the Laundry Bar, Auto Liquid, Handwash Powder and Dishwashing Liquid categories.",
-        "Swipe your SPAR Rewards card with the qualifying purchase at SPAR.",
-        "Keep the till slip or receipt as proof. Each additional entry requires a new, separate qualifying purchase and proof.",
-        "Complete your purchase and card swipe between 17 August and 8 November 2026, before 23:59 on the closing date.",
-        "Keep your contact details current. If selected, provide the requested ID and bank confirmation within the promoter's contact window."
-      ],
-      "officialUrl": "https://www.spar.co.za/competitions/sunlight-spar-rewards-competition",
-      "termsUrl": "https://www.spar.co.za/competitions/sunlight-spar-rewards-competition",
-      "lastChecked": "2026-10-03",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
-    {
-      "id": "boxer-colgate-lenovo-tablets-2026",
-      "title": "Boxer & Colgate: Win One of 20 Lenovo Idea Tablets",
-      "brand": "Boxer / Colgate",
-      "summary": "Buy any two Colgate, Protex or Sta-Soft products at a participating Boxer store and swipe your valid Boxer Rewards Club card for automatic entry into a draw for 20 Lenovo Idea Tablets.",
-      "imageUrl": "https://freehub.co.za/assets/listings/boxer-colgate-lenovo-tablets-2026.webp",
-      "closingDate": "2026-11-08",
-      "category": "Tech",
-      "prizeName": "20 Lenovo Idea Tablets",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Automatic entry with a qualifying purchase and card swipe",
-      "eligibility": "South African legal residents aged 18+ with valid SA ID or Smart Card; valid Rewards Club card required. Promoter-connected and recent-winner exclusions apply.",
-      "entrySteps": [
-        "Read the official campaign rules and check that you meet the age, South African ID/residency and previous-winner conditions.",
-        "Use a valid, registered and activated Boxer Rewards Club card. If you need a card, use Boxer’s official Rewards Club registration instructions.",
-        "Buy any two Colgate, Protex or Sta-Soft products from a participating Boxer store during the campaign period.",
-        "Swipe your Boxer Rewards Club card at the till during checkout. This records your automatic entry; no separate competition submission is required.",
-        "For another entry, make a separate qualifying purchase transaction and swipe again. Complete qualifying transactions before 23:59 on 8 November 2026."
-      ],
-      "officialUrl": "https://www.boxer.co.za/page/competitions",
-      "termsUrl": "https://www.boxer.co.za/storage/web/source/2026/Competition%20T%26Cs/Sep%20ME/Boxer%20%26%20Colgate%20Ts%26Cs.pdf?_t=1789977723",
-      "lastChecked": "2026-10-16",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "boxer-go-getta-2026",
-      "title": "Boxer Go-Getta Business Prize Competition",
-      "brand": "Boxer / AMKA",
-      "summary": "Buy two qualifying personal-care products and swipe your Boxer Rewards Club card for automatic entry. The South African competition closes on 8 November 2026.",
-      "imageUrl": "https://freehub.co.za/assets/listings/discovery-2026-10-30/a003.webp",
-      "closingDate": "2026-11-08",
-      "category": "Cash",
-      "prizeName": "Cash prizes up to R250,000 and Boxer rewards",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Promoter campaign",
-      "eligibility": "Permanent residents or citizens of South Africa aged 18 or older with a valid South African identity document and bank account. Prior winners of the named participating brands within 12 months are excluded. Separate Eswatini rules apply.",
-      "entrySteps": [
-        "Buy any two qualifying products from the brands and product ranges listed in Boxer’s official terms.",
-        "Swipe your valid Boxer Rewards Club card at checkout for automatic entry.",
-        "Keep proof of purchase and ensure your contact details are current."
-      ],
-      "officialUrl": "https://www.boxer.co.za/page/competitions",
-      "termsUrl": "https://www.boxer.co.za/storage/web/source/2026/Competition%20T%26Cs/Boxer%20Go-Getta%20T%26Cs.pdf?_t=1788761172",
-      "lastChecked": "2026-10-30",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "1up-mangia-vouchers-2026",
       "title": "1UP Mangia Pasta R500 vouchers",
@@ -315,6 +210,31 @@
       "isClosingSoon": true
     },
     {
+      "id": "nedbank-old-mutual-budget-speech-2026",
+      "title": "55th Nedbank and Old Mutual Budget Speech Competition",
+      "brand": "Nedbank / Old Mutual",
+      "summary": "Eligible economics-course students can enter an original essay in the 55th Budget Speech Competition. Six undergraduate and postgraduate prizes total R630,000.",
+      "imageUrl": "https://freehub.co.za/assets/listings/nedbank-old-mutual-budget-speech-2026.webp",
+      "closingDate": "2026-11-15",
+      "category": "Education",
+      "prizeName": "Undergraduate prizes R100,000, R80,000 and R60,000; postgraduate prizes R180,000, R130,000 and R80,000",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Academic Essay",
+      "eligibility": "Full/part-time students registered for an economics course at a recognised South African higher-education institution; postgraduate category limited to Honours or first-time Masters. Citizens of SA, Botswana, eSwatini, Ghana, Kenya, Malawi, Namibia, Nigeria, Rwanda, South Sudan, Tanzania, Uganda or Zimbabwe. Prior category winners cannot re-enter that category; qualifying undergraduate winners may enter postgraduate. Promoter staff and related-person exclusions apply.",
+      "entrySteps": [
+        "Register personally on the official student portal and provide the required eligibility documents. The registration form includes consent to receive marketing emails.",
+        "Use the official 2026 category question and prepare an original English essay within the published format requirements.",
+        "Submit through the official competition platform by 15 November 2026 and complete any mandatory competition phases. The organisers have not stated a closing time."
+      ],
+      "officialUrl": "https://budgetspeechcompetition.co.za/student-registration-login/",
+      "termsUrl": "https://budgetspeechcompetition.co.za/terms-and-conditions/",
+      "lastChecked": "2026-11-09",
+      "isHighValue": true,
+      "isClosingSoon": true
+    },
+    {
       "id": "huletts-spar-rewards-2026",
       "title": "Huletts SPAR Rewards Competition 2026",
       "brand": "Huletts / SPAR",
@@ -337,7 +257,7 @@
       "termsUrl": "https://www.spar.co.za/competitions/huletts-spar-rewards-competition-2026",
       "lastChecked": "2026-10-08",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "mtn-tfg-prepaid-win-your-share-2026",
