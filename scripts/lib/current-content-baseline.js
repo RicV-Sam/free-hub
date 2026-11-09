@@ -83,7 +83,8 @@ function getCurrentContentBaseline() {
     // 4 November: five new verified competition detail pages. Active exits, under-review pages and offer routes are counted separately.
     // ZA crawl 163 adds three reviewed competition detail pages. Active exits are counted below.
     // 9 November adds four competition details. Their exits and the PS5 review page are counted separately.
-    generatedFileCount: resourceGuideCount * 2 + groceryPageCount + 500 + underReviewCount + shared.TAG_SLUGS.filter(slug => shared.getTagFilteredCompetitions(active, slug).length > 0).length + featuredVideoSlugs(active).size + shared.getGeneratedBrandPageDefinitions(core).length + getReviewedGuides(buildDate).length - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    // Cell C Rewards Platform adds one reviewed competition detail. Its active exit is counted below.
+    generatedFileCount: resourceGuideCount * 2 + groceryPageCount + 501 + underReviewCount + shared.TAG_SLUGS.filter(slug => shared.getTagFilteredCompetitions(active, slug).length > 0).length + featuredVideoSlugs(active).size + shared.getGeneratedBrandPageDefinitions(core).length + getReviewedGuides(buildDate).length - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
     sitemapUrlCount: resourceGuideCount + groceryPageCount + underReviewCount + read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + getReviewedGuides(buildDate).filter(page => !page.noindex).length + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length + (read('data/airtime-dash.json').enabled ? 1 : 0),
   };
 }

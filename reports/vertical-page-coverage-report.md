@@ -136,7 +136,7 @@ Recommended normalisation:
 ## Win Airtime Competitions in South Africa
 
 - URL: /win-airtime-competitions-south-africa/
-- Matching active public competitions: 5
+- Matching active public competitions: 6
 - Publication threshold: durable guide; independent of live listing count
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -148,6 +148,7 @@ Recommended normalisation:
 | Coca-Cola Be a Bok Competition 2026 (coca-cola-fan-can-be-a-bok-2026) | 2026-11-30 | purchase-required | yes | yes | Airtime prize text | consider airtime or recharge tag if prize terms confirm |
 | Sparletta Local Jewels Airtime, Fuel and Trolley Dash Competition (sparletta-local-jewels-2026) | 2026-12-31 | purchase-required | yes | yes | Airtime prize text | consider airtime or recharge tag if prize terms confirm |
 | Telkom Datanaire Tap2Win: Cash and Voucher Prizes (telkom-datanaire-tap2win-summer-2026) | 2027-01-31 | purchase-required | yes | yes | Airtime tag; Airtime prize text | none |
+| Cell C Rewards Platform: One Free Daily Play (cell-c-rewards-platform) | 2027-03-24 | account-required | yes | yes | Airtime tag; Airtime prize text | none |
 
 Recommended normalisation:
 - Preserve the practical guide when inventory falls; show only qualifying live listings and an honest availability notice.
@@ -155,7 +156,7 @@ Recommended normalisation:
 ## Win Data Competitions in South Africa
 
 - URL: /win-data-competitions-south-africa/
-- Matching active public competitions: 2
+- Matching active public competitions: 3
 - Publication threshold: durable guide; independent of live listing count
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -164,6 +165,7 @@ Recommended normalisation:
 |---|---:|---|---|---|---|---|
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | Data or connectivity tag | none |
 | Telkom Datanaire Tap2Win: Cash and Voucher Prizes (telkom-datanaire-tap2win-summer-2026) | 2027-01-31 | purchase-required | yes | yes | Data or connectivity tag | none |
+| Cell C Rewards Platform: One Free Daily Play (cell-c-rewards-platform) | 2027-03-24 | account-required | yes | yes | Data or connectivity tag | none |
 
 Recommended normalisation:
 - Preserve the practical guide when inventory falls; show only qualifying live listings and an honest availability notice.

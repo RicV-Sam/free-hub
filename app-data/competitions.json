@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-11-09",
-  "count": 91,
+  "count": 92,
   "competitions": [
     {
       "id": "1up-mangia-vouchers-2026",
@@ -2252,6 +2252,33 @@
       "termsUrl": "https://guidedog.org.za/product/south-african-guide-dogs-association-for-the-blind-car-raffle/",
       "lastChecked": "2026-10-02",
       "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "cell-c-rewards-platform",
+      "title": "Cell C Rewards Platform: One Free Daily Play",
+      "brand": "Cell C",
+      "summary": "Eligible Cell C customers get one free play each day for a chance to win data, minutes and other rewards. Each completed play earns a sticker, and optional qualifying activity can earn extra plays.",
+      "imageUrl": "https://freehub.co.za/assets/listings/2026-11-09/cell-c-rewards-platform.webp",
+      "closingDate": "2027-03-24",
+      "category": "Vouchers",
+      "prizeName": "Data, minutes, stickers and available Cell C Rewards perks",
+      "entryCostType": "account_required",
+      "entryCostLabel": "Account required",
+      "purchaseRequired": false,
+      "entryMethod": "Cell C Rewards game",
+      "eligibility": "Eligible Cell C customers in South Africa with a valid South African ID or passport. Under-18s need parent or guardian permission. Fibre and specified business accounts are excluded.",
+      "entrySteps": [
+        "Open Cell C Rewards in the app or at cellcwin.co.za, or dial *123# or *127# from your eligible Cell C number. Follow the rewards prompts.",
+        "Use your free play on the day it is allocated. It expires at 23:59:59. Earned plays have separate expiry rules.",
+        "If you want extra prepaid plays, a qualifying My Connecta Deals bundle costs up to R40 and earns one to four plays based on its price. These expire at midnight. Eligible postpaid and hybrid activities can also earn plays under the terms.",
+        "Play on any supported channel to bank that day’s Vault value. Claim in the app or mobile rewards site when the Vault opens. The terms give Tuesday and Wednesday as claim days, while parts of the campaign FAQ say Tuesday only. Check the claim prompt on Tuesday.",
+        "Use earned stickers to activate available perks and check each reward’s expiry. Some perks can use airtime to make up a sticker shortfall."
+      ],
+      "officialUrl": "https://www.cellc.co.za/cellc/cellcrewards",
+      "termsUrl": "https://www.cellc.co.za/cellc/static-content/PDF/new-summer-tncs.pdf",
+      "lastChecked": "2026-11-09",
+      "isHighValue": false,
       "isClosingSoon": false
     },
     {

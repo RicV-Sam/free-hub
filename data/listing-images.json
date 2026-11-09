@@ -3843,5 +3843,16 @@
     "reviewedAt": "2026-11-09",
     "sourcePage": "https://payflex.co.za/deals/",
     "sourceImage": "https://payflex.co.za/wp-content/uploads/2026/10/Edgars-spring-summer.png"
+  },
+  "cell-c-rewards-platform": {
+    "src": "/assets/listings/2026-11-09/cell-c-rewards-platform.webp",
+    "width": 1440,
+    "height": 941,
+    "alt": "Cell C Rewards artwork showing an open vault and instructions to use the Cell C app or dial *123#.",
+    "kind": "official-source",
+    "caption": "Official Cell C Rewards campaign artwork.",
+    "reviewedAt": "2026-11-09",
+    "sourcePage": "https://www.cellc.co.za/cellc/cellcrewards",
+    "sourceImage": "https://www.cellc.co.za/cellc/img/world-of-cellc/summer/summer-new-desktop-1.webp"
   }
 }
