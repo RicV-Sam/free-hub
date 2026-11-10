@@ -1,0 +1,36 @@
+/* One shared, static house-promotion component. No remote artwork or ad dependencies. */
+.fh-promotion { display: none; }
+html[data-freehub-promotion-active="true"] .fh-promotion {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 24px;
+  margin: 24px 0; padding: 24px; border: 1px solid #b7d9d4; border-radius: var(--radius-lg, 18px);
+  background: #f0faf7; color: #162132; font-family: inherit; text-align: left;
+}
+.fh-promotion p { margin: 0; }
+.fh-promotion .fh-promotion__disclosure { color: #52665f; font-size: 12px; line-height: 1.5; font-weight: 500; }
+.fh-promotion .fh-promotion__eyebrow { margin-top: 14px; color: #086558; font-size: 12px; line-height: 1.5; font-weight: 750; letter-spacing: .045em; text-transform: uppercase; }
+.fh-promotion h2 { margin: 6px 0 10px; color: #10243f; font-size: clamp(20px, 2.2vw, 29px); line-height: 1.18; letter-spacing: -.025em; }
+.fh-promotion .fh-promotion__message { max-width: 63ch; color: #41554e; font-size: 15px; line-height: 1.6; }
+.fh-promotion__action { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; min-width: 0; }
+.fh-promotion__brand { color: #0a6257; font-size: 25px; font-weight: 800; letter-spacing: -.04em; }
+.fh-promotion__brand span { font-size: 13px; letter-spacing: 0; font-weight: 500; }
+.fh-promotion .fh-promotion__link { display: inline-flex; justify-content: center; align-items: center; gap: 8px; min-height: 46px; padding: 11px 17px; border: 1px solid #096658; border-radius: 9px; background: #096658; color: white; font-size: 14px; font-weight: 700; line-height: 1.4; text-decoration: none; }
+.fh-promotion .fh-promotion__link:hover { color: white; background: #064c42; border-color: #064c42; }
+.fh-promotion .fh-promotion__link:focus-visible { outline: 3px solid #b34716; outline-offset: 4px; }
+.fh-promotion__destination { color: #52665f; font-size: 12px; line-height: 1.4; }
+html[data-freehub-promotion-active="true"] .fh-promotion--card { padding: 30px; gap: 30px; }
+.fh-promotion--card .fh-promotion__action { padding: 20px 0 20px 28px; border-left: 1px solid #b7d9d4; }
+html[data-freehub-promotion-active="true"] .fh-promotion--category { background: #fff; border-top: 4px solid #0f766e; }
+.fh-promotion--category h2, .fh-promotion--compact h2 { font-size: 21px; }
+.fh-promotion--category .fh-promotion__eyebrow, .fh-promotion--compact .fh-promotion__eyebrow { margin-top: 10px; }
+html[data-freehub-promotion-active="true"] .fh-promotion--compact { padding: 20px 24px; }
+.fh-promotion--compact .fh-promotion__brand, .fh-promotion--category .fh-promotion__brand { display: none; }
+@media (max-width: 699px) {
+  html[data-freehub-promotion-active="true"] .fh-promotion { grid-template-columns: minmax(0, 1fr); padding: 20px; gap: 18px; margin: 20px 0; }
+  .fh-promotion h2 { font-size: 24px; }
+  .fh-promotion--compact h2, .fh-promotion--category h2 { font-size: 21px; }
+  .fh-promotion--card .fh-promotion__action { padding: 16px 0 0; border-left: 0; border-top: 1px solid #b7d9d4; }
+  .fh-promotion__action { align-items: stretch; }
+  .fh-promotion__brand { font-size: 23px; }
+  .fh-promotion__destination { text-align: center; }
+  .fh-promotion--card .fh-promotion__brand { display: none; }
+}

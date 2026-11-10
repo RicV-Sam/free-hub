@@ -34,6 +34,8 @@ const { SLANG_SLUG, renderSlangPage } = require("./lib/slang-page.js");
 const { createOpportunityRenderer } = require("./lib/opportunity-renderer.js");
 const { createOpportunityRouteRenderer } = require("./lib/opportunity-route-renderer.js");
 const { writeMobileCatalog, writeMobileFeed } = require("./lib/mobile-feed.js");
+const { createPromotionRenderer, injectPromotionAssets } = require("./lib/promotion-renderer.js");
+const promotionConfig = require("../data/promotions.json");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const addLocalImageDimensions = createLocalImageDimensionWriter(ROOT_DIR, shared.CANONICAL_ORIGIN);
@@ -59,6 +61,7 @@ function writeGeneratedFile(filePath, content, ...options) {
   if (path.extname(filePath) === ".html" && typeof content === "string") {
     content = ensurePageMascot(content, filePath);
     content = addLocalImageDimensions(content, filePath);
+    content = injectPromotionAssets(content);
     if (content.includes('class="site-topbar"')) {
       content = content.replace(/(<meta charset="UTF-8"\s*\/>)/i, `$1\n    <script data-freehub-navigation>${NAVIGATION_BOOTSTRAP}</script>`);
       const dateScript = /src="\/shared\/page-data\.js(?:\?[^"]*)?"/.test(content) ? "" : '<script src="/shared/page-data.js" defer></script>';
@@ -98,8 +101,12 @@ else if (process.env.FREEHUB_AS_OF_DATE) shared.setReferenceDate(process.env.FRE
 else shared.setReferenceTime(new Date().toISOString());
 const LIFECYCLE_REFERENCE_DATE_ISO = shared.getReferenceDate();
 // Validate before any generated files are written. Use the lifecycle clock, not SEO snapshot dates.
+const promotions = createPromotionRenderer(promotionConfig, {
+  enabled: process.env.FREEHUB_ENABLE_PROMOTIONS === "true",
+  asOf: shared.getReferenceTimestamp(),
+});
 validateStudentGuide(STUDENT_GUIDE, LIFECYCLE_REFERENCE_DATE_ISO);
-const renderStudentGuide = createStudentGuideRenderer({ escapeHtml, escapeAttribute, formatDate: shared.formatDate, renderAdBreak: renderStudentAdBreak });
+const renderStudentGuide = createStudentGuideRenderer({ escapeHtml, escapeAttribute, formatDate: shared.formatDate, renderAdBreak: renderStudentAdBreak, renderPromotion: () => promotions.render(`/${STUDENT_GUIDE.slug}/`) });
 const renderStudentOffer = createStudentOfferRenderer({ escapeHtml, escapeAttribute, formatDate: shared.formatDate });
 
 function containsAdsterraVendorUrl(value) {
@@ -5840,7 +5847,7 @@ function renderPage(routeContext, competitions) {
       <main id="main-content" class="main-content">
         ${isCollectionPage ? renderCollectionBreadcrumb(pageCopy.heading) : ""}
 
-        ${renderDurableInventoryNotice(routeContext, competitions)}
+        ${renderDurableInventoryNotice(routeContext, competitions)}${promotions.render(routeContext.path, { noindex: routeContext.noindex === true })}
         ${isPrimaryCompetitionHub ? `<aside class="collection-review-link" aria-label="Unverified competition discovery"><a class="btn btn--secondary" href="${unverifiedCompetitionData.PUBLIC_PATH}">View all unverified competitions</a> <span>Unconfirmed leads, separate from verified listings.</span></aside>` : ""}
         <section class="controls" aria-label="Competition filters">
           <label class="search-field" for="searchInput">
@@ -5900,7 +5907,7 @@ ${confirmedResultsMarkup ? `\n        ${confirmedResultsMarkup}\n` : ""}
         ${isPrimaryCompetitionHub ? "" : renderHubSupportLinks(routeContext, competitions)}
         ${isPrimaryCompetitionHub ? "" : renderDeadlineBuckets(routeContext, competitions)}
         ${isPrimaryCompetitionHub ? "" : renderWhatsAppChannelCta(routeContext)}
-        ${isPrimaryCompetitionHub ? "" : renderDatacostPromo({
+        ${isPrimaryCompetitionHub || promotions.replacesLegacy(routeContext.path) ? "" : renderDatacostPromo({
           placement: `${routeContext.type}-${routeContext.slug || "index"}`,
           compact: routeContext.type === "tag",
           ussd: ["sms-competitions-south-africa", "win-airtime-competitions-south-africa", "win-data-competitions-south-africa"].includes(routeContext.slug),
@@ -7508,12 +7515,12 @@ ${noscriptLinks}
           </section>
         </noscript>
         ${renderWhatsAppChannelCta(null, { compact: true, placement: "home-discovery" })}
-        ${renderReviewedPicks(reviewed, "home")}
+        ${renderReviewedPicks(reviewed, "home")}${promotions.render("/")}
         ${renderIntentTilesSection()}
         ${renderAirtimeDashPromotion()}
         ${renderGrocerySavingsPromotion()}${renderHomepageResourcesSection()}
         ${renderHomeTrustSection()}
-        ${renderDatacostPromo({
+        ${promotions.replacesLegacy("/") ? "" : renderDatacostPromo({
           placement: "home-after-featured",
           compact: true,
           heading: "Make sense of your mobile costs",
@@ -7682,7 +7689,7 @@ function renderFreeStuffParentContent({ page, pageResources, featuredOpportuniti
 
   return `        <section class="free-stuff-answer"><h2>Start with what you need</h2><p>Read a story, learn a skill or find practical support through official resources. Samples and account rewards have extra conditions: check requirements before signing up.</p></section>
 
-        ${renderFreeStuffChildNavigation()}
+        ${renderFreeStuffChildNavigation()}${promotions.render(`/${page.slug}/`)}
 
         ${renderGuestAdSlot("free-stuff-before-resources")}
 
@@ -7702,7 +7709,7 @@ function renderFreeStuffParentContent({ page, pageResources, featuredOpportuniti
         ${renderTrustPageSections(guidanceSections, "Trust and verification guidance")}
 
         ${renderTrustChecklist(page)}
-        ${renderDatacostPromo({
+        ${promotions.replacesLegacy(`/${page.slug}/`) ? "" : renderDatacostPromo({
           placement: `trust-${page.slug}`,
           compact: true,
           ussd: true,
@@ -9030,7 +9037,7 @@ function renderTrustPage(page) {
         ${renderEditorialBanner(page.slug)}
         ${renderTrustChecklist(page)}
         ${renderTrustFaqSection(faqItems)}
-        ${page.studentOffer ? "" : renderDatacostPromo({
+        ${page.studentOffer || promotions.replacesLegacy(`/${page.slug}/`) ? "" : renderDatacostPromo({
           placement: `trust-${page.slug}`,
           compact: true,
           ussd: ["free-data-south-africa", "free-stuff-south-africa", "app-competitions-south-africa"].includes(page.slug),

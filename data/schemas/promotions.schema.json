@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object", "additionalProperties": false,
+  "required": ["schemaVersion", "configVersion", "maxModulesPerPage", "sponsors", "destinations", "placements", "campaigns"],
+  "properties": {
+    "schemaVersion": { "const": 1 }, "configVersion": { "$ref": "#/definitions/id" }, "maxModulesPerPage": { "const": 1 },
+    "sponsors": { "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["id", "name", "relationship", "approvedHosts"], "properties": {
+      "id": { "$ref": "#/definitions/id" }, "name": { "type": "string", "minLength": 1, "maxLength": 60 }, "relationship": { "enum": ["owned-site", "external"] },
+      "approvedHosts": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z0-9]+([.-][a-z0-9]+)+$" } }
+    } } },
+    "destinations": { "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["id", "sponsorId", "url", "reviewedAt", "reviewDueAt"], "properties": {
+      "id": { "$ref": "#/definitions/id" }, "sponsorId": { "$ref": "#/definitions/id" }, "url": { "type": "string", "format": "uri", "maxLength": 250 },
+      "reviewedAt": { "type": "string", "format": "date" }, "reviewDueAt": { "type": "string", "format": "date" }
+    } } },
+    "placements": { "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["id", "path", "pageType", "format"], "properties": {
+      "id": { "$ref": "#/definitions/id" }, "path": { "type": "string", "pattern": "^/([a-z0-9-]+/)*$" }, "pageType": { "enum": ["home", "telecom-hub", "guide"] }, "format": { "enum": ["compact", "card", "category"] }
+    } } },
+    "campaigns": { "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["id", "sponsorId", "kind", "status", "priority", "placements", "destinationId", "creative"], "properties": {
+      "id": { "$ref": "#/definitions/id" }, "sponsorId": { "$ref": "#/definitions/id" }, "kind": { "enum": ["house", "paid", "affiliate"] }, "status": { "enum": ["draft", "active", "paused"] }, "priority": { "type": "integer", "minimum": 0, "maximum": 100 },
+      "placements": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/definitions/id" } }, "destinationId": { "$ref": "#/definitions/id" },
+      "startsAt": { "type": "string", "format": "date-time" }, "endsAt": { "type": "string", "format": "date-time" },
+      "creative": { "type": "object", "additionalProperties": false, "required": ["id", "title", "message", "cta", "eyebrow"], "properties": {
+        "id": { "$ref": "#/definitions/id" }, "title": { "type": "string", "minLength": 1, "maxLength": 80 }, "message": { "type": "string", "minLength": 1, "maxLength": 220 }, "cta": { "type": "string", "minLength": 1, "maxLength": 40 }, "eyebrow": { "type": "string", "minLength": 1, "maxLength": 60 }
+      } }
+    } } }
+  },
+  "definitions": { "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$", "maxLength": 60 } }
+}

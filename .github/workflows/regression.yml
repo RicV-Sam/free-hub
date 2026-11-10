@@ -13,6 +13,28 @@ env:
   FREEHUB_AS_OF_DATE: "2026-09-08"
 
 jobs:
+  promotions:
+    name: Contextual house promotions
+    runs-on: ubuntu-latest
+    env:
+      FREEHUB_BUILD_DATE: '2026-11-10'
+      FREEHUB_AS_OF_DATE: '2026-11-10'
+      FREEHUB_ENABLE_PROMOTIONS: 'true'
+      FREEHUB_ENABLE_OFFERS: 'true'
+      FREEHUB_ENABLE_OPPORTUNITIES: 'true'
+      NODE_OPTIONS: '--require=./scripts/lib/fixed-date-register.js'
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24.19.0
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - run: npm run test:promotions
+      - run: npm run test:promotions:browser
+
   airtime-worker:
     name: Airtime Dash server verification
     runs-on: ubuntu-latest

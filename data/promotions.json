@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "configVersion": "20261110-v1",
+  "maxModulesPerPage": 1,
+  "sponsors": [
+    { "id": "datacost", "name": "DataCost", "relationship": "owned-site", "approvedHosts": ["datacost.co.za"] }
+  ],
+  "destinations": [
+    { "id": "compare-data", "sponsorId": "datacost", "url": "https://datacost.co.za/guides/cheapest-data-south-africa/", "reviewedAt": "2026-11-10", "reviewDueAt": "2026-12-10" },
+    { "id": "data-selector", "sponsorId": "datacost", "url": "https://datacost.co.za/tools/data-bundle-selector/", "reviewedAt": "2026-11-10", "reviewDueAt": "2026-12-10" },
+    { "id": "convert-airtime", "sponsorId": "datacost", "url": "https://datacost.co.za/guides/convert-airtime-to-data-south-africa/", "reviewedAt": "2026-11-10", "reviewDueAt": "2026-12-10" },
+    { "id": "saving-tips", "sponsorId": "datacost", "url": "https://datacost.co.za/guides/airtime-data-saving-tips-south-africa/", "reviewedAt": "2026-11-10", "reviewDueAt": "2026-12-10" },
+    { "id": "ussd-directory", "sponsorId": "datacost", "url": "https://datacost.co.za/ussd-codes-south-africa/", "reviewedAt": "2026-11-10", "reviewDueAt": "2026-12-10" }
+  ],
+  "placements": [
+    { "id": "home-after-shortlist", "path": "/", "pageType": "home", "format": "card" },
+    { "id": "data-before-filters", "path": "/win-data-competitions-south-africa/", "pageType": "telecom-hub", "format": "category" },
+    { "id": "airtime-before-filters", "path": "/win-airtime-competitions-south-africa/", "pageType": "telecom-hub", "format": "category" },
+    { "id": "student-after-definitions", "path": "/student-freebies-discounts-south-africa/", "pageType": "guide", "format": "compact" },
+    { "id": "free-stuff-after-navigation", "path": "/free-stuff-south-africa/", "pageType": "guide", "format": "compact" }
+  ],
+  "campaigns": [
+    { "id": "dc-compare-data", "sponsorId": "datacost", "kind": "house", "status": "active", "priority": 10, "placements": ["home-after-shortlist"], "destinationId": "compare-data", "creative": { "id": "compare-data-v1", "title": "Make your next data top-up count", "message": "Compare South African data bundles by price, size and expiry on DataCost. Check the network’s current terms before you buy.", "cta": "Compare data options", "eyebrow": "Everyday mobile savings" } },
+    { "id": "dc-data-fit", "sponsorId": "datacost", "kind": "house", "status": "active", "priority": 10, "placements": ["data-before-filters"], "destinationId": "data-selector", "creative": { "id": "data-fit-v1", "title": "Mobile deals & savings", "message": "Need data before the next draw? Find a bundle that fits your usage and expiry needs. Network and account restrictions apply.", "cta": "Find a data bundle", "eyebrow": "Supported by DataCost" } },
+    { "id": "dc-airtime-to-data", "sponsorId": "datacost", "kind": "house", "status": "active", "priority": 10, "placements": ["airtime-before-filters"], "destinationId": "convert-airtime", "creative": { "id": "airtime-to-data-v1", "title": "Make sense of your airtime", "message": "Using airtime for internet? See how to buy a data bundle with airtime, then confirm the price and validity with your network.", "cta": "Read the airtime guide", "eyebrow": "Supported by DataCost" } },
+    { "id": "dc-student-savings", "sponsorId": "datacost", "kind": "house", "status": "active", "priority": 10, "placements": ["student-after-definitions"], "destinationId": "saving-tips", "creative": { "id": "student-savings-v1", "title": "Keep study time from draining your data", "message": "Explore phone settings and everyday habits that can help your airtime and data last longer.", "cta": "Read data-saving tips", "eyebrow": "DataCost · Mobile know-how" } },
+    { "id": "dc-ussd-help", "sponsorId": "datacost", "kind": "house", "status": "active", "priority": 10, "placements": ["free-stuff-after-navigation"], "destinationId": "ussd-directory", "creative": { "id": "ussd-help-v1", "title": "Check your balance before you browse", "message": "Find South African network shortcuts for balance checks and bundle menus on DataCost.", "cta": "Find your network’s codes", "eyebrow": "DataCost · Useful shortcuts" } }
+  ]
+}
