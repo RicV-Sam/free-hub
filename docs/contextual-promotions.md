@@ -1,6 +1,6 @@
 # DataCost contextual promotions
 
-Development rollout prepared 10 November 2026. Deployment is not authorised. `FREEHUB_ENABLE_PROMOTIONS` must equal the string `true` at build time; unset or any other value preserves the existing output. No deployment workflow enables it.
+The reviewed rollout was authorised for publication on 10 November 2026. Both deployment and daily maintenance workflows now default `FREEHUB_ENABLE_PROMOTIONS` to `true`; setting the repository variable to the string `false` disables it on the next build. Local builds still require the exact string `true`; unset or any other value preserves the existing output.
 
 ## Scope and placement
 
@@ -28,7 +28,7 @@ Review dates refer to the destination's suitability and reachability, not a clai
 
 Review windows include the whole `reviewDueAt` date in South African time. Optional campaign `startsAt` is inclusive and `endsAt` is exclusive, with explicit time zones. The browser independently checks the generated window before layout, when returning to a page, and before activation. A cached expired module becomes hidden and cannot navigate. Missing JavaScript leaves the optional promotion hidden; the rest of the page remains usable. No blank reserved slot is left behind.
 
-Set a campaign to `paused` and rebuild to remove it. To reverse the whole development rollout, omit `FREEHUB_ENABLE_PROMOTIONS` and rebuild: the original banners return. These operations still require the normal release approval before public deployment.
+Set a campaign to `paused` and rebuild to remove it. To reverse the public rollout, set the repository variable `FREEHUB_ENABLE_PROMOTIONS` to `false` and rebuild through the normal release process: the original banners return. Omitting the variable disables local builds only; the publishing workflows default it to `true`. Further public changes still require the normal release approval.
 
 The schema distinguishes `house`, `paid` and `affiliate` campaigns and owned/external sponsors. Draft records can describe future commercial inventory. Active paid, affiliate or external campaigns are rejected, and the selector independently refuses them. Billing, advertiser management, external targeting, commercial rotation and third-party pixels are not implemented. Before a future paid rollout, check FreeHub's actual Mediavine agreement/account terms and design the commercial and disclosure policy separately.
 
@@ -91,7 +91,7 @@ Existing failures remain separate from the implementation:
 
 Live GA4 receipt/custom dimensions, real Firebase sign-in and real provider ad delivery were not verified through account access. Browser tests capture the event calls and preserve provider installation while blocking remote scripts. Verify live receipt after an authorised release; do not interpret these local checks as measured referral performance.
 
-## UX refinement — awaiting visual review
+## UX refinement — approved 10 November 2026
 
 The recommended homepage position is **after Browse by prize**. The earlier position gives DataCost earlier exposure but interrupts the visitor before they choose a competition category. The revised position completes that choice first, then offers mobile savings as a clearly branded optional next step. Practical guides follow the card, separating it from the Airtime Dash and grocery promotions. This is a visual hierarchy recommendation; conversion impact needs real traffic after an authorised release.
 
@@ -106,3 +106,19 @@ Campaign IDs, sponsors, destination mapping, review dates, route allowlists, lif
 The updated current-date suite passes, and 69 enabled browser checks pass. The disabled-build case is checked separately. Tests now protect discovery-before-promotion order, compact mobile heights, visible branding, tap targets, the retained introduction disclosure, one module per page and the existing consent/attribution behaviour. Previous content-maintenance and source-link findings above remain separate from this visual-only pass; no editorial review dates or warning baselines were advanced.
 
 For the position comparison, run `node scripts/preview-promotion-layouts.cjs --output-dir=<absolute-directory>` alongside the local preview server. Both options use the actual generated page and identical refined component. Option A moves the existing node in the preview browser to its earlier position; option B reflects the implemented template. External scripts are blocked. The helper does not modify generated files, targeting or production settings.
+
+## Approved release and two-week measurement
+
+The release carries forward daily-maintenance commits through `f425f56` before applying the reviewed implementation and refinement. The two publishing workflows enable the five-route rollout; paid and external campaigns remain disabled. The maintenance changes belong to the existing live history, not to the promotion implementation. Earlier validation results above describe the development checkout at that time.
+
+Release checks on Node 24.19.0: current-date build and `npm test` pass; maintenance validation now passes with no expired records missing from the archive. The focused browser run passes 91 checks with the disabled-build case skipped (previously tested separately). It covers promotions, the existing smoke suite, telecom inventory, WhatsApp, student pages and JavaScript-disabled flows. Existing telecom/WhatsApp assertions now recognise both the legacy layout and the approved compact layout. No production design or tracking code changed during release preparation.
+
+The first broader browser run used current content with several older test clocks and a non-default preview port: 149 passed, 18 failed, one skipped. The focused rerun resolves the changed-layout assertions and student tests that hard-code port 4318. Remaining broad-suite findings include obsolete expired-campaign/under-review expectations, an old homepage link-count expectation, an archive advertising expectation that conflicts with the current archive policy, and a navigation timeout. These are not represented as a fully green broad suite. Previously recorded live-link and September fixture findings remain separate; no content dates or warning baselines were relaxed.
+
+Treat 10 November 2026 as a partial launch day. Measure 14 complete days from **11–24 November**, compare available historical referral and organic metrics with **27 October–9 November**, and make the final readout on **27 November** to allow reporting delay. Preserve each service's reporting time zone and latest complete date in exports. Checkpoints on 13 and 20 November can identify missing tracking or major changes before the final review.
+
+Use FreeHub GA4 `promotion_click` and `promotion_view` for placement performance; split mobile/desktop and campaign, placement, creative and destination. Report absolute counts and the qualified first-click rate defined above. In DataCost GA4, use session source/medium `freehub / house_banner`, with session campaign and manual ad content, to compare acquired sessions, engaged sessions, engagement rate and landing pages. Keep the new `dc-*` campaigns separate from older house-banner campaigns when attributing results, while comparing total FreeHub referrals on consistent definitions. These new promotion events have no pre-launch baseline; missing data is not zero, and this observational rollout cannot establish causal uplift by itself.
+
+Search Console provides a secondary view of Google Search clicks, impressions and CTR for the five FreeHub source routes and the five DataCost destination pages. It does **not** measure clicks on the FreeHub promotional cards. Use the same search type, page and country filters across periods; record incomplete days and do not substitute organic search clicks for referral clicks. See [Google's Search performance definition](https://support.google.com/webmasters/answer/7576553) and [GA4 traffic-source dimensions](https://support.google.com/analytics/answer/11242870).
+
+At release preparation, reporting-account baseline values and GA4 custom-dimension registration remain unverified. The Ahrefs connector returned insufficient plan access, and browser account access stopped before opening the reporting service. Check connected reporting access or use owner-exported reports before asserting performance. The shipped tracking code and UTM destinations can be verified independently of report access. Keep any private exports outside the published repository.

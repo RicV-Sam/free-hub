@@ -29,7 +29,13 @@ for (const slug of routes) test(`${slug} preserves guide, canonical and qualifyi
   await page.reload();
   await expect(page.locator("[data-inventory-count]")).toHaveText("No current verified competitions match this guide.");
   await expect(page.locator("#competitionsGrid article")).toHaveCount(0);
-  await expect(page.locator(".hero .trust-row__item").first()).toHaveText("No current competitions");
+  if (process.env.FREEHUB_ENABLE_PROMOTIONS === "true" && slug !== "sms-competitions-south-africa") {
+    await expect(page.locator(".hero--catalogue")).toBeVisible();
+    await page.getByText("About these competitions", { exact: true }).click();
+    await expect(page.locator(".fh-competition-context p").first()).toBeVisible();
+  } else {
+    await expect(page.locator(".hero .trust-row__item").first()).toHaveText("No current competitions");
+  }
   await expect(page.locator(".hero-preview-item")).toHaveCount(0);
   await expect(page.locator(".seo-copy-block--intro")).toBeVisible();
   expect(await page.title()).toBe(title);

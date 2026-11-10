@@ -18,7 +18,7 @@ if (!active || !closed) throw new Error("WhatsApp browser checks need an eligibl
 const activePath = shared.getCompetitionPath(active);
 const closedPath = shared.getCompetitionPath(closed);
 const surfaces = [
-  { name: "home", path: "/", prompt: '.whatsapp-channel-note:has([data-whatsapp-placement="home-discovery"])' },
+  { name: "home", path: "/", prompt: ':is(.whatsapp-channel-note, .fh-whatsapp-quiet):has([data-whatsapp-placement="home-discovery"])' },
   { name: "collection", path: "/competitions/", prompt: '.whatsapp-channel-note:has([data-whatsapp-placement="collection-filters"])' },
   { name: "detail", path: activePath, prompt: '.whatsapp-channel-note:has([data-whatsapp-placement="competition-detail"])' },
   { name: "closed", path: closedPath, prompt: ".closed-competition-promo" },
@@ -96,8 +96,13 @@ for (const width of [320, 390, 768, 1440]) {
       await expect(follow).toHaveAttribute("rel", /noreferrer/);
       const notificationCopy = surface.name === "guide" ? page.locator(".wa-how") : prompt;
       await expect(notificationCopy).toContainText(/Follow/);
-      await expect(notificationCopy).toContainText(/bell/);
-      await expect(notificationCopy).toContainText(/notification/);
+      if (surface.name === "home" && process.env.FREEHUB_ENABLE_PROMOTIONS === "true") {
+        await expect(notificationCopy).toContainText("Want new competition alerts?");
+        expect(await prompt.evaluate(node => node.classList.contains("fh-whatsapp-quiet"))).toBe(true);
+      } else {
+        await expect(notificationCopy).toContainText(/bell/);
+        await expect(notificationCopy).toContainText(/notification/);
+      }
 
       if (surface.name === "collection") {
         await expect(page.locator("#loadingState")).toBeHidden();
