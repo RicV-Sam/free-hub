@@ -2,12 +2,12 @@
   "ok": true,
   "errors": [],
   "summary": {
-    "today": "2026-11-09",
+    "today": "2026-11-10",
     "retiredCount": 6,
     "retiredRouteLeaks": [],
-    "expiredPublishedCount": 311,
-    "archivedCompetitionCount": 337,
-    "publicListingFilesScanned": 166,
+    "expiredPublishedCount": 313,
+    "archivedCompetitionCount": 339,
+    "publicListingFilesScanned": 165,
     "sitemapContainsOutUrls": false,
     "expiredMissingFromArchive": [],
     "expiredInSitemap": [],
@@ -28,18 +28,19 @@
     "nonPublicDetailPages": [],
     "nonPublicInPublicListings": [],
     "editorialHealth": {
-      "asOfDate": "2026-11-09",
+      "asOfDate": "2026-11-10",
       "needsReview": true,
       "surfaces": [
         {
           "surface": "home",
-          "eligibleCount": 1,
+          "eligibleCount": 0,
           "needsReview": true,
-          "nextReviewDue": "2026-11-09",
+          "nextReviewDue": null,
           "overdueIds": [
             "resource-childrens-books-book-dash",
             "mtn-app-first-login-1gb-2026",
-            "cadbury-made-to-share-2026"
+            "cadbury-made-to-share-2026",
+            "resource-famelack-live-tv-radio-webcams"
           ]
         },
         {

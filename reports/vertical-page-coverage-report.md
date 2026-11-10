@@ -1,20 +1,19 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-11-09
+Generated: 2026-11-10
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 13
+- Matching active public competitions: 12
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Cape Town Move with Melody Dance Competition (cape-town-move-with-melody-2026) | 2026-11-09 | unknown | yes | yes | WhatsApp mentioned in entry text | none |
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Coca-Cola Be a Bok Competition 2026 (coca-cola-fan-can-be-a-bok-2026) | 2026-11-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Win a R1,000 Sportsmans Warehouse voucher with Powerade at Engen (engen-powerade-sportsmans-vouchers-2026) | 2026-11-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
@@ -52,14 +51,13 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 27
+- Matching active public competitions: 26
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| 1UP Mangia Pasta R500 vouchers (1up-mangia-vouchers-2026) | 2026-11-09 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Raimondi Birthday Retail Promotion 2 (raimondi-birthday-retail-promotion-2-2026) | 2026-11-12 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | IMANA Pick n Pay Linton’s Corner: R5,000 Potjie Dash (imana-pnp-lintons-corner-potjie-dash-2026) | 2026-11-13 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Pizza Perfect Oom Freddy’s Legacy Hamper Competition (pizza-perfect-oom-freddy-legacy-2026) | 2026-11-14 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
@@ -93,14 +91,13 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 29
+- Matching active public competitions: 28
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| 1UP Mangia Pasta R500 vouchers (1up-mangia-vouchers-2026) | 2026-11-09 | purchase-required | yes | yes | Online entry tag | none |
 | Outdoorphoto Wishlist: Win a Tenba Spinner Backpack (outdoorphoto-wishlist-tenba-2026) | 2026-11-10 | free-entry | yes | yes | Online entry tag | none |
 | Hypertext Mobile Survey: Win R5,000 in Takealot Vouchers (hypertext-mobile-survey-2026) | 2026-11-12 | free-entry | yes | yes | Online entry tag | none |
 | Bed Bath Home November Sign-Up and Win (bed-bath-home-november-voucher-signup-2026) | 2026-11-19 | unknown | yes | yes | Online entry tag | none |
@@ -174,14 +171,13 @@ Recommended normalisation:
 ## Win Grocery Vouchers in South Africa
 
 - URL: /win-grocery-vouchers-south-africa/
-- Matching active public competitions: 10
+- Matching active public competitions: 9
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| 1UP Mangia Pasta R500 vouchers (1up-mangia-vouchers-2026) | 2026-11-09 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Huletts SPAR Rewards Competition 2026 (huletts-spar-rewards-2026) | 2026-11-15 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | MTN TFG Prepaid Win Your Share Competition (mtn-tfg-prepaid-win-your-share-2026) | 2026-11-18 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Win a cooler or shopping voucher with MILO at Checkers (milo-checkers-summer-2026) | 2026-11-28 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |

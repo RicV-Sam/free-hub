@@ -1,57 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-09",
-  "count": 92,
+  "asOfDate": "2026-11-10",
+  "count": 90,
   "competitions": [
-    {
-      "id": "1up-mangia-vouchers-2026",
-      "title": "1UP Mangia Pasta R500 vouchers",
-      "brand": "1UP Cash & Carry / Mangia",
-      "summary": "Buy Mangia pasta at a participating 1UP branch and submit a receipt for a chance to win one of ten R500 food vouchers.",
-      "imageUrl": "https://freehub.co.za/assets/listings/1up-mangia-vouchers-2026.webp",
-      "closingDate": "2026-11-09",
-      "category": "Vouchers",
-      "prizeName": "Ten R500 food vouchers; one winner per participating store",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Official provider entry",
-      "eligibility": "South African residents aged 18+. Promoter/supplier/agency employees and immediate family excluded. Original purchase proof and identity verification may be required.",
-      "entrySteps": [
-        "Buy any Mangia pasta at a participating 1UP physical store during the campaign.",
-        "Open Enter Now on the official competition page, select the branch and upload a clear receipt. Submit that receipt once for this campaign and retain the original."
-      ],
-      "officialUrl": "https://1uponline.co.za/index.php?route=information/oneupcompetition",
-      "termsUrl": "https://1uponline.co.za/index.php?route=information/oneupcompetition",
-      "lastChecked": "2026-10-24",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "cape-town-move-with-melody-2026",
-      "title": "Cape Town Move with Melody Dance Competition",
-      "brand": "City of Cape Town",
-      "summary": "Amateur dance groups of two to ten performers can submit a one-minute Beacon of Hope routine for Cape Town’s Move with Melody competition. Finalists must attend the live performance.",
-      "imageUrl": "https://freehub.co.za/assets/listings/discovery-2026-10-30/f004.webp",
-      "closingDate": "2026-11-09",
-      "category": "Cash",
-      "prizeName": "First R10,000; second R5,000; third R2,000.",
-      "entryCostType": "unclear",
-      "entryCostLabel": "Entry requirements unclear",
-      "purchaseRequired": false,
-      "entryMethod": "Promoter campaign",
-      "eligibility": "Cape Town amateur dance groups of 2–10; participants must not earn a living from dance/performance. No explicit age minimum published.",
-      "entrySteps": [
-        "Film a one-minute group routine inspired by Beacon of Hope. Groups must have two to ten amateur performers.",
-        "Follow the City’s submission instructions: tag @CTFestiveLights and use #FLSODance2026 on the listed social platforms, or use its listed WhatsApp route.",
-        "Submit by 9 November 2026. Finalists perform at the V&A Waterfront Amphitheatre on 21 November; the top three also perform at Grand Parade on 29 November."
-      ],
-      "officialUrl": "https://www.capetown.gov.za/general/festive-lights-switch-on/",
-      "termsUrl": "https://www.capetown.gov.za/general/festive-lights-switch-on/",
-      "lastChecked": "2026-10-30",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "outdoorphoto-wishlist-tenba-2026",
       "title": "Outdoorphoto Wishlist: Win a Tenba Spinner Backpack",
