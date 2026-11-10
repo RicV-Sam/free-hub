@@ -1,36 +1,80 @@
-/* One shared, static house-promotion component. No remote artwork or ad dependencies. */
+/* Shared palette, type and spacing; format-specific hierarchy and CTA weight. */
 .fh-promotion { display: none; }
 html[data-freehub-promotion-active="true"] .fh-promotion {
-  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 24px;
-  margin: 24px 0; padding: 24px; border: 1px solid #b7d9d4; border-radius: var(--radius-lg, 18px);
-  background: #f0faf7; color: #162132; font-family: inherit; text-align: left;
+  --promo-ink: #10243f; --promo-teal: #096658; --promo-border: #bedbd5;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "identity identity" "body action";
+  align-items: center; gap: 14px 28px; margin: 24px 0; padding: 24px;
+  border: 1px solid var(--promo-border); border-radius: 16px; background: #f0faf7; color: var(--promo-ink); text-align: left;
 }
 .fh-promotion p { margin: 0; }
-.fh-promotion .fh-promotion__disclosure { color: #52665f; font-size: 12px; line-height: 1.5; font-weight: 500; }
-.fh-promotion .fh-promotion__eyebrow { margin-top: 14px; color: #086558; font-size: 12px; line-height: 1.5; font-weight: 750; letter-spacing: .045em; text-transform: uppercase; }
-.fh-promotion h2 { margin: 6px 0 10px; color: #10243f; font-size: clamp(20px, 2.2vw, 29px); line-height: 1.18; letter-spacing: -.025em; }
-.fh-promotion .fh-promotion__message { max-width: 63ch; color: #41554e; font-size: 15px; line-height: 1.6; }
-.fh-promotion__action { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; min-width: 0; }
-.fh-promotion__brand { color: #0a6257; font-size: 25px; font-weight: 800; letter-spacing: -.04em; }
-.fh-promotion__brand span { font-size: 13px; letter-spacing: 0; font-weight: 500; }
-.fh-promotion .fh-promotion__link { display: inline-flex; justify-content: center; align-items: center; gap: 8px; min-height: 46px; padding: 11px 17px; border: 1px solid #096658; border-radius: 9px; background: #096658; color: white; font-size: 14px; font-weight: 700; line-height: 1.4; text-decoration: none; }
-.fh-promotion .fh-promotion__link:hover { color: white; background: #064c42; border-color: #064c42; }
+.fh-promotion__identity { grid-area: identity; display: flex; align-items: baseline; flex-wrap: wrap; gap: 3px 12px; }
+.fh-promotion__brand { color: var(--promo-teal); font-size: 23px; font-weight: 850; line-height: 1.15; letter-spacing: -.055em; }
+.fh-promotion__disclosure { color: #52665f; font-size: 11px; line-height: 1.45; }
+.fh-promotion__support { color: #52665f; font-size: 12px; }
+.fh-promotion__body { grid-area: body; min-width: 0; }
+.fh-promotion .fh-promotion__eyebrow { margin: 0 0 5px; color: var(--promo-teal); font-size: 11px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
+.fh-promotion h2 { margin: 0 0 7px; color: var(--promo-ink); font-size: clamp(22px, 2.2vw, 29px); line-height: 1.18; letter-spacing: -.025em; }
+.fh-promotion .fh-promotion__message { max-width: 66ch; color: #41554e; font-size: 14px; line-height: 1.5; }
+.fh-promotion__action { grid-area: action; display: flex; flex-direction: column; align-items: flex-start; gap: 5px; min-width: 0; }
+.fh-promotion .fh-promotion__link { display: inline-flex; justify-content: center; align-items: center; gap: 9px; min-height: 44px; padding: 10px 17px; border: 1px solid var(--promo-teal); border-radius: 8px; color: white; background: var(--promo-teal); font-size: 14px; font-weight: 750; line-height: 1.4; text-decoration: none; }
+.fh-promotion .fh-promotion__link:hover { background: #064c42; color: white; }
 .fh-promotion .fh-promotion__link:focus-visible { outline: 3px solid #b34716; outline-offset: 4px; }
-.fh-promotion__destination { color: #52665f; font-size: 12px; line-height: 1.4; }
-html[data-freehub-promotion-active="true"] .fh-promotion--card { padding: 30px; gap: 30px; }
-.fh-promotion--card .fh-promotion__action { padding: 20px 0 20px 28px; border-left: 1px solid #b7d9d4; }
-html[data-freehub-promotion-active="true"] .fh-promotion--category { background: #fff; border-top: 4px solid #0f766e; }
-.fh-promotion--category h2, .fh-promotion--compact h2 { font-size: 21px; }
-.fh-promotion--category .fh-promotion__eyebrow, .fh-promotion--compact .fh-promotion__eyebrow { margin-top: 10px; }
-html[data-freehub-promotion-active="true"] .fh-promotion--compact { padding: 20px 24px; }
-.fh-promotion--compact .fh-promotion__brand, .fh-promotion--category .fh-promotion__brand { display: none; }
+.fh-promotion__destination { color: #52665f; font-size: 11px; line-height: 1.4; }
+.fh-promotion--card .fh-promotion__action { padding-left: 28px; border-left: 1px solid var(--promo-border); }
+html[data-freehub-promotion-active="true"] .fh-promotion--compact { padding: 16px 20px; gap: 8px 24px; background: #fff; border-color: #d6e0ea; border-radius: 10px; }
+.fh-promotion--compact .fh-promotion__brand { font-size: 18px; }
+.fh-promotion--compact h2 { font-size: 19px; }
+.fh-promotion--compact .fh-promotion__link { padding: 8px 0; border: 0; border-radius: 2px; background: transparent; color: var(--promo-teal); text-decoration: underline; text-underline-offset: 3px; }
+.fh-promotion--compact .fh-promotion__link:hover { background: transparent; color: #064c42; }
+html[data-freehub-promotion-active="true"] .fh-promotion--category { padding: 16px 20px; gap: 10px 24px; border: 0; border-left: 4px solid #0f766e; border-radius: 0; background: #eaf3f1; }
+.fh-promotion--category .fh-promotion__brand { font-size: 19px; }
+.fh-promotion--category h2 { font-size: 19px; }
+.fh-promotion--category .fh-promotion__link { background: transparent; color: var(--promo-teal); }
+.fh-promotion--category .fh-promotion__link:hover { background: #d6eae4; color: #064c42; }
+
+/* Scoped to the approved development pages, independent of campaign availability. */
+[data-promotion-layout="home"] .fh-whatsapp-quiet { margin: 4px 0 8px; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 10px; color: #566579; font-size: 13px; }
+.fh-whatsapp-quiet a { display: inline-flex; align-items: center; min-height: 44px; color: #096658; font-weight: 700; text-underline-offset: 3px; }
+.fh-home-tools { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
+.fh-home-tools > * { min-width: 0; margin: 0; padding: 22px; border: 1px solid #d6e0ea; border-radius: 12px; background: #fff; box-shadow: none; }
+.fh-home-tools .airtime-dash-promo__body { display: block; }
+.fh-home-tools .home-cta { display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 12px; text-align: left; }
+.fh-home-tools :is(h2, .home-cta__title) { font-size: 21px; line-height: 1.2; text-align: left; }
+.fh-home-tools :is(.home-section__intro, .airtime-dash-promo__body > p:not(.section-kicker)) { font-size: 14px; line-height: 1.5; }
+.fh-home-tools :is(.airtime-dash-promo__cta, .btn--primary) { background: #fff; border: 1px solid #8fa9a3; border-radius: 8px; color: #096658; box-shadow: none; }
+.fh-home-tools .home-cta__actions { align-items: flex-start; justify-content: flex-start; }
+.fh-home-tools .btn--secondary { background: transparent; border-color: transparent; padding-left: 0; text-decoration: underline; text-underline-offset: 3px; }
+.fh-home-tools .airtime-dash-promo__note { margin-top: 12px; }
+.fh-competition-context { margin-top: 12px; color: #e3f6f3; font-size: 13px; line-height: 1.5; }
+.fh-competition-context summary { cursor: pointer; min-height: 44px; padding: 10px 0; text-underline-offset: 3px; text-decoration: underline; }
+.fh-competition-context a { color: #e3f6f3; }
+.fh-competition-context[open] { max-width: 80ch; }
+[data-promotion-layout="competition"] .fh-competition-hero { margin-bottom: 16px; }
+[data-promotion-layout="competition"] .airtime-dash-promo { margin-top: 24px; }
 @media (max-width: 699px) {
-  html[data-freehub-promotion-active="true"] .fh-promotion { grid-template-columns: minmax(0, 1fr); padding: 20px; gap: 18px; margin: 20px 0; }
-  .fh-promotion h2 { font-size: 24px; }
-  .fh-promotion--compact h2, .fh-promotion--category h2 { font-size: 21px; }
-  .fh-promotion--card .fh-promotion__action { padding: 16px 0 0; border-left: 0; border-top: 1px solid #b7d9d4; }
+  html[data-freehub-promotion-active="true"] .fh-promotion { grid-template-columns: minmax(0, 1fr); grid-template-areas: "identity" "body" "action"; gap: 10px; margin: 20px 0; padding: 16px; }
+  .fh-promotion__identity { gap: 3px 8px; }
+  .fh-promotion__disclosure { flex-basis: 100%; }
+  .fh-promotion__brand { font-size: 22px; }
+  .fh-promotion h2 { font-size: 21px; margin-bottom: 6px; }
+  .fh-promotion .fh-promotion__eyebrow { display: none; }
+  .fh-promotion .fh-promotion__message { font-size: 13px; line-height: 1.45; }
   .fh-promotion__action { align-items: stretch; }
-  .fh-promotion__brand { font-size: 23px; }
-  .fh-promotion__destination { text-align: center; }
-  .fh-promotion--card .fh-promotion__brand { display: none; }
+  .fh-promotion--card .fh-promotion__action { border: 0; padding: 0; }
+  .fh-promotion__destination { display: none; }
+  html[data-freehub-promotion-active="true"] .fh-promotion--compact { gap: 7px; padding: 14px 16px; }
+  .fh-promotion--compact h2 { font-size: 18px; margin-bottom: 0; }
+  .fh-promotion--compact .fh-promotion__message { display: none; }
+  .fh-promotion--compact .fh-promotion__action { align-items: flex-start; }
+  html[data-freehub-promotion-active="true"] .fh-promotion--category { padding: 14px 16px; gap: 8px; }
+  .fh-promotion--category h2 { font-size: 18px; margin-bottom: 4px; }
+  .fh-promotion--category .fh-promotion__link { justify-content: flex-start; border: 0; border-radius: 2px; padding: 8px 0; text-decoration: underline; text-underline-offset: 3px; }
+  [data-promotion-layout="home"] .intent-tile-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  [data-promotion-layout="home"] .intent-tile { min-height: 52px; padding: 12px; align-content: center; }
+  [data-promotion-layout="home"] .intent-tile__label { font-size: 12px; line-height: 1.35; text-transform: none; }
+  [data-promotion-layout="home"] .intent-tile__text { display: none; }
+  .fh-home-tools { grid-template-columns: 1fr; gap: 12px; }
+  .fh-home-tools > * { padding: 18px; }
+  .fh-home-tools .home-cta__actions { flex-direction: row; flex-wrap: wrap; gap: 8px; }
+  [data-promotion-layout="competition"] .inventory-notice { font-size: 13px; line-height: 1.5; padding: 10px 12px; }
 }

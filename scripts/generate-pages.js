@@ -4252,6 +4252,9 @@ function renderModernHero({
 }
 
 function renderCollectionHero(routeContext, pageCopy, competitions) {
+  if (promotions.replacesLegacy(routeContext.path)) {
+    return `<header class="hero hero--catalogue mascot-intro fh-competition-hero">${renderMascot("browse", { heading: true, hidden: competitions.length === 0 })}<h1 id="pageTitle">${escapeHtml(pageCopy.heading)}</h1><p id="pageIntro">Compare prizes, entry costs and deadlines. Open a listing for the official entry rules.</p>${renderUpdatedNotice()}<details class="fh-competition-context"><summary>About these competitions</summary><p>${escapeHtml(pageCopy.intro)}</p><p><a href="/competitions/">All competitions</a> · <a href="/competition-entry-cost-labels/">Entry cost guide</a></p></details></header>`;
+  }
   if (routeContext.type === "category" || (routeContext.type === "hub" && routeContext.slug === "competitions")) {
     return `<header class="hero hero--catalogue mascot-intro">${renderMascot("browse", { heading: true, hidden: competitions.length === 0 })}<h1 id="pageTitle">${escapeHtml(pageCopy.heading)}</h1><p id="pageIntro">Compare prizes, costs and deadlines, then check the official entry rules.</p>${renderUpdatedNotice()}</header>`;
   }
@@ -5693,6 +5696,7 @@ function renderClosedCompetitionLinks(currentCompetition = null) {
 }
 
 function renderPage(routeContext, competitions) {
+  const hasPromotionLayout = promotions.replacesLegacy(routeContext.path);
   if (routeContext.type === "category" && routeContext.slug === "vouchers") {
     competitions = competitions.filter(shared.isVoucherPrizeCompetition);
   }
@@ -5833,7 +5837,7 @@ function renderPage(routeContext, competitions) {
     ${renderGoogleTagManagerHead(`{ page_type: '${routeContext.type}'${routeContext.type === "hub" ? `, hub_slug: '${routeContext.slug}'` : ""}${routeContext.type === "brand" ? `, brand_slug: '${routeContext.slug}'` : ""} }`)}
     ${renderMetaPixelHead()}
   </head>
-    <body data-collection-page="true"${routeContext.type === "category" && routeContext.slug === "vouchers" ? ' data-voucher-hub-version="2"' : ""}>
+    <body data-collection-page="true"${routeContext.type === "category" && routeContext.slug === "vouchers" ? ' data-voucher-hub-version="2"' : ""}${hasPromotionLayout ? ' data-promotion-layout="competition"' : ""}>
     ${renderGoogleTagManagerNoScript()}
     ${renderMetaPixelNoScript()}
     <div class="site-shell">
@@ -5847,7 +5851,7 @@ function renderPage(routeContext, competitions) {
       <main id="main-content" class="main-content">
         ${isCollectionPage ? renderCollectionBreadcrumb(pageCopy.heading) : ""}
 
-        ${renderDurableInventoryNotice(routeContext, competitions)}${promotions.render(routeContext.path, { noindex: routeContext.noindex === true })}
+        ${renderDurableInventoryNotice(routeContext, competitions)}
         ${isPrimaryCompetitionHub ? `<aside class="collection-review-link" aria-label="Unverified competition discovery"><a class="btn btn--secondary" href="${unverifiedCompetitionData.PUBLIC_PATH}">View all unverified competitions</a> <span>Unconfirmed leads, separate from verified listings.</span></aside>` : ""}
         <section class="controls" aria-label="Competition filters">
           <label class="search-field" for="searchInput">
@@ -5867,7 +5871,7 @@ function renderPage(routeContext, competitions) {
           </div>
         </section>
 
-        ${renderWhatsAppChannelCta(routeContext, { compact: true, placement: "collection-filters" })}
+        ${hasPromotionLayout ? "" : renderWhatsAppChannelCta(routeContext, { compact: true, placement: "collection-filters" })}
 
         <section class="results-header" aria-live="polite">
           <p id="resultsSummary" class="results-header__summary">${escapeHtml(resultsSummary)}</p>
@@ -5881,16 +5885,16 @@ function renderPage(routeContext, competitions) {
           </div>
 
           ${renderCollectionEmptyState(routeContext, competitions)}
-        </section>
+        </section>${promotions.render(routeContext.path, { noindex: routeContext.noindex === true })}
         ${isPrimaryCompetitionHub ? renderUnderReviewCallout() : ""}
-        ${["competitions", "free-competitions", "win-airtime-competitions-south-africa"].includes(routeContext.slug) ? renderAirtimeDashPromotion({ compact: true, placement: routeContext.slug }) : ""}
+        ${!hasPromotionLayout && ["competitions", "free-competitions", "win-airtime-competitions-south-africa"].includes(routeContext.slug) ? renderAirtimeDashPromotion({ compact: true, placement: routeContext.slug }) : ""}
 ${confirmedResultsMarkup ? `\n        ${confirmedResultsMarkup}\n` : ""}
         ${isPrimaryCompetitionHub ? renderClosedCompetitionLinks() : ""}
         ${routeContext.noindex === true || (routeContext.type === "hub" && routeContext.slug === "paid-entry-competitions") ? "" : renderGuestAdSlot(`${routeContext.type}-${routeContext.slug || "index"}-results`)}
 
         ${renderSupportSection(supportCopy)}
         ${isPrimaryCompetitionHub ? "" : renderHubIntroEditorial(routeContext)}
-        ${isPrimaryCompetitionHub ? "" : renderVerticalEditorial(routeContext)}
+        ${isPrimaryCompetitionHub ? "" : renderVerticalEditorial(routeContext)}${hasPromotionLayout && routeContext.slug === "win-airtime-competitions-south-africa" ? renderAirtimeDashPromotion({ compact: true, placement: routeContext.slug }) : ""}
 
 
 
@@ -7436,6 +7440,7 @@ function renderReviewedPicks(picks, surface) {
 }
 
 function renderHomepage(competitions) {
+  const refinedPromotions = promotions.replacesLegacy("/");
   const homeRouteContext = { type: "home", slug: null, path: "/" };
   const ogImage = shared.DEFAULT_OG_IMAGE;
   const reviewed = getReviewedPicks("home", competitions);
@@ -7490,7 +7495,7 @@ function renderHomepage(competitions) {
     ${renderGoogleTagManagerNoScript()}
     ${renderMetaPixelNoScript()}
 
-    <div class="site-shell site-shell--home">
+    <div class="site-shell site-shell--home"${refinedPromotions ? ' data-promotion-layout="home"' : ""}>
       ${renderTopNavigation({ active: "home" })}
       <header class="hero hero--home">
         <div class="hero__layout">
@@ -7514,11 +7519,11 @@ ${noscriptLinks}
             </ul>
           </section>
         </noscript>
-        ${renderWhatsAppChannelCta(null, { compact: true, placement: "home-discovery" })}
-        ${renderReviewedPicks(reviewed, "home")}${promotions.render("/")}
-        ${renderIntentTilesSection()}
-        ${renderAirtimeDashPromotion()}
-        ${renderGrocerySavingsPromotion()}${renderHomepageResourcesSection()}
+        ${refinedPromotions ? "" : renderWhatsAppChannelCta(null, { compact: true, placement: "home-discovery" })}
+        ${renderReviewedPicks(reviewed, "home")}${refinedPromotions ? `<aside class="fh-whatsapp-quiet" aria-label="WhatsApp competition updates"><span>Want new competition alerts?</span><a href="${escapeAttribute(WHATSAPP_CHANNEL_URL)}" target="_blank" rel="noopener noreferrer" data-whatsapp-placement="home-discovery">Follow FreeHub on WhatsApp</a></aside>` : ""}
+        ${renderIntentTilesSection()}${promotions.render("/")}
+        ${refinedPromotions ? renderHomepageResourcesSection() : renderAirtimeDashPromotion()}
+        ${refinedPromotions ? `<div class="fh-home-tools" aria-label="More ways to use FreeHub">${renderAirtimeDashPromotion({ compact: true })}${renderGrocerySavingsPromotion()}</div>` : renderGrocerySavingsPromotion() + renderHomepageResourcesSection()}
         ${renderHomeTrustSection()}
         ${promotions.replacesLegacy("/") ? "" : renderDatacostPromo({
           placement: "home-after-featured",

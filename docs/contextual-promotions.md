@@ -6,9 +6,9 @@ Development rollout prepared 10 November 2026. Deployment is not authorised. `FR
 
 | Page | Format | Position replacing the existing lower banner | DataCost destination |
 | --- | --- | --- | --- |
-| `/` | Contextual card | After the reviewed shortlist, before discovery tiles | `/guides/cheapest-data-south-africa/` |
-| `/win-data-competitions-south-africa/` | Category support | After the inventory notice, before competition filters | `/tools/data-bundle-selector/` |
-| `/win-airtime-competitions-south-africa/` | Category support | After the inventory notice, before competition filters | `/guides/convert-airtime-to-data-south-africa/` |
+| `/` | Contextual card | After Browse by prize, before practical guides | `/guides/cheapest-data-south-africa/` |
+| `/win-data-competitions-south-africa/` | Category support | After the competition listings, before explanatory guidance | `/tools/data-bundle-selector/` |
+| `/win-airtime-competitions-south-africa/` | Category support | After the competition listings, before explanatory guidance | `/guides/convert-airtime-to-data-south-africa/` |
 | `/student-freebies-discounts-south-africa/` | Compact | After the benefit definitions, before guide navigation | `/guides/airtime-data-saving-tips-south-africa/` |
 | `/free-stuff-south-africa/` | Compact | After the early guide navigation, before resources | `/ussd-codes-south-africa/` |
 
@@ -90,3 +90,19 @@ Existing failures remain separate from the implementation:
 3. The September fixture's full test command reports 198/199 lifecycle passes. Its existing browser-feed size assertion fails: 1,042,657 bytes is slightly above half of the 2,062,443-byte registry. Feed equality passes, and generated HTML matches the pre-change September baseline exactly. The feed renderer, registry and size test are unchanged. The same test passes with current-date content.
 
 Live GA4 receipt/custom dimensions, real Firebase sign-in and real provider ad delivery were not verified through account access. Browser tests capture the event calls and preserve provider installation while blocking remote scripts. Verify live receipt after an authorised release; do not interpret these local checks as measured referral performance.
+
+## UX refinement — awaiting visual review
+
+The recommended homepage position is **after Browse by prize**. The earlier position gives DataCost earlier exposure but interrupts the visitor before they choose a competition category. The revised position completes that choice first, then offers mobile savings as a clearly branded optional next step. Practical guides follow the card, separating it from the Airtime Dash and grocery promotions. This is a visual hierarchy recommendation; conversion impact needs real traffic after an authorised release.
+
+At 390 px, the contextual card is 211 px tall, down from 344 px. The DataCost wordmark is visible on mobile; the copy is one short sentence pair and the single filled CTA reads “Compare data bundles.” Three format treatments share colours, typography, spacing, disclosure and accessible links: a mint contextual card with a filled button, a white compact guide card with a text link, and a flat category-support strip with a left rule and quieter link. Compact mobile cards omit the redundant supporting sentence; no eligibility or cost caveats are removed.
+
+The mobile prize directory uses two columns of eight labelled links with 52 px minimum heights. Descriptive subtitles remain visible on desktop. WhatsApp is a quiet link after the reviewed shortlist; its destination and tracking attribute are preserved. Airtime Dash and Grocery Savings sit together after practical guides, with secondary actions. Game conditions remain visible. The trust section separates this group from the existing membership invitation and account functionality.
+
+The two telecom hubs now start with the same concise discovery pattern as the existing competition catalogue. Their original long introductions remain accessible in “About these competitions”; all competition cards, cost labels, entry paths and guidance remain. The repeated hero/filter WhatsApp prompts are removed on these two pages; navigation and the existing later channel invitation remain. DataCost comes after every listing, and Airtime Dash follows the explanatory guide on the airtime hub. At 390 px, the first data listing starts around 801 px instead of 1,969 px; the first airtime listing starts around 805 px instead of 1,991 px. Measurements depend on current content, viewport and fonts.
+
+Campaign IDs, sponsors, destination mapping, review dates, route allowlists, lifecycle gates, event names, payload fields and analytics/runtime code are unchanged. Creative IDs/config version advance to v2, and moved placement IDs are now `home-after-prizes`, `data-after-listings` and `airtime-after-listings`, so reports describe their actual location. No live experiment or audience allocation was added. The hierarchy stylesheet also loads on these routes when campaigns are paused or stale; analytics/runtime assets still require an eligible module.
+
+The updated current-date suite passes, and 69 enabled browser checks pass. The disabled-build case is checked separately. Tests now protect discovery-before-promotion order, compact mobile heights, visible branding, tap targets, the retained introduction disclosure, one module per page and the existing consent/attribution behaviour. Previous content-maintenance and source-link findings above remain separate from this visual-only pass; no editorial review dates or warning baselines were advanced.
+
+For the position comparison, run `node scripts/preview-promotion-layouts.cjs --output-dir=<absolute-directory>` alongside the local preview server. Both options use the actual generated page and identical refined component. Option A moves the existing node in the preview browser to its earlier position; option B reflects the implemented template. External scripts are blocked. The helper does not modify generated files, targeting or production settings.

@@ -42,6 +42,7 @@ test.describe("enabled contextual promotions", () => {
         await expect(page.locator(moduleSelector)).toHaveCount(1);
         await expect(page.locator(".datacost-promo")).toHaveCount(0);
         await expect(page.locator(moduleSelector)).toHaveAttribute("data-format", placement.format);
+        await expect(page.locator(`${moduleSelector} .fh-promotion__brand`)).toBeVisible();
         await reveal(page);
         const link = page.locator(`${moduleSelector} a`);
         const campaign = config.campaigns.find((row) => row.placements.includes(placement.id));
@@ -50,6 +51,7 @@ test.describe("enabled contextual promotions", () => {
         expect(href.origin + href.pathname).toBe(destination.url);
         expect(href.searchParams.get("utm_content")).toBe(`${placement.id}__${campaign.creative.id}`);
         expect((await link.boundingBox()).height).toBeGreaterThanOrEqual(44);
+        if (width <= 390) expect((await page.locator(moduleSelector).boundingBox()).height).toBeLessThan(placement.format === "card" ? 270 : 220);
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
         await expect(page.locator('script[src*="scripts.scriptwrapper.com/tags/"]')).toHaveCount(1);
         await expect(page.locator("h1")).toHaveCount(1);
@@ -57,6 +59,40 @@ test.describe("enabled contextual promotions", () => {
         await expect.poll(async () => (await events(page, "promotion_view")).length).toBe(1);
       });
     }
+  }
+
+  test("homepage puts discovery before DataCost and separates secondary promotions with editorial content", async ({ page }) => {
+    await prepare(page);
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/");
+    const order = await page.evaluate(() => {
+      const top = (selector) => document.querySelector(selector).getBoundingClientRect().top;
+      return [top('.home-section--intent'), top('[data-freehub-promotion]'), top('[aria-labelledby="home-resources-title"]'), top('.fh-home-tools'), top('.home-section--trust'), top('.home-cta--club')];
+    });
+    expect(order).toEqual([...order].sort((a, b) => a - b));
+    await expect(page.locator('main [data-whatsapp-placement]')).toHaveCount(1);
+    await expect(page.locator('main [data-whatsapp-placement]')).not.toHaveClass(/btn--whatsapp/);
+    await expect(page.locator('.intent-tile')).toHaveCount(8);
+    expect(await page.locator('.intent-tile-grid').evaluate((element) => getComputedStyle(element).gridTemplateColumns.split(' ').length)).toBe(2);
+  });
+
+  for (const route of ['/win-data-competitions-south-africa/', '/win-airtime-competitions-south-africa/']) {
+    test(`${route} keeps search and every competition ahead of the external promotion`, async ({ page }) => {
+      await prepare(page);
+      await page.setViewportSize({ width: 390, height: 844 });
+      await page.goto(route);
+      const geometry = await page.evaluate(() => {
+        const box = (selector) => document.querySelector(selector).getBoundingClientRect();
+        return { search: box('#searchInput').top, first: box('.competition-card').top, end: box('.competition-section').bottom, promotion: box('[data-freehub-promotion]').top };
+      });
+      expect(geometry.search).toBeLessThan(geometry.first);
+      expect(geometry.first).toBeLessThan(900);
+      expect(geometry.end).toBeLessThanOrEqual(geometry.promotion);
+      await expect(page.locator('[data-whatsapp-placement="collection-filters"]')).toHaveCount(0);
+      await page.locator('.fh-competition-context summary').click();
+      await expect(page.locator('.fh-competition-context p').first()).toBeVisible();
+      expect(await page.locator('.fh-competition-context').innerText()).not.toContain('undefined');
+    });
   }
 
   test("no impression offscreen or before consent; grant starts a fresh second, revocation stops clicks", async ({ page }) => {
@@ -130,7 +166,7 @@ test.describe("enabled contextual promotions", () => {
     await (await secondPopup).close();
     const clicks = await events(page, "promotion_click");
     expect(clicks).toHaveLength(2);
-    expect(clicks[0]).toMatchObject({ campaign_id: "dc-compare-data", placement_id: "home-after-shortlist", destination_id: "compare-data", destination_host: "datacost.co.za", destination_path: "/guides/cheapest-data-south-africa/", send_to: "G-23P37R20FY", was_viewable: 1, first_click: 1 });
+    expect(clicks[0]).toMatchObject({ campaign_id: "dc-compare-data", placement_id: "home-after-prizes", destination_id: "compare-data", destination_host: "datacost.co.za", destination_path: "/guides/cheapest-data-south-africa/", send_to: "G-23P37R20FY", was_viewable: 1, first_click: 1 });
     expect(clicks[1].first_click).toBe(0);
     expect(Object.keys(clicks[0]).some((key) => /^(?:email|uid|user_id|session_id)$/.test(key))).toBe(false);
   });

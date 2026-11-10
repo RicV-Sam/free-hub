@@ -102,6 +102,9 @@ test("assets are added only with a single module, preserving provider markup", (
   const provider = '<script src="https://scripts.scriptwrapper.com/example.js"></script>';
   const shell = `<html><head>${provider}</head><body>CONTENT</body></html>`;
   assert.equal(injectPromotionAssets(shell), shell);
+  const pausedLayout = injectPromotionAssets(shell.replace("<body>", '<body data-promotion-layout="home">'));
+  assert.match(pausedLayout, /promotions.css/);
+  assert.doesNotMatch(pausedLayout, /promotion-runtime.js|promotion-analytics.js/);
   const module = renderPromotion(selectPromotion(config, "/", active));
   const html = injectPromotionAssets(shell.replace("CONTENT", module));
   assert.ok(html.includes(provider));

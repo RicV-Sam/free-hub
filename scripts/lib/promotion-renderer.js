@@ -83,8 +83,9 @@ function renderPromotion(selected) {
     "valid-from": window.start, "valid-until": window.end,
   };
   return `<aside class="fh-promotion fh-promotion--${escape(placement.format)}" data-freehub-promotion ${Object.entries(attributes).map(([key, value]) => `data-${key}="${escape(value)}"`).join(" ")} aria-labelledby="promotion-${escape(placement.id)}">
-          <div class="fh-promotion__body"><p class="fh-promotion__disclosure">House promotion · FreeHub’s sister site</p><p class="fh-promotion__eyebrow">${escape(creative.eyebrow)}</p><h2 id="promotion-${escape(placement.id)}">${escape(creative.title)}</h2><p class="fh-promotion__message">${escape(creative.message)}</p></div>
-          <div class="fh-promotion__action"><span class="fh-promotion__brand">${escape(sponsor.name)}<span>.co.za</span></span><a class="fh-promotion__link" data-promotion-link href="${escape(href)}" rel="sponsored noopener">${escape(creative.cta)}<span aria-hidden="true"> ↗</span></a><span class="fh-promotion__destination">Continue to ${escape(url.hostname)}</span></div>
+          <div class="fh-promotion__identity">${placement.format === "category" ? '<span class="fh-promotion__support">Supported by</span>' : ""}<span class="fh-promotion__brand">${escape(sponsor.name)}</span><span class="fh-promotion__disclosure">House promotion · FreeHub’s sister site</span></div>
+          <div class="fh-promotion__body">${placement.format === "card" ? `<p class="fh-promotion__eyebrow">${escape(creative.eyebrow)}</p>` : ""}<h2 id="promotion-${escape(placement.id)}">${escape(creative.title)}</h2><p class="fh-promotion__message">${escape(creative.message)}</p></div>
+          <div class="fh-promotion__action"><a class="fh-promotion__link" data-promotion-link href="${escape(href)}" rel="sponsored noopener">${escape(creative.cta)}<span aria-hidden="true"> ↗</span></a><span class="fh-promotion__destination">${escape(url.hostname)}</span></div>
         </aside>`;
 }
 
@@ -98,13 +99,17 @@ function createPromotionRenderer(config, options) {
 
 function injectPromotionAssets(content) {
   const modules = [...content.matchAll(/<aside\b[^>]*\bdata-freehub-promotion\s[^>]*>/g)];
-  if (!modules.length) return content;
+  const stylesheet = '<link rel="stylesheet" href="/assets/promotions.css?v=20261110-v2" />';
+  if (!modules.length) {
+    // Page hierarchy stays styled when a campaign is paused or outside its review window.
+    return content.includes('data-promotion-layout="') ? content.replace(/\s*<\/head>/i, `\n    ${stylesheet}\n  </head>`) : content;
+  }
   if (modules.length > 1) throw new Error("A page cannot contain multiple primary promotions");
   if (/<meta[^>]+name="robots"[^>]+content="[^"]*noindex/i.test(content)) throw new Error("Promotions cannot appear on noindex pages");
   const start = modules[0][0].match(/data-valid-from="(\d+)"/)[1];
   const end = modules[0][0].match(/data-valid-until="(\d+)"/)[1];
   // Evaluate the finite review window in the head, before layout. No late insertion or carousel.
-  const head = `<meta name="freehub-promotion-window" content="${start},${end}" />\n    <link rel="stylesheet" href="/assets/promotions.css?v=20261110-v1" />\n    <script src="/shared/promotion-runtime.js?v=20261110-v1"></script>\n    <script src="/shared/promotion-analytics.js?v=20261110-v1" defer></script>`;
+  const head = `<meta name="freehub-promotion-window" content="${start},${end}" />\n    ${stylesheet}\n    <script src="/shared/promotion-runtime.js?v=20261110-v1"></script>\n    <script src="/shared/promotion-analytics.js?v=20261110-v1" defer></script>`;
   return content.replace(/\s*<\/head>/i, `\n    ${head}\n  </head>`);
 }
 
