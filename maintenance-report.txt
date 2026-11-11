@@ -1,15 +1,15 @@
 Reviewed competition retirements effective: 6
 === Competition Maintenance Report ===
-Date: 2026-11-10
+Date: 2026-11-11
 Mode: archive-expired
 Total competitions: 511
-Active published count: 91
-Expired archive page count: 313
+Active published count: 90
+Expired archive page count: 314
 Low-value expired noindex count: 0
 Held/private count: 107
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 13
+Closing in next 14 days: 12
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -325,21 +325,21 @@ Expired competition IDs:
 - boxer-go-getta-2026 (2026-11-08)
 - 1up-mangia-vouchers-2026 (2026-11-09)
 - cape-town-move-with-melody-2026 (2026-11-09)
+- outdoorphoto-wishlist-tenba-2026 (2026-11-10)
 
 Closing soon (next 14 days):
-- outdoorphoto-wishlist-tenba-2026 (0 days)
-- clicks-amka-deo2rands-2026 (2 days)
-- hypertext-mobile-survey-2026 (2 days)
-- raimondi-birthday-retail-promotion-2-2026 (2 days)
-- imana-pnp-lintons-corner-potjie-dash-2026 (3 days)
-- pizza-perfect-oom-freddy-legacy-2026 (4 days)
-- nedbank-old-mutual-budget-speech-2026 (5 days)
-- huletts-spar-rewards-2026 (5 days)
-- mtn-tfg-prepaid-win-your-share-2026 (8 days)
-- bed-bath-home-november-voucher-signup-2026 (9 days)
-- edgars-at-our-school-2026 (10 days)
-- eskort-braai-lux-2026 (12 days)
-- boxer-amarula-smeg-fridge-2026 (14 days)
+- clicks-amka-deo2rands-2026 (1 days)
+- hypertext-mobile-survey-2026 (1 days)
+- raimondi-birthday-retail-promotion-2-2026 (1 days)
+- imana-pnp-lintons-corner-potjie-dash-2026 (2 days)
+- pizza-perfect-oom-freddy-legacy-2026 (3 days)
+- nedbank-old-mutual-budget-speech-2026 (4 days)
+- huletts-spar-rewards-2026 (4 days)
+- mtn-tfg-prepaid-win-your-share-2026 (7 days)
+- bed-bath-home-november-voucher-signup-2026 (8 days)
+- edgars-at-our-school-2026 (9 days)
+- eskort-braai-lux-2026 (11 days)
+- boxer-amarula-smeg-fridge-2026 (13 days)
 
 Keyword cluster coverage (active data + public SEO copy scan):
 - cars: 6/6 terms present

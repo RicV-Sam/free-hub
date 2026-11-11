@@ -1,34 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-10",
-  "count": 90,
+  "asOfDate": "2026-11-11",
+  "count": 89,
   "competitions": [
-    {
-      "id": "outdoorphoto-wishlist-tenba-2026",
-      "title": "Outdoorphoto Wishlist: Win a Tenba Spinner Backpack",
-      "brand": "Outdoorphoto",
-      "summary": "Create a free Outdoorphoto account and wishlist for a chance to win a Tenba Axis v2 28L Spinner Backpack advertised at R10,295. Add up to five different products for five entries; no purchase is required.",
-      "imageUrl": "https://freehub.co.za/assets/listings/outdoorphoto-wishlist-tenba-2026.webp",
-      "closingDate": "2026-11-10",
-      "category": "Shopping",
-      "prizeName": "Tenba Axis v2 28L Spinner Backpack",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Account and Wishlist",
-      "eligibility": "South African residents; the linked standard rules require age 18+ or parent/legal guardian permission for younger entrants. Outdoorphoto staff, related agencies, partners, sponsors and immediate family are excluded.",
-      "entrySteps": [
-        "Read the wishlist campaign and linked standard rules, then sign into or create your free Outdoorphoto account.",
-        "Create your wishlist during 20 October–10 November 2026 and add different eligible products. Each distinct product earns one entry, capped at five per person; duplicates do not add entries.",
-        "Finish by 23:59 South African time on 10 November. Entry is automatic through the wishlist; do not buy items merely to enter.",
-        "Check the email linked to your account and official announcements on 13 November. Respond promptly; standard rules allow replacement if a winner cannot be reached within 72 hours."
-      ],
-      "officialUrl": "https://www.outdoorphoto.co.za/blogs/blog/outdoorphoto-wishlist-competition",
-      "termsUrl": "https://www.outdoorphoto.co.za/pages/competition-terms-conditions",
-      "lastChecked": "2026-10-21",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
     {
       "id": "clicks-amka-deo2rands-2026",
       "title": "Clicks AMKA Deo2Rands Competition",
@@ -233,7 +207,7 @@
       "termsUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn-pay-as-you-go-tfg-win-your-share-competition",
       "lastChecked": "2026-10-30",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "bed-bath-home-november-voucher-signup-2026",
