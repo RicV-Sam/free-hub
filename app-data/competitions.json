@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-11",
+  "asOfDate": "2026-11-12",
   "count": 89,
   "competitions": [
     {
@@ -232,7 +232,7 @@
       "termsUrl": "https://bedbathhome.co.za/pages/competitions-terms-conditions",
       "lastChecked": "2026-11-04",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "edgars-at-our-school-2026",

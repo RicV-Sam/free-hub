@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-11",
-  "count": 34,
+  "asOfDate": "2026-11-12",
+  "count": 31,
   "counts": {
     "freeStuff": 24,
     "resources": 24,
     "opportunities": 0,
-    "offers": 10
+    "offers": 7
   },
   "items": [
     {
@@ -409,63 +409,6 @@
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "expiresAt": "2027-03-31",
       "lastChecked": "2026-11-09",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "zorora-pick-your-promo-november-2026",
-      "kind": "deal",
-      "title": "Zorora Pick Your Promo November Sale",
-      "provider": "Zorora",
-      "summary": "Pick from three November offers in store. Online, Zorora runs the selected-fabric discount, ottoman offer and spend-tier savings in successive windows.",
-      "category": "home-garden",
-      "categoryLabel": "Home & Garden",
-      "officialUrl": "https://zororasofas.co.za/products/zola-3-seater",
-      "termsUrl": "https://zororasofas.co.za/policies/terms-of-service",
-      "requirements": [
-        "The three primary offers run in store throughout November, one per purchase. Online: 1–10 November gives 20% off products in designated fabrics. 11–20 November offers one eligible ottoman with R15,000 or more of qualifying products, excluding delivery. 21–30 November offers tiered savings on qualifying full-price merchandise. Express Shipping items and partner offers are excluded from these primary offers. Check the official list of fabrics, collections and spend tiers. Discounts do not stack."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2026-11-30",
-      "lastChecked": "2026-11-04",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "maxwell-williams-black-november-2026",
-      "kind": "deal",
-      "title": "Maxwell & Williams Black November Spend Discounts",
-      "provider": "Maxwell & Williams",
-      "summary": "The official Black November terms advertise 10%, 20% and 30% discounts at three qualifying spend levels.",
-      "category": "home-garden",
-      "categoryLabel": "Home & Garden",
-      "officialUrl": "https://maxwellandwilliams.co.za/collections/mic-special-deals-black-friday-deals",
-      "termsUrl": "https://maxwellandwilliams.co.za/pages/black-friday-discount-terms",
-      "requirements": [
-        "Spend at least R1,000 for 10% off, R2,500 for 20% or R5,000 for 30% during 1–30 November. The highest qualifying tier applies, and shipping does not count towards the threshold. Discounts cannot be combined. The terms do not list a public code. Confirm the eligible basket and discount before paying."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2026-11-30",
-      "lastChecked": "2026-11-04",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "iherb-new20-first-order-south-africa",
-      "kind": "coupon",
-      "title": "iHerb NEW20 First Order Discount",
-      "provider": "iHerb",
-      "summary": "New iHerb customers in South Africa can use NEW20 for 20% off their first order before shipping and taxes.",
-      "category": "beauty-health",
-      "categoryLabel": "Beauty & Health",
-      "officialUrl": "https://za.iherb.com/info/sales-and-offers",
-      "termsUrl": "https://information.iherb.com/hc/en-us/articles/40675330600724-New-Customer-Discount-Information",
-      "couponCode": "NEW20",
-      "requirements": [
-        "For new customers only. Apply NEW20 at checkout on the website or app. It is single use and the discount is calculated before shipping and taxes. iHerb's South African shipping policy says import duties, taxes or handling fees can apply, depending on the order and carrier. Check the final cost before paying. The official code terms give no fixed expiry date."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "lastChecked": "2026-11-04",
       "isAffiliate": false,
       "isSponsored": false
     },
