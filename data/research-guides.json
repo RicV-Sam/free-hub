@@ -1791,7 +1791,8 @@
     "links": [
       {
         "label": "Coupons and deals",
-        "href": "/offers/"
+        "href": "/offers/",
+        "requiresOffers": true
       }
     ],
     "actions": [
@@ -1855,7 +1856,8 @@
     "links": [
       {
         "label": "Coupons and deals",
-        "href": "/offers/"
+        "href": "/offers/",
+        "requiresOffers": true
       }
     ],
     "actions": [
@@ -1919,7 +1921,8 @@
     "links": [
       {
         "label": "Coupons and deals",
-        "href": "/offers/"
+        "href": "/offers/",
+        "requiresOffers": true
       }
     ],
     "actions": [
