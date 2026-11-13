@@ -1,0 +1,780 @@
+{
+  "asOfDate": "2026-11-13",
+  "description": "Reviewed public pages in the 13 November 2026 discovery publication batch. Verification remains controlled by the source registries.",
+  "pages": [
+    {
+      "id": "absa-pre-black-friday-mr-d-voucher-2026",
+      "kind": "competition",
+      "route": "/competition/absa-pre-black-friday-mr-d-voucher-2026/",
+      "image": "/assets/listings/2026-11-13/absa-pre-black-friday-mr-d-voucher-2026.webp"
+    },
+    {
+      "id": "time-out-sean-paul-pretoria-2026",
+      "kind": "competition",
+      "route": "/competition/time-out-sean-paul-pretoria-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-time-out-sean-paul-pretoria-2026.webp"
+    },
+    {
+      "id": "mally-win-your-cart-november-2026",
+      "kind": "competition",
+      "route": "/competition/mally-win-your-cart-november-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-mally-win-your-cart-november-2026.webp"
+    },
+    {
+      "id": "onedayonly-november-wallet-credit-2026",
+      "kind": "competition",
+      "route": "/competition/onedayonly-november-wallet-credit-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-onedayonly-november-wallet-credit-2026.webp"
+    },
+    {
+      "id": "penguin-lottie-brooks-christmas-2026",
+      "kind": "competition",
+      "route": "/competition/penguin-lottie-brooks-christmas-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-penguin-lottie-brooks-christmas-2026.webp"
+    },
+    {
+      "id": "beauty-sa-clicks-spring-beauty-box-2026",
+      "kind": "competition",
+      "route": "/competition/beauty-sa-clicks-spring-beauty-box-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-beauty-sa-clicks-spring-beauty-box-2026.webp"
+    },
+    {
+      "id": "beauty-sa-hr-haircare-2026",
+      "kind": "competition",
+      "route": "/competition/beauty-sa-hr-haircare-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-beauty-sa-hr-haircare-2026.webp"
+    },
+    {
+      "id": "beauty-sa-fundamentals-skincare-2026",
+      "kind": "competition",
+      "route": "/competition/beauty-sa-fundamentals-skincare-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-beauty-sa-fundamentals-skincare-2026.webp"
+    },
+    {
+      "id": "clicks-catrice-setting-spray-2026",
+      "kind": "competition",
+      "route": "/competition/clicks-catrice-setting-spray-2026/",
+      "image": "/assets/listings/discovery-2026-10-30/a034.webp"
+    },
+    {
+      "id": "clicks-elastoplast-first-aid-kit-2026",
+      "kind": "competition",
+      "route": "/competition/clicks-elastoplast-first-aid-kit-2026/",
+      "image": "/assets/listings/discovery-2026-10-30/a035.webp"
+    },
+    {
+      "id": "beauty-sa-brunel-oralink-2026",
+      "kind": "competition",
+      "route": "/competition/beauty-sa-brunel-oralink-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-beauty-sa-brunel-oralink-2026.webp"
+    },
+    {
+      "id": "beauty-sa-lipsano-summer-2026",
+      "kind": "competition",
+      "route": "/competition/beauty-sa-lipsano-summer-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-beauty-sa-lipsano-summer-2026.webp"
+    },
+    {
+      "id": "samsung-black-friday-win-your-basket-back-2026",
+      "kind": "competition",
+      "route": "/competition/samsung-black-friday-win-your-basket-back-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-samsung-black-friday-win-your-basket-back-2026.webp"
+    },
+    {
+      "id": "telkom-limpopo-fibre-playstation-2026",
+      "kind": "competition",
+      "route": "/competition/telkom-limpopo-fibre-playstation-2026/",
+      "image": "/assets/listings/2026-11-13/telkom-limpopo-fibre-playstation-2026.webp"
+    },
+    {
+      "id": "telkom-limpopo-postpaid-fieldbar-2026",
+      "kind": "competition",
+      "route": "/competition/telkom-limpopo-postpaid-fieldbar-2026/",
+      "image": "/assets/listings/2026-11-13/telkom-limpopo-postpaid-fieldbar-2026.webp"
+    },
+    {
+      "id": "imana-spar-mountain-view-potjie-dash-2026",
+      "kind": "competition",
+      "route": "/competition/imana-spar-mountain-view-potjie-dash-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-imana-spar-mountain-view-potjie-dash-2026.webp"
+    },
+    {
+      "id": "absa-ott-voucher-draw-2026",
+      "kind": "competition",
+      "route": "/competition/absa-ott-voucher-draw-2026/",
+      "image": "/assets/listings/2026-11-13/absa-ott-voucher-draw-2026.webp"
+    },
+    {
+      "id": "andiccio24-ps5-gta-vi-november-2026",
+      "kind": "competition",
+      "route": "/competition/andiccio24-ps5-gta-vi-november-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-andiccio24-ps5-gta-vi-november-2026.webp"
+    },
+    {
+      "id": "spar-win-your-shopping-free-2026",
+      "kind": "competition",
+      "route": "/competition/spar-win-your-shopping-free-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-spar-win-your-shopping-free-2026.webp"
+    },
+    {
+      "id": "colgate-gauteng-dental-checkup-clean-2026",
+      "kind": "competition",
+      "route": "/competition/colgate-gauteng-dental-checkup-clean-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-colgate-gauteng-dental-checkup-clean-2026.webp"
+    },
+    {
+      "id": "boxer-nivea-b-rewards-2026",
+      "kind": "competition",
+      "route": "/competition/boxer-nivea-b-rewards-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-boxer-nivea-b-rewards-2026.webp"
+    },
+    {
+      "id": "boxer-glen-tea-b-rewards-2026",
+      "kind": "competition",
+      "route": "/competition/boxer-glen-tea-b-rewards-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-boxer-glen-tea-b-rewards-2026.webp"
+    },
+    {
+      "id": "samsung-november-rate-and-review-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/samsung-november-rate-and-review-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-samsung-november-rate-and-review-2026.webp"
+    },
+    {
+      "id": "absa-app-spin-and-win-byd-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/absa-app-spin-and-win-byd-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-absa-app-spin-and-win-byd-2026.webp"
+    },
+    {
+      "id": "penguin-starbucks-pick-a-drink-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/penguin-starbucks-pick-a-drink-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-penguin-starbucks-pick-a-drink-2026.webp"
+    },
+    {
+      "id": "superbalist-payjustnow-november-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/superbalist-payjustnow-november-2026/",
+      "image": "/assets/listings/weekly-2026-11-01/superbalist-payjustnow-november-2026.webp"
+    },
+    {
+      "id": "getaway-the-marine-hermanus-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/getaway-the-marine-hermanus-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-getaway-the-marine-hermanus-2026.webp"
+    },
+    {
+      "id": "1life-back-to-school-survey-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/1life-back-to-school-survey-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-1life-back-to-school-survey-2026-editorial.webp"
+    },
+    {
+      "id": "penguin-isibindi-wild-escape-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/penguin-isibindi-wild-escape-2026/",
+      "image": "/assets/listings/discovery-2026-10-30/a027.webp"
+    },
+    {
+      "id": "clicks-amble-aura-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/clicks-amble-aura-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-clicks-amble-aura-2026-editorial.webp"
+    },
+    {
+      "id": "plant-couture-black-november-voucher-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/plant-couture-black-november-voucher-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-plant-couture-black-november-voucher-2026.webp"
+    },
+    {
+      "id": "vodacom-fibre-holiday-mastercard-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/vodacom-fibre-holiday-mastercard-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-vodacom-fibre-holiday-mastercard-2026-editorial.webp"
+    },
+    {
+      "id": "samsung-telkom-turn-up-summer-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/samsung-telkom-turn-up-summer-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-samsung-telkom-turn-up-summer-2026-editorial.webp"
+    },
+    {
+      "id": "jacaranda-balwin-explora-challenge-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/jacaranda-balwin-explora-challenge-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-jacaranda-balwin-explora-challenge-2026.webp"
+    },
+    {
+      "id": "bellas-kitchen-platter-giveaway-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/bellas-kitchen-platter-giveaway-2026/",
+      "image": "/assets/listings/discovery-2026-10-30/a028.webp"
+    },
+    {
+      "id": "diary-wimpy-kid-fight-or-flight-giveaway-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/diary-wimpy-kid-fight-or-flight-giveaway-2026/",
+      "image": "/assets/listings/discovery-2026-10-30/a029.webp"
+    },
+    {
+      "id": "mtn-summer-2026-flip-win",
+      "kind": "unverified",
+      "route": "/unverified-competitions/mtn-summer-2026-flip-win/",
+      "image": "/assets/listings/discovery-2026-10-30/r010.webp"
+    },
+    {
+      "id": "nescafe-lead-gen-2026-mastercard-vouchers",
+      "kind": "unverified",
+      "route": "/unverified-competitions/nescafe-lead-gen-2026-mastercard-vouchers/",
+      "image": "/assets/listings/discovery-2026-10-30/a001.webp"
+    },
+    {
+      "id": "woolworths-taste-dairy-dream-hamper-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/woolworths-taste-dairy-dream-hamper-2026/",
+      "image": "/assets/listings/2026-11-04/woolworths-taste-dairy-dream-hamper-2026.webp"
+    },
+    {
+      "id": "lays-best-kept-day-off-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/lays-best-kept-day-off-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-lays-best-kept-day-off-2026.webp"
+    },
+    {
+      "id": "coca-cola-big-green-egg-match-day-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/coca-cola-big-green-egg-match-day-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-coca-cola-big-green-egg-match-day-2026-editorial.webp"
+    },
+    {
+      "id": "bluff-mndeni-toyota-vitz-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/bluff-mndeni-toyota-vitz-2026/",
+      "image": "/assets/listings/discovery-2026-10-30/bluff-win-car.webp"
+    },
+    {
+      "id": "tops-monkey-shoulder-marshall-kilburn-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/tops-monkey-shoulder-marshall-kilburn-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-tops-monkey-shoulder-marshall-kilburn-2026.webp"
+    },
+    {
+      "id": "ok-liquor-kwv-five-litre-brandy-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/ok-liquor-kwv-five-litre-brandy-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-ok-liquor-kwv-five-litre-brandy-2026-editorial.webp"
+    },
+    {
+      "id": "come-for-the-savings-and-you-could-leave-in-a-bakkie",
+      "kind": "unverified",
+      "route": "/unverified-competitions/come-for-the-savings-and-you-could-leave-in-a-bakkie/",
+      "image": "/assets/listings/discovery-2026-10-30/fh-1030-12.webp"
+    },
+    {
+      "id": "ok-express-fuel-for-a-year-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/ok-express-fuel-for-a-year-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-ok-express-fuel-for-a-year-2026-editorial.webp"
+    },
+    {
+      "id": "boxer-raid-b-rewards-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/boxer-raid-b-rewards-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-boxer-raid-b-rewards-2026.webp"
+    },
+    {
+      "id": "aromat-checkers-voucher-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/aromat-checkers-voucher-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-aromat-checkers-voucher-2026-editorial.webp"
+    },
+    {
+      "id": "standard-bank-evolve-kehlani-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/standard-bank-evolve-kehlani-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-standard-bank-evolve-kehlani-2026-editorial.webp"
+    },
+    {
+      "id": "pnp-yogisip-playstation-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/pnp-yogisip-playstation-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-pnp-yogisip-playstation-2026-editorial.webp"
+    },
+    {
+      "id": "get-it-lacoste-original-parfum-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/get-it-lacoste-original-parfum-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-get-it-lacoste-original-parfum-2026.webp"
+    },
+    {
+      "id": "pnp-pakco-r50000-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/pnp-pakco-r50000-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-pnp-pakco-r50000-2026-editorial.webp"
+    },
+    {
+      "id": "amka-checkers-till-slip-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/amka-checkers-till-slip-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-amka-checkers-till-slip-2026-editorial.webp"
+    },
+    {
+      "id": "warwick-first-lady-vespa-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/warwick-first-lady-vespa-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-warwick-first-lady-vespa-2026-editorial.webp"
+    },
+    {
+      "id": "mamas-pies-shopping-voucher-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/mamas-pies-shopping-voucher-2026/",
+      "image": "/assets/listings/discovery-2026-10-30/mamas-pies-shopping-voucher-2026.webp"
+    },
+    {
+      "id": "robertsons-checkers-meat-voucher-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/robertsons-checkers-meat-voucher-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-robertsons-checkers-meat-voucher-2026-editorial.webp"
+    },
+    {
+      "id": "amka-be-the-queen-mercedes-slk-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/amka-be-the-queen-mercedes-slk-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-amka-be-the-queen-mercedes-slk-2026-editorial.webp"
+    },
+    {
+      "id": "comfort-litres-of-luxury-omoda-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/comfort-litres-of-luxury-omoda-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-comfort-litres-of-luxury-omoda-2026-editorial.webp"
+    },
+    {
+      "id": "pnp-energizer-smart-shopper-points-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/pnp-energizer-smart-shopper-points-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-pnp-energizer-smart-shopper-points-2026-editorial.webp"
+    },
+    {
+      "id": "savanna-win-an-apple-a-day-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/savanna-win-an-apple-a-day-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-savanna-win-an-apple-a-day-2026-editorial.webp"
+    },
+    {
+      "id": "chivas-thebe-magugu-jersey-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/chivas-thebe-magugu-jersey-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-chivas-thebe-magugu-jersey-2026-editorial.webp"
+    },
+    {
+      "id": "nola-summer-drive-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/nola-summer-drive-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-nola-summer-drive-2026-editorial.webp"
+    },
+    {
+      "id": "yfm-maq-real-housewives-mishap-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/yfm-maq-real-housewives-mishap-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-yfm-maq-real-housewives-mishap-2026-editorial.webp"
+    },
+    {
+      "id": "ikonik-business-website-giveaway-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/ikonik-business-website-giveaway-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-ikonik-business-website-giveaway-2026-editorial.webp"
+    },
+    {
+      "id": "babyyumyum-bennetts-premium-monthly-2026",
+      "kind": "unverified",
+      "route": "/unverified-competitions/babyyumyum-bennetts-premium-monthly-2026/",
+      "image": "/assets/competitions/discovery-2026-11-13-babyyumyum-bennetts-premium-monthly-2026-editorial.webp"
+    },
+    {
+      "id": "absa-rewards-fuel-relief-october-november-2026",
+      "kind": "offer",
+      "route": "/deal/absa-rewards-fuel-relief-october-november-2026/",
+      "image": "/assets/listings/2026-11-13/absa-rewards-fuel-relief-october-november-2026.webp"
+    },
+    {
+      "id": "atkv-goudini-spa-november-weekend-sale-2026",
+      "kind": "offer",
+      "route": "/deal/atkv-goudini-spa-november-weekend-sale-2026/",
+      "image": "/assets/listings/retail-2026-11-13/atkv-goudini-spa-november-weekend-sale-2026.webp"
+    },
+    {
+      "id": "sanparks-senior-discount-november-2026",
+      "kind": "offer",
+      "route": "/deal/sanparks-senior-discount-november-2026/",
+      "image": "/assets/listings/retail-2026-11-13/sanparks-senior-discount-november-2026.webp"
+    },
+    {
+      "id": "telkom-summer-spend-and-get-minutes-2026",
+      "kind": "offer",
+      "route": "/deal/telkom-summer-spend-and-get-minutes-2026/",
+      "image": "/assets/listings/retail-2026-11-13/telkom-summer-spend-and-get-minutes-2026-editorial.webp"
+    },
+    {
+      "id": "galileo-pensioner-special-2026-2027",
+      "kind": "offer",
+      "route": "/deal/galileo-pensioner-special-2026-2027/",
+      "image": "/assets/listings/retail-2026-11-13/galileo-pensioner-special-2026-2027.webp"
+    },
+    {
+      "id": "astron-energy-xtra-savings-fuel-rewards",
+      "kind": "offer",
+      "route": "/deal/astron-energy-xtra-savings-fuel-rewards/",
+      "image": "/assets/listings/retail-2026-11-13/astron-energy-xtra-savings-fuel-rewards.webp"
+    },
+    {
+      "id": "mr-price-app-first-order-r100-off",
+      "kind": "offer",
+      "route": "/coupon/mr-price-app-first-order-r100-off/",
+      "image": "/assets/listings/retail-2026-11-13/mr-price-app-first-order-r100-off.webp"
+    },
+    {
+      "id": "superbalist-firstbuy-r400-off-first-order",
+      "kind": "offer",
+      "route": "/coupon/superbalist-firstbuy-r400-off-first-order/",
+      "image": "/assets/listings/retail-2026-11-13/superbalist-firstbuy-r400-off-first-order.webp"
+    },
+    {
+      "id": "john-dorys-app-signup-dessert-2026",
+      "kind": "offer",
+      "route": "/deal/john-dorys-app-signup-dessert-2026/",
+      "image": "/assets/listings/retail-2026-11-13/john-dorys-app-signup-dessert-2026.webp"
+    },
+    {
+      "id": "atkv-senior-accommodation-discount",
+      "kind": "offer",
+      "route": "/deal/atkv-senior-accommodation-discount/",
+      "image": "/assets/listings/retail-2026-11-13/atkv-senior-accommodation-discount.webp"
+    },
+    {
+      "id": "apple-music-new-device-three-month-trial",
+      "kind": "offer",
+      "route": "/deal/apple-music-new-device-three-month-trial/",
+      "image": "/assets/listings/retail-2026-11-13/apple-music-new-device-three-month-trial-editorial.webp"
+    },
+    {
+      "id": "cotton-on-perks-twenty-percent-welcome",
+      "kind": "offer",
+      "route": "/coupon/cotton-on-perks-twenty-percent-welcome/",
+      "image": "/assets/listings/free-offers-2026-10-09-fashion.webp"
+    },
+    {
+      "id": "happy-folks-loyalty-rewards",
+      "kind": "offer",
+      "route": "/deal/happy-folks-loyalty-rewards/",
+      "image": "/assets/listings/retail-2026-11-13/happy-folks-loyalty-rewards.webp"
+    },
+    {
+      "id": "kapstadt-brauhaus-loyalty-rewards",
+      "kind": "offer",
+      "route": "/deal/kapstadt-brauhaus-loyalty-rewards/",
+      "image": "/assets/listings/retail-2026-11-13/kapstadt-brauhaus-loyalty-rewards.webp"
+    },
+    {
+      "id": "john-dorys-half-price-sushi-wednesdays",
+      "kind": "offer",
+      "route": "/deal/john-dorys-half-price-sushi-wednesdays/",
+      "image": "/assets/listings/retail-2026-11-13/john-dorys-half-price-sushi-wednesdays.webp"
+    },
+    {
+      "id": "krispy-kreme-birthday-dozen-offer",
+      "kind": "offer",
+      "route": "/deal/krispy-kreme-birthday-dozen-offer/",
+      "image": "/assets/listings/retail-2026-11-13/krispy-kreme-birthday-dozen-offer-app.webp"
+    },
+    {
+      "id": "lg-new-member-five-percent-coupon",
+      "kind": "offer",
+      "route": "/coupon/lg-new-member-five-percent-coupon/",
+      "image": "/assets/listings/retail-2026-11-13/lg-new-member-five-percent-coupon.webp"
+    },
+    {
+      "id": "panarottis-rewards-additional-benefits",
+      "kind": "offer",
+      "route": "/deal/panarottis-rewards-additional-benefits/",
+      "image": "/assets/listings/panarottis-rewards-additional-benefits.webp"
+    },
+    {
+      "id": "spotify-premium-standard-one-month-trial",
+      "kind": "offer",
+      "route": "/deal/spotify-premium-standard-one-month-trial/",
+      "image": "/assets/listings/retail-2026-11-13/spotify-premium-standard-one-month-trial.webp"
+    },
+    {
+      "id": "builders-pensioner-wednesday-discount",
+      "kind": "offer",
+      "route": "/deal/builders-pensioner-wednesday-discount/",
+      "image": "/assets/listings/2026-11-13/builders-pensioner-wednesday-discount.webp"
+    },
+    {
+      "id": "makro-msenior-discount",
+      "kind": "offer",
+      "route": "/deal/makro-msenior-discount/",
+      "image": "/assets/listings/retail-2026-11-13/makro-msenior-discount.webp"
+    },
+    {
+      "id": "clicks-seniors-wednesday-four-percent-cashback",
+      "kind": "offer",
+      "route": "/deal/clicks-seniors-wednesday-four-percent-cashback/",
+      "image": "/assets/listings/2026-11-13/clicks-seniors-double-points.webp"
+    },
+    {
+      "id": "vodacom-red-amazon-prime-trial",
+      "kind": "offer",
+      "route": "/deal/vodacom-red-amazon-prime-trial/",
+      "image": "/assets/listings/retail-2026-11-13/vodacom-red-amazon-prime-trial.webp"
+    },
+    {
+      "id": "spar-black-friday-rewards-november-2026",
+      "kind": "offer",
+      "route": "/deal/spar-black-friday-rewards-november-2026/",
+      "image": "/assets/listings/retail-2026-11-13/spar-black-friday-rewards-november-2026-leaflet.webp"
+    },
+    {
+      "id": "kirstenbosch-south-african-senior-free-tuesday",
+      "kind": "offer",
+      "route": "/deal/kirstenbosch-south-african-senior-free-tuesday/",
+      "image": "/assets/listings/free-offers-2026-10-09-garden.webp"
+    },
+    {
+      "id": "galileo-birthday-ticket-2026-2027",
+      "kind": "opportunity",
+      "route": "/opportunity/galileo-birthday-ticket-2026-2027/",
+      "image": "/assets/listings/galileo-birthday-ticket-2026-2027.webp"
+    },
+    {
+      "id": "zeitz-mocaa-free-access",
+      "kind": "opportunity",
+      "route": "/opportunity/zeitz-mocaa-free-access/",
+      "image": "/assets/listings/retail-2026-11-13/zeitz-mocaa-free-access.webp"
+    },
+    {
+      "id": "norval-birthday-free-access",
+      "kind": "opportunity",
+      "route": "/opportunity/norval-birthday-free-access/",
+      "image": "/assets/listings/norval-birthday-free-access.webp"
+    },
+    {
+      "id": "two-oceans-aquarium-birthday-entry",
+      "kind": "opportunity",
+      "route": "/opportunity/two-oceans-aquarium-birthday-entry/",
+      "image": "/assets/listings/retail-2026-11-13/two-oceans-aquarium-birthday-entry.webp"
+    },
+    {
+      "id": "cape-wheel-birthday-club-ride",
+      "kind": "opportunity",
+      "route": "/opportunity/cape-wheel-birthday-club-ride/",
+      "image": "/assets/listings/retail-2026-11-13/cape-wheel-birthday-club-ride.webp"
+    },
+    {
+      "id": "mugg-and-bean-birthday-cake",
+      "kind": "opportunity",
+      "route": "/opportunity/mugg-and-bean-birthday-cake/",
+      "image": "/assets/listings/mugg-bean-new-app-cappuccino.webp"
+    },
+    {
+      "id": "freedom-adventure-park-birthday-pass",
+      "kind": "opportunity",
+      "route": "/opportunity/freedom-adventure-park-birthday-pass/",
+      "image": "/assets/listings/retail-2026-11-13/freedom-adventure-park-birthday-pass.webp"
+    },
+    {
+      "id": "sap-learning-hub-student-edition",
+      "kind": "resource",
+      "route": "/resources/sap-learning-hub-student-edition/",
+      "image": "/assets/listings/2026-11-13/education-sap-learning-hub-student-edition.webp"
+    },
+    {
+      "id": "aws-educate-free-cloud-learning",
+      "kind": "resource",
+      "route": "/resources/aws-educate-free-cloud-learning/",
+      "image": "/assets/listings/2026-11-13/education-aws-educate-free-cloud-learning.webp"
+    },
+    {
+      "id": "cisco-networking-academy-free-courses",
+      "kind": "resource",
+      "route": "/resources/cisco-networking-academy-free-courses/",
+      "image": "/assets/listings/2026-11-13/education-cisco-networking-academy-free-courses.webp"
+    },
+    {
+      "id": "salb-free-accessible-library",
+      "kind": "resource",
+      "route": "/resources/salb-free-accessible-library/",
+      "image": "/assets/listings/2026-11-13/education-salb-free-accessible-library-editorial.webp"
+    },
+    {
+      "id": "cape-town-free-library-membership",
+      "kind": "resource",
+      "route": "/resources/cape-town-free-library-membership/",
+      "image": "/assets/listings/2026-11-13/education-cape-town-free-library-membership.webp"
+    },
+    {
+      "id": "essa-free-job-matching",
+      "kind": "resource",
+      "route": "/resources/essa-free-job-matching/",
+      "image": "/assets/listings/2026-11-13/education-essa-free-job-matching-editorial.webp"
+    },
+    {
+      "id": "khetha-free-career-guidance",
+      "kind": "resource",
+      "route": "/resources/khetha-free-career-guidance/",
+      "image": "/assets/listings/2026-11-13/education-khetha-free-career-guidance-editorial.webp"
+    },
+    {
+      "id": "hubspot-academy-free-certifications",
+      "kind": "resource",
+      "route": "/resources/hubspot-academy-free-certifications/",
+      "image": "/assets/listings/2026-11-13/education-hubspot-academy-free-certifications.webp"
+    },
+    {
+      "id": "forage-free-job-simulations",
+      "kind": "resource",
+      "route": "/resources/forage-free-job-simulations/",
+      "image": "/assets/listings/2026-11-13/education-forage-free-job-simulations.webp"
+    },
+    {
+      "id": "fao-elearning-free-courses",
+      "kind": "resource",
+      "route": "/resources/fao-elearning-free-courses/",
+      "image": "/assets/listings/2026-11-13/education-fao-elearning-free-courses-editorial.webp"
+    },
+    {
+      "id": "disasterready-core-humanitarian-certification",
+      "kind": "resource",
+      "route": "/resources/disasterready-core-humanitarian-certification/",
+      "image": "/assets/listings/2026-11-13/education-disasterready-core-humanitarian-certification.webp"
+    },
+    {
+      "id": "nwu-ai-academic-career-success",
+      "kind": "resource",
+      "route": "/resources/nwu-ai-academic-career-success/",
+      "image": "/assets/listings/2026-11-13/education-nwu-ai-academic-career-success.webp"
+    },
+    {
+      "id": "digify-pro-foundations",
+      "kind": "resource",
+      "route": "/resources/digify-pro-foundations/",
+      "image": "/assets/listings/2026-11-13/education-digify-pro-foundations.webp"
+    },
+    {
+      "id": "second-chance-matric-resources",
+      "kind": "resource",
+      "route": "/resources/second-chance-matric-resources/",
+      "image": "/assets/listings/2026-11-13/education-second-chance-matric-resources.webp"
+    },
+    {
+      "id": "yes-microsoft-ai-skills-vouchers",
+      "kind": "resource",
+      "route": "/resources/yes-microsoft-ai-skills-vouchers/",
+      "image": "/assets/listings/2026-11-13/education-yes-microsoft-ai-skills-vouchers.webp"
+    },
+    {
+      "id": "mqa-bursaries-2027",
+      "kind": "guide",
+      "route": "/mqa-bursaries-2027/",
+      "image": "/assets/listings/2026-11-13/mqa-bursary-editorial-2026.webp"
+    },
+    {
+      "id": "council-geoscience-bursary-2027",
+      "kind": "guide",
+      "route": "/council-geoscience-bursary-2027/",
+      "image": "/assets/listings/2026-11-13/geoscience-bursary-editorial-2026.webp"
+    },
+    {
+      "id": "dhs-scholarship-2027",
+      "kind": "guide",
+      "route": "/dhs-scholarship-2027/",
+      "image": "/assets/listings/2026-11-13/education-dhs-scholarship-2027.webp"
+    },
+    {
+      "id": "peermont-bursaries-2027",
+      "kind": "guide",
+      "route": "/peermont-bursaries-2027/",
+      "image": "/assets/listings/2026-11-13/education-peermont-bursaries-2027-editorial.webp"
+    },
+    {
+      "id": "funza-lushaka-bursary-2027",
+      "kind": "guide",
+      "route": "/funza-lushaka-bursary-2027/",
+      "image": "/assets/listings/2026-11-13/funza-lushaka-bursary-editorial-2026.webp"
+    },
+    {
+      "id": "unisa-postgraduate-bursary-2027",
+      "kind": "guide",
+      "route": "/unisa-postgraduate-bursary-2027/",
+      "image": "/assets/listings/2026-11-13/unisa-bursary-editorial-2026.webp"
+    },
+    {
+      "id": "agbiz-centenary-bursary-2027",
+      "kind": "guide",
+      "route": "/agbiz-centenary-bursary-2027/",
+      "image": "/assets/listings/2026-11-13/education-agbiz-centenary-bursary-2027-editorial.webp"
+    },
+    {
+      "id": "sanzaf-western-cape-bursary-2027",
+      "kind": "guide",
+      "route": "/sanzaf-western-cape-bursary-2027/",
+      "image": "/assets/listings/2026-11-13/education-sanzaf-western-cape-bursary-2027.webp"
+    },
+    {
+      "id": "psg-bursary-2027",
+      "kind": "guide",
+      "route": "/psg-bursary-2027/",
+      "image": "/assets/listings/2026-11-13/education-psg-bursary-2027-editorial.webp"
+    },
+    {
+      "id": "firstrand-empowerment-honours-bursary-2027",
+      "kind": "guide",
+      "route": "/firstrand-empowerment-honours-bursary-2027/",
+      "image": "/assets/listings/2026-11-13/education-firstrand-empowerment-honours-bursary-2027.webp"
+    },
+    {
+      "id": "milpark-bursary-2027",
+      "kind": "guide",
+      "route": "/milpark-bursary-2027/",
+      "image": "/assets/listings/2026-11-13/education-milpark-bursary-2027.webp"
+    },
+    {
+      "id": "fem-bursary-2027",
+      "kind": "guide",
+      "route": "/fem-bursary-2027/",
+      "image": "/assets/listings/2026-11-13/education-fem-bursary-2027.webp"
+    },
+    {
+      "id": "sati-bursary-2027",
+      "kind": "guide",
+      "route": "/sati-bursary-2027/",
+      "image": "/assets/listings/2026-11-13/education-sati-bursary-2027.webp"
+    },
+    {
+      "id": "ruwacon-bursary-2027",
+      "kind": "guide",
+      "route": "/ruwacon-bursary-2027/",
+      "image": "/assets/listings/2026-11-13/education-ruwacon-bursary-2027.webp"
+    },
+    {
+      "id": "discovery-miles-d-day-15-november-2026",
+      "kind": "guide",
+      "route": "/discovery-miles-d-day-15-november-2026/",
+      "image": "/assets/listings/retail-2026-11-13/discovery-miles-d-day-15-november-2026.webp"
+    },
+    {
+      "id": "absa-rewards-black-friday-2026-guide",
+      "kind": "guide",
+      "route": "/absa-rewards-black-friday-2026-guide/",
+      "image": "/assets/listings/retail-2026-11-13/absa-rewards-black-friday-2026-guide-editorial.webp"
+    },
+    {
+      "id": "telkom-black-friday-evoucher-2026-guide",
+      "kind": "guide",
+      "route": "/telkom-black-friday-evoucher-2026-guide/",
+      "image": "/assets/listings/retail-2026-11-13/telkom-black-friday-evoucher-2026-guide-editorial.webp"
+    }
+  ]
+}

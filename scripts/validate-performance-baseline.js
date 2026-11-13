@@ -26,6 +26,14 @@ Object.entries(baseline.assets).forEach(([name, asset]) => {
     const cardCount = (fs.readFileSync(filePath, "utf8").match(/<article class="competition-card"/g) || []).length;
     expected = asset.fixedBytes + (asset.bytes - asset.fixedBytes) * cardCount / asset.cardCount;
     inventoryNote = `; ${cardCount} cards versus ${asset.cardCount} in reference`;
+  } else if (asset.resourceCardCount) {
+    const html = fs.readFileSync(filePath, "utf8");
+    const resourceCardCount = (html.match(/<article class="free-resource-card"(?:\s[^>]*)?>/g) || []).length;
+    const referenceInventoryBytes = asset.inventoryReferenceBytes - asset.fixedBytes;
+    // Preserve the old page budget and its existing overhead. Scale only the
+    // extra card/schema inventory using an independently rebuilt base commit.
+    expected += referenceInventoryBytes * Math.max(0, resourceCardCount - asset.resourceCardCount) / asset.resourceCardCount;
+    inventoryNote = `; ${resourceCardCount} resource cards versus ${asset.resourceCardCount} in reference; original page budget retained`;
   }
   const growth = percentChange(actual, expected);
   const summary = `${name}: ${actual} bytes (budget reference ${Math.round(expected)}${inventoryNote}, ${growth >= 0 ? "+" : ""}${growth.toFixed(1)}%)`;

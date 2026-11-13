@@ -1,0 +1,175 @@
+name: Prepare editorial publication review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: prepare-editorial-publication-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  prepare-and-review:
+    if: >-
+      github.repository == 'RicV-Sam/free-hub' &&
+      github.event.pull_request.head.repo.full_name == 'RicV-Sam/free-hub' &&
+      github.event.pull_request.head.ref == 'editorial/discovery-2026-11-13'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions:
+      contents: write
+    env:
+      TZ: Africa/Johannesburg
+      NODE_OPTIONS: ''
+      FREEHUB_ENABLE_OPPORTUNITIES: 'true'
+      FREEHUB_ENABLE_OFFERS: 'true'
+      FREEHUB_ENABLE_PROMOTIONS: 'true'
+      FREEHUB_EDITORIAL_REVIEW: 'true'
+      PLAYWRIGHT_HTML_OUTPUT_DIR: output/editorial-review/report
+      PLAYWRIGHT_JSON_OUTPUT_NAME: output/editorial-review/playwright-results.json
+      REVIEW_BRANCH: editorial/discovery-2026-11-13
+      EXPECTED_HEAD: ${{ github.event.pull_request.head.sha }}
+      EXPECTED_COMPETITIONS_SHA: 7a8c2395d93131a9fd0b7b62703e20cc41452d50
+      EXPECTED_GENERATOR_SHA: 3fda2e946d56e73febf969a7c6e6b29af10ac8e9
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 1
+      - name: Apply the reviewed two-file source patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$EXPECTED_HEAD"
+          test "$(git hash-object data/competitions.json)" = '2fb39a4a0aeabe81231a1dc63b6af86e36537d30'
+          test "$(git hash-object scripts/generate-pages.js)" = '2a981c2585e098010bb7f31556195fe0399ed7bf'
+          node <<'JS'
+          const cp = require('node:child_process');
+          const expected = ['data/competitions.json', 'scripts/generate-pages.js'];
+          const stats = cp.execFileSync('git', ['apply', '--numstat', 'scripts/publication/discovery-2026-11-13.patch'], { encoding: 'utf8' });
+          const actual = stats.trim().split('\n').map(line => line.split('\t').slice(2).join('\t')).sort();
+          if (JSON.stringify(actual) !== JSON.stringify(expected)) throw new Error('Patch paths differ from the two approved source files');
+          JS
+          git apply --check --index scripts/publication/discovery-2026-11-13.patch
+          git apply --index scripts/publication/discovery-2026-11-13.patch
+          test "$(git hash-object data/competitions.json)" = "$EXPECTED_COMPETITIONS_SHA"
+          test "$(git hash-object scripts/generate-pages.js)" = "$EXPECTED_GENERATOR_SHA"
+          git rm .github/workflows/prepare-editorial-publication.yml scripts/publication/discovery-2026-11-13.patch
+          node <<'JS'
+          const fs = require('node:fs');
+          const cp = require('node:child_process');
+          const git = args => cp.execFileSync('git', args, { encoding: 'utf8' }).trim();
+          const expectedPaths = ['.github/workflows/prepare-editorial-publication.yml', 'data/competitions.json', 'scripts/generate-pages.js', 'scripts/publication/discovery-2026-11-13.patch'].sort();
+          const stagedPaths = git(['diff', '--cached', '--name-only']).split('\n').sort();
+          if (JSON.stringify(stagedPaths) !== JSON.stringify(expectedPaths)) throw new Error('Unexpected staged paths');
+          fs.mkdirSync('output/editorial-review', { recursive: true });
+          const receipt = {
+            preparationCommit: process.env.EXPECTED_HEAD,
+            branch: process.env.REVIEW_BRANCH,
+            candidateTree: git(['write-tree']),
+            stagedPaths,
+            sourceBlobs: {
+              'data/competitions.json': process.env.EXPECTED_COMPETITIONS_SHA,
+              'scripts/generate-pages.js': process.env.EXPECTED_GENERATOR_SHA,
+            },
+            preparedAt: new Date().toISOString(),
+            note: 'The browser artifact GITHUB_SHA identifies the preparation event; candidateTree identifies the patched source tree tested by this job.',
+          };
+          fs.writeFileSync('output/editorial-review/source-tree-receipt.json', JSON.stringify(receipt, null, 2) + '\n');
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## Prepared review tree\n\nCandidate tree: ${receipt.candidateTree}\n\nThis job can update only ${receipt.branch}; it does not publish main.\n`);
+          JS
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npx playwright install --with-deps chromium
+      - name: Select actual South African build date
+        shell: bash
+        run: |
+          node <<'JS'
+          const fs = require('node:fs');
+          const now = new Date();
+          const date = new Intl.DateTimeFormat('en-CA', { timeZone: 'Africa/Johannesburg', year: 'numeric', month: '2-digit', day: '2-digit' }).format(now);
+          fs.appendFileSync(process.env.GITHUB_ENV, `FREEHUB_BUILD_DATE=${date}\nFREEHUB_AS_OF_DATE=${date}\nFREEHUB_AS_OF_TIME=${now.toISOString()}\n`);
+          JS
+      - name: Build current publication
+        run: npm run build
+      - name: Run publication tests
+        run: npm test
+      - name: Validate maintenance state
+        run: node scripts/validate-maintenance-state.js
+      - name: Refresh actual date before visual review
+        shell: bash
+        run: |
+          node <<'JS'
+          const fs = require('node:fs');
+          const now = new Date();
+          const date = new Intl.DateTimeFormat('en-CA', { timeZone: 'Africa/Johannesburg', year: 'numeric', month: '2-digit', day: '2-digit' }).format(now);
+          fs.appendFileSync(process.env.GITHUB_ENV, `FREEHUB_BUILD_DATE=${date}\nFREEHUB_AS_OF_DATE=${date}\nFREEHUB_AS_OF_TIME=${now.toISOString()}\n`);
+          JS
+      - name: Rebuild current browser preview
+        run: npm run build
+      - name: Review batch at mobile and desktop widths
+        run: npx playwright test tests/browser/editorial-batch.spec.js --project=chromium --workers=1 --reporter=list,html,json --output=output/editorial-review/test-results
+      - name: Commit validated source to the same review branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object data/competitions.json)" = "$EXPECTED_COMPETITIONS_SHA"
+          test "$(git hash-object scripts/generate-pages.js)" = "$EXPECTED_GENERATOR_SHA"
+          node <<'JS'
+          const fs = require('node:fs');
+          const cp = require('node:child_process');
+          const receipt = JSON.parse(fs.readFileSync('output/editorial-review/source-tree-receipt.json', 'utf8'));
+          const tree = cp.execFileSync('git', ['write-tree'], { encoding: 'utf8' }).trim();
+          if (tree !== receipt.candidateTree) throw new Error('The staged source tree changed during testing');
+          JS
+          git add -- app-data/browser-competitions.json app-data/catalog.json app-data/competitions.json reports/vertical-page-coverage-report.md
+          node <<'JS'
+          const fs = require('node:fs');
+          const cp = require('node:child_process');
+          const git = args => cp.execFileSync('git', args, { encoding: 'utf8' }).trim();
+          const file = 'output/editorial-review/source-tree-receipt.json';
+          const receipt = JSON.parse(fs.readFileSync(file, 'utf8'));
+          const required = ['.github/workflows/prepare-editorial-publication.yml', 'data/competitions.json', 'scripts/generate-pages.js', 'scripts/publication/discovery-2026-11-13.patch'];
+          const generated = ['app-data/browser-competitions.json', 'app-data/catalog.json', 'app-data/competitions.json', 'reports/vertical-page-coverage-report.md'];
+          const allowed = new Set([...required, ...generated]);
+          const staged = git(['diff', '--cached', '--name-only']).split('\n').sort();
+          if (staged.some(name => !allowed.has(name)) || required.some(name => !staged.includes(name))) throw new Error('Unexpected final staged paths');
+          receipt.preparedTree = receipt.candidateTree;
+          receipt.candidateTree = git(['write-tree']);
+          receipt.stagedPaths = staged;
+          receipt.finalStagedBlobs = Object.fromEntries(staged.map(name => [name, name.startsWith('.github/workflows/prepare-') || name.endsWith('.patch') ? null : git(['rev-parse', `:${name}`])]));
+          receipt.validatedAt = new Date().toISOString();
+          receipt.actualReviewDateSast = process.env.FREEHUB_AS_OF_DATE;
+          receipt.buildInstant = process.env.FREEHUB_AS_OF_TIME;
+          fs.writeFileSync(file, JSON.stringify(receipt, null, 2) + '\n');
+          JS
+          test "$(git ls-remote --heads origin refs/heads/editorial/discovery-2026-11-13 | cut -f1)" = "$EXPECTED_HEAD"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git diff --cached --check
+          git commit -m 'Complete reviewed discovery sources after current-date validation'
+          git push origin HEAD:refs/heads/editorial/discovery-2026-11-13
+          node <<'JS'
+          const fs = require('node:fs');
+          const cp = require('node:child_process');
+          const file = 'output/editorial-review/source-tree-receipt.json';
+          const receipt = JSON.parse(fs.readFileSync(file, 'utf8'));
+          receipt.validatedCommit = cp.execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
+          receipt.pushedAt = new Date().toISOString();
+          fs.writeFileSync(file, JSON.stringify(receipt, null, 2) + '\n');
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `\nValidated review-branch commit: ${receipt.validatedCommit}\n\nDownload the editorial-content-review artifact for screenshots and source-tree receipt. Main remains unchanged.\n`);
+          JS
+      - name: Upload screenshots and source-tree receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: editorial-content-review
+          path: output/editorial-review/
+          if-no-files-found: warn
+          retention-days: 14
