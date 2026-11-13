@@ -3,7 +3,9 @@ const assert = require("node:assert/strict");
 const { execFileSync } = require("node:child_process");
 const shared = require("../../shared/page-data.js");
 const { validateEditorialPicks, getEligibleEditorialPicks, getEditorialHealth } = require("../../scripts/lib/editorial-picks.js");
-const picks = require("../../data/editorial-picks.json");
+const livePicks = require("../../data/editorial-picks.json");
+// Preserve the October review-window fixture when the live shortlist is refreshed.
+const picks = require("../fixtures/editorial-picks-2026-10-14.json");
 const collections = { competition: require("../../data/competitions.json"), resource: require("../../data/free-resources.json"), offer: require("../../data/offers.json") };
 
 test("South African day changes at 22:00 UTC in every visitor timezone", () => {
@@ -24,6 +26,7 @@ test("date-only closing day is inclusive and deterministic overrides survive tim
 });
 
 test("reviewed shortlist references real records and enforces weekly review", () => {
+  assert.doesNotThrow(() => validateEditorialPicks(livePicks, collections));
   assert.doesNotThrow(() => validateEditorialPicks(picks, collections));
   assert.deepEqual(getEligibleEditorialPicks(picks, collections, "home", "2026-10-14").map(p => p.kind), ["resource", "offer", "competition"]);
   assert.equal(getEligibleEditorialPicks(picks, collections, "monthly", "2026-10-14").length, 3);

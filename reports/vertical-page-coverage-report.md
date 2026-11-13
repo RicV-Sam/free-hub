@@ -33,16 +33,19 @@ Recommended normalisation:
 ## SMS Competitions in South Africa
 
 - URL: /sms-competitions-south-africa/
-- Matching active public competitions: 3
+- Matching active public competitions: 6
 - Publication threshold: durable guide; independent of live listing count
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
+| Boxer and Glen Tea: win R1,100 in B Rewards (boxer-glen-tea-b-rewards-2026) | 2026-11-29 | purchase-required | yes | yes | SMS or shortcode mentioned in entry text | none |
 | 1Life Be The 1 to Win Funeral Competition (1life-be-the-1-to-win-funeral-2026) | 2026-11-30 | free-entry | yes | yes | SMS entry tag; SMS or shortcode mentioned in entry text | none |
 | Glowming: Win Three Nights in Cape Town for Two (glowming-cape-town-getaway-2026) | 2026-11-30 | free-entry | yes | yes | SMS or shortcode mentioned in entry text | none |
+| Absa OTT Voucher draw: win an extra R50 voucher (absa-ott-voucher-draw-2026) | 2026-11-30 | purchase-required | yes | yes | SMS or shortcode mentioned in entry text | none |
 | Maynards Kaboom: Win R200 SPAR Vouchers (maynards-kaboom-spar-rewards-2026) | 2026-12-26 | purchase-required | yes | yes | SMS or shortcode mentioned in entry text | none |
+| Boxer and NIVEA: win R5,000 in B Rewards (boxer-nivea-b-rewards-2026) | 2027-01-03 | purchase-required | yes | yes | SMS or shortcode mentioned in entry text | none |
 
 Recommended normalisation:
 - Preserve the practical guide when inventory falls; show only qualifying live listings and an honest availability notice.
@@ -51,7 +54,7 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 25
+- Matching active public competitions: 28
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -62,6 +65,7 @@ Recommended normalisation:
 | Pizza Perfect Oom Freddy’s Legacy Hamper Competition (pizza-perfect-oom-freddy-legacy-2026) | 2026-11-14 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Huletts SPAR Rewards Competition 2026 (huletts-spar-rewards-2026) | 2026-11-15 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Eskort Braai-Lux Toyota Hilux Competition (eskort-braai-lux-2026) | 2026-11-22 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
+| Colgate: win a dental check-up and clean in Gauteng (colgate-gauteng-dental-checkup-clean-2026) | 2026-11-22 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Boxer Amarula SMEG Fridge Competition (boxer-amarula-smeg-fridge-2026) | 2026-11-24 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Win a cooler or shopping voucher with MILO at Checkers (milo-checkers-summer-2026) | 2026-11-28 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Coca-Cola Be a Bok Competition 2026 (coca-cola-fan-can-be-a-bok-2026) | 2026-11-30 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
@@ -71,7 +75,9 @@ Recommended normalisation:
 | Stimorol Volume Driver vouchers competition 2026 (stimorol-volume-driver-2026) | 2026-11-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Dr. Oetker Nice ’n Easy: Win a R100,000 Travel Voucher (dr-oetker-nice-n-easy-travel-2026) | 2026-11-30 | purchase-required | yes | yes | Till slip or receipt tag; Till slip or receipt mentioned in entry text | none |
 | Just About Anything: Win a Shopping Voucher up to R1,500 (just-about-anything-shop-and-win-2026) | 2026-11-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
+| Andiccio24: win a PS5 Slim and GTA VI bundle (andiccio24-ps5-gta-vi-november-2026) | 2026-11-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Equisweet Summer Competition (equisweet-summer-competition-2026) | 2026-12-06 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
+| IMANA Mountain View: win a R5,000 Potjie Dash (imana-spar-mountain-view-potjie-dash-2026) | 2026-12-07 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Sausage Saloon: Win a MacBook Neo (sausage-saloon-macbook-neo-2026) | 2026-12-15 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Mambo’s Suzuki Swift (mambos-suzuki-swift-2026) | 2026-12-15 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | CTM Year-End Sale: Win an Australia Trip for Two (ctm-australia-trip-competition-2026) | 2026-12-24 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
@@ -90,7 +96,7 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 26
+- Matching active public competitions: 35
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -98,6 +104,11 @@ Recommended normalisation:
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
 | Bed Bath Home November Sign-Up and Win (bed-bath-home-november-voucher-signup-2026) | 2026-11-19 | unknown | yes | yes | Online entry tag | none |
+| Win Sean Paul tickets in Pretoria with Time Out (time-out-sean-paul-pretoria-2026) | 2026-11-20 | free-entry | yes | yes | Online entry mentioned in entry text | none |
+| Mally Win Your Cart: products worth up to R3,000 (mally-win-your-cart-november-2026) | 2026-11-22 | free-entry | yes | yes | Online entry mentioned in entry text | none |
+| Win a Clicks Spring Beauty Box with BeautySouthAfrica (beauty-sa-clicks-spring-beauty-box-2026) | 2026-11-22 | free-entry | yes | yes | Online entry mentioned in entry text | none |
+| Win one of two R500 HR haircare hampers (beauty-sa-hr-haircare-2026) | 2026-11-22 | free-entry | yes | yes | Online entry mentioned in entry text | none |
+| Win a Fundamentals Skincare routine hamper (beauty-sa-fundamentals-skincare-2026) | 2026-11-23 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | GoTyme Card Swipe and Spend: Win R300 (gotyme-card-swipe-spend-2026) | 2026-11-30 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | AVBOB 10th Annual Poetry Competition (avbob-poetry-2026) | 2026-11-30 | free-entry | yes | yes | Online entry tag | none |
 | Penguin x Braai Broekies: Win a Book and Braai Gear (prh-braai-broekies-2026) | 2026-11-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
@@ -107,11 +118,15 @@ Recommended normalisation:
 | Beares Facebook Headboard Competition (beares-facebook-stanley-headboard-november-2026) | 2026-11-30 | account-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Beares Instagram Ceramic Stove Competition (beares-instagram-ceramic-stove-november-2026) | 2026-11-30 | account-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Paaper Bites Flavour Battle: Win a Snack Hamper (paaper-bites-flavour-battle-2026) | 2026-11-30 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| Win R20,000 OneDayOnly wallet credit in November (onedayonly-november-wallet-credit-2026) | 2026-11-30 | free-entry | yes | yes | Online entry mentioned in entry text | none |
+| Win a R500 Brunel and Oralink care hamper (beauty-sa-brunel-oralink-2026) | 2026-11-30 | free-entry | yes | yes | Online entry mentioned in entry text | none |
+| Win one of two R500 Lipsano hampers (beauty-sa-lipsano-summer-2026) | 2026-11-30 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Clicks October/November Beauty Box Giveaway (clicks-october-november-beauty-box-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Clicks D’Licious Hamper Giveaway (clicks-dlicious-hamper-october-november-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Clicks DKNY Ice Pop Fragrance Giveaway (clicks-dkny-ice-pop-october-november-2026) | 2026-12-01 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Dough Couture Christmas Giveaway: Win a Festive Hamper (dough-couture-christmas-giveaway-2026) | 2026-12-01 | free-entry | yes | yes | Online entry tag | none |
 | Penguin Random House: Win a Camp Half-Blood Hamper (prh-camp-half-blood-2026) | 2026-12-04 | free-entry | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
+| Win a Lottie Brooks Christmas book hamper (penguin-lottie-brooks-christmas-2026) | 2026-12-06 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Sausage Saloon: Win a MacBook Neo (sausage-saloon-macbook-neo-2026) | 2026-12-15 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | Mambo’s Suzuki Swift (mambos-suzuki-swift-2026) | 2026-12-15 | purchase-required | yes | yes | Online entry tag; Online entry mentioned in entry text | none |
 | CTM Year-End Sale: Win an Australia Trip for Two (ctm-australia-trip-competition-2026) | 2026-12-24 | purchase-required | yes | yes | Online entry tag | none |
@@ -150,7 +165,7 @@ Recommended normalisation:
 ## Win Data Competitions in South Africa
 
 - URL: /win-data-competitions-south-africa/
-- Matching active public competitions: 3
+- Matching active public competitions: 4
 - Publication threshold: durable guide; independent of live listing count
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -158,6 +173,7 @@ Recommended normalisation:
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | Data or connectivity tag | none |
+| Telkom Limpopo Fibre: win a PlayStation 5 (telkom-limpopo-fibre-playstation-2026) | 2026-11-30 | purchase-required | yes | yes | Data or connectivity prize text | consider data/connectivity tag only if prize terms confirm |
 | Telkom Datanaire Tap2Win: Cash and Voucher Prizes (telkom-datanaire-tap2win-summer-2026) | 2027-01-31 | purchase-required | yes | yes | Data or connectivity tag | none |
 | Cell C Rewards Platform: One Free Daily Play (cell-c-rewards-platform) | 2027-03-24 | account-required | yes | yes | Data or connectivity tag | none |
 
@@ -191,7 +207,7 @@ Recommended normalisation:
 ## Supermarket Competitions in South Africa
 
 - URL: /supermarket-competitions-south-africa/
-- Matching active public competitions: 15
+- Matching active public competitions: 20
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
@@ -201,16 +217,21 @@ Recommended normalisation:
 | IMANA Pick n Pay Linton’s Corner: R5,000 Potjie Dash (imana-pnp-lintons-corner-potjie-dash-2026) | 2026-11-13 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery tag; Supermarket or grocery entry text | none |
 | Huletts SPAR Rewards Competition 2026 (huletts-spar-rewards-2026) | 2026-11-15 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Eskort Braai-Lux Toyota Hilux Competition (eskort-braai-lux-2026) | 2026-11-22 | purchase-required | yes | yes | Supermarket or grocery entry text | none |
+| Colgate: win a dental check-up and clean in Gauteng (colgate-gauteng-dental-checkup-clean-2026) | 2026-11-22 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Boxer Amarula SMEG Fridge Competition (boxer-amarula-smeg-fridge-2026) | 2026-11-24 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Win a cooler or shopping voucher with MILO at Checkers (milo-checkers-summer-2026) | 2026-11-28 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
+| Boxer and Glen Tea: win R1,100 in B Rewards (boxer-glen-tea-b-rewards-2026) | 2026-11-29 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Nedbank Greenbacks Checkers Trolley Dash Competition (nedbank-greenbacks-checkers-launch-2026) | 2026-11-30 | account-required | yes | yes | Supermarket brand or retail partner | none |
 | Win a VIP chef experience with IMANA at Pick n Pay Oakfields (imana-pnp-oakfields-chef-2026) | 2026-11-30 | purchase-required | yes | yes | Supermarket brand or retail partner | none |
 | Clicks D’Licious Hamper Giveaway (clicks-dlicious-hamper-october-november-2026) | 2026-12-01 | free-entry | yes | yes | Supermarket or grocery entry text | none |
 | Equisweet Summer Competition (equisweet-summer-competition-2026) | 2026-12-06 | purchase-required | yes | yes | Supermarket or grocery entry text | none |
+| SPAR Rewards: win your shopping for free (spar-win-your-shopping-free-2026) | 2026-12-06 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
+| IMANA Mountain View: win a R5,000 Potjie Dash (imana-spar-mountain-view-potjie-dash-2026) | 2026-12-07 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | SPAR Vaseline Cera Glow Summer: Win a R15,000 Voucher (spar-vaseline-cera-glow-summer-2026) | 2026-12-13 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Rhodes Quality and SPAR Summer Cash Competition (rhodes-quality-spar-summer-cash-2026) | 2026-12-13 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery tag; Supermarket or grocery entry text | none |
 | Maynards Kaboom: Win R200 SPAR Vouchers (maynards-kaboom-spar-rewards-2026) | 2026-12-26 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Sparletta Local Jewels Airtime, Fuel and Trolley Dash Competition (sparletta-local-jewels-2026) | 2026-12-31 | purchase-required | yes | yes | Supermarket brand or retail partner | none |
+| Boxer and NIVEA: win R5,000 in B Rewards (boxer-nivea-b-rewards-2026) | 2027-01-03 | purchase-required | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 | Coca-Cola Returnables: Win Grocery Vouchers (coca-cola-returnables-2026) | 2027-01-31 | purchase-required | yes | yes | Supermarket or grocery entry text | none |
 | Win grocery vouchers for you and your champion with Algoa FM (algoa-pnp-care-like-champion-2026) | 2027-02-25 | free-entry | yes | yes | Supermarket brand or retail partner; Supermarket or grocery entry text | none |
 

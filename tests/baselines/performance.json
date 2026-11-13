@@ -18,7 +18,12 @@
     },
     "freeStuff": {
       "file": "free-stuff-south-africa/index.html",
-      "bytes": 94726
+      "bytes": 94726,
+      "resourceCardCount": 46,
+      "inventoryReferenceBytes": 118200,
+      "fixedBytes": 29840,
+      "reviewedAt": "2026-11-13",
+      "reviewNote": "Keep the original 94,726-byte budget and unchanged growth limits. Additional resource cards are costed from unmodified main 96948653e1ee2cef3a8cd22c66181de70abd9a13, rebuilt on 13 November 2026 with offers, opportunities and promotions enabled: 118,200 total bytes, 46 cards (73,249 bytes), ItemList 15,111 bytes, fixed remainder 29,840 bytes. Only additional inventory earns an allowance; the existing budget is not reset to the current output. Baseline HTML SHA-256: 1daa45c65064cf3a7b8424b4633342c8d73f825c6f82313c48e19f467992ef7d."
     },
     "vouchers": {
       "file": "category/vouchers/index.html",

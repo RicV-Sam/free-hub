@@ -135,7 +135,7 @@ test("runtime validators enforce strict contracts and legacy FreeResource compat
   assert.equal(unsupported.typeSupported, false);
 
   const legacyResources = JSON.parse(fs.readFileSync(path.join(rootDir, "data", "free-resources.json"), "utf8"));
-  assert.equal(legacyResources.length, 48);
+  assert.equal(legacyResources.length, 65);
   assert.equal(opportunityData.validateFreeResourceRegistry(legacyResources, { legacy: true }).valid, true);
   assert.equal(opportunityData.validateFreeResource(legacyResources[0]).valid, false);
 
@@ -452,12 +452,13 @@ test("the tracked Opportunity registry contains the reviewed sample and product-
       "starbucks-gold-birthday-drink",
       "norval-birthday-free-access",
       "galileo-birthday-ticket-2026-2027",
+      "freedom-adventure-park-birthday-pass",
     ]
   );
   assert.equal(opportunityData.validateOpportunityRegistry(registry).valid, true);
   assert.equal(registry.filter((record) => record.type === "free_sample").length, 7);
   assert.equal(registry.filter((record) => record.type === "product_testing").length, 17);
-  assert.equal(registry.filter((record) => record.type === "birthday_freebie").length, 17);
+  assert.equal(registry.filter((record) => record.type === "birthday_freebie").length, 18);
 
   const generatedOutput = JSON.parse(
     fs.readFileSync(path.join(rootDir, "tests", "baselines", "opportunity-generated-output.json"), "utf8")
@@ -471,6 +472,11 @@ test("the tracked Opportunity registry contains the reviewed sample and product-
     for (const field of ["sourceUrl", "termsUrl"]) {
       const reviewed = historicalEvidence.filter(entry => entry.recordId === record.id && entry.field === field && entry.verifiedAt <= generatedOutput.buildDate).at(-1);
       if (reviewed) snapshotRecord[field] = reviewed.url;
+      // A newly documented optional terms page did not form part of the saved
+      // historical input. Do not require its November receipt in September.
+      if (field === "termsUrl" && !reviewed && historicalEvidence.some(entry => entry.recordId === record.id && entry.field === field && entry.verifiedAt > generatedOutput.buildDate)) {
+        delete snapshotRecord.termsUrl;
+      }
       if (field === "sourceUrl" && reviewed && snapshotRecord.lastVerifiedAt > generatedOutput.buildDate) {
         snapshotRecord.lastVerifiedAt = reviewed.verifiedAt;
         snapshotRecord.reviewDueAt = reviewed.expiresAt;

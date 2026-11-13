@@ -1,0 +1,77 @@
+name: Editorial content preview
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: editorial-content-review-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  responsive-preview:
+    name: Current-date mobile and desktop review
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      TZ: Africa/Johannesburg
+      NODE_OPTIONS: ''
+      FREEHUB_ENABLE_OPPORTUNITIES: 'true'
+      FREEHUB_ENABLE_OFFERS: 'true'
+      FREEHUB_ENABLE_PROMOTIONS: 'true'
+      FREEHUB_EDITORIAL_REVIEW: 'true'
+      PLAYWRIGHT_HTML_OUTPUT_DIR: output/editorial-review/report
+      PLAYWRIGHT_JSON_OUTPUT_NAME: output/editorial-review/playwright-results.json
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npx playwright install --with-deps chromium
+      - name: Select the actual South African review date
+        shell: bash
+        run: |
+          node <<'JS'
+          const fs = require('node:fs');
+          const now = new Date();
+          const date = new Intl.DateTimeFormat('en-CA', {
+            timeZone: 'Africa/Johannesburg', year: 'numeric', month: '2-digit', day: '2-digit',
+          }).format(now);
+          fs.appendFileSync(process.env.GITHUB_ENV,
+            `FREEHUB_BUILD_DATE=${date}\nFREEHUB_AS_OF_DATE=${date}\nFREEHUB_AS_OF_TIME=${now.toISOString()}\n`);
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,
+            `## Editorial preview\n\nBuilt for **${date} (Africa/Johannesburg)** at ${now.toISOString()}. ` +
+            `All three content flags are enabled. Historical fixture clocks are not used.\n\n`);
+          JS
+      - name: Build the current publication preview
+        run: npm run build
+      - name: Inspect only the editorial batch
+        run: npx playwright test tests/browser/editorial-batch.spec.js --project=chromium --workers=1 --reporter=list,html,json --output=output/editorial-review/test-results
+      - name: Summarise the visual review
+        if: always()
+        shell: bash
+        run: |
+          node <<'JS'
+          const fs = require('node:fs');
+          const file = 'output/editorial-review/summary.json';
+          let text = 'Download the **editorial-content-review** artifact. Open `index.html` for page screenshots and `report/index.html` for the Playwright report.\n';
+          if (fs.existsSync(file)) {
+            const report = JSON.parse(fs.readFileSync(file, 'utf8'));
+            const failed = report.results.filter(row => row.error).length;
+            text += `\n${report.results.length} viewport checks recorded; ${failed} failed. External advertising, analytics and submissions were blocked.\n`;
+          } else text += '\nNo per-page summary was produced; inspect the build/test logs and any uploaded test report.\n';
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, text);
+          JS
+      - name: Upload screenshots and review reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: editorial-content-review
+          path: output/editorial-review/
+          if-no-files-found: warn
+          retention-days: 14

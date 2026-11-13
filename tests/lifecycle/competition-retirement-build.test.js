@@ -49,8 +49,10 @@ test("a full build retires an approved synthetic archive, serves a real 404 and 
     results: { ...evidence, sourceUrls: [synthetic.url], usefulResult: false } }, [synthetic, archived], "2026-10-04");
   write("data/competition-retirements.json", { schemaVersion: 1, retirements: [receipt] });
   const build = date => {
+    // The fixture's historical date must take precedence over an inherited
+    // current publication instant, which the generator otherwise prefers.
     const result = spawnSync(process.execPath, ["scripts/generate-pages.js"], { cwd: fixture, encoding: "utf8",
-      env: { ...process.env, FREEHUB_BUILD_DATE: date, FREEHUB_AS_OF_DATE: date, FREEHUB_ENABLE_OPPORTUNITIES: "true", FREEHUB_ENABLE_OFFERS: "true" } });
+      env: { ...process.env, FREEHUB_BUILD_DATE: date, FREEHUB_AS_OF_DATE: date, FREEHUB_AS_OF_TIME: "", FREEHUB_ENABLE_OPPORTUNITIES: "true", FREEHUB_ENABLE_OFFERS: "true" } });
     assert.equal(result.status, 0, result.stderr);
   };
   const detail = path.join(fixture, "competition", synthetic.id, "index.html");
@@ -66,7 +68,7 @@ test("a full build retires an approved synthetic archive, serves a real 404 and 
   assert.equal(read("app-data/competitions.json").competitions.some(row => row.id === synthetic.id), false);
   assert.ok(!fs.readFileSync(path.join(fixture, "sitemap.xml"), "utf8").includes(synthetic.id));
   const linkScope = spawnSync(process.execPath, ["-e", "console.log(JSON.stringify(require('./scripts/validate-competition-links.js').loadCompetitions().map(row => row.id)))"],
-    { cwd: fixture, encoding: "utf8", env: { ...process.env, FREEHUB_AS_OF_DATE: "2026-10-04" } });
+    { cwd: fixture, encoding: "utf8", env: { ...process.env, FREEHUB_AS_OF_DATE: "2026-10-04", FREEHUB_AS_OF_TIME: "" } });
   assert.equal(linkScope.status, 0, linkScope.stderr);
   assert.equal(JSON.parse(linkScope.stdout).includes(synthetic.id), false,
     "External-link validation must not demand a generated page for a retired archive.");

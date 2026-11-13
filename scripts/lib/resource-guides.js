@@ -28,6 +28,20 @@ function getPublicResourceGuides(resources, guides = definitions) {
     if (!Array.isArray(guide.steps) || !guide.steps.length || guide.steps.some(step => typeof step !== "string" || !step.trim())) throw new Error("Resource guide needs practical steps");
     if (!Array.isArray(guide.sections) || !guide.sections.length || guide.sections.some(section => !section.heading || !Array.isArray(section.paragraphs) || !section.paragraphs.length || section.paragraphs.some(text => typeof text !== "string" || !text.trim()))) throw new Error("Resource guide needs complete sections");
     if (!Array.isArray(guide.faq) || guide.faq.some(item => !item.question || !item.answer)) throw new Error("Invalid resource guide FAQs");
+    for (const key of ["accessHeading", "sourceSummary", "ctaHeading", "ctaText", "ctaLabel", "exitNote"]) {
+      if (guide[key] !== undefined && (typeof guide[key] !== "string" || !guide[key].trim())) throw new Error(`Invalid resource guide ${key}: ${guide.resourceId}`);
+    }
+    for (const key of ["trustItems", "exitTrustItems"]) {
+      if (guide[key] !== undefined && (!Array.isArray(guide[key]) || !guide[key].length || guide[key].some(item => typeof item !== "string" || !item.trim()))) throw new Error(`Invalid resource guide ${key}: ${guide.resourceId}`);
+    }
+    if (guide.sourceLinks !== undefined) {
+      if (!Array.isArray(guide.sourceLinks)) throw new Error(`Invalid resource guide sourceLinks: ${guide.resourceId}`);
+      for (const link of guide.sourceLinks) {
+        let url;
+        try { url = new URL(link.href); } catch (_) { throw new Error(`Invalid resource guide source link: ${guide.resourceId}`); }
+        if (url.protocol !== "https:" || url.username || url.password || typeof link.label !== "string" || !link.label.trim()) throw new Error(`Invalid resource guide source link: ${guide.resourceId}`);
+      }
+    }
   }
   for (const resource of resources.filter(item => item.detailSlug)) {
     if (!ids.has(resource.id)) throw new Error(`Detailed resource has no guide: ${resource.id}`);

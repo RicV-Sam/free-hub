@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-11-13",
-  "count": 31,
+  "count": 86,
   "counts": {
-    "freeStuff": 24,
-    "resources": 24,
-    "opportunities": 0,
-    "offers": 7
+    "freeStuff": 54,
+    "resources": 47,
+    "opportunities": 7,
+    "offers": 32
   },
   "items": [
     {
@@ -62,16 +62,16 @@
       "kind": "resource",
       "title": "Book Dash",
       "provider": "Book Dash",
-      "summary": "Free African children's picture books that can be read, downloaded, printed and shared under an open model.",
+      "summary": "Free African children’s digital picture books to read, download, print and share under the CC BY 4.0 licence.",
       "category": "childrens-books",
       "categoryLabel": "Free children's books",
-      "officialUrl": "https://bookdash.org/",
+      "officialUrl": "https://bookdash.org/books/",
       "bestFor": "Parents, teachers, libraries and reading clubs",
       "requirements": [
-        "No purchase needed for digital books; printing or data may still have normal user costs."
+        "Use the official catalogue and retain the required attribution. Internet, device and printing costs remain."
       ],
-      "watchOut": "Use the official Book Dash library rather than third-party download mirrors.",
-      "lastChecked": "2026-10-14"
+      "watchOut": "Free digital files do not include a free physical book delivery. Follow the licence when adapting or redistributing the books.",
+      "lastChecked": "2026-11-13"
     },
     {
       "id": "resource-childrens-books-nal-ibali",
@@ -186,6 +186,22 @@
       "lastChecked": "2026-07-31"
     },
     {
+      "id": "mediclinic-baby-programme",
+      "kind": "resource",
+      "title": "Mediclinic Baby Programme",
+      "provider": "Mediclinic Baby Programme",
+      "summary": "Free registration provides pregnancy and baby information, newsletters, webinars and support, even for parents not delivering at Mediclinic. A separate hospital baby bag is a benefit for members delivering at a Mediclinic facility.",
+      "category": "family-support",
+      "categoryLabel": "Free family information and support",
+      "officialUrl": "https://www.mediclinic.co.za/en/infohub-corporate/family-life/babies/expecting-a-baby-this-free-resource-from-medical-professionals-.html",
+      "bestFor": "Expecting parents seeking pregnancy and newborn information",
+      "requirements": [
+        "Register through Mediclinic Baby; the current programme pages give 12 weeks of pregnancy as the registration point. Members delivering at Mediclinic must separately arrange their hospital admission."
+      ],
+      "watchOut": "Private maternity care is paid. The bag is not sent to every online registrant; contents and hospital services vary. Antenatal classes or optional services may carry charges. Check these with the selected hospital.",
+      "lastChecked": "2026-11-13"
+    },
+    {
       "id": "bootlegger-app-registration-coffee",
       "kind": "resource",
       "title": "Bootlegger app registration coffee",
@@ -200,6 +216,70 @@
       ],
       "watchOut": "Check the reward's product choice, validity period and participating cafe availability in the app before travelling. The separate stamp reward requires ten purchases.",
       "lastChecked": "2026-08-18"
+    },
+    {
+      "id": "sa-youth-work-learning-support",
+      "kind": "resource",
+      "title": "SA Youth work and learning support",
+      "provider": "SA Youth work and learning support",
+      "summary": "Free work and learning opportunity network with advertised zero-data access on the SA Youth platform.",
+      "category": "family-support",
+      "categoryLabel": "Work and learning support",
+      "officialUrl": "https://www.sayouth.mobi/Join",
+      "bestFor": "Young unemployed South Africans seeking work and learning opportunities",
+      "requirements": [
+        "Register with the accepted South African identity, residency, refugee or valid work-permit documentation, and check each opportunity’s age and qualification requirements."
+      ],
+      "watchOut": "Linked external websites may use data. Registering does not guarantee a job, interview or place on a programme.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "siyavula-free-maths-science-practice",
+      "kind": "resource",
+      "title": "Siyavula free Mathematics and Physical Sciences practice",
+      "provider": "Siyavula free Mathematics and Physical Sciences practice",
+      "summary": "Siyavula advertises free online Mathematics and Physical Sciences practice.",
+      "category": "school-resources",
+      "categoryLabel": "Free school resources",
+      "officialUrl": "https://www.siyavula.com/products/learners",
+      "bestFor": "South African learners and parents",
+      "requirements": [
+        "Register a free learner account to use the practice tools; parents can register to track work. Internet access is required."
+      ],
+      "watchOut": "Official July 2026 help specifies zero-rated access on MTN and Cell C; leaving Siyavula can incur data charges. Some networks need a small balance to begin access. Do not promise zero-rating on all networks.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "vodacom-free-school-elearning-content",
+      "kind": "resource",
+      "title": "Vodacom free school eLearning content",
+      "provider": "Vodacom free school eLearning content",
+      "summary": "The platform labels school content from grades R–12 as FREE; Vodacom states content and data on the service are free for its customers.",
+      "category": "school-resources",
+      "categoryLabel": "Free school resources",
+      "officialUrl": "https://elearning.vodacom.co.za/",
+      "bestFor": "School learners in grades R–12",
+      "requirements": [
+        "Register/sign in and select the free school-grade sections. A compatible device and internet connection are needed."
+      ],
+      "watchOut": "The platform also advertises premium learning subscriptions. This listing covers only the sections labelled FREE; external links and other networks can incur data costs. Do not sign up to premium content assuming it is free.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "hp-life-free-business-digital-courses",
+      "kind": "resource",
+      "title": "HP LIFE free business and digital courses",
+      "provider": "HP LIFE free business and digital courses",
+      "summary": "HP LIFE advertises free business/digital-skills courses in eight languages and free course-completion certificates.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://www.life-global.org/",
+      "bestFor": "Jobseekers, learners and small-business owners",
+      "requirements": [
+        "Join HP LIFE for free and select a course from the official catalogue. Device and internet/data costs remain your responsibility."
+      ],
+      "watchOut": "A completion certificate is not a university qualification, professional licence or guaranteed job. Check each course language and content before starting.",
+      "lastChecked": "2026-11-13"
     },
     {
       "id": "openlearn-free-learning-statements",
@@ -314,6 +394,22 @@
       "lastChecked": "2026-10-16"
     },
     {
+      "id": "iziko-free-days-and-fridays",
+      "kind": "resource",
+      "title": "Iziko Museums: selected free days and eligible Fridays",
+      "provider": "Iziko Museums: selected free days and eligible Fridays",
+      "summary": "Selected Iziko museums offer free Friday admission for South African students and pensioners with valid identification. The official 2026 commemorative-day list also includes free entry at participating open sites on 1 December (Emancipation Day) and 16 December (Reconciliation Day).",
+      "category": "family-support",
+      "categoryLabel": "Free family outings and public services",
+      "officialUrl": "https://www.iziko.org.za/visit/",
+      "bestFor": "South African students and pensioners, and visitors planning a museum day in Cape Town",
+      "requirements": [
+        "Present valid identification and, for student entry, a valid student card. Check the chosen museum's hours and eligibility before travelling; the South African Museum, National Gallery and Slave Lodge are examples of participating sites. Ordinary visitors pay the normal fee outside qualifying free days."
+      ],
+      "watchOut": "This benefit excludes the Planetarium, Castle of Good Hope and Groot Constantia for the Friday and December dates described here. Closed sites and maintenance closures are excluded. Paid shows, guided tours and separately priced activities are not included. No account or purchase is stated for ordinary qualifying admission; travel and optional spending remain payable.",
+      "lastChecked": "2026-11-13"
+    },
+    {
       "id": "stellenbosch-ai-literacy-access",
       "kind": "resource",
       "title": "Free AI Literacy Learning for SU Staff and Students",
@@ -394,6 +490,486 @@
       "lastChecked": "2026-11-09"
     },
     {
+      "id": "sap-learning-hub-student-edition",
+      "kind": "resource",
+      "title": "SAP Learning Hub student edition",
+      "provider": "SAP Learning Hub student edition",
+      "summary": "A renewable 12-month student subscription with SAP learning journeys, practice systems, live sessions and two certification exam attempts.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://learning.sap.com/free-student-edition",
+      "bestFor": "University students and faculty learning SAP skills",
+      "requirements": [
+        "Verify active university enrolment or faculty status with SAP. An SAP Universal ID, university email and an internet-connected device are needed."
+      ],
+      "watchOut": "Only eligible academic users qualify. The two exam attempts are an allowance, not a guaranteed pass or unlimited examinations. Renew only while you remain eligible.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "aws-educate-free-cloud-learning",
+      "kind": "resource",
+      "title": "AWS Educate free cloud learning",
+      "provider": "AWS Educate free cloud learning",
+      "summary": "Free self-paced learning, selected hands-on cloud labs and digital badges without a credit card.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://aws.amazon.com/education/awseducate/",
+      "bestFor": "Beginners aged 13 and over exploring cloud and AI skills",
+      "requirements": [
+        "Create an AWS Educate account with an email address. Learners must be at least 13; the jobs board is for people aged 18 and over."
+      ],
+      "watchOut": "AWS Educate badges are separate from paid AWS professional certification examinations. Internet and device costs remain.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "cisco-networking-academy-free-courses",
+      "kind": "resource",
+      "title": "Cisco Networking Academy free courses",
+      "provider": "Cisco Networking Academy free courses",
+      "summary": "A selection of free self-paced technology courses through Cisco Networking Academy.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://www.cisco.com/site/us/en/learn/training-certifications/training/netacad/index.html",
+      "bestFor": "Beginners interested in cybersecurity, networks, Python or AI",
+      "requirements": [
+        "Choose a course marked free and self-paced, then create a Networking Academy learner account."
+      ],
+      "watchOut": "Instructor-led courses and professional certification exams have separate conditions and may cost money. A course badge or completion record is not a Cisco professional certification.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "salb-free-accessible-library",
+      "kind": "resource",
+      "title": "South African Library for the Blind",
+      "provider": "South African Library for the Blind",
+      "summary": "Free accessible-library membership with audio and Braille reading resources for eligible members.",
+      "category": "family-support",
+      "categoryLabel": "Accessible reading support",
+      "officialUrl": "https://salb.org.za/library/",
+      "bestFor": "People who are blind, have low vision or another qualifying print disability",
+      "requirements": [
+        "Apply to SALB and have the eligibility section completed or certified by a competent authority. Ask the library which accessible formats and services suit your needs."
+      ],
+      "watchOut": "Membership is for people with qualifying print disabilities. Device, connectivity and equipment arrangements depend on the service; check them with SALB.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "cape-town-free-library-membership",
+      "kind": "resource",
+      "title": "City of Cape Town free library membership",
+      "provider": "City of Cape Town free library membership",
+      "summary": "Free public-library membership, borrowing and access to facilities including SmartCape computers and internet where available.",
+      "category": "family-support",
+      "categoryLabel": "Free libraries and public resources",
+      "officialUrl": "https://www.capetown.gov.za/media-and-news/city-libraries-open-doors-to-learning-jobs-and-opportunity/",
+      "bestFor": "Cape Town residents needing books, study space or computer access",
+      "requirements": [
+        "Visit a City library with your identity document and proof of address. An adult must assist with a child’s registration."
+      ],
+      "watchOut": "Borrowing rules, opening hours and computer availability vary by branch. Return items on time and check charges for lost or overdue materials.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "essa-free-job-matching",
+      "kind": "resource",
+      "title": "ESSA free public employment services",
+      "provider": "ESSA free public employment services",
+      "summary": "Free individual registration, job-search and matching support, with a CV compiled from your profile.",
+      "category": "family-support",
+      "categoryLabel": "Work and learning support",
+      "officialUrl": "https://essa.labour.gov.za/EssaOnline/WebBeans/",
+      "bestFor": "Jobseekers registering their skills with public employment services",
+      "requirements": [
+        "Register as an individual on the Department of Employment and Labour’s ESSA portal and supply the requested identity or work-authorisation details."
+      ],
+      "watchOut": "Registration does not guarantee an interview, placement or job. Keep your profile accurate and check the requirements of each vacancy.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "khetha-free-career-guidance",
+      "kind": "resource",
+      "title": "Khetha free career guidance",
+      "provider": "Khetha free career guidance",
+      "summary": "Free public career information, advice and guidance, including online self-help resources.",
+      "category": "family-support",
+      "categoryLabel": "Work and learning support",
+      "officialUrl": "https://www.careerhelp.org.za/",
+      "bestFor": "South Africans choosing subjects, further study or a career direction",
+      "requirements": [
+        "Use CareerHelp or the National Career Advice Portal, or contact the official career-advice team. Have your question and relevant study or work background ready."
+      ],
+      "watchOut": "Advice is free; phone, SMS, internet and travel costs can apply. Guidance does not guarantee admission, funding or employment.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "hubspot-academy-free-certifications",
+      "kind": "resource",
+      "title": "HubSpot Academy free certifications",
+      "provider": "HubSpot Academy free certifications",
+      "summary": "Free online courses and selected certifications, including broadly useful marketing and sales subjects.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://academy.hubspot.com/",
+      "bestFor": "People learning marketing, sales and customer-service skills",
+      "requirements": [
+        "Create a free Academy account and complete the lessons, assessment and any practical exercises for your chosen certification."
+      ],
+      "watchOut": "Some software-specific certifications require access to paid HubSpot features for practical work. Check the full course requirements before starting.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "forage-free-job-simulations",
+      "kind": "resource",
+      "title": "Forage free job simulations",
+      "provider": "Forage free job simulations",
+      "summary": "Free self-paced employer-designed job simulations, with completion certificates for finished programmes.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://www.theforage.com/",
+      "bestFor": "Students and jobseekers exploring what different roles involve",
+      "requirements": [
+        "Create an account, choose a simulation and complete its tasks. Use the programme’s own instructions to compare your work with example answers."
+      ],
+      "watchOut": "A simulation is educational practice, not employment, an internship placement or a professional qualification.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "fao-elearning-free-courses",
+      "kind": "resource",
+      "title": "FAO elearning Academy",
+      "provider": "FAO elearning Academy",
+      "summary": "Free multilingual self-paced courses; selected certified courses offer digital badges after assessment.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://elearning.fao.org/",
+      "bestFor": "Learners working in agriculture, food systems, nutrition or sustainability",
+      "requirements": [
+        "Create a free account for tracked learning and assessment. Choose a course and check its language, download options and certification label."
+      ],
+      "watchOut": "Not every course offers a badge. Certified-course assessments normally require at least 75%; a badge is not a professional licence.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "disasterready-core-humanitarian-certification",
+      "kind": "resource",
+      "title": "DisasterReady Core Humanitarian Certification",
+      "provider": "DisasterReady Core Humanitarian Certification",
+      "summary": "Free preparation material and the Core Humanitarian Certification assessment.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://www.disasterready.org/free-core-humanitarian-certification",
+      "bestFor": "People entering humanitarian work or refreshing core knowledge",
+      "requirements": [
+        "Create a DisasterReady account with an email address, verify it and follow the certification instructions."
+      ],
+      "watchOut": "The credential is not a job offer, professional licence or guarantee of deployment. Data and device costs remain.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "nwu-ai-academic-career-success",
+      "kind": "resource",
+      "title": "NWU AI for Academic and Career Success",
+      "provider": "NWU AI for Academic and Career Success",
+      "summary": "A free two-hour self-paced AI course, with an NWU AI certificate and a personal career plan after successful completion.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://services.nwu.ac.za/artificial-intelligence-ainwu/ai-training",
+      "bestFor": "NWU students with access to the university’s eFundi learning system",
+      "requirements": [
+        "Use the graduate-student course link on NWU’s AI training page and sign in through the university learning system."
+      ],
+      "watchOut": "This guide is for eligible NWU institutional users. It does not promise public enrolment for people outside NWU or the separate lecturer incentive.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "digify-pro-foundations",
+      "kind": "resource",
+      "title": "Digify PRO Foundations",
+      "provider": "Digify PRO Foundations",
+      "summary": "Free introductory digital-skills learning through the Digify PRO Foundations route.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://digifyafrica.com/digify-pro-online-applications/",
+      "bestFor": "South Africans aged 18–35 building introductory digital-marketing skills",
+      "requirements": [
+        "Be aged 18–35 in South Africa, complete the official interest/application form and follow the programme’s access instructions."
+      ],
+      "watchOut": "Foundations applications are described as year-round. Progression to later phases requires completing the preceding phase and meeting selection requirements.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "second-chance-matric-resources",
+      "kind": "resource",
+      "title": "Second Chance Matric revision resources",
+      "provider": "Second Chance Matric revision resources",
+      "summary": "Official study guides, revision material and other learning support for matric preparation.",
+      "category": "school-resources",
+      "categoryLabel": "Free school resources",
+      "officialUrl": "https://www.education.gov.za/programmes/secondchanceprogramme.aspx",
+      "bestFor": "Learners preparing to improve or complete eligible matric subjects",
+      "requirements": [
+        "Use the DBE’s Second Chance resources and confirm your separate examination eligibility and registration with the education authorities."
+      ],
+      "watchOut": "Access to revision material does not register you for an exam. The August–October 2026 teaching period has ended; check current dates before seeking a class.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "yes-microsoft-ai-skills-vouchers",
+      "kind": "resource",
+      "title": "YES × Microsoft AI learning and conditional exam vouchers",
+      "provider": "YES × Microsoft AI learning and conditional exam vouchers",
+      "summary": "Free AI learning with a conditional route to one funded certification examination voucher, subject to the programme’s requirements and allocation.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://yes-aiskills.co.za/",
+      "bestFor": "South Africans completing eligible Microsoft AI learning paths",
+      "requirements": [
+        "Use the official programme, have a South African ID and Microsoft Learn profile, complete the specified modules, score at least 70% on the practice assessment and submit the required survey and evidence."
+      ],
+      "watchOut": "A claim does not guarantee a voucher or immediate availability. The announced 50,000 allocation is not a live stock count. The separate Takealot prize draw ended on 31 October 2026.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "mopani-baby-club",
+      "kind": "resource",
+      "title": "Mopani Baby Club: information pack and qualifying baby bag",
+      "provider": "Mopani Baby Club: information pack and qualifying baby bag",
+      "summary": "Joining provides an information welcome pack. A separate baby bag becomes available after R1,250 qualifying spend on an active Baby Club/Mopani Card profile.",
+      "category": "family-support",
+      "categoryLabel": "Free family information and support",
+      "officialUrl": "https://mopani.co.za/blogs/news/why-baby-club",
+      "bestFor": "Expecting parents able to use Mopani’s Mpumalanga stores",
+      "requirements": [
+        "Complete the Baby Club form with the due date; a new application is needed for each pregnancy. Use the Mopani Card for qualifying purchases and wait for the collection SMS. The second bag is supplied in the third trimester."
+      ],
+      "watchOut": "The product bag requires paid shopping and contents vary with stock. The blog says in-store collection, while current terms also mention dispatch with a qualifying online purchase; confirm dispatch directly before relying on delivery.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "melomed-melobabes-programme",
+      "kind": "resource",
+      "title": "Melomed Melobabes pregnancy programme",
+      "provider": "Melomed Melobabes pregnancy programme",
+      "summary": "The programme advertises complimentary antenatal classes, pregnancy information and a downloadable journal. On maternity admission, members receive a nappy bag with nappies and selected toiletries.",
+      "category": "family-support",
+      "categoryLabel": "Free family information and support",
+      "officialUrl": "https://melomed.co.za/melobabes/",
+      "bestFor": "Expecting parents planning maternity care at a participating Melomed hospital",
+      "requirements": [
+        "Register through the official Melobabes page and ask the chosen hospital’s Client Service Officer about class dates and local benefit availability."
+      ],
+      "watchOut": "The bag is linked to hospital admission; private maternity care is paid. Benefits vary by hospital. Registration does not guarantee every listed service at every facility.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "two-oceans-aquarium-birthday-entry",
+      "kind": "opportunity",
+      "title": "Two Oceans Aquarium free birthday-month entry",
+      "provider": "Two Oceans Aquarium",
+      "summary": "South African citizens and permanent residents aged four or older can claim one complimentary Aquarium visit during their birthday month at the onsite ticket office.",
+      "category": "birthday_freebie",
+      "categoryLabel": "Birthday freebies",
+      "officialUrl": "https://www.aquarium.co.za/specials/free-entry-on-your-birthday",
+      "requirements": [
+        "Accepted identification showing a South African ID number and birth date required",
+        "Collect and use the ticket in person on the same day during your birthday month",
+        "Children aged 13 or younger must be accompanied by an adult ticket-holder"
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "cape-wheel-birthday-club-ride",
+      "kind": "opportunity",
+      "title": "Cape Wheel Birthday Club Free Ride",
+      "provider": "Cape Wheel",
+      "summary": "Cape Wheel Birthday Club members over 12 receive a free standard ride after signing up before their birthday. VIP and Sky Dining are excluded; any photo-pack purchase is separate.",
+      "category": "birthday_freebie",
+      "categoryLabel": "Birthday freebies",
+      "officialUrl": "https://capewheel.co.za/clubs/",
+      "requirements": [
+        "Free Birthday Club registration before the birthday required",
+        "Identification showing date of birth required",
+        "Printed emailed voucher required for redemption after the actual birthday",
+        "Birthday Club is for people over 12; younger children have a separate Kids Club"
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "zeitz-mocaa-free-access",
+      "kind": "opportunity",
+      "title": "Zeitz MOCAA free birthday and Wednesday access",
+      "provider": "Zeitz MOCAA",
+      "summary": "Visitors with accepted South African or African identification can visit free during their birthday month; African citizens also receive free entry every Wednesday from 10:00 to 13:00, and under-18s enter free year-round.",
+      "category": "birthday_freebie",
+      "categoryLabel": "Birthday freebies",
+      "officialUrl": "https://zeitzmocaa.museum/buy-tickets/",
+      "requirements": [
+        "Valid South African ID or African passport reflecting the birth date required",
+        "Birthday access is available Monday to Sunday during normal opening hours; free Wednesday entry requires arrival from 10:00 to 13:00."
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "mugg-and-bean-birthday-cake",
+      "kind": "opportunity",
+      "title": "Mugg & Bean free birthday cake slice",
+      "provider": "Mugg & Bean",
+      "summary": "Qualifying Mugg & Bean Loyalty App members receive a birthday voucher for a cake slice at a Sit-Down restaurant or a bundt cake at On-The-Move. From 1 September 2026 it is issued on the actual birthday and is valid for 30 days. Two qualifying app uses in the preceding 12 months are required.",
+      "category": "birthday_freebie",
+      "categoryLabel": "Birthday freebies",
+      "officialUrl": "https://www.muggandbean.co.za/rewards/loyalty-app",
+      "requirements": [
+        "Mugg & Bean loyalty membership required",
+        "Mugg & Bean Loyalty App registration required",
+        "Use the app payment or receipt-scan feature at least twice in the preceding 12 months",
+        "Voucher must be used within its 30-day validity period"
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "norval-birthday-free-access",
+      "kind": "opportunity",
+      "title": "Norval Foundation: Free Birthday-Month Admission",
+      "provider": "Norval Foundation",
+      "summary": "Norval Foundation lists free entry during your birthday month and free admission for children under 18. Check closures before travelling.",
+      "category": "birthday_freebie",
+      "categoryLabel": "Birthday freebies",
+      "officialUrl": "https://www.norvalfoundation.org/visitors-information/",
+      "imageUrl": "https://freehub.co.za/assets/listings/norval-birthday-free-access.webp",
+      "requirements": [
+        "Birthday-month benefit: the provider page confirms the timing but does not spell out nationality or every document type. Cape Town Tourism directs visitors to show valid ID at the front desk. Under-18 entry is separately free.",
+        "Check the official opening and closure information before visiting.",
+        "For the birthday benefit, bring valid ID and ask the front desk for birthday-month admission. Cape Town Tourism says no online birthday booking is needed.",
+        "For a child’s visit, confirm age-document and accompanying-adult arrangements with the venue.",
+        "Gallery 8 is closed on 14 November 2026; check for further temporary gallery closures before visiting.",
+        "Normal hours: Wednesday–Saturday 10:00–17:00; Sunday/public holidays 10:00–16:00; closed Monday/Tuesday. Last entry is 30 minutes before closing.",
+        "Do not assume birthday admission includes separately ticketed events, special activities or parking.",
+        "Qualifying admission is free. Parking is free for the first 30 minutes and R20 thereafter; transport and optional purchases are separate."
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "galileo-birthday-ticket-2026-2027",
+      "kind": "opportunity",
+      "title": "The Galileo: Free Birthday-Month Movie Entry",
+      "provider": "The Galileo Open Air Cinema",
+      "summary": "South Africans with valid ID can pre-book a limited free birthday ticket for a qualifying Galileo screening during their birthday month.",
+      "category": "birthday_freebie",
+      "categoryLabel": "Birthday freebies",
+      "officialUrl": "https://thegalileo.co.za/free-birthday-ticket-special/",
+      "imageUrl": "https://freehub.co.za/assets/listings/galileo-birthday-ticket-2026-2027.webp",
+      "requirements": [
+        "South Africans with valid identification, attending during their birthday month and the operating season. Screening age ratings and the limited birthday-ticket allocation still apply.",
+        "Choose a qualifying show during your birthday month from the official movie line-up.",
+        "Pre-book the Free Birthday Ticket online through the Webtickets link on the provider page. Enter the required South African ID number.",
+        "Bring the same identification to the ticket station for birthday verification. The separate birthday-name animation form is not a ticket booking.",
+        "Excluded themed dates: 30/31 October, 24/25 December, 14 February, 26/28 March; Royale shows are also excluded.",
+        "Only standard movie admission is included. Outside chairs and backrests are not permitted.",
+        "Tickets can sell out; no available ticket or booking success has been assumed.",
+        "Qualifying standard admission is free. Blankets and backrests cost extra to rent; bring your own warm blanket if preferred.",
+        "One free standard birthday ticket per person per season; attend during your birthday month."
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "expiresAt": "2027-05-15",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "freedom-adventure-park-birthday-pass",
+      "kind": "opportunity",
+      "title": "Freedom Adventure Park: a free hour on your birthday",
+      "provider": "Freedom Adventure Park",
+      "summary": "Book a one-hour birthday pass at Freedom’s Canal Walk or Somerset West park for the actual birthday. Grip socks are required; any brand is accepted.",
+      "category": "birthday_freebie",
+      "categoryLabel": "Birthday freebies",
+      "officialUrl": "https://freedomadventurepark.co.za/pricing/",
+      "requirements": [
+        "Reserve the birthday pass online for the actual birthday",
+        "Wear grip socks; any brand is accepted and buying socks costs extra if you do not own a pair",
+        "Complete the park waiver; minors need guardian consent and age-specific activity restrictions apply"
+      ],
+      "watchOut": "Availability and provider approval can change.",
+      "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "mr-price-app-first-order-r100-off",
+      "kind": "coupon",
+      "title": "R100 off your first Mr Price app purchase of R500 or more",
+      "provider": "Mr Price",
+      "summary": "Apply MRP100 to an eligible first app order of at least R500.",
+      "category": "fashion",
+      "categoryLabel": "Fashion",
+      "officialUrl": "https://www.mrp.com/features/hey-newbie",
+      "termsUrl": "https://www.mrp.com/features/hey-newbie",
+      "couponCode": "MRP100",
+      "requirements": [
+        "The first-purchase discount is for the South African Mr Price app. A qualifying paid order is required and delivery or collection charges can affect the final total. Stock, payment and app conditions apply. The current official welcome page does not state a fixed closing date."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-13",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "superbalist-firstbuy-r400-off-first-order",
+      "kind": "coupon",
+      "title": "R400 off a first qualifying Superbalist order of R1,000",
+      "provider": "Superbalist",
+      "summary": "New customers can apply FIRSTBUY to an eligible first order of at least R1,000. Delivery may cost extra.",
+      "category": "fashion",
+      "categoryLabel": "Fashion",
+      "officialUrl": "https://superbalist.com/landing/firstbuy",
+      "termsUrl": "https://superbalist.zendesk.com/hc/en-us/articles/226264047-How-do-Promotional-Codes-or-Coupons-work",
+      "couponCode": "FIRSTBUY",
+      "requirements": [
+        "First-time customers only, once per customer and one promotion per checkout. Sale and non-shippable products are excluded. A qualifying R1,000 basket becomes R600 before delivery. Check the actual delivery charge after discounts; this listing does not promise free delivery. No fixed campaign closing date is stated."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-13",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "clicks-seniors-wednesday-four-percent-cashback",
+      "kind": "deal",
+      "title": "Clicks Seniors Club: double points on qualifying Wednesdays",
+      "provider": "Clicks",
+      "summary": "Eligible Seniors Club members can earn double base ClubCard points on qualifying Wednesday shopping.",
+      "category": "beauty-health",
+      "categoryLabel": "Beauty & Health",
+      "officialUrl": "https://clicks.co.za/clubcard",
+      "termsUrl": "https://help.clicks.co.za/support/solutions/articles/80000958591-what-are-the-terms-and-conditions-of-the-clubcard-programme-",
+      "requirements": [
+        "Age 60+ with date of birth or ID recorded for Seniors Club enrolment. Free ClubCard membership and qualifying purchases are required. Scan the card before payment; exclusions apply to regulated goods and amounts paid with cashback. Points convert to redeemable ClubCard rewards under the programme’s thresholds and expiry rules, rather than cash. The official pages use inconsistent percentage wording, so no flat cashback percentage is promised here."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-13",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "kirstenbosch-south-african-senior-free-tuesday",
+      "kind": "deal",
+      "title": "Kirstenbosch: free Tuesdays for South African senior residents",
+      "provider": "Kirstenbosch",
+      "summary": "South African residents over 60 can enter the garden free on Tuesdays that are not public holidays.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://www.sanbi.org/gardens/kirstenboch/visitor-information/information/",
+      "termsUrl": "https://www.sanbi.org/gardens/kirstenboch/visitor-information/information/",
+      "requirements": [
+        "Present valid identification and proof of South African residency at the garden entrance. The current schedule lists normal South African adult entry at R110. Separately ticketed events, parking or transport and other garden services are not included. This concession applies to Kirstenbosch and should not be assumed at other SANBI gardens."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-13",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
       "id": "vodacom-summer-scratch-win-2026",
       "kind": "deal",
       "title": "Vodacom Summer: Up to Three Free Scratch & Win Plays Daily",
@@ -409,6 +985,24 @@
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "expiresAt": "2027-03-31",
       "lastChecked": "2026-11-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "panarottis-rewards-additional-benefits",
+      "kind": "deal",
+      "title": "Panarottis Rewards: signup flatbread and hot-drink rewards",
+      "provider": "Panarottis",
+      "summary": "New members can redeem a flatbread voucher with R150 spend; buy ten qualifying hot drinks to earn the eleventh.",
+      "category": "restaurants-takeaways",
+      "categoryLabel": "Restaurants & Takeaways",
+      "officialUrl": "https://www.panarottis.com/za/loyalty",
+      "termsUrl": "https://cms.panarottis.com/uploads/Panarottis_Loyalty_App_Terms_and_Conditions_Update_Aug_2026_972cec5c89.pdf",
+      "requirements": [
+        "Signup flatbread vouchers require R150 minimum spend and last three months. Hot-drink reward vouchers follow ten qualifying purchases and also last three months; drink redemption applies to dine-in or call-and-collect, not Click & Collect. Flatbread redemption also permits Click & Collect. Adult membership and the app or supported loyalty channel are required; vouchers are personal and non-transferable. Staff exclusions apply."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-13",
       "isAffiliate": false,
       "isSponsored": false
     },
@@ -524,6 +1118,374 @@
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "expiresAt": "2026-11-30",
       "lastChecked": "2026-11-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "absa-rewards-fuel-relief-october-november-2026",
+      "kind": "deal",
+      "title": "Absa Fuel Relief: extra cashback on qualifying fuel spend until 15 November",
+      "provider": "Absa",
+      "summary": "Eligible Absa Rewards members can earn an extra 10% on their first R1,500 of qualifying fuel spend, capped at R150 extra.",
+      "category": "banking-rewards",
+      "categoryLabel": "Banking & Rewards",
+      "officialUrl": "https://www.absa.co.za/offers/deals-and-promotions/terms-and-conditions/",
+      "termsUrl": "https://www.absa.co.za/content/dam/south-africa/absa/pdf/2026/absa-rewards-fuel-relief-promotion.pdf",
+      "requirements": [
+        "Runs 16 October–15 November 2026. Requires age 18+, qualifying South African citizenship or temporary residence, active Absa Rewards, transactional and credit accounts in good standing, and an Absa Advantage challenge completed in the preceding six months. Buy fuel exclusively at Sasol or Shell in the campaign month, using an eligible digital wallet or virtual Absa card. Shell V+ requirements apply. Fuel purchases and account fees remain payable; this is conditional cashback, not free fuel. Read the full terms before changing your usual fuel purchases."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-11-15",
+      "lastChecked": "2026-11-13",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "atkv-goudini-spa-november-weekend-sale-2026",
+      "kind": "deal",
+      "title": "ATKV Goudini Spa: 30% off selected November weekend accommodation",
+      "provider": "ATKV Goudini Spa",
+      "summary": "Book at least two nights in an eligible unit for the remaining 20–21 November 2026 weekend, subject to availability.",
+      "category": "travel",
+      "categoryLabel": "Travel",
+      "officialUrl": "https://www.atkvresorts.co.za/promotions/",
+      "termsUrl": "https://www.atkvresorts.co.za/promotions/",
+      "requirements": [
+        "Book by 20 November 2026. Applies to Slanghoek A-Type and B-Type Villas, luxury five-sleeper rondavels and Badsberg flats. ATKV members and non-members qualify. Minimum two nights; telephone and online bookings accepted. Accommodation is paid. The earlier advertised weekends have passed or already started; this listing highlights 20–21 November only. No unit availability has been reserved."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-11-20",
+      "lastChecked": "2026-11-13",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "sanparks-senior-discount-november-2026",
+      "kind": "deal",
+      "title": "SANParks senior camping concession: 40% on qualifying November nights",
+      "provider": "SANParks",
+      "summary": "Qualifying pensioners can receive 40% off camping during the current 16 October–26 November window; eligible accommodation has park-specific rates.",
+      "category": "travel",
+      "categoryLabel": "Travel",
+      "officialUrl": "https://www.sanparks.org/travel/discounts/senior-citizens",
+      "termsUrl": "https://www.sanparks.org/wp-content/uploads/2021/08/Senior-Citizen-Discount-2026.pdf",
+      "requirements": [
+        "For qualifying South African social pensioners and South African permanent residents aged 60+. Book in the qualifying guest’s name through SANParks reservations: online-platform bookings do not receive this concession. Fridays, Saturdays and long weekends are excluded. Bring ID or pension proof. Camping relief covers one site’s base tariff and qualifying persons; additional guests may pay full tariffs. Conservation fees and meals remain payable. Accommodation discounts depend on the exact camp and unit in the 2026 matrix."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-11-26",
+      "lastChecked": "2026-11-13",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "telkom-summer-spend-and-get-minutes-2026",
+      "kind": "deal",
+      "title": "Telkom Summer: bonus Telkom-to-Telkom minutes with qualifying bundles",
+      "provider": "Telkom",
+      "summary": "New and existing prepaid or hybrid customers receive 200–2,000 Telkom-to-Telkom minutes with qualifying data or combo bundle purchases.",
+      "category": "mobile-data",
+      "categoryLabel": "Mobile & Data",
+      "officialUrl": "https://www.telkom.co.za/deals/summer%20?anchor=3",
+      "termsUrl": "https://group.telkom.co.za/documents/regulatory/terms-and-conditions/Terms-and-Conditions-Free-Telkom-Voice-minutes-Summer-Promo-2026.pdf",
+      "requirements": [
+        "4 October 2026–31 January 2027. Buy a qualifying data or data-and-voice bundle costing at least R29. Spend R29–R48 for 200 minutes valid three days; R49–R98 for 500 valid seven days; R99–R198 for 800 valid 14 days; R199 or more for 2,000 valid 31 days. Calls are limited to Telkom Mobile and Telkom fixed-line numbers. Unused minutes expire and cannot be transferred or carried over. The qualifying bundle is paid."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2027-01-31",
+      "lastChecked": "2026-11-13",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "galileo-pensioner-special-2026-2027",
+      "kind": "deal",
+      "title": "The Galileo: R99 Wednesday tickets for South Africans aged 60+",
+      "provider": "The Galileo",
+      "summary": "The 2026/27 pensioner ticket includes movie admission, a backrest and a blanket: R99 on Wednesdays or R155 for other eligible shows.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://thegalileo.co.za/pensioner-special/",
+      "termsUrl": "https://thegalileo.co.za/pensioner-special/",
+      "requirements": [
+        "Season: 15 October 2026–15 May 2027. South Africans aged 60+ must enter and present valid ID. The regular pensioner Warm & Comfy ticket saves R25 against the stated R180 rate. Excludes themed Halloween, Christmas, Valentine’s and Easter screenings and Royale shows. Tickets are subject to availability; travel and refreshments are separate."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2027-05-15",
+      "lastChecked": "2026-11-13",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "astron-energy-xtra-savings-fuel-rewards",
+      "kind": "deal",
+      "title": "Astron Energy Xtra Savings: earn Xcash on qualifying fuel",
+      "provider": "Astron Energy",
+      "summary": "Free Xtra Savings members earn 25c per litre, rising to 50c per litre across the qualifying month after more than R3,000 of fuel spend.",
+      "category": "banking-rewards",
+      "categoryLabel": "Banking & Rewards",
+      "officialUrl": "https://astronenergy.co.za/loyalty-xtra-savings/",
+      "termsUrl": "https://astronenergy.co.za/loyalty/xtra-savings/terms-and-conditions/",
+      "requirements": [
+        "Adult active Xtra Savings members qualify at participating Astron forecourts. Scan or swipe your card at the forecourt terminal before paying; convenience-store tills and retrospective claims do not qualify. The monthly fuel cap is R4,000 or 190 litres, whichever comes first. The extra 25c is credited on the first of the next month after the spend threshold is met. Paid Xtra Savings Plus members earn 50c from the first qualifying litre. Xcash lasts 12 months and is usable at eligible group stores or Sixty60, not for fuel or cash; fleet purchases and specified services are excluded."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-13",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "john-dorys-app-signup-dessert-2026",
+      "kind": "deal",
+      "title": "John Dory’s app: ice cream and Bar-One sauce with R150 spend",
+      "provider": "John Dory’s",
+      "summary": "The app signup offer adds an Ice Cream & Bar-One Sauce dessert when you spend R150 or more.",
+      "category": "restaurants-takeaways",
+      "categoryLabel": "Restaurants & Takeaways",
+      "officialUrl": "https://www.johndorys.com/za/menu?terms=lifes-sweeter-on-the-app",
+      "termsUrl": "https://www.johndorys.com/za/menu?terms=lifes-sweeter-on-the-app",
+      "requirements": [
+        "Offer ends 14 January 2027. Requires the John Dory’s app and a qualifying R150 purchase. Use the issued offer in the app and check participating-restaurant availability before ordering. This is a purchase-linked dessert, not a no-spend sample."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2027-01-14",
+      "lastChecked": "2026-11-13",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "atkv-senior-accommodation-discount",
+      "kind": "deal",
+      "title": "ATKV senior accommodation discounts for guests older than 55",
+      "provider": "ATKV Resorts",
+      "summary": "ATKV lists 15% off midweek and 10% off eligible weekend stays; Hartenbos offers 15% for both.",
+      "category": "travel",
+      "categoryLabel": "Travel",
+      "officialUrl": "https://www.atkvresorts.co.za/promotions/",
+      "termsUrl": "https://www.atkvresorts.co.za/promotions/",
+      "requirements": [
+        "For members and non-members older than 55. Accommodation dates run 1 March 2026–28 February 2027, with bookings by 27 February. Applies to eligible self-catering units and camping, excluding school holidays and long weekends. General minimum stays are one night midweek and two at weekends; Hartenbos requires two nights. Group concessions require guests’ IDs. Paid accommodation and availability conditions apply."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2027-02-27",
+      "lastChecked": "2026-11-13",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "apple-music-new-device-three-month-trial",
+      "kind": "deal",
+      "title": "Apple Music: three months with an eligible new device",
+      "provider": "Apple Music",
+      "summary": "Eligible new subscribers can claim three months of Apple Music, then the subscription renews at R69.99 a month unless cancelled.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://offers.applemusic.apple/en-za/new-device-offer",
+      "termsUrl": "https://www.apple.com/za/promo/pdf/ZA_ZA_Apple_Music_Promo_Terms_3_month_PDF.pdf",
+      "requirements": [
+        "Eligible Apple device purchase and setup are required. Redeem within 90 days of first setup or pairing, using the eligible device and Apple account. New individual subscribers only; one offer per account/device, with model restrictions and no combination with Apple One or other trials. Internet and device costs remain payable. Cancel at least one day before renewal; cancelling during the free period ends access immediately."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-13",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "cotton-on-perks-twenty-percent-welcome",
+      "kind": "coupon",
+      "title": "Cotton On Perks: 20% off a qualifying first online order",
+      "provider": "Cotton On",
+      "summary": "New South African Perks members receive an emailed welcome voucher for 20% off eligible full-price online shopping.",
+      "category": "fashion",
+      "categoryLabel": "Fashion",
+      "officialUrl": "https://cottonon.com/ZA/perks/welcome/",
+      "termsUrl": "https://cottonon.com/ZA/perks/perks-terms.html",
+      "requirements": [
+        "Free membership; a purchase is required. Use the unique voucher issued to your account before its stated expiry. Sale products, personalisation, Foundation products and gift cards are excluded. The South African voucher is for the South African site; delivery remains subject to the checkout total and conditions. This is separate from the Perks spend-and-earn voucher programme."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-13",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "happy-folks-loyalty-rewards",
+      "kind": "deal",
+      "title": "Happy Folks loyalty: 5% in points and a qualifying birthday voucher",
+      "provider": "Happy Folks",
+      "summary": "Earn points worth 5% of qualifying transactions toward future bills; R1,000 annual spend qualifies for a R150 birthday-month discount.",
+      "category": "restaurants-takeaways",
+      "categoryLabel": "Restaurants & Takeaways",
+      "officialUrl": "https://happyfolks.co.za/loyalty",
+      "termsUrl": "https://happyfolks.co.za/pdf/HF_Terms_Conditions.pdf",
+      "requirements": [
+        "Free app membership requires a South African mobile number and app-store region. Restaurant purchases are required. Present the app; one app per bill. Points are for future bills, not cash, tips or gift vouchers, and expire after three years. Direct-store takeaways qualify; third-party delivery does not. The birthday voucher has its own eligibility and displayed validity."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-13",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "kapstadt-brauhaus-loyalty-rewards",
+      "kind": "deal",
+      "title": "Kapstadt Brauhaus: 5% in points and a qualifying R150 birthday voucher",
+      "provider": "Kapstadt Brauhaus",
+      "summary": "Earn restaurant credit from qualifying bills, with a R150 birthday-month discount after R1,000 annual spend.",
+      "category": "restaurants-takeaways",
+      "categoryLabel": "Restaurants & Takeaways",
+      "officialUrl": "https://www.kapstadtbrauhaus.co.za/loyalty",
+      "termsUrl": "https://www.kapstadtbrauhaus.co.za/pdf/KB_Website_Terms_Conditions.pdf",
+      "requirements": [
+        "Free app membership requires a South African mobile number and app-store region. Paid restaurant purchases are required. Scan the bill’s QR code within 12 hours; only one code can be scanned per day. One app per bill. Points cannot buy tips or gift vouchers and are not cash; unused points expire after three years. Direct-store takeaways qualify, third-party delivery does not."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-13",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "john-dorys-half-price-sushi-wednesdays",
+      "kind": "deal",
+      "title": "John Dory’s: selected sushi at half price on Wednesdays",
+      "provider": "John Dory’s",
+      "summary": "Order dishes from the designated Wednesday menu for 50% off their usual prices.",
+      "category": "restaurants-takeaways",
+      "categoryLabel": "Restaurants & Takeaways",
+      "officialUrl": "https://www.johndorys.com/za/menu?terms=half-price-sushi-every-wednesday-at-john-dorys",
+      "termsUrl": "https://www.johndorys.com/za/menu?terms=half-price-sushi-every-wednesday-at-john-dorys",
+      "requirements": [
+        "Available all day on Wednesdays at participating South African John Dory’s restaurants, subject to the designated half-price menu. Only listed sushi dishes qualify; this is not 50% off every item on the standard menu. Dining purchases are required. Check the selected restaurant and current menu before ordering."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-13",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "krispy-kreme-birthday-dozen-offer",
+      "kind": "deal",
+      "title": "Krispy Kreme birthday offer: buy a dozen, get an Original Glazed dozen",
+      "provider": "Krispy Kreme",
+      "summary": "Eligible KKSA app users can redeem their birthday voucher for a free Original Glazed dozen when buying any dozen doughnuts.",
+      "category": "restaurants-takeaways",
+      "categoryLabel": "Restaurants & Takeaways",
+      "officialUrl": "https://krispykremesa.com/faqs/",
+      "termsUrl": "https://krispykremesa.com/faqs/",
+      "requirements": [
+        "Register in the South African KKSA app at least 48 hours before your birthday. The voucher arrives on the birthday and is valid for one year. Show the voucher and identification at a full Krispy Kreme shop. Excludes delivery and Doughnuts on the Go outlets, including those at Engen, Checkers and SPAR. A paid dozen is required; prices vary by your chosen dozen."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-13",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "lg-new-member-five-percent-coupon",
+      "kind": "coupon",
+      "title": "LG South Africa: 5% welcome coupon for new members",
+      "provider": "LG",
+      "summary": "New LG online members can use a once-off 5% welcome coupon on eligible products and accessories.",
+      "category": "electronics-appliances",
+      "categoryLabel": "Electronics & Appliances",
+      "officialUrl": "https://www.lg.com/za/membership/",
+      "termsUrl": "https://www.lg.com/za/membership/",
+      "requirements": [
+        "Account registration is free; a qualifying purchase is required. The coupon is valid for 30 days after registration and only once. Eligible products and exclusions apply; delivery or service charges can affect the total. Check the coupon attached to your account before ordering."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-13",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "spotify-premium-standard-one-month-trial",
+      "kind": "deal",
+      "title": "Spotify Premium Standard: one month free for eligible new subscribers",
+      "provider": "Spotify",
+      "summary": "Eligible first-time Premium users can try Standard for one month, then pay R69.99 a month unless they cancel.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://www.spotify.com/za-en/premium/",
+      "termsUrl": "https://www.spotify.com/za-en/legal/paid-subscription-terms/",
+      "requirements": [
+        "For users who have not previously tried Premium. Requires a Spotify account and an eligible recurring payment method. Internet access costs are separate. The offer is the monthly Standard trial, not a prepaid wallet option or an expired multi-month promotion. Confirm the first billing date and cancel through your account before renewal to avoid the next charge."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-13",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "builders-pensioner-wednesday-discount",
+      "kind": "deal",
+      "title": "Builders: 10% off qualifying in-store Wednesday purchases for over-60s",
+      "provider": "Builders",
+      "summary": "Eligible Builders cardholders older than 60 can receive a 10% Wednesday discount on qualifying in-store purchases.",
+      "category": "home-garden",
+      "categoryLabel": "Home & Garden",
+      "officialUrl": "https://www.builders.co.za/builders-plus",
+      "termsUrl": "https://www.builders.co.za/website-terms-conditions-occ",
+      "requirements": [
+        "Present your Builders card and age identification to the cashier in-store on Wednesday. Personal purchases only; no promotion stacking or later claim after forgetting the card. Excludes discounted or below-cost products, services, direct-to-site and special orders. Major exclusions include appliances, air conditioning, cables, building aggregates, copper fittings, generators, gas, window frames, geysers, tanks, doors, boards and ladders, plus Plascon, Dulux, Duram and HTH. The official terms use “over 60”; customers exactly 60 should confirm qualification. Online eligibility is contradictory: clause 20.9 excludes website-generated sales, while clause 36.2.1 mentions online checkout. This page confirms the in-store benefit only. Check with Builders before relying on a pensioner discount for any online purchase."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-13",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "makro-msenior-discount",
+      "kind": "deal",
+      "title": "Makro mSenior: savings on eligible food and general merchandise",
+      "provider": "Makro",
+      "summary": "Registered shoppers aged 60+ can receive a product-dependent mSenior discount in-store and online.",
+      "category": "groceries",
+      "categoryLabel": "Groceries",
+      "officialUrl": "https://www.makro.co.za/pages/terms-of-use",
+      "termsUrl": "https://www.makro.co.za/pages/terms-of-use",
+      "requirements": [
+        "Requires a valid mSenior Citizens Card/profile and South African ID or passport. Current October 2026 terms allow at most 5% on selected food and 10% on selected general merchandise, subject to Makro’s approved cost floor; these are not guaranteed flat reductions. Personal purchases only. Excludes promotions, Marketplace sellers, delivery, liquor, tobacco, cellular, gift/prepaid and financial products, LPG, motor oil, pool chemicals, copier paper and baby formula."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-13",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "vodacom-red-amazon-prime-trial",
+      "kind": "deal",
+      "title": "Vodacom RED: eligible Amazon Prime trials of three or twelve months",
+      "provider": "Vodacom",
+      "summary": "Qualifying RED Flexi customers can receive three months of Prime; RED Core customers can receive twelve. Thereafter, it costs R59 monthly unless cancelled.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://www.vodacom.co.za/vodacom/shopping/plans/red-flexi",
+      "termsUrl": "https://www.vodacom.co.za/vodacom/terms/prime",
+      "requirements": [
+        "A qualifying paid consumer contract is required. Be active on Vodacom for at least 30 days and have had no trial benefit in the previous 12 months. Business/corporate contracts do not qualify. Activate the offer shown through Vodacom’s website, VodaPay or an official invitation and link your Amazon account. Contract and data charges remain payable. This is the Amazon Prime benefit, distinct from older Prime Video Mobile Edition offers."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-13",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "spar-black-friday-rewards-november-2026",
+      "kind": "deal",
+      "title": "SPAR Rewards Black Friday essentials: 12–15 November",
+      "provider": "SPAR",
+      "summary": "Selected in-store Rewards deals include Twinsaver 18-roll toilet tissue at R94.99, two Sunlight 750ml refills for R40, and qualifying Omo packs at R109.99.",
+      "category": "groceries",
+      "categoryLabel": "Groceries",
+      "officialUrl": "https://www.spar.co.za/SPARBlackFriday",
+      "termsUrl": "https://www.spar.co.za/save-extra-in-store-only-terms-and-conditions",
+      "requirements": [
+        "12–15 November 2026, while stocks last at participating SPAR, SUPERSPAR and KWIKSPAR stores. SPAR Rewards identification is required; excludes SPAR Express and SPAR2U. Limit five deals per product per customer. Exact packs: Twinsaver 2-ply 18 rolls of 350 sheets; two Sunlight 750ml refills; Omo 4kg powder or 3L liquid. The provider advertises savings of R80, R20 and R70 respectively; FreeHub has not independently audited historical prices."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-11-15",
+      "lastChecked": "2026-11-13",
       "isAffiliate": false,
       "isSponsored": false
     }

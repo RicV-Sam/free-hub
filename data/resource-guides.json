@@ -60,5 +60,991 @@
         "answer": "The external source may be offline, restricted to another region, or unsupported in your browser. Try another source and check the provider's information if you need a specific channel."
       }
     ]
+  },
+  {
+    "resourceId": "sap-learning-hub-student-edition",
+    "provider": "SAP",
+    "title": "SAP Learning Hub student edition | FreeHub",
+    "description": "A renewable 12-month student subscription with SAP learning journeys, practice systems, live sessions and two certification exam attempts. Verify active university enrolment or faculty status with SAP. An SAP Universal ID, university email and an internet-connected device are needed.",
+    "intro": "SAP offers a free student edition of Learning Hub for eligible university students and faculty. It combines structured SAP learning with practice access and two certification exam attempts during the subscription period.",
+    "accessNote": "Verify active university enrolment or faculty status with SAP. An SAP Universal ID, university email and an internet-connected device are needed.",
+    "steps": [
+      "Open SAP’s student-edition page and check the academic eligibility rules.",
+      "Create or sign in with your SAP Universal ID and complete university verification.",
+      "Once approved, choose a learning journey and use the included practice systems.",
+      "Prepare for the relevant examination and check the two-attempt allowance before booking."
+    ],
+    "sections": [
+      {
+        "heading": "What the free subscription includes",
+        "paragraphs": [
+          "The student edition lasts 12 months. SAP lists learning journeys, expert-led live sessions, practice systems and two certification exam attempts among its benefits. You can renew if you still meet the academic requirements.",
+          "This can be useful for a student exploring enterprise software, analytics or business processes. Choose a learning path relevant to your studies before spending an examination attempt."
+        ]
+      },
+      {
+        "heading": "Who can use it from South Africa",
+        "paragraphs": [
+          "The academic programme is global and includes eligible South African university users. SAP verifies enrolment or faculty status; access is not a general free subscription for anyone with a personal email address.",
+          "Your own internet and device costs remain. The included learning and examination allowance does not guarantee employment or a certification pass."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Is the certification examination free?",
+        "answer": "The student edition includes two SAP certification exam attempts. You must be accepted into the programme and use the attempts under SAP’s current rules."
+      },
+      {
+        "question": "How long does access last?",
+        "answer": "The subscription lasts 12 months and can be renewed while you remain eligible."
+      }
+    ],
+    "trustItems": [
+      "Official source checked 13 November 2026",
+      "Free access and restrictions explained",
+      "Provider controls access"
+    ],
+    "accessHeading": "Who can use it and how to start",
+    "sourceSummary": "The linked official provider pages describe the service, access requirements and relevant conditions. Review them before registering.",
+    "sourceLinks": [
+      {
+        "label": "Official programme and access information",
+        "href": "https://learning.sap.com/free-student-edition"
+      },
+      {
+        "label": "Official conditions and help",
+        "href": "https://learning.sap.com/helpcenter/learninghub-student-edition"
+      }
+    ],
+    "ctaHeading": "Use the official provider",
+    "ctaText": "Check the current access instructions and conditions on the provider’s website.",
+    "ctaLabel": "Open official programme",
+    "exitNote": "You are continuing to the provider’s website. Check its account, access and certificate conditions before registering. FreeHub does not receive your application or learning-account details.",
+    "exitTrustItems": [
+      "Official provider link",
+      "Review access requirements",
+      "Normal data costs may apply"
+    ]
+  },
+  {
+    "resourceId": "aws-educate-free-cloud-learning",
+    "provider": "Amazon Web Services",
+    "title": "AWS Educate free cloud learning | FreeHub",
+    "description": "Free self-paced learning, selected hands-on cloud labs and digital badges without a credit card. Create an AWS Educate account with an email address. Learners must be at least 13; the jobs board is for people aged 18 and over.",
+    "intro": "AWS Educate gives beginners a free route into cloud computing and AI concepts. Its learning environment includes self-paced material, practical labs and shareable badges, and does not require a credit card.",
+    "accessNote": "Create an AWS Educate account with an email address. Learners must be at least 13; the jobs board is for people aged 18 and over.",
+    "steps": [
+      "Open AWS Educate and select the learner registration route.",
+      "Register with your email and meet the minimum age requirement.",
+      "Choose a beginner course or lab and complete its activities.",
+      "Save any badge you earn; check separate requirements before using the jobs board."
+    ],
+    "sections": [
+      {
+        "heading": "Learn before paying for cloud services",
+        "paragraphs": [
+          "AWS describes Educate as completely free. You can work through introductory cloud topics and selected hands-on labs without signing up for a paid cloud subscription with a bank card.",
+          "Learners in South Africa can use the global programme. The minimum learning age is 13; access to the jobs board starts at 18."
+        ]
+      },
+      {
+        "heading": "Understand the credential",
+        "paragraphs": [
+          "Some activities award digital badges that you can share. These record programme achievements; they do not include a free AWS professional certification examination.",
+          "Plan for your own data and device use. Follow the Educate registration route so that you understand the terms of this learning service."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Do I need a credit card?",
+        "answer": "No. AWS says a credit card is not needed for AWS Educate."
+      },
+      {
+        "question": "Does it include a free AWS certification exam?",
+        "answer": "No professional certification examination is included in this listing. The programme offers learning, selected labs and badges."
+      }
+    ],
+    "trustItems": [
+      "Official source checked 13 November 2026",
+      "Free access and restrictions explained",
+      "Provider controls access"
+    ],
+    "accessHeading": "Who can use it and how to start",
+    "sourceSummary": "The linked official provider pages describe the service, access requirements and relevant conditions. Review them before registering.",
+    "sourceLinks": [
+      {
+        "label": "Official programme and access information",
+        "href": "https://aws.amazon.com/education/awseducate/"
+      },
+      {
+        "label": "Official conditions and help",
+        "href": "https://www.awseducate.com/registration/s/learner-faqs?language=en_US"
+      }
+    ],
+    "ctaHeading": "Use the official provider",
+    "ctaText": "Check the current access instructions and conditions on the provider’s website.",
+    "ctaLabel": "Open official programme",
+    "exitNote": "You are continuing to the provider’s website. Check its account, access and certificate conditions before registering. FreeHub does not receive your application or learning-account details.",
+    "exitTrustItems": [
+      "Official provider link",
+      "Review access requirements",
+      "Normal data costs may apply"
+    ]
+  },
+  {
+    "resourceId": "cisco-networking-academy-free-courses",
+    "provider": "Cisco",
+    "title": "Cisco Networking Academy free courses | FreeHub",
+    "description": "A selection of free self-paced technology courses through Cisco Networking Academy. Choose a course marked free and self-paced, then create a Networking Academy learner account.",
+    "intro": "Cisco Networking Academy offers free self-paced introductions to technology subjects including cybersecurity, networking, Python and AI. South African beginners can use these courses to explore a field before committing to paid training.",
+    "accessNote": "Choose a course marked free and self-paced, then create a Networking Academy learner account.",
+    "steps": [
+      "Open Cisco’s Networking Academy information page.",
+      "Follow the free self-paced course route and choose a subject.",
+      "Check the course duration and prerequisites, then create a learner account.",
+      "Complete the activities and assessment required for that course."
+    ],
+    "sections": [
+      {
+        "heading": "Choose a manageable starting point",
+        "paragraphs": [
+          "Cisco lists introductory options such as cybersecurity, networking basics, Python and AI. Course lengths differ: use the individual course page to choose a workload that fits your available time.",
+          "This listing covers the free self-paced catalogue. Other academy training can be delivered by partner institutions with different admission and fee rules."
+        ]
+      },
+      {
+        "heading": "What to put on your CV",
+        "paragraphs": [
+          "Use the exact course title and the badge or completion credential you actually earn. Passing an introductory course does not mean you hold a separately examined Cisco professional certification.",
+          "You need an internet connection and device. Check any software or practical requirements on the course page before you start."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Are all Cisco courses free?",
+        "answer": "No. This guide covers the courses clearly marked free and self-paced in the Networking Academy catalogue."
+      },
+      {
+        "question": "Will I receive a professional Cisco certification?",
+        "answer": "Not simply by completing a free introductory course. Professional examinations and certifications have separate requirements."
+      }
+    ],
+    "trustItems": [
+      "Official source checked 13 November 2026",
+      "Free access and restrictions explained",
+      "Provider controls access"
+    ],
+    "accessHeading": "Who can use it and how to start",
+    "sourceSummary": "The linked official provider pages describe the service, access requirements and relevant conditions. Review them before registering.",
+    "sourceLinks": [
+      {
+        "label": "Official programme and access information",
+        "href": "https://www.cisco.com/site/us/en/learn/training-certifications/training/netacad/index.html"
+      },
+      {
+        "label": "Official conditions and help",
+        "href": "https://www.netacad.com/courses/introduction-to-cybersecurity"
+      }
+    ],
+    "ctaHeading": "Use the official provider",
+    "ctaText": "Check the current access instructions and conditions on the provider’s website.",
+    "ctaLabel": "Open official programme",
+    "exitNote": "You are continuing to the provider’s website. Check its account, access and certificate conditions before registering. FreeHub does not receive your application or learning-account details.",
+    "exitTrustItems": [
+      "Official provider link",
+      "Review access requirements",
+      "Normal data costs may apply"
+    ]
+  },
+  {
+    "resourceId": "salb-free-accessible-library",
+    "provider": "South African Library for the Blind",
+    "title": "South African Library for the Blind | FreeHub",
+    "description": "Free accessible-library membership with audio and Braille reading resources for eligible members. Apply to SALB and have the eligibility section completed or certified by a competent authority. Ask the library which accessible formats and services suit your needs.",
+    "intro": "The South African Library for the Blind helps eligible readers access books in formats they can use. Its free membership includes accessible reading resources such as audio and Braille materials.",
+    "accessNote": "Apply to SALB and have the eligibility section completed or certified by a competent authority. Ask the library which accessible formats and services suit your needs.",
+    "steps": [
+      "Read SALB’s enrolment instructions and download the membership form.",
+      "Complete your personal details and arrange the required eligibility certification.",
+      "Send the form through the official route or ask SALB for help completing it.",
+      "Discuss the available formats and access arrangements with the library."
+    ],
+    "sections": [
+      {
+        "heading": "Who the service is for",
+        "paragraphs": [
+          "SALB serves people who are blind, have low vision or another print disability that affects their ability to use ordinary printed books. A family member or helper can assist with the application.",
+          "Membership is free, but eligibility must be confirmed. Use the enrolment form and the library’s own guidance to establish which professional or authority should certify your application."
+        ]
+      },
+      {
+        "heading": "Choose an accessible reading format",
+        "paragraphs": [
+          "The library provides accessible collections and member services, including audio and Braille reading. Ask which delivery, online catalogue or supported reading options are available for your circumstances.",
+          "Do not buy equipment solely on the assumption that it will be supplied or reimbursed. Confirm any device, postage or internet arrangements directly with SALB."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Is this open to every library reader?",
+        "answer": "It is a specialist service for people with qualifying print disabilities. SALB assesses the required membership documentation."
+      },
+      {
+        "question": "Does free membership mean free equipment?",
+        "answer": "The listing confirms free membership and library resources. Equipment and connectivity arrangements should be confirmed with SALB."
+      }
+    ],
+    "trustItems": [
+      "Official source checked 13 November 2026",
+      "Free access and restrictions explained",
+      "Provider controls access"
+    ],
+    "accessHeading": "Who can use it and how to start",
+    "sourceSummary": "The linked official provider pages describe the service, access requirements and relevant conditions. Review them before registering.",
+    "sourceLinks": [
+      {
+        "label": "Official programme and access information",
+        "href": "https://salb.org.za/library/"
+      },
+      {
+        "label": "Official conditions and help",
+        "href": "https://salb.org.za/how-to-enroll/"
+      }
+    ],
+    "ctaHeading": "Use the official provider",
+    "ctaText": "Check the current access instructions and conditions on the provider’s website.",
+    "ctaLabel": "Open official service",
+    "exitNote": "You are continuing to the provider’s website. Check its account, access and certificate conditions before registering. FreeHub does not receive your application or learning-account details.",
+    "exitTrustItems": [
+      "Official provider link",
+      "Review access requirements",
+      "Normal data costs may apply"
+    ]
+  },
+  {
+    "resourceId": "cape-town-free-library-membership",
+    "provider": "City of Cape Town",
+    "title": "City of Cape Town free library membership | FreeHub",
+    "description": "Free public-library membership, borrowing and access to facilities including SmartCape computers and internet where available. Visit a City library with your identity document and proof of address. An adult must assist with a child’s registration.",
+    "intro": "Cape Town’s public libraries offer a useful way to reduce reading and study costs. Membership is free, and the City lists books, study facilities and SmartCape computer access among the services available through its library network.",
+    "accessNote": "Visit a City library with your identity document and proof of address. An adult must assist with a child’s registration.",
+    "steps": [
+      "Choose a convenient City of Cape Town library and check its opening hours.",
+      "Take your identity document and proof of address to join in person.",
+      "Ask staff about borrowing limits, study space and SmartCape access.",
+      "Keep track of loan due dates and the conditions for any digital service you use."
+    ],
+    "sections": [
+      {
+        "heading": "What you can use",
+        "paragraphs": [
+          "The City’s library network offers books and other lending materials, places to study and access to computers and internet through SmartCape facilities. Branch resources and available sessions can differ.",
+          "You can visit a library without first becoming a member. Membership is needed for borrowing, and staff can explain the services at your branch."
+        ]
+      },
+      {
+        "heading": "Joining and keeping costs down",
+        "paragraphs": [
+          "The City asks for an identity document and proof of address. Children need an adult to register them. Joining in person is the practical route covered by this guide.",
+          "Free membership does not remove loan-return rules or charges for lost items. Ask about the branch’s conditions and return or renew loans before they become overdue."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Must I join before visiting?",
+        "answer": "The City says visitors can use a library without membership. Register if you want to borrow materials."
+      },
+      {
+        "question": "Can I use a computer there?",
+        "answer": "The City advertises SmartCape computer and internet facilities. Check availability and session rules at your branch."
+      }
+    ],
+    "trustItems": [
+      "Official source checked 13 November 2026",
+      "Free access and restrictions explained",
+      "Provider controls access"
+    ],
+    "accessHeading": "Who can use it and how to start",
+    "sourceSummary": "The linked official provider pages describe the service, access requirements and relevant conditions. Review them before registering.",
+    "sourceLinks": [
+      {
+        "label": "Official programme and access information",
+        "href": "https://www.capetown.gov.za/media-and-news/city-libraries-open-doors-to-learning-jobs-and-opportunity/"
+      },
+      {
+        "label": "Official conditions and help",
+        "href": "https://opac.capetown.gov.za/"
+      }
+    ],
+    "ctaHeading": "Use the official provider",
+    "ctaText": "Check the current access instructions and conditions on the provider’s website.",
+    "ctaLabel": "Open official service",
+    "exitNote": "You are continuing to the provider’s website. Check its account, access and certificate conditions before registering. FreeHub does not receive your application or learning-account details.",
+    "exitTrustItems": [
+      "Official provider link",
+      "Review access requirements",
+      "Normal data costs may apply"
+    ]
+  },
+  {
+    "resourceId": "essa-free-job-matching",
+    "provider": "Department of Employment and Labour",
+    "title": "ESSA free public employment services | FreeHub",
+    "description": "Free individual registration, job-search and matching support, with a CV compiled from your profile. Register as an individual on the Department of Employment and Labour’s ESSA portal and supply the requested identity or work-authorisation details.",
+    "intro": "Employment Services of South Africa, known as ESSA, is the Department of Employment and Labour’s free jobseeker service. You can register your skills, create a work-seeker profile and use it for vacancy matching and a downloadable CV.",
+    "accessNote": "Register as an individual on the Department of Employment and Labour’s ESSA portal and supply the requested identity or work-authorisation details.",
+    "steps": [
+      "Open the official ESSA portal and choose individual registration.",
+      "Enter your identification and contact details, following the portal’s instructions.",
+      "Add qualifications, skills and employment history to complete your profile.",
+      "Check suitable opportunities and save or download your CV."
+    ],
+    "sections": [
+      {
+        "heading": "Make your profile useful",
+        "paragraphs": [
+          "A complete profile gives employment practitioners the information needed to consider you for relevant opportunities. Add accurate qualifications, work experience and contact details, and update them when they change.",
+          "The department’s guide describes automatic CV compilation from the information you supply. Review the finished CV carefully before using it in an application."
+        ]
+      },
+      {
+        "heading": "Use the official free route",
+        "paragraphs": [
+          "ESSA is a public employment service and individual registration is free. You still need access to a device and data, or assistance through a labour centre where available.",
+          "Registering is a step in a job search. Employers and programmes retain their own selection criteria, so a profile is not an offer of employment."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Do I have to pay to register?",
+        "answer": "No. Individual ESSA registration is a free public employment service."
+      },
+      {
+        "question": "Does registration guarantee a job?",
+        "answer": "No. Matching and applications depend on vacancies, your profile and the employer’s selection process."
+      }
+    ],
+    "trustItems": [
+      "Official source checked 13 November 2026",
+      "Free access and restrictions explained",
+      "Provider controls access"
+    ],
+    "accessHeading": "Who can use it and how to start",
+    "sourceSummary": "The linked official provider pages describe the service, access requirements and relevant conditions. Review them before registering.",
+    "sourceLinks": [
+      {
+        "label": "Official programme and access information",
+        "href": "https://essa.labour.gov.za/EssaOnline/WebBeans/"
+      },
+      {
+        "label": "Official conditions and help",
+        "href": "https://www.labour.gov.za/DocumentCenter/Pages/ESSA-how-to-guide.aspx"
+      }
+    ],
+    "ctaHeading": "Use the official provider",
+    "ctaText": "Check the current access instructions and conditions on the provider’s website.",
+    "ctaLabel": "Open official service",
+    "exitNote": "You are continuing to the provider’s website. Check its account, access and certificate conditions before registering. FreeHub does not receive your application or learning-account details.",
+    "exitTrustItems": [
+      "Official provider link",
+      "Review access requirements",
+      "Normal data costs may apply"
+    ]
+  },
+  {
+    "resourceId": "khetha-free-career-guidance",
+    "provider": "Department of Higher Education and Training",
+    "title": "Khetha free career guidance | FreeHub",
+    "description": "Free public career information, advice and guidance, including online self-help resources. Use CareerHelp or the National Career Advice Portal, or contact the official career-advice team. Have your question and relevant study or work background ready.",
+    "intro": "Khetha provides free career information and guidance for South Africans of all ages. It can help you compare subject choices, study routes and occupations, or decide what to ask before applying for a course.",
+    "accessNote": "Use CareerHelp or the National Career Advice Portal, or contact the official career-advice team. Have your question and relevant study or work background ready.",
+    "steps": [
+      "Open CareerHelp and choose the section that matches your situation.",
+      "Use the subject-choice, career-choice or self-exploration resources.",
+      "For a personal question, use the official contact details shown on CareerHelp.",
+      "Check admission, application and funding conditions with the institution you choose."
+    ],
+    "sections": [
+      {
+        "heading": "Start with a clear question",
+        "paragraphs": [
+          "The Department of Higher Education and Training’s Career Development Services offers free information, advice and counselling. The service covers learners, students, jobseekers, employed people and others considering their next step.",
+          "The National Career Advice Portal can help you explore occupations and subject choices. Use this information to build a shortlist, then check the entry requirements of specific qualifications."
+        ]
+      },
+      {
+        "heading": "Contact options and costs",
+        "paragraphs": [
+          "CareerHelp currently displays 086 999 0123 for calls and 072 204 5056 for SMS, alongside its online contact options. Check the live page before contacting the service.",
+          "The advice itself is free. These numbers are not presented here as toll-free; your network’s call or SMS charges and normal internet costs may apply."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Is Khetha only for school learners?",
+        "answer": "No. The official service describes career support for South Africans of all ages and career stages."
+      },
+      {
+        "question": "Can Khetha guarantee a bursary or job?",
+        "answer": "No. It offers information and guidance. Each funding body, institution and employer makes its own decisions."
+      }
+    ],
+    "trustItems": [
+      "Official source checked 13 November 2026",
+      "Free access and restrictions explained",
+      "Provider controls access"
+    ],
+    "accessHeading": "Who can use it and how to start",
+    "sourceSummary": "The linked official provider pages describe the service, access requirements and relevant conditions. Review them before registering.",
+    "sourceLinks": [
+      {
+        "label": "Official programme and access information",
+        "href": "https://www.careerhelp.org.za/"
+      },
+      {
+        "label": "About the free public career service",
+        "href": "https://www.careerhelp.org.za/main/career-development-services"
+      }
+    ],
+    "ctaHeading": "Use the official provider",
+    "ctaText": "Check the current access instructions and conditions on the provider’s website.",
+    "ctaLabel": "Open official service",
+    "exitNote": "You are continuing to the provider’s website. Check its account, access and certificate conditions before registering. FreeHub does not receive your application or learning-account details.",
+    "exitTrustItems": [
+      "Official provider link",
+      "Review access requirements",
+      "Normal data costs may apply"
+    ]
+  },
+  {
+    "resourceId": "hubspot-academy-free-certifications",
+    "provider": "HubSpot",
+    "title": "HubSpot Academy free certifications | FreeHub",
+    "description": "Free online courses and selected certifications, including broadly useful marketing and sales subjects. Create a free Academy account and complete the lessons, assessment and any practical exercises for your chosen certification.",
+    "intro": "HubSpot Academy offers free online training and certifications in subjects such as digital marketing, content marketing and sales. General courses can be useful for jobseekers, small-business owners and people developing workplace skills.",
+    "accessNote": "Create a free Academy account and complete the lessons, assessment and any practical exercises for your chosen certification.",
+    "steps": [
+      "Create a free HubSpot Academy account.",
+      "Choose a course and read its assessment and practical-exercise requirements.",
+      "Work through the lessons and complete the required assessment.",
+      "Download or share the credential you earn and note any renewal date."
+    ],
+    "sections": [
+      {
+        "heading": "Choose a course you can finish for free",
+        "paragraphs": [
+          "The Academy advertises free training and certifications. General marketing or sales courses can be a practical starting point if you do not use HubSpot software at work.",
+          "For software-specific certifications, read the practical requirements first. Some exercises need features available only in paid HubSpot subscriptions or accounts."
+        ]
+      },
+      {
+        "heading": "Understand the certificate",
+        "paragraphs": [
+          "You must complete the course’s required assessment and any exercises to earn its credential. Certification validity and renewal rules differ between programmes.",
+          "A provider certificate can demonstrate learning, but it does not replace a regulated qualification or guarantee a job. Internet and device costs remain your responsibility."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Are every course’s practical exercises free to complete?",
+        "answer": "Not necessarily. Some product-specific certifications require paid software features. Check the Academy’s certification FAQ and the course requirements."
+      },
+      {
+        "question": "Do the certificates last forever?",
+        "answer": "Validity periods differ. Check the expiry and renewal rules for the certification you choose."
+      }
+    ],
+    "trustItems": [
+      "Official source checked 13 November 2026",
+      "Free access and restrictions explained",
+      "Provider controls access"
+    ],
+    "accessHeading": "Who can use it and how to start",
+    "sourceSummary": "The linked official provider pages describe the service, access requirements and relevant conditions. Review them before registering.",
+    "sourceLinks": [
+      {
+        "label": "Official programme and access information",
+        "href": "https://academy.hubspot.com/"
+      },
+      {
+        "label": "Official conditions and help",
+        "href": "https://knowledge.hubspot.com/help-and-resources/hubspot-academy-certification-frequently-asked-questions"
+      }
+    ],
+    "ctaHeading": "Use the official provider",
+    "ctaText": "Check the current access instructions and conditions on the provider’s website.",
+    "ctaLabel": "Open official programme",
+    "exitNote": "You are continuing to the provider’s website. Check its account, access and certificate conditions before registering. FreeHub does not receive your application or learning-account details.",
+    "exitTrustItems": [
+      "Official provider link",
+      "Review access requirements",
+      "Normal data costs may apply"
+    ]
+  },
+  {
+    "resourceId": "forage-free-job-simulations",
+    "provider": "Forage",
+    "title": "Forage free job simulations | FreeHub",
+    "description": "Free self-paced employer-designed job simulations, with completion certificates for finished programmes. Create an account, choose a simulation and complete its tasks. Use the programme’s own instructions to compare your work with example answers.",
+    "intro": "Forage lets you try practical tasks based on real workplace roles through free online simulations. It is a useful way to explore a career, practise a skill and understand what an employer’s work can involve.",
+    "accessNote": "Create an account, choose a simulation and complete its tasks. Use the programme’s own instructions to compare your work with example answers.",
+    "steps": [
+      "Browse Forage and choose a job simulation that interests you.",
+      "Create a free account and read the estimated time and task descriptions.",
+      "Complete the tasks before comparing your approach with the model answers.",
+      "Finish the programme and describe the simulation accurately on your CV."
+    ],
+    "sections": [
+      {
+        "heading": "What the experience involves",
+        "paragraphs": [
+          "Forage’s simulations are self-paced and designed with employers. Activities let you practise tasks and compare your approach with example work. The site describes the experience as free and open access.",
+          "South African learners can use the global platform. You need an internet-connected device and should choose a programme with any software requirements you can meet."
+        ]
+      },
+      {
+        "heading": "Present the achievement accurately",
+        "paragraphs": [
+          "Completing a simulation can produce a certificate and useful examples for discussing what you learned. Identify it as a virtual job simulation or learning programme when adding it to a CV.",
+          "It is not a job, paid work experience or a guaranteed route into the employer. Recruitment remains a separate process."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Will I be paid?",
+        "answer": "No. This is a free learning simulation, not a paid job or internship."
+      },
+      {
+        "question": "Can I get a certificate?",
+        "answer": "Completed simulations can provide a completion certificate. Follow the programme’s completion requirements."
+      }
+    ],
+    "trustItems": [
+      "Official source checked 13 November 2026",
+      "Free access and restrictions explained",
+      "Provider controls access"
+    ],
+    "accessHeading": "Who can use it and how to start",
+    "sourceSummary": "The linked official provider pages describe the service, access requirements and relevant conditions. Review them before registering.",
+    "sourceLinks": [
+      {
+        "label": "Official programme and access information",
+        "href": "https://www.theforage.com/"
+      },
+      {
+        "label": "Official conditions and help",
+        "href": "https://www.theforage.com/terms"
+      }
+    ],
+    "ctaHeading": "Use the official provider",
+    "ctaText": "Check the current access instructions and conditions on the provider’s website.",
+    "ctaLabel": "Open official programme",
+    "exitNote": "You are continuing to the provider’s website. Check its account, access and certificate conditions before registering. FreeHub does not receive your application or learning-account details.",
+    "exitTrustItems": [
+      "Official provider link",
+      "Review access requirements",
+      "Normal data costs may apply"
+    ]
+  },
+  {
+    "resourceId": "fao-elearning-free-courses",
+    "provider": "Food and Agriculture Organization of the United Nations",
+    "title": "FAO elearning Academy | FreeHub",
+    "description": "Free multilingual self-paced courses; selected certified courses offer digital badges after assessment. Create a free account for tracked learning and assessment. Choose a course and check its language, download options and certification label.",
+    "intro": "The FAO elearning Academy offers free learning on food, agriculture and related development topics. South African learners can use the global catalogue to build practical knowledge, with digital badges available for selected certified courses.",
+    "accessNote": "Create a free account for tracked learning and assessment. Choose a course and check its language, download options and certification label.",
+    "steps": [
+      "Browse the FAO elearning Academy by topic and language.",
+      "Check whether your chosen course is marked as certified.",
+      "Create an account and complete the course activities.",
+      "If certification is available, meet the assessment requirement and claim the digital badge."
+    ],
+    "sections": [
+      {
+        "heading": "Find a relevant course",
+        "paragraphs": [
+          "The catalogue covers subjects such as agriculture, food systems, nutrition and environmental sustainability. Courses differ in length, level and language, so read the individual description first.",
+          "Many courses have online or downloadable material. A download can make repeat study more convenient, although obtaining files and taking online assessments still uses data."
+        ]
+      },
+      {
+        "heading": "When a free badge is available",
+        "paragraphs": [
+          "FAO’s certified courses include an assessment; its certification guidance states a minimum score of 75%. Only courses that offer certification provide a badge through this route.",
+          "Learning and the relevant badge assessment are free. Use the exact badge and course name when describing your achievement."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Does every FAO course give a certificate?",
+        "answer": "No. Choose a course marked as certified if a digital badge is important to you."
+      },
+      {
+        "question": "Can South African learners use it?",
+        "answer": "Yes. The Academy is a global learning platform and its free online catalogue is available to learners in South Africa."
+      }
+    ],
+    "trustItems": [
+      "Official source checked 13 November 2026",
+      "Free access and restrictions explained",
+      "Provider controls access"
+    ],
+    "accessHeading": "Who can use it and how to start",
+    "sourceSummary": "The linked official provider pages describe the service, access requirements and relevant conditions. Review them before registering.",
+    "sourceLinks": [
+      {
+        "label": "Official programme and access information",
+        "href": "https://elearning.fao.org/"
+      },
+      {
+        "label": "Official conditions and help",
+        "href": "https://elearning.fao.org/mod/page/view.php?id=4556"
+      }
+    ],
+    "ctaHeading": "Use the official provider",
+    "ctaText": "Check the current access instructions and conditions on the provider’s website.",
+    "ctaLabel": "Open official programme",
+    "exitNote": "You are continuing to the provider’s website. Check its account, access and certificate conditions before registering. FreeHub does not receive your application or learning-account details.",
+    "exitTrustItems": [
+      "Official provider link",
+      "Review access requirements",
+      "Normal data costs may apply"
+    ]
+  },
+  {
+    "resourceId": "disasterready-core-humanitarian-certification",
+    "provider": "DisasterReady / Cornerstone OnDemand Foundation",
+    "title": "DisasterReady Core Humanitarian Certification | FreeHub",
+    "description": "Free preparation material and the Core Humanitarian Certification assessment. Create a DisasterReady account with an email address, verify it and follow the certification instructions.",
+    "intro": "DisasterReady offers a free Core Humanitarian Certification for people who want to build or demonstrate foundational humanitarian knowledge. The preparation resources and certification assessment are both free.",
+    "accessNote": "Create a DisasterReady account with an email address, verify it and follow the certification instructions.",
+    "steps": [
+      "Open the official Core Humanitarian Certification page.",
+      "Create a DisasterReady account and verify your email promptly.",
+      "Use the preparation resources if you need them, then review the assessment guidance.",
+      "Complete the assessment and follow the steps for the credential."
+    ],
+    "sections": [
+      {
+        "heading": "What is included",
+        "paragraphs": [
+          "The programme offers core humanitarian learning and an assessment at no charge. It is intended for both newer learners and experienced workers who want to demonstrate foundational knowledge.",
+          "The provider makes the programme available internationally and lists multiple language options. Select the language and route that suits you."
+        ]
+      },
+      {
+        "heading": "How to use the credential",
+        "paragraphs": [
+          "Training is available to help you prepare, but check the assessment instructions before attempting the certification. Account creation requires a working email address.",
+          "The credential records learning and assessment within this programme. Employers and humanitarian organisations retain their own experience, recruitment and deployment requirements."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Is there a charge for the test?",
+        "answer": "DisasterReady describes both the training and certification as free."
+      },
+      {
+        "question": "Does the programme provide a humanitarian job?",
+        "answer": "No. It is learning and certification; recruitment or deployment is a separate process."
+      }
+    ],
+    "trustItems": [
+      "Official source checked 13 November 2026",
+      "Free access and restrictions explained",
+      "Provider controls access"
+    ],
+    "accessHeading": "Who can use it and how to start",
+    "sourceSummary": "The linked official provider pages describe the service, access requirements and relevant conditions. Review them before registering.",
+    "sourceLinks": [
+      {
+        "label": "Official programme and access information",
+        "href": "https://www.disasterready.org/free-core-humanitarian-certification"
+      },
+      {
+        "label": "Official conditions and help",
+        "href": "https://www.disasterready.org/tech-support"
+      }
+    ],
+    "ctaHeading": "Use the official provider",
+    "ctaText": "Check the current access instructions and conditions on the provider’s website.",
+    "ctaLabel": "Open official programme",
+    "exitNote": "You are continuing to the provider’s website. Check its account, access and certificate conditions before registering. FreeHub does not receive your application or learning-account details.",
+    "exitTrustItems": [
+      "Official provider link",
+      "Review access requirements",
+      "Normal data costs may apply"
+    ]
+  },
+  {
+    "resourceId": "nwu-ai-academic-career-success",
+    "provider": "North-West University",
+    "title": "NWU AI for Academic and Career Success | FreeHub",
+    "description": "A free two-hour self-paced AI course, with an NWU AI certificate and a personal career plan after successful completion. Use the graduate-student course link on NWU’s AI training page and sign in through the university learning system.",
+    "intro": "NWU lists a free two-hour course called AI for Academic and Career Success for graduate students. Successful completion leads to an NWU AI certificate and a career plan created during the course.",
+    "accessNote": "Use the graduate-student course link on NWU’s AI training page and sign in through the university learning system.",
+    "steps": [
+      "Open NWU’s AI Training page.",
+      "Find “Training for graduate students” and use its Course information link.",
+      "Sign in using your university access and follow the enrolment instructions.",
+      "Complete the course and its required activities to earn the stated outcome."
+    ],
+    "sections": [
+      {
+        "heading": "A short course for NWU students",
+        "paragraphs": [
+          "The university describes the course as online, self-paced and approximately two hours long. The stated outcomes are an NWU AI certificate and the learner’s own career plan after successful completion.",
+          "The course link uses eFundi. Check access with NWU if your university account cannot open it. This listing does not promise unrestricted public registration."
+        ]
+      },
+      {
+        "heading": "Choose the right programme",
+        "paragraphs": [
+          "NWU’s page also describes lecturer training, postgraduate support and other AI courses. Those routes have different purposes and conditions.",
+          "Use the graduate-student course for the free two-hour offer described here. Normal device and data costs remain."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Can anyone in South Africa enrol?",
+        "answer": "This listing is limited to eligible NWU students using institutional access. Open public enrolment was not established."
+      },
+      {
+        "question": "Is the lecturer payment included?",
+        "answer": "No. Any separate lecturer incentive belongs to a different programme and is not part of this student course."
+      }
+    ],
+    "trustItems": [
+      "Official source checked 13 November 2026",
+      "Free access and restrictions explained",
+      "Provider controls access"
+    ],
+    "accessHeading": "Who can use it and how to start",
+    "sourceSummary": "The linked official provider pages describe the service, access requirements and relevant conditions. Review them before registering.",
+    "sourceLinks": [
+      {
+        "label": "Official programme and access information",
+        "href": "https://services.nwu.ac.za/artificial-intelligence-ainwu/ai-training"
+      }
+    ],
+    "ctaHeading": "Use the official provider",
+    "ctaText": "Check the current access instructions and conditions on the provider’s website.",
+    "ctaLabel": "Open official programme",
+    "exitNote": "You are continuing to the provider’s website. Check its account, access and certificate conditions before registering. FreeHub does not receive your application or learning-account details.",
+    "exitTrustItems": [
+      "Official provider link",
+      "Review access requirements",
+      "Normal data costs may apply"
+    ]
+  },
+  {
+    "resourceId": "digify-pro-foundations",
+    "provider": "Digify Africa",
+    "title": "Digify PRO Foundations | FreeHub",
+    "description": "Free introductory digital-skills learning through the Digify PRO Foundations route. Be aged 18–35 in South Africa, complete the official interest/application form and follow the programme’s access instructions.",
+    "intro": "Digify Africa’s Foundations route provides a free introduction to digital skills for South Africans aged 18–35. It can suit people exploring digital marketing, freelancing or a business idea.",
+    "accessNote": "Be aged 18–35 in South Africa, complete the official interest/application form and follow the programme’s access instructions.",
+    "steps": [
+      "Open Digify’s official PRO applications page and read the Foundations information.",
+      "Follow the linked official form and complete the eligibility and contact questions.",
+      "Look out for the programme’s invitation or instructions for the PRO Online App.",
+      "Finish Foundations before considering any intermediate or advanced application."
+    ],
+    "sections": [
+      {
+        "heading": "Start with Foundations",
+        "paragraphs": [
+          "Digify describes Foundations applications as open throughout the year. The current form specifies South Africa and ages 18–35. Follow the application instructions to get the correct access route.",
+          "The provider’s page contains information about multiple phases. Later phases build on previous learning and have their own application or selection steps."
+        ]
+      },
+      {
+        "heading": "Plan for participation",
+        "paragraphs": [
+          "The learning is free, but you need a device, connectivity and time for the work. Read the programme’s current schedule and technical instructions when access is offered.",
+          "Completing an application does not guarantee placement in every later phase or employment. Keep a working email and accurate contact details in your form."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Is there an application deadline for Foundations?",
+        "answer": "The official page describes Foundations as accepting applications year-round. Check the live page for any operational changes."
+      },
+      {
+        "question": "Can I start directly in the advanced phase?",
+        "answer": "The programme requires completion of the preceding phase and the relevant selection process."
+      }
+    ],
+    "trustItems": [
+      "Official source checked 13 November 2026",
+      "Free access and restrictions explained",
+      "Provider controls access"
+    ],
+    "accessHeading": "Who can use it and how to start",
+    "sourceSummary": "The linked official provider pages describe the service, access requirements and relevant conditions. Review them before registering.",
+    "sourceLinks": [
+      {
+        "label": "Official programme and access information",
+        "href": "https://digifyafrica.com/digify-pro-online-applications/"
+      },
+      {
+        "label": "Official conditions and help",
+        "href": "https://docs.google.com/forms/d/1ckrs4Luyq_gOZSc2iyl-yINnG1AKbRClW6cIvXgBtKk/viewform"
+      }
+    ],
+    "ctaHeading": "Use the official provider",
+    "ctaText": "Check the current access instructions and conditions on the provider’s website.",
+    "ctaLabel": "Open official programme",
+    "exitNote": "You are continuing to the provider’s website. Check its account, access and certificate conditions before registering. FreeHub does not receive your application or learning-account details.",
+    "exitTrustItems": [
+      "Official provider link",
+      "Review access requirements",
+      "Normal data costs may apply"
+    ]
+  },
+  {
+    "resourceId": "second-chance-matric-resources",
+    "provider": "Department of Basic Education",
+    "title": "Second Chance Matric revision resources | FreeHub",
+    "description": "Official study guides, revision material and other learning support for matric preparation. Use the DBE’s Second Chance resources and confirm your separate examination eligibility and registration with the education authorities.",
+    "intro": "The Department of Basic Education’s Second Chance programme provides free material to support matric preparation. Its revision resources can help learners work towards improving or completing eligible subjects.",
+    "accessNote": "Use the DBE’s Second Chance resources and confirm your separate examination eligibility and registration with the education authorities.",
+    "steps": [
+      "Open the DBE Second Chance Matric programme page.",
+      "Choose the subject and revision material relevant to your examination route.",
+      "Build a study schedule using the official guides, practice papers and available media.",
+      "Check examination registration and any new teaching-session dates separately."
+    ],
+    "sections": [
+      {
+        "heading": "Use the resources available now",
+        "paragraphs": [
+          "Official revision and study material remains useful outside scheduled teaching sessions. Choose resources that match your subjects and the examination you intend to write.",
+          "The programme’s classroom or organised teaching periods are dated. The August–October 2026 period has ended, so this guide covers available learning resources rather than a currently open class intake."
+        ]
+      },
+      {
+        "heading": "Examination registration is a separate step",
+        "paragraphs": [
+          "Downloading a guide does not register you for the National Senior Certificate or Senior Certificate examination. Confirm which route you qualify for and meet the official registration deadline.",
+          "The material is free. Your data, device, printing and any travel costs remain your responsibility."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Does downloading the material register me for matric?",
+        "answer": "No. Examination eligibility and registration are handled separately by the education authorities."
+      },
+      {
+        "question": "Are the 2026 August–October classes still running?",
+        "answer": "That advertised teaching period has ended. Use the resources and check the provider for any newly announced classes."
+      }
+    ],
+    "trustItems": [
+      "Official source checked 13 November 2026",
+      "Free access and restrictions explained",
+      "Provider controls access"
+    ],
+    "accessHeading": "Who can use it and how to start",
+    "sourceSummary": "The linked official provider pages describe the service, access requirements and relevant conditions. Review them before registering.",
+    "sourceLinks": [
+      {
+        "label": "Official programme and access information",
+        "href": "https://www.education.gov.za/programmes/secondchanceprogramme.aspx"
+      },
+      {
+        "label": "Official conditions and help",
+        "href": "https://www.westerncape.gov.za/education/second-chance-matric-programme"
+      }
+    ],
+    "ctaHeading": "Use the official provider",
+    "ctaText": "Check the current access instructions and conditions on the provider’s website.",
+    "ctaLabel": "Open official service",
+    "exitNote": "You are continuing to the provider’s website. Check its account, access and certificate conditions before registering. FreeHub does not receive your application or learning-account details.",
+    "exitTrustItems": [
+      "Official provider link",
+      "Review access requirements",
+      "Normal data costs may apply"
+    ]
+  },
+  {
+    "resourceId": "yes-microsoft-ai-skills-vouchers",
+    "provider": "YES / Microsoft",
+    "title": "YES × Microsoft AI learning and conditional exam vouchers | FreeHub",
+    "description": "Free AI learning with a conditional route to one funded certification examination voucher, subject to the programme’s requirements and allocation. Use the official programme, have a South African ID and Microsoft Learn profile, complete the specified modules, score at least 70% on the practice assessment and submit the required survey and evidence.",
+    "intro": "The YES × Microsoft AI programme offers free learning and a conditional route to a certification examination voucher. Complete the stated learning, assessment and claim steps before expecting a voucher; allocation is subject to the programme’s rules.",
+    "accessNote": "Use the official programme, have a South African ID and Microsoft Learn profile, complete the specified modules, score at least 70% on the practice assessment and submit the required survey and evidence.",
+    "steps": [
+      "Open the official YES AI Skills site and follow its registration and learning route.",
+      "Use your Microsoft Learn profile to finish the required modules.",
+      "Complete the practice assessment with a score of at least 70% and retain the requested evidence.",
+      "Finish the compulsory survey and submit the certificate/voucher claim form with the required details."
+    ],
+    "sections": [
+      {
+        "heading": "Learning and the voucher are separate steps",
+        "paragraphs": [
+          "The programme’s learning is free. To request the funded examination route, follow its specified modules, assessment, survey and evidence requirements, including a South African ID.",
+          "The programme advertises an allocation of 50,000 vouchers. That is the announced programme allocation, not confirmation that a particular number remains or that every claim will succeed."
+        ]
+      },
+      {
+        "heading": "Check the claim route before committing time",
+        "paragraphs": [
+          "Use the current claim page to confirm the eligible learning path and the evidence required. The programme provides one qualifying examination voucher under its conditions.",
+          "The older Takealot draw shown in some campaign material closed on 31 October 2026. This guide covers learning and the conditional examination benefit, with no current cash or shopping-prize claim."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Will I definitely receive an exam voucher?",
+        "answer": "No. You must meet the programme’s requirements and submit a qualifying claim; availability is subject to the allocation and provider processing."
+      },
+      {
+        "question": "Is the Takealot giveaway still open?",
+        "answer": "No. That separate draw closed on 31 October 2026 and is not included as a current offer."
+      }
+    ],
+    "trustItems": [
+      "Official source checked 13 November 2026",
+      "Free access and restrictions explained",
+      "Provider controls access"
+    ],
+    "accessHeading": "Who can use it and how to start",
+    "sourceSummary": "The linked official provider pages describe the service, access requirements and relevant conditions. Review them before registering.",
+    "sourceLinks": [
+      {
+        "label": "Official programme and access information",
+        "href": "https://yes-aiskills.co.za/"
+      },
+      {
+        "label": "Official conditions and help",
+        "href": "https://yes-aiskills.co.za/claim-certificate/"
+      }
+    ],
+    "ctaHeading": "Use the official provider",
+    "ctaText": "Check the current access instructions and conditions on the provider’s website.",
+    "ctaLabel": "Open official programme",
+    "exitNote": "You are continuing to the provider’s website. Check its account, access and certificate conditions before registering. FreeHub does not receive your application or learning-account details.",
+    "exitTrustItems": [
+      "Official provider link",
+      "Review access requirements",
+      "Normal data costs may apply"
+    ]
   }
 ]

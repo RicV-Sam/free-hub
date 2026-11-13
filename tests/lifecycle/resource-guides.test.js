@@ -11,10 +11,12 @@ const resources = require("../../data/free-resources.json");
 const guides = require("../../data/resource-guides.json");
 const { getPublicResourceGuides, getResourceDetailPath, getResourceExitPath } = require("../../scripts/lib/resource-guides.js");
 const { createFreeResourceRenderer } = require("../../scripts/lib/free-resource-renderer.js");
+const { createResourceGuideRenderer } = require("../../scripts/lib/resource-guide-renderer.js");
 const { createEditorialRenderer } = require("../../scripts/lib/editorial-renderer.js");
 const { buildMobileCatalog } = require("../../scripts/lib/mobile-feed.js");
 const { parseHtml } = require("../../scripts/lib/baseline-utils.js");
 const record = resources.find(item => item.detailSlug === "famelack");
+const famelackGuides = guides.filter(item => item.resourceId === record.id);
 const escapeHtml = value => String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
 test("detailed resources validate in both contracts and reject unsafe route slugs", () => {
@@ -31,15 +33,31 @@ test("detailed resources validate in both contracts and reject unsafe route slug
 });
 
 test("resource details and exits use the publication gate and require one complete guide", () => {
-  assert.equal(getPublicResourceGuides([record], guides).length, 1);
+  assert.equal(getPublicResourceGuides([record], famelackGuides).length, 1);
   assert.equal(getResourceDetailPath(record), "/resources/famelack/");
   assert.equal(getResourceExitPath(record), "/out/resources/famelack/");
   for (const state of [{ verificationStatus: "verification_due" }, { verificationStatus: "source_changed" }, { verificationStatus: "rejected" }, { availability: "retired" }]) {
-    assert.equal(getPublicResourceGuides([{ ...record, ...state }], guides).length, 0);
+    assert.equal(getPublicResourceGuides([{ ...record, ...state }], famelackGuides).length, 0);
   }
   assert.throws(() => getPublicResourceGuides([record], []), /no guide/);
-  assert.throws(() => getPublicResourceGuides([record], [...guides, guides[0]]), /Duplicate/);
-  assert.throws(() => getPublicResourceGuides([record], [{ ...guides[0], steps: [] }]), /practical steps/);
+  assert.throws(() => getPublicResourceGuides([record], [...famelackGuides, famelackGuides[0]]), /Duplicate/);
+  assert.throws(() => getPublicResourceGuides([record], [{ ...famelackGuides[0], steps: [] }]), /practical steps/);
+});
+
+test("education resource guides use their own conditions and safe official citations", () => {
+  const education = { ...record, id: "learning-fixture", name: "Free learning", detailSlug: "learning-fixture", officialUrl: "https://example.org/learning", bestFor: "Learners", freeDetails: "Free lessons", requirements: "A provider account", watchOut: "Exams can cost extra" };
+  const guide = { resourceId: education.id, provider: "Learning Provider", title: "Free learning guide", description: "Free lessons and certificate conditions", intro: "Choose a lesson.", accessNote: "Online lessons are available from South Africa.", accessHeading: "Who can learn", steps: ["Open the course page."], sections: [{ heading: "Certificate conditions", paragraphs: ["Read the selected exam conditions."] }], faq: [], trustItems: ["Free lessons", "Data costs apply", "Exam costs vary"], sourceSummary: "The course and certificate pages were checked.", sourceLinks: [{ label: "Certificate terms", href: "https://example.org/certificates" }], ctaHeading: "Choose a lesson", ctaText: "Check the provider's course conditions.", ctaLabel: "Browse free lessons", exitNote: "The provider manages your learning account.", exitTrustItems: ["External provider", "Data costs apply", "Course conditions apply"] };
+  const approved = getPublicResourceGuides([education], [guide])[0];
+  const empty = () => "";
+  const renderer = createResourceGuideRenderer({ escapeHtml, escapeAttribute: escapeHtml, escapeScript: JSON.stringify, canonicalOrigin: shared.CANONICAL_ORIGIN, images: {}, defaultSocialImage: "https://freehub.co.za/default.png", stylesheetHref: "/styles.css", guestAdsScript: "", outboundHandoffScript: "", renderAnalyticsHead: empty, renderAnalyticsBody: empty, renderTopNavigation: empty, renderSiteFooter: empty, renderHeroImage: empty, renderFaq: empty, renderDatacostPromo: empty, formatDate: value => value, renderModernHero: value => JSON.stringify(value) });
+  const html = renderer.renderDetail(approved) + renderer.renderExit(approved);
+  assert.match(html, /Browse free lessons/);
+  assert.match(html, /Certificate terms/);
+  assert.match(html, /The provider manages your learning account/);
+  assert.doesNotMatch(html, /streams|watch or hear|viewing|Legal Disclaimer/);
+  for (const href of ["javascript:alert(1)", "https://user:password@example.org/", "/local-only"]) {
+    assert.throws(() => getPublicResourceGuides([education], [{ ...guide, sourceLinks: [{ label: "Unsafe", href }] }]), /source link/);
+  }
 });
 
 test("directory and homepage resource links enter the detail flow while legacy resources retain their links", () => {

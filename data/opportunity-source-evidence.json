@@ -1388,5 +1388,145 @@
     "verifiedAt": "2026-10-30",
     "expiresAt": "2026-11-06",
     "evidenceSummary": "Official South African terms confirm Gold requires 750 Stars within twelve months and another 750 to maintain; Gold birthday drink valid thirty days. Participating stores and recorded birthday required; programme not intended for under-eighteens."
+  },
+  {
+    "recordId": "galileo-birthday-ticket-2026-2027",
+    "field": "sourceUrl",
+    "hostname": "thegalileo.co.za",
+    "url": "https://thegalileo.co.za/free-birthday-ticket-special/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-11-13",
+    "expiresAt": "2026-11-20",
+    "evidenceSummary": "Reviewed exact official page on 13 November 2026: South Africans with valid ID can pre-book a limited free birthday ticket for a qualifying Galileo screening during their birthday month. Claim procedure and stated restrictions checked against the retained source; no account or booking was submitted."
+  },
+  {
+    "recordId": "galileo-birthday-ticket-2026-2027",
+    "field": "termsUrl",
+    "hostname": "thegalileo.co.za",
+    "url": "https://thegalileo.co.za/free-birthday-ticket-special/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-11-13",
+    "expiresAt": "2026-11-20",
+    "evidenceSummary": "Reviewed exact official page on 13 November 2026: South Africans with valid ID can pre-book a limited free birthday ticket for a qualifying Galileo screening during their birthday month. Claim procedure and stated restrictions checked against the retained source; no account or booking was submitted."
+  },
+  {
+    "recordId": "zeitz-mocaa-free-access",
+    "field": "sourceUrl",
+    "hostname": "zeitzmocaa.museum",
+    "url": "https://zeitzmocaa.museum/buy-tickets/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-11-13",
+    "expiresAt": "2026-11-20",
+    "evidenceSummary": "Reviewed exact official page on 13 November 2026: Visitors with accepted South African or African identification can visit free during their birthday month; African citizens also receive free entry every Wednesday from 10:00 to 13:00, and under-18s enter free year-round. Claim procedure and stated restrictions checked against the retained source; no account or booking was submitted."
+  },
+  {
+    "recordId": "zeitz-mocaa-free-access",
+    "field": "termsUrl",
+    "hostname": "zeitzmocaa.museum",
+    "url": "https://zeitzmocaa.museum/frequently-asked-questions/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-11-13",
+    "expiresAt": "2026-11-20",
+    "evidenceSummary": "Reviewed exact official page on 13 November 2026: Visitors with accepted South African or African identification can visit free during their birthday month; African citizens also receive free entry every Wednesday from 10:00 to 13:00, and under-18s enter free year-round. Claim procedure and stated restrictions checked against the retained source; no account or booking was submitted."
+  },
+  {
+    "recordId": "norval-birthday-free-access",
+    "field": "sourceUrl",
+    "hostname": "www.norvalfoundation.org",
+    "url": "https://www.norvalfoundation.org/visitors-information/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-11-13",
+    "expiresAt": "2026-11-20",
+    "evidenceSummary": "Reviewed exact official page on 13 November 2026: Norval Foundation lists free entry during your birthday month and free admission for children under 18. Check closures before travelling. Claim procedure and stated restrictions checked against the retained source; no account or booking was submitted."
+  },
+  {
+    "recordId": "norval-birthday-free-access",
+    "field": "termsUrl",
+    "hostname": "www.norvalfoundation.org",
+    "url": "https://www.norvalfoundation.org/visitors-information/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-11-13",
+    "expiresAt": "2026-11-20",
+    "evidenceSummary": "Reviewed exact official page on 13 November 2026: Norval Foundation lists free entry during your birthday month and free admission for children under 18. Check closures before travelling. Claim procedure and stated restrictions checked against the retained source; no account or booking was submitted."
+  },
+  {
+    "recordId": "two-oceans-aquarium-birthday-entry",
+    "field": "sourceUrl",
+    "hostname": "www.aquarium.co.za",
+    "url": "https://www.aquarium.co.za/specials/free-entry-on-your-birthday",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-11-13",
+    "expiresAt": "2026-11-20",
+    "evidenceSummary": "Reviewed exact official page on 13 November 2026: South African citizens and permanent residents aged four or older can claim one complimentary Aquarium visit during their birthday month at the onsite ticket office. Claim procedure and stated restrictions checked against the retained source; no account or booking was submitted."
+  },
+  {
+    "recordId": "two-oceans-aquarium-birthday-entry",
+    "field": "termsUrl",
+    "hostname": "www.aquarium.co.za",
+    "url": "https://www.aquarium.co.za/specials/free-entry-on-your-birthday",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-11-13",
+    "expiresAt": "2026-11-20",
+    "evidenceSummary": "Reviewed exact official page on 13 November 2026: South African citizens and permanent residents aged four or older can claim one complimentary Aquarium visit during their birthday month at the onsite ticket office. Claim procedure and stated restrictions checked against the retained source; no account or booking was submitted."
+  },
+  {
+    "recordId": "cape-wheel-birthday-club-ride",
+    "field": "sourceUrl",
+    "hostname": "capewheel.co.za",
+    "url": "https://capewheel.co.za/clubs/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-11-13",
+    "expiresAt": "2026-11-20",
+    "evidenceSummary": "Reviewed exact official page on 13 November 2026: Cape Wheel Birthday Club members over 12 receive a free standard ride after signing up before their birthday. VIP and Sky Dining are excluded; any photo-pack purchase is separate. Claim procedure and stated restrictions checked against the retained source; no account or booking was submitted."
+  },
+  {
+    "recordId": "cape-wheel-birthday-club-ride",
+    "field": "termsUrl",
+    "hostname": "capewheel.co.za",
+    "url": "https://capewheel.co.za/clubs/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-11-13",
+    "expiresAt": "2026-11-20",
+    "evidenceSummary": "Reviewed exact official page on 13 November 2026: Cape Wheel Birthday Club members over 12 receive a free standard ride after signing up before their birthday. VIP and Sky Dining are excluded; any photo-pack purchase is separate. Claim procedure and stated restrictions checked against the retained source; no account or booking was submitted."
+  },
+  {
+    "recordId": "mugg-and-bean-birthday-cake",
+    "field": "sourceUrl",
+    "hostname": "www.muggandbean.co.za",
+    "url": "https://www.muggandbean.co.za/rewards/loyalty-app",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-11-13",
+    "expiresAt": "2026-11-20",
+    "evidenceSummary": "Reviewed exact official page on 13 November 2026: Qualifying Mugg & Bean Loyalty App members receive a birthday voucher for a cake slice at a Sit-Down restaurant or a bundt cake at On-The-Move. From 1 September 2026 it is issued on the actual birthday and is valid for 30 days. Two qualifying app uses in the preceding 12 months are required. Claim procedure and stated restrictions checked against the retained source; no account or booking was submitted."
+  },
+  {
+    "recordId": "mugg-and-bean-birthday-cake",
+    "field": "termsUrl",
+    "hostname": "www.muggandbean.co.za",
+    "url": "https://www.muggandbean.co.za/terms-and-conditions",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-11-13",
+    "expiresAt": "2026-11-20",
+    "evidenceSummary": "Reviewed exact official page on 13 November 2026: Qualifying Mugg & Bean Loyalty App members receive a birthday voucher for a cake slice at a Sit-Down restaurant or a bundt cake at On-The-Move. From 1 September 2026 it is issued on the actual birthday and is valid for 30 days. Two qualifying app uses in the preceding 12 months are required. Claim procedure and stated restrictions checked against the retained source; no account or booking was submitted."
+  },
+  {
+    "recordId": "freedom-adventure-park-birthday-pass",
+    "field": "sourceUrl",
+    "hostname": "freedomadventurepark.co.za",
+    "url": "https://freedomadventurepark.co.za/pricing/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-11-13",
+    "expiresAt": "2026-11-20",
+    "evidenceSummary": "Reviewed exact official page on 13 November 2026: Book a one-hour birthday pass at Freedom’s Canal Walk or Somerset West park for the actual birthday. Grip socks are required; any brand is accepted. Claim procedure and stated restrictions checked against the retained source; no account or booking was submitted."
+  },
+  {
+    "recordId": "freedom-adventure-park-birthday-pass",
+    "field": "termsUrl",
+    "hostname": "freedomadventurepark.co.za",
+    "url": "https://freedomadventurepark.co.za/park-terms-conditions/",
+    "reason": "official_source_manually_reviewed",
+    "verifiedAt": "2026-11-13",
+    "expiresAt": "2026-11-20",
+    "evidenceSummary": "Reviewed exact official page on 13 November 2026: Book a one-hour birthday pass at Freedom’s Canal Walk or Somerset West park for the actual birthday. Grip socks are required; any brand is accepted. Claim procedure and stated restrictions checked against the retained source; no account or booking was submitted."
   }
 ]

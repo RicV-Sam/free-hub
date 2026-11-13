@@ -59,7 +59,7 @@ function createResourceGuideRenderer(ctx) {
       image: image ? origin + image.src : ctx.defaultSocialImage,
       author: { "@type": "Organization", name: "Freehub", url: origin + "/" },
       publisher: { "@type": "Organization", name: "Freehub", url: origin + "/" },
-      citation: [resource.officialUrl],
+      citation: [...new Set([resource.officialUrl, ...(guide.sourceLinks || []).map(link => link.href)])],
     }, {
       "@context": "https://schema.org", "@type": "BreadcrumbList",
       itemListElement: [
@@ -69,12 +69,13 @@ function createResourceGuideRenderer(ctx) {
       ],
     }];
     const exitPath = getResourceExitPath(resource);
-    const cta = `<a class="btn btn--primary" href="${attr(exitPath)}" ${analytics(resource, "resource-handoff", "resource_detail", exitPath)}>Open ${text(guide.provider)}</a>`;
+    const ctaLabel = guide.ctaLabel || `Open ${guide.provider}`;
+    const cta = `<a class="btn btn--primary" href="${attr(exitPath)}" ${analytics(resource, "resource-handoff", "resource_detail", exitPath)}>${text(ctaLabel)}</a>`;
     return document({ guide, path, title: guide.title, description: guide.description, indexable: true, schema,
       hero: ctx.renderModernHero({
         className: "hero--utility", eyebrow: resource.categoryLabel, heading: resource.name, intro: guide.intro,
-        mascotPose: "read", actions: [{ label: `Open ${guide.provider}`, href: exitPath, className: "btn--primary", attributes: analytics(resource, "resource-handoff", "resource_detail", exitPath) }, { label: "Browse Free Stuff", href: "/free-stuff-south-africa/", className: "btn--secondary" }],
-        trustItems: ["No subscription", "Data costs apply", "External streams vary"],
+        mascotPose: "read", actions: [{ label: ctaLabel, href: exitPath, className: "btn--primary", attributes: analytics(resource, "resource-handoff", "resource_detail", exitPath) }, { label: "Browse Free Stuff", href: "/free-stuff-south-africa/", className: "btn--secondary" }],
+        trustItems: guide.trustItems || ["No subscription", "Data costs apply", "External streams vary"],
       }),
       content: `<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true"> / </span><a href="/free-stuff-south-africa/">Free Stuff</a><span aria-hidden="true"> / </span><span aria-current="page">${text(guide.provider)}</span></nav>
         <section class="state-card resource-detail__facts" aria-labelledby="resource-quick-facts">
@@ -84,13 +85,13 @@ function createResourceGuideRenderer(ctx) {
         </section>
         ${ctx.renderHeroImage(resource)}
         <section class="trust-page__content" aria-label="Using this resource">
-          <article><h2>South African access check</h2><p>${text(guide.accessNote)}</p></article>
+          <article><h2>${text(guide.accessHeading || "South African access check")}</h2><p>${text(guide.accessNote)}</p></article>
           <article><h2>How to get started</h2><ol class="resource-detail__steps">${guide.steps.map(step => `<li>${text(step)}</li>`).join("")}</ol></article>
           ${guide.sections.map(section => `<article><h2>${text(section.heading)}</h2>${section.paragraphs.map(paragraph => `<p>${text(paragraph)}</p>`).join("")}</article>`).join("\n")}
-          <article><h2>Official information and review scope</h2><p>Our summary uses the About, FAQ, Legal Disclaimer and privacy information available through <a href="${attr(resource.officialUrl)}" target="_blank" rel="nofollow noopener">${text(guide.provider)}'s official website</a>, checked on ${text(ctx.formatDate(resource.lastReviewed))}. FreeHub is an independent guide; individual stream rights and future availability have not been independently verified.</p></article>
+          <article><h2>Official information and review scope</h2>${guide.sourceSummary ? `<p>${text(guide.sourceSummary)}</p>` : `<p>Our summary uses the About, FAQ, Legal Disclaimer and privacy information available through <a href="${attr(resource.officialUrl)}" target="_blank" rel="nofollow noopener">${text(guide.provider)}'s official website</a>, checked on ${text(ctx.formatDate(resource.lastReviewed))}. FreeHub is an independent guide; individual stream rights and future availability have not been independently verified.</p>`}${guide.sourceLinks?.length ? `<ul>${guide.sourceLinks.map(link => `<li><a href="${attr(link.href)}" target="_blank" rel="nofollow noopener">${text(link.label)}</a></li>`).join("")}</ul>` : ""}</article>
         </section>
         ${ctx.renderFaq(guide.faq)}
-        <section class="state-card" aria-labelledby="resource-open-title"><h2 id="resource-open-title">Ready to explore?</h2><p>Open the external ${text(guide.provider)} website and choose what to watch or hear. Normal internet costs apply.</p>${cta}<p><a href="/free-stuff-south-africa/">Find more free resources in South Africa</a></p></section>
+        <section class="state-card" aria-labelledby="resource-open-title"><h2 id="resource-open-title">${text(guide.ctaHeading || "Ready to explore?")}</h2><p>${guide.ctaText ? text(guide.ctaText) : `Open the external ${text(guide.provider)} website and choose what to watch or hear. Normal internet costs apply.`}</p>${cta}<p><a href="/free-stuff-south-africa/">Find more free resources in South Africa</a></p></section>
         ${ctx.renderDatacostPromo({ placement: `resource-${resource.detailSlug}`, compact: true })}`,
     });
   }
@@ -100,8 +101,8 @@ function createResourceGuideRenderer(ctx) {
     const destination = new URL(resource.officialUrl);
     return document({ guide, path: getResourceExitPath(resource), title: `Continue to ${guide.provider} | Freehub`,
       description: `Leave FreeHub and continue to ${destination.hostname}. Normal internet costs and provider conditions apply.`, indexable: false,
-      hero: ctx.renderModernHero({ className: "hero--utility hero--outbound", eyebrow: "External website", heading: "You are leaving Freehub", intro: `Taking you to ${destination.hostname} to explore ${guide.provider}.`, mascotPose: "direct", actions: [], trustItems: ["External provider", "Data costs apply", "Stream availability varies"] }),
-      content: `<section class="state-card outbound-notice" aria-label="External resource handoff"><h2>Continue to ${text(guide.provider)}</h2><p>Destination: <strong>${text(destination.hostname)}</strong>. FreeHub does not host the streams. Check the provider's current information before viewing.</p><p>You will continue automatically after a short pause. You can also use the button now.</p><a class="competition-detail__cta" href="${attr(resource.officialUrl)}" rel="nofollow noopener" data-resource-destination ${analytics(resource, "official-source", "resource_exit", destination.pathname)}>Continue to ${text(guide.provider)}</a><p><a href="${attr(getResourceDetailPath(resource))}">Back to ${text(guide.provider)} details</a></p><noscript><p>Automatic navigation needs JavaScript. The Continue button works without it.</p></noscript></section>${ctx.renderDatacostPromo({ placement: `resource-exit-${resource.detailSlug}`, compact: true })}`,
+      hero: ctx.renderModernHero({ className: "hero--utility hero--outbound", eyebrow: "External website", heading: "You are leaving Freehub", intro: `Taking you to ${destination.hostname} to explore ${guide.provider}.`, mascotPose: "direct", actions: [], trustItems: guide.exitTrustItems || ["External provider", "Data costs apply", "Stream availability varies"] }),
+      content: `<section class="state-card outbound-notice" aria-label="External resource handoff"><h2>Continue to ${text(guide.provider)}</h2><p>Destination: <strong>${text(destination.hostname)}</strong>. ${guide.exitNote ? text(guide.exitNote) : "FreeHub does not host the streams. Check the provider's current information before viewing."}</p><p>You will continue automatically after a short pause. You can also use the button now.</p><a class="competition-detail__cta" href="${attr(resource.officialUrl)}" rel="nofollow noopener" data-resource-destination ${analytics(resource, "official-source", "resource_exit", destination.pathname)}>Continue to ${text(guide.provider)}</a><p><a href="${attr(getResourceDetailPath(resource))}">Back to ${text(guide.provider)} details</a></p><noscript><p>Automatic navigation needs JavaScript. The Continue button works without it.</p></noscript></section>${ctx.renderDatacostPromo({ placement: `resource-exit-${resource.detailSlug}`, compact: true })}`,
     });
   }
   return { renderDetail, renderExit };

@@ -11,7 +11,9 @@
     "publicationStatus": "published",
     "verificationStatus": "verified",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-10-30",
     "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-07-14",
@@ -40,8 +42,15 @@
         "label": "Coloplast Care Advisor approval required"
       }
     ],
-    "categories": ["samples", "medical-product-samples"],
-    "tags": ["medical-product-sample", "suitability-approval-required", "free-delivery"],
+    "categories": [
+      "samples",
+      "medical-product-samples"
+    ],
+    "tags": [
+      "medical-product-sample",
+      "suitability-approval-required",
+      "free-delivery"
+    ],
     "details": {
       "fulfilmentMethod": "delivery",
       "deliveryCharge": "none",
@@ -63,7 +72,9 @@
     "publicationStatus": "withdrawn",
     "verificationStatus": "withdrawn",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-23",
@@ -92,8 +103,17 @@
         "label": "Intended for creators who are lactose intolerant or use milk alternatives"
       }
     ],
-    "categories": ["samples", "product-testing", "food-and-drink"],
-    "tags": ["creator-campaign", "selection-required", "instagram", "gifted-product"],
+    "categories": [
+      "samples",
+      "product-testing",
+      "food-and-drink"
+    ],
+    "tags": [
+      "creator-campaign",
+      "selection-required",
+      "instagram",
+      "gifted-product"
+    ],
     "details": {
       "fulfilmentMethod": "delivery",
       "selectionMethod": "provider_selection",
@@ -115,7 +135,9 @@
     "publicationStatus": "withdrawn",
     "verificationStatus": "withdrawn",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-23",
@@ -144,8 +166,17 @@
         "label": "Applicant must be willing to feature their family in the campaign content"
       }
     ],
-    "categories": ["samples", "product-testing", "food-and-drink"],
-    "tags": ["creator-campaign", "selection-required", "instagram", "gifted-product"],
+    "categories": [
+      "samples",
+      "product-testing",
+      "food-and-drink"
+    ],
+    "tags": [
+      "creator-campaign",
+      "selection-required",
+      "instagram",
+      "gifted-product"
+    ],
     "details": {
       "fulfilmentMethod": "delivery",
       "selectionMethod": "provider_selection",
@@ -167,7 +198,9 @@
     "publicationStatus": "withdrawn",
     "verificationStatus": "withdrawn",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-23",
@@ -196,8 +229,17 @@
         "label": "Applicant must be willing to take part in the Sunlight Clean Challenge"
       }
     ],
-    "categories": ["samples", "product-testing", "home-care"],
-    "tags": ["creator-campaign", "selection-required", "tiktok", "gifted-product"],
+    "categories": [
+      "samples",
+      "product-testing",
+      "home-care"
+    ],
+    "tags": [
+      "creator-campaign",
+      "selection-required",
+      "tiktok",
+      "gifted-product"
+    ],
     "details": {
       "fulfilmentMethod": "delivery",
       "selectionMethod": "provider_selection",
@@ -219,7 +261,9 @@
     "publicationStatus": "withdrawn",
     "verificationStatus": "withdrawn",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-23",
@@ -248,8 +292,18 @@
         "label": "Two Instagram posts required if selected"
       }
     ],
-    "categories": ["samples", "product-testing", "food-and-drink"],
-    "tags": ["creator-campaign", "selection-required", "instagram", "tiktok", "gifted-product"],
+    "categories": [
+      "samples",
+      "product-testing",
+      "food-and-drink"
+    ],
+    "tags": [
+      "creator-campaign",
+      "selection-required",
+      "instagram",
+      "tiktok",
+      "gifted-product"
+    ],
     "details": {
       "fulfilmentMethod": "delivery",
       "selectionMethod": "provider_selection",
@@ -271,7 +325,9 @@
     "publicationStatus": "withdrawn",
     "verificationStatus": "withdrawn",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-27",
@@ -300,8 +356,18 @@
         "label": "Fashion, beauty, lifestyle, self-care or home-content fit required"
       }
     ],
-    "categories": ["samples", "product-testing", "home-care"],
-    "tags": ["creator-campaign", "selection-required", "instagram", "tiktok", "voucher-trade"],
+    "categories": [
+      "samples",
+      "product-testing",
+      "home-care"
+    ],
+    "tags": [
+      "creator-campaign",
+      "selection-required",
+      "instagram",
+      "tiktok",
+      "voucher-trade"
+    ],
     "details": {
       "fulfilmentMethod": "digital",
       "selectionMethod": "provider_selection",
@@ -323,7 +389,9 @@
     "publicationStatus": "withdrawn",
     "verificationStatus": "withdrawn",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-27",
@@ -352,8 +420,17 @@
         "label": "Intended for people who are lactose intolerant or experience digestive discomfort after dairy"
       }
     ],
-    "categories": ["samples", "product-testing", "food-and-drink"],
-    "tags": ["creator-campaign", "selection-required", "tiktok", "gifted-product"],
+    "categories": [
+      "samples",
+      "product-testing",
+      "food-and-drink"
+    ],
+    "tags": [
+      "creator-campaign",
+      "selection-required",
+      "tiktok",
+      "gifted-product"
+    ],
     "details": {
       "fulfilmentMethod": "delivery",
       "selectionMethod": "provider_selection",
@@ -375,7 +452,9 @@
     "publicationStatus": "withdrawn",
     "verificationStatus": "withdrawn",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-27",
@@ -404,8 +483,17 @@
         "label": "Applicant must be interested in trying an alternative milk"
       }
     ],
-    "categories": ["samples", "product-testing", "food-and-drink"],
-    "tags": ["creator-campaign", "selection-required", "tiktok", "gifted-product"],
+    "categories": [
+      "samples",
+      "product-testing",
+      "food-and-drink"
+    ],
+    "tags": [
+      "creator-campaign",
+      "selection-required",
+      "tiktok",
+      "gifted-product"
+    ],
     "details": {
       "fulfilmentMethod": "delivery",
       "selectionMethod": "provider_selection",
@@ -427,7 +515,9 @@
     "publicationStatus": "withdrawn",
     "verificationStatus": "withdrawn",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-27",
@@ -456,8 +546,17 @@
         "label": "Staying active must be important to the applicant"
       }
     ],
-    "categories": ["samples", "product-testing", "food-and-drink"],
-    "tags": ["creator-campaign", "selection-required", "tiktok", "gifted-product"],
+    "categories": [
+      "samples",
+      "product-testing",
+      "food-and-drink"
+    ],
+    "tags": [
+      "creator-campaign",
+      "selection-required",
+      "tiktok",
+      "gifted-product"
+    ],
     "details": {
       "fulfilmentMethod": "delivery",
       "selectionMethod": "provider_selection",
@@ -479,7 +578,9 @@
     "publicationStatus": "withdrawn",
     "verificationStatus": "withdrawn",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-27",
@@ -508,8 +609,17 @@
         "label": "Quick-meal or lunchbox content fit expected"
       }
     ],
-    "categories": ["samples", "product-testing", "food-and-drink"],
-    "tags": ["creator-campaign", "selection-required", "tiktok", "gifted-product"],
+    "categories": [
+      "samples",
+      "product-testing",
+      "food-and-drink"
+    ],
+    "tags": [
+      "creator-campaign",
+      "selection-required",
+      "tiktok",
+      "gifted-product"
+    ],
     "details": {
       "fulfilmentMethod": "delivery",
       "selectionMethod": "provider_selection",
@@ -531,7 +641,9 @@
     "publicationStatus": "withdrawn",
     "verificationStatus": "withdrawn",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-27",
@@ -555,8 +667,17 @@
         "label": "Two TikTok videos required if selected"
       }
     ],
-    "categories": ["samples", "product-testing", "food-and-drink"],
-    "tags": ["creator-campaign", "selection-required", "tiktok", "gifted-product"],
+    "categories": [
+      "samples",
+      "product-testing",
+      "food-and-drink"
+    ],
+    "tags": [
+      "creator-campaign",
+      "selection-required",
+      "tiktok",
+      "gifted-product"
+    ],
     "details": {
       "fulfilmentMethod": "delivery",
       "selectionMethod": "provider_selection",
@@ -578,7 +699,9 @@
     "publicationStatus": "withdrawn",
     "verificationStatus": "withdrawn",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-27",
@@ -607,8 +730,19 @@
         "label": "Parent with a child aged 5 to 16 and relevant lunchbox-content interest"
       }
     ],
-    "categories": ["samples", "product-testing", "food-and-drink", "family"],
-    "tags": ["creator-campaign", "selection-required", "tiktok", "gifted-product", "family-content"],
+    "categories": [
+      "samples",
+      "product-testing",
+      "food-and-drink",
+      "family"
+    ],
+    "tags": [
+      "creator-campaign",
+      "selection-required",
+      "tiktok",
+      "gifted-product",
+      "family-content"
+    ],
     "details": {
       "fulfilmentMethod": "delivery",
       "selectionMethod": "provider_selection",
@@ -630,7 +764,9 @@
     "publicationStatus": "withdrawn",
     "verificationStatus": "withdrawn",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-27",
@@ -659,8 +795,17 @@
         "label": "Applicant must enjoy cooking at home"
       }
     ],
-    "categories": ["samples", "product-testing", "food-and-drink"],
-    "tags": ["creator-campaign", "selection-required", "tiktok", "gifted-product"],
+    "categories": [
+      "samples",
+      "product-testing",
+      "food-and-drink"
+    ],
+    "tags": [
+      "creator-campaign",
+      "selection-required",
+      "tiktok",
+      "gifted-product"
+    ],
     "details": {
       "fulfilmentMethod": "delivery",
       "selectionMethod": "provider_selection",
@@ -682,7 +827,9 @@
     "publicationStatus": "withdrawn",
     "verificationStatus": "withdrawn",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-27",
@@ -706,8 +853,18 @@
         "label": "One TikTok video required if selected"
       }
     ],
-    "categories": ["samples", "product-testing", "food-and-drink", "vouchers"],
-    "tags": ["creator-campaign", "selection-required", "tiktok", "voucher-trade"],
+    "categories": [
+      "samples",
+      "product-testing",
+      "food-and-drink",
+      "vouchers"
+    ],
+    "tags": [
+      "creator-campaign",
+      "selection-required",
+      "tiktok",
+      "voucher-trade"
+    ],
     "details": {
       "fulfilmentMethod": "digital",
       "selectionMethod": "provider_selection",
@@ -729,7 +886,9 @@
     "publicationStatus": "withdrawn",
     "verificationStatus": "withdrawn",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-07-27",
     "reviewDueAt": "2026-08-03",
     "publishedAt": "2026-07-27",
@@ -758,8 +917,18 @@
         "label": "One TikTok video required if selected"
       }
     ],
-    "categories": ["samples", "product-testing", "health-and-wellness"],
-    "tags": ["creator-campaign", "selection-required", "tiktok", "gifted-product", "age-restricted"],
+    "categories": [
+      "samples",
+      "product-testing",
+      "health-and-wellness"
+    ],
+    "tags": [
+      "creator-campaign",
+      "selection-required",
+      "tiktok",
+      "gifted-product",
+      "age-restricted"
+    ],
     "details": {
       "fulfilmentMethod": "delivery",
       "selectionMethod": "provider_selection",
@@ -782,7 +951,9 @@
     "publicationStatus": "published",
     "verificationStatus": "verified",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-10-30",
     "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-07-27",
@@ -811,8 +982,15 @@
         "label": "Coloplast Care Advisor approval required"
       }
     ],
-    "categories": ["samples", "medical-product-samples"],
-    "tags": ["medical-product-sample", "suitability-approval-required", "free-delivery"],
+    "categories": [
+      "samples",
+      "medical-product-samples"
+    ],
+    "tags": [
+      "medical-product-sample",
+      "suitability-approval-required",
+      "free-delivery"
+    ],
     "details": {
       "fulfilmentMethod": "delivery",
       "deliveryCharge": "none",
@@ -835,7 +1013,9 @@
     "publicationStatus": "published",
     "verificationStatus": "verified",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-10-30",
     "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-07-27",
@@ -864,8 +1044,15 @@
         "label": "Coloplast Care Advisor approval required"
       }
     ],
-    "categories": ["samples", "medical-product-samples"],
-    "tags": ["medical-product-sample", "suitability-approval-required", "free-delivery"],
+    "categories": [
+      "samples",
+      "medical-product-samples"
+    ],
+    "tags": [
+      "medical-product-sample",
+      "suitability-approval-required",
+      "free-delivery"
+    ],
     "details": {
       "fulfilmentMethod": "delivery",
       "deliveryCharge": "none",
@@ -888,7 +1075,9 @@
     "publicationStatus": "published",
     "verificationStatus": "verified",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-10-30",
     "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-07-27",
@@ -917,8 +1106,15 @@
         "label": "Coloplast Care Advisor approval required"
       }
     ],
-    "categories": ["samples", "medical-product-samples"],
-    "tags": ["medical-product-sample", "suitability-approval-required", "free-delivery"],
+    "categories": [
+      "samples",
+      "medical-product-samples"
+    ],
+    "tags": [
+      "medical-product-sample",
+      "suitability-approval-required",
+      "free-delivery"
+    ],
     "details": {
       "fulfilmentMethod": "delivery",
       "deliveryCharge": "none",
@@ -940,7 +1136,9 @@
     "publicationStatus": "withdrawn",
     "verificationStatus": "withdrawn",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-07-31",
     "reviewDueAt": "2026-08-07",
     "publishedAt": "2026-07-31",
@@ -970,8 +1168,16 @@
         "label": "One sample pack per person, family or address every six months"
       }
     ],
-    "categories": ["samples", "personal-care-samples"],
-    "tags": ["incontinence-care", "discreet-delivery", "free-delivery", "six-month-limit"],
+    "categories": [
+      "samples",
+      "personal-care-samples"
+    ],
+    "tags": [
+      "incontinence-care",
+      "discreet-delivery",
+      "free-delivery",
+      "six-month-limit"
+    ],
     "details": {
       "fulfilmentMethod": "delivery",
       "deliveryCharge": "none",
@@ -995,7 +1201,9 @@
     "publicationStatus": "withdrawn",
     "verificationStatus": "withdrawn",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-07-31",
     "reviewDueAt": "2026-08-07",
     "publishedAt": "2026-07-31",
@@ -1025,8 +1233,16 @@
         "label": "One sample pack per person, family or address every six months"
       }
     ],
-    "categories": ["samples", "personal-care-samples"],
-    "tags": ["incontinence-care", "discreet-delivery", "free-delivery", "six-month-limit"],
+    "categories": [
+      "samples",
+      "personal-care-samples"
+    ],
+    "tags": [
+      "incontinence-care",
+      "discreet-delivery",
+      "free-delivery",
+      "six-month-limit"
+    ],
     "details": {
       "fulfilmentMethod": "delivery",
       "deliveryCharge": "none",
@@ -1050,7 +1266,9 @@
     "publicationStatus": "published",
     "verificationStatus": "verified",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-10-30",
     "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-07-31",
@@ -1074,8 +1292,17 @@
         "label": "Select a blind or curtain range and up to five fabric pieces per delivery"
       }
     ],
-    "categories": ["samples", "home-improvement-samples"],
-    "tags": ["fabric-samples", "blind-samples", "curtain-samples", "free-delivery", "up-to-five-samples"],
+    "categories": [
+      "samples",
+      "home-improvement-samples"
+    ],
+    "tags": [
+      "fabric-samples",
+      "blind-samples",
+      "curtain-samples",
+      "free-delivery",
+      "up-to-five-samples"
+    ],
     "details": {
       "fulfilmentMethod": "delivery",
       "deliveryCharge": "none",
@@ -1096,7 +1323,9 @@
     "publicationStatus": "draft",
     "verificationStatus": "requirements_checked",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-08-17",
     "reviewDueAt": "2026-08-24",
     "updatedAt": "2026-08-17",
@@ -1124,8 +1353,17 @@
         "label": "Selected participants must collect the product from an Eskort store"
       }
     ],
-    "categories": ["samples", "product-testing", "food-and-drink"],
-    "tags": ["creator-campaign", "selection-required", "instagram", "store-collection"],
+    "categories": [
+      "samples",
+      "product-testing",
+      "food-and-drink"
+    ],
+    "tags": [
+      "creator-campaign",
+      "selection-required",
+      "instagram",
+      "store-collection"
+    ],
     "details": {
       "fulfilmentMethod": "collection",
       "selectionMethod": "provider_selection",
@@ -1145,7 +1383,9 @@
     "publicationStatus": "draft",
     "verificationStatus": "requirements_checked",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-08-17",
     "reviewDueAt": "2026-08-24",
     "updatedAt": "2026-08-17",
@@ -1173,8 +1413,17 @@
         "label": "Voucher and product fulfilment method must be confirmed before publication"
       }
     ],
-    "categories": ["samples", "product-testing", "food-and-drink"],
-    "tags": ["creator-campaign", "selection-required", "instagram", "voucher-fulfilment-review"],
+    "categories": [
+      "samples",
+      "product-testing",
+      "food-and-drink"
+    ],
+    "tags": [
+      "creator-campaign",
+      "selection-required",
+      "instagram",
+      "voucher-fulfilment-review"
+    ],
     "details": {
       "fulfilmentMethod": "digital",
       "selectionMethod": "provider_selection",
@@ -1194,7 +1443,9 @@
     "publicationStatus": "published",
     "verificationStatus": "verified",
     "country": "ZA",
-    "regions": ["Cape Town, Western Cape"],
+    "regions": [
+      "Cape Town, Western Cape"
+    ],
     "lastVerifiedAt": "2026-10-30",
     "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-08-18",
@@ -1213,8 +1464,16 @@
         "label": "Collect in person during the calendar month of your birthday"
       }
     ],
-    "categories": ["birthday-freebies", "free-experiences"],
-    "tags": ["cape-town", "cableway", "birthday-month", "south-african-citizens"],
+    "categories": [
+      "birthday-freebies",
+      "free-experiences"
+    ],
+    "tags": [
+      "cape-town",
+      "cableway",
+      "birthday-month",
+      "south-african-citizens"
+    ],
     "details": {
       "signupLeadDays": 0,
       "birthdayWindow": {
@@ -1239,11 +1498,13 @@
     "publicationStatus": "published",
     "verificationStatus": "verified",
     "country": "ZA",
-    "regions": ["Cape Town, Western Cape"],
-    "lastVerifiedAt": "2026-10-30",
-    "reviewDueAt": "2026-11-06",
+    "regions": [
+      "Cape Town, Western Cape"
+    ],
+    "lastVerifiedAt": "2026-11-13",
+    "reviewDueAt": "2026-11-20",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-10-30",
+    "updatedAt": "2026-11-13",
     "availabilityKind": "recurring",
     "costClassification": "completely_free",
     "requirements": [
@@ -1263,8 +1524,16 @@
         "label": "Children aged 13 or younger must be accompanied by an adult ticket-holder"
       }
     ],
-    "categories": ["birthday-freebies", "free-experiences"],
-    "tags": ["cape-town", "aquarium", "birthday-month", "citizens-and-permanent-residents"],
+    "categories": [
+      "birthday-freebies",
+      "free-experiences"
+    ],
+    "tags": [
+      "cape-town",
+      "aquarium",
+      "birthday-month",
+      "citizens-and-permanent-residents"
+    ],
     "details": {
       "signupLeadDays": 0,
       "birthdayWindow": {
@@ -1276,7 +1545,8 @@
       "branchAvailability": "participating_branches",
       "recurrence": "annual",
       "voucherDelivery": "in_store"
-    }
+    },
+    "termsUrl": "https://www.aquarium.co.za/specials/free-entry-on-your-birthday"
   },
   {
     "id": "cape-wheel-birthday-club-ride",
@@ -1289,11 +1559,13 @@
     "publicationStatus": "published",
     "verificationStatus": "verified",
     "country": "ZA",
-    "regions": ["Cape Town, Western Cape"],
-    "lastVerifiedAt": "2026-10-30",
-    "reviewDueAt": "2026-11-06",
+    "regions": [
+      "Cape Town, Western Cape"
+    ],
+    "lastVerifiedAt": "2026-11-13",
+    "reviewDueAt": "2026-11-20",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-10-30",
+    "updatedAt": "2026-11-13",
     "availabilityKind": "recurring",
     "costClassification": "membership_required",
     "requirements": [
@@ -1318,8 +1590,16 @@
         "label": "Birthday Club is for people over 12; younger children have a separate Kids Club"
       }
     ],
-    "categories": ["birthday-freebies", "free-experiences"],
-    "tags": ["cape-town", "va-waterfront", "birthday-club", "email-voucher"],
+    "categories": [
+      "birthday-freebies",
+      "free-experiences"
+    ],
+    "tags": [
+      "cape-town",
+      "va-waterfront",
+      "birthday-club",
+      "email-voucher"
+    ],
     "details": {
       "signupLeadDays": 1,
       "birthdayWindow": {
@@ -1332,7 +1612,8 @@
       "branchAvailability": "participating_branches",
       "recurrence": "annual",
       "voucherDelivery": "email"
-    }
+    },
+    "termsUrl": "https://capewheel.co.za/clubs/"
   },
   {
     "id": "zeitz-mocaa-free-access",
@@ -1341,15 +1622,17 @@
     "title": "Zeitz MOCAA free birthday and Wednesday access",
     "summary": "Visitors with accepted South African or African identification can visit free during their birthday month; African citizens also receive free entry every Wednesday from 10:00 to 13:00, and under-18s enter free year-round.",
     "provider": "Zeitz MOCAA",
-    "sourceUrl": "https://zeitzmocaa.museum/pricing/option-3/",
+    "sourceUrl": "https://zeitzmocaa.museum/buy-tickets/",
     "publicationStatus": "published",
     "verificationStatus": "verified",
     "country": "ZA",
-    "regions": ["Cape Town, Western Cape"],
-    "lastVerifiedAt": "2026-10-30",
-    "reviewDueAt": "2026-11-06",
+    "regions": [
+      "Cape Town, Western Cape"
+    ],
+    "lastVerifiedAt": "2026-11-13",
+    "reviewDueAt": "2026-11-20",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-10-30",
+    "updatedAt": "2026-11-13",
     "availabilityKind": "recurring",
     "costClassification": "completely_free",
     "requirements": [
@@ -1361,11 +1644,20 @@
       {
         "kind": "location",
         "required": true,
-        "label": "Birthday access is available Tuesdays to Sundays; Wednesday access runs 10:00 to 13:00"
+        "label": "Birthday access is available Monday to Sunday during normal opening hours; free Wednesday entry requires arrival from 10:00 to 13:00."
       }
     ],
-    "categories": ["birthday-freebies", "free-experiences"],
-    "tags": ["cape-town", "museum", "birthday-month", "free-wednesdays", "under-18-free"],
+    "categories": [
+      "birthday-freebies",
+      "free-experiences"
+    ],
+    "tags": [
+      "cape-town",
+      "museum",
+      "birthday-month",
+      "free-wednesdays",
+      "under-18-free"
+    ],
     "details": {
       "signupLeadDays": 0,
       "birthdayWindow": {
@@ -1377,7 +1669,8 @@
       "branchAvailability": "participating_branches",
       "recurrence": "annual",
       "voucherDelivery": "in_store"
-    }
+    },
+    "termsUrl": "https://zeitzmocaa.museum/frequently-asked-questions/"
   },
   {
     "id": "robben-island-museum-birthday-tour",
@@ -1390,7 +1683,9 @@
     "publicationStatus": "published",
     "verificationStatus": "verified",
     "country": "ZA",
-    "regions": ["Cape Town, Western Cape"],
+    "regions": [
+      "Cape Town, Western Cape"
+    ],
     "lastVerifiedAt": "2026-10-30",
     "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-08-18",
@@ -1414,8 +1709,16 @@
         "label": "If tours are cancelled on the birthdate, the official FAQ permits an alternative visit date"
       }
     ],
-    "categories": ["birthday-freebies", "free-experiences"],
-    "tags": ["cape-town", "robben-island", "actual-birthday", "guided-tour"],
+    "categories": [
+      "birthday-freebies",
+      "free-experiences"
+    ],
+    "tags": [
+      "cape-town",
+      "robben-island",
+      "actual-birthday",
+      "guided-tour"
+    ],
     "details": {
       "signupLeadDays": 0,
       "birthdayWindow": {
@@ -1441,7 +1744,9 @@
     "publicationStatus": "withdrawn",
     "verificationStatus": "withdrawn",
     "country": "ZA",
-    "regions": ["Broederstroom, North West"],
+    "regions": [
+      "Broederstroom, North West"
+    ],
     "lastVerifiedAt": "2026-08-18",
     "reviewDueAt": "2026-11-16",
     "publishedAt": "2026-08-18",
@@ -1460,8 +1765,16 @@
         "label": "Redeem at the park ticket office on the actual birthday"
       }
     ],
-    "categories": ["birthday-freebies", "free-experiences"],
-    "tags": ["north-west", "safari", "actual-birthday", "guided-or-self-drive"],
+    "categories": [
+      "birthday-freebies",
+      "free-experiences"
+    ],
+    "tags": [
+      "north-west",
+      "safari",
+      "actual-birthday",
+      "guided-or-self-drive"
+    ],
     "details": {
       "signupLeadDays": 0,
       "birthdayWindow": {
@@ -1489,7 +1802,10 @@
     "publicationStatus": "published",
     "verificationStatus": "verified",
     "country": "ZA",
-    "regions": ["Cape Town", "Johannesburg"],
+    "regions": [
+      "Cape Town",
+      "Johannesburg"
+    ],
     "lastVerifiedAt": "2026-10-30",
     "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-08-18",
@@ -1513,8 +1829,17 @@
         "label": "One child may be registered per email address with parent or guardian knowledge"
       }
     ],
-    "categories": ["birthday-freebies", "free-experiences", "kids-freebies"],
-    "tags": ["cape-town", "johannesburg", "kids-club", "friend-ticket"],
+    "categories": [
+      "birthday-freebies",
+      "free-experiences",
+      "kids-freebies"
+    ],
+    "tags": [
+      "cape-town",
+      "johannesburg",
+      "kids-club",
+      "friend-ticket"
+    ],
     "details": {
       "signupLeadDays": 14,
       "birthdayWindow": {
@@ -1540,7 +1865,9 @@
     "publicationStatus": "published",
     "verificationStatus": "verified",
     "country": "ZA",
-    "regions": ["Cape Town, Western Cape"],
+    "regions": [
+      "Cape Town, Western Cape"
+    ],
     "lastVerifiedAt": "2026-10-30",
     "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-08-18",
@@ -1564,8 +1891,16 @@
         "label": "Minors must be accompanied by a legal guardian"
       }
     ],
-    "categories": ["birthday-freebies", "free-experiences"],
-    "tags": ["cape-town", "cycling", "one-hour-ride", "actual-birthday"],
+    "categories": [
+      "birthday-freebies",
+      "free-experiences"
+    ],
+    "tags": [
+      "cape-town",
+      "cycling",
+      "one-hour-ride",
+      "actual-birthday"
+    ],
     "details": {
       "signupLeadDays": 0,
       "birthdayWindow": {
@@ -1591,7 +1926,9 @@
     "publicationStatus": "published",
     "verificationStatus": "verified",
     "country": "ZA",
-    "regions": ["Cape Town, Western Cape"],
+    "regions": [
+      "Cape Town, Western Cape"
+    ],
     "lastVerifiedAt": "2026-10-30",
     "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-08-18",
@@ -1610,8 +1947,17 @@
         "label": "Ride must start before noon during the stated birthday week"
       }
     ],
-    "categories": ["birthday-freebies", "free-experiences"],
-    "tags": ["cape-town", "va-waterfront", "pedal-boat", "birthday-week", "before-noon"],
+    "categories": [
+      "birthday-freebies",
+      "free-experiences"
+    ],
+    "tags": [
+      "cape-town",
+      "va-waterfront",
+      "pedal-boat",
+      "birthday-week",
+      "before-noon"
+    ],
     "details": {
       "signupLeadDays": 0,
       "birthdayWindow": {
@@ -1636,7 +1982,9 @@
     "publicationStatus": "published",
     "verificationStatus": "verified",
     "country": "ZA",
-    "regions": ["Participating Ster-Kinekor cinemas in South Africa"],
+    "regions": [
+      "Participating Ster-Kinekor cinemas in South Africa"
+    ],
     "lastVerifiedAt": "2026-10-30",
     "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-08-18",
@@ -1660,8 +2008,16 @@
         "label": "Ticket is limited to eligible 2D or 3D films and seat availability"
       }
     ],
-    "categories": ["birthday-freebies", "free-entertainment"],
-    "tags": ["national", "cinema", "sk-club", "prior-transaction"],
+    "categories": [
+      "birthday-freebies",
+      "free-entertainment"
+    ],
+    "tags": [
+      "national",
+      "cinema",
+      "sk-club",
+      "prior-transaction"
+    ],
     "details": {
       "signupLeadDays": 0,
       "birthdayWindow": {
@@ -1820,10 +2176,10 @@
     "regions": [
       "Participating Mugg & Bean locations in South Africa"
     ],
-    "lastVerifiedAt": "2026-10-30",
-    "reviewDueAt": "2026-11-06",
+    "lastVerifiedAt": "2026-11-13",
+    "reviewDueAt": "2026-11-20",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-10-30",
+    "updatedAt": "2026-11-13",
     "availabilityKind": "recurring",
     "costClassification": "purchase_required",
     "requirements": [
@@ -1884,7 +2240,9 @@
     "publicationStatus": "withdrawn",
     "verificationStatus": "withdrawn",
     "country": "ZA",
-    "regions": ["National"],
+    "regions": [
+      "National"
+    ],
     "lastVerifiedAt": "2026-08-18",
     "reviewDueAt": "2026-09-01",
     "publishedAt": "2026-08-18",
@@ -1913,8 +2271,17 @@
         "label": "Available only to South African residents"
       }
     ],
-    "categories": ["samples", "product-testing", "beauty"],
-    "tags": ["selection-required", "beauty-profile", "south-africa-only", "review-required"],
+    "categories": [
+      "samples",
+      "product-testing",
+      "beauty"
+    ],
+    "tags": [
+      "selection-required",
+      "beauty-profile",
+      "south-africa-only",
+      "review-required"
+    ],
     "details": {
       "fulfilmentMethod": "delivery",
       "selectionMethod": "provider_selection",
@@ -2078,10 +2445,10 @@
     "regions": [
       "Western Cape"
     ],
-    "lastVerifiedAt": "2026-10-30",
-    "reviewDueAt": "2026-11-06",
+    "lastVerifiedAt": "2026-11-13",
+    "reviewDueAt": "2026-11-20",
     "publishedAt": "2026-10-30",
-    "updatedAt": "2026-10-30",
+    "updatedAt": "2026-11-13",
     "availabilityKind": "recurring",
     "costClassification": "completely_free",
     "requirements": [
@@ -2108,7 +2475,7 @@
       {
         "kind": "other",
         "required": true,
-        "label": "Museum is listed as closed on 30 October 2026. Gallery 8 has a partial closure on 14 November."
+        "label": "Gallery 8 is closed on 14 November 2026; check for further temporary gallery closures before visiting."
       },
       {
         "kind": "other",
@@ -2163,10 +2530,10 @@
     "regions": [
       "Western Cape"
     ],
-    "lastVerifiedAt": "2026-10-30",
-    "reviewDueAt": "2026-11-06",
+    "lastVerifiedAt": "2026-11-13",
+    "reviewDueAt": "2026-11-20",
     "publishedAt": "2026-10-30",
-    "updatedAt": "2026-10-30",
+    "updatedAt": "2026-11-13",
     "availabilityKind": "fixed_window",
     "startsAt": "2026-10-15",
     "expiresAt": "2027-05-15",
@@ -2234,6 +2601,68 @@
       "membershipRequired": false,
       "appRequired": false,
       "identityRequired": true,
+      "branchAvailability": "participating_branches",
+      "recurrence": "annual",
+      "voucherDelivery": "none"
+    }
+  },
+  {
+    "id": "freedom-adventure-park-birthday-pass",
+    "slug": "freedom-adventure-park-birthday-pass",
+    "type": "birthday_freebie",
+    "title": "Freedom Adventure Park: a free hour on your birthday",
+    "summary": "Book a one-hour birthday pass at Freedom’s Canal Walk or Somerset West park for the actual birthday. Grip socks are required; any brand is accepted.",
+    "provider": "Freedom Adventure Park",
+    "sourceUrl": "https://freedomadventurepark.co.za/pricing/",
+    "termsUrl": "https://freedomadventurepark.co.za/park-terms-conditions/",
+    "publicationStatus": "published",
+    "verificationStatus": "verified",
+    "country": "ZA",
+    "regions": [
+      "Canal Walk and Somerset West, Western Cape"
+    ],
+    "lastVerifiedAt": "2026-11-13",
+    "reviewDueAt": "2026-11-20",
+    "updatedAt": "2026-11-13",
+    "publishedAt": "2026-11-13",
+    "availabilityKind": "recurring",
+    "costClassification": "completely_free",
+    "requirements": [
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Reserve the birthday pass online for the actual birthday"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Wear grip socks; any brand is accepted and buying socks costs extra if you do not own a pair"
+      },
+      {
+        "kind": "other",
+        "required": true,
+        "label": "Complete the park waiver; minors need guardian consent and age-specific activity restrictions apply"
+      }
+    ],
+    "categories": [
+      "birthday-freebies",
+      "free-experiences"
+    ],
+    "tags": [
+      "cape-town",
+      "birthday",
+      "online-booking",
+      "grip-socks"
+    ],
+    "details": {
+      "signupLeadDays": 0,
+      "birthdayWindow": {
+        "beforeDays": 0,
+        "afterDays": 0
+      },
+      "membershipRequired": false,
+      "appRequired": false,
+      "identityRequired": false,
       "branchAvailability": "participating_branches",
       "recurrence": "annual",
       "voucherDelivery": "none"

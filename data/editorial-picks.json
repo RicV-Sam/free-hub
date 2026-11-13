@@ -1,15 +1,6 @@
 [
   {
     "surface": "home",
-    "kind": "resource",
-    "recordId": "resource-childrens-books-book-dash",
-    "reason": "For families and teachers who want a story to read now: browse Book Dash's free digital children's books, with language choices shown in its library.",
-    "caution": "Digital access does not promise a free printed copy. Data and printing costs are yours.",
-    "reviewedAt": "2026-10-14",
-    "reviewDueAt": "2026-10-21"
-  },
-  {
-    "surface": "home",
     "kind": "offer",
     "recordId": "mtn-app-first-login-1gb-2026",
     "reason": "For eligible MTN customers trying the new app for the first time: check My Gifts after your first authenticated login for the data reward.",
@@ -61,5 +52,59 @@
     "caution": "Data costs apply. South African access was reported successful; individual streams can be restricted or unavailable, and stream rights are not independently verified.",
     "reviewedAt": "2026-11-02",
     "reviewDueAt": "2026-11-09"
+  },
+  {
+    "surface": "home",
+    "kind": "resource",
+    "recordId": "resource-childrens-books-book-dash",
+    "reason": "Read or download African children’s picture books in the language choices offered by Book Dash.",
+    "caution": "Digital files are free. Data, printing and physical delivery are not included; retain the required attribution.",
+    "reviewedAt": "2026-11-13",
+    "reviewDueAt": "2026-11-20"
+  },
+  {
+    "surface": "home",
+    "kind": "offer",
+    "recordId": "astron-energy-xtra-savings-fuel-rewards",
+    "reason": "For drivers already using participating Astron forecourts: earn Xcash shopping rewards on qualifying fuel with an active Xtra Savings profile.",
+    "caution": "Fuel must be bought. Scan or swipe before payment; monthly caps apply. Xcash is not cash or a discount at the pump.",
+    "reviewedAt": "2026-11-13",
+    "reviewDueAt": "2026-11-20"
+  },
+  {
+    "surface": "home",
+    "kind": "competition",
+    "recordId": "mally-win-your-cart-november-2026",
+    "reason": "South African adults can enter to win the Mally products in their qualifying online cart, up to R3,000, without paying for an order.",
+    "caution": "The rules require an identifiable abandoned checkout with your name, email and contact details. One entry per person; leave before placing or paying for the order.",
+    "reviewedAt": "2026-11-13",
+    "reviewDueAt": "2026-11-20"
+  },
+  {
+    "surface": "monthly",
+    "kind": "competition",
+    "recordId": "mally-win-your-cart-november-2026",
+    "reason": "A purchase-free checkout entry for one prize of selected Mally products worth up to R3,000, with South African delivery.",
+    "caution": "Complete the required contact details and leave the checkout without placing an order. Closes at 23:59 SAST on 22 November; one entry per adult resident.",
+    "reviewedAt": "2026-11-13",
+    "reviewDueAt": "2026-11-20"
+  },
+  {
+    "surface": "monthly",
+    "kind": "competition",
+    "recordId": "spar-win-your-shopping-free-2026",
+    "reason": "For shoppers already buying at participating SPAR stores: swipe a registered Rewards card to enter the daily shopping-refund draw.",
+    "caution": "A purchase is required. Participating stores and the refund cap apply; a normal shop does not guarantee a win.",
+    "reviewedAt": "2026-11-13",
+    "reviewDueAt": "2026-11-20"
+  },
+  {
+    "surface": "monthly",
+    "kind": "competition",
+    "recordId": "absa-pre-black-friday-mr-d-voucher-2026",
+    "reason": "Eligible Absa Rewards customers have until 15 November to complete the specified digital-card and online-purchase steps for the voucher draw.",
+    "caution": "This is a purchase-required draw, not an automatic R200 reward. Card, residency and banking conditions apply.",
+    "reviewedAt": "2026-11-13",
+    "reviewDueAt": "2026-11-20"
   }
 ]
