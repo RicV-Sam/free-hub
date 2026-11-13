@@ -14,7 +14,11 @@ const opportunityData = require("../shared/opportunity-data.js");
 const offerData = require("../shared/offer-data.js");
 const listingImages = require("../data/listing-images.json");
 const responsiveImages = require("../data/responsive-images.json");
-const listingEditorialDetails = require("../data/listing-editorial-details.json");
+// Public-source discovery additions are kept separate from the existing editorial registry.
+const listingEditorialDetails = {
+  ...require("../data/listing-editorial-details.json"),
+  ...require("../data/listing-discovery-details.json"),
+};
 const { getReviewedGuides } = require("./lib/research-guides.js");
 const grocery = require("./lib/grocery-savings.js");
 const { createEditorialSectionsRenderer } = require("./lib/editorial-sections.js");
@@ -159,6 +163,7 @@ const OPPORTUNITY_ALLOWED_SOURCE_HOSTS = Object.freeze([
   "www.starbucks.co.za",
   "www.norvalfoundation.org",
   "thegalileo.co.za",
+  "freedomadventurepark.co.za",
 ]);
 const VOUCHER_DISCOVERY_RESOURCE_HOSTS = Object.freeze({
   "absa-advantage-meal-vouchers": "www.absa.co.za",
@@ -307,7 +312,9 @@ const opportunityRouteRenderer = createOpportunityRouteRenderer({
   getExitPath: opportunityData.getOpportunityExitPath,
 });
 const editorialSections = createEditorialSectionsRenderer({ escapeHtml, escapeAttribute, isLinkAvailable: isEditorialLinkAvailable });
-const fuelRewardsRenderer = createFuelRewardsRenderer({ escapeHtml, escapeAttribute, escapeScript });
+const fuelRewardsRenderer = createFuelRewardsRenderer({ escapeHtml, escapeAttribute, escapeScript,
+  isOfferAvailable: (id) => publicOffers.some((offer) => offer.id === id),
+});
 const GROCERY_PAGES = OFFERS_ENABLED ? grocery.getGroceryPages({ asOfDate: LIFECYCLE_REFERENCE_DATE_ISO }) : [];
 const TRUST_PAGE_DEFINITIONS = [
   ...GROCERY_PAGES,
@@ -3435,7 +3442,7 @@ function renderUnverifiedCompetitionPage(records, detailRecord = null) {
   const indexable = Boolean(detailRecord) || records.length >= MIN_INDEXABLE_UNVERIFIED_COMPETITIONS;
   const title = detailRecord ? `${detailRecord.title} — Unverified | Freehub` : "Unverified Competitions South Africa | Check Before Entering";
   const heading = detailRecord ? `${detailRecord.title}: under review` : "Competitions under review in South Africa";
-  const description = detailRecord ? `${detailRecord.title}: not yet verified. ${detailRecord.reviewGap}` : "See South African competition leads Freehub has not verified, with the missing evidence, possible costs, dates and direct promoter-source links clearly disclosed.";
+  const description = (detailRecord ? `${detailRecord.title}: not yet verified. ${detailRecord.reviewGap}` : "See South African competition leads Freehub has not verified, with the missing evidence, possible costs, dates and direct promoter-source links clearly disclosed.").replace(/\s+/g, " ").trim();
   const pageData = {
     "@context": "https://schema.org",
     "@type": detailRecord ? "WebPage" : "CollectionPage",
