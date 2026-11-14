@@ -1,0 +1,50 @@
+{
+  "fountains-mall-herbelin-birthday-2026": {
+    "reviewedAt": "2026-11-14",
+    "unavailableUrls": [
+      "https://fountainsmall.co.za/events/18th-birthday-competition-with-gabriel-jewellers/"
+    ],
+    "evidence": "The original campaign page returned 404. Search still indexes the same historical terms; no working campaign-specific replacement was verified."
+  },
+  "hot-cares-schools-challenge-2026": {
+    "reviewedAt": "2026-11-14",
+    "unavailableUrls": [
+      "https://hot1027.co.za/competition/big-hearts-big-prizes-the-hot-cares-schools-challenge-is-here/"
+    ],
+    "evidence": "The original campaign page returned 404. HOT 102.7FM’s event recap confirms the Schools Challenge took place, without reproducing its rules or naming its winners.",
+    "contextUrl": "https://hot1027.co.za/hot-cares/gauteng-does-it-again-teddython-2026-smashes-last-years-record-with-r38-4-million/",
+    "contextLabel": "HOT 102.7FM’s Teddython 2026 recap"
+  },
+  "lewis-donna-mk2-sleigh-bed-2026": {
+    "reviewedAt": "2026-11-14",
+    "unavailableUrls": [
+      "https://lewisstores.co.za/ls-competition-landing.php?intshown=TF_facebook_Generic_Post_FreeGifts&invoke=facebook",
+      "https://lewisstores.co.za/Images/ls_social.pdf"
+    ],
+    "evidence": "The original link and the catalogue-tagged copy of the same July campaign table returned 404. The old general social rules PDF redirects to generic store terms."
+  },
+  "lewis-lg-cj44-hifi-2026": {
+    "reviewedAt": "2026-11-14",
+    "unavailableUrls": [
+      "https://lewisstores.co.za/ls-competition-landing.php?intshown=TF_facebook_Generic_Post_FreeGifts&invoke=facebook",
+      "https://lewisstores.co.za/Images/ls_social.pdf"
+    ],
+    "evidence": "The original link and the catalogue-tagged copy of the same July campaign table returned 404. The old general social rules PDF redirects to generic store terms."
+  },
+  "penguin-random-house-art-of-hosting-2026": {
+    "reviewedAt": "2026-11-14",
+    "unavailableUrls": [
+      "https://www.penguinrandomhouse.co.za/competitions/win-set-the-table-set-the-mood-the-art-of-hosting/",
+      "https://www.penguinrandomhouse.co.za/tos/tscs-win-set-the-table-set-the-mood-the-art-of-hosting/"
+    ],
+    "evidence": "The entry page was previously confirmed redirecting to the publisher’s 404. Direct requests to the original page and exact terms are blocked. A searchable historical copy does not establish a usable replacement."
+  },
+  "penguin-random-house-penguin-post-44-2026": {
+    "reviewedAt": "2026-11-14",
+    "unavailableUrls": [
+      "https://www.penguinrandomhouse.co.za/competitions/win-penguin-post-44-competition/",
+      "https://www.penguinrandomhouse.co.za/tos/tscs-win-penguin-post-44-competition/"
+    ],
+    "evidence": "The entry page was previously confirmed redirecting to the publisher’s 404. Direct requests to the original page and exact terms are blocked. A searchable historical copy does not establish a usable replacement."
+  }
+}

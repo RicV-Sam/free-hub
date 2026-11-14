@@ -44,6 +44,7 @@ const promotionConfig = require("../data/promotions.json");
 const ROOT_DIR = path.resolve(__dirname, "..");
 const addLocalImageDimensions = createLocalImageDimensionWriter(ROOT_DIR, shared.CANONICAL_ORIGIN);
 const DATA_PATH = path.join(ROOT_DIR, "data", "competitions.json");
+const archiveSourceReviews = require("../data/archive/competition-source-reviews.json");
 const ARCHIVE_DATA_PATH = path.join(ROOT_DIR, "data", "archive", "competitions-expired.json");
 const FREE_RESOURCES_PATH = path.join(ROOT_DIR, "data", "free-resources.json");
 const OPPORTUNITIES_PATH = path.join(ROOT_DIR, "data", "opportunities.json");
@@ -6185,9 +6186,9 @@ function renderCardStatusBadges(competition, options = {}) {
     .join("\n                  ");
 }
 
-function renderEditorialImageDisclosure(competition) {
+function renderEditorialImageDisclosure(competition, unavailableUrls = []) {
   const image = listingImages[competition.id];
-  if (image) return `<p class="competition-image-disclosure">${escapeHtml(image.caption)}${image.sourcePage ? ` <a href="${escapeAttribute(image.sourcePage)}" target="_blank" rel="noopener noreferrer">Image source</a>` : ""}</p>`;
+  if (image) return `<p class="competition-image-disclosure">${escapeHtml(image.caption)}${image.sourcePage && !unavailableUrls.includes(image.sourcePage) ? ` <a href="${escapeAttribute(image.sourcePage)}" target="_blank" rel="noopener noreferrer">Image source</a>` : ""}</p>`;
   if (competition?.imageReviewStatus !== "editorial-generated") {
     return "";
   }
@@ -11080,7 +11081,12 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
       : competition.title;
   const indexable = shared.isActiveCompetition(competition) || shared.isIndexableClosedCompetition(competition);
   const robotsDirective = indexable ? "index, follow, max-image-preview:large" : "noindex, follow";
-  const officialSourceUrl = getOfficialSourceUrl(competition);
+  const archivedReview = archiveSourceReviews[competition.id];
+  const sourceReview = expired && archivedReview?.reviewedAt <= shared.getReferenceDate() ? archivedReview : undefined;
+  const unavailableUrls = sourceReview?.unavailableUrls || [];
+  const sourceUrl = getOfficialSourceUrl(competition);
+  const officialSourceUrl = unavailableUrls.includes(sourceUrl) ? "" : sourceUrl;
+  const termsUrl = unavailableUrls.includes(competition.termsUrl) ? "" : competition.termsUrl;
   const officialSource = getOfficialSourceDomain(competition);
   const lastChecked = formatOptionalDate(competition.lastChecked);
 
@@ -11111,7 +11117,8 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
     officialSource,
     officialSourceUrl,
     closingSoon,
-    expired
+    expired,
+    termsUrl
   );
   const breadcrumbMarkup = renderCompetitionBreadcrumb(competition, categorySlug, categoryPath);
   const trustStripMarkup = renderCompetitionTrustStrip(competition, officialSource, lastChecked);
@@ -11119,7 +11126,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
   const brandPrizeContextMarkup = expired ? "" : renderBrandPrizeContextSection(competition);
   const entryCostEligibilityMarkup = expired ? "" : renderEntryCostEligibilityNotes(competition);
   const officialEntryAccountsMarkup = expired ? "" : renderOfficialEntryAccounts(competition);
-  const sourceBlockMarkup = renderCompetitionSourceBlock(competition, officialSource, officialSourceUrl, lastChecked, expired);
+  const sourceBlockMarkup = renderCompetitionSourceBlock(officialSource, officialSourceUrl, termsUrl, lastChecked, expired, sourceReview);
   const resultConfirmationMarkup = renderCompetitionResultConfirmation(competition);
   const faqItems = buildCompetitionFaqItems(competition, officialSource, ctaLabel, expired, promotionEndedEarly);
   const faqMarkup = renderCompetitionFaq(faqItems);
@@ -11252,7 +11259,7 @@ function renderCompetitionPage(competition, allCompetitions, generatedBrandSlugs
             ${expired ? "" : `<section class="state-card" data-runtime-closed hidden aria-label="Promotion status"><h2>${competition.editorialActiveUntil ? "FreeHub promotion has ended." : "This competition has closed."}</h2><p>${competition.editorialActiveUntil ? "FreeHub stops promotion before the ambiguous closing hour. The official terms date remains above; check the promoter for confirmation." : "These are archived details. Confirm current information with the promoter."}</p>${renderExpiredCompetitionActions(competition, categorySlug, generatedBrandSlugs, officialSourceUrl, Boolean(competition.editorialActiveUntil))}</section>`}
             ${expired ? "" : renderWhatsAppChannelCta(null, { compact: true, placement: "competition-detail" })}
             ${renderCompetitionDetailMedia(competition, heroImage, imageAltText)}
-            ${renderEditorialImageDisclosure(competition)}
+            ${renderEditorialImageDisclosure(competition, unavailableUrls)}
             ${expired ? "" : renderCompetitionVideoFeature(competition)}
             ${entryStepsMarkup}
             ${detailFactsMarkup}
@@ -11594,16 +11601,27 @@ function renderBrandPrizeContextSection(competition) {
   </section>`;
 }
 
-function renderCompetitionSourceBlock(competition, officialSource, officialSourceUrl, lastChecked, expired = false) {
+function renderCompetitionSourceBlock(officialSource, officialSourceUrl, termsUrl, lastChecked, expired, sourceReview) {
   const sourceLabel = expired ? "View archived official terms/source" : "View official terms";
-  const termsMarkup = competition.termsUrl
-    ? `<p><strong>Terms and conditions:</strong> <a href="${escapeAttribute(competition.termsUrl)}" rel="nofollow noopener" target="_blank">${escapeHtml(sourceLabel)}</a></p>`
-    : "<p><strong>Terms and conditions:</strong> Check the official promoter page for full terms.</p>";
+  const termsMarkup = termsUrl
+    ? `<p><strong>Terms and conditions:</strong> <a href="${escapeAttribute(termsUrl)}" rel="nofollow noopener" target="_blank">${escapeHtml(sourceLabel)}</a></p>`
+    : sourceReview ? "" : "<p><strong>Terms and conditions:</strong> Check the official promoter page for full terms.</p>";
+  const sourceMarkup = officialSourceUrl
+    ? `<p><strong>Official source:</strong> <a href="${escapeAttribute(officialSourceUrl)}" rel="nofollow noopener" target="_blank">${escapeHtml(officialSource)}</a></p>`
+    : `<p><strong>Original official source:</strong> ${escapeHtml(officialSource)}</p>`;
+  const archiveNote = sourceReview
+    ? `<p>FreeHub could not verify a working link to the original campaign rules on ${escapeHtml(formatOptionalDate(sourceReview.reviewedAt))}.</p>`
+    : "";
+  const contextMarkup = sourceReview?.contextUrl
+    ? `<p><a href="${escapeAttribute(sourceReview.contextUrl)}" rel="nofollow noopener" target="_blank">${escapeHtml(sourceReview.contextLabel)}</a></p>`
+    : "";
 
   return `<section class="detail-source" aria-labelledby="source-terms-heading">
               <h2 class="detail-section-title" id="source-terms-heading">Source and terms</h2>
-              <p><strong>Official source:</strong> <a href="${escapeAttribute(officialSourceUrl)}" rel="nofollow noopener" target="_blank">${escapeHtml(officialSource)}</a></p>
-              ${termsMarkup}
+              ${sourceMarkup}
+              ${termsMarkup}${archiveNote ? `
+              ${archiveNote}${contextMarkup ? `
+              ${contextMarkup}` : ""}` : ""}
               ${lastChecked ? `<p><strong>Last checked:</strong> ${escapeHtml(lastChecked)}</p>` : ""}
               <p><strong>Report an issue:</strong> <a href="/report-a-competition/">Tell Freehub about a broken, expired or suspicious listing</a></p>
             </section>`;
@@ -12217,7 +12235,7 @@ function getRelatedCompetitions(competition, allCompetitions) {
   return scored.slice(0, 5).map((item) => item.competition);
 }
 
-function renderCompetitionDetailFacts(competition, formattedDate, officialSource, officialSourceUrl, closingSoon, expired) {
+function renderCompetitionDetailFacts(competition, formattedDate, officialSource, officialSourceUrl, closingSoon, expired, termsUrl) {
   const facts = [
     { label: "Prize", value: competition.prizeName || shared.getPrizeCue(competition) },
     { label: "Prize value", value: formatPrizeValue(competition) },
@@ -12251,9 +12269,9 @@ function renderCompetitionDetailFacts(competition, formattedDate, officialSource
     { label: "Region", value: competition.region },
     {
       label: "Official terms",
-      value: competition.termsUrl ? (expired ? "View archived official terms/source" : "View terms") : "",
-      html: competition.termsUrl
-        ? `<a href="${escapeAttribute(competition.termsUrl)}" rel="nofollow noopener" target="_blank">${escapeHtml(expired ? "View archived official terms/source" : "View terms")}</a>`
+      value: termsUrl ? (expired ? "View archived official terms/source" : "View terms") : "",
+      html: termsUrl
+        ? `<a href="${escapeAttribute(termsUrl)}" rel="nofollow noopener" target="_blank">${escapeHtml(expired ? "View archived official terms/source" : "View terms")}</a>`
         : "",
     },
     {
