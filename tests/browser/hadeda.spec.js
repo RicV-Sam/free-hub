@@ -6,12 +6,13 @@ const unverifiedData = require("../../shared/unverified-competition-data.js");
 const offerData = require("../../shared/offer-data.js");
 const current = require("../../scripts/lib/current-content-baseline.js").getCurrentContentBaseline();
 const student = require("../../data/student-guide.json");
+const airtimeDash = require("../../data/airtime-dash.json");
 const offersEnabled = offerData.isOfferFeatureEnabled(process.env.FREEHUB_ENABLE_OFFERS);
 const offers = offersEnabled ? require("../../data/offers.json").filter(row => offerData.isPublicOffer(row, { asOfDate: process.env.FREEHUB_AS_OF_DATE || shared.getSouthAfricanDate() })) : [];
 const root = path.resolve(__dirname, "../..");
 const visibleMascots = page => page.locator("[data-mascot]:visible");
 const guides = ["guides", "blog", "best-competitions-south-africa-this-month", "free-stuff-south-africa", "free-samples-south-africa", "free-online-courses-south-africa", "free-childrens-books-south-africa", "free-credit-report-south-africa", "birthday-freebies", student.slug, "free-parks-entry-south-africa-september-2026", "how-we-verify-competitions", "how-to-enter-competitions-safely", "how-to-spot-a-scam-competition", "legit-competitions-south-africa", "competition-closing-date-checklist", "competition-entry-cost-labels", "till-slip-competitions-south-africa", "whatsapp-competitions-south-africa", "app-competitions-south-africa", "fake-competition-winner-messages", "purchase-required-competitions-explained", "paid-entry-competitions-explained", "south-african-lottery"];
-const browseRoutes = ["/competitions/", "/category/cash/", "/tag/free-entry/", "/brands/", "/brand/clicks/", "/win-a-car/", "/offers/", "/coupons/", "/deals/", unverifiedData.PUBLIC_PATH];
+const browseRoutes = ["/competitions/", "/category/cash/", "/tag/free-entry/", "/brands/", "/brand/clicks/", "/win-a-car/", ...(offersEnabled ? ["/offers/", "/coupons/", "/deals/"] : []), unverifiedData.PUBLIC_PATH];
 const layoutRoutes = ["/", "/competitions/", "/free-stuff-south-africa/", "/best-competitions-south-africa-this-month/", "/about/", "/not-a-freehub-page/", `/${student.slug}/`, "/offers/", "/win-a-car/", "/free-samples-south-africa/", "/how-to-enter-competitions-safely/"];
 
 test.beforeEach(async ({ page }) => {
@@ -20,7 +21,7 @@ test.beforeEach(async ({ page }) => {
   await page.clock.install({ time: new Date(`${process.env.FREEHUB_AS_OF_DATE || shared.getSouthAfricanDate()}T10:00:00Z`) });
 });
 
-test("all public guides use Read; browsing hubs use Browse; excluded pages stay clear", async ({ page }) => {
+test("guides, browsing hubs and detail pages use their expected mascot poses", async ({ page }) => {
   for (const slug of guides) {
     const html = fs.readFileSync(path.join(root, slug, "index.html"), "utf8");
     // The overlapping WhatsApp and till-slip URLs are catalogue hubs.
@@ -29,14 +30,23 @@ test("all public guides use Read; browsing hubs use Browse; excluded pages stay 
     expect((html.match(/data-mascot-heading/g) || []).length).toBe(1);
   }
   for (const route of browseRoutes) {
-    await page.goto(route);
+    expect((await page.goto(route, { waitUntil: "domcontentloaded" })).status(), route).toBe(200);
     await expect(visibleMascots(page)).toHaveCount(1);
     const emptyOffers = ["/offers/", "/coupons/", "/deals/"].includes(route) && !offers.some(row => route === "/offers/" || row.type === (route === "/coupons/" ? "coupon" : "deal"));
     await expect(visibleMascots(page)).toHaveAttribute("data-mascot", emptyOffers ? "recover" : "browse");
   }
-  for (const route of ["/contact/", "/privacy-policy/", "/terms-of-use/", ...(offersEnabled ? ["/submit-an-offer/"] : []), "/submit-a-competition/", "/report-a-competition/", "/club/", "/club/account/", "/competition/cadbury-made-to-share-2026/", ...(offers[0] ? [offerData.getOfferPath(offers[0])] : []), ...(current.publicOpportunities[0] ? [`/opportunity/${current.publicOpportunities[0].slug}/`] : [])]) {
-    await page.goto(route);
-    await expect(page.locator("[data-mascot]")).toHaveCount(0);
+  const utilityRoutes = ["/contact/", "/privacy-policy/", "/terms-of-use/", "/submit-a-competition/", "/report-a-competition/", "/club/", "/club/account/", ...(offersEnabled ? ["/submit-an-offer/"] : [])];
+  const detailRoutes = [
+    "/competition/cadbury-made-to-share-2026/",
+    ...(offers[0] ? [offerData.getOfferPath(offers[0])] : []),
+    ...(current.publicOpportunities[0] ? [`/opportunity/${current.publicOpportunities[0].slug}/`] : []),
+  ];
+  for (const [pose, routes] of [["read", utilityRoutes], ["direct", detailRoutes]]) {
+    for (const route of routes) {
+      expect((await page.goto(route, { waitUntil: "domcontentloaded" })).status(), route).toBe(200);
+      await expect(visibleMascots(page), route).toHaveCount(1);
+      await expect(visibleMascots(page), route).toHaveAttribute("data-mascot", pose);
+    }
   }
   await page.goto("/about/");
   await expect(page.getByText("Our hadeda mascot points the way around FreeHub.")).toBeVisible();
@@ -112,7 +122,14 @@ test("200% text, reduced motion, broken images and keyboard access remain useful
   await page.route("**/assets/mascot/**",route=>route.abort());
   await page.goto("/");
   await expect(page.getByRole("heading",{level:1})).toBeVisible();
-  await expect(page.locator('.home-hero-guide__links a')).toHaveCount(offersEnabled ? 3 : 2);
+  const links = page.locator(".home-hero-guide__links a");
+  const destinations = ["/free-stuff-south-africa/", "/competitions/"];
+  if (offersEnabled) destinations.push("/offers/");
+  if (airtimeDash.enabled) destinations.push("/play/airtime-dash/");
+  await expect(links).toHaveCount(destinations.length);
+  for (const destination of destinations) {
+    await expect(links.and(page.locator(`a[href="${destination}"]`))).toBeVisible();
+  }
   await page.getByRole("button",{name:"Menu",exact:true}).focus();
   await page.keyboard.press("Enter");
   await expect(page.getByRole("navigation",{name:"Primary navigation",exact:true})).toBeVisible();

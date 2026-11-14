@@ -1,6 +1,11 @@
 const { test, expect } = require('@playwright/test');
 const fs = require('node:fs');
 const path = require('node:path');
+const { referenceDate } = require('./editorial-source-fixture.js');
+const { getPublicUnderReview, getDetailPath, PUBLIC_PATH } = require('../../shared/unverified-competition-data.js');
+const registry = require('../../data/unverified-competitions.json');
+const leads = getPublicUnderReview(registry, { asOfDate: referenceDate });
+const illustratedLead = leads.find(row => row.image);
 const newCompetitions = require('../../data/competitions.json').filter(row => row.researchReference);
 test('new verified pages show their reviewed conditions and local artwork', async ({ page }) => {
   await page.route('**/*', route => {
@@ -27,13 +32,27 @@ for (const width of [390, 1440]) {
   test(`under-review disclosure and artwork at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 960 });
     await page.route('**/*', route => new URL(route.request().url()).hostname === '127.0.0.1' ? route.continue() : route.abort());
-    await page.goto('/unverified-competitions/nescafe-lead-gen-2026-mastercard-vouchers/');
+    const collection = await page.goto(PUBLIC_PATH);
+    expect(collection.status()).toBe(200);
+    if (!illustratedLead) {
+      if (!leads.length) await expect(page.getByText('No current leads under review')).toBeVisible();
+      const unavailable = registry.find(row => row.image && !leads.includes(row));
+      expect(unavailable).toBeTruthy();
+      const route = getDetailPath(unavailable);
+      await expect(page.locator(`a[href="${route}"]`)).toHaveCount(0);
+      expect((await page.request.get(route)).status()).toBe(404);
+      return;
+    }
+    const route = getDetailPath(illustratedLead);
+    await expect(page.locator(`a[href="${route}"]`).first()).toBeVisible();
+    expect((await page.goto(route)).status()).toBe(200);
     await expect(page.locator('h1')).toContainText('under review');
     await expect(page.getByText('Why Freehub has not verified it', { exact: true })).toBeVisible();
     await expect(page.locator('.unverified-card__art img')).toBeVisible();
-    expect(await page.locator('.unverified-card__art img').evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
-    await page.locator('.unverified-card__art img').scrollIntoViewIfNeeded();
-    await page.locator('.unverified-card__art img').evaluate(img => img.decode());
+    const artwork = page.locator('.unverified-card__art img');
+    await artwork.scrollIntoViewIfNeeded();
+    await artwork.evaluate(img => img.decode());
+    expect(await artwork.evaluate(img => img.naturalWidth)).toBeGreaterThan(0);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await expect(page.locator('a[href^="/out/"]')).toHaveCount(0);
     fs.mkdirSync(path.resolve('output/discovery-2026-10-30'), { recursive: true });

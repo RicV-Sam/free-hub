@@ -104,10 +104,11 @@ jobs:
           FREEHUB_ENABLE_OPPORTUNITIES=false npm run build
           node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-portfolio-recovery --allow-airtime-dash
           node scripts/compare-generated-output.js --base-dir="$candidate_absent_dir"
-          echo "Compare enabled reviewed Opportunity pilot with flag-off candidate"
+          echo "Compare Opportunity-enabled output with the PR base under the same flag"
+          (cd "$base_dir" && FREEHUB_ENABLE_OPPORTUNITIES=true NODE_OPTIONS="--require=$fixed_date_register" node scripts/generate-pages.js)
           FREEHUB_ENABLE_OPPORTUNITIES=true npm run build
           FREEHUB_ENABLE_OPPORTUNITIES=true npm run test:seo
-          node scripts/compare-generated-output.js --base-dir="$candidate_absent_dir" --allow-opportunity-detail-flow
+          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-portfolio-recovery --allow-airtime-dash
       - name: Validate the populated offers portal
         env:
           NODE_OPTIONS: '--require=${{ github.workspace }}/scripts/lib/fixed-date-register.js'

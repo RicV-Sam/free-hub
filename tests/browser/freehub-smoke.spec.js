@@ -358,6 +358,9 @@ test("expired archives omit retired Adsterra scripts while active detail and out
 });
 
 test("signed-in members receive no external Adsterra scripts or executions", async ({ page }) => {
+  // Manual auth should finish before the outbound fallback timer can fire.
+  await page.clock.install();
+  await page.clock.pauseAt(new Date(await page.evaluate(() => Date.now()) + 1000));
   await mockFirebaseAuth(page, { signedIn: true, manualAuth: true });
   const requests = await stubAdsterra(page);
   await page.goto("/", { waitUntil: "domcontentloaded" });
