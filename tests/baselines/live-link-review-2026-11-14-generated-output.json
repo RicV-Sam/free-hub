@@ -1,51 +1,51 @@
 {
   "buildDate": "2026-09-08",
   "baseCommit": "61146d42f37d691ba7415b318624a272aeccb71e",
-  "scope": "Reviewed Edgars deadline and prize amendment, Capitec age wording, and ClearScore official destination. Same eleven changed files with Opportunities off and on. Node 24.19.0, TZ UTC.",
+  "scope": "Reviewed Edgars deadline and prize amendment, Capitec age wording, and ClearScore official destination. Same eleven changed files with Opportunities off and on. Node 24.19.0, TZ UTC, LF source checkout as used by GitHub Actions.",
   "files": {
     "club/dashboard/index.html": {
-      "expected": "768e17f24defd18cf74ace322bd8e4547dc6aed41ffcfd64530a92f6c780b010",
-      "actual": "e259525191ab6f150cb7cf46b40b4d569ea4ecb4e2e71d23836fbc32fa24c711"
+      "expected": "5a5a4b1cb80b2c0997131689a252ffa3b134499783e0377d036fd05108dfca44",
+      "actual": "443cd17b7c62f50ee03d3cb63fcd68452daf5ac7c9420866d4ec900145401209"
     },
     "competition/capitec-tactical-flexi-voucher-2026/index.html": {
-      "expected": "db8db32237c17928d2ff109ad3c76e00d3ac3d1946dc5e0820fb20b15a19b722",
-      "actual": "2ff3482b5e534721860ec85dc008ad2002d73a7ba38c87a560e558453136b0b3"
+      "expected": "bdfefe1c05e087af7b4bad2ef4d582b1142ab7ce6c515d062060f9f4162172cd",
+      "actual": "93732b0ab8f1ff64704132f85e5178750b7223f76003836de25a5f8df54cb863"
     },
     "competition/edgars-at-our-school-2026/index.html": {
-      "expected": "b9698b97e458a7e1e7c06f6ffe3bdf47058db6956f8de283c0ed025605abe68b",
-      "actual": "d61d7121bf35f100dea8205deb3a09505d050cd24d7611f43007bdf13ee94570"
+      "expected": "eabd429fe6af19ae2f4fd166d98579586f194015986627d5c7bf02e65a85dfca",
+      "actual": "3e3198cbc04e384ec02743404c4cead8612e32cf894e02402baea7bcb9f12c48"
     },
     "competitions/index.html": {
-      "expected": "bc6e5bcd47e5cefd42dec2f784d92993d373cd608b79e02706aee30dc2a38837",
-      "actual": "d04edff7933495820cbce9f496f6899898f334a0bb1bef2782bc0cd7239be98e"
+      "expected": "ad8afe6498644809b277dc3b1daeb49a47c2052fd1c015a1fd6514c9b7ed7161",
+      "actual": "2edd18dff77bddccea4c8a7bb73248e4ea29432907bfd4d5f04c15ddc93e4bd1"
     },
     "free-credit-report-south-africa/index.html": {
-      "expected": "ea7c76546486fe1250529389291ab553aa30e636b3f88e9eb5b31693afdcde08",
-      "actual": "a6d3f324a5dd4930a8b2a3abf076ea1407e6e4cda2de80bfbfcdb4ac44dbcc93"
+      "expected": "11186241d177733f32c010b420e3106d282e4a0e0bc138d944274a3a4cf76d9d",
+      "actual": "946b63d7cd33c0cd868e6cf26cf22e64a8b3ab2fddc1f102861c72682c0c5ce0"
     },
     "free-stuff-south-africa/index.html": {
-      "expected": "2a8722cfe9b73b162b9d6f4d378724a1c6491c233d46a0e2892f0d179c0f4e48",
-      "actual": "05e1db3dbae3bc91e2cc85038f267540d71754cc784d561915a7940ef8952fe0"
+      "expected": "162f7107eee4463028ee2760872aaaec271abc243f77d602676357815e2dd6c7",
+      "actual": "30c84761024e2974d72e8ffcf366e065f37f0a91b77709ea3a94c4510f7a196a"
     },
     "new-competitions-south-africa/index.html": {
-      "expected": "15c56daf92e36593a3500267c608a600cd184f29ead245c3bf89707879ef5d11",
-      "actual": "fc5b6567bcd9f81411869c580db8f36eb06b0634fa230180ae355bbabb0070d1"
+      "expected": "ba6309a550f357025ecb68773384f9b6ea4b80eeb6d3e7703c75b9911b937788",
+      "actual": "97bf8e0a93d55fb8a42f4f034b95cd06663e6dcad03c8d538d320dd7ee71a6ce"
     },
     "out/edgars-at-our-school-2026/index.html": {
-      "expected": "3209ca929f27d6152b5a7c786f9c6734da5bd207dec41cd9c7485fa05c3d2eea",
-      "actual": "fc9435d4d64aa5f12ade965516c5b840f1486e3f0356d531ff587d0c7af95b1e"
+      "expected": "dfa4d5700addf87fcd153fd9e8e0edb723292f34090ba602156e0a53a6031c4b",
+      "actual": "3d52bb5df3a56e372df92872b55a0ab060908a8620fdfb79de60daecb10d964c"
     },
     "sitemap.xml": {
       "expected": "1723cdf89f4f17650d5dd68b4961e84f48c0c4f7d0e8e9cb6279f62327f9b831",
       "actual": "7dc13005fa2068123394c7f64f2752898e169f514a58755ff0a9e01f0083ae3c"
     },
     "tag/free-entry/index.html": {
-      "expected": "0221d83cf8684e6e012a419305a4a240f48052dfd17fc3ea245fc3d1c71679bb",
-      "actual": "b77b79059ef76c63d6eb2f66d8b3f41df0b133bc35308ee5ca0985318e26868b"
+      "expected": "94cd7cc4563697816042594d6126c38ba5cfedc9d9180e1ee11317c8a51859af",
+      "actual": "43fc68e85df5a45002b74d16d8867bd671d4f37f91afa4ef679a17850bb1060e"
     },
     "tag/high-value/index.html": {
-      "expected": "c47b406f9e232725fbc202a9b484958ddeb12eb61dd06d820aaa7e5c74ee5e3d",
-      "actual": "2b00588e53e3e1c42d3951dec0d9cc1a2df6fd4caa722493eac8cf44525e8054"
+      "expected": "028f2c59c7e275c3695d16d7d89d6ca86862586ea67b9f051bdd5828cefa6f23",
+      "actual": "2d0d5a2404845eb93d42051b3dd43c27df185199051d2602c598b78708c88882"
     }
   }
 }
