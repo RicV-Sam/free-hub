@@ -7,6 +7,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: regression-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 env:
   TZ: UTC
   FREEHUB_BUILD_DATE: "2026-09-08"

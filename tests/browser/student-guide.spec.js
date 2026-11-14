@@ -29,12 +29,12 @@ for (const width of [320, 768, 1440]) {
   });
 }
 
-test("student guide exposes core content without JavaScript", async ({ browser }) => {
-  const context = await browser.newContext({ javaScriptEnabled: false });
+test("student guide exposes core content without JavaScript", async ({ browser, baseURL }) => {
+  const context = await browser.newContext({ baseURL, javaScriptEnabled: false });
   await context.route("**/*", (request) => new URL(request.request().url()).hostname === "127.0.0.1"
     ? request.continue() : request.abort());
   const page = await context.newPage();
-  await page.goto(`http://127.0.0.1:4318${route}`);
+  await page.goto(route);
   await expect(page.locator(".student-offer")).toHaveCount(guide.offers.length);
   await expect(page.locator("#google-ai-plus .student-cost")).toContainText("paid plan");
   await expect(page.locator("#standard-bank-vibe .student-cost")).toContainText("R12");
@@ -105,11 +105,11 @@ test("all student notices disclose the offer and keep reviewed destinations fixe
   }
 });
 
-test("student claim flow works without JavaScript and lets the reader choose when to leave", async ({ browser }) => {
-  const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 900 } });
+test("student claim flow works without JavaScript and lets the reader choose when to leave", async ({ browser, baseURL }) => {
+  const context = await browser.newContext({ baseURL, javaScriptEnabled: false, viewport: { width: 320, height: 900 } });
   await context.route('**/*', (route) => new URL(route.request().url()).hostname === '127.0.0.1' ? route.continue() : route.fulfill({ status: 200, contentType: 'text/html', body: '<h1>Mock provider destination</h1>' }));
   const page = await context.newPage();
-  await page.goto('http://127.0.0.1:4318/' + guide.slug + '/');
+  await page.goto(route);
   await page.locator('#spotify-student .student-claim').click();
   await expect(page).toHaveURL(/\/out\/student\/spotify-student\/$/);
   await expect(page.locator('.student-cost')).toContainText('R37.99');
