@@ -105,17 +105,17 @@
     "dateModified": "2026-07-27",
     "manualOk": true,
     "manualOkReason": "Official credit-bureau site can return automated-check 403 responses.",
-    "manualOkCheckedAt": "2026-10-11",
+    "manualOkCheckedAt": "2026-11-14",
     "manualOkAllowedDomain": "transunion.co.za",
-    "manualOkEvidence": "Official annual report page read on 11 October 2026; confirms one free annual credit report and links to the official access service. Browser access returned 403 but the underlying official page was accessible through the research reader."
+    "manualOkEvidence": "The exact official annual-report page confirms one free TransUnion report per year and links to its report portal. Direct automation received HTTP 403."
   },
   {
     "name": "ClearScore South Africa",
     "category": "credit-report",
     "categoryLabel": "Free credit reports",
-    "officialUrl": "https://www.clearscore.com/za/",
+    "officialUrl": "https://www.clearscore.com/za",
     "bestFor": "Consumers who want ongoing score and report visibility",
-    "freeDetails": "Free credit score and report access, with personalised financial offers shown separately.",
+    "freeDetails": "Free access to your Experian credit score and report, with personalised financial offers shown separately.",
     "requirements": "Sign-up and identity checks are required.",
     "watchOut": "Treat loan and credit offers as advertising or eligibility guidance, not approval.",
     "datePublished": "2026-05-27",
@@ -123,9 +123,9 @@
     "dateModified": "2026-07-27",
     "manualOk": true,
     "manualOkReason": "Official site can return automated-check 403 responses.",
-    "manualOkCheckedAt": "2026-10-11",
+    "manualOkCheckedAt": "2026-11-14",
     "manualOkAllowedDomain": "clearscore.com",
-    "manualOkEvidence": "Exact official South African page read on 11 October 2026; describes free credit score/report access without a trial or credit-card requirement. Browser access returned 403; the official content was accessible through the research reader."
+    "manualOkEvidence": "The final official ZA page and the provider’s 6 November guide confirm ongoing free Experian credit score and report access after signup and identity verification. Financial offers are separate."
   },
   {
     "id": "brand-advisor",
@@ -252,10 +252,10 @@
     "dateModified": "2026-07-14",
     "manualOk": true,
     "manualOkReason": "Official Coloplast South Africa sampling site returns HTTP 403 to the Freehub link checker but was manually rechecked in a browser-style request.",
-    "manualOkCheckedAt": "2026-10-11",
+    "manualOkCheckedAt": "2026-11-14",
     "manualOkAllowedDomain": "products.coloplast.co.za",
     "manualOkAllowGenericHomepage": true,
-    "manualOkEvidence": "Exact official ZA directory read on 11 October 2026; ostomy, continence and wound-care categories and Requesting samples navigation are present. This is directory evidence only, not independent approval of individual campaigns."
+    "manualOkEvidence": "The official South African directory and linked Requesting samples information were inspected. The directory covers ostomy, continence and wound care. This is directory evidence; campaign-specific eligibility and delivery have separate checks."
   },
   {
     "id": "kalley-free-flooring-samples",
@@ -303,9 +303,9 @@
     "dateModified": "2026-07-31",
     "manualOk": true,
     "manualOkReason": "Official gov.za municipal-services page can time out during automated link checks.",
-    "manualOkCheckedAt": "2026-10-11",
+    "manualOkCheckedAt": "2026-11-14",
     "manualOkAllowedDomain": "gov.za",
-    "manualOkEvidence": "Exact official gov.za guidance read on 11 October 2026: minimum basic electricity, water and sanitation for qualifying poor households, depending on local municipal availability. Specific local entitlement and quantities are not asserted."
+    "manualOkEvidence": "The official government page confirms minimum free basic water, electricity and sanitation for qualifying poor households, subject to availability through their municipality. It links to municipal contacts."
   },
   {
     "id": "krispy-kreme-sa-app-registration-doughnut",

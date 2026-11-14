@@ -103,16 +103,16 @@ jobs:
           (cd "$base_dir" && npm ci --ignore-scripts && NODE_OPTIONS="--require=$fixed_date_register" FREEHUB_BUILD_DATE="$FREEHUB_BUILD_DATE" FREEHUB_AS_OF_DATE="$FREEHUB_AS_OF_DATE" node scripts/generate-pages.js)
           node scripts/capture-generated-output.js --output-dir="$candidate_absent_dir"
           echo "Compare feature flag absent with PR base"
-          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-portfolio-recovery --allow-airtime-dash
+          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-portfolio-recovery --allow-airtime-dash --allow-november-2026-link-review
           echo "Compare feature flag explicitly disabled with PR base"
           FREEHUB_ENABLE_OPPORTUNITIES=false npm run build
-          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-portfolio-recovery --allow-airtime-dash
+          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-portfolio-recovery --allow-airtime-dash --allow-november-2026-link-review
           node scripts/compare-generated-output.js --base-dir="$candidate_absent_dir"
           echo "Compare Opportunity-enabled output with the PR base under the same flag"
           (cd "$base_dir" && FREEHUB_ENABLE_OPPORTUNITIES=true NODE_OPTIONS="--require=$fixed_date_register" node scripts/generate-pages.js)
           FREEHUB_ENABLE_OPPORTUNITIES=true npm run build
           FREEHUB_ENABLE_OPPORTUNITIES=true npm run test:seo
-          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-portfolio-recovery --allow-airtime-dash
+          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-portfolio-recovery --allow-airtime-dash --allow-november-2026-link-review
       - name: Validate the populated offers portal
         env:
           NODE_OPTIONS: '--require=${{ github.workspace }}/scripts/lib/fixed-date-register.js'

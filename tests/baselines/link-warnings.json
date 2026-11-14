@@ -107,6 +107,14 @@
     },
     {
       "sourceType": "competition",
+      "recordId": "fountains-mall-herbelin-birthday-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://fountainsmall.co.za/events/18th-birthday-competition-with-gabriel-jewellers/",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
       "recordId": "go-south-africa-great-karkloof-escape-2026",
       "field": "url",
       "reason": "expired_archive_404",
@@ -147,6 +155,14 @@
     },
     {
       "sourceType": "competition",
+      "recordId": "hot-cares-schools-challenge-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://hot1027.co.za/competition/big-hearts-big-prizes-the-hot-cares-schools-challenge-is-here/",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
       "recordId": "huletts-heritage-2026",
       "field": "termsUrl",
       "reason": "expired_archive_404",
@@ -167,6 +183,22 @@
       "field": "url",
       "reason": "expired_archive_429",
       "url": "https://www.kaufmann-sa.co.za/pages/kaufmann-rugga-supporter-competition-terms-and-conditions",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "lewis-donna-mk2-sleigh-bed-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://lewisstores.co.za/ls-competition-landing.php?intshown=TF_facebook_Generic_Post_FreeGifts&invoke=facebook",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "lewis-lg-cj44-hifi-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://lewisstores.co.za/ls-competition-landing.php?intshown=TF_facebook_Generic_Post_FreeGifts&invoke=facebook",
       "lifecycle": "expired-archive"
     },
     {
@@ -239,6 +271,14 @@
       "field": "url",
       "reason": "expired_archive_404",
       "url": "https://www.oxfordfreshmarket.co.za/competitions/birthday-trolley-dash",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "penguin-random-house-art-of-hosting-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.penguinrandomhouse.co.za/competitions/win-set-the-table-set-the-mood-the-art-of-hosting/",
       "lifecycle": "expired-archive"
     },
     {
@@ -430,7 +470,7 @@
       "recordId": "free-resource:credit-report:clearscore-south-africa",
       "field": "officialUrl",
       "reason": "manual_check_http_403",
-      "url": "https://www.clearscore.com/za/",
+      "url": "https://www.clearscore.com/za",
       "lifecycle": "active-manual-check"
     },
     {
@@ -511,6 +551,14 @@
       "field": "termsUrl",
       "reason": "expired_archive_500",
       "url": "https://www.penguinrandomhouse.co.za/tos/tscs-win-with-penguin-post-43/",
+      "lifecycle": "expired-archive"
+    },
+    {
+      "sourceType": "competition",
+      "recordId": "penguin-random-house-penguin-post-44-2026",
+      "field": "url",
+      "reason": "expired_archive_404",
+      "url": "https://www.penguinrandomhouse.co.za/competitions/win-penguin-post-44-competition/",
       "lifecycle": "expired-archive"
     },
     {

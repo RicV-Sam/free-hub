@@ -1,0 +1,51 @@
+{
+  "buildDate": "2026-09-08",
+  "baseCommit": "61146d42f37d691ba7415b318624a272aeccb71e",
+  "scope": "Reviewed Edgars deadline and prize amendment, Capitec age wording, and ClearScore official destination. Same eleven changed files with Opportunities off and on. Node 24.19.0, TZ UTC.",
+  "files": {
+    "club/dashboard/index.html": {
+      "expected": "768e17f24defd18cf74ace322bd8e4547dc6aed41ffcfd64530a92f6c780b010",
+      "actual": "e259525191ab6f150cb7cf46b40b4d569ea4ecb4e2e71d23836fbc32fa24c711"
+    },
+    "competition/capitec-tactical-flexi-voucher-2026/index.html": {
+      "expected": "db8db32237c17928d2ff109ad3c76e00d3ac3d1946dc5e0820fb20b15a19b722",
+      "actual": "2ff3482b5e534721860ec85dc008ad2002d73a7ba38c87a560e558453136b0b3"
+    },
+    "competition/edgars-at-our-school-2026/index.html": {
+      "expected": "b9698b97e458a7e1e7c06f6ffe3bdf47058db6956f8de283c0ed025605abe68b",
+      "actual": "d61d7121bf35f100dea8205deb3a09505d050cd24d7611f43007bdf13ee94570"
+    },
+    "competitions/index.html": {
+      "expected": "bc6e5bcd47e5cefd42dec2f784d92993d373cd608b79e02706aee30dc2a38837",
+      "actual": "d04edff7933495820cbce9f496f6899898f334a0bb1bef2782bc0cd7239be98e"
+    },
+    "free-credit-report-south-africa/index.html": {
+      "expected": "ea7c76546486fe1250529389291ab553aa30e636b3f88e9eb5b31693afdcde08",
+      "actual": "a6d3f324a5dd4930a8b2a3abf076ea1407e6e4cda2de80bfbfcdb4ac44dbcc93"
+    },
+    "free-stuff-south-africa/index.html": {
+      "expected": "2a8722cfe9b73b162b9d6f4d378724a1c6491c233d46a0e2892f0d179c0f4e48",
+      "actual": "05e1db3dbae3bc91e2cc85038f267540d71754cc784d561915a7940ef8952fe0"
+    },
+    "new-competitions-south-africa/index.html": {
+      "expected": "15c56daf92e36593a3500267c608a600cd184f29ead245c3bf89707879ef5d11",
+      "actual": "fc5b6567bcd9f81411869c580db8f36eb06b0634fa230180ae355bbabb0070d1"
+    },
+    "out/edgars-at-our-school-2026/index.html": {
+      "expected": "3209ca929f27d6152b5a7c786f9c6734da5bd207dec41cd9c7485fa05c3d2eea",
+      "actual": "fc9435d4d64aa5f12ade965516c5b840f1486e3f0356d531ff587d0c7af95b1e"
+    },
+    "sitemap.xml": {
+      "expected": "1723cdf89f4f17650d5dd68b4961e84f48c0c4f7d0e8e9cb6279f62327f9b831",
+      "actual": "7dc13005fa2068123394c7f64f2752898e169f514a58755ff0a9e01f0083ae3c"
+    },
+    "tag/free-entry/index.html": {
+      "expected": "0221d83cf8684e6e012a419305a4a240f48052dfd17fc3ea245fc3d1c71679bb",
+      "actual": "b77b79059ef76c63d6eb2f66d8b3f41df0b133bc35308ee5ca0985318e26868b"
+    },
+    "tag/high-value/index.html": {
+      "expected": "c47b406f9e232725fbc202a9b484958ddeb12eb61dd06d820aaa7e5c74ee5e3d",
+      "actual": "2b00588e53e3e1c42d3951dec0d9cc1a2df6fd4caa722493eac8cf44525e8054"
+    }
+  }
+}

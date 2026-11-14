@@ -14,10 +14,10 @@
     "regions": [
       "National"
     ],
-    "lastVerifiedAt": "2026-10-30",
-    "reviewDueAt": "2026-11-06",
+    "lastVerifiedAt": "2026-11-14",
+    "reviewDueAt": "2026-11-21",
     "publishedAt": "2026-07-14",
-    "updatedAt": "2026-10-30",
+    "updatedAt": "2026-11-14",
     "availabilityKind": "ongoing",
     "costClassification": "completely_free",
     "requirements": [
@@ -954,10 +954,10 @@
     "regions": [
       "National"
     ],
-    "lastVerifiedAt": "2026-10-30",
-    "reviewDueAt": "2026-11-06",
+    "lastVerifiedAt": "2026-11-14",
+    "reviewDueAt": "2026-11-21",
     "publishedAt": "2026-07-27",
-    "updatedAt": "2026-10-30",
+    "updatedAt": "2026-11-14",
     "availabilityKind": "ongoing",
     "costClassification": "completely_free",
     "requirements": [
@@ -1016,10 +1016,10 @@
     "regions": [
       "National"
     ],
-    "lastVerifiedAt": "2026-10-30",
-    "reviewDueAt": "2026-11-06",
+    "lastVerifiedAt": "2026-11-14",
+    "reviewDueAt": "2026-11-21",
     "publishedAt": "2026-07-27",
-    "updatedAt": "2026-10-30",
+    "updatedAt": "2026-11-14",
     "availabilityKind": "ongoing",
     "costClassification": "completely_free",
     "requirements": [
@@ -1078,10 +1078,10 @@
     "regions": [
       "National"
     ],
-    "lastVerifiedAt": "2026-10-30",
-    "reviewDueAt": "2026-11-06",
+    "lastVerifiedAt": "2026-11-14",
+    "reviewDueAt": "2026-11-21",
     "publishedAt": "2026-07-27",
-    "updatedAt": "2026-10-30",
+    "updatedAt": "2026-11-14",
     "availabilityKind": "ongoing",
     "costClassification": "completely_free",
     "requirements": [
@@ -1269,10 +1269,10 @@
     "regions": [
       "National"
     ],
-    "lastVerifiedAt": "2026-10-30",
-    "reviewDueAt": "2026-11-06",
+    "lastVerifiedAt": "2026-11-14",
+    "reviewDueAt": "2026-11-21",
     "publishedAt": "2026-07-31",
-    "updatedAt": "2026-10-30",
+    "updatedAt": "2026-11-14",
     "availabilityKind": "ongoing",
     "costClassification": "completely_free",
     "requirements": [
@@ -1446,10 +1446,10 @@
     "regions": [
       "Cape Town, Western Cape"
     ],
-    "lastVerifiedAt": "2026-10-30",
-    "reviewDueAt": "2026-11-06",
+    "lastVerifiedAt": "2026-11-14",
+    "reviewDueAt": "2026-11-21",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-10-30",
+    "updatedAt": "2026-11-14",
     "availabilityKind": "recurring",
     "costClassification": "completely_free",
     "requirements": [
@@ -1686,10 +1686,10 @@
     "regions": [
       "Cape Town, Western Cape"
     ],
-    "lastVerifiedAt": "2026-10-30",
-    "reviewDueAt": "2026-11-06",
+    "lastVerifiedAt": "2026-11-14",
+    "reviewDueAt": "2026-11-21",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-10-30",
+    "updatedAt": "2026-11-14",
     "availabilityKind": "recurring",
     "costClassification": "completely_free",
     "requirements": [
@@ -1806,10 +1806,10 @@
       "Cape Town",
       "Johannesburg"
     ],
-    "lastVerifiedAt": "2026-10-30",
-    "reviewDueAt": "2026-11-06",
+    "lastVerifiedAt": "2026-11-14",
+    "reviewDueAt": "2026-11-21",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-10-30",
+    "updatedAt": "2026-11-14",
     "availabilityKind": "recurring",
     "costClassification": "membership_required",
     "requirements": [
@@ -1868,10 +1868,10 @@
     "regions": [
       "Cape Town, Western Cape"
     ],
-    "lastVerifiedAt": "2026-10-30",
-    "reviewDueAt": "2026-11-06",
+    "lastVerifiedAt": "2026-11-14",
+    "reviewDueAt": "2026-11-21",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-10-30",
+    "updatedAt": "2026-11-14",
     "availabilityKind": "recurring",
     "costClassification": "completely_free",
     "requirements": [
@@ -1929,10 +1929,10 @@
     "regions": [
       "Cape Town, Western Cape"
     ],
-    "lastVerifiedAt": "2026-10-30",
-    "reviewDueAt": "2026-11-06",
+    "lastVerifiedAt": "2026-11-14",
+    "reviewDueAt": "2026-11-21",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-10-30",
+    "updatedAt": "2026-11-14",
     "availabilityKind": "recurring",
     "costClassification": "completely_free",
     "requirements": [
@@ -1985,10 +1985,10 @@
     "regions": [
       "Participating Ster-Kinekor cinemas in South Africa"
     ],
-    "lastVerifiedAt": "2026-10-30",
-    "reviewDueAt": "2026-11-06",
+    "lastVerifiedAt": "2026-11-14",
+    "reviewDueAt": "2026-11-21",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-10-30",
+    "updatedAt": "2026-11-14",
     "availabilityKind": "recurring",
     "costClassification": "membership_required",
     "requirements": [
@@ -2040,8 +2040,8 @@
     "summary": "McDonald's South Africa app members who provide the correct date of birth receive a free ice-cream cone reward on their birthday for redemption at a participating restaurant.",
     "provider": "McDonald's South Africa",
     "sourceUrl": "https://www.mcdonalds.co.za/deals-our-app",
-    "publicationStatus": "published",
-    "verificationStatus": "verified",
+    "publicationStatus": "withdrawn",
+    "verificationStatus": "withdrawn",
     "country": "ZA",
     "regions": [
       "Participating McDonald's restaurants in South Africa"
@@ -2049,7 +2049,7 @@
     "lastVerifiedAt": "2026-10-30",
     "reviewDueAt": "2026-11-06",
     "publishedAt": "2026-08-18",
-    "updatedAt": "2026-10-30",
+    "updatedAt": "2026-11-14",
     "availabilityKind": "recurring",
     "costClassification": "app_required",
     "requirements": [
@@ -2096,7 +2096,9 @@
       "branchAvailability": "participating_branches",
       "recurrence": "annual",
       "voucherDelivery": "app"
-    }
+    },
+    "withdrawnAt": "2026-11-14",
+    "withdrawalReason": "The listed McDonald’s South Africa app deals page returned HTTP 404 on 14 November 2026. A cached official page still describes the cone, but a working official destination confirming the current birthday reward was not verified. FreeHub has withdrawn the listing pending a fresh source."
   },
   {
     "id": "spur-kids-free-birthday-meal",
@@ -2307,10 +2309,10 @@
     "regions": [
       "Participating South African restaurants"
     ],
-    "lastVerifiedAt": "2026-10-30",
-    "reviewDueAt": "2026-11-06",
+    "lastVerifiedAt": "2026-11-14",
+    "reviewDueAt": "2026-11-21",
     "publishedAt": "2026-09-17",
-    "updatedAt": "2026-10-30",
+    "updatedAt": "2026-11-14",
     "availabilityKind": "recurring",
     "costClassification": "app_required",
     "requirements": [
@@ -2378,10 +2380,10 @@
     "regions": [
       "Participating South African restaurants"
     ],
-    "lastVerifiedAt": "2026-10-30",
-    "reviewDueAt": "2026-11-06",
+    "lastVerifiedAt": "2026-11-14",
+    "reviewDueAt": "2026-11-21",
     "publishedAt": "2026-09-17",
-    "updatedAt": "2026-10-30",
+    "updatedAt": "2026-11-14",
     "availabilityKind": "recurring",
     "costClassification": "purchase_required",
     "requirements": [
