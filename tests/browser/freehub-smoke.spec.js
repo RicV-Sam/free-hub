@@ -2,6 +2,7 @@ const { expect, test } = require("@playwright/test");
 const { createOpportunityRouteRenderer } = require("../../scripts/lib/opportunity-route-renderer.js");
 const opportunityFixture = require("../../data/opportunities.json")[0];
 const current = require("../../scripts/lib/current-content-baseline.js").getCurrentContentBaseline();
+const opportunityDetailStatus = slug => current.detailOpportunities.some(record => record.slug === slug) ? 200 : 404;
 const activeOpportunity = current.publicOpportunities[0] || null;
 const currentSamplesCount = current.samples.length + current.testing.length;
 const medicalSampleActive = current.samples.some(row => row.id === opportunityFixture.id);
@@ -795,12 +796,10 @@ test("Free Samples v4 preserves its canonical and separates official sites from 
     await expect(page.getByRole("link", { name: "Testing & Sample Sites" })).toHaveCount(0);
   }
 
-  const detail = await page.request.get("/opportunity/coloplast-speedicath-short-sample/");
-  expect(detail.status()).toBe(opportunitiesEnabled ? 200 : 404);
-  const testingDetail = await page.request.get("/opportunity/brand-advisor-sunlight-dishwashing-testing/");
-  expect(testingDetail.status()).toBe(opportunitiesEnabled ? 200 : 404);
-  const blindDetail = await page.request.get("/opportunity/blind-designs-free-fabric-samples/");
-  expect(blindDetail.status()).toBe(opportunitiesEnabled ? 200 : 404);
+  for (const slug of ["coloplast-speedicath-short-sample", "brand-advisor-sunlight-dishwashing-testing", "blind-designs-free-fabric-samples"]) {
+    const detail = await page.request.get(`/opportunity/${slug}/`);
+    expect(detail.status(), slug).toBe(opportunityDetailStatus(slug));
+  }
 });
 
 test("voucher hub separates direct rewards, strict voucher prizes and creator exchanges", async ({ page }) => {
@@ -889,7 +888,13 @@ test("Opportunity detail and measured exit flow remain flag-controlled", async (
   expect(sitemap.includes(`<loc>https://freehub.co.za${detailPath}</loc>`)).toBe(Boolean(activeOpportunity));
   expect(sitemap).not.toContain(`<loc>https://freehub.co.za${exitPath}</loc>`);
   if (!activeOpportunity) {
-    expect((await page.request.get(detailPath)).status()).toBe(opportunitiesEnabled ? 200 : 404);
+    const detail = await page.request.get(detailPath);
+    expect(detail.status()).toBe(opportunityDetailStatus(selected.slug));
+    if (detail.ok()) {
+      const html = await detail.text();
+      expect(html).toMatch(/name="robots" content="noindex/);
+      expect(html).not.toContain(`href="${exitPath}"`);
+    }
     expect((await page.request.get(exitPath)).status()).toBe(404);
     return;
   }
