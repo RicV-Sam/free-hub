@@ -7,6 +7,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: regression-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 env:
   TZ: UTC
   FREEHUB_BUILD_DATE: "2026-09-08"
@@ -99,15 +103,16 @@ jobs:
           (cd "$base_dir" && npm ci --ignore-scripts && NODE_OPTIONS="--require=$fixed_date_register" FREEHUB_BUILD_DATE="$FREEHUB_BUILD_DATE" FREEHUB_AS_OF_DATE="$FREEHUB_AS_OF_DATE" node scripts/generate-pages.js)
           node scripts/capture-generated-output.js --output-dir="$candidate_absent_dir"
           echo "Compare feature flag absent with PR base"
-          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-portfolio-recovery --allow-airtime-dash
+          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-portfolio-recovery --allow-airtime-dash --allow-november-2026-link-review
           echo "Compare feature flag explicitly disabled with PR base"
           FREEHUB_ENABLE_OPPORTUNITIES=false npm run build
-          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-portfolio-recovery --allow-airtime-dash
+          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-portfolio-recovery --allow-airtime-dash --allow-november-2026-link-review
           node scripts/compare-generated-output.js --base-dir="$candidate_absent_dir"
-          echo "Compare enabled reviewed Opportunity pilot with flag-off candidate"
+          echo "Compare Opportunity-enabled output with the PR base under the same flag"
+          (cd "$base_dir" && FREEHUB_ENABLE_OPPORTUNITIES=true NODE_OPTIONS="--require=$fixed_date_register" node scripts/generate-pages.js)
           FREEHUB_ENABLE_OPPORTUNITIES=true npm run build
           FREEHUB_ENABLE_OPPORTUNITIES=true npm run test:seo
-          node scripts/compare-generated-output.js --base-dir="$candidate_absent_dir" --allow-opportunity-detail-flow
+          node scripts/compare-generated-output.js --base-dir="$base_dir" --allow-portfolio-recovery --allow-airtime-dash --allow-november-2026-link-review
       - name: Validate the populated offers portal
         env:
           NODE_OPTIONS: '--require=${{ github.workspace }}/scripts/lib/fixed-date-register.js'
@@ -162,6 +167,20 @@ jobs:
       - env:
           NODE_OPTIONS: ''
         run: FREEHUB_ENABLE_OPPORTUNITIES=false FREEHUB_ENABLE_OFFERS=true npm run test:browser
+      - name: Build the published Grocery Savings fixture
+        env:
+          FREEHUB_BUILD_DATE: '2026-10-26'
+          FREEHUB_AS_OF_DATE: '2026-10-26'
+          FREEHUB_ENABLE_OFFERS: 'true'
+          NODE_OPTIONS: '--require=${{ github.workspace }}/scripts/lib/fixed-date-register.js'
+        run: npm run build
+      - name: Test the published Grocery Savings pages
+        env:
+          FREEHUB_BUILD_DATE: '2026-10-26'
+          FREEHUB_AS_OF_DATE: '2026-10-26'
+          FREEHUB_ENABLE_OFFERS: 'true'
+          NODE_OPTIONS: ''
+        run: npx playwright test tests/browser/grocery-savings.spec.js
       - name: Upload Playwright artifacts
         if: always()
         uses: actions/upload-artifact@v4

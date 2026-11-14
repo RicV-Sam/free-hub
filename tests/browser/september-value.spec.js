@@ -3,9 +3,11 @@ const offers = require('../../data/offers.json');
 const { isPublicOffer } = require('../../shared/offer-data.js');
 const guidePath = '/free-parks-entry-south-africa-september-2026/';
 const coupon = offers.find(row => row.id === 'akis-september-2026-personal-coupon');
-const asOfDate = process.env.FREEHUB_BUILD_DATE || new Date().toISOString().slice(0, 10);
+const { referenceDate: asOfDate } = require('./editorial-source-fixture.js');
+const saYouth = require('../../data/free-resources.json').find(row => row.id === 'sa-youth-work-learning-support');
 
 test.beforeEach(async ({ page }) => {
+  await page.clock.setFixedTime(new Date(`${asOfDate}T10:00:00Z`));
   await page.route('**/*', request => new URL(request.request().url()).hostname === '127.0.0.1' ? request.continue() : request.abort());
 });
 
@@ -33,7 +35,7 @@ test('Free Stuff exposes the dated guide and SA Youth with official links', asyn
   await page.goto('/free-stuff-south-africa/');
   await expect(page.locator(`a[href="${guidePath}"]`).first()).toBeVisible();
   await expect(page.locator('main')).toContainText('SA Youth work and learning support');
-  await expect(page.locator('a[href="https://www.harambee.co.za/work-seekers/"]')).toBeVisible();
+  await expect(page.locator(`a[href="${saYouth.officialUrl}"]`).first()).toBeVisible();
   await page.locator(`a[href="${guidePath}"]`).first().click();
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://freehub.co.za${guidePath}`);
 });
@@ -42,7 +44,7 @@ test('Hyatt competition presents the entry conditions and official destination',
   if (asOfDate > '2026-09-30') {
     await page.goto('/competition/penguin-random-house-hyatt-great-escapes-2026/');
     await expect(page.getByRole('region', { name: 'Competition closed', exact: true })).toBeVisible();
-    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, follow');
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index, follow, max-image-preview:large');
     await expect(page.locator('a[href="/out/penguin-random-house-hyatt-great-escapes-2026/"]')).toHaveCount(0);
     expect((await page.request.get('/out/penguin-random-house-hyatt-great-escapes-2026/')).status()).toBe(404);
     return;

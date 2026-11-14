@@ -1,4 +1,5 @@
 const { test, expect } = require("@playwright/test");
+const shared = require("../../shared/page-data.js");
 const manifest = require("../../data/responsive-images.json");
 const provider = "https://scripts.scriptwrapper.com/tags/db39d7ff-ec0e-46b2-9797-bad57ea1954f.js";
 const referenceDate = require('./editorial-source-fixture.js').referenceDate;
@@ -99,13 +100,16 @@ test("protected pages do not start provider or consent connections", async ({ pa
     expect(html).not.toContain(provider);
     expect(html).not.toContain('href="https://eu-us.consentmanager.net"');
   }
-  const source = require("../../data/competitions.json").find(record => record.verificationStatus === "published" && record.closingDate < referenceDate && !record.resultStatus && !record.doNotPublish);
-  expect(source).toBeTruthy();
-  const route = require("../../shared/page-data.js").getCompetitionPath(source);
-  const response = await page.request.get(route);
+  const records = [...require("../../data/competitions.json"), ...require("../../data/archive/competitions-expired.json")];
+  shared.setReferenceDate(referenceDate);
+  const archive = records.find(record => shared.isExpiredArchiveEligibleCompetition(record) && !shared.competitionAllowsAds(record));
+  expect(archive, "an ad-ineligible archive fixture").toBeTruthy();
+  const response = await page.request.get(shared.getCompetitionPath(archive));
   expect(response.status()).toBe(200);
   const html = await response.text();
+  expect(html).toContain('aria-label="Competition closed"');
   expect(html).not.toContain(provider);
+  expect(html).not.toContain('href="https://eu-us.consentmanager.net"');
 });
 
 test("win-a-car tag retains the primary canonical after hydration", async ({ page }) => {

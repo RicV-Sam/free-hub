@@ -1,4 +1,6 @@
 const { test, expect } = require("@playwright/test");
+const { detailOpportunities } = require("../../scripts/lib/current-content-baseline.js").getCurrentContentBaseline();
+const tombstoneIds = new Set(detailOpportunities.map(record => record.id));
 const withdrawn = require("../../data/opportunities.json").filter(record => record.publicationStatus === "withdrawn");
 
 for (const width of [320, 1365]) {
@@ -28,7 +30,7 @@ for (const width of [320, 1365]) {
       expect(sitemap).not.toContain(`/opportunity/${record.slug}/`);
       expect((await request.get(`/out/opportunity/${record.slug}/`)).status()).toBe(404);
       const detail = await request.get(`/opportunity/${record.slug}/`);
-      if (process.env.FREEHUB_ENABLE_OPPORTUNITIES === "true") {
+      if (tombstoneIds.has(record.id)) {
         expect(detail.status()).toBe(200);
         const html = await detail.text();
         expect(html).toMatch(/name="robots" content="noindex/);

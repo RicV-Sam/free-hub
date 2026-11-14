@@ -11,6 +11,8 @@ const allowAdsterraEvergreenV1 = process.argv.includes("--allow-adsterra-evergre
 const allowDiscoveryContentV1 = process.argv.includes("--allow-discovery-content-v1");
 const allowOpportunityDetailFlow = process.argv.includes("--allow-opportunity-detail-flow");
 const allowPortfolioRecovery = process.argv.includes("--allow-portfolio-recovery");
+const allowNovemberLinkReview = process.argv.includes("--allow-november-2026-link-review");
+const NOVEMBER_LINK_REVIEW_BASELINE = require("../tests/baselines/live-link-review-2026-11-14-generated-output.json");
 const allowAirtimeDash = process.argv.includes("--allow-airtime-dash");
 if (!baseArg) {
   console.error("Usage: node scripts/compare-generated-output.js --base-dir=/path/to/built/base");
@@ -81,6 +83,10 @@ const differences = [...paths]
   .filter(Boolean);
 
 function classifyDifference(filePath, expectedEntry, actualEntry) {
+  if (allowNovemberLinkReview && isExactReviewedDifference(NOVEMBER_LINK_REVIEW_BASELINE, filePath, expectedEntry, actualEntry)) {
+    approvedDifferences.push({ file: filePath, reason: "exact reviewed November link-audit output" });
+    return null;
+  }
   if (allowAirtimeDash && isExactReviewedDifference(AIRTIME_DASH_OUTPUT_BASELINE, filePath, expectedEntry, actualEntry)) {
     approvedDifferences.push({ file: filePath, reason: "exact reviewed Airtime Dash page addition" });
     return null;

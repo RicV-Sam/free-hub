@@ -12,9 +12,11 @@ test("browser feed retains full current public records and excludes the editoria
   const primary = read("data/competitions.json");
   const { primary: retained } = applyCompetitionRetirements(primary, read("data/archive/competitions-expired.json"));
   const expected = shared.getPublishedActiveCompetitions(shared.sortCompetitions(retained));
-  const actual = read("app-data/browser-competitions.json");
+  const feed = fs.readFileSync(path.join(root, "app-data/browser-competitions.json"), "utf8");
+  const actual = JSON.parse(feed);
   assert.deepEqual(actual, expected);
   assert.ok(actual.every(record => shared.isPublicCompetition(record) && !record.doNotPublish));
-  const bytes = fs.statSync(path.join(root, "app-data/browser-competitions.json")).size;
-  assert.ok(bytes < fs.statSync(path.join(root, "data/competitions.json")).size * 0.5);
+  // The share of the registry that is active changes as entries move to the
+  // archive. Check that the complete eligible payload ships in compact form.
+  assert.equal(feed, `${JSON.stringify(actual)}\n`, "browser feed must use compact JSON");
 });

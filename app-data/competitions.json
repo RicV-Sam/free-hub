@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-11-14",
-  "count": 107,
+  "count": 106,
   "competitions": [
     {
       "id": "pizza-perfect-oom-freddy-legacy-2026",
@@ -152,33 +152,6 @@
       "termsUrl": "https://bedbathhome.co.za/pages/competitions-terms-conditions",
       "lastChecked": "2026-11-04",
       "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "edgars-at-our-school-2026",
-      "title": "Edgars At Our School Competition",
-      "brand": "Edgars / SuperSport Schools",
-      "summary": "Share a public post celebrating an eligible school. Six R50,000 school-initiative prizes and twenty R500 individual Edgars vouchers are available; no purchase is required.",
-      "imageUrl": "https://freehub.co.za/assets/listings/edgars-at-our-school-2026.webp",
-      "closingDate": "2026-11-20",
-      "category": "Community",
-      "prizeName": "R50,000 school-initiative prize or R500 individual Edgars voucher",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Social",
-      "eligibility": "Eligible recognised schools and natural persons ordinarily resident in South Africa, Botswana, Namibia, Eswatini or Lesotho, subject to country rules and identity verification. Under-18 entrants need prior guardian consent. School accounts require school authorisation and cannot win individual vouchers. Promoter-related persons cannot win individual prizes.",
-      "entrySteps": [
-        "Choose a lawfully recognised school in South Africa, Botswana, Namibia, Eswatini or Lesotho. Check the individual or authorised school-account eligibility rules.",
-        "Publish an original permanent public feed post, reel, photo or video celebrating the school on Facebook, Instagram or TikTok. Temporary Stories do not qualify.",
-        "Identify the school and country, tag @EdgarsFashion and @SuperSportSchools, and include #AtOurSchool plus a hashtag identifying your school.",
-        "Get parental or guardian consent for entrants under 18 and permission for identifiable children in the content. Keep the post publicly viewable for verification.",
-        "Post by 23:59 SAST on 20 November 2026. Each valid post supports the school draw; qualifying individual posts also enter the individual voucher draw."
-      ],
-      "officialUrl": "https://www.edgars.co.za/pages/supersport-schools",
-      "termsUrl": "https://www.edgars.co.za/pages/competition-terms-conditions",
-      "lastChecked": "2026-09-24",
-      "isHighValue": true,
       "isClosingSoon": true
     },
     {

@@ -22,7 +22,8 @@ const editorial = {
 const saved = [{ ...exact, status: "entered", savedAt: "2026-10-31T10:00:00Z" }];
 
 async function loadFixture(page, signedIn) {
-  await page.clock.install({ time: new Date("2026-11-01T10:59:59Z") });
+  await page.clock.install({ time: new Date("2026-11-01T10:58:00Z") });
+  await page.clock.pauseAt(new Date("2026-11-01T10:59:59Z"));
   await page.addInitScript(({ signedIn, saved }) => {
     window.__clubWrites = [];
     if (!signedIn) localStorage.setItem("freehubClubSavedCompetitions", JSON.stringify(saved));
