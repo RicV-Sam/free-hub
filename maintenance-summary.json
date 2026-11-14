@@ -5,9 +5,9 @@
     "today": "2026-11-14",
     "retiredCount": 6,
     "retiredRouteLeaks": [],
-    "expiredPublishedCount": 318,
-    "archivedCompetitionCount": 344,
-    "publicListingFilesScanned": 284,
+    "expiredPublishedCount": 319,
+    "archivedCompetitionCount": 345,
+    "publicListingFilesScanned": 286,
     "sitemapContainsOutUrls": false,
     "expiredMissingFromArchive": [],
     "expiredInSitemap": [],
@@ -33,25 +33,17 @@
       "surfaces": [
         {
           "surface": "home",
-          "eligibleCount": 3,
+          "eligibleCount": 5,
           "needsReview": false,
           "nextReviewDue": "2026-11-20",
-          "overdueIds": [
-            "mtn-app-first-login-1gb-2026",
-            "cadbury-made-to-share-2026",
-            "resource-famelack-live-tv-radio-webcams"
-          ]
+          "overdueIds": []
         },
         {
           "surface": "monthly",
           "eligibleCount": 3,
           "needsReview": true,
           "nextReviewDue": "2026-11-15",
-          "overdueIds": [
-            "cadbury-made-to-share-2026",
-            "heinz-heritage-spar-2026",
-            "sea-harvest-say-fish-grocery-vouchers-2026"
-          ]
+          "overdueIds": []
         }
       ]
     }
