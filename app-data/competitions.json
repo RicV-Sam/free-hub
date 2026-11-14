@@ -1,34 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-13",
-  "count": 108,
+  "asOfDate": "2026-11-14",
+  "count": 107,
   "competitions": [
-    {
-      "id": "imana-pnp-lintons-corner-potjie-dash-2026",
-      "title": "IMANA Pick n Pay Linton’s Corner: R5,000 Potjie Dash",
-      "brand": "IMANA / Pick n Pay Linton’s Corner",
-      "summary": "Spend R500 in one transaction at Pick n Pay Linton’s Corner, including two IMANA Super-Sheba Potjie Mix sachets, and enter in-store for a grocery dash up to R5,000.",
-      "imageUrl": "https://freehub.co.za/assets/listings/imana-pnp-lintons-corner-potjie-dash-2026.webp",
-      "closingDate": "2026-11-13",
-      "category": "Groceries",
-      "prizeName": "A two-minute potjie grocery dash capped at R5,000",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "In-store",
-      "eligibility": "South African residents aged 18+. Employees and specified related parties of the organisers, Pick n Pay Group and Linton’s Corner Shopping Mall, including listed friends, relatives and household members, are excluded. Entry takes place at this Pretoria store only.",
-      "entrySteps": [
-        "Spend at least R500 in one transaction at Pick n Pay Linton’s Corner, Pretoria, during the campaign. Include any two IMANA Super-Sheba Potjie Mix sachets.",
-        "Complete your contact details clearly on the original till slip and place it in the designated in-store competition box.",
-        "Each additional entry needs a separate valid qualifying receipt. Retain proof as required by the official rules.",
-        "The winner is announced on 20 November. The dash is scheduled for 22 November, subject to change; an eligible adult substitute may participate if the winner cannot run."
-      ],
-      "officialUrl": "https://www.imana.co.za/pnp-linton-potjie-dash-competition",
-      "termsUrl": "https://www.imana.co.za/pnp-linton-potjie-dash-competition",
-      "lastChecked": "2026-10-14",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "pizza-perfect-oom-freddy-legacy-2026",
       "title": "Pizza Perfect Oom Freddy’s Legacy Hamper Competition",

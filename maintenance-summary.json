@@ -2,12 +2,12 @@
   "ok": true,
   "errors": [],
   "summary": {
-    "today": "2026-11-13",
+    "today": "2026-11-14",
     "retiredCount": 6,
     "retiredRouteLeaks": [],
-    "expiredPublishedCount": 317,
-    "archivedCompetitionCount": 343,
-    "publicListingFilesScanned": 155,
+    "expiredPublishedCount": 318,
+    "archivedCompetitionCount": 344,
+    "publicListingFilesScanned": 284,
     "sitemapContainsOutUrls": false,
     "expiredMissingFromArchive": [],
     "expiredInSitemap": [],
@@ -28,16 +28,15 @@
     "nonPublicDetailPages": [],
     "nonPublicInPublicListings": [],
     "editorialHealth": {
-      "asOfDate": "2026-11-13",
+      "asOfDate": "2026-11-14",
       "needsReview": true,
       "surfaces": [
         {
           "surface": "home",
-          "eligibleCount": 0,
-          "needsReview": true,
-          "nextReviewDue": null,
+          "eligibleCount": 3,
+          "needsReview": false,
+          "nextReviewDue": "2026-11-20",
           "overdueIds": [
-            "resource-childrens-books-book-dash",
             "mtn-app-first-login-1gb-2026",
             "cadbury-made-to-share-2026",
             "resource-famelack-live-tv-radio-webcams"
@@ -45,9 +44,9 @@
         },
         {
           "surface": "monthly",
-          "eligibleCount": 0,
+          "eligibleCount": 3,
           "needsReview": true,
-          "nextReviewDue": null,
+          "nextReviewDue": "2026-11-15",
           "overdueIds": [
             "cadbury-made-to-share-2026",
             "heinz-heritage-spar-2026",

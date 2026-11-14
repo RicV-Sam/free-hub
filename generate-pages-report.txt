@@ -1,2 +1,2 @@
-[Opportunity publication] 41 records validated; 0 active; 39 retained tombstones.
+[Opportunity publication] 42 records validated; 7 active; 33 retained tombstones.
 [generate-pages] Reviewed competition retirements effective: 6
