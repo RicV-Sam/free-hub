@@ -3,6 +3,7 @@ const shared = require("../../shared/page-data.js");
 const { applyCompetitionRetirements } = require("../../scripts/lib/competition-retirements.js");
 shared.setReferenceDate(process.env.FREEHUB_AS_OF_DATE || process.env.FREEHUB_BUILD_DATE);
 const state = applyCompetitionRetirements(require("../../data/competitions.json"), require("../../data/archive/competitions-expired.json"));
+const sourceReviews = require("../../data/archive/competition-source-reviews.json");
 const records = [...state.primary, ...state.archive];
 const closed = [...new Map(records.filter(shared.isIndexableClosedCompetition).map(record => [shared.getCompetitionSlug(record), record])).values()];
 const provider = "https://scripts.scriptwrapper.com/tags/db39d7ff-ec0e-46b2-9797-bad57ea1954f.js";
@@ -25,6 +26,14 @@ test("all eligible closed pages have consistent indexing, closure, advertising a
     expect(html, slug).not.toContain(`href="/out/${slug}/"`);
     expect(sitemap, slug).toContain(`https://freehub.co.za/competition/${slug}/`);
     expect(feed, slug).not.toContain(`"${record.id}"`);
+    const sourceReview = sourceReviews[record.id];
+    if (sourceReview?.reviewedAt <= shared.getReferenceDate()) {
+      expect(html, slug).toContain("FreeHub could not verify a working link to the original campaign rules");
+      for (const url of sourceReview.unavailableUrls) {
+        expect(html, slug).not.toContain(`href="${url.replaceAll("&", "&amp;")}"`);
+      }
+      if (sourceReview.contextUrl) expect(html, slug).toContain(`href="${sourceReview.contextUrl}"`);
+    }
     const archive = html.match(/<section[^>]*data-closed-competition-links[\s\S]*?<\/section>/)?.[0] || "";
     for (const match of archive.matchAll(/href="\/competition\/([^/]+)\//g)) incoming.add(match[1]);
   }
