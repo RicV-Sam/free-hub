@@ -163,6 +163,20 @@ jobs:
       - env:
           NODE_OPTIONS: ''
         run: FREEHUB_ENABLE_OPPORTUNITIES=false FREEHUB_ENABLE_OFFERS=true npm run test:browser
+      - name: Build the published Grocery Savings fixture
+        env:
+          FREEHUB_BUILD_DATE: '2026-10-26'
+          FREEHUB_AS_OF_DATE: '2026-10-26'
+          FREEHUB_ENABLE_OFFERS: 'true'
+          NODE_OPTIONS: '--require=${{ github.workspace }}/scripts/lib/fixed-date-register.js'
+        run: npm run build
+      - name: Test the published Grocery Savings pages
+        env:
+          FREEHUB_BUILD_DATE: '2026-10-26'
+          FREEHUB_AS_OF_DATE: '2026-10-26'
+          FREEHUB_ENABLE_OFFERS: 'true'
+          NODE_OPTIONS: ''
+        run: npx playwright test tests/browser/grocery-savings.spec.js
       - name: Upload Playwright artifacts
         if: always()
         uses: actions/upload-artifact@v4

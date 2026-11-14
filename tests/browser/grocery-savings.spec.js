@@ -3,7 +3,9 @@ const fs = require("node:fs");
 const path = require("node:path");
 const root = path.resolve(__dirname, "../..");
 const enabled = process.env.FREEHUB_ENABLE_OFFERS === "true";
-test.skip(!enabled, "Grocery Savings requires the offers flag.");
+const { referenceDate } = require("./editorial-source-fixture.js");
+const { getGroceryPages } = require("../../scripts/lib/grocery-savings.js");
+const published = enabled && getGroceryPages({ asOfDate: referenceDate }).length > 0;
 
 test.beforeEach(async ({ page }) => {
   await page.route("**/*", route => new URL(route.request().url()).hostname === "127.0.0.1" ? route.continue() : route.abort());
@@ -12,7 +14,13 @@ test.beforeEach(async ({ page }) => {
 
 for (const width of [390, 1440]) test(`grocery discovery, layout and retailer clicks at ${width}px`, async ({ page }) => {
   await page.setViewportSize({ width, height: 900 });
-  await page.goto("/grocery-savings/");
+  const response = await page.goto("/grocery-savings/");
+  expect(response.status()).toBe(published ? 200 : 404);
+  if (!published) {
+    await page.goto("/");
+    await expect(page.locator('a[href="/grocery-savings/"]')).toHaveCount(0);
+    return;
+  }
   await expect(page.locator("h1")).toHaveText("Grocery savings in South Africa");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://freehub.co.za/grocery-savings/");
   await page.evaluate(() => { window.groceryEvents = []; window.gtag = (...args) => window.groceryEvents.push(args); });
