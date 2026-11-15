@@ -1,34 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-14",
-  "count": 106,
+  "asOfDate": "2026-11-15",
+  "count": 105,
   "competitions": [
-    {
-      "id": "pizza-perfect-oom-freddy-legacy-2026",
-      "title": "Pizza Perfect Oom Freddy’s Legacy Hamper Competition",
-      "brand": "Pizza Perfect",
-      "summary": "Pizza Perfect’s Legacy promotion awards weekly rugby-themed hampers. A qualifying food-and-drink purchase and receipt submission are both required.",
-      "imageUrl": "https://freehub.co.za/assets/listings/pizza-perfect-oom-freddy-legacy-2026.webp",
-      "closingDate": "2026-11-14",
-      "category": "Food & Drink",
-      "prizeName": "Weekly rugby and Oom Freddy’s Legacy hampers",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Qualifying purchase and Facebook direct message",
-      "eligibility": "South African residents who make the qualifying purchase and submit the required receipt details.",
-      "entrySteps": [
-        "Read the official Legacy PDF and choose a qualifying Oom Freddy’s Legacy 30 cm pizza, 20 cm sub, chicken wings, or chicken or beef burger.",
-        "Add a Coca-Cola can, buddy or 2-litre product to the purchase. Orders may be made through the app, website or in store under the rules.",
-        "Keep the receipt and send a clear photograph of it, your name and your cellphone number by direct message to Pizza Perfect’s official Facebook account, linked from its website.",
-        "Submit during the campaign period ending at midnight on 14 November 2026. Keep your receipt and be able to collect the prize from the store where you purchased."
-      ],
-      "officialUrl": "https://pizzaperfect.co.za/promos/",
-      "termsUrl": "https://pizzaperfect.co.za/wp-content/uploads/2026/07/Terms-and-Conditions-Legacy.pdf",
-      "lastChecked": "2026-09-18",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "nedbank-old-mutual-budget-speech-2026",
       "title": "55th Nedbank and Old Mutual Budget Speech Competition",
@@ -203,7 +177,7 @@
       "termsUrl": "https://eskort.com/braai-lux-competition-terms-conditions/",
       "lastChecked": "2026-09-18",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "mally-win-your-cart-november-2026",
@@ -229,7 +203,7 @@
       "termsUrl": "https://mally.co.za/pages/win-your-cart-competition-terms-conditions",
       "lastChecked": "2026-11-13",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "beauty-sa-clicks-spring-beauty-box-2026",
@@ -254,7 +228,7 @@
       "termsUrl": "https://beautysouthafrica.com/competition-terms-and-conditions/",
       "lastChecked": "2026-11-13",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "beauty-sa-hr-haircare-2026",
@@ -279,7 +253,7 @@
       "termsUrl": "https://beautysouthafrica.com/competition-terms-and-conditions/",
       "lastChecked": "2026-11-13",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "colgate-gauteng-dental-checkup-clean-2026",
@@ -304,7 +278,7 @@
       "termsUrl": "https://www.colgate.com/content/dam/cp-sites-aem/oral-care/oral-care-center/en_za/competitions/pdfs/test-and-learn-activation-campaign-en-za.pdf",
       "lastChecked": "2026-11-13",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "beauty-sa-fundamentals-skincare-2026",
