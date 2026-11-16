@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-15",
-  "count": 98,
+  "asOfDate": "2026-11-16",
+  "count": 91,
   "counts": {
-    "freeStuff": 65,
-    "resources": 45,
+    "freeStuff": 60,
+    "resources": 40,
     "opportunities": 20,
-    "offers": 33
+    "offers": 31
   },
   "items": [
     {
@@ -280,86 +280,6 @@
       ],
       "watchOut": "A completion certificate is not a university qualification, professional licence or guaranteed job. Check each course language and content before starting.",
       "lastChecked": "2026-11-13"
-    },
-    {
-      "id": "openlearn-free-learning-statements",
-      "kind": "resource",
-      "title": "OpenLearn free courses and participation statements",
-      "provider": "OpenLearn free courses and participation statements",
-      "summary": "Free Open University learning content and courses. Completing a course can earn a free Statement of Participation; selected courses also offer a free digital badge.",
-      "category": "online-courses",
-      "categoryLabel": "Free online courses",
-      "officialUrl": "https://www.open.edu/openlearn/free-courses/full-catalogue",
-      "bestFor": "Independent learners exploring new subjects and practical skills",
-      "requirements": [
-        "Reading content does not require an account. A free account requires age 13+; enrol and complete the course pages and required quizzes to receive a statement or available badge."
-      ],
-      "watchOut": "Statements and badges carry no formal qualification credit. OpenLearn does not grant an Open University qualification, student status or student discounts. Internet and device costs remain yours.",
-      "lastChecked": "2026-10-16"
-    },
-    {
-      "id": "ibm-skillsbuild-free-learning",
-      "kind": "resource",
-      "title": "IBM SkillsBuild free learning for adults",
-      "provider": "IBM SkillsBuild free learning for adults",
-      "summary": "IBM SkillsBuild offers free online adult learning. Selected learning activities award IBM digital credentials after their requirements are completed.",
-      "category": "online-courses",
-      "categoryLabel": "Free online courses",
-      "officialUrl": "https://skillsbuild.org/adult-learners",
-      "bestFor": "Adults building technology and workplace skills for a career change or job search",
-      "requirements": [
-        "The adult programme is for learners aged 18+. Create a free SkillsBuild account. Accepting and managing digital credentials requires a Credly account and the relevant completion requirements."
-      ],
-      "watchOut": "Check each activity audience: some credentials and advanced routes are restricted to learners working with a partner non-profit organisation. A digital credential does not guarantee a job. Internet and device costs remain yours.",
-      "lastChecked": "2026-10-16"
-    },
-    {
-      "id": "canva-education-eligible-k12",
-      "kind": "resource",
-      "title": "Canva Education for eligible school educators",
-      "provider": "Canva Education for eligible school educators",
-      "summary": "Canva Education is free worldwide for eligible K-12 teachers and institutions, including qualifying school librarians, learning support staff and curriculum specialists.",
-      "category": "school-resources",
-      "categoryLabel": "Free school resources",
-      "officialUrl": "https://www.canva.com/education/eligibility-guidelines/",
-      "bestFor": "Active, eligible primary and secondary school educators and accredited schools",
-      "requirements": [
-        "You must currently hold an eligible certified role at a formally accredited primary or secondary school, or apply through a qualifying institution. Verify with an accepted educational email domain or supporting documents; re-verification is required every three years."
-      ],
-      "watchOut": "Eligibility excludes universities and their students, private tutors, parents applying only as parents, inactive teachers and unlicensed homeschool educators. This is conditional education access; normal internet and device costs apply.",
-      "lastChecked": "2026-10-16"
-    },
-    {
-      "id": "learnfree-practical-skills",
-      "kind": "resource",
-      "title": "LearnFree practical skills lessons",
-      "provider": "LearnFree practical skills lessons",
-      "summary": "Free, self-paced lessons and practical learning content across computing, office tools, core skills and job seeking.",
-      "category": "online-courses",
-      "categoryLabel": "Free online courses",
-      "officialUrl": "https://www.learnfree.org/",
-      "bestFor": "Beginners learning computer, office, internet and job-search skills",
-      "requirements": [
-        "Use a compatible device and internet connection. Provider terms require age 18+, emancipation, or express parent or guardian permission. Registered users under 18 need parent or guardian consent; certain features require an account."
-      ],
-      "watchOut": "This listing covers free learning content and makes no promise of an accredited qualification or free certificate. Internet and device costs remain yours; follow the provider terms for account use.",
-      "lastChecked": "2026-10-16"
-    },
-    {
-      "id": "momconnect-official-pregnancy-information",
-      "kind": "resource",
-      "title": "MomConnect pregnancy and baby information",
-      "provider": "MomConnect pregnancy and baby information",
-      "summary": "The Department of Health provides pregnancy and baby-care information through MomConnect messaging, with a helpdesk and clinic-feedback service. The official USSD registration route is free.",
-      "category": "family-support",
-      "categoryLabel": "Pregnancy and parenting support",
-      "officialUrl": "https://www.health.gov.za/momconnect-technical-solution/",
-      "bestFor": "Pregnant women and mothers using South African public-clinic maternity services",
-      "requirements": [
-        "Dial *134*550*2# for free USSD registration, or send join on WhatsApp to 079 631 2456. To finish registration, obtain the public-clinic facility code from a nurse and provide your estimated delivery date through the official service."
-      ],
-      "watchOut": "WhatsApp can use mobile data; the official page does not promise zero-rated WhatsApp. This is an information service, with no promised physical samples. Share registration and health details only with the official service.",
-      "lastChecked": "2026-10-16"
     },
     {
       "id": "iziko-free-days-and-fridays",
@@ -1337,25 +1257,6 @@
       "isSponsored": false
     },
     {
-      "id": "absa-rewards-fuel-relief-october-november-2026",
-      "kind": "deal",
-      "title": "Absa Fuel Relief: extra cashback on qualifying fuel spend until 15 November",
-      "provider": "Absa",
-      "summary": "Eligible Absa Rewards members can earn an extra 10% on their first R1,500 of qualifying fuel spend, capped at R150 extra.",
-      "category": "banking-rewards",
-      "categoryLabel": "Banking & Rewards",
-      "officialUrl": "https://www.absa.co.za/offers/deals-and-promotions/terms-and-conditions/",
-      "termsUrl": "https://www.absa.co.za/content/dam/south-africa/absa/pdf/2026/absa-rewards-fuel-relief-promotion.pdf",
-      "requirements": [
-        "Runs 16 October–15 November 2026. Requires age 18+, qualifying South African citizenship or temporary residence, active Absa Rewards, transactional and credit accounts in good standing, and an Absa Advantage challenge completed in the preceding six months. Buy fuel exclusively at Sasol or Shell in the campaign month, using an eligible digital wallet or virtual Absa card. Shell V+ requirements apply. Fuel purchases and account fees remain payable; this is conditional cashback, not free fuel. Read the full terms before changing your usual fuel purchases."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2026-11-15",
-      "lastChecked": "2026-11-13",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
       "id": "atkv-goudini-spa-november-weekend-sale-2026",
       "kind": "deal",
       "title": "ATKV Goudini Spa: 30% off selected November weekend accommodation",
@@ -1681,25 +1582,6 @@
         "A qualifying paid consumer contract is required. Be active on Vodacom for at least 30 days and have had no trial benefit in the previous 12 months. Business/corporate contracts do not qualify. Activate the offer shown through Vodacom’s website, VodaPay or an official invitation and link your Amazon account. Contract and data charges remain payable. This is the Amazon Prime benefit, distinct from older Prime Video Mobile Edition offers."
       ],
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "lastChecked": "2026-11-13",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "spar-black-friday-rewards-november-2026",
-      "kind": "deal",
-      "title": "SPAR Rewards Black Friday essentials: 12–15 November",
-      "provider": "SPAR",
-      "summary": "Selected in-store Rewards deals include Twinsaver 18-roll toilet tissue at R94.99, two Sunlight 750ml refills for R40, and qualifying Omo packs at R109.99.",
-      "category": "groceries",
-      "categoryLabel": "Groceries",
-      "officialUrl": "https://www.spar.co.za/SPARBlackFriday",
-      "termsUrl": "https://www.spar.co.za/save-extra-in-store-only-terms-and-conditions",
-      "requirements": [
-        "12–15 November 2026, while stocks last at participating SPAR, SUPERSPAR and KWIKSPAR stores. SPAR Rewards identification is required; excludes SPAR Express and SPAR2U. Limit five deals per product per customer. Exact packs: Twinsaver 2-ply 18 rolls of 350 sheets; two Sunlight 750ml refills; Omo 4kg powder or 3L liquid. The provider advertises savings of R80, R20 and R70 respectively; FreeHub has not independently audited historical prices."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2026-11-15",
       "lastChecked": "2026-11-13",
       "isAffiliate": false,
       "isSponsored": false

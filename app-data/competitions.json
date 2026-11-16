@@ -1,83 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-15",
-  "count": 105,
+  "asOfDate": "2026-11-16",
+  "count": 102,
   "competitions": [
-    {
-      "id": "nedbank-old-mutual-budget-speech-2026",
-      "title": "55th Nedbank and Old Mutual Budget Speech Competition",
-      "brand": "Nedbank / Old Mutual",
-      "summary": "Eligible economics-course students can enter an original essay in the 55th Budget Speech Competition. Six undergraduate and postgraduate prizes total R630,000.",
-      "imageUrl": "https://freehub.co.za/assets/listings/nedbank-old-mutual-budget-speech-2026.webp",
-      "closingDate": "2026-11-15",
-      "category": "Education",
-      "prizeName": "Undergraduate prizes R100,000, R80,000 and R60,000; postgraduate prizes R180,000, R130,000 and R80,000",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Academic Essay",
-      "eligibility": "Full/part-time students registered for an economics course at a recognised South African higher-education institution; postgraduate category limited to Honours or first-time Masters. Citizens of SA, Botswana, eSwatini, Ghana, Kenya, Malawi, Namibia, Nigeria, Rwanda, South Sudan, Tanzania, Uganda or Zimbabwe. Prior category winners cannot re-enter that category; qualifying undergraduate winners may enter postgraduate. Promoter staff and related-person exclusions apply.",
-      "entrySteps": [
-        "Register personally on the official student portal and provide the required eligibility documents. The registration form includes consent to receive marketing emails.",
-        "Use the official 2026 category question and prepare an original English essay within the published format requirements.",
-        "Submit through the official competition platform by 15 November 2026 and complete any mandatory competition phases. The organisers have not stated a closing time."
-      ],
-      "officialUrl": "https://budgetspeechcompetition.co.za/student-registration-login/",
-      "termsUrl": "https://budgetspeechcompetition.co.za/terms-and-conditions/",
-      "lastChecked": "2026-11-09",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
-    {
-      "id": "huletts-spar-rewards-2026",
-      "title": "Huletts SPAR Rewards Competition 2026",
-      "brand": "Huletts / SPAR",
-      "summary": "Buy Huletts White Sugar or Brown Sugar in a 2kg or larger pack at SPAR and swipe your SPAR Rewards card for a chance to win one of 100 R2,000 digital vouchers.",
-      "imageUrl": "https://freehub.co.za/assets/listings/huletts-spar-rewards-2026.webp",
-      "closingDate": "2026-11-15",
-      "category": "Vouchers",
-      "prizeName": "100 R2,000 SPAR digital vouchers",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Purchase and SPAR Rewards card swipe",
-      "eligibility": "South African citizens and residents residing in South Africa over the age of 18, with a valid SPAR Rewards card. Promoter-related parties and their specified families are excluded.",
-      "entrySteps": [
-        "Check that your SPAR Rewards card is valid and its mobile contact details are current.",
-        "Buy any Huletts White Sugar or Brown Sugar pack of 2kg or larger at a SPAR store nationwide during the competition period.",
-        "Swipe your SPAR Rewards card at the till for automatic entry. Keep the original till slip for verification."
-      ],
-      "officialUrl": "https://www.spar.co.za/competitions/huletts-spar-rewards-competition-2026",
-      "termsUrl": "https://www.spar.co.za/competitions/huletts-spar-rewards-competition-2026",
-      "lastChecked": "2026-10-08",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "absa-pre-black-friday-mr-d-voucher-2026",
-      "title": "Absa pre-Black Friday: win a R200 Mr D voucher",
-      "brand": "Absa",
-      "summary": "Qualifying customers enter a draw for a Mr D voucher.",
-      "imageUrl": "https://freehub.co.za/assets/listings/2026-11-13/absa-pre-black-friday-mr-d-voucher-2026.webp",
-      "closingDate": "2026-11-15",
-      "category": "Vouchers",
-      "prizeName": "1,000 prizes of R200 each; not a guaranteed voucher.",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Qualifying purchase",
-      "eligibility": "South African citizens living in South Africa, aged 18+, with Absa Rewards and eligible accounts/cards in good standing; ID/passport proof required.",
-      "entrySteps": [
-        "Check that you are an eligible Absa Rewards member with an Absa debit or credit card in good standing.",
-        "Add the card to an available digital wallet, or create an Absa virtual debit or credit card.",
-        "Make the required online purchase by 15 November. The rules do not state a minimum purchase value."
-      ],
-      "officialUrl": "https://www.absa.co.za/content/dam/south-africa/absa/pdf/2026/pre-blac-friday-r200-voucher-campaign-terms-and-conditions.pdf",
-      "termsUrl": "https://www.absa.co.za/content/dam/south-africa/absa/pdf/2026/pre-blac-friday-r200-voucher-campaign-terms-and-conditions.pdf",
-      "lastChecked": "2026-11-13",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "mtn-tfg-prepaid-win-your-share-2026",
       "title": "MTN TFG Prepaid Win Your Share Competition",
@@ -303,7 +228,7 @@
       "termsUrl": "https://beautysouthafrica.com/competition-terms-and-conditions/",
       "lastChecked": "2026-11-13",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "clicks-catrice-setting-spray-2026",
@@ -328,7 +253,7 @@
       "termsUrl": "https://woobox.com/mwpnt9/rules",
       "lastChecked": "2026-11-13",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "boxer-amarula-smeg-fridge-2026",
