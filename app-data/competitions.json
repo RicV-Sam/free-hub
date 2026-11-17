@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-16",
+  "asOfDate": "2026-11-17",
   "count": 102,
   "competitions": [
     {
@@ -278,7 +278,7 @@
       "termsUrl": "https://www.boxer.co.za/storage/web/source/2026/Competition%20T%26Cs/Boxer%20%26%20Amarula%20Ts%26Cs.pdf?_t=1792679933",
       "lastChecked": "2026-10-30",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "clicks-elastoplast-first-aid-kit-2026",
@@ -303,7 +303,7 @@
       "termsUrl": "https://woobox.com/4abg7r/rules",
       "lastChecked": "2026-11-13",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "chateau-gateaux-paris-2026",
