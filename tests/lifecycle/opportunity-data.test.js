@@ -135,7 +135,8 @@ test("runtime validators enforce strict contracts and legacy FreeResource compat
   assert.equal(unsupported.typeSupported, false);
 
   const legacyResources = JSON.parse(fs.readFileSync(path.join(rootDir, "data", "free-resources.json"), "utf8"));
-  assert.equal(legacyResources.length, 65);
+  // Five reviewed resources added on 18 November; CS50 keeps its existing guide.
+  assert.equal(legacyResources.length, 70);
   assert.equal(opportunityData.validateFreeResourceRegistry(legacyResources, { legacy: true }).valid, true);
   assert.equal(opportunityData.validateFreeResource(legacyResources[0]).valid, false);
 

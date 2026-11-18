@@ -5222,5 +5222,51 @@
     "generationMethod": "Built-in image generation",
     "generationPrompt": "Use case: illustration-story. Create a wide 16:9 editorial hero illustration for a factual consumer guide to an upcoming online phone-contract promotion with a conditional partner voucher. Show an unbranded smartphone beside a small blank digital-voucher envelope and a subtle hourglass, on a cream desk with navy and teal accents. Attractive tactile editorial illustration, not a product advertisement. No brand logos, voucher code, face value, dates, discounts or promises of free devices. Only text: a small clearly legible footer exactly 'FreeHub editorial illustration'.",
     "sourceReviewNote": "Official offer and linked source artwork inspected. Only generic or unsuitable visual material was available; the symbolic editorial illustration is visibly labelled."
+  },
+  "world-sports-photography-awards-2027": {
+    "src": "/assets/listings/world-sports-photography-awards-2027.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "FreeHub editorial illustration of an unbranded sports camera beside an athletics track; not an entry or prize",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration; not official campaign artwork or a competition entry.",
+    "reviewedAt": "2026-11-18",
+    "sourcePage": "https://site.picter.com/worldsportsphotographyawards-2027",
+    "generationPrompt": "Wide 3:2 flat editorial illustration, navy cream turquoise, unbranded sports camera with long lens beside an empty athletics track. No people, logos, text, numbers, trophies or prize claims. Clearly an illustration, not a competition entry.",
+    "sourceReviewNote": "Official site and Picter hero inspected. Existing winner photograph and generic logo were not reused as a campaign hero."
+  },
+  "vodacom-amazon-prime-summer-2026": {
+    "src": "/assets/listings/vodacom-amazon-prime-summer-2026.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "FreeHub editorial illustration of an unbranded phone beside a gift voucher; the phone is not a prize",
+    "kind": "editorial-generated",
+    "caption": "FreeHub editorial illustration; not official campaign artwork or a competition entry.",
+    "reviewedAt": "2026-11-18",
+    "sourcePage": "https://www.vodacom.co.za/vodacom/terms/competition/amazon-prime-summer",
+    "generationPrompt": "Wide 3:2 flat editorial illustration with paper texture, red navy cream turquoise. Unbranded smartphone beside a blank gift voucher card with ribbon motif on a clean desk. No logos, text, amounts, products or endorsements. Phone represents access equipment, not a prize.",
+    "sourceReviewNote": "Official campaign terms and Vodacom Prime provider pages inspected; no suitable competition-specific hero obtained."
+  },
+  "taste-spot-the-cracker-2026": {
+    "src": "/assets/listings/taste-spot-the-cracker-2026.webp",
+    "width": 1200,
+    "height": 1582,
+    "alt": "Official TASTE Christmas 2026 cracker-competition image showing festive gammon and the campaign badge",
+    "kind": "official-source",
+    "caption": "Image from the official TASTE campaign announcement.",
+    "reviewedAt": "2026-11-18",
+    "sourcePage": "https://taste.co.za/magazine/share-the-joy-with-the-christmas-2026-issue-of-taste/",
+    "sourceImage": "https://taste.co.za/wp-content/uploads/2026/11/Taste-cracker-competition-2026-gammon.jpg"
+  },
+  "taste-last-word-madikwe-2026": {
+    "src": "/assets/listings/taste-last-word-madikwe-2026.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "Zebras at the Last Word Madikwe waterhole in the official TASTE prize announcement",
+    "kind": "official-source",
+    "caption": "Image from the official TASTE campaign announcement.",
+    "reviewedAt": "2026-11-18",
+    "sourcePage": "https://taste.co.za/magazine/share-the-joy-with-the-christmas-2026-issue-of-taste/",
+    "sourceImage": "https://taste.co.za/wp-content/uploads/2026/11/Last-Word-Madikwe-Waterhole-zebras.jpg"
   }
 }

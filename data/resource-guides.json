@@ -1046,5 +1046,279 @@
       "Review access requirements",
       "Normal data costs may apply"
     ]
+  },
+  {
+    "resourceId": "freecodecamp-free-coding",
+    "provider": "freeCodeCamp",
+    "title": "freeCodeCamp: free coding courses and certificates | FreeHub",
+    "description": "Start freeCodeCamp’s coding curriculum from South Africa. Learn through projects and check certification requirements; donations are optional.",
+    "intro": "Build a small project before choosing a long learning path. freeCodeCamp is useful for practising code and collecting examples of your work.",
+    "accessNote": "Choose a curriculum track suited to your experience and use a provider account to save progress.",
+    "steps": [
+      "Open the curriculum and select a starting track.",
+      "Sign in and work through its lessons and practical projects.",
+      "Check the track’s completion requirements before requesting certification."
+    ],
+    "sections": [
+      {
+        "heading": "Choose a manageable first project",
+        "paragraphs": [
+          "Set aside regular practice time and keep your own notes. If a lesson is difficult, revisit the prerequisite material before moving on."
+        ]
+      },
+      {
+        "heading": "Budget for access, not a course fee",
+        "paragraphs": [
+          "The provider describes courses, projects and certifications as free. You still need access to a device and data; optional donations support the charity."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Does completing a course guarantee employment?",
+        "answer": "No. Use your completed work to demonstrate skills; employers set their own hiring requirements."
+      }
+    ],
+    "trustItems": [
+      "Official source checked 18 November 2026",
+      "Access conditions explained",
+      "Use the provider directly"
+    ],
+    "sourceSummary": "Official provider information reviewed on 18 November 2026. Check the linked source for current access requirements.",
+    "sourceLinks": [
+      {
+        "label": "Official provider and access information",
+        "href": "https://www.freecodecamp.org/learn"
+      },
+      {
+        "label": "Provider conditions and help",
+        "href": "https://www.freecodecamp.org/news/about/"
+      }
+    ],
+    "ctaHeading": "Continue to the official provider",
+    "ctaText": "Check the provider’s instructions before registering or downloading.",
+    "ctaLabel": "Open official resource",
+    "exitNote": "You are leaving FreeHub for the provider. FreeHub does not collect your account details, coursework or application information.",
+    "exitTrustItems": [
+      "Official provider link",
+      "Check access requirements",
+      "Data or printing costs may apply"
+    ]
+  },
+  {
+    "resourceId": "african-storybook-free-books",
+    "provider": "Saide / African Storybook",
+    "title": "African Storybook: free books for children | FreeHub",
+    "description": "Find African Storybook picture books by language and reading level. Download for offline reading and understand approved versus community collections.",
+    "intro": "Use a story in a familiar language to make reading together easier. Preview a few pages with the child before choosing a longer book.",
+    "accessNote": "The official site provides reading and download tools; its Reader app is another access option.",
+    "steps": [
+      "Open African Storybook and choose Read.",
+      "Filter by language and reading level, and check the collection label.",
+      "Read online or download a suitable version for offline use or printing."
+    ],
+    "sections": [
+      {
+        "heading": "Check the collection label",
+        "paragraphs": [
+          "ASb-approved stories have been checked by the project or partners. Community website and app stories are separately labelled and may not have been checked."
+        ]
+      },
+      {
+        "heading": "Use and share responsibly",
+        "paragraphs": [
+          "The site uses a Creative Commons attribution licence. Retain author and illustrator credits and check the selected book’s licence before adapting or distributing it."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Will FreeHub send printed books?",
+        "answer": "No. Follow the provider’s digital reading or download route; arrange and pay for any printing yourself."
+      }
+    ],
+    "trustItems": [
+      "Official source checked 18 November 2026",
+      "Access conditions explained",
+      "Use the provider directly"
+    ],
+    "sourceSummary": "Official provider information reviewed on 18 November 2026. Check the linked source for current access requirements.",
+    "sourceLinks": [
+      {
+        "label": "Official provider and access information",
+        "href": "https://www.africanstorybook.org/"
+      }
+    ],
+    "ctaHeading": "Continue to the official provider",
+    "ctaText": "Check the provider’s instructions before registering or downloading.",
+    "ctaLabel": "Open official resource",
+    "exitNote": "You are leaving FreeHub for the provider. FreeHub does not collect your account details, coursework or application information.",
+    "exitTrustItems": [
+      "Official provider link",
+      "Check access requirements",
+      "Data or printing costs may apply"
+    ]
+  },
+  {
+    "resourceId": "openstax-free-textbooks",
+    "provider": "OpenStax",
+    "title": "OpenStax: free digital textbooks for study | FreeHub",
+    "description": "Find free OpenStax digital textbooks and check subject fit, editions and paid extras before choosing a book for your studies.",
+    "intro": "A free textbook can supplement lectures, support revision or help you explore a new subject. Start with the contents page and compare it with your syllabus.",
+    "accessNote": "Use the digital textbook route. Optional teaching tools and print editions have separate conditions.",
+    "steps": [
+      "Browse the official subject library.",
+      "Open a suitable title and compare its contents and edition with your learning needs.",
+      "Choose the free digital reading or download option offered for that title."
+    ],
+    "sections": [
+      {
+        "heading": "Match the book to your course",
+        "paragraphs": [
+          "Ask your lecturer which chapters and conventions apply. Terminology, examples and course coverage can differ from those used in South Africa."
+        ]
+      },
+      {
+        "heading": "Separate textbooks from paid extras",
+        "paragraphs": [
+          "OpenStax provides free digital textbooks. Optional products, including Assignable, are separately priced; you do not need to buy an extra simply to use a free book."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Are printed copies free?",
+        "answer": "Do not assume so. This listing covers the free digital textbooks; check print pricing and delivery separately."
+      }
+    ],
+    "trustItems": [
+      "Official source checked 18 November 2026",
+      "Access conditions explained",
+      "Use the provider directly"
+    ],
+    "sourceSummary": "Official provider information reviewed on 18 November 2026. Check the linked source for current access requirements.",
+    "sourceLinks": [
+      {
+        "label": "Official provider and access information",
+        "href": "https://openstax.org/higher-education"
+      }
+    ],
+    "ctaHeading": "Continue to the official provider",
+    "ctaText": "Check the provider’s instructions before registering or downloading.",
+    "ctaLabel": "Open official resource",
+    "exitNote": "You are leaving FreeHub for the provider. FreeHub does not collect your account details, coursework or application information.",
+    "exitTrustItems": [
+      "Official provider link",
+      "Check access requirements",
+      "Data or printing costs may apply"
+    ]
+  },
+  {
+    "resourceId": "unicef-agora-free-learning",
+    "provider": "UNICEF Agora",
+    "title": "UNICEF Agora: free courses and public learning | FreeHub",
+    "description": "Explore UNICEF Agora’s free public learning, register with the provider and check each course’s audience and completion requirements.",
+    "intro": "Agora can help you explore topics such as children’s rights, education and humanitarian practice. Choose a course that fits your purpose and available study time.",
+    "accessNote": "Use the public account route if you are not UNICEF staff. Read the selected activity’s access details before enrolling.",
+    "steps": [
+      "Open Agora and create the appropriate free learner account.",
+      "Browse the catalogue and review the audience and learning objectives.",
+      "Complete the chosen activity and check its stated certificate or badge conditions."
+    ],
+    "sections": [
+      {
+        "heading": "Choose an appropriate activity",
+        "paragraphs": [
+          "Course descriptions should guide your choice. Look for the right language, intended audience and time commitment before you start."
+        ]
+      },
+      {
+        "heading": "Keep learning claims accurate",
+        "paragraphs": [
+          "A platform account does not make you a UNICEF employee or representative. Describe only the activity and completion evidence you actually receive."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Does every course issue the same certificate?",
+        "answer": "No universal certificate is promised here. Check the selected activity’s requirements and available completion evidence."
+      }
+    ],
+    "trustItems": [
+      "Official source checked 18 November 2026",
+      "Access conditions explained",
+      "Use the provider directly"
+    ],
+    "sourceSummary": "Official provider information reviewed on 18 November 2026. Check the linked source for current access requirements.",
+    "sourceLinks": [
+      {
+        "label": "Official provider and access information",
+        "href": "https://agora.unicef.org/"
+      }
+    ],
+    "ctaHeading": "Continue to the official provider",
+    "ctaText": "Check the provider’s instructions before registering or downloading.",
+    "ctaLabel": "Open official resource",
+    "exitNote": "You are leaving FreeHub for the provider. FreeHub does not collect your account details, coursework or application information.",
+    "exitTrustItems": [
+      "Official provider link",
+      "Check access requirements",
+      "Data or printing costs may apply"
+    ]
+  },
+  {
+    "resourceId": "western-cape-public-wifi",
+    "provider": "Western Cape Government",
+    "title": "Western Cape public Wi-Fi: free hotspot data | FreeHub",
+    "description": "Check Western Cape Government public Wi-Fi access, monthly device limits and the additional-data promotion. Use a participating hotspot with your own device.",
+    "intro": "Public hotspots can help with downloads, learning and everyday online tasks when you are near a participating location.",
+    "accessNote": "Check the official service information before travelling. Hotspot availability and connection quality depend on the location.",
+    "steps": [
+      "Use the official service page to find connection and location information.",
+      "At a participating hotspot, connect your device and follow the access instructions.",
+      "Monitor the allowance; if the connection page offers additional promotional data, read its conditions before accepting."
+    ],
+    "sections": [
+      {
+        "heading": "Understand the allowance",
+        "paragraphs": [
+          "The service page lists 3GB per device each month and a further 3GB promotion after that allocation is consumed. Treat the bonus as conditional on the offer being available when you connect."
+        ]
+      },
+      {
+        "heading": "Bring your own device",
+        "paragraphs": [
+          "This listing covers Wi-Fi access. It does not promise a computer, printing, training, home broadband or a mobile-network data bundle."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Can I use this data anywhere in South Africa?",
+        "answer": "No. You need to be within range of a participating Western Cape hotspot."
+      }
+    ],
+    "trustItems": [
+      "Official source checked 18 November 2026",
+      "Access conditions explained",
+      "Use the provider directly"
+    ],
+    "sourceSummary": "Official provider information reviewed on 18 November 2026. Check the linked source for current access requirements.",
+    "sourceLinks": [
+      {
+        "label": "Official provider and access information",
+        "href": "https://www.westerncape.gov.za/service/public-wi-fi-hotspots-across-western-cape"
+      }
+    ],
+    "ctaHeading": "Continue to the official provider",
+    "ctaText": "Check the provider’s instructions before registering or downloading.",
+    "ctaLabel": "Open official resource",
+    "exitNote": "You are leaving FreeHub for the provider. FreeHub does not collect your account details, coursework or application information.",
+    "exitTrustItems": [
+      "Official provider link",
+      "Check access requirements",
+      "Data or printing costs may apply"
+    ]
   }
 ]

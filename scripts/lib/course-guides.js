@@ -78,9 +78,9 @@ const CS50_GUIDE = {
   eyebrow: "Learning explainer · CS50x",
   article: true,
   datePublished: CHECKED,
-  dateModified: CHECKED,
+  dateModified: "2026-11-18",
   actions: [{ label: "Open the official CS50x course", href: CS50, className: "btn--primary" }, { label: "Compare other courses", href: "/free-online-courses-south-africa/", className: "btn--secondary" }],
-  trustItems: ["Sources checked 5 October 2026", "Free and paid routes separated", "Assignments required"],
+  trustItems: ["Sources checked 18 November 2026", "Free and paid routes separated", "Assignments required"],
   sections: [
     {
       heading: "Two certificates, two routes",
@@ -104,7 +104,7 @@ const CS50_GUIDE = {
     },
     {
       heading: "Plan for assignments, not just video time",
-      paragraphs: ["The course covers eleven weeks of material, with topics including C, algorithms, Python, SQL and web development. You can study at your own pace, but the labels describe the material rather than a promise that everyone finishes in eleven calendar weeks.", "Plan regular time to write code, debug it and build the final project. South African learners should budget for internet access and check that the required tools work on their device. This guide does not verify zero-rated data or access on every device. Check the official FAQ for the current overall completion deadline before planning your study schedule."],
+      paragraphs: ["The course covers eleven weeks of material, with topics including C, algorithms, Python, SQL and web development. You can study at your own pace, but the labels describe the material rather than a promise that everyone finishes in eleven calendar weeks.", "The official FAQ checked on 18 November 2026 gives an overall completion deadline of 30 June 2027 at 23:59 UTC (1 July 2027 at 01:59 SAST). There are no individual assignment deadlines. Check the current FAQ before planning around any later extension.", "Plan regular time to write code, debug it and build the final project. South African learners should budget for internet access and check that the required tools work on their device. This guide does not verify zero-rated data or access on every device."],
       sources: [{ label: "CS50x: topics and study workflow", href: CS50 }, { label: "CS50: current deadline and course FAQ", href: CS50_FAQ }],
     },
     {

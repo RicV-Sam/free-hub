@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-11-18",
-  "count": 85,
+  "count": 90,
   "counts": {
-    "freeStuff": 58,
-    "resources": 38,
+    "freeStuff": 63,
+    "resources": 43,
     "opportunities": 20,
     "offers": 27
   },
@@ -616,6 +616,86 @@
       ],
       "watchOut": "The bag is linked to hospital admission; private maternity care is paid. Benefits vary by hospital. Registration does not guarantee every listed service at every facility.",
       "lastChecked": "2026-11-13"
+    },
+    {
+      "id": "freecodecamp-free-coding",
+      "kind": "resource",
+      "title": "freeCodeCamp: free coding courses and certifications",
+      "provider": "freeCodeCamp: free coding courses and certifications",
+      "summary": "The provider makes its courses, projects and certifications free.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://www.freecodecamp.org/learn",
+      "bestFor": "Self-directed learners building coding skills and a project portfolio",
+      "requirements": [
+        "A suitable device and internet access; sign in to retain progress and complete certification requirements."
+      ],
+      "watchOut": "Donations are optional. A course certificate is not a guaranteed job or South African accredited qualification.",
+      "lastChecked": "2026-11-18"
+    },
+    {
+      "id": "african-storybook-free-books",
+      "kind": "resource",
+      "title": "African Storybook: free picture books in African languages",
+      "provider": "African Storybook: free picture books in African languages",
+      "summary": "Read picture stories online or download them for offline reading and printing.",
+      "category": "childrens-books",
+      "categoryLabel": "Free children’s books",
+      "officialUrl": "https://www.africanstorybook.org/",
+      "bestFor": "Families, teachers and early readers looking for stories in African languages",
+      "requirements": [
+        "Choose an appropriate language and reading level; a device and an initial connection are needed for downloads."
+      ],
+      "watchOut": "Printing and data are your own costs. Prefer the ASb-approved collection when you need stories checked by the project or its partners.",
+      "lastChecked": "2026-11-18"
+    },
+    {
+      "id": "openstax-free-textbooks",
+      "kind": "resource",
+      "title": "OpenStax: free digital textbooks",
+      "provider": "OpenStax: free digital textbooks",
+      "summary": "Openly licensed, peer-reviewed digital textbooks across introductory subjects.",
+      "category": "school-resources",
+      "categoryLabel": "Free study resources",
+      "officialUrl": "https://openstax.org/higher-education",
+      "bestFor": "Students and independent learners needing introductory subject textbooks",
+      "requirements": [
+        "Choose a suitable book and edition; check that its content matches your course or study objectives."
+      ],
+      "watchOut": "Printed books and optional services such as Assignable may cost money. These books are not automatically aligned to South African curricula.",
+      "lastChecked": "2026-11-18"
+    },
+    {
+      "id": "unicef-agora-free-learning",
+      "kind": "resource",
+      "title": "UNICEF Agora: free public learning",
+      "provider": "UNICEF Agora: free public learning",
+      "summary": "Free registration and learning opportunities through UNICEF’s global platform.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://agora.unicef.org/",
+      "bestFor": "Learners interested in child rights, humanitarian work and development",
+      "requirements": [
+        "Create a public learning account and check the audience, language and requirements of each course."
+      ],
+      "watchOut": "Some activities are intended for specific audiences. Certificates or badges depend on the selected activity; participation is not UNICEF employment or accreditation.",
+      "lastChecked": "2026-11-18"
+    },
+    {
+      "id": "western-cape-public-wifi",
+      "kind": "resource",
+      "title": "Western Cape Government public Wi-Fi hotspots",
+      "provider": "Western Cape Government public Wi-Fi hotspots",
+      "summary": "The official service lists 3GB per device per month. It also advertises an additional 3GB promotion after the initial allocation is used.",
+      "category": "consumer-support",
+      "categoryLabel": "Free public-service support",
+      "officialUrl": "https://www.westerncape.gov.za/service/public-wi-fi-hotspots-across-western-cape",
+      "bestFor": "People within reach of a participating Western Cape public Wi-Fi hotspot",
+      "requirements": [
+        "Be within hotspot range with a Wi-Fi-capable device and follow the connection page’s instructions."
+      ],
+      "watchOut": "This is hotspot access, not mobile-network or SIM data. The additional-data promotion has no end date stated on the reviewed page and should be checked when connecting.",
+      "lastChecked": "2026-11-18"
     },
     {
       "id": "coloplast-speedicath-short-sample",

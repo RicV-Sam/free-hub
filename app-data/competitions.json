@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-11-18",
-  "count": 102,
+  "count": 104,
   "competitions": [
     {
       "id": "mtn-tfg-prepaid-win-your-share-2026",
@@ -252,6 +252,31 @@
       "officialUrl": "https://clicks.co.za/clubcard/competitions/catrice-fixing-and-setting-spray-competition",
       "termsUrl": "https://woobox.com/mwpnt9/rules",
       "lastChecked": "2026-11-13",
+      "isHighValue": false,
+      "isClosingSoon": true
+    },
+    {
+      "id": "world-sports-photography-awards-2027",
+      "title": "World Sports Photography Awards 2027: free entry",
+      "brand": "World Sports Photography Awards",
+      "summary": "Submit up to 10 original sports photographs for judging across 24 categories. Entry is free and open internationally, including South Africa.",
+      "imageUrl": "https://freehub.co.za/assets/listings/world-sports-photography-awards-2027.webp",
+      "closingDate": "2026-11-23",
+      "category": "Other",
+      "prizeName": "Sports photography awards and sponsor-provided prizes",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "Worldwide, including South Africa; ownership and organiser/sponsor exclusions apply.",
+      "entrySteps": [
+        "Open the official 2027 campaign and choose Start submission to use Picter.",
+        "Select up to 10 photographs taken from December 2025 to November 2026, assign categories and complete the requested details.",
+        "Check the image rules and rights licence, then submit before 23 November 2026. Retain the submission confirmation."
+      ],
+      "officialUrl": "https://site.picter.com/worldsportsphotographyawards-2027",
+      "termsUrl": "https://site.picter.com/worldsportsphotographyawards-2027/terms",
+      "lastChecked": "2026-11-18",
       "isHighValue": false,
       "isClosingSoon": true
     },
@@ -1303,6 +1328,31 @@
       "termsUrl": "https://andiccio24.co.za/promotions-terms-conditions/",
       "lastChecked": "2026-11-13",
       "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "vodacom-amazon-prime-summer-2026",
+      "title": "Vodacom Amazon Prime Summer: R250 voucher draw",
+      "brand": "Vodacom",
+      "summary": "An eligible paid Vodacom contract and qualifying Prime activation are required. There are 100 Amazon vouchers worth R250 each.",
+      "imageUrl": "https://freehub.co.za/assets/listings/vodacom-amazon-prime-summer-2026.webp",
+      "closingDate": "2026-11-30",
+      "category": "Vouchers",
+      "prizeName": "R250 Amazon gift voucher",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Automatic benefit activation entry",
+      "eligibility": "SA residents 18+; qualifying contract and previously unredeemed Prime benefit required.",
+      "entrySteps": [
+        "Read the official terms and confirm eligibility with Vodacom.",
+        "Use Vodacom’s WhatsApp or email invitation to complete the qualifying Prime activation during 1–30 November 2026.",
+        "Keep your contact details current. Only one entry per customer qualifies; cancelled, reversed and invalid activations do not."
+      ],
+      "officialUrl": "https://www.vodacom.co.za/vodacom/terms/competition/amazon-prime-summer",
+      "termsUrl": "https://www.vodacom.co.za/vodacom/terms/competition/amazon-prime-summer",
+      "lastChecked": "2026-11-18",
+      "isHighValue": false,
       "isClosingSoon": false
     },
     {
