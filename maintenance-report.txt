@@ -2,14 +2,14 @@ Reviewed competition retirements effective: 6
 === Competition Maintenance Report ===
 Date: 2026-11-18
 Mode: archive-expired
-Total competitions: 533
-Active published count: 103
+Total competitions: 535
+Active published count: 105
 Expired archive page count: 323
 Low-value expired noindex count: 0
 Held/private count: 107
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 56
+Closing in next 14 days: 58
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -347,6 +347,7 @@ Closing soon (next 14 days):
 - colgate-gauteng-dental-checkup-clean-2026 (4 days)
 - beauty-sa-fundamentals-skincare-2026 (5 days)
 - clicks-catrice-setting-spray-2026 (5 days)
+- world-sports-photography-awards-2027 (5 days)
 - boxer-amarula-smeg-fridge-2026 (6 days)
 - clicks-elastoplast-first-aid-kit-2026 (6 days)
 - chateau-gateaux-paris-2026 (8 days)
@@ -388,6 +389,7 @@ Closing soon (next 14 days):
 - telkom-limpopo-postpaid-fieldbar-2026 (12 days)
 - absa-ott-voucher-draw-2026 (12 days)
 - andiccio24-ps5-gta-vi-november-2026 (12 days)
+- vodacom-amazon-prime-summer-2026 (12 days)
 - clicks-have-your-say-october-november-2026 (13 days)
 - clicks-october-november-beauty-box-2026 (13 days)
 - clicks-dlicious-hamper-october-november-2026 (13 days)
