@@ -1,33 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-18",
-  "count": 104,
+  "asOfDate": "2026-11-19",
+  "count": 103,
   "competitions": [
-    {
-      "id": "mtn-tfg-prepaid-win-your-share-2026",
-      "title": "MTN TFG Prepaid Win Your Share Competition",
-      "brand": "MTN / TFG",
-      "summary": "Buy a qualifying MTN prepaid device at a participating TFG chain, activate a new MTN SIM in that device and recharge it with at least R30 to enter automatically.",
-      "imageUrl": "https://freehub.co.za/assets/listings/discovery-2026-10-30/r012.webp",
-      "closingDate": "2026-11-18",
-      "category": "Vouchers",
-      "prizeName": "R20,000 TFG shopping vouchers",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Promoter campaign",
-      "eligibility": "South African permanent residents aged 18 or older with a valid ID or passport and a South African bank account; new qualifying device, new SIM and recharge requirements apply.",
-      "entrySteps": [
-        "Buy an MTN prepaid device at a participating TFG chain listed in the official terms.",
-        "Activate a new MTN SIM in the newly purchased device and recharge that SIM with at least R30 in airtime or a direct bundle before 18 November 2026.",
-        "Further entries require separate qualifying R30 recharges on that same newly activated SIM. Keep your purchase and activation evidence."
-      ],
-      "officialUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn-pay-as-you-go-tfg-win-your-share-competition",
-      "termsUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/mtn-pay-as-you-go-tfg-win-your-share-competition",
-      "lastChecked": "2026-10-30",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "bed-bath-home-november-voucher-signup-2026",
       "title": "Bed Bath Home November Sign-Up and Win",
@@ -352,7 +327,7 @@
       "termsUrl": "https://chateaugateaux.co.za/terms-conditions/win-a-trip-to-paris-2026/",
       "lastChecked": "2026-10-08",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "milo-checkers-summer-2026",

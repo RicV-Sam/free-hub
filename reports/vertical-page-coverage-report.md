@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-11-18
+Generated: 2026-11-19
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
@@ -144,14 +144,13 @@ Recommended normalisation:
 ## Win Airtime Competitions in South Africa
 
 - URL: /win-airtime-competitions-south-africa/
-- Matching active public competitions: 6
+- Matching active public competitions: 5
 - Publication threshold: durable guide; independent of live listing count
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| MTN TFG Prepaid Win Your Share Competition (mtn-tfg-prepaid-win-your-share-2026) | 2026-11-18 | purchase-required | yes | yes | Airtime prize text | consider airtime or recharge tag if prize terms confirm |
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | Airtime tag; Airtime prize text | none |
 | Coca-Cola Be a Bok Competition 2026 (coca-cola-fan-can-be-a-bok-2026) | 2026-11-30 | purchase-required | yes | yes | Airtime prize text | consider airtime or recharge tag if prize terms confirm |
 | Sparletta Local Jewels Airtime, Fuel and Trolley Dash Competition (sparletta-local-jewels-2026) | 2026-12-31 | purchase-required | yes | yes | Airtime prize text | consider airtime or recharge tag if prize terms confirm |
@@ -183,14 +182,13 @@ Recommended normalisation:
 ## Win Grocery Vouchers in South Africa
 
 - URL: /win-grocery-vouchers-south-africa/
-- Matching active public competitions: 8
+- Matching active public competitions: 7
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| MTN TFG Prepaid Win Your Share Competition (mtn-tfg-prepaid-win-your-share-2026) | 2026-11-18 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Win a cooler or shopping voucher with MILO at Checkers (milo-checkers-summer-2026) | 2026-11-28 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Just About Anything: Win a Shopping Voucher up to R1,500 (just-about-anything-shop-and-win-2026) | 2026-11-30 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Equisweet Summer Competition (equisweet-summer-competition-2026) | 2026-12-06 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
