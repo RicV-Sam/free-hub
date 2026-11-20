@@ -1,33 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-19",
-  "count": 103,
+  "asOfDate": "2026-11-20",
+  "count": 102,
   "competitions": [
-    {
-      "id": "bed-bath-home-november-voucher-signup-2026",
-      "title": "Bed Bath Home November Sign-Up and Win",
-      "brand": "Whitehouse & Continental Linen",
-      "summary": "Sign up for Whitehouse & Continental Linen marketing for a chance to win one of three R1,500 online gift vouchers.",
-      "imageUrl": "https://freehub.co.za/assets/listings/2026-11-04/bed-bath-home-november-voucher-signup-2026.webp",
-      "closingDate": "2026-11-19",
-      "category": "Vouchers",
-      "prizeName": "One of three R1,500 online gift vouchers",
-      "entryCostType": "unclear",
-      "entryCostLabel": "Entry requirements unclear",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "South African residents aged 18 or older. Staff of Little Whitehouse, Whitehouse and Continental Linen and their immediate families are excluded. One entry per valid email address.",
-      "entrySteps": [
-        "Open the official Whitehouse & Continental Linen signup form and use a valid email address. The form also asks for your name and phone number.",
-        "Read the marketing consent notice and submit during the November campaign if you agree to receive communications.",
-        "Check your email after the draw. Winners are announced after 20 November and have seven days to respond to their notification."
-      ],
-      "officialUrl": "https://bedbathhome.co.za/pages/newsletter-signup",
-      "termsUrl": "https://bedbathhome.co.za/pages/competitions-terms-conditions",
-      "lastChecked": "2026-11-04",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "time-out-sean-paul-pretoria-2026",
       "title": "Win Sean Paul tickets in Pretoria with Time Out",
