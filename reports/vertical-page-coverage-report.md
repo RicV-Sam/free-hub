@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-11-20
+Generated: 2026-11-21
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
@@ -94,14 +94,13 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 35
+- Matching active public competitions: 34
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Win Sean Paul tickets in Pretoria with Time Out (time-out-sean-paul-pretoria-2026) | 2026-11-20 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Mally Win Your Cart: products worth up to R3,000 (mally-win-your-cart-november-2026) | 2026-11-22 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Win a Clicks Spring Beauty Box with BeautySouthAfrica (beauty-sa-clicks-spring-beauty-box-2026) | 2026-11-22 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | Win one of two R500 HR haircare hampers (beauty-sa-hr-haircare-2026) | 2026-11-22 | free-entry | yes | yes | Online entry mentioned in entry text | none |

@@ -1,33 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-20",
-  "count": 102,
+  "asOfDate": "2026-11-21",
+  "count": 101,
   "competitions": [
-    {
-      "id": "time-out-sean-paul-pretoria-2026",
-      "title": "Win Sean Paul tickets in Pretoria with Time Out",
-      "brand": "Time Out Pretoria",
-      "summary": "A pair of tickets to Sean Paul at SunBet Arena, Time Square, Pretoria on 4 December 2026.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/discovery-2026-11-13-time-out-sean-paul-pretoria-2026.webp",
-      "closingDate": "2026-11-20",
-      "category": "Entertainment",
-      "prizeName": "A pair of concert tickets; monetary value and total number of prize pairs not stated",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "South African residents aged 18+ with valid ID under Time Out SA general competition rules.",
-      "entrySteps": [
-        "Open the official Time Out Pretoria article.",
-        "Use its Sean Paul competition newsletter form, including if you already subscribe.",
-        "Submit one entry per email address before the stated 10:00 deadline on 20 November."
-      ],
-      "officialUrl": "https://www.timeout.com/pretoria/news/win-tickets-see-sean-paul-live-in-pretoria-111226",
-      "termsUrl": "https://www.timeout.com/south-africa/competition-terms-and-conditions",
-      "lastChecked": "2026-11-13",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "eskort-braai-lux-2026",
       "title": "Eskort Braai-Lux Toyota Hilux Competition",
@@ -326,7 +301,7 @@
       "termsUrl": "https://www.nestle-esar.com/nestle-milo-x-checkers-summer-promotion-2026",
       "lastChecked": "2026-10-08",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "boxer-glen-tea-b-rewards-2026",

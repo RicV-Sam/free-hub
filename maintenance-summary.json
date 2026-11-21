@@ -2,12 +2,12 @@
   "ok": true,
   "errors": [],
   "summary": {
-    "today": "2026-11-20",
+    "today": "2026-11-21",
     "retiredCount": 6,
     "retiredRouteLeaks": [],
-    "expiredPublishedCount": 325,
-    "archivedCompetitionCount": 351,
-    "publicListingFilesScanned": 270,
+    "expiredPublishedCount": 326,
+    "archivedCompetitionCount": 352,
+    "publicListingFilesScanned": 176,
     "sitemapContainsOutUrls": false,
     "expiredMissingFromArchive": [],
     "expiredInSitemap": [],
@@ -28,22 +28,30 @@
     "nonPublicDetailPages": [],
     "nonPublicInPublicListings": [],
     "editorialHealth": {
-      "asOfDate": "2026-11-20",
+      "asOfDate": "2026-11-21",
       "needsReview": true,
       "surfaces": [
         {
           "surface": "home",
-          "eligibleCount": 5,
+          "eligibleCount": 2,
           "needsReview": true,
-          "nextReviewDue": "2026-11-20",
-          "overdueIds": []
+          "nextReviewDue": "2026-11-21",
+          "overdueIds": [
+            "resource-childrens-books-book-dash",
+            "astron-energy-xtra-savings-fuel-rewards",
+            "mally-win-your-cart-november-2026"
+          ]
         },
         {
           "surface": "monthly",
-          "eligibleCount": 2,
+          "eligibleCount": 0,
           "needsReview": true,
-          "nextReviewDue": "2026-11-20",
-          "overdueIds": []
+          "nextReviewDue": null,
+          "overdueIds": [
+            "mally-win-your-cart-november-2026",
+            "spar-win-your-shopping-free-2026",
+            "absa-pre-black-friday-mr-d-voucher-2026"
+          ]
         }
       ]
     }
