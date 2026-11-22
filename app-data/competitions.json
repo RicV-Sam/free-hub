@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-11-22",
-  "count": 101,
+  "count": 107,
   "competitions": [
     {
       "id": "eskort-braai-lux-2026",
@@ -280,6 +280,30 @@
       "isClosingSoon": true
     },
     {
+      "id": "dhlamini-junction-turns-two-2026",
+      "title": "Dhlamini Junction: R1,000 shopping vouchers and trolley dashes",
+      "brand": "Dhlamini Junction",
+      "summary": "Three R1,000 shopping vouchers per weekly draw. Two Black Friday winners in Soweto each get a trolley dash capped at R2,500.",
+      "imageUrl": "https://freehub.co.za/assets/listings/dhlamini-junction-turns-two-2026.webp",
+      "closingDate": "2026-11-28",
+      "category": "Vouchers",
+      "prizeName": "Three R1,000 shopping vouchers per weekly draw. Two Black Friday winners in Soweto each get a trolley dash capped at R2,500.",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Shopping centre entry stand",
+      "eligibility": "Aged 18+ with valid South African ID, passport or permit. Promoter, store and agency staff and their immediate families are excluded.",
+      "entrySteps": [
+        "Spend a combined R200 across two different participating Dhlamini Junction stores. Take both original slips to the competition stand on a participating Friday or Saturday and complete one entry slip.",
+        "For the trolley dash, enter the separate box on Friday 27 November from 10:00 to 16:15 and be there for the 16:30 draw. Final weekly entries close at 13:30 on Saturday 28 November."
+      ],
+      "officialUrl": "https://dhlaminijunction.co.za/wp-content/uploads/2026/11/Dhlamini_Junction_Turns_2_Competition_Ts_and_Cs.pdf",
+      "termsUrl": "https://dhlaminijunction.co.za/wp-content/uploads/2026/11/Dhlamini_Junction_Turns_2_Competition_Ts_and_Cs.pdf",
+      "lastChecked": "2026-11-22",
+      "isHighValue": false,
+      "isClosingSoon": true
+    },
+    {
       "id": "milo-checkers-summer-2026",
       "title": "Win a cooler or shopping voucher with MILO at Checkers",
       "brand": "Nestlé MILO / Checkers",
@@ -327,6 +351,54 @@
       "lastChecked": "2026-11-13",
       "isHighValue": false,
       "isClosingSoon": true
+    },
+    {
+      "id": "websites4u-starter-website-november-2026",
+      "title": "Websites 4U: win a starter website for your business",
+      "brand": "Websites4U",
+      "summary": "One professionally designed website of up to eight pages, initial registration of an available .co.za domain and one month of hosting.",
+      "imageUrl": "https://freehub.co.za/assets/listings/websites4u-starter-website-november-2026.webp",
+      "closingDate": "2026-11-30",
+      "category": "Other",
+      "prizeName": "One professionally designed website of up to eight pages, initial registration of an available .co.za domain and one month of hosting.",
+      "entryCostType": "free_entry",
+      "entryCostLabel": "Free entry",
+      "purchaseRequired": false,
+      "entryMethod": "Online",
+      "eligibility": "South African residents aged 18 or older who own or are authorised to represent a South African business.",
+      "entrySteps": [
+        "Complete the form on the promoter’s website by 23:59 SAST on 30 November.",
+        "In up to 150 words, explain what your business does and how a website would help it grow. A judging panel selects the winner."
+      ],
+      "officialUrl": "https://websites4u.co.za/win-a-free-starter-website/",
+      "termsUrl": "https://websites4u.co.za/competition-terms/",
+      "lastChecked": "2026-11-22",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "capitec-pay-canva-pro-november-2026",
+      "title": "Capitec Pay: win a year of Canva Pro",
+      "brand": "Capitec / Canva",
+      "summary": "Ten winners receive a one-year Canva Pro subscription. Capitec values each at approximately R900.",
+      "imageUrl": "https://freehub.co.za/assets/listings/capitec-pay-canva-pro-november-2026.webp",
+      "closingDate": "2026-11-30",
+      "category": "Tech",
+      "prizeName": "Ten winners receive a one-year Canva Pro subscription. Capitec values each at approximately R900.",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Capitec Pay payment",
+      "eligibility": "South African citizens aged 18 or older who are Capitec clients. The entrant must pay for their own subscription.",
+      "entrySteps": [
+        "Pay for your own Canva subscription with Capitec Pay between 1 and 30 November.",
+        "A successful qualifying payment enters you automatically. Each client is limited to one entry."
+      ],
+      "officialUrl": "https://www.capitecbank.co.za/personal/transact/capitec-pay/win-a-1-year-canva-pro-subscription/",
+      "termsUrl": "https://www.capitecbank.co.za/globalassets/pages/competition-and-conditions/competitions/2026/capitec-pay-x-canva-competition-tcs.pdf",
+      "lastChecked": "2026-11-22",
+      "isHighValue": false,
+      "isClosingSoon": false
     },
     {
       "id": "coca-cola-be-a-bok-voucher-prizes-2026",
@@ -1810,6 +1882,54 @@
       "isClosingSoon": false
     },
     {
+      "id": "buco-festive-hilux-2026",
+      "title": "BUCO festive draw: win a Toyota Hilux",
+      "brand": "BUCO",
+      "summary": "One Toyota Hilux, plus weekly festive bucket hampers at 18 designated stores.",
+      "imageUrl": "https://freehub.co.za/assets/listings/buco-festive-hilux-2026.webp",
+      "closingDate": "2026-12-31",
+      "category": "Cars",
+      "prizeName": "One Toyota Hilux, plus weekly festive bucket hampers at 18 designated stores.",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "WhatsApp",
+      "eligibility": "South African or Namibian citizens or permanent residents over 18 with valid ID and a valid driving licence. Promoter-connected people and their families are excluded.",
+      "entrySteps": [
+        "Spend R1,000 or more in one transaction at a participating South African BUCO store.",
+        "Scan the in-store QR code and complete the WhatsApp prompts. Keep the receipt. Each qualifying transaction earns one entry."
+      ],
+      "officialUrl": "https://www.buco.co.za/index.php/buco-win-a-toyota-hilux",
+      "termsUrl": "https://www.buco.co.za/index.php/buco-win-a-toyota-hilux",
+      "lastChecked": "2026-11-22",
+      "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
+      "id": "fnb-connect-vodacom-be-a-winner-2026",
+      "title": "FNB Connect and Vodacom: Tiggo 7 CSH monthly draw",
+      "brand": "FNB / Vodacom",
+      "summary": "Each monthly draw offers a Tiggo 7 CSH, five eBucks prizes worth R40,000 each and four Apple hampers.",
+      "imageUrl": "https://freehub.co.za/assets/listings/fnb-connect-vodacom-be-a-winner-2026.webp",
+      "closingDate": "2026-12-31",
+      "category": "Cars",
+      "prizeName": "Each monthly draw offers a Tiggo 7 CSH, five eBucks prizes worth R40,000 each and four Apple hampers.",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "FNB digital banking purchase",
+      "eligibility": "South African citizens or legal residents living in South Africa must have valid ID and a qualifying FNB account in good standing. Check the rules for your specific account. A car winner must produce a valid driving licence.",
+      "entrySteps": [
+        "Buy qualifying Vodacom airtime, data, voice, social or Just for You bundles through FNB’s app, online banking or cellphone banking. Pay with rand or eBucks.",
+        "Check the minimum per transaction. Listed Easy PAYU, Bundle and Smart tiers require R30, Aspire and Premier tiers R55, and Private or RMB tiers R100. Commercial Gold, Platinum and Enterprise require R250, R300 and R350 respectively."
+      ],
+      "officialUrl": "https://www.online.fnb.co.za/downloads/terms/2026/Vodacom-Be-a-Winner-Terms-and-Conditions.pdf",
+      "termsUrl": "https://www.online.fnb.co.za/downloads/terms/2026/Vodacom-Be-a-Winner-Terms-and-Conditions.pdf",
+      "lastChecked": "2026-11-22",
+      "isHighValue": true,
+      "isClosingSoon": false
+    },
+    {
       "id": "alpha-pharm-alpha-52-cash-2026",
       "title": "Alpha Pharm Alpha 52 Competition",
       "brand": "Alpha Pharm",
@@ -2343,6 +2463,30 @@
       "officialUrl": "https://doctalk.co.za/competition/",
       "termsUrl": "https://doctalk.co.za/competition/",
       "lastChecked": "2026-10-15",
+      "isHighValue": false,
+      "isClosingSoon": false
+    },
+    {
+      "id": "home-assist-geyser-rewards-summer-2026",
+      "title": "Home Assist: win an installed smart geyser controller",
+      "brand": "HomeAssist",
+      "summary": "Each month five customers win installed smart geyser controllers valued at R1,500 or more, and five win R100 coffee vouchers.",
+      "imageUrl": "https://freehub.co.za/assets/listings/home-assist-geyser-rewards-summer-2026.webp",
+      "closingDate": "2027-01-31",
+      "category": "Home",
+      "prizeName": "Each month five customers win installed smart geyser controllers valued at R1,500 or more, and five win R100 coffee vouchers.",
+      "entryCostType": "purchase_required",
+      "entryCostLabel": "Purchase required",
+      "purchaseRequired": true,
+      "entryMethod": "Customer opt-in",
+      "eligibility": "Customers aged 18+ in South Africa where Home Assist supplies this service. Repairs and manufacturer warranty replacements are excluded.",
+      "entrySteps": [
+        "Complete an eligible electric geyser replacement through Home Assist. Insurance customers must have paid their excess. Private customers must pay in full within seven days.",
+        "Accept the invitation by email or WhatsApp by the end of the job month. Each completed replacement earns one entry into that month’s draw."
+      ],
+      "officialUrl": "https://www.homeassist.co.za/rewards/",
+      "termsUrl": "https://www.homeassist.co.za/rewards/",
+      "lastChecked": "2026-11-22",
       "isHighValue": false,
       "isClosingSoon": false
     },

@@ -49,6 +49,7 @@ test("all active competition labels match the reviewed compact snapshot", () => 
     ...require("../baselines/discovery-cost-labels-2026-11-09.json"),
     ...require("../baselines/discovery-cost-labels-2026-11-13.json"),
     ...require("../baselines/discovery-cost-labels-2026-11-18.json"),
+    ...require("../baselines/discovery-cost-labels-2026-11-22.json"),
   };
   for (const [id, label] of Object.entries(additions)) {
     const record = competitions.find(row => row.id === id);

@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-11-22",
-  "count": 38,
+  "count": 62,
   "counts": {
-    "freeStuff": 38,
-    "resources": 38,
+    "freeStuff": 42,
+    "resources": 42,
     "opportunities": 0,
-    "offers": 0
+    "offers": 20
   },
   "items": [
     {
@@ -616,6 +616,443 @@
       ],
       "watchOut": "This is hotspot access, not mobile-network or SIM data. The additional-data promotion has no end date stated on the reviewed page and should be checked when connecting.",
       "lastChecked": "2026-11-18"
+    },
+    {
+      "id": "dreamweaver-wallpaper-samples",
+      "kind": "resource",
+      "title": "Dreamweaver wallpaper samples",
+      "provider": "Dreamweaver wallpaper samples",
+      "summary": "Choose up to three eligible wallpaper cuttings. Dreamweaver covers shipping to a South African address.",
+      "category": "samples",
+      "categoryLabel": "Free samples",
+      "officialUrl": "https://dreamweaverstudios.co.za/pages/faqs",
+      "bestFor": "Customers with South African delivery address.",
+      "requirements": [
+        "Choose Sample on eligible wallpaper product pages."
+      ],
+      "watchOut": "Samples represent colour/pattern, not full rolls; availability can vary.",
+      "lastChecked": "2026-11-22"
+    },
+    {
+      "id": "nibs-free-foundation-courses",
+      "kind": "resource",
+      "title": "NIBS free foundation courses",
+      "provider": "NIBS free foundation courses",
+      "summary": "Professional Essentials and Digital Literacy & Workplace Foundations include a completion certificate after the required assessments.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://nibs.edu.za/start/?route=free",
+      "bestFor": "Learners able to create a free Campus account; SA-focused content.",
+      "requirements": [
+        "Register free Campus account, complete course assessments and practical tasks."
+      ],
+      "watchOut": "Completion certificates are not formal qualifications; paid catalogue is separate.",
+      "lastChecked": "2026-11-22"
+    },
+    {
+      "id": "national-financial-ombud-complaints",
+      "kind": "resource",
+      "title": "National Financial Ombud complaint service",
+      "provider": "National Financial Ombud complaint service",
+      "summary": "Get independent help with an unresolved, in-scope complaint involving a participating financial provider. The service is free.",
+      "category": "consumer-support",
+      "categoryLabel": "Free consumer support",
+      "officialUrl": "https://nfosa.co.za/how-to-complain/",
+      "bestFor": "Consumers with in-scope disputes involving participating providers.",
+      "requirements": [
+        "Complain to provider first, then follow NFO complaint procedure."
+      ],
+      "watchOut": "Not a guaranteed refund; provider and complaint must fall within jurisdiction.",
+      "lastChecked": "2026-11-22"
+    },
+    {
+      "id": "consumer-goods-services-ombud-complaints",
+      "kind": "resource",
+      "title": "Consumer Goods and Services Ombud",
+      "provider": "Consumer Goods and Services Ombud",
+      "summary": "Consumers can submit eligible complaints about suppliers of goods and services for free dispute resolution.",
+      "category": "consumer-support",
+      "categoryLabel": "Free consumer support",
+      "officialUrl": "https://www.cgso.org.za/about-us/",
+      "bestFor": "Consumers with qualifying supplier disputes; jurisdiction applies.",
+      "requirements": [
+        "First contact supplier; follow CGSO complaint process if unresolved."
+      ],
+      "watchOut": "Outcomes not guaranteed; verify supplier and subject-matter coverage.",
+      "lastChecked": "2026-11-22"
+    },
+    {
+      "id": "mr-price-app-first-order-r100-off",
+      "kind": "coupon",
+      "title": "R100 off your first Mr Price app purchase of R500 or more",
+      "provider": "Mr Price",
+      "summary": "Apply MRP100 to an eligible first app order of at least R500.",
+      "category": "fashion",
+      "categoryLabel": "Fashion",
+      "officialUrl": "https://www.mrp.com/en_za/features/how-to-shop-online",
+      "termsUrl": "https://www.mrp.com/en_za/features/how-to-shop-online",
+      "couponCode": "MRP100",
+      "requirements": [
+        "The first-purchase discount is for the South African Mr Price app. A qualifying paid order is required and delivery or collection charges can affect the final total. Stock, payment and app conditions apply. The current official welcome page does not state a fixed closing date."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-22",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "clarins-three-free-samples-with-order",
+      "kind": "deal",
+      "title": "Choose three free Clarins samples with an online order",
+      "provider": "Clarins South Africa",
+      "summary": "Clarins South Africa lets online shoppers choose up to three complimentary skincare or make-up samples at checkout with any paid order, subject to availability.",
+      "category": "beauty-health",
+      "categoryLabel": "Beauty & Health",
+      "officialUrl": "https://www.clarins.co.za/trymeloveme/",
+      "termsUrl": "https://www.clarins.co.za/trymeloveme/",
+      "requirements": [
+        "A paid online order from the Clarins South Africa store is required. After shopping, open the bag at checkout and select up to three complimentary skincare or make-up samples from the available sample catalogue. Clarins says the catalogue can contain more than 120 sample-sized products and that each sample generally provides one to five uses. Selection is subject to availability, samples cannot be requested separately by post, and normal product prices, checkout and delivery conditions for the paid order still apply."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-22",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "mtn-app-first-login-1gb-2026",
+      "kind": "deal",
+      "title": "Free 1 GB for first login to the new MTN App",
+      "provider": "MTN South Africa",
+      "summary": "Eligible MTN customers logging into the new MTN App for the first time can claim a free 1 GB bundle from My Gifts within 24 hours of notification; the redeemed data lasts 24 hours.",
+      "category": "mobile-data",
+      "categoryLabel": "Mobile & Data",
+      "officialUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/2025-mtn-app-free-1-gb-download-and-login-incentive",
+      "termsUrl": "https://www.mtn.co.za/home/terms-and-conditions/content/2025-mtn-app-free-1-gb-download-and-login-incentive",
+      "requirements": [
+        "New MTN App, MTN customer and successful first authenticated login required; MTN decides eligibility using its records, mobile number and/or device. Check the My Gifts menu and claim within 24 hours of being notified. The 1 GB bundle expires 24 hours after redemption. The promotion is listed through 31 December 2026 but may change or be withdrawn. Download or network data costs may apply, though MTN says the app can be used without data once downloaded. No purchase is stated in these terms."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-12-31",
+      "lastChecked": "2026-11-22",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "superbalist-firstbuy-r400-off-first-order",
+      "kind": "coupon",
+      "title": "R400 off a first qualifying Superbalist order of R1,000",
+      "provider": "Superbalist",
+      "summary": "New customers can apply FIRSTBUY to an eligible first order of at least R1,000. Delivery may cost extra.",
+      "category": "fashion",
+      "categoryLabel": "Fashion",
+      "officialUrl": "https://superbalist.com/landing/firstbuy",
+      "termsUrl": "https://superbalist.zendesk.com/hc/en-us/articles/226264047-How-do-Promotional-Codes-or-Coupons-work",
+      "couponCode": "FIRSTBUY",
+      "requirements": [
+        "First-time customers only, once per customer and one promotion per checkout. Sale and non-shippable products are excluded. A qualifying R1,000 basket becomes R600 before delivery. Check the actual delivery charge after discounts; this listing does not promise free delivery. No fixed campaign closing date is stated."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-22",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "kirstenbosch-south-african-senior-free-tuesday",
+      "kind": "deal",
+      "title": "Kirstenbosch: free Tuesdays for South African senior residents",
+      "provider": "Kirstenbosch",
+      "summary": "South African residents over 60 can enter the garden free on Tuesdays that are not public holidays.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://www.sanbi.org/gardens/kirstenboch/visitor-information/information/",
+      "termsUrl": "https://www.sanbi.org/gardens/kirstenboch/visitor-information/information/",
+      "requirements": [
+        "Present valid identification and proof of South African residency at the garden entrance. The current schedule lists normal South African adult entry at R110. Separately ticketed events, parking or transport and other garden services are not included. This concession applies to Kirstenbosch and should not be assumed at other SANBI gardens."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-22",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "vodacom-summer-scratch-win-2026",
+      "kind": "deal",
+      "title": "Vodacom Summer: Up to Three Free Scratch & Win Plays Daily",
+      "provider": "Vodacom",
+      "summary": "Eligible Vodacom customers opted into VodaBucks can use up to three free Scratch & Win plays each day across VodaPay and USSD, with at most one free USSD play. Rewards vary and are not guaranteed.",
+      "category": "mobile-data",
+      "categoryLabel": "Mobile & Data",
+      "officialUrl": "https://www.vodacom.co.za/vodacom/shopping/summer",
+      "termsUrl": "https://www.vodacom.co.za/vodacom/terms/promotions/summer-2026",
+      "requirements": [
+        "Eligible Vodacom Prepaid, Hybrid/Top-Up and Postpaid customers need a lawfully registered SIM and VodaBucks opt-in. Use the VodaPay app or dial *133# or *135#. The combined free limit is three plays per day, including at most one on USSD; a USSD play reduces the remaining VodaPay allocation. Free plays expire at 23:59 that day. Specific rewards, availability and expiry are shown in the app/journey or SMS; there is no guaranteed reward or value. Optional extra plays cost one VodaBucks each, up to five daily; paid Upsize offers are separate and you keep your original reward if you decline. Where VodaBucks must be claimed on VodaPay, claim then bank them before midnight on Friday of that same week. Normal participation/connectivity costs may apply; free describes the play allocation. Rewards are redeemed in South Africa, and reward bundles can incur normal usage charges after depletion or expiry. Opt-in includes programme administration and usage/behavioural processing; marketing SMS opt-out is separate. Read the detailed conditions and current official terms before taking part."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2027-03-31",
+      "lastChecked": "2026-11-22",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "umatie-first-order-20-off",
+      "kind": "coupon",
+      "title": "Umatie: 20% Off Your First Online Order",
+      "provider": "Umatie",
+      "summary": "Use the retailer's public welcome code for 20% off your first online Umatie order.",
+      "category": "baby-kids",
+      "categoryLabel": "Baby & Kids",
+      "officialUrl": "https://umatie.co.za/promotions/",
+      "termsUrl": "https://umatie.co.za/delivery-info/",
+      "couponCode": "NEW-CUSTOMER-DISCOUNT",
+      "requirements": [
+        "First online order only. Enter the code before paying. Umatie does not combine codes. Its delivery page lists an R400 minimum order and location-specific delivery fees and coverage. The retailer does not state a code expiry."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-22",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "edgars-payflex-r250-off-r1000-2026",
+      "kind": "coupon",
+      "title": "Edgars via Payflex: R250 Off R1,000 on Eligible Fashion",
+      "provider": "Edgars",
+      "summary": "Use code 447382 for R250 off a qualifying R1,000 online fashion order. Payflex advertises the offer through 30 November 2026.",
+      "category": "fashion",
+      "categoryLabel": "Fashion",
+      "officialUrl": "https://www.edgars.co.za/collections/women-dresses",
+      "termsUrl": "https://payflex.co.za/deals/",
+      "couponCode": "447382",
+      "requirements": [
+        "Enter the code at Edgars checkout on at least R1,000 of qualifying fashion and use Payflex for the advertised offer. FreeHub confirmed the R250 reduction at guest checkout on two regular-price fashion baskets. Check that the discount appears in your order summary before paying. Eligibility for sale items, other categories and combining discounts remains unconfirmed."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-11-30",
+      "lastChecked": "2026-11-22",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "sanparks-senior-discount-november-2026",
+      "kind": "deal",
+      "title": "SANParks senior camping concession: 40% on qualifying November nights",
+      "provider": "SANParks",
+      "summary": "Qualifying pensioners can receive 40% off camping during the current 16 October–26 November window; eligible accommodation has park-specific rates.",
+      "category": "travel",
+      "categoryLabel": "Travel",
+      "officialUrl": "https://www.sanparks.org/travel/discounts/senior-citizens",
+      "termsUrl": "https://www.sanparks.org/wp-content/uploads/2021/08/Senior-Citizen-Discount-2026.pdf",
+      "requirements": [
+        "For qualifying South African social pensioners and South African permanent residents aged 60+. Book in the qualifying guest’s name through SANParks reservations: online-platform bookings do not receive this concession. Fridays, Saturdays and long weekends are excluded. Bring ID or pension proof. Camping relief covers one site’s base tariff and qualifying persons; additional guests may pay full tariffs. Conservation fees and meals remain payable. Accommodation discounts depend on the exact camp and unit in the 2026 matrix."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-11-26",
+      "lastChecked": "2026-11-22",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "telkom-summer-spend-and-get-minutes-2026",
+      "kind": "deal",
+      "title": "Telkom Summer: bonus Telkom-to-Telkom minutes with qualifying bundles",
+      "provider": "Telkom",
+      "summary": "New and existing prepaid or hybrid customers receive 200–2,000 Telkom-to-Telkom minutes with qualifying data or combo bundle purchases.",
+      "category": "mobile-data",
+      "categoryLabel": "Mobile & Data",
+      "officialUrl": "https://www.telkom.co.za/deals/summer%20?anchor=3",
+      "termsUrl": "https://group.telkom.co.za/documents/regulatory/terms-and-conditions/Terms-and-Conditions-Free-Telkom-Voice-minutes-Summer-Promo-2026.pdf",
+      "requirements": [
+        "4 October 2026–31 January 2027. Buy a qualifying data or data-and-voice bundle costing at least R29. Spend R29–R48 for 200 minutes valid three days; R49–R98 for 500 valid seven days; R99–R198 for 800 valid 14 days; R199 or more for 2,000 valid 31 days. Calls are limited to Telkom Mobile and Telkom fixed-line numbers. Unused minutes expire and cannot be transferred or carried over. The qualifying bundle is paid."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2027-01-31",
+      "lastChecked": "2026-11-22",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "galileo-pensioner-special-2026-2027",
+      "kind": "deal",
+      "title": "The Galileo: R99 Wednesday tickets for South Africans aged 60+",
+      "provider": "The Galileo",
+      "summary": "The 2026/27 pensioner ticket includes movie admission, a backrest and a blanket: R99 on Wednesdays or R155 for other eligible shows.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://thegalileo.co.za/pensioner-special/",
+      "termsUrl": "https://thegalileo.co.za/pensioner-special/",
+      "requirements": [
+        "Season: 15 October 2026–15 May 2027. South Africans aged 60+ must enter and present valid ID. The regular pensioner Warm & Comfy ticket saves R25 against the stated R180 rate. Excludes themed Halloween, Christmas, Valentine’s and Easter screenings and Royale shows. Tickets are subject to availability; travel and refreshments are separate."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2027-05-15",
+      "lastChecked": "2026-11-22",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "astron-energy-xtra-savings-fuel-rewards",
+      "kind": "deal",
+      "title": "Astron Energy Xtra Savings: earn Xcash on qualifying fuel",
+      "provider": "Astron Energy",
+      "summary": "Free Xtra Savings members earn 25c per litre, rising to 50c per litre across the qualifying month after more than R3,000 of fuel spend.",
+      "category": "banking-rewards",
+      "categoryLabel": "Banking & Rewards",
+      "officialUrl": "https://astronenergy.co.za/loyalty-xtra-savings/",
+      "termsUrl": "https://astronenergy.co.za/loyalty/xtra-savings/terms-and-conditions/",
+      "requirements": [
+        "Adult active Xtra Savings members qualify at participating Astron forecourts. Scan or swipe your card at the forecourt terminal before paying; convenience-store tills and retrospective claims do not qualify. The monthly fuel cap is R4,000 or 190 litres, whichever comes first. The extra 25c is credited on the first of the next month after the spend threshold is met. Paid Xtra Savings Plus members earn 50c from the first qualifying litre. Xcash lasts 12 months and is usable at eligible group stores or Sixty60, not for fuel or cash; fleet purchases and specified services are excluded."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-22",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "cotton-on-perks-twenty-percent-welcome",
+      "kind": "coupon",
+      "title": "Cotton On Perks: 20% off a qualifying first online order",
+      "provider": "Cotton On",
+      "summary": "New South African Perks members receive an emailed welcome voucher for 20% off eligible full-price online shopping.",
+      "category": "fashion",
+      "categoryLabel": "Fashion",
+      "officialUrl": "https://cottonon.com/ZA/perks/welcome/",
+      "termsUrl": "https://cottonon.com/ZA/perks/perks-terms.html",
+      "requirements": [
+        "Free membership; a purchase is required. Use the unique voucher issued to your account before its stated expiry. Sale products, personalisation, Foundation products and gift cards are excluded. The South African voucher is for the South African site; delivery remains subject to the checkout total and conditions. This is separate from the Perks spend-and-earn voucher programme."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-22",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "john-dorys-half-price-sushi-wednesdays",
+      "kind": "deal",
+      "title": "John Dory’s: selected sushi at half price on Wednesdays",
+      "provider": "John Dory’s",
+      "summary": "Order dishes from the designated Wednesday menu for 50% off their usual prices.",
+      "category": "restaurants-takeaways",
+      "categoryLabel": "Restaurants & Takeaways",
+      "officialUrl": "https://www.johndorys.com/za/menu?terms=half-price-sushi-every-wednesday-at-john-dorys",
+      "termsUrl": "https://www.johndorys.com/za/menu?terms=half-price-sushi-every-wednesday-at-john-dorys",
+      "requirements": [
+        "Available all day on Wednesdays at participating South African John Dory’s restaurants, subject to the designated half-price menu. Only listed sushi dishes qualify; this is not 50% off every item on the standard menu. Dining purchases are required. Check the selected restaurant and current menu before ordering."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-22",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "krispy-kreme-birthday-dozen-offer",
+      "kind": "deal",
+      "title": "Krispy Kreme birthday offer: buy a dozen, get an Original Glazed dozen",
+      "provider": "Krispy Kreme",
+      "summary": "Eligible KKSA app users can redeem their birthday voucher for a free Original Glazed dozen when buying any dozen doughnuts.",
+      "category": "restaurants-takeaways",
+      "categoryLabel": "Restaurants & Takeaways",
+      "officialUrl": "https://krispykremesa.com/faqs/",
+      "termsUrl": "https://krispykremesa.com/faqs/",
+      "requirements": [
+        "Register in the South African KKSA app at least 48 hours before your birthday. The voucher arrives on the birthday and is valid for one year. Show the voucher and identification at a full Krispy Kreme shop. Excludes delivery and Doughnuts on the Go outlets, including those at Engen, Checkers and SPAR. A paid dozen is required; prices vary by your chosen dozen."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-22",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "lg-new-member-five-percent-coupon",
+      "kind": "coupon",
+      "title": "LG South Africa: 5% welcome coupon for new members",
+      "provider": "LG",
+      "summary": "New LG online members can use a once-off 5% welcome coupon on eligible products and accessories.",
+      "category": "electronics-appliances",
+      "categoryLabel": "Electronics & Appliances",
+      "officialUrl": "https://www.lg.com/za/membership/",
+      "termsUrl": "https://www.lg.com/za/membership/",
+      "requirements": [
+        "Account registration is free; a qualifying purchase is required. The coupon is valid for 30 days after registration and only once. Eligible products and exclusions apply; delivery or service charges can affect the total. Check the coupon attached to your account before ordering."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-22",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "spotify-premium-standard-one-month-trial",
+      "kind": "deal",
+      "title": "Spotify Premium Standard: three months free for eligible new subscribers",
+      "provider": "Spotify",
+      "summary": "New Premium subscribers can try Standard for three months free in South Africa. It renews at R69.99 a month unless cancelled.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://www.spotify.com/za-en/premium/",
+      "termsUrl": "https://www.spotify.com/za-en/legal/paid-subscription-terms/",
+      "requirements": [
+        "Sign up by 31 December 2026. Only people who have never had Premium qualify. Add an eligible recurring payment method and check your first billing date. Cancel through your Spotify account before the trial ends to avoid the monthly charge. Data costs apply."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-12-31",
+      "lastChecked": "2026-11-22",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "makro-msenior-discount",
+      "kind": "deal",
+      "title": "Makro mSenior: savings on eligible food and general merchandise",
+      "provider": "Makro",
+      "summary": "Registered shoppers aged 60+ can receive a product-dependent mSenior discount in-store and online.",
+      "category": "groceries",
+      "categoryLabel": "Groceries",
+      "officialUrl": "https://www.makro.co.za/pages/terms-of-use",
+      "termsUrl": "https://www.makro.co.za/pages/terms-of-use",
+      "requirements": [
+        "Requires a valid mSenior Citizens Card/profile and South African ID or passport. Current October 2026 terms allow at most 5% on selected food and 10% on selected general merchandise, subject to Makro’s approved cost floor; these are not guaranteed flat reductions. Personal purchases only. Excludes promotions, Marketplace sellers, delivery, liquor, tobacco, cellular, gift/prepaid and financial products, LPG, motor oil, pool chemicals, copier paper and baby formula."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-22",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "hisense-sunlight-bright-beginnings-2026",
+      "kind": "deal",
+      "title": "Hisense washer purchases: Sunlight detergent for 40 washes",
+      "provider": "Hisense",
+      "summary": "Buy a qualifying Hisense top loader, front loader or washer-dryer at a participating retailer to claim Sunlight detergent while stock lasts.",
+      "category": "electronics-appliances",
+      "categoryLabel": "Electronics & Appliances",
+      "officialUrl": "https://hisense.co.za/campaign/technology-showcase/",
+      "termsUrl": "https://hisense.co.za/campaign/technology-showcase/",
+      "requirements": [
+        "Scan the in-store QR or WhatsApp “Hisense” to +27 82 073 2801 and send the purchase receipt. The voucher covers two 2 kg powder packs for a top loader or two 1.5 litre liquid packs for a front loader or washer-dryer. Redeem at listed Pick n Pay, Checkers, Shoprite or Dis-Chem stores. Hirsch customers can redeem in-store. Check the eligible appliance and participating retailer before buying. South African adults with valid ID and a South African address qualify."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-11-23",
+      "lastChecked": "2026-11-22",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "haier-black-summer-2026",
+      "kind": "deal",
+      "title": "Haier Black Summer: Uber vouchers or a wine cabinet with selected appliances",
+      "provider": "Haier",
+      "summary": "Selected laundry appliances include R500–R3,000 in Uber or Uber Eats vouchers. Two specified fridges come with a wine cabinet while promotional stock lasts.",
+      "category": "electronics-appliances",
+      "categoryLabel": "Electronics & Appliances",
+      "officialUrl": "https://www.haier.com/za/where-to-buy/promotions/20261029_296011.shtml",
+      "termsUrl": "https://www.haier.com/za/where-to-buy/promotions/20261029_296011.shtml",
+      "requirements": [
+        "Check the model code and stock with the retailer before buying. The HW120-BD12699GNU1 washer includes R3,000 in vouchers and free installation. Fridge HRF-980VCWIMBLU1(ZA) comes with a 150-litre wine cabinet valued by Haier at R10,999. HRF-850VNWIMBL(ZA) comes with a 90-litre cabinet valued at R6,499. For voucher claims, follow the WhatsApp link on the official page within seven calendar days of purchase and provide your invoice."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-12-31",
+      "lastChecked": "2026-11-22",
+      "isAffiliate": false,
+      "isSponsored": false
     }
   ]
 }

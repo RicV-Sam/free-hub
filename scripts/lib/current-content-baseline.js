@@ -90,7 +90,8 @@ function getCurrentContentBaseline() {
     // 18 November: World Sports Photography Awards 2027 and Vodacom Prime Summer
     // add two reviewed competition detail pages. Their active exits and the new
     // resource/under-review pages remain counted by the variable terms below.
-    generatedFileCount: resourceGuideCount * 2 + groceryPageCount + 525 + underReviewCount + shared.TAG_SLUGS.filter(slug => shared.getTagFilteredCompetitions(active, slug).length > 0).length + featuredVideoSlugs(active).size + shared.getGeneratedBrandPageDefinitions(core).length + getReviewedGuides(buildDate).length - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
+    // Six verified competitions added on 22 November each have a detail page. Active exits are counted below.
+    generatedFileCount: resourceGuideCount * 2 + groceryPageCount + 531 + underReviewCount + shared.TAG_SLUGS.filter(slug => shared.getTagFilteredCompetitions(active, slug).length > 0).length + featuredVideoSlugs(active).size + shared.getGeneratedBrandPageDefinitions(core).length + getReviewedGuides(buildDate).length - retiredDetailCount + active.length + read('data/student-guide.json').offers.length + detailOpportunities.length + publicOpportunities.length,
     sitemapUrlCount: resourceGuideCount + groceryPageCount + underReviewCount + read('tests/baselines/seo-baseline.json').staticSitemapUrlCount + getReviewedGuides(buildDate).filter(page => !page.noindex).length + inventorySitemapCount(active, read('tests/baselines/seo-baseline.json').canonicalAliases) + new Set([...active.map(shared.getCompetitionSlug), ...resultSlugs]).size + publicOpportunities.length + (read('data/airtime-dash.json').enabled ? 1 : 0),
   };
 }
