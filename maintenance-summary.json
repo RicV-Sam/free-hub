@@ -2,12 +2,12 @@
   "ok": true,
   "errors": [],
   "summary": {
-    "today": "2026-11-21",
+    "today": "2026-11-22",
     "retiredCount": 6,
     "retiredRouteLeaks": [],
     "expiredPublishedCount": 326,
     "archivedCompetitionCount": 352,
-    "publicListingFilesScanned": 176,
+    "publicListingFilesScanned": 173,
     "sitemapContainsOutUrls": false,
     "expiredMissingFromArchive": [],
     "expiredInSitemap": [],
@@ -28,15 +28,17 @@
     "nonPublicDetailPages": [],
     "nonPublicInPublicListings": [],
     "editorialHealth": {
-      "asOfDate": "2026-11-21",
+      "asOfDate": "2026-11-22",
       "needsReview": true,
       "surfaces": [
         {
           "surface": "home",
-          "eligibleCount": 2,
+          "eligibleCount": 0,
           "needsReview": true,
-          "nextReviewDue": "2026-11-21",
+          "nextReviewDue": null,
           "overdueIds": [
+            "mtn-app-first-login-1gb-2026",
+            "resource-famelack-live-tv-radio-webcams",
             "resource-childrens-books-book-dash",
             "astron-energy-xtra-savings-fuel-rewards",
             "mally-win-your-cart-november-2026"

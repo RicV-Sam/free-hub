@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-21",
+  "asOfDate": "2026-11-22",
   "count": 101,
   "competitions": [
     {
@@ -326,7 +326,7 @@
       "termsUrl": "https://www.boxer.co.za/storage/web/source/2026/Competition%20T&Cs/Boxer%20&%20Glen%20Tea%20Ts&Cs.pdf?_t=1793966483",
       "lastChecked": "2026-11-13",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "coca-cola-be-a-bok-voucher-prizes-2026",
@@ -735,7 +735,7 @@
       "termsUrl": "https://www.vaultbook.co.za/stimorol-competition/",
       "lastChecked": "2026-10-11",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "prh-braai-broekies-2026",
