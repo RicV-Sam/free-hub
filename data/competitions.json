@@ -249,7 +249,7 @@
     "eligibility": "South African residents aged 18 or older who own or are authorised to represent a South African business.",
     "entryType": "Online form",
     "entryChannel": "Online form",
-    "entryCostType": "free",
+    "entryCostType": "free-entry",
     "purchaseRequired": false,
     "entryFeeLabel": "Free entry. A device and internet access are required.",
     "entryCostSummary": "Free entry. A device and internet access are required.",
