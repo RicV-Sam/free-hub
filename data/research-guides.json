@@ -1934,5 +1934,66 @@
     ],
     "adsAllowed": false,
     "skipTopicNavigation": true
+  },
+  {
+    "id": "discovery-black-friday-giveaway-2026",
+    "slug": "discovery-black-friday-giveaway-2026",
+    "title": "Discovery Black Friday 2026 giveaway and Discovery Miles discount | FreeHub",
+    "heading": "Discovery Black Friday giveaway and Miles discount",
+    "description": "How to enter the free 23–26 November screenshot giveaway and who qualifies for the separate Discovery Miles discount on 27 November.",
+    "intro": "Discovery is running two Black Friday promotions in South Africa. The four-day social giveaway opens on Monday 23 November. The Discovery Miles shopping discount follows on Friday 27 November.",
+    "article": true,
+    "datePublished": "2026-11-22",
+    "dateModified": "2026-11-22",
+    "lastReviewed": "2026-11-22",
+    "expiresAt": "2026-11-27",
+    "sections": [
+      {
+        "heading": "23–26 November: enter the daily giveaway",
+        "paragraphs": [
+          "South African residents aged 18 or older can enter for free on Facebook or X. Choose a qualifying partner deal priced at R5,000 or less and take a screenshot showing the product and price.",
+          "Post the screenshot, tag @Discovery_SA on X or @DiscoverySouthAfrica on Facebook and include both #HackBlackFriday and #DiscoveryBestBank. Submit a new qualifying screenshot each day by 23:59. Four winners are selected across the four days. Each entrant can win once."
+        ]
+      },
+      {
+        "heading": "27 November: pay with Discovery Miles",
+        "paragraphs": [
+          "Eligible primary Discovery Bank clients with active Vitality Money and an account in good standing can get 10% to 30% off qualifying partner purchases paid in Discovery Miles. The discount depends on the activated programmes. Check the partner and amount shown at checkout before spending Miles. Airtime and utility payments are among the exclusions."
+        ]
+      },
+      {
+        "heading": "Official campaign information",
+        "sources": [
+          {
+            "label": "Discovery Black Friday campaign",
+            "href": "https://cdn.discovery.co.za/bank/news-boost-your-black-friday"
+          },
+          {
+            "label": "Discovery competition and discount rules",
+            "href": "https://cdn.discovery.co.za/assets/template-resources/terms-and-conditions/bank/boost-your-black-friday-hackblackfriday-terms-and-conditions.pdf"
+          }
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Competitions",
+        "href": "/competitions/"
+      },
+      {
+        "label": "Coupons and deals",
+        "href": "/offers/",
+        "requiresOffers": true
+      }
+    ],
+    "actions": [
+      {
+        "label": "Read Discovery’s official rules",
+        "href": "https://cdn.discovery.co.za/assets/template-resources/terms-and-conditions/bank/boost-your-black-friday-hackblackfriday-terms-and-conditions.pdf",
+        "className": "btn--primary"
+      }
+    ],
+    "adsAllowed": false,
+    "skipTopicNavigation": true
   }
 ]
