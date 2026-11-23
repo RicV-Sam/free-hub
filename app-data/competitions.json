@@ -1,135 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-22",
-  "count": 107,
+  "asOfDate": "2026-11-23",
+  "count": 102,
   "competitions": [
-    {
-      "id": "eskort-braai-lux-2026",
-      "title": "Eskort Braai-Lux Toyota Hilux Competition",
-      "brand": "Eskort",
-      "summary": "Eskort is giving away a customised 2026 Toyota Hilux 2.8 GD-6 4×4 Raider 6AT. Entry requires a qualifying purchase, and the winner takes on insurance costs plus two-year branding and resale restrictions.",
-      "imageUrl": "https://freehub.co.za/assets/listings/eskort-braai-lux-2026-official.webp",
-      "closingDate": "2026-11-22",
-      "category": "Cars",
-      "prizeName": "Customised Toyota Hilux Braai-Lux and a handover-event braai with Bongi Mbonambi",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Qualifying purchase with your own Checkers Xtra Savings card",
-      "eligibility": "SA residents older than 18, with valid identification and a valid SA driver’s licence.",
-      "entrySteps": [
-        "Read the official terms and check that you meet the age, residency and South African driving-licence requirements.",
-        "Register your own Checkers Xtra Savings card and ensure the contact details are current. Registration is free and must be completed before or at purchase.",
-        "Buy any Eskort product at a South African Checkers store or through Checkers Sixty60 during the campaign. Swipe or correctly link your own card to the purchase.",
-        "Keep the original receipt. Each qualifying transaction earns one entry; several Eskort products in one basket still count as one entry. Separate qualifying transactions can earn additional entries."
-      ],
-      "officialUrl": "https://eskort.com/braai-lux-competition-terms-conditions/",
-      "termsUrl": "https://eskort.com/braai-lux-competition-terms-conditions/",
-      "lastChecked": "2026-09-18",
-      "isHighValue": true,
-      "isClosingSoon": true
-    },
-    {
-      "id": "mally-win-your-cart-november-2026",
-      "title": "Mally Win Your Cart: products worth up to R3,000",
-      "brand": "Mally",
-      "summary": "One entrant receives the products in their qualifying abandoned checkout, capped at R3,000, with delivery in South Africa.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/discovery-2026-11-13-mally-win-your-cart-november-2026.webp",
-      "closingDate": "2026-11-22",
-      "closingAt": "2026-11-22T23:59:00+02:00",
-      "category": "Shopping",
-      "prizeName": "One prize up to R3,000 plus delivery",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "South African residents aged 18 or older; identifiable checkout using full name, email and contact details.",
-      "entrySteps": [
-        "Add the Mally products you would like to win to your online cart.",
-        "Continue to checkout and enter your full name, valid email and the contact details required to identify the checkout.",
-        "Leave without placing or paying for the order. The checkout must be captured in Mally’s system before 23:59 SAST on 22 November."
-      ],
-      "officialUrl": "https://mally.co.za/",
-      "termsUrl": "https://mally.co.za/pages/win-your-cart-competition-terms-conditions",
-      "lastChecked": "2026-11-13",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "beauty-sa-clicks-spring-beauty-box-2026",
-      "title": "Win a Clicks Spring Beauty Box with BeautySouthAfrica",
-      "brand": "BeautySouthAfrica / Clicks",
-      "summary": "Enter to win a Clicks Spring Beauty Box of assorted beauty products. The official page does not state the number of winners.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/discovery-2026-11-13-beauty-sa-clicks-spring-beauty-box-2026.webp",
-      "closingDate": "2026-11-22",
-      "category": "Beauty",
-      "prizeName": "Clicks Spring Beauty Box",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "South African residents with valid identity proof. Age minimum not specified in accessible rules.",
-      "entrySteps": [
-        "Open the official BeautySouthAfrica competition form.",
-        "Name your favourite spring beauty product at Clicks and provide the requested contact details.",
-        "Accept the rules and required BeautySouthAfrica newsletter consent; submit once before 12:00 on 22 November."
-      ],
-      "officialUrl": "https://beautysouthafrica.com/win-your-clicks-beauty-favourites-all-in-one-box/",
-      "termsUrl": "https://beautysouthafrica.com/competition-terms-and-conditions/",
-      "lastChecked": "2026-11-13",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "beauty-sa-hr-haircare-2026",
-      "title": "Win one of two R500 HR haircare hampers",
-      "brand": "BeautySouthAfrica / HR Hair Care",
-      "summary": "Two readers each win an HR haircare hamper.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/discovery-2026-11-13-beauty-sa-hr-haircare-2026.webp",
-      "closingDate": "2026-11-22",
-      "category": "Beauty",
-      "prizeName": "2 × R500 hampers",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "South African residents with valid identity proof. Age minimum not specified in accessible rules.",
-      "entrySteps": [
-        "Open the official BeautySouthAfrica HR haircare form.",
-        "Explain why your hair needs the hamper and provide the requested contact details.",
-        "Accept the rules and required newsletter consent; submit once before 12:00 on 22 November."
-      ],
-      "officialUrl": "https://beautysouthafrica.com/win-one-of-two-hr-haircare-hampers/",
-      "termsUrl": "https://beautysouthafrica.com/competition-terms-and-conditions/",
-      "lastChecked": "2026-11-13",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "colgate-gauteng-dental-checkup-clean-2026",
-      "title": "Colgate: win a dental check-up and clean in Gauteng",
-      "brand": "Colgate-Palmolive / Shoprite Checkers / Medicross",
-      "summary": "250 winners receive a dental check-up and professional clean at a participating Gauteng Medicross clinic.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/discovery-2026-11-13-colgate-gauteng-dental-checkup-clean-2026.webp",
-      "closingDate": "2026-11-22",
-      "category": "Wellness",
-      "prizeName": "Approximately R800 each; R200,000 total",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Qualifying purchase",
-      "eligibility": "South African citizens or residents over 18, exactly as stated in the rules, with valid South African ID, passport or permit. Entrants must be the registered holder of the Xtra Savings card used and able to attend a Medicross clinic in Gauteng.",
-      "entrySteps": [
-        "Check the Gauteng Shoprite and Checkers store list in the official rules.",
-        "Buy two Colgate Maximum Cavity Protection 100ml toothpastes together and swipe your own registered Xtra Savings card.",
-        "Keep the receipt. Selected winners must book and redeem the check-up and clean at a Gauteng Medicross clinic within three months of contact."
-      ],
-      "officialUrl": "https://www.colgate.com/content/dam/cp-sites-aem/oral-care/oral-care-center/en_za/competitions/pdfs/test-and-learn-activation-campaign-en-za.pdf",
-      "termsUrl": "https://www.colgate.com/content/dam/cp-sites-aem/oral-care/oral-care-center/en_za/competitions/pdfs/test-and-learn-activation-campaign-en-za.pdf",
-      "lastChecked": "2026-11-13",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "beauty-sa-fundamentals-skincare-2026",
       "title": "Win a Fundamentals Skincare routine hamper",
@@ -374,7 +247,7 @@
       "termsUrl": "https://websites4u.co.za/competition-terms/",
       "lastChecked": "2026-11-22",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "capitec-pay-canva-pro-november-2026",
@@ -398,7 +271,7 @@
       "termsUrl": "https://www.capitecbank.co.za/globalassets/pages/competition-and-conditions/competitions/2026/capitec-pay-x-canva-competition-tcs.pdf",
       "lastChecked": "2026-11-22",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "coca-cola-be-a-bok-voucher-prizes-2026",
@@ -423,7 +296,7 @@
       "termsUrl": "https://www.coca-cola.com/za/en/legal/terms-and-conditions-be-a-bok-2026-promotion",
       "lastChecked": "2026-07-04",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "coca-cola-fan-can-be-a-bok-2026",
@@ -447,7 +320,7 @@
       "termsUrl": "https://www.coca-cola.com/za/en/legal/terms-and-conditions-be-a-bok-2026-promotion",
       "lastChecked": "2026-07-20",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "montego-classic-win-toyota-hilux-2026",
@@ -473,7 +346,7 @@
       "termsUrl": "https://www.montego.co.za/2026/07/31/stand-a-chance-to-win-the-new-generation-hilux/#terms-and-conditions",
       "lastChecked": "2026-09-25",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "standard-bank-savings-investments-scheduled-payments-2026",
@@ -499,7 +372,7 @@
       "termsUrl": "https://www.standardbank.co.za/static_file/South%20Africa/PDF/Terms%20and%20Conditions/Savings_and_Investments_accounts_scheduled_payments_competition.pdf",
       "lastChecked": "2026-08-17",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "nedbank-greenbacks-checkers-launch-2026",
@@ -525,7 +398,7 @@
       "termsUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/greenbacks-checkers-launch-promotion.html",
       "lastChecked": "2026-08-23",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "1life-be-the-1-to-win-funeral-2026",
@@ -550,7 +423,7 @@
       "termsUrl": "https://www.1life.co.za/competitions/be-the-1-to-win-sept-funeral",
       "lastChecked": "2026-09-27",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "miway-micover-conversation-2026",
@@ -576,7 +449,7 @@
       "termsUrl": "https://www.miway.co.za/micover-conversation-competition-terms-and-conditions",
       "lastChecked": "2026-09-18",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "miway-friday-is-miday-2026",
@@ -602,7 +475,7 @@
       "termsUrl": "https://www.miway.co.za/friday-is-miday-terms-of-use",
       "lastChecked": "2026-09-18",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "glowming-cape-town-getaway-2026",
@@ -627,7 +500,7 @@
       "termsUrl": "https://glowming.co.za/pages/competition-rules",
       "lastChecked": "2026-10-03",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "gotyme-card-swipe-spend-2026",
@@ -655,7 +528,7 @@
       "termsUrl": "https://gotyme.co.za/personal/terms-and-conditions-for-campaigns",
       "lastChecked": "2026-10-04",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "avbob-poetry-2026",
@@ -680,7 +553,7 @@
       "termsUrl": "https://www.avbobpoetry.co.za/Content/CompetitionRules",
       "lastChecked": "2026-10-06",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "engen-powerade-sportsmans-vouchers-2026",
@@ -704,7 +577,7 @@
       "termsUrl": "https://www.coca-cola.com/za/en/legal/terms-and-conditions-engen-springboks-promotion-2026",
       "lastChecked": "2026-10-08",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "imana-pnp-oakfields-chef-2026",
@@ -728,7 +601,7 @@
       "termsUrl": "https://www.imana.co.za/pnp-oakfields-vip-chef-experience",
       "lastChecked": "2026-10-08",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "absa-multi-currency-zanzibar-2026",
@@ -752,7 +625,7 @@
       "termsUrl": "https://www.absa.co.za/content/dam/south-africa/absa/pdf/2026/mccp-international-trip-terms-and-conditions-english.pdf",
       "lastChecked": "2026-10-08",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "abc-meerkat-50-chipper-giveaway-2026",
@@ -778,7 +651,7 @@
       "termsUrl": "https://abc.co.za/giveaway/",
       "lastChecked": "2026-10-11",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "stimorol-volume-driver-2026",
@@ -833,7 +706,7 @@
       "termsUrl": "https://www.penguinrandomhouse.co.za/tos/tscs-win-braai-broekies-x-idees-vol-vrees/",
       "lastChecked": "2026-10-21",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "prh-greenie-do-not-feed-the-monkey-2026",
@@ -859,7 +732,7 @@
       "termsUrl": "https://www.penguinrandomhouse.co.za/tos/tscs-win-do-not-feed-the-monkey/",
       "lastChecked": "2026-10-21",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "nedbank-black-friday-tourvest-2026",
@@ -886,7 +759,7 @@
       "termsUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/clm-black-friday-competition.html",
       "lastChecked": "2026-10-21",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "first-choice-moms-got-the-power-2026",
@@ -914,7 +787,7 @@
       "termsUrl": "https://www.firstchoice.co.za/terms-and-conditions/first-choice-power-cup-mom-s-got-the-power-competition-2026",
       "lastChecked": "2026-10-25",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "dr-oetker-nice-n-easy-travel-2026",
@@ -945,7 +818,7 @@
       "termsUrl": "https://www.oetker.co.za/dr-oetker-competition-nice-n-easy-meals-win-your-ultimate-travel-experience-worth-r100-000",
       "lastChecked": "2026-10-30",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "beds-r-us-golden-ticket-2026",
@@ -970,7 +843,7 @@
       "termsUrl": "https://bedsrus.co.za/golden-ticket-rules/",
       "lastChecked": "2026-11-01",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "just-about-anything-shop-and-win-2026",
@@ -997,7 +870,7 @@
       "termsUrl": "https://justaboutanything.co.za/shop-and-win-terms/",
       "lastChecked": "2026-11-01",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "beares-facebook-stanley-headboard-november-2026",
@@ -1022,7 +895,7 @@
       "termsUrl": "https://www.beares.co.za/beares-facebook-competition-terms-and-conditions",
       "lastChecked": "2026-11-04",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "beares-instagram-ceramic-stove-november-2026",
@@ -1047,7 +920,7 @@
       "termsUrl": "https://www.beares.co.za/beares-instagram-competition-terms-and-conditions",
       "lastChecked": "2026-11-04",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "vodacom-prepaid-fibre-r300-voucher-2026",
@@ -1073,7 +946,7 @@
       "termsUrl": "https://www.vodacom.co.za/vodacom/terms/competition/prepaid-fibre-r300-voucher",
       "lastChecked": "2026-11-04",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "nedbank-boxer-back-to-school-2026",
@@ -1098,7 +971,7 @@
       "termsUrl": "https://personal.nedbank.co.za/legal/terms-and-conditions/back-to-school-boxer-competition.html",
       "lastChecked": "2026-11-04",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "paaper-bites-flavour-battle-2026",
@@ -1124,7 +997,7 @@
       "termsUrl": "https://paaperbites.co.za/competition-rules",
       "lastChecked": "2026-11-09",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "onedayonly-november-wallet-credit-2026",
@@ -1149,7 +1022,7 @@
       "termsUrl": "https://help.onedayonly.co.za/hc/en-us/articles/54582343001236-Win-R20-000-in-Wallet-Credit-Subscription-Competition-Ts-Cs-November-2026",
       "lastChecked": "2026-11-13",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "beauty-sa-brunel-oralink-2026",
@@ -1174,7 +1047,7 @@
       "termsUrl": "https://beautysouthafrica.com/competition-terms-and-conditions/",
       "lastChecked": "2026-11-13",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "beauty-sa-lipsano-summer-2026",
@@ -1199,7 +1072,7 @@
       "termsUrl": "https://beautysouthafrica.com/competition-terms-and-conditions/",
       "lastChecked": "2026-11-13",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "samsung-black-friday-win-your-basket-back-2026",
@@ -1224,7 +1097,7 @@
       "termsUrl": "https://www.samsung.com/za/offer/black-friday/competition-terms/",
       "lastChecked": "2026-11-13",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "telkom-limpopo-fibre-playstation-2026",
@@ -1249,7 +1122,7 @@
       "termsUrl": "https://group.telkom.co.za/documents/regulatory/terms-and-conditions/Limpopo-Fibre-Playstation-Competition-TsCs.pdf",
       "lastChecked": "2026-11-13",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "telkom-limpopo-postpaid-fieldbar-2026",
@@ -1274,7 +1147,7 @@
       "termsUrl": "https://group.telkom.co.za/documents/regulatory/terms-and-conditions/Limpopo-Postpaid-Fieldbar-Competition-TsCs.pdf",
       "lastChecked": "2026-11-13",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "absa-ott-voucher-draw-2026",
@@ -1299,7 +1172,7 @@
       "termsUrl": "https://www.absa.co.za/content/dam/south-africa/absa/pdf/2026/OTT-Voucher-Promotional-Campaign-Terms-and-Conditions-English.pdf",
       "lastChecked": "2026-11-13",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "andiccio24-ps5-gta-vi-november-2026",
@@ -1325,7 +1198,7 @@
       "termsUrl": "https://andiccio24.co.za/promotions-terms-conditions/",
       "lastChecked": "2026-11-13",
       "isHighValue": true,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "vodacom-amazon-prime-summer-2026",
@@ -1350,7 +1223,7 @@
       "termsUrl": "https://www.vodacom.co.za/vodacom/terms/competition/amazon-prime-summer",
       "lastChecked": "2026-11-18",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "clicks-have-your-say-october-november-2026",
