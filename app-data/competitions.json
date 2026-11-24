@@ -1,83 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-23",
-  "count": 102,
+  "asOfDate": "2026-11-24",
+  "count": 99,
   "competitions": [
-    {
-      "id": "beauty-sa-fundamentals-skincare-2026",
-      "title": "Win a Fundamentals Skincare routine hamper",
-      "brand": "BeautySouthAfrica / Fundamentals Skincare",
-      "summary": "One four-product routine: Refresh Water Toner, 5% Ascorbic Acid Serum, 1% Raspberry Extract Moisturiser and SPF30 sunscreen.",
-      "imageUrl": "https://freehub.co.za/assets/competitions/discovery-2026-11-13-beauty-sa-fundamentals-skincare-2026.webp",
-      "closingDate": "2026-11-23",
-      "category": "Beauty",
-      "prizeName": "A four-product skincare hamper valued at R567 in the official artwork; total winner count is not stated.",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "South African residents with valid identity proof. Age minimum not specified in accessible rules.",
-      "entrySteps": [
-        "Open the official Fundamentals Skincare competition form on BeautySouthAfrica.",
-        "Name one of the products included in the hamper and complete the contact fields.",
-        "Accept the rules, both newsletters and sharing your details with Fundamentals Skincare; submit once before 12:00 on 23 November."
-      ],
-      "officialUrl": "https://beautysouthafrica.com/win-the-ultimate-radiant-skin-routine-from-fundamentals-skincare/",
-      "termsUrl": "https://beautysouthafrica.com/competition-terms-and-conditions/",
-      "lastChecked": "2026-11-13",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "clicks-catrice-setting-spray-2026",
-      "title": "Clicks Catrice: win one of ten R500 hampers",
-      "brand": "Clicks / Catrice",
-      "summary": "Ten Catrice cosmetics hampers for qualifying ClubCard purchasers.",
-      "imageUrl": "https://freehub.co.za/assets/listings/discovery-2026-10-30/a034.webp",
-      "closingDate": "2026-11-23",
-      "category": "Beauty",
-      "prizeName": "10 × R500 hampers",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "Qualifying purchase",
-      "eligibility": "South African residents aged 18+ who are Clicks ClubCard members.",
-      "entrySteps": [
-        "Buy one qualifying Catrice fixing or setting spray in a single transaction at a Clicks store in South Africa.",
-        "Swipe your Clicks ClubCard during the transaction by 23 November for automatic entry.",
-        "Keep your ClubCard contact details current and check any winner notification promptly."
-      ],
-      "officialUrl": "https://clicks.co.za/clubcard/competitions/catrice-fixing-and-setting-spray-competition",
-      "termsUrl": "https://woobox.com/mwpnt9/rules",
-      "lastChecked": "2026-11-13",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "world-sports-photography-awards-2027",
-      "title": "World Sports Photography Awards 2027: free entry",
-      "brand": "World Sports Photography Awards",
-      "summary": "Submit up to 10 original sports photographs for judging across 24 categories. Entry is free and open internationally, including South Africa.",
-      "imageUrl": "https://freehub.co.za/assets/listings/world-sports-photography-awards-2027.webp",
-      "closingDate": "2026-11-23",
-      "category": "Other",
-      "prizeName": "Sports photography awards and sponsor-provided prizes",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "Worldwide, including South Africa; ownership and organiser/sponsor exclusions apply.",
-      "entrySteps": [
-        "Open the official 2027 campaign and choose Start submission to use Picter.",
-        "Select up to 10 photographs taken from December 2025 to November 2026, assign categories and complete the requested details.",
-        "Check the image rules and rights licence, then submit before 23 November 2026. Retain the submission confirmation."
-      ],
-      "officialUrl": "https://site.picter.com/worldsportsphotographyawards-2027",
-      "termsUrl": "https://site.picter.com/worldsportsphotographyawards-2027/terms",
-      "lastChecked": "2026-11-18",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "boxer-amarula-smeg-fridge-2026",
       "title": "Boxer Amarula SMEG Fridge Competition",
@@ -1249,7 +1174,7 @@
       "termsUrl": "https://woobox.com/3du4px/rules",
       "lastChecked": "2026-10-03",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "clicks-october-november-beauty-box-2026",
@@ -1274,7 +1199,7 @@
       "termsUrl": "https://woobox.com/fxt525/rules",
       "lastChecked": "2026-10-03",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "clicks-dlicious-hamper-october-november-2026",
@@ -1299,7 +1224,7 @@
       "termsUrl": "https://woobox.com/mt2ida/rules",
       "lastChecked": "2026-10-03",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "clicks-dkny-ice-pop-october-november-2026",
@@ -1324,7 +1249,7 @@
       "termsUrl": "https://woobox.com/96yz3d/rules",
       "lastChecked": "2026-10-03",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "dough-couture-christmas-giveaway-2026",
@@ -1350,7 +1275,7 @@
       "termsUrl": "https://doughcouture.co.za/pages/christmas-giveaway",
       "lastChecked": "2026-11-09",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "prh-camp-half-blood-2026",

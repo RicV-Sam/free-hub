@@ -1,6 +1,6 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-11-23
+Generated: 2026-11-24
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
@@ -95,15 +95,13 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 32
+- Matching active public competitions: 30
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Win a Fundamentals Skincare routine hamper (beauty-sa-fundamentals-skincare-2026) | 2026-11-23 | free-entry | yes | yes | Online entry mentioned in entry text | none |
-| World Sports Photography Awards 2027: free entry (world-sports-photography-awards-2027) | 2026-11-23 | free-entry | yes | yes | Online entry tag | none |
 | Websites 4U: win a starter website for your business (websites4u-starter-website-november-2026) | 2026-11-30 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | GoTyme Card Swipe and Spend: Win R300 (gotyme-card-swipe-spend-2026) | 2026-11-30 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | AVBOB 10th Annual Poetry Competition (avbob-poetry-2026) | 2026-11-30 | free-entry | yes | yes | Online entry tag | none |

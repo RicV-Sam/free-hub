@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-23",
-  "count": 62,
+  "asOfDate": "2026-11-24",
+  "count": 61,
   "counts": {
     "freeStuff": 42,
     "resources": 42,
     "opportunities": 0,
-    "offers": 20
+    "offers": 19
   },
   "items": [
     {
@@ -1012,25 +1012,6 @@
         "Requires a valid mSenior Citizens Card/profile and South African ID or passport. Current October 2026 terms allow at most 5% on selected food and 10% on selected general merchandise, subject to Makro’s approved cost floor; these are not guaranteed flat reductions. Personal purchases only. Excludes promotions, Marketplace sellers, delivery, liquor, tobacco, cellular, gift/prepaid and financial products, LPG, motor oil, pool chemicals, copier paper and baby formula."
       ],
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "lastChecked": "2026-11-22",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "hisense-sunlight-bright-beginnings-2026",
-      "kind": "deal",
-      "title": "Hisense washer purchases: Sunlight detergent for 40 washes",
-      "provider": "Hisense",
-      "summary": "Buy a qualifying Hisense top loader, front loader or washer-dryer at a participating retailer to claim Sunlight detergent while stock lasts.",
-      "category": "electronics-appliances",
-      "categoryLabel": "Electronics & Appliances",
-      "officialUrl": "https://hisense.co.za/campaign/technology-showcase/",
-      "termsUrl": "https://hisense.co.za/campaign/technology-showcase/",
-      "requirements": [
-        "Scan the in-store QR or WhatsApp “Hisense” to +27 82 073 2801 and send the purchase receipt. The voucher covers two 2 kg powder packs for a top loader or two 1.5 litre liquid packs for a front loader or washer-dryer. Redeem at listed Pick n Pay, Checkers, Shoprite or Dis-Chem stores. Hirsch customers can redeem in-store. Check the eligible appliance and participating retailer before buying. South African adults with valid ID and a South African address qualify."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2026-11-23",
       "lastChecked": "2026-11-22",
       "isAffiliate": false,
       "isSponsored": false
