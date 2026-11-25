@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-24",
-  "count": 61,
+  "asOfDate": "2026-11-25",
+  "count": 63,
   "counts": {
     "freeStuff": 42,
     "resources": 42,
     "opportunities": 0,
-    "offers": 19
+    "offers": 21
   },
   "items": [
     {
@@ -813,6 +813,25 @@
       "isSponsored": false
     },
     {
+      "id": "fundamentals-skincare-black-friday-2026",
+      "kind": "deal",
+      "title": "Fundamentals Skincare Black Friday: 40% Off Eligible Products",
+      "provider": "Fundamentals Skincare",
+      "summary": "Fundamentals Skincare applies a 40% discount to eligible products from 10:00 on 25 November to 22:00 on 1 December 2026.",
+      "category": "beauty-health",
+      "categoryLabel": "Beauty & Health",
+      "officialUrl": "https://fundamentals-skincare.co.za/pages/black-friday-2026",
+      "termsUrl": "https://fundamentals-skincare.co.za/pages/black-friday-2026",
+      "requirements": [
+        "Tools, accessories and gift cards are excluded. The sale applies automatically at checkout. Additional codes cannot be used and DewDrops cannot be earned or redeemed during the sale. Dispatch may take longer than usual."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-12-01",
+      "lastChecked": "2026-11-09",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
       "id": "edgars-payflex-r250-off-r1000-2026",
       "kind": "coupon",
       "title": "Edgars via Payflex: R250 Off R1,000 on Eligible Fashion",
@@ -1031,6 +1050,25 @@
       ],
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "expiresAt": "2026-12-31",
+      "lastChecked": "2026-11-22",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "dstv-open-time-2026",
+      "kind": "deal",
+      "title": "DStv Open Time: extra live channels for qualifying subscribers",
+      "provider": "DStv",
+      "summary": "Qualifying paid-up South African subscribers can watch all DStv live channels from 25 November to 25 December at their normal subscription price.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://www.dstv.com/en-za/news/152272/dstv-open-time-2026/",
+      "termsUrl": "https://www.dstv.com/en-za/news/152272/dstv-open-time-2026/",
+      "requirements": [
+        "For active Starter, Select, Sports and Movies & Series packages via satellite or DStv Stream. Channels activate automatically. EasyView and customers who downgrade during the offer are excluded. Catch Up follows the normal package. Normal subscription charges continue, and channel access returns to the paid package on 26 December."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-12-25",
       "lastChecked": "2026-11-22",
       "isAffiliate": false,
       "isSponsored": false
