@@ -4110,5 +4110,118 @@
     ],
     "adsAllowed": false,
     "skipTopicNavigation": true
+  },
+  {
+    "id": "does-this-free-course-carry-nqf-credits",
+    "slug": "does-this-free-course-carry-nqf-credits",
+    "title": "Does this free course carry South African NQF credits? | FreeHub",
+    "heading": "Does this free course carry South African NQF credits?",
+    "description": "Use the free SAQA register to check a course's qualification ID, credits and enrolment dates. Find out who can confirm the provider's approval.",
+    "intro": "If you need credits for further study or a job application, ask the course provider for the exact qualification title, its South African Qualifications Authority (SAQA) ID and the number of credits you can earn. You can look up the qualification for free before you enrol.",
+    "article": true,
+    "datePublished": "2026-11-26",
+    "dateModified": "2026-11-26",
+    "lastReviewed": "2026-11-26",
+    "sections": [
+      {
+        "heading": "Look up the exact award",
+        "paragraphs": [
+          "Open SAQA's qualification search, enter the ID under Qualification ID and leave the other fields blank. You can also search by title. Open the matching record and compare the title, NQF level and credit total with the provider's offer.",
+          "If a short course covers one module of a larger qualification, ask which assessed part you will complete and how many credits it carries. The credit total on the full qualification describes the whole programme. Where the provider names a unit standard, use the separate unit-standard search."
+        ],
+        "sources": [
+          {
+            "label": "Search SAQA by qualification ID or title",
+            "href": "https://regqs.saqa.org.za/search.php?cat=qual"
+          },
+          {
+            "label": "Choose the qualification or unit-standard register",
+            "href": "https://regqs.saqa.org.za/"
+          }
+        ]
+      },
+      {
+        "heading": "Check whether you can still enrol",
+        "paragraphs": [
+          "Find the registration status and end date. Where the record lists a last date for enrolment, compare it with your proposed start date. The last date for achievement tells an already enrolled learner when the assessments must be finished.",
+          "If the current register has no matching title, try SAQA's all-status search with the ID. An older record may name a replacement. Ask the provider which ID applies to your intake and confirm any conflicting dates with the relevant quality council before paying."
+        ],
+        "sources": [
+          {
+            "label": "Search across current and older SAQA records",
+            "href": "https://allqs.saqa.org.za/search.php?cat=qual"
+          },
+          {
+            "label": "Read SAQA's definitions of enrolment and achievement dates (PDF)",
+            "href": "https://www.saqa.org.za/wp-content/uploads/2023/06/Guideline-Document-for-Development-of-Quals-signed.pdf"
+          }
+        ]
+      },
+      {
+        "heading": "Check who can teach and assess it",
+        "paragraphs": [
+          "Ask for the provider's registered name and confirmation that it can offer this particular programme. Give the quality council both the provider name and the qualification ID. If you need credits towards an existing degree or diploma, ask the institution where you want to use them what it will accept.",
+          "For an occupational award, start with the Quality Council for Trades and Occupations (QCTO) provider database. For higher education, use the Council on Higher Education (CHE). Umalusi handles accreditation of private providers for qualifications on the general and further education and training sub-framework."
+        ],
+        "sources": [
+          {
+            "label": "Find an accredited occupational training provider at QCTO",
+            "href": "https://qcto.org.za/databases-of-sdps.html"
+          },
+          {
+            "label": "Check higher education programme accreditation with CHE",
+            "href": "https://www.che.ac.za/focus-areas/programme-accreditation"
+          },
+          {
+            "label": "Check which private institutions Umalusi accredits",
+            "href": "https://www.umalusi.org.za/services/accreditation/"
+          }
+        ]
+      },
+      {
+        "heading": "What does the certificate actually record?",
+        "paragraphs": [
+          "An attendance certificate records participation. A digital badge may record course completion or a passed assessment, depending on its issuer. If an advert promises NQF credits, follow the registration and provider checks above.",
+          "For example, PLAY SA says its free training for early childhood educators earns a certificate and 15 continuing professional development credits under the South African Council for Educators (SACE). A teacher can use those details to check professional development recognition. To count the course towards a formal qualification, ask the receiving institution for a separate decision.",
+          "Before starting, ask which assessments you must pass, how your achievement will be recorded, and whether an assessment, resit or certificate carries a fee. If you already completed a qualification and need proof of your own result, use SAQA's personal qualification verification service."
+        ],
+        "sources": [
+          {
+            "label": "Read PLAY SA's training and certificate terms",
+            "href": "https://playsa.org/about/"
+          },
+          {
+            "label": "Read how SACE records professional development points (PDF)",
+            "href": "https://www.sace.org.za/assets/documents/uploads/sace_41912-2025-11-21-CPTD_Handbook_January_2014.pdf"
+          },
+          {
+            "label": "Find the government route to verify a personal qualification",
+            "href": "https://www.gov.za/services/services-residents/education-and-training/tertiary-education/verify-qualifications"
+          }
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Compare free online courses in South Africa",
+        "href": "/free-online-courses-south-africa/"
+      },
+      {
+        "label": "See what the free CS50 certificate requires",
+        "href": "/cs50-free-certificate-explained/"
+      },
+      {
+        "label": "See how PLAY SA awards educator development credits",
+        "href": "/resources/play-sa-early-childhood-development/"
+      }
+    ],
+    "actions": [
+      {
+        "label": "Check a qualification with SAQA",
+        "href": "https://regqs.saqa.org.za/search.php?cat=qual",
+        "className": "btn--primary"
+      }
+    ],
+    "adsAllowed": false
   }
 ]

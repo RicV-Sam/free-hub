@@ -9,19 +9,28 @@ const CS50_CERTIFICATE = "https://cs50.harvard.edu/x/certificate/";
 const COURSE_GUIDE = {
   slug: "free-online-courses-south-africa",
   title: "Free Online Courses South Africa | Digital Skills & Certificates",
-  description: "Compare Google Skillshop, Microsoft Learn and CS50x: learning costs, completion awards, certificate requirements and practical checks for South African learners.",
+  description: "Find free online courses for South Africans. Compare languages, devices, assessment fees and certificates for learning at home or at work.",
   heading: "Free Online Courses in South Africa",
-  intro: "Choose a course by the skill you want to practise, the award you can earn and the costs beyond the lessons. Free learning, a completion badge and a professional certification are different things.",
+  intro: "Choose a skill you want to use at work or at home. Check the teaching language, device, assessment fee and award before you enrol.",
   eyebrow: "Learning guides",
   article: true,
   datePublished: "2026-05-27",
-  dateModified: CHECKED,
+  dateModified: "2026-11-26",
   actions: [{ label: "Compare learning options", href: "#course-comparison", className: "btn--primary" }, { label: "CS50 certificate explained", href: "/cs50-free-certificate-explained/", className: "btn--secondary" }],
-  trustItems: ["Sources checked 5 October 2026", "Certificate costs explained", "Data costs still apply"],
+  trustItems: ["Course cards reviewed 26 November 2026", "Assessment and certificate details", "Data costs may apply"],
   resourceCategories: ["online-courses"],
   resourceTitle: "More official learning and access resources",
-  resourceIntro: "These directory links include online learning and local access support. Check each provider's current terms; the review date on each card applies to that resource.",
+  resourceIntro: "Each course card lists its language, device, assessment fee and award. Western Cape eCentres provide local computer and internet access for learners who need it.",
   sections: [
+    {
+      heading: "Courses for teaching, bookkeeping and phone skills",
+      paragraphs: ["Run a play activity with a Grade R class, practise recording transactions in Xero, or learn to use WhatsApp on Android in isiXhosa. Each guide explains how to start, what you need and what you can earn by finishing."],
+      sources: [
+        { label: "Play-based learning for early childhood educators", href: "/resources/play-sa-early-childhood-development/" },
+        { label: "Xero Level 1 for bookkeeping", href: "/resources/xero-level-1-associate-certification/" },
+        { label: "Learn WhatsApp in isiXhosa", href: "/resources/mastering-whatsapp-isixhosa/" },
+      ],
+    },
     {
       id: "course-comparison",
       heading: "Compare learning, awards and extra costs",
@@ -54,6 +63,7 @@ const COURSE_GUIDE = {
     },
     {
       heading: "Plan around South African access and your goal",
+      sources: [{ label: "How to check whether a course carries South African NQF credits", href: "/does-this-free-course-carry-nqf-credits/" }],
       paragraphs: ["Budget for internet data, device access and any required software. Free course access does not establish zero-rated data. A laptop or desktop is a practical choice for coding assignments; check the course tools before starting on a phone.", "Choose one outcome you can demonstrate: a marketing plan for a small business, a completed technical module or a working coding project. Read the first assignment before committing to a long course. Check any country, age and account restrictions on the provider's registration route.", "Freehub has not verified that these awards carry South African academic credit or professional recognition. Ask your institution or employer what evidence they accept. A course does not guarantee a job."],
     },
   ],

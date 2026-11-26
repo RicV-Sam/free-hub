@@ -1,0 +1,181 @@
+{
+  "https://skillshop.exceedlms.com/student/collection/1830706?locale=en": {
+    "language": "English on the linked Fundamentals course.",
+    "device": "A browser for the online modules and interactive questions.",
+    "assessmentFee": "No separate final exam for Fundamentals. Complete the in-course activities.",
+    "award": "A digital award on your Skillshop profile after completing every module.",
+    "sourceUrl": "https://support.google.com/skillshop/answer/18072892?hl=en"
+  },
+  "https://learn.microsoft.com/en-us/training/": {
+    "language": "English and other languages. Availability varies by module.",
+    "device": "Use a browser. Individual labs can require extra software or a cloud subscription.",
+    "assessmentFee": "Module knowledge checks are free. Professional certification exams have separate pricing.",
+    "award": "Module badges and learning-path trophies in your Learn profile.",
+    "sourceUrl": "https://learn.microsoft.com/en-us/training/support/faq"
+  },
+  "https://vodacom.com/digital-skills.php": {
+    "language": "The South Africa entry page is in English. Check the language of the chosen partner course.",
+    "device": "Internet access to a partner learning platform. Check device requirements for any hands-on lab.",
+    "assessmentFee": "Check the assessment terms on the partner course page. The hub lists no common exam fee.",
+    "award": "The partner sets the award. Selected AWS Educate activities offer digital badges.",
+    "sourceUrl": "https://aws.amazon.com/education/awseducate/"
+  },
+  "hp-life-free-business-digital-courses": {
+    "language": "Eight languages including English, Portuguese and French.",
+    "device": "Computer or mobile device with a supported browser, or the HP LIFE mobile app.",
+    "assessmentFee": "R0 to complete the course activities and earn the certificate.",
+    "award": "Free HP LIFE Certificate of Completion.",
+    "sourceUrl": "https://www.life-global.org/help"
+  },
+  "openlearn-free-learning-statements": {
+    "language": "English options in the catalogue. Check the course description for other languages.",
+    "device": "A current browser on a computer or mobile device. Older interactive activities may need another browser.",
+    "assessmentFee": "R0, including quizzes on badged courses.",
+    "award": "Statement of Participation. Selected courses also award a digital badge.",
+    "sourceUrl": "https://www.open.edu/openlearn/about-openlearn/frequently-asked-questions-on-openlearn"
+  },
+  "ibm-skillsbuild-free-learning": {
+    "language": "English and translations depending on the course. Exploring Data, for example, offers eight languages.",
+    "device": "Use the web learning portal. Check each hands-on activity for additional tools.",
+    "assessmentFee": "Free learning and eligible digital credentials. Check the requirements on the individual credential.",
+    "award": "Selected activities award IBM digital credentials to registered learners.",
+    "sourceUrl": "https://skillsbuild.org/adult-learners/try-it-before-you-register"
+  },
+  "learnfree-practical-skills": {
+    "language": "English lessons are available in the linked library.",
+    "device": "Phone, tablet or computer with an internet browser. A computer is useful for practising office software.",
+    "assessmentFee": "Free tutorials. Check the chosen topic for quizzes or completion requirements.",
+    "award": "A certificate option appears after completion when the course offers one.",
+    "sourceUrl": "https://www.learnfree.org/help-center"
+  },
+  "stellenbosch-ai-literacy-access": {
+    "language": "The university guide is in English. It does not specify other teaching languages.",
+    "device": "Internet access to the online course and a university email account.",
+    "assessmentFee": "Course access is free for eligible SU staff and students. SU lists no separate assessment fee.",
+    "award": "SU says successful learners receive an official short-course certificate.",
+    "sourceUrl": "https://www.su.ac.za/en/staff/services/teaching/learning-technologies/short-courses-upskilling-learning-units-ulus"
+  },
+  "creating-hope-ai-november-2026": {
+    "language": "Programme information is in English. The teaching language is unspecified.",
+    "device": "Laptop or computer with internet access and a free account on a supported AI tool.",
+    "assessmentFee": "Ten module assessments form part of the advertised free programme.",
+    "award": "Completion certificate after meeting the pass criteria for the advertised cohort.",
+    "sourceUrl": "https://www.creatinghopeafrica.com/gen-ai-programme"
+  },
+  "wethinkcode-free-ai-training": {
+    "language": "The programme guide is in English. Check language support for your cohort.",
+    "device": "The course runs online. A computer is useful for comparing AI tools and completing practical tasks.",
+    "assessmentFee": "The provider describes the course and its practical activities as free.",
+    "award": "WeThinkCode_ certificate of completion.",
+    "sourceUrl": "https://wethinkcode.co.za/free-genai-entry-course-launches-in-sa/"
+  },
+  "sap-learning-hub-student-edition": {
+    "language": "Check the selected learning journey and certification exam for language options.",
+    "device": "Use a computer for SAP practice systems. Check the technical requirements for your chosen exam.",
+    "assessmentFee": "Two SAP certification exam attempts are included during the eligible student subscription.",
+    "award": "SAP Certification if you pass its exam. Practice-system access alone does not earn it.",
+    "sourceUrl": "https://learning.sap.com/helpcenter/learninghub-student-edition"
+  },
+  "aws-educate-free-cloud-learning": {
+    "language": "An English route is available. Check language on your chosen learning activity.",
+    "device": "Online lessons and cloud labs. A computer is practical for navigating the AWS console.",
+    "assessmentFee": "AWS Educate courses and hands-on labs are free. Professional AWS Certification exams are separate.",
+    "award": "Selected AWS Educate activities award shareable digital badges.",
+    "sourceUrl": "https://aws.amazon.com/education/awseducate/"
+  },
+  "cisco-networking-academy-free-courses": {
+    "language": "Choose the language on the individual Cisco course. English options are available.",
+    "device": "A web browser for lessons. Check lab software requirements before choosing a networking course.",
+    "assessmentFee": "Choose a free self-paced course. A separate professional certification exam may carry a fee.",
+    "award": "Check the course for an eligible digital badge or completion award.",
+    "sourceUrl": "https://www.cisco.com/site/us/en/learn/training-certifications/training/netacad/index.html"
+  },
+  "hubspot-academy-free-certifications": {
+    "language": "English courses are available. Check each course for translations.",
+    "device": "A browser and Academy account. Some software exercises also require access to specific HubSpot tools.",
+    "assessmentFee": "Free certification courses are available. Some practical exercises require a paid software subscription.",
+    "award": "Certification after passing the required exam and any practical exercises for the chosen course.",
+    "sourceUrl": "https://academy.hubspot.com/courses/hubspot-service-software"
+  },
+  "forage-free-job-simulations": {
+    "language": "English simulations are available. Select an employer programme to check its materials.",
+    "device": "Use a browser. A computer is practical for tasks involving spreadsheets or document uploads.",
+    "assessmentFee": "R0 for the simulation and its tasks. Compare your work with the employer’s model answers.",
+    "award": "A completion certificate for the finished job simulation.",
+    "sourceUrl": "https://www.theforage.com/"
+  },
+  "fao-elearning-free-courses": {
+    "language": "Multiple languages. The availability of each translation is shown on the course page.",
+    "device": "Online courses use a browser. Check the course description for a downloadable version.",
+    "assessmentFee": "The Academy offers free courses. Look for the digital badge symbol to find an assessed option.",
+    "award": "A digital badge on certified courses after scoring at least 75% on the final evaluation.",
+    "sourceUrl": "https://elearning.fao.org/mod/page/view.php?id=4556"
+  },
+  "disasterready-core-humanitarian-certification": {
+    "language": "English, Arabic, French and Spanish.",
+    "device": "Online learning portal. The mobile app also offers downloadable learning materials.",
+    "assessmentFee": "R0 for the certification test and the optional preparation materials.",
+    "award": "Core Humanitarian Certification after passing the assessment.",
+    "sourceUrl": "https://www.disasterready.org/free-core-humanitarian-certification"
+  },
+  "nwu-ai-academic-career-success": {
+    "language": "NWU publishes the course information in English. Other teaching languages are unspecified.",
+    "device": "Internet access for the self-paced course and for creating your career plan.",
+    "assessmentFee": "NWU lists the course as free and gives no separate assessment charge.",
+    "award": "An NWU AI certificate after successful completion.",
+    "sourceUrl": "https://services.nwu.ac.za/artificial-intelligence-ainwu/ai-training"
+  },
+  "digify-pro-foundations": {
+    "language": "The programme guide is in English. Confirm teaching languages when applying.",
+    "device": "Digify supports laptop, tablet and cellphone access.",
+    "assessmentFee": "Foundations is free. Digify lists no separate assessment fee for this phase.",
+    "award": "The programme page describes certification for later specialisations and gives no specific Foundations award.",
+    "sourceUrl": "https://digifyafrica.com/digify-pro-online-applications/"
+  },
+  "yes-microsoft-ai-skills-vouchers": {
+    "language": "The YES portal is in English. Check the selected Microsoft course and exam languages.",
+    "device": "Browser and Microsoft Learn profile. The claim form needs a screenshot of the practice result.",
+    "assessmentFee": "Free learning and practice. A funded exam requires a qualifying voucher application and available allocation.",
+    "award": "A voucher funds an exam attempt. Microsoft certification requires passing the relevant exam.",
+    "sourceUrl": "https://yes-aiskills.co.za/claim-certificate/"
+  },
+  "freecodecamp-free-coding": {
+    "language": "English curriculum available. Translations vary by track.",
+    "device": "A computer with a keyboard and browser is practical for writing code and submitting projects.",
+    "assessmentFee": "R0 for the curriculum, required projects and certifications.",
+    "award": "A freeCodeCamp certification after completing the requirements for your track.",
+    "sourceUrl": "https://www.freecodecamp.org/news/about/"
+  },
+  "unicef-agora-free-learning": {
+    "language": "Use the catalogue language filter to find the versions of each activity.",
+    "device": "A connected computer, tablet or phone. Check for any requirements on the activity page.",
+    "assessmentFee": "A public account is free. Check the chosen activity for its assessment conditions.",
+    "award": "A certificate or digital badge where the activity offers one.",
+    "sourceUrl": "https://agora.unicef.org/"
+  },
+  "nibs-free-foundation-courses": {
+    "language": "The course descriptions are in English. Check the campus lesson for other language options.",
+    "device": "Study online on any device. Digital Literacy practical tasks require time on a computer.",
+    "assessmentFee": "R0 for the two free foundation courses, including their required tasks.",
+    "award": "NIBS Certificate of Completion recorded on your Skills Passport.",
+    "sourceUrl": "https://nibs.edu.za/programmes/digital-literacy/"
+  },
+  "play-sa-early-childhood-development": {
+    "language": "The public course guide is in English. Check your chosen course for other languages.",
+    "device": "An internet-connected device that can play videos and open the course activities.",
+    "assessmentFee": "R0. Tasks and evaluations are part of the free training.",
+    "award": "Completion certificate. PLAY lists 15 SACE continuing professional development credits for the training."
+  },
+  "xero-level-1-associate-certification": {
+    "language": "English on the linked self-paced course.",
+    "device": "A browser and Xero login. A laptop or desktop is practical for the bookkeeping exercises.",
+    "assessmentFee": "R0 for Xero certification, including the Level 1 assessment.",
+    "award": "Xero digital badge and downloadable certificate after passing. Valid for 12 months."
+  },
+  "mastering-whatsapp-isixhosa": {
+    "language": "isiXhosa.",
+    "device": "Android phone to follow the demonstrations, an internet connection and email for the sign-in link.",
+    "assessmentFee": "The ten lessons are free. The provider lists no separate assessment.",
+    "award": "The provider lists practical lessons and gives no certificate details for this course."
+  }
+}

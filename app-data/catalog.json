@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-11-26",
-  "count": 74,
+  "count": 80,
   "counts": {
-    "freeStuff": 48,
-    "resources": 48,
+    "freeStuff": 54,
+    "resources": 54,
     "opportunities": 0,
     "offers": 26
   },
@@ -775,6 +775,102 @@
         "Pay the deposit when ordering and return the sample pack using Airloom’s collection instructions."
       ],
       "watchOut": "The pieces are on loan. Check delivery charges for your address before checkout. Refunds are processed on Fridays after receipt.",
+      "lastChecked": "2026-11-26"
+    },
+    {
+      "id": "play-sa-early-childhood-development",
+      "kind": "resource",
+      "title": "PLAY SA free early childhood development courses",
+      "provider": "PLAY SA free early childhood development courses",
+      "summary": "Choose a free play-based learning course for the age group you teach. Course activities, evaluation and the completion certificate are included.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://playsa.org/",
+      "bestFor": "Crèche staff, childminders, playgroup facilitators and Foundation Phase teachers in South Africa",
+      "requirements": [
+        "Register with PLAY, choose an age group and work through the online sessions. The provider suggests setting aside about two hours each week."
+      ],
+      "watchOut": "PLAY describes the credits as continuing professional development for educators. Allow for internet access when watching videos.",
+      "lastChecked": "2026-11-26"
+    },
+    {
+      "id": "xero-level-1-associate-certification",
+      "kind": "resource",
+      "title": "Xero Level 1 Associate certification",
+      "provider": "Xero Level 1 Associate certification",
+      "summary": "Follow Xero’s self-paced beginner training and take the free Level 1 assessment. Passing earns a digital badge and a downloadable certificate.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://learning.central.xero.com/student/path/4554",
+      "bestFor": "People learning to use Xero in a bookkeeping, accounts or office administration role",
+      "requirements": [
+        "Sign in to Xero Learning with a Xero login. The course covers sales, purchases and reconciling bank statement lines."
+      ],
+      "watchOut": "The award records skills using Xero software and is valid for 12 months. The South African certification page lists separate annual renewal requirements.",
+      "lastChecked": "2026-11-26"
+    },
+    {
+      "id": "mastering-whatsapp-isixhosa",
+      "kind": "resource",
+      "title": "Mastering WhatsApp in isiXhosa for Android",
+      "provider": "Mastering WhatsApp in isiXhosa for Android",
+      "summary": "Ten free video lessons cover setting up WhatsApp, messages, calls, taking photos and managing privacy settings.",
+      "category": "online-courses",
+      "categoryLabel": "Free online courses",
+      "officialUrl": "https://s2l.online/whatsapp-isixhosa/",
+      "bestFor": "Android beginners who prefer to learn in isiXhosa",
+      "requirements": [
+        "Register with a name and email address to receive a sign-in link. The provider requires account holders to be at least 13 and asks under-18s to have parental or guardian permission."
+      ],
+      "watchOut": "Videos use internet data. The course page gives no details of a certificate or a separate assessment.",
+      "lastChecked": "2026-11-26"
+    },
+    {
+      "id": "nsri-free-survival-swimming",
+      "kind": "resource",
+      "title": "Free NSRI survival swimming lessons at participating pools",
+      "provider": "Free NSRI survival swimming lessons at participating pools",
+      "summary": "NSRI instructors teach survival swimming free of charge by appointment at participating pools.",
+      "category": "family-support",
+      "categoryLabel": "Free family information and support",
+      "officialUrl": "https://www.nsri.org.za/water-safety/survival-swimming",
+      "bestFor": "Families and adults who want to learn basic water-survival skills from an instructor.",
+      "requirements": [
+        "Check the venue, next session and available places with the pool before travelling."
+      ],
+      "watchOut": "Pool admission is separate. Ask whether an entry fee applies to participants and accompanying adults.",
+      "lastChecked": "2026-11-26"
+    },
+    {
+      "id": "nbt-free-practice-questions",
+      "kind": "resource",
+      "title": "Free National Benchmark Test practice questions in English and Afrikaans",
+      "provider": "Free National Benchmark Test practice questions in English and Afrikaans",
+      "summary": "Download four official sample-question PDFs in English and Afrikaans from UCT's National Benchmark Test Project.",
+      "category": "school-resources",
+      "categoryLabel": "Free school resources",
+      "officialUrl": "https://www.nbt.ac.za/content/what-nbts",
+      "bestFor": "University applicants preparing for the Academic and Quantitative Literacy (AQL) or Mathematics (MAT) test.",
+      "requirements": [
+        "Use a phone or computer that can open PDFs. The practice files are public and require no registration."
+      ],
+      "watchOut": "Sitting the actual test requires a separate booking and fee. Check the requirements for the degree you want to study.",
+      "lastChecked": "2026-11-26"
+    },
+    {
+      "id": "western-cape-rental-housing-tribunal",
+      "kind": "resource",
+      "title": "Western Cape Rental Housing Tribunal free dispute resolution",
+      "provider": "Western Cape Rental Housing Tribunal free dispute resolution",
+      "summary": "The provincial tribunal offers free dispute resolution, including for a withheld deposit or a failure to carry out maintenance.",
+      "category": "consumer-support",
+      "categoryLabel": "Free consumer support",
+      "officialUrl": "https://www.westerncape.gov.za/complaint-forms-rental-housing-tribunal",
+      "bestFor": "Tenants and landlords dealing with a dispute about residential rental property in the Western Cape.",
+      "requirements": [
+        "Use the main complaint form and the annexure for your issue. Send the signed forms and copies of the supporting documents directly to the tribunal."
+      ],
+      "watchOut": "The tribunal screens each complaint. A deposit refund depends on the case and the evidence.",
       "lastChecked": "2026-11-26"
     },
     {

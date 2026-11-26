@@ -1,5 +1,12 @@
 const { getResourceDetailPath } = require("./resource-guides.js");
 const { CANONICAL_ORIGIN } = require("../../shared/page-data.js");
+const courseFacts = require("../../data/course-facts.json");
+const courseFields = [
+  ["language", "Language"],
+  ["device", "Device"],
+  ["assessmentFee", "Assessment fee"],
+  ["award", "Award earned"],
+];
 
 function createFreeResourceRenderer({ escapeHtml, escapeAttribute, formatDate, listingImages = {} }) {
   if (![escapeHtml, escapeAttribute, formatDate].every((helper) => typeof helper === "function")) {
@@ -33,6 +40,15 @@ function createFreeResourceRenderer({ escapeHtml, escapeAttribute, formatDate, l
   function renderFreeResourceCard(resource, { pageType = "trust" } = {}) {
     const detailPath = getResourceDetailPath(resource);
     const href = detailPath || resource.officialUrl;
+    const facts = courseFacts[resource.id || resource.officialUrl];
+    const courseFactsMarkup = facts
+      ? `<dl class="free-resource-card__facts" aria-label="Course details">${courseFields.map(([key, label]) =>
+          `<div><dt>${label}</dt><dd>${escapeHtml(facts[key])}</dd></div>`
+        ).join("")}</dl>`
+      : "";
+    const factsSource = facts?.sourceUrl && facts.sourceUrl !== resource.officialUrl && facts.sourceUrl !== resource.termsUrl
+      ? `<a href="${escapeAttribute(facts.sourceUrl)}" target="_blank" rel="nofollow noopener">Course requirements</a>`
+      : "";
     const image = resource.id && listingImages[resource.id];
     const anchor = image ? ` id="resource-${escapeAttribute(resource.id)}"` : "";
     const imageMarkup = image
@@ -63,8 +79,10 @@ function createFreeResourceRenderer({ escapeHtml, escapeAttribute, formatDate, l
         <h3>${escapeHtml(resource.name)}</h3>
         ${image ? `<figure class="free-resource-card__image"><img src="${escapeAttribute(image.src)}" width="${image.width}" height="${image.height}" alt="${escapeAttribute(image.alt)}" loading="lazy" decoding="async" /><figcaption>${escapeHtml(image.caption)}</figcaption></figure>` : ""}
         <p>${escapeHtml(resource.freeDetails)}</p>
+        ${courseFactsMarkup}
         <span class="free-resource-card__link">View details</span>
         </a>
+        ${factsSource}
       </article>`.replace(/>\s+</g, "><");
     }
 
@@ -95,6 +113,8 @@ function createFreeResourceRenderer({ escapeHtml, escapeAttribute, formatDate, l
               </dl>
               <a class="free-resource-card__link" href="${escapeAttribute(href)}"${rel}${analyticsAttributes}>${escapeHtml(linkLabel)}</a>
               ${termsMarkup}
+              ${courseFactsMarkup}
+              ${factsSource}
             </article>`.replace(/>\s+</g, "><");
   }
 

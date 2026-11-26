@@ -13426,7 +13426,7 @@ function runFreeResourceChecks() {
       const isReviewedSamplesEditorialDate =
         page.slug === "free-samples-south-africa" && ["2026-07-23", "2026-07-31", "2026-10-02"].includes(page.dateModified);
       const isReviewedCourseEditorialDate =
-        page.slug === COURSE_GUIDE.slug && page.dateModified === "2026-10-05";
+        page.slug === COURSE_GUIDE.slug && ["2026-10-05", "2026-11-26"].includes(page.dateModified);
       const isReviewedFreeStuffEditorialDate =
         page.slug === "free-stuff-south-africa" && ["2026-10-11", "2026-11-02"].includes(page.dateModified);
       if (page.dateModified === BUILD_DATE_ISO && page.dateModified !== page.datePublished && !isReviewedSamplesEditorialDate && !isReviewedCourseEditorialDate && !isReviewedFreeStuffEditorialDate) {

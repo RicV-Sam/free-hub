@@ -252,5 +252,15 @@
     "caption": "Detail from page 2 of Makro’s 23–30 November 2026 catalogue. Page image reproduced from the Kimbino catalogue viewer.",
     "sourcePage": "https://business.makro.co.za/sys-master/root/h5b/hd3/30684870869022/Black-Friday.pdf",
     "sourceImage": "https://eu.kimbicdn.com/thumbor/T1qpp0MfE44EnkxTEIg4oYSmKjg%3D/0x0/filters%3Aformat%28webp%29%3Aquality%2865%29/co.za/data/107/131138/1.jpg?t=1795329403"
+  },
+  "nsri-free-survival-swimming": {
+    "src": "/assets/listings/nsri-survival-swimming-sea-point.jpg",
+    "width": 960,
+    "height": 640,
+    "alt": "NSRI Survival Swimming volunteers beside the pool at the Sea Point Pavilion.",
+    "kind": "official-source",
+    "caption": "Survival Swimming volunteers at the Sea Point Pavilion. Photograph by Andrew Ingram, NSRI.",
+    "sourcePage": "https://www.nsri.org.za/2026/11/where-and-when-to-join-the-nsris-free-survival-swimming-lessons-this-summer/",
+    "sourceImage": "https://www.nsri.org.za/assets/general/54930868652_686e0557ff_o.jpg"
   }
 }

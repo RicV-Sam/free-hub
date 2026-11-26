@@ -1552,5 +1552,323 @@
       "Western Cape Library Service",
       "Official provider website"
     ]
+  },
+  {
+    "resourceId": "play-sa-early-childhood-development",
+    "provider": "PLAY SA",
+    "title": "Free PLAY SA early childhood development courses | FreeHub",
+    "description": "Choose a free PLAY SA course for babies, preschoolers, Grade R or Grades 1–3. See how to register, what the weekly work involves and which credits PLAY lists.",
+    "intro": "If you run a crèche, lead a playgroup or teach in the Foundation Phase, choose the PLAY course that matches the children you work with. You can start as soon as you register and use the activities with your group as you learn.",
+    "accessHeading": "Who can start and what you need",
+    "accessNote": "The courses are designed for people working with young children in South Africa. Use an internet-connected device for the videos, readings and activities. The public guide is in English.",
+    "steps": [
+      "Choose Register on the PLAY website and create your learner account.",
+      "Select the course for your group. The catalogue includes birth to two, ages two to five, Grade R and Grades 1–3.",
+      "Work through the sessions, practical tasks, reflections and evaluations. PLAY suggests reserving around two hours each week.",
+      "Complete your course and keep the certificate with your professional development records."
+    ],
+    "sections": [
+      {
+        "heading": "Which course suits your group?",
+        "paragraphs": [
+          "The birth-to-two course covers activities for babies and toddlers. The two-to-five course focuses on early language, communication and maths. Grade R has its own course, while the Grades 1–3 sessions identify the CAPS curriculum areas they support."
+        ]
+      },
+      {
+        "heading": "What the certificate records",
+        "paragraphs": [
+          "PLAY describes the programme as in-service training and lists 15 continuing professional development credits with the South African Council for Educators (SACE). These credits relate to professional development. A teaching or ECD qualification has its own enrolment and assessment requirements."
+        ]
+      }
+    ],
+    "faq": [],
+    "ctaHeading": "Choose your PLAY course",
+    "ctaLabel": "Open PLAY SA",
+    "ctaText": "Register with PLAY and choose the age group you work with.",
+    "trustItems": ["Free online training", "Choose an age group", "Completion certificate"],
+    "sourceSummary": "PLAY's course list and programme guide explain the registration, training activities and award.",
+    "exitNote": "Choose Register on PLAY and select the course for the age group you teach.",
+    "exitTrustItems": ["Official course provider", "Internet access required"],
+    "sourceLinks": [
+      {
+        "label": "PLAY programme, workload and credits",
+        "href": "https://playsa.org/about/"
+      }
+    ]
+  },
+  {
+    "resourceId": "xero-level-1-associate-certification",
+    "provider": "Xero",
+    "title": "Free Xero Level 1 Associate certification in South Africa | FreeHub",
+    "description": "Learn basic sales, purchases and bank reconciliation in Xero. See how to access the free Level 1 assessment, download your certificate and check its expiry.",
+    "intro": "A job advert may ask whether you can use Xero. Level 1 gives you a way to practise everyday bookkeeping tasks and show that you passed the software provider’s assessment.",
+    "accessHeading": "Using the course from South Africa",
+    "accessNote": "Xero’s South African site links directly to the English self-paced course. You need a Xero login to record progress and take the assessment. A laptop or desktop is practical for following the accounting screens.",
+    "steps": [
+      "Open Xero’s Level 1 self-paced course and sign in to Xero Learning.",
+      "Start with the setup lessons. Follow the examples for recording sales and purchases, importing bank statement lines and reconciling them.",
+      "Open the Level 1 assessment when you are ready. Xero lists it as a 30-minute activity.",
+      "After passing, open your learning profile to download the certificate and find your digital badge."
+    ],
+    "sections": [
+      {
+        "heading": "What you can practise",
+        "paragraphs": [
+          "The core lessons follow a transaction from basic settings to recording it and matching a statement line. The last lesson introduces the reports you can use to see how a business is performing. Modules marked for Xero partners are optional."
+        ]
+      },
+      {
+        "heading": "How long the certification lasts",
+        "paragraphs": [
+          "The Level 1 award is valid for 12 months from the day you earn it. If you want to keep it current, Xero offers an annual recertification assessment for the highest level you hold. You can put the product name, level and date on your CV so an employer knows exactly what you completed."
+        ]
+      }
+    ],
+    "faq": [],
+    "ctaHeading": "Start Xero Level 1",
+    "ctaLabel": "Open the Xero course",
+    "ctaText": "Use the self-paced learning path for the beginner lessons and assessment.",
+    "trustItems": ["Free assessment", "Xero login required", "Certificate valid for 12 months"],
+    "sourceSummary": "Xero's Level 1 learning path lists the modules and assessment. Xero South Africa explains the certification fee, award and renewal period.",
+    "exitNote": "Sign in to Xero Learning to open the self-paced Level 1 path.",
+    "exitTrustItems": ["Official course provider", "Internet access required"],
+    "sourceLinks": [
+      {
+        "label": "Xero South Africa certification fees, awards and renewal",
+        "href": "https://www.xero.com/za/certifications/"
+      }
+    ]
+  },
+  {
+    "resourceId": "mastering-whatsapp-isixhosa",
+    "provider": "Something to Learn Online",
+    "title": "Free WhatsApp lessons in isiXhosa for Android | FreeHub",
+    "description": "Learn WhatsApp on Android through ten free isiXhosa video lessons. See the sign-in steps, the topics covered and how to plan for mobile data.",
+    "intro": "If you want to follow a WhatsApp demonstration in isiXhosa, this course takes you from setting up an Android phone to sending a message, sharing a photo and choosing your privacy settings.",
+    "accessHeading": "What to have ready",
+    "accessNote": "Have an Android phone available to try the steps and an email address you can open. The provider uses an emailed sign-in link. Its terms set a minimum account age of 13 and ask under-18s to have a parent or guardian’s permission.",
+    "steps": [
+      "Open the course outline to see the ten lessons and their topics.",
+      "Choose the free registration option, enter your name and email, and open the one-time link sent by Something to Learn Online.",
+      "Return to the isiXhosa course and select Start Course. Pause the videos to try each step on your Android phone."
+    ],
+    "sections": [
+      {
+        "heading": "Which lessons to use first",
+        "paragraphs": [
+          "The opening lesson covers setting up WhatsApp and sending a first message. Later lessons show how to manage chats, take and share photos, make calls and adjust privacy settings. Pick a task you need today and practise it before moving on."
+        ]
+      },
+      {
+        "heading": "Time, data and completion",
+        "paragraphs": [
+          "The detailed course outline estimates around 79 minutes for the ten videos. The provider’s homepage gives a shorter estimate of 30 minutes. Use the individual lesson lengths to plan your data and allow extra time to practise.",
+          "The provider marks this course as free. Its course outline lists the skills covered, without promising an exam, badge or completion certificate."
+        ]
+      }
+    ],
+    "faq": [],
+    "ctaHeading": "Learn WhatsApp in isiXhosa",
+    "ctaLabel": "Open the Android course",
+    "ctaText": "View the lesson list and use your free learner account to start.",
+    "trustItems": ["isiXhosa video lessons", "Android phone", "Free learner account"],
+    "sourceSummary": "The course page lists the ten lessons. The provider's sign-in page and terms explain account access and age requirements.",
+    "exitNote": "Open the course and choose Start Course to begin with the provider.",
+    "exitTrustItems": ["Official course provider", "Internet access required"],
+    "sourceLinks": [
+      {
+        "label": "Register for a learner account",
+        "href": "https://s2l.online/sign-up/"
+      },
+      {
+        "label": "Account age and personal-use terms",
+        "href": "https://s2l.online/terms/"
+      }
+    ]
+  },
+  {
+    "resourceId": "nsri-free-survival-swimming",
+    "provider": "National Sea Rescue Institute (NSRI)",
+    "title": "Free NSRI survival swimming lessons and where to enquire | FreeHub",
+    "description": "Find out where the NSRI announced summer sessions, how to ask for a place and what to check about pool entrance fees before you travel.",
+    "intro": "The NSRI runs short, instructor-led sessions at participating public pools. Its programme teaches people how to float, orient themselves and move a short distance through water. Lessons are free and arranged by appointment.",
+    "accessHeading": "How to find a place",
+    "accessNote": "Start with the pool you can reach. Ask its facility officer when the NSRI team will next visit, whether there is space for your age group and how to arrange a lesson.",
+    "steps": [
+      "Use the City of Cape Town pool directory to find your facility and its contact details.",
+      "Contact the pool before travelling. Confirm the lesson time, registration arrangements and any municipal entrance charge for your group.",
+      "Attend the agreed session. The NSRI's summer notice describes lessons of about 20 minutes and says the on-site team helps participants register."
+    ],
+    "sections": [
+      {
+        "heading": "Which pools did the NSRI name for summer?",
+        "paragraphs": [
+          "On 23 November 2026, the NSRI announced summer sessions for children and adults at municipal pools in Sea Point, Muizenberg, Strand and Wynberg, usually on Saturdays. The announcement gives no fixed time for each pool or season closing date. Ask for the next appointment at your chosen venue.",
+          "The same announcement listed school-based programmes in Kenton-on-Sea, Dysselsdorp and River Hamlet. Those sessions serve learners at participating schools."
+        ]
+      },
+      {
+        "heading": "Do you still pay to enter the pool?",
+        "paragraphs": [
+          "The NSRI provides the instruction free. Municipal pools set their own entrance tariffs. For example, the City lists separate admission prices and payment arrangements for Sea Point. Ask whether a fee applies to your visit and to anyone accompanying you."
+        ]
+      }
+    ],
+    "faq": [],
+    "sourceSummary": "The NSRI describes how lessons work on its programme page. Its November 2026 announcement names the summer sites. Use the City's facility listings for current contact details and tariffs.",
+    "sourceLinks": [
+      {
+        "label": "NSRI summer sites announced on 23 November 2026",
+        "href": "https://www.nsri.org.za/2026/11/where-and-when-to-join-the-nsris-free-survival-swimming-lessons-this-summer/"
+      },
+      {
+        "label": "Find a City of Cape Town pool and its contact details",
+        "href": "https://www.capetown.gov.za/explore-and-enjoy/see-all-city-facilities/our-recreational-facilities/swimming-pools/"
+      },
+      {
+        "label": "Sea Point Swimming Pool admission and contact details",
+        "href": "https://www.capetown.gov.za/work-and-business/see-all-city-facilities/our-recreational-facilities/swimming-pools/sea-point-swimming-pool/"
+      }
+    ],
+    "ctaHeading": "Read the NSRI programme details",
+    "ctaText": "The NSRI explains how it arranges lessons at participating pools.",
+    "ctaLabel": "View the NSRI programme",
+    "exitNote": "You will open the NSRI's survival swimming programme page.",
+    "trustItems": [
+      "By appointment",
+      "Lessons are free",
+      "Check pool admission"
+    ],
+    "exitTrustItems": [
+      "National Sea Rescue Institute (NSRI)",
+      "Official provider website"
+    ]
+  },
+  {
+    "resourceId": "nbt-free-practice-questions",
+    "provider": "National Benchmark Test Project, University of Cape Town",
+    "title": "Free NBT practice questions in English and Afrikaans | FreeHub",
+    "description": "Download official NBT maths and academic and quantitative literacy sample questions in English or Afrikaans. See how the free PDFs differ from test booking.",
+    "intro": "The National Benchmark Test Project publishes four sample-question PDFs for university applicants. Pick the test your institution requires and the language you plan to use. You can open or save the examples before booking a test.",
+    "accessHeading": "Which PDF should you open?",
+    "accessNote": "AQL stands for Academic and Quantitative Literacy. MAT is Mathematics. Each has an English and an Afrikaans download in the links below.",
+    "steps": [
+      "Check your chosen university's requirements for your degree, including whether it asks you to write AQL, MAT or both.",
+      "Select one of the four official PDFs below. Save it to your device if you want to practise offline.",
+      "Try the questions before reading the explanations in the material. Use the official NBT site separately when you are ready to book."
+    ],
+    "sections": [
+      {
+        "heading": "What the sample questions cover",
+        "paragraphs": [
+          "The AQL examples use academic text and numerical information. Practise reading a passage, interpreting a table or recognising what a graph supports. The MAT examples give you a feel for questions about algebra and functions, including how a graph relates to its equation."
+        ]
+      },
+      {
+        "heading": "What the actual test costs",
+        "paragraphs": [
+          "Downloading the examples is free, apart from your usual internet costs. On 26 November 2026 the NBT Project listed R195 for AQL alone and R390 for AQL and MAT together. Check the fee on the NBT website before paying for a booking."
+        ]
+      }
+    ],
+    "faq": [],
+    "sourceSummary": "Choose the subject and language below. Each practice link opens a PDF on the official NBT site.",
+    "sourceLinks": [
+      {
+        "label": "AQL sample questions in English (PDF)",
+        "href": "https://www.nbt.ac.za/sites/default/files/AQL_ExemplarQuestions_0.pdf"
+      },
+      {
+        "label": "AQL sample questions in Afrikaans (PDF)",
+        "href": "https://www.nbt.ac.za/sites/default/files/AKG_Voorbeelde.pdf"
+      },
+      {
+        "label": "MAT sample questions in English (PDF)",
+        "href": "https://www.nbt.ac.za/sites/default/files/MAT_ExemplarQuestions.pdf"
+      },
+      {
+        "label": "MAT sample questions in Afrikaans (PDF)",
+        "href": "https://www.nbt.ac.za/sites/default/files/MAT_Exemplar_Afr.pdf"
+      },
+      {
+        "label": "Check current NBT fees and booking options",
+        "href": "https://www.nbt.ac.za/"
+      }
+    ],
+    "ctaHeading": "Open the official NBT practice page",
+    "ctaText": "The NBT Project lists all four documents and describes the skills assessed.",
+    "ctaLabel": "View NBT practice materials",
+    "exitNote": "You will open the National Benchmark Test Project's official sample-question page.",
+    "trustItems": [
+      "Four free PDFs",
+      "English and Afrikaans",
+      "Separate test fee"
+    ],
+    "exitTrustItems": [
+      "National Benchmark Test Project, University of Cape Town",
+      "Official provider website"
+    ]
+  },
+  {
+    "resourceId": "western-cape-rental-housing-tribunal",
+    "provider": "Western Cape Rental Housing Tribunal",
+    "title": "Western Cape Rental Housing Tribunal forms and deposit disputes | FreeHub",
+    "description": "Get the forms for a Western Cape residential rental complaint, including a withheld deposit or maintenance issue. The tribunal provides free dispute resolution.",
+    "intro": "If a landlord has kept your deposit, you can take the dispute to the Western Cape Rental Housing Tribunal. The service is free for disputes about residential property in the province. Landlords can also bring complaints, including disputes about unpaid rent.",
+    "accessHeading": "Which forms do you need?",
+    "accessNote": "Use both the main complaint form and the annexure that fits your issue. For a deposit, use Annexure F(a). For maintenance, select Annexure F(g). The province lists the remaining annexures on its forms page.",
+    "steps": [
+      "Download the main complaint form. Enter the rental property's address and the parties' contact details, tick the relevant issue and sign the form.",
+      "Complete the matching annexure. Use the checklist on the main form to gather copies of your evidence and keep the originals.",
+      "Email the signed forms and supporting copies to RHT.Disputes@westerncape.gov.za. The province also accepts submissions by post or by hand at 27 Wale Street, Cape Town. Its forms page gives the postal address."
+    ],
+    "sections": [
+      {
+        "heading": "What to gather for a deposit dispute",
+        "paragraphs": [
+          "Annexure F(a) asks when you paid the deposit, how much you paid, what was deducted and how much you received back. Have your proof of payment, lease or details of the verbal agreement, inspection records and any invoices or quotes for deductions to hand.",
+          "Use copies when sending evidence. For help choosing a form or clarifying what to include, email RHT.Enquiries@westerncape.gov.za or call 0860 106 166."
+        ]
+      },
+      {
+        "heading": "What happens after submission?",
+        "paragraphs": [
+          "The tribunal checks whether the complaint falls within its remit. The province says a case officer contacts the complainant after registration. Where appropriate, the tribunal can try mediation and refer the matter to a hearing if the parties cannot reach agreement."
+        ]
+      }
+    ],
+    "faq": [],
+    "sourceSummary": "The province's forms directory contains the full list of complaints. The direct PDFs below cover the main form and two common issues.",
+    "sourceLinks": [
+      {
+        "label": "Main tribunal complaint form (PDF)",
+        "href": "https://stanonprodmtpdxpzan.blob.core.windows.net/dxp/2023-10/hs-rentalhousingtribunal-main-complaint-form-2017.pdf"
+      },
+      {
+        "label": "Annexure F(a) for a withheld deposit (PDF)",
+        "href": "https://www.westerncape.gov.za/infrastructure/files/wcg-blob-files?file=2025-06/f-a-failure-to-refund-deposit.pdf&type=file"
+      },
+      {
+        "label": "Annexure F(g) for maintenance (PDF)",
+        "href": "https://www.westerncape.gov.za/infrastructure/files/wcg-blob-files?file=2025-06/f-g-failure-to-do-maintenance.pdf&type=file"
+      },
+      {
+        "label": "Who can complain and how to contact the tribunal",
+        "href": "https://www.westerncape.gov.za/infrastructure/service/dispute-resolution-between-tenants-and-landlords-residential-properties"
+      }
+    ],
+    "ctaHeading": "Choose a tribunal complaint form",
+    "ctaText": "The provincial forms page includes the full checklist, annexures and submission addresses.",
+    "ctaLabel": "View provincial complaint forms",
+    "exitNote": "You will open the Western Cape Government's Rental Housing Tribunal forms page.",
+    "trustItems": [
+      "Western Cape residential rentals",
+      "Free dispute resolution",
+      "Official complaint forms"
+    ],
+    "exitTrustItems": [
+      "Western Cape Rental Housing Tribunal",
+      "Official provider website"
+    ]
   }
 ]

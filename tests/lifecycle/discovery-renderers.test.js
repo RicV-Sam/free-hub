@@ -46,6 +46,26 @@ test("FreeResource renderer uses explicit inputs and preserves legacy analytics 
   assert.equal(itemList.itemListElement.length, 1);
 });
 
+test("course cards include reviewed language, device, assessment fee and award information", () => {
+  const courseFacts = require("../../data/course-facts.json");
+  const { isPublishedFreeResource } = require("../../scripts/lib/free-resource-publication.js");
+  const learningResources = legacyResources.filter(resource => resource.category === "online-courses" && isPublishedFreeResource(resource));
+  for (const resource of learningResources) {
+    const card = freeResources.renderFreeResourceCard(resource);
+    if (resource.id === "western-cape-government-ecentres") {
+      assert.match(card, /Computer and internet access/);
+      assert.doesNotMatch(card, /aria-label="Course details"/);
+      continue;
+    }
+    const facts = courseFacts[resource.id || resource.officialUrl];
+    assert.ok(facts, resource.name);
+    for (const [key, label] of Object.entries({ language: "Language", device: "Device", assessmentFee: "Assessment fee", award: "Award earned" })) {
+      assert.ok(typeof facts[key] === "string" && facts[key].trim(), resource.name + " / " + label);
+      assert.ok(card.includes("<dt>" + label + "</dt><dd>" + escapeHtml(facts[key]) + "</dd>"), resource.name);
+    }
+  }
+});
+
 test("reviewed resource images expose provenance, stable anchors and official conditions", () => {
   const resource = { ...legacyResources[0], id: "reviewed-learning", termsUrl: "https://example.com/terms" };
   const renderer = createFreeResourceRenderer({ escapeHtml, escapeAttribute, formatDate: shared.formatDate,
