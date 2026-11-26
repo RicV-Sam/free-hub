@@ -50,6 +50,7 @@ test("all active competition labels match the reviewed compact snapshot", () => 
     ...require("../baselines/discovery-cost-labels-2026-11-13.json"),
     ...require("../baselines/discovery-cost-labels-2026-11-18.json"),
     ...require("../baselines/discovery-cost-labels-2026-11-22.json"),
+    ...require("../baselines/discovery-cost-labels-2026-11-26.json"),
   };
   for (const [id, label] of Object.entries(additions)) {
     const record = competitions.find(row => row.id === id);
@@ -70,7 +71,22 @@ test("all active competition labels match the reviewed compact snapshot", () => 
     return counts;
   }, {});
 
-  assert.equal(active.length, baseline.activeCount);
+  // The historical snapshot counted these duplicate detail URLs. Their public
+  // aliases share the cost of the single campaign record retained today.
+  const historicalAliases = {
+    "coca-cola-fan-can-be-a-bok-2026": "coca-cola-be-a-bok-voucher-prizes-2026",
+    "nedbank-appventure-with-us-2026-2027": "nedbank-money-appventure-2026",
+  };
+  for (const [alias, primary] of Object.entries(historicalAliases)) {
+    assert.ok(!competitions.some(record => record.id === alias), alias);
+    const listing = active.find(record => record.id === primary);
+    assert.ok(listing, primary);
+    const label = shared.getEntryCostLabel(listing);
+    pairs.push(`${alias}\t${label}`);
+    labelCounts[label] += 1;
+  }
+  pairs.sort();
+  assert.equal(pairs.length, baseline.activeCount);
   assert.deepEqual(labelCounts, baseline.labelCounts);
   assert.equal(crypto.createHash("sha256").update(pairs.join("\n")).digest("hex"), baseline.sha256);
 });

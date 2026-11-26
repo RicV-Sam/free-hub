@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-25",
-  "count": 63,
+  "asOfDate": "2026-11-26",
+  "count": 74,
   "counts": {
-    "freeStuff": 42,
-    "resources": 42,
+    "freeStuff": 48,
+    "resources": 48,
     "opportunities": 0,
-    "offers": 21
+    "offers": 26
   },
   "items": [
     {
@@ -152,6 +152,22 @@
       ],
       "watchOut": "Treat loan and credit offers as advertising or eligibility guidance, not approval.",
       "lastChecked": "2026-07-27"
+    },
+    {
+      "id": "coloplast-south-africa-samples",
+      "kind": "resource",
+      "title": "Coloplast South Africa Samples",
+      "provider": "Coloplast South Africa Samples",
+      "summary": "Request an eligible ostomy sample through Coloplast’s online basket. For a continence sample, call 011 700 5000 or email dtcsaorders@coloplast.com. Approved samples are delivered free.",
+      "category": "samples",
+      "categoryLabel": "Free samples and product testing",
+      "officialUrl": "https://products.coloplast.co.za/webshop/requesting-samples/",
+      "bestFor": "People in South Africa looking for selected ostomy or continence care samples",
+      "requirements": [
+        "For an online request, choose a sample pack and complete checkout with Coloplast. A Care Advisor calls to check suitability before approving dispatch."
+      ],
+      "watchOut": "Coloplast excludes wound-care products from its consumer sample service. Healthcare professionals can contact Coloplast directly about its professional sample route.",
+      "lastChecked": "2026-11-26"
     },
     {
       "id": "resource-consumer-support-national-consumer-commission-complaints-portal",
@@ -682,6 +698,105 @@
       "lastChecked": "2026-11-22"
     },
     {
+      "id": "fsca-unclaimed-retirement-benefits-search",
+      "kind": "resource",
+      "title": "FSCA unclaimed retirement benefits search",
+      "provider": "FSCA unclaimed retirement benefits search",
+      "summary": "Search for a possible match in the Financial Sector Conduct Authority’s unclaimed benefits records for free.",
+      "category": "consumer-support",
+      "categoryLabel": "Free consumer support",
+      "officialUrl": "https://www.fsca.co.za/Unclaimed-Benefits-Search/",
+      "bestFor": "Former members of South African retirement funds, beneficiaries and authorised representatives.",
+      "requirements": [
+        "Use the official form with the member’s identification details. Provide consent when enquiring on another person’s behalf."
+      ],
+      "watchOut": "A match points you to the fund, which must establish entitlement and handle any payment.",
+      "lastChecked": "2026-11-26"
+    },
+    {
+      "id": "safps-protective-registration",
+      "kind": "resource",
+      "title": "SAFPS protective registration for lost or compromised identity documents",
+      "provider": "SAFPS protective registration for lost or compromised identity documents",
+      "summary": "Free protective registration alerts participating organisations to take additional steps when checking your identity.",
+      "category": "consumer-support",
+      "categoryLabel": "Free consumer support",
+      "officialUrl": "https://www.safps.org.za/Home/OurServices_ApplyProtectiveRegistration",
+      "bestFor": "South African consumers whose identity document or passport was lost or stolen, or whose identity may be used fraudulently.",
+      "requirements": [
+        "Apply directly with SAFPS and provide the identity verification and supporting documents it requests."
+      ],
+      "watchOut": "An alert reaches participating organisations. Report any fraudulent account separately to the institution concerned.",
+      "lastChecked": "2026-11-26"
+    },
+    {
+      "id": "nid-south-african-sign-language-storybooks",
+      "kind": "resource",
+      "title": "Free South African Sign Language storybooks from NID",
+      "provider": "Free South African Sign Language storybooks from NID",
+      "summary": "Watch signed story videos and use the free interactive educational books linked by the National Institute for the Deaf.",
+      "category": "childrens-books",
+      "categoryLabel": "Free children’s books",
+      "officialUrl": "https://nid.org.za/deaf-resources/",
+      "bestFor": "Deaf learners, their families and educators looking for signed stories and digital books.",
+      "requirements": [
+        "Use a device with internet access. Select a grade, story or language from the resource hub."
+      ],
+      "watchOut": "Video streaming and online books can use mobile data. The separate NID dictionary has its own access fee.",
+      "lastChecked": "2026-11-26"
+    },
+    {
+      "id": "western-cape-provincial-library-digital-loans",
+      "kind": "resource",
+      "title": "Western Cape Provincial Library e-books and audiobooks",
+      "provider": "Western Cape Provincial Library e-books and audiobooks",
+      "summary": "Borrow digital titles through the provincial OverDrive collection or Libby using an eligible library card.",
+      "category": "family-support",
+      "categoryLabel": "Free family information and support",
+      "officialUrl": "https://westerncape.overdrive.com/",
+      "bestFor": "Registered patrons of participating Western Cape public libraries who want to borrow books online.",
+      "requirements": [
+        "Sign in with your participating library and card details. Ask your branch to check your membership if sign-in fails."
+      ],
+      "watchOut": "Availability varies by title. You can place a hold on a title already on loan. Downloads use internet data.",
+      "lastChecked": "2026-11-26"
+    },
+    {
+      "id": "airloom-carpet-sample-loan",
+      "kind": "resource",
+      "title": "Airloom carpet samples with a R300 refundable deposit",
+      "provider": "Airloom carpet samples with a R300 refundable deposit",
+      "summary": "Choose up to 15 eligible samples to inspect for a week. Airloom supplies a prepaid return waybill and refunds the R300 deposit after return.",
+      "category": "samples",
+      "categoryLabel": "Free samples",
+      "officialUrl": "https://www.airloom.co.za/order-samples",
+      "bestFor": "Shoppers in serviced delivery areas who want to see carpet colours and textures at home.",
+      "requirements": [
+        "Pay the deposit when ordering and return the sample pack using Airloom’s collection instructions."
+      ],
+      "watchOut": "The pieces are on loan. Check delivery charges for your address before checkout. Refunds are processed on Fridays after receipt.",
+      "lastChecked": "2026-11-26"
+    },
+    {
+      "id": "capitec-spotify-three-months-free",
+      "kind": "deal",
+      "title": "Three months free Spotify Premium Standard for new listeners",
+      "provider": "Capitec",
+      "summary": "Capitec clients who are new Spotify listeners can claim three months of Spotify Premium Standard through the Capitec app.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://www.capitecbank.co.za/rewards/partners/spotify/",
+      "termsUrl": "https://www.capitecbank.co.za/rewards/partners/spotify/",
+      "requirements": [
+        "For new Spotify listeners who use a Capitec debit or credit card. Open the Capitec app, choose Cash back, deals and more, then Rewards and Spotify. Claim your voucher and add the eligible card at Spotify. Redeem within three months of issue and by 7 January 2028. Spotify charges its ongoing subscription fee at the end of the trial unless you cancel. One voucher per transaction; no transfer or cash exchange."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2028-01-07",
+      "lastChecked": "2026-11-26",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
       "id": "mr-price-app-first-order-r100-off",
       "kind": "coupon",
       "title": "R100 off your first Mr Price app purchase of R500 or more",
@@ -757,6 +872,42 @@
       "isSponsored": false
     },
     {
+      "id": "clicks-babyclub-four-percent-cashback",
+      "kind": "deal",
+      "title": "Clicks BabyClub 4% cashback on most baby products",
+      "provider": "Clicks",
+      "summary": "Eligible BabyClub members earn 4% ClubCard cashback on most baby products, excluding legislated products.",
+      "category": "baby-kids",
+      "categoryLabel": "Baby & Kids",
+      "officialUrl": "https://clicks.co.za/clubcard/babyclub",
+      "termsUrl": "https://clicks.co.za/clubcard/babyclub",
+      "requirements": [
+        "Join BabyClub with your Clicks ClubCard if you are expecting a baby or are a parent or guardian of a child under 36 months. Show your ClubCard when buying eligible baby products to earn 4% in ClubCard cashback. Legislated products are excluded. Cashback is credited under the ClubCard programme and can be spent on a later qualifying purchase."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-26",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "clicks-seniors-wednesday-four-percent-cashback",
+      "kind": "deal",
+      "title": "Clicks Seniors Club: double points on qualifying Wednesdays",
+      "provider": "Clicks",
+      "summary": "Eligible Seniors Club members can earn double base ClubCard points on qualifying Wednesday shopping.",
+      "category": "beauty-health",
+      "categoryLabel": "Beauty & Health",
+      "officialUrl": "https://clicks.co.za/clubcard",
+      "termsUrl": "https://help.clicks.co.za/support/solutions/articles/80000958591-what-are-the-terms-and-conditions-of-the-clubcard-programme-",
+      "requirements": [
+        "Age 60+ with date of birth or ID recorded for Seniors Club enrolment. Free ClubCard membership and qualifying purchases are required. Scan the card before payment; exclusions apply to regulated goods and amounts paid with cashback. Points convert to redeemable ClubCard rewards under the programme’s thresholds and expiry rules, rather than cash. The official pages use inconsistent percentage wording, so no flat cashback percentage is promised here."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "lastChecked": "2026-11-26",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
       "id": "kirstenbosch-south-african-senior-free-tuesday",
       "kind": "deal",
       "title": "Kirstenbosch: free Tuesdays for South African senior residents",
@@ -790,6 +941,25 @@
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "expiresAt": "2027-03-31",
       "lastChecked": "2026-11-22",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "cape-town-festive-lights-switch-on-free-entry-2026",
+      "kind": "deal",
+      "title": "Free Cape Town Festive Lights Switch-On",
+      "provider": "City of Cape Town",
+      "summary": "Watch the free live music and lights switch-on at the Grand Parade on 29 November.",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "officialUrl": "https://www.capetown.gov.za/media-and-news/star-studded-line-up-set-to-light-up-cape-towns-festive-season/",
+      "termsUrl": "https://www.capetown.gov.za/media-and-news/city-outlines-event-and-safety-plans-for-57th-festive-lights-switch-on/",
+      "requirements": [
+        "Admission is free on Sunday 29 November 2026 at the Grand Parade in front of Cape Town City Hall. Access opens at 13:00 and the concert runs from 16:00 to 22:00. Adderley Street has viewing screens. Bring a refillable water bottle. Alcohol, fireworks, umbrellas and gazebos are prohibited. The City’s event notice lists road closures, designated e-hailing stops and extended MyCiTi services."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-11-29",
+      "lastChecked": "2026-11-26",
       "isAffiliate": false,
       "isSponsored": false
     },
@@ -1070,6 +1240,25 @@
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "expiresAt": "2026-12-25",
       "lastChecked": "2026-11-22",
+      "isAffiliate": false,
+      "isSponsored": false
+    },
+    {
+      "id": "makro-iwisa-nyala-super-maize-meal-10kg-november-2026",
+      "kind": "deal",
+      "title": "Makro 10 kg Iwisa or Nyala Super Maize Meal for R79.95",
+      "provider": "Makro",
+      "summary": "Makro’s 23–30 November grocery catalogue lists either 10 kg pack at R79.95, about R8.00 per kg, while stock lasts.",
+      "category": "groceries",
+      "categoryLabel": "Groceries",
+      "officialUrl": "https://business.makro.co.za/sys-master/root/h5b/hd3/30684870869022/Black-Friday.pdf",
+      "termsUrl": "https://business.makro.co.za/sys-master/root/h5b/hd3/30684870869022/Black-Friday.pdf",
+      "requirements": [
+        "Purchase required. Check the page headed Commodities in Makro’s 23–30 November 2026 catalogue. Either a 10 kg Iwisa or a 10 kg Nyala Super Maize Meal bag is advertised at R79.95. Makro advertises a R30 saving against its reference price. Stock and availability can vary by store or delivery address. Delivery charges can change the total."
+      ],
+      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
+      "expiresAt": "2026-11-30",
+      "lastChecked": "2026-11-26",
       "isAffiliate": false,
       "isSponsored": false
     }

@@ -2,7 +2,7 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const grocery = require("../../scripts/lib/grocery-savings.js");
 const offers = require("../../data/offers.json");
-const images = require("../../data/listing-images.json");
+const images = { ...require("../../data/listing-images.json"), ...require("../../data/listing-artwork-2026-11.json") };
 const offerData = require("../../shared/offer-data.js");
 const escape = text => String(text).replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
 const escapeScript = text => String(text).replaceAll("<", "\\u003c");
@@ -27,6 +27,23 @@ test("approved grocery pages and offers appear only from their publication date"
   assert.equal(grocery.getGroceryPrices(offers, { asOfDate: "2026-10-27" }).length, 10);
   assert.deepEqual(grocery.getGroceryPrices(offers, { asOfDate: "2026-10-28" }), []);
   assert.deepEqual(grocery.getGroceryPrices(offers, { asOfDate: "2026-09-08" }), []);
+});
+
+test("Makro's dated catalogue price closes after its last advertised day", () => {
+  const id = "makro-iwisa-nyala-super-maize-meal-10kg-november-2026";
+  const onDate = (day) => grocery.getGroceryPrices(offers, { asOfDate: day }).find(price => price.offerId === id);
+  assert.equal(onDate("2026-11-25"), undefined);
+  const price = onDate("2026-11-30");
+  assert.equal(price.priceCents, 7995);
+  assert.equal(grocery.unitPriceCents(price), 800);
+  const hub = grocery.getGroceryPages({ asOfDate: "2026-11-30" }).find(page => page.kind === "hub");
+  const card = renderer.renderPage(hub, [price]);
+  assert.match(card, /Catalogue price checked.*Offer ends 30 November 2026/);
+  const detail = renderer.renderOffer(price);
+  assert.match(detail, /<dt>End date<\/dt><dd>30 November 2026<\/dd>/);
+  assert.match(detail, /10 kg/);
+  assert.doesNotMatch(detail, /No promotional end date stated/);
+  assert.equal(onDate("2026-12-01"), undefined);
 });
 
 test("preview is read-only and still withholds overdue or unverified prices", () => {

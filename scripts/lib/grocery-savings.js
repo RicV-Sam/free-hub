@@ -14,7 +14,8 @@ function getGroceryPages({ preview = false, asOfDate = shared.getReferenceDate()
   if (!preview && (source.publicationStatus !== "published" || !source.publishedAt || source.publishedAt > asOfDate)) return [];
   return source.pages.map(page => ({
     ...page, groceryPage: true, requiresOffers: true, noindex: preview,
-    article: page.kind !== "hub", dateModified: source.contentUpdatedAt || source.lastReviewed,
+    article: page.kind !== "hub",
+    dateModified: page.contentUpdatedAt && page.contentUpdatedAt <= asOfDate ? page.contentUpdatedAt : source.contentUpdatedAt || source.lastReviewed,
     ...(source.publishedAt ? { datePublished: source.publishedAt } : {}),
   }));
 }
@@ -51,7 +52,7 @@ function validateGroceryData(offers, images) {
 function createGroceryRenderer({ escapeHtml: esc, escapeAttribute: attr, escapeScript, images, stylesheet, navigation, footer, trackingHead = "", trackingBody = "", preview = false }) {
   const origin = "https://freehub.co.za";
   const hub = "/grocery-savings/";
-  const retailerHosts = new Set(["best-before.co.za", "looters.co.za", "foodeez.co.za"]);
+  const retailerHosts = new Set(["best-before.co.za", "looters.co.za", "foodeez.co.za", "makro.co.za", "business.makro.co.za"]);
   function analytics(action, id, href, role = "") {
     const destination = new URL(href, origin);
     return ` data-discovery-action="${attr(action)}" data-entity-kind="grocery" data-content-type="grocery_savings" data-page-type="grocery_savings" data-content-id="${attr(id)}" data-destination-path="${attr(destination.pathname)}"${action === "official-source" ? ` data-source-domain="${attr(destination.hostname)}" data-link-role="${attr(role)}"` : ""}`;
@@ -59,6 +60,10 @@ function createGroceryRenderer({ escapeHtml: esc, escapeAttribute: attr, escapeS
   const link = item => `<a href="${attr(item.href)}"${item.role && retailerHosts.has(new URL(item.href, origin).hostname.replace(/^www\./, "")) ? analytics("official-source", item.id || new URL(item.href).hostname, item.href, item.role) : ""}${/^https:/.test(item.href) ? ' target="_blank" rel="noopener noreferrer"' : ""}>${esc(item.label)}</a>`;
   const sources = items => `<div class="grocery-sources">${items.map(item => link({ role: "retailer_information", ...item })).join(" ")}</div>`;
   const date = value => new Intl.DateTimeFormat("en-ZA", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${value}T00:00:00Z`));
+  function packSize(price) {
+    if (price.unit === "g" && price.quantity >= 1000) return `${price.quantity / 1000} kg`;
+    return `${price.quantity}${price.unit}`;
+  }
   function image(id, { hero = false } = {}) {
     const item = images[id];
     if (!item) return "";
@@ -96,9 +101,9 @@ function createGroceryRenderer({ escapeHtml: esc, escapeAttribute: attr, escapeS
   function priceCard(price) {
     const item = images[price.offerId];
     return `<article class="grocery-find"><a class="grocery-find__image" href="${attr(offerData.getOfferPath(price.offer))}"${analytics("card", price.offerId, offerData.getOfferPath(price.offer))}><img src="${attr(item.src)}" width="${item.width}" height="${item.height}" alt="${attr(item.alt)}" loading="lazy" decoding="async"></a>
-      <div class="grocery-find__body"><p class="grocery-kicker">${esc(price.offer.brand)} · ${price.quantity}${esc(price.unit)}</p><h3><a href="${attr(offerData.getOfferPath(price.offer))}"${analytics("card", price.offerId, offerData.getOfferPath(price.offer))}>${esc(price.product)}</a></h3>
+      <div class="grocery-find__body"><p class="grocery-kicker">${esc(price.offer.brand)} · ${esc(packSize(price))}</p><h3><a href="${attr(offerData.getOfferPath(price.offer))}"${analytics("card", price.offerId, offerData.getOfferPath(price.offer))}>${esc(price.product)}</a></h3>
       <p class="grocery-price">${money(price.priceCents)} <span>${money(unitPriceCents(price))}/${price.unit === "g" ? "kg" : "litre"}</span></p>
-      <p class="grocery-find__checked">Online price checked ${esc(date(price.offer.lastChecked))}</p>
+      <p class="grocery-find__checked">${esc(price.priceSource || "Online")} price checked ${esc(date(price.offer.lastChecked))}${price.offer.expiresAt ? `. Offer ends ${esc(date(price.offer.expiresAt))}.` : ""}</p>
       <p class="grocery-date-note"><strong>Batch date unavailable.</strong> ${esc(price.dateNote)}</p><p class="grocery-small">Delivery extra. Online availability can change.</p>
       <a class="grocery-text-link" href="${attr(offerData.getOfferPath(price.offer))}"${analytics("card", price.offerId, offerData.getOfferPath(price.offer))}>Price and shopping details <span aria-hidden="true">→</span></a></div></article>`;
   }
@@ -131,10 +136,10 @@ function createGroceryRenderer({ escapeHtml: esc, escapeAttribute: attr, escapeS
   }
   function renderOffer(price) {
     const offer = price.offer;
-    const page = { slug: `deal/${offer.slug}`, kind: "deal", title: `${offer.title} | FreeHub`, heading: `${price.product} · ${price.quantity}${price.unit}`, description: offer.summary, dateModified: offer.lastChecked };
-    const body = `<div class="grocery-product"><div>${image(offer.id, { hero: true })}</div><article><p class="grocery-kicker">${esc(offer.brand)} · price checked online</p><h1>${esc(page.heading)}</h1><p class="grocery-price grocery-price--large">${money(price.priceCents)} <span>${money(unitPriceCents(price))}/${price.unit === "g" ? "kg" : "litre"}</span></p><p class="grocery-reviewed">Checked ${esc(date(offer.lastChecked))}. Product price excludes delivery.</p>
+    const page = { slug: `deal/${offer.slug}`, kind: "deal", title: `${offer.title} | FreeHub`, heading: `${price.product} · ${packSize(price)}`, description: offer.summary, dateModified: offer.lastChecked };
+    const body = `<div class="grocery-product"><div>${image(offer.id, { hero: true })}</div><article><p class="grocery-kicker">${esc(offer.brand)} · ${price.priceSource ? `${esc(price.priceSource.toLowerCase())} price check` : "price checked online"}</p><h1>${esc(page.heading)}</h1><p class="grocery-price grocery-price--large">${money(price.priceCents)} <span>${money(unitPriceCents(price))}/${price.unit === "g" ? "kg" : "litre"}</span></p><p class="grocery-reviewed">Checked ${esc(date(offer.lastChecked))}. Product price excludes delivery.</p>
       <div class="grocery-date-note"><h2>Check the batch date before paying</h2><p>${esc(price.dateNote)} We have not inspected the supplied product or verified its condition.</p></div>
-      <dl class="grocery-product-facts"><div><dt>Online availability</dt><dd>${esc(price.availability)}</dd></div><div><dt>Delivery & collection</dt><dd>${esc(price.delivery)}</dd></div><div><dt>End date</dt><dd>No promotional end date stated. Recheck price and availability before ordering.</dd></div><div><dt>How we compare</dt><dd>Unit price uses ${price.quantity}${esc(price.unit)} net pack ${price.unit === "g" ? "weight" : "volume"}. This is a checked retailer price, not a verified saving against another supermarket.</dd></div></dl>
+      <dl class="grocery-product-facts"><div><dt>${price.priceSource ? "Availability" : "Online availability"}</dt><dd>${esc(price.availability)}</dd></div><div><dt>Delivery & collection</dt><dd>${esc(price.delivery)}</dd></div><div><dt>End date</dt><dd>${offer.expiresAt ? esc(date(offer.expiresAt)) : "No promotional end date stated. Recheck price and availability before ordering."}</dd></div><div><dt>How we compare</dt><dd>Unit price uses ${price.quantity}${esc(price.unit)} net pack ${price.unit === "g" ? "weight" : "volume"}. This is a checked retailer price, not a verified saving against another supermarket.</dd></div></dl>
       <a class="btn btn--primary" href="${attr(preview ? offer.destinationUrl : offerData.getOfferExitPath(offer))}"${analytics("official-source", offer.id, offer.destinationUrl, "retailer_handoff")} target="_blank" rel="noopener noreferrer">Check current price at ${esc(offer.brand)} <span aria-hidden="true">↗</span></a><p class="grocery-small">Opens the retailer's website. Purchase required; no coupon needed.</p>${sources([{ label: "Product source", href: offer.sourceUrl, id: offer.id, role: "product_source" }, { label: "Delivery terms", href: price.deliveryUrl, id: offer.id, role: "delivery_terms" }])}</article></div><section class="grocery-section grocery-prose"><h2>Conditions recorded in our check</h2><p>${esc(offer.terms)}</p><p><a href="${hub}#price-checked-finds">Back to price-checked grocery finds →</a></p></section>`;
     return shell(page, body, offer.id);
   }

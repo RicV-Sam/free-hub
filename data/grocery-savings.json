@@ -11,7 +11,8 @@
       "description": "Explore South African discount grocery stores and price-checked finds, with pack sizes, unit prices, date-label information and delivery costs to consider.",
       "intro": "Compare discount grocery stores and checked prices. Start with your area, then check pack sizes, date labels and delivery costs before you shop.",
       "imageId": "grocery-best-before-store",
-      "sections": []
+      "sections": [],
+      "contentUpdatedAt": "2026-11-26"
     },
     {
       "slug": "discount-grocery-stores-south-africa",
@@ -53,7 +54,8 @@
             "Our linked price checks record the product, pack size and amount shown online. They do not establish in-store stock, delivery to every address or a saving against another supermarket. Retailers change stock and prices; open the source before travelling or ordering."
           ]
         }
-      ]
+      ],
+      "contentUpdatedAt": "2026-11-26"
     },
     {
       "slug": "best-before-south-africa-explained",
@@ -386,6 +388,21 @@
       "delivery": "Paid delivery quote depends on order weight and area; no flat price or address-specific total verified. Select the applicable province for delivery, or collection. Published stores: Retreat, Somerset West, Durban North and Ballito. Address eligibility not confirmed.",
       "deliveryUrl": "https://looters.co.za/collection-delivery/",
       "sourceUrl": "https://looters.co.za/products/noodle-king-assorted-pasta-2kg-looters/"
+    },
+    {
+      "offerId": "makro-iwisa-nyala-super-maize-meal-10kg-november-2026",
+      "product": "Iwisa or Nyala Super Maize Meal",
+      "priceCents": 7995,
+      "quantity": 10000,
+      "unit": "g",
+      "checkedAt": "2026-11-26",
+      "bestBefore": null,
+      "dateNote": "The catalogue does not specify a batch or pack date. Check the date on the bag.",
+      "availability": "Makro lists both alternatives in its national 23–30 November catalogue. Local and online stock were not confirmed.",
+      "delivery": "Check delivery availability and the charge for your address in the Makro app or at checkout. The catalogue price is per bag before delivery.",
+      "deliveryUrl": "https://www.makro.co.za/pages/faq",
+      "sourceUrl": "https://business.makro.co.za/sys-master/root/h5b/hd3/30684870869022/Black-Friday.pdf",
+      "priceSource": "Catalogue"
     }
   ],
   "publishedAt": "2026-10-18",

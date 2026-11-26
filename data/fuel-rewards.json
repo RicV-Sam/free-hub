@@ -17,7 +17,9 @@
     "discoveryInsureFaq": "https://www.discovery.co.za/car-and-home-insurance/faq-vitality-drive",
     "bpDiscovery": "https://www.discovery.co.za/corporate/good-driving-more-rewards-more-value",
     "discoveryBank": "https://www.discovery.co.za/bank/info-and-tips-discovery-bank-rewards",
-    "sasolAbsa": "https://sasolrewards.co.za/partners/ABSA"
+    "sasolAbsa": "https://sasolrewards.co.za/partners/ABSA",
+    "totalDisChem": "https://totalenergies.co.za/service-stations/loyalty-programmes/dis-chem",
+    "totalDisChemTerms": "https://dxm.content-center.totalenergies.com/api/wedia/dam/variation/xysh7dg731ta7nx57doo4w7kxc/original,default"
   },
   "shellRates": [
     0.15,
@@ -50,10 +52,10 @@
     ],
     "credit": [
       0.75,
-      1.0,
+      1,
       1.25,
       6.25,
-      30.0
+      30
     ]
   },
   "absaSpendCap": 3000,
@@ -67,13 +69,13 @@
       0.45,
       0.9,
       1.5,
-      5.0
+      5
     ],
     "evolve": [
       0.15,
       0.3,
       0.5,
-      1.0,
+      1,
       2.5
     ],
     "debit": [
@@ -81,7 +83,7 @@
       0.15,
       0.3,
       0.5,
-      1.0
+      1
     ]
   },
   "ucountSpendCap": 2500,
@@ -164,6 +166,16 @@
       "condition": "Qualifying bank product, activation, status and spend rules. Enter the actual percentage and remaining limits in your app; bank membership alone does not establish a rate.",
       "reward": "Discovery Miles value",
       "source": "discoveryBank"
+    },
+    {
+      "name": "Dis-Chem Benefit Programme",
+      "station": "Participating TotalEnergies service stations",
+      "headline": "10 Dis-Chem points per litre of eligible fuel",
+      "condition": "Give the valid Dis-Chem card or membership number during the fill. Check the participating station list. Shop purchases, oil and other services are excluded.",
+      "reward": "500 points on 50 litres; redemption is through Dis-Chem",
+      "source": "totalDisChem",
+      "reviewedOn": "2026-11-26",
+      "termsSource": "totalDisChemTerms"
     }
   ]
 }

@@ -1320,5 +1320,237 @@
       "Check access requirements",
       "Data or printing costs may apply"
     ]
+  },
+  {
+    "resourceId": "fsca-unclaimed-retirement-benefits-search",
+    "provider": "Financial Sector Conduct Authority",
+    "title": "FSCA unclaimed retirement benefits search | FreeHub",
+    "description": "Use the Financial Sector Conduct Authority’s free search to trace an unclaimed retirement benefit in South Africa and learn who handles a possible match.",
+    "intro": "If you left a job years ago and are unsure what happened to your retirement benefit, the FSCA search can identify a fund to contact. A beneficiary or authorised representative can also make an enquiry.",
+    "accessHeading": "Who can use this service?",
+    "accessNote": "The public search asks for the member’s identity details and your relationship to the member. The form requires consent for enquiries on someone else’s behalf.",
+    "steps": [
+      "Go to the FSCA’s unclaimed benefits search. Choose whether the enquiry is for yourself or someone else.",
+      "Enter the required identity details. Add former employer or fund details if available to help distinguish a possible match.",
+      "If you receive fund or administrator details, contact that organisation directly and follow its claim process."
+    ],
+    "sections": [
+      {
+        "heading": "What happens after a match?",
+        "paragraphs": [
+          "The FSCA helps trace the fund or administrator connected with a possible benefit. The fund still needs to identify the beneficiary, check the claim and determine any payment. Keep the response so you have the correct organisation and reference for follow-up."
+        ]
+      },
+      {
+        "heading": "What does the enquiry cost?",
+        "paragraphs": [
+          "The FSCA provides the search free of charge. Use the authority’s own service and submit personal details only through its form. You do not need to appoint a paid intermediary to make this enquiry."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Can I search on behalf of a family member?",
+        "answer": "Yes, subject to the consent and identification requirements on the form. Choose the correct relationship and complete the information it requests."
+      }
+    ],
+    "trustItems": [
+      "Financial Sector Conduct Authority",
+      "Official information checked 26 November 2026"
+    ],
+    "sourceSummary": "The provider’s own information explains the access requirements and how to use the service.",
+    "sourceLinks": [
+      {
+        "label": "FSCA unclaimed benefits search",
+        "href": "https://www.fsca.co.za/Unclaimed-Benefits-Search/"
+      },
+      {
+        "label": "FSCA unclaimed benefits information",
+        "href": "https://www.fsca.co.za/Unclaimed-Benefits/"
+      },
+      {
+        "label": "FSCA notice about free enquiries (PDF)",
+        "href": "https://www.fsca.co.za/Customers/Consumers%20Documents/UNCLAIMED%20BENEFITS%20DATA%20SEARCHES.pdf"
+      }
+    ],
+    "ctaHeading": "Open the FSCA search",
+    "ctaText": "You will go to the Financial Sector Conduct Authority to enter your search details.",
+    "ctaLabel": "Open the FSCA search",
+    "exitNote": "You will go to the Financial Sector Conduct Authority to enter your search details.",
+    "exitTrustItems": [
+      "Financial Sector Conduct Authority",
+      "Official provider website"
+    ]
+  },
+  {
+    "resourceId": "safps-protective-registration",
+    "provider": "Southern African Fraud Prevention Service",
+    "title": "SAFPS protective registration for lost or compromised identity documents | FreeHub",
+    "description": "Learn when free SAFPS protective registration can help after a lost ID or suspected identity misuse and how to apply directly with the service.",
+    "intro": "When your identity document or passport goes missing, you can ask SAFPS to flag your details to its participating organisations. Those organisations can then take extra steps to verify an application in your name.",
+    "accessHeading": "Who can use this service?",
+    "accessNote": "Consumers can apply after a lost or stolen document or suspected identity compromise. SAFPS checks the application and supporting documents before completing registration.",
+    "steps": [
+      "Open the SAFPS protective registration page and choose Apply Online. The page also provides the form for an email application.",
+      "Follow SAFPS’s identity check and document instructions. If using email, send the completed, signed form and requested evidence directly to protection@safps.org.za.",
+      "Keep the provider’s correspondence and respond if asked for missing evidence. Contact SAFPS on 011 867 2234 if you need help."
+    ],
+    "sections": [
+      {
+        "heading": "How a protective registration works",
+        "paragraphs": [
+          "SAFPS shares a warning with its participating organisations so they can verify the identity of someone trying to use your details. The service is free. The provider can leave an incomplete application pending until it receives the necessary evidence."
+        ]
+      },
+      {
+        "heading": "If an account was already opened in your name",
+        "paragraphs": [
+          "Contact the institution or debt collector concerned and follow the fraud reporting process with SAPS. Give your case information to the organisations handling the dispute. A protective registration and a dispute about an existing account are separate steps."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Who receives the alert?",
+        "answer": "The alert is available to participating SAFPS members. Ask any institution handling an existing fraud complaint what else it requires."
+      }
+    ],
+    "trustItems": [
+      "Southern African Fraud Prevention Service",
+      "Official information checked 26 November 2026"
+    ],
+    "sourceSummary": "The provider’s own information explains the access requirements and how to use the service.",
+    "sourceLinks": [
+      {
+        "label": "SAFPS protective registration and application",
+        "href": "https://www.safps.org.za/Home/OurServices_ApplyProtectiveRegistration"
+      },
+      {
+        "label": "SAFPS consumer services",
+        "href": "https://www.safps.org.za/Home/OurServices"
+      }
+    ],
+    "ctaHeading": "Open SAFPS protective registration",
+    "ctaText": "You will go to SAFPS for its official application and document instructions.",
+    "ctaLabel": "Open SAFPS protective registration",
+    "exitNote": "You will go to SAFPS for its official application and document instructions.",
+    "exitTrustItems": [
+      "Southern African Fraud Prevention Service",
+      "Official provider website"
+    ]
+  },
+  {
+    "resourceId": "nid-south-african-sign-language-storybooks",
+    "provider": "National Institute for the Deaf",
+    "title": "Free South African Sign Language storybooks from NID | FreeHub",
+    "description": "Find free signed stories by grade and English or Afrikaans interactive books on the National Institute for the Deaf’s South African resource hub.",
+    "intro": "Families and teachers can use the National Institute for the Deaf’s free resource hub for story time in South African Sign Language. The provider also links to interactive digital books in English and Afrikaans.",
+    "accessHeading": "Who can use this service?",
+    "accessNote": "The free resources are publicly linked from the NID hub. You need an internet connection to open the video or digital book. Video playback may use mobile data.",
+    "steps": [
+      "Open the NID resource hub and find Storybooks in SASL under Free Resources.",
+      "Pick a story and grade. NID links to versions of the camp story for Grades 1 and 5 and a Grade 3 story called Tree-Gobbler.",
+      "For reading activities, scroll to Digital Interactive Educational Books and choose a series, book and language. The ENG and AFR labels identify English and Afrikaans."
+    ],
+    "sections": [
+      {
+        "heading": "Choosing a story for home or class",
+        "paragraphs": [
+          "Start with the grade shown next to the video title. The two versions of the camp story make it easy to pick the age level suited to your reader. If you want to use a story in class, open the link before the lesson to check the video and connection."
+        ]
+      },
+      {
+        "heading": "Which part is free?",
+        "paragraphs": [
+          "NID places these videos and educational books under Free Resources. Its sign language dictionary appears separately with its own fee. You can go straight to the free materials without buying dictionary access."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Are the books and signed videos the same collection?",
+        "answer": "They are separate sections on the same hub. Choose Storybooks in SASL for the videos, or the digital educational books section for the interactive reading material."
+      }
+    ],
+    "trustItems": [
+      "National Institute for the Deaf",
+      "Official information checked 26 November 2026"
+    ],
+    "sourceSummary": "The provider’s own information explains the access requirements and how to use the service.",
+    "sourceLinks": [
+      {
+        "label": "NID free storybooks and educational resources",
+        "href": "https://nid.org.za/deaf-resources/"
+      }
+    ],
+    "ctaHeading": "Browse free NID resources",
+    "ctaText": "You will go to NID’s resource hub to choose a signed video or educational book.",
+    "ctaLabel": "Browse free NID resources",
+    "exitNote": "You will go to NID’s resource hub to choose a signed video or educational book.",
+    "exitTrustItems": [
+      "National Institute for the Deaf",
+      "Official provider website"
+    ]
+  },
+  {
+    "resourceId": "western-cape-provincial-library-digital-loans",
+    "provider": "Western Cape Library Service",
+    "title": "Western Cape Provincial Library e-books and audiobooks | FreeHub",
+    "description": "Borrow digital books and audiobooks from the Western Cape Provincial Library with an eligible library card, or place a hold when a title is on loan.",
+    "intro": "Registered library patrons can borrow books through the Western Cape Provincial Library’s OverDrive collection. Readers can browse e-books and audiobooks, including dedicated collections in Afrikaans and isiXhosa.",
+    "accessHeading": "Who can use this service?",
+    "accessNote": "You need a valid card from a participating library to borrow or place a hold. If the service cannot recognise your card, check with the branch that issued it.",
+    "steps": [
+      "Open the provincial OverDrive catalogue, or choose Western Cape Provincial Library in Libby.",
+      "Select your library and sign in with your registered card details. Ask your issuing branch if you are unsure which library to choose.",
+      "Search for a title or browse a collection. Borrow an available copy or place a hold and wait for availability."
+    ],
+    "sections": [
+      {
+        "heading": "Choose the collection that matches how you read",
+        "paragraphs": [
+          "Use the audiobooks section to find titles to listen to. The catalogue also has an isiXhosa e-book collection and an Afrikaans reading section. Availability can vary even when a title appears in search results."
+        ]
+      },
+      {
+        "heading": "What you need to budget for",
+        "paragraphs": [
+          "Digital lending is free for registered patrons. Using mobile data to browse, stream or download a book can still cost money. Check the available formats and connection before choosing a large audiobook."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Where can I get help with a card that will not sign in?",
+        "answer": "Use the catalogue’s library card help page or ask your participating public library to check your card status and sign-in details."
+      }
+    ],
+    "trustItems": [
+      "Western Cape Library Service",
+      "Official information checked 26 November 2026"
+    ],
+    "sourceSummary": "The provider’s own information explains the access requirements and how to use the service.",
+    "sourceLinks": [
+      {
+        "label": "Western Cape government library service",
+        "href": "https://westerncape.gov.za/cas/service/western-cape-library-service"
+      },
+      {
+        "label": "Provincial library digital card help",
+        "href": "https://westerncape.overdrive.com/support/card"
+      },
+      {
+        "label": "Browse the catalogue’s isiXhosa e-books",
+        "href": "https://westerncape.overdrive.com/collection/1737004"
+      }
+    ],
+    "ctaHeading": "Open the provincial library catalogue",
+    "ctaText": "You will go to the Western Cape Provincial Library’s digital collection to browse or sign in.",
+    "ctaLabel": "Open the provincial library catalogue",
+    "exitNote": "You will go to the Western Cape Provincial Library’s digital collection to browse or sign in.",
+    "exitTrustItems": [
+      "Western Cape Library Service",
+      "Official provider website"
+    ]
   }
 ]

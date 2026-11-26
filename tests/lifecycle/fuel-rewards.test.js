@@ -108,7 +108,8 @@ test("the indexable evergreen guide provides static sources, methods and a progr
   assert.ok(html.includes('href="https://freehub.co.za/guides/best-fuel-rewards-south-africa/"'));
   assert.ok(html.includes("<noscript>"));
   assert.ok(html.includes('id="method"'));
-  assert.equal(data.programmes.length,9);
+  assert.equal(data.programmes.length,10);
+  assert.ok(data.programmes.some(programme => programme.source === "totalDisChem" && /10 Dis-Chem points per litre/.test(programme.headline)));
   assert.ok(!html.includes("R30.25"));
   assert.ok(html.includes('id="fuel-form" hidden'));
   assert.ok(html.includes('/shared/fuel-rewards-ui.js?v='));

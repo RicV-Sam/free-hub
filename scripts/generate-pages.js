@@ -12,7 +12,7 @@ const editorialPicks = require("../data/editorial-picks.json");
 const { validateEditorialPicks, getEligibleEditorialPicks } = require("./lib/editorial-picks.js");
 const opportunityData = require("../shared/opportunity-data.js");
 const offerData = require("../shared/offer-data.js");
-const listingImages = require("../data/listing-images.json");
+const listingImages = { ...require("../data/listing-images.json"), ...require("../data/listing-artwork-2026-11.json") };
 const responsiveImages = require("../data/responsive-images.json");
 // Public-source discovery additions are kept separate from the existing editorial registry.
 const listingEditorialDetails = {
@@ -2590,6 +2590,12 @@ function main() {
   ]);
   brandImageLookup = buildBrandImageLookup(coreActiveCompetitions);
   const validCompetitionSlugs = new Set(detailCompetitions.map((competition) => shared.getCompetitionSlug(competition)));
+  // Keep bookmarked detail URLs only while their consolidated listing is publicly accessible.
+  const competitionAliases = [
+    ["coca-cola-fan-can-be-a-bok-2026", "coca-cola-be-a-bok-voucher-prizes-2026"],
+    ["nedbank-appventure-with-us-2026-2027", "nedbank-money-appventure-2026"],
+  ].filter(([alias, target]) => !validCompetitionSlugs.has(alias) && validCompetitionSlugs.has(target));
+  competitionAliases.forEach(([alias]) => validCompetitionSlugs.add(alias));
   const outCompetitions = [...activeCompetitions, ...noindexActiveCompetitions];
   writeMobileFeed(path.join(ROOT_DIR, "app-data", "competitions.json"), validCompetitions, {
     asOfDate: LIFECYCLE_REFERENCE_DATE_ISO,
@@ -2691,6 +2697,7 @@ function main() {
     featuredVideoSlugs(activeCompetitions));
   writeVideoPages(activeCompetitions);
 
+  competitionAliases.forEach(([alias, target]) => writeCompetitionRedirect(alias, target));
   writeLegacyRedirectPages();
 
   writeStudentNoticePages();
@@ -8418,6 +8425,33 @@ function renderLegacyAccountBenefitsRedirect() {
   </body>
 </html>
 `;
+}
+
+
+function writeCompetitionRedirect(alias, targetSlug) {
+  const target = `/competition/${targetSlug}/`;
+  const directory = path.join(ROOT_DIR, "competition", alias);
+  fs.mkdirSync(directory, { recursive: true });
+  writeGeneratedFile(path.join(directory, "index.html"), `<!DOCTYPE html>
+<html lang="en-ZA">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, follow" />
+    <title>Competition listing moved | FreeHub</title>
+    <link rel="canonical" href="${escapeAttribute(shared.CANONICAL_ORIGIN + target)}" />
+    <meta http-equiv="refresh" content="0; url=${escapeAttribute(target)}" />
+    <link rel="stylesheet" href="${escapeAttribute(getStylesheetHref("/"))}" />
+  </head>
+  <body>
+    ${renderTopNavigation({ active: "competitions" })}
+    <main><h1>Competition listing moved</h1><p><a href="${escapeAttribute(target)}">Continue to the competition details</a>.</p></main>
+    ${renderWhatsAppChannelCta(null, { compact: true, placement: "competition-redirect" })}
+    ${renderSiteFooter()}
+    <script type="module" src="/shared/auth-ui.js?v=20260917-account-save-v2"></script>
+  </body>
+</html>
+`);
 }
 
 function writeLegacyRedirectPages() {

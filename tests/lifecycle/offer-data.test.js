@@ -61,11 +61,11 @@ test("offer routes and exact feature flag are safe", () => {
 test("registry rejects duplicate identifiers and production records are validated", () => {
   assert.equal(offerData.validateOfferRegistry([fixture(), fixture()]).valid, false);
   const registry = require("../../data/offers.json");
-  assert.equal(registry.length, 143);
+  assert.equal(registry.length, 144);
   assert.equal(offerData.validateOfferRegistry(registry).valid, true);
   assert.deepEqual(
     registry.reduce((counts, offer) => ({ ...counts, [offer.type]: counts[offer.type] + 1 }), { coupon: 0, deal: 0 }),
-    { coupon: 16, deal: 127 }
+    { coupon: 16, deal: 128 }
   );
   const allowedSourceHosts = new Set([
     "www.best-before.co.za", "looters.co.za",
@@ -76,7 +76,7 @@ test("registry rejects duplicate identifiers and production records are validate
     "www.woolworths.co.za", "www.fnb.co.za", "www.1life.co.za",
     "www.dischem.co.za", "support.multiply.co.za", "citylodgehotels.com",
     "www.andbeyond.com", "www.bookmundi.com", "steers.co.za", "play.google.com",
-    "www.cellc.co.za", "www.hirschs.co.za", "www.makro.co.za",
+    "www.cellc.co.za", "www.hirschs.co.za", "www.makro.co.za", "business.makro.co.za",
     "www.dunloptyres.co.za", "www.clarins.co.za", "bellas.co.za",
     "promotion.asus.com", "www.mtn.co.za",
     "metrocosmetics.co.za", "akis.co.za", "www.sanparks.org", "www.capenature.co.za", "www.muggandbean.co.za",

@@ -135,8 +135,8 @@ test("runtime validators enforce strict contracts and legacy FreeResource compat
   assert.equal(unsupported.typeSupported, false);
 
   const legacyResources = JSON.parse(fs.readFileSync(path.join(rootDir, "data", "free-resources.json"), "utf8"));
-  // Four additional reviewed resources joined the existing directory on 22 November.
-  assert.equal(legacyResources.length, 74);
+  // Five reviewed resources joined the directory on 26 November, including the sample loan.
+  assert.equal(legacyResources.length, 79);
   assert.equal(opportunityData.validateFreeResourceRegistry(legacyResources, { legacy: true }).valid, true);
   assert.equal(opportunityData.validateFreeResource(legacyResources[0]).valid, false);
 
@@ -553,14 +553,15 @@ test("manual evidence is exact, fresh, append-only data and cannot match another
   );
 });
 
-test("all nine Samples resources pass strict subtype and 30-day cadence validation", () => {
+test("all ten Samples resources pass strict subtype and 30-day cadence validation", () => {
   const resources = JSON.parse(fs.readFileSync(path.join(rootDir, "data", "free-resources.json"), "utf8"));
   const samples = resources.filter((resource) => resource.category === "samples");
-  assert.equal(samples.length, 9);
+  assert.equal(samples.length, 10);
   assert.equal(opportunityData.validateFreeResourceRegistry(samples).valid, true);
   assert.deepEqual(
     samples.map((resource) => resource.sampleResourceType).sort(),
     [
+      "brand_sample_programme",
       "brand_sample_programme",
       "brand_sample_programme",
       "brand_sample_programme",
