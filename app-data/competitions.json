@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOfDate": "2026-11-27",
-  "count": 111,
+  "count": 110,
   "competitions": [
     {
       "id": "ecr-takealot-30-boxes-black-friday-2026",
@@ -50,32 +50,6 @@
       ],
       "officialUrl": "https://heartfm.co.za/amazon-black-friday-competition-terms-and-conditions/",
       "termsUrl": "https://heartfm.co.za/amazon-black-friday-competition-terms-and-conditions/",
-      "lastChecked": "2026-11-26",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "sony-world-photography-awards-student-2027",
-      "title": "Sony World Photography Awards 2027 Student competition",
-      "brand": "World Photography Organisation / Sony",
-      "summary": "Photography students aged 18–30 can enter a series of 5–10 images on Journeys. The winning institution receives approximately €30,000 in Sony imaging equipment.",
-      "imageUrl": "https://freehub.co.za/assets/listings/sony-world-photography-awards-student-2027.webp",
-      "closingDate": "2026-11-27",
-      "closingAt": "2026-11-27T18:00:00+02:00",
-      "category": "Education",
-      "prizeName": "Sony imaging equipment and a London awards visit",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "Online",
-      "eligibility": "Students aged 18 to 30 at the deadline, studying photography in an eligible higher-education course at a registered institution. The official list includes South African institutions.",
-      "entrySteps": [
-        "Confirm your institution appears on the participating-institutions list, or arrange registration through the organiser.",
-        "Prepare 5–10 JPEGs in response to Journeys. Photographs taken from 1 January to 27 November 2026 fit both capture windows stated by the organiser.",
-        "Submit through the official student page by 15:00 SAST on 27 November to meet both published cutoff times. Check file and prior-publication requirements first."
-      ],
-      "officialUrl": "https://www.worldphoto.org/sony-world-photography-awards/student",
-      "termsUrl": "https://www.worldphoto.org/sony-world-photography-awards/student",
       "lastChecked": "2026-11-26",
       "isHighValue": false,
       "isClosingSoon": true

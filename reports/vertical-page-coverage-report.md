@@ -97,14 +97,13 @@ Recommended normalisation:
 ## Online Competitions in South Africa
 
 - URL: /online-competitions-south-africa/
-- Matching active public competitions: 36
+- Matching active public competitions: 35
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Sony World Photography Awards 2027 Student competition (sony-world-photography-awards-student-2027) | 2026-11-27 | free-entry | yes | yes | Online entry tag | none |
 | Websites 4U: win a starter website for your business (websites4u-starter-website-november-2026) | 2026-11-30 | free-entry | yes | yes | Online entry mentioned in entry text | none |
 | GoTyme Card Swipe and Spend: Win R300 (gotyme-card-swipe-spend-2026) | 2026-11-30 | purchase-required | yes | yes | Online entry mentioned in entry text | none |
 | AVBOB 10th Annual Poetry Competition (avbob-poetry-2026) | 2026-11-30 | free-entry | yes | yes | Online entry tag | none |

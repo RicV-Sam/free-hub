@@ -3,13 +3,13 @@ Reviewed competition retirements effective: 6
 Date: 2026-11-27
 Mode: archive-expired
 Total competitions: 556
-Active published count: 112
-Expired archive page count: 337
+Active published count: 111
+Expired archive page count: 338
 Low-value expired noindex count: 0
 Held/private count: 107
 Expired records still leaking into active listings: 0
 Out pages generated for expired records: 0
-Closing in next 14 days: 60
+Closing in next 14 days: 59
 
 Expired competition IDs:
 - supersport-nba-finals-2026 (2026-05-20)
@@ -349,11 +349,11 @@ Expired competition IDs:
 - boxer-amarula-smeg-fridge-2026 (2026-11-24)
 - clicks-elastoplast-first-aid-kit-2026 (2026-11-24)
 - chateau-gateaux-paris-2026 (2026-11-26)
+- sony-world-photography-awards-student-2027 (2026-11-27)
 
 Closing soon (next 14 days):
 - ecr-takealot-30-boxes-black-friday-2026 (0 days)
 - heart-fm-amazon-black-friday-voucher-2026 (0 days)
-- sony-world-photography-awards-student-2027 (0 days)
 - dhlamini-junction-turns-two-2026 (1 days)
 - milo-checkers-summer-2026 (1 days)
 - stimorol-volume-driver-2026 (2 days)
