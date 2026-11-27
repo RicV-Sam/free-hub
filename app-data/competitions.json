@@ -1,32 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-26",
-  "count": 112,
+  "asOfDate": "2026-11-27",
+  "count": 111,
   "competitions": [
-    {
-      "id": "chateau-gateaux-paris-2026",
-      "title": "Win a trip for two to Paris with Château Gâteaux",
-      "brand": "Château Gâteaux",
-      "summary": "Win a trip for two to Paris with Château Gâteaux. Eligible whole-cake purchase and loyalty app required. Closes 2026-11-26.",
-      "imageUrl": "https://freehub.co.za/assets/listings/chateau-gateaux-paris-2026.webp",
-      "closingDate": "2026-11-26",
-      "category": "Holidays",
-      "prizeName": "A R100,000 Paris trip for two or a weekly cake voucher",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "App",
-      "eligibility": "SA residents aged 18+. See the full restrictions below.",
-      "entrySteps": [
-        "Buy an eligible small, medium or large whole cake at a Château Gâteaux patisserie and scan the loyalty app for automatic entry. One entry per transaction. For one optional bonus entry, follow the official Facebook, Instagram or TikTok account, post a public original video with your whole cake saying “Take me to Paris, Château Gâteaux!”, and tag that official account.",
-        "Eligible whole-cake purchase and loyalty app required; data costs apply."
-      ],
-      "officialUrl": "https://chateaugateaux.co.za/terms-conditions/win-a-trip-to-paris-2026/",
-      "termsUrl": "https://chateaugateaux.co.za/terms-conditions/win-a-trip-to-paris-2026/",
-      "lastChecked": "2026-10-08",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "ecr-takealot-30-boxes-black-friday-2026",
       "title": "East Coast Radio’s Takealot 30 Boxes voucher competition",
@@ -1380,7 +1356,7 @@
       "termsUrl": "https://www.penguinrandomhouse.co.za/tos/tscs-win-camp-half-blood-competition/",
       "lastChecked": "2026-10-16",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "cashbuild-fortknox-supplier-of-the-month-november-2026",
@@ -1406,7 +1382,7 @@
       "termsUrl": "https://www.cashbuild.co.za/module/smartblog/download?id=461",
       "lastChecked": "2026-11-26",
       "isHighValue": false,
-      "isClosingSoon": false
+      "isClosingSoon": true
     },
     {
       "id": "virgin-active-ultimate-getaway-2026",

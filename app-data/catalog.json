@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-26",
-  "count": 80,
+  "asOfDate": "2026-11-27",
+  "count": 79,
   "counts": {
     "freeStuff": 54,
     "resources": 54,
     "opportunities": 0,
-    "offers": 26
+    "offers": 25
   },
   "items": [
     {
@@ -1113,25 +1113,6 @@
       ],
       "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
       "expiresAt": "2026-11-30",
-      "lastChecked": "2026-11-22",
-      "isAffiliate": false,
-      "isSponsored": false
-    },
-    {
-      "id": "sanparks-senior-discount-november-2026",
-      "kind": "deal",
-      "title": "SANParks senior camping concession: 40% on qualifying November nights",
-      "provider": "SANParks",
-      "summary": "Qualifying pensioners can receive 40% off camping during the current 16 October–26 November window; eligible accommodation has park-specific rates.",
-      "category": "travel",
-      "categoryLabel": "Travel",
-      "officialUrl": "https://www.sanparks.org/travel/discounts/senior-citizens",
-      "termsUrl": "https://www.sanparks.org/wp-content/uploads/2021/08/Senior-Citizen-Discount-2026.pdf",
-      "requirements": [
-        "For qualifying South African social pensioners and South African permanent residents aged 60+. Book in the qualifying guest’s name through SANParks reservations: online-platform bookings do not receive this concession. Fridays, Saturdays and long weekends are excluded. Bring ID or pension proof. Camping relief covers one site’s base tariff and qualifying persons; additional guests may pay full tariffs. Conservation fees and meals remain payable. Accommodation discounts depend on the exact camp and unit in the 2026 matrix."
-      ],
-      "watchOut": "Confirm the current price, availability and terms with the provider before buying.",
-      "expiresAt": "2026-11-26",
       "lastChecked": "2026-11-22",
       "isAffiliate": false,
       "isSponsored": false
