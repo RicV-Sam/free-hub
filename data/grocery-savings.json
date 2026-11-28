@@ -1,7 +1,7 @@
 {
   "publicationStatus": "published",
-  "lastReviewed": "2026-10-26",
-  "reviewDueAt": "2026-11-18",
+  "lastReviewed": "2026-11-28",
+  "reviewDueAt": "2026-12-05",
   "pages": [
     {
       "slug": "grocery-savings",
@@ -12,7 +12,7 @@
       "intro": "Compare discount grocery stores and checked prices. Start with your area, then check pack sizes, date labels and delivery costs before you shop.",
       "imageId": "grocery-best-before-store",
       "sections": [],
-      "contentUpdatedAt": "2026-11-26"
+      "contentUpdatedAt": "2026-11-28"
     },
     {
       "slug": "discount-grocery-stores-south-africa",
@@ -50,12 +50,12 @@
           "id": "our-checks",
           "heading": "What FreeHub checked",
           "paragraphs": [
-            "We reviewed the retailers' own websites on 26 October 2026 for locations, shopping options and stated conditions. This is a desk-researched guide, not a report of store visits or test purchases. The selection is a starting point, not a complete national directory or a ranking of the cheapest retailers.",
+            "We reviewed the retailers' own websites on 28 November 2026 for locations, shopping options and stated conditions. This is a desk-researched guide, not a report of store visits or test purchases. The selection is a starting point, not a complete national directory or a ranking of the cheapest retailers.",
             "Our linked price checks record the product, pack size and amount shown online. They do not establish in-store stock, delivery to every address or a saving against another supermarket. Retailers change stock and prices; open the source before travelling or ordering."
           ]
         }
       ],
-      "contentUpdatedAt": "2026-11-26"
+      "contentUpdatedAt": "2026-11-28"
     },
     {
       "slug": "best-before-south-africa-explained",
@@ -100,7 +100,8 @@
           "paragraphs": [
             "Best Before advertises nationwide courier delivery, with an estimated two to five working days for serviced areas. Some farms, remote areas and outlying addresses may not be covered. Its shipping page does not give a single flat delivery price; obtain the charge for your basket and address before paying.",
             "Its buying guide describes free in-store collection, with orders and transfers taking up to five working days to prepare. The shipping page refers to selected Gauteng collection locations, so confirm the options offered for your order and wait for the ready-to-collect notification.",
-            "The retailer warns that products can sell out even after an order is placed. It says it will contact shoppers about an alternative or refund. A displayed stock count is a snapshot, not a reservation."
+            "The retailer warns that products can sell out even after an order is placed. It says it will contact shoppers about an alternative or refund. A displayed stock count is a snapshot, not a reservation.",
+            "Best Before's online rewards and in-store loyalty card are separate. Its online guide states that one point equals R1 and points can be used towards product costs, but not shipping. The prices shown here exclude rewards."
           ],
           "sources": [
             {
@@ -110,6 +111,10 @@
             {
               "label": "Best Before: read before you buy",
               "href": "https://www.best-before.co.za/before-you-buy/"
+            },
+            {
+              "label": "Best Before online rewards guide",
+              "href": "https://www.best-before.co.za/rewards-points-guide/"
             }
           ]
         },
@@ -149,7 +154,8 @@
             }
           ]
         }
-      ]
+      ],
+      "contentUpdatedAt": "2026-11-28"
     }
   ],
   "stores": [
@@ -227,11 +233,11 @@
       "priceCents": 1400,
       "quantity": 410,
       "unit": "g",
-      "checkedAt": "2026-10-26T09:45:05.565Z",
+      "checkedAt": "2026-11-28T09:43:16.539Z",
       "bestBefore": null,
-      "dateNote": "Tagged Future Dated; actual batch date not shown.",
-      "availability": "18 in stock; main Add to basket button visible and enabled. Branch stock and checkout availability were not verified.",
-      "delivery": "Courier cost depends on your order and address; no flat price verified. Free in-store collection is advertised, subject to the options offered for your order.",
+      "dateNote": "Tagged Future Dated; no actual batch date displayed.",
+      "availability": "2109 in stock; main Add to basket button visible and enabled. Branch stock and checkout availability were not verified.",
+      "delivery": "Nationwide courier delivery to supported South African addresses; estimated 2–5 working days. Some farms, remote areas and P.O. boxes excluded. No flat delivery tariff or minimum spend found. Free collection is advertised, but the shipping policy limits it to selected Gauteng locations; allow up to five working days and wait for confirmation.",
       "deliveryUrl": "https://www.best-before.co.za/shipping-information/",
       "sourceUrl": "https://www.best-before.co.za/product/farmgirl-baked-beans-410g/"
     },
@@ -241,11 +247,11 @@
       "priceCents": 990,
       "quantity": 410,
       "unit": "g",
-      "checkedAt": "2026-10-26T09:45:11.091Z",
+      "checkedAt": "2026-11-28T09:43:18.975Z",
       "bestBefore": null,
-      "dateNote": "Actual batch best-before/use-by date not shown.",
-      "availability": "Main Add to cart button visible and enabled; no stock count displayed. Branch stock and checkout availability were not verified.",
-      "delivery": "Paid delivery is calculated using order weight and destination. Collection is also offered; check the province and collection options for your order.",
+      "dateNote": "No actual batch date displayed.",
+      "availability": "Main Add to cart button visible and enabled; no stock count stated. Branch stock and checkout availability were not verified.",
+      "delivery": "Click & Collect or delivery selected by province; quotes vary by weight and area. No fixed delivery tariff or minimum spend found. Orders are checked/packed within 72 hours. A 10% cancellation/handling fee applies after packing and processing.",
       "deliveryUrl": "https://looters.co.za/collection-delivery/",
       "sourceUrl": "https://looters.co.za/products/koo-mixed-vegetables-in-brine/"
     },
@@ -269,11 +275,11 @@
       "priceCents": 2990,
       "quantity": 450,
       "unit": "g",
-      "checkedAt": "2026-10-19T08:23:43.539Z",
+      "checkedAt": "2026-11-28T09:43:21.152Z",
       "bestBefore": null,
-      "dateNote": "The actual batch date is not displayed.",
-      "availability": "The main product Add to cart button was visible and enabled; product data indicated InStock. No stock count was displayed. Branch stock was not verified.",
-      "delivery": "Paid delivery depends on order weight and destination. Collection is offered. The policy says orders are checked and packed within 72 hours. A 10% cancellation/handling fee applies after packing and processing. No address-specific delivery total was verified.",
+      "dateNote": "No actual batch date displayed.",
+      "availability": "Main Add to cart button visible and enabled; no stock count stated. Branch stock and checkout availability were not verified.",
+      "delivery": "Click & Collect or delivery selected by province; quotes vary by weight and area. No fixed delivery tariff or minimum spend found. Orders are checked/packed within 72 hours. A 10% cancellation/handling fee applies after packing and processing.",
       "deliveryUrl": "https://looters.co.za/collection-delivery/",
       "sourceUrl": "https://looters.co.za/products/bokomo-weet-bix-450g-ooters/"
     },
@@ -283,11 +289,11 @@
       "priceCents": 1690,
       "quantity": 400,
       "unit": "g",
-      "checkedAt": "2026-10-26T09:45:19.168Z",
+      "checkedAt": "2026-11-28T09:43:21.937Z",
       "bestBefore": null,
-      "dateNote": "Actual batch best-before/use-by date not shown.",
-      "availability": "Main Add to cart button visible and enabled; no stock count displayed. Branch stock and checkout availability were not verified.",
-      "delivery": "Paid delivery depends on order weight and destination. Collection is offered. The policy says orders are checked and packed within 72 hours. A 10% cancellation/handling fee applies after packing and processing. No address-specific delivery total was verified.",
+      "dateNote": "No actual batch date displayed.",
+      "availability": "Main Add to cart button visible and enabled; no stock count stated. Branch stock and checkout availability were not verified.",
+      "delivery": "Click & Collect or delivery selected by province; quotes vary by weight and area. No fixed delivery tariff or minimum spend found. Orders are checked/packed within 72 hours. A 10% cancellation/handling fee applies after packing and processing.",
       "deliveryUrl": "https://looters.co.za/collection-delivery/",
       "sourceUrl": "https://looters.co.za/products/la-italiana-butter-beans-400g-looters/"
     },
@@ -311,11 +317,11 @@
       "priceCents": 2190,
       "quantity": 325,
       "unit": "g",
-      "checkedAt": "2026-10-26T09:45:24.851Z",
+      "checkedAt": "2026-11-28T09:43:23.353Z",
       "bestBefore": null,
-      "dateNote": "Actual batch best-before/use-by date not shown.",
-      "availability": "Main Add to cart button visible and enabled; no stock count displayed. Branch stock and checkout availability were not verified.",
-      "delivery": "Paid delivery depends on order weight and destination. Collection is offered. The policy says orders are checked and packed within 72 hours. A 10% cancellation/handling fee applies after packing and processing. No address-specific delivery total was verified.",
+      "dateNote": "No actual batch date displayed.",
+      "availability": "Main Add to cart button visible and enabled; no stock count stated. Branch stock and checkout availability were not verified.",
+      "delivery": "Click & Collect or delivery selected by province; quotes vary by weight and area. No fixed delivery tariff or minimum spend found. Orders are checked/packed within 72 hours. A 10% cancellation/handling fee applies after packing and processing.",
       "deliveryUrl": "https://looters.co.za/collection-delivery/",
       "sourceUrl": "https://looters.co.za/products/eezee-noodles-assorted-value-pack/"
     },
@@ -325,11 +331,11 @@
       "priceCents": 2000,
       "quantity": 400,
       "unit": "g",
-      "checkedAt": "2026-10-26T09:45:28.351Z",
+      "checkedAt": "2026-11-28T09:43:26.682Z",
       "bestBefore": null,
-      "dateNote": "Tagged Future Dated; actual batch date not shown.",
-      "availability": "337 in stock; main Add to basket button visible and enabled. Branch stock and checkout availability were not verified.",
-      "delivery": "Courier delivery is advertised for serviced South African addresses, normally 2-5 working days; some remote areas and farms may be excluded. No single flat tariff was published. Free store collection is advertised, subject to the locations offered for the order and up to five working days of preparation.",
+      "dateNote": "Tagged Future Dated; no actual batch date displayed.",
+      "availability": "24 in stock; main Add to basket button visible and enabled. Branch stock and checkout availability were not verified.",
+      "delivery": "Nationwide courier delivery to supported South African addresses; estimated 2–5 working days. Some farms, remote areas and P.O. boxes excluded. No flat delivery tariff or minimum spend found. Free collection is advertised, but the shipping policy limits it to selected Gauteng locations; allow up to five working days and wait for confirmation.",
       "deliveryUrl": "https://www.best-before.co.za/shipping-information/",
       "sourceUrl": "https://www.best-before.co.za/product/serena-chopped-tomatoes-400g/"
     },
@@ -339,11 +345,11 @@
       "priceCents": 1400,
       "quantity": 500,
       "unit": "g",
-      "checkedAt": "2026-10-26T09:45:31.222Z",
+      "checkedAt": "2026-11-28T09:43:29.700Z",
       "bestBefore": null,
-      "dateNote": "Tagged Future Dated; no actual batch date.",
-      "availability": "27 in stock; main Add to basket button visible and enabled. Branch stock and checkout availability were not verified.",
-      "delivery": "No flat courier tariff or address-specific total verified. Free store collection is advertised in the buying guide. Courier service to supported South African addresses; no P.O. boxes and some farms, remote/outlying areas excluded. Collection at selected Gauteng locations.",
+      "dateNote": "Tagged Future Dated; no actual batch date displayed.",
+      "availability": "21 in stock; main Add to basket button visible and enabled. Branch stock and checkout availability were not verified.",
+      "delivery": "Nationwide courier delivery to supported South African addresses; estimated 2–5 working days. Some farms, remote areas and P.O. boxes excluded. No flat delivery tariff or minimum spend found. Free collection is advertised, but the shipping policy limits it to selected Gauteng locations; allow up to five working days and wait for confirmation.",
       "deliveryUrl": "https://www.best-before.co.za/shipping-information/",
       "sourceUrl": "https://www.best-before.co.za/product/donna-zeina-macaroni-500g/"
     },
@@ -367,11 +373,11 @@
       "priceCents": 2390,
       "quantity": 400,
       "unit": "ml",
-      "checkedAt": "2026-10-26T09:45:37.509Z",
+      "checkedAt": "2026-11-28T09:43:34.490Z",
       "bestBefore": null,
       "dateNote": "No actual batch date displayed.",
-      "availability": "Main Add to cart button visible and enabled; no stock count. Branch stock and checkout availability were not verified.",
-      "delivery": "Paid delivery quote depends on order weight and area; no flat price or address-specific total verified. Select the applicable province for delivery, or collection. Published stores: Retreat, Somerset West, Durban North and Ballito. Address eligibility not confirmed.",
+      "availability": "Main Add to cart button visible and enabled; no stock count stated. Branch stock and checkout availability were not verified.",
+      "delivery": "Click & Collect or delivery selected by province; quotes vary by weight and area. No fixed delivery tariff or minimum spend found. Orders are checked/packed within 72 hours. A 10% cancellation/handling fee applies after packing and processing.",
       "deliveryUrl": "https://looters.co.za/collection-delivery/",
       "sourceUrl": "https://looters.co.za/products/craft-coconut-milk-choice-grade/"
     },
@@ -381,11 +387,11 @@
       "priceCents": 4690,
       "quantity": 2000,
       "unit": "g",
-      "checkedAt": "2026-10-26T09:45:40.270Z",
+      "checkedAt": "2026-11-28T09:43:35.382Z",
       "bestBefore": null,
       "dateNote": "No actual batch date displayed.",
-      "availability": "Main Add to cart button visible and enabled; no stock count. Branch stock and checkout availability were not verified.",
-      "delivery": "Paid delivery quote depends on order weight and area; no flat price or address-specific total verified. Select the applicable province for delivery, or collection. Published stores: Retreat, Somerset West, Durban North and Ballito. Address eligibility not confirmed.",
+      "availability": "Main Add to cart button visible and enabled; no stock count stated. Branch stock and checkout availability were not verified.",
+      "delivery": "Click & Collect or delivery selected by province; quotes vary by weight and area. No fixed delivery tariff or minimum spend found. Orders are checked/packed within 72 hours. A 10% cancellation/handling fee applies after packing and processing.",
       "deliveryUrl": "https://looters.co.za/collection-delivery/",
       "sourceUrl": "https://looters.co.za/products/noodle-king-assorted-pasta-2kg-looters/"
     },
@@ -395,16 +401,86 @@
       "priceCents": 7995,
       "quantity": 10000,
       "unit": "g",
-      "checkedAt": "2026-11-26",
+      "checkedAt": "2026-11-28T09:45:10.469423+00:00",
       "bestBefore": null,
       "dateNote": "The catalogue does not specify a batch or pack date. Check the date on the bag.",
-      "availability": "Makro lists both alternatives in its national 23–30 November catalogue. Local and online stock were not confirmed.",
-      "delivery": "Check delivery availability and the charge for your address in the Makro app or at checkout. The catalogue price is per bag before delivery.",
+      "availability": "Current official catalogue price verified. Exact online product page displayed human verification; online stock, branch stock and checkout availability are unverified.",
+      "delivery": "FAQ states R70 delivery for orders under R650 and free delivery for orders over R650. The wording does not settle exactly R650. Confirm product/address eligibility and final fee; typical stated delivery is 2–7 working days.",
       "deliveryUrl": "https://www.makro.co.za/pages/faq",
       "sourceUrl": "https://business.makro.co.za/sys-master/root/h5b/hd3/30684870869022/Black-Friday.pdf",
       "priceSource": "Catalogue"
+    },
+    {
+      "offerId": "best-before-liberty-select-baked-beans-410g",
+      "product": "Liberty Select baked beans in tomato sauce",
+      "priceCents": 1300,
+      "quantity": 410,
+      "unit": "g",
+      "checkedAt": "2026-11-28T09:43:38.537Z",
+      "bestBefore": null,
+      "dateNote": "Actual batch best-before/use-by date not displayed; no Future Dated tag observed.",
+      "availability": "21 in stock; main Add to basket button visible and enabled. Branch stock and checkout availability were not verified.",
+      "delivery": "Nationwide courier delivery to supported South African addresses; estimated 2–5 working days. Some farms, remote areas and P.O. boxes excluded. No flat delivery tariff or minimum spend found. Free collection is advertised, but the shipping policy limits it to selected Gauteng locations; allow up to five working days and wait for confirmation.",
+      "deliveryUrl": "https://www.best-before.co.za/shipping-information/",
+      "sourceUrl": "https://www.best-before.co.za/product/liberty-select-baked-beans-410g/"
+    },
+    {
+      "offerId": "best-before-hommi-chicken-noodles-5x73g",
+      "product": "Hommi chicken noodles (5 × 73g)",
+      "priceCents": 2000,
+      "quantity": 365,
+      "unit": "g",
+      "checkedAt": "2026-11-28T09:43:41.556Z",
+      "bestBefore": null,
+      "dateNote": "Actual batch best-before/use-by date not displayed; no Future Dated tag observed.",
+      "availability": "57 5-Pack available (285 units); main Add to basket button visible and enabled. Branch stock and checkout availability were not verified.",
+      "delivery": "Nationwide courier delivery to supported South African addresses; estimated 2–5 working days. Some farms, remote areas and P.O. boxes excluded. No flat delivery tariff or minimum spend found. Free collection is advertised, but the shipping policy limits it to selected Gauteng locations; allow up to five working days and wait for confirmation.",
+      "deliveryUrl": "https://www.best-before.co.za/shipping-information/",
+      "sourceUrl": "https://www.best-before.co.za/product/hommi-chicken-noodles-5x73g/"
+    },
+    {
+      "offerId": "looters-melvit-instant-oat-flakes-3x400g",
+      "product": "Melvit instant oat flakes (3 × 400g)",
+      "priceCents": 2500,
+      "quantity": 1200,
+      "unit": "g",
+      "checkedAt": "2026-11-28T09:43:43.813Z",
+      "bestBefore": null,
+      "dateNote": "Actual batch best-before/use-by date not displayed; no Future Dated tag observed.",
+      "availability": "Main Add to cart button visible and enabled; no stock count stated. Branch stock and checkout availability were not verified.",
+      "delivery": "Click & Collect or delivery selected by province; quotes vary by weight and area. No fixed delivery tariff or minimum spend found. Orders are checked/packed within 72 hours. A 10% cancellation/handling fee applies after packing and processing.",
+      "deliveryUrl": "https://looters.co.za/collection-delivery/",
+      "sourceUrl": "https://looters.co.za/products/melvit-instant-oat-flakes-400g/"
+    },
+    {
+      "offerId": "looters-yummy-macaroni-pasta-400g",
+      "product": "Yummy macaroni pasta",
+      "priceCents": 1290,
+      "quantity": 400,
+      "unit": "g",
+      "checkedAt": "2026-11-28T09:43:44.612Z",
+      "bestBefore": null,
+      "dateNote": "Actual batch best-before/use-by date not displayed; no Future Dated tag observed.",
+      "availability": "Main Add to cart button visible and enabled; no stock count stated. Branch stock and checkout availability were not verified.",
+      "delivery": "Click & Collect or delivery selected by province; quotes vary by weight and area. No fixed delivery tariff or minimum spend found. Orders are checked/packed within 72 hours. A 10% cancellation/handling fee applies after packing and processing.",
+      "deliveryUrl": "https://looters.co.za/collection-delivery/",
+      "sourceUrl": "https://looters.co.za/products/yummy-macaroni-pasta-400g-looters/"
+    },
+    {
+      "offerId": "looters-la-italiana-processed-peas-400g",
+      "product": "La Italiana processed peas",
+      "priceCents": 1590,
+      "quantity": 400,
+      "unit": "g",
+      "checkedAt": "2026-11-28T09:43:45.386Z",
+      "bestBefore": null,
+      "dateNote": "Actual batch best-before/use-by date not displayed; no Future Dated tag observed.",
+      "availability": "Main Add to cart button visible and enabled; no stock count stated. Branch stock and checkout availability were not verified.",
+      "delivery": "Click & Collect or delivery selected by province; quotes vary by weight and area. No fixed delivery tariff or minimum spend found. Orders are checked/packed within 72 hours. A 10% cancellation/handling fee applies after packing and processing.",
+      "deliveryUrl": "https://looters.co.za/collection-delivery/",
+      "sourceUrl": "https://looters.co.za/products/la-italiana-processed-peas/"
     }
   ],
   "publishedAt": "2026-10-18",
-  "contentUpdatedAt": "2026-10-27"
+  "contentUpdatedAt": "2026-11-28"
 }

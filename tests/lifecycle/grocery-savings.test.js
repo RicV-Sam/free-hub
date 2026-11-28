@@ -23,9 +23,9 @@ test("approved grocery pages and offers appear only from their publication date"
   assert.equal(grocery.getGroceryPages({ asOfDate: "2026-10-18" }).length, 3);
   assert.deepEqual(grocery.getGroceryPages({ asOfDate: "2026-09-08" }), []);
   assert.equal(grocery.getGroceryPrices(offers, { asOfDate: "2026-10-18" }).length, 2);
-  assert.equal(grocery.getGroceryPrices(offers, { asOfDate: "2026-10-26" }).length, 10);
-  assert.equal(grocery.getGroceryPrices(offers, { asOfDate: "2026-10-27" }).length, 10);
-  assert.deepEqual(grocery.getGroceryPrices(offers, { asOfDate: "2026-10-28" }), []);
+  assert.equal(grocery.getGroceryPrices(offers, { asOfDate: "2026-11-28" }).length, 15);
+  assert.equal(grocery.getGroceryPrices(offers, { asOfDate: "2026-11-29" }).length, 15);
+  assert.deepEqual(grocery.getGroceryPrices(offers, { asOfDate: "2026-12-01" }), []);
   assert.deepEqual(grocery.getGroceryPrices(offers, { asOfDate: "2026-09-08" }), []);
 });
 
@@ -49,8 +49,8 @@ test("Makro's dated catalogue price closes after its last advertised day", () =>
 test("preview is read-only and still withholds overdue or unverified prices", () => {
   const drafts = offers.map(offer => ({ ...offer, publicationStatus: "draft" }));
   const before = JSON.stringify(drafts);
-  assert.equal(grocery.getGroceryPrices(drafts, { asOfDate: "2026-10-26", preview: true }).length, 10);
-  assert.equal(grocery.getGroceryPrices(drafts, { asOfDate: "2026-10-28", preview: true }).length, 0);
+  assert.equal(grocery.getGroceryPrices(drafts, { asOfDate: "2026-11-28", preview: true }).length, 15);
+  assert.equal(grocery.getGroceryPrices(drafts, { asOfDate: "2026-12-01", preview: true }).length, 0);
   const changed = drafts.map(offer => ({ ...offer, verificationStatus: "unverified" }));
   assert.equal(grocery.getGroceryPrices(changed, { asOfDate: "2026-10-19", preview: true }).length, 0);
   assert.equal(JSON.stringify(drafts), before);
@@ -67,8 +67,8 @@ test("Ackermans remains held while its official entry rules conflict", () => {
 });
 
 test("unit prices use net pack quantity and reject missing or invalid quantities", () => {
-  const current = grocery.getGroceryPrices(offers, { asOfDate: "2026-10-26" });
-  assert.deepEqual(current.map(grocery.unitPriceCents), [3415, 2415, 4225, 4475, 6738, 5000, 2800, 4400, 5975, 2345]);
+  const current = grocery.getGroceryPrices(offers, { asOfDate: "2026-11-28" });
+  assert.deepEqual(current.map(grocery.unitPriceCents), [3415, 2415, 6644, 4225, 6738, 5000, 2800, 5975, 2345, 800, 3171, 5479, 2083, 3225, 3975]);
   assert.equal(grocery.unitPriceCents({ priceCents: 2500, quantity: 500, unit: "ml" }), 5000);
   for (const quantity of [0, -1, NaN]) assert.throws(() => grocery.unitPriceCents({ priceCents: 990, quantity, unit: "g" }));
 });
@@ -91,21 +91,36 @@ test("price metadata agrees with the offer registry and official image provenanc
   assert.throws(() => grocery.validateGroceryData(changed, images), /source\/date mismatch/);
 });
 
-test("out-of-stock Weet-Bix stays excluded without extending its review window", () => {
-  const record = offers.find(offer => offer.id === "looters-bokomo-weet-bix-450g");
-  assert.equal(record.publicationStatus, "review");
-  assert.equal(record.verificationStatus, "source_changed");
-  assert.equal(record.lastChecked, "2026-10-19");
-  assert.equal(record.reviewDueAt, "2026-10-20");
-  assert.match(record.terms, /Out of stock/);
-  for (const preview of [false, true]) {
-    assert.ok(!grocery.getGroceryPrices(offers, { asOfDate: "2026-10-26", preview }).some(price => price.offerId === record.id));
+test("unavailable tomato puree and lentils stay excluded without extending their old review windows", () => {
+  for (const id of ["looters-la-italiana-tomato-puree-400g", "best-before-pride-brown-lentils-500g"]) {
+    const record = offers.find(offer => offer.id === id);
+    assert.equal(record.publicationStatus, "review");
+    assert.equal(record.verificationStatus, "source_changed");
+    assert.equal(record.lastChecked, "2026-10-26");
+    assert.equal(record.reviewDueAt, "2026-10-27");
+    assert.match(record.terms, /Out of stock|Sold out/);
+    for (const preview of [false, true]) {
+      assert.ok(!grocery.getGroceryPrices(offers, { asOfDate: "2026-11-28", preview }).some(price => price.offerId === id));
+    }
   }
+});
+
+test("restored Weet-Bix and new multi-buys still close after their fresh review deadline", () => {
+  const ids = ["looters-bokomo-weet-bix-450g", "looters-melvit-instant-oat-flakes-3x400g", "best-before-hommi-chicken-noodles-5x73g"];
+  for (const id of ids) {
+    assert.ok(grocery.getGroceryPrices(offers, { asOfDate: "2026-11-29" }).some(price => price.offerId === id));
+    assert.ok(!grocery.getGroceryPrices(offers, { asOfDate: "2026-11-30" }).some(price => price.offerId === id));
+  }
+  for (const id of ids.slice(1)) {
+    assert.ok(!grocery.getGroceryPrices(offers, { asOfDate: "2026-11-27" }).some(price => price.offerId === id));
+  }
+  const oats = offers.find(offer => offer.id === ids[1]);
+  assert.match(oats.terms, /Select Buy 3 For R25; the full three-pack purchase is required/);
 });
 
 test("production pages are indexable and deals use the existing retailer handoff", () => {
   const live = grocery.createGroceryRenderer({ escapeHtml: escape, escapeAttribute: escape, escapeScript, images, stylesheet: "/styles.css", navigation: "", footer: "" });
-  const prices = grocery.getGroceryPrices(offers, { asOfDate: "2026-10-26" });
+  const prices = grocery.getGroceryPrices(offers, { asOfDate: "2026-11-28" });
   for (const price of prices) {
     const html = live.renderOffer(price);
     assert.ok(html.includes(`href="${offerData.getOfferExitPath(price.offer)}"`));
@@ -123,7 +138,7 @@ test("production pages are indexable and deals use the existing retailer handoff
 });
 
 test("preview renders uncertainty, noindex and the empty state without fabricated offers", () => {
-  const prices = grocery.getGroceryPrices(offers, { asOfDate: "2026-10-26", preview: true });
+  const prices = grocery.getGroceryPrices(offers, { asOfDate: "2026-11-28", preview: true });
   const hub = grocery.getGroceryPages({ preview: true })[0];
   const html = renderer.renderPage(hub, prices);
   assert.ok(html.includes('content="noindex, nofollow"'));
@@ -137,11 +152,11 @@ test("preview renders uncertainty, noindex and the empty state without fabricate
 });
 
 
-test("grocery discovery puts area and guide choices before product cards without refreshing evidence", () => {
-  const page = grocery.getGroceryPages({ asOfDate: "2026-10-27" })[0];
-  const html = renderer.renderPage(page, grocery.getGroceryPrices(offers, { asOfDate: "2026-10-27" }));
-  assert.equal(page.dateModified, "2026-10-27");
-  assert.equal(grocery.settings.lastReviewed, "2026-10-26");
+test("grocery discovery retains area-first navigation and the renewed guide review date", () => {
+  const page = grocery.getGroceryPages({ asOfDate: "2026-11-29" })[0];
+  const html = renderer.renderPage(page, grocery.getGroceryPrices(offers, { asOfDate: "2026-11-29" }));
+  assert.equal(page.dateModified, "2026-11-28");
+  assert.equal(grocery.settings.lastReviewed, "2026-11-28");
   assert.match(html, /<h1>Grocery savings in South Africa<\/h1>/);
   assert.ok(html.indexOf('id="where-to-shop"') < html.indexOf('id="price-checked-finds"'));
   assert.ok(html.indexOf('id="reading-heading"') < html.indexOf('id="price-checked-finds"'));
@@ -152,13 +167,13 @@ test("grocery discovery puts area and guide choices before product cards without
 
 test("grocery clicks reuse discovery analytics while previews and reference images send no events", () => {
   const live = grocery.createGroceryRenderer({ escapeHtml: escape, escapeAttribute: escape, escapeScript, images, stylesheet: "/styles.css", navigation: "", footer: "" });
-  const prices = grocery.getGroceryPrices(offers, { asOfDate: "2026-10-27" });
+  const prices = grocery.getGroceryPrices(offers, { asOfDate: "2026-11-29" });
   const html = live.renderOffer(prices[0]);
   assert.match(html, /src="\/shared\/discovery-analytics\.js" defer/);
   assert.match(html, /data-discovery-action="official-source"[^>]+data-content-id="best-before-farmgirl-baked-beans-410g"[^>]+data-source-domain="www.best-before.co.za"[^>]+data-link-role="retailer_handoff"/);
   assert.match(html, /data-link-role="product_source"/);
   assert.match(html, /data-link-role="delivery_terms"/);
-  const hub = grocery.getGroceryPages({ asOfDate: "2026-10-27" })[0];
+  const hub = grocery.getGroceryPages({ asOfDate: "2026-11-29" })[0];
   assert.match(live.renderPage(hub, prices), /data-discovery-action="card"/);
   const preview = renderer.renderPage(hub, prices);
   assert.ok(!preview.includes('src="/shared/discovery-analytics.js"'));

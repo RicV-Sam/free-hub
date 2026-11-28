@@ -1,0 +1,378 @@
+{
+  "renewed": [
+    "best-before-farmgirl-baked-beans-410g",
+    "looters-koo-mixed-vegetables-410g",
+    "looters-bokomo-weet-bix-450g",
+    "looters-la-italiana-butter-beans-400g",
+    "looters-eezee-assorted-noodles-5x65g",
+    "best-before-serena-chopped-tomatoes-400g",
+    "best-before-donna-zeina-macaroni-500g",
+    "looters-craft-coconut-milk-400ml",
+    "looters-noodle-king-assorted-pasta-2kg"
+  ],
+  "new": [
+    "best-before-liberty-select-baked-beans-410g",
+    "best-before-hommi-chicken-noodles-5x73g",
+    "looters-melvit-instant-oat-flakes-3x400g",
+    "looters-yummy-macaroni-pasta-400g",
+    "looters-la-italiana-processed-peas-400g"
+  ],
+  "held": [
+    "looters-pasta-joy-elbows-500g",
+    "looters-la-italiana-tomato-puree-400g",
+    "best-before-pride-brown-lentils-500g"
+  ],
+  "otherRenewed": [
+    "makro-msenior-discount",
+    "makro-iwisa-nyala-super-maize-meal-10kg-november-2026"
+  ],
+  "activePriceIds": [
+    "best-before-farmgirl-baked-beans-410g",
+    "looters-koo-mixed-vegetables-410g",
+    "looters-bokomo-weet-bix-450g",
+    "looters-la-italiana-butter-beans-400g",
+    "looters-eezee-assorted-noodles-5x65g",
+    "best-before-serena-chopped-tomatoes-400g",
+    "best-before-donna-zeina-macaroni-500g",
+    "looters-craft-coconut-milk-400ml",
+    "looters-noodle-king-assorted-pasta-2kg",
+    "makro-iwisa-nyala-super-maize-meal-10kg-november-2026",
+    "best-before-liberty-select-baked-beans-410g",
+    "best-before-hommi-chicken-noodles-5x73g",
+    "looters-melvit-instant-oat-flakes-3x400g",
+    "looters-yummy-macaroni-pasta-400g",
+    "looters-la-italiana-processed-peas-400g"
+  ],
+  "reviewDueAt": "2026-11-29",
+  "guideReviewDueAt": "2026-12-05",
+  "makroDeadline": "2026-11-30",
+  "freshnessRulesChanged": false,
+  "checkedAt": "2026-11-28T09:47:59.814062+00:00",
+  "checks": [
+    {
+      "id": "best-before-farmgirl-baked-beans-410g",
+      "checkedAt": "2026-11-28T09:43:16.539Z",
+      "sourceUrl": "https://www.best-before.co.za/product/farmgirl-baked-beans-410g/",
+      "priceCents": 1400,
+      "quantity": 410,
+      "unit": "g",
+      "unitPriceCents": 3415,
+      "stock": "2109 in stock; main Add to basket button visible and enabled",
+      "orderingEnabled": true,
+      "action": "renew"
+    },
+    {
+      "id": "looters-koo-mixed-vegetables-410g",
+      "checkedAt": "2026-11-28T09:43:18.975Z",
+      "sourceUrl": "https://looters.co.za/products/koo-mixed-vegetables-in-brine/",
+      "priceCents": 990,
+      "quantity": 410,
+      "unit": "g",
+      "unitPriceCents": 2415,
+      "stock": "Main Add to cart button visible and enabled; no stock count stated",
+      "orderingEnabled": true,
+      "action": "renew"
+    },
+    {
+      "id": "looters-pasta-joy-elbows-500g",
+      "checkedAt": "2026-11-28T09:43:20.351Z",
+      "sourceUrl": "https://looters.co.za/products/pasta-joy-elbows-pasta-500g-looters/",
+      "priceCents": 1490,
+      "stock": "Enabled ordering; pack-size conflict",
+      "action": "keep-held",
+      "historicalDatesRetained": true
+    },
+    {
+      "id": "looters-bokomo-weet-bix-450g",
+      "checkedAt": "2026-11-28T09:43:21.152Z",
+      "sourceUrl": "https://looters.co.za/products/bokomo-weet-bix-450g-ooters/",
+      "priceCents": 2990,
+      "quantity": 450,
+      "unit": "g",
+      "unitPriceCents": 6644,
+      "stock": "Main Add to cart button visible and enabled; no stock count stated",
+      "orderingEnabled": true,
+      "action": "restore"
+    },
+    {
+      "id": "looters-la-italiana-butter-beans-400g",
+      "checkedAt": "2026-11-28T09:43:21.937Z",
+      "sourceUrl": "https://looters.co.za/products/la-italiana-butter-beans-400g-looters/",
+      "priceCents": 1690,
+      "quantity": 400,
+      "unit": "g",
+      "unitPriceCents": 4225,
+      "stock": "Main Add to cart button visible and enabled; no stock count stated",
+      "orderingEnabled": true,
+      "action": "renew"
+    },
+    {
+      "id": "looters-la-italiana-tomato-puree-400g",
+      "checkedAt": "2026-11-28T09:43:22.725Z",
+      "sourceUrl": "https://looters.co.za/products/la-italiana-italian-tomato-puree/",
+      "priceCents": 1790,
+      "stock": "Out of stock",
+      "action": "hold",
+      "historicalDatesRetained": true
+    },
+    {
+      "id": "looters-eezee-assorted-noodles-5x65g",
+      "checkedAt": "2026-11-28T09:43:23.353Z",
+      "sourceUrl": "https://looters.co.za/products/eezee-noodles-assorted-value-pack/",
+      "priceCents": 2190,
+      "quantity": 325,
+      "unit": "g",
+      "unitPriceCents": 6738,
+      "stock": "Main Add to cart button visible and enabled; no stock count stated",
+      "orderingEnabled": true,
+      "action": "renew"
+    },
+    {
+      "id": "best-before-serena-chopped-tomatoes-400g",
+      "checkedAt": "2026-11-28T09:43:26.682Z",
+      "sourceUrl": "https://www.best-before.co.za/product/serena-chopped-tomatoes-400g/",
+      "priceCents": 2000,
+      "quantity": 400,
+      "unit": "g",
+      "unitPriceCents": 5000,
+      "stock": "24 in stock; main Add to basket button visible and enabled",
+      "orderingEnabled": true,
+      "action": "renew"
+    },
+    {
+      "id": "best-before-donna-zeina-macaroni-500g",
+      "checkedAt": "2026-11-28T09:43:29.700Z",
+      "sourceUrl": "https://www.best-before.co.za/product/donna-zeina-macaroni-500g/",
+      "priceCents": 1400,
+      "quantity": 500,
+      "unit": "g",
+      "unitPriceCents": 2800,
+      "stock": "21 in stock; main Add to basket button visible and enabled",
+      "orderingEnabled": true,
+      "action": "renew"
+    },
+    {
+      "id": "best-before-pride-brown-lentils-500g",
+      "checkedAt": "2026-11-28T09:43:33.332Z",
+      "sourceUrl": "https://www.best-before.co.za/product/pride-brown-lentils-500g/",
+      "priceCents": 2200,
+      "stock": "Out of stock",
+      "action": "hold",
+      "historicalDatesRetained": true
+    },
+    {
+      "id": "looters-craft-coconut-milk-400ml",
+      "checkedAt": "2026-11-28T09:43:34.490Z",
+      "sourceUrl": "https://looters.co.za/products/craft-coconut-milk-choice-grade/",
+      "priceCents": 2390,
+      "quantity": 400,
+      "unit": "ml",
+      "unitPriceCents": 5975,
+      "stock": "Main Add to cart button visible and enabled; no stock count stated",
+      "orderingEnabled": true,
+      "action": "renew"
+    },
+    {
+      "id": "looters-noodle-king-assorted-pasta-2kg",
+      "checkedAt": "2026-11-28T09:43:35.382Z",
+      "sourceUrl": "https://looters.co.za/products/noodle-king-assorted-pasta-2kg-looters/",
+      "priceCents": 4690,
+      "quantity": 2000,
+      "unit": "g",
+      "unitPriceCents": 2345,
+      "stock": "Main Add to cart button visible and enabled; no stock count stated",
+      "orderingEnabled": true,
+      "action": "renew"
+    },
+    {
+      "id": "best-before-liberty-select-baked-beans-410g",
+      "checkedAt": "2026-11-28T09:43:38.537Z",
+      "sourceUrl": "https://www.best-before.co.za/product/liberty-select-baked-beans-410g/",
+      "priceCents": 1300,
+      "quantity": 410,
+      "unit": "g",
+      "unitPriceCents": 3171,
+      "stock": "21 in stock; main Add to basket button visible and enabled",
+      "orderingEnabled": true,
+      "action": "add"
+    },
+    {
+      "id": "best-before-hommi-chicken-noodles-5x73g",
+      "checkedAt": "2026-11-28T09:43:41.556Z",
+      "sourceUrl": "https://www.best-before.co.za/product/hommi-chicken-noodles-5x73g/",
+      "priceCents": 2000,
+      "quantity": 365,
+      "unit": "g",
+      "unitPriceCents": 5479,
+      "stock": "57 5-Pack available (285 units); main Add to basket button visible and enabled",
+      "orderingEnabled": true,
+      "action": "add"
+    },
+    {
+      "id": "looters-melvit-instant-oat-flakes-3x400g",
+      "checkedAt": "2026-11-28T09:43:43.813Z",
+      "sourceUrl": "https://looters.co.za/products/melvit-instant-oat-flakes-400g/",
+      "priceCents": 2500,
+      "quantity": 1200,
+      "unit": "g",
+      "unitPriceCents": 2083,
+      "stock": "Main Add to cart button visible and enabled; no stock count stated",
+      "orderingEnabled": true,
+      "action": "add"
+    },
+    {
+      "id": "looters-yummy-macaroni-pasta-400g",
+      "checkedAt": "2026-11-28T09:43:44.612Z",
+      "sourceUrl": "https://looters.co.za/products/yummy-macaroni-pasta-400g-looters/",
+      "priceCents": 1290,
+      "quantity": 400,
+      "unit": "g",
+      "unitPriceCents": 3225,
+      "stock": "Main Add to cart button visible and enabled; no stock count stated",
+      "orderingEnabled": true,
+      "action": "add"
+    },
+    {
+      "id": "looters-la-italiana-processed-peas-400g",
+      "checkedAt": "2026-11-28T09:43:45.386Z",
+      "sourceUrl": "https://looters.co.za/products/la-italiana-processed-peas/",
+      "priceCents": 1590,
+      "quantity": 400,
+      "unit": "g",
+      "unitPriceCents": 3975,
+      "stock": "Main Add to cart button visible and enabled; no stock count stated",
+      "orderingEnabled": true,
+      "action": "add"
+    }
+  ],
+  "artwork": [
+    {
+      "id": "best-before-liberty-select-baked-beans-410g",
+      "sourcePage": "https://www.best-before.co.za/product/liberty-select-baked-beans-410g/",
+      "sourceImage": "https://www.best-before.co.za/wp-content/uploads/2023/08/6009704914495-600x600.jpg.webp",
+      "downloadedAt": "2026-11-28T09:47:41.049103+00:00",
+      "sourceSha256": "18c4ff33ce78f7506b0f878c71a4329fad0460e4bcfa1959b9c77284ad185224",
+      "assetPath": "/assets/grocery-savings/best-before-liberty-select-baked-beans-410g.webp",
+      "assetSha256": "7c265650fd1cd75c87b72663b402eaabeecdd43ad203a39b7aa5205fdfc0ae82",
+      "assetBytes": 24062,
+      "width": 600,
+      "height": 600,
+      "operation": "WebP optimization only; no factual artwork changes."
+    },
+    {
+      "id": "best-before-hommi-chicken-noodles-5x73g",
+      "sourcePage": "https://www.best-before.co.za/product/hommi-chicken-noodles-5x73g/",
+      "sourceImage": "https://www.best-before.co.za/wp-content/uploads/2023/02/799559037956-600x600.jpg.webp",
+      "downloadedAt": "2026-11-28T09:47:41.301630+00:00",
+      "sourceSha256": "6750a7ae0c474e79e25806e2c1b1bf9dec16526ae2857a48bf52542fde3ea3b5",
+      "assetPath": "/assets/grocery-savings/best-before-hommi-chicken-noodles-5x73g.webp",
+      "assetSha256": "224477f5af45f95c237492e03faf77dc9321a0ea0395e11eb482a0ff1574ce71",
+      "assetBytes": 18354,
+      "width": 600,
+      "height": 600,
+      "operation": "WebP optimization only; no factual artwork changes."
+    },
+    {
+      "id": "looters-melvit-instant-oat-flakes-3x400g",
+      "sourcePage": "https://looters.co.za/products/melvit-instant-oat-flakes-400g/",
+      "sourceImage": "https://looters.co.za/wp-content/uploads/2026/03/Melvit-Oat-Flakes-3fr25-600x600.webp",
+      "downloadedAt": "2026-11-28T09:47:48.554431+00:00",
+      "sourceSha256": "19c0d354578a7c457c18a429708335cde60c455c99b9c32453d154296c774c51",
+      "assetPath": "/assets/grocery-savings/looters-melvit-instant-oat-flakes-3x400g.webp",
+      "assetSha256": "9a5d93dc2789447fd87bc8fe53f74fbfa52e1ea9900c61d28d9ee041104e657e",
+      "assetBytes": 56370,
+      "width": 600,
+      "height": 600,
+      "operation": "WebP optimization only; no factual artwork changes."
+    },
+    {
+      "id": "looters-yummy-macaroni-pasta-400g",
+      "sourcePage": "https://looters.co.za/products/yummy-macaroni-pasta-400g-looters/",
+      "sourceImage": "https://looters.co.za/wp-content/uploads/2026/03/ymy-mcrni-600x600.webp",
+      "downloadedAt": "2026-11-28T09:47:54.129293+00:00",
+      "sourceSha256": "7fb2ea3d0f39b5c28ea3ba35771fce56951b4abd395fef4713591ede28eee0a6",
+      "assetPath": "/assets/grocery-savings/looters-yummy-macaroni-pasta-400g.webp",
+      "assetSha256": "3e81942f398ec0fe27425a1601eed2a16c76e6d188d2f10d813573ac1449238e",
+      "assetBytes": 53472,
+      "width": 600,
+      "height": 600,
+      "operation": "WebP optimization only; no factual artwork changes."
+    },
+    {
+      "id": "looters-la-italiana-processed-peas-400g",
+      "sourcePage": "https://looters.co.za/products/la-italiana-processed-peas/",
+      "sourceImage": "https://looters.co.za/wp-content/uploads/2026/06/La-Italiana-Processed-Peas-600x600.webp",
+      "downloadedAt": "2026-11-28T09:47:59.765182+00:00",
+      "sourceSha256": "f6ccb1b60c5c492e895e72a53aa1afef9ecf881b2e88e43fbd2efde7c2b5b948",
+      "assetPath": "/assets/grocery-savings/looters-la-italiana-processed-peas-400g.webp",
+      "assetSha256": "5128860bf965291e36079e66c89b84e6af134c15b32dba7b424ac8512735d1e0",
+      "assetBytes": 39022,
+      "width": 600,
+      "height": 600,
+      "operation": "WebP optimization only; no factual artwork changes."
+    }
+  ],
+  "status": "source-checked-for-approved-release",
+  "preparedOn": "2026-11-28",
+  "baseCommit": "493020165bc13c7835782261b0b9b4e1113d1fd1",
+  "guideChanges": [
+    "Guide source-review date renewed to 28 November; deadline 5 December.",
+    "Best Before online and in-store rewards distinction added.",
+    "Makro published delivery tariff added with address and threshold caveats."
+  ],
+  "policyChecks": [
+    {
+      "id": "best-before-shipping",
+      "url": "https://www.best-before.co.za/shipping-information/",
+      "checkedAt": "2026-11-28T09:44:24.374Z",
+      "httpStatus": 200
+    },
+    {
+      "id": "best-before-rewards",
+      "url": "https://www.best-before.co.za/rewards-points-guide/",
+      "checkedAt": "2026-11-28T09:44:27.608Z",
+      "httpStatus": 200
+    },
+    {
+      "id": "best-before-terms",
+      "url": "https://www.best-before.co.za/terms-conditions/",
+      "checkedAt": "2026-11-28T09:44:30.355Z",
+      "httpStatus": 200
+    },
+    {
+      "id": "looters-shipping",
+      "url": "https://looters.co.za/collection-delivery/",
+      "checkedAt": "2026-11-28T09:44:33.455Z",
+      "httpStatus": 200
+    },
+    {
+      "id": "makro-msenior-discount",
+      "url": "https://www.makro.co.za/pages/terms-of-use",
+      "checkedAt": "2026-11-28T09:44:34.583Z",
+      "httpStatus": 200
+    },
+    {
+      "id": "makro-faq",
+      "url": "https://www.makro.co.za/pages/faq",
+      "checkedAt": "2026-11-28T09:44:38.034Z",
+      "httpStatus": 200
+    }
+  ],
+  "catalogue": {
+    "sourceUrl": "https://business.makro.co.za/sys-master/root/h5b/hd3/30684870869022/Black-Friday.pdf",
+    "checkedAt": "2026-11-28T09:45:10.469423+00:00",
+    "sha256": "bead0b14ac55a57db7f339b14d697f448da45aaf10e8124b6e778b575bd6e744",
+    "matchesVisuallyInspectedReviewPdf": true,
+    "priceCents": 7995,
+    "quantity": 10000,
+    "unit": "g",
+    "ends": "2026-11-30"
+  },
+  "limitations": [
+    "Online ordering indications do not confirm branch stock, address eligibility or completed checkout.",
+    "Actual batch dates are absent.",
+    "No independently verified supermarket saving or cheapest-store claim.",
+    "Unavailable and pack-conflict records retain historical checkedAt/lastChecked and reviewDueAt."
+  ],
+  "freshness": "Existing inclusive next-day price-review convention and gates retained. Makro catalogue expiry remains 30 November. No recurring schedule change."
+}

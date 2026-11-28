@@ -5398,5 +5398,60 @@
     "reviewedAt": "2026-11-22",
     "sourcePage": "https://www.dstv.com/en-za/news/152272/dstv-open-time-2026/",
     "sourceImage": "https://www.dstv.com/media/q25lorpj/open-time-banner1.jpg?width=345"
+  },
+  "best-before-liberty-select-baked-beans-410g": {
+    "src": "/assets/grocery-savings/best-before-liberty-select-baked-beans-410g.webp",
+    "width": 600,
+    "height": 600,
+    "reviewedAt": "2026-11-28",
+    "kind": "official-source",
+    "sourcePage": "https://www.best-before.co.za/product/liberty-select-baked-beans-410g/",
+    "sourceImage": "https://www.best-before.co.za/wp-content/uploads/2023/08/6009704914495-600x600.jpg.webp",
+    "alt": "Official retailer photograph of Liberty Select baked beans in tomato sauce, 410g",
+    "caption": "Official retailer product image. Packaging can differ; check the supplied pack and batch date."
+  },
+  "best-before-hommi-chicken-noodles-5x73g": {
+    "src": "/assets/grocery-savings/best-before-hommi-chicken-noodles-5x73g.webp",
+    "width": 600,
+    "height": 600,
+    "reviewedAt": "2026-11-28",
+    "kind": "official-source",
+    "sourcePage": "https://www.best-before.co.za/product/hommi-chicken-noodles-5x73g/",
+    "sourceImage": "https://www.best-before.co.za/wp-content/uploads/2023/02/799559037956-600x600.jpg.webp",
+    "alt": "Official retailer photograph of Hommi chicken noodles, 5 × 73g",
+    "caption": "Official retailer product image. Packaging can differ; check the supplied pack and batch date."
+  },
+  "looters-melvit-instant-oat-flakes-3x400g": {
+    "src": "/assets/grocery-savings/looters-melvit-instant-oat-flakes-3x400g.webp",
+    "width": 600,
+    "height": 600,
+    "reviewedAt": "2026-11-28",
+    "kind": "official-source",
+    "sourcePage": "https://looters.co.za/products/melvit-instant-oat-flakes-400g/",
+    "sourceImage": "https://looters.co.za/wp-content/uploads/2026/03/Melvit-Oat-Flakes-3fr25-600x600.webp",
+    "alt": "Official retailer photograph of Melvit instant oat flakes, 3 × 400g",
+    "caption": "Official retailer product image. Packaging can differ; check the supplied pack and batch date."
+  },
+  "looters-yummy-macaroni-pasta-400g": {
+    "src": "/assets/grocery-savings/looters-yummy-macaroni-pasta-400g.webp",
+    "width": 600,
+    "height": 600,
+    "reviewedAt": "2026-11-28",
+    "kind": "official-source",
+    "sourcePage": "https://looters.co.za/products/yummy-macaroni-pasta-400g-looters/",
+    "sourceImage": "https://looters.co.za/wp-content/uploads/2026/03/ymy-mcrni-600x600.webp",
+    "alt": "Official retailer photograph of Yummy macaroni pasta, 400g",
+    "caption": "Official retailer product image. Packaging can differ; check the supplied pack and batch date."
+  },
+  "looters-la-italiana-processed-peas-400g": {
+    "src": "/assets/grocery-savings/looters-la-italiana-processed-peas-400g.webp",
+    "width": 600,
+    "height": 600,
+    "reviewedAt": "2026-11-28",
+    "kind": "official-source",
+    "sourcePage": "https://looters.co.za/products/la-italiana-processed-peas/",
+    "sourceImage": "https://looters.co.za/wp-content/uploads/2026/06/La-Italiana-Processed-Peas-600x600.webp",
+    "alt": "Official retailer photograph of La Italiana processed peas, 400g",
+    "caption": "Official retailer product image. Packaging can differ; check the supplied pack and batch date."
   }
 }
