@@ -1,21 +1,19 @@
 # Vertical Page Coverage Report
 
-Generated: 2026-11-27
+Generated: 2026-11-28
 
 Only active, published, public-safe competitions are counted. Held, unverified, expired and doNotPublish records do not contribute to publication decisions.
 
 ## WhatsApp Competitions in South Africa
 
 - URL: /whatsapp-competitions-south-africa/
-- Matching active public competitions: 16
+- Matching active public competitions: 14
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| East Coast Radio’s Takealot 30 Boxes voucher competition (ecr-takealot-30-boxes-black-friday-2026) | 2026-11-27 | free-entry | yes | yes | WhatsApp mentioned in entry text | none |
-| Win a R5,000 Amazon voucher on Heart FM (heart-fm-amazon-black-friday-voucher-2026) | 2026-11-27 | purchase-required | yes | yes | WhatsApp mentioned in entry text | none |
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Win a R1,000 Sportsmans Warehouse voucher with Powerade at Engen (engen-powerade-sportsmans-vouchers-2026) | 2026-11-30 | purchase-required | yes | yes | WhatsApp entry tag; WhatsApp mentioned in entry text | none |
 | Stimorol Volume Driver vouchers competition 2026 (stimorol-volume-driver-2026) | 2026-11-30 | purchase-required | yes | yes | WhatsApp mentioned in entry text | none |
@@ -58,14 +56,13 @@ Recommended normalisation:
 ## Till Slip Competitions in South Africa
 
 - URL: /till-slip-competitions-south-africa/
-- Matching active public competitions: 25
+- Matching active public competitions: 24
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| Win a R5,000 Amazon voucher on Heart FM (heart-fm-amazon-black-friday-voucher-2026) | 2026-11-27 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Win a cooler or shopping voucher with MILO at Checkers (milo-checkers-summer-2026) | 2026-11-28 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Coca-Cola Be A Bok Voucher Prizes (coca-cola-be-a-bok-voucher-prizes-2026) | 2026-11-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
 | Montego Classic Competition 2026 - Win a Toyota Hilux (montego-classic-win-toyota-hilux-2026) | 2026-11-30 | purchase-required | yes | yes | Till slip or receipt mentioned in entry text | consider explicit till-slip or receipt tag if terms confirm |
@@ -183,14 +180,13 @@ Recommended normalisation:
 ## Win Grocery Vouchers in South Africa
 
 - URL: /win-grocery-vouchers-south-africa/
-- Matching active public competitions: 10
+- Matching active public competitions: 9
 - Publication threshold: 3
 - Safe to publish: yes
 - Status: indexable vertical page
 
 | Competition | Closing date | Entry cost type | Source | Terms | Match reasons | Data notes |
 |---|---:|---|---|---|---|---|
-| East Coast Radio’s Takealot 30 Boxes voucher competition (ecr-takealot-30-boxes-black-friday-2026) | 2026-11-27 | free-entry | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Dhlamini Junction: R1,000 shopping vouchers and trolley dashes (dhlamini-junction-turns-two-2026) | 2026-11-28 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Win a cooler or shopping voucher with MILO at Checkers (milo-checkers-summer-2026) | 2026-11-28 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |
 | Just About Anything: Win a Shopping Voucher up to R1,500 (just-about-anything-shop-and-win-2026) | 2026-11-30 | purchase-required | yes | yes | Grocery or supermarket voucher intent | consider grocery/supermarket tag only if prize terms confirm |

@@ -1,4 +1,5 @@
 app-data/browser-competitions.json
+app-data/catalog.json
 app-data/competitions.json
 changed-files.txt
 data/archive/competitions-expired.json

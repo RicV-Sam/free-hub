@@ -1,59 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfDate": "2026-11-27",
-  "count": 110,
+  "asOfDate": "2026-11-28",
+  "count": 108,
   "competitions": [
-    {
-      "id": "ecr-takealot-30-boxes-black-friday-2026",
-      "title": "East Coast Radio’s Takealot 30 Boxes voucher competition",
-      "brand": "East Coast Radio / Takealot",
-      "summary": "R180,000 in Takealot vouchers is spread across 30 boxes. One listener on Friday wins the final ten boxes.",
-      "imageUrl": "https://freehub.co.za/assets/listings/ecr-takealot-30-boxes-black-friday-2026.webp",
-      "closingDate": "2026-11-27",
-      "category": "Vouchers",
-      "prizeName": "Takealot shopping vouchers",
-      "entryCostType": "free_entry",
-      "entryCostLabel": "Free entry",
-      "purchaseRequired": false,
-      "entryMethod": "WhatsApp",
-      "eligibility": "South African residents with valid ID. The competition page asks entrants to confirm they are at least 18. ECR’s household and recent-winner exclusions apply.",
-      "entrySteps": [
-        "WhatsApp the word Takealot to 061 700 0800 and follow ECR’s prompts.",
-        "Listen to East Coast Breakfast, Carol Ofori, Danny Guselli or Stacey & J Sbu and be available to take the station’s call.",
-        "If selected, choose a numbered box on air. A paid TakealotMore subscription adds a R1,000 voucher for a qualifying winner."
-      ],
-      "officialUrl": "https://www.ecr.co.za/comps/win-a-share-of-r180-000-in-takealotcom-vouchers/",
-      "termsUrl": "https://www.ecr.co.za/general-terms-conditions/",
-      "lastChecked": "2026-11-26",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
-    {
-      "id": "heart-fm-amazon-black-friday-voucher-2026",
-      "title": "Win a R5,000 Amazon voucher on Heart FM",
-      "brand": "Heart FM / Amazon South Africa",
-      "summary": "Heart FM is giving Western Cape listeners a chance to win a R5,000 Amazon voucher. The station asks for proof of a purchase in the Amazon app.",
-      "imageUrl": "https://freehub.co.za/assets/listings/heart-fm-amazon-black-friday-voucher-2026.webp",
-      "closingDate": "2026-11-27",
-      "closingAt": "2026-11-27T23:59:00+02:00",
-      "category": "Vouchers",
-      "prizeName": "R5,000 Amazon voucher",
-      "entryCostType": "purchase_required",
-      "entryCostLabel": "Purchase required",
-      "purchaseRequired": true,
-      "entryMethod": "WhatsApp",
-      "eligibility": "Permanent Western Cape residents aged 18 or older. Heart FM winners from the preceding three months are excluded. Winners need proof of residence, a bar-coded South African ID and a valid email address.",
-      "entrySteps": [
-        "Make a purchase of any value in the Amazon app and keep your proof of purchase.",
-        "Send a voice note to 082 222 1049. Listen on weekdays from 06:00 to 09:00 or from 15:00 to 19:00.",
-        "Answer the on-air call and produce your proof of purchase if selected."
-      ],
-      "officialUrl": "https://heartfm.co.za/amazon-black-friday-competition-terms-and-conditions/",
-      "termsUrl": "https://heartfm.co.za/amazon-black-friday-competition-terms-and-conditions/",
-      "lastChecked": "2026-11-26",
-      "isHighValue": false,
-      "isClosingSoon": true
-    },
     {
       "id": "dhlamini-junction-turns-two-2026",
       "title": "Dhlamini Junction: R1,000 shopping vouchers and trolley dashes",
